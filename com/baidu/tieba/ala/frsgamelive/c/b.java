@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.b> {
-    private View fvw;
-    private TextView fvx;
-    private View fvy;
+    private View fvH;
+    private TextView fvI;
+    private View fvJ;
     private int mSkinType;
     private TbPageContext mTbPageContext;
 
@@ -19,18 +19,18 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.fvw = view.findViewById(R.id.frs_game_live_recommand_line1);
-        this.fvx = (TextView) view.findViewById(R.id.frs_game_live_recommand3);
-        this.fvy = view.findViewById(R.id.frs_game_live_recommand_line2);
+        this.fvH = view.findViewById(R.id.frs_game_live_recommand_line1);
+        this.fvI = (TextView) view.findViewById(R.id.frs_game_live_recommand3);
+        this.fvJ = view.findViewById(R.id.frs_game_live_recommand_line2);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundResource(this.fvw, R.color.cp_bg_line_c);
-            am.setViewTextColor(this.fvx, (int) R.color.cp_cont_d);
-            am.setBackgroundResource(this.fvy, R.color.cp_bg_line_c);
+            am.setBackgroundResource(this.fvH, R.color.cp_bg_line_c);
+            am.setViewTextColor(this.fvI, (int) R.color.cp_cont_d);
+            am.setBackgroundResource(this.fvJ, R.color.cp_bg_line_c);
             this.mSkinType = i;
         }
     }
@@ -52,11 +52,11 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
 
     /* loaded from: classes3.dex */
     public static class a extends aa.a {
-        public b fvz;
+        public b fvK;
 
         public a(b bVar) {
             super(bVar.getView());
-            this.fvz = bVar;
+            this.fvK = bVar;
         }
     }
 }

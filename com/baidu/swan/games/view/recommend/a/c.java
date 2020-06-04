@@ -12,13 +12,13 @@ public class c {
     private List<String> dep = new ArrayList();
 
     public void f(int i, String str, String str2) {
-        String iC = iC(i);
-        String R = R(iC, str, str2);
+        String iE = iE(i);
+        String R = R(iE, str, str2);
         if (!this.dep.contains(R)) {
             String appKey = com.baidu.swan.apps.runtime.e.aoF() == null ? null : com.baidu.swan.apps.runtime.e.aoF().getAppKey();
             com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
             eVar.mType = "click";
-            eVar.mPage = iC;
+            eVar.mPage = iE;
             eVar.mValue = str;
             if (str2 != null) {
                 eVar.v("target_appkey", str2);
@@ -30,11 +30,11 @@ public class c {
     }
 
     public void a(int i, com.baidu.swan.games.view.recommend.model.a aVar) {
-        String iC = iC(i);
+        String iE = iE(i);
         JSONArray b = b(aVar);
         com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
         eVar.mType = "show";
-        eVar.mPage = iC;
+        eVar.mPage = iE;
         if (b != null) {
             eVar.v("game_list", b);
         }
@@ -43,11 +43,11 @@ public class c {
     }
 
     public void c(int i, String str, String str2, String str3) {
-        String iC = iC(i);
+        String iE = iE(i);
         String appKey = com.baidu.swan.apps.runtime.e.aoF() == null ? null : com.baidu.swan.apps.runtime.e.aoF().getAppKey();
         com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
         eVar.mType = "click";
-        eVar.mPage = iC;
+        eVar.mPage = iE;
         eVar.mValue = str;
         if (str2 != null) {
             eVar.v("target_appkey", str2);
@@ -60,18 +60,18 @@ public class c {
     }
 
     public void b(int i, com.baidu.swan.games.view.recommend.model.a aVar) {
-        String iC = iC(i);
+        String iE = iE(i);
         JSONArray b = b(aVar);
         com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
         eVar.mType = "show";
-        eVar.mPage = iC;
+        eVar.mPage = iE;
         if (b != null) {
             eVar.v("game_list", b);
         }
         h.e(eVar);
     }
 
-    private String iC(int i) {
+    private String iE(int i) {
         switch (i) {
             case 1:
                 return "carousel";

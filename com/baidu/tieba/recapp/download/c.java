@@ -19,13 +19,13 @@ public class c {
     }
 
     public void setUrl(String str) {
-        this.dMX.aVa().aVe().mUrl = str;
+        this.dMX.aVb().aVf().mUrl = str;
     }
 
     private void initNetWork() {
         this.dMX = new com.baidu.tbadk.core.util.a.a();
         this.dMY = new d(this.dMX);
-        this.dMX.aVa().aVe().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+        this.dMX.aVb().aVf().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
         com.baidu.adp.lib.network.a.a.setCuid(TbadkCoreApplication.getInst().getCuid());
         com.baidu.adp.lib.network.a.a.bK(TbadkCoreApplication.getInst().getCuidGalaxy2());
         com.baidu.adp.lib.network.a.a.bM(TbadkCoreApplication.getInst().getCuidGid());
@@ -36,7 +36,7 @@ public class c {
     }
 
     public boolean downloadFile(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        aUA().aVa().a(this.dMY);
+        aUA().aVb().a(this.dMY);
         return this.dMY.downloadFile(str, handler, i, i2, i3, z);
     }
 

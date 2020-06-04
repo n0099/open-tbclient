@@ -89,14 +89,14 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                         TiebaStatic.log(new an(TbadkCoreStatisticKey.PUSH_CCLICK).ag("obj_type", 2).dh("task_id", str).dh(TiebaInitialize.Params.OBJ_TO, str2).ag("obj_source", i).ag("obj_locate", i2).ag("obj_param1", i4).ag(TiebaInitialize.Params.OBJ_PARAM2, i3));
                         if (!TextUtils.isEmpty(str2)) {
                             if (str2.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str2.startsWith("https") || str2.startsWith("com.baidu.tieba://deeplink?jump=new_hot_topic_list") || str2.startsWith("bdtiebalive://") || str2.startsWith("tiebachushou://")) {
-                                if (OE(str2)) {
+                                if (OF(str2)) {
                                     MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
                                     mainTabActivityConfig.setTargetScheme(str2);
                                     mainTabActivityConfig.setPushFollowUpAction(optInt);
                                     mainTabActivityConfig.setPushDesPage(str3);
                                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig));
                                 } else {
-                                    ba.aUZ().b(getPageContext(), new String[]{str2, "yun_push_tag"});
+                                    ba.aVa().b(getPageContext(), new String[]{str2, "yun_push_tag"});
                                 }
                             }
                             if (str2.contains("unidispatch/hotuserrank")) {
@@ -129,7 +129,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         finish();
     }
 
-    private boolean OE(String str) {
+    private boolean OF(String str) {
         return Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find() || str.startsWith("http://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("https://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("bdtiebalive://") || str.startsWith("tiebachushou://");
     }
 }

@@ -44,9 +44,9 @@ public interface c<T extends d> extends ai, e<T> {
 
     boolean c(com.baidu.swan.apps.scheme.actions.m.d dVar);
 
-    void eg(int i);
+    void ei(int i);
 
-    boolean eh(int i);
+    boolean ej(int i);
 
     void gZ(String str);
 

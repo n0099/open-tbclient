@@ -8,17 +8,17 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
-    final boolean nnK;
-    final org.a.b<?> nnu;
+    final org.a.b<?> noG;
+    final boolean noW;
     final org.a.b<T> source;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.nnK) {
-            this.source.subscribe(new SampleMainEmitLast(bVar, this.nnu));
+        if (this.noW) {
+            this.source.subscribe(new SampleMainEmitLast(bVar, this.noG));
         } else {
-            this.source.subscribe(new SampleMainNoLast(bVar, this.nnu));
+            this.source.subscribe(new SampleMainNoLast(bVar, this.noG));
         }
     }
 
@@ -114,32 +114,32 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
 
     /* loaded from: classes7.dex */
     static final class a<T> implements j<Object> {
-        final SamplePublisherSubscriber<T> nnL;
+        final SamplePublisherSubscriber<T> noX;
 
         a(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
-            this.nnL = samplePublisherSubscriber;
+            this.noX = samplePublisherSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            if (this.nnL.setOther(dVar)) {
+            if (this.noX.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(Object obj) {
-            this.nnL.run();
+            this.noX.run();
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.nnL.error(th);
+            this.noX.error(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            this.nnL.complete();
+            this.noX.complete();
         }
     }
 

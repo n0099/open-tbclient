@@ -21,50 +21,50 @@ import tbclient.FrsTabInfo;
 /* loaded from: classes9.dex */
 public class a {
     private String evm;
-    private View hxc;
-    private BaseFragment hxd;
-    private TextView hxe;
-    private FrsTabSortSwitchButton hxf;
-    private int hxg;
-    private FrsTabSortSwitchButton.a hxh = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a.1
+    private View hxn;
+    private BaseFragment hxo;
+    private TextView hxp;
+    private FrsTabSortSwitchButton hxq;
+    private int hxr;
+    private FrsTabSortSwitchButton.a hxs = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a.1
         @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.a
-        public boolean ut(int i) {
-            if (com.baidu.tieba.frs.a.bTX().bTY()) {
+        public boolean uv(int i) {
+            if (com.baidu.tieba.frs.a.bTZ().bUa()) {
                 return false;
             }
             if (!j.isNetworkAvailableForImmediately()) {
-                a.this.hxd.showToast(R.string.neterror);
+                a.this.hxo.showToast(R.string.neterror);
                 return false;
             }
-            if (a.this.hxd instanceof FrsNewAreaFragment) {
-                if (((FrsNewAreaFragment) a.this.hxd).caD() == null || ((FrsNewAreaFragment) a.this.hxd).caE() == null) {
+            if (a.this.hxo instanceof FrsNewAreaFragment) {
+                if (((FrsNewAreaFragment) a.this.hxo).caL() == null || ((FrsNewAreaFragment) a.this.hxo).caM() == null) {
                     return false;
                 }
-            } else if (!(a.this.hxd instanceof FrsCommonTabFragment)) {
+            } else if (!(a.this.hxo instanceof FrsCommonTabFragment)) {
                 return false;
             } else {
-                if (((FrsCommonTabFragment) a.this.hxd).bXO() == null || ((FrsCommonTabFragment) a.this.hxd).bXP() == null) {
+                if (((FrsCommonTabFragment) a.this.hxo).bXQ() == null || ((FrsCommonTabFragment) a.this.hxo).bXR() == null) {
                     return false;
                 }
             }
-            if (a.this.hxg == i) {
+            if (a.this.hxr == i) {
                 return true;
             }
-            a.this.hxg = i;
-            if (a.this.hxg != 7) {
-                ab.bgO();
-                e.deE();
+            a.this.hxr = i;
+            if (a.this.hxr != 7) {
+                ab.bgP();
+                e.deT();
             } else {
-                e.deD();
+                e.deS();
             }
-            if (a.this.hxd instanceof FrsNewAreaFragment) {
-                ((FrsNewAreaFragment) a.this.hxd).caD().uX(a.this.hxf.uw(a.this.hxg));
-                ((FrsNewAreaFragment) a.this.hxd).caE().startPullRefresh();
+            if (a.this.hxo instanceof FrsNewAreaFragment) {
+                ((FrsNewAreaFragment) a.this.hxo).caL().uZ(a.this.hxq.uy(a.this.hxr));
+                ((FrsNewAreaFragment) a.this.hxo).caM().startPullRefresh();
             } else {
-                ((FrsCommonTabFragment) a.this.hxd).setSortType(g.vo(a.this.hxf.uw(a.this.hxg)));
-                ((FrsCommonTabFragment) a.this.hxd).bXP().iQ(true);
+                ((FrsCommonTabFragment) a.this.hxo).setSortType(g.vq(a.this.hxq.uy(a.this.hxr)));
+                ((FrsCommonTabFragment) a.this.hxo).bXR().iQ(true);
             }
-            a.this.bYx();
+            a.this.bYA();
             return true;
         }
     };
@@ -74,44 +74,44 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bYx() {
+    public void bYA() {
         an anVar = new an("c11437");
-        anVar.ag("obj_type", this.hxf.uw(this.hxg));
+        anVar.ag("obj_type", this.hxq.uy(this.hxr));
         anVar.dh("fid", this.evm);
         TiebaStatic.log(anVar);
     }
 
     public a(BaseFragment baseFragment, RelativeLayout relativeLayout) {
-        this.hxg = -1;
+        this.hxr = -1;
         if (baseFragment != null && relativeLayout != null) {
-            this.hxd = baseFragment;
-            this.hxc = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
-            this.hxe = (TextView) this.hxc.findViewById(R.id.sort_tab_sort_name);
-            this.hxf = (FrsTabSortSwitchButton) this.hxc.findViewById(R.id.sort_tab_switch_btn);
-            this.hxf.setOnSwitchChangeListener(this.hxh);
-            this.hxg = this.hxf.getState();
+            this.hxo = baseFragment;
+            this.hxn = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
+            this.hxp = (TextView) this.hxn.findViewById(R.id.sort_tab_sort_name);
+            this.hxq = (FrsTabSortSwitchButton) this.hxn.findViewById(R.id.sort_tab_switch_btn);
+            this.hxq.setOnSwitchChangeListener(this.hxs);
+            this.hxr = this.hxq.getState();
             onChangeSkinType();
         }
     }
 
     public void onChangeSkinType() {
-        if (this.hxf != null) {
-            this.hxf.onChangeSkinType();
+        if (this.hxq != null) {
+            this.hxq.onChangeSkinType();
         }
-        am.setViewTextColor(this.hxe, (int) R.color.cp_cont_b);
-        am.setBackgroundColor(this.hxc, R.color.cp_bg_line_d);
+        am.setViewTextColor(this.hxp, (int) R.color.cp_cont_b);
+        am.setBackgroundColor(this.hxn, R.color.cp_bg_line_d);
     }
 
     public void setData(List<FrsTabInfo> list) {
-        if (this.hxf != null) {
-            this.hxf.setData(list);
+        if (this.hxq != null) {
+            this.hxq.setData(list);
         }
     }
 
     public void changeState(int i) {
-        if (this.hxf != null) {
-            this.hxf.changeState(g.vp(i));
-            this.hxg = this.hxf.getState();
+        if (this.hxq != null) {
+            this.hxq.changeState(g.vr(i));
+            this.hxr = this.hxq.getState();
         }
     }
 }

@@ -41,12 +41,12 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void aWo();
+        void aWp();
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void aWp();
+        void aWq();
 
         void c(int i, double d);
 
@@ -182,12 +182,12 @@ public class PullRefreshFrameLayout extends FrameLayout {
                 return true;
             case 1:
             case 3:
-                aWl();
+                aWm();
                 reset();
                 return true;
             case 2:
                 int i = x - this.djH;
-                lY(y - this.djI);
+                ma(y - this.djI);
                 this.djI = y;
                 this.djH = x;
                 return true;
@@ -196,7 +196,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
         }
     }
 
-    private void lY(int i) {
+    private void ma(int i) {
         int i2 = this.dVi.topMargin + i;
         if (i2 > this.dVe - dUQ) {
             i2 = this.dVe - dUQ;
@@ -217,7 +217,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
         }
     }
 
-    private void aWl() {
+    private void aWm() {
         if (this.cpL >= this.dVg) {
             this.isLoading = true;
             this.dVl = ValueAnimator.ofFloat(this.dVi.topMargin, this.dVf);
@@ -237,7 +237,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     if (PullRefreshFrameLayout.this.dVk != null) {
-                        PullRefreshFrameLayout.this.dVk.aWo();
+                        PullRefreshFrameLayout.this.dVk.aWp();
                     }
                     PullRefreshFrameLayout.this.dVh.playAnimation();
                 }
@@ -254,13 +254,13 @@ public class PullRefreshFrameLayout extends FrameLayout {
             this.dVj.c(this.dVi.topMargin - this.dVf, (this.dVf * 1.0d) / this.dVi.topMargin);
             return;
         }
-        aWm();
+        aWn();
     }
 
-    public void aWm() {
+    public void aWn() {
         hideLoading();
         if (this.dVj != null) {
-            this.dVj.aWp();
+            this.dVj.aWq();
         }
     }
 
@@ -344,7 +344,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
         this.dVk = null;
     }
 
-    public void aWn() {
+    public void aWo() {
         this.dVh.bringToFront();
     }
 

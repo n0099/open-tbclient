@@ -97,10 +97,10 @@ public final class b {
         }
 
         public synchronized a ahr() {
-            return fE(this.cig.size());
+            return fG(this.cig.size());
         }
 
-        public synchronized a fE(int i) {
+        public synchronized a fG(int i) {
             synchronized (this) {
                 int i2 = i >= 1 ? i : 1;
                 int size = i2 > this.cig.size() ? this.cig.size() : i2;
@@ -112,7 +112,7 @@ public final class b {
         }
 
         public synchronized a ahs() {
-            return fE(1);
+            return fG(1);
         }
     }
 

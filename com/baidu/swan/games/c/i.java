@@ -42,7 +42,7 @@ public class i {
         }
     }
 
-    private static String in(int i) {
+    private static String ip(int i) {
         switch (i) {
             case 1:
                 return TbConfig.TMP_LOG_DIR_NAME;
@@ -61,7 +61,7 @@ public class i {
     }
 
     public static void ac(int i, String str) {
-        ci(in(i), str);
+        ci(ip(i), str);
     }
 
     public static void ci(String str, String str2) {

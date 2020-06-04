@@ -22,13 +22,13 @@ import com.baidu.tieba.R;
 public class w extends b<bk> implements com.baidu.tieba.a.e {
     private String aeX;
     private bk aee;
-    private final View eLg;
-    private TextView gFY;
-    private TextView gFZ;
-    private TextView gGa;
-    private t gGb;
-    private FrsBaseVideoView gGc;
-    private HeadImageView gxs;
+    private final View eLr;
+    private TextView gGj;
+    private TextView gGk;
+    private TextView gGl;
+    private t gGm;
+    private FrsBaseVideoView gGn;
+    private HeadImageView gxD;
     private TbPageContext<?> mPageContext;
 
     public w(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
@@ -36,25 +36,25 @@ public class w extends b<bk> implements com.baidu.tieba.a.e {
         View view = getView();
         view.setOnClickListener(this);
         this.mPageContext = tbPageContext;
-        this.gxs = (HeadImageView) view.findViewById(R.id.topic_icon);
-        this.gxs.setIsRound(true);
-        this.gxs.setDefaultResource(R.drawable.pic_head_topic);
-        this.gFY = (TextView) view.findViewById(R.id.card_topic_name);
-        this.gGa = (TextView) view.findViewById(R.id.card_thread_title);
-        this.gFZ = (TextView) view.findViewById(R.id.card_reply_time);
-        this.eLg = view.findViewById(R.id.card_divider_line);
-        this.gGc = (FrsBaseVideoView) view.findViewById(R.id.base_video_view);
-        this.gGc.setClickListener(this);
+        this.gxD = (HeadImageView) view.findViewById(R.id.topic_icon);
+        this.gxD.setIsRound(true);
+        this.gxD.setDefaultResource(R.drawable.pic_head_topic);
+        this.gGj = (TextView) view.findViewById(R.id.card_topic_name);
+        this.gGl = (TextView) view.findViewById(R.id.card_thread_title);
+        this.gGk = (TextView) view.findViewById(R.id.card_reply_time);
+        this.eLr = view.findViewById(R.id.card_divider_line);
+        this.gGn = (FrsBaseVideoView) view.findViewById(R.id.base_video_view);
+        this.gGn.setClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.gxs.invalidate();
-        am.setViewTextColor(this.gFY, (int) R.color.cp_cont_b);
+        this.gxD.invalidate();
+        am.setViewTextColor(this.gGj, (int) R.color.cp_cont_b);
         am.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
-        am.setBackgroundColor(this.eLg, R.color.cp_bg_line_c);
-        if (this.gGc != null) {
-            this.gGc.onChangeSkinType(i);
+        am.setBackgroundColor(this.eLr, R.color.cp_bg_line_c);
+        if (this.gGn != null) {
+            this.gGn.onChangeSkinType(i);
         }
     }
 
@@ -78,43 +78,43 @@ public class w extends b<bk> implements com.baidu.tieba.a.e {
             getView().setVisibility(0);
             getView().setOnClickListener(this);
         }
-        if (this.gGc != null) {
-            this.gGc.a(this.aee, bkVar.aQf());
+        if (this.gGn != null) {
+            this.gGn.a(this.aee, bkVar.aQf());
         }
         if (bkVar.aQx() != null) {
-            this.gFY.setText(bkVar.aQx().getName_show());
+            this.gGj.setText(bkVar.aQx().getName_show());
         }
-        this.gFZ.setText(aq.getFormatTime(bkVar.aQq() * 1000));
+        this.gGk.setText(aq.getFormatTime(bkVar.aQq() * 1000));
         String str = bkVar.aSd() + "：";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         spannableStringBuilder.append((CharSequence) bkVar.x(false, true));
         spannableStringBuilder.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_c)), 0, str.length(), 33);
-        this.gGa.setText(spannableStringBuilder);
-        m.a(this.gGa, this.aee.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        this.gGl.setText(spannableStringBuilder);
+        m.a(this.gGl, this.aee.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.aee != null) {
-            if (bKS() != null) {
-                bKS().a(view, (View) this.aee, (Object) this.gGb);
+            if (bKU() != null) {
+                bKU().a(view, (View) this.aee, (Object) this.gGm);
             }
             m.Dn(this.aee.getTid());
-            m.a(this.gGa, this.aee.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-            bLr();
+            m.a(this.gGl, this.aee.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+            bLt();
         }
     }
 
-    private void bLr() {
+    private void bLt() {
         if (this.aee != null && this.aee.aQx() != null && this.aee.aQx().getName_show() != null) {
-            if (com.baidu.tbadk.plugins.b.is(true) && !com.baidu.tbadk.plugins.b.bga()) {
+            if (com.baidu.tbadk.plugins.b.is(true) && !com.baidu.tbadk.plugins.b.bgb()) {
                 HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.aee.aQx().getName_show() + "", "3");
                 createNormalConfig.setExtra(this.aee.getFid(), this.aee.aSh(), this.aee.aSi(), com.baidu.adp.lib.f.b.toLong(this.aee.getTid(), 0L));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createNormalConfig));
                 return;
             }
-            ba.aUZ().b(this.mPageContext, new String[]{this.aee.aSj()});
+            ba.aVa().b(this.mPageContext, new String[]{this.aee.aSj()});
         }
     }
 

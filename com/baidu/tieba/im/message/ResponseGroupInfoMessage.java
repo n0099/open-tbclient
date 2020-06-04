@@ -45,11 +45,11 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
         setError(this.mResData.error.errorno.intValue());
         setErrorString(this.mResData.error.usermsg);
         if (getError() == 0) {
-            this.selfData.xV(this.mResData.data.canJoinGroupNum.intValue());
+            this.selfData.xX(this.mResData.data.canJoinGroupNum.intValue());
             this.selfData.pu(this.mResData.data.isGroupManager.intValue() != 0);
             this.selfData.pv(this.mResData.data.hideRecommendGroup.intValue() != 0);
             this.selfData.pt(this.mResData.data.isJoin.intValue() != 0);
-            this.selfData.xU(this.mResData.data.joinGroupNum.intValue());
+            this.selfData.xW(this.mResData.data.joinGroupNum.intValue());
             this.selfData.setMemGroup(this.mResData.data.group.isMemberGroup.intValue() == 1);
             this.selfData.pw(this.mResData.data.canCreateMember.intValue() == 1);
             GroupInfo groupInfo = this.mResData.data.group;
@@ -65,7 +65,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
                     linkedList.add(memberData);
                 }
             }
-            this.selfData.dl(linkedList);
+            this.selfData.dm(linkedList);
             List<Photo> list2 = this.mResData.data.photo;
             LinkedList linkedList2 = new LinkedList();
             if (list2 != null) {
@@ -75,7 +75,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
                     linkedList2.add(photoUrlData);
                 }
             }
-            this.selfData.dm(linkedList2);
+            this.selfData.dn(linkedList2);
             ActivityInfo activityInfo = this.mResData.data.activity;
             if (activityInfo != null) {
                 GroupActivityData groupActivityData = new GroupActivityData();

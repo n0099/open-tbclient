@@ -194,6 +194,7 @@ public class CmdConfigHttp {
     public static final int CMD_SCHEMA_UPLOAD = 1003393;
     public static final int CMD_SCREEN_LOCK_MESSAGE_MORE = 1003194;
     public static final int CMD_SEARCH_LIST = 1003196;
+    public static final int CMD_SEARCH_MAJOR = 1003460;
     public static final int CMD_SEARCH_PB_EMOTION = 1003330;
     public static final int CMD_SEARCH_POST_FORUM = 1003335;
     public static final int CMD_SELECT_SUB_COMMENT = 1003379;

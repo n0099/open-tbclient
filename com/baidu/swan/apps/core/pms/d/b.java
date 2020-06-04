@@ -36,10 +36,10 @@ public class b extends f {
             if (aVar.errorNo == 1010) {
                 this.bYB.Xz();
             } else {
-                this.bYB.eE(0);
+                this.bYB.eG(0);
             }
         }
-        eV(aVar.errorNo);
+        eX(aVar.errorNo);
         if (a.c(aVar)) {
             a.jy(this.mAppId);
         }
@@ -58,7 +58,7 @@ public class b extends f {
                 this.bYB.Xz();
             }
         } else if (this.bYB != null) {
-            this.bYB.eE(5);
+            this.bYB.eG(5);
         }
         ba("main_pre_download", this.bXJ);
         HashSet hashSet = new HashSet();
@@ -69,7 +69,7 @@ public class b extends f {
     @Override // com.baidu.swan.apps.core.pms.f
     protected void p(Throwable th) {
         if (this.bYB != null) {
-            this.bYB.eE(0);
+            this.bYB.eG(0);
         }
     }
 

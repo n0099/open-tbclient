@@ -38,7 +38,7 @@ public class f extends g.a {
     protected boolean a(Pipe.SourceChannel sourceChannel, Bundle bundle) {
         String string = bundle.getString("launch_id");
         com.baidu.swan.apps.v.c.a lk = com.baidu.swan.apps.v.c.a.lk(string);
-        lk.ahk().ln("SwanExtractor").fE(1);
+        lk.ahk().ln("SwanExtractor").fG(1);
         boolean e = e(Channels.newInputStream(sourceChannel), string);
         lk.bt("SwanExtractor", "done: " + e);
         return e;
@@ -124,7 +124,7 @@ public class f extends g.a {
             dV(z2);
             long currentTimeMillis2 = System.currentTimeMillis();
             if (DEBUG) {
-                com.baidu.swan.apps.r.a.a.fw((int) (currentTimeMillis2 - currentTimeMillis));
+                com.baidu.swan.apps.r.a.a.fy((int) (currentTimeMillis2 - currentTimeMillis));
             }
             if (this.cgn != null) {
                 Bundle bundle = new Bundle();

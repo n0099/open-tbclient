@@ -30,7 +30,7 @@ public class f extends aa {
             }
             com.baidu.swan.apps.r.e.a(optString, new e.b() { // from class: com.baidu.swan.apps.scheme.actions.f.1
                 @Override // com.baidu.swan.apps.r.e.b
-                public void dr(int i) {
+                public void dt(int i) {
                 }
 
                 @Override // com.baidu.swan.apps.r.e.b

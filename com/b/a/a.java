@@ -29,7 +29,7 @@ public class a {
         public void onBindingDied(ComponentName componentName) {
         }
     };
-    private b ndf;
+    private b nep;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -40,7 +40,7 @@ public class a {
 
     private a(Context context, b bVar, Handler handler) {
         this.mContext = context;
-        this.ndf = bVar;
+        this.nep = bVar;
         this.mHandler = new HandlerC0014a(handler == null ? Looper.getMainLooper() : handler.getLooper());
     }
 
@@ -55,22 +55,22 @@ public class a {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    a.this.ndf.g(-1, null);
+                    a.this.nep.g(-1, null);
                     return;
                 case 1:
                     OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
                     try {
                         try {
-                            a.this.ndf.aV(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
+                            a.this.nep.aV(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
                             try {
                                 a.this.mContext.unbindService(a.this.mServiceConnection);
                                 return;
                             } catch (Exception e) {
-                                a.this.ndf.g(-4, e);
+                                a.this.nep.g(-4, e);
                                 return;
                             }
                         } catch (RemoteException e2) {
-                            a.this.ndf.g(-3, e2);
+                            a.this.nep.g(-3, e2);
                             try {
                                 a.this.mContext.unbindService(a.this.mServiceConnection);
                                 return;
@@ -82,12 +82,12 @@ public class a {
                         try {
                             a.this.mContext.unbindService(a.this.mServiceConnection);
                         } catch (Exception e4) {
-                            a.this.ndf.g(-4, e4);
+                            a.this.nep.g(-4, e4);
                         }
                         throw th;
                     }
                 case 2:
-                    a.this.ndf.g(-2, null);
+                    a.this.nep.g(-2, null);
                     return;
                 default:
                     return;
@@ -100,10 +100,10 @@ public class a {
     }
 
     public static void a(Context context, b bVar, Handler handler) {
-        new a(context.getApplicationContext(), bVar, handler).dGx();
+        new a(context.getApplicationContext(), bVar, handler).dGL();
     }
 
-    private void dGx() {
+    private void dGL() {
         Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
         intent.setPackage("com.huawei.hwid");
         if (this.mContext.bindService(intent, this.mServiceConnection, 1)) {

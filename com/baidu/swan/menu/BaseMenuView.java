@@ -58,7 +58,7 @@ public abstract class BaseMenuView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void iK(int i) {
+    public void iM(int i) {
         this.mMaskView.getLayoutParams().height = this.diT + i;
         this.mMaskView.requestLayout();
     }

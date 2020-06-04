@@ -21,7 +21,7 @@ import tbclient.User;
 /* loaded from: classes9.dex */
 public class a {
     private BdUniqueId epM;
-    private final com.baidu.adp.framework.listener.a gKs = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
+    private final com.baidu.adp.framework.listener.a gKD = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -33,18 +33,18 @@ public class a {
             }
         }
     };
-    private TopicDetailView igD;
+    private TopicDetailView ihq;
 
     public a(TopicDetailView topicDetailView) {
-        this.igD = topicDetailView;
+        this.ihq = topicDetailView;
     }
 
     public void l(BdUniqueId bdUniqueId) {
         this.epM = bdUniqueId;
-        this.gKs.setTag(bdUniqueId);
-        this.gKs.getHttpMessageListener().setSelfListener(true);
-        this.gKs.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.gKs);
+        this.gKD.setTag(bdUniqueId);
+        this.gKD.getHttpMessageListener().setSelfListener(true);
+        this.gKD.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.gKD);
     }
 
     public RunnableC0629a C(long j, long j2) {
@@ -68,7 +68,7 @@ public class a {
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i = 1;
-            if (ar.aUW().aUX()) {
+            if (ar.aUX().aUY()) {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
@@ -91,7 +91,7 @@ public class a {
             bkVar.a(build);
             bkVar.bZ(new Date().getTime());
             if (k.ac(bkVar)) {
-                this.igD.aE(bkVar);
+                this.ihq.aE(bkVar);
             }
         }
     }

@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes11.dex */
 public class e {
-    private static final String lbQ = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
+    private static final String lcZ = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
     private x bth = null;
     private String mAuthSid;
 
@@ -15,27 +15,27 @@ public class e {
         this.mAuthSid = str;
     }
 
-    public String daT() {
-        this.bth = new x(lbQ);
+    public String dbj() {
+        this.bth = new x(lcZ);
         this.bth.addPostData("authsid", this.mAuthSid);
-        this.bth.aUA().aVa().mNeedBackgroundLogin = true;
-        this.bth.aUA().aVa().mIsNeedTbs = true;
+        this.bth.aUA().aVb().mNeedBackgroundLogin = true;
+        this.bth.aUA().aVb().mIsNeedTbs = true;
         this.bth.ha(true);
         return this.bth.postNetData();
     }
 
-    public String Ma(String str) {
+    public String Mb(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.bth = new x(lbQ);
+        this.bth = new x(lcZ);
         this.bth.addPostData("user_id", str2);
         this.bth.addPostData("forum_ids", str);
         this.bth.addPostData("authsid", this.mAuthSid);
-        this.bth.aUA().aVa().mNeedBackgroundLogin = true;
-        this.bth.aUA().aVa().mIsNeedTbs = true;
+        this.bth.aUA().aVb().mNeedBackgroundLogin = true;
+        this.bth.aUA().aVb().mIsNeedTbs = true;
         this.bth.ha(true);
         return this.bth.postNetData();
     }
@@ -48,7 +48,7 @@ public class e {
 
     public boolean isRequestSuccess() {
         if (this.bth != null) {
-            return this.bth.aUA().aVb().isRequestSuccess();
+            return this.bth.aUA().aVc().isRequestSuccess();
         }
         return false;
     }

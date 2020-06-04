@@ -46,9 +46,9 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        a hV;
-        if (avm() && (hV = hV(cPh.match(uri))) != null) {
-            return hV.query(uri, strArr, str, strArr2, str2);
+        a hX;
+        if (avm() && (hX = hX(cPh.match(uri))) != null) {
+            return hX.query(uri, strArr, str, strArr2, str2);
         }
         return null;
     }
@@ -56,32 +56,32 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        a hV;
-        if (!avn() || (hV = hV(cPh.match(uri))) == null) {
+        a hX;
+        if (!avn() || (hX = hX(cPh.match(uri))) == null) {
             return null;
         }
-        return hV.insert(uri, contentValues);
+        return hX.insert(uri, contentValues);
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        a hV;
-        if (!avn() || (hV = hV(cPh.match(uri))) == null) {
+        a hX;
+        if (!avn() || (hX = hX(cPh.match(uri))) == null) {
             return 0;
         }
-        return hV.delete(uri, str, strArr);
+        return hX.delete(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        a hV;
-        if (!avn() || (hV = hV(cPh.match(uri))) == null) {
+        a hX;
+        if (!avn() || (hX = hX(cPh.match(uri))) == null) {
             return 0;
         }
-        return hV.update(uri, contentValues, str, strArr);
+        return hX.update(uri, contentValues, str, strArr);
     }
 
-    private a hV(int i) {
+    private a hX(int i) {
         Class<? extends a> processorClass = ProcessorInfo.getProcessorClass(i);
         if (processorClass != null) {
             try {

@@ -37,7 +37,7 @@ public class d {
 
     public boolean isRequestSuccess() {
         if (this.bth != null) {
-            return this.bth.aUA().aVb().isRequestSuccess();
+            return this.bth.aUA().aVc().isRequestSuccess();
         }
         return false;
     }

@@ -8,20 +8,20 @@ import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes10.dex */
 public class b {
-    private List<a> iUY;
-    private List<Integer> iUZ;
-    private List<a> iVc;
+    private List<a> iVL;
+    private List<Integer> iVM;
+    private List<a> iVP;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!v.isEmpty(dataRes.sex_taglist)) {
-                this.iVc = new ArrayList();
-                r(this.iVc, dataRes.sex_taglist);
+                this.iVP = new ArrayList();
+                r(this.iVP, dataRes.sex_taglist);
             }
             if (!v.isEmpty(dataRes.taglist)) {
-                this.iUY = new ArrayList();
-                this.iUZ = new ArrayList();
-                r(this.iUY, dataRes.taglist);
+                this.iVL = new ArrayList();
+                this.iVM = new ArrayList();
+                r(this.iVL, dataRes.taglist);
             }
         }
     }
@@ -33,23 +33,23 @@ public class b {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.iUZ != null && aVar.isFollow) {
-                        this.iUZ.add(Integer.valueOf(aVar.labelId));
+                    if (this.iVM != null && aVar.isFollow) {
+                        this.iVM.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
         }
     }
 
-    public List<a> cst() {
-        return this.iVc;
+    public List<a> csC() {
+        return this.iVP;
     }
 
-    public List<a> csu() {
-        return this.iUY;
+    public List<a> csD() {
+        return this.iVL;
     }
 
-    public List<Integer> csv() {
-        return this.iUZ;
+    public List<Integer> csE() {
+        return this.iVM;
     }
 }

@@ -19,8 +19,8 @@ import tv.chushou.zues.utils.h;
 public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private String f;
     private boolean j;
-    private com.kascend.chushou.view.a.a<ListItem> mJn;
-    private com.kascend.chushou.view.a.a<PannelItem> mXH;
+    private com.kascend.chushou.view.a.a<ListItem> mKx;
+    private com.kascend.chushou.view.a.a<PannelItem> mYR;
     private final List<Object> c = new ArrayList();
     private boolean g = true;
     private boolean h = false;
@@ -40,8 +40,8 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public b(String str, com.kascend.chushou.view.a.a<PannelItem> aVar, com.kascend.chushou.view.a.a<ListItem> aVar2, boolean z) {
         this.j = false;
         this.f = str;
-        this.mXH = new com.kascend.chushou.view.a.b(aVar);
-        this.mJn = new com.kascend.chushou.view.a.b(aVar2);
+        this.mYR = new com.kascend.chushou.view.a.b(aVar);
+        this.mKx = new com.kascend.chushou.view.a.b(aVar2);
         this.j = z;
     }
 
@@ -118,7 +118,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case 6:
                 return new e(from.inflate(a.h.item_listitem_sliding_small_poster, viewGroup, false), this.f, "10");
             case 22:
-                return new a(from.inflate(a.h.item_listitem_double_room_home, viewGroup, false), this.mJn, this.j ? false : true, this.f);
+                return new a(from.inflate(a.h.item_listitem_double_room_home, viewGroup, false), this.mKx, this.j ? false : true, this.f);
             case 34:
                 return new e(from.inflate(a.h.item_listitem_sliding_small_poster, viewGroup, false), this.f, "32");
             default:
@@ -149,7 +149,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         return;
                     case 6:
                     case 34:
-                        ((e) viewHolder).a(pannelItem, Ji(i));
+                        ((e) viewHolder).a(pannelItem, Jk(i));
                         return;
                     default:
                         return;
@@ -186,7 +186,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         return -1;
     }
 
-    private int[] Ji(int i) {
+    private int[] Jk(int i) {
         int i2;
         if (i - 1 >= 0) {
             i2 = 0;

@@ -108,7 +108,7 @@ public class c {
     }
 
     public void release() {
-        com.baidu.live.f.b.bK(20);
+        com.baidu.live.f.b.bM(20);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -63,7 +63,7 @@ public class a {
             Log.d(TAG, "处理升级逻辑：newVersionCode=" + di + " /oldVersionCode=" + dh);
         }
         if (dh == 0) {
-            hU(di);
+            hW(di);
             n(this.mContext, di);
             o(this.mContext, dh);
         } else if (di > dh) {
@@ -87,7 +87,7 @@ public class a {
     private void an(int i, int i2) {
     }
 
-    private void hU(int i) {
+    private void hW(int i) {
         com.baidu.swan.apps.ap.a.al(0, i);
     }
 

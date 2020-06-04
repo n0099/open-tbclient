@@ -9,28 +9,28 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class n {
     private List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
-    private BdTypeRecyclerView hrM;
-    private com.baidu.tieba.person.a.a kjK;
-    private p kqA;
-    private com.baidu.tieba.personPolymeric.a.a.g kqB;
-    private com.baidu.tieba.personPolymeric.a.a.d kqC;
-    private com.baidu.tieba.personPolymeric.a.a.i kqD;
-    private com.baidu.tieba.personPolymeric.a.a.h kqE;
-    private com.baidu.tieba.personPolymeric.a.a.a kqF;
-    private com.baidu.tieba.personPolymeric.a.a.c kqG;
-    private com.baidu.tieba.personPolymeric.a.a.b kqH;
-    private com.baidu.tieba.personPolymeric.a.a.e kqI;
-    private com.baidu.tieba.personPolymeric.a.a.f kqJ;
-    private m kqq;
-    private b kqr;
-    private i kqs;
-    private a kqt;
-    private c kqu;
-    private h kqv;
-    private e kqw;
-    private k kqx;
-    private d kqy;
-    private com.baidu.tieba.person.a.d kqz;
+    private BdTypeRecyclerView hrX;
+    private com.baidu.tieba.person.a.a kkQ;
+    private c krA;
+    private h krB;
+    private e krC;
+    private k krD;
+    private d krE;
+    private com.baidu.tieba.person.a.d krF;
+    private p krG;
+    private com.baidu.tieba.personPolymeric.a.a.g krH;
+    private com.baidu.tieba.personPolymeric.a.a.d krI;
+    private com.baidu.tieba.personPolymeric.a.a.i krJ;
+    private com.baidu.tieba.personPolymeric.a.a.h krK;
+    private com.baidu.tieba.personPolymeric.a.a.a krL;
+    private com.baidu.tieba.personPolymeric.a.a.c krM;
+    private com.baidu.tieba.personPolymeric.a.a.b krN;
+    private com.baidu.tieba.personPolymeric.a.a.e krO;
+    private com.baidu.tieba.personPolymeric.a.a.f krP;
+    private m krw;
+    private b krx;
+    private i kry;
+    private a krz;
     private BdUniqueId mBdUniqueId;
 
     public n(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, BdUniqueId bdUniqueId) {
@@ -40,113 +40,113 @@ public class n {
     }
 
     private void a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.hrM = bdTypeRecyclerView;
-        this.kqq = new m(tbPageContext);
-        this.kqr = new b(tbPageContext);
-        this.kqs = new i(tbPageContext);
-        this.kqt = new a(tbPageContext);
-        this.kqu = new c(tbPageContext);
-        this.kqv = new h(tbPageContext, tbPageContext.getUniqueId());
-        this.kqw = new e(tbPageContext, com.baidu.tieba.personPolymeric.c.g.ksL);
-        this.kqx = new k(tbPageContext);
-        this.kqy = new d(tbPageContext);
-        this.kqz = new com.baidu.tieba.person.a.d(tbPageContext, com.baidu.tieba.person.a.f.kjL);
-        this.kjK = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.kjx);
-        this.kqA = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
-        this.kqB = new com.baidu.tieba.personPolymeric.a.a.g(tbPageContext, com.baidu.tieba.card.data.k.TYPE);
-        this.kqC = new com.baidu.tieba.personPolymeric.a.a.d(tbPageContext, com.baidu.tieba.card.data.k.dET);
-        this.kqD = new com.baidu.tieba.personPolymeric.a.a.i(tbPageContext, com.baidu.tieba.card.data.l.dEV);
-        this.kqE = new com.baidu.tieba.personPolymeric.a.a.h(tbPageContext, com.baidu.tieba.card.data.k.dEZ);
-        this.kqH = new com.baidu.tieba.personPolymeric.a.a.b(tbPageContext, com.baidu.tieba.card.data.k.dFb);
-        this.kqI = new com.baidu.tieba.personPolymeric.a.a.e(tbPageContext, com.baidu.tieba.card.data.k.dFa);
-        this.kqJ = new com.baidu.tieba.personPolymeric.a.a.f(tbPageContext, com.baidu.tieba.card.data.k.dFc);
-        this.kqF = new com.baidu.tieba.personPolymeric.a.a.a(tbPageContext, com.baidu.tieba.card.data.e.gGW);
-        this.kqG = new com.baidu.tieba.personPolymeric.a.a.c(tbPageContext, com.baidu.tieba.card.data.f.gGX);
-        this.aSj.add(this.kqq);
-        this.aSj.add(this.kqr);
-        this.aSj.add(this.kqs);
-        this.aSj.add(this.kqt);
-        this.aSj.add(this.kqu);
-        this.aSj.add(this.kqv);
-        this.aSj.add(this.kqw);
-        this.aSj.add(this.kqx);
-        this.aSj.add(this.kqy);
-        this.aSj.add(this.kqz);
-        this.aSj.add(this.kjK);
-        this.aSj.add(this.kqA);
-        this.aSj.add(this.kqB);
-        this.aSj.add(this.kqC);
-        this.aSj.add(this.kqD);
-        this.aSj.add(this.kqE);
-        this.aSj.add(this.kqH);
-        this.aSj.add(this.kqI);
-        this.aSj.add(this.kqJ);
-        this.aSj.add(this.kqF);
-        this.aSj.add(this.kqG);
+        this.hrX = bdTypeRecyclerView;
+        this.krw = new m(tbPageContext);
+        this.krx = new b(tbPageContext);
+        this.kry = new i(tbPageContext);
+        this.krz = new a(tbPageContext);
+        this.krA = new c(tbPageContext);
+        this.krB = new h(tbPageContext, tbPageContext.getUniqueId());
+        this.krC = new e(tbPageContext, com.baidu.tieba.personPolymeric.c.g.ktR);
+        this.krD = new k(tbPageContext);
+        this.krE = new d(tbPageContext);
+        this.krF = new com.baidu.tieba.person.a.d(tbPageContext, com.baidu.tieba.person.a.f.kkR);
+        this.kkQ = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.kkD);
+        this.krG = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
+        this.krH = new com.baidu.tieba.personPolymeric.a.a.g(tbPageContext, com.baidu.tieba.card.data.k.TYPE);
+        this.krI = new com.baidu.tieba.personPolymeric.a.a.d(tbPageContext, com.baidu.tieba.card.data.k.dET);
+        this.krJ = new com.baidu.tieba.personPolymeric.a.a.i(tbPageContext, com.baidu.tieba.card.data.l.dEV);
+        this.krK = new com.baidu.tieba.personPolymeric.a.a.h(tbPageContext, com.baidu.tieba.card.data.k.dEZ);
+        this.krN = new com.baidu.tieba.personPolymeric.a.a.b(tbPageContext, com.baidu.tieba.card.data.k.dFb);
+        this.krO = new com.baidu.tieba.personPolymeric.a.a.e(tbPageContext, com.baidu.tieba.card.data.k.dFa);
+        this.krP = new com.baidu.tieba.personPolymeric.a.a.f(tbPageContext, com.baidu.tieba.card.data.k.dFc);
+        this.krL = new com.baidu.tieba.personPolymeric.a.a.a(tbPageContext, com.baidu.tieba.card.data.e.gHh);
+        this.krM = new com.baidu.tieba.personPolymeric.a.a.c(tbPageContext, com.baidu.tieba.card.data.f.gHi);
+        this.aSj.add(this.krw);
+        this.aSj.add(this.krx);
+        this.aSj.add(this.kry);
+        this.aSj.add(this.krz);
+        this.aSj.add(this.krA);
+        this.aSj.add(this.krB);
+        this.aSj.add(this.krC);
+        this.aSj.add(this.krD);
+        this.aSj.add(this.krE);
+        this.aSj.add(this.krF);
+        this.aSj.add(this.kkQ);
+        this.aSj.add(this.krG);
+        this.aSj.add(this.krH);
+        this.aSj.add(this.krI);
+        this.aSj.add(this.krJ);
+        this.aSj.add(this.krK);
+        this.aSj.add(this.krN);
+        this.aSj.add(this.krO);
+        this.aSj.add(this.krP);
+        this.aSj.add(this.krL);
+        this.aSj.add(this.krM);
         bdTypeRecyclerView.addAdapters(this.aSj);
         zL("page_recommend");
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.kqB.epM = bdUniqueId;
-        this.kqC.epM = bdUniqueId;
-        this.kqD.epM = bdUniqueId;
-        this.kqE.epM = bdUniqueId;
-        this.kqH.epM = bdUniqueId;
-        this.kqI.epM = bdUniqueId;
-        this.kqJ.epM = bdUniqueId;
-        this.kqF.epM = bdUniqueId;
-        this.kqG.epM = bdUniqueId;
+        this.krH.epM = bdUniqueId;
+        this.krI.epM = bdUniqueId;
+        this.krJ.epM = bdUniqueId;
+        this.krK.epM = bdUniqueId;
+        this.krN.epM = bdUniqueId;
+        this.krO.epM = bdUniqueId;
+        this.krP.epM = bdUniqueId;
+        this.krL.epM = bdUniqueId;
+        this.krM.epM = bdUniqueId;
     }
 
-    public void Bp(int i) {
-        this.kqB.Br(i);
-        this.kqC.Br(i);
-        this.kqD.Br(i);
-        this.kqE.Br(i);
-        this.kqF.Br(i);
-        this.kqG.Br(i);
-        this.kqH.Br(i);
-        this.kqI.Br(i);
-        this.kqJ.Br(i);
+    public void Br(int i) {
+        this.krH.Bt(i);
+        this.krI.Bt(i);
+        this.krJ.Bt(i);
+        this.krK.Bt(i);
+        this.krL.Bt(i);
+        this.krM.Bt(i);
+        this.krN.Bt(i);
+        this.krO.Bt(i);
+        this.krP.Bt(i);
     }
 
-    public void Bq(int i) {
-        this.kqB.Bq(i);
-        this.kqC.Bq(i);
-        this.kqD.Bq(i);
-        this.kqE.Bq(i);
-        this.kqF.Bq(i);
-        this.kqG.Bq(i);
-        this.kqH.Bq(i);
-        this.kqI.Bq(i);
-        this.kqJ.Bq(i);
+    public void Bs(int i) {
+        this.krH.Bs(i);
+        this.krI.Bs(i);
+        this.krJ.Bs(i);
+        this.krK.Bs(i);
+        this.krL.Bs(i);
+        this.krM.Bs(i);
+        this.krN.Bs(i);
+        this.krO.Bs(i);
+        this.krP.Bs(i);
     }
 
     public void setTabType(int i) {
-        this.kqB.setTabType(i);
-        this.kqC.setTabType(i);
-        this.kqD.setTabType(i);
-        this.kqE.setTabType(i);
-        this.kqF.setTabType(i);
-        this.kqG.setTabType(i);
-        this.kqH.setTabType(i);
-        this.kqI.setTabType(i);
-        this.kqJ.setTabType(i);
+        this.krH.setTabType(i);
+        this.krI.setTabType(i);
+        this.krJ.setTabType(i);
+        this.krK.setTabType(i);
+        this.krL.setTabType(i);
+        this.krM.setTabType(i);
+        this.krN.setTabType(i);
+        this.krO.setTabType(i);
+        this.krP.setTabType(i);
     }
 
     public void setIsHost(boolean z) {
-        this.kqA.setIsHost(z);
-        this.kqs.setIsHost(z);
-        this.kqB.setIsHost(z);
-        this.kqC.setIsHost(z);
-        this.kqD.setIsHost(z);
-        this.kqE.setIsHost(z);
-        this.kqF.setIsHost(z);
-        this.kqG.setIsHost(z);
-        this.kqH.setIsHost(z);
-        this.kqI.setIsHost(z);
-        this.kqJ.setIsHost(z);
+        this.krG.setIsHost(z);
+        this.kry.setIsHost(z);
+        this.krH.setIsHost(z);
+        this.krI.setIsHost(z);
+        this.krJ.setIsHost(z);
+        this.krK.setIsHost(z);
+        this.krL.setIsHost(z);
+        this.krM.setIsHost(z);
+        this.krN.setIsHost(z);
+        this.krO.setIsHost(z);
+        this.krP.setIsHost(z);
     }
 
     private void zL(String str) {
@@ -160,8 +160,8 @@ public class n {
     }
 
     public void notifyDataSetChanged() {
-        if (this.hrM.getListAdapter() != null) {
-            this.hrM.getListAdapter().notifyDataSetChanged();
+        if (this.hrX.getListAdapter() != null) {
+            this.hrX.getListAdapter().notifyDataSetChanged();
         }
     }
 }

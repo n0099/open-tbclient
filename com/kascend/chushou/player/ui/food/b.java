@@ -14,7 +14,7 @@ import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 /* loaded from: classes5.dex */
 public class b extends k {
     private ImageView b;
-    private FrescoThumbnailView mTI;
+    private FrescoThumbnailView mUT;
 
     @Override // com.kascend.chushou.player.ui.food.k
     int a() {
@@ -26,15 +26,15 @@ public class b extends k {
     @SuppressLint({"ClickableViewAccessibility"})
     public void f(FoodView foodView) {
         super.f(foodView);
-        this.mTI = (FrescoThumbnailView) Jd(a.f.iv_cover_ad);
-        this.b = (ImageView) Jd(a.f.iv_ad_close);
+        this.mUT = (FrescoThumbnailView) Jf(a.f.iv_cover_ad);
+        this.b = (ImageView) Jf(a.f.iv_ad_close);
         this.b.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.mUc.c();
+                b.this.mVn.c();
             }
         });
-        this.mTI.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.b.2
+        this.mUT.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.b.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getActionMasked() == 0) {
@@ -52,10 +52,10 @@ public class b extends k {
                 }
             }
         });
-        this.mTI.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.b.3
+        this.mUT.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.mUc.b(b.this.m, b.this.n, b.this.o, b.this.p);
+                b.this.mVn.b(b.this.m, b.this.n, b.this.o, b.this.p);
             }
         });
     }
@@ -65,17 +65,17 @@ public class b extends k {
     public void a(ListItem listItem, k.a aVar) {
         if (aVar != null) {
             int i = aVar.h;
-            ViewGroup.LayoutParams layoutParams = this.mTI.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.mUT.getLayoutParams();
             layoutParams.height = i;
-            this.mTI.setLayoutParams(layoutParams);
+            this.mUT.setLayoutParams(layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.kascend.chushou.player.ui.food.k
     public void a(ListItem listItem, boolean z) {
-        this.mTI.setAnim(true);
-        this.mTI.a(listItem.mCover, tv.chushou.widget.a.c.dRB(), 0, 0, 1);
+        this.mUT.setAnim(true);
+        this.mUT.a(listItem.mCover, tv.chushou.widget.a.c.dRP(), 0, 0, 1);
         this.b.setVisibility(listItem.mShowClose ? 0 : 8);
     }
 }

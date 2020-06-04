@@ -7,22 +7,22 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public final class f {
-    public static a nsB;
-    public static final f nsC = new f();
-    private static final a nsA = new a(null, null, null);
+    public static a ntL;
+    public static final f ntM = new f();
+    private static final a ntK = new a(null, null, null);
 
     /* JADX INFO: Access modifiers changed from: private */
     @h
     /* loaded from: classes7.dex */
     public static final class a {
-        public final Method nsD;
-        public final Method nsE;
-        public final Method nsF;
+        public final Method ntN;
+        public final Method ntO;
+        public final Method ntP;
 
         public a(Method method, Method method2, Method method3) {
-            this.nsD = method;
-            this.nsE = method2;
-            this.nsF = method3;
+            this.ntN = method;
+            this.ntO = method2;
+            this.ntP = method3;
         }
     }
 
@@ -35,14 +35,14 @@ public final class f {
         Method method2;
         Object invoke2;
         q.m(baseContinuationImpl, "continuation");
-        a aVar = nsB;
+        a aVar = ntL;
         if (aVar == null) {
             aVar = e(baseContinuationImpl);
         }
-        if (aVar == nsA || (method = aVar.nsD) == null || (invoke = method.invoke(baseContinuationImpl.getClass(), new Object[0])) == null || (method2 = aVar.nsE) == null || (invoke2 = method2.invoke(invoke, new Object[0])) == null) {
+        if (aVar == ntK || (method = aVar.ntN) == null || (invoke = method.invoke(baseContinuationImpl.getClass(), new Object[0])) == null || (method2 = aVar.ntO) == null || (invoke2 = method2.invoke(invoke, new Object[0])) == null) {
             return null;
         }
-        Method method3 = aVar.nsF;
+        Method method3 = aVar.ntP;
         Object invoke3 = method3 != null ? method3.invoke(invoke2, new Object[0]) : null;
         if (!(invoke3 instanceof String)) {
             invoke3 = null;
@@ -53,11 +53,11 @@ public final class f {
     private final a e(BaseContinuationImpl baseContinuationImpl) {
         try {
             a aVar = new a(Class.class.getDeclaredMethod("getModule", new Class[0]), baseContinuationImpl.getClass().getClassLoader().loadClass("java.lang.Module").getDeclaredMethod("getDescriptor", new Class[0]), baseContinuationImpl.getClass().getClassLoader().loadClass("java.lang.module.ModuleDescriptor").getDeclaredMethod("name", new Class[0]));
-            nsB = aVar;
+            ntL = aVar;
             return aVar;
         } catch (Exception e) {
-            a aVar2 = nsA;
-            nsB = aVar2;
+            a aVar2 = ntK;
+            ntL = aVar2;
             return aVar2;
         }
     }

@@ -61,7 +61,7 @@ public class v extends aa {
                 }
 
                 @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-                public void ej(int i) {
+                public void el(int i) {
                     com.baidu.swan.apps.console.c.e("PreloadSubPackage", "preload subPackage failed");
                     UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, "No SubPackage").toString(), optString);
                 }

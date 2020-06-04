@@ -175,7 +175,7 @@ public class a {
         if (DEBUG) {
             Log.d("LaunchError", "show normal err toast: " + format);
         }
-        d.a(AppRuntime.getAppContext(), format).gC(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED).showMultiToast();
+        d.a(AppRuntime.getAppContext(), format).gE(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED).showMultiToast();
     }
 
     /* renamed from: com.baidu.swan.apps.v.a.a$a  reason: collision with other inner class name */

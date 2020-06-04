@@ -78,7 +78,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: dL */
+    /* renamed from: dN */
     public a.C0247a getItem(int i) {
         if (i < this.mData.size()) {
             return this.mData.get(i);

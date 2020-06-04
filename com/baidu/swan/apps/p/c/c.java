@@ -109,17 +109,17 @@ public final class c implements d {
         }
     }
 
-    public void fr(final int i) {
+    public void ft(final int i) {
         aj.p(new Runnable() { // from class: com.baidu.swan.apps.p.c.c.3
             @Override // java.lang.Runnable
             public void run() {
-                c.this.fs(i);
+                c.this.fu(i);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fs(int i) {
+    public void fu(int i) {
         Activity aes = aes();
         if (aes != null) {
             View decorView = aes.getWindow().getDecorView();
@@ -174,9 +174,9 @@ public final class c implements d {
         }
         int YS = QH.YS();
         for (int i = 0; i < YS; i++) {
-            com.baidu.swan.apps.core.d.b eK = QH.eK(i);
-            if (eK instanceof com.baidu.swan.apps.core.d.d) {
-                com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) eK;
+            com.baidu.swan.apps.core.d.b eM = QH.eM(i);
+            if (eM instanceof com.baidu.swan.apps.core.d.d) {
+                com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) eM;
                 if (TextUtils.equals(dVar.YB(), this.bIH)) {
                     return dVar;
                 }

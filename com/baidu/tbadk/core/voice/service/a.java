@@ -71,7 +71,7 @@ public class a implements d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXp() {
+    public void aXq() {
         if (this.mAudioRecord != null && this.file != null) {
             try {
                 this.Zv = true;
@@ -99,11 +99,11 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean aXq() {
+    public boolean aXr() {
         Thread thread = new Thread(new Runnable() { // from class: com.baidu.tbadk.core.voice.service.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.aXp();
+                a.this.aXq();
             }
         });
         thread.setPriority(10);
@@ -113,12 +113,12 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public void aXr() {
+    public void aXs() {
         this.Zv = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean aXs() {
+    public boolean aXt() {
         return this.Zv;
     }
 

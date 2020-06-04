@@ -45,41 +45,41 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     private ManagerApplyInfo applyInfo;
     private BzApplySwitch bzApplySwitch;
     private String fromType;
-    private List<SimpleThreadInfo> iaZ;
-    private com.baidu.tieba.im.forum.detail.a iyA;
-    private ForumDetailModel iyB;
-    private RecommendForumInfo iyC;
-    private BarEmotionResponseMessage.ForumEmotionData iyF;
-    private PriManagerApplyInfo iyG;
+    private List<SimpleThreadInfo> ibM;
+    private com.baidu.tieba.im.forum.detail.a izn;
+    private ForumDetailModel izo;
+    private RecommendForumInfo izp;
+    private BarEmotionResponseMessage.ForumEmotionData izs;
+    private PriManagerApplyInfo izt;
     private String mForumId;
     private ManagerElectionTab managerElectionTab;
-    private boolean iyD = false;
-    private boolean iyE = false;
-    public boolean iyH = false;
+    private boolean izq = false;
+    private boolean izr = false;
+    public boolean izu = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.forum_detail_activity);
-        this.iyA = new com.baidu.tieba.im.forum.detail.a(this);
-        this.iyA.cmj().a(new a());
-        this.iyA.f(new b());
-        this.iyB = new ForumDetailModel(this);
+        this.izn = new com.baidu.tieba.im.forum.detail.a(this);
+        this.izn.cms().a(new a());
+        this.izn.f(new b());
+        this.izo = new ForumDetailModel(this);
         this.mForumId = getIntent().getStringExtra("forum_id");
-        clZ();
-        cmb();
+        cmi();
+        cmk();
     }
 
-    private void clZ() {
+    private void cmi() {
         if (l.isNetOk()) {
-            this.iyA.showLoading();
-            this.iyB.sendMessage(this.mForumId);
-            this.iyB.Gw(this.mForumId);
+            this.izn.showLoading();
+            this.izo.sendMessage(this.mForumId);
+            this.izo.Gw(this.mForumId);
             return;
         }
-        this.iyA.hideLoading();
-        this.iyA.xA(R.string.refresh_view_title_text);
+        this.izn.hideLoading();
+        this.izn.xC(R.string.refresh_view_title_text);
         showToast(R.string.neterror);
     }
 
@@ -87,87 +87,87 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
-        clZ();
+        cmi();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.iyA.onResume();
+        this.izn.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iyA.onChangeSkinType(i);
+        this.izn.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tieba.im.forum.detail.ForumDetailModel.a
     public void Gv(String str) {
-        this.iyA.hideLoading();
+        this.izn.hideLoading();
         if (TextUtils.isEmpty(str)) {
             showToast(R.string.neterror);
         } else {
             showToast(str);
         }
         if (l.isNetOk()) {
-            this.iyA.xA(R.string.no_data_common_txt);
+            this.izn.xC(R.string.no_data_common_txt);
         } else {
-            this.iyA.xA(R.string.refresh_view_title_text);
+            this.izn.xC(R.string.refresh_view_title_text);
         }
     }
 
     @Override // com.baidu.tieba.im.forum.detail.ForumDetailModel.a
     public void a(ForumDetailSocketResponse forumDetailSocketResponse) {
-        this.iyC = forumDetailSocketResponse.getForumInfo();
-        this.iaZ = forumDetailSocketResponse.getThreadInfoList();
-        this.iyD = forumDetailSocketResponse.isBawuShow() == 1;
-        this.iyE = forumDetailSocketResponse.isComplaintShow();
+        this.izp = forumDetailSocketResponse.getForumInfo();
+        this.ibM = forumDetailSocketResponse.getThreadInfoList();
+        this.izq = forumDetailSocketResponse.isBawuShow() == 1;
+        this.izr = forumDetailSocketResponse.isComplaintShow();
         this.applyInfo = forumDetailSocketResponse.getApplyInfo();
-        this.iyG = forumDetailSocketResponse.getPrivateApplyInfo();
+        this.izt = forumDetailSocketResponse.getPrivateApplyInfo();
         this.managerElectionTab = forumDetailSocketResponse.getManagerElectionTab();
         this.bzApplySwitch = forumDetailSocketResponse.getBzApplySwitch();
-        cma();
+        cmj();
     }
 
     @Override // com.baidu.tieba.im.forum.detail.ForumDetailModel.a
     public void a(ForumDetailHttpResponse forumDetailHttpResponse) {
-        this.iyC = forumDetailHttpResponse.getForumInfo();
-        this.iaZ = forumDetailHttpResponse.getThreadInfoList();
-        this.iyD = forumDetailHttpResponse.isBawuShow() == 1;
-        this.iyE = forumDetailHttpResponse.isComplaintShow();
+        this.izp = forumDetailHttpResponse.getForumInfo();
+        this.ibM = forumDetailHttpResponse.getThreadInfoList();
+        this.izq = forumDetailHttpResponse.isBawuShow() == 1;
+        this.izr = forumDetailHttpResponse.isComplaintShow();
         this.applyInfo = forumDetailHttpResponse.getApplyInfo();
-        this.iyG = forumDetailHttpResponse.getPrivateApplyInfo();
+        this.izt = forumDetailHttpResponse.getPrivateApplyInfo();
         this.managerElectionTab = forumDetailHttpResponse.getManagerElectionTab();
         this.bzApplySwitch = forumDetailHttpResponse.getBzApplySwitch();
-        cma();
+        cmj();
     }
 
     @Override // com.baidu.tieba.im.forum.detail.ForumDetailModel.a
     public void a(BarEmotionResponseMessage barEmotionResponseMessage) {
         if (barEmotionResponseMessage != null) {
-            this.iyA.a(barEmotionResponseMessage.data);
-            this.iyF = barEmotionResponseMessage.data;
+            this.izn.a(barEmotionResponseMessage.data);
+            this.izs = barEmotionResponseMessage.data;
         }
     }
 
-    private void cma() {
-        this.iyA.hideLoading();
-        this.iyA.hideNoDataView();
-        if (this.iyC != null || (this.iaZ != null && this.iaZ.size() > 0)) {
-            this.iyH = true;
-            this.iaZ = de(this.iaZ);
-            this.iyA.a(this.iyC, this.iyD, this.iyE, this.applyInfo, this.iyG, this.managerElectionTab, this.bzApplySwitch);
-            this.iyA.aY(this.iaZ);
+    private void cmj() {
+        this.izn.hideLoading();
+        this.izn.hideNoDataView();
+        if (this.izp != null || (this.ibM != null && this.ibM.size() > 0)) {
+            this.izu = true;
+            this.ibM = df(this.ibM);
+            this.izn.a(this.izp, this.izq, this.izr, this.applyInfo, this.izt, this.managerElectionTab, this.bzApplySwitch);
+            this.izn.aY(this.ibM);
             return;
         }
-        this.iyH = false;
-        this.iyA.xA(R.string.no_data_common_txt);
+        this.izu = false;
+        this.izn.xC(R.string.no_data_common_txt);
     }
 
-    private List<SimpleThreadInfo> de(List<SimpleThreadInfo> list) {
+    private List<SimpleThreadInfo> df(List<SimpleThreadInfo> list) {
         if (list == null) {
             return null;
         }
@@ -192,7 +192,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         }
     }
 
-    private void cmb() {
+    private void cmk() {
         this.fromType = getIntent().getStringExtra("from_type");
         if (!StringUtils.isNull(this.fromType)) {
             String str = "";
@@ -219,42 +219,42 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.bar_info_member_lay) {
-            if (this.iyC != null && this.iyC.forum_id != null) {
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumMemberActivityConfig(getActivity(), String.valueOf(this.iyC.forum_id), this.iyC.forum_name)));
+            if (this.izp != null && this.izp.forum_id != null) {
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumMemberActivityConfig(getActivity(), String.valueOf(this.izp.forum_id), this.izp.forum_name)));
             }
         } else if (id == R.id.bar_info_clean_lay) {
-            this.iyA.cmi();
+            this.izn.cmr();
         } else if (id == R.id.bar_info_history_lay) {
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new OfficialBarHistoryActivityConfig(getPageContext().getPageActivity(), com.baidu.adp.lib.f.b.toInt(this.mForumId, 0))));
         } else if (id == R.id.bar_info_emotion_layout) {
             if (!TbadkApplication.isLogin()) {
                 TbadkCoreApplication.getInst().login(null, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getPageContext().getPageActivity(), true, 11003)));
-            } else if (this.iyF != null && this.iyF.forum_pkg_status == 1 && !TextUtils.isEmpty(this.iyF.url) && this.iyC != null) {
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CommonEmotionManagerActivityConfig(getPageContext().getPageActivity(), this.iyF.url + "?forum_id=" + this.iyC.forum_id)));
+            } else if (this.izs != null && this.izs.forum_pkg_status == 1 && !TextUtils.isEmpty(this.izs.url) && this.izp != null) {
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CommonEmotionManagerActivityConfig(getPageContext().getPageActivity(), this.izs.url + "?forum_id=" + this.izp.forum_id)));
             }
         } else if (id == R.id.bar_info_manager_lay) {
-            if (this.iyC != null) {
-                if (this.iyC.is_private_forum.intValue() == 0) {
-                    ba.aUZ().b(getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/bawuindex?fn=" + this.iyC.forum_name + "&fid=" + this.iyC.forum_id});
+            if (this.izp != null) {
+                if (this.izp.is_private_forum.intValue() == 0) {
+                    ba.aVa().b(getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/bawuindex?fn=" + this.izp.forum_name + "&fid=" + this.izp.forum_id});
                     TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_BAR_DETAIL_CLICK));
                     return;
                 }
-                ba.aUZ().b(getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/pribawuindex?fid=" + this.iyC.forum_id + "&fn=" + this.iyC.forum_name + "&nomenu=1"});
+                ba.aVa().b(getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/pribawuindex?fid=" + this.izp.forum_id + "&fn=" + this.izp.forum_name + "&nomenu=1"});
             }
         } else if (id == R.id.bar_info_complaint_lay) {
-            if (this.iyC != null) {
-                ba.aUZ().b(getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/pritousu/complainforum?fid=" + this.iyC.forum_id + "&nomenu=1"});
+            if (this.izp != null) {
+                ba.aVa().b(getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/pritousu/complainforum?fid=" + this.izp.forum_id + "&nomenu=1"});
             }
         } else if (id == R.id.bar_manager_apply_lay) {
-            new an("c13443").aUS();
-            if (this.iyC != null && this.managerElectionTab != null) {
+            new an("c13443").aUT();
+            if (this.izp != null && this.managerElectionTab != null) {
                 int intValue = this.managerElectionTab.new_manager_status.intValue();
                 if (intValue == 2) {
                     if (!TextUtils.isEmpty(this.managerElectionTab.new_strategy_link)) {
-                        ba.aUZ().b(getPageContext(), new String[]{this.managerElectionTab.new_strategy_link});
+                        ba.aVa().b(getPageContext(), new String[]{this.managerElectionTab.new_strategy_link});
                     }
                 } else if (intValue == 3 || intValue == 4) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(this).createNormalConfig(this.iyC.forum_id.longValue(), 2)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(this).createNormalConfig(this.izp.forum_id.longValue(), 2)));
                 } else if (intValue == 5) {
                     if (TextUtils.isEmpty(this.managerElectionTab.toast_text)) {
                         l.showToast(TbadkCoreApplication.getInst(), (int) R.string.bar_election_finished);
@@ -271,10 +271,10 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.OFF) {
-            this.iyB.subscribeBar(false, this.mForumId);
-        } else if (!d.aZS().aZU() || !d.aZS().baa()) {
+            this.izo.subscribeBar(false, this.mForumId);
+        } else if (!d.aZT().aZV() || !d.aZT().bab()) {
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
-            aVar.kD(R.string.error_open_personal_single_alloff);
+            aVar.kF(R.string.error_open_personal_single_alloff);
             aVar.b(getResources().getString(R.string.signallforum_signnow), new a.b() { // from class: com.baidu.tieba.im.forum.detail.ForumDetailActivity.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -286,11 +286,11 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.im.forum.detail.ForumDetailActivity.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    ForumDetailActivity.this.iyA.setSwitch(false);
+                    ForumDetailActivity.this.izn.setSwitch(false);
                 }
             }, 500L);
         } else {
-            this.iyB.subscribeBar(true, this.mForumId);
+            this.izo.subscribeBar(true, this.mForumId);
         }
     }
 
@@ -301,15 +301,15 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
-            if (!ForumDetailActivity.this.iyH) {
+            if (!ForumDetailActivity.this.izu) {
                 if (z) {
-                    ForumDetailActivity.this.iyA.hideNoDataView();
-                    ForumDetailActivity.this.iyA.showLoading();
-                    ForumDetailActivity.this.iyB.sendMessage(ForumDetailActivity.this.mForumId);
+                    ForumDetailActivity.this.izn.hideNoDataView();
+                    ForumDetailActivity.this.izn.showLoading();
+                    ForumDetailActivity.this.izo.sendMessage(ForumDetailActivity.this.mForumId);
                     return;
                 }
-                ForumDetailActivity.this.iyA.hideLoading();
-                ForumDetailActivity.this.iyA.xA(R.string.refresh_view_title_text);
+                ForumDetailActivity.this.izn.hideLoading();
+                ForumDetailActivity.this.izn.xC(R.string.refresh_view_title_text);
             }
         }
     }
@@ -322,9 +322,9 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (l.isNetOk()) {
-                ForumDetailActivity.this.iyA.hideNoDataView();
-                ForumDetailActivity.this.iyA.showLoading();
-                ForumDetailActivity.this.iyB.sendMessage(ForumDetailActivity.this.mForumId);
+                ForumDetailActivity.this.izn.hideNoDataView();
+                ForumDetailActivity.this.izn.showLoading();
+                ForumDetailActivity.this.izo.sendMessage(ForumDetailActivity.this.mForumId);
             }
         }
     }
@@ -340,7 +340,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.im.forum.detail.ForumDetailActivity.3
             @Override // java.lang.Runnable
             public void run() {
-                ForumDetailActivity.this.iyA.setSwitch(false);
+                ForumDetailActivity.this.izn.setSwitch(false);
             }
         }, 500L);
     }
@@ -356,7 +356,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.im.forum.detail.ForumDetailActivity.4
             @Override // java.lang.Runnable
             public void run() {
-                ForumDetailActivity.this.iyA.setSwitch(true);
+                ForumDetailActivity.this.izn.setSwitch(true);
             }
         }, 500L);
     }
@@ -368,7 +368,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 if (!TextUtils.isEmpty(ForumDetailActivity.this.mForumId)) {
-                    com.baidu.tieba.im.settingcache.d.cpr().z(TbadkApplication.getCurrentAccount(), String.valueOf(ForumDetailActivity.this.mForumId), z);
+                    com.baidu.tieba.im.settingcache.d.cpA().z(TbadkApplication.getCurrentAccount(), String.valueOf(ForumDetailActivity.this.mForumId), z);
                 }
                 return null;
             }
@@ -377,23 +377,23 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     }
 
     public void setSwitch(boolean z) {
-        this.iyA.setSwitch(z);
+        this.izn.setSwitch(z);
     }
 
     public void oZ(boolean z) {
-        this.iyA.a(this.iyC, z);
+        this.izn.a(this.izp, z);
     }
 
     public void pa(boolean z) {
-        this.iyA.b(this.iyC, z);
+        this.izn.b(this.izp, z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (i2 == -1 && i == 11003 && this.iyF != null && this.iyF.forum_pkg_status == 1 && !TextUtils.isEmpty(this.iyF.url) && this.iyC != null) {
-            sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CommonEmotionManagerActivityConfig(getPageContext().getPageActivity(), this.iyF.url + "?forum_id=" + this.iyC.forum_id)));
+        if (i2 == -1 && i == 11003 && this.izs != null && this.izs.forum_pkg_status == 1 && !TextUtils.isEmpty(this.izs.url) && this.izp != null) {
+            sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CommonEmotionManagerActivityConfig(getPageContext().getPageActivity(), this.izs.url + "?forum_id=" + this.izp.forum_id)));
         }
     }
 }

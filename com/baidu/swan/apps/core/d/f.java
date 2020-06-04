@@ -74,8 +74,8 @@ public class f extends b {
     @Override // com.baidu.swan.apps.core.d.b
     public void ae(View view) {
         ah(view);
-        eH(-1);
-        eI(ViewCompat.MEASURED_STATE_MASK);
+        eJ(-1);
+        eK(ViewCompat.MEASURED_STATE_MASK);
         ji(getString(a.h.swan_app_plugin_fun_page_title));
         dC(true);
         setRightZoneVisibility(false);

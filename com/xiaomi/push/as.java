@@ -51,7 +51,7 @@ class as implements ar {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m136a(Context context) {
+    public static boolean m135a(Context context) {
         return "com.xiaomi.xmsf".equals(context.getPackageName());
     }
 
@@ -67,7 +67,7 @@ class as implements ar {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo133b() {
+    public String mo132b() {
         return a(this.a, this.b);
     }
 

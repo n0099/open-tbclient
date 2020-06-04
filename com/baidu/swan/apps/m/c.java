@@ -57,7 +57,7 @@ public final class c {
                 }));
             }
         }
-        final g ZF = new g.a(activity).eR(true).ao(inflate).a(new com.baidu.swan.apps.view.c.a()).gA(a.e.aiapps_action_sheet_bg).eW(false).aol().eS(false).ZF();
+        final g ZF = new g.a(activity).eR(true).ao(inflate).a(new com.baidu.swan.apps.view.c.a()).gC(a.e.aiapps_action_sheet_bg).eW(false).aol().eS(false).ZF();
         final DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.m.c.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {

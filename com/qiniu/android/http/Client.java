@@ -30,7 +30,7 @@ import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class Client {
     private OkHttpClient httpClient;
-    private final UrlConverter nfP;
+    private final UrlConverter ngZ;
 
     public Client() {
         this(null, 10, 30, null, null);
@@ -38,12 +38,12 @@ public final class Client {
 
     public Client(ProxyConfiguration proxyConfiguration, int i, int i2, UrlConverter urlConverter, final Dns dns) {
         OkHttpClient.Builder newBuilder;
-        this.nfP = urlConverter;
-        OkHttpClient dHX = UploadManager.dHX();
-        if (dHX == null) {
+        this.ngZ = urlConverter;
+        OkHttpClient dIl = UploadManager.dIl();
+        if (dIl == null) {
             newBuilder = new OkHttpClient.Builder();
         } else {
-            newBuilder = dHX.newBuilder();
+            newBuilder = dIl.newBuilder();
             newBuilder.interceptors().clear();
             newBuilder.networkInterceptors().clear();
         }
@@ -111,7 +111,7 @@ public final class Client {
 
     private static JSONObject aq(byte[] bArr) throws Exception {
         String str = new String(bArr, "utf-8");
-        return StringUtils.QX(str) ? new JSONObject() : new JSONObject(str);
+        return StringUtils.QY(str) ? new JSONObject() : new JSONObject(str);
     }
 
     private static ResponseInfo a(Response response, String str, long j, UpToken upToken, long j2) {
@@ -179,7 +179,7 @@ public final class Client {
         AsyncRun.I(new Runnable() { // from class: com.qiniu.android.http.Client.3
             @Override // java.lang.Runnable
             public void run() {
-                CompletionHandler.this.a(a, a.ngm);
+                CompletionHandler.this.a(a, a.nhw);
             }
         });
     }
@@ -194,9 +194,9 @@ public final class Client {
             });
         }
         if (upToken != null) {
-            builder.header("User-Agent", UserAgent.dHP().QT(upToken.nfE));
+            builder.header("User-Agent", UserAgent.dId().QU(upToken.ngO));
         } else {
-            builder.header("User-Agent", UserAgent.dHP().QT("pandora"));
+            builder.header("User-Agent", UserAgent.dId().QU("pandora"));
         }
         final ResponseTag responseTag = new ResponseTag();
         this.httpClient.newCall(builder.tag(responseTag).build()).enqueue(new Callback() { // from class: com.qiniu.android.http.Client.5
@@ -231,8 +231,8 @@ public final class Client {
     public void a(String str, byte[] bArr, int i, int i2, StringMap stringMap, UpToken upToken, long j, ProgressHandler progressHandler, CompletionHandler completionHandler, CancellationHandler cancellationHandler) {
         CountingRequestBody create;
         Object obj;
-        if (this.nfP != null) {
-            str = this.nfP.Ih(str);
+        if (this.ngZ != null) {
+            str = this.ngZ.Ii(str);
         }
         if (bArr != null && bArr.length > 0) {
             MediaType parse = MediaType.parse("application/octet-stream");
@@ -259,12 +259,12 @@ public final class Client {
             create = RequestBody.create(MediaType.parse(postArgs.mimeType), postArgs.data);
             length = postArgs.data.length;
         }
-        a(str, postArgs.nge, upToken, length, progressHandler, postArgs.fileName, create, completionHandler, cancellationHandler);
+        a(str, postArgs.nho, upToken, length, progressHandler, postArgs.fileName, create, completionHandler, cancellationHandler);
     }
 
     private void a(String str, StringMap stringMap, UpToken upToken, long j, ProgressHandler progressHandler, String str2, RequestBody requestBody, CompletionHandler completionHandler, CancellationHandler cancellationHandler) {
-        if (this.nfP != null) {
-            str = this.nfP.Ih(str);
+        if (this.ngZ != null) {
+            str = this.ngZ.Ii(str);
         }
         final MultipartBody.Builder builder = new MultipartBody.Builder();
         builder.addFormDataPart("file", str2, requestBody);
@@ -289,33 +289,33 @@ public final class Client {
     /* renamed from: com.qiniu.android.http.Client$7  reason: invalid class name */
     /* loaded from: classes5.dex */
     class AnonymousClass7 implements StringMap.Consumer {
-        final /* synthetic */ Request.Builder nfU;
+        final /* synthetic */ Request.Builder nhe;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
         public void N(String str, Object obj) {
-            this.nfU.header(str, obj.toString());
+            this.nhe.header(str, obj.toString());
         }
     }
 
     /* renamed from: com.qiniu.android.http.Client$8  reason: invalid class name */
     /* loaded from: classes5.dex */
     class AnonymousClass8 implements StringMap.Consumer {
-        final /* synthetic */ MultipartBody.Builder nfX;
+        final /* synthetic */ MultipartBody.Builder nhh;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
         public void N(String str, Object obj) {
-            this.nfX.addFormDataPart(str, obj.toString());
+            this.nhh.addFormDataPart(str, obj.toString());
         }
     }
 
     /* renamed from: com.qiniu.android.http.Client$9  reason: invalid class name */
     /* loaded from: classes5.dex */
     class AnonymousClass9 implements StringMap.Consumer {
-        final /* synthetic */ Request.Builder nfU;
+        final /* synthetic */ Request.Builder nhe;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
         public void N(String str, Object obj) {
-            this.nfU.header(str, obj.toString());
+            this.nhe.header(str, obj.toString());
         }
     }
 

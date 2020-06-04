@@ -9,7 +9,7 @@ public interface b {
 
     void c(String str, int i, String str2);
 
-    void dr(int i);
+    void dt(int i);
 
     void fP(String str);
 

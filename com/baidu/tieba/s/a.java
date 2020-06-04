@@ -14,13 +14,13 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static final List<String> lic = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
+    private static final List<String> ljl = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
 
-    public static String Mn(String str) {
+    public static String Mo(String str) {
         return "enterfourm_att_" + str;
     }
 
-    public static String Mo(String str) {
+    public static String Mp(String str) {
         return "enterfourm_rec_" + str;
     }
 
@@ -80,7 +80,7 @@ public class a {
     public static an b(String str, String str2, boolean z, int i, int i2) {
         an anVar = new an(str2);
         anVar.dh("page_type", str).ag("ad_exp", z ? 1 : 0).ag("ad_exp_cnt", i).ag("obj_floor", 0).ag("obj_adlocate", i2);
-        if (str != null && lic.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+        if (str != null && ljl.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
             anVar.dh("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().eaO);
         }
         return anVar;
@@ -106,7 +106,7 @@ public class a {
         if (!aq.isEmpty(bkVar.aRU())) {
             anVar.dh("list_strategy", bkVar.aRU());
         }
-        if (str != null && lic.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().eaO)) {
+        if (str != null && ljl.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().eaO)) {
             anVar.dh("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().eaO);
         } else if (!aq.isEmpty(bkVar.mRecomAbTag)) {
             anVar.dh("ab_tag", bkVar.mRecomAbTag);
@@ -140,7 +140,7 @@ public class a {
             str3 = str4;
         }
         ag.dh("obj_id", str3).ag("obj_adlocate", i3);
-        if (str != null && lic.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+        if (str != null && ljl.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
             anVar.dh("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().eaO);
         }
         if (z) {

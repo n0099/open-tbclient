@@ -8,7 +8,7 @@ public class b implements Parcelable {
     public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.baidu.helios.bridge.multiprocess.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: bs */
+        /* renamed from: bu */
         public b[] newArray(int i) {
             return new b[i];
         }

@@ -12,13 +12,13 @@ import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.y;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tieba.frs.h<bk, com.baidu.tieba.ala.livecard.a.a> implements y {
-    private com.baidu.tieba.ala.livecard.b.b fFW;
-    private aa<bk> fFX;
+    private com.baidu.tieba.ala.livecard.b.b fGh;
+    private aa<bk> fGi;
     private String mForumName;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.fFX = new aa<bk>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
+        this.fGi = new aa<bk>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
@@ -43,19 +43,19 @@ public class c extends com.baidu.tieba.frs.h<bk, com.baidu.tieba.ala.livecard.a.
         if (this.mPageContext == null) {
             return null;
         }
-        this.fFW = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
-        this.fFW.o(this.mPageId);
-        this.fFW.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.a(this.fFW);
+        this.fGh = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
+        this.fGh.o(this.mPageId);
+        this.fGh.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.a(this.fGh);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bk bkVar, com.baidu.tieba.ala.livecard.a.a aVar) {
-        aVar.fGj.a(bkVar);
-        aVar.fGj.setForumName(this.mForumName);
-        aVar.fGj.c(this.fFX);
+        aVar.fGu.a(bkVar);
+        aVar.fGu.setForumName(this.mForumName);
+        aVar.fGu.c(this.fGi);
         if (bkVar != null) {
             bkVar.aRK();
         }
@@ -68,6 +68,6 @@ public class c extends com.baidu.tieba.frs.h<bk, com.baidu.tieba.ala.livecard.a.
     }
 
     @Override // com.baidu.tieba.card.y
-    public void qw(int i) {
+    public void qy(int i) {
     }
 }

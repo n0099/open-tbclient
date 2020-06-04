@@ -76,7 +76,7 @@ public class d {
                         d.aLs().uq(d.this.getClipBoardContent());
                     }
                 }, 4000L);
-            } else if (ak.isEmui()) {
+            } else if (ak.isEmui() || ak.aUP()) {
                 com.baidu.adp.lib.f.e.ld().postDelayed(new Runnable() { // from class: com.baidu.tbadk.BdToken.d.3
                     @Override // java.lang.Runnable
                     public void run() {
@@ -275,7 +275,7 @@ public class d {
     public void cU(String str, String str2) {
         TbPageContext<?> n;
         if (!aq.isEmpty(str2) && (n = n(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
-            ba.aUZ().a(n, str, new String[]{str2});
+            ba.aVa().a(n, str, new String[]{str2});
         }
     }
 

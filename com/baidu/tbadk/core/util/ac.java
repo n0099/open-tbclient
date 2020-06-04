@@ -54,16 +54,16 @@ public class ac {
     public void b(String str, String str2, boolean z, boolean z2, boolean z3) {
         if (str2 != null && str != null) {
             String nameMd5FromUrl = as.getNameMd5FromUrl(str);
-            ap.aUT().copyFile(str2, nameMd5FromUrl);
+            ap.aUU().copyFile(str2, nameMd5FromUrl);
             if (z || z2 || z3) {
                 synchronized (BitmapHelper.lockForSyncImageDecoder) {
-                    int wt = ap.aUT().wt(nameMd5FromUrl);
+                    int wt = ap.aUU().wt(nameMd5FromUrl);
                     if (wt > 0) {
                         if (z) {
-                            Bitmap image = ap.aUT().getImage(nameMd5FromUrl);
-                            com.baidu.tbadk.imageManager.c.bet().freePicCache(wt);
+                            Bitmap image = ap.aUU().getImage(nameMd5FromUrl);
+                            com.baidu.tbadk.imageManager.c.beu().freePicCache(wt);
                             if (image != null) {
-                                a(str, image, z2, ap.aUT().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
+                                a(str, image, z2, ap.aUU().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                             }
                         }
                     }
@@ -104,7 +104,7 @@ public class ac {
     }
 
     private static void a(String str, com.baidu.adp.widget.ImageView.a aVar) {
-        com.baidu.tbadk.imageManager.c.bet().c(str, aVar);
+        com.baidu.tbadk.imageManager.c.beu().c(str, aVar);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {
@@ -117,7 +117,7 @@ public class ac {
             bitmap2 = BitmapHelper.getRoundedCornerBitmap(q, (q.getHeight() < 100 || q.getWidth() < 100) ? 5.0f : 5.0f, true);
         }
         if (!TextUtils.isEmpty(str)) {
-            ap.aUT().j(str, BitmapHelper.Bitmap2Bytes(bitmap2, 100));
+            ap.aUU().j(str, BitmapHelper.Bitmap2Bytes(bitmap2, 100));
         }
         return bitmap2;
     }

@@ -113,7 +113,7 @@ public abstract class g<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
                 com.baidu.swan.apps.c.a.f.bIQ.TI();
             }
             om(str);
-        } else if (gN(optInt)) {
+        } else if (gP(optInt)) {
             if (com.baidu.swan.apps.c.a.f.bIQ.TJ()) {
                 com.baidu.swan.apps.c.a.f.bIQ.TI();
                 om(str);
@@ -127,7 +127,7 @@ public abstract class g<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
         }
     }
 
-    private boolean gN(int i) {
+    private boolean gP(int i) {
         return i == 600101 || i == 600102 || i == 600103 || i == 402 || i == 401;
     }
 

@@ -82,7 +82,7 @@ public class AlaFrsLiveStatic {
                         aVar.setForumGameLabel(agVar.getForumGameLabel());
                         aVar.setFromType(1);
                         aVar.jU(true);
-                        if (agVar.uh(9)) {
+                        if (agVar.uj(9)) {
                             agVar.b(aVar);
                         }
                     }
@@ -141,7 +141,7 @@ public class AlaFrsLiveStatic {
                         aVar.setForumId(agVar.getForumId());
                         aVar.setForumName(agVar.getForumName());
                         aVar.jV(true);
-                        if (agVar.uh(8)) {
+                        if (agVar.uj(8)) {
                             agVar.b(aVar);
                         }
                     }

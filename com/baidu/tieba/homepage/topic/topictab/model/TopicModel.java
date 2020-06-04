@@ -26,15 +26,15 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class TopicModel extends BdBaseModel {
     private a dve;
-    private a icQ;
-    private com.baidu.tieba.homepage.topic.topictab.a ihY;
+    private a idH;
+    private com.baidu.tieba.homepage.topic.topictab.a iiL;
     private boolean mIsLoading;
     private List<o> mListData;
     private TbPageContext<?> mPageContext;
 
     public TopicModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.icQ = new a(1003065, CmdConfigSocket.CMD_TOPIC_BLESS) { // from class: com.baidu.tieba.homepage.topic.topictab.model.TopicModel.1
+        this.idH = new a(1003065, CmdConfigSocket.CMD_TOPIC_BLESS) { // from class: com.baidu.tieba.homepage.topic.topictab.model.TopicModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 long j;
@@ -56,7 +56,7 @@ public class TopicModel extends BdBaseModel {
                     long longValue = (j == 0 && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestBlessMessage)) ? ((RequestBlessMessage) responsedMessage.getOrginalMessage().getExtra()).pk_id.longValue() : j;
                     if (longValue != 0 && TopicModel.this.mListData != null) {
                         for (o oVar : TopicModel.this.mListData) {
-                            if ((oVar instanceof com.baidu.tieba.homepage.topic.topictab.b.a) && (bVar = ((com.baidu.tieba.homepage.topic.topictab.b.a) oVar).ihK) != null && longValue == bVar.pkId) {
+                            if ((oVar instanceof com.baidu.tieba.homepage.topic.topictab.b.a) && (bVar = ((com.baidu.tieba.homepage.topic.topictab.b.a) oVar).iix) != null && longValue == bVar.pkId) {
                                 bVar.userPkId = j2;
                                 return;
                             }
@@ -78,7 +78,7 @@ public class TopicModel extends BdBaseModel {
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 TopicModel.this.mIsLoading = false;
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicModel.this.ihY != null) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicModel.this.iiL != null) {
                     List<o> list = null;
                     if (responsedMessage instanceof ResponseHttpGetTopicListMessage) {
                         list = ((ResponseHttpGetTopicListMessage) responsedMessage).getTopicDataList();
@@ -87,14 +87,14 @@ public class TopicModel extends BdBaseModel {
                         list = ((ResponseSocketGetTopicListMessage) responsedMessage).getTopicDataList();
                     }
                     TopicModel.this.mListData = list;
-                    TopicModel.this.ihY.o(responsedMessage.getError(), list);
+                    TopicModel.this.iiL.o(responsedMessage.getError(), list);
                 }
             }
         };
     }
 
     public void setPresenter(com.baidu.tieba.homepage.topic.topictab.a aVar) {
-        this.ihY = aVar;
+        this.iiL = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -102,14 +102,14 @@ public class TopicModel extends BdBaseModel {
         super.setUniqueId(bdUniqueId);
         this.dve.setTag(bdUniqueId);
         registerListener(this.dve);
-        this.icQ.setTag(bdUniqueId);
-        registerListener(this.icQ);
+        this.idH.setTag(bdUniqueId);
+        registerListener(this.idH);
     }
 
-    public void cgT() {
+    public void chc() {
         if (!j.isNetworkAvailableForImmediately()) {
-            if (this.ihY != null) {
-                this.ihY.o(-1, null);
+            if (this.iiL != null) {
+                this.iiL.o(-1, null);
             }
         } else if (!this.mIsLoading) {
             cancelLoadData();
@@ -135,7 +135,7 @@ public class TopicModel extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.dve);
-        MessageManager.getInstance().unRegisterListener(this.icQ);
+        MessageManager.getInstance().unRegisterListener(this.idH);
         this.mIsLoading = false;
     }
 }

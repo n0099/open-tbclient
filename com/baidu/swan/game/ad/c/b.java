@@ -60,12 +60,13 @@ public class b {
             return this;
         }
 
-        public a ic(int i) {
+        public a ie(int i) {
             this.cRf = ag.B(i);
             return this;
         }
 
-        public a id(int i) {
+        /* renamed from: if  reason: not valid java name */
+        public a m27if(int i) {
             this.cRg = ag.B(i);
             return this;
         }

@@ -57,8 +57,8 @@ public class a implements z {
             dVar.objID = string;
             dVar.erv = string2;
             dVar.setSorceKeyList(getCurrentPageSourceKeyList());
-            com.baidu.tbadk.m.e.bfu().in(true);
-            com.baidu.tbadk.m.e.bfu().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
+            com.baidu.tbadk.m.e.bfv().in(true);
+            com.baidu.tbadk.m.e.bfv().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
             com.baidu.tbadk.core.sharedPref.b.aTX().putLong("smart_app_tid", 0L);
         }
     }

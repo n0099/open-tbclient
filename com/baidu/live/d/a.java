@@ -22,7 +22,7 @@ public interface a {
 
     void b(q qVar);
 
-    void bC(int i);
+    void bE(int i);
 
     View getRootView();
 

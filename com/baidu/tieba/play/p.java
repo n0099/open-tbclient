@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.provider.Settings;
 /* loaded from: classes.dex */
 public class p extends ContentObserver {
-    private a kzy;
+    private a kAE;
     private Context mContext;
 
     /* loaded from: classes.dex */
@@ -28,8 +28,8 @@ public class p extends ContentObserver {
         if (this.mContext != null) {
             try {
                 int i = Settings.System.getInt(this.mContext.getContentResolver(), "accelerometer_rotation");
-                if (this.kzy != null) {
-                    this.kzy.onChange(i == 1);
+                if (this.kAE != null) {
+                    this.kAE.onChange(i == 1);
                 }
             } catch (Settings.SettingNotFoundException e) {
                 e.printStackTrace();
@@ -38,7 +38,7 @@ public class p extends ContentObserver {
     }
 
     public void a(a aVar) {
-        this.kzy = aVar;
+        this.kAE = aVar;
         GY();
     }
 }

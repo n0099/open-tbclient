@@ -160,8 +160,8 @@ public class HeadImageView extends TbClipImageView {
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.ewW != null && this.ewW.erV) {
-            this.ewW.bfD();
+        } else if (this.exh != null && this.exh.erV) {
+            this.exh.bfE();
         }
     }
 

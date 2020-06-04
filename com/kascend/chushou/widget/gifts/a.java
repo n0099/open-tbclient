@@ -16,11 +16,11 @@ import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a extends PopupWindow implements View.OnClickListener {
     private final TextView a;
-    private InterfaceC0828a ncr;
+    private InterfaceC0829a ndB;
 
     /* renamed from: com.kascend.chushou.widget.gifts.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0828a {
+    public interface InterfaceC0829a {
         void a(int i);
 
         void b(int i);
@@ -102,8 +102,8 @@ public class a extends PopupWindow implements View.OnClickListener {
         int parseInt = h.parseInt(this.a.getText().toString());
         if (parseInt != 0) {
             dismiss();
-            if (this.ncr != null) {
-                this.ncr.a(parseInt);
+            if (this.ndB != null) {
+                this.ndB.a(parseInt);
             }
         }
     }
@@ -116,8 +116,8 @@ public class a extends PopupWindow implements View.OnClickListener {
         } else if (charSequence.length() < 4) {
             this.a.setText(String.valueOf(charSequence + i));
         }
-        if (this.ncr != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
-            this.ncr.b(parseInt);
+        if (this.ndB != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
+            this.ndB.b(parseInt);
         }
     }
 
@@ -127,12 +127,12 @@ public class a extends PopupWindow implements View.OnClickListener {
         if (charSequence.length() > 0) {
             this.a.setText(charSequence.substring(0, charSequence.length() - 1));
         }
-        if (this.ncr != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
-            this.ncr.b(parseInt);
+        if (this.ndB != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
+            this.ndB.b(parseInt);
         }
     }
 
-    public void a(InterfaceC0828a interfaceC0828a) {
-        this.ncr = interfaceC0828a;
+    public void a(InterfaceC0829a interfaceC0829a) {
+        this.ndB = interfaceC0829a;
     }
 }

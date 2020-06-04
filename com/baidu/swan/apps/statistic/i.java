@@ -41,9 +41,9 @@ public class i {
                 }
                 return;
             }
-            SwanCoreVersion hb = com.baidu.swan.apps.swancore.b.hb(com.baidu.swan.apps.runtime.d.aoB().Qz());
-            if (hb != null && !TextUtils.isEmpty(hb.swanCorePath)) {
-                if (!str.startsWith(hb.swanCorePath)) {
+            SwanCoreVersion hd = com.baidu.swan.apps.swancore.b.hd(com.baidu.swan.apps.runtime.d.aoB().Qz());
+            if (hd != null && !TextUtils.isEmpty(hd.swanCorePath)) {
+                if (!str.startsWith(hd.swanCorePath)) {
                     if (DEBUG) {
                         Log.d("V8StabilityHelper", "file path is not swan core path");
                         return;
@@ -100,7 +100,7 @@ public class i {
         if (aoF != null) {
             aVar = aoF.QJ();
         }
-        com.baidu.swan.apps.statistic.a.d oD = new com.baidu.swan.apps.statistic.a.d().f(new com.baidu.swan.apps.an.a().bw(5L).bx(37L)).a(aVar).oC(h.gS(com.baidu.swan.apps.runtime.d.aoB().Qz())).oD(com.baidu.swan.apps.runtime.e.aoH());
+        com.baidu.swan.apps.statistic.a.d oD = new com.baidu.swan.apps.statistic.a.d().f(new com.baidu.swan.apps.an.a().bw(5L).bx(37L)).a(aVar).oC(h.gU(com.baidu.swan.apps.runtime.d.aoB().Qz())).oD(com.baidu.swan.apps.runtime.e.aoH());
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {

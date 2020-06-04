@@ -13,7 +13,7 @@ public class e {
     private boolean isWifi = true;
     private int mSize = 0;
 
-    public static e aVJ() {
+    public static e aVK() {
         if (dRg == null) {
             synchronized (e.class) {
                 if (dRg == null) {
@@ -41,7 +41,7 @@ public class e {
         return false;
     }
 
-    public int aVK() {
+    public int aVL() {
         return this.dRh;
     }
 

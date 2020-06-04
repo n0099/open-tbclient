@@ -15,5 +15,5 @@ public interface b {
 
     void bX(View view);
 
-    boolean ur(int i);
+    boolean ut(int i);
 }

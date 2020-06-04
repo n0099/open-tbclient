@@ -30,30 +30,30 @@ public abstract class a {
     /* renamed from: com.baidu.tbadk.core.view.commonBtn.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0478a {
-        void aWU();
-
         void aWV();
 
         void aWW();
+
+        void aWX();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract Drawable T(float f);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable aWX() {
-        return me(this.dYq[0]);
+    public Drawable aWY() {
+        return mg(this.dYq[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable aWY() {
-        return me(this.dYq[1]);
+    public Drawable aWZ() {
+        return mg(this.dYq[1]);
     }
 
-    private Drawable me(int i) {
+    private Drawable mg(int i) {
         Drawable drawable;
         if (this.dIG) {
-            drawable = SvgManager.aUV().a(i, this.dYs > 0 ? this.dYs : this.dYn, SvgManager.SvgResourceStateType.NORMAL);
+            drawable = SvgManager.aUW().a(i, this.dYs > 0 ? this.dYs : this.dYn, SvgManager.SvgResourceStateType.NORMAL);
         } else {
             drawable = am.getDrawable(i);
         }
@@ -69,16 +69,16 @@ public abstract class a {
             this.dYq[1] = i2;
             this.dIG = z;
             if (this.dYA != null) {
-                this.dYA.aWV();
+                this.dYA.aWW();
             }
         }
     }
 
-    public void mf(int i) {
+    public void mh(int i) {
         if (i > 0 && this.dYr != i) {
             this.dYr = i;
             if (this.dYA != null) {
-                this.dYA.aWU();
+                this.dYA.aWV();
             }
         }
     }
@@ -92,11 +92,11 @@ public abstract class a {
         }
     }
 
-    public void mg(int i) {
+    public void mi(int i) {
         this.dYu = i;
     }
 
-    public void mh(int i) {
+    public void mj(int i) {
         this.dYv = i;
     }
 

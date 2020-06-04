@@ -38,12 +38,12 @@ public final class a {
         return com.baidu.swan.apps.u.a.aeU().getSwitch("swan_predownload_effective", false);
     }
 
-    public static boolean eX(int i) {
+    public static boolean eZ(int i) {
         return bYx.contains(Integer.valueOf(i));
     }
 
     public static boolean c(com.baidu.swan.pms.model.a aVar) {
-        return aVar != null && eX(aVar.errorNo);
+        return aVar != null && eZ(aVar.errorNo);
     }
 
     public static boolean H(String str, boolean z) {

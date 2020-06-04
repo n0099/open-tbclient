@@ -15,7 +15,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.d.goB);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.d.goM);
         this.mPageContext = tbPageContext;
     }
 
@@ -31,21 +31,21 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.bLU() == null) {
+        if (aVar.bLW() == null) {
             return null;
         }
-        a(dVar, aVar.bLU());
-        aVar.bLU().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.a.1
+        a(dVar, aVar.bLW());
+        aVar.bLW().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 a.this.click();
             }
         });
-        return aVar.bLU().getView();
+        return aVar.bLW().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.d dVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
-        aVar.rO(8);
+        aVar.rQ(8);
         aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_forbidden));
         aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

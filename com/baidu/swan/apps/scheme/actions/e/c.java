@@ -91,7 +91,7 @@ public class c extends aa {
                 return false;
             }
             final int color = i == -1 ? context.getResources().getColor(a.c.aiapps_action_sheet_item_color) : i;
-            g.a a = new f(context).eR(true).eY(true).eW(true).eX(false).eT(true).a(new com.baidu.swan.apps.view.c.a()).gr(context.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider)).gA(a.e.aiapps_action_sheet_bg).gy(a.c.aiapps_action_sheet_cancel_text).d(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.actions.e.c.2
+            g.a a = new f(context).eR(true).eY(true).eW(true).eX(false).eT(true).a(new com.baidu.swan.apps.view.c.a()).gt(context.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider)).gC(a.e.aiapps_action_sheet_bg).gA(a.c.aiapps_action_sheet_cancel_text).d(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.actions.e.c.2
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i3) {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
@@ -134,7 +134,7 @@ public class c extends aa {
             });
             a.ao(inflate);
             a.aol();
-            a.gs(l(context, arrayList.size()));
+            a.gu(l(context, arrayList.size()));
             final g ZF = a.ZF();
             Window window = ZF.getWindow();
             if (window != null) {

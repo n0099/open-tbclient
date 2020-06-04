@@ -60,7 +60,7 @@ public class a {
             int size = this.cIq.size();
             this.cIp = new ArrayList<>(size);
             this.cIl = view.findViewById(a.f.bottom_bar_shadow);
-            hx(this.cAw.cAX);
+            hz(this.cAw.cAX);
             this.cIm = (LinearLayout) view.findViewById(a.f.ai_apps_bottom_tab);
             this.cIm.setVisibility(0);
             this.cIm.setBackgroundColor(this.cAw.mBackgroundColor);
@@ -84,7 +84,7 @@ public class a {
                 swanAppBottomTabIconView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.tabbar.b.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        a.this.hy(i);
+                        a.this.hA(i);
                     }
                 });
                 this.cIp.add(swanAppBottomTabIconView);
@@ -99,7 +99,7 @@ public class a {
         return this.cIm != null && this.cIm.getVisibility() == 0;
     }
 
-    private void hx(int i) {
+    private void hz(int i) {
         if (AppRuntime.getAppContext() != null) {
             if (-1 == i) {
                 this.cIl.setVisibility(0);
@@ -239,11 +239,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hy(int i) {
+    public void hA(int i) {
         String uuid = UUID.randomUUID().toString();
         h.mC(uuid);
-        hA(i);
-        hz(i);
+        hC(i);
+        hB(i);
         if (this.cIn != i) {
             this.cIn = i;
             this.cIo.pause();
@@ -253,7 +253,7 @@ public class a {
         }
     }
 
-    private void hz(int i) {
+    private void hB(int i) {
         HashMap hashMap = new HashMap();
         SwanAppConfigData.j jVar = this.cIq.get(i);
         String jl = this.cIo.jl(com.baidu.swan.apps.model.b.bx(jVar.cAZ, f.ahV().ahC()).mPage);
@@ -264,7 +264,7 @@ public class a {
         f.ahV().a(new com.baidu.swan.apps.event.a.b("onTabItemTap", hashMap));
     }
 
-    private void hA(int i) {
+    private void hC(int i) {
         a(this.cIp.get(this.cIn), this.cIq.get(this.cIn));
         b(this.cIp.get(i), this.cIq.get(i));
     }
@@ -277,7 +277,7 @@ public class a {
                 if (!this.cIq.get(i2).cAZ.equals(str)) {
                     i = i2 + 1;
                 } else {
-                    hA(i2);
+                    hC(i2);
                     this.cIn = i2;
                     return;
                 }
@@ -291,7 +291,7 @@ public class a {
         if (this.cIl == null || this.cIm == null) {
             return false;
         }
-        hx(SwanAppConfigData.dT(str4));
+        hz(SwanAppConfigData.dT(str4));
         pm(str3);
         po(str);
         pp(str2);
@@ -316,7 +316,7 @@ public class a {
     }
 
     public boolean b(int i, final String str, String str2, String str3) {
-        if (!hE(i)) {
+        if (!hG(i)) {
             return false;
         }
         final SwanAppBottomTabIconView swanAppBottomTabIconView = this.cIp.get(i);
@@ -338,8 +338,8 @@ public class a {
         return a(swanAppBottomTabIconView, this.cIq.get(i));
     }
 
-    public boolean hB(int i) {
-        if (!hE(i)) {
+    public boolean hD(int i) {
+        if (!hG(i)) {
             return false;
         }
         this.cIp.get(i).setRedDotVisibleState(true);
@@ -347,9 +347,9 @@ public class a {
     }
 
     @AnyThread
-    public boolean hC(int i) {
+    public boolean hE(int i) {
         final SwanAppBottomTabIconView swanAppBottomTabIconView;
-        if (hE(i) && (swanAppBottomTabIconView = this.cIp.get(i)) != null) {
+        if (hG(i) && (swanAppBottomTabIconView = this.cIp.get(i)) != null) {
             aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.tabbar.b.a.6
                 @Override // java.lang.Runnable
                 public void run() {
@@ -362,7 +362,7 @@ public class a {
     }
 
     public boolean V(int i, String str) {
-        if (!hE(i)) {
+        if (!hG(i)) {
             return false;
         }
         SwanAppBottomTabIconView swanAppBottomTabIconView = this.cIp.get(i);
@@ -371,15 +371,15 @@ public class a {
         return true;
     }
 
-    public boolean hD(int i) {
-        if (hE(i)) {
+    public boolean hF(int i) {
+        if (hG(i)) {
             this.cIp.get(i).setBadgeVisibleState(false);
             return true;
         }
         return false;
     }
 
-    private boolean hE(int i) {
+    private boolean hG(int i) {
         return this.cIp != null && i < this.cIp.size() && i >= 0;
     }
 

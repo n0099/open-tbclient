@@ -44,21 +44,21 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
     private List<AbsDelegateAdapter> aSj;
     private BdTypeListView aSl;
     private CommonEmptyView beq;
-    private FrameLayout fZq;
-    private ViewGroup fox;
-    private ViewGroup gdf;
-    private TbListCommonPullView gdg;
-    private View gdh;
-    private int gdi;
-    private float gdj;
-    private float gdk;
-    private InterfaceC0569a gdl;
-    private final int gdm;
-    private com.baidu.tieba.ala.liveroom.recommend.model.a gdn;
-    private TextView gdo;
-    private boolean gdp;
-    private q gdq;
-    private AlaLiveView gdr;
+    private FrameLayout fZB;
+    private ViewGroup foI;
+    private boolean gdA;
+    private q gdB;
+    private AlaLiveView gdC;
+    private ViewGroup gdq;
+    private TbListCommonPullView gdr;
+    private View gds;
+    private int gdt;
+    private float gdu;
+    private float gdv;
+    private InterfaceC0569a gdw;
+    private final int gdx;
+    private com.baidu.tieba.ala.liveroom.recommend.model.a gdy;
+    private TextView gdz;
     private boolean isOpen;
     private ValueAnimator mAnimator;
     private Context mContext;
@@ -77,10 +77,10 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gdm = 100;
+        this.gdx = 100;
         if (tbPageContext != null) {
             this.mContext = getPageContext().getPageActivity();
-            this.gdi = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds220);
+            this.gdt = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds220);
             this.mTouchSlop = ViewConfiguration.get(this.mContext).getScaledTouchSlop();
             this.mScreenWidth = BdUtilHelper.getEquipmentWidth(this.mContext);
             if (c.uN().getBoolean("ala_recommend_live_first_show", true)) {
@@ -90,40 +90,40 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
     }
 
     public void a(InterfaceC0569a interfaceC0569a) {
-        this.gdl = interfaceC0569a;
+        this.gdw = interfaceC0569a;
     }
 
     public void r(q qVar) {
-        this.gdq = qVar;
+        this.gdB = qVar;
     }
 
     public void bp(int i, int i2) {
         this.mScreenWidth = i;
         this.mOrientation = i2;
         if (i2 == 2) {
-            this.gdh.setVisibility(8);
+            this.gds.setVisibility(8);
             if (this.isOpen) {
                 onClose();
                 return;
             }
             return;
         }
-        this.gdh.setVisibility(0);
+        this.gds.setVisibility(0);
     }
 
     public void a(AlaLiveView alaLiveView) {
-        this.gdr = alaLiveView;
+        this.gdC = alaLiveView;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void ao(ViewGroup viewGroup) {
         super.ao(viewGroup);
         if (viewGroup != null) {
-            this.fox = viewGroup;
-            this.gdf = (ViewGroup) this.fox.findViewById(a.g.ala_live_header_view);
-            bFX();
-            bFW();
-            if (!this.gdp && com.baidu.live.v.a.Ge().aWF != null && this.mShowType != 1) {
+            this.foI = viewGroup;
+            this.gdq = (ViewGroup) this.foI.findViewById(a.g.ala_live_header_view);
+            bFZ();
+            bFY();
+            if (!this.gdA && com.baidu.live.v.a.Ge().aWF != null && this.mShowType != 1) {
                 long j = c.uN().getLong("ala_recommend_live_last_show", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
                 int i = com.baidu.live.v.a.Ge().aWF.ayG;
@@ -131,7 +131,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
                     this.mShowType = 2;
                 }
             }
-            bFZ();
+            bGb();
         }
     }
 
@@ -142,57 +142,57 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
             this.mAnimator.cancel();
             this.mAnimator = null;
         }
-        if (this.fox != null) {
-            this.fox.removeView(this.fZq);
+        if (this.foI != null) {
+            this.foI.removeView(this.fZB);
         }
-        this.gdl = null;
+        this.gdw = null;
         this.isOpen = false;
-        if (this.gdp) {
+        if (this.gdA) {
             c.uN().putLong("ala_recommend_live_last_show", System.currentTimeMillis());
         }
-        this.gdq = null;
+        this.gdB = null;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
         super.onDestroy();
         vm();
-        if (this.gdn != null) {
-            this.gdn.onDestroy();
+        if (this.gdy != null) {
+            this.gdy.onDestroy();
         }
     }
 
-    private void bFW() {
-        if (this.fZq == null) {
-            this.fZq = new FrameLayout(this.mContext);
+    private void bFY() {
+        if (this.fZB == null) {
+            this.fZB = new FrameLayout(this.mContext);
         }
         if (this.aSl == null) {
             this.aSl = new AlaRecommendLiveListView(this.mContext);
             int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds20);
             this.aSl.setPadding(dimensionPixelOffset, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds12) + BdUtilHelper.getStatusBarHeight(getPageContext().getPageActivity()), dimensionPixelOffset, 0);
-            this.gdg = new com.baidu.tieba.ala.liveroom.recommend.view.a(this.mContext);
-            this.aSl.setPullRefresh(this.gdg);
+            this.gdr = new com.baidu.tieba.ala.liveroom.recommend.view.a(this.mContext);
+            this.aSl.setPullRefresh(this.gdr);
             CY();
             this.aSl.addAdapters(this.aSj);
-            this.gdg.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.liveroom.recommend.a.1
+            this.gdr.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.liveroom.recommend.a.1
                 @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
                 public void onListPullRefresh(boolean z) {
-                    a.this.bFZ();
+                    a.this.bGb();
                     if (!z) {
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "your_recommend", "pushfresh"));
                     }
                 }
             });
-            this.fZq.addView(this.aSl, new FrameLayout.LayoutParams(this.gdi, -1));
+            this.fZB.addView(this.aSl, new FrameLayout.LayoutParams(this.gdt, -1));
         }
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.gdi, -1);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.gdt, -1);
         layoutParams.gravity = 5;
-        layoutParams.rightMargin = -this.gdi;
-        this.fZq.setLayoutParams(layoutParams);
-        this.fox.addView(this.fZq);
-        if (this.gdn == null) {
-            this.gdn = new com.baidu.tieba.ala.liveroom.recommend.model.a(getPageContext());
-            this.gdn.a(new a.InterfaceC0571a() { // from class: com.baidu.tieba.ala.liveroom.recommend.a.2
+        layoutParams.rightMargin = -this.gdt;
+        this.fZB.setLayoutParams(layoutParams);
+        this.foI.addView(this.fZB);
+        if (this.gdy == null) {
+            this.gdy = new com.baidu.tieba.ala.liveroom.recommend.model.a(getPageContext());
+            this.gdy.a(new a.InterfaceC0571a() { // from class: com.baidu.tieba.ala.liveroom.recommend.a.2
                 @Override // com.baidu.tieba.ala.liveroom.recommend.model.a.InterfaceC0571a
                 public void g(List<IAdapterData> list, int i) {
                     a.this.f(list, i);
@@ -209,20 +209,20 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
     private void CY() {
         if (this.aSj == null) {
             this.aSj = new ArrayList();
-            this.aSj.add(new com.baidu.tieba.ala.liveroom.recommend.a.b(this.mContext, com.baidu.tieba.ala.liveroom.recommend.data.b.gdD));
+            this.aSj.add(new com.baidu.tieba.ala.liveroom.recommend.a.b(this.mContext, com.baidu.tieba.ala.liveroom.recommend.data.b.gdO));
             this.aSj.add(new com.baidu.tieba.ala.liveroom.recommend.a.a(this.mContext, AlaRecommendLiveData.ALA_RECOMMEND_LIVE));
         }
     }
 
-    private void bFX() {
-        this.gdh = LayoutInflater.from(this.mContext).inflate(a.h.ala_recommend_live_header_entrance, (ViewGroup) null);
-        this.gdh.setPadding(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds14), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds20));
+    private void bFZ() {
+        this.gds = LayoutInflater.from(this.mContext).inflate(a.h.ala_recommend_live_header_entrance, (ViewGroup) null);
+        this.gds.setPadding(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds14), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds20));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds78));
         layoutParams.addRule(11);
         layoutParams.addRule(3, a.g.ala_liveroom_hostheader);
-        this.gdh.setLayoutParams(layoutParams);
-        this.gdf.addView(this.gdh);
-        this.gdh.setOnClickListener(this);
+        this.gds.setLayoutParams(layoutParams);
+        this.gdq.addView(this.gds);
+        this.gds.setOnClickListener(this);
     }
 
     @Override // com.baidu.live.liveroom.g.d
@@ -232,7 +232,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
                 return true;
             }
             int actionIndex = motionEvent.getActionIndex();
-            if (motionEvent.getY(actionIndex) >= this.gdi) {
+            if (motionEvent.getY(actionIndex) >= this.gdt) {
                 return d(motionEvent, actionIndex);
             }
             return false;
@@ -245,15 +245,15 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
             case 0:
                 this.mDownX = motionEvent.getX(i);
                 this.mDownY = motionEvent.getY(i);
-                this.gdj = this.mDownX;
-                this.gdk = this.mDownY;
+                this.gdu = this.mDownX;
+                this.gdv = this.mDownY;
                 break;
             case 1:
                 float x = motionEvent.getX(i);
                 float y = motionEvent.getY(i);
                 float f = this.mDownX - x;
                 float f2 = this.mDownY - y;
-                if (this.isOpen && Math.abs(f) < this.mTouchSlop && Math.abs(f2) < this.mTouchSlop && x > 0.0f && x < this.mScreenWidth - this.gdi) {
+                if (this.isOpen && Math.abs(f) < this.mTouchSlop && Math.abs(f2) < this.mTouchSlop && x > 0.0f && x < this.mScreenWidth - this.gdt) {
                     onClose();
                     return true;
                 } else if (this.isOpen && f < this.mTouchSlop && Math.abs(f) > Math.abs(f2)) {
@@ -261,13 +261,13 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
                     return true;
                 } else if (!this.isOpen && f > this.mTouchSlop && Math.abs(f) > Math.abs(f2)) {
                     ln(true);
-                    bFY();
+                    bGa();
                     return true;
                 } else {
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fZq.getLayoutParams();
-                    if (!this.isOpen && layoutParams.rightMargin > (-this.gdi)) {
-                        layoutParams.rightMargin = -this.gdi;
-                        this.fZq.setLayoutParams(layoutParams);
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fZB.getLayoutParams();
+                    if (!this.isOpen && layoutParams.rightMargin > (-this.gdt)) {
+                        layoutParams.rightMargin = -this.gdt;
+                        this.fZB.setLayoutParams(layoutParams);
                         return true;
                     }
                 }
@@ -275,28 +275,28 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
             case 2:
                 float x2 = motionEvent.getX(i);
                 float y2 = motionEvent.getY(i);
-                float f3 = this.gdj - x2;
-                float f4 = this.gdk - y2;
-                this.gdj = x2;
-                this.gdk = y2;
-                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.fZq.getLayoutParams();
+                float f3 = this.gdu - x2;
+                float f4 = this.gdv - y2;
+                this.gdu = x2;
+                this.gdv = y2;
+                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.fZB.getLayoutParams();
                 if (f3 > 0.0f && Math.abs(f3) > Math.abs(f4)) {
                     int i2 = (int) (layoutParams2.rightMargin + f3);
                     if (i2 <= 0) {
                         layoutParams2.rightMargin = i2;
-                        this.fZq.setLayoutParams(layoutParams2);
+                        this.fZB.setLayoutParams(layoutParams2);
                     }
                     return true;
                 } else if (this.isOpen && f3 <= 0.0f && Math.abs(f3) > Math.abs(f4)) {
                     int i3 = (int) (layoutParams2.rightMargin + f3);
-                    if (i3 >= (-this.gdi)) {
+                    if (i3 >= (-this.gdt)) {
                         layoutParams2.rightMargin = i3;
-                        this.fZq.setLayoutParams(layoutParams2);
+                        this.fZB.setLayoutParams(layoutParams2);
                     }
                     return true;
-                } else if (!this.isOpen && layoutParams2.rightMargin > (-this.gdi) && f3 <= 0.0f && Math.abs(f3) > Math.abs(f4)) {
-                    layoutParams2.rightMargin = -this.gdi;
-                    this.fZq.setLayoutParams(layoutParams2);
+                } else if (!this.isOpen && layoutParams2.rightMargin > (-this.gdt) && f3 <= 0.0f && Math.abs(f3) > Math.abs(f4)) {
+                    layoutParams2.rightMargin = -this.gdt;
+                    this.fZB.setLayoutParams(layoutParams2);
                     return true;
                 }
                 break;
@@ -311,42 +311,42 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
         if (motionEvent == null || this.mOrientation == 2) {
             return false;
         }
-        if (this.gdr != null) {
-            if (this.gdr.getKeyboardVisibility()) {
+        if (this.gdC != null) {
+            if (this.gdC.getKeyboardVisibility()) {
                 return false;
             }
-            if (!this.gdr.bGW()) {
+            if (!this.gdC.bGY()) {
                 close();
                 return false;
-            } else if (this.gdr.getScrollX() != 0) {
+            } else if (this.gdC.getScrollX() != 0) {
                 return false;
             }
         }
         return true;
     }
 
-    private void bFY() {
+    private void bGa() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "left_slide"));
     }
 
     public void ln(boolean z) {
         if (!this.isOpen) {
             if (this.mAnimator == null || !this.mAnimator.isRunning()) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fZq.getLayoutParams();
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fZB.getLayoutParams();
                 if (layoutParams.rightMargin < 0) {
                     int i = layoutParams.rightMargin;
-                    M(i, 0, (int) (100.0f * ((Math.abs(0 - i) * 1.0f) / this.gdi)));
+                    M(i, 0, (int) (100.0f * ((Math.abs(0 - i) * 1.0f) / this.gdt)));
                 }
                 this.isOpen = true;
-                if (this.gdl != null) {
-                    this.gdl.kq(true);
+                if (this.gdw != null) {
+                    this.gdw.kq(true);
                 }
-                if (!this.gdp) {
-                    this.gdp = true;
+                if (!this.gdA) {
+                    this.gdA = true;
                 }
                 this.aSl.completePullRefresh();
                 if (z) {
-                    bFZ();
+                    bGb();
                 }
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem("1429", LogConfig.KEY_ACCESS, "your_recommend", null));
             }
@@ -354,17 +354,17 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFZ() {
+    public void bGb() {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
             a(CommonEmptyView.ImgType.NO_NET);
             return;
         }
         hideNoDataView();
         long j = 0;
-        if (this.gdq != null && this.gdq.mLiveInfo != null) {
-            j = this.gdq.mLiveInfo.live_id;
+        if (this.gdB != null && this.gdB.mLiveInfo != null) {
+            j = this.gdB.mLiveInfo.live_id;
         }
-        this.gdn.dH(j);
+        this.gdy.dH(j);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -383,7 +383,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
                 }
                 AbsDelegateAdapter next = it.next();
                 if (next instanceof com.baidu.tieba.ala.liveroom.recommend.a.a) {
-                    ((com.baidu.tieba.ala.liveroom.recommend.a.a) next).ry(i);
+                    ((com.baidu.tieba.ala.liveroom.recommend.a.a) next).rA(i);
                     break;
                 }
             }
@@ -411,14 +411,14 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
             layoutParams.height = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds180);
             imageView.setLayoutParams(layoutParams);
             ((TextView) this.beq.findViewById(a.g.sdk_cev_title)).setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_fontsize24));
-            this.gdo = (TextView) this.beq.findViewById(a.g.sdk_cev_refresh_btn);
-            this.gdo.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_fontsize22));
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gdo.getLayoutParams();
+            this.gdz = (TextView) this.beq.findViewById(a.g.sdk_cev_refresh_btn);
+            this.gdz.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_fontsize22));
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gdz.getLayoutParams();
             layoutParams2.width = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds152);
             layoutParams2.height = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds54);
             layoutParams2.topMargin = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds30);
-            this.gdo.setLayoutParams(layoutParams2);
-            this.beq.addToParent(this.fZq);
+            this.gdz.setLayoutParams(layoutParams2);
+            this.beq.addToParent(this.fZB);
         }
         this.beq.reset();
         this.beq.setBackgroundColor(Color.parseColor("#FF161823"));
@@ -443,7 +443,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
         });
         this.beq.setup(imgType, CommonEmptyView.StyleType.DARK);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba()) {
-            this.gdo.setBackgroundResource(a.f.ala_recommend_live_empty_refresh_btn_selector);
+            this.gdz.setBackgroundResource(a.f.ala_recommend_live_empty_refresh_btn_selector);
         }
         this.beq.setVisibility(0);
         this.aSl.completePullRefresh();
@@ -461,9 +461,9 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
             if (this.mAnimator != null && this.mAnimator.isRunning()) {
                 this.mAnimator.cancel();
             }
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fZq.getLayoutParams();
-            layoutParams.rightMargin = -this.gdi;
-            this.fZq.setLayoutParams(layoutParams);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fZB.getLayoutParams();
+            layoutParams.rightMargin = -this.gdt;
+            this.fZB.setLayoutParams(layoutParams);
             this.isOpen = false;
         }
     }
@@ -475,15 +475,15 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
     public void onClose() {
         if (this.isOpen) {
             if (this.mAnimator == null || !this.mAnimator.isRunning()) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fZq.getLayoutParams();
-                if (layoutParams.rightMargin > (-this.gdi)) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fZB.getLayoutParams();
+                if (layoutParams.rightMargin > (-this.gdt)) {
                     int i = layoutParams.rightMargin;
-                    int i2 = -this.gdi;
-                    M(i, i2, (int) (100.0f * ((Math.abs(i2 - i) * 1.0f) / this.gdi)));
+                    int i2 = -this.gdt;
+                    M(i, i2, (int) (100.0f * ((Math.abs(i2 - i) * 1.0f) / this.gdt)));
                 }
                 this.isOpen = false;
-                if (this.gdl != null) {
-                    this.gdl.kq(false);
+                if (this.gdw != null) {
+                    this.gdw.kq(false);
                 }
                 this.aSl.completePullRefresh();
             }
@@ -497,9 +497,9 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float animatedFraction = valueAnimator.getAnimatedFraction();
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) a.this.fZq.getLayoutParams();
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) a.this.fZB.getLayoutParams();
                 layoutParams.rightMargin = ((int) (animatedFraction * i4)) + i;
-                a.this.fZq.setLayoutParams(layoutParams);
+                a.this.fZB.setLayoutParams(layoutParams);
             }
         });
         this.mAnimator.start();
@@ -507,7 +507,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gdh) {
+        if (view == this.gds) {
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "recommend_icon"));
             ln(true);
         }

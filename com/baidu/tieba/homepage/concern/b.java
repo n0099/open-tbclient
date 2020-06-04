@@ -34,7 +34,7 @@ public class b {
             anVar.s("fid", absThreadDataSupport.aOi().getFid());
             anVar.ag("obj_source", 1);
             if (absThreadDataSupport instanceof com.baidu.tieba.card.data.c) {
-                anVar.ag("obj_param1", ((com.baidu.tieba.card.data.c) absThreadDataSupport).bLE() ? 2 : 1);
+                anVar.ag("obj_param1", ((com.baidu.tieba.card.data.c) absThreadDataSupport).bLG() ? 2 : 1);
             }
             if (absThreadDataSupport.aOi().aQx() != null) {
                 anVar.dh("uid", absThreadDataSupport.aOi().aQx().getUserId());

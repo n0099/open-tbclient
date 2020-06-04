@@ -182,7 +182,7 @@ public class MultiImageView extends RelativeLayout {
                     for (int i2 = 0; i2 < childCount; i2++) {
                         View childAt = MultiImageView.this.ehH.getChildAt(i2);
                         if (childAt != null && (childAt instanceof UrlDragImageView)) {
-                            ((UrlDragImageView) childAt).bbJ();
+                            ((UrlDragImageView) childAt).bbK();
                         }
                     }
                 }
@@ -237,8 +237,8 @@ public class MultiImageView extends RelativeLayout {
                         MultiImageView.this.egz.a(imageView);
                     }
                 }
+                urlDragImageView.bbI();
                 urlDragImageView.bbH();
-                urlDragImageView.bbG();
                 urlDragImageView.A(MultiImageView.this.egJ, true);
                 MultiImageView.this.c(((UrlDragImageView) obj).getmAssistUrlData());
             }
@@ -312,7 +312,7 @@ public class MultiImageView extends RelativeLayout {
                 hL(false);
                 return;
             }
-            if (!this.ehR.bbr()) {
+            if (!this.ehR.bbs()) {
                 this.ehR.hJ(false);
             }
             if (!this.ehR.isShown()) {
@@ -321,7 +321,7 @@ public class MultiImageView extends RelativeLayout {
         }
     }
 
-    public void mQ(int i) {
+    public void mS(int i) {
         if (this.ehH != null) {
             View findViewWithTag = this.ehH.findViewWithTag(String.valueOf(i));
             if (findViewWithTag != null && (findViewWithTag instanceof UrlDragImageView)) {
@@ -332,7 +332,7 @@ public class MultiImageView extends RelativeLayout {
         }
     }
 
-    public void mR(int i) {
+    public void mT(int i) {
         View findViewWithTag;
         if (this.ehH != null && (findViewWithTag = this.ehH.findViewWithTag(String.valueOf(i))) != null && (findViewWithTag instanceof UrlDragImageView)) {
             UrlDragImageView urlDragImageView = (UrlDragImageView) findViewWithTag;
@@ -363,7 +363,7 @@ public class MultiImageView extends RelativeLayout {
         return null;
     }
 
-    public String mS(int i) {
+    public String mU(int i) {
         if (this.ehH == null) {
             return null;
         }
@@ -374,10 +374,10 @@ public class MultiImageView extends RelativeLayout {
         return ((UrlDragImageView) findViewWithTag).getmCheckOriginPicText();
     }
 
-    public void mT(int i) {
+    public void mV(int i) {
         View findViewWithTag;
         if (this.ehH != null && (findViewWithTag = this.ehH.findViewWithTag(String.valueOf(i))) != null && (findViewWithTag instanceof UrlDragImageView)) {
-            ((UrlDragImageView) findViewWithTag).bbL();
+            ((UrlDragImageView) findViewWithTag).bbM();
         }
     }
 
@@ -483,13 +483,13 @@ public class MultiImageView extends RelativeLayout {
         this.ehE.setEnabled(false);
     }
 
-    public void bbx() {
+    public void bby() {
         if (!this.ehM) {
             this.ehG.setVisibility(0);
         }
     }
 
-    public boolean bby() {
+    public boolean bbz() {
         return this.ehP;
     }
 
@@ -520,7 +520,7 @@ public class MultiImageView extends RelativeLayout {
         }
     }
 
-    public void bbz() {
+    public void bbA() {
         if (!this.ehM) {
             this.ehG.setVisibility(8);
         }

@@ -19,7 +19,7 @@ public interface j {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void bG(int i);
+        void bI(int i);
     }
 
     /* loaded from: classes3.dex */
@@ -126,7 +126,7 @@ public interface j {
 
     void aX(boolean z);
 
-    void bF(int i2);
+    void bH(int i2);
 
     void c(q qVar);
 

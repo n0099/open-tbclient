@@ -3,66 +3,66 @@ package tv.chushou.apollo;
 public class a {
     public int borderColor;
     public boolean isFullScreen;
-    public int nKZ;
-    public int nLa;
-    public boolean nLb;
-    public int nLc;
+    public int nMj;
+    public int nMk;
+    public boolean nMl;
+    public int nMm;
     public int strokeWidth;
 
-    public a(C0909a c0909a) {
-        this.nKZ = 20;
-        this.nLa = 20;
-        this.nLb = true;
+    public a(C0910a c0910a) {
+        this.nMj = 20;
+        this.nMk = 20;
+        this.nMl = true;
         this.strokeWidth = 2;
-        this.nLc = 800;
+        this.nMm = 800;
         this.isFullScreen = false;
         this.borderColor = -16711936;
-        this.nKZ = c0909a.nKZ;
-        this.nLa = c0909a.nLa;
-        this.nLb = c0909a.nLb;
-        this.strokeWidth = c0909a.strokeWidth;
-        this.nLc = c0909a.nLc;
-        this.isFullScreen = c0909a.isFullScreen;
-        this.borderColor = c0909a.borderColor;
+        this.nMj = c0910a.nMj;
+        this.nMk = c0910a.nMk;
+        this.nMl = c0910a.nMl;
+        this.strokeWidth = c0910a.strokeWidth;
+        this.nMm = c0910a.nMm;
+        this.isFullScreen = c0910a.isFullScreen;
+        this.borderColor = c0910a.borderColor;
     }
 
     /* renamed from: tv.chushou.apollo.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0909a {
+    public static class C0910a {
         public int borderColor;
         public boolean isFullScreen;
-        public int nKZ;
-        public int nLa;
-        public boolean nLb;
-        public int nLc;
+        public int nMj;
+        public int nMk;
+        public boolean nMl;
+        public int nMm;
         public int strokeWidth;
 
-        public C0909a xk(boolean z) {
-            this.nLb = z;
+        public C0910a xm(boolean z) {
+            this.nMl = z;
             return this;
         }
 
-        public C0909a Km(int i) {
+        public C0910a Ko(int i) {
             this.strokeWidth = i;
             return this;
         }
 
-        public C0909a Kn(int i) {
-            this.nLc = i;
+        public C0910a Kp(int i) {
+            this.nMm = i;
             return this;
         }
 
-        public C0909a xl(boolean z) {
+        public C0910a xn(boolean z) {
             this.isFullScreen = z;
             return this;
         }
 
-        public C0909a Ko(int i) {
+        public C0910a Kq(int i) {
             this.borderColor = i;
             return this;
         }
 
-        public a dQV() {
+        public a dRj() {
             return new a(this);
         }
     }

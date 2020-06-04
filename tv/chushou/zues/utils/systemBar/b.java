@@ -25,17 +25,17 @@ import tv.chushou.zues.b;
 import tv.chushou.zues.utils.f;
 /* loaded from: classes5.dex */
 public class b {
-    public static final int nNK = b.C0914b.status_color_dark;
-    public static final int nNL = b.C0914b.status_color_lignt;
-    private static boolean nNM = false;
-    private static int nNN = 50;
+    public static final int nOU = b.C0915b.status_color_dark;
+    public static final int nOV = b.C0915b.status_color_lignt;
+    private static boolean nOW = false;
+    private static int nOX = 50;
 
     public static int av(Activity activity) {
         int aB = aB(activity);
         if (aB > 0) {
-            a(activity, ContextCompat.getColor(activity, nNL), 0);
+            a(activity, ContextCompat.getColor(activity, nOV), 0);
         } else {
-            a(activity, ContextCompat.getColor(activity, nNK), 0);
+            a(activity, ContextCompat.getColor(activity, nOU), 0);
         }
         return aB;
     }
@@ -90,13 +90,13 @@ public class b {
     }
 
     public static int getStatusBarHeight(Context context) {
-        if (!nNM) {
-            nNN = bi(context, "status_bar_height");
-            if (nNN > 0) {
-                nNM = true;
+        if (!nOW) {
+            nOX = bi(context, "status_bar_height");
+            if (nOX > 0) {
+                nOW = true;
             }
         }
-        return nNN;
+        return nOX;
     }
 
     public static int gD(Context context) {

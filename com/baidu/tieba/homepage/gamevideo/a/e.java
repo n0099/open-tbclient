@@ -24,7 +24,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ag<k>> {
     private aa<k> adt;
     private t aib;
     private int dRA;
-    private NEGFeedBackView.a eJz;
+    private NEGFeedBackView.a eJK;
     private BdUniqueId epM;
     private TbPageContext mPageContext;
 
@@ -99,7 +99,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ag<k>> {
         if (kVar == null || agVar == null || agVar.getView() == null || kVar.dEA == null) {
             return null;
         }
-        kVar.sr(kVar.position + 1);
+        kVar.st(kVar.position + 1);
         agVar.rM().setPosition(i);
         if (agVar.rM().rG() instanceof ah) {
             ((ah) agVar.rM().rG()).setOnCommentClickCallback(new ThreadCommentAndPraiseInfoLayout.a() { // from class: com.baidu.tieba.homepage.gamevideo.a.e.3
@@ -111,7 +111,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ag<k>> {
                 }
             });
         }
-        agVar.aH(false).a(this.eJz);
+        agVar.aH(false).a(this.eJK);
         agVar.b((ag) kVar);
         agVar.rM().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         agVar.rM().a(this.adt);
@@ -122,11 +122,11 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ag<k>> {
         this.epM = bdUniqueId;
     }
 
-    public void ww(int i) {
+    public void wy(int i) {
         this.dRA = i;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.eJz = aVar;
+        this.eJK = aVar;
     }
 }

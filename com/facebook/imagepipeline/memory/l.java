@@ -8,58 +8,58 @@ import javax.annotation.concurrent.ThreadSafe;
 public class l implements PooledByteBuffer {
     private final int mSize;
     @GuardedBy("this")
-    com.facebook.common.references.a<NativeMemoryChunk> mxT;
+    com.facebook.common.references.a<NativeMemoryChunk> mzd;
 
     public l(com.facebook.common.references.a<NativeMemoryChunk> aVar, int i) {
         com.facebook.common.internal.g.checkNotNull(aVar);
         com.facebook.common.internal.g.checkArgument(i >= 0 && i <= aVar.get().getSize());
-        this.mxT = aVar.clone();
+        this.mzd = aVar.clone();
         this.mSize = i;
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized int size() {
-        duG();
+        duU();
         return this.mSize;
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
-    public synchronized byte GM(int i) {
-        byte GM;
+    public synchronized byte GO(int i) {
+        byte GO;
         synchronized (this) {
-            duG();
+            duU();
             com.facebook.common.internal.g.checkArgument(i >= 0);
             com.facebook.common.internal.g.checkArgument(i < this.mSize);
-            GM = this.mxT.get().GM(i);
+            GO = this.mzd.get().GO(i);
         }
-        return GM;
+        return GO;
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized int c(int i, byte[] bArr, int i2, int i3) {
-        duG();
+        duU();
         com.facebook.common.internal.g.checkArgument(i + i3 <= this.mSize);
-        return this.mxT.get().c(i, bArr, i2, i3);
+        return this.mzd.get().c(i, bArr, i2, i3);
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
-    public synchronized long dux() {
-        duG();
-        return this.mxT.get().dux();
+    public synchronized long duL() {
+        duU();
+        return this.mzd.get().duL();
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized boolean isClosed() {
-        return !com.facebook.common.references.a.a(this.mxT);
+        return !com.facebook.common.references.a.a(this.mzd);
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
-        com.facebook.common.references.a.c(this.mxT);
-        this.mxT = null;
+        com.facebook.common.references.a.c(this.mzd);
+        this.mzd = null;
     }
 
-    synchronized void duG() {
+    synchronized void duU() {
         if (isClosed()) {
             throw new PooledByteBuffer.ClosedException();
         }

@@ -6,13 +6,13 @@ public class j extends l {
     public static int ess = 100;
     public static int est = 10;
 
-    public static void bfG() {
-        if (m.bfI().bfJ()) {
+    public static void bfH() {
+        if (m.bfJ().bfK()) {
             if (b.esx > est) {
-                b.bfC();
+                b.bfD();
             }
             if (a.esu > est) {
-                a.bfC();
+                a.bfD();
             }
         }
     }
@@ -25,12 +25,12 @@ public class j extends l {
             a.esw++;
         }
         if (a.esu > ess) {
-            a.bfC();
+            a.bfD();
         }
     }
 
     public void c(f fVar) {
-        if (m.bfI().bfJ()) {
+        if (m.bfJ().bfK()) {
             if (b.esx < ess) {
                 b.esy += fVar.JP;
                 b.esz += fVar.erO;
@@ -41,7 +41,7 @@ public class j extends l {
                 b.esx++;
                 return;
             }
-            b.bfC();
+            b.bfD();
         }
     }
 
@@ -52,7 +52,7 @@ public class j extends l {
         public static int esv;
         public static int esw;
 
-        public static void bfC() {
+        public static void bfD() {
             com.baidu.adp.lib.stats.a kY = l.kY();
             kY.append("action", "imbusy");
             kY.append("totalNum", String.valueOf(esu));
@@ -80,7 +80,7 @@ public class j extends l {
         public static long esy;
         public static long esz;
 
-        public static void bfC() {
+        public static void bfD() {
             com.baidu.adp.lib.stats.a kY = l.kY();
             kY.append("action", "imcost");
             kY.append("dect", String.valueOf(esy));
@@ -91,10 +91,10 @@ public class j extends l {
             kY.append(com.baidu.fsg.face.base.b.c.i, String.valueOf(esC));
             kY.append("totalNum", String.valueOf(esx));
             BdStatisticsManager.getInstance().performance("im", kY);
-            bfH();
+            bfI();
         }
 
-        public static void bfH() {
+        public static void bfI() {
             esx = 0;
             esy = 0L;
             esz = 0L;

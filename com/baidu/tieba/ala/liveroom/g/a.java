@@ -12,8 +12,8 @@ import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
     private CustomMessageListener aQM;
-    private com.baidu.live.k.d fSH;
-    private String fSI;
+    private com.baidu.live.k.d fSS;
+    private String fST;
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -22,11 +22,11 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 UpdateAttentionMessage.UpdateAttentionData data;
-                if ((customResponsedMessage instanceof UpdateAttentionMessage) && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && data.isAttention && data.isSucc && TextUtils.equals(data.toUid, a.this.fSI)) {
-                    if (a.this.fSH == null) {
-                        a.this.fSH = new com.baidu.live.k.d(a.this.getPageContext());
+                if ((customResponsedMessage instanceof UpdateAttentionMessage) && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && data.isAttention && data.isSucc && TextUtils.equals(data.toUid, a.this.fST)) {
+                    if (a.this.fSS == null) {
+                        a.this.fSS = new com.baidu.live.k.d(a.this.getPageContext());
                     }
-                    a.this.fSH.a(BdSwitchView.SwitchState.ON, "", 2);
+                    a.this.fSS.a(BdSwitchView.SwitchState.ON, "", 2);
                 }
             }
         };
@@ -52,6 +52,6 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     public void Cn(String str) {
-        this.fSI = str;
+        this.fST = str;
     }
 }

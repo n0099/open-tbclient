@@ -27,21 +27,21 @@ public class LiveRecorderConfigHelper {
 
     public VideoResolution f(boolean z, boolean z2) {
         if (!z2) {
-            return cC(a.Ge().aWF.awL);
+            return cE(a.Ge().aWF.awL);
         }
         if (TbadkCoreApplication.getInst().isOther()) {
             if (z && z2) {
-                return cC(a.Ge().aWF.awT);
+                return cE(a.Ge().aWF.awT);
             }
             if (!z && z2) {
-                return cC(a.Ge().aWF.awU);
+                return cE(a.Ge().aWF.awU);
             }
             return VideoResolution.P540;
         }
         return VideoResolution.RTC;
     }
 
-    private VideoResolution cC(int i) {
+    private VideoResolution cE(int i) {
         if (i == 1) {
             return VideoResolution.P720;
         }
@@ -74,7 +74,7 @@ public class LiveRecorderConfigHelper {
             videoResolution = f(true, false);
         }
         if (videoResolution == null) {
-            videoResolution = cC(i);
+            videoResolution = cE(i);
         }
         if (i2 == 1 && !a.Ge().aWF.awM) {
             videoResolution = VideoResolution.P360;

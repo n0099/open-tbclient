@@ -11,8 +11,8 @@ import com.baidu.tieba.recapp.r;
 /* loaded from: classes13.dex */
 public class b extends e {
     private TextView dXU;
-    private HeadImageView hTU;
-    private TextView kPg;
+    private HeadImageView hUH;
+    private TextView kQp;
 
     public b(View view, String str) {
         super(view, str);
@@ -20,31 +20,31 @@ public class b extends e {
     }
 
     private void init() {
-        this.hTU = (HeadImageView) Cx(R.id.user_portrait);
-        this.hTU.setDefaultResource(R.drawable.icon_default_avatar100);
-        this.hTU.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        this.hTU.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.hTU.setIsRound(true);
-        this.dXU = (TextView) Cx(R.id.user_name);
-        this.kPg = (TextView) Cx(R.id.action);
+        this.hUH = (HeadImageView) Cz(R.id.user_portrait);
+        this.hUH.setDefaultResource(R.drawable.icon_default_avatar100);
+        this.hUH.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        this.hUH.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.hUH.setIsRound(true);
+        this.dXU = (TextView) Cz(R.id.user_name);
+        this.kQp = (TextView) Cz(R.id.action);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void a(final AdCard.f fVar) {
         super.a(fVar);
-        this.hTU.startLoad(fVar.kKP, 10, false);
+        this.hUH.startLoad(fVar.kLY, 10, false);
         this.dXU.setText(fVar.userName);
-        this.kPg.setText(fVar.buttonText);
+        this.kQp.setText(fVar.buttonText);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.e.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 r.aO(b.this.mRootView.getContext(), fVar.scheme);
-                if (b.this.kPq != null) {
-                    b.this.kPq.Cq(302);
-                    com.baidu.tieba.recapp.report.d.cVk().a(b.this.kPq);
+                if (b.this.kQz != null) {
+                    b.this.kQz.Cs(302);
+                    com.baidu.tieba.recapp.report.d.cVA().a(b.this.kQz);
                 }
-                if (b.this.kPs != null) {
-                    com.baidu.tieba.lego.card.b.c.a(b.this.kPs);
+                if (b.this.kQB != null) {
+                    com.baidu.tieba.lego.card.b.c.a(b.this.kQB);
                 }
             }
         });
@@ -55,7 +55,7 @@ public class b extends e {
     public void onChangeSkinType() {
         super.onChangeSkinType();
         am.setViewTextColor(this.dXU, R.color.cp_mask_c_alpha83, 1);
-        am.setViewTextColor(this.kPg, R.color.cp_cont_a, 1);
-        am.setBackgroundResource(this.kPg, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
+        am.setViewTextColor(this.kQp, R.color.cp_cont_a, 1);
+        am.setBackgroundResource(this.kQp, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
     }
 }

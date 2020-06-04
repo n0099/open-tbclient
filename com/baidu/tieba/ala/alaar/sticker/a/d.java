@@ -13,8 +13,8 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class d {
     private static File ate = h.getPrivateCaptureRootChildDir("duFaceFile");
-    private static List<String> eXb = Collections.synchronizedList(new ArrayList());
-    public static String eXc = "";
+    private static List<String> eXm = Collections.synchronizedList(new ArrayList());
+    public static String eXn = "";
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -53,8 +53,8 @@ public class d {
                 return;
             }
             final String md5 = Md5.toMd5(str);
-            eXb.add(str);
-            com.baidu.tieba.ala.alaar.sticker.download.b.bpC().a(str, ate, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.d.1
+            eXm.add(str);
+            com.baidu.tieba.ala.alaar.sticker.download.b.bpE().a(str, ate, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.d.1
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onStarted() {
                     super.onStarted();
@@ -84,7 +84,7 @@ public class d {
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onCompleted(String str2) {
                     super.onCompleted(str2);
-                    d.eXb.remove(str);
+                    d.eXm.remove(str);
                     if (!TextUtils.isEmpty(str2) && a.this != null) {
                         File file = new File(str2);
                         File AI = d.AI(md5);
@@ -117,7 +117,7 @@ public class d {
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void a(DownloadException downloadException) {
                     int i;
-                    d.eXb.remove(str);
+                    d.eXm.remove(str);
                     super.a(downloadException);
                     if (a.this != null) {
                         String str2 = null;
@@ -194,8 +194,8 @@ public class d {
 
     public static String AK(String str) {
         Q(new File(str));
-        Log.d("ArUpdate", "getTxtPathFromFolder mFaceFile: " + eXc);
-        return eXc;
+        Log.d("ArUpdate", "getTxtPathFromFolder mFaceFile: " + eXn);
+        return eXn;
     }
 
     public static String Q(File file) {
@@ -206,7 +206,7 @@ public class d {
                 Q(file2);
             }
             if (file2.isFile() && AL(file2.getName())) {
-                eXc = file2.getPath();
+                eXn = file2.getPath();
                 return file2.getPath();
             }
         }

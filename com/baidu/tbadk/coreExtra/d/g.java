@@ -52,8 +52,8 @@ public class g {
                 }
             } else if (g.this.ejp >= 5) {
                 com.baidu.adp.framework.client.socket.i.debug("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + com.baidu.adp.framework.client.socket.h.getUrl());
-                a.bbR().xG(com.baidu.adp.framework.client.socket.h.getUrl());
-                a.bbR().bbU();
+                a.bbS().xG(com.baidu.adp.framework.client.socket.h.getUrl());
+                a.bbS().bbV();
             }
             g.this.ejp = 0;
         }
@@ -64,9 +64,9 @@ public class g {
                 g.c(g.this);
                 if (UseHttpdnsSdkSwitch.isOn()) {
                     if (g.this.eju == null || g.this.eju.isEmpty()) {
-                        g.this.bch();
+                        g.this.bci();
                     } else {
-                        g.this.bcg();
+                        g.this.bch();
                     }
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append("retryiplist_");
@@ -82,11 +82,11 @@ public class g {
                     com.baidu.adp.framework.client.socket.i.debug("RetryIpListManager", 0, 0, "retry_iplist", 0, stringBuffer.toString());
                     if (g.this.ejp >= 5) {
                         BdSocketLinkService.setAvailable(false);
-                        g.this.bci();
+                        g.this.bcj();
                     }
                 } else if (g.this.ejp >= 5) {
                     com.baidu.adp.framework.client.socket.i.debug("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist_" + com.baidu.adp.framework.client.socket.h.getUrl());
-                    g.this.bcl();
+                    g.this.bcm();
                 }
             }
         }
@@ -130,7 +130,7 @@ public class g {
         return i;
     }
 
-    public static synchronized g bcf() {
+    public static synchronized g bcg() {
         g gVar;
         synchronized (g.class) {
             if (ejo == null) {
@@ -150,7 +150,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bcg() {
+    public void bch() {
         synchronized (this.ejt) {
             if (this.eju != null && !this.eju.isEmpty()) {
                 String remove = this.eju.remove(0);
@@ -163,12 +163,12 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bch() {
+    public void bci() {
         if (!this.ejv) {
             try {
                 String xL = xL(TiebaIMConfig.url);
                 if (aq.isEmpty(xL)) {
-                    bci();
+                    bcj();
                 } else {
                     this.ejv = true;
                     BDHttpDns.L(BdBaseApplication.getInst().getApplicationContext()).a(xL, new BDHttpDns.a() { // from class: com.baidu.tbadk.coreExtra.d.g.2
@@ -181,7 +181,7 @@ public class g {
                                 synchronized (g.this.ejt) {
                                     g.this.eju = qO;
                                 }
-                                g.this.bcg();
+                                g.this.bch();
                             }
                         }
                     });
@@ -193,7 +193,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bci() {
+    public void bcj() {
         NoNetworkView.updateUI();
         this.currentIndex = 0;
         this.ejv = false;
@@ -223,23 +223,23 @@ public class g {
         return null;
     }
 
-    private String bcj() {
+    private String bck() {
         if (this.eiU == null || this.currentIndex <= -1 || this.currentIndex >= this.eiU.size()) {
             return null;
         }
-        return a.bbR().getIpList().get(this.currentIndex);
+        return a.bbS().getIpList().get(this.currentIndex);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void xN(final String str) {
-        String bcj = bcj();
-        if (bcj == null) {
-            if (!a.bbR().bbV()) {
-                a.bbR().a(new a.InterfaceC0481a() { // from class: com.baidu.tbadk.coreExtra.d.g.3
+        String bck = bck();
+        if (bck == null) {
+            if (!a.bbS().bbW()) {
+                a.bbS().a(new a.InterfaceC0481a() { // from class: com.baidu.tbadk.coreExtra.d.g.3
                     @Override // com.baidu.tbadk.coreExtra.d.a.InterfaceC0481a
-                    public void bbW() {
+                    public void bbX() {
                         g.this.currentIndex = 0;
-                        g.this.eiU = a.bbR().getIpList();
+                        g.this.eiU = a.bbS().getIpList();
                         if (g.this.eiU != null) {
                             g.this.xN(str);
                         } else {
@@ -250,13 +250,13 @@ public class g {
             }
             com.baidu.adp.framework.client.socket.h.setUrl(TiebaIMConfig.url);
             BdSocketLinkService.setAvailable(false);
-            bck();
-        } else if (xL(bcj) == null) {
-            bck();
+            bcl();
+        } else if (xL(bck) == null) {
+            bcl();
         } else {
             this.ejs = false;
             BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
-            com.baidu.adp.framework.client.socket.h.setUrl(bcj);
+            com.baidu.adp.framework.client.socket.h.setUrl(bck);
             BdSocketLinkService.init();
             BdSocketLinkService.startService(true, str);
             this.ejq = true;
@@ -265,7 +265,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bck() {
+    public void bcl() {
         NoNetworkView.updateUI();
         this.ejr = false;
         this.currentIndex = 0;
@@ -274,30 +274,30 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bcl() {
+    public void bcm() {
         if (!this.ejs) {
             this.ejs = true;
             if (this.ejq) {
                 this.ejq = false;
-                b.bbY().xI(TiebaIMConfig.url);
+                b.bbZ().xI(TiebaIMConfig.url);
             }
-            b.bbY().bbZ();
+            b.bbZ().bca();
             if (!this.ejr) {
                 new d("www.baidu.com", new d.b() { // from class: com.baidu.tbadk.coreExtra.d.g.4
                     @Override // com.baidu.tbadk.coreExtra.d.d.b
                     public void hN(boolean z) {
-                        b.bbY().mV(z ? 2 : 1);
+                        b.bbZ().mX(z ? 2 : 1);
                         if (z) {
-                            g.this.eiU = a.bbR().getIpList();
+                            g.this.eiU = a.bbS().getIpList();
                             if (g.this.eiU != null) {
                                 g.this.xN("change ip to reconnect with DNS' failed.");
                                 return;
                             } else {
-                                a.bbR().a(new a.InterfaceC0481a() { // from class: com.baidu.tbadk.coreExtra.d.g.4.1
+                                a.bbS().a(new a.InterfaceC0481a() { // from class: com.baidu.tbadk.coreExtra.d.g.4.1
                                     @Override // com.baidu.tbadk.coreExtra.d.a.InterfaceC0481a
-                                    public void bbW() {
+                                    public void bbX() {
                                         g.this.currentIndex = 0;
-                                        g.this.eiU = a.bbR().getIpList();
+                                        g.this.eiU = a.bbS().getIpList();
                                         if (g.this.eiU != null) {
                                             g.this.xN("change ip to reconnect with DNS' failed.");
                                         } else {
@@ -309,7 +309,7 @@ public class g {
                             }
                         }
                         g.this.ejs = false;
-                        g.this.bck();
+                        g.this.bcl();
                     }
                 });
                 this.ejr = true;

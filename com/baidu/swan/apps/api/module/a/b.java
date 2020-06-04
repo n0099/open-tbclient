@@ -107,10 +107,10 @@ public class b extends d {
                 if (!hVar.isOk()) {
                     int errorCode = hVar.getErrorCode();
                     c.w("Api-Login", errorCode + " " + a.this.toString());
-                    String gM = com.baidu.swan.apps.setting.oauth.c.gM(errorCode);
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(errorCode, gM).toString());
-                    com.baidu.swan.games.v.c.e(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(errorCode, gM).toString());
-                    b.a(eVar, 43, errorCode, gM);
+                    String gO = com.baidu.swan.apps.setting.oauth.c.gO(errorCode);
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(errorCode, gO).toString());
+                    com.baidu.swan.games.v.c.e(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(errorCode, gO).toString());
+                    b.a(eVar, 43, errorCode, gO);
                 } else if (TextUtils.isEmpty(hVar.mData.code)) {
                     callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
                     com.baidu.swan.games.v.c.e(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
@@ -154,7 +154,7 @@ public class b extends d {
     public static void a(com.baidu.swan.apps.runtime.e eVar, int i, int i2, String str) {
         int Qz;
         if (eVar != null && (Qz = eVar.Qz()) == 0) {
-            com.baidu.swan.apps.statistic.a.d oD = new com.baidu.swan.apps.statistic.a.d().f(new com.baidu.swan.apps.an.a().bw(5L).bx(i)).a(eVar.QJ()).oC(com.baidu.swan.apps.statistic.h.gS(Qz)).oD(com.baidu.swan.apps.runtime.e.aoH());
+            com.baidu.swan.apps.statistic.a.d oD = new com.baidu.swan.apps.statistic.a.d().f(new com.baidu.swan.apps.an.a().bw(5L).bx(i)).a(eVar.QJ()).oC(com.baidu.swan.apps.statistic.h.gU(Qz)).oD(com.baidu.swan.apps.runtime.e.aoH());
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(TiebaInitialize.LogFields.ERROR_CODE, i2);

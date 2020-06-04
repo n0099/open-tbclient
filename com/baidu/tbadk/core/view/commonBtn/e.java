@@ -21,12 +21,12 @@ public class e extends a {
         this.dYw = this.dYv;
     }
 
-    public void mm(@ColorRes int i) {
+    public void mo(@ColorRes int i) {
         this.dYn = i;
         this.dYp = R.color.cp_btn_j;
         this.dQC = false;
         if (this.dYA != null) {
-            this.dYA.aWW();
+            this.dYA.aWX();
         }
     }
 
@@ -62,7 +62,7 @@ public class e extends a {
     private Drawable U(float f) {
         GradientDrawable gradientDrawable;
         int color = am.getColor(this.dYp);
-        int[] iArr = {com.baidu.tieba.tbadkCore.c.DI(color), color};
+        int[] iArr = {com.baidu.tieba.tbadkCore.c.DK(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();
             gradientDrawable.setOrientation(this.dYz);

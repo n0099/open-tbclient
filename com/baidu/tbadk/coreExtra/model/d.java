@@ -14,12 +14,12 @@ import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.NewGodData;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.data.WhiteListData;
-import com.baidu.tbadk.coreExtra.data.ac;
+import com.baidu.tbadk.coreExtra.data.ad;
 import com.baidu.tbadk.coreExtra.data.n;
 import com.baidu.tbadk.coreExtra.data.o;
 import com.baidu.tbadk.coreExtra.data.p;
-import com.baidu.tbadk.coreExtra.data.t;
-import com.baidu.tbadk.coreExtra.data.v;
+import com.baidu.tbadk.coreExtra.data.u;
+import com.baidu.tbadk.coreExtra.data.w;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -37,14 +37,14 @@ public class d {
     private n edQ = new n();
     private o edR = new o();
     private CombineDownload edS = new CombineDownload();
-    private t edT = new t();
-    private ac edU = new ac();
+    private u edT = new u();
+    private ad edU = new ad();
     private p eea = new p();
     private com.baidu.tbadk.coreExtra.data.e edV = new com.baidu.tbadk.coreExtra.data.e();
     private com.baidu.tbadk.coreExtra.data.d mAdAdSense = new com.baidu.tbadk.coreExtra.data.d();
     private final com.baidu.tbadk.coreExtra.data.c mActivitySwitch = new com.baidu.tbadk.coreExtra.data.c();
     private com.baidu.tbadk.coreExtra.data.a eeb = new com.baidu.tbadk.coreExtra.data.a();
-    private v mProfileData = new v();
+    private w mProfileData = new w();
     private ABTestExtraData eec = new ABTestExtraData();
     private NewGodData eeg = new NewGodData();
 
@@ -107,6 +107,7 @@ public class d {
                 this.mProfileData.parseJson(jSONObject.optJSONObject("profile_icon"));
                 TbSingleton.getInstance().setNewUser(jSONObject.optInt("recommend_userstatus", 0) == 1);
                 com.baidu.tbadk.core.sharedPref.b.aTX().putBoolean("key_live_forum_enter_switch", jSONObject.optInt("ala_channel_white", 0) == 1);
+                TbSingleton.getInstance().setPcdnConfigData(jSONObject.optJSONObject("pcdn_config"));
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -131,35 +132,35 @@ public class d {
         }
     }
 
-    public o bas() {
+    public o bat() {
         return this.edR;
     }
 
-    public String bat() {
+    public String bau() {
         return this.mConfigVersion;
     }
 
-    public CombineDownload bau() {
+    public CombineDownload bav() {
         return this.edS;
     }
 
-    public VersionData bav() {
+    public VersionData baw() {
         return this.edP;
     }
 
-    public n baw() {
+    public n bax() {
         return this.edQ;
     }
 
-    public ac bax() {
+    public ad bay() {
         return this.edU;
     }
 
-    public NewGodData bay() {
+    public NewGodData baz() {
         return this.eeg;
     }
 
-    public com.baidu.tbadk.coreExtra.data.e baz() {
+    public com.baidu.tbadk.coreExtra.data.e baA() {
         return this.edV;
     }
 
@@ -167,15 +168,15 @@ public class d {
         return this.mAdAdSense;
     }
 
-    public int baA() {
+    public int baB() {
         return this.edX;
     }
 
-    public boolean baB() {
+    public boolean baC() {
         return this.edY == 1;
     }
 
-    public int baC() {
+    public int baD() {
         return this.edZ;
     }
 
@@ -183,23 +184,23 @@ public class d {
         return this.mActivitySwitch;
     }
 
-    public v getProfileData() {
+    public w getProfileData() {
         return this.mProfileData;
     }
 
-    public com.baidu.tbadk.coreExtra.data.a baD() {
+    public com.baidu.tbadk.coreExtra.data.a baE() {
         return this.eeb;
     }
 
-    public ABTestExtraData baE() {
+    public ABTestExtraData baF() {
         return this.eec;
     }
 
-    public JSONArray baF() {
+    public JSONArray baG() {
         return this.eed;
     }
 
-    public JSONArray baG() {
+    public JSONArray baH() {
         return this.eee;
     }
 }

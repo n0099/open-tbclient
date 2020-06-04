@@ -7,34 +7,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s {
-    private static s gFQ;
-    private List<an> eMK;
+    private static s gGb;
+    private List<an> eMV;
 
-    public static s bLq() {
-        if (gFQ == null) {
+    public static s bLs() {
+        if (gGb == null) {
             synchronized (s.class) {
-                if (gFQ == null) {
-                    gFQ = new s();
+                if (gGb == null) {
+                    gGb = new s();
                 }
             }
         }
-        return gFQ;
+        return gGb;
     }
 
     public void e(an anVar) {
         if (anVar != null) {
-            if (this.eMK == null) {
-                this.eMK = new ArrayList();
+            if (this.eMV == null) {
+                this.eMV = new ArrayList();
             }
-            this.eMK.add(anVar);
+            this.eMV.add(anVar);
         }
     }
 
     public void jv(boolean z) {
         int i;
-        if (com.baidu.tbadk.core.util.v.getCount(this.eMK) != 0) {
+        if (com.baidu.tbadk.core.util.v.getCount(this.eMV) != 0) {
             int i2 = -1;
-            for (an anVar : this.eMK) {
+            for (an anVar : this.eMV) {
                 if (anVar != null) {
                     if (i2 != anVar.getPosition()) {
                         int position = anVar.getPosition();
@@ -47,30 +47,30 @@ public class s {
                     i2 = i;
                 }
             }
-            this.eMK.clear();
+            this.eMV.clear();
         }
     }
 
     public void lT(boolean z) {
-        if (com.baidu.tbadk.core.util.v.getCount(this.eMK) != 0) {
-            for (an anVar : this.eMK) {
+        if (com.baidu.tbadk.core.util.v.getCount(this.eMV) != 0) {
+            for (an anVar : this.eMV) {
                 if (anVar != null) {
                     anVar.ag("obj_type", z ? 1 : 0);
                     TiebaStatic.log(anVar);
                 }
             }
-            this.eMK.clear();
+            this.eMV.clear();
         }
     }
 
-    public void bpr() {
-        if (com.baidu.tbadk.core.util.v.getCount(this.eMK) != 0) {
-            for (an anVar : this.eMK) {
+    public void bpt() {
+        if (com.baidu.tbadk.core.util.v.getCount(this.eMV) != 0) {
+            for (an anVar : this.eMV) {
                 if (anVar != null) {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.eMK.clear();
+            this.eMV.clear();
         }
     }
 }

@@ -39,7 +39,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void aWB() {
+    public void aWC() {
         this.dVU.setVisibilityListener(this.dVO);
         boolean aOp = aOp();
         if (hl(aOp) || hm(aOp)) {
@@ -63,12 +63,12 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     }
 
     private boolean hm(boolean z) {
-        boolean aVR = this.dVU.aVR();
+        boolean aVS = this.dVU.aVS();
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dVU.getLayoutParams();
         int i = layoutParams.width;
         float f = layoutParams.weight;
         if (z) {
-            if (f != (aVR ? 1.0f : 2.0f) || i != 0) {
+            if (f != (aVS ? 1.0f : 2.0f) || i != 0) {
                 return true;
             }
         } else if (f != 0.0f || i != -2) {
@@ -78,16 +78,16 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    protected void aWC() {
-        z(aOp(), this.dVU.aVR());
+    protected void aWD() {
+        z(aOp(), this.dVU.aVS());
     }
 
     private void hn(boolean z) {
         if (z) {
-            a(0, -1, 0, 1.0f, true, this.dVU.aVR());
+            a(0, -1, 0, 1.0f, true, this.dVU.aVS());
             return;
         }
-        a(-2, -1, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds78), 0.0f, false, this.dVU.aVR());
+        a(-2, -1, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds78), 0.0f, false, this.dVU.aVS());
     }
 
     private void a(int i, int i2, int i3, float f, boolean z, boolean z2) {

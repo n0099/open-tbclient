@@ -13,8 +13,8 @@ import com.tb.airbnb.lottie.j;
 /* loaded from: classes6.dex */
 public class f extends a {
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> niw;
-    private final Layer nkf;
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> njG;
+    private final Layer nlp;
     private final Paint paint;
     private final Path path;
     private final float[] points;
@@ -27,7 +27,7 @@ public class f extends a {
         this.paint = new Paint();
         this.points = new float[8];
         this.path = new Path();
-        this.nkf = layer;
+        this.nlp = layer;
         this.paint.setAlpha(0);
         this.paint.setStyle(Paint.Style.FILL);
         this.paint.setColor(layer.getSolidColor());
@@ -35,22 +35,22 @@ public class f extends a {
 
     @Override // com.tb.airbnb.lottie.model.layer.a
     public void b(Canvas canvas, Matrix matrix, int i) {
-        int alpha = Color.alpha(this.nkf.getSolidColor());
+        int alpha = Color.alpha(this.nlp.getSolidColor());
         if (alpha != 0) {
-            int intValue = (int) (((this.niR.dID().getValue().intValue() * (alpha / 255.0f)) / 100.0f) * (i / 255.0f) * 255.0f);
+            int intValue = (int) (((this.nkb.dIR().getValue().intValue() * (alpha / 255.0f)) / 100.0f) * (i / 255.0f) * 255.0f);
             this.paint.setAlpha(intValue);
-            if (this.niw != null) {
-                this.paint.setColorFilter(this.niw.getValue());
+            if (this.njG != null) {
+                this.paint.setColorFilter(this.njG.getValue());
             }
             if (intValue > 0) {
                 this.points[0] = 0.0f;
                 this.points[1] = 0.0f;
-                this.points[2] = this.nkf.iQ();
+                this.points[2] = this.nlp.iQ();
                 this.points[3] = 0.0f;
-                this.points[4] = this.nkf.iQ();
-                this.points[5] = this.nkf.iP();
+                this.points[4] = this.nlp.iQ();
+                this.points[5] = this.nlp.iP();
                 this.points[6] = 0.0f;
-                this.points[7] = this.nkf.iP();
+                this.points[7] = this.nlp.iP();
                 matrix.mapPoints(this.points);
                 this.path.reset();
                 this.path.moveTo(this.points[0], this.points[1]);
@@ -67,7 +67,7 @@ public class f extends a {
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
-        this.rect.set(0.0f, 0.0f, this.nkf.iQ(), this.nkf.iP());
+        this.rect.set(0.0f, 0.0f, this.nlp.iQ(), this.nlp.iP());
         this.Ex.mapRect(this.rect);
         rectF.set(this.rect);
     }
@@ -77,9 +77,9 @@ public class f extends a {
         super.a((f) t, (com.tb.airbnb.lottie.e.c<f>) cVar);
         if (t == j.AV) {
             if (cVar == null) {
-                this.niw = null;
+                this.njG = null;
             } else {
-                this.niw = new p(cVar);
+                this.njG = new p(cVar);
             }
         }
     }

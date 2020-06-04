@@ -7,21 +7,21 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class c {
+    public List<o> hAa;
     public boolean hasMore;
-    public int hzm;
-    public List<o> hzn;
+    public int hzZ;
     public String key;
     public int labelId;
     public int pn;
 
-    public int cq(List<o> list) {
+    public int cr(List<o> list) {
         boolean z;
         if (v.isEmpty(list)) {
             return 0;
         }
-        if (v.isEmpty(this.hzn)) {
-            this.hzn = new LinkedList();
-            this.hzn.addAll(list);
+        if (v.isEmpty(this.hAa)) {
+            this.hAa = new LinkedList();
+            this.hAa.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,11 +29,11 @@ public class c {
             o oVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.hzn.size()) {
+                if (i2 >= this.hAa.size()) {
                     z = false;
                     break;
                 }
-                o oVar2 = this.hzn.get(i2);
+                o oVar2 = this.hAa.get(i2);
                 if (oVar != null && (oVar instanceof b) && oVar2 != null && (oVar2 instanceof b)) {
                     bk aOi = ((b) oVar).aOi();
                     bk aOi2 = ((b) oVar2).aOi();
@@ -49,7 +49,7 @@ public class c {
             }
         }
         if (linkedList.size() != 0) {
-            v.addAll(this.hzn, 0, linkedList);
+            v.addAll(this.hAa, 0, linkedList);
         }
         return linkedList.size();
     }

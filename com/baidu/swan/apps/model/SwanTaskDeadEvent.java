@@ -19,7 +19,7 @@ public class SwanTaskDeadEvent implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fT */
+        /* renamed from: fV */
         public SwanTaskDeadEvent[] newArray(int i) {
             return new SwanTaskDeadEvent[i];
         }

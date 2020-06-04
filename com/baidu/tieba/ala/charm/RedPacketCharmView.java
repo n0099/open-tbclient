@@ -20,12 +20,12 @@ import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class RedPacketCharmView extends RelativeLayout {
     private HeadImageView aFL;
-    private View foF;
-    private TextView foG;
-    private View foH;
-    private TextView foI;
-    private ImageView foJ;
-    private TextView foK;
+    private View foQ;
+    private TextView foR;
+    private View foS;
+    private TextView foT;
+    private ImageView foU;
+    private TextView foV;
     private String mAvatar;
     private int mStyle;
 
@@ -34,31 +34,31 @@ public class RedPacketCharmView extends RelativeLayout {
         init();
     }
 
-    public void pV(int i) {
+    public void pX(int i) {
         if (this.mStyle != i) {
             this.mStyle = i;
             switch (i) {
                 case 1:
                     this.aFL.setVisibility(0);
-                    this.foH.setVisibility(8);
-                    this.foK.setVisibility(0);
-                    bte();
+                    this.foS.setVisibility(8);
+                    this.foV.setVisibility(0);
+                    btg();
                     return;
                 case 2:
                     this.aFL.setVisibility(8);
-                    this.foH.setVisibility(0);
-                    this.foI.setVisibility(0);
-                    this.foJ.setVisibility(8);
-                    this.foK.setVisibility(4);
-                    bte();
+                    this.foS.setVisibility(0);
+                    this.foT.setVisibility(0);
+                    this.foU.setVisibility(8);
+                    this.foV.setVisibility(4);
+                    btg();
                     return;
                 case 3:
                     this.aFL.setVisibility(8);
-                    this.foH.setVisibility(0);
-                    this.foI.setVisibility(8);
-                    this.foJ.setVisibility(0);
-                    this.foK.setVisibility(4);
-                    btd();
+                    this.foS.setVisibility(0);
+                    this.foT.setVisibility(8);
+                    this.foU.setVisibility(0);
+                    this.foV.setVisibility(4);
+                    btf();
                     return;
                 default:
                     return;
@@ -68,25 +68,25 @@ public class RedPacketCharmView extends RelativeLayout {
 
     public void setBadge(boolean z, String str) {
         if (z) {
-            this.foF.setVisibility(0);
-            if (TextUtils.isEmpty(this.foG.getText()) || !this.foG.getText().equals(str)) {
-                this.foG.setText(str);
-                Drawable background = this.foF.getBackground();
+            this.foQ.setVisibility(0);
+            if (TextUtils.isEmpty(this.foR.getText()) || !this.foR.getText().equals(str)) {
+                this.foR.setText(str);
+                Drawable background = this.foQ.getBackground();
                 if (background instanceof GradientDrawable) {
                     ((GradientDrawable) background).setShape(str.length() == 1 ? 1 : 0);
-                    this.foF.setBackgroundDrawable(background);
+                    this.foQ.setBackgroundDrawable(background);
                 }
-                Drawable background2 = this.foG.getBackground();
+                Drawable background2 = this.foR.getBackground();
                 if (background2 instanceof GradientDrawable) {
                     ((GradientDrawable) background2).setShape(str.length() != 1 ? 0 : 1);
-                    this.foG.setBackgroundDrawable(background2);
+                    this.foR.setBackgroundDrawable(background2);
                     return;
                 }
                 return;
             }
             return;
         }
-        this.foF.setVisibility(8);
+        this.foQ.setVisibility(8);
     }
 
     public void setAvatar(String str) {
@@ -97,25 +97,25 @@ public class RedPacketCharmView extends RelativeLayout {
     }
 
     public void setCountDownTimer(String str, String str2) {
-        this.foI.setText(str);
-        this.foK.setText(str2);
+        this.foT.setText(str);
+        this.foV.setText(str2);
     }
 
     public void release() {
         this.mAvatar = "";
-        bte();
+        btg();
     }
 
     private void init() {
         setBackgroundColor(0);
         LayoutInflater.from(getContext()).inflate(a.h.red_packet_widget_charm, (ViewGroup) this, true);
-        this.foF = findViewById(a.g.layout_badge);
-        this.foG = (TextView) findViewById(a.g.tv_badge);
+        this.foQ = findViewById(a.g.layout_badge);
+        this.foR = (TextView) findViewById(a.g.tv_badge);
         this.aFL = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.foH = findViewById(a.g.layout_action);
-        this.foI = (TextView) findViewById(a.g.tv_countdown_action);
-        this.foJ = (ImageView) findViewById(a.g.iv_process);
-        this.foK = (TextView) findViewById(a.g.tv_countdown_format);
+        this.foS = findViewById(a.g.layout_action);
+        this.foT = (TextView) findViewById(a.g.tv_countdown_action);
+        this.foU = (ImageView) findViewById(a.g.iv_process);
+        this.foV = (TextView) findViewById(a.g.tv_countdown_format);
         this.aFL.setIsRound(true);
         this.aFL.setAutoChangeStyle(false);
         this.aFL.setBorderColor(-4981);
@@ -123,25 +123,25 @@ public class RedPacketCharmView extends RelativeLayout {
         this.aFL.setScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 
-    private void btd() {
-        if (this.foH != null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.foH, "scaleX", 1.0f, 0.8f, 1.0f);
+    private void btf() {
+        if (this.foS != null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.foS, "scaleX", 1.0f, 0.8f, 1.0f);
             ofFloat.setDuration(500L);
             ofFloat.setRepeatCount(-1);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.foH, "scaleY", 1.0f, 0.8f, 1.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.foS, "scaleY", 1.0f, 0.8f, 1.0f);
             ofFloat2.setDuration(500L);
             ofFloat2.setRepeatCount(-1);
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.setInterpolator(new LinearInterpolator());
             animatorSet.playTogether(ofFloat, ofFloat2);
-            this.foH.setTag(animatorSet);
+            this.foS.setTag(animatorSet);
             animatorSet.start();
         }
     }
 
-    private void bte() {
-        if (this.foH != null && (this.foH.getTag() instanceof Animator)) {
-            ((Animator) this.foH.getTag()).cancel();
+    private void btg() {
+        if (this.foS != null && (this.foS.getTag() instanceof Animator)) {
+            ((Animator) this.foS.getTag()).cancel();
         }
     }
 }

@@ -10,8 +10,8 @@ import org.json.JSONObject;
 public class GuardClubRankHttpResponseMessage extends JsonHttpResponsedMessage {
     public boolean aOK;
     public com.baidu.live.guardclub.f aOM;
-    public List<k> fzQ;
-    public com.baidu.live.guardclub.a fzR;
+    public List<k> fAb;
+    public com.baidu.live.guardclub.a fAc;
     public boolean hasMore;
     public int pageIndex;
 
@@ -26,19 +26,19 @@ public class GuardClubRankHttpResponseMessage extends JsonHttpResponsedMessage {
         if (i == 1021146 && jSONObject != null && getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("guard_club_info");
             if (optJSONObject2 != null) {
-                this.fzR = new com.baidu.live.guardclub.a();
-                this.fzR.parseJson(optJSONObject2);
+                this.fAc = new com.baidu.live.guardclub.a();
+                this.fAc.parseJson(optJSONObject2);
             }
             this.pageIndex = optJSONObject.optInt(Config.PACKAGE_NAME);
             this.hasMore = optJSONObject.optInt("has_more") == 1;
             this.aOK = optJSONObject.optInt("is_anchor") == 1;
             JSONArray optJSONArray = optJSONObject.optJSONArray("club_rank_list");
             if (optJSONArray != null) {
-                this.fzQ = new ArrayList();
+                this.fAb = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     k cO = new k().cO(optJSONArray.optJSONObject(i2));
                     if (cO != null) {
-                        this.fzQ.add(cO);
+                        this.fAb.add(cO);
                     }
                 }
             }

@@ -19,6 +19,10 @@ public class ak {
         return check(RomUtils.ROM_EMUI) && Build.VERSION.SDK_INT >= 24;
     }
 
+    public static boolean aUP() {
+        return check("ONEPLUS");
+    }
+
     public static boolean check(String str) {
         if (dNR != null) {
             return dNR.equals(str);
@@ -63,7 +67,7 @@ public class ak {
         return dNR.equals(str);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [91=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [96=4] */
     public static String getProp(String str) {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;

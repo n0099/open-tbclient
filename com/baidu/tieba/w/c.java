@@ -8,23 +8,23 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.m;
-import com.baidu.tbadk.coreExtra.data.ab;
+import com.baidu.tbadk.coreExtra.data.ac;
 import com.baidu.tieba.w.b;
 import java.io.File;
 /* loaded from: classes.dex */
 public class c {
-    private String lLU;
+    private String lNc;
     private String mVideoPath;
     private boolean isLoading = false;
-    private b.a lLT = new b.a() { // from class: com.baidu.tieba.w.c.1
+    private b.a lNb = new b.a() { // from class: com.baidu.tieba.w.c.1
         @Override // com.baidu.tieba.w.b.a
         public void c(boolean z, String str, String str2) {
             c.this.isLoading = false;
             if (z) {
                 c.this.mVideoPath = str;
                 com.baidu.tbadk.core.sharedPref.b.aTX().putString(SharedPrefConfig.KEY_VIDEO_SPLASH_PATH, c.this.mVideoPath);
-                c.this.lLU = str2;
-                com.baidu.tbadk.core.sharedPref.b.aTX().putString(SharedPrefConfig.KEY_VIDEO_SPLASH_URL, c.this.lLU);
+                c.this.lNc = str2;
+                com.baidu.tbadk.core.sharedPref.b.aTX().putString(SharedPrefConfig.KEY_VIDEO_SPLASH_URL, c.this.lNc);
             }
         }
     };
@@ -34,9 +34,9 @@ public class c {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
                 String string = com.baidu.tbadk.core.sharedPref.b.aTX().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, "");
-                ab abVar = new ab();
-                abVar.parseJson(string);
-                c.this.setVideoUrl(abVar.aYn());
+                ac acVar = new ac();
+                acVar.parseJson(string);
+                c.this.setVideoUrl(acVar.aYo());
             }
         }
     };
@@ -47,32 +47,32 @@ public class c {
 
     private void init() {
         this.isLoading = false;
-        this.lLU = com.baidu.tbadk.core.sharedPref.b.aTX().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_URL, null);
+        this.lNc = com.baidu.tbadk.core.sharedPref.b.aTX().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_URL, null);
         this.mVideoPath = com.baidu.tbadk.core.sharedPref.b.aTX().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_PATH, null);
         MessageManager.getInstance().registerListener(this.dzd);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setVideoUrl(String str) {
-        if ((com.baidu.tbadk.core.sharedPref.b.aTX().getInt(SharedPrefConfig.KEY_VIDEO_SPLASH_SWITCH, 0) == 1) && !this.isLoading && Oe(str)) {
-            Od(str);
+        if ((com.baidu.tbadk.core.sharedPref.b.aTX().getInt(SharedPrefConfig.KEY_VIDEO_SPLASH_SWITCH, 0) == 1) && !this.isLoading && Of(str)) {
+            Oe(str);
         }
     }
 
-    private void Od(String str) {
+    private void Oe(String str) {
         this.isLoading = true;
-        new b(getPath(), str, this.lLT).execute(new Void[0]);
+        new b(getPath(), str, this.lNb).execute(new Void[0]);
     }
 
-    public boolean dlK() {
+    public boolean dlZ() {
         if (this.isLoading || aq.isEmpty(getVideoPath())) {
             return false;
         }
         if (!new File(getVideoPath()).exists()) {
             this.mVideoPath = null;
             com.baidu.tbadk.core.sharedPref.b.aTX().putString(SharedPrefConfig.KEY_VIDEO_SPLASH_PATH, this.mVideoPath);
-            this.lLU = null;
-            com.baidu.tbadk.core.sharedPref.b.aTX().putString(SharedPrefConfig.KEY_VIDEO_SPLASH_URL, this.lLU);
+            this.lNc = null;
+            com.baidu.tbadk.core.sharedPref.b.aTX().putString(SharedPrefConfig.KEY_VIDEO_SPLASH_URL, this.lNc);
             return false;
         }
         return true;
@@ -82,18 +82,18 @@ public class c {
         return this.mVideoPath;
     }
 
-    public void dlL() {
+    public void dma() {
         if (!aq.isEmpty(getPath())) {
             m.deleteFileOrDir(new File(getPath()));
             this.mVideoPath = null;
             com.baidu.tbadk.core.sharedPref.b.aTX().putString(SharedPrefConfig.KEY_VIDEO_SPLASH_PATH, this.mVideoPath);
-            this.lLU = null;
-            com.baidu.tbadk.core.sharedPref.b.aTX().putString(SharedPrefConfig.KEY_VIDEO_SPLASH_URL, this.lLU);
+            this.lNc = null;
+            com.baidu.tbadk.core.sharedPref.b.aTX().putString(SharedPrefConfig.KEY_VIDEO_SPLASH_URL, this.lNc);
         }
     }
 
-    private boolean Oe(String str) {
-        return (aq.isEmpty(str) || str.equals(this.lLU)) ? false : true;
+    private boolean Of(String str) {
+        return (aq.isEmpty(str) || str.equals(this.lNc)) ? false : true;
     }
 
     private String getPath() {

@@ -88,7 +88,7 @@ public class a {
         }
         switch (iVar.getItemId()) {
             case 36:
-                d.a(this.mContext, ajH() ? this.mContext.getString(a.h.swanapp_write_to_clipborad_succ) : this.mContext.getString(a.h.swanapp_write_to_clipborad_fail)).gG(2).showToast();
+                d.a(this.mContext, ajH() ? this.mContext.getString(a.h.swanapp_write_to_clipborad_succ) : this.mContext.getString(a.h.swanapp_write_to_clipborad_fail)).gI(2).showToast();
                 return true;
             default:
                 return false;
@@ -158,12 +158,12 @@ public class a {
         SwanFavorDataManager.acW().b(str, new com.baidu.swan.apps.favordata.a.b() { // from class: com.baidu.swan.apps.y.a.3
             @Override // com.baidu.swan.apps.favordata.a.b
             public void adf() {
-                d.k(a.this.mContext.getApplicationContext(), a.h.aiapps_cancel_fav_success).gG(2).showHighlightToast();
+                d.k(a.this.mContext.getApplicationContext(), a.h.aiapps_cancel_fav_success).gI(2).showHighlightToast();
             }
 
             @Override // com.baidu.swan.apps.favordata.a.b
             public void adg() {
-                d.k(a.this.mContext.getApplicationContext(), a.h.aiapps_cancel_fav_fail).gG(2).showToast();
+                d.k(a.this.mContext.getApplicationContext(), a.h.aiapps_cancel_fav_fail).gI(2).showToast();
             }
         });
         lV("deletemyswan");
@@ -186,13 +186,13 @@ public class a {
                 if (a.K(a.this.coF.aHv())) {
                     a.bw("addmyswan", page);
                 } else {
-                    d.k(a.this.mContext.getApplicationContext(), a.h.aiapps_fav_success).gG(2).gC(2).showToast();
+                    d.k(a.this.mContext.getApplicationContext(), a.h.aiapps_fav_success).gI(2).gE(2).showToast();
                 }
             }
 
             @Override // com.baidu.swan.apps.favordata.a.a
             public void ade() {
-                d.k(a.this.mContext.getApplicationContext(), a.h.aiapps_fav_fail).gG(2).showToast();
+                d.k(a.this.mContext.getApplicationContext(), a.h.aiapps_fav_fail).gI(2).showToast();
             }
         });
         bw("addmyswan", page);
@@ -215,7 +215,7 @@ public class a {
                         }
                         return;
                     }
-                    d.k(activity.getApplicationContext(), a.h.aiapps_fav_success).gG(2).gC(2).showToast();
+                    d.k(activity.getApplicationContext(), a.h.aiapps_fav_success).gI(2).gE(2).showToast();
                     if (interfaceC0403a != null) {
                         interfaceC0403a.onSuccess();
                     }
@@ -223,7 +223,7 @@ public class a {
 
                 @Override // com.baidu.swan.apps.favordata.a.a
                 public void ade() {
-                    d.k(activity.getApplicationContext(), a.h.aiapps_fav_fail).gG(2).showToast();
+                    d.k(activity.getApplicationContext(), a.h.aiapps_fav_fail).gI(2).showToast();
                     if (interfaceC0403a != null) {
                         interfaceC0403a.onFail();
                     }
@@ -298,9 +298,9 @@ public class a {
             ((SwanAppActivity) this.coF.aHv()).j(com.baidu.swan.apps.u.a.afm().getNightModeSwitcherState(), true);
         }
         if (nightModeSwitcherState) {
-            d.k(this.mContext.getApplicationContext(), a.h.aiapps_browser_menu_toast_day_mode).gH(a.e.aiapps_day_mode_toast_icon).gG(2).showHighlightToast();
+            d.k(this.mContext.getApplicationContext(), a.h.aiapps_browser_menu_toast_day_mode).gJ(a.e.aiapps_day_mode_toast_icon).gI(2).showHighlightToast();
         } else {
-            d.k(this.mContext.getApplicationContext(), a.h.aiapps_browser_menu_toast_night_mode).gH(a.e.aiapps_night_mode_toast_icon).gG(2).showHighlightToast();
+            d.k(this.mContext.getApplicationContext(), a.h.aiapps_browser_menu_toast_night_mode).gJ(a.e.aiapps_night_mode_toast_icon).gI(2).showHighlightToast();
         }
         lV("daynightmode");
     }

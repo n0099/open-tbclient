@@ -43,7 +43,7 @@ public class cv {
         }
         this.f180a = System.currentTimeMillis();
         this.f182a.add(new de(str, -1));
-        this.f181a = cz.m213a();
+        this.f181a = cz.m212a();
         this.f183b = str;
     }
 
@@ -89,7 +89,7 @@ public class cv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList<String> m204a() {
+    public synchronized ArrayList<String> m203a() {
         return a(false);
     }
 
@@ -103,7 +103,7 @@ public class cv {
             Iterator<String> it = a(true).iterator();
             while (it.hasNext()) {
                 cx a = cx.a(it.next(), url.getPort());
-                arrayList.add(new URL(url.getProtocol(), a.m212a(), a.a(), url.getFile()).toString());
+                arrayList.add(new URL(url.getProtocol(), a.m211a(), a.a(), url.getFile()).toString());
             }
             return arrayList;
         }
@@ -134,7 +134,7 @@ public class cv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m205a() {
+    public synchronized JSONObject m204a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
         jSONObject.put("net", this.f181a);
@@ -175,7 +175,7 @@ public class cv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m206a(String str) {
+    public synchronized void m205a(String str) {
         a(new de(str));
     }
 
@@ -242,8 +242,8 @@ public class cv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m207a() {
-        return TextUtils.equals(this.f181a, cz.m213a());
+    public boolean m206a() {
+        return TextUtils.equals(this.f181a, cz.m212a());
     }
 
     public boolean a(cv cvVar) {

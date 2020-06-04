@@ -12,7 +12,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
     private x bth;
-    private a eBS;
+    private a eCd;
     private String mPath;
     private String mUrl;
 
@@ -37,7 +37,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.eBS = aVar;
+        this.eCd = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -67,11 +67,11 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.eBS != null) {
+        if (this.eCd != null) {
             if (!aq.isEmpty(str)) {
-                this.eBS.onLoaded(true, str);
+                this.eCd.onLoaded(true, str);
             } else {
-                this.eBS.onLoaded(false, null);
+                this.eCd.onLoaded(false, null);
             }
         }
     }

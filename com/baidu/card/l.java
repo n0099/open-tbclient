@@ -91,7 +91,7 @@ public class l extends h {
         PostData aSb = absThreadDataSupport.aOi().aSb();
         if (this.adO != null && aSb != null && aSb.aQx() != null && aSb.aQx().getUserId() != null) {
             this.adO.dh("tid", absThreadDataSupport.aOi().tid).dh("post_id", aSb.getId()).dh("uid", aSb.aQx().getUserId());
-            com.baidu.tieba.card.s.bLq().e(this.adO);
+            com.baidu.tieba.card.s.bLs().e(this.adO);
         }
         this.adN.setData(absThreadDataSupport.aOi());
     }

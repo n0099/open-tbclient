@@ -7,33 +7,33 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static d gNu = new d();
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> gNv;
+    private static d gNF = new d();
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> gNG;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
         return 1;
     }
 
-    public static synchronized d bNI() {
+    public static synchronized d bNK() {
         d dVar;
         synchronized (d.class) {
-            dVar = gNu;
+            dVar = gNF;
         }
         return dVar;
     }
 
     public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
-        return this.gNv;
+        return this.gNG;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void a(a.InterfaceC0488a interfaceC0488a) {
-        if (this.gNv == null || this.gNv.isEmpty()) {
-            this.gNv = new LinkedList<>();
-            if (TbFaceManager.bes().bdj() > 0) {
+        if (this.gNG == null || this.gNG.isEmpty()) {
+            this.gNG = new LinkedList<>();
+            if (TbFaceManager.bet().bdk() > 0) {
                 c cVar = new c();
-                this.gNv.add(cVar);
+                this.gNG.add(cVar);
                 if (interfaceC0488a != null) {
                     interfaceC0488a.a(cVar);
                     return;
@@ -42,7 +42,7 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
             }
             return;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.gNv.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.gNG.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (interfaceC0488a != null) {
@@ -56,6 +56,6 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     public boolean isEmpty() {
-        return this.gNv == null || this.gNv.size() == 0;
+        return this.gNG == null || this.gNG.size() == 0;
     }
 }

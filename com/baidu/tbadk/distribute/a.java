@@ -120,7 +120,7 @@ public class a {
     private int ekn = 10;
     private boolean ekk = j.isNetWorkAvailable();
 
-    public static a bcK() {
+    public static a bcL() {
         return ekj;
     }
 
@@ -131,16 +131,16 @@ public class a {
             if (z) {
                 hT(true);
             } else {
-                bcL();
+                bcM();
             }
         }
     }
 
-    private void bcL() {
+    private void bcM() {
         this.handler.removeMessages(1);
     }
 
-    private void bcM() {
+    private void bcN() {
         this.handler.removeMessages(1);
         this.handler.sendEmptyMessageDelayed(1, this.ekm);
     }
@@ -164,15 +164,15 @@ public class a {
     public void hR(boolean z) {
         MessageManager messageManager = MessageManager.getInstance();
         if (z) {
-            messageManager.registerTask(bcP());
+            messageManager.registerTask(bcQ());
         }
-        messageManager.registerTask(bcN());
+        messageManager.registerTask(bcO());
         messageManager.registerListener(this.eko);
         messageManager.registerListener(this.ekp);
         messageManager.registerListener(this.downloadListener);
     }
 
-    private HttpMessageTask bcN() {
+    private HttpMessageTask bcO() {
         HttpMessageTask httpMessageTask = new HttpMessageTask(1003000, TbConfig.SERVER_ADDRESS + TbConfig.LOG_TOGETHER + "?cmd=" + CmdConfigSocket.CMD_UPLOAD_ACTUAL_LOG);
         httpMessageTask.setResponsedClass(DistributeHttpResponse.class);
         return httpMessageTask;
@@ -182,7 +182,7 @@ public class a {
         this.isUpload = z;
     }
 
-    public void mY(int i) {
+    public void na(int i) {
         if (i > 3600) {
             this.ekm = 300000L;
         } else if (i <= 0) {
@@ -192,7 +192,7 @@ public class a {
         }
     }
 
-    public void mZ(int i) {
+    public void nb(int i) {
         if (i > 20) {
             this.ekn = 10;
         } else if (i <= 0) {
@@ -219,7 +219,7 @@ public class a {
         }
     }
 
-    private boolean bcO() {
+    private boolean bcP() {
         return this.handler.hasMessages(1);
     }
 
@@ -227,12 +227,12 @@ public class a {
     public void hT(boolean z) {
         if (this.ekk && this.isUpload) {
             List<AdReq> hU = hU(z);
-            if (z || !bcO()) {
-                bcM();
+            if (z || !bcP()) {
+                bcN();
             }
             if (hU != null && hU.size() != 0) {
                 if (!z) {
-                    bcM();
+                    bcN();
                 }
                 MessageManager.getInstance().sendMessage(new DistributeRequest(hU));
             }
@@ -259,7 +259,7 @@ public class a {
         return arrayList;
     }
 
-    private SocketMessageTask bcP() {
+    private SocketMessageTask bcQ() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(CmdConfigSocket.CMD_UPLOAD_ACTUAL_LOG);
         socketMessageTask.setNeedAck(true);
         socketMessageTask.setResponsedClass(DistributeSocketResponse.class);
@@ -348,7 +348,7 @@ public class a {
         }
         c a = g.a(downloadStaticsData, 101, 0);
         a.ff(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, "start");
-        d.cVk().a(a);
+        d.cVA().a(a);
         if (downloadStaticsData != null && "1".equals(downloadStaticsData.getDa_range_nt())) {
             downloadStaticsData.setDa_range_nt("0");
         }
@@ -379,7 +379,7 @@ public class a {
                 return;
             }
             a.ff(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, str2);
-            d.cVk().a(a);
+            d.cVA().a(a);
         }
     }
 
@@ -389,7 +389,7 @@ public class a {
             c a = g.a(downloadStaticsData, 101, 0);
             a.setDownloadStaticsData(null);
             a.ff(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, "delete");
-            d.cVk().a(a);
+            d.cVA().a(a);
         }
     }
 

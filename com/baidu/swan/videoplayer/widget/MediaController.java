@@ -70,7 +70,7 @@ public class MediaController extends RelativeLayout {
         this.dsP.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.swan.videoplayer.widget.MediaController.2
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-                MediaController.this.jG(i);
+                MediaController.this.jI(i);
             }
 
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
@@ -136,8 +136,8 @@ public class MediaController extends RelativeLayout {
                 this.dsL.setEnabled(true);
                 this.dsL.setBackgroundResource(c.a.btn_play);
                 this.dsP.setEnabled(false);
-                jG(this.dsU == null ? 0 : this.dsU.getCurrentPosition());
-                jF(this.dsU != null ? this.dsU.getDuration() : 0);
+                jI(this.dsU == null ? 0 : this.dsU.getCurrentPosition());
+                jH(this.dsU != null ? this.dsU.getDuration() : 0);
                 return;
             case 1:
                 this.dsL.setEnabled(false);
@@ -147,7 +147,7 @@ public class MediaController extends RelativeLayout {
                 this.dsL.setEnabled(true);
                 this.dsL.setBackgroundResource(c.a.btn_play);
                 this.dsP.setEnabled(true);
-                jF(this.dsU == null ? 0 : this.dsU.getDuration());
+                jH(this.dsU == null ? 0 : this.dsU.getDuration());
                 this.dsP.setMax(this.dsU != null ? this.dsU.getDuration() : 0);
                 return;
             case 3:
@@ -240,20 +240,20 @@ public class MediaController extends RelativeLayout {
         setVisibility(8);
     }
 
-    private void jF(int i) {
+    private void jH(int i) {
         if (this.dsQ != null) {
-            this.dsQ.setText(jH(i));
+            this.dsQ.setText(jJ(i));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jG(int i) {
+    public void jI(int i) {
         if (this.dsO != null) {
-            this.dsO.setText(jH(i));
+            this.dsO.setText(jJ(i));
         }
     }
 
-    public static String jH(int i) {
+    public static String jJ(int i) {
         if (i < 0) {
             return "";
         }
@@ -269,7 +269,7 @@ public class MediaController extends RelativeLayout {
             if (this.dsP != null) {
                 this.dsP.setMax(i);
             }
-            jF(i);
+            jH(i);
             if (i > 0) {
                 this.dsW = true;
             }
@@ -302,7 +302,7 @@ public class MediaController extends RelativeLayout {
         }
     }
 
-    public void jI(int i) {
+    public void jK(int i) {
         if (this.dsP != null && i != this.dsP.getSecondaryProgress()) {
             this.dsP.setSecondaryProgress(i);
         }

@@ -66,19 +66,19 @@ public class b extends BaseAdapter {
         if (aVar3 != null) {
             aVar.titleTv.setText(aVar3.gU());
             if (aVar3.cmz != null) {
-                aVar.clK.setText(fL(aVar3.cmz.size()));
+                aVar.clK.setText(fN(aVar3.cmz.size()));
                 if (aVar3.cmz.get(0) != null && !TextUtils.isEmpty(aVar3.cmz.get(0).getPath())) {
                     ImageRequestBuilder ab = ImageRequestBuilder.ab(Uri.fromFile(new File(aVar3.cmz.get(0).getPath())));
                     ab.c(new d(this.clI, this.clI));
-                    ab.wo(true);
-                    aVar.clJ.setController(com.facebook.drawee.a.a.c.dvf().wa(false).bb(ab.dCl()).c(aVar.clJ.getController()).dvW());
+                    ab.wq(true);
+                    aVar.clJ.setController(com.facebook.drawee.a.a.c.dvt().wc(false).bb(ab.dCz()).c(aVar.clJ.getController()).dwk());
                 }
             }
         }
         return view;
     }
 
-    private String fL(int i) {
+    private String fN(int i) {
         return TextUtils.equals(this.clG, "Image") ? this.clq.getString(a.h.swanapp_image_pages, new Object[]{Integer.valueOf(i)}) : this.clq.getString(a.h.swanapp_album_pages, new Object[]{Integer.valueOf(i)});
     }
 

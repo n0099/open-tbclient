@@ -21,7 +21,7 @@ public class PrefetchEvent extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: eZ */
+        /* renamed from: fb */
         public PrefetchEvent[] newArray(int i) {
             return new PrefetchEvent[i];
         }

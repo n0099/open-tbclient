@@ -11,7 +11,7 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
 /* loaded from: classes12.dex */
 public class AiAppGuideActivity extends BaseActivity {
-    private ImageView eKY;
+    private ImageView eLj;
     private GifView efO;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity.1
         @Override // android.view.View.OnClickListener
@@ -30,8 +30,8 @@ public class AiAppGuideActivity extends BaseActivity {
         setContentView(R.layout.activity_aiapp_guide);
         this.efO = (GifView) findViewById(R.id.view_gif);
         this.efO.setGifRaw(R.raw.aiapp_guide);
-        this.eKY = (ImageView) findViewById(R.id.img_close);
-        this.eKY.setOnClickListener(this.mOnClickListener);
+        this.eLj = (ImageView) findViewById(R.id.img_close);
+        this.eLj.setOnClickListener(this.mOnClickListener);
         int equipmentWidth = l.getEquipmentWidth(getActivity()) - (l.getDimens(getActivity(), R.dimen.tbds44) * 2);
         ViewGroup.LayoutParams layoutParams = this.efO.getLayoutParams();
         layoutParams.width = equipmentWidth;
@@ -48,6 +48,6 @@ public class AiAppGuideActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        am.setImageResource(this.eKY, R.drawable.icon_use_close_n);
+        am.setImageResource(this.eLj, R.drawable.icon_use_close_n);
     }
 }

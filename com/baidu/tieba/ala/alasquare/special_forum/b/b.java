@@ -11,24 +11,24 @@ import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class b extends a {
     private TbImageView dRP;
-    private ViewGroup fjW;
+    private ViewGroup fkh;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        brN();
+        brP();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void init() {
-        this.fjW = new FrameLayout(this.mTbPageContext.getPageActivity());
+        this.fkh = new FrameLayout(this.mTbPageContext.getPageActivity());
         this.dRP = new TbImageView(this.mTbPageContext.getPageActivity());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mScreenWidth, this.fbR);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mScreenWidth, this.fcc);
         this.dRP.setDefaultBgResource(R.drawable.pic_live_ufan);
         this.dRP.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.dRP.setLayoutParams(layoutParams);
-        this.fjW.addView(this.dRP);
+        this.fkh.addView(this.dRP);
         this.mMaskView.setVisibility(8);
-        this.fjW.addView(this.mMaskView);
+        this.fkh.addView(this.mMaskView);
         this.dRP.setClickable(false);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -43,19 +43,19 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
-    public void brO() {
-        super.brO();
+    public void brQ() {
+        super.brQ();
         if (this.dRP != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.dRP.getLayoutParams();
             layoutParams.width = this.mScreenWidth;
-            layoutParams.height = this.fbR;
+            layoutParams.height = this.fcc;
             this.dRP.setLayoutParams(layoutParams);
         }
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public View getContentView() {
-        return this.fjW;
+        return this.fkh;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a

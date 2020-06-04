@@ -4,14 +4,14 @@ import com.baidu.adp.widget.ListView.aa;
 import com.baidu.tieba.card.b;
 /* loaded from: classes8.dex */
 public class a<T extends b> extends aa.a {
-    protected T gIC;
+    protected T gIN;
 
     public a(T t) {
         super(t.getView());
-        this.gIC = t;
+        this.gIN = t;
     }
 
-    public T bLU() {
-        return this.gIC;
+    public T bLW() {
+        return this.gIN;
     }
 }

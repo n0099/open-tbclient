@@ -20,57 +20,57 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.k;
 /* loaded from: classes11.dex */
 public class b extends c {
-    private ImageView jHY;
-    private TextView kZA;
-    private View kZB;
-    private TextView kZC;
-    private View kZD;
-    private TextView kZE;
-    private ImageView kZF;
-    private TextView kZG;
-    private TbImageView kZH;
-    private k kZv;
-    private View kZw;
-    private TbImageView kZx;
-    private View kZy;
-    private TbImageView kZz;
+    private ImageView jJe;
+    private k laF;
+    private View laG;
+    private TbImageView laH;
+    private View laI;
+    private TbImageView laJ;
+    private TextView laK;
+    private View laL;
+    private TextView laM;
+    private View laN;
+    private TextView laO;
+    private ImageView laP;
+    private TextView laQ;
+    private TbImageView laR;
 
     public b(Context context, boolean z, int i, k kVar) {
         super(context, z, i);
-        this.kZv = kVar;
-        this.kZw = this.mRootView.findViewById(R.id.pb_post_share_card);
-        this.kZx = (TbImageView) this.mRootView.findViewById(R.id.pb_post_share_title);
-        this.kZy = this.mRootView.findViewById(R.id.pb_share_origin_thread_img_container);
-        this.kZz = (TbImageView) this.mRootView.findViewById(R.id.pb_share_origin_thread_img);
-        this.kZz.setPlaceHolder(2);
-        this.kZz.setConrers(15);
-        this.kZz.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-        this.kZz.setGifIconSupport(false);
-        this.kZz.setLongIconSupport(false);
-        this.kZA = (TextView) this.mRootView.findViewById(R.id.origin_thread_abstract);
-        this.kZB = this.mRootView.findViewById(R.id.pb_share_origin_thread_gradient_mask);
-        this.jHY = (ImageView) this.mRootView.findViewById(R.id.pb_post_share_video_play_iv);
-        this.kZC = (TextView) this.mRootView.findViewById(R.id.pb_post_video_during_time_tv);
-        this.kZD = this.mRootView.findViewById(R.id.pb_post_screen_shot_container);
-        this.kZE = (TextView) this.mRootView.findViewById(R.id.post_share_screen_shot_title);
-        this.kZF = (ImageView) this.mRootView.findViewById(R.id.post_share_screen_shot);
-        this.kZG = (TextView) this.mRootView.findViewById(R.id.post_share_qcode_comment);
-        this.kZH = (TbImageView) this.mRootView.findViewById(R.id.post_share_qcode);
-        cZE();
+        this.laF = kVar;
+        this.laG = this.mRootView.findViewById(R.id.pb_post_share_card);
+        this.laH = (TbImageView) this.mRootView.findViewById(R.id.pb_post_share_title);
+        this.laI = this.mRootView.findViewById(R.id.pb_share_origin_thread_img_container);
+        this.laJ = (TbImageView) this.mRootView.findViewById(R.id.pb_share_origin_thread_img);
+        this.laJ.setPlaceHolder(2);
+        this.laJ.setConrers(15);
+        this.laJ.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+        this.laJ.setGifIconSupport(false);
+        this.laJ.setLongIconSupport(false);
+        this.laK = (TextView) this.mRootView.findViewById(R.id.origin_thread_abstract);
+        this.laL = this.mRootView.findViewById(R.id.pb_share_origin_thread_gradient_mask);
+        this.jJe = (ImageView) this.mRootView.findViewById(R.id.pb_post_share_video_play_iv);
+        this.laM = (TextView) this.mRootView.findViewById(R.id.pb_post_video_during_time_tv);
+        this.laN = this.mRootView.findViewById(R.id.pb_post_screen_shot_container);
+        this.laO = (TextView) this.mRootView.findViewById(R.id.post_share_screen_shot_title);
+        this.laP = (ImageView) this.mRootView.findViewById(R.id.post_share_screen_shot);
+        this.laQ = (TextView) this.mRootView.findViewById(R.id.post_share_qcode_comment);
+        this.laR = (TbImageView) this.mRootView.findViewById(R.id.post_share_qcode);
+        cZU();
     }
 
-    private void cZE() {
+    private void cZU() {
     }
 
     @Override // com.baidu.tieba.sharesdk.d.c
-    protected View bXU() {
+    protected View bXX() {
         return LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.pb_post_share_dialog_layout, (ViewGroup) null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.sharesdk.d.c
-    public ShareItem Dh(int i) {
-        ShareItem shareItem = this.kZp.get(1);
+    public ShareItem Dj(int i) {
+        ShareItem shareItem = this.laz.get(1);
         if (shareItem == null) {
             shareItem = new ShareItem();
         }
@@ -78,10 +78,10 @@ public class b extends c {
         shareItem.efh = false;
         shareItem.content = "";
         shareItem.shareType = 1;
-        shareItem.s(cK(this.kZw));
-        shareItem.bbe();
-        this.kZp.put(1, shareItem);
-        return super.Dh(i);
+        shareItem.s(cK(this.laG));
+        shareItem.bbf();
+        this.laz.put(1, shareItem);
+        return super.Dj(i);
     }
 
     private Bitmap cK(View view) {
@@ -96,35 +96,35 @@ public class b extends c {
 
     @Override // com.baidu.tieba.sharesdk.d.c
     public void show() {
-        if (this.kZv != null) {
+        if (this.laF != null) {
             int dimens = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds32);
             int dimens2 = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-            am.c(this.kZw, dimens, R.color.cp_bg_line_g, R.color.cp_bg_line_g);
-            am.c(this.kZD, dimens2, R.color.cp_bg_line_d, R.color.cp_bg_line_d);
-            am.setImageResource(this.kZx, R.drawable.pic_pb_share_logo);
-            am.setViewTextColor(this.kZA, (int) R.color.cp_cont_b);
-            if (this.kZv.cCY()) {
-                com.baidu.tbadk.core.util.e.a.aVv().ln(0).i(R.color.cp_mask_b_alpha0, R.color.cp_mask_b_alpha50).ls(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10)).aR(this.kZB);
+            am.c(this.laG, dimens, R.color.cp_bg_line_g, R.color.cp_bg_line_g);
+            am.c(this.laN, dimens2, R.color.cp_bg_line_d, R.color.cp_bg_line_d);
+            am.setImageResource(this.laH, R.drawable.pic_pb_share_logo);
+            am.setViewTextColor(this.laK, (int) R.color.cp_cont_b);
+            if (this.laF.cDo()) {
+                com.baidu.tbadk.core.util.e.a.aVw().lp(0).i(R.color.cp_mask_b_alpha0, R.color.cp_mask_b_alpha50).lu(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10)).aR(this.laL);
             }
-            am.setViewTextColor(this.kZE, (int) R.color.cp_link_tip_a);
-            am.setViewTextColor(this.kZG, (int) R.color.cp_cont_j);
-            am.setViewTextColor(this.kZC, R.color.cp_cont_a, 1);
-            this.jHY.setImageDrawable(SvgManager.aUV().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
-            this.kZA.setText(this.kZv.getContent());
-            if (StringUtils.isNull(this.kZv.getThreadImgUrl())) {
-                this.kZy.setVisibility(8);
+            am.setViewTextColor(this.laO, (int) R.color.cp_link_tip_a);
+            am.setViewTextColor(this.laQ, (int) R.color.cp_cont_j);
+            am.setViewTextColor(this.laM, R.color.cp_cont_a, 1);
+            this.jJe.setImageDrawable(SvgManager.aUW().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
+            this.laK.setText(this.laF.getContent());
+            if (StringUtils.isNull(this.laF.getThreadImgUrl())) {
+                this.laI.setVisibility(8);
             } else {
-                this.kZz.startLoad(this.kZv.getThreadImgUrl(), 10, false);
+                this.laJ.startLoad(this.laF.getThreadImgUrl(), 10, false);
             }
-            if (this.kZv.cCY()) {
-                this.kZC.setText(this.kZv.cCX());
+            if (this.laF.cDo()) {
+                this.laM.setText(this.laF.cDn());
             } else {
-                this.kZB.setVisibility(8);
-                this.jHY.setVisibility(8);
-                this.kZC.setVisibility(8);
+                this.laL.setVisibility(8);
+                this.jJe.setVisibility(8);
+                this.laM.setVisibility(8);
             }
-            this.kZF.setImageBitmap(this.kZv.cCV());
-            this.kZH.setImageBitmap(this.kZv.cCW());
+            this.laP.setImageBitmap(this.laF.cDl());
+            this.laR.setImageBitmap(this.laF.cDm());
             super.show();
         }
     }

@@ -8,11 +8,11 @@ import java.util.Map;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a<T> {
-    private final LruCache<String, T> nNp;
-    private final Map<String, WeakReference<T>> nNq = new ArrayMap();
+    private final Map<String, WeakReference<T>> nOA = new ArrayMap();
+    private final LruCache<String, T> nOz;
 
     public a(int i, final b<T> bVar) {
-        this.nNp = new LruCache<String, T>(i <= 0 ? 8388608 : i) { // from class: tv.chushou.zues.toolkit.a.b.a.1
+        this.nOz = new LruCache<String, T>(i <= 0 ? 8388608 : i) { // from class: tv.chushou.zues.toolkit.a.b.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.support.v4.util.LruCache
@@ -30,7 +30,7 @@ public class a<T> {
             /* renamed from: a */
             public void entryRemoved(boolean z, String str, T t, T t2) {
                 if (z && t != null) {
-                    a.this.nNq.put(str, new WeakReference(t));
+                    a.this.nOA.put(str, new WeakReference(t));
                 }
             }
         };
@@ -39,7 +39,7 @@ public class a<T> {
     public void put(String str, T t) {
         if (!h.isEmpty(str) && t != null) {
             synchronized (this) {
-                this.nNp.put(str, t);
+                this.nOz.put(str, t);
             }
         }
     }
@@ -52,15 +52,15 @@ public class a<T> {
             return null;
         }
         synchronized (this) {
-            T t2 = this.nNp.get(str);
-            if (t2 != null || (weakReference = this.nNq.get(str)) == null) {
+            T t2 = this.nOz.get(str);
+            if (t2 != null || (weakReference = this.nOA.get(str)) == null) {
                 t = t2;
             } else {
                 t = weakReference.get();
                 if (t != null) {
-                    this.nNp.put(str, t);
+                    this.nOz.put(str, t);
                 } else {
-                    this.nNq.remove(str);
+                    this.nOA.remove(str);
                 }
             }
         }
@@ -69,8 +69,8 @@ public class a<T> {
 
     public void clear() {
         synchronized (this) {
-            this.nNp.evictAll();
-            this.nNq.clear();
+            this.nOz.evictAll();
+            this.nOA.clear();
         }
     }
 }

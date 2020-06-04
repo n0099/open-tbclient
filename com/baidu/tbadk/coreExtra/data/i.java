@@ -11,15 +11,15 @@ public class i {
         return new i(0, str);
     }
 
-    public static i aXS() {
+    public static i aXT() {
         return new i(1, null);
     }
 
-    public static i aXT() {
+    public static i aXU() {
         return new i(2, null);
     }
 
-    public static i aXU() {
+    public static i aXV() {
         return new i(3, null);
     }
 
@@ -36,7 +36,7 @@ public class i {
         return this.authToken;
     }
 
-    public f.a aXV() {
+    public f.a aXW() {
         return this.eaT;
     }
 

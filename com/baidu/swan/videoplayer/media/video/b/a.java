@@ -446,7 +446,7 @@ public class a implements j {
             com.baidu.swan.apps.console.c.e("video", "errorCode :" + i);
             a.this.aJV().aJI();
             a.this.aJV().aJJ();
-            com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cnG.cjA, a.this.cnG.bPG, BdStatsConstant.StatsType.ERROR, com.baidu.swan.videoplayer.media.a.a.a.jD(i2));
+            com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cnG.cjA, a.this.cnG.bPG, BdStatsConstant.StatsType.ERROR, com.baidu.swan.videoplayer.media.a.a.a.jF(i2));
             if (a.this.dsE != null) {
                 a.this.dsE.a(a.this, i, i2);
             }

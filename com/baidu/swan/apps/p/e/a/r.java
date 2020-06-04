@@ -32,10 +32,10 @@ public class r extends com.baidu.swan.apps.p.a<com.baidu.swan.apps.p.e.b.a> {
             this.cgc = jSONObject.optInt("max-cache", this.cgc);
             if (this.cgb <= this.cgc) {
                 if (jSONObject.has("min-cache")) {
-                    aVar.fu(this.cgb);
+                    aVar.fw(this.cgb);
                 }
                 if (jSONObject.has("max-cache")) {
-                    aVar.fv(this.cgc);
+                    aVar.fx(this.cgc);
                 }
             } else if (DEBUG) {
                 Log.w("【InlineCommand】", "setZeusVideoExt: minCache " + this.cgb + " > maxCache " + this.cgc);

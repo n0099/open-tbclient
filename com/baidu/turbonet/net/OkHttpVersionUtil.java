@@ -4,18 +4,18 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.NoSuchElementException;
 /* loaded from: classes.dex */
 public class OkHttpVersionUtil {
-    public static boolean dqK() throws RuntimeException {
-        String dqL = dqL();
-        if (dqL.isEmpty()) {
+    public static boolean dqY() throws RuntimeException {
+        String dqZ = dqZ();
+        if (dqZ.isEmpty()) {
             throw new NoSuchElementException();
         }
-        String[] split = dqL.split("/");
+        String[] split = dqZ.split("/");
         if (split.length != 2) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dqL));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dqZ));
         }
         String[] split2 = split[1].split("\\.");
         if (split2.length != 3) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dqL));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dqZ));
         }
         try {
             if (Integer.parseInt(split2[0]) == 3) {
@@ -25,12 +25,12 @@ public class OkHttpVersionUtil {
             }
             return false;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dqL));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dqZ));
         }
     }
 
-    private static String dqL() {
-        if (dqM()) {
+    private static String dqZ() {
+        if (dra()) {
             try {
                 return (String) Class.forName("okhttp3.internal.Version").getMethod("userAgent", new Class[0]).invoke(null, new Object[0]);
             } catch (ClassNotFoundException e) {
@@ -46,7 +46,7 @@ public class OkHttpVersionUtil {
         return "";
     }
 
-    private static boolean dqM() {
+    private static boolean dra() {
         try {
             Class.forName("okhttp3.OkHttpClient");
             return true;

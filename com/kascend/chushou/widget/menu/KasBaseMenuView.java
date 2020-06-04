@@ -15,7 +15,7 @@ public abstract class KasBaseMenuView extends RelativeLayout implements View.OnC
     protected View g;
     protected boolean h;
     protected boolean i;
-    private a ncI;
+    private a ndS;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -44,14 +44,14 @@ public abstract class KasBaseMenuView extends RelativeLayout implements View.OnC
 
     public void e() {
         this.h = false;
-        Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), a.C0794a.slide_out_bottom_anim);
+        Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), a.C0795a.slide_out_bottom_anim);
         loadAnimation.setAnimationListener(this);
         this.f.startAnimation(loadAnimation);
         this.f.postDelayed(new Runnable() { // from class: com.kascend.chushou.widget.menu.KasBaseMenuView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (!KasBaseMenuView.this.h && KasBaseMenuView.this.ncI != null) {
-                    KasBaseMenuView.this.ncI.a();
+                if (!KasBaseMenuView.this.h && KasBaseMenuView.this.ndS != null) {
+                    KasBaseMenuView.this.ndS.a();
                 }
             }
         }, 200L);
@@ -63,9 +63,9 @@ public abstract class KasBaseMenuView extends RelativeLayout implements View.OnC
     public void c() {
         setVisibility(0);
         this.h = true;
-        this.f.startAnimation(AnimationUtils.loadAnimation(getContext(), a.C0794a.slide_in_bottom_anim));
-        if (this.ncI != null) {
-            this.ncI.b();
+        this.f.startAnimation(AnimationUtils.loadAnimation(getContext(), a.C0795a.slide_in_bottom_anim));
+        if (this.ndS != null) {
+            this.ndS.b();
         }
         this.f.postDelayed(new Runnable() { // from class: com.kascend.chushou.widget.menu.KasBaseMenuView.2
             @Override // java.lang.Runnable
@@ -102,7 +102,7 @@ public abstract class KasBaseMenuView extends RelativeLayout implements View.OnC
     }
 
     public void setVisibilityListener(a aVar) {
-        this.ncI = aVar;
+        this.ndS = aVar;
     }
 
     @Override // android.view.View
@@ -114,7 +114,7 @@ public abstract class KasBaseMenuView extends RelativeLayout implements View.OnC
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.ncI = null;
+        this.ndS = null;
         this.e = null;
         this.f = null;
         this.g = null;

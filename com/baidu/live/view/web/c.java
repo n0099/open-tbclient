@@ -8,7 +8,7 @@ public abstract class c implements b {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void dr(int i) {
+    public void dt(int i) {
     }
 
     @Override // com.baidu.live.view.web.b

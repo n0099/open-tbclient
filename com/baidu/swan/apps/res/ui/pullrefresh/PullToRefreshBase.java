@@ -516,12 +516,12 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         if (f < 0.0f && scrollYValue - f >= 0.0f) {
             aj(0, 0);
             if (this.cwW != null) {
-                this.cwW.gh(0);
+                this.cwW.gj(0);
             }
         } else if (this.cxj <= 0 || f <= 0.0f || Math.abs(scrollYValue) < this.cxj) {
             ak(0, -((int) f));
             if (this.cwW != null) {
-                this.cwW.gh(-getScrollY());
+                this.cwW.gj(-getScrollY());
                 if (this.cwY != 0) {
                     this.cwW.onPull(Math.abs(getScrollYValue()) / this.cwY);
                 }
@@ -569,11 +569,11 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         int abs = Math.abs(getScrollYValue());
         boolean isPullRefreshing = isPullRefreshing();
         if (isPullRefreshing && abs <= this.cwW.getRefreshingHeight()) {
-            gm(0);
+            gp(0);
         } else if (isPullRefreshing) {
-            gm(-this.cwW.getRefreshingHeight());
+            gp(-this.cwW.getRefreshingHeight());
         } else {
-            gm(0);
+            gp(0);
         }
     }
 
@@ -581,11 +581,11 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         int abs = Math.abs(getScrollYValue());
         boolean isPullLoading = isPullLoading();
         if (isPullLoading && abs <= this.cwZ) {
-            gm(0);
+            gp(0);
         } else if (isPullLoading) {
-            gm(this.cwZ);
+            gp(this.cwZ);
         } else {
-            gm(0);
+            gp(0);
         }
     }
 
@@ -654,7 +654,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         return getScrollY();
     }
 
-    private void gm(int i) {
+    private void gp(int i) {
         smoothScrollTo(i, getSmoothScrollDuration());
     }
 
@@ -674,7 +674,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         if (this.mScroller.computeScrollOffset()) {
             int currY = this.mScroller.getCurrY();
             scrollTo(0, currY);
-            this.cwW.gh(-currY);
+            this.cwW.gj(-currY);
             this.cwX.onPull(Math.abs(getScrollYValue()) / this.cwZ);
             postInvalidate();
         }

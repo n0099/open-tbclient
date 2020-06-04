@@ -10,8 +10,8 @@ public class f {
     private static float bbH = 8.0f;
     private static float bbI;
     private final boolean bbG;
-    private final a ikc;
-    private final a ikd;
+    private final a ikP;
+    private final a ikQ;
     private Interpolator mInterpolator;
     private int mMode;
 
@@ -42,8 +42,8 @@ public class f {
     public f(Context context, Interpolator interpolator, boolean z) {
         this.mInterpolator = interpolator;
         this.bbG = z;
-        this.ikc = new a(context);
-        this.ikd = new a(context);
+        this.ikP = new a(context);
+        this.ikQ = new a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,20 +52,20 @@ public class f {
     }
 
     public final void setFriction(float f) {
-        this.ikc.setFriction(f);
-        this.ikd.setFriction(f);
+        this.ikP.setFriction(f);
+        this.ikQ.setFriction(f);
     }
 
     public final boolean isFinished() {
-        return this.ikc.mFinished && this.ikd.mFinished;
+        return this.ikP.mFinished && this.ikQ.mFinished;
     }
 
     public final int getCurrX() {
-        return this.ikc.mCurrentPosition;
+        return this.ikP.mCurrentPosition;
     }
 
     public float getCurrVelocity() {
-        return (float) Math.sqrt((this.ikc.bbL * this.ikc.bbL) + (this.ikd.bbL * this.ikd.bbL));
+        return (float) Math.sqrt((this.ikP.bbL * this.ikP.bbL) + (this.ikQ.bbL * this.ikQ.bbL));
     }
 
     public boolean computeScrollOffset() {
@@ -75,8 +75,8 @@ public class f {
         }
         switch (this.mMode) {
             case 0:
-                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.ikc.mStartTime;
-                int i = this.ikc.mDuration;
+                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.ikP.mStartTime;
+                int i = this.ikP.mDuration;
                 if (currentAnimationTimeMillis < i) {
                     float f = ((float) currentAnimationTimeMillis) / i;
                     if (this.mInterpolator == null) {
@@ -84,19 +84,19 @@ public class f {
                     } else {
                         interpolation = this.mInterpolator.getInterpolation(f);
                     }
-                    this.ikc.r(interpolation);
-                    this.ikd.r(interpolation);
+                    this.ikP.r(interpolation);
+                    this.ikQ.r(interpolation);
                     break;
                 } else {
                     abortAnimation();
                     break;
                 }
             case 1:
-                if (!this.ikc.mFinished && !this.ikc.update() && !this.ikc.GR()) {
-                    this.ikc.finish();
+                if (!this.ikP.mFinished && !this.ikP.update() && !this.ikP.GR()) {
+                    this.ikP.finish();
                 }
-                if (!this.ikd.mFinished && !this.ikd.update() && !this.ikd.GR()) {
-                    this.ikd.finish();
+                if (!this.ikQ.mFinished && !this.ikQ.update() && !this.ikQ.GR()) {
+                    this.ikQ.finish();
                     break;
                 }
                 break;
@@ -106,13 +106,13 @@ public class f {
 
     public void startScroll(int i, int i2, int i3, int i4, int i5) {
         this.mMode = 0;
-        this.ikc.o(i, i3, i5);
-        this.ikd.o(i2, i4, i5);
+        this.ikP.o(i, i3, i5);
+        this.ikQ.o(i2, i4, i5);
     }
 
     public boolean springBack(int i, int i2, int i3, int i4, int i5, int i6) {
         this.mMode = 1;
-        return this.ikc.p(i, i3, i4) || this.ikd.p(i2, i5, i6);
+        return this.ikP.p(i, i3, i4) || this.ikQ.p(i2, i5, i6);
     }
 
     public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
@@ -122,33 +122,33 @@ public class f {
     public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
         int i11;
         if (this.bbG && !isFinished()) {
-            float f = this.ikc.bbL;
-            float f2 = this.ikd.bbL;
+            float f = this.ikP.bbL;
+            float f2 = this.ikQ.bbL;
             if (Math.signum(i3) == Math.signum(f) && Math.signum(i4) == Math.signum(f2)) {
                 i4 = (int) (i4 + f2);
                 i11 = (int) (f + i3);
                 this.mMode = 1;
-                this.ikc.b(i, i11, i5, i6, i9);
-                this.ikd.b(i2, i4, i7, i8, i10);
+                this.ikP.b(i, i11, i5, i6, i9);
+                this.ikQ.b(i2, i4, i7, i8, i10);
             }
         }
         i11 = i3;
         this.mMode = 1;
-        this.ikc.b(i, i11, i5, i6, i9);
-        this.ikd.b(i2, i4, i7, i8, i10);
+        this.ikP.b(i, i11, i5, i6, i9);
+        this.ikQ.b(i2, i4, i7, i8, i10);
     }
 
     public void notifyHorizontalEdgeReached(int i, int i2, int i3) {
-        this.ikc.t(i, i2, i3);
+        this.ikP.t(i, i2, i3);
     }
 
     public void abortAnimation() {
-        this.ikc.finish();
-        this.ikd.finish();
+        this.ikP.finish();
+        this.ikQ.finish();
     }
 
     public boolean l(float f, float f2) {
-        return !isFinished() && Math.signum(f) == Math.signum((float) (this.ikc.bbJ - this.ikc.mStart)) && Math.signum(f2) == Math.signum((float) (this.ikd.bbJ - this.ikd.mStart));
+        return !isFinished() && Math.signum(f) == Math.signum((float) (this.ikP.bbJ - this.ikP.mStart)) && Math.signum(f2) == Math.signum((float) (this.ikQ.bbJ - this.ikQ.mStart));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -232,7 +232,7 @@ public class f {
             this.mCurrentPosition = this.mStart + Math.round((this.bbJ - this.mStart) * f);
         }
 
-        private static float db(int i) {
+        private static float dd(int i) {
             return i > 0 ? -2000.0f : 2000.0f;
         }
 
@@ -282,7 +282,7 @@ public class f {
             this.mStart = i;
             this.bbJ = i2;
             int i4 = i - i2;
-            this.bbM = db(i4);
+            this.bbM = dd(i4);
             this.bbK = -i4;
             this.bbP = Math.abs(i4);
             this.mDuration = (int) (Math.sqrt((i4 * (-2.0d)) / this.bbM) * 1000.0d);
@@ -305,10 +305,10 @@ public class f {
             this.mState = 0;
             double d = 0.0d;
             if (i2 != 0) {
-                int de2 = de(i2);
-                this.bbN = de2;
-                this.mDuration = de2;
-                d = dd(i2);
+                int dg = dg(i2);
+                this.bbN = dg;
+                this.mDuration = dg;
+                d = df(i2);
             }
             this.bbO = (int) (d * Math.signum(i2));
             this.bbJ = this.bbO + i;
@@ -322,16 +322,16 @@ public class f {
             }
         }
 
-        private double dc(int i) {
+        private double de(int i) {
             return Math.log((0.35f * Math.abs(i)) / (this.bbQ * this.bbR));
         }
 
-        private double dd(int i) {
-            return Math.exp(dc(i) * (bbS / (bbS - 1.0d))) * this.bbQ * this.bbR;
+        private double df(int i) {
+            return Math.exp(de(i) * (bbS / (bbS - 1.0d))) * this.bbQ * this.bbR;
         }
 
-        private int de(int i) {
-            return (int) (Math.exp(dc(i) / (bbS - 1.0d)) * 1000.0d);
+        private int dg(int i) {
+            return (int) (Math.exp(de(i) / (bbS - 1.0d)) * 1000.0d);
         }
 
         private void r(int i, int i2, int i3) {
@@ -343,7 +343,7 @@ public class f {
         }
 
         private void s(int i, int i2, int i3) {
-            this.bbM = db(i3 == 0 ? i - i2 : i3);
+            this.bbM = dd(i3 == 0 ? i - i2 : i3);
             r(i, i2, i3);
             GQ();
         }
@@ -359,7 +359,7 @@ public class f {
             int i6 = i - i5;
             if (i6 * i4 >= 0) {
                 s(i, i5, i4);
-            } else if (dd(i4) > Math.abs(i6)) {
+            } else if (df(i4) > Math.abs(i6)) {
                 b(i, i4, z ? i2 : i, z ? i : i3, this.bbP);
             } else {
                 q(i, i5, i4);
@@ -397,7 +397,7 @@ public class f {
                     if (this.mDuration < this.bbN) {
                         this.mStart = this.bbJ;
                         this.bbK = (int) this.bbL;
-                        this.bbM = db(this.bbK);
+                        this.bbM = dd(this.bbK);
                         this.mStartTime += this.mDuration;
                         GQ();
                         break;

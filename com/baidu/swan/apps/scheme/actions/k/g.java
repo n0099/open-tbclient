@@ -13,7 +13,7 @@ public class g {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void ej(int i);
+        void el(int i);
 
         void hg(String str);
     }
@@ -21,7 +21,7 @@ public class g {
     public static void a(com.baidu.swan.apps.runtime.e eVar, com.baidu.swan.apps.model.b bVar, final String str, final a aVar, String str2) {
         if (aVar != null) {
             if (eVar == null || bVar == null || TextUtils.isEmpty(bVar.mPage) || TextUtils.isEmpty(bVar.coT)) {
-                aVar.ej(2110);
+                aVar.el(2110);
                 return;
             }
             String str3 = bVar.coT;
@@ -31,7 +31,7 @@ public class g {
                 if (nt || !TextUtils.isEmpty(nx)) {
                     aVar.hg(str);
                 } else {
-                    aVar.ej(2111);
+                    aVar.el(2111);
                 }
             } else if (com.baidu.swan.apps.ae.b.a.mH(bVar.mPage)) {
                 aVar.hg(str);
@@ -46,7 +46,7 @@ public class g {
                     }
                 }
                 if (TextUtils.isEmpty(nx)) {
-                    aVar.ej(2111);
+                    aVar.el(2111);
                 } else if (eVar.nu(nx)) {
                     aVar.hg(str);
                 } else if (eVar.nv(nx) && eVar.nw(nx)) {
@@ -55,7 +55,7 @@ public class g {
                 } else {
                     String ny = eVar.ny(nx);
                     if (TextUtils.isEmpty(ny)) {
-                        aVar.ej(2112);
+                        aVar.el(2112);
                         return;
                     }
                     boolean nA = eVar.nA(str3);
@@ -80,11 +80,11 @@ public class g {
                         }
 
                         @Override // com.baidu.swan.apps.core.pms.b
-                        public void eU(final int i) {
+                        public void eW(final int i) {
                             aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.k.g.1.2
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    aVar.ej(i);
+                                    aVar.el(i);
                                 }
                             });
                         }
@@ -99,17 +99,17 @@ public class g {
     private static void a(com.baidu.swan.apps.runtime.e eVar, String str, final String str2, final a aVar, String str3) {
         if (aVar != null) {
             if (eVar == null) {
-                aVar.ej(2111);
+                aVar.el(2111);
                 return;
             }
             com.baidu.swan.apps.performance.g.bA("route", str3).f(new UbcFlowEvent("na_start_sub_package_download")).bD("sub_state", "1");
             com.baidu.swan.pms.c.d.c cVar = new com.baidu.swan.pms.c.d.c(eVar.id, com.baidu.swan.apps.runtime.d.aoB().Qz());
-            cVar.jg(aj.pQ(eVar.getVersion()));
+            cVar.ji(aj.pQ(eVar.getVersion()));
             cVar.tp(str);
             com.baidu.swan.pms.c.a(cVar, new com.baidu.swan.apps.core.pms.c.a(eVar.id, new a.InterfaceC0340a() { // from class: com.baidu.swan.apps.scheme.actions.k.g.2
                 @Override // com.baidu.swan.apps.core.pms.c.a.InterfaceC0340a
                 public void aaj() {
-                    a.this.ej(2113);
+                    a.this.el(2113);
                 }
 
                 @Override // com.baidu.swan.apps.core.pms.c.a.InterfaceC0340a
@@ -119,7 +119,7 @@ public class g {
 
                 @Override // com.baidu.swan.apps.core.pms.c.a.InterfaceC0340a
                 public void onError() {
-                    a.this.ej(2113);
+                    a.this.el(2113);
                 }
             }));
         }
@@ -138,8 +138,8 @@ public class g {
                 }
 
                 @Override // com.baidu.swan.apps.core.pms.b
-                public void eU(int i) {
-                    aVar.ej(i);
+                public void eW(int i) {
+                    aVar.el(i);
                 }
             }));
         }

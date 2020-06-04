@@ -126,7 +126,7 @@ public class UrlDragImageView extends RelativeLayout {
 
     /* loaded from: classes8.dex */
     public interface b {
-        void bbQ();
+        void bbR();
     }
 
     public void setUserId(String str) {
@@ -324,7 +324,7 @@ public class UrlDragImageView extends RelativeLayout {
                 if (gVar != null) {
                     gVar.a(dragImageView, z, z2);
                 }
-                UrlDragImageView.this.bbE();
+                UrlDragImageView.this.bbF();
             }
         });
     }
@@ -350,11 +350,11 @@ public class UrlDragImageView extends RelativeLayout {
         this.mProgressBar.setLayoutParams(layoutParams2);
         this.mProgressBar.setIndeterminate(true);
         addView(this.mProgressBar);
-        bbD();
+        bbE();
         this.eiH = TbSingleton.getInstance().isCutoutScreen(TbadkApplication.getInst().getCurrentActivity());
     }
 
-    private void bbD() {
+    private void bbE() {
         this.eiF = new CircleProgressView(this.mContext);
         this.eiF.setCircleBackgroundColor(am.getColor(R.color.cp_cont_d));
         this.eiF.setCircleForegroundColor(am.getColor(R.color.cp_link_tip_a));
@@ -476,7 +476,7 @@ public class UrlDragImageView extends RelativeLayout {
                 }
             } else {
                 if (this.eii && this.eip != null) {
-                    this.eip.bhc();
+                    this.eip.bhd();
                 }
                 this.mRatio = 1.0f;
                 invalidate();
@@ -491,7 +491,7 @@ public class UrlDragImageView extends RelativeLayout {
     private boolean r(float f, float f2) {
         if (this.eic.getVisibility() != 0 || this.eic.isCanDrag()) {
             if (this.efD == null || !this.efD.isLongPic || this.eic.getVisibility() != 0 || this.eic.isViewTop()) {
-                if (this.efD == null || !this.efD.isLongPic || this.eic.getVisibility() == 0 || this.eia.isAtViewTop() || this.eia.bha()) {
+                if (this.efD == null || !this.efD.isLongPic || this.eic.getVisibility() == 0 || this.eia.isAtViewTop() || this.eia.bhb()) {
                     if (this.eic.getVisibility() == 0 || this.eia.pagerCantScroll()) {
                         if (this.eik != null && getScrollY() == 0) {
                             boolean z = (this.efD == null || !this.efD.isLongPic) && ((f2 < -15.0f && !this.isInDragScaleMode) || (f2 > 15.0f && !this.isInDragScaleMode));
@@ -673,7 +673,7 @@ public class UrlDragImageView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bbE() {
+    public void bbF() {
         if ((this.eif || this.eig) && this.efD != null && this.efD.mPicType == 1 && !TextUtils.isEmpty(this.efD.mTagName)) {
             if (this.eib != null) {
                 this.eib.setVisibility(8);
@@ -708,19 +708,19 @@ public class UrlDragImageView extends RelativeLayout {
         this.eia.setImageDrawable(null);
         this.eif = false;
         this.eig = false;
-        this.eiw = bbM();
+        this.eiw = bbN();
         this.eiE = null;
         if (xD(str)) {
             e(str, z, false);
         }
     }
 
-    private boolean bbF() {
+    private boolean bbG() {
         return this.eia != null && this.eia.isLoadBigImage();
     }
 
-    public void bbG() {
-        if (this.efD != null && !bbF()) {
+    public void bbH() {
+        if (this.efD != null && !bbG()) {
             String str = this.efD.imageUrl;
             int i = this.efD.urlType;
             com.baidu.adp.widget.ImageView.a aVar = null;
@@ -740,7 +740,7 @@ public class UrlDragImageView extends RelativeLayout {
             if (!this.eiw || this.efD == null || StringUtils.isNull(this.efD.originalUrl, true) || this.efD.originalSize < 0 || Build.VERSION.SDK_INT < 10) {
                 return false;
             }
-            String str = this.eiq + ap.aUT().ws(nameMd5FromUrl) + "/" + as.getNameMd5FromUrl(this.efD.originalUrl);
+            String str = this.eiq + ap.aUU().ws(nameMd5FromUrl) + "/" + as.getNameMd5FromUrl(this.efD.originalUrl);
             final int[] imageFileWH = m.getImageFileWH(str);
             this.eic.setVisibility(0);
             if (this.eid == null) {
@@ -831,7 +831,7 @@ public class UrlDragImageView extends RelativeLayout {
         }
     }
 
-    public void bbH() {
+    public void bbI() {
         hM(false);
     }
 
@@ -860,7 +860,7 @@ public class UrlDragImageView extends RelativeLayout {
                 this.eia.setImageUrlData(this.efD);
                 this.eia.setImageData(rawBitmap, aVar.getByteData());
             }
-            bbE();
+            bbF();
         }
     }
 
@@ -929,7 +929,7 @@ public class UrlDragImageView extends RelativeLayout {
             this.eie.k(aVar.getUrl(), aVar.getByteData());
         }
         if (aVar == null || aVar.getRawBitmap() == null) {
-            bbI();
+            bbJ();
             return;
         }
         Bitmap rawBitmap = aVar.getRawBitmap();
@@ -957,12 +957,12 @@ public class UrlDragImageView extends RelativeLayout {
             }
             this.eia.setImageUrlData(this.efD);
             this.eia.setImageData(rawBitmap, aVar.getByteData());
-            bbN();
+            bbO();
         }
-        bbE();
+        bbF();
     }
 
-    private void bbI() {
+    private void bbJ() {
         if (!this.eif) {
             this.eia.setDefaultBitmap();
         } else {
@@ -992,7 +992,7 @@ public class UrlDragImageView extends RelativeLayout {
             this.mProgressBar.setVisibility(8);
         }
         e.ld().removeCallbacks(this.eiI);
-        com.baidu.tieba.view.c.dlQ().setColor(-1);
+        com.baidu.tieba.view.c.dmf().setColor(-1);
     }
 
     public void release() {
@@ -1006,7 +1006,7 @@ public class UrlDragImageView extends RelativeLayout {
         this.eiE = null;
     }
 
-    public void bbJ() {
+    public void bbK() {
         if (this.eia != null && this.eia.getImageType() == 1) {
             this.eia.stop();
         }
@@ -1021,13 +1021,13 @@ public class UrlDragImageView extends RelativeLayout {
                 }
             } else if (this.eia.getImageType() == 2) {
                 e(str, z, z2);
-            } else if (bbK()) {
+            } else if (bbL()) {
                 e(str, z, z2);
             }
         }
     }
 
-    private boolean bbK() {
+    private boolean bbL() {
         if (this.eia.getImageBitmap() != null && this.eia.isLoadBigImage()) {
             if (this.efD == null || !this.efD.isLongPic || this.eia.hasLoadLongImage()) {
                 return false;
@@ -1051,16 +1051,16 @@ public class UrlDragImageView extends RelativeLayout {
         this.egI = z;
     }
 
-    public void bbL() {
+    public void bbM() {
         final String nameMd5FromUrl = as.getNameMd5FromUrl(this.efD.originalUrl);
         if (this.efD.originalProcess >= 0) {
-            com.baidu.tbadk.download.d.bcT().cancelDownLoadById(nameMd5FromUrl, 13);
+            com.baidu.tbadk.download.d.bcU().cancelDownLoadById(nameMd5FromUrl, 13);
             this.efD.originalProcess = -1;
-            bbN();
+            bbO();
             return;
         }
         if (this.egB != null) {
-            this.egB.bbQ();
+            this.egB.bbR();
         }
         com.baidu.adp.base.e<?> G = i.G(this.mContext);
         if (G == null) {
@@ -1070,7 +1070,7 @@ public class UrlDragImageView extends RelativeLayout {
         } else {
             com.baidu.tbadk.core.sharedPref.b.aTX().putBoolean(SharedPrefConfig.ORIGINAL_IMG_DOWN_TIP, true);
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(G.getPageActivity());
-            aVar.kD(R.string.original_img_down_no_wifi_tip);
+            aVar.kF(R.string.original_img_down_no_wifi_tip);
             aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -1099,7 +1099,7 @@ public class UrlDragImageView extends RelativeLayout {
             downloadData.setStatus(1);
             downloadData.setUrl(this.efD.originalUrl);
             downloadData.setType(13);
-            downloadData.setPath(this.eiq + ap.aUT().ws(str) + "/" + str);
+            downloadData.setPath(this.eiq + ap.aUU().ws(str) + "/" + str);
             downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.6
                 @Override // com.baidu.tbadk.download.c
                 public boolean onPreDownload(DownloadData downloadData2) {
@@ -1128,8 +1128,8 @@ public class UrlDragImageView extends RelativeLayout {
                     UrlDragImageView.this.eiF.setVisibility(8);
                     e.ld().postDelayed(UrlDragImageView.this.eiJ, 1500L);
                     UrlDragImageView.this.eix = false;
-                    UrlDragImageView.this.eiw = UrlDragImageView.this.bbM();
-                    UrlDragImageView.this.bbH();
+                    UrlDragImageView.this.eiw = UrlDragImageView.this.bbN();
+                    UrlDragImageView.this.bbI();
                 }
 
                 @Override // com.baidu.tbadk.download.c
@@ -1138,25 +1138,25 @@ public class UrlDragImageView extends RelativeLayout {
                     UrlDragImageView.this.eix = false;
                     BdToast.b(UrlDragImageView.this.mContext, str2).aSX().aSY();
                     UrlDragImageView.this.efD.originalProcess = -1;
-                    UrlDragImageView.this.bbN();
+                    UrlDragImageView.this.bbO();
                 }
             });
-            com.baidu.tbadk.download.d.bcT().a(downloadData, 100);
+            com.baidu.tbadk.download.d.bcU().a(downloadData, 100);
             this.eiG = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bbM() {
+    public boolean bbN() {
         if (this.efD != null && !StringUtils.isNull(this.efD.originalUrl, true) && this.efD.originalSize >= 0 && !this.efD.isBlockedPic) {
             String nameMd5FromUrl = as.getNameMd5FromUrl(this.efD.originalUrl);
-            File file = new File(this.eiq + ap.aUT().ws(nameMd5FromUrl) + "/" + nameMd5FromUrl);
+            File file = new File(this.eiq + ap.aUU().ws(nameMd5FromUrl) + "/" + nameMd5FromUrl);
             if (file != null && file.exists()) {
                 this.efD.originalProcess = 100;
                 return true;
             }
             if (this.efD.originalProcess < 0) {
-                bbN();
+                bbO();
             } else {
                 this.eiF.setProgress(this.efD.originalProcess);
             }
@@ -1167,9 +1167,9 @@ public class UrlDragImageView extends RelativeLayout {
         return false;
     }
 
-    public void bbN() {
+    public void bbO() {
         if (this.efD != null) {
-            if (!bbO() || !this.eiz) {
+            if (!bbP() || !this.eiz) {
                 this.eiE = null;
             } else if (this.efD.originalSize > 0 && !cq(this.efD.originalSize)) {
                 this.eiE = ehY + "(" + aq.getFormatSize(this.efD.originalSize) + ")";
@@ -1179,7 +1179,7 @@ public class UrlDragImageView extends RelativeLayout {
         }
     }
 
-    private boolean bbO() {
+    private boolean bbP() {
         return (this.efD == null || !this.efD.mIsShowOrigonButton || this.efD.isBlockedPic || StringUtils.isNull(this.efD.originalUrl)) ? false : true;
     }
 

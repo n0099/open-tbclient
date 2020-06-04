@@ -142,12 +142,12 @@ public class HeadPendantView extends RelativeLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     public void init() {
         this.dTh = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42);
-        aVT();
         aVU();
         aVV();
+        aVW();
     }
 
-    private void aVT() {
+    private void aVU() {
         this.dTc = new HeadImageView(this.mContext);
         this.dTc.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.dTc.setPlaceHolder(1);
@@ -160,7 +160,7 @@ public class HeadPendantView extends RelativeLayout {
         addView(this.dTc);
     }
 
-    private void aVU() {
+    private void aVV() {
         this.dTa = new TbImageView(this.mContext);
         this.dTa.setPageId(this.mPageId);
         this.dTa.setDefaultBgResource(0);
@@ -172,7 +172,7 @@ public class HeadPendantView extends RelativeLayout {
         addView(this.dTa);
     }
 
-    private void aVV() {
+    private void aVW() {
         this.dTb = new ImageView(this.mContext);
         this.dTb.setImageDrawable(null);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.dTh, this.dTh);
@@ -214,10 +214,10 @@ public class HeadPendantView extends RelativeLayout {
         if (i > 0) {
             this.dTh = com.baidu.adp.lib.util.l.getDimens(getContext(), i);
         }
-        aVW();
+        aVX();
     }
 
-    private void aVW() {
+    private void aVX() {
         if (this.dTh > 0 && this.dTb != null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dTb.getLayoutParams();
             layoutParams.width = this.dTh;
@@ -299,7 +299,7 @@ public class HeadPendantView extends RelativeLayout {
             this.dTc.setShowV(false);
             if (!UtilHelper.showHeadBjhBigVIcon(this.dTb, metaData, this.dTi)) {
                 if (metaData.isNewGod() && this.dTi != 4) {
-                    SvgManager.aUV().a(this.dTb, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
+                    SvgManager.aUW().a(this.dTb, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
                     hj(true);
                     return;
                 }

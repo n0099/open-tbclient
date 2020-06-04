@@ -108,7 +108,7 @@ public class c extends com.baidu.swan.apps.api.a.d {
                     }
 
                     @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-                    public void ej(int i) {
+                    public void el(int i) {
                         com.baidu.swan.apps.console.c.e("Api-RedirectTo", "check pages failed");
                         ahV.QK();
                         if (com.baidu.swan.apps.api.a.d.DEBUG) {
@@ -150,7 +150,7 @@ public class c extends com.baidu.swan.apps.api.a.d {
     }
 
     public static void a(e eVar, com.baidu.swan.apps.model.b bVar, String str, boolean z) {
-        eVar.jp("redirectTo").ae(0, 0).a("normal", bVar).eL(z ? 0 : eVar.YS() - 2).Zb();
+        eVar.jp("redirectTo").ae(0, 0).a("normal", bVar).eN(z ? 0 : eVar.YS() - 2).Zb();
         int i = 2;
         if (z) {
             i = 8;

@@ -68,12 +68,12 @@ public class BdToast {
         return this;
     }
 
-    public BdToast kL(int i) {
+    public BdToast kN(int i) {
         this.mGravity = i;
         return this;
     }
 
-    public BdToast kM(int i) {
+    public BdToast kO(int i) {
         this.mDuration = i;
         return this;
     }
@@ -92,7 +92,7 @@ public class BdToast {
         updateStaticToast();
         if (this.mIconResId != -1) {
             if (this.dIG) {
-                SvgManager.aUV().a(this.mIconView, this.mIconResId, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+                SvgManager.aUW().a(this.mIconView, this.mIconResId, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
             } else {
                 am.setImageResource(this.mIconView, this.mIconResId);
             }
@@ -110,12 +110,12 @@ public class BdToast {
         return this;
     }
 
-    public BdToast kN(int i) {
+    public BdToast kP(int i) {
         this.mToast = new Toast(this.mContext);
         updateStaticToast();
         if (this.mIconResId != -1) {
             if (this.dIG) {
-                SvgManager.aUV().a(this.mIconView, this.mIconResId, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+                SvgManager.aUW().a(this.mIconView, this.mIconResId, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
             } else {
                 am.setImageResource(this.mIconView, this.mIconResId);
             }
@@ -158,11 +158,11 @@ public class BdToast {
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i) {
-        return new BdToast(context).i(charSequence).kM(i).aSX();
+        return new BdToast(context).i(charSequence).kO(i).aSX();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i, int i2) {
-        return new BdToast(context).i(charSequence).kM(i).kN(i2);
+        return new BdToast(context).i(charSequence).kO(i).kP(i2);
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i, boolean z) {
@@ -170,7 +170,7 @@ public class BdToast {
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i, int i2, boolean z) {
-        return new BdToast(context).i(charSequence).B(i, z).kM(i2).aSX();
+        return new BdToast(context).i(charSequence).B(i, z).kO(i2).aSX();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon) {
@@ -178,6 +178,6 @@ public class BdToast {
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon, int i) {
-        return new BdToast(context).i(charSequence).B(sDefaultIconMap.get(defaultIcon).intValue(), true).kM(i).aSX();
+        return new BdToast(context).i(charSequence).B(sDefaultIconMap.get(defaultIcon).intValue(), true).kO(i).aSX();
     }
 }

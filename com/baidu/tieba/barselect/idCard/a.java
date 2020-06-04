@@ -7,13 +7,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 /* loaded from: classes8.dex */
 public class a extends BdAsyncTask<Void, String, String> {
-    private int gxZ;
-    private com.baidu.tieba.barselect.data.c gya;
+    private int gyk;
+    private com.baidu.tieba.barselect.data.c gyl;
     private String imagePath;
 
     public a(String str, int i, com.baidu.tieba.barselect.data.c cVar) {
-        this.gxZ = i;
-        this.gya = cVar;
+        this.gyk = i;
+        this.gyl = cVar;
         this.imagePath = str;
     }
 
@@ -32,8 +32,8 @@ public class a extends BdAsyncTask<Void, String, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((a) str);
-        if (this.gya != null && str != null) {
-            this.gya.n("", this.gxZ, str);
+        if (this.gyl != null && str != null) {
+            this.gyl.n("", this.gyk, str);
         }
     }
 

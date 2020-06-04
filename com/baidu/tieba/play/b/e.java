@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class e {
-    public static void BO(int i) {
+    public static void BQ(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;
@@ -20,7 +20,7 @@ public class e {
         TiebaStatic.log(new an("c12493").ag("obj_type", i2));
     }
 
-    public static void BP(int i) {
+    public static void BR(int i) {
         int i2;
         int i3 = 2;
         if (i == -100) {
@@ -42,11 +42,11 @@ public class e {
         TiebaStatic.log(new an("c12029").ag("obj_type", i2).ag("obj_param1", j.isWifiNet() ? 0 : 1).ag(TiebaInitialize.Params.OBJ_PARAM2, i3));
     }
 
-    public static void KE(String str) {
+    public static void KF(String str) {
         TiebaStatic.log(new an("c12026").dh("tid", str));
     }
 
-    public static void BQ(int i) {
+    public static void BS(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;

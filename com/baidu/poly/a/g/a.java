@@ -39,14 +39,14 @@ public final class a {
         Long l = buY;
         if (l != null) {
             if (l == null) {
-                q.dLM();
+                q.dMa();
             }
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     Long l2 = buY;
                     if (l2 == null) {
-                        q.dLM();
+                        q.dMa();
                     }
                     jSONObject.put("3", l2.longValue());
                     jSONObject.put("4", System.currentTimeMillis());
@@ -62,14 +62,14 @@ public final class a {
         Long l = buX;
         if (l != null) {
             if (l == null) {
-                q.dLM();
+                q.dMa();
             }
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     Long l2 = buX;
                     if (l2 == null) {
-                        q.dLM();
+                        q.dMa();
                     }
                     jSONObject.put("1", l2.longValue());
                     jSONObject.put("2", System.currentTimeMillis());

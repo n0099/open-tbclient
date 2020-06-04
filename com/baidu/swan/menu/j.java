@@ -77,7 +77,7 @@ public class j extends PopupWindow implements View.OnClickListener {
                 contentView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.menu.j.1
                     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                     public void onGlobalLayout() {
-                        j.this.djP.iK(contentView.getHeight());
+                        j.this.djP.iM(contentView.getHeight());
                         j.this.aFa();
                         contentView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
@@ -155,7 +155,7 @@ public class j extends PopupWindow implements View.OnClickListener {
         animatorSet.start();
     }
 
-    public void iO(int i) {
+    public void iQ(int i) {
         this.djS = i;
     }
 }

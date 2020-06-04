@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BdBaseModel {
-    private a fDN;
-    private com.baidu.tieba.ala.live.personcenter.admin.b.a fDS;
-    private HttpMessageListener fnA;
+    private a fDY;
+    private com.baidu.tieba.ala.live.personcenter.admin.b.a fEd;
+    private HttpMessageListener fnL;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -26,28 +26,28 @@ public class b extends BdBaseModel {
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fnA = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
+        this.fnL = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaAdminListResponseMessage) {
                     AlaAdminListResponseMessage alaAdminListResponseMessage = (AlaAdminListResponseMessage) httpResponsedMessage;
                     if (!alaAdminListResponseMessage.isSuccess()) {
-                        if (b.this.fDN != null) {
-                            b.this.fDN.al(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
+                        if (b.this.fDY != null) {
+                            b.this.fDY.al(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    b.this.fDS = alaAdminListResponseMessage.bvK();
-                    if (b.this.fDN != null) {
-                        b.this.fDN.jz(false);
+                    b.this.fEd = alaAdminListResponseMessage.bvM();
+                    if (b.this.fDY != null) {
+                        b.this.fDY.jz(false);
                     }
                 }
             }
         };
         Fv();
-        registerListener(this.fnA);
+        registerListener(this.fnL);
     }
 
     private void Fv() {
@@ -59,13 +59,13 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bvL() {
+    public void bvN() {
         sendMessage(new com.baidu.tieba.ala.live.personcenter.admin.message.a());
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     protected boolean loadData() {
-        bvL();
+        bvN();
         return true;
     }
 
@@ -76,30 +76,30 @@ public class b extends BdBaseModel {
     }
 
     public List<IAdapterData> getUserList() {
-        return hasData() ? new ArrayList(this.fDS.getUserList()) : new ArrayList();
+        return hasData() ? new ArrayList(this.fEd.getUserList()) : new ArrayList();
     }
 
-    public int bvJ() {
+    public int bvL() {
         if (hasData()) {
-            return this.fDS.bvJ();
+            return this.fEd.bvL();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.fDN = aVar;
+        this.fDY = aVar;
     }
 
     public void a(com.baidu.tieba.ala.live.personcenter.admin.b.b bVar) {
         if (hasData()) {
-            this.fDS.getUserList().remove(bVar);
-            if (this.fDN != null) {
-                this.fDN.jz(false);
+            this.fEd.getUserList().remove(bVar);
+            if (this.fDY != null) {
+                this.fDY.jz(false);
             }
         }
     }
 
     private boolean hasData() {
-        return (this.fDS == null || this.fDS.getUserList() == null || this.fDS.getUserList().isEmpty()) ? false : true;
+        return (this.fEd == null || this.fEd.getUserList() == null || this.fEd.getUserList().isEmpty()) ? false : true;
     }
 }

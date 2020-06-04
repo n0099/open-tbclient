@@ -110,15 +110,15 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         this.bkq = true;
         this.bkr = false;
         this.bkz = new ArrayList<>();
-        this.bkz.add(du(a.b.liveshow_video_heart_like1));
-        this.bkz.add(du(a.b.liveshow_video_heart_like2));
-        this.bkz.add(du(a.b.liveshow_video_heart_like3));
-        this.bkz.add(du(a.b.liveshow_video_heart_like4));
-        this.bkz.add(du(a.b.liveshow_video_heart_like5));
-        this.bkz.add(du(a.b.liveshow_video_heart_like6));
-        this.bkz.add(du(a.b.liveshow_video_heart_like7));
-        this.bkz.add(du(a.b.liveshow_video_heart_like8));
-        this.bkz.add(du(a.b.liveshow_video_heart_like9));
+        this.bkz.add(dw(a.b.liveshow_video_heart_like1));
+        this.bkz.add(dw(a.b.liveshow_video_heart_like2));
+        this.bkz.add(dw(a.b.liveshow_video_heart_like3));
+        this.bkz.add(dw(a.b.liveshow_video_heart_like4));
+        this.bkz.add(dw(a.b.liveshow_video_heart_like5));
+        this.bkz.add(dw(a.b.liveshow_video_heart_like6));
+        this.bkz.add(dw(a.b.liveshow_video_heart_like7));
+        this.bkz.add(dw(a.b.liveshow_video_heart_like8));
+        this.bkz.add(dw(a.b.liveshow_video_heart_like9));
     }
 
     @Override // android.view.SurfaceView, android.view.View
@@ -451,7 +451,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             this.bkJ = i;
         }
 
-        public void dw(int i) {
+        public void dy(int i) {
             this.bkJ = i;
         }
 
@@ -561,7 +561,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         }
 
         public void a(PointF pointF, PointF pointF2, PointF pointF3, int i) {
-            dw(i);
+            dy(i);
             this.bku = pointF;
             this.bkv = pointF2;
             this.bkN = pointF3;
@@ -609,25 +609,25 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         this.bkA = z;
     }
 
-    private Bitmap du(int i) {
+    private Bitmap dw(int i) {
         return drawableToBitmap(getResources().getDrawable(i));
     }
 
-    private Bitmap dv(int i) {
+    private Bitmap dx(int i) {
         return drawableToBitmap(getResources().getDrawable(i));
     }
 
     public void setUpResNormalMode() {
         this.bkz = new ArrayList<>();
-        this.bkz.add(dv(a.b.liveshow_video_heart_like1));
-        this.bkz.add(dv(a.b.liveshow_video_heart_like2));
-        this.bkz.add(dv(a.b.liveshow_video_heart_like3));
-        this.bkz.add(dv(a.b.liveshow_video_heart_like4));
-        this.bkz.add(dv(a.b.liveshow_video_heart_like5));
-        this.bkz.add(dv(a.b.liveshow_video_heart_like6));
-        this.bkz.add(dv(a.b.liveshow_video_heart_like7));
-        this.bkz.add(dv(a.b.liveshow_video_heart_like8));
-        this.bkz.add(dv(a.b.liveshow_video_heart_like9));
+        this.bkz.add(dx(a.b.liveshow_video_heart_like1));
+        this.bkz.add(dx(a.b.liveshow_video_heart_like2));
+        this.bkz.add(dx(a.b.liveshow_video_heart_like3));
+        this.bkz.add(dx(a.b.liveshow_video_heart_like4));
+        this.bkz.add(dx(a.b.liveshow_video_heart_like5));
+        this.bkz.add(dx(a.b.liveshow_video_heart_like6));
+        this.bkz.add(dx(a.b.liveshow_video_heart_like7));
+        this.bkz.add(dx(a.b.liveshow_video_heart_like8));
+        this.bkz.add(dx(a.b.liveshow_video_heart_like9));
     }
 
     public void release() {

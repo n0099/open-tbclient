@@ -139,7 +139,7 @@ public class PermissionJudgePolicy {
             } else if (activity instanceof BaseActivity) {
                 ((BaseActivity) activity).setCurrentPermissionJudgePolicy(this);
             }
-            this.dPk = aVm();
+            this.dPk = aVn();
             if (ab(activity) != null && !v.isEmpty(this.dPk)) {
                 aa(activity);
                 return true;
@@ -162,8 +162,8 @@ public class PermissionJudgePolicy {
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
         aVar.gX(false);
-        aVar.kC(R.string.request_permission_default_title);
-        aVar.kD(getPermissionDescriptionId(str));
+        aVar.kE(R.string.request_permission_default_title);
+        aVar.kF(getPermissionDescriptionId(str));
         aVar.a(R.string.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -242,7 +242,7 @@ public class PermissionJudgePolicy {
         }
     }
 
-    private List<String> aVm() {
+    private List<String> aVn() {
         LinkedList linkedList = new LinkedList();
         Iterator<String> it = this.requestPermissionList.iterator();
         while (it.hasNext()) {

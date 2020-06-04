@@ -235,7 +235,7 @@ public class TiebaUpdateService extends BdBaseService {
                             bool = valueOf;
                             break;
                         } else if (this.bth.getServerErrorCode() != -2) {
-                            if (!this.bth.aUA().aVb().isFileSegSuccess()) {
+                            if (!this.bth.aUA().aVc().isFileSegSuccess()) {
                                 try {
                                     Thread.sleep(10000L);
                                 } catch (Exception e2) {
@@ -346,7 +346,7 @@ public class TiebaUpdateService extends BdBaseService {
                         bool = bool2;
                         break;
                     } else {
-                        if (!this.bth.aUA().aVb().isFileSegSuccess()) {
+                        if (!this.bth.aUA().aVc().isFileSegSuccess()) {
                             try {
                                 Thread.sleep(10000L);
                             } catch (Exception e2) {

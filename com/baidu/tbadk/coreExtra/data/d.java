@@ -67,15 +67,15 @@ public class d {
         }
     }
 
-    public g aXH() {
+    public g aXI() {
         return this.eay;
     }
 
-    public boolean aXI() {
+    public boolean aXJ() {
         return this.eax > 0;
     }
 
-    public boolean aXJ() {
+    public boolean aXK() {
         if (this.eaA == 1) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             return this.eaB < currentTimeMillis && currentTimeMillis < this.eaC;
@@ -83,31 +83,31 @@ public class d {
         return false;
     }
 
-    public boolean aXK() {
+    public boolean aXL() {
         return this.eaF == 1;
     }
 
-    public boolean aXL() {
+    public boolean aXM() {
         return this.eaH == 1;
     }
 
-    public String aXM() {
+    public String aXN() {
         return this.eaD;
     }
 
-    public boolean aXN() {
+    public boolean aXO() {
         return this.eaE == 1;
     }
 
-    public int aXO() {
+    public int aXP() {
         return this.eaI;
     }
 
-    public int aXP() {
+    public int aXQ() {
         return this.eaJ;
     }
 
-    public boolean aXQ() {
+    public boolean aXR() {
         return this.eaG == 0;
     }
 

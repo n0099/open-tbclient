@@ -7,11 +7,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes11.dex */
 public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.j, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.h>> {
-    private com.baidu.tieba.personPolymeric.b.b kqp;
+    private com.baidu.tieba.personPolymeric.b.b krv;
     private TbPageContext<?> mPageContext;
 
     public j(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.j.ksR, bdUniqueId);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.j.ktX, bdUniqueId);
         this.mPageContext = tbPageContext;
     }
 
@@ -27,14 +27,14 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.j jVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.h> aVar) {
-        com.baidu.tieba.personPolymeric.view.h bLU = aVar.bLU();
-        bLU.a(jVar);
-        bLU.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        bLU.b(this.kqp);
+        com.baidu.tieba.personPolymeric.view.h bLW = aVar.bLW();
+        bLW.a(jVar);
+        bLW.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        bLW.b(this.krv);
         return aVar.getView();
     }
 
     public void a(com.baidu.tieba.personPolymeric.b.b bVar) {
-        this.kqp = bVar;
+        this.krv = bVar;
     }
 }

@@ -8,7 +8,7 @@ import java.io.File;
 public class ap {
     private static ap dNX;
 
-    public static synchronized ap aUT() {
+    public static synchronized ap aUU() {
         ap apVar;
         synchronized (ap.class) {
             if (dNX == null) {
@@ -86,7 +86,7 @@ public class ap {
         }
     }
 
-    public void aUU() {
+    public void aUV() {
         K(new File(m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + m.getPrefixByType(3)));
     }
 

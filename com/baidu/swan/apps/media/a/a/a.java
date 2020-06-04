@@ -123,7 +123,7 @@ public class a extends aa {
                         if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                             com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, unitedSchemeEntity);
                             int errorCode = hVar == null ? 10001 : hVar.getErrorCode();
-                            a.this.a(a2, errorCode, com.baidu.swan.apps.setting.oauth.c.gM(errorCode));
+                            a.this.a(a2, errorCode, com.baidu.swan.apps.setting.oauth.c.gO(errorCode));
                         } else if (com.baidu.swan.apps.media.a.c.a.ajp().lQ(str)) {
                             a.this.a(a2, 2001, "error execute time");
                             c.e("record", "error execute time");

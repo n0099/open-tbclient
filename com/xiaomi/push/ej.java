@@ -53,27 +53,27 @@ public final class ej {
         @Override // com.xiaomi.push.e
         public a a(b bVar) {
             while (true) {
-                int m142a = bVar.m142a();
-                switch (m142a) {
+                int m141a = bVar.m141a();
+                switch (m141a) {
                     case 0:
                         break;
                     case 8:
                         a(bVar.c());
                         break;
                     case 16:
-                        a(bVar.m148a());
+                        a(bVar.m147a());
                         break;
                     case 24:
-                        b(bVar.m151b());
+                        b(bVar.m150b());
                         break;
                     case 32:
-                        b(bVar.m148a());
+                        b(bVar.m147a());
                         break;
                     case 42:
-                        a(bVar.m145a());
+                        a(bVar.m144a());
                         break;
                     default:
-                        if (!a(bVar, m142a)) {
+                        if (!a(bVar, m141a)) {
                             break;
                         } else {
                             break;
@@ -108,19 +108,19 @@ public final class ej {
         @Override // com.xiaomi.push.e
         public void a(c cVar) {
             if (a()) {
-                cVar.m189b(1, c());
+                cVar.m188b(1, c());
             }
-            if (m236c()) {
-                cVar.m181a(2, b());
+            if (m235c()) {
+                cVar.m180a(2, b());
             }
-            if (m237d()) {
-                cVar.m176a(3, d());
+            if (m236d()) {
+                cVar.m175a(3, d());
             }
             if (f()) {
-                cVar.m181a(4, m238e());
+                cVar.m180a(4, m237e());
             }
             for (String str : a()) {
-                cVar.m180a(5, str);
+                cVar.m179a(5, str);
             }
         }
 
@@ -133,13 +133,13 @@ public final class ej {
         public int b() {
             int i = 0;
             int b = a() ? c.b(1, c()) + 0 : 0;
-            if (m236c()) {
+            if (m235c()) {
                 b += c.a(2, b());
             }
-            if (m237d()) {
+            if (m236d()) {
                 b += c.a(3, d());
             }
-            int a = f() ? b + c.a(4, m238e()) : b;
+            int a = f() ? b + c.a(4, m237e()) : b;
             for (String str : a()) {
                 i += c.a(str);
             }
@@ -170,7 +170,7 @@ public final class ej {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m236c() {
+        public boolean m235c() {
             return this.f235b;
         }
 
@@ -179,7 +179,7 @@ public final class ej {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m237d() {
+        public boolean m236d() {
             return this.d;
         }
 
@@ -188,7 +188,7 @@ public final class ej {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m238e() {
+        public boolean m237e() {
             return this.f;
         }
 

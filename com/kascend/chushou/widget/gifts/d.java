@@ -16,7 +16,7 @@ public class d extends com.kascend.chushou.view.base.c<f> {
     }
 
     public void c() {
-        com.kascend.chushou.c.c.dDV().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.gifts.d.1
+        com.kascend.chushou.c.c.dEj().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.gifts.d.1
             @Override // com.kascend.chushou.c.b
             public void a() {
             }

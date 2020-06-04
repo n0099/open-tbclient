@@ -79,7 +79,7 @@ public class h extends aa {
             }
 
             @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-            public void ej(int i) {
+            public void el(int i) {
                 com.baidu.swan.apps.console.c.e("relaunch", "check pages failed");
                 ahV.QK();
                 if (h.DEBUG) {

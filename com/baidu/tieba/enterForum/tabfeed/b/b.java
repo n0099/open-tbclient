@@ -5,12 +5,12 @@ import com.baidu.tieba.enterForum.data.l;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class b {
-    public c gVP;
+    public c gWa;
     public boolean hasMore = true;
     public boolean aha = true;
-    public int gVO = 0;
+    public int gVZ = 0;
     public int refreshCount = 0;
-    public boolean eIo = true;
-    public ArrayList<o> gVN = new ArrayList<>();
-    public l gVM = new l();
+    public boolean eIz = true;
+    public ArrayList<o> gVY = new ArrayList<>();
+    public l gVX = new l();
 }

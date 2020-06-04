@@ -19,7 +19,7 @@ final class SequencesKt___SequencesJvmKt$filterIsInstance$1 extends Lambda imple
     }
 
     /* JADX DEBUG: Return type fixed from 'boolean' to match base method */
-    /* JADX WARN: Type inference failed for: r0v1, types: [boolean, java.lang.Boolean] */
+    /* JADX WARN: Type inference failed for: r0v1, types: [java.lang.Boolean, boolean] */
     @Override // kotlin.jvm.a.b
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final Boolean invoke2(Object obj) {

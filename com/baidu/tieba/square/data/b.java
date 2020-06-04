@@ -10,7 +10,7 @@ public class b extends com.baidu.tieba.card.data.b {
     public String extInfo;
     public long forumId;
     public String forumName;
-    public String gTd;
+    public String gTo;
     public int memberCount;
     public int threadCount;
 
@@ -43,12 +43,12 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.memberCount;
     }
 
-    public int dbH() {
+    public int dbW() {
         return this.threadCount;
     }
 
     public String aOj() {
-        return this.gTd;
+        return this.gTo;
     }
 
     public void c(RecommendForumInfo recommendForumInfo) {
@@ -59,7 +59,7 @@ public class b extends com.baidu.tieba.card.data.b {
             this.memberCount = recommendForumInfo.member_count.intValue();
             this.threadCount = recommendForumInfo.thread_count.intValue();
             this.dEi = recommendForumInfo.is_like.intValue() == 1;
-            this.gTd = recommendForumInfo.recom_reason;
+            this.gTo = recommendForumInfo.recom_reason;
             this.extInfo = recommendForumInfo.extra;
         }
     }

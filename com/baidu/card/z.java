@@ -105,7 +105,7 @@ public class z extends d implements n<bk>, o {
             this.aey.setVisibility(8);
         } else {
             this.aey.setVisibility(0);
-            SvgManager.aUV().a(this.aex, this.aeA, this.aeB, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.aUW().a(this.aex, this.aeA, this.aeB, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
@@ -115,7 +115,7 @@ public class z extends d implements n<bk>, o {
 
     @Override // com.baidu.card.o
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        SvgManager.aUV().a(this.aex, this.aeA, this.aeB, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aUW().a(this.aex, this.aeA, this.aeB, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {

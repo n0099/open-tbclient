@@ -76,8 +76,8 @@ public class a extends aa {
         }
         int length = this.bRA.bRI.length();
         for (int i = 0; i < length; i++) {
-            final String ez = this.bRA.ez(i);
-            if (TextUtils.isEmpty(ez)) {
+            final String eB = this.bRA.eB(i);
+            if (TextUtils.isEmpty(eB)) {
                 int i2 = this.bRk + 1;
                 this.bRk = i2;
                 if (i2 >= length) {
@@ -85,11 +85,11 @@ public class a extends aa {
                     Q(context, "404");
                 }
             } else {
-                final String eA = this.bRA.eA(i);
+                final String eC = this.bRA.eC(i);
                 this.bRj.execute(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.b.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.a(context, ez, eA, Wt, unitedSchemeEntity, callbackHandler);
+                        a.this.a(context, eB, eC, Wt, unitedSchemeEntity, callbackHandler);
                     }
                 });
             }
@@ -176,7 +176,7 @@ public class a extends aa {
         b.a aoJ = com.baidu.swan.apps.runtime.d.aoB().aox().aoJ();
         f fVar = new f();
         fVar.b(aoJ);
-        fVar.mFrom = com.baidu.swan.apps.statistic.h.gS(aoJ.getAppFrameType());
+        fVar.mFrom = com.baidu.swan.apps.statistic.h.gU(aoJ.getAppFrameType());
         fVar.mType = Config.LAUNCH;
         fVar.mSource = "adb-debug";
         fVar.mValue = "download_fail";

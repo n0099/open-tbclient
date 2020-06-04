@@ -7,7 +7,7 @@ public class an {
         this.cKq = 0;
     }
 
-    public void hI(int i) {
+    public void hK(int i) {
         this.cKq = i;
     }
 

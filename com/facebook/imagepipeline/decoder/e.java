@@ -6,24 +6,24 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes12.dex */
 public class e {
-    private final com.facebook.common.memory.a mlM;
-    private boolean mxj;
-    private int mxf = 0;
-    private int mxe = 0;
-    private int mxg = 0;
-    private int mxi = 0;
-    private int mxh = 0;
-    private int mxd = 0;
+    private final com.facebook.common.memory.a mmW;
+    private boolean myt;
+    private int myp = 0;
+    private int myo = 0;
+    private int myq = 0;
+    private int mys = 0;
+    private int myr = 0;
+    private int myn = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.mlM = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.mmW = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.g.e eVar) {
-        if (this.mxd != 6 && eVar.getSize() > this.mxf) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.mlM.get(16384), this.mlM);
+        if (this.myn != 6 && eVar.getSize() > this.myp) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.mmW.get(16384), this.mmW);
             try {
-                com.facebook.common.util.c.a(fVar, this.mxf);
+                com.facebook.common.util.c.a(fVar, this.myp);
                 return u(fVar);
             } catch (IOException e) {
                 l.y(e);
@@ -38,88 +38,88 @@ public class e {
     private boolean u(InputStream inputStream) {
         int read;
         boolean z = true;
-        int i = this.mxh;
-        while (this.mxd != 6 && (read = inputStream.read()) != -1) {
+        int i = this.myr;
+        while (this.myn != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.mxf++;
-                if (this.mxj) {
-                    this.mxd = 6;
-                    this.mxj = false;
+                this.myp++;
+                if (this.myt) {
+                    this.myn = 6;
+                    this.myt = false;
                     return false;
                 }
-                switch (this.mxd) {
+                switch (this.myn) {
                     case 0:
                         if (read == 255) {
-                            this.mxd = 1;
+                            this.myn = 1;
                             break;
                         } else {
-                            this.mxd = 6;
+                            this.myn = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.mxd = 2;
+                            this.myn = 2;
                             break;
                         } else {
-                            this.mxd = 6;
+                            this.myn = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.mxd = 3;
+                            this.myn = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.mxd = 3;
+                            this.myn = 3;
                             break;
                         } else if (read == 0) {
-                            this.mxd = 2;
+                            this.myn = 2;
                             break;
                         } else if (read == 217) {
-                            this.mxj = true;
-                            HE(this.mxf - 2);
-                            this.mxd = 2;
+                            this.myt = true;
+                            HG(this.myp - 2);
+                            this.myn = 2;
                             break;
                         } else {
                             if (read == 218) {
-                                HE(this.mxf - 2);
+                                HG(this.myp - 2);
                             }
-                            if (HD(read)) {
-                                this.mxd = 4;
+                            if (HF(read)) {
+                                this.myn = 4;
                                 break;
                             } else {
-                                this.mxd = 2;
+                                this.myn = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.mxd = 5;
+                        this.myn = 5;
                         break;
                     case 5:
-                        int i2 = ((this.mxe << 8) + read) - 2;
+                        int i2 = ((this.myo << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.mxf = i2 + this.mxf;
-                        this.mxd = 2;
+                        this.myp = i2 + this.myp;
+                        this.myn = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.mxe = read;
+                this.myo = read;
             } catch (IOException e) {
                 l.y(e);
             }
         }
-        if (this.mxd == 6 || this.mxh == i) {
+        if (this.myn == 6 || this.myr == i) {
             z = false;
         }
         return z;
     }
 
-    private static boolean HD(int i) {
+    private static boolean HF(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -133,24 +133,24 @@ public class e {
         return false;
     }
 
-    private void HE(int i) {
-        if (this.mxg > 0) {
-            this.mxi = i;
+    private void HG(int i) {
+        if (this.myq > 0) {
+            this.mys = i;
         }
-        int i2 = this.mxg;
-        this.mxg = i2 + 1;
-        this.mxh = i2;
+        int i2 = this.myq;
+        this.myq = i2 + 1;
+        this.myr = i2;
     }
 
-    public int dzX() {
-        return this.mxi;
+    public int dAl() {
+        return this.mys;
     }
 
-    public int dzY() {
-        return this.mxh;
+    public int dAm() {
+        return this.myr;
     }
 
-    public boolean dzZ() {
-        return this.mxj;
+    public boolean dAn() {
+        return this.myt;
     }
 }

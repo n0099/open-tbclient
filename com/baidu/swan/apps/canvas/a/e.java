@@ -20,8 +20,8 @@ public class e extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject ep(int i) {
-        return super.ep(i);
+    public /* bridge */ /* synthetic */ JSONObject er(int i) {
+        return super.er(i);
     }
 
     public e(j jVar) {
@@ -33,7 +33,7 @@ public class e extends a {
         int i;
         int i2;
         Rect rect;
-        unitedSchemeEntity.result = ep(201);
+        unitedSchemeEntity.result = er(201);
         com.baidu.swan.apps.canvas.b.d d = d(unitedSchemeEntity);
         if (d == null) {
             return false;

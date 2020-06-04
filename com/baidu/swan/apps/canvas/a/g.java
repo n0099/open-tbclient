@@ -18,8 +18,8 @@ public class g extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject ep(int i) {
-        return super.ep(i);
+    public /* bridge */ /* synthetic */ JSONObject er(int i) {
+        return super.er(i);
     }
 
     public g(j jVar) {
@@ -30,14 +30,14 @@ public class g extends a {
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.canvas.b.a d = d(unitedSchemeEntity);
         if (d == null) {
-            unitedSchemeEntity.result = ep(201);
+            unitedSchemeEntity.result = er(201);
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "remove action parse model is null");
             return false;
         }
         com.baidu.swan.apps.component.components.d.a aVar = (com.baidu.swan.apps.component.components.d.a) com.baidu.swan.apps.component.container.a.d(d);
         if (aVar == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "remove canvas fail: fina a null component");
-            unitedSchemeEntity.result = ep(1001);
+            unitedSchemeEntity.result = er(1001);
             return false;
         }
         com.baidu.swan.apps.component.b.c Vi = aVar.Vi();

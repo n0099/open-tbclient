@@ -32,8 +32,8 @@ public class b extends com.baidu.adp.widget.ListView.a<bj, ag<bk>> {
     private aa<bk> adt;
     private boolean aha;
     private t aib;
-    private com.baidu.adp.lib.d.b<ImageView> eBr;
-    private com.baidu.adp.lib.d.b<GifView> eBs;
+    private com.baidu.adp.lib.d.b<ImageView> eBC;
+    private com.baidu.adp.lib.d.b<GifView> eBD;
     public BdUniqueId epM;
     private TbPageContext<?> mPageContext;
     private String mTabName;
@@ -41,10 +41,10 @@ public class b extends com.baidu.adp.widget.ListView.a<bj, ag<bk>> {
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.aha = true;
-        this.eBr = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.1
+        this.eBC = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bjk */
+            /* renamed from: bjm */
             public ImageView makeObject() {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(b.this.mPageContext.getPageActivity());
                 boolean isShowImages = k.aNQ().isShowImages();
@@ -113,10 +113,10 @@ public class b extends com.baidu.adp.widget.ListView.a<bj, ag<bk>> {
                 return imageView;
             }
         }, 12, 0);
-        this.eBs = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.2
+        this.eBD = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bPO */
+            /* renamed from: bPQ */
             public GifView makeObject() {
                 GifView gifView = new GifView(b.this.mPageContext.getPageActivity());
                 boolean isShowImages = k.aNQ().isShowImages();
@@ -167,7 +167,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bj, ag<bk>> {
                 gifView.release();
                 gifView.onDestroy();
                 gifView.setImageDrawable(null);
-                gifView.ber();
+                gifView.bes();
                 gifView.setBackgroundDrawable(null);
                 gifView.setTag(null);
                 gifView.setOnClickListener(null);
@@ -180,7 +180,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bj, ag<bk>> {
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, bk bkVar) {
-                s.bLq().jv(true);
+                s.bLs().jv(true);
                 b.this.f(view, bkVar);
             }
         };
@@ -219,7 +219,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bj, ag<bk>> {
         ae.a aVar = new ae.a(this.mPageContext.getPageActivity(), false);
         m mVar = new m(this.mPageContext.getPageActivity());
         mVar.setFrom("index");
-        mVar.setObjectPool(this.eBr, this.eBs);
+        mVar.setObjectPool(this.eBC, this.eBD);
         mVar.e(0, l.getDimens(this.mContext, R.dimen.tbds44), 0, 0);
         mVar.setFromCDN(this.aha);
         mVar.setCornerStyle(1);
@@ -258,7 +258,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bj, ag<bk>> {
         agVar.b((ag<bk>) bjVar.dEA);
         agVar.rM().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         agVar.rM().a(this.adt);
-        s.bLq().e(com.baidu.tieba.enterForum.a.g(bjVar.aOi(), this.mTabName));
+        s.bLs().e(com.baidu.tieba.enterForum.a.g(bjVar.aOi(), this.mTabName));
         return agVar.getView();
     }
 

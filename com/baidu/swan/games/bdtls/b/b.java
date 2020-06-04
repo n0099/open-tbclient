@@ -15,7 +15,7 @@ public abstract class b {
 
     public abstract void b(IOException iOException);
 
-    public abstract void im(int i);
+    public abstract void io(int i);
 
     public final String W(byte[] bArr) {
         String str = new String(bArr);
@@ -32,7 +32,7 @@ public abstract class b {
             } else {
                 this.cVr = -1;
             }
-            e.axN().axO().il(this.cVr);
+            e.axN().axO().in(this.cVr);
             if (this.cVr == -1) {
                 com.baidu.swan.games.bdtls.c.axL().setEnable(false);
             }

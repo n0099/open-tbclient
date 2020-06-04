@@ -108,7 +108,7 @@ public class SendView extends TextView implements m {
                     this.flags[3] = false;
                     break;
             }
-            nn(this.mType);
+            np(this.mType);
         }
     }
 
@@ -160,7 +160,7 @@ public class SendView extends TextView implements m {
         this.mType = i;
     }
 
-    public void nn(int i) {
+    public void np(int i) {
         if (i == ALL) {
             if (this.flags[0] || this.flags[1] || this.flags[2] || this.flags[3] || this.flags[4]) {
                 setEnabled(true);

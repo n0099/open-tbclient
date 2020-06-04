@@ -40,7 +40,7 @@ public class f extends com.baidu.adp.widget.ListView.c {
 
     /* loaded from: classes.dex */
     public interface a {
-        void aWz();
+        void aWA();
     }
 
     /* loaded from: classes.dex */
@@ -61,7 +61,7 @@ public class f extends com.baidu.adp.widget.ListView.c {
     /* renamed from: com.baidu.tbadk.core.view.f$f  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0479f {
-        void ma(int i);
+        void mc(int i);
 
         void onAnimationEnd();
     }
@@ -169,7 +169,7 @@ public class f extends com.baidu.adp.widget.ListView.c {
         initPullView();
         if (aUJ()) {
             if (!oU()) {
-                aWs();
+                aWt();
             }
         } else if (this.mAnimImage != null && this.mPullImage != null) {
             this.mAnimImage.stop();
@@ -185,7 +185,7 @@ public class f extends com.baidu.adp.widget.ListView.c {
         }
     }
 
-    private void aWs() {
+    private void aWt() {
         if (this.dVx != null) {
             if (this.dVx.isAnimating()) {
                 this.dVx.cancelAnimation();
@@ -210,7 +210,7 @@ public class f extends com.baidu.adp.widget.ListView.c {
         } else if (this.mAnimImage != null) {
             this.mAnimImage.stop();
         }
-        aWu();
+        aWv();
         if (this.dVu != null) {
             this.dVu.onListPullRefreshFinished(this.mHeaderView, z);
         }
@@ -234,17 +234,17 @@ public class f extends com.baidu.adp.widget.ListView.c {
     public void onCompletePullRefresh() {
         if (!oU()) {
             if (this.dVw != null) {
-                this.dVw.aWz();
+                this.dVw.aWA();
             }
-            if (!aWw()) {
-                aWt();
+            if (!aWx()) {
+                aWu();
             } else if (this.dVx != null && this.dVx.isAnimating()) {
                 this.dVx.cancelAnimation();
             }
         }
     }
 
-    private void aWt() {
+    private void aWu() {
         if (aUJ() && this.dVx != null) {
             if (this.dVx.isAnimating()) {
                 this.dVx.cancelAnimation();
@@ -318,7 +318,7 @@ public class f extends com.baidu.adp.widget.ListView.c {
         }
     }
 
-    private void aWu() {
+    private void aWv() {
         if (aUJ() && this.mAnimImage != null) {
             this.mAnimImage.stop();
             this.mAnimImage = null;
@@ -330,7 +330,7 @@ public class f extends com.baidu.adp.widget.ListView.c {
         return 600L;
     }
 
-    public boolean aWv() {
+    public boolean aWw() {
         return this.dVy;
     }
 
@@ -342,8 +342,8 @@ public class f extends com.baidu.adp.widget.ListView.c {
         this.dVC = z;
     }
 
-    public boolean aWw() {
-        if (aWv() && this.dVC && this.dVB != null && this.mPullRoot != null) {
+    public boolean aWx() {
+        if (aWw() && this.dVC && this.dVB != null && this.mPullRoot != null) {
             this.mPullImage.setVisibility(8);
             this.dVx.setVisibility(8);
             if (this.dVz == null) {
@@ -351,35 +351,35 @@ public class f extends com.baidu.adp.widget.ListView.c {
                 this.dVz.setExtrusionRemind(true);
             }
             this.dVz.dVI = this.dVB.getTipText();
-            this.dVz.hrq = this.dVB.aWA();
+            this.dVz.hrB = this.dVB.aWB();
             if (this.dVz.getParent() != null) {
                 this.mPullRoot.removeView(this.dVz);
             }
             this.mPullRoot.addView(this.dVz);
             this.dVz.setOnBubbleAnimateListener(new SmartBubbleAnimatedView.a() { // from class: com.baidu.tbadk.core.view.f.4
                 @Override // com.baidu.tieba.frs.SmartBubbleAnimatedView.a
-                public void aWy() {
+                public void aWz() {
                     if (f.this.dVA != null) {
                         f.this.dVA.onAnimationEnd();
                     }
                 }
             });
             if (this.dVA != null) {
-                this.dVA.ma(this.dVz.getTipViewHeight());
+                this.dVA.mc(this.dVz.getTipViewHeight());
             }
-            this.dVz.bWZ();
+            this.dVz.bXb();
             return true;
         }
         return false;
     }
 
-    public void aWx() {
+    public void aWy() {
         if (this.mPullRoot != null && this.dVz != null && this.dVz.getParent() != null) {
             this.mPullRoot.removeView(this.dVz);
         }
     }
 
-    public void lZ(int i) {
+    public void mb(int i) {
         if (this.dVx != null) {
             am.a(this.dVx, i);
         }
@@ -403,7 +403,7 @@ public class f extends com.baidu.adp.widget.ListView.c {
             return this.dVI;
         }
 
-        public int aWA() {
+        public int aWB() {
             return this.dVJ;
         }
     }

@@ -71,7 +71,7 @@ public class a {
             TextView textView3 = (TextView) inflate.findViewById(R.id.permission_title);
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
             aVar.aP(inflate);
-            aVar.kG(2);
+            aVar.kI(2);
             aVar.gX(true);
             aVar.gW(true);
             aVar.setAutoNight(true);

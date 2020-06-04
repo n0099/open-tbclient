@@ -19,11 +19,11 @@ import tv.chushou.zues.utils.e;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a {
-    private static final tv.chushou.zues.toolkit.b.a mXc = tv.chushou.zues.toolkit.b.a.nNu;
-    private static a mXf;
+    private static final tv.chushou.zues.toolkit.b.a mYm = tv.chushou.zues.toolkit.b.a.nOE;
+    private static a mYp;
     private final Object d = new Object();
     private Map<View, String> e = Collections.synchronizedMap(new WeakHashMap());
-    private final tv.chushou.zues.toolkit.a.b.a<Drawable> mXd = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: com.kascend.chushou.toolkit.b.a.1
+    private final tv.chushou.zues.toolkit.a.b.a<Drawable> mYn = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: com.kascend.chushou.toolkit.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // tv.chushou.zues.toolkit.a.b.b
         /* renamed from: a */
@@ -31,26 +31,26 @@ public class a {
             return 1;
         }
     });
-    private tv.chushou.zues.toolkit.a.a.a mXe;
+    private tv.chushou.zues.toolkit.a.a.a mYo;
 
-    public static a dFU() {
-        if (mXf == null) {
+    public static a dGi() {
+        if (mYp == null) {
             synchronized (a.class) {
-                if (mXf == null) {
-                    mXf = new a();
+                if (mYp == null) {
+                    mYp = new a();
                 }
             }
         }
-        return mXf;
+        return mYp;
     }
 
     public static void b() {
     }
 
     private a() {
-        this.mXe = null;
+        this.mYo = null;
         try {
-            this.mXe = tv.chushou.zues.toolkit.a.a.a.b(com.kascend.chushou.d.c.mHD.e(), 1, 1, 10485760L);
+            this.mYo = tv.chushou.zues.toolkit.a.a.a.b(com.kascend.chushou.d.c.mIR.e(), 1, 1, 10485760L);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -64,8 +64,8 @@ public class a {
             }
             this.e.put(view, str);
             Drawable drawable = null;
-            if (this.mXd != null) {
-                drawable = this.mXd.get(str);
+            if (this.mYn != null) {
+                drawable = this.mYn.get(str);
             }
             if (drawable != null) {
                 view.setBackgroundDrawable(drawable.getConstantState().newDrawable());
@@ -97,19 +97,19 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public class b implements Runnable {
-        c mXj;
+        c mYt;
 
         b(c cVar) {
-            this.mXj = cVar;
+            this.mYt = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Drawable QC;
-            if (!a.this.a(this.mXj) && !h.isEmpty(this.mXj.a) && (QC = a.this.QC(this.mXj.a)) != null) {
-                a.this.mXd.put(this.mXj.a, QC);
-                if (!a.this.a(this.mXj)) {
-                    ((Activity) this.mXj.b.getContext()).runOnUiThread(new RunnableC0814a(QC, this.mXj));
+            Drawable QD;
+            if (!a.this.a(this.mYt) && !h.isEmpty(this.mYt.a) && (QD = a.this.QD(this.mYt.a)) != null) {
+                a.this.mYn.put(this.mYt.a, QD);
+                if (!a.this.a(this.mYt)) {
+                    ((Activity) this.mYt.b.getContext()).runOnUiThread(new RunnableC0815a(QD, this.mYt));
                 }
             }
         }
@@ -117,25 +117,25 @@ public class a {
 
     /* renamed from: com.kascend.chushou.toolkit.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    class RunnableC0814a implements Runnable {
+    class RunnableC0815a implements Runnable {
         Drawable a;
-        c mXh;
+        c mYr;
 
-        RunnableC0814a(Drawable drawable, c cVar) {
+        RunnableC0815a(Drawable drawable, c cVar) {
             this.a = drawable;
-            this.mXh = cVar;
+            this.mYr = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!a.this.a(this.mXh)) {
-                this.mXh.b.setBackgroundDrawable(this.a);
+            if (!a.this.a(this.mYr)) {
+                this.mYr.b.setBackgroundDrawable(this.a);
             }
         }
     }
 
     private void b(String str, View view) {
-        tv.chushou.a.a.b.a.dRv().O(new b(new c(str, view)));
+        tv.chushou.a.a.b.a.dRJ().O(new b(new c(str, view)));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [195=5, 197=4, 198=4, 199=4] */
@@ -143,16 +143,16 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private Drawable QB(String str) {
+    private Drawable QC(String str) {
         InputStream inputStream;
         Throwable th;
         InputStream inputStream2 = null;
-        if (this.mXe == null) {
+        if (this.mYo == null) {
             return null;
         }
         try {
-            a.c So = this.mXe.So(str);
-            if (So == null) {
+            a.c Sp = this.mYo.Sp(str);
+            if (Sp == null) {
                 if (0 != 0) {
                     try {
                         inputStream2.close();
@@ -164,7 +164,7 @@ public class a {
                 }
                 return null;
             }
-            inputStream = So.Kw(0);
+            inputStream = Sp.Ky(0);
             try {
                 try {
                     BitmapFactory.Options options = new BitmapFactory.Options();
@@ -223,34 +223,34 @@ public class a {
     /* JADX WARN: Type inference failed for: r1v10 */
     /* JADX WARN: Type inference failed for: r1v4 */
     /* JADX WARN: Type inference failed for: r1v7 */
-    public Drawable QC(String str) {
-        Drawable QB;
-        a.C0916a Sp;
+    public Drawable QD(String str) {
+        Drawable QC;
+        a.C0917a Sq;
         Drawable drawable = null;
-        if (this.mXe != null) {
-            ?? r1 = mXc;
-            String Sq = r1.Sq(str);
+        if (this.mYo != null) {
+            ?? r1 = mYm;
+            String Sr = r1.Sr(str);
             try {
                 try {
                     synchronized (this.d) {
                         try {
-                            QB = QB(Sq);
+                            QC = QC(Sr);
                         } catch (Throwable th) {
                             r1 = 0;
                             th = th;
                         }
                         try {
-                            if (QB == null && (Sp = this.mXe.Sp(Sq)) != null) {
-                                OutputStream Kt = Sp.Kt(0);
-                                Http http = (Http) tv.chushou.basis.d.b.dRm().S(Http.class);
+                            if (QC == null && (Sq = this.mYo.Sq(Sr)) != null) {
+                                OutputStream Kv = Sq.Kv(0);
+                                Http http = (Http) tv.chushou.basis.d.b.dRA().S(Http.class);
                                 if (http == null) {
-                                    Sp.abort();
-                                    drawable = QB;
-                                } else if (http.downloadSync(str, Kt)) {
-                                    Sp.commit();
-                                    drawable = QB(Sq);
+                                    Sq.abort();
+                                    drawable = QC;
+                                } else if (http.downloadSync(str, Kv)) {
+                                    Sq.commit();
+                                    drawable = QC(Sr);
                                 } else {
-                                    Sp.abort();
+                                    Sq.abort();
                                 }
                             }
                         } catch (Throwable th2) {
@@ -265,7 +265,7 @@ public class a {
                                 return drawable;
                             }
                         }
-                        drawable = QB;
+                        drawable = QC;
                     }
                 } catch (Throwable th3) {
                     th = th3;

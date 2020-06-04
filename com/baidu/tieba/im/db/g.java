@@ -13,9 +13,9 @@ import java.util.LinkedList;
 public class g {
     private static String databaseName = null;
     private static volatile SQLiteDatabase database = null;
-    public static HashMap<String, SQLiteDatabase> iyn = new HashMap<>();
+    public static HashMap<String, SQLiteDatabase> iza = new HashMap<>();
 
-    public static synchronized SQLiteDatabase clG() {
+    public static synchronized SQLiteDatabase clP() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (g.class) {
             try {
@@ -26,8 +26,8 @@ public class g {
                 sQLiteDatabase = null;
             } else {
                 String str = TbadkCoreApplication.getCurrentAccount() + ".db";
-                if (iyn.containsKey(str)) {
-                    sQLiteDatabase = iyn.get(str);
+                if (iza.containsKey(str)) {
+                    sQLiteDatabase = iza.get(str);
                 } else if (database != null && str.equals(databaseName) && database.isOpen()) {
                     sQLiteDatabase = database;
                 } else {
@@ -44,16 +44,16 @@ public class g {
         return sQLiteDatabase;
     }
 
-    public static LinkedList<String> clH() {
+    public static LinkedList<String> clQ() {
         Cursor cursor;
         Throwable th;
         Exception exc;
         Cursor cursor2 = null;
-        SQLiteDatabase clG = clG();
+        SQLiteDatabase clP = clP();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (clG != null) {
+        if (clP != null) {
             try {
-                cursor2 = clG.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor2 = clP.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor2 != null) {
                     try {
                         cursor2.moveToFirst();
@@ -95,17 +95,17 @@ public class g {
     public static void Gr(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                h.clI().clJ();
-                Iterator<String> it = clH().iterator();
+                h.clR().clS();
+                Iterator<String> it = clQ().iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (next != null) {
                         if (next.equals("tb_message_center")) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("is_hidden", (Integer) 1);
-                            h.clI().a("tb_message_center", contentValues, null, null);
+                            h.clR().a("tb_message_center", contentValues, null, null);
                         } else if (!next.equals("tb_new_friends")) {
-                            h.clI().a(next, (String) null, (String[]) null);
+                            h.clR().a(next, (String) null, (String[]) null);
                         }
                     }
                 }
@@ -114,7 +114,7 @@ public class g {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
             e.printStackTrace();
         } finally {
-            h.clI().clK();
+            h.clR().clT();
         }
     }
 }

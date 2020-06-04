@@ -24,31 +24,31 @@ public class SettingTextSwitchView extends FrameLayout {
     public SettingTextSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        bbA();
+        bbB();
         e(attributeSet);
-        mU(TbadkCoreApplication.getInst().getSkinType());
+        mW(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextSwitchView(Context context) {
         super(context);
         this.mContext = context;
-        bbA();
-        mU(TbadkCoreApplication.getInst().getSkinType());
+        bbB();
+        mW(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        bbA();
+        bbB();
         e(attributeSet);
-        mU(TbadkCoreApplication.getInst().getSkinType());
+        mW(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public View getView() {
         return this.ehT;
     }
 
-    public void mU(int i) {
+    public void mW(int i) {
         this.ehV.setBackgroundRes(am.getBitmap(R.drawable.bg_switch_open), am.getBitmap(R.drawable.bg_switch_close), am.getBitmap(R.drawable.btn_handle));
         am.setViewTextColor(this.textView, R.color.cp_cont_b, 1);
         if (this.ehU != null) {
@@ -84,7 +84,7 @@ public class SettingTextSwitchView extends FrameLayout {
         this.ehV.setOnSwitchStateChangeListener(aVar);
     }
 
-    private void bbA() {
+    private void bbB() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_switch_view, (ViewGroup) this, true);
         this.ehT = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);

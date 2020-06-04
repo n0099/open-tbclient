@@ -26,21 +26,21 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a wL(int i) {
+    public static a wN(int i) {
         return B(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a B(int i, int i2, int i3, int i4) {
-        a chc = chc();
-        chc.type = i;
-        chc.baV = i2;
-        chc.baW = i3;
-        chc.baX = i4;
-        return chc;
+        a chl = chl();
+        chl.type = i;
+        chl.baV = i2;
+        chl.baW = i3;
+        chl.baX = i4;
+        return chl;
     }
 
-    private static a chc() {
+    private static a chl() {
         a aVar;
         synchronized (baR) {
             if (baR.size() > 0) {

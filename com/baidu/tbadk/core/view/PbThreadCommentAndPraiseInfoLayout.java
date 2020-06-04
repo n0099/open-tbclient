@@ -38,10 +38,10 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         setNeedAddPraiseIcon(true);
         setNeedAddReplyIcon(true);
         setShareVisible(true);
-        aWh();
+        aWi();
     }
 
-    private void aWh() {
+    private void aWi() {
         View findViewById = findViewById(R.id.thread_comment_layout_root);
         ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
         layoutParams.height = -1;
@@ -76,7 +76,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         layoutParams6.topMargin = -com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds15);
         layoutParams6.weight = 0.5f;
         agreeView.setLayoutParams(layoutParams6);
-        agreeView.aVO();
+        agreeView.aVP();
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
@@ -99,7 +99,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             cVar.dAZ = 4;
             cVar.dBb = 2;
             this.dVU.setStatisticData(cVar);
-            this.dVU.aVP();
+            this.dVU.aVQ();
         }
     }
 
@@ -148,16 +148,16 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         return setData(bkVar);
     }
 
-    public boolean aWi() {
+    public boolean aWj() {
         return (this.aee == null || !this.aee.aPk() || this.aee.aQQ() == null) ? false : true;
     }
 
-    public boolean aWj() {
+    public boolean aWk() {
         return (this.aee == null || this.aee.aQo() == 0) ? false : true;
     }
 
-    public boolean aWk() {
-        if (aWi() && aWj()) {
+    public boolean aWl() {
+        if (aWj() && aWk()) {
             return false;
         }
         return AntiHelper.aY(this.aee);
@@ -165,15 +165,15 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void updateReplyStateUI() {
-        if (aWk()) {
+        if (aWl()) {
             if (this.dWn) {
-                SvgManager.aUV().a(this.dVW, R.drawable.icon_pure_pb_reply26_svg, R.color.cp_cont_e, SvgManager.SvgResourceStateType.NORMAL);
+                SvgManager.aUW().a(this.dVW, R.drawable.icon_pure_pb_reply26_svg, R.color.cp_cont_e, SvgManager.SvgResourceStateType.NORMAL);
             }
             am.setViewTextColor(this.dVV, (int) R.color.cp_cont_e);
             return;
         }
         if (this.dWn) {
-            SvgManager.aUV().a(this.dVW, R.drawable.icon_pure_pb_reply26_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.aUW().a(this.dVW, R.drawable.icon_pure_pb_reply26_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
         am.setViewTextColor(this.dVV, (int) R.drawable.selector_comment_and_prise_item_text_color);
     }
@@ -182,15 +182,15 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     public void updateShareStateUI(bk bkVar) {
         if (AntiHelper.aZ(bkVar)) {
             setShareClickable(true);
-            SvgManager.aUV().a(this.dVZ, R.drawable.icon_pure_pb_share26_svg, R.color.cp_cont_e, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.aUW().a(this.dVZ, R.drawable.icon_pure_pb_share26_svg, R.color.cp_cont_e, SvgManager.SvgResourceStateType.NORMAL);
             am.setViewTextColor(this.dVY, (int) R.color.cp_cont_e);
         } else if (bkVar != null && bkVar.dHm != null && this.aee.dHm.dCi) {
             setShareClickable(false);
-            SvgManager.aUV().a(this.dVZ, R.drawable.icon_pure_pb_share26_svg, R.color.cp_cont_e, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.aUW().a(this.dVZ, R.drawable.icon_pure_pb_share26_svg, R.color.cp_cont_e, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             am.setViewTextColor(this.dVY, (int) R.color.cp_cont_e);
         } else {
             setShareClickable(true);
-            SvgManager.aUV().a(this.dVZ, R.drawable.icon_pure_pb_share26_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.aUW().a(this.dVZ, R.drawable.icon_pure_pb_share26_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             am.setViewTextColor(this.dVY, (int) R.drawable.selector_comment_and_prise_item_text_color);
         }
     }

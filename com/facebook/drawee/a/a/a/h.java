@@ -8,57 +8,57 @@ public class h {
     private boolean mIsCanceled;
     @Nullable
     private String mRequestId;
-    private boolean mnC;
     @Nullable
-    private String mnp;
+    private String moA;
     @Nullable
-    private Object mnr;
+    private Object moC;
     @Nullable
-    private ImageRequest mns;
+    private ImageRequest moD;
     @Nullable
-    private com.facebook.imagepipeline.g.f mnt;
-    private long mnu = -1;
-    private long mnv = -1;
-    private long mnw = -1;
-    private long mnx = -1;
-    private long mny = -1;
-    private long mnz = -1;
-    private long mnA = -1;
-    private int mnB = -1;
-    private int mnD = -1;
-    private int mnE = -1;
-    private int mnN = -1;
+    private com.facebook.imagepipeline.g.f moE;
+    private boolean moN;
+    private long moF = -1;
+    private long moG = -1;
+    private long moH = -1;
+    private long moI = -1;
+    private long moJ = -1;
+    private long moK = -1;
+    private long moL = -1;
+    private int moM = -1;
+    private int moO = -1;
+    private int moP = -1;
+    private int moY = -1;
 
     public void reset() {
         this.mRequestId = null;
-        this.mns = null;
-        this.mnr = null;
-        this.mnt = null;
-        this.mnu = -1L;
-        this.mnw = -1L;
-        this.mnx = -1L;
-        this.mny = -1L;
-        this.mnz = -1L;
-        this.mnA = -1L;
-        this.mnB = -1;
+        this.moD = null;
+        this.moC = null;
+        this.moE = null;
+        this.moF = -1L;
+        this.moH = -1L;
+        this.moI = -1L;
+        this.moJ = -1L;
+        this.moK = -1L;
+        this.moL = -1L;
+        this.moM = -1;
         this.mIsCanceled = false;
         this.Ta = false;
-        this.mnC = false;
-        this.mnD = -1;
-        this.mnE = -1;
-        this.mnN = -1;
+        this.moN = false;
+        this.moO = -1;
+        this.moP = -1;
+        this.moY = -1;
     }
 
-    public void GR(int i) {
-        this.mnN = i;
+    public void GT(int i) {
+        this.moY = i;
     }
 
-    public int dvx() {
-        return this.mnN;
+    public int dvL() {
+        return this.moY;
     }
 
-    public void PW(@Nullable String str) {
-        this.mnp = str;
+    public void PX(@Nullable String str) {
+        this.moA = str;
     }
 
     public void setRequestId(@Nullable String str) {
@@ -66,70 +66,70 @@ public class h {
     }
 
     public void setImageRequest(@Nullable ImageRequest imageRequest) {
-        this.mns = imageRequest;
+        this.moD = imageRequest;
     }
 
     public void aY(@Nullable Object obj) {
-        this.mnr = obj;
+        this.moC = obj;
     }
 
     public void fF(long j) {
-        this.mnu = j;
+        this.moF = j;
     }
 
     public void fG(long j) {
-        this.mnv = j;
+        this.moG = j;
     }
 
     public void fH(long j) {
-        this.mnw = j;
+        this.moH = j;
     }
 
     public void fI(long j) {
-        this.mnx = j;
+        this.moI = j;
     }
 
     public void fJ(long j) {
-        this.mny = j;
+        this.moJ = j;
     }
 
     public void fK(long j) {
-        this.mnz = j;
+        this.moK = j;
     }
 
     public void fL(long j) {
-        this.mnA = j;
-    }
-
-    public void GS(int i) {
-        this.mnB = i;
-    }
-
-    public void vU(boolean z) {
-        this.mIsCanceled = z;
-    }
-
-    public void vV(boolean z) {
-        this.Ta = z;
-    }
-
-    public void vW(boolean z) {
-        this.mnC = z;
-    }
-
-    public void a(@Nullable com.facebook.imagepipeline.g.f fVar) {
-        this.mnt = fVar;
-    }
-
-    public void GT(int i) {
-        this.mnD = i;
+        this.moL = j;
     }
 
     public void GU(int i) {
-        this.mnE = i;
+        this.moM = i;
     }
 
-    public e dvy() {
-        return new e(this.mnp, this.mRequestId, this.mns, this.mnr, this.mnt, this.mnu, this.mnv, this.mnw, this.mnx, this.mny, this.mnz, this.mnA, this.mnB, this.mIsCanceled, this.Ta, this.mnC, this.mnD, this.mnE);
+    public void vW(boolean z) {
+        this.mIsCanceled = z;
+    }
+
+    public void vX(boolean z) {
+        this.Ta = z;
+    }
+
+    public void vY(boolean z) {
+        this.moN = z;
+    }
+
+    public void a(@Nullable com.facebook.imagepipeline.g.f fVar) {
+        this.moE = fVar;
+    }
+
+    public void GV(int i) {
+        this.moO = i;
+    }
+
+    public void GW(int i) {
+        this.moP = i;
+    }
+
+    public e dvM() {
+        return new e(this.moA, this.mRequestId, this.moD, this.moC, this.moE, this.moF, this.moG, this.moH, this.moI, this.moJ, this.moK, this.moL, this.moM, this.mIsCanceled, this.Ta, this.moN, this.moO, this.moP);
     }
 }

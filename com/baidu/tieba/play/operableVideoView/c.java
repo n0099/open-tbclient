@@ -17,9 +17,9 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.video.VideoItemData;
 /* loaded from: classes.dex */
 public class c extends d {
-    private VideoSerializeVideoThreadInfo hOh;
-    private VideoItemData kBb;
-    private bk kBc;
+    private VideoSerializeVideoThreadInfo hOU;
+    private VideoItemData kCj;
+    private bk kCk;
 
     public c(Context context, View view) {
         super(context, view);
@@ -30,49 +30,49 @@ public class c extends d {
     @Override // com.baidu.tieba.play.operableVideoView.d
     public void init() {
         super.init();
-        this.kBS.setOnTouchListener(null);
-        this.kBS.setOnClickListener(this);
+        this.kDa.setOnTouchListener(null);
+        this.kDa.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
     public void setData(bk bkVar) {
         super.setData(bkVar);
-        this.kBc = bkVar;
+        this.kCk = bkVar;
         if (this.air) {
-            this.kBb = new VideoItemData();
-            this.kBb.buildWithThreadData(bkVar);
+            this.kCj = new VideoItemData();
+            this.kCj.buildWithThreadData(bkVar);
             return;
         }
-        this.hOh = new VideoSerializeVideoThreadInfo();
-        this.hOh.copyFromThreadInfo(bkVar);
-        this.hOh.source = bkVar.mRecomSource;
-        this.hOh.extra = bkVar.mRecomExtra;
-        this.hOh.ab_tag = bkVar.mRecomAbTag;
-        this.hOh.weight = bkVar.mRecomWeight;
+        this.hOU = new VideoSerializeVideoThreadInfo();
+        this.hOU.copyFromThreadInfo(bkVar);
+        this.hOU.source = bkVar.mRecomSource;
+        this.hOU.extra = bkVar.mRecomExtra;
+        this.hOU.ab_tag = bkVar.mRecomAbTag;
+        this.hOU.weight = bkVar.mRecomWeight;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cLQ() {
+    public void cMg() {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cLP() {
-        this.kBv = 32;
+    public void cMf() {
+        this.kCD = 32;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
             if (view.getId() == R.id.video_mute) {
-                cRJ();
+                cRZ();
             } else if (!j.isNetWorkAvailable()) {
                 l.showToast(this.mContext, (int) R.string.no_network_guide);
             } else if (this.air) {
-                if (this.kBb != null) {
-                    eY(this.kBb.forum_id, this.kBb.thread_id);
+                if (this.kCj != null) {
+                    eY(this.kCj.forum_id, this.kCj.thread_id);
                 }
-            } else if (this.hOh != null) {
-                eY(this.hOh.forumId, this.hOh.threadId);
+            } else if (this.hOU != null) {
+                eY(this.hOU.forumId, this.hOU.threadId);
             }
         }
     }
@@ -81,13 +81,13 @@ public class c extends d {
         PbActivityConfig pbActivityConfig = new PbActivityConfig(this.mContext);
         pbActivityConfig.createNormalCfg(str2, null, null);
         pbActivityConfig.setForumId(String.valueOf(str));
-        pbActivityConfig.setThreadData(this.kBc);
-        pbActivityConfig.setVideoOriginArea(au.aQ(this.kBS));
+        pbActivityConfig.setThreadData(this.kCk);
+        pbActivityConfig.setVideoOriginArea(au.aQ(this.kDa));
         pbActivityConfig.setNeedPreLoad(true);
-        i.an(this.kBc);
+        i.an(this.kCk);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
         if (this.ags != null) {
-            this.ags.onClick(cQn());
+            this.ags.onClick(cQD());
         }
     }
 
@@ -98,18 +98,18 @@ public class c extends d {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cLN() {
-        if (this.kBC == this.kBu) {
-            cRB();
+    public void cMd() {
+        if (this.kCK == this.kCC) {
+            cRR();
         }
     }
 
-    public void cRB() {
-        AS(this.kBv);
+    public void cRR() {
+        AU(this.kCD);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public boolean cRz() {
+    public boolean cRP() {
         return false;
     }
 }

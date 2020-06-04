@@ -91,22 +91,22 @@ public class i extends g {
         }
     }
 
-    public void bfF() {
-        o oVar = (o) m.bfI().nC(this.mSubType);
+    public void bfG() {
+        o oVar = (o) m.bfJ().nE(this.mSubType);
         if (oVar != null) {
             oVar.a(this);
         }
     }
 
     public void io(boolean z) {
-        o oVar = (o) m.bfI().nC(this.mSubType);
+        o oVar = (o) m.bfJ().nE(this.mSubType);
         if (oVar != null) {
             oVar.a(this, z);
         }
     }
 
-    public void nA(int i) {
-        o oVar = (o) m.bfI().nC(this.mSubType);
+    public void nC(int i) {
+        o oVar = (o) m.bfJ().nE(this.mSubType);
         if (oVar != null) {
             oVar.a(this, i);
         }

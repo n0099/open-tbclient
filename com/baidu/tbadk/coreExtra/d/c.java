@@ -16,7 +16,7 @@ public class c extends com.baidu.adp.framework.listener.c {
     private long retryTimeInMills;
     private final HashSet<Integer> unavailableAPIS;
 
-    public static c bcb() {
+    public static c bcc() {
         return ejc;
     }
 
@@ -41,7 +41,7 @@ public class c extends com.baidu.adp.framework.listener.c {
         } else if (!MessageManager.getInstance().getSocketClient().isValid()) {
             this.longConnectionFailedErrno = 1;
             return false;
-        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().getLastReceDataTime() > e.bcd().getForegroundInterval() + 20000) {
+        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().getLastReceDataTime() > e.bce().getForegroundInterval() + 20000) {
             com.baidu.adp.framework.client.socket.i.debug("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
             this.longConnectionFailedErrno = 2;
             return false;

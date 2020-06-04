@@ -87,9 +87,9 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void gh(int i) {
+    public void gj(int i) {
         if (getState() == ILoadingLayout.State.PULL_TO_REFRESH) {
-            this.cwf.setAnimPercent(gi(i));
+            this.cwf.setAnimPercent(gk(i));
         }
         if (i > this.cwc) {
             setTranslationY((this.cwc - i) / 2);
@@ -147,7 +147,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         runnable.run();
     }
 
-    protected float gi(int i) {
+    protected float gk(int i) {
         float f;
         if (i < this.cwb) {
             f = i < this.cwa ? 0.0f : (i - this.cwa) / (this.cwb - this.cwa);

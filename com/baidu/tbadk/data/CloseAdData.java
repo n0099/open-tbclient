@@ -23,11 +23,11 @@ public class CloseAdData extends OrmObject {
         }
     }
 
-    public int bcr() {
+    public int bcs() {
         return this.ejM;
     }
 
-    public int bcs() {
+    public int bct() {
         return this.ejN;
     }
 }

@@ -11,10 +11,10 @@ import java.util.List;
 public class a {
     private BdTypeRecyclerView Vw;
     private List<com.baidu.adp.widget.ListView.a> aSj;
-    private e fcc;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.c fcd;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.b fce;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a fcf;
+    private e fcn;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.c fco;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.b fcp;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a fcq;
     private Context mContext;
     private TbPageContext mPageContext;
     private int tabType;
@@ -29,14 +29,14 @@ public class a {
 
     private void CY() {
         this.aSj = new ArrayList();
-        this.fcc = new e(this.mPageContext, this.tabType);
-        this.fcd = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
-        this.fce = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
-        this.fcf = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.aSj.add(this.fcc);
-        this.aSj.add(this.fcd);
-        this.aSj.add(this.fce);
-        this.aSj.add(this.fcf);
+        this.fcn = new e(this.mPageContext, this.tabType);
+        this.fco = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
+        this.fcp = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
+        this.fcq = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.aSj.add(this.fcn);
+        this.aSj.add(this.fco);
+        this.aSj.add(this.fcp);
+        this.aSj.add(this.fcq);
         this.Vw.addAdapters(this.aSj);
     }
 

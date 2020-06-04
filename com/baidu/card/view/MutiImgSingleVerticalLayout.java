@@ -84,7 +84,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements n<AbsTh
                 float f6;
                 float f7 = 0.0f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a yv = c.bet().yv(com.baidu.adp.lib.e.c.kX().genCacheKey(tbImageView.getUrl(), MutiImgSingleVerticalLayout.this.aha ? 13 : 14));
+                    com.baidu.adp.widget.ImageView.a yv = c.beu().yv(com.baidu.adp.lib.e.c.kX().genCacheKey(tbImageView.getUrl(), MutiImgSingleVerticalLayout.this.aha ? 13 : 14));
                     if (yv != null) {
                         int width = yv.getWidth();
                         i = yv.getHeight();
@@ -222,11 +222,11 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements n<AbsTh
         VoiceData.VoiceModel voiceModel = aQL.get(0);
         this.ahm.setVoiceModel(voiceModel);
         this.ahm.setTag(voiceModel);
-        this.ahm.crm();
+        this.ahm.crv();
         if (voiceModel != null) {
-            this.ahm.yi(voiceModel.voice_status.intValue());
+            this.ahm.yk(voiceModel.voice_status.intValue());
         }
-        this.ahm.deL();
+        this.ahm.dfa();
         this.ahp = true;
     }
 

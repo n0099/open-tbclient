@@ -65,7 +65,7 @@ public class f implements com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.core
                     if (DEBUG) {
                         Log.d(TAG, "WhiteScreenMonitor out of time: time=" + currentTimeMillis);
                     }
-                    h.b(new com.baidu.swan.apps.statistic.a.d().oC(h.gS(aoJ.getAppFrameType())).f(new com.baidu.swan.apps.an.a().bw(5L).bx(40L).pt("whitescreen monitor out of time: time=" + currentTimeMillis)).a(aoJ));
+                    h.b(new com.baidu.swan.apps.statistic.a.d().oC(h.gU(aoJ.getAppFrameType())).f(new com.baidu.swan.apps.an.a().bw(5L).bx(40L).pt("whitescreen monitor out of time: time=" + currentTimeMillis)).a(aoJ));
                 }
             }
             cVar = new com.baidu.swan.apps.aa.a.c(1, null, RF, true);

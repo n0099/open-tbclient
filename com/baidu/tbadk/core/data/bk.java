@@ -393,7 +393,7 @@ public class bk extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         return this.anchorLevel;
     }
 
-    public void kn(int i) {
+    public void kp(int i) {
         this.anchorLevel = i;
     }
 
@@ -401,7 +401,7 @@ public class bk extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         return this.dFZ;
     }
 
-    public void ko(int i) {
+    public void kq(int i) {
         this.dGx = i;
     }
 
@@ -473,7 +473,7 @@ public class bk extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         this.tid = str;
     }
 
-    public void kp(int i) {
+    public void kr(int i) {
         this.dFo = i;
     }
 
@@ -525,7 +525,7 @@ public class bk extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         return this.title;
     }
 
-    public void kq(int i) {
+    public void ks(int i) {
         this.reply_num = i;
     }
 
@@ -537,7 +537,7 @@ public class bk extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         return this.dFC;
     }
 
-    public void kr(int i) {
+    public void kt(int i) {
         this.dFC = i;
     }
 
@@ -557,7 +557,7 @@ public class bk extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         return this.dFE;
     }
 
-    public void ks(int i) {
+    public void ku(int i) {
         this.dFE = i;
     }
 
@@ -565,7 +565,7 @@ public class bk extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         return this.dFG;
     }
 
-    public void kt(int i) {
+    public void kv(int i) {
         this.dFG = i;
     }
 
@@ -629,7 +629,7 @@ public class bk extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         return this.dFQ;
     }
 
-    public void ku(int i) {
+    public void kw(int i) {
         this.dFQ = i;
     }
 
@@ -677,7 +677,7 @@ public class bk extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         return this.dFr;
     }
 
-    public void kv(int i) {
+    public void kx(int i) {
         this.dFr = i;
     }
 
@@ -914,7 +914,7 @@ public class bk extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                         for (int i5 = 0; i5 < size3; i5++) {
                             if (zhiBoInfoTW.labelInfo.get(i5) != null) {
                                 com.baidu.tbadk.coreExtra.view.c cVar = new com.baidu.tbadk.coreExtra.view.c();
-                                cVar.mP(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
+                                cVar.mR(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
                                 cVar.xC(zhiBoInfoTW.labelInfo.get(i5).labelId);
                                 cVar.setLabelName(zhiBoInfoTW.labelInfo.get(i5).labelContent);
                                 this.dGa.add(cVar);
@@ -2093,7 +2093,7 @@ public class bk extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         return this.dGV;
     }
 
-    public void kw(int i) {
+    public void ky(int i) {
         this.dGW = i + 1;
     }
 
@@ -2165,11 +2165,11 @@ public class bk extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         return this.agreeData.agreeType;
     }
 
-    public void kx(int i) {
+    public void kz(int i) {
         this.agreeData.hasAgree = i == 1;
     }
 
-    public void ky(int i) {
+    public void kA(int i) {
         this.agreeData.agreeNum = i;
     }
 
@@ -2181,7 +2181,7 @@ public class bk extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         this.agreeData.diffAgreeNum = j;
     }
 
-    public void kz(int i) {
+    public void kB(int i) {
         this.agreeData.agreeType = i;
     }
 
@@ -2607,7 +2607,7 @@ public class bk extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         return aSx();
     }
 
-    public void kA(int i) {
+    public void kC(int i) {
         this.dHR = i;
     }
 

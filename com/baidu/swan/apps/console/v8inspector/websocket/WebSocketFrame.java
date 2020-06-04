@@ -193,7 +193,7 @@ public class WebSocketFrame {
         return new String(bArr, i, i2, bSU);
     }
 
-    private static int eC(int i) throws EOFException {
+    private static int eE(int i) throws EOFException {
         if (i < 0) {
             throw new EOFException();
         }
@@ -201,14 +201,14 @@ public class WebSocketFrame {
     }
 
     public static WebSocketFrame k(InputStream inputStream) throws IOException {
-        byte eC = (byte) eC(inputStream.read());
-        boolean z = (eC & 128) != 0;
-        OpCode find = OpCode.find((byte) (eC & 15));
-        if ((eC & 112) != 0) {
-            throw new WebSocketException(CloseCode.ProtocolError, "The reserved bits (" + Integer.toBinaryString(eC & 112) + ") must be 0.");
+        byte eE = (byte) eE(inputStream.read());
+        boolean z = (eE & 128) != 0;
+        OpCode find = OpCode.find((byte) (eE & 15));
+        if ((eE & 112) != 0) {
+            throw new WebSocketException(CloseCode.ProtocolError, "The reserved bits (" + Integer.toBinaryString(eE & 112) + ") must be 0.");
         }
         if (find == null) {
-            throw new WebSocketException(CloseCode.ProtocolError, "Received frame with reserved/unknown opcode " + (eC & 112) + ".");
+            throw new WebSocketException(CloseCode.ProtocolError, "Received frame with reserved/unknown opcode " + (eE & 112) + ".");
         }
         if (find.isControlFrame() && !z) {
             throw new WebSocketException(CloseCode.ProtocolError, "Fragmented control frame.");
@@ -252,7 +252,7 @@ public class WebSocketFrame {
         this.OI = new byte[this.bSW];
         int i = 0;
         while (i < this.bSW) {
-            i += eC(inputStream.read(this.OI, i, this.bSW - i));
+            i += eE(inputStream.read(this.OI, i, this.bSW - i));
         }
         if (isMasked()) {
             for (int i2 = 0; i2 < this.OI.length; i2++) {
@@ -267,23 +267,23 @@ public class WebSocketFrame {
 
     private void m(InputStream inputStream) throws IOException {
         int i = 0;
-        byte eC = (byte) eC(inputStream.read());
-        boolean z = (eC & 128) != 0;
-        this.bSW = (byte) (eC & Byte.MAX_VALUE);
+        byte eE = (byte) eE(inputStream.read());
+        boolean z = (eE & 128) != 0;
+        this.bSW = (byte) (eE & Byte.MAX_VALUE);
         if (this.bSW == 126) {
-            this.bSW = ((eC(inputStream.read()) << 8) | eC(inputStream.read())) & 65535;
+            this.bSW = ((eE(inputStream.read()) << 8) | eE(inputStream.read())) & 65535;
             if (this.bSW < 126) {
                 throw new WebSocketException(CloseCode.ProtocolError, "Invalid data frame 2byte length.(not using minimal length encoding)");
             }
         } else if (this.bSW == 127) {
-            long eC2 = (eC(inputStream.read()) << 56) | (eC(inputStream.read()) << 48) | (eC(inputStream.read()) << 40) | (eC(inputStream.read()) << 32) | (eC(inputStream.read()) << 24) | (eC(inputStream.read()) << 16) | (eC(inputStream.read()) << 8) | eC(inputStream.read());
-            if (eC2 <= 65536) {
+            long eE2 = (eE(inputStream.read()) << 56) | (eE(inputStream.read()) << 48) | (eE(inputStream.read()) << 40) | (eE(inputStream.read()) << 32) | (eE(inputStream.read()) << 24) | (eE(inputStream.read()) << 16) | (eE(inputStream.read()) << 8) | eE(inputStream.read());
+            if (eE2 <= 65536) {
                 throw new IOException("Invalid data frame 4byte length.(not using minimal length encoding)");
             }
-            if (eC2 > 2147483647L) {
+            if (eE2 > 2147483647L) {
                 throw new WebSocketException(CloseCode.MessageTooLong, "Max frame length has been exceeded.");
             }
-            this.bSW = (int) eC2;
+            this.bSW = (int) eE2;
         }
         if (this.bSS.isControlFrame()) {
             if (this.bSW > 125) {
@@ -296,7 +296,7 @@ public class WebSocketFrame {
         if (z) {
             this.bSV = new byte[4];
             while (i < this.bSV.length) {
-                i += eC(inputStream.read(this.bSV, i, this.bSV.length - i));
+                i += eE(inputStream.read(this.bSV, i, this.bSV.length - i));
             }
         }
     }

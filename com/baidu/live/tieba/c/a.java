@@ -102,7 +102,7 @@ public class a {
         }
     };
 
-    public void cF(int i) {
+    public void cH(int i) {
         this.aZr = i;
     }
 
@@ -157,13 +157,13 @@ public class a {
         }
     }
 
-    public void cG(int i) {
+    public void cI(int i) {
         if (i > 0) {
             this.aZi = i;
         }
     }
 
-    public void cH(int i) {
+    public void cJ(int i) {
         if (i > 0) {
             this.aZm = i;
         }

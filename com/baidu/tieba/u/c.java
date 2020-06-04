@@ -32,7 +32,7 @@ public class c {
         }
     }
 
-    public static byte[] eJ(List<String> list) {
+    public static byte[] eL(List<String> list) {
         if (list == null) {
             return null;
         }

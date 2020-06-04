@@ -6,19 +6,19 @@ import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 import tbclient.SimpleUser;
 /* loaded from: classes9.dex */
 public class AccountSafeModel extends BdBaseModel {
-    private com.baidu.tieba.setting.im.more.a eNt;
-    private String eNu;
-    private String eNv;
-    private String eNw;
+    private com.baidu.tieba.setting.im.more.a eNE;
+    private String eNF;
+    private String eNG;
+    private String eNH;
     private boolean etX;
     private boolean mFinished;
 
-    public com.baidu.tieba.setting.im.more.a bmm() {
-        return this.eNt;
+    public com.baidu.tieba.setting.im.more.a bmo() {
+        return this.eNE;
     }
 
     public String vX() {
-        return this.eNu;
+        return this.eNF;
     }
 
     public AccountSafeModel(BaseActivity baseActivity) {
@@ -39,40 +39,40 @@ public class AccountSafeModel extends BdBaseModel {
         return false;
     }
 
-    private PrivateInfoNetMessage bmn() {
+    private PrivateInfoNetMessage bmp() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean bmo() {
+    public boolean bmq() {
         if (this.etX) {
             return false;
         }
         this.etX = true;
         this.mFinished = false;
-        sendMessage(bmn());
+        sendMessage(bmp());
         return true;
     }
 
     public void a(com.baidu.tieba.setting.im.more.a aVar) {
-        this.eNt = aVar;
-        bmp();
+        this.eNE = aVar;
+        bmr();
     }
 
-    private void bmp() {
-        SimpleUser bmq = bmq();
-        if (bmq != null) {
-            this.eNv = bmq.secureemail;
-            this.eNw = bmq.securemobil;
-            this.eNu = bmq.ahead_url;
+    private void bmr() {
+        SimpleUser bms = bms();
+        if (bms != null) {
+            this.eNG = bms.secureemail;
+            this.eNH = bms.securemobil;
+            this.eNF = bms.ahead_url;
             this.mFinished = true;
         }
     }
 
-    private SimpleUser bmq() {
-        if (this.eNt == null || this.eNt.bmq() == null) {
+    private SimpleUser bms() {
+        if (this.eNE == null || this.eNE.bms() == null) {
             return null;
         }
-        return this.eNt.bmq();
+        return this.eNE.bms();
     }
 
     public boolean isLoading() {

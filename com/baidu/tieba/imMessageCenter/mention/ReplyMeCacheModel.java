@@ -10,13 +10,8 @@ public class ReplyMeCacheModel extends CacheModel<l, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<l> bfc() {
+    public Class<l> bfd() {
         return l.class;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int bfd() {
-        return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
@@ -25,7 +20,12 @@ public class ReplyMeCacheModel extends CacheModel<l, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String beL() {
+    public int bff() {
+        return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.CacheModel
+    public String beM() {
         return "tb_user_replyme";
     }
 }

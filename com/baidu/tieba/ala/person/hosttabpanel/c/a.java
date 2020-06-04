@@ -6,8 +6,8 @@ import com.baidu.live.adp.framework.listener.HttpMessageListener;
 /* loaded from: classes3.dex */
 public class a extends BdBaseModel {
     private int FIRST_PN;
-    private long fIc;
-    private int gkZ;
+    private long fIn;
+    private int glk;
     private long mGroupId;
     private HttpMessageListener mHttpMessageListener;
     private int mPn;
@@ -20,7 +20,7 @@ public class a extends BdBaseModel {
 
     public void refreshData() {
         this.mPn = this.FIRST_PN;
-        sendMessage(new com.baidu.tieba.ala.person.hosttabpanel.message.a(this.mPn, this.gkZ, this.mUserId, this.fIc, this.mGroupId));
+        sendMessage(new com.baidu.tieba.ala.person.hosttabpanel.message.a(this.mPn, this.glk, this.mUserId, this.fIn, this.mGroupId));
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel

@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public final class a<E> extends TypeAdapter<Object> {
-    public static final TypeAdapterFactory mDH = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.a.1
+    public static final TypeAdapterFactory mER = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.a.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             Type type = aVar.getType();
@@ -24,23 +24,23 @@ public final class a<E> extends TypeAdapter<Object> {
         }
     };
     private final Class<E> componentType;
-    private final TypeAdapter<E> mDI;
+    private final TypeAdapter<E> mES;
 
     public a(Gson gson, TypeAdapter<E> typeAdapter, Class<E> cls) {
-        this.mDI = new m(gson, typeAdapter, cls);
+        this.mES = new m(gson, typeAdapter, cls);
         this.componentType = cls;
     }
 
     @Override // com.google.gson.TypeAdapter
     public Object read(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.dCY() == JsonToken.NULL) {
-            aVar.dDd();
+        if (aVar.dDm() == JsonToken.NULL) {
+            aVar.dDr();
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        aVar.dCW();
+        aVar.dDk();
         while (aVar.hasNext()) {
-            arrayList.add(this.mDI.read(aVar));
+            arrayList.add(this.mES.read(aVar));
         }
         aVar.endArray();
         int size = arrayList.size();
@@ -56,14 +56,14 @@ public final class a<E> extends TypeAdapter<Object> {
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, Object obj) throws IOException {
         if (obj == null) {
-            bVar.dDn();
+            bVar.dDB();
             return;
         }
-        bVar.dDj();
+        bVar.dDx();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
-            this.mDI.write(bVar, Array.get(obj, i));
+            this.mES.write(bVar, Array.get(obj, i));
         }
-        bVar.dDk();
+        bVar.dDy();
     }
 }

@@ -41,18 +41,18 @@ public final class l<T> implements d.b<T, T> {
         Throwable error;
         volatile boolean finished;
         final int limit;
-        final g.a nGv;
+        final g.a nHF;
         final Queue<Object> queue;
         final AtomicLong requested = new AtomicLong();
-        final AtomicLong nGw = new AtomicLong();
+        final AtomicLong nHG = new AtomicLong();
 
         public a(rx.g gVar, rx.j<? super T> jVar, boolean z, int i) {
             this.child = jVar;
-            this.nGv = gVar.createWorker();
+            this.nHF = gVar.createWorker();
             this.delayError = z;
             i = i <= 0 ? rx.internal.util.g.SIZE : i;
             this.limit = i - (i >> 2);
-            if (ae.dQh()) {
+            if (ae.dQv()) {
                 this.queue = new rx.internal.util.a.q(i);
             } else {
                 this.queue = new rx.internal.util.atomic.c(i);
@@ -71,7 +71,7 @@ public final class l<T> implements d.b<T, T> {
                     }
                 }
             });
-            jVar.add(this.nGv);
+            jVar.add(this.nHF);
             jVar.add(this);
         }
 
@@ -106,8 +106,8 @@ public final class l<T> implements d.b<T, T> {
         }
 
         protected void schedule() {
-            if (this.nGw.getAndIncrement() == 0) {
-                this.nGv.c(this);
+            if (this.nHG.getAndIncrement() == 0) {
+                this.nHF.c(this);
             }
         }
 
@@ -145,7 +145,7 @@ public final class l<T> implements d.b<T, T> {
                 }
                 if (j4 != j2 || !a(this.finished, queue.isEmpty(), jVar, queue)) {
                     this.emitted = j2;
-                    j3 = this.nGw.addAndGet(-j3);
+                    j3 = this.nHG.addAndGet(-j3);
                 } else {
                     return;
                 }

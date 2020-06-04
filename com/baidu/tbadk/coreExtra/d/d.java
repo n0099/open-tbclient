@@ -45,10 +45,10 @@ public class d {
         this.ejd.sendEmptyMessageDelayed(0, 50000L);
         this.ejf = new a();
         this.ejf.setSelfExecute(true);
-        this.ejf.execute(bcc() + str);
+        this.ejf.execute(bcd() + str);
     }
 
-    private String bcc() {
+    private String bcd() {
         switch (j.netType()) {
             case 1:
                 return "ping -c 3 -w 3000 ";

@@ -46,7 +46,7 @@ public class i extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: dm */
+    /* renamed from: do  reason: not valid java name */
     public MediaFileInfo getItem(int i) {
         return (MediaFileInfo) ListUtils.getItem(this.mDataList, i);
     }

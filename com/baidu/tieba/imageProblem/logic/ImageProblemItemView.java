@@ -18,22 +18,22 @@ public class ImageProblemItemView extends FrameLayout {
     protected LinearLayout ehT;
     protected TextView ehU;
     protected ImageView ehX;
-    protected LinearLayout iUq;
-    protected TextView iUr;
+    protected LinearLayout iVd;
+    protected TextView iVe;
     protected Context mContext;
     protected TextView textView;
 
     public ImageProblemItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        bbB();
+        bbC();
         e(attributeSet);
     }
 
     public ImageProblemItemView(Context context) {
         super(context);
         this.mContext = context;
-        bbB();
+        bbC();
     }
 
     public void displayTip() {
@@ -68,19 +68,19 @@ public class ImageProblemItemView extends FrameLayout {
 
     public void setHelpText(String str) {
         if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iUq.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iVd.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.ds26);
-            this.iUq.setLayoutParams(layoutParams);
-            this.iUr.setText("");
-            this.iUr.setVisibility(8);
+            this.iVd.setLayoutParams(layoutParams);
+            this.iVe.setText("");
+            this.iVe.setVisibility(8);
             return;
         }
-        this.iUq.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.iUq.getLayoutParams();
+        this.iVd.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.iVd.getLayoutParams();
         layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.ds10);
-        this.iUq.setLayoutParams(layoutParams2);
-        this.iUr.setText(str);
-        this.iUr.setVisibility(0);
+        this.iVd.setLayoutParams(layoutParams2);
+        this.iVe.setText(str);
+        this.iVe.setVisibility(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -114,14 +114,14 @@ public class ImageProblemItemView extends FrameLayout {
         this.ehU.setBackgroundDrawable(drawable);
     }
 
-    protected void bbB() {
+    protected void bbC() {
         LayoutInflater.from(this.mContext).inflate(R.layout.image_problem_item_view, (ViewGroup) this, true);
         this.ehT = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
         this.ehU = (TextView) findViewById(R.id.tip);
         this.ehX = (ImageView) findViewById(R.id.arrow2);
-        this.iUq = (LinearLayout) findViewById(R.id.ll_container);
-        this.iUr = (TextView) findViewById(R.id.tv_help);
+        this.iVd = (LinearLayout) findViewById(R.id.ll_container);
+        this.iVe = (TextView) findViewById(R.id.tv_help);
     }
 
     protected void e(AttributeSet attributeSet) {

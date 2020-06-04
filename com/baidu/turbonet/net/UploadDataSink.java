@@ -1,9 +1,9 @@
 package com.baidu.turbonet.net;
 /* loaded from: classes.dex */
 public interface UploadDataSink {
-    void dqg();
+    void dqu();
 
     void v(Exception exc);
 
-    void vF(boolean z);
+    void vH(boolean z);
 }

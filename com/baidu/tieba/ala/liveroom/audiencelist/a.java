@@ -84,62 +84,62 @@ public class a extends BaseAdapter {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_live_audience_header_image, (ViewGroup) null);
             C0558a c0558a2 = new C0558a(view);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                c0558a2.fMC.setDefaultResource(a.f.sdk_icon_default_avatar100_hk);
+                c0558a2.fMN.setDefaultResource(a.f.sdk_icon_default_avatar100_hk);
             } else {
-                c0558a2.fMC.setDefaultResource(a.f.sdk_icon_default_avatar100);
+                c0558a2.fMN.setDefaultResource(a.f.sdk_icon_default_avatar100);
             }
-            c0558a2.fMC.setIsRound(true);
-            c0558a2.fMC.setDrawBorder(true);
-            c0558a2.fMC.setBorderColor(this.mContext.getResources().getColor(a.d.sdk_cp_bg_line_k_alpha10_1));
-            c0558a2.fMC.setAutoChangeStyle(false);
-            c0558a2.fMC.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            c0558a2.fMD.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            c0558a2.fMN.setIsRound(true);
+            c0558a2.fMN.setDrawBorder(true);
+            c0558a2.fMN.setBorderColor(this.mContext.getResources().getColor(a.d.sdk_cp_bg_line_k_alpha10_1));
+            c0558a2.fMN.setAutoChangeStyle(false);
+            c0558a2.fMN.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            c0558a2.fMO.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             view.setTag(c0558a2);
             c0558a = c0558a2;
         } else {
             c0558a = (C0558a) view.getTag();
         }
         j jVar = (j) getItem(i);
-        c0558a.fMC.setDrawBorder(true);
+        c0558a.fMN.setDrawBorder(true);
         if (jVar.avm == 1 && jVar.avj.totalPrice > 0) {
-            c0558a.fMD.setVisibility(0);
-            c0558a.fMD.setImageResource(a.f.pic_live_top1);
-            c0558a.fME.setBackgroundResource(a.f.round_header_day_list_bg_1);
+            c0558a.fMO.setVisibility(0);
+            c0558a.fMO.setImageResource(a.f.pic_live_top1);
+            c0558a.fMP.setBackgroundResource(a.f.round_header_day_list_bg_1);
         } else if (jVar.avm == 2 && jVar.avj.totalPrice > 0) {
-            c0558a.fMD.setVisibility(0);
-            c0558a.fMD.setImageResource(a.f.pic_live_top2);
-            c0558a.fME.setBackgroundResource(a.f.round_header_day_list_bg_2);
+            c0558a.fMO.setVisibility(0);
+            c0558a.fMO.setImageResource(a.f.pic_live_top2);
+            c0558a.fMP.setBackgroundResource(a.f.round_header_day_list_bg_2);
         } else if (jVar.avm == 3 && jVar.avj.totalPrice > 0) {
-            c0558a.fMD.setVisibility(0);
-            c0558a.fMD.setImageResource(a.f.pic_live_top3);
-            c0558a.fME.setBackgroundResource(a.f.round_header_day_list_bg_3);
+            c0558a.fMO.setVisibility(0);
+            c0558a.fMO.setImageResource(a.f.pic_live_top3);
+            c0558a.fMP.setBackgroundResource(a.f.round_header_day_list_bg_3);
         } else {
-            c0558a.fMD.setVisibility(8);
-            c0558a.fME.setBackgroundResource(a.f.round_header_day_list_bg_normal);
+            c0558a.fMO.setVisibility(8);
+            c0558a.fMP.setBackgroundResource(a.f.round_header_day_list_bg_normal);
         }
-        c0558a.fME.setText(StringHelper.formatForHeaderDayCharmValue(jVar.avj.totalPrice));
+        c0558a.fMP.setText(StringHelper.formatForHeaderDayCharmValue(jVar.avj.totalPrice));
         if (jVar.avj.totalPrice <= 0) {
-            c0558a.fME.setVisibility(4);
+            c0558a.fMP.setVisibility(4);
         } else {
-            c0558a.fME.setVisibility(0);
+            c0558a.fMP.setVisibility(0);
         }
-        com.baidu.live.utils.k.a(c0558a.fMC, jVar.avj.portrait, true, !StringUtils.isNull(jVar.avj.appId));
+        com.baidu.live.utils.k.a(c0558a.fMN, jVar.avj.portrait, true, !StringUtils.isNull(jVar.avj.appId));
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.liveroom.audiencelist.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0558a {
-        public HeadImageView fMC;
-        public ImageView fMD;
-        public TextView fME;
+        public HeadImageView fMN;
+        public ImageView fMO;
+        public TextView fMP;
         public View rootView;
 
         public C0558a(View view) {
             this.rootView = view;
-            this.fMC = (HeadImageView) view.findViewById(a.g.ala_live_room_audience_header_img);
-            this.fMD = (ImageView) view.findViewById(a.g.ala_live_room_audience_pendant);
-            this.fME = (TextView) view.findViewById(a.g.ala_live_room_audience_charm_count);
+            this.fMN = (HeadImageView) view.findViewById(a.g.ala_live_room_audience_header_img);
+            this.fMO = (ImageView) view.findViewById(a.g.ala_live_room_audience_pendant);
+            this.fMP = (TextView) view.findViewById(a.g.ala_live_room_audience_charm_count);
         }
     }
 }

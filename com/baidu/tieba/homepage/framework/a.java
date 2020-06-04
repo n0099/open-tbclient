@@ -3,18 +3,18 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes9.dex */
 public class a {
-    private static a hYt = new a();
+    private static a hZg = new a();
     private long creatTime = 0;
-    private SparseArray<Long> hYu = new SparseArray<>();
-    private SparseArray<Long> hYv = new SparseArray<>();
-    private SparseArray<Long> hYw = new SparseArray<>();
-    private SparseArray<Long> hYx = new SparseArray<>();
+    private SparseArray<Long> hZh = new SparseArray<>();
+    private SparseArray<Long> hZi = new SparseArray<>();
+    private SparseArray<Long> hZj = new SparseArray<>();
+    private SparseArray<Long> hZk = new SparseArray<>();
 
     private a() {
     }
 
-    public static a ceC() {
-        return hYt;
+    public static a ceK() {
+        return hZg;
     }
 
     public long getCreateTime() {
@@ -25,8 +25,8 @@ public class a {
         this.creatTime = j;
     }
 
-    public long wh(int i) {
-        Long l = this.hYv.get(i);
+    public long wj(int i) {
+        Long l = this.hZi.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +34,11 @@ public class a {
     }
 
     public void n(long j, int i) {
-        this.hYv.put(i, Long.valueOf(j));
+        this.hZi.put(i, Long.valueOf(j));
     }
 
-    public long wi(int i) {
-        Long l = this.hYu.get(i);
+    public long wk(int i) {
+        Long l = this.hZh.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +46,11 @@ public class a {
     }
 
     public void o(long j, int i) {
-        this.hYu.put(i, Long.valueOf(j));
+        this.hZh.put(i, Long.valueOf(j));
     }
 
-    public long wj(int i) {
-        Long l = this.hYw.get(i);
+    public long wl(int i) {
+        Long l = this.hZj.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +58,11 @@ public class a {
     }
 
     public void p(long j, int i) {
-        this.hYw.put(i, Long.valueOf(j));
+        this.hZj.put(i, Long.valueOf(j));
     }
 
-    public long wk(int i) {
-        Long l = this.hYx.get(i);
+    public long wm(int i) {
+        Long l = this.hZk.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +70,6 @@ public class a {
     }
 
     public void q(long j, int i) {
-        this.hYx.put(i, Long.valueOf(j));
+        this.hZk.put(i, Long.valueOf(j));
     }
 }

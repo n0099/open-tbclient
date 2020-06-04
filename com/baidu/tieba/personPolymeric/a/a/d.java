@@ -24,18 +24,18 @@ public class d extends com.baidu.adp.widget.ListView.a<k, ag<k>> implements com.
     private String aeX;
     private boolean aha;
     public BdUniqueId epM;
-    private int glW;
-    private int kqO;
-    private int kqP;
+    private int gmh;
+    private int krU;
+    private int krV;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.aha = true;
-        this.kqO = 0;
-        this.kqP = 0;
-        this.glW = 0;
+        this.krU = 0;
+        this.krV = 0;
+        this.gmh = 0;
         this.adt = new aa<k>() { // from class: com.baidu.tieba.personPolymeric.a.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
@@ -58,8 +58,8 @@ public class d extends com.baidu.adp.widget.ListView.a<k, ag<k>> implements com.
         eVar.setPageUniqueId(this.epM);
         eVar.aY(1024);
         eVar.aY(32768);
-        if (this.kqO > 0) {
-            eVar.aX(this.kqO);
+        if (this.krU > 0) {
+            eVar.aX(this.krU);
         }
         eVar.aC(false);
         eVar.aD(false);
@@ -80,7 +80,7 @@ public class d extends com.baidu.adp.widget.ListView.a<k, ag<k>> implements com.
         rL.setSourceForPb(4);
         ag<k> agVar = new ag<>(rL);
         agVar.setPageId(this.epM);
-        agVar.bl(this.kqP);
+        agVar.bl(this.krV);
         a(new x() { // from class: com.baidu.tieba.personPolymeric.a.a.d.2
             @Override // com.baidu.adp.widget.ListView.x
             public void a(View view, o oVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -106,7 +106,7 @@ public class d extends com.baidu.adp.widget.ListView.a<k, ag<k>> implements com.
         if (kVar == null || agVar == null || agVar.rM() == null) {
             return null;
         }
-        kVar.sr(kVar.position + 1);
+        kVar.st(kVar.position + 1);
         if (agVar.rM() instanceof com.baidu.tieba.a.e) {
             agVar.rM().setPage(this.aeX);
         }
@@ -125,19 +125,19 @@ public class d extends com.baidu.adp.widget.ListView.a<k, ag<k>> implements com.
         this.aeX = str;
     }
 
-    public void Br(int i) {
-        this.kqO = i;
+    public void Bt(int i) {
+        this.krU = i;
     }
 
     public void setTabType(int i) {
-        this.glW = i;
+        this.gmh = i;
     }
 
     public void setIsHost(boolean z) {
         this.mIsHost = z;
     }
 
-    public void Bq(int i) {
-        this.kqP = i;
+    public void Bs(int i) {
+        this.krV = i;
     }
 }

@@ -67,7 +67,7 @@ public class AlaFilterAndBeautyData extends BaseData {
                         JSONObject optJSONObject5 = optJSONObject4.optJSONObject(BeautyAdjustKey.values()[i2].getKey());
                         if (optJSONObject5 != null) {
                             b bVar = new b();
-                            bVar.by(optJSONObject5.optInt("current"));
+                            bVar.bA(optJSONObject5.optInt("current"));
                             bVar.x(r(optJSONObject5.optJSONObject("subitems")));
                             asN.put(BeautyAdjustKey.values()[i2], bVar);
                         }
@@ -102,7 +102,7 @@ public class AlaFilterAndBeautyData extends BaseData {
             return this.asR;
         }
 
-        public void by(int i) {
+        public void bA(int i) {
             this.asR = i;
         }
 

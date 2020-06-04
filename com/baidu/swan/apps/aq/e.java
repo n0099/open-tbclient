@@ -10,9 +10,9 @@ public class e {
     public static void a(com.baidu.swan.apps.core.d.e eVar, Context context) {
         final View view;
         if (eVar != null && eVar.YS() >= 2) {
-            com.baidu.swan.apps.core.d.b eK = eVar.eK(eVar.YS() - 2);
+            com.baidu.swan.apps.core.d.b eM = eVar.eM(eVar.YS() - 2);
             float displayWidth = ag.getDisplayWidth(context) >> 2;
-            if (eK != null && (view = eK.getView()) != null) {
+            if (eM != null && (view = eM.getView()) != null) {
                 ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationX", 0.0f, -displayWidth);
                 ofFloat.setDuration(300L).start();
                 ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.apps.aq.e.1
@@ -32,9 +32,9 @@ public class e {
     public static void a(com.baidu.swan.apps.core.d.e eVar, Context context, int i) {
         View view;
         if (eVar != null && eVar.YS() >= i) {
-            com.baidu.swan.apps.core.d.b eK = eVar.eK(eVar.YS() - i);
+            com.baidu.swan.apps.core.d.b eM = eVar.eM(eVar.YS() - i);
             float displayWidth = ag.getDisplayWidth(context) >> 2;
-            if (eK != null && (view = eK.getView()) != null) {
+            if (eM != null && (view = eM.getView()) != null) {
                 ObjectAnimator.ofFloat(view, "translationX", -displayWidth, 0.0f).setDuration(300L).start();
             }
         }

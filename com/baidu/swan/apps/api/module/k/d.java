@@ -31,7 +31,7 @@ public class d extends com.baidu.swan.apps.api.a.d {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
                             jSONObject2.put("direction", f);
-                            jSONObject2.put("accuracy", com.baidu.swan.apps.am.e.a.hu(i));
+                            jSONObject2.put("accuracy", com.baidu.swan.apps.am.e.a.hw(i));
                             iVar.a(d.this, jSONObject2);
                         } catch (JSONException e) {
                             com.baidu.swan.apps.console.c.e("Api-Compass", "handle compass,json error，" + e.toString());

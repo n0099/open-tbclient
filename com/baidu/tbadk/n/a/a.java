@@ -12,7 +12,7 @@ public class a {
         this.eto = str;
     }
 
-    public void bfP() {
+    public void bfQ() {
         if (Build.VERSION.SDK_INT >= 16) {
             if (this.etn == null) {
                 this.etn = new c();
@@ -21,7 +21,7 @@ public class a {
         }
     }
 
-    public void bfQ() {
+    public void bfR() {
         if (this.etn != null && Build.VERSION.SDK_INT >= 16) {
             this.etn.stop();
             ap(this.eto, this.etn.getFps());

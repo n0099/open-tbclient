@@ -17,7 +17,7 @@ public interface b {
 
     void br(View view);
 
-    void dr(int i);
+    void dt(int i);
 
     View getActionBar();
 

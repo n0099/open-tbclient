@@ -29,45 +29,45 @@ public class a implements com.baidu.tieba.ueg.a {
                 UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
                 String url = uEGReportResponsedMessage.getUrl();
                 if (!StringUtils.isNull(url)) {
-                    a.this.Jm(url);
+                    a.this.Jn(url);
                     return;
                 }
                 String errorString = uEGReportResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString)) {
                     errorString = a.this.mContext.getString(R.string.neterror);
                 }
-                a.this.jYa.showFailToast(errorString);
+                a.this.jZg.showFailToast(errorString);
             }
         }
     };
-    private b jXZ = new b();
-    private c jYa = new c();
+    private b jZf = new b();
+    private c jZg = new c();
     private Context mContext;
     private com.baidu.tbadk.core.view.a mWaitingDialog;
 
     public a(Context context) {
         this.mContext = context;
-        this.jYa.toastTime = 1000L;
+        this.jZg.toastTime = 1000L;
     }
 
     @Override // com.baidu.tieba.ueg.a
     public void w(BdUniqueId bdUniqueId) {
         this.afZ = bdUniqueId;
-        this.jXZ.setTag(bdUniqueId);
+        this.jZf.setTag(bdUniqueId);
         this.dNE.setTag(bdUniqueId);
         this.dNE.setSelfListener(true);
         MessageManager.getInstance().registerListener(this.dNE);
     }
 
-    public void JM(String str) {
+    public void JN(String str) {
         showLoadingDialog();
-        this.jXZ.JM(str);
+        this.jZf.JN(str);
     }
 
     @Override // com.baidu.tieba.ueg.a
     public void CU(String str) {
         showLoadingDialog();
-        this.jXZ.CU(str);
+        this.jZf.CU(str);
     }
 
     private void showLoadingDialog() {
@@ -95,7 +95,7 @@ public class a implements com.baidu.tieba.ueg.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Jm(String str) {
+    public void Jn(String str) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.mContext, this.mContext.getString(R.string.pb_web_view_report_title), str, true)));
     }
 }

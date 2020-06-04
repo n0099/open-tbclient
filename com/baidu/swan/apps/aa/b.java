@@ -189,7 +189,7 @@ public class b extends HandlerThread implements com.baidu.swan.apps.aa.a {
                 AbsoluteLayout ls = com.baidu.swan.apps.w.f.ahV().ls(dVar.aks());
                 if (akv != null && ls != null && akc != null) {
                     Rect a = c.a(akv, akc, ls);
-                    this.cpc.fX(c.e(akc));
+                    this.cpc.fZ(c.e(akc));
                     this.cpa.akh();
                     if (c.akf() || this.cpd > 0) {
                         this.cpa.cpo = false;
@@ -199,7 +199,7 @@ public class b extends HandlerThread implements com.baidu.swan.apps.aa.a {
                             this.cpa.m(akv);
                             this.cpa.rect = a;
                         }
-                        c.fW(a.h.aiapps_swan_app_error_page_hint);
+                        c.fY(a.h.aiapps_swan_app_error_page_hint);
                         a(this.cpa, 19, false, null);
                     } else {
                         this.cpa.cpo = false;
@@ -337,7 +337,7 @@ public class b extends HandlerThread implements com.baidu.swan.apps.aa.a {
             if (com.baidu.swan.apps.runtime.e.aoF() != null) {
                 aVar = com.baidu.swan.apps.runtime.e.aoF().QJ();
             }
-            com.baidu.swan.apps.statistic.a.d fm = new com.baidu.swan.apps.statistic.a.d().f(pt).a(aVar).oC(h.gS(com.baidu.swan.apps.runtime.d.aoB().Qz())).oD(com.baidu.swan.apps.runtime.e.aoH()).oF(String.valueOf(this.cpb.size())).fm(false);
+            com.baidu.swan.apps.statistic.a.d fm = new com.baidu.swan.apps.statistic.a.d().f(pt).a(aVar).oC(h.gU(com.baidu.swan.apps.runtime.d.aoB().Qz())).oD(com.baidu.swan.apps.runtime.e.aoH()).oF(String.valueOf(this.cpb.size())).fm(false);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("isH5Componet", dVar.cpq == 0 ? "0" : "1");
@@ -393,7 +393,7 @@ public class b extends HandlerThread implements com.baidu.swan.apps.aa.a {
                     if (com.baidu.swan.apps.runtime.e.aoF() != null) {
                         aVar = com.baidu.swan.apps.runtime.e.aoF().QJ();
                     }
-                    h.b(new com.baidu.swan.apps.statistic.a.d().f(pt).a(aVar).oC(h.gS(com.baidu.swan.apps.runtime.d.aoB().Qz())).oD(com.baidu.swan.apps.runtime.d.aoB().getAppId()).oF(String.valueOf(this.cpb.size())).fm(false));
+                    h.b(new com.baidu.swan.apps.statistic.a.d().f(pt).a(aVar).oC(h.gU(com.baidu.swan.apps.runtime.d.aoB().Qz())).oD(com.baidu.swan.apps.runtime.d.aoB().getAppId()).oF(String.valueOf(this.cpb.size())).fm(false));
                 }
             }
         }

@@ -4,25 +4,25 @@ import android.content.Context;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class m {
-    private HashMap iXi;
-    private String lkE;
+    private HashMap iXV;
+    private String llN;
     private Context mContext;
 
     public m(Context context, String str, HashMap hashMap) {
         this.mContext = null;
-        this.lkE = null;
-        this.iXi = null;
+        this.llN = null;
+        this.iXV = null;
         this.mContext = context;
-        this.lkE = str;
-        this.iXi = hashMap;
+        this.llN = str;
+        this.iXV = hashMap;
     }
 
-    public String ddh() {
-        return this.lkE;
+    public String ddw() {
+        return this.llN;
     }
 
     public HashMap getParams() {
-        return this.iXi;
+        return this.iXV;
     }
 
     public Context getContext() {

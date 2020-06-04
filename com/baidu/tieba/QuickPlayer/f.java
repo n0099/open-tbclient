@@ -2,7 +2,7 @@ package com.baidu.tieba.QuickPlayer;
 /* loaded from: classes13.dex */
 public class f implements com.baidu.tieba.play.h {
     @Override // com.baidu.tieba.play.h
-    public com.baidu.tieba.play.g ble() {
+    public com.baidu.tieba.play.g blg() {
         return new e();
     }
 }

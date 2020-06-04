@@ -11,13 +11,13 @@ import com.baidu.tbadk.util.ad;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class e extends a {
-    private static e iJU = new e();
+    private static e iKH = new e();
 
     private e() {
     }
 
-    public static e cps() {
-        return iJU;
+    public static e cpB() {
+        return iKH;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,8 +29,8 @@ public class e extends a {
             return null;
         }
         String str3 = str + UgcConstant.AT_RULE_TAG + str2;
-        synchronized (this.iJK) {
-            ChatSetting chatSetting = this.iJK.get(str3);
+        synchronized (this.iKx) {
+            ChatSetting chatSetting = this.iKx.get(str3);
             personalSettingItemData = (chatSetting == null || !(chatSetting instanceof PersonalSettingItemData)) ? null : (PersonalSettingItemData) chatSetting;
         }
         if (personalSettingItemData == null) {
@@ -43,7 +43,7 @@ public class e extends a {
         return personalSettingItemData;
     }
 
-    public void clA() {
+    public void clJ() {
         super.y(PersonalSettingItemData.class);
     }
 
@@ -57,7 +57,7 @@ public class e extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> cpo() {
+    protected l<String> cpx() {
         return com.baidu.tbadk.core.c.a.aSS().vM("tb.im_personal_chat_setting");
     }
 
@@ -73,13 +73,13 @@ public class e extends a {
                 }
                 return;
             }
-            l<String> cpo = cpo();
+            l<String> cpx = cpx();
             String str = myUid + UgcConstant.AT_RULE_TAG + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
-            synchronized (this.iJK) {
-                this.iJK.put(str, personalSettingItemData);
+            synchronized (this.iKx) {
+                this.iKx.put(str, personalSettingItemData);
             }
-            cpo.setForever(str, jsonStrWithObject);
+            cpx.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -96,15 +96,15 @@ public class e extends a {
                 return;
             }
             final String str = myUid + UgcConstant.AT_RULE_TAG + toUid;
-            synchronized (this.iJK) {
-                this.iJK.put(str, personalSettingItemData);
+            synchronized (this.iKx) {
+                this.iKx.put(str, personalSettingItemData);
             }
             ad.b(new ac<Void>() { // from class: com.baidu.tieba.im.settingcache.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ac
-                /* renamed from: bmZ */
+                /* renamed from: bnb */
                 public Void doInBackground() {
-                    e.this.cpo().setForever(str, OrmObject.jsonStrWithObject(personalSettingItemData));
+                    e.this.cpx().setForever(str, OrmObject.jsonStrWithObject(personalSettingItemData));
                     return null;
                 }
             }, lVar);

@@ -1,5 +1,5 @@
 package com.baidu.tieba.im.sendmessage;
 /* loaded from: classes.dex */
 public interface d {
-    void yd(int i);
+    void yf(int i);
 }

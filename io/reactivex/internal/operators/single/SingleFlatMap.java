@@ -65,16 +65,16 @@ public final class SingleFlatMap<T, R> extends w<R> {
         /* loaded from: classes7.dex */
         static final class a<R> implements y<R> {
             final y<? super R> actual;
-            final AtomicReference<io.reactivex.disposables.b> nmM;
+            final AtomicReference<io.reactivex.disposables.b> nnW;
 
             a(AtomicReference<io.reactivex.disposables.b> atomicReference, y<? super R> yVar) {
-                this.nmM = atomicReference;
+                this.nnW = atomicReference;
                 this.actual = yVar;
             }
 
             @Override // io.reactivex.y
             public void onSubscribe(io.reactivex.disposables.b bVar) {
-                DisposableHelper.replace(this.nmM, bVar);
+                DisposableHelper.replace(this.nnW, bVar);
             }
 
             @Override // io.reactivex.y

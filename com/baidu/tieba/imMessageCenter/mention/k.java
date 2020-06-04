@@ -9,7 +9,7 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes9.dex */
 public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int iPI;
+    private int iQv;
     private String ids;
     private int mPn = 1;
 
@@ -21,21 +21,21 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.iPI = 4;
+        this.iQv = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.iPI = 1;
+        this.iQv = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.iPI;
+        return this.iQv;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> beO() {
+    public HashMap<String, Object> beP() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
         hashMap.put(Config.PACKAGE_NAME, String.valueOf(this.mPn));
@@ -43,14 +43,14 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
         hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
         hashMap.put("scr_h", Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
         hashMap.put("scr_w", Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
-        if (this.iPI == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.iQv == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> beP() {
+    public HashMap<String, String> beQ() {
         return null;
     }
 
@@ -81,12 +81,12 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String beL() {
+    public String beM() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean beM() {
+    public boolean beN() {
         return true;
     }
 

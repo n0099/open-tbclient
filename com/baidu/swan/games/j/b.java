@@ -257,7 +257,7 @@ public class b extends com.baidu.swan.apps.framework.c {
                 return;
             }
             SwanCoreVersion abG2 = QJ().abG();
-            if ((abG == null || abG2 == null || abG.swanCoreVersion == 0 || abG.swanCoreVersion >= abG2.swanCoreVersion || !com.baidu.swan.apps.v.b.a.fx(QJ().agX())) ? false : true) {
+            if ((abG == null || abG2 == null || abG.swanCoreVersion == 0 || abG.swanCoreVersion >= abG2.swanCoreVersion || !com.baidu.swan.apps.v.b.a.fz(QJ().agX())) ? false : true) {
                 if (DEBUG) {
                     Log.d("SwanGameFrame", "SwanGameCoreRuntime版本过低释放并重新加载");
                 }

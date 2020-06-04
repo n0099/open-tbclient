@@ -137,7 +137,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        com.baidu.swan.apps.aq.c.a.n(SwanAppProcessInfo.current().activity.newInstance()).a(com.baidu.swan.apps.aq.c.a.cKW).hK(i);
+                        com.baidu.swan.apps.aq.c.a.n(SwanAppProcessInfo.current().activity.newInstance()).a(com.baidu.swan.apps.aq.c.a.cKW).hM(i);
                     } catch (Throwable th) {
                         if (SwanAppLocalService.DEBUG) {
                             th.printStackTrace();

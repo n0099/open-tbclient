@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.util.ba;
 import java.util.HashMap;
 /* loaded from: classes9.dex */
 public class SchemaRouteActivity extends BaseActivity {
-    private final f.a hoz = new f.a() { // from class: com.baidu.tieba.tblauncher.SchemaRouteActivity.1
+    private final f.a hoK = new f.a() { // from class: com.baidu.tieba.tblauncher.SchemaRouteActivity.1
         @Override // com.baidu.tbadk.BdToken.f.a
         public void C(HashMap<String, Object> hashMap) {
             if (hashMap != null && (hashMap.get(com.baidu.tbadk.BdToken.f.PARAM_URL) instanceof String)) {
@@ -38,11 +38,11 @@ public class SchemaRouteActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
-        aj(getIntent());
+        ak(getIntent());
         finish();
     }
 
-    private void aj(Intent intent) {
+    private void ak(Intent intent) {
         if (intent != null) {
             B(intent.getData());
             String dataString = intent.getDataString();
@@ -67,7 +67,7 @@ public class SchemaRouteActivity extends BaseActivity {
             } else if (!TextUtils.isEmpty(dataString) && dataString.contains("tbwebview")) {
                 Uri data = intent.getData();
                 if (com.baidu.tbadk.BdToken.f.p(data)) {
-                    com.baidu.tbadk.BdToken.f.aLw().d(data, this.hoz);
+                    com.baidu.tbadk.BdToken.f.aLw().d(data, this.hoK);
                     return;
                 }
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(getActivity());
@@ -97,7 +97,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 }
             } else if (!TextUtils.isEmpty(dataString) && dataString.contains(com.baidu.tbadk.BdToken.f.HOST + com.baidu.tbadk.BdToken.f.dvp)) {
                 Uri parse = Uri.parse(dataString);
-                ba.aUZ().b(getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + parse.getQueryParameter(com.baidu.tbadk.BdToken.f.dvH) + "&livetype=" + parse.getQueryParameter(com.baidu.tbadk.BdToken.f.dvG)});
+                ba.aVa().b(getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + parse.getQueryParameter(com.baidu.tbadk.BdToken.f.dvH) + "&livetype=" + parse.getQueryParameter(com.baidu.tbadk.BdToken.f.dvG)});
             }
         }
     }

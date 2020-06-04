@@ -9,11 +9,11 @@ import java.util.List;
 public class a {
     private List<AbsDelegateAdapter> aSj = new ArrayList();
     private BdTypeListView aSl;
-    private b gkK;
-    private c gkL;
-    private e gkM;
-    private f gkN;
-    private d gkO;
+    private b gkV;
+    private c gkW;
+    private e gkX;
+    private f gkY;
+    private d gkZ;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
@@ -23,25 +23,25 @@ public class a {
     }
 
     private void CY() {
-        this.gkK = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.gkR);
-        this.gkL = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.gkU);
-        this.gkM = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.gkW);
-        this.gkN = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.gkX);
-        this.gkO = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.gkV);
-        this.aSj.add(this.gkK);
-        this.aSj.add(this.gkL);
-        this.aSj.add(this.gkM);
-        this.aSj.add(this.gkN);
-        this.aSj.add(this.gkO);
+        this.gkV = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.glc);
+        this.gkW = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.glf);
+        this.gkX = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.glh);
+        this.gkY = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.gli);
+        this.gkZ = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.glg);
+        this.aSj.add(this.gkV);
+        this.aSj.add(this.gkW);
+        this.aSj.add(this.gkX);
+        this.aSj.add(this.gkY);
+        this.aSj.add(this.gkZ);
         this.aSl.addAdapters(this.aSj);
     }
 
     public void onDestroy() {
-        if (this.gkK != null) {
-            this.gkK.onDestroy();
+        if (this.gkV != null) {
+            this.gkV.onDestroy();
         }
-        if (this.gkL != null) {
-            this.gkL.onDestroy();
+        if (this.gkW != null) {
+            this.gkW.onDestroy();
         }
     }
 }

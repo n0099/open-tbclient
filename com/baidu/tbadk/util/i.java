@@ -90,7 +90,7 @@ public class i {
         this.euW = aVar;
     }
 
-    public long bgt() {
+    public long bgu() {
         return this.euS;
     }
 }

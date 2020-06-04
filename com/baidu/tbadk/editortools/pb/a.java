@@ -4,7 +4,7 @@ public class a {
     private static a emz;
     private int mStatus = 0;
 
-    public static a bds() {
+    public static a bdt() {
         if (emz == null) {
             synchronized (a.class) {
                 if (emz == null) {

@@ -97,7 +97,7 @@ public final class a implements AREngineDelegate {
         return this.bEM;
     }
 
-    void dZ(int i) {
+    void eb(int i) {
         int i2 = i < 0 ? 0 : i;
         this.mFPS = i2 <= 60 ? i2 : 60;
     }
@@ -1055,7 +1055,7 @@ public final class a implements AREngineDelegate {
             if (this.bEP != 0) {
                 float currentTimeMillis = ((float) (System.currentTimeMillis() - this.bEP)) / 1000.0f;
                 if (currentTimeMillis > 1.0f) {
-                    this.bFc.dZ((int) (this.bEO / currentTimeMillis));
+                    this.bFc.eb((int) (this.bEO / currentTimeMillis));
                     this.bEO = 0;
                     this.bEP = System.currentTimeMillis();
                     return;

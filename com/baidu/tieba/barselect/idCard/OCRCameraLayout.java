@@ -14,16 +14,16 @@ import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class OCRCameraLayout extends FrameLayout {
     public static int ORIENTATION_PORTRAIT = 0;
-    public static int gzW = 1;
+    public static int gAh = 1;
     private View contentView;
-    private int gAa;
-    private int gAb;
-    private int gAc;
-    private int gAd;
-    private Rect gAe;
-    private View gzX;
-    private View gzY;
-    private View gzZ;
+    private View gAi;
+    private View gAj;
+    private View gAk;
+    private int gAl;
+    private int gAm;
+    private int gAn;
+    private int gAo;
+    private Rect gAp;
     private int orientation;
     private Paint paint;
 
@@ -38,7 +38,7 @@ public class OCRCameraLayout extends FrameLayout {
         super(context);
         this.orientation = ORIENTATION_PORTRAIT;
         setWillNotDraw(false);
-        this.gAe = new Rect();
+        this.gAp = new Rect();
         this.paint = new Paint();
         this.paint.setStyle(Paint.Style.FILL);
         this.paint.setColor(Color.argb(83, 0, 0, 0));
@@ -48,7 +48,7 @@ public class OCRCameraLayout extends FrameLayout {
         super(context, attributeSet);
         this.orientation = ORIENTATION_PORTRAIT;
         setWillNotDraw(false);
-        this.gAe = new Rect();
+        this.gAp = new Rect();
         this.paint = new Paint();
         this.paint.setStyle(Paint.Style.FILL);
         this.paint.setColor(Color.argb(83, 0, 0, 0));
@@ -59,7 +59,7 @@ public class OCRCameraLayout extends FrameLayout {
         super(context, attributeSet, i);
         this.orientation = ORIENTATION_PORTRAIT;
         setWillNotDraw(false);
-        this.gAe = new Rect();
+        this.gAp = new Rect();
         this.paint = new Paint();
         this.paint.setStyle(Paint.Style.FILL);
         this.paint.setColor(Color.argb(83, 0, 0, 0));
@@ -69,10 +69,10 @@ public class OCRCameraLayout extends FrameLayout {
     private void h(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, R.styleable.OCRCameraLayout, 0, 0);
         try {
-            this.gAa = obtainStyledAttributes.getResourceId(0, -1);
-            this.gAb = obtainStyledAttributes.getResourceId(1, -1);
-            this.gAc = obtainStyledAttributes.getResourceId(2, -1);
-            this.gAd = obtainStyledAttributes.getResourceId(3, -1);
+            this.gAl = obtainStyledAttributes.getResourceId(0, -1);
+            this.gAm = obtainStyledAttributes.getResourceId(1, -1);
+            this.gAn = obtainStyledAttributes.getResourceId(2, -1);
+            this.gAo = obtainStyledAttributes.getResourceId(3, -1);
         } finally {
             obtainStyledAttributes.recycle();
         }
@@ -81,64 +81,64 @@ public class OCRCameraLayout extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        this.contentView = findViewById(this.gAa);
-        if (this.gAb != -1) {
-            this.gzX = findViewById(this.gAb);
+        this.contentView = findViewById(this.gAl);
+        if (this.gAm != -1) {
+            this.gAi = findViewById(this.gAm);
         }
-        this.gzY = findViewById(this.gAc);
-        this.gzZ = findViewById(this.gAd);
+        this.gAj = findViewById(this.gAn);
+        this.gAk = findViewById(this.gAo);
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int width = getWidth();
         int height = getHeight();
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.gzY.getLayoutParams();
-        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.gzZ.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.gAj.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.gAk.getLayoutParams();
         if (i3 < i4) {
             int i5 = (width * 4) / 3;
             int i6 = height - i5;
             this.contentView.layout(i, i2, i3, i5);
-            this.gAe.left = 0;
-            this.gAe.top = i5;
-            this.gAe.right = width;
-            this.gAe.bottom = height;
-            if (this.gzX != null) {
-                int measuredWidth = (width - this.gzX.getMeasuredWidth()) / 2;
-                int measuredHeight = ((i6 - this.gzX.getMeasuredHeight()) / 2) + i5;
-                this.gzX.layout(measuredWidth, measuredHeight, this.gzX.getMeasuredWidth() + measuredWidth, this.gzX.getMeasuredHeight() + measuredHeight);
+            this.gAp.left = 0;
+            this.gAp.top = i5;
+            this.gAp.right = width;
+            this.gAp.bottom = height;
+            if (this.gAi != null) {
+                int measuredWidth = (width - this.gAi.getMeasuredWidth()) / 2;
+                int measuredHeight = ((i6 - this.gAi.getMeasuredHeight()) / 2) + i5;
+                this.gAi.layout(measuredWidth, measuredHeight, this.gAi.getMeasuredWidth() + measuredWidth, this.gAi.getMeasuredHeight() + measuredHeight);
             }
             int i7 = marginLayoutParams.leftMargin;
-            int measuredHeight2 = ((i6 - this.gzY.getMeasuredHeight()) / 2) + i5;
-            this.gzY.layout(i7, measuredHeight2, this.gzY.getMeasuredWidth() + i7, this.gzY.getMeasuredHeight() + measuredHeight2);
-            int measuredWidth2 = (width - this.gzZ.getMeasuredWidth()) - marginLayoutParams2.rightMargin;
-            int measuredHeight3 = ((i6 - this.gzZ.getMeasuredHeight()) / 2) + i5;
-            this.gzZ.layout(measuredWidth2, measuredHeight3, this.gzZ.getMeasuredWidth() + measuredWidth2, this.gzZ.getMeasuredHeight() + measuredHeight3);
+            int measuredHeight2 = ((i6 - this.gAj.getMeasuredHeight()) / 2) + i5;
+            this.gAj.layout(i7, measuredHeight2, this.gAj.getMeasuredWidth() + i7, this.gAj.getMeasuredHeight() + measuredHeight2);
+            int measuredWidth2 = (width - this.gAk.getMeasuredWidth()) - marginLayoutParams2.rightMargin;
+            int measuredHeight3 = ((i6 - this.gAk.getMeasuredHeight()) / 2) + i5;
+            this.gAk.layout(measuredWidth2, measuredHeight3, this.gAk.getMeasuredWidth() + measuredWidth2, this.gAk.getMeasuredHeight() + measuredHeight3);
             return;
         }
         int i8 = (height * 4) / 3;
         int i9 = width - i8;
         this.contentView.layout(i, i2, i8, height);
-        this.gAe.left = i8;
-        this.gAe.top = 0;
-        this.gAe.right = width;
-        this.gAe.bottom = height;
-        if (this.gzX != null) {
-            int measuredWidth3 = ((i9 - this.gzX.getMeasuredWidth()) / 2) + i8;
-            int measuredHeight4 = (height - this.gzX.getMeasuredHeight()) / 2;
-            this.gzX.layout(measuredWidth3, measuredHeight4, this.gzX.getMeasuredWidth() + measuredWidth3, this.gzX.getMeasuredHeight() + measuredHeight4);
+        this.gAp.left = i8;
+        this.gAp.top = 0;
+        this.gAp.right = width;
+        this.gAp.bottom = height;
+        if (this.gAi != null) {
+            int measuredWidth3 = ((i9 - this.gAi.getMeasuredWidth()) / 2) + i8;
+            int measuredHeight4 = (height - this.gAi.getMeasuredHeight()) / 2;
+            this.gAi.layout(measuredWidth3, measuredHeight4, this.gAi.getMeasuredWidth() + measuredWidth3, this.gAi.getMeasuredHeight() + measuredHeight4);
         }
-        int measuredWidth4 = ((i9 - this.gzY.getMeasuredWidth()) / 2) + i8;
-        int measuredHeight5 = (height - this.gzY.getMeasuredHeight()) - marginLayoutParams.bottomMargin;
-        this.gzY.layout(measuredWidth4, measuredHeight5, this.gzY.getMeasuredWidth() + measuredWidth4, this.gzY.getMeasuredHeight() + measuredHeight5);
-        int measuredWidth5 = ((i9 - this.gzZ.getMeasuredWidth()) / 2) + i8;
+        int measuredWidth4 = ((i9 - this.gAj.getMeasuredWidth()) / 2) + i8;
+        int measuredHeight5 = (height - this.gAj.getMeasuredHeight()) - marginLayoutParams.bottomMargin;
+        this.gAj.layout(measuredWidth4, measuredHeight5, this.gAj.getMeasuredWidth() + measuredWidth4, this.gAj.getMeasuredHeight() + measuredHeight5);
+        int measuredWidth5 = ((i9 - this.gAk.getMeasuredWidth()) / 2) + i8;
         int i10 = marginLayoutParams2.topMargin;
-        this.gzZ.layout(measuredWidth5, i10, this.gzZ.getMeasuredWidth() + measuredWidth5, this.gzZ.getMeasuredHeight() + i10);
+        this.gAk.layout(measuredWidth5, i10, this.gAk.getMeasuredWidth() + measuredWidth5, this.gAk.getMeasuredHeight() + i10);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawRect(this.gAe, this.paint);
+        canvas.drawRect(this.gAp, this.paint);
     }
 }

@@ -72,7 +72,7 @@ public class NeutralRefreshAnimView extends View {
         }
     }
 
-    public boolean eh(int i) {
+    public boolean ej(int i) {
         if (this.cwB == null || this.cwA == null) {
             return false;
         }
@@ -151,18 +151,18 @@ public class NeutralRefreshAnimView extends View {
                     Log.e("NeutralRefreshAnimView", "first level,alpha=" + i);
                 }
             } else if (this.cwz < 1.0f) {
-                int gj = gj((int) (this.cwz * 77.0f));
-                this.cwB.setAlpha(gj);
+                int gl = gl((int) (this.cwz * 77.0f));
+                this.cwB.setAlpha(gl);
                 float f = (this.cwz - 0.5f) * 2.0f;
-                int gj2 = gj((int) (26.0f * f));
-                this.cwA.setAlpha(gj2);
+                int gl2 = gl((int) (26.0f * f));
+                this.cwA.setAlpha(gl2);
                 this.mCanvas.drawCircle(this.cwC.x + (cwy * f), this.cwC.y, cwv, this.cwB);
                 this.mCanvas.drawCircle(this.cwC.x - (cwy * f), this.cwC.y, cwv, this.cwA);
                 canvas.drawBitmap(this.mBitmap, 0.0f, 0.0f, (Paint) null);
                 if (DEBUG) {
                     Log.e("NeutralRefreshAnimView", "second level,mAnimPercent=" + this.cwz);
-                    Log.e("NeutralRefreshAnimView", "second level,rightBallAlpha=" + gj);
-                    Log.e("NeutralRefreshAnimView", "second level,leftBallAlpha=" + gj2);
+                    Log.e("NeutralRefreshAnimView", "second level,rightBallAlpha=" + gl);
+                    Log.e("NeutralRefreshAnimView", "second level,leftBallAlpha=" + gl2);
                     Log.e("NeutralRefreshAnimView", "second level,fraction=" + f);
                     Log.e("NeutralRefreshAnimView", "second level,HALF_MAX_DISTANCE * fraction=" + (f * cwy));
                 }
@@ -310,8 +310,8 @@ public class NeutralRefreshAnimView extends View {
         }
         if (this.mBitmap != null && this.mCanvas != null) {
             this.mBitmap.eraseColor(0);
-            this.cwJ = gj(this.cwJ);
-            this.cwK = gj(this.cwK);
+            this.cwJ = gl(this.cwJ);
+            this.cwK = gl(this.cwK);
             this.cwB.setAlpha(this.cwK);
             this.cwA.setAlpha(this.cwJ);
             this.mCanvas.drawCircle(this.cwC.x + this.cwF, this.cwC.y, cwv, this.cwB);
@@ -363,7 +363,7 @@ public class NeutralRefreshAnimView extends View {
         }
     }
 
-    private int gj(int i) {
+    private int gl(int i) {
         int i2 = i < 0 ? 0 : i;
         if (i2 > 255) {
             return 255;

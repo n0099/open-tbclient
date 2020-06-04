@@ -28,40 +28,40 @@ import com.baidu.tieba.recapp.widget.ApkDownloadView;
 /* loaded from: classes13.dex */
 public class AdPostPbView extends PostAdBaseView<AdPostPbData> {
     private View dJr;
-    protected View.OnClickListener gEr;
-    private TextView jPY;
-    protected CustomMessageListener kLI;
-    private ApkDownloadView kMt;
-    private TextView kOk;
-    private TextView kOl;
-    private TextView kOm;
-    private TbImageView kOn;
-    private TextView kOo;
-    private String kOp;
-    private AdPostPbData kOq;
+    protected View.OnClickListener gEC;
+    private TextView jRe;
+    protected CustomMessageListener kMR;
+    private ApkDownloadView kNC;
+    private TextView kPt;
+    private TextView kPu;
+    private TextView kPv;
+    private TbImageView kPw;
+    private TextView kPx;
+    private String kPy;
+    private AdPostPbData kPz;
     private PermissionJudgePolicy mPermissionJudgePolicy;
     private View rootView;
 
     public AdPostPbView(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gEr = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.postad.AdPostPbView.1
+        this.gEC = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.postad.AdPostPbView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AdPostPbView.this.kOq != null) {
-                    int b = r.b(AdPostPbView.this.dIF, AdPostPbView.this.kOq.scheme, AdPostPbView.this.kOq.id);
-                    if (AdPostPbView.this.iZo != null) {
-                        AdPostPbView.this.iZo.d(b, null);
+                if (AdPostPbView.this.kPz != null) {
+                    int b = r.b(AdPostPbView.this.dIF, AdPostPbView.this.kPz.scheme, AdPostPbView.this.kPz.id);
+                    if (AdPostPbView.this.jab != null) {
+                        AdPostPbView.this.jab.d(b, null);
                     }
                 }
             }
         };
-        this.kLI = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_DOWNLOAD_MSG) { // from class: com.baidu.tieba.recapp.lego.view.postad.AdPostPbView.4
+        this.kMR = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_DOWNLOAD_MSG) { // from class: com.baidu.tieba.recapp.lego.view.postad.AdPostPbView.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 DownloadData downloadData;
-                if (customResponsedMessage != null && (downloadData = (DownloadData) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(AdPostPbView.this.kOp) && AdPostPbView.this.kOp.equals(downloadData.getId())) {
-                    AdPostPbView.this.kMt.t(downloadData);
+                if (customResponsedMessage != null && (downloadData = (DownloadData) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(AdPostPbView.this.kPy) && AdPostPbView.this.kPy.equals(downloadData.getId())) {
+                    AdPostPbView.this.kNC.t(downloadData);
                 }
             }
         };
@@ -70,39 +70,39 @@ public class AdPostPbView extends PostAdBaseView<AdPostPbData> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.recapp.lego.view.postad.PostAdBaseView
     public void a(AdPostPbData adPostPbData) {
-        this.kOq = adPostPbData;
-        this.kOn.startLoad(adPostPbData.portrait, 17, false);
-        this.jPY.setText(adPostPbData.recommend);
-        this.kOk.setText(adPostPbData.title);
+        this.kPz = adPostPbData;
+        this.kPw.startLoad(adPostPbData.portrait, 17, false);
+        this.jRe.setText(adPostPbData.recommend);
+        this.kPt.setText(adPostPbData.title);
         if (StringUtils.isNull(adPostPbData.desc)) {
-            this.kOl.setVisibility(8);
+            this.kPu.setVisibility(8);
         } else {
-            this.kOl.setVisibility(0);
-            this.kOl.setText(adPostPbData.desc);
+            this.kPu.setVisibility(0);
+            this.kPu.setText(adPostPbData.desc);
         }
-        this.kOm.setText(adPostPbData.buttonText);
-        this.kOo.setText(adPostPbData.tagName);
+        this.kPv.setText(adPostPbData.buttonText);
+        this.kPx.setText(adPostPbData.tagName);
         if (adPostPbData.isDownload()) {
-            this.kOn.setRadius(l.getDimens(getContext(), R.dimen.ds32));
-            this.kOm.setVisibility(8);
-            this.kMt.setVisibility(0);
+            this.kPw.setRadius(l.getDimens(getContext(), R.dimen.ds32));
+            this.kPv.setVisibility(8);
+            this.kNC.setVisibility(0);
             AdvertAppInfo advertAppInfo = adPostPbData.getAdvertAppInfo();
             if (advertAppInfo != null) {
                 a aVar = new a(advertAppInfo);
                 this.rootView.setOnClickListener(aVar);
-                this.kMt.setOnClickListener(aVar);
+                this.kNC.setOnClickListener(aVar);
                 advertAppInfo.adPosition = String.valueOf(this.position);
-                this.kOp = advertAppInfo.dAx;
+                this.kPy = advertAppInfo.dAx;
                 DownloadData c = c(advertAppInfo, this.position);
                 c.setStatus(ApkDownloadView.getStatus(c));
-                this.kMt.setData(c);
+                this.kNC.setData(c);
                 return;
             }
             return;
         }
-        this.kOn.setRadius(0);
-        this.kMt.setVisibility(8);
-        this.kOm.setVisibility(0);
+        this.kPw.setRadius(0);
+        this.kNC.setVisibility(8);
+        this.kPv.setVisibility(0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -111,32 +111,32 @@ public class AdPostPbView extends PostAdBaseView<AdPostPbData> {
     public void a(AdPostPbData adPostPbData, int i) {
         am.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
         am.setBackgroundColor(this.dJr, R.color.cp_bg_line_e);
-        am.setViewTextColor(this.jPY, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.kOo, (int) R.color.cp_cont_j);
-        am.setViewTextColor(this.kOk, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.kOl, (int) R.color.cp_cont_j);
-        am.setViewTextColor(this.kOm, (int) R.color.cp_link_tip_a);
-        am.setBackgroundResource(this.kOm, R.drawable.feed_ad_progress_button_bg);
-        this.kMt.setTextColor(am.getColor(R.color.cp_btn_a));
-        this.kMt.onChangeSkinType(i);
+        am.setViewTextColor(this.jRe, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.kPx, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.kPt, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.kPu, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.kPv, (int) R.color.cp_link_tip_a);
+        am.setBackgroundResource(this.kPv, R.drawable.feed_ad_progress_button_bg);
+        this.kNC.setTextColor(am.getColor(R.color.cp_btn_a));
+        this.kNC.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.postad.PostAdBaseView
-    protected View ctA() {
-        MessageManager.getInstance().registerListener(this.kLI);
-        this.kLI.setTag(this.dIF.getUniqueId());
+    protected View ctJ() {
+        MessageManager.getInstance().registerListener(this.kMR);
+        this.kMR.setTag(this.dIF.getUniqueId());
         this.rootView = LayoutInflater.from(getContext()).inflate(R.layout.post_ad_pb_banner_card, (ViewGroup) null);
-        this.kOn = (TbImageView) this.rootView.findViewById(R.id.image);
-        this.kOm = (TextView) this.rootView.findViewById(R.id.action_button);
-        this.jPY = (TextView) this.rootView.findViewById(R.id.recommend_title);
-        this.kOk = (TextView) this.rootView.findViewById(R.id.ad_title);
-        this.kOl = (TextView) this.rootView.findViewById(R.id.ad_description);
-        this.kOo = (TextView) this.rootView.findViewById(R.id.ad_tag);
+        this.kPw = (TbImageView) this.rootView.findViewById(R.id.image);
+        this.kPv = (TextView) this.rootView.findViewById(R.id.action_button);
+        this.jRe = (TextView) this.rootView.findViewById(R.id.recommend_title);
+        this.kPt = (TextView) this.rootView.findViewById(R.id.ad_title);
+        this.kPu = (TextView) this.rootView.findViewById(R.id.ad_description);
+        this.kPx = (TextView) this.rootView.findViewById(R.id.ad_tag);
         this.dJr = this.rootView.findViewById(R.id.divider);
-        this.kMt = (ApkDownloadView) this.rootView.findViewById(R.id.ad_download);
-        this.kMt.x(this.dIF.getUniqueId());
-        this.rootView.setOnClickListener(this.gEr);
-        this.kOm.setOnClickListener(this.gEr);
+        this.kNC = (ApkDownloadView) this.rootView.findViewById(R.id.ad_download);
+        this.kNC.x(this.dIF.getUniqueId());
+        this.rootView.setOnClickListener(this.gEC);
+        this.kPv.setOnClickListener(this.gEC);
         return this.rootView;
     }
 
@@ -157,8 +157,8 @@ public class AdPostPbView extends PostAdBaseView<AdPostPbData> {
             }
             this.mPermissionJudgePolicy.clearRequestPermissionList();
             this.mPermissionJudgePolicy.appendRequestPermission(this.dIF.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (!this.mPermissionJudgePolicy.startRequestPermission(this.dIF.getPageActivity()) && this.iZp != null) {
-                this.iZp.b(advertAppInfo, i);
+            if (!this.mPermissionJudgePolicy.startRequestPermission(this.dIF.getPageActivity()) && this.jac != null) {
+                this.jac.b(advertAppInfo, i);
                 if (apkDownloadView != null) {
                     apkDownloadView.q(c(advertAppInfo, i));
                 }
@@ -179,7 +179,7 @@ public class AdPostPbView extends PostAdBaseView<AdPostPbData> {
                 aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.recapp.lego.view.postad.AdPostPbView.2
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        AdPostPbView.this.a(advertAppInfo, i, AdPostPbView.this.kMt);
+                        AdPostPbView.this.a(advertAppInfo, i, AdPostPbView.this.kNC);
                         aVar2.dismiss();
                     }
                 });
@@ -224,10 +224,10 @@ public class AdPostPbView extends PostAdBaseView<AdPostPbData> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes13.dex */
     public class a implements View.OnClickListener {
-        private AdvertAppInfo kOs;
+        private AdvertAppInfo kPB;
 
         public a(AdvertAppInfo advertAppInfo) {
-            this.kOs = advertAppInfo;
+            this.kPB = advertAppInfo;
         }
 
         @Override // android.view.View.OnClickListener
@@ -236,19 +236,19 @@ public class AdPostPbView extends PostAdBaseView<AdPostPbData> {
                 AdPostPbView.this.dIF.showToast(R.string.neterror);
                 return;
             }
-            boolean z = view == AdPostPbView.this.kMt;
-            if (this.kOs != null) {
-                int i = b.toInt(this.kOs.adPosition, -1);
-                int status = ApkDownloadView.getStatus(AdPostPbView.this.c(this.kOs, i));
+            boolean z = view == AdPostPbView.this.kNC;
+            if (this.kPB != null) {
+                int i = b.toInt(this.kPB.adPosition, -1);
+                int status = ApkDownloadView.getStatus(AdPostPbView.this.c(this.kPB, i));
                 if ((6 != status && 7 != status) || !j.isNetWorkAvailable() || j.isWifiNet()) {
-                    AdPostPbView.this.a(this.kOs, i, AdPostPbView.this.kMt, z);
-                    if (AdPostPbView.this.iZo != null) {
-                        AdPostPbView.this.iZo.d(3, null);
+                    AdPostPbView.this.a(this.kPB, i, AdPostPbView.this.kNC, z);
+                    if (AdPostPbView.this.jab != null) {
+                        AdPostPbView.this.jab.d(3, null);
                         return;
                     }
                     return;
                 }
-                AdPostPbView.this.showDownloadAppDialog(this.kOs, i, true, this.kOs.dAD != null ? this.kOs.dAD.dAP : "");
+                AdPostPbView.this.showDownloadAppDialog(this.kPB, i, true, this.kPB.dAD != null ? this.kPB.dAD.dAP : "");
             }
         }
     }

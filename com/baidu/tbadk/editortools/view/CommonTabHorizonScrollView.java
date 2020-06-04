@@ -97,7 +97,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
                 LinearLayout linearLayout = (LinearLayout) this.enT.getChildAt(this.mCurrentIndex);
                 if (linearLayout != null) {
                     linearLayout.setSelected(false);
-                    ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.mDatas.get(this.mCurrentIndex).beb().enS);
+                    ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.mDatas.get(this.mCurrentIndex).bec().enS);
                 } else {
                     return;
                 }
@@ -106,7 +106,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
             LinearLayout linearLayout2 = (LinearLayout) this.enT.getChildAt(this.mCurrentIndex);
             if (linearLayout2 != null) {
                 linearLayout2.setSelected(true);
-                am.setImageResource((TbImageView) linearLayout2.getChildAt(0), this.mDatas.get(this.mCurrentIndex).beb().enR);
+                am.setImageResource((TbImageView) linearLayout2.getChildAt(0), this.mDatas.get(this.mCurrentIndex).bec().enR);
             }
         }
     }
@@ -130,9 +130,9 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
                     TbImageView tbImageView = (TbImageView) ((LinearLayout) childAt).getChildAt(0);
                     if (tbImageView != null) {
                         if (i2 == this.mCurrentIndex) {
-                            am.setImageResource(tbImageView, this.mDatas.get(i2).beb().enR);
+                            am.setImageResource(tbImageView, this.mDatas.get(i2).bec().enR);
                         } else {
-                            am.setImageResource(tbImageView, this.mDatas.get(i2).beb().enS);
+                            am.setImageResource(tbImageView, this.mDatas.get(i2).bec().enS);
                         }
                     }
                 } else {
@@ -157,7 +157,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            CommonTabHorizonScrollView.this.enU.np(this.mTabIndex);
+            CommonTabHorizonScrollView.this.enU.nr(this.mTabIndex);
         }
     }
 }

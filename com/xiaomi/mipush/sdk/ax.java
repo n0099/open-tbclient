@@ -31,18 +31,18 @@ public final class ax implements Runnable {
         String c;
         String c2;
         String c3;
-        com.xiaomi.channel.commonutils.logger.b.m52a("do sync info");
+        com.xiaomi.channel.commonutils.logger.b.m51a("do sync info");
         il ilVar = new il(com.xiaomi.push.service.an.a(), false);
-        b m92a = b.m92a(this.a);
+        b m91a = b.m91a(this.a);
         ilVar.c(hw.SyncInfo.f475a);
-        ilVar.b(m92a.m93a());
+        ilVar.b(m91a.m92a());
         ilVar.d(this.a.getPackageName());
         ilVar.f616a = new HashMap();
-        com.xiaomi.push.n.a(ilVar.f616a, "app_version", com.xiaomi.push.g.m305a(this.a, this.a.getPackageName()));
+        com.xiaomi.push.n.a(ilVar.f616a, "app_version", com.xiaomi.push.g.m304a(this.a, this.a.getPackageName()));
         com.xiaomi.push.n.a(ilVar.f616a, Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.g.a(this.a, this.a.getPackageName())));
         com.xiaomi.push.n.a(ilVar.f616a, "push_sdk_vn", "3_7_5");
         com.xiaomi.push.n.a(ilVar.f616a, "push_sdk_vc", Integer.toString(30705));
-        com.xiaomi.push.n.a(ilVar.f616a, "token", m92a.b());
+        com.xiaomi.push.n.a(ilVar.f616a, "token", m91a.b());
         if (!com.xiaomi.push.l.d()) {
             String a = bf.a(com.xiaomi.push.i.f(this.a));
             String h = com.xiaomi.push.i.h(this.a);
@@ -54,8 +54,8 @@ public final class ax implements Runnable {
             }
         }
         com.xiaomi.push.au.a(this.a).a(ilVar.f616a);
-        com.xiaomi.push.n.a(ilVar.f616a, Constants.EXTRA_KEY_REG_ID, m92a.m100c());
-        com.xiaomi.push.n.a(ilVar.f616a, Constants.EXTRA_KEY_REG_SECRET, m92a.d());
+        com.xiaomi.push.n.a(ilVar.f616a, Constants.EXTRA_KEY_REG_ID, m91a.m99c());
+        com.xiaomi.push.n.a(ilVar.f616a, Constants.EXTRA_KEY_REG_SECRET, m91a.d());
         com.xiaomi.push.n.a(ilVar.f616a, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.a).replace(Constants.ACCEPT_TIME_SEPARATOR_SP, Constants.ACCEPT_TIME_SEPARATOR_SERVER));
         if (this.f60a) {
             Map<String, String> map = ilVar.f616a;

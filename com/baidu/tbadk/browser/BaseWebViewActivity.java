@@ -418,12 +418,12 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (context == null || str == null || (parse = Uri.parse(str)) == null) {
             return null;
         }
-        List<String> aXR = com.baidu.tbadk.coreExtra.data.f.aXR();
-        if (v.isEmpty(aXR)) {
+        List<String> aXS = com.baidu.tbadk.coreExtra.data.f.aXS();
+        if (v.isEmpty(aXS)) {
             return null;
         }
         String scheme = parse.getScheme();
-        Iterator<String> it = aXR.iterator();
+        Iterator<String> it = aXS.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;

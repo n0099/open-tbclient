@@ -37,7 +37,7 @@ public class g extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: qa */
+    /* renamed from: qc */
     public j getItem(int i) {
         if (this.dJp == null) {
             return null;
@@ -57,15 +57,15 @@ public class g extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.h.sdk_charm_list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.fqd = (CharmItemView) view.findViewById(a.g.item);
+            aVar2.fqo = (CharmItemView) view.findViewById(a.g.item);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         if (aVar != null && getItem(i) != null && (alaLiveUserInfoData = getItem(i).avj) != null) {
-            aVar.fqd.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
-            aVar.fqd.fpU.setData(alaLiveUserInfoData);
+            aVar.fqo.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
+            aVar.fqo.fqf.setData(alaLiveUserInfoData);
         }
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -73,7 +73,7 @@ public class g extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private class a {
-        private CharmItemView fqd;
+        private CharmItemView fqo;
 
         private a() {
         }

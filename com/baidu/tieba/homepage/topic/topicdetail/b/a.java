@@ -14,48 +14,48 @@ import tbclient.ThreadInfo;
 public class a {
     public String dDW;
     public boolean hasMore;
-    public String igl;
-    public b igm;
-    private boolean ign;
-    private boolean igo = false;
+    public String igY;
+    public b igZ;
+    private boolean iha;
+    private boolean ihb = false;
     public List<o> mDataList;
     public String shareTitle;
     public long topicId;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.ign = false;
+            this.iha = false;
             if (dataRes.topic_info != null) {
                 this.topicId = dataRes.topic_info.topic_id.longValue();
                 this.dDW = dataRes.topic_info.topic_name;
                 this.shareTitle = dataRes.topic_info.share_title;
-                this.igl = dataRes.topic_info.share_pic;
-                this.igm = new b();
-                this.igm.a(dataRes.topic_info);
+                this.igY = dataRes.topic_info.share_pic;
+                this.igZ = new b();
+                this.igZ.a(dataRes.topic_info);
                 if (!StringUtils.isNull(dataRes.topic_info.topic_image)) {
-                    this.ign = true;
+                    this.iha = true;
                 }
             }
             if (dataRes.pk_module != null) {
-                this.igo = true;
-                this.ign = true;
-                if (this.igm == null) {
-                    this.igm = new b();
+                this.ihb = true;
+                this.iha = true;
+                if (this.igZ == null) {
+                    this.igZ = new b();
                 }
-                this.igm.a(dataRes.pk_module);
+                this.igZ.a(dataRes.pk_module);
             } else {
-                this.igo = false;
+                this.ihb = false;
             }
             if (dataRes.time_line != null) {
-                this.ign = true;
-                if (this.igm == null) {
-                    this.igm = new b();
+                this.iha = true;
+                if (this.igZ == null) {
+                    this.igZ = new b();
                 }
-                this.igm.a(dataRes.time_line);
+                this.igZ.a(dataRes.time_line);
             }
             this.mDataList = new ArrayList();
             if (!v.isEmpty(dataRes.special_topic)) {
-                this.ign = true;
+                this.iha = true;
                 int i = 1;
                 for (SpecialTopic specialTopic : dataRes.special_topic) {
                     if (specialTopic != null && !v.isEmpty(specialTopic.thread_list)) {
@@ -65,8 +65,8 @@ public class a {
                             if (threadInfo != null) {
                                 d dVar = new d();
                                 if (!z) {
-                                    dVar.igy = true;
-                                    dVar.igz = specialTopic.title;
+                                    dVar.ihl = true;
+                                    dVar.ihm = specialTopic.title;
                                     z = true;
                                 }
                                 dVar.index = i2;
@@ -80,15 +80,15 @@ public class a {
                     }
                 }
             }
-            if (this.ign) {
+            if (this.iha) {
                 com.baidu.tieba.homepage.topic.topictab.b.c cVar = new com.baidu.tieba.homepage.topic.topictab.b.c();
-                cVar.gTq = R.dimen.tbds78;
-                cVar.ihX = R.color.cp_bg_line_d;
+                cVar.gTB = R.dimen.tbds78;
+                cVar.iiK = R.color.cp_bg_line_d;
                 this.mDataList.add(cVar);
             }
             if (dataRes.relate_thread != null && !v.isEmpty(dataRes.relate_thread.thread_list)) {
                 com.baidu.tieba.homepage.topic.topictab.b.c cVar2 = new com.baidu.tieba.homepage.topic.topictab.b.c();
-                cVar2.gTq = R.dimen.tbds16;
+                cVar2.gTB = R.dimen.tbds16;
                 this.mDataList.add(cVar2);
                 this.hasMore = dataRes.relate_thread.has_more.intValue() == 1;
                 for (TopicThread topicThread : dataRes.relate_thread.thread_list) {
@@ -96,7 +96,7 @@ public class a {
                         c cVar3 = new c();
                         cVar3.a(topicThread);
                         cVar3.topicId = this.topicId;
-                        cVar3.igw = this.igo;
+                        cVar3.ihj = this.ihb;
                         this.mDataList.add(cVar3);
                     }
                 }
@@ -104,7 +104,7 @@ public class a {
         }
     }
 
-    public boolean cgI() {
-        return this.igo;
+    public boolean cgR() {
+        return this.ihb;
     }
 }

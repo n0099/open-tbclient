@@ -7,7 +7,7 @@ public interface e {
 
     void aT(boolean z);
 
-    void bD(int i);
+    void bF(int i);
 
     void hide();
 

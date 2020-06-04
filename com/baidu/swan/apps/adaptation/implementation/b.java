@@ -79,7 +79,7 @@ public class b implements com.baidu.swan.apps.adaptation.a.d {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean ee(int i) {
+    public boolean eg(int i) {
         return false;
     }
 

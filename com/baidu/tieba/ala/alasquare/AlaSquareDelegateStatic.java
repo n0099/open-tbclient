@@ -52,17 +52,17 @@ public class AlaSquareDelegateStatic {
     public static String Tag = "tag";
 
     static {
-        bqi();
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921353));
-        bqr();
-        bqs();
         bqk();
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921353));
+        bqt();
+        bqu();
+        bqm();
         TbadkCoreApplication.getInst().RegisterIntent(AlaLiveTabMyConcernActivityConfig.class, AlaLiveTabMyConcernActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AlaNewSquareSubListActivityConfig.class, AlaNewSquareSubListActivity.class);
-        bql();
-        bqm();
-        bqq();
         bqn();
+        bqo();
+        bqs();
+        bqp();
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_ADD_TAB) { // from class: com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -76,8 +76,8 @@ public class AlaSquareDelegateStatic {
                 }
             }
         });
-        bqo();
-        bqp();
+        bqq();
+        bqr();
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_ALA_GET_LIVE_FORUM_URL, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<String> run(CustomMessage customMessage) {
@@ -96,8 +96,8 @@ public class AlaSquareDelegateStatic {
         MessageManager.getInstance().registerTask(customMessageTask2);
     }
 
-    private static void bqi() {
-        ba.aUZ().a(new ba.a() { // from class: com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic.5
+    private static void bqk() {
+        ba.aVa().a(new ba.a() { // from class: com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic.5
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null || tbPageContext == null) {
@@ -110,7 +110,7 @@ public class AlaSquareDelegateStatic {
                 }
                 Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/video/square\\?tid=(\\d+)").matcher(lowerCase);
                 if (matcher.find()) {
-                    if (AlaSquareDelegateStatic.bqj()) {
+                    if (AlaSquareDelegateStatic.bql()) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(2).buildVideoThreadId(matcher.group(1))));
                         return 1;
                     }
@@ -122,11 +122,11 @@ public class AlaSquareDelegateStatic {
         });
     }
 
-    public static boolean bqj() {
+    public static boolean bql() {
         return true;
     }
 
-    private static void bqk() {
+    private static void bqm() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_TAB_LIVE_INFO);
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -136,7 +136,7 @@ public class AlaSquareDelegateStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bql() {
+    private static void bqn() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_NEW_SQUARE_SUB_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_NEW_SQUARE_SUB_LIVE_LIST);
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
@@ -146,7 +146,7 @@ public class AlaSquareDelegateStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bqm() {
+    private static void bqo() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GAME_LIVE_LIST);
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -157,7 +157,7 @@ public class AlaSquareDelegateStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bqn() {
+    private static void bqp() {
         CustomMessageTask customMessageTask = new CustomMessageTask(AlaCmdConfigCustom.CMD_ALA_ALL_LIVE_SIMPLE, new CustomMessageTask.CustomRunnable<IntentConfig>() { // from class: com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
@@ -171,7 +171,7 @@ public class AlaSquareDelegateStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bqo() {
+    private static void bqq() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_SPECIAL_LIVE_CONCERN_TAB);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -180,7 +180,7 @@ public class AlaSquareDelegateStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bqp() {
+    private static void bqr() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_SPECIAL_LIVE_RECOMMEND_TAB);
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
@@ -189,14 +189,14 @@ public class AlaSquareDelegateStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bqq() {
+    private static void bqs() {
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_TAB) { // from class: com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 e eVar;
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e) && (eVar = (e) customResponsedMessage.getData()) != null && !v.isEmpty(eVar.bUv())) {
-                    for (FrsTabInfo frsTabInfo : eVar.bUv()) {
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e) && (eVar = (e) customResponsedMessage.getData()) != null && !v.isEmpty(eVar.bUx())) {
+                    for (FrsTabInfo frsTabInfo : eVar.bUx()) {
                         if (frsTabInfo.tab_id.intValue() == 1120) {
                             AlaSquareDelegateStatic.b(eVar);
                         } else if (frsTabInfo.tab_id.intValue() == 1121) {
@@ -266,7 +266,7 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    private static void bqr() {
+    private static void bqt() {
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic.10
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -302,7 +302,7 @@ public class AlaSquareDelegateStatic {
         MessageManager.getInstance().registerListener(customMessageListener);
     }
 
-    private static void bqs() {
+    private static void bqu() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921399, new CustomMessageTask.CustomRunnable<BaseFragment>() { // from class: com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable

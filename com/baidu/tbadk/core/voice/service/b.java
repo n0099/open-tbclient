@@ -55,7 +55,7 @@ public class b {
             wc.setTotalLength(file.length());
         }
         this.dZP = new a(str, wc, TbConfig.SERVER_ADDRESS + this.dZR, md5);
-        this.dZQ = this.dZP.aXt();
+        this.dZQ = this.dZP.aXu();
         if (this.dZQ.isSuccess() && (a2 = a(md5, wc)) != null && !a2.equals("")) {
             AudioInfoData audioInfoData = new AudioInfoData();
             audioInfoData.parserJson(a2);
@@ -82,7 +82,7 @@ public class b {
             }
         }
         String postNetData = this.mNetwork.postNetData();
-        if (postNetData == null || !this.mNetwork.aUA().aVb().isRequestSuccess()) {
+        if (postNetData == null || !this.mNetwork.aUA().aVc().isRequestSuccess()) {
             lVar.setChunkNo((int) cp(lVar.getTotalLength()));
             com.baidu.tbadk.core.util.c.a(lVar);
             this.dZQ.setErrorCode(this.mNetwork.getServerErrorCode());
@@ -119,7 +119,7 @@ public class b {
             this.mVoiceMd5 = str3;
         }
 
-        public m aXt() throws IOException {
+        public m aXu() throws IOException {
             m mVar = new m();
             long totalLength = this.dZU.getTotalLength();
             long j = totalLength % 30720 == 0 ? totalLength / 30720 : (totalLength / 30720) + 1;
@@ -149,7 +149,7 @@ public class b {
                                 boolean z = false;
                                 if (this.dZV) {
                                     z = true;
-                                } else if (this.bth.postMultiNetData() == null || !this.bth.aUA().aVb().isRequestSuccess()) {
+                                } else if (this.bth.postMultiNetData() == null || !this.bth.aUA().aVc().isRequestSuccess()) {
                                     this.dZU.setChunkNo(i);
                                     com.baidu.tbadk.core.util.c.a(this.dZU);
                                     randomAccessFile.close();

@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class e implements AbsListView.OnScrollListener {
-    private a gXT;
-    private b gXV;
+    private a gYe;
+    private b gYg;
     private int mScrollState = -1;
-    private int gXU = 0;
+    private int gYf = 0;
 
     /* loaded from: classes9.dex */
     public interface b {
@@ -28,34 +28,34 @@ public class e implements AbsListView.OnScrollListener {
         View childAt;
         if (absListView != null && i >= 0 && absListView.getChildCount() > 0 && (childAt = absListView.getChildAt(0)) != null) {
             if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
-                if (this.gXU != 0 && this.gXV != null) {
-                    this.gXV.a(absListView, 0, -this.gXU);
+                if (this.gYf != 0 && this.gYg != null) {
+                    this.gYg.a(absListView, 0, -this.gYf);
                 }
-                this.gXU = 0;
-                this.gXT = null;
+                this.gYf = 0;
+                this.gYe = null;
                 return;
             }
             a aVar = new a(absListView, i);
-            if (this.gXT == null) {
-                this.gXT = aVar;
-                this.gXU = absListView.getPaddingTop() - childAt.getTop();
-                if (this.gXV != null) {
-                    this.gXV.a(absListView, this.gXU, 0);
+            if (this.gYe == null) {
+                this.gYe = aVar;
+                this.gYf = absListView.getPaddingTop() - childAt.getTop();
+                if (this.gYg != null) {
+                    this.gYg.a(absListView, this.gYf, 0);
                     return;
                 }
                 return;
             }
-            int a2 = this.gXT.a(aVar);
-            this.gXT = aVar;
-            this.gXU += a2;
-            if (this.gXV != null) {
-                this.gXV.a(absListView, this.gXU, a2);
+            int a2 = this.gYe.a(aVar);
+            this.gYe = aVar;
+            this.gYf += a2;
+            if (this.gYg != null) {
+                this.gYg.a(absListView, this.gYf, a2);
             }
         }
     }
 
     public void a(b bVar) {
-        this.gXV = bVar;
+        this.gYg = bVar;
     }
 
     /* loaded from: classes9.dex */

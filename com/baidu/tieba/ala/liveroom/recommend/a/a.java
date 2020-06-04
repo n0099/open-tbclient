@@ -28,14 +28,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends AbsDelegateAdapter<AlaRecommendLiveData, C0570a> {
-    private int gdw;
+    private int gdH;
 
     public a(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
     }
 
-    public void ry(int i) {
-        this.gdw = i;
+    public void rA(int i) {
+        this.gdH = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,18 +51,18 @@ public class a extends AbsDelegateAdapter<AlaRecommendLiveData, C0570a> {
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, AlaRecommendLiveData alaRecommendLiveData, C0570a c0570a) {
-        c0570a.a(alaRecommendLiveData, i, this.gdw);
+        c0570a.a(alaRecommendLiveData, i, this.gdH);
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.liveroom.recommend.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0570a extends TypeAdapter.ViewHolder {
-        private AlaRecommendLiveData gdA;
-        private int gdw;
-        private TbImageView gdx;
-        private TextView gdy;
-        private TextView gdz;
+        private int gdH;
+        private TbImageView gdI;
+        private TextView gdJ;
+        private TextView gdK;
+        private AlaRecommendLiveData gdL;
         private Context mContext;
         private int mPosition;
         private String mPrefix;
@@ -70,27 +70,27 @@ public class a extends AbsDelegateAdapter<AlaRecommendLiveData, C0570a> {
         private C0570a(View view, Context context) {
             super(view);
             this.mContext = context;
-            this.gdx = (TbImageView) view.findViewById(a.g.ala_recommend_live_bg);
-            this.gdy = (TextView) view.findViewById(a.g.ala_recommend_live_name);
-            this.gdz = (TextView) view.findViewById(a.g.ala_recommend_live_time);
+            this.gdI = (TbImageView) view.findViewById(a.g.ala_recommend_live_bg);
+            this.gdJ = (TextView) view.findViewById(a.g.ala_recommend_live_name);
+            this.gdK = (TextView) view.findViewById(a.g.ala_recommend_live_time);
             this.mPrefix = this.mContext.getResources().getString(a.i.recommend_live_start_until_now);
-            this.gdx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.recommend.a.a.a.1
+            this.gdI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.recommend.a.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     String str;
-                    if (C0570a.this.gdA != null) {
+                    if (C0570a.this.gdL != null) {
                         String str2 = "";
                         AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(C0570a.this.mContext);
-                        alaLiveRoomActivityConfig.addExtraByLiveId(C0570a.this.gdA.live_id, String.valueOf(C0570a.this.gdA.room_id), AlaLiveRoomActivityConfig.FROM_TYPE_RECOMMEND_LIVE);
+                        alaLiveRoomActivityConfig.addExtraByLiveId(C0570a.this.gdL.live_id, String.valueOf(C0570a.this.gdL.room_id), AlaLiveRoomActivityConfig.FROM_TYPE_RECOMMEND_LIVE);
                         try {
-                            if (C0570a.this.gdA.session_info != null) {
-                                str = C0570a.this.gdA.session_info.getFlvUrl(AlaLiveStreamSessionInfo.STREAM_LEVEL_DEFAULT);
+                            if (C0570a.this.gdL.session_info != null) {
+                                str = C0570a.this.gdL.session_info.getFlvUrl(AlaLiveStreamSessionInfo.STREAM_LEVEL_DEFAULT);
                             } else {
                                 str = "";
                             }
-                            String str3 = C0570a.this.gdA.cover;
-                            String valueOf = String.valueOf(C0570a.this.gdA.room_id);
-                            String valueOf2 = String.valueOf(C0570a.this.gdA.live_id);
+                            String str3 = C0570a.this.gdL.cover;
+                            String valueOf = String.valueOf(C0570a.this.gdL.room_id);
+                            String valueOf2 = String.valueOf(C0570a.this.gdL.live_id);
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("live_url", str);
                             jSONObject.put("cover", str3);
@@ -110,12 +110,12 @@ public class a extends AbsDelegateAdapter<AlaRecommendLiveData, C0570a> {
 
         public void a(AlaRecommendLiveData alaRecommendLiveData, int i, int i2) {
             if (alaRecommendLiveData != null) {
-                this.gdA = alaRecommendLiveData;
+                this.gdL = alaRecommendLiveData;
                 this.mPosition = i;
-                this.gdw = i2;
-                this.gdx.startLoad(alaRecommendLiveData.cover, 10, false);
+                this.gdH = i2;
+                this.gdI.startLoad(alaRecommendLiveData.cover, 10, false);
                 if (alaRecommendLiveData.type == 0) {
-                    this.gdy.setText(alaRecommendLiveData.getNameShow());
+                    this.gdJ.setText(alaRecommendLiveData.getNameShow());
                     long abs = Math.abs(System.currentTimeMillis() - (alaRecommendLiveData.start_time * 1000));
                     int ceil = (int) Math.ceil(((float) abs) / 3600000.0f);
                     int ceil2 = (int) Math.ceil(((float) (abs % BdKVCache.MILLS_1Hour)) / 60000.0f);
@@ -126,13 +126,13 @@ public class a extends AbsDelegateAdapter<AlaRecommendLiveData, C0570a> {
                     if (ceil2 > 0) {
                         sb.append(String.format(this.mContext.getResources().getString(a.i.recommend_live_start_until_now_minute), String.valueOf(ceil2)));
                     }
-                    this.gdz.setText(sb.toString());
+                    this.gdK.setText(sb.toString());
                 } else {
-                    this.gdy.setText(alaRecommendLiveData.getLiveTitle());
+                    this.gdJ.setText(alaRecommendLiveData.getLiveTitle());
                     if (!TextUtils.isEmpty(alaRecommendLiveData.distance)) {
-                        this.gdz.setText(alaRecommendLiveData.distance);
+                        this.gdK.setText(alaRecommendLiveData.distance);
                     } else {
-                        this.gdz.setText(String.format(this.mContext.getResources().getString(a.i.recommend_live_audience_count), StringHelper.formatValue(alaRecommendLiveData.audience_count)));
+                        this.gdK.setText(String.format(this.mContext.getResources().getString(a.i.recommend_live_audience_count), StringHelper.formatValue(alaRecommendLiveData.audience_count)));
                     }
                 }
                 D(UbcStatisticLiveKey.KEY_ID_1392, "show");
@@ -143,16 +143,16 @@ public class a extends AbsDelegateAdapter<AlaRecommendLiveData, C0570a> {
         public void D(String str, String str2) {
             int i;
             try {
-                if (this.gdA != null) {
+                if (this.gdL != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        JSONObject put = jSONObject.put("live_id", this.gdA.live_id).put("vid", this.gdA.feed_id).put("model", this.gdA.type == 0 ? "yourfollower" : "hotlive");
-                        if (this.gdA.type == 0) {
+                        JSONObject put = jSONObject.put("live_id", this.gdL.live_id).put("vid", this.gdL.feed_id).put("model", this.gdL.type == 0 ? "yourfollower" : "hotlive");
+                        if (this.gdL.type == 0) {
                             i = this.mPosition + 1;
                         } else {
-                            i = this.gdw > 0 ? (this.mPosition - this.gdw) - 1 : this.mPosition;
+                            i = this.gdH > 0 ? (this.mPosition - this.gdH) - 1 : this.mPosition;
                         }
-                        put.put("pos", i).put("nearby", (this.gdA.type != 1 || TextUtils.isEmpty(this.gdA.distance)) ? "0" : "1");
+                        put.put("pos", i).put("nearby", (this.gdL.type != 1 || TextUtils.isEmpty(this.gdL.distance)) ? "0" : "1");
                     } catch (JSONException e) {
                         BdLog.e(e);
                     }

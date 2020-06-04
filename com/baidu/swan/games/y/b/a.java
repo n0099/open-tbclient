@@ -52,7 +52,7 @@ public class a extends j {
             if (a.DEBUG) {
                 Log.e("SwanGameSubPkgDownload", "onDownloadError: " + aVar.toString());
             }
-            a.this.eY(2103);
+            a.this.fa(2103);
             com.baidu.swan.apps.core.pms.c.ZN().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.an.a().bw(12L).bx(aVar.errorNo).pr("分包下载失败").pt(aVar.toString()));
         }
 
@@ -93,7 +93,7 @@ public class a extends j {
         if (DEBUG) {
             Log.e("SwanGameSubPkgDownload", "onFetchError: " + aVar.toString());
         }
-        eY(2103);
+        fa(2103);
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -102,7 +102,7 @@ public class a extends j {
         if (DEBUG) {
             Log.i("SwanGameSubPkgDownload", "onNoPackage");
         }
-        eY(2102);
+        fa(2102);
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -116,7 +116,7 @@ public class a extends j {
             if (DEBUG) {
                 Log.e("SwanGameSubPkgDownload", "onDownloadFinish: 签名校验失败");
             }
-            eY(2104);
+            fa(2104);
             com.baidu.swan.apps.core.pms.c.ZN().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.an.a().bw(12L).bx(2300L).pr("分包签名校验"));
         } else if (com.baidu.swan.apps.core.pms.f.b.f(new File(gVar.filePath), new File(this.bYD, this.dcN))) {
             if (DEBUG) {
@@ -130,7 +130,7 @@ public class a extends j {
             if (DEBUG) {
                 Log.e("SwanGameSubPkgDownload", "onDownloadFinish: 解压失败");
             }
-            eY(2105);
+            fa(2105);
             com.baidu.swan.apps.core.pms.c.ZN().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.an.a().bw(12L).bx(2320L).pr("分包解压失败"));
         }
     }
@@ -145,15 +145,15 @@ public class a extends j {
 
             @Override // com.baidu.swan.apps.core.pms.c.b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.an.a aVar) {
-                a.this.eY(2103);
+                a.this.fa(2103);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eY(int i) {
+    public void fa(int i) {
         if (this.dcM != null) {
-            this.dcM.ej(i);
+            this.dcM.el(i);
         }
     }
 
@@ -168,7 +168,7 @@ public class a extends j {
     public void r(long j, long j2) {
         if (this.dcM != null) {
             if (j2 <= 0 || j > j2) {
-                eY(2114);
+                fa(2114);
                 return;
             }
             int floor = (int) Math.floor((j * 100.0d) / j2);

@@ -148,14 +148,14 @@ public final class f implements e.b {
 
     public void h(SwanAppActivity swanAppActivity) {
         if (swanAppActivity != null && !ahW()) {
-            fG(swanAppActivity.Qz());
+            fI(swanAppActivity.Qz());
         }
         if (ahW()) {
             this.ciD.h(swanAppActivity);
         }
     }
 
-    public void fG(int i) {
+    public void fI(int i) {
         if (!ahW()) {
             switch (i) {
                 case 0:
@@ -272,8 +272,8 @@ public final class f implements e.b {
     }
 
     @Override // com.baidu.swan.apps.w.e.b
-    public void fF(int i) {
-        this.ciD.fF(i);
+    public void fH(int i) {
+        this.ciD.fH(i);
     }
 
     public void showLoadingView() {

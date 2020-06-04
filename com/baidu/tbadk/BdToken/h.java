@@ -10,7 +10,7 @@ public abstract class h {
         this.dvR = bVar;
     }
 
-    public synchronized void jT(int i) {
+    public synchronized void jV(int i) {
         this.dvS += i;
     }
 
@@ -38,7 +38,7 @@ public abstract class h {
         return this.mTag;
     }
 
-    public void jQ(int i) {
+    public void jS(int i) {
         this.mTag = i;
     }
 }

@@ -6,32 +6,32 @@ public class b {
     private int bfa;
     private int bfc;
     private int column;
-    private EmotionGroupType gNo;
-    private int gNp;
-    private int gNq;
-    private com.baidu.tbadk.editortools.emotiontool.c gNr;
-    private int gNs;
-    private int gNt;
+    private int gNA;
+    private int gNB;
+    private com.baidu.tbadk.editortools.emotiontool.c gNC;
+    private int gND;
+    private int gNE;
+    private EmotionGroupType gNz;
     private int index;
     private int row;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.gNr = cVar;
+        this.gNC = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c bNA() {
-        return this.gNr;
+    public com.baidu.tbadk.editortools.emotiontool.c bNC() {
+        return this.gNC;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.gNo = emotionGroupType;
+        this.gNz = emotionGroupType;
     }
 
-    public EmotionGroupType bNB() {
-        return this.gNo;
+    public EmotionGroupType bND() {
+        return this.gNz;
     }
 
-    public void no(int i) {
+    public void nq(int i) {
         this.row = i;
     }
 
@@ -43,43 +43,43 @@ public class b {
         this.column = i;
     }
 
-    public int bNC() {
+    public int bNE() {
         return this.column;
     }
 
-    public void sC(int i) {
-        this.gNt = i;
-    }
-
-    public int bND() {
-        return this.gNt;
-    }
-
-    public void sD(int i) {
-        this.gNs = i;
-    }
-
-    public int bNE() {
-        return this.gNs;
-    }
-
     public void sE(int i) {
-        this.gNp = i;
+        this.gNE = i;
     }
 
     public int bNF() {
-        return this.gNp;
+        return this.gNE;
     }
 
     public void sF(int i) {
-        this.bfa = i;
+        this.gND = i;
     }
 
     public int bNG() {
-        return this.bfa;
+        return this.gND;
     }
 
     public void sG(int i) {
+        this.gNA = i;
+    }
+
+    public int bNH() {
+        return this.gNA;
+    }
+
+    public void sH(int i) {
+        this.bfa = i;
+    }
+
+    public int bNI() {
+        return this.bfa;
+    }
+
+    public void sI(int i) {
         this.bfc = i;
     }
 
@@ -91,11 +91,11 @@ public class b {
         return this.index;
     }
 
-    public void sH(int i) {
-        this.gNq = i;
+    public void sJ(int i) {
+        this.gNB = i;
     }
 
-    public int bNH() {
-        return this.gNq;
+    public int bNJ() {
+        return this.gNB;
     }
 }

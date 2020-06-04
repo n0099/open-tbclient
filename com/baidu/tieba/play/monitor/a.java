@@ -11,17 +11,17 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a implements e.a {
     private String ais;
-    private i kyk;
-    private String kyz;
+    private String kzF;
+    private i kzq;
 
     public a(String str, String str2, i iVar) {
         this.ais = str;
-        this.kyz = str2;
-        this.kyk = iVar;
+        this.kzF = str2;
+        this.kzq = iVar;
     }
 
     @Override // com.baidu.tieba.k.e.a
-    public void zx(int i) {
+    public void zz(int i) {
         if (i == 1) {
             an anVar = new an("c12620");
             anVar.ag("obj_locate", 1);
@@ -29,10 +29,10 @@ public class a implements e.a {
             TiebaStatic.log(anVar);
             HttpMessage httpMessage = new HttpMessage(1003388);
             httpMessage.addParam("thread_id", this.ais);
-            httpMessage.addParam("video_url", this.kyz);
+            httpMessage.addParam("video_url", this.kzF);
             MessageManager.getInstance().sendMessage(httpMessage);
-            if (this.kyk != null) {
-                this.kyk.a(new com.baidu.tieba.k.b() { // from class: com.baidu.tieba.play.monitor.a.1
+            if (this.kzq != null) {
+                this.kzq.a(new com.baidu.tieba.k.b() { // from class: com.baidu.tieba.play.monitor.a.1
                     @Override // com.baidu.tieba.k.b
                     public void dr(JSONObject jSONObject) throws JSONException {
                     }
@@ -57,8 +57,8 @@ public class a implements e.a {
         anVar.ag("obj_param1", z ? 1 : 0);
         anVar.dh("tid", this.ais);
         TiebaStatic.log(anVar);
-        if (this.kyk != null) {
-            this.kyk.a(new com.baidu.tieba.k.b() { // from class: com.baidu.tieba.play.monitor.a.2
+        if (this.kzq != null) {
+            this.kzq.a(new com.baidu.tieba.k.b() { // from class: com.baidu.tieba.play.monitor.a.2
                 @Override // com.baidu.tieba.k.b
                 public void dr(JSONObject jSONObject) throws JSONException {
                 }

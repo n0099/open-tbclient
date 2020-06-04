@@ -56,10 +56,10 @@ public class AlaBannerRecyclerView extends RecyclerView {
 
     @Override // android.support.v7.widget.RecyclerView
     public boolean fling(int i, int i2) {
-        return super.fling(pR(i), pR(i2));
+        return super.fling(pT(i), pT(i2));
     }
 
-    private int pR(int i) {
+    private int pT(int i) {
         return i > 0 ? Math.min(i, 3000) : Math.max(i, -3000);
     }
 }

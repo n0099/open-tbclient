@@ -30,7 +30,7 @@ public class a extends com.baidu.tbadk.core.dialog.a {
     public a(Activity activity) {
         super(activity);
         initView();
-        kG(3);
+        kI(3);
         gW(false);
         gX(false);
         setAutoNight(false);

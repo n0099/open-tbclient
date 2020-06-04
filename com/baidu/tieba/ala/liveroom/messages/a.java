@@ -5,8 +5,8 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 public class a extends HttpMessage {
     private String aWu;
     private long aWv;
-    private double fZF;
-    private double fZG;
+    private double fZQ;
+    private double fZR;
     private String mForumName;
     private String roomId;
     private String uk;
@@ -16,8 +16,8 @@ public class a extends HttpMessage {
     }
 
     public void c(double d, double d2) {
-        this.fZF = d;
-        this.fZG = d2;
+        this.fZQ = d;
+        this.fZR = d2;
     }
 
     public void vA(String str) {
@@ -54,7 +54,7 @@ public class a extends HttpMessage {
         addParam("from_type", this.aWu);
         addParam("uk", this.uk);
         addParam("forum_name", this.mForumName);
-        addParam("lng", this.fZF);
-        addParam("lat", this.fZG);
+        addParam("lng", this.fZQ);
+        addParam("lat", this.fZR);
     }
 }

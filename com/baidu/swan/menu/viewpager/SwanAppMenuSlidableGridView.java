@@ -52,7 +52,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
     protected void dt(Context context) {
-        this.dkj = new com.baidu.swan.menu.viewpager.a(context).au(g.c.menu_indicator_normal, g.c.menu_indicator_selected).iX((int) getResources().getDimension(g.b.common_grid_indicator_margin));
+        this.dkj = new com.baidu.swan.menu.viewpager.a(context).au(g.c.menu_indicator_normal, g.c.menu_indicator_selected).iZ((int) getResources().getDimension(g.b.common_grid_indicator_margin));
         this.dkk[0] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
         this.dkk[1] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
         addView(this.dkj, aFh());
@@ -74,7 +74,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
             return;
         }
         this.dkj.setVisibility(0);
-        this.dkj.iW(pageCount);
+        this.dkj.iY(pageCount);
         this.dkj.getLayoutParams().height = i;
     }
 }

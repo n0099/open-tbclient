@@ -9,22 +9,22 @@ import tbclient.NewTopicList.NewTopicList;
 import tbclient.TopicModule;
 /* loaded from: classes9.dex */
 public class a extends com.baidu.tieba.card.data.c {
-    public static final BdUniqueId ihI = BdUniqueId.gen();
-    public static final BdUniqueId ihJ = BdUniqueId.gen();
+    public static final BdUniqueId iiv = BdUniqueId.gen();
+    public static final BdUniqueId iiw = BdUniqueId.gen();
     private bk ahg;
     public String dDW;
     public long dDX;
     public String dDY;
     public int from = 0;
-    public String igp;
-    public b ihK;
-    public PostData ihL;
+    public String ihc;
+    public b iix;
+    public PostData iiy;
     public int index;
     public long topicId;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return this.from == 0 ? ihI : ihJ;
+        return this.from == 0 ? iiv : iiw;
     }
 
     public static boolean ac(bk bkVar) {
@@ -37,16 +37,16 @@ public class a extends com.baidu.tieba.card.data.c {
             this.dDW = newTopicList.topic_name;
             this.dDY = newTopicList.topic_desc;
             this.dDX = newTopicList.discuss_num.longValue();
-            this.igp = newTopicList.topic_image;
+            this.ihc = newTopicList.topic_image;
             if (newTopicList.pk_module != null && newTopicList.pk_module.agree != null && newTopicList.pk_module.disagree != null) {
-                this.ihK = new b();
-                this.ihK.topicId = this.topicId;
-                this.ihK.from = 1;
-                this.ihK.a(newTopicList.pk_module);
+                this.iix = new b();
+                this.iix.topicId = this.topicId;
+                this.iix.from = 1;
+                this.iix.a(newTopicList.pk_module);
             }
             if (newTopicList.top_agree_post != null) {
-                this.ihL = new PostData();
-                this.ihL.a(newTopicList.top_agree_post, TbadkCoreApplication.getInst());
+                this.iiy = new PostData();
+                this.iiy.a(newTopicList.top_agree_post, TbadkCoreApplication.getInst());
             }
         }
     }
@@ -56,12 +56,12 @@ public class a extends com.baidu.tieba.card.data.c {
             this.topicId = topicModule.topic_id.longValue();
             this.dDW = topicModule.topic_name;
             this.dDY = topicModule.topic_desc;
-            this.igp = topicModule.topic_image;
+            this.ihc = topicModule.topic_image;
             if (topicModule.pk_module != null && topicModule.pk_module.agree != null && topicModule.pk_module.disagree != null) {
-                this.ihK = new b();
-                this.ihK.topicId = this.topicId;
-                this.ihK.from = 3;
-                this.ihK.a(topicModule.pk_module);
+                this.iix = new b();
+                this.iix.topicId = this.topicId;
+                this.iix.from = 3;
+                this.iix.a(topicModule.pk_module);
             }
         }
     }

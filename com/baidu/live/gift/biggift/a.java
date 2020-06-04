@@ -48,7 +48,7 @@ public class a {
         }
 
         @Override // com.baidu.live.gift.biggift.b
-        public void bN(int i) {
+        public void bP(int i) {
         }
 
         @Override // com.baidu.live.gift.biggift.b

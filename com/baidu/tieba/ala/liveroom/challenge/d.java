@@ -12,7 +12,7 @@ import java.util.List;
 @Deprecated
 /* loaded from: classes3.dex */
 public class d {
-    public static void bzA() {
+    public static void bzC() {
         String str = com.baidu.live.v.a.Ge().aWF.axR;
         String str2 = com.baidu.live.v.a.Ge().aWF.axQ;
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {

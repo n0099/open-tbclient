@@ -56,7 +56,7 @@ public class c {
             return this;
         }
 
-        public c bpD() {
+        public c bpF() {
             return new c(this.mUri, this.mFolder, this.mName, this.mDescription);
         }
     }

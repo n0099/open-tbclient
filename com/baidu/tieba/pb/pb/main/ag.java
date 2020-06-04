@@ -1,21 +1,21 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes9.dex */
 public class ag {
-    public boolean jPl;
-    public boolean jPw;
-    public boolean jPi = false;
-    public boolean jPj = false;
-    public boolean jPk = false;
-    public boolean jPm = false;
-    public boolean jPn = false;
-    public boolean jPo = false;
-    public boolean jPp = false;
-    public boolean jPq = false;
-    public boolean jPr = false;
-    public boolean jPs = false;
+    public boolean jQC;
+    public boolean jQr;
+    public boolean jQo = false;
+    public boolean jQp = false;
+    public boolean jQq = false;
+    public boolean jQs = false;
+    public boolean jQt = false;
+    public boolean jQu = false;
+    public boolean jQv = false;
+    public boolean jQw = false;
+    public boolean jQx = false;
+    public boolean jQy = false;
     public boolean isHostOnly = false;
-    public boolean jPt = false;
+    public boolean jQz = false;
     public boolean DC = false;
-    public boolean jPu = false;
-    public boolean jPv = false;
+    public boolean jQA = false;
+    public boolean jQB = false;
 }

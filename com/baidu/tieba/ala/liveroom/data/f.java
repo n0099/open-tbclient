@@ -7,63 +7,63 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
 /* loaded from: classes3.dex */
 public class f {
-    public AlaLiveRecorder fTB;
-    public FrameLayout fTC;
-    public com.baidu.tieba.ala.liveroom.master.a.d fTD;
-    public com.baidu.live.ar.f fTE;
-    public AlaLiveRecorderPerfData fTF;
-    public com.baidu.live.tieba.e.b fTG;
-    public com.baidu.live.liveroom.middleware.a fTH;
-    public com.baidu.tieba.ala.liveroom.m.c fTb;
-    public AlaLiveView fTc;
+    public AlaLiveRecorder fTM;
+    public FrameLayout fTN;
+    public com.baidu.tieba.ala.liveroom.master.a.d fTO;
+    public com.baidu.live.ar.f fTP;
+    public AlaLiveRecorderPerfData fTQ;
+    public com.baidu.live.tieba.e.b fTR;
+    public com.baidu.live.liveroom.middleware.a fTS;
+    public com.baidu.tieba.ala.liveroom.m.c fTm;
+    public AlaLiveView fTn;
     private int liveType;
     public TbPageContext pageContext;
     public ViewGroup rootView;
 
-    public int bBg() {
+    public int bBi() {
         return this.liveType;
     }
 
-    public void qT(int i) {
+    public void qV(int i) {
         this.liveType = i;
-        if (this.fTD != null) {
-            this.fTD.rr(i);
+        if (this.fTO != null) {
+            this.fTO.rt(i);
         }
     }
 
     public void f(short s) {
-        if (this.fTD != null) {
-            this.fTD.f(s);
+        if (this.fTO != null) {
+            this.fTO.f(s);
         }
     }
 
     public void Jh() {
-        if (this.fTD != null) {
-            this.fTD.Jh();
+        if (this.fTO != null) {
+            this.fTO.Jh();
         }
     }
 
     public void aKz() {
-        if (this.fTD != null) {
-            this.fTD.aKz();
-        }
-    }
-
-    public void bBh() {
-        if (this.fTD != null) {
-            this.fTD.bBh();
-        }
-    }
-
-    public void bBi() {
-        if (this.fTD != null) {
-            this.fTD.bBi();
+        if (this.fTO != null) {
+            this.fTO.aKz();
         }
     }
 
     public void bBj() {
-        if (this.fTD != null) {
-            this.fTD.bBj();
+        if (this.fTO != null) {
+            this.fTO.bBj();
+        }
+    }
+
+    public void bBk() {
+        if (this.fTO != null) {
+            this.fTO.bBk();
+        }
+    }
+
+    public void bBl() {
+        if (this.fTO != null) {
+            this.fTO.bBl();
         }
     }
 }

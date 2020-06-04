@@ -4,22 +4,22 @@ import android.content.Context;
 import com.baidu.tieba.write.a;
 /* loaded from: classes.dex */
 public class f extends h {
-    private a.C0746a lQC;
+    private a.C0747a lRN;
 
-    public f(Context context, a.C0746a c0746a) {
-        super(context, c0746a);
-        this.lQC = c0746a;
+    public f(Context context, a.C0747a c0747a) {
+        super(context, c0747a);
+        this.lRN = c0747a;
     }
 
     @Override // com.baidu.tieba.write.h
-    public void dmo() {
+    public void dmD() {
         if (this.mState == 4) {
             this.mState = 1;
             this.mState = 2;
-            if (this.lQI != null) {
-                this.lQI.El(this.mState);
+            if (this.lRT != null) {
+                this.lRT.En(this.mState);
             }
-            dml();
+            dmA();
         }
     }
 
@@ -27,35 +27,35 @@ public class f extends h {
     public void aiD() {
         if (this.mState == 2) {
             this.mState = 3;
-            if (this.lQI != null) {
-                this.lQI.El(this.mState);
+            if (this.lRT != null) {
+                this.lRT.En(this.mState);
             }
-            dmn();
+            dmC();
         }
     }
 
     @Override // com.baidu.tieba.write.h
-    public void dmp() {
-        dmn();
+    public void dmE() {
+        dmC();
     }
 
     @Override // com.baidu.tieba.write.h
     public void onDestroy() {
     }
 
-    private void dml() {
-        this.lQC.deP.setClickable(true);
+    private void dmA() {
+        this.lRN.deP.setClickable(true);
         this.mState = 2;
-        if (this.lQI != null) {
-            this.lQI.El(this.mState);
+        if (this.lRT != null) {
+            this.lRT.En(this.mState);
         }
     }
 
-    private void dmn() {
-        this.lQC.deP.setClickable(false);
+    private void dmC() {
+        this.lRN.deP.setClickable(false);
         this.mState = 4;
-        if (this.lQI != null) {
-            this.lQI.El(this.mState);
+        if (this.lRT != null) {
+            this.lRT.En(this.mState);
         }
     }
 }

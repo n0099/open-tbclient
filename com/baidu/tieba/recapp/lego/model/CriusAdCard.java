@@ -40,8 +40,8 @@ public class CriusAdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILego
         if (optJSONObject != null) {
             this.criusData = new a(TbadkCoreApplication.getInst(), optJSONObject, this.businessConverter, true);
             this.chargeInfo = new AdCard.a();
-            this.chargeInfo.kKH = jSONObject.optString("charge_style", "cpc");
-            this.chargeInfo.kKI = jSONObject.optString("charge_url");
+            this.chargeInfo.kLQ = jSONObject.optString("charge_style", "cpc");
+            this.chargeInfo.kLR = jSONObject.optString("charge_url");
             this.tailFrame = new AdCard.f();
             this.tailFrame.parseFromJson(jSONObject.optJSONObject("tail_frame"));
             this.directDownload = jSONObject.optInt("direct_download_switch", 1) == 1;

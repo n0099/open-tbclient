@@ -38,16 +38,16 @@ public class h {
             if (view != h.this.bdz && view == h.this.bdy && h.this.bdx != null && h.this.bdi != null && h.this.bdw != null) {
                 if (h.this.bdi.Hz()) {
                     h.this.bdw.showToast(a.i.sdk_ph_album_choose_switch_tip);
-                } else if (h.this.bdx.dk(h.this.mCurrentIndex)) {
-                    ImageFileInfo dj = h.this.bdx.dj(h.this.mCurrentIndex);
-                    if (h.this.bdi.isAdded(dj)) {
-                        if (h.this.bdw.b(dj)) {
+                } else if (h.this.bdx.dm(h.this.mCurrentIndex)) {
+                    ImageFileInfo dl = h.this.bdx.dl(h.this.mCurrentIndex);
+                    if (h.this.bdi.isAdded(dl)) {
+                        if (h.this.bdw.b(dl)) {
                             h.this.a(h.this.bdy, false);
-                            h.this.bdw.a(dj, false);
+                            h.this.bdw.a(dl, false);
                         }
-                    } else if (h.this.bdw.a(dj)) {
+                    } else if (h.this.bdw.a(dl)) {
                         h.this.a(h.this.bdy, true);
-                        h.this.bdw.a(dj, true);
+                        h.this.bdw.a(dl, true);
                     }
                     h.this.Hm();
                 }
@@ -59,13 +59,13 @@ public class h {
         public void onPageSelected(int i) {
             h.this.mCurrentIndex = i;
             if (h.this.bdx != null && h.this.bdi != null) {
-                ImageFileInfo dj = h.this.bdx.dj(h.this.mCurrentIndex);
-                if (h.this.bdi.isAdded(dj)) {
+                ImageFileInfo dl = h.this.bdx.dl(h.this.mCurrentIndex);
+                if (h.this.bdi.isAdded(dl)) {
                     h.this.a(h.this.bdy, true);
                 } else {
                     h.this.a(h.this.bdy, false);
                 }
-                if (dj == null || !dj.isGif()) {
+                if (dl == null || !dl.isGif()) {
                     h.this.bdB.setVisibility(0);
                 } else {
                     h.this.bdB.setVisibility(8);
@@ -182,8 +182,8 @@ public class h {
     }
 
     public void c(ImageFileInfo imageFileInfo, boolean z) {
-        ImageFileInfo dj;
-        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.bdx != null && (dj = this.bdx.dj(this.mCurrentIndex)) != null && dj.getFilePath() != null && dj.getFilePath().equals(imageFileInfo.getFilePath())) {
+        ImageFileInfo dl;
+        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.bdx != null && (dl = this.bdx.dl(this.mCurrentIndex)) != null && dl.getFilePath() != null && dl.getFilePath().equals(imageFileInfo.getFilePath())) {
             a(this.bdy, z);
         }
     }
@@ -202,8 +202,8 @@ public class h {
         long j;
         if (this.bdw != null && this.bdB != null) {
             if (this.bdx != null) {
-                ImageFileInfo dj = this.bdx.dj(this.mCurrentIndex);
-                j = dj != null ? FileHelper.getFileSize(dj.getFilePath()) : 0L;
+                ImageFileInfo dl = this.bdx.dl(this.mCurrentIndex);
+                j = dl != null ? FileHelper.getFileSize(dl.getFilePath()) : 0L;
             } else {
                 j = 0;
             }

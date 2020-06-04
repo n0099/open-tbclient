@@ -14,7 +14,7 @@ import java.util.concurrent.Future;
 /* loaded from: classes12.dex */
 public class u extends c<t> {
     private final ExecutorService mExecutorService;
-    private int mwa;
+    private int mxk;
 
     public u() {
         this(Executors.newFixedThreadPool(3));
@@ -22,7 +22,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.mwa = i;
+        this.mxk = i;
     }
 
     u(ExecutorService executorService) {
@@ -42,11 +42,11 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.dBv().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.dBJ().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dxA() {
+            public void dxO() {
                 if (submit.cancel(false)) {
-                    aVar.dum();
+                    aVar.duA();
                 }
             }
         });
@@ -133,10 +133,10 @@ public class u extends c<t> {
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
         HttpURLConnection W = W(uri);
-        W.setConnectTimeout(this.mwa);
+        W.setConnectTimeout(this.mxk);
         int responseCode = W.getResponseCode();
-        if (!Ig(responseCode)) {
-            if (Ih(responseCode)) {
+        if (!Ii(responseCode)) {
+            if (Ij(responseCode)) {
                 String headerField = W.getHeaderField(Headers.LOCATION);
                 W.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
@@ -156,11 +156,11 @@ public class u extends c<t> {
         return (HttpURLConnection) com.facebook.common.util.d.H(uri).openConnection();
     }
 
-    private static boolean Ig(int i) {
+    private static boolean Ii(int i) {
         return i >= 200 && i < 300;
     }
 
-    private static boolean Ih(int i) {
+    private static boolean Ij(int i) {
         switch (i) {
             case 300:
             case 301:

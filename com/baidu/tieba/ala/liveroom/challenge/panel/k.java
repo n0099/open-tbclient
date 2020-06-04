@@ -3,17 +3,17 @@ package com.baidu.tieba.ala.liveroom.challenge.panel;
 public interface k {
     void V(long j);
 
-    void bAh();
-
-    void bAi();
-
     void bAj();
 
     void bAk();
 
     void bAl();
 
-    void bF(int i);
+    void bAm();
+
+    void bAn();
+
+    void bH(int i);
 
     void bx(int i, int i2);
 

@@ -26,9 +26,9 @@ public class AlaActiveWebView extends FrameLayout implements c {
     private CommonWebView bjW;
     private List<String> bjX;
     private SchemeCallback bjZ;
-    private a fJl;
-    private boolean fJm;
-    private ImageView fJn;
+    private a fJw;
+    private boolean fJx;
+    private ImageView fJy;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -56,7 +56,7 @@ public class AlaActiveWebView extends FrameLayout implements c {
     }
 
     public void setCallback(a aVar) {
-        this.fJl = aVar;
+        this.fJw = aVar;
     }
 
     public void addJavascriptInterface(Object obj, String str) {
@@ -77,8 +77,8 @@ public class AlaActiveWebView extends FrameLayout implements c {
         return this.bjW != null ? this.bjW.getOriginalUrl() : "";
     }
 
-    public boolean bxu() {
-        return this.fJm;
+    public boolean bxw() {
+        return this.fJx;
     }
 
     @RequiresApi(19)
@@ -107,8 +107,8 @@ public class AlaActiveWebView extends FrameLayout implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void release() {
-        this.fJl = null;
-        this.fJm = false;
+        this.fJw = null;
+        this.fJx = false;
         removeAllViews();
         if (this.bjW != null) {
             if (this.bjX != null) {
@@ -126,7 +126,7 @@ public class AlaActiveWebView extends FrameLayout implements c {
     }
 
     private void init() {
-        this.fJm = false;
+        this.fJx = false;
         setBackgroundColor(0);
         this.bjW = new CommonWebView(getContext());
         this.bjW.setVerticalScrollEnabled(false);
@@ -135,8 +135,8 @@ public class AlaActiveWebView extends FrameLayout implements c {
             @Override // android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
-                if (AlaActiveWebView.this.fJn != null) {
-                    AlaActiveWebView.this.fJn.setVisibility(8);
+                if (AlaActiveWebView.this.fJy != null) {
+                    AlaActiveWebView.this.fJy.setVisibility(8);
                 }
             }
 
@@ -148,9 +148,9 @@ public class AlaActiveWebView extends FrameLayout implements c {
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // android.webkit.ValueCallback
                         public void onReceiveValue(String str2) {
-                            AlaActiveWebView.this.fJm = Boolean.valueOf(str2).booleanValue();
-                            if (AlaActiveWebView.this.fJl != null) {
-                                AlaActiveWebView.this.fJl.kk(Boolean.valueOf(str2).booleanValue());
+                            AlaActiveWebView.this.fJx = Boolean.valueOf(str2).booleanValue();
+                            if (AlaActiveWebView.this.fJw != null) {
+                                AlaActiveWebView.this.fJw.kk(Boolean.valueOf(str2).booleanValue());
                             }
                         }
                     });
@@ -161,7 +161,7 @@ public class AlaActiveWebView extends FrameLayout implements c {
             public void onReceivedError(WebView webView, int i, String str, String str2) {
                 super.onReceivedError(webView, i, str, str2);
                 if (Build.VERSION.SDK_INT < 23) {
-                    AlaActiveWebView.this.bxv();
+                    AlaActiveWebView.this.bxx();
                 }
             }
 
@@ -170,7 +170,7 @@ public class AlaActiveWebView extends FrameLayout implements c {
             public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
                 super.onReceivedError(webView, webResourceRequest, webResourceError);
                 if (webResourceRequest.isForMainFrame()) {
-                    AlaActiveWebView.this.bxv();
+                    AlaActiveWebView.this.bxx();
                 }
             }
         });
@@ -181,12 +181,12 @@ public class AlaActiveWebView extends FrameLayout implements c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bxv() {
-        if (this.fJn == null) {
-            this.fJn = new ImageView(getContext());
-            this.fJn.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.fJn.setImageResource(a.f.icon_live_active_web_error);
-            this.fJn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveWebView.2
+    public void bxx() {
+        if (this.fJy == null) {
+            this.fJy = new ImageView(getContext());
+            this.fJy.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.fJy.setImageResource(a.f.icon_live_active_web_error);
+            this.fJy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveWebView.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (AlaActiveWebView.this.bjW != null) {
@@ -198,9 +198,9 @@ public class AlaActiveWebView extends FrameLayout implements c {
                     }
                 }
             });
-            addView(this.fJn, new FrameLayout.LayoutParams(-1, -1));
+            addView(this.fJy, new FrameLayout.LayoutParams(-1, -1));
         }
-        this.fJn.setVisibility(0);
+        this.fJy.setVisibility(0);
     }
 
     public SchemeCallback getSchemeCallback() {

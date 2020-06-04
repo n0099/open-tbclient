@@ -11,42 +11,42 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class e {
     private List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
-    private HTypeListView kjH;
-    private c kjI;
-    private b kjJ;
-    private a kjK;
+    private HTypeListView kkN;
+    private c kkO;
+    private b kkP;
+    private a kkQ;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.kjH = hTypeListView;
+        this.kkN = hTypeListView;
         CY();
     }
 
     private void CY() {
-        this.kjI = new c(this.mTbPageContext, m.afZ);
-        this.kjJ = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.kjS);
-        this.kjK = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.kjx);
-        this.aSj.add(this.kjI);
-        this.aSj.add(this.kjJ);
-        this.aSj.add(this.kjK);
-        this.kjH.addAdapters(this.aSj);
+        this.kkO = new c(this.mTbPageContext, m.afZ);
+        this.kkP = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.kkY);
+        this.kkQ = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.kkD);
+        this.aSj.add(this.kkO);
+        this.aSj.add(this.kkP);
+        this.aSj.add(this.kkQ);
+        this.kkN.addAdapters(this.aSj);
     }
 
     public void setDatas(List<o> list) {
-        if (this.kjH != null) {
-            this.kjH.setData(list);
+        if (this.kkN != null) {
+            this.kkN.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.kjH != null && (this.kjH.getAdapter() instanceof aa)) {
-            ((aa) this.kjH.getAdapter()).notifyDataSetChanged();
+        if (this.kkN != null && (this.kkN.getAdapter() instanceof aa)) {
+            ((aa) this.kkN.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.kjI.D(onClickListener);
-        this.kjJ.D(onClickListener);
+        this.kkO.D(onClickListener);
+        this.kkP.D(onClickListener);
     }
 }

@@ -38,17 +38,13 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
     bk aee;
-    private NavigationBarCoverTip gKl;
-    private View gKm;
-    private TextView gKn;
-    private TextView gKo;
-    private com.baidu.tbadk.core.view.a gKp;
-    private boolean gKq = false;
-    private boolean gKr = false;
-    private final com.baidu.adp.framework.listener.a gKs = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.c.g.1
+    private com.baidu.tbadk.core.view.a gKA;
+    private boolean gKB = false;
+    private boolean gKC = false;
+    private final com.baidu.adp.framework.listener.a gKD = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.c.g.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            g.this.bGf();
+            g.this.bGh();
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                 GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                 g.this.a(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
@@ -58,6 +54,10 @@ public class g implements View.OnClickListener {
             }
         }
     };
+    private NavigationBarCoverTip gKw;
+    private View gKx;
+    private TextView gKy;
+    private TextView gKz;
     private Activity mActivity;
     private TbPageContext mPageContext;
     private long postId;
@@ -66,76 +66,76 @@ public class g implements View.OnClickListener {
     public g(TbPageContext tbPageContext, NavigationBarCoverTip navigationBarCoverTip) {
         this.mActivity = tbPageContext.getPageActivity();
         this.mPageContext = tbPageContext;
-        this.gKl = navigationBarCoverTip;
-        this.gKs.setTag(tbPageContext.getUniqueId());
-        this.gKs.getHttpMessageListener().setSelfListener(true);
-        this.gKs.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.gKs);
+        this.gKw = navigationBarCoverTip;
+        this.gKD.setTag(tbPageContext.getUniqueId());
+        this.gKD.getHttpMessageListener().setSelfListener(true);
+        this.gKD.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.gKD);
     }
 
     public void mb(boolean z) {
-        this.gKq = z;
+        this.gKB = z;
     }
 
     public void b(PostWriteCallBackData postWriteCallBackData) {
-        if (postWriteCallBackData != null && this.gKl != null) {
+        if (postWriteCallBackData != null && this.gKw != null) {
             this.postId = com.baidu.adp.lib.f.b.toLong(postWriteCallBackData.getPostId(), 0L);
             this.threadId = com.baidu.adp.lib.f.b.toLong(postWriteCallBackData.getThreadId(), 0L);
             if (this.postId != 0 && this.threadId != 0) {
-                this.gKr = false;
-                if (this.gKm == null) {
-                    this.gKm = View.inflate(this.mActivity, R.layout.write_thread_share_guide, null);
-                    this.gKn = (TextView) this.gKm.findViewById(R.id.write_thread_success_tips);
-                    this.gKo = (TextView) this.gKm.findViewById(R.id.share_icon);
+                this.gKC = false;
+                if (this.gKx == null) {
+                    this.gKx = View.inflate(this.mActivity, R.layout.write_thread_share_guide, null);
+                    this.gKy = (TextView) this.gKx.findViewById(R.id.write_thread_success_tips);
+                    this.gKz = (TextView) this.gKx.findViewById(R.id.share_icon);
                 }
-                am.setViewTextColor(this.gKn, (int) R.color.cp_cont_a);
-                am.setViewTextColor(this.gKo, (int) R.color.cp_cont_a);
-                am.setBackgroundResource(this.gKo, R.drawable.share_now_bg);
-                am.setBackgroundColor(this.gKl, R.color.cp_link_tip_a_alpha95);
-                this.gKo.setOnClickListener(this);
-                this.gKl.a(this.mActivity, this.gKm, 5000);
+                am.setViewTextColor(this.gKy, (int) R.color.cp_cont_a);
+                am.setViewTextColor(this.gKz, (int) R.color.cp_cont_a);
+                am.setBackgroundResource(this.gKz, R.drawable.share_now_bg);
+                am.setBackgroundColor(this.gKw, R.color.cp_link_tip_a_alpha95);
+                this.gKz.setOnClickListener(this);
+                this.gKw.a(this.mActivity, this.gKx, 5000);
             }
         }
     }
 
     private void showLoadingDialog() {
-        if (this.gKp == null) {
-            this.gKp = new com.baidu.tbadk.core.view.a(this.mPageContext);
+        if (this.gKA == null) {
+            this.gKA = new com.baidu.tbadk.core.view.a(this.mPageContext);
         }
-        this.gKp.setDialogVisiable(true);
+        this.gKA.setDialogVisiable(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bGf() {
-        if (this.gKp != null) {
-            this.gKp.setDialogVisiable(false);
+    public void bGh() {
+        if (this.gKA != null) {
+            this.gKA.setDialogVisiable(false);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!this.gKr) {
-            this.gKr = true;
+        if (!this.gKC) {
+            this.gKC = true;
             if (!j.isNetWorkAvailable()) {
                 this.mPageContext.showToast(R.string.neterror);
-                this.gKl.hideTip();
+                this.gKw.hideTip();
                 return;
             }
             int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst());
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
             float f = this.mActivity.getResources().getDisplayMetrics().density;
-            int i = ar.aUW().aUX() ? 2 : 1;
+            int i = ar.aUX().aUY() ? 2 : 1;
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
             requestGetMyPostNetMessage.setTag(this.mPageContext.getUniqueId());
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, equipmentWidth, equipmentHeight, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
             showLoadingDialog();
-            this.gKl.hideTip();
-            aWG();
+            this.gKw.hideTip();
+            aWH();
         }
     }
 
-    private void aWG() {
+    private void aWH() {
         an anVar = new an(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
         anVar.s("tid", this.threadId);
         anVar.dh("uid", TbadkCoreApplication.getCurrentAccount());
@@ -154,10 +154,10 @@ public class g implements View.OnClickListener {
         }
         this.aee = new bk();
         this.aee.a(getMyPostResIdl.data.thread_info);
-        aWI();
+        aWJ();
     }
 
-    private void aWI() {
+    private void aWJ() {
         if (this.aee != null && this.mActivity != null) {
             String valueOf = String.valueOf(this.aee.getFid());
             String aQC = this.aee.aQC();
@@ -178,7 +178,7 @@ public class g implements View.OnClickListener {
             shareItem.eeT = str2;
             shareItem.linkUrl = str;
             shareItem.dHZ = 5;
-            shareItem.eeO = this.gKq;
+            shareItem.eeO = this.gKB;
             shareItem.extData = tid;
             shareItem.eeW = 3;
             shareItem.fid = valueOf;
@@ -201,7 +201,7 @@ public class g implements View.OnClickListener {
             bundle.putString("tid", shareItem.tid);
             bundle.putInt("obj_source", shareItem.dHZ);
             shareItem.ae(bundle);
-            e.bMw().b(new ShareDialogConfig((Context) this.mActivity, shareItem, true, true));
+            e.bMy().b(new ShareDialogConfig((Context) this.mActivity, shareItem, true, true));
         }
     }
 
@@ -243,8 +243,8 @@ public class g implements View.OnClickListener {
     }
 
     public void onDestroy() {
-        if (this.gKl != null) {
-            this.gKl.onDestroy();
+        if (this.gKw != null) {
+            this.gKw.onDestroy();
         }
     }
 }

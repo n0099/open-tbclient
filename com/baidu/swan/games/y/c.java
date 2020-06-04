@@ -37,7 +37,7 @@ public class c extends EventTargetImpl {
             }
 
             @Override // com.baidu.swan.games.y.b.a
-            public void ej(int i) {
+            public void el(int i) {
                 c.this.fR(false);
                 com.baidu.swan.games.v.c.k(c.this.dcJ, i, "");
             }

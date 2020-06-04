@@ -9,69 +9,69 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 /* loaded from: classes3.dex */
 public class f extends i {
-    private TbImageView eYW;
-    public ImageView eYX;
-    private ObjectAnimator eYY;
-    public ImageView eYZ;
+    private TbImageView eZh;
+    public ImageView eZi;
+    private ObjectAnimator eZj;
+    public ImageView eZk;
 
     public f(View view) {
         this.mRootView = view;
-        this.eYW = (TbImageView) this.mRootView.findViewById(a.g.sticker_img);
-        this.eYW.setDefaultBgResource(a.f.icon_live_gift_default);
-        this.eYW.setDefaultErrorResource(a.f.icon_live_gift_default);
-        this.eYW.setAutoChangeStyle(false);
-        this.eYX = (ImageView) this.mRootView.findViewById(a.g.sticker_unload);
-        this.eZc = (MaskStrokeView) this.mRootView.findViewById(a.g.sticker_bg);
-        this.eYZ = (ImageView) this.mRootView.findViewById(a.g.sticker_cancel);
+        this.eZh = (TbImageView) this.mRootView.findViewById(a.g.sticker_img);
+        this.eZh.setDefaultBgResource(a.f.icon_live_gift_default);
+        this.eZh.setDefaultErrorResource(a.f.icon_live_gift_default);
+        this.eZh.setAutoChangeStyle(false);
+        this.eZi = (ImageView) this.mRootView.findViewById(a.g.sticker_unload);
+        this.eZn = (MaskStrokeView) this.mRootView.findViewById(a.g.sticker_bg);
+        this.eZk = (ImageView) this.mRootView.findViewById(a.g.sticker_cancel);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.view.i
     public void c(FuFaceItem fuFaceItem) {
         if (fuFaceItem.isCancelItem) {
-            this.eYZ.setVisibility(0);
-            this.eYW.setVisibility(8);
-            this.eYX.setVisibility(8);
-            this.eZc.setVisibility(8);
+            this.eZk.setVisibility(0);
+            this.eZh.setVisibility(8);
+            this.eZi.setVisibility(8);
+            this.eZn.setVisibility(8);
             return;
         }
-        this.eYZ.setVisibility(8);
-        this.eYW.setVisibility(0);
+        this.eZk.setVisibility(8);
+        this.eZh.setVisibility(0);
         if (fuFaceItem.isResLoaded()) {
-            this.eYX.setVisibility(4);
-            bqa();
-        } else if (!TextUtils.isEmpty(fuFaceItem.file) && com.baidu.tieba.ala.alaar.sticker.download.b.bpC().isRunning(fuFaceItem.file)) {
-            this.eYX.setVisibility(0);
+            this.eZi.setVisibility(4);
+            bqc();
+        } else if (!TextUtils.isEmpty(fuFaceItem.file) && com.baidu.tieba.ala.alaar.sticker.download.b.bpE().isRunning(fuFaceItem.file)) {
+            this.eZi.setVisibility(0);
             startLoadingAnim();
         } else {
-            this.eYX.setVisibility(0);
-            this.eYX.setRotation(0.0f);
-            this.eYX.setImageResource(a.f.sticker_unload);
-            bqa();
+            this.eZi.setVisibility(0);
+            this.eZi.setRotation(0.0f);
+            this.eZi.setImageResource(a.f.sticker_unload);
+            bqc();
         }
         d(fuFaceItem);
     }
 
     public void d(FuFaceItem fuFaceItem) {
         if (fuFaceItem != null) {
-            this.eYW.startLoad(fuFaceItem.bgurl, 10, false);
+            this.eZh.startLoad(fuFaceItem.bgurl, 10, false);
         }
     }
 
     public void startLoadingAnim() {
-        if (this.eYY == null) {
-            this.eYY = ObjectAnimator.ofFloat(this.eYX, "rotation", 0.0f, 359.0f);
-            this.eYY.setRepeatCount(-1);
-            this.eYY.setDuration(1000L);
+        if (this.eZj == null) {
+            this.eZj = ObjectAnimator.ofFloat(this.eZi, "rotation", 0.0f, 359.0f);
+            this.eZj.setRepeatCount(-1);
+            this.eZj.setDuration(1000L);
         }
-        if (!this.eYY.isRunning()) {
-            this.eYX.setImageResource(a.f.sticker_loading);
-            this.eYY.start();
+        if (!this.eZj.isRunning()) {
+            this.eZi.setImageResource(a.f.sticker_loading);
+            this.eZj.start();
         }
     }
 
-    public void bqa() {
-        if (this.eYY != null && this.eYY.isRunning()) {
-            this.eYY.cancel();
+    public void bqc() {
+        if (this.eZj != null && this.eZj.isRunning()) {
+            this.eZj.cancel();
         }
     }
 }

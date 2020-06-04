@@ -50,9 +50,9 @@ public class f extends l {
         }
     }
 
-    public void nn(int i) {
+    public void np(int i) {
         if (this.ekV != null) {
-            ((PbNewInputContainer) this.ekV).nn(i);
+            ((PbNewInputContainer) this.ekV).np(i);
         }
     }
 }

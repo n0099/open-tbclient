@@ -30,21 +30,21 @@ public class a extends PopupWindow {
     private View beU;
     private ViewGroup beV;
     private int beX;
-    private AlbumActivity lVV;
-    private b lVW;
-    private InterfaceC0758a lVX;
+    private AlbumActivity lXg;
+    private b lXh;
+    private InterfaceC0759a lXi;
     private ListView mListView;
     private final View.OnClickListener mOnClickListener;
     private final AdapterView.OnItemClickListener mOnItemClickListener;
 
     /* renamed from: com.baidu.tieba.write.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0758a {
+    public interface InterfaceC0759a {
         void a(int i, com.baidu.tbadk.album.a aVar);
     }
 
-    public void a(InterfaceC0758a interfaceC0758a) {
-        this.lVX = interfaceC0758a;
+    public void a(InterfaceC0759a interfaceC0759a) {
+        this.lXi = interfaceC0759a;
     }
 
     public a(AlbumActivity albumActivity) {
@@ -52,9 +52,9 @@ public class a extends PopupWindow {
         this.mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.write.view.a.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                com.baidu.tbadk.album.a item = a.this.lVW.getItem(i);
-                if (a.this.lVX != null) {
-                    a.this.lVX.a(i, item);
+                com.baidu.tbadk.album.a item = a.this.lXh.getItem(i);
+                if (a.this.lXi != null) {
+                    a.this.lXi.a(i, item);
                 }
                 a.this.HQ();
             }
@@ -65,7 +65,7 @@ public class a extends PopupWindow {
                 a.this.HQ();
             }
         };
-        this.lVV = albumActivity;
+        this.lXg = albumActivity;
         setWidth(-1);
         setHeight(-1);
         setContentView(c(new ArrayList(), com.baidu.tbadk.album.a.ALBUM_ID_ALL));
@@ -78,17 +78,17 @@ public class a extends PopupWindow {
 
     @SuppressLint({"ResourceAsColor"})
     private View c(List<com.baidu.tbadk.album.a> list, String str) {
-        BdListView bdListView = new BdListView(this.lVV.getPageContext().getPageActivity());
+        BdListView bdListView = new BdListView(this.lXg.getPageContext().getPageActivity());
         this.mListView = bdListView;
-        bdListView.setCacheColorHint(this.lVV.getResources().getColor(17170445));
+        bdListView.setCacheColorHint(this.lXg.getResources().getColor(17170445));
         bdListView.setDivider(null);
         bdListView.setDividerHeight(0);
         bdListView.setFadingEdgeLength(0);
-        this.lVW = new b(this.lVV);
-        this.lVW.b(list, str);
-        bdListView.setAdapter((ListAdapter) this.lVW);
-        FrameLayout frameLayout = new FrameLayout(this.lVV.getPageContext().getPageActivity());
-        FrameLayout frameLayout2 = new FrameLayout(this.lVV.getPageContext().getPageActivity());
+        this.lXh = new b(this.lXg);
+        this.lXh.b(list, str);
+        bdListView.setAdapter((ListAdapter) this.lXh);
+        FrameLayout frameLayout = new FrameLayout(this.lXg.getPageContext().getPageActivity());
+        FrameLayout frameLayout2 = new FrameLayout(this.lXg.getPageContext().getPageActivity());
         this.beV = frameLayout2;
         frameLayout.addView(frameLayout2, new FrameLayout.LayoutParams(-1, -1));
         frameLayout.addView(bdListView, new FrameLayout.LayoutParams(-1, -2));
@@ -107,7 +107,7 @@ public class a extends PopupWindow {
             if (list.size() <= 5) {
                 i = -2;
             } else {
-                i = this.lVV.getResources().getDimensionPixelSize(R.dimen.ds618);
+                i = this.lXg.getResources().getDimensionPixelSize(R.dimen.ds618);
             }
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mListView.getLayoutParams();
             if (layoutParams == null) {
@@ -116,8 +116,8 @@ public class a extends PopupWindow {
                 layoutParams.height = i;
             }
             this.mListView.setLayoutParams(layoutParams);
-            this.lVW.b(list, str);
-            this.lVW.notifyDataSetChanged();
+            this.lXh.b(list, str);
+            this.lXh.notifyDataSetChanged();
         }
     }
 
@@ -144,7 +144,7 @@ public class a extends PopupWindow {
             }
             return;
         }
-        if (g.showPopupWindowAtLocation(this, view, 0, 0, ((this.lVV.Hh() == null || this.lVV.Hh().getVisibility() != 0) ? 0 : this.lVV.Hh().getHeight()) + view.getHeight())) {
+        if (g.showPopupWindowAtLocation(this, view, 0, 0, ((this.lXg.Hh() == null || this.lXg.Hh().getVisibility() != 0) ? 0 : this.lXg.Hh().getHeight()) + view.getHeight())) {
             HS();
         }
     }

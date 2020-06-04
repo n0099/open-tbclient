@@ -17,7 +17,7 @@ public class c extends f {
         this.dmC = str;
     }
 
-    public c jg(int i) {
+    public c ji(int i) {
         this.dmH = i;
         return this;
     }
@@ -31,7 +31,7 @@ public class c extends f {
         return this;
     }
 
-    public c jh(int i) {
+    public c jj(int i) {
         this.dmD = i;
         return this;
     }

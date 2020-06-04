@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a lBD;
-    private b lBE;
-    b.a lBF;
+    private com.baidu.tieba.video.editvideo.data.a lCM;
+    private b lCN;
+    b.a lCO;
     private Context mContext;
 
     public a(Context context) {
@@ -20,45 +20,45 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.lBD = aVar;
+        this.lCM = aVar;
     }
 
-    public boolean dio() {
-        return (this.lBD == null || "normal".equalsIgnoreCase(this.lBD.value)) ? false : true;
+    public boolean diD() {
+        return (this.lCM == null || "normal".equalsIgnoreCase(this.lCM.value)) ? false : true;
     }
 
-    public void NA(String str) {
-        if ((this.lBE == null || !this.lBE.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String dir = dir();
+    public void NB(String str) {
+        if ((this.lCN == null || !this.lCN.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String diG = diG();
             String str2 = "normal";
-            if (this.lBD != null) {
-                str2 = this.lBD.value;
+            if (this.lCM != null) {
+                str2 = this.lCM.value;
             }
-            this.lBE = new b(this.mContext, str, dir, str2);
-            if (this.lBF != null) {
-                this.lBE.a(this.lBF);
+            this.lCN = new b(this.mContext, str, diG, str2);
+            if (this.lCO != null) {
+                this.lCN.a(this.lCO);
             }
-            this.lBE.dis();
+            this.lCN.diH();
         }
     }
 
-    public boolean dip() {
-        if (this.lBE != null) {
-            return this.lBE.isRunning();
+    public boolean diE() {
+        if (this.lCN != null) {
+            return this.lCN.isRunning();
         }
         return false;
     }
 
-    public void diq() {
-        if (this.lBE != null) {
-            this.lBE.dit();
+    public void diF() {
+        if (this.lCN != null) {
+            this.lCN.diI();
         }
     }
 
     public void a(b.a aVar) {
-        this.lBF = aVar;
-        if (this.lBE != null) {
-            this.lBE.a(this.lBF);
+        this.lCO = aVar;
+        if (this.lCN != null) {
+            this.lCN.a(this.lCO);
         }
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String dir() {
-        return com.baidu.tieba.video.c.lzF + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String diG() {
+        return com.baidu.tieba.video.c.lAO + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

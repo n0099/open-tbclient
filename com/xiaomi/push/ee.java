@@ -51,19 +51,19 @@ public class ee extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo164a() {
+    public int mo163a() {
         return 13;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo164a() {
+    public ho mo163a() {
         return ho.DeviceBaseInfo;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo164a() {
+    public String mo163a() {
         return b() + "|" + d() + "|" + e() + "|" + a(this.f230a);
     }
 }

@@ -11,8 +11,8 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaLiveMultiBeautyFilterItemView extends LinearLayout {
-    private HeadImageView eZR;
-    private TextView eZS;
+    private HeadImageView fac;
+    private TextView fad;
 
     public AlaLiveMultiBeautyFilterItemView(Context context) {
         super(context);
@@ -21,28 +21,28 @@ public class AlaLiveMultiBeautyFilterItemView extends LinearLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(a.h.ala_live_beauty_filter_item_view, (ViewGroup) this, true);
-        this.eZR = (HeadImageView) inflate.findViewById(a.g.item_icon);
-        this.eZR.setIsRound(true);
-        this.eZR.setAutoChangeStyle(false);
-        this.eZR.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eZS = (TextView) inflate.findViewById(a.g.item_text);
+        this.fac = (HeadImageView) inflate.findViewById(a.g.item_icon);
+        this.fac.setIsRound(true);
+        this.fac.setAutoChangeStyle(false);
+        this.fac.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fad = (TextView) inflate.findViewById(a.g.item_text);
     }
 
     public void setUnselectedBackground() {
-        this.eZR.setBackgroundColor(getResources().getColor(a.d.sdk_black_alpha0));
-        this.eZS.setTextColor(getResources().getColor(a.d.sdk_cp_cont_d));
+        this.fac.setBackgroundColor(getResources().getColor(a.d.sdk_black_alpha0));
+        this.fad.setTextColor(getResources().getColor(a.d.sdk_cp_cont_d));
     }
 
     public void setSelectedBackground() {
-        this.eZS.setTextColor(getResources().getColor(a.d.sdk_cp_other_b));
-        this.eZR.setBackgroundDrawable(getResources().getDrawable(a.f.ala_live_effect_item_selected));
+        this.fad.setTextColor(getResources().getColor(a.d.sdk_cp_other_b));
+        this.fac.setBackgroundDrawable(getResources().getDrawable(a.f.ala_live_effect_item_selected));
     }
 
     public void setItemIcon(int i) {
-        this.eZR.setImageDrawable(getResources().getDrawable(i));
+        this.fac.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setItemText(String str) {
-        this.eZS.setText(str);
+        this.fad.setText(str);
     }
 }

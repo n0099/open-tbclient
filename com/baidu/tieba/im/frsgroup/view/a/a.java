@@ -12,13 +12,13 @@ import java.util.List;
 public class a {
     private List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
 
-    public List<com.baidu.adp.widget.ListView.a> bqW() {
+    public List<com.baidu.adp.widget.ListView.a> bqY() {
         return this.aSj;
     }
 
     public a(BaseActivity baseActivity) {
         this.aSj.add(new e(baseActivity.getPageContext(), GroupInfoData.TYPE_FRS_GROUP));
         this.aSj.add(new com.baidu.tieba.im.frsgroup.a(baseActivity.getPageContext(), GroupPermData.TYPE_FRS_CREATE_GROUP));
-        this.aSj.add(new g(baseActivity.getPageContext(), h.iAo));
+        this.aSj.add(new g(baseActivity.getPageContext(), h.iBb));
     }
 }

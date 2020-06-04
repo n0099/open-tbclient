@@ -21,7 +21,7 @@ public class a {
         return Pattern.compile("[^一-龥]").matcher(charSequence).find();
     }
 
-    public static void f(EditText editText) {
+    public static void g(EditText editText) {
         a(editText, new InputFilter[]{new InputFilter() { // from class: com.baidu.tieba.realauthen.b.a.1
             @Override // android.text.InputFilter
             public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
@@ -40,7 +40,7 @@ public class a {
         }});
     }
 
-    public static void g(EditText editText) {
+    public static void h(EditText editText) {
         if (editText != null) {
             try {
                 Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");

@@ -50,7 +50,7 @@ public class ah {
         }
     }
 
-    public boolean jA(int i) {
+    public boolean jC(int i) {
         return this.cuT.toString().getBytes().length >= i;
     }
 
@@ -58,7 +58,7 @@ public class ah {
         return this.cuT.length() == 0;
     }
 
-    public JSONObject dsh() {
+    public JSONObject dsv() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {

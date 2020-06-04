@@ -54,13 +54,13 @@ public class d extends BdIListPage {
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
     }
 
-    public void nx(int i) {
+    public void nz(int i) {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(i);
         this.erl.setVisibility(0);
     }
 
-    public void rJ(int i) {
+    public void rL(int i) {
         this.mProgressBar.setVisibility(8);
         this.mTextView.setText(i);
     }

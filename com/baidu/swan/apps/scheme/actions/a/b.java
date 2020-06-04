@@ -41,7 +41,7 @@ public class b extends aa {
             c.e("setBackgroundTextStyle", "text style is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (!QH.YQ().YG().eh(SwanAppConfigData.dT(optString))) {
+        } else if (!QH.YQ().YG().ej(SwanAppConfigData.dT(optString))) {
             c.e("setBackgroundTextStyle", "set window background fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

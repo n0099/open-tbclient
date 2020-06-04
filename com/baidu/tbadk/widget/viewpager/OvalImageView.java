@@ -18,9 +18,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.c;
 /* loaded from: classes.dex */
 public class OvalImageView extends ImageView {
-    private static final int eHo = am.getColor(R.color.cp_link_tip_e);
+    private static final int eHz = am.getColor(R.color.cp_link_tip_e);
     private int color;
-    private boolean eHp;
+    private boolean eHA;
     private int endColor;
     private PorterDuffXfermode evU;
     private PorterDuffXfermode evV;
@@ -48,8 +48,8 @@ public class OvalImageView extends ImageView {
         this.ewi = true;
         this.ewm = new float[4];
         this.ewn = new float[4];
-        this.eHp = true;
-        this.color = eHo;
+        this.eHA = true;
+        this.color = eHz;
         this.evU = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
         this.evV = new PorterDuffXfermode(PorterDuff.Mode.SRC);
         this.mSkinType = 3;
@@ -57,7 +57,7 @@ public class OvalImageView extends ImageView {
     }
 
     private void init() {
-        bhh();
+        bhi();
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setColor(this.color);
@@ -70,7 +70,7 @@ public class OvalImageView extends ImageView {
         setLayerType(1, null);
     }
 
-    private void bhh() {
+    private void bhi() {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.mSkinType == 0) {
             this.startColor = c.dT("#2bb8ff");
@@ -129,7 +129,7 @@ public class OvalImageView extends ImageView {
                 this.ewo = new LinearGradient(width, 0.0f, width2, 0.0f, new int[]{this.startColor, this.endColor}, (float[]) null, Shader.TileMode.CLAMP);
                 this.ewi = false;
             }
-            if (this.eHp) {
+            if (this.eHA) {
                 float width3 = 0.054f * canvas.getWidth();
                 float width4 = canvas.getWidth() * 0.0226f;
                 double radians = Math.toRadians(getRotation() - 45.0f);
@@ -227,7 +227,7 @@ public class OvalImageView extends ImageView {
     }
 
     public void setNeedShadow(boolean z) {
-        this.eHp = z;
+        this.eHA = z;
     }
 
     public void setColor(int i) {

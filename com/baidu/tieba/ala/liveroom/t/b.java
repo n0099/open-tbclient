@@ -49,14 +49,14 @@ public class b extends BdBaseModel {
     public x aWQ;
     private q avW;
     private Context context;
-    private AnimatorSet fUB;
+    private AnimatorSet fUM;
     private View mContentView;
-    private boolean fUC = false;
+    private boolean fUN = false;
     private Handler handler = new Handler();
-    private boolean fUD = false;
-    private boolean fUE = false;
-    public boolean get = false;
-    public boolean geu = false;
+    private boolean fUO = false;
+    private boolean fUP = false;
+    public boolean geE = false;
+    public boolean geF = false;
     private HttpMessageListener aYY = new HttpMessageListener(1021186) { // from class: com.baidu.tieba.ala.liveroom.t.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -66,8 +66,8 @@ public class b extends BdBaseModel {
                     GetSuperCustomerInfoHttpResponseMessage getSuperCustomerInfoHttpResponseMessage = (GetSuperCustomerInfoHttpResponseMessage) httpResponsedMessage;
                     if (getSuperCustomerInfoHttpResponseMessage.Ft() != null) {
                         b.this.aWQ = getSuperCustomerInfoHttpResponseMessage.Ft();
-                        a.bGk().aWQ = b.this.aWQ;
-                        b.this.bGl();
+                        a.bGm().aWQ = b.this.aWQ;
+                        b.this.bGn();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913189, "refreshInfo"));
                     }
                 }
@@ -80,14 +80,14 @@ public class b extends BdBaseModel {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if ((customResponsedMessage.getData() instanceof String) && b.this.context != null) {
                 String str = (String) customResponsedMessage.getData();
-                if ("consumeSuc".equals(str) && !b.this.geu) {
-                    b.this.geu = true;
+                if ("consumeSuc".equals(str) && !b.this.geF) {
+                    b.this.geF = true;
                     BdLog.d("consumeSuc");
                     b.this.a(b.this.avW, b.this.avW.avC.userId);
                 }
-                if ("chargeSuc".equals(str) && !b.this.get) {
+                if ("chargeSuc".equals(str) && !b.this.geE) {
                     BdLog.d("chargeSuc");
-                    b.this.get = true;
+                    b.this.geE = true;
                     b.this.a(b.this.avW, b.this.avW.avC.userId);
                 }
             }
@@ -138,12 +138,12 @@ public class b extends BdBaseModel {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void bGl() {
+    public void bGn() {
         JSONArray jSONArray;
         if (!TbadkCoreApplication.getInst().isMobileBaidu() && this.avW != null && this.avW.avC != null) {
             if (this.avW.mLiveInfo == null || this.avW.mLiveInfo.screen_direction != 2) {
-                BdLog.d("deal--isTiming:" + this.fUC);
-                if (!this.fUC && TbadkCoreApplication.isLogin() && this.aWQ != null && this.aWQ.awa != 1 && !TextUtils.isEmpty(this.aWQ.auL)) {
+                BdLog.d("deal--isTiming:" + this.fUN);
+                if (!this.fUN && TbadkCoreApplication.isLogin() && this.aWQ != null && this.aWQ.awa != 1 && !TextUtils.isEmpty(this.aWQ.auL)) {
                     int i = this.aWQ.limit;
                     final String b = j.b(new Date());
                     String string = c.uN().getString("super_constomer_show_trace", "");
@@ -199,7 +199,7 @@ public class b extends BdBaseModel {
                                     }
                                 }
                             }, i3 * 1000);
-                            this.fUC = true;
+                            this.fUN = true;
                             return;
                         }
                         return;
@@ -261,8 +261,8 @@ public class b extends BdBaseModel {
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
                 BdLog.d("dialog onShow 播放动画");
-                if (b.this.fUB != null) {
-                    b.this.fUB.start();
+                if (b.this.fUM != null) {
+                    b.this.fUM.start();
                 }
             }
         });
@@ -271,10 +271,10 @@ public class b extends BdBaseModel {
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
                 BdLog.d("dialog 停止动画");
-                if (b.this.fUB != null) {
-                    b.this.fUB.cancel();
+                if (b.this.fUM != null) {
+                    b.this.fUM.cancel();
                 }
-                b.this.fUC = false;
+                b.this.fUN = false;
             }
         });
         TbImageView tbImageView = (TbImageView) inflate.findViewById(a.g.super_bg);
@@ -322,11 +322,11 @@ public class b extends BdBaseModel {
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(tbImageView2, "scaleY", 1.0f, 1.2f, 1.0f);
         ofFloat.setRepeatCount(-1);
         ofFloat2.setRepeatCount(-1);
-        this.fUB = new AnimatorSet();
-        this.fUB.play(ofFloat).with(ofFloat2);
-        this.fUB.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.fUB.setDuration(2000L);
-        this.fUB.setStartDelay(0L);
+        this.fUM = new AnimatorSet();
+        this.fUM.play(ofFloat).with(ofFloat2);
+        this.fUM.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.fUM.setDuration(2000L);
+        this.fUM.setStartDelay(0L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -356,22 +356,22 @@ public class b extends BdBaseModel {
     }
 
     public void onResume() {
-        if (this.fUE || !this.fUD || this.context == null || this.avW == null || this.avW.avC == null) {
+        if (this.fUP || !this.fUO || this.context == null || this.avW == null || this.avW.avC == null) {
         }
     }
 
     public void release() {
-        this.fUC = false;
+        this.fUN = false;
         this.avW = null;
-        this.get = false;
-        this.geu = false;
+        this.geE = false;
+        this.geF = false;
         this.handler.removeCallbacksAndMessages(null);
         yy();
         this.aWQ = null;
-        a.bGk().aWQ = null;
-        if (this.fUB != null) {
-            this.fUB.cancel();
-            this.fUB = null;
+        a.bGm().aWQ = null;
+        if (this.fUM != null) {
+            this.fUM.cancel();
+            this.fUM = null;
         }
         this.context = null;
     }

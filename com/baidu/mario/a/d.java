@@ -142,7 +142,7 @@ public class d {
         this.bnS = null;
         this.mContext = null;
         this.bnu = null;
-        dz(0);
+        dB(0);
         releaseInstance();
         if (this.bnR != null) {
             this.bnR.removeCallbacksAndMessages(null);
@@ -365,9 +365,9 @@ public class d {
             while (it.hasNext()) {
                 com.baidu.mario.gldraw2d.params.a KB = it.next().KB();
                 if (KB.Kn() == MirrorType.NO_MIRROR) {
-                    KB.dx(-this.bod);
+                    KB.dz(-this.bod);
                 } else {
-                    KB.dx(this.bod);
+                    KB.dz(this.bod);
                 }
             }
         }
@@ -383,7 +383,7 @@ public class d {
         }
     }
 
-    private static void dz(int i) {
+    private static void dB(int i) {
         bnK = i;
     }
 

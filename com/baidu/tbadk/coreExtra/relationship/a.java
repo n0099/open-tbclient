@@ -14,7 +14,7 @@ public class a implements TbCheckBox.b {
     private String mUserName;
     private int mUserType;
 
-    public String baW() {
+    public String baX() {
         StringBuilder sb = new StringBuilder(64);
         if (this.mUserName != null) {
             sb.append(this.mUserName);
@@ -45,7 +45,7 @@ public class a implements TbCheckBox.b {
         this.eev = str;
     }
 
-    public String baX() {
+    public String baY() {
         return this.eev;
     }
 
@@ -61,7 +61,7 @@ public class a implements TbCheckBox.b {
         this.eex = str;
     }
 
-    public String baY() {
+    public String baZ() {
         return this.eex;
     }
 
@@ -118,7 +118,7 @@ public class a implements TbCheckBox.b {
         this.eez = str;
     }
 
-    public String baZ() {
+    public String bba() {
         return this.eez;
     }
 }

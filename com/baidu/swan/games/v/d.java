@@ -22,7 +22,7 @@ public class d {
             long j = aVar.getLong("launch_time", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             f fVar = new f();
-            fVar.mFrom = h.gS(aVar.getAppFrameType());
+            fVar.mFrom = h.gU(aVar.getAppFrameType());
             fVar.mAppId = aVar.getAppId();
             fVar.mSource = aVar.agK();
             fVar.mType = Config.LAUNCH;
@@ -40,7 +40,7 @@ public class d {
             long j = aVar.getLong("launch_time", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             f fVar = new f();
-            fVar.mFrom = h.gS(aVar.getAppFrameType());
+            fVar.mFrom = h.gU(aVar.getAppFrameType());
             fVar.mAppId = aVar.getAppId();
             fVar.mSource = aVar.agK();
             fVar.mType = Config.LAUNCH;

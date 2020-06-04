@@ -23,7 +23,7 @@ public class ag {
         if (Build.VERSION.SDK_INT < 23 || g.c(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
             try {
                 File file = new File(new File(Environment.getExternalStorageDirectory(), "/.vdevdir/"), "lcfp.lock");
-                y.m588a(file);
+                y.m587a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     try {
@@ -156,7 +156,7 @@ public class ag {
                 bufferedReader = null;
                 th = th5;
             }
-        } else if (!y.m588a(file)) {
+        } else if (!y.m587a(file)) {
             return true;
         }
         arrayList.add(str2);

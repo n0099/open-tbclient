@@ -11,19 +11,19 @@ import com.baidu.live.view.web.f;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> implements f {
-    private boolean kSO = false;
-    private d kSP;
+    private boolean kTX = false;
+    private d kTY;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         k(getIntent());
-        if (this.kSO) {
+        if (this.kTX) {
             setIsAddSwipeBackLayout(false);
         }
         super.onCreate(bundle);
         if (!isFinishing()) {
-            this.kSP = new d(this, this, getIntent());
+            this.kTY = new d(this, this, getIntent());
         }
     }
 
@@ -34,7 +34,7 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
             if (!TextUtils.isEmpty(stringExtra) && (fT = e.fT(stringExtra)) != null && fT.size() > 0) {
                 try {
                     if (fT.containsKey("swiper")) {
-                        this.kSO = Integer.valueOf((String) fT.get("swiper")).intValue() == 0;
+                        this.kTX = Integer.valueOf((String) fT.get("swiper")).intValue() == 0;
                     }
                 } catch (Exception e) {
                 }
@@ -44,7 +44,7 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.kSP == null || !this.kSP.onKeyDown(i, keyEvent)) {
+        if (this.kTY == null || !this.kTY.onKeyDown(i, keyEvent)) {
             return super.onKeyDown(i, keyEvent);
         }
         return true;
@@ -54,8 +54,8 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.kSP != null) {
-            this.kSP.onResume();
+        if (this.kTY != null) {
+            this.kTY.onResume();
         }
     }
 
@@ -63,8 +63,8 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.kSP != null) {
-            this.kSP.onDestroy();
+        if (this.kTY != null) {
+            this.kTY.onDestroy();
         }
     }
 
@@ -72,18 +72,18 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.kSP != null) {
-            this.kSP.onActivityResult(i, i2, intent);
+        if (this.kTY != null) {
+            this.kTY.onActivityResult(i, i2, intent);
         }
     }
 
-    private void Ci(int i) {
+    private void Ck(int i) {
         getActivity().setResult(i, new Intent());
         getActivity().finish();
     }
 
     @Override // com.baidu.live.view.web.f
-    public void dt(int i) {
-        Ci(i);
+    public void dv(int i) {
+        Ck(i);
     }
 }

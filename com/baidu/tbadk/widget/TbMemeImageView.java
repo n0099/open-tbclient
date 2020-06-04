@@ -19,11 +19,11 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     private com.baidu.adp.gif.b Tz;
     private int aKf;
     private TbRichTextView.g eoK;
-    private com.baidu.adp.widget.ImageView.a exh;
-    private Drawable exi;
-    private Drawable exj;
-    private Drawable exk;
-    private com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> exl;
+    private com.baidu.adp.widget.ImageView.a exs;
+    private Drawable exu;
+    private Drawable exv;
+    private Drawable exw;
+    private com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> exx;
     private Bitmap mBitmap;
     private final Handler mHandler;
     private View.OnClickListener mOnClickListener;
@@ -34,9 +34,9 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public TbMemeImageView(Context context) {
         super(context);
         this.mSupportNoImage = true;
-        this.exi = am.getDrawable(R.color.common_color_10220);
-        this.exj = am.getDrawable(R.drawable.icon_click);
-        this.exk = am.getDrawable(R.drawable.img_default_100);
+        this.exu = am.getDrawable(R.color.common_color_10220);
+        this.exv = am.getDrawable(R.drawable.icon_click);
+        this.exw = am.getDrawable(R.drawable.img_default_100);
         this.srcRect = new Rect();
         this.mHandler = new Handler() { // from class: com.baidu.tbadk.widget.TbMemeImageView.1
             @Override // android.os.Handler
@@ -55,7 +55,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
                 }
             }
         };
-        this.exl = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.TbMemeImageView.2
+        this.exx = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.TbMemeImageView.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b
@@ -77,9 +77,9 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public TbMemeImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSupportNoImage = true;
-        this.exi = am.getDrawable(R.color.common_color_10220);
-        this.exj = am.getDrawable(R.drawable.icon_click);
-        this.exk = am.getDrawable(R.drawable.img_default_100);
+        this.exu = am.getDrawable(R.color.common_color_10220);
+        this.exv = am.getDrawable(R.drawable.icon_click);
+        this.exw = am.getDrawable(R.drawable.img_default_100);
         this.srcRect = new Rect();
         this.mHandler = new Handler() { // from class: com.baidu.tbadk.widget.TbMemeImageView.1
             @Override // android.os.Handler
@@ -98,7 +98,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
                 }
             }
         };
-        this.exl = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.TbMemeImageView.2
+        this.exx = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.TbMemeImageView.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b
@@ -120,9 +120,9 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public TbMemeImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSupportNoImage = true;
-        this.exi = am.getDrawable(R.color.common_color_10220);
-        this.exj = am.getDrawable(R.drawable.icon_click);
-        this.exk = am.getDrawable(R.drawable.img_default_100);
+        this.exu = am.getDrawable(R.color.common_color_10220);
+        this.exv = am.getDrawable(R.drawable.icon_click);
+        this.exw = am.getDrawable(R.drawable.img_default_100);
         this.srcRect = new Rect();
         this.mHandler = new Handler() { // from class: com.baidu.tbadk.widget.TbMemeImageView.1
             @Override // android.os.Handler
@@ -141,7 +141,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
                 }
             }
         };
-        this.exl = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.TbMemeImageView.2
+        this.exx = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.TbMemeImageView.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b
@@ -161,7 +161,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     }
 
     private void init() {
-        setBackgroundDrawable(this.exi);
+        setBackgroundDrawable(this.exu);
         setOnClickListener(null);
     }
 
@@ -181,9 +181,9 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     }
 
     public void setHasNoImage(boolean z) {
-        if (z && (this.exi != null || this.exj != null)) {
-            int intrinsicWidth = this.exi.getIntrinsicWidth();
-            int intrinsicHeight = this.exi.getIntrinsicHeight();
+        if (z && (this.exu != null || this.exv != null)) {
+            int intrinsicWidth = this.exu.getIntrinsicWidth();
+            int intrinsicHeight = this.exu.getIntrinsicHeight();
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
             if (intrinsicWidth > measuredWidth) {
@@ -194,18 +194,18 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
             }
             int paddingLeft = ((measuredWidth - intrinsicWidth) / 2) + getPaddingLeft();
             int paddingTop = ((measuredHeight - intrinsicHeight) / 2) + getPaddingTop();
-            this.exi.setBounds(paddingLeft, paddingTop, intrinsicWidth + paddingLeft, intrinsicHeight + paddingTop);
+            this.exu.setBounds(paddingLeft, paddingTop, intrinsicWidth + paddingLeft, intrinsicHeight + paddingTop);
         }
         invalidate();
     }
 
     public com.baidu.adp.widget.ImageView.a getBdImage() {
-        return this.exh;
+        return this.exs;
     }
 
     public void g(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            this.exh = aVar;
+            this.exs = aVar;
             if (aVar.isGif() && aVar.getByteData() != null && aVar.getByteData().length > 0) {
                 NSGif g = NSGif.g(aVar.getByteData(), 0, aVar.getByteData().length);
                 if (g != null) {
@@ -252,8 +252,8 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.exh == null && this.mSupportNoImage) {
-            com.baidu.adp.lib.e.c.kX().a(this.mUrl, 33, this.exl, 0, 0, false, null, new Object[0]);
+        if (this.exs == null && this.mSupportNoImage) {
+            com.baidu.adp.lib.e.c.kX().a(this.mUrl, 33, this.exx, 0, 0, false, null, new Object[0]);
         } else if (this.mOnClickListener != null) {
             this.mOnClickListener.onClick(this);
         }
@@ -276,8 +276,8 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
             this.Tz.close();
             this.Tz = null;
         }
-        if (this.exh != null) {
-            this.exh = null;
+        if (this.exs != null) {
+            this.exs = null;
         }
         if (this.mBitmap != null) {
             this.mBitmap.recycle();
@@ -294,8 +294,8 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
             this.Tz.close();
             this.Tz = null;
         }
-        if (this.exh != null) {
-            this.exh = null;
+        if (this.exs != null) {
+            this.exs = null;
         }
         if (this.mBitmap != null) {
             this.mBitmap.recycle();

@@ -14,7 +14,7 @@ public final class b {
 
     /* renamed from: tv.chushou.widget.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C0912b {
+    public static final class C0913b {
         public static final int commonres_placeholder_bg = 2131559346;
         public static final int commonres_second_black = 2131559347;
         public static final int commonres_selected_green = 2131559348;
@@ -38,15 +38,15 @@ public final class b {
 
     /* loaded from: classes4.dex */
     public static final class d {
-        public static final int iv_empty = 2131693097;
-        public static final int iv_loading = 2131693098;
-        public static final int tv_button = 2131692479;
-        public static final int tv_desc = 2131693099;
+        public static final int iv_empty = 2131693117;
+        public static final int iv_loading = 2131693118;
+        public static final int tv_button = 2131692499;
+        public static final int tv_desc = 2131693119;
     }
 
     /* loaded from: classes4.dex */
     public static final class e {
-        public static final int commonres_empty_loading_view = 2130903697;
+        public static final int commonres_empty_loading_view = 2130903698;
     }
 
     /* loaded from: classes4.dex */

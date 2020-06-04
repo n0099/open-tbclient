@@ -112,12 +112,12 @@ public class c {
 
     public static com.facebook.c.c s(InputStream inputStream) {
         if (inputStream == null) {
-            return com.facebook.c.c.msV;
+            return com.facebook.c.c.muf;
         }
         try {
             return com.facebook.c.d.s(inputStream);
         } catch (IOException e) {
-            return com.facebook.c.c.msV;
+            return com.facebook.c.c.muf;
         }
     }
 }

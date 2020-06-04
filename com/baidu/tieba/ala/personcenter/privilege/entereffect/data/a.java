@@ -5,13 +5,13 @@ import com.baidu.adp.widget.ListView.o;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a implements o {
-    public static final BdUniqueId grH = BdUniqueId.gen();
+    public static final BdUniqueId grS = BdUniqueId.gen();
     public String auI;
     public int categoryType;
 
     @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return grH;
+        return grS;
     }
 
     public void parserJson(JSONObject jSONObject) {

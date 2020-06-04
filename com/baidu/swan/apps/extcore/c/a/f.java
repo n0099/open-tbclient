@@ -20,7 +20,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f extends aa {
     private static final String cde = e.class.getSimpleName();
-    private static final String cdm = String.format("?swanjs_version=%s", com.baidu.swan.apps.swancore.b.gZ(0));
+    private static final String cdm = String.format("?swanjs_version=%s", com.baidu.swan.apps.swancore.b.hb(0));
     private static final String cdn = "https://smartprogram.baidu.com/batapi/engine" + cdm + "&type=1";
     private static final String cdo = "https://smartprogram.baidu.com/batapi/engine" + cdm + "&type=2";
     private boolean cdp;

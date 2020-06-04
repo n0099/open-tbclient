@@ -52,20 +52,20 @@ public class d extends h<e, f> {
             if (fVar.mSkinType != this.mSkinType) {
                 am.setBackgroundResource(fVar.getView(), R.drawable.frs_member_manito_bg);
                 am.setViewTextColor(fVar.dez, R.color.cp_cont_f, 1);
-                am.setViewTextColor(fVar.hjp, R.color.cp_cont_d, 1);
+                am.setViewTextColor(fVar.hjA, R.color.cp_cont_d, 1);
                 am.setBackgroundColor(fVar.dividerLine, R.color.cp_bg_line_c);
-                am.setViewTextColor(fVar.hjq, R.color.cp_cont_d, 1);
+                am.setViewTextColor(fVar.hjB, R.color.cp_cont_d, 1);
             }
-            fVar.hjo.startLoad(eVar.getHeadUrl(), 12, false);
+            fVar.hjz.startLoad(eVar.getHeadUrl(), 12, false);
             fVar.dez.setText(ae.interceptString(eVar.getNameShow(), 16));
             if (StringUtils.isNull(eVar.getIntro())) {
-                fVar.hjp.setText(R.string.god_intro_default);
+                fVar.hjA.setText(R.string.god_intro_default);
             } else {
-                fVar.hjp.setText(ae.interceptString(eVar.getIntro(), 30));
+                fVar.hjA.setText(ae.interceptString(eVar.getIntro(), 30));
             }
             int color = am.getColor(R.color.cp_cont_h);
             String numberUniformFormat = aq.numberUniformFormat(eVar.getFansNum());
-            fVar.hjq.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
+            fVar.hjB.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
             fVar.getView().setTag(eVar);
             fVar.getView().setOnClickListener(this.mOnItemClickListener);
             fVar.mSkinType = this.mSkinType;

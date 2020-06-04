@@ -14,7 +14,7 @@ public interface a extends d {
 
         void eV(String str);
 
-        void ft(int i);
+        void fv(int i);
 
         void kA(String str);
 
@@ -49,9 +49,9 @@ public interface a extends d {
 
     void dT(boolean z);
 
-    void fu(int i);
+    void fw(int i);
 
-    void fv(int i);
+    void fx(int i);
 
     Context getContext();
 

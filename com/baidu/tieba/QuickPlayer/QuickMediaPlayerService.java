@@ -81,8 +81,8 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
 
     public IMediaPlayer getPlayer(Uri uri) {
         synchronized (QuickMediaPlayerService.class) {
-            if (this.mPlayerList.get(uri) != null && this.mPlayerList.get(uri).eKj != null) {
-                return this.mPlayerList.get(uri).eKj;
+            if (this.mPlayerList.get(uri) != null && this.mPlayerList.get(uri).eKu != null) {
+                return this.mPlayerList.get(uri).eKu;
             }
             return null;
         }
@@ -106,8 +106,8 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
         ArrayList arrayList = new ArrayList();
         synchronized (QuickMediaPlayerService.class) {
             for (Map.Entry<Uri, a> entry : this.mPlayerList.entrySet()) {
-                if (entry != null && entry.getKey() != null && entry.getValue() != null && entry.getValue().eKj != null) {
-                    arrayList.add(entry.getValue().eKj.generateMediaID());
+                if (entry != null && entry.getKey() != null && entry.getValue() != null && entry.getValue().eKu != null) {
+                    arrayList.add(entry.getValue().eKu.generateMediaID());
                 }
             }
         }
@@ -136,23 +136,23 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
 
     /* loaded from: classes13.dex */
     class a {
-        public IMediaPlayer eKj;
+        public IMediaPlayer eKu;
 
         public a(IMediaPlayer iMediaPlayer) {
-            this.eKj = iMediaPlayer;
+            this.eKu = iMediaPlayer;
         }
 
         public boolean equals(Object obj) {
-            return (obj instanceof a) && this.eKj == ((a) obj).eKj;
+            return (obj instanceof a) && this.eKu == ((a) obj).eKu;
         }
 
         public void aJz() {
-            if (this.eKj != null) {
+            if (this.eKu != null) {
                 try {
-                    this.eKj.reset();
+                    this.eKu.reset();
                 } catch (Throwable th) {
                 }
-                this.eKj.release();
+                this.eKu.release();
             }
         }
     }

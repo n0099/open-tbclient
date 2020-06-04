@@ -19,7 +19,7 @@ public class j {
     private j() {
     }
 
-    public static j bgu() {
+    public static j bgv() {
         return euZ;
     }
 

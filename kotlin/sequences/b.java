@@ -8,14 +8,14 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> ntD;
-    private final kotlin.jvm.a.b<T, T> ntE;
+    private final kotlin.jvm.a.a<T> nuO;
+    private final kotlin.jvm.a.b<T, T> nuP;
 
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class a implements Iterator<T> {
         private T nextItem;
-        private int ntB = -2;
+        private int nuM = -2;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -26,44 +26,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void dMf() {
+        private final void dMt() {
             T t;
-            if (this.ntB == -2) {
-                t = (T) b.this.ntD.invoke();
+            if (this.nuM == -2) {
+                t = (T) b.this.nuO.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.ntE;
+                kotlin.jvm.a.b bVar = b.this.nuP;
                 T t2 = this.nextItem;
                 if (t2 == null) {
-                    q.dLM();
+                    q.dMa();
                 }
                 t = (T) bVar.invoke(t2);
             }
             this.nextItem = t;
-            this.ntB = this.nextItem == null ? 0 : 1;
+            this.nuM = this.nextItem == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.ntB < 0) {
-                dMf();
+            if (this.nuM < 0) {
+                dMt();
             }
-            if (this.ntB == 0) {
+            if (this.nuM == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.ntB = -1;
+            this.nuM = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.ntB < 0) {
-                dMf();
+            if (this.nuM < 0) {
+                dMt();
             }
-            return this.ntB == 1;
+            return this.nuM == 1;
         }
     }
 
@@ -73,8 +73,8 @@ public final class b<T> implements c<T> {
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
         q.m(aVar, "getInitialValue");
         q.m(bVar, "getNextValue");
-        this.ntD = aVar;
-        this.ntE = bVar;
+        this.nuO = aVar;
+        this.nuP = bVar;
     }
 
     @Override // kotlin.sequences.c

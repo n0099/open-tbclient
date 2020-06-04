@@ -31,9 +31,9 @@ public class dk extends al.b {
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo227c() {
+    public void mo226c() {
         if (this.a != null) {
-            this.a.mo227c();
+            this.a.mo226c();
         }
     }
 }

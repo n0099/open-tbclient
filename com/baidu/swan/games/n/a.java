@@ -18,7 +18,7 @@ public class a {
     private com.baidu.swan.games.n.b.a cZG;
     private InterfaceC0431a cZH = new InterfaceC0431a() { // from class: com.baidu.swan.games.n.a.1
         @Override // com.baidu.swan.games.n.a.InterfaceC0431a
-        public void ir(int i) {
+        public void it(int i) {
             com.baidu.swan.games.n.b.b bVar = new com.baidu.swan.games.n.b.b();
             bVar.errMsg = "showKeyboard:ok";
             bVar.height = i;
@@ -59,7 +59,7 @@ public class a {
     public interface InterfaceC0431a {
         void aAS();
 
-        void ir(int i);
+        void it(int i);
 
         void rY(String str);
 

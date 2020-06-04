@@ -271,7 +271,7 @@ public abstract class c extends m {
         if (!aoB.ane() || !aoB.aox().available()) {
             com.baidu.swan.apps.an.a pt = new com.baidu.swan.apps.an.a().bw(5L).bx(11L).pt("aiapp data is invalid");
             com.baidu.swan.apps.an.e.asQ().g(pt);
-            h.b(new com.baidu.swan.apps.statistic.a.d().oC(h.gS(Qz())).f(pt).a(QJ()));
+            h.b(new com.baidu.swan.apps.statistic.a.d().oC(h.gU(Qz())).f(pt).a(QJ()));
             g.a(pt);
             com.baidu.swan.apps.aq.d.N(this.bQd);
         } else {
@@ -336,7 +336,7 @@ public abstract class c extends m {
         if (this.ceo != null && ane()) {
             com.baidu.swan.apps.statistic.a.a aVar = new com.baidu.swan.apps.statistic.a.a();
             b.a QJ = QJ();
-            aVar.mFrom = h.gS(Qz());
+            aVar.mFrom = h.gU(Qz());
             aVar.mAppId = QJ.getAppId();
             aVar.mSource = QJ.agK();
             aVar.c(QJ);
@@ -401,7 +401,7 @@ public abstract class c extends m {
             long j = QJ.getLong("launch_time", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-            fVar.mFrom = h.gS(Qz());
+            fVar.mFrom = h.gU(Qz());
             fVar.mAppId = QJ.getAppId();
             if (com.baidu.swan.apps.af.a.a.mR(QJ().agZ())) {
                 fVar.mSource = "remote-debug";
@@ -475,7 +475,7 @@ public abstract class c extends m {
 
     public void onTrimMemory(int i) {
         com.baidu.swan.apps.console.c.w("SwanActivityFrame", "onTrimMemory level:" + i);
-        QL().hw(i);
+        QL().hy(i);
     }
 
     public void onBackPressed() {
@@ -487,8 +487,8 @@ public abstract class c extends m {
             return false;
         }
         this.bQd.moveTaskToBack(true);
-        this.bQd.ec(2);
-        an.atY().hI(1);
+        this.bQd.ee(2);
+        an.atY().hK(1);
         return true;
     }
 
@@ -499,7 +499,7 @@ public abstract class c extends m {
     public final void a(com.baidu.swan.apps.statistic.a.f fVar) {
         if (fVar != null && ane()) {
             b.a QJ = QJ();
-            fVar.mFrom = h.gS(Qz());
+            fVar.mFrom = h.gU(Qz());
             fVar.mAppId = QJ.getAppId();
             fVar.mSource = QJ.agK();
             fVar.bu(h.ox(QJ.agM()));

@@ -26,12 +26,12 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     private String aeX;
     private com.baidu.adp.widget.ListView.t aib;
     public BdUniqueId epM;
-    private NEGFeedBackView.a fGB;
+    private NEGFeedBackView.a fGM;
     private TbPageContext<?> mPageContext;
 
     public n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.fGB = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.concern.a.n.1
+        this.fGM = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.concern.a.n.1
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void b(ak akVar) {
             }
@@ -73,7 +73,7 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         ag agVar = new ag(aVar.a(true, viewGroup, this.aib));
         agVar.setPageId(this.epM);
         x aH = agVar.aH(false);
-        aH.a(this.fGB);
+        aH.a(this.fGM);
         aH.setAutoProcess(false);
         aH.setHeadText(this.mContext.getString(R.string.concern_recommend_dialog_title));
         aH.aF(true);
@@ -88,8 +88,8 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             return null;
         }
         an anVar = new an("c13565");
-        anVar.ag("obj_source", bVar.ceB() ? 1 : 2);
-        com.baidu.tieba.card.s.bLq().e(anVar);
+        anVar.ag("obj_source", bVar.ceJ() ? 1 : 2);
+        com.baidu.tieba.card.s.bLs().e(anVar);
         agVar.rM().setPosition(i);
         if (agVar.rM() instanceof com.baidu.tieba.a.e) {
             agVar.rM().setPage(this.aeX);
@@ -116,7 +116,7 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
                 this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.CONCERN_RECOMMEND_FEEDBACK);
                 this.mNetwork.addPostData("dislike_from", "concernpage");
                 this.mNetwork.addPostData("dislike_type", "1");
-                this.mNetwork.aUA().aVa().mIsNeedTbs = true;
+                this.mNetwork.aUA().aVb().mIsNeedTbs = true;
                 return this.mNetwork.postNetData();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

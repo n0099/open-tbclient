@@ -23,7 +23,7 @@ public class c {
             a(i, aVar, "download icon fail: icon url is null");
             return;
         }
-        com.facebook.drawee.a.a.c.dvh().e(ImageRequestBuilder.ab(uri).dCl(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.pms.f.c.1
+        com.facebook.drawee.a.a.c.dvv().e(ImageRequestBuilder.ab(uri).dCz(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.pms.f.c.1
             @Override // com.facebook.imagepipeline.e.b
             protected void h(Bitmap bitmap) {
                 Bitmap copy;
@@ -55,14 +55,14 @@ public class c {
                 super.b(bVar);
                 c.a(i, a.this, "download icon fail: onCancellation");
             }
-        }, i.dun());
+        }, i.duB());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(int i, a aVar, String str) {
         com.baidu.swan.apps.an.a pt = new com.baidu.swan.apps.an.a().bw(4L).bx(10L).pt(str);
         e.asQ().g(pt);
-        h.b(new d().f(pt).oC(h.gS(i)));
+        h.b(new d().f(pt).oC(h.gU(i)));
         if (aVar != null) {
             aVar.i(null);
         }

@@ -5,5 +5,5 @@ import org.json.JSONObject;
 public interface b {
     void ab(JSONObject jSONObject);
 
-    void ei(int i);
+    void ek(int i);
 }

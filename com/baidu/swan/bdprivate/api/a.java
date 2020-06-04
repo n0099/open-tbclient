@@ -44,11 +44,11 @@ public class a extends d {
                             return;
                         }
                         int errorCode = hVar.getErrorCode();
-                        String gM = com.baidu.swan.apps.setting.oauth.c.gM(errorCode);
+                        String gO = com.baidu.swan.apps.setting.oauth.c.gO(errorCode);
                         if (d.DEBUG) {
-                            Log.e("Api-Base-getBduss", "getBduss failed: auth fail(" + errorCode + ", " + gM + ")");
+                            Log.e("Api-Base-getBduss", "getBduss failed: auth fail(" + errorCode + ", " + gO + ")");
                         }
-                        aVar.a(new com.baidu.swan.apps.api.c.b(errorCode, gM));
+                        aVar.a(new com.baidu.swan.apps.api.c.b(errorCode, gO));
                     }
                 });
                 return new com.baidu.swan.apps.api.c.b(0);

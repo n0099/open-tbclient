@@ -471,7 +471,7 @@ public class e {
             return null;
         }
         com.baidu.tieba.im.data.d dVar = new com.baidu.tieba.im.data.d();
-        dVar.ixX = split[0];
+        dVar.iyK = split[0];
         dVar.taskId = split[1];
         return dVar;
     }

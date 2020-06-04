@@ -65,7 +65,7 @@ public class a implements com.baidu.live.videochat.c.a {
         @Override // com.baidu.ala.recorder.RecorderCallback
         public void onPKPlayerFirstFrame() {
             if (a.this.bgd != null) {
-                a.this.bgd.bE(1);
+                a.this.bgd.bG(1);
             }
         }
 

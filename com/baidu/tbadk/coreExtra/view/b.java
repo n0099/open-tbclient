@@ -97,11 +97,11 @@ public class b {
         this.eho = aVar;
     }
 
-    public void bbs() {
-        mO(0);
+    public void bbt() {
+        mQ(0);
     }
 
-    public void mO(int i) {
+    public void mQ(int i) {
         if (this.egY == null) {
             this.egX = LayoutInflater.from(this.clq).inflate(R.layout.main_input_username, (ViewGroup) null);
             this.ehr = (TextView) this.egX.findViewById(R.id.tip_info);
@@ -114,15 +114,15 @@ public class b {
             this.ehg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.bbw();
-                    b.this.bbu();
+                    b.this.bbx();
+                    b.this.bbv();
                 }
             });
             this.ehj = (TextView) this.egX.findViewById(R.id.confirm);
             this.ehj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.b.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.bbt();
+                    b.this.bbu();
                 }
             });
             this.ehk = (ProgressBar) this.egX.findViewById(R.id.confirm_progress);
@@ -169,12 +169,12 @@ public class b {
             this.ehe.setOnCheckedChangeListener(this.ehc);
             this.ehf.setOnCheckedChangeListener(this.ehc);
             this.ehl = (TextView) this.egX.findViewById(R.id.phone_info);
-            bbv();
+            bbw();
             this.egY = new Dialog(this.clq, R.style.input_username_dialog);
             this.egY.setCanceledOnTouchOutside(false);
             this.egY.setCancelable(false);
             this.egY.setCanceledOnTouchOutside(false);
-            bbl();
+            bbm();
         }
         if (i == 1) {
             this.ehl.setText(R.string.tip_init_user_name);
@@ -183,7 +183,7 @@ public class b {
         }
         if (!this.egY.isShowing()) {
             this.egZ.setText((CharSequence) null);
-            bbv();
+            bbw();
             xB(null);
             if (!this.clq.isFinishing()) {
                 this.egY.setContentView(this.egX);
@@ -222,7 +222,7 @@ public class b {
         }
     }
 
-    public void bbt() {
+    public void bbu() {
         String obj = this.egZ.getText().toString();
         if (obj == null || obj.length() <= 0) {
             xB(this.clq.getString(R.string.error_tip_name_cannot_empty));
@@ -236,7 +236,7 @@ public class b {
                 this.ehk.setVisibility(0);
                 this.ehj.setEnabled(false);
                 xB(null);
-                bbv();
+                bbw();
                 SapiAccountManager.getInstance().getAccountService().fillUsername(new FillUsernameCallback() { // from class: com.baidu.tbadk.coreExtra.view.b.4
                     @Override // com.baidu.sapi2.callback.FillUsernameCallback
                     public void onUserHaveUsername(FillUsernameResult fillUsernameResult) {
@@ -252,7 +252,7 @@ public class b {
                     @Override // com.baidu.sapi2.callback.SapiCallback
                     /* renamed from: b */
                     public void onSuccess(FillUsernameResult fillUsernameResult) {
-                        b.this.bbw();
+                        b.this.bbx();
                         l.showToast(b.this.clq, (int) R.string.reset_success);
                         SapiAccount session = SapiAccountManager.getInstance().getSession();
                         com.baidu.tbadk.core.a.a.aNR().a(session.username, session.bduss, "", null, b.this.ehw);
@@ -284,7 +284,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bbu() {
+    public void bbv() {
         if (this.eho != null) {
             this.eho.g(null);
         }
@@ -327,10 +327,10 @@ public class b {
             this.ehh.cancel();
             this.ehh = null;
         }
-        bbw();
+        bbx();
     }
 
-    public void bbv() {
+    public void bbw() {
         this.eha.setVisibility(8);
         this.eha.clearCheck();
         this.ehb.setVisibility(8);
@@ -343,7 +343,7 @@ public class b {
         this.ehf.setChecked(false);
     }
 
-    public void bbw() {
+    public void bbx() {
         if (this.egY != null && this.egY.isShowing()) {
             g.dismissDialog(this.egY, this.clq);
         }
@@ -360,7 +360,7 @@ public class b {
         this.ehi.setText(str);
     }
 
-    private void bbl() {
+    private void bbm() {
         am.setBackgroundResource(this.egX, R.drawable.dialog_background);
         am.setViewTextColor(this.ehl, (int) R.color.cp_cont_b);
         am.setViewTextColor(this.ehr, (int) R.color.cp_cont_f);
@@ -427,7 +427,7 @@ public class b {
             } else if (this.mNetwork.getServerErrorCode() == 36) {
                 this.ehx.xB(this.mNetwork.getErrorString());
                 if (kVar != null) {
-                    this.ehx.D(kVar.aXX());
+                    this.ehx.D(kVar.aXY());
                 }
             } else {
                 this.ehx.xB(this.mNetwork.getErrorString());
@@ -438,7 +438,7 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             this.ehx.xB(null);
-            this.ehx.bbv();
+            this.ehx.bbw();
             super.onPreExecute();
         }
     }

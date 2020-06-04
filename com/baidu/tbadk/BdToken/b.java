@@ -179,7 +179,7 @@ public class b {
                         k kVar = new k(this, optLong);
                         kVar.gz(optBoolean);
                         kVar.bX(optLong2);
-                        kVar.jQ(optInt);
+                        kVar.jS(optInt);
                         a(kVar);
                     }
                 } else if (i == 1) {
@@ -187,7 +187,7 @@ public class b {
                         m mVar = new m(this, optLong);
                         mVar.gz(optBoolean);
                         mVar.bX(optLong2);
-                        mVar.jQ(optInt);
+                        mVar.jS(optInt);
                         a(mVar);
                     }
                 } else if (i == 2) {
@@ -195,20 +195,20 @@ public class b {
                         j jVar = new j(this, optLong);
                         jVar.gz(optBoolean);
                         jVar.bX(optLong2);
-                        jVar.jQ(optInt);
+                        jVar.jS(optInt);
                         a(jVar);
                     }
                 } else if (i == 4) {
                     i iVar = new i(this);
                     iVar.gz(optBoolean);
                     iVar.bX(optLong2);
-                    iVar.jQ(optInt);
+                    iVar.jS(optInt);
                     a(iVar);
                 } else if (i == 8) {
                     l lVar = new l(this);
                     lVar.gz(optBoolean);
                     lVar.bX(optLong2);
-                    lVar.jQ(optInt);
+                    lVar.jS(optInt);
                     a(lVar);
                 }
             }
@@ -394,7 +394,7 @@ public class b {
             }
             return aKR;
         } else if (this.dur == due) {
-            return l((int) this.dus, jJ(4)) / 1000;
+            return l((int) this.dus, jL(4)) / 1000;
         } else {
             if (this.dur == duf) {
                 return this.dus / 1000;
@@ -412,7 +412,7 @@ public class b {
         return calendar.getTimeInMillis();
     }
 
-    private long jJ(int i) {
+    private long jL(int i) {
         long aKR = aKR();
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, i);
@@ -473,7 +473,7 @@ public class b {
         return this.duh;
     }
 
-    public void jK(int i) {
+    public void jM(int i) {
         this.duh = i;
     }
 
@@ -497,7 +497,7 @@ public class b {
         return this.xP;
     }
 
-    public void jL(int i) {
+    public void jN(int i) {
         this.xP = i;
     }
 
@@ -505,7 +505,7 @@ public class b {
         return this.mTaskType;
     }
 
-    public void jM(int i) {
+    public void jO(int i) {
         this.mTaskType = i;
     }
 
@@ -542,7 +542,7 @@ public class b {
         return this.duk;
     }
 
-    public void jN(int i) {
+    public void jP(int i) {
         this.duk = i;
     }
 
@@ -550,7 +550,7 @@ public class b {
         return this.dur;
     }
 
-    public void jO(int i) {
+    public void jQ(int i) {
         this.dur = i;
     }
 
@@ -614,11 +614,11 @@ public class b {
         return this.duy;
     }
 
-    public void jP(int i) {
+    public void jR(int i) {
         this.duy = i;
     }
 
-    public void jQ(int i) {
+    public void jS(int i) {
         this.mTag = i;
     }
 

@@ -59,7 +59,7 @@ public class dm implements LoggerInterface {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void m228a() {
+    public void m227a() {
         FileLock fileLock;
         RandomAccessFile randomAccessFile;
         BufferedWriter bufferedWriter;

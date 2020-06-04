@@ -46,7 +46,7 @@ public final class a implements c {
         return this;
     }
 
-    public a hK(int i) {
+    public a hM(int i) {
         Object[] objArr;
         if (!aud() && i > 0) {
             this.cKS = i;

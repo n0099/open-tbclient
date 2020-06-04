@@ -13,11 +13,11 @@ import tbclient.Personalized.ThreadPersonalized;
 /* loaded from: classes9.dex */
 public class b {
     public static void a(DataRes.Builder builder, List<o> list) {
-        cN(list);
+        cO(list);
         b(builder, list);
     }
 
-    public static void cN(List<o> list) {
+    public static void cO(List<o> list) {
         if (list != null) {
             int count = v.getCount(list);
             for (int i = 0; i < count; i++) {
@@ -29,7 +29,7 @@ public class b {
                 if ((oVar instanceof p) && (oVar2 instanceof p)) {
                     p pVar = (p) oVar;
                     p pVar2 = (p) oVar2;
-                    if (pVar.bLG()) {
+                    if (pVar.bLI()) {
                         pVar2.lW(false);
                         if (pVar2 instanceof com.baidu.tieba.homepage.personalize.b.c) {
                             pVar.lX(false);

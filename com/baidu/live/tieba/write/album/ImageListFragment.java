@@ -81,7 +81,7 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
             if (mediaFileInfo != null && ImageListFragment.this.bdi != null) {
                 if (mediaFileInfo instanceof ImageFileInfo) {
                     ImageListFragment.this.bdi.d((ImageFileInfo) mediaFileInfo);
-                    ImageListFragment.this.bdw.di(1);
+                    ImageListFragment.this.bdw.dk(1);
                 } else if (mediaFileInfo instanceof VideoFileInfo) {
                     Log.d("onClick", "VideoFileInfo");
                 }

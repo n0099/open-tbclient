@@ -24,11 +24,11 @@ import java.util.regex.Pattern;
 /* loaded from: classes13.dex */
 class b {
     private HttpURLConnection JL;
-    private int kKy;
-    private g kKz;
+    private int kLH;
+    private g kLI;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
     private static String boundary = "--------7da3d81520810*";
-    private final int kKx = 5;
+    private final int kLG = 5;
     private long JM = 0;
     private long JN = 0;
     private long firstByteReachTime = 0;
@@ -64,21 +64,21 @@ class b {
         if (gVar == null) {
             throw new NullPointerException("init HttpImpl's args context is null");
         }
-        this.kKz = gVar;
+        this.kLI = gVar;
     }
 
     public void cancelNetConnect() {
-        this.kKz.cUC().KE = true;
+        this.kLI.cUS().KE = true;
         com.baidu.adp.lib.f.a.close(this.JL);
     }
 
     private URL a(String str, e eVar) throws Exception {
-        a cUz;
+        a cUP;
         URL url = new URL(str);
-        if (this.JR && (cUz = a.cUz()) != null) {
-            String bA = cUz.bA(str);
+        if (this.JR && (cUP = a.cUP()) != null) {
+            String bA = cUP.bA(str);
             if (!TextUtils.isEmpty(bA)) {
-                this.kKz.cUB().s("Host", url.getHost());
+                this.kLI.cUR().s("Host", url.getHost());
                 URL url2 = new URL(str.replace("://" + url.getHost(), "://" + bA));
                 this.JQ = true;
                 eVar.Kh = bA;
@@ -117,7 +117,7 @@ class b {
                         sb.append(file);
                         httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
                         try {
-                            this.kKz.cUB().s("X-Online-Host", url.getHost());
+                            this.kLI.cUR().s("X-Online-Host", url.getHost());
                             httpURLConnection2 = httpURLConnection;
                         } catch (Exception e2) {
                             e = e2;
@@ -151,13 +151,13 @@ class b {
         Map<String, List<String>> map;
         List<String> list;
         eVar.Kf = -1;
-        if (this.kKz.cUC().KE) {
+        if (this.kLI.cUS().KE) {
             throw new BdHttpCancelException();
         }
-        String c = this.kKz.cUB().c(eVar);
+        String c = this.kLI.cUR().c(eVar);
         eVar.url = c;
         URL a = a(c, eVar);
-        if (this.kKz.cUC().KE) {
+        if (this.kLI.cUS().KE) {
             throw new BdHttpCancelException();
         }
         eVar.Kf = -2;
@@ -171,8 +171,8 @@ class b {
             this.JL.setRequestMethod("GET");
             this.JL.setConnectTimeout(i2);
             this.JL.setReadTimeout(i);
-            this.kKz.cUB().f(this.JL);
-            if (this.kKz.cUC().KE) {
+            this.kLI.cUR().f(this.JL);
+            if (this.kLI.cUS().KE) {
                 throw new BdHttpCancelException();
             }
             eVar.dnsTime = new Date().getTime() - currentTimeMillis;
@@ -184,7 +184,7 @@ class b {
             this.JN = System.currentTimeMillis();
             eVar.Kf = -5;
             eVar.connectTime = (new Date().getTime() - currentTimeMillis) - eVar.dnsTime;
-            if (this.kKz.cUC().KE) {
+            if (this.kLI.cUS().KE) {
                 throw new BdHttpCancelException();
             }
             String contentType = this.JL.getContentType();
@@ -192,22 +192,22 @@ class b {
             if (f.bN(contentType)) {
                 this.JL.disconnect();
                 this.JL.connect();
-                if (this.kKz.cUC().KE) {
+                if (this.kLI.cUS().KE) {
                     throw new BdHttpCancelException();
                 }
             }
             eVar.Kf = -8;
-            this.kKz.cUC().g(this.JL);
-            if (c.contains("c.tieba.baidu.com") && (map = this.kKz.cUC().KF) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
+            this.kLI.cUS().g(this.JL);
+            if (c.contains("c.tieba.baidu.com") && (map = this.kLI.cUS().KF) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
                 eVar.Km = list.get(0);
                 eVar.Kn = list.get(1);
             }
-            eVar.Ke = this.kKz.cUC().responseCode;
+            eVar.Ke = this.kLI.cUS().responseCode;
             eVar.downloadSize = this.JL.getHeaderFields().toString().getBytes().length;
             byte[] e = e(this.JL);
             if (e != null) {
                 eVar.downloadSize += e.length;
-                this.kKz.cUC().retBytes = c(this.kKz.cUC().contentEncoding, e);
+                this.kLI.cUS().retBytes = c(this.kLI.cUS().contentEncoding, e);
             }
             eVar.Kf = -9;
             eVar.Kc = new Date().getTime() - currentTimeMillis;
@@ -240,7 +240,7 @@ class b {
             try {
                 byte[] bArr2 = new byte[1024];
                 inputStream2 = httpURLConnection.getInputStream();
-                while (!this.kKz.cUC().KE && (read = inputStream2.read(bArr2)) != -1) {
+                while (!this.kLI.cUS().KE && (read = inputStream2.read(bArr2)) != -1) {
                     try {
                         byteArrayOutputStream.write(bArr2, 0, read);
                     } catch (Throwable th2) {
@@ -252,7 +252,7 @@ class b {
                         throw th;
                     }
                 }
-                if (this.kKz.cUC().KE) {
+                if (this.kLI.cUS().KE) {
                     throw new BdHttpCancelException();
                 }
                 bArr = byteArrayOutputStream.toByteArray();
@@ -272,10 +272,10 @@ class b {
     public void b(int i, int i2, e eVar) throws Exception {
         eVar.Kf = -1;
         try {
-            String url = this.kKz.cUB().getUrl();
+            String url = this.kLI.cUR().getUrl();
             eVar.url = url;
             URL a = a(url, eVar);
-            if (this.kKz.cUC().KE) {
+            if (this.kLI.cUS().KE) {
                 throw new BdHttpCancelException();
             }
             eVar.Kf = -2;
@@ -291,11 +291,11 @@ class b {
             this.JL.setConnectTimeout(i2);
             this.JL.setReadTimeout(i);
             this.JL.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
-            if (this.kKz.cUC().KE) {
+            if (this.kLI.cUS().KE) {
                 throw new BdHttpCancelException();
             }
-            this.kKz.cUB().f(this.JL);
-            if (this.kKz.cUC().KE) {
+            this.kLI.cUR().f(this.JL);
+            if (this.kLI.cUS().KE) {
                 throw new BdHttpCancelException();
             }
             long time = new Date().getTime();
@@ -308,36 +308,36 @@ class b {
             this.JN = System.currentTimeMillis();
             eVar.Kf = -5;
             eVar.connectTime = (new Date().getTime() - time) - eVar.dnsTime;
-            if (this.kKz.cUC().KE) {
+            if (this.kLI.cUS().KE) {
                 throw new BdHttpCancelException();
             }
             if (this.timer != null) {
                 this.timer.schedule(this.JV, 45000L);
             }
             eVar.Kf = -6;
-            this.kKz.cUB().a(this.JL, boundary, eVar);
+            this.kLI.cUR().a(this.JL, boundary, eVar);
             eVar.Kf = -7;
             String contentType = this.JL.getContentType();
             this.firstByteReachTime = System.currentTimeMillis();
             if (f.bN(contentType)) {
                 this.JL.disconnect();
                 this.JL.connect();
-                if (this.kKz.cUC().KE) {
+                if (this.kLI.cUS().KE) {
                     throw new BdHttpCancelException();
                 }
             }
-            if (this.kKz.cUC().KE) {
+            if (this.kLI.cUS().KE) {
                 throw new BdHttpCancelException();
             }
             eVar.Kf = -8;
-            this.kKz.cUC().g(this.JL);
-            eVar.Ke = this.kKz.cUC().responseCode;
+            this.kLI.cUS().g(this.JL);
+            eVar.Ke = this.kLI.cUS().responseCode;
             eVar.downloadSize = this.JL.getHeaderFields().toString().getBytes().length;
             byte[] e = e(this.JL);
             if (e != null) {
                 eVar.downloadSize += e.length;
-                this.kKz.cUC().downSize = e.length;
-                this.kKz.cUC().retBytes = c(this.kKz.cUC().contentEncoding, e);
+                this.kLI.cUS().downSize = e.length;
+                this.kLI.cUS().retBytes = c(this.kLI.cUS().contentEncoding, e);
             }
             eVar.Kc = new Date().getTime() - time;
             eVar.Kf = -9;
@@ -354,16 +354,16 @@ class b {
         InputStream inputStream;
         String headerField;
         int indexOf;
-        this.kKy = 0;
+        this.kLH = 0;
         FileOutputStream fileOutputStream = null;
         e eVar2 = eVar == null ? new e() : eVar;
         try {
-            String url = this.kKz.cUB().getUrl();
+            String url = this.kLI.cUR().getUrl();
             eVar2.url = url;
             this.JL = a(a(url, eVar2), i2, i);
             this.JL.setInstanceFollowRedirects(true);
             HttpURLConnection.setFollowRedirects(false);
-            if (this.kKz.cUC().KE) {
+            if (this.kLI.cUS().KE) {
                 this.JO = System.currentTimeMillis();
                 com.baidu.adp.lib.f.a.close((InputStream) null);
                 com.baidu.adp.lib.f.a.close(this.JL);
@@ -380,7 +380,7 @@ class b {
             long length = file.length();
             FileOutputStream fileOutputStream2 = new FileOutputStream(file, true);
             try {
-                this.kKz.cUB().f(this.JL);
+                this.kLI.cUR().f(this.JL);
                 this.JL.addRequestProperty(Headers.RANGE, "bytes=" + String.valueOf(length) + Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                 this.JL.connect();
                 if (this.JM <= 0) {
@@ -388,19 +388,19 @@ class b {
                 }
                 this.JN = System.currentTimeMillis();
                 int responseCode = this.JL.getResponseCode();
-                while (Cl(responseCode) && this.kKy <= 5) {
+                while (Cn(responseCode) && this.kLH <= 5) {
                     this.JL = a(this.JL, i2, i);
-                    this.kKz.cUB().f(this.JL);
+                    this.kLI.cUR().f(this.JL);
                     this.JL.addRequestProperty(Headers.RANGE, "bytes=" + String.valueOf(length) + Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                     this.JL.connect();
                     responseCode = this.JL.getResponseCode();
                 }
                 this.firstByteReachTime = System.currentTimeMillis();
-                this.kKz.cUC().responseCode = responseCode;
+                this.kLI.cUS().responseCode = responseCode;
                 if (isFileSegSuccess()) {
                     if (this.JL.getContentType() != null && this.JL.getContentType().contains("text/vnd.wap.wml")) {
                         this.JL.disconnect();
-                        this.kKz.cUC().responseCode = 0;
+                        this.kLI.cUS().responseCode = 0;
                         boolean a = a(str, jVar, i, i2, z, eVar2, z2);
                         this.JO = System.currentTimeMillis();
                         com.baidu.adp.lib.f.a.close((InputStream) null);
@@ -413,12 +413,12 @@ class b {
                     if (headerField2 != null && (indexOf = headerField2.indexOf("/")) != -1) {
                         i3 = com.baidu.adp.lib.f.b.toInt(headerField2.substring(indexOf + 1), 0);
                     }
-                    int i4 = (i3 == 0 && this.kKz.cUC().responseCode == 200 && (headerField = this.JL.getHeaderField("Content-Length")) != null) ? com.baidu.adp.lib.f.b.toInt(headerField, 0) : i3;
-                    this.kKz.cUC().contentLength = String.valueOf(i4);
+                    int i4 = (i3 == 0 && this.kLI.cUS().responseCode == 200 && (headerField = this.JL.getHeaderField("Content-Length")) != null) ? com.baidu.adp.lib.f.b.toInt(headerField, 0) : i3;
+                    this.kLI.cUS().contentLength = String.valueOf(i4);
                     eVar2.Kb = url.getBytes().length;
                     eVar2.downloadSize = this.JL.getHeaderFields().toString().getBytes().length;
                     eVar2.downloadSize += i4;
-                    if (this.kKz.cUC().responseCode == 416 || this.kKz.cUC().responseCode == 204) {
+                    if (this.kLI.cUS().responseCode == 416 || this.kLI.cUS().responseCode == 204) {
                         this.JO = System.currentTimeMillis();
                         com.baidu.adp.lib.f.a.close((InputStream) null);
                         com.baidu.adp.lib.f.a.close(this.JL);
@@ -441,7 +441,7 @@ class b {
                             if (jVar != null && length > 0) {
                                 jVar.onProgress((int) length, i4);
                             }
-                            while (!this.kKz.cUC().KE) {
+                            while (!this.kLI.cUS().KE) {
                                 int read = inputStream2.read(bArr);
                                 if (read != -1) {
                                     try {
@@ -499,25 +499,25 @@ class b {
         URL url = httpURLConnection.getURL().toURI().resolve(httpURLConnection.getHeaderField(Headers.LOCATION)).toURL();
         com.baidu.adp.lib.f.a.close(httpURLConnection);
         HttpURLConnection a = a(url, i, i2);
-        this.kKy++;
+        this.kLH++;
         return a;
     }
 
-    private boolean Cl(int i) {
+    private boolean Cn(int i) {
         return i == 302 || i == 301 || i == 304 || i == 300 || i == 307 || i == 308 || i == 303;
     }
 
     private boolean isFileSegSuccess() {
-        return this.kKz.cUC().responseCode == 200 || this.kKz.cUC().responseCode == 206;
+        return this.kLI.cUS().responseCode == 200 || this.kLI.cUS().responseCode == 206;
     }
 
     public void c(int i, int i2, e eVar) throws Exception {
         eVar.Kf = -1;
         try {
-            String url = this.kKz.cUB().getUrl();
+            String url = this.kLI.cUR().getUrl();
             eVar.url = url;
             URL a = a(url, eVar);
-            if (this.kKz.cUC().KE) {
+            if (this.kLI.cUS().KE) {
                 throw new BdHttpCancelException();
             }
             eVar.Kf = -2;
@@ -533,11 +533,11 @@ class b {
             this.JL.setConnectTimeout(i2);
             this.JL.setReadTimeout(i);
             this.JL.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            if (this.kKz.cUC().KE) {
+            if (this.kLI.cUS().KE) {
                 throw new BdHttpCancelException();
             }
-            this.kKz.cUB().f(this.JL);
-            if (this.kKz.cUC().KE) {
+            this.kLI.cUR().f(this.JL);
+            if (this.kLI.cUS().KE) {
                 throw new BdHttpCancelException();
             }
             eVar.dnsTime = System.currentTimeMillis() - currentTimeMillis;
@@ -549,13 +549,13 @@ class b {
             this.JN = System.currentTimeMillis();
             eVar.Kf = -5;
             eVar.connectTime = (System.currentTimeMillis() - currentTimeMillis) - eVar.dnsTime;
-            if (this.kKz.cUC().KE) {
+            if (this.kLI.cUS().KE) {
                 throw new BdHttpCancelException();
             }
             eVar.Kf = -6;
-            this.kKz.cUB().a(this.JL, eVar);
+            this.kLI.cUR().a(this.JL, eVar);
             eVar.Kf = -7;
-            if (this.kKz.cUC().KE) {
+            if (this.kLI.cUS().KE) {
                 throw new BdHttpCancelException();
             }
             String contentType = this.JL.getContentType();
@@ -563,19 +563,19 @@ class b {
             if (f.bN(contentType)) {
                 this.JL.disconnect();
                 this.JL.connect();
-                if (this.kKz.cUC().KE) {
+                if (this.kLI.cUS().KE) {
                     throw new BdHttpCancelException();
                 }
             }
-            this.kKz.cUC().g(this.JL);
+            this.kLI.cUS().g(this.JL);
             eVar.Kf = -8;
-            eVar.Ke = this.kKz.cUC().responseCode;
+            eVar.Ke = this.kLI.cUS().responseCode;
             eVar.downloadSize = this.JL.getHeaderFields().toString().getBytes().length;
             byte[] e = e(this.JL);
             if (e != null) {
                 eVar.downloadSize += e.length;
-                this.kKz.cUC().downSize = e.length;
-                this.kKz.cUC().retBytes = c(this.kKz.cUC().contentEncoding, e);
+                this.kLI.cUS().downSize = e.length;
+                this.kLI.cUS().retBytes = c(this.kLI.cUS().contentEncoding, e);
             }
             eVar.Kc = new Date().getTime() - currentTimeMillis;
             eVar.Kf = -9;

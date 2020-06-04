@@ -8,7 +8,7 @@ import com.baidu.tieba.personPolymeric.view.l;
 import tbclient.User;
 /* loaded from: classes11.dex */
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
-    private l kus;
+    private l kvy;
 
     public abstract void d(User user);
 
@@ -20,30 +20,30 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view, String str, boolean z) {
-        if (this.kus == null) {
-            this.kus = new l(getPageContext().getPageActivity(), getNetRefreshListener());
-            this.kus.setTitle(getPageContext().getResources().getString(R.string.refresh_view_title_text));
-            this.kus.setSubText(null);
-            this.kus.setButtonText(getPageContext().getResources().getString(R.string.refresh_view_button_text));
-            this.kus.showRefreshButton();
-            this.kus.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        if (this.kvy == null) {
+            this.kvy = new l(getPageContext().getPageActivity(), getNetRefreshListener());
+            this.kvy.setTitle(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+            this.kvy.setSubText(null);
+            this.kvy.setButtonText(getPageContext().getResources().getString(R.string.refresh_view_button_text));
+            this.kvy.showRefreshButton();
+            this.kvy.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
-        this.kus.onChangeSkinType();
-        this.kus.attachView(view, z);
+        this.kvy.onChangeSkinType();
+        this.kvy.attachView(view, z);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view) {
-        if (this.kus != null) {
-            this.kus.dettachView(view);
+        if (this.kvy != null) {
+            this.kvy.dettachView(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kus != null) {
-            this.kus.onChangeSkinType();
+        if (this.kvy != null) {
+            this.kvy.onChangeSkinType();
         }
     }
 }

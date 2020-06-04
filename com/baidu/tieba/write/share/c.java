@@ -7,11 +7,11 @@ public class c {
     public String content;
     public String forumId;
     public String imageUrl;
-    public String lTV;
-    public String lTW;
-    public String lTX;
-    public String lTY;
-    public String lTZ;
+    public String lVg;
+    public String lVh;
+    public String lVi;
+    public String lVj;
+    public String lVk;
     public String linkUrl;
     public String title;
 }

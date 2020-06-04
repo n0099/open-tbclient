@@ -209,7 +209,7 @@ public class d implements Handler.Callback {
                             for (String str2 : split) {
                                 com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b();
                                 bVar.setActivityId(com.baidu.adp.lib.f.b.toInt(next, 0));
-                                bVar.jK(com.baidu.adp.lib.f.b.toInt(str2, 0));
+                                bVar.jM(com.baidu.adp.lib.f.b.toInt(str2, 0));
                                 if (bVar.getActivityId() != 0 && bVar.aKS() != 0) {
                                     linkedList.add(bVar);
                                 }
@@ -240,7 +240,7 @@ public class d implements Handler.Callback {
                 if (hVar != null && hVar.aLB() != null) {
                     com.baidu.tbadk.BdToken.b aLB = hVar.aLB();
                     if (aLB.aKP()) {
-                        aLB.jQ(aLB.aLg());
+                        aLB.jS(aLB.aLg());
                         m(aLB);
                     } else if (aLB.getActivityId() != 0 && aLB.aKS() != 0) {
                         linkedList.add(aLB);
@@ -294,7 +294,7 @@ public class d implements Handler.Callback {
         if (!v.isEmpty(list)) {
             for (com.baidu.tbadk.BdToken.b bVar : list) {
                 if (bVar.aKP()) {
-                    bVar.jQ(bVar.aLg());
+                    bVar.jS(bVar.aLg());
                     m(bVar);
                 } else {
                     this.dwM.add(new e(bVar));

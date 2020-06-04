@@ -18,21 +18,21 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
     private TbPageContext dIF;
-    private com.baidu.tieba.homepage.gamevideo.a.b iaA;
-    private InterfaceC0625a iaB;
-    private GameVideoGridView iaz;
+    private GameVideoGridView ibm;
+    private com.baidu.tieba.homepage.gamevideo.a.b ibn;
+    private InterfaceC0625a ibo;
     private BdUniqueId mBdUniqueId;
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.a.1
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (a.this.iaA != null && i < a.this.iaA.getCount() && a.this.iaA.getItem(i) != null && (a.this.iaA.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
-                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) a.this.iaA.getItem(i);
+            if (a.this.ibn != null && i < a.this.ibn.getCount() && a.this.ibn.getItem(i) != null && (a.this.ibn.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
+                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) a.this.ibn.getItem(i);
                 if (aVar.enable == 1) {
-                    a.this.iaA.wx(aVar.sub_class_id);
-                    if (a.this.iaB != null) {
-                        a.this.iaB.a(aVar);
+                    a.this.ibn.wz(aVar.sub_class_id);
+                    if (a.this.ibo != null) {
+                        a.this.ibo.a(aVar);
                     }
-                    a.this.cfi();
+                    a.this.cfr();
                     com.baidu.tbadk.core.sharedPref.b.aTX().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
                     com.baidu.tbadk.core.sharedPref.b.aTX().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
                     TiebaStatic.log(new an("c13485").ag("obj_type", aVar.sub_class_id));
@@ -57,19 +57,19 @@ public class a {
 
     private void init() {
         this.mRootView = LayoutInflater.from(this.dIF.getPageActivity()).inflate(R.layout.game_video_choose_fullscreen_layout, (ViewGroup) null);
-        this.iaz = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_full_gridview);
-        this.iaA = new com.baidu.tieba.homepage.gamevideo.a.b(this.dIF, 101, this.mBdUniqueId);
-        this.iaz.setNumColumns(4);
-        this.iaz.setAdapter((ListAdapter) this.iaA);
-        this.iaz.setOnItemClickListener(this.mOnItemClickListener);
+        this.ibm = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_full_gridview);
+        this.ibn = new com.baidu.tieba.homepage.gamevideo.a.b(this.dIF, 101, this.mBdUniqueId);
+        this.ibm.setNumColumns(4);
+        this.ibm.setAdapter((ListAdapter) this.ibn);
+        this.ibm.setOnItemClickListener(this.mOnItemClickListener);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.id_game_video_choose_full_title);
         onChangeSkinType();
     }
 
     public void setData(List<com.baidu.tieba.homepage.gamevideo.c.a> list) {
         if (!v.isEmpty(list)) {
-            this.iaA.setData(list);
-            this.iaA.notifyDataSetChanged();
+            this.ibn.setData(list);
+            this.ibn.notifyDataSetChanged();
         }
     }
 
@@ -92,19 +92,19 @@ public class a {
         }
     }
 
-    public void cfi() {
+    public void cfr() {
         if (this.mRootView != null && this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
         }
     }
 
     public void a(InterfaceC0625a interfaceC0625a) {
-        this.iaB = interfaceC0625a;
+        this.ibo = interfaceC0625a;
     }
 
     public void onDestroy() {
-        if (this.iaz != null) {
-            this.iaz.onDestroy();
+        if (this.ibm != null) {
+            this.ibm.onDestroy();
         }
     }
 }

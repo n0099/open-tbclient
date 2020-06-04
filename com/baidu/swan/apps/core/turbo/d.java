@@ -164,13 +164,13 @@ public final class d implements h {
             Log.d("SwanAppCoreRuntime", "preloadCoreRuntime start.");
         }
         if (intent == null) {
-            swanCoreVersion = com.baidu.swan.apps.swancore.b.ha(0);
-            extensionCore = com.baidu.swan.apps.extcore.b.fe(0);
+            swanCoreVersion = com.baidu.swan.apps.swancore.b.hc(0);
+            extensionCore = com.baidu.swan.apps.extcore.b.fg(0);
         } else {
             intent.setExtrasClassLoader(SwanCoreVersion.class.getClassLoader());
             swanCoreVersion = (SwanCoreVersion) intent.getParcelableExtra("bundle_key_swan_core");
             extensionCore = (ExtensionCore) intent.getParcelableExtra("bundle_key_extension_core");
-            com.baidu.swan.apps.u.a.afn().ed(intent.getIntExtra("bundle_key_preload_switch", caS));
+            com.baidu.swan.apps.u.a.afn().ef(intent.getIntExtra("bundle_key_preload_switch", caS));
         }
         if (swanCoreVersion == null) {
             if (DEBUG) {
@@ -335,14 +335,14 @@ public final class d implements h {
         this.caK = null;
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("swanjs version", com.baidu.swan.apps.swancore.d.a.hq(0));
+            jSONObject.put("swanjs version", com.baidu.swan.apps.swancore.d.a.hs(0));
             jSONObject.put("system model", Build.MODEL);
             jSONObject.put("is V8", abA());
             jSONObject.put("in main", ProcessUtils.isMainProcess());
-            SwanCoreVersion ha = com.baidu.swan.apps.swancore.b.ha(0);
-            jSONObject.put("swan app core", ha == null ? "null" : Long.valueOf(ha.swanCoreVersion));
-            SwanCoreVersion ha2 = com.baidu.swan.apps.swancore.b.ha(1);
-            jSONObject.put("swan game core", ha2 == null ? "null" : Long.valueOf(ha2.swanCoreVersion));
+            SwanCoreVersion hc = com.baidu.swan.apps.swancore.b.hc(0);
+            jSONObject.put("swan app core", hc == null ? "null" : Long.valueOf(hc.swanCoreVersion));
+            SwanCoreVersion hc2 = com.baidu.swan.apps.swancore.b.hc(1);
+            jSONObject.put("swan game core", hc2 == null ? "null" : Long.valueOf(hc2.swanCoreVersion));
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -582,7 +582,7 @@ public final class d implements h {
             if (DEBUG) {
                 Log.e("SwanAppCoreRuntime", Log.getStackTraceString(new Exception("mSwanCoreVersion is invalid.")));
             }
-            a(com.baidu.swan.apps.swancore.b.ha(0));
+            a(com.baidu.swan.apps.swancore.b.hc(0));
         }
     }
 
@@ -623,7 +623,7 @@ public final class d implements h {
             if (DEBUG) {
                 Log.w("SwanAppCoreRuntime", "updateExtensionCoreIfNeeded: ExtensionCore is invalid");
             }
-            a(com.baidu.swan.apps.extcore.b.fe(0));
+            a(com.baidu.swan.apps.extcore.b.fg(0));
         }
     }
 
@@ -837,7 +837,7 @@ public final class d implements h {
             return false;
         }
 
-        public static String fa(int i) {
+        public static String fc(int i) {
             if (i == 1) {
                 return "V8";
             }

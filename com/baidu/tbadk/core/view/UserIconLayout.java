@@ -71,7 +71,7 @@ public class UserIconLayout extends LinearLayout {
                 if (bc.checkUpIsLogin(UserIconLayout.this.mContext) && UserIconLayout.this.aee != null && UserIconLayout.this.aee.aQx() != null && UserIconLayout.this.aee.aQx().getTShowInfoNew() != null) {
                     ArrayList<IconData> tShowInfoNew = UserIconLayout.this.aee.aQx().getTShowInfoNew();
                     if (v.getCount(tShowInfoNew) != 0 && v.getItem(tShowInfoNew, 0) != null && (url = UserIconLayout.this.aee.aQx().getTShowInfoNew().get(0).getUrl()) != null && (com.baidu.adp.base.i.G(UserIconLayout.this.mContext) instanceof TbPageContext)) {
-                        ba.aUZ().b((TbPageContext) com.baidu.adp.base.i.G(UserIconLayout.this.mContext), new String[]{url});
+                        ba.aVa().b((TbPageContext) com.baidu.adp.base.i.G(UserIconLayout.this.mContext), new String[]{url});
                     }
                 }
             }
@@ -115,7 +115,7 @@ public class UserIconLayout extends LinearLayout {
                 if (bc.checkUpIsLogin(UserIconLayout.this.mContext) && UserIconLayout.this.aee != null && UserIconLayout.this.aee.aQx() != null && UserIconLayout.this.aee.aQx().getTShowInfoNew() != null) {
                     ArrayList<IconData> tShowInfoNew = UserIconLayout.this.aee.aQx().getTShowInfoNew();
                     if (v.getCount(tShowInfoNew) != 0 && v.getItem(tShowInfoNew, 0) != null && (url = UserIconLayout.this.aee.aQx().getTShowInfoNew().get(0).getUrl()) != null && (com.baidu.adp.base.i.G(UserIconLayout.this.mContext) instanceof TbPageContext)) {
-                        ba.aUZ().b((TbPageContext) com.baidu.adp.base.i.G(UserIconLayout.this.mContext), new String[]{url});
+                        ba.aVa().b((TbPageContext) com.baidu.adp.base.i.G(UserIconLayout.this.mContext), new String[]{url});
                     }
                 }
             }

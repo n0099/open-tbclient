@@ -16,7 +16,7 @@ public class c {
     private com.baidu.adp.lib.d.b<com.baidu.tbadk.widget.largeImage.a.a> eoT;
     private com.baidu.tbadk.widget.largeImage.b.b eoU;
 
-    public static c bet() {
+    public static c beu() {
         return eoP;
     }
 
@@ -72,7 +72,7 @@ public class c {
         };
     }
 
-    public com.baidu.adp.lib.d.b<com.baidu.tbadk.widget.largeImage.a.a> nq(int i) {
+    public com.baidu.adp.lib.d.b<com.baidu.tbadk.widget.largeImage.a.a> ns(int i) {
         if (this.eoT != null && this.eoU != null) {
             if (this.eoU.getBlockSize() == i) {
                 return this.eoT;

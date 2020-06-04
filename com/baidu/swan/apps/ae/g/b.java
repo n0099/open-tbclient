@@ -71,14 +71,14 @@ public class b {
             com.baidu.swan.apps.ae.d.a.print("parse app.json is null");
             return null;
         }
-        List<com.baidu.swan.apps.ae.f.a> gK = swanAppConfigData.gK(4);
-        if (gK == null || gK.isEmpty()) {
+        List<com.baidu.swan.apps.ae.f.a> gM = swanAppConfigData.gM(4);
+        if (gM == null || gM.isEmpty()) {
             bH("pluginPath", null);
             com.baidu.swan.apps.ae.d.a.print("this swan app not apply on someone plugin");
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        for (com.baidu.swan.apps.ae.f.a aVar : gK) {
+        for (com.baidu.swan.apps.ae.f.a aVar : gM) {
             if (aVar != null && aVar.isValid()) {
                 jSONArray.put(aVar.ctd);
             }

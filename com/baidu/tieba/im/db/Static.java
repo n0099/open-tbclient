@@ -17,7 +17,7 @@ public class Static {
                     ad.b(new ac<Void>() { // from class: com.baidu.tieba.im.db.Static.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.ac
-                        /* renamed from: bmZ */
+                        /* renamed from: bnb */
                         public Void doInBackground() {
                             if (customResponsedMessage.getData() instanceof String) {
                                 g.Gr((String) customResponsedMessage.getData());

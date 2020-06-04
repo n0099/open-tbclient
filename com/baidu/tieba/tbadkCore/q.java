@@ -5,5 +5,5 @@ public interface q {
 
     void c(m mVar);
 
-    void tK(int i);
+    void tM(int i);
 }

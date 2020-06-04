@@ -46,7 +46,7 @@ public class ad extends SparseArray<ak> {
                 ak valueAt = valueAt(i2);
                 if (valueAt != null) {
                     valueAt.a(null);
-                    valueAt.bwi();
+                    valueAt.bwk();
                 }
                 i = i2 + 1;
             } else {
@@ -62,7 +62,7 @@ public class ad extends SparseArray<ak> {
         put(i, akVar);
     }
 
-    public ak ue(int i) {
+    public ak ug(int i) {
         if (i > 100) {
             i = 100;
         }

@@ -90,20 +90,20 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         int skinType;
         if (this.dEA != null && this.mSkinType != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
             this.mSkinType = skinType;
-            int bgs = com.baidu.tbadk.util.f.bgs();
-            am.setBackgroundColor(this.dWI, bgs);
+            int bgt = com.baidu.tbadk.util.f.bgt();
+            am.setBackgroundColor(this.dWI, bgt);
             if (this.mSkinType == 0) {
                 this.mTextColor = am.getColor(R.color.cp_cont_b);
             } else {
-                this.mTextColor = com.baidu.tbadk.util.f.nH(bgs);
+                this.mTextColor = com.baidu.tbadk.util.f.nJ(bgt);
             }
             am.a(this.dWI, this.mTextColor);
-            this.mIconDrawable = SvgManager.aUV().b(R.drawable.icon_pure_card_ba16_svg, this.mTextColor, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.mIconDrawable = SvgManager.aUW().b(R.drawable.icon_pure_card_ba16_svg, this.mTextColor, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             if (this.mIconDrawable != null) {
                 int dimens = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds42);
                 this.mIconDrawable.setBounds(0, 0, dimens, dimens);
             }
-            aWJ();
+            aWK();
         }
     }
 
@@ -116,7 +116,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 return;
             }
             setVisibility(0);
-            aWJ();
+            aWK();
             this.dWI.setText(((Object) TextUtils.ellipsize(aQC, this.dWI.getPaint(), adT - this.dWI.getPaint().measureText(getResources().getString(R.string.forum)), TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
             this.dWI.setVisibility(0);
             onChangeSkinType();
@@ -135,7 +135,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 return;
             }
             setVisibility(0);
-            aWJ();
+            aWK();
             this.dWI.setText(((Object) TextUtils.ellipsize(aQC, this.dWI.getPaint(), (i - (paddingLeft * 2)) - this.dWI.getPaint().measureText(getResources().getString(R.string.forum)), TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
             this.dWI.setVisibility(0);
             onChangeSkinType();
@@ -144,7 +144,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         setVisibility(8);
     }
 
-    private void aWJ() {
+    private void aWK() {
         if (this.dEA != null && this.dEA.aOo()) {
             this.dWI.setGravity(16);
             this.dWI.setPadding(this.tbds20, 0, this.tbds30, 0);

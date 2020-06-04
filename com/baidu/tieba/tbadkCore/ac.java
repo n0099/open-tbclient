@@ -14,7 +14,7 @@ import java.lang.ref.WeakReference;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ac {
-    private a ljT;
+    private a llc;
     private String mFrom = BarDetailForDirSwitch.BAR_DETAIL_DIR;
 
     /* loaded from: classes.dex */
@@ -29,11 +29,11 @@ public class ac {
     }
 
     public void a(a aVar) {
-        this.ljT = aVar;
+        this.llc = aVar;
     }
 
     public void K(String str, long j) {
-        new b(str, j, this.mFrom, this.ljT, this, null).execute(new Integer[0]);
+        new b(str, j, this.mFrom, this.llc, this, null).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -42,8 +42,8 @@ public class ac {
         private String authSid;
         private int errorCode;
         private String errorMsg;
-        private WeakReference<a> ljU;
-        private WeakReference<ac> ljV;
+        private WeakReference<a> lld;
+        private WeakReference<ac> lle;
         private long mForumId;
         private String mForumName;
         private String mFrom;
@@ -53,11 +53,11 @@ public class ac {
         public b(String str, long j, String str2, a aVar, ac acVar, String str3) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.ljU = null;
-            this.ljV = new WeakReference<>(acVar);
+            this.lld = null;
+            this.lle = new WeakReference<>(acVar);
             this.mForumName = str;
             this.mForumId = j;
-            this.ljU = new WeakReference<>(aVar);
+            this.lld = new WeakReference<>(aVar);
             this.mFrom = str2;
             this.authSid = str3;
             setPriority(3);
@@ -77,14 +77,14 @@ public class ac {
                     this.mNetwork.addPostData("favo_type", "1");
                     this.mNetwork.addPostData("st_type", this.mFrom);
                     this.mNetwork.addPostData("authsid", this.authSid);
-                    this.mNetwork.aUA().aVa().mIsNeedTbs = true;
+                    this.mNetwork.aUA().aVb().mIsNeedTbs = true;
                     String postNetData = this.mNetwork.postNetData();
                     if (!aq.isEmpty(postNetData) && (jSONObject = new JSONObject(postNetData)) != null) {
                         this.errorCode = jSONObject.optInt("error_code");
                         this.errorMsg = jSONObject.optString("error_msg");
                         this.tokenData = AuthTokenData.parse(jSONObject);
                     }
-                    if (this.mNetwork.aUA().aVb().isRequestSuccess()) {
+                    if (this.mNetwork.aUA().aVc().isRequestSuccess()) {
                         return 1;
                     }
                 }
@@ -100,12 +100,12 @@ public class ac {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.ljU != null) {
+            if (this.lld != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = this.mForumId;
-                a aVar2 = this.ljU.get();
+                a aVar2 = this.lld.get();
                 if (aVar2 != null) {
-                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.aUA().aVb().isRequestSuccess()) {
+                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.aUA().aVc().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);
                         aVar2.z(this.mForumName, this.mForumId);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM, Long.valueOf(this.mForumId)));

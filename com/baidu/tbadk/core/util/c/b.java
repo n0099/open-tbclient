@@ -45,17 +45,17 @@ public class b extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aVn() {
+    public boolean aVo() {
         return this.dPB;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aVo() {
+    public boolean aVp() {
         return this.dPA;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int aVp() {
+    public int aVq() {
         return this.procType;
     }
 }

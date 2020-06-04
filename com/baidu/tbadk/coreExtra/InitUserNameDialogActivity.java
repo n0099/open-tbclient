@@ -31,7 +31,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
                 InitUserNameDialogActivity.this.finish();
             }
         });
-        this.eap.bbw();
+        this.eap.bbx();
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo == null && getIntent() != null && (getIntent().getSerializableExtra(InitUserNameDialogActivityConfig.ACCOUNT_DATA) instanceof AccountData)) {
             currentAccountInfo = (AccountData) getIntent().getSerializableExtra(InitUserNameDialogActivityConfig.ACCOUNT_DATA);
@@ -43,7 +43,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.eap.mO(1);
+        this.eap.mQ(1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

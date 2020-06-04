@@ -131,8 +131,8 @@ public class a extends aa {
         while (true) {
             int i2 = i;
             if (i2 < this.bRi.bRr.length()) {
-                final String ey = this.bRi.ey(i2);
-                if (TextUtils.isEmpty(ey)) {
+                final String eA = this.bRi.eA(i2);
+                if (TextUtils.isEmpty(eA)) {
                     int i3 = this.bRk + 1;
                     this.bRk = i3;
                     if (i3 >= this.bRi.bRr.length()) {
@@ -143,7 +143,7 @@ public class a extends aa {
                     this.bRj.execute(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.a.a.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(context, ey, Wt, unitedSchemeEntity, callbackHandler);
+                            a.this.a(context, eA, Wt, unitedSchemeEntity, callbackHandler);
                         }
                     });
                 }

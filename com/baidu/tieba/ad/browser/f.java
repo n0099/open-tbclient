@@ -23,7 +23,7 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public class f implements com.baidu.tieba.tbadkCore.e.b {
-    private AdBaseWebView eNY;
+    private AdBaseWebView eOj;
     private final TbPageContext<?> mTbPageContext;
     private final CustomMessageListener installListener = new CustomMessageListener(CmdConfigCustom.CMD_PACKAGE_ADDED) { // from class: com.baidu.tieba.ad.browser.f.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -184,7 +184,7 @@ public class f implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.bcQ().a("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.bcR().a("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -199,8 +199,8 @@ public class f implements com.baidu.tieba.tbadkCore.e.b {
         JSONObject jsonWithObject = OrmObject.jsonWithObject(jSResultData);
         if (this.mTbPageContext.getOrignalPage() instanceof AdBaseWebViewActivity) {
             ((AdBaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
-        } else if (this.eNY != null) {
-            this.eNY.loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
+        } else if (this.eOj != null) {
+            this.eOj.loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
         }
     }
 
@@ -216,8 +216,8 @@ public class f implements com.baidu.tieba.tbadkCore.e.b {
         JSONObject jsonWithObject = OrmObject.jsonWithObject(jSResultData);
         if (this.mTbPageContext.getOrignalPage() instanceof AdBaseWebViewActivity) {
             ((AdBaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
-        } else if (this.eNY != null) {
-            this.eNY.loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
+        } else if (this.eOj != null) {
+            this.eOj.loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
         }
     }
 

@@ -7,7 +7,7 @@ public abstract class d {
         this.ekK = editorTools;
     }
 
-    public EditorTools bcW() {
+    public EditorTools bcX() {
         return this.ekK;
     }
 }

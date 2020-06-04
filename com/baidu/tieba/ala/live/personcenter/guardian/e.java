@@ -11,9 +11,9 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class e extends BdBaseModel<AlaGuardianListActivity> {
-    public HttpMessageListener fEY;
-    private a fFD;
-    private AlaGuardianListActivity fFF;
+    private a fFO;
+    private AlaGuardianListActivity fFQ;
+    public HttpMessageListener fFj;
     private String mUserId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,7 +26,7 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
 
     public e(AlaGuardianListActivity alaGuardianListActivity, a aVar) {
         super(alaGuardianListActivity.getPageContext());
-        this.fEY = new HttpMessageListener(1021024) { // from class: com.baidu.tieba.ala.live.personcenter.guardian.e.1
+        this.fFj = new HttpMessageListener(1021024) { // from class: com.baidu.tieba.ala.live.personcenter.guardian.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -35,28 +35,28 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     int error = httpResponsedMessage.getError();
                     if (statusCode != 200 || error != 0) {
-                        if (e.this.fFD != null) {
+                        if (e.this.fFO != null) {
                             if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                                errorString = e.this.fFF.getResources().getString(a.i.sdk_neterror);
+                                errorString = e.this.fFQ.getResources().getString(a.i.sdk_neterror);
                             } else {
                                 errorString = httpResponsedMessage.getErrorString();
                             }
-                            e.this.fFD.Cc(errorString);
+                            e.this.fFO.Cc(errorString);
                             return;
                         }
                         return;
                     }
                     AlaGuardianListHttpResponseMessage alaGuardianListHttpResponseMessage = (AlaGuardianListHttpResponseMessage) httpResponsedMessage;
-                    if (e.this.fFD != null) {
-                        e.this.fFD.b(alaGuardianListHttpResponseMessage.bwf());
+                    if (e.this.fFO != null) {
+                        e.this.fFO.b(alaGuardianListHttpResponseMessage.bwh());
                     }
                 }
             }
         };
-        this.fFF = alaGuardianListActivity;
-        this.fFD = aVar;
+        this.fFQ = alaGuardianListActivity;
+        this.fFO = aVar;
         aTm();
-        registerListener(this.fEY);
+        registerListener(this.fFj);
     }
 
     public void Ce(String str) {
@@ -74,20 +74,20 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean loadData() {
-        bwg();
+        bwi();
         return false;
     }
 
-    private void bwg() {
+    private void bwi() {
         HttpMessage httpMessage = new HttpMessage(1021024);
-        httpMessage.setTag(this.fFF.getUniqueId());
+        httpMessage.setTag(this.fFQ.getUniqueId());
         httpMessage.addParam("benefit_userid", this.mUserId);
         sendMessage(httpMessage);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.fEY);
+        MessageManager.getInstance().unRegisterListener(this.fFj);
         return false;
     }
 

@@ -38,7 +38,7 @@ public class c extends b {
                 hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, this.cil.QJ().agK());
                 b.a QJ = this.cil.QJ();
                 com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-                fVar.mFrom = com.baidu.swan.apps.statistic.h.gS(0);
+                fVar.mFrom = com.baidu.swan.apps.statistic.h.gU(0);
                 fVar.mAppId = QJ.getAppId();
                 fVar.mSource = QJ.agK();
                 fVar.mType = "show";
@@ -153,14 +153,14 @@ public class c extends b {
                             }
 
                             @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-                            public void ej(int i2) {
+                            public void el(int i2) {
                                 if (c.DEBUG) {
                                     Log.e("AppsControllerImpl", "下载分包失败：" + i2);
                                 }
                                 com.baidu.swan.apps.console.c.d("SwanApp", "download subpackage fail");
                                 bVar.lb(null);
                                 c.this.a(i, bVar, fVar);
-                                com.baidu.swan.apps.statistic.h.b(new com.baidu.swan.apps.statistic.a.d().oC(com.baidu.swan.apps.statistic.h.gS(bVar.getAppFrameType())).f(new com.baidu.swan.apps.an.a().bw(5L).bx(38L).pt("download subpackage fail, errcode=" + i2)).a(bVar));
+                                com.baidu.swan.apps.statistic.h.b(new com.baidu.swan.apps.statistic.a.d().oC(com.baidu.swan.apps.statistic.h.gU(bVar.getAppFrameType())).f(new com.baidu.swan.apps.an.a().bw(5L).bx(38L).pt("download subpackage fail, errcode=" + i2)).a(bVar));
                             }
                         });
                         return;

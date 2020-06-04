@@ -5,61 +5,61 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
 /* loaded from: classes6.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final g njA;
-    private final b njB;
-    private final d njC;
+    private final e nkI;
+    private final m<PointF, PointF> nkJ;
+    private final g nkK;
+    private final b nkL;
+    private final d nkM;
     @Nullable
-    private final b njD;
+    private final b nkN;
     @Nullable
-    private final b njE;
-    private final e njy;
-    private final m<PointF, PointF> njz;
+    private final b nkO;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.njy = eVar;
-        this.njz = mVar;
-        this.njA = gVar;
-        this.njB = bVar;
-        this.njC = dVar;
-        this.njD = bVar2;
-        this.njE = bVar3;
+        this.nkI = eVar;
+        this.nkJ = mVar;
+        this.nkK = gVar;
+        this.nkL = bVar;
+        this.nkM = dVar;
+        this.nkN = bVar2;
+        this.nkO = bVar3;
     }
 
-    public e dIK() {
-        return this.njy;
+    public e dIY() {
+        return this.nkI;
     }
 
-    public m<PointF, PointF> dIL() {
-        return this.njz;
+    public m<PointF, PointF> dIZ() {
+        return this.nkJ;
     }
 
-    public g dIM() {
-        return this.njA;
+    public g dJa() {
+        return this.nkK;
     }
 
-    public b dIN() {
-        return this.njB;
+    public b dJb() {
+        return this.nkL;
     }
 
-    public d dIO() {
-        return this.njC;
-    }
-
-    @Nullable
-    public b dIP() {
-        return this.njD;
+    public d dJc() {
+        return this.nkM;
     }
 
     @Nullable
-    public b dIQ() {
-        return this.njE;
+    public b dJd() {
+        return this.nkN;
     }
 
-    public o dIR() {
+    @Nullable
+    public b dJe() {
+        return this.nkO;
+    }
+
+    public o dJf() {
         return new o(this);
     }
 

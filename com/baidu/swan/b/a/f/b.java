@@ -13,7 +13,7 @@ public class b extends f {
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        this.cGw = com.baidu.swan.apps.swancore.b.hb(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
+        this.cGw = com.baidu.swan.apps.swancore.b.hd(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
         this.cGy = SwanAppNetworkUtils.akA().type;
         if (this.cGu == null) {
             this.cGu = new JSONObject();

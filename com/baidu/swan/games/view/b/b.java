@@ -90,9 +90,9 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(a aVar, int i, int i2) {
         com.baidu.swan.games.view.d ahY = f.ahV().ahY();
-        boolean z = ahY != null && ahY.b(aVar.getContentView(), iA(i2));
+        boolean z = ahY != null && ahY.b(aVar.getContentView(), iC(i2));
         if (z) {
-            aVar.iz(i);
+            aVar.iB(i);
         }
         return z;
     }
@@ -129,10 +129,10 @@ public class b {
         return aVar;
     }
 
-    private com.baidu.swan.apps.model.a.a.a iA(int i) {
+    private com.baidu.swan.apps.model.a.a.a iC(int i) {
         com.baidu.swan.apps.model.a.a.a aVar = new com.baidu.swan.apps.model.a.a.a();
         aVar.eq(true);
-        aVar.fV(i);
+        aVar.fX(i);
         aVar.setWidth(-1);
         aVar.setHeight(-2);
         return aVar;

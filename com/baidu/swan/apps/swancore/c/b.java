@@ -22,9 +22,9 @@ public final class b {
         return cHq;
     }
 
-    public void hp(int i) {
+    public void hr(int i) {
         synchronized (b.class) {
-            f(i, a.hj(i));
+            f(i, a.hl(i));
         }
     }
 
@@ -34,7 +34,7 @@ public final class b {
             Log.d("PresetSwanCoreUpdater", "updateSwanCoreAsync start.");
         }
         synchronized (b.class) {
-            if (!a.hf(i)) {
+            if (!a.hh(i)) {
                 if (DEBUG) {
                     Log.d("PresetSwanCoreUpdater", "updateSwanCoreAsync isNeedUpdateStatus = false.");
                 }
@@ -53,7 +53,7 @@ public final class b {
                         if (b.DEBUG) {
                             Log.d("PresetSwanCoreUpdater", "onPresetUpdate start.");
                         }
-                        b.this.f(i, a.hj(i));
+                        b.this.f(i, a.hl(i));
                         if (b.DEBUG) {
                             Log.d("PresetSwanCoreUpdater", "onPresetUpdate end.");
                         }

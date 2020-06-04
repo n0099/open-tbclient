@@ -21,7 +21,7 @@ public class a {
         }
     }
 
-    public static c aXz() {
+    public static c aXA() {
         return ear;
     }
 

@@ -11,8 +11,8 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.liveroom.messages.AlaDiversionInfoResponseMessage;
 /* loaded from: classes3.dex */
 public class d extends BdBaseModel {
-    private a gaY;
-    private HttpMessageListener gaZ;
+    private a gbj;
+    private HttpMessageListener gbk;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -23,25 +23,25 @@ public class d extends BdBaseModel {
 
     public d(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.gaZ = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.m.d.1
+        this.gbk = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.m.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021181 && (httpResponsedMessage instanceof AlaDiversionInfoResponseMessage)) {
                     AlaDiversionInfoResponseMessage alaDiversionInfoResponseMessage = (AlaDiversionInfoResponseMessage) httpResponsedMessage;
-                    if (d.this.gaY != null) {
+                    if (d.this.gbj != null) {
                         if (alaDiversionInfoResponseMessage.getError() != 0 || !alaDiversionInfoResponseMessage.isSuccess()) {
-                            d.this.gaY.aP(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
+                            d.this.gbj.aP(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
                         } else {
-                            d.this.gaY.a(alaDiversionInfoResponseMessage.bEE());
+                            d.this.gbj.a(alaDiversionInfoResponseMessage.bEG());
                         }
                     }
                 }
             }
         };
-        this.gaY = aVar;
+        this.gbj = aVar;
         initTasks();
-        registerListener(this.gaZ);
+        registerListener(this.gbk);
     }
 
     private void initTasks() {

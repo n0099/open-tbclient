@@ -134,15 +134,15 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     }
 
     private void setButtonBackground(GradientDrawable gradientDrawable) {
-        setBackgroundDrawable(new LayerDrawable(new Drawable[]{ix(Y(this.ddo.backgroundColor, 0)), gradientDrawable}));
+        setBackgroundDrawable(new LayerDrawable(new Drawable[]{iz(Y(this.ddo.backgroundColor, 0)), gradientDrawable}));
     }
 
-    private GradientDrawable ix(int i) {
+    private GradientDrawable iz(int i) {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(i);
         int B = ag.B(this.ddo.borderWidth);
         if (B > 0) {
-            gradientDrawable.setStroke(B, a.iy(i));
+            gradientDrawable.setStroke(B, a.iA(i));
         }
         if (this.ddo.borderRadius != 0.0d) {
             gradientDrawable.setCornerRadius(ag.B((float) this.ddo.borderRadius));
@@ -402,7 +402,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     private void setBorder(GradientDrawable gradientDrawable) {
         int B = ag.B(this.ddo.borderWidth);
         if (B > 0) {
-            gradientDrawable.setStroke(B, a.iy(Y(this.ddo.borderColor, 0)));
+            gradientDrawable.setStroke(B, a.iA(Y(this.ddo.borderColor, 0)));
         }
     }
 
@@ -454,7 +454,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
 
     @UiThread
     private void n(Uri uri) {
-        final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> e = com.facebook.drawee.a.a.c.dvh().e(ImageRequestBuilder.ab(uri).dCl(), getContext());
+        final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> e = com.facebook.drawee.a.a.c.dvv().e(ImageRequestBuilder.ab(uri).dCz(), getContext());
         e.a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.games.view.button.base.ApiButton.1
             @Override // com.facebook.imagepipeline.e.b
             public void h(@Nullable Bitmap bitmap) {
@@ -472,14 +472,14 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
             @Override // com.facebook.datasource.a
             public void a(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> bVar) {
                 if (e.DEBUG) {
-                    Log.d("ApiButton", "——> onFailureImpl: " + bVar.duQ().getMessage());
+                    Log.d("ApiButton", "——> onFailureImpl: " + bVar.dve().getMessage());
                 }
                 ApiButton.this.aCO();
                 if (bVar != null) {
                     bVar.Zg();
                 }
             }
-        }, i.dun());
+        }, i.duB());
     }
 
     @Override // android.view.View.OnClickListener

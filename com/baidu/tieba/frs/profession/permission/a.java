@@ -8,18 +8,18 @@ import tbclient.ZoneRight.ZoneRightReqIdl;
 /* loaded from: classes.dex */
 public class a implements h {
     public String forum_id;
-    public int hHA;
-    public int hHy;
-    public int hHz;
+    public int hIl;
+    public int hIm;
+    public int hIn;
     public long thread_id;
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> beO() {
+    public HashMap<String, Object> beP() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> beP() {
+    public HashMap<String, String> beQ() {
         return null;
     }
 
@@ -29,7 +29,7 @@ public class a implements h {
         t.a(builder, true, false, true);
         builder.forum_id = Long.valueOf(com.baidu.adp.lib.f.b.toLong(this.forum_id, 0L));
         builder.thread_id = Long.valueOf(this.thread_id);
-        builder.req_type = Integer.valueOf(this.hHz == 1 ? 2 : 1);
+        builder.req_type = Integer.valueOf(this.hIm == 1 ? 2 : 1);
         ZoneRightReqIdl.Builder builder2 = new ZoneRightReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

@@ -1277,7 +1277,7 @@ public final class Bimlog {
             public a mergeFrom(LogResponse logResponse) {
                 if (logResponse != LogResponse.getDefaultInstance()) {
                     if (logResponse.hasErrorCode()) {
-                        hW(logResponse.getErrorCode());
+                        hY(logResponse.getErrorCode());
                     }
                     if (logResponse.hasErrorMsg()) {
                         this.bitField0_ |= 2;
@@ -1334,7 +1334,7 @@ public final class Bimlog {
                 }
             }
 
-            public a hW(int i) {
+            public a hY(int i) {
                 this.bitField0_ |= 1;
                 this.errorCode_ = i;
                 return this;

@@ -7,7 +7,7 @@ public class ar {
     private int mPostImageSize = 1500;
     private String mUrlQuality = String.valueOf(45);
 
-    public static ar aUW() {
+    public static ar aUX() {
         if (dOk == null) {
             synchronized (ar.class) {
                 if (dOk == null) {
@@ -33,7 +33,7 @@ public class ar {
         this.dOl = z;
     }
 
-    public boolean aUX() {
+    public boolean aUY() {
         return this.dOl;
     }
 
@@ -107,7 +107,7 @@ public class ar {
         this.mPostImageSize = i;
     }
 
-    public static boolean aUY() {
+    public static boolean aUZ() {
         return m.checkSD() && com.baidu.adp.gif.c.jQ();
     }
 }

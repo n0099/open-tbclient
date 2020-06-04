@@ -155,7 +155,7 @@ public class AlaAttentionManager {
                         this.mNetwork.addPostData("forum_id", this.forumId);
                     }
                     this.mNetwork.addPostData("in_live", this.inLive);
-                    this.mNetwork.aUA().aVa().mIsNeedTbs = true;
+                    this.mNetwork.aUA().aVb().mIsNeedTbs = true;
                     return this.mNetwork.postNetData();
                 }
             } catch (Exception e) {
@@ -171,13 +171,13 @@ public class AlaAttentionManager {
             super.onPostExecute((AttentionAsyncTask) str);
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.isSucc = this.mNetwork.aUA().aVb().isRequestSuccess();
+                aVar.isSucc = this.mNetwork.aUA().aVc().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
                 aVar.parserJson(str, this.showToastAfterAttentionSuc);
-                aVar.dOw = this.mNetwork.aUA().aVb();
+                aVar.dOw = this.mNetwork.aUA().aVc();
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                 updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.pageId));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
@@ -260,7 +260,7 @@ public class AlaAttentionManager {
     }
 
     public void showAttentionSuccessTipAndLivePushDialog(TbPageContext tbPageContext, boolean z) {
-        if (System.currentTimeMillis() - getLastShowTime() < 86400000 || d.aZS().aZU()) {
+        if (System.currentTimeMillis() - getLastShowTime() < 86400000 || d.aZT().aZV()) {
             if (z) {
                 showAttentionSucceedTip(tbPageContext);
                 return;
@@ -271,7 +271,7 @@ public class AlaAttentionManager {
     }
 
     public void showLivePushRemindDialog(TbPageContext tbPageContext, boolean z) {
-        if (!d.aZS().aZU()) {
+        if (!d.aZT().aZV()) {
             new AlaLivePushRemindDialog(tbPageContext).showDialog(z);
             saveLastShowTime();
         }

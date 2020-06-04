@@ -49,6 +49,7 @@ import tbclient.FrsPage.StarRank;
 import tbclient.FrsPage.WorldcupSkin;
 import tbclient.FrsTabInfo;
 import tbclient.HotUserRankEntry;
+import tbclient.ItemInfo;
 import tbclient.OriForumInfo;
 import tbclient.PopInfo;
 import tbclient.ServiceArea;
@@ -84,6 +85,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
     private boolean hasGame;
     public boolean isBrandForum;
     public boolean isFrsVideoAutoPlay;
+    public ItemInfo itemInfo;
     private List<FeedForumData> likeFeedForumDataList;
     private AlaLiveNotify liveNotify;
     private List<com.baidu.adp.widget.ListView.o> mCardShipinNew;
@@ -320,7 +322,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 if (dataRes.card_shipin_info != null && dataRes.card_shipin_info.size() > 0) {
                     this.cardVideoInfo = new bk();
                     this.cardVideoInfo.gQ(true);
-                    this.cardVideoInfo.kw(this.photoLivePos);
+                    this.cardVideoInfo.ky(this.photoLivePos);
                     this.cardVideoInfo.setUserMap(this.userMap);
                     this.cardVideoInfo.a(dataRes.card_shipin_info.get(0));
                     this.cardVideoInfo.aRw();
@@ -332,14 +334,14 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                     this.cardVideoInfo.gP(!this.cardVideoInfo.aQc());
                     if (this.cardVideoInfo.aQx() != null && this.cardVideoInfo.aQx().getPendantData() == null && (metaData = this.userMap.get(this.cardVideoInfo.aQx().getUserId())) != null && metaData.getPendantData() != null) {
                         com.baidu.tbadk.data.l lVar = new com.baidu.tbadk.data.l();
-                        lVar.cr(metaData.getPendantData().bcB());
+                        lVar.cr(metaData.getPendantData().bcC());
                         lVar.vx(metaData.getPendantData().aOP());
                         this.cardVideoInfo.aQx().setPendantData(lVar);
                     }
                 }
                 if (dataRes.ala_live_insert != null && dataRes.ala_live_insert.ala_live_list != null && dataRes.ala_live_insert.ala_live_list.size() > 0) {
                     this.mFrsInsertLiveData = new g();
-                    this.mFrsInsertLiveData.liz = dataRes.ala_insert_floor.intValue();
+                    this.mFrsInsertLiveData.ljI = dataRes.ala_insert_floor.intValue();
                     ArrayList arrayList = new ArrayList();
                     for (int i4 = 0; i4 < dataRes.ala_live_insert.ala_live_list.size(); i4++) {
                         if (dataRes.ala_live_insert.ala_live_list.get(i4) != null) {
@@ -349,7 +351,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                             arrayList.add(bkVar);
                         }
                     }
-                    this.mFrsInsertLiveData.liy = arrayList;
+                    this.mFrsInsertLiveData.ljH = arrayList;
                 }
                 if (dataRes.ala_stage_list != null) {
                     this.mFrsStageLiveData = new h();
@@ -362,7 +364,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                             arrayList2.add(bkVar2);
                         }
                     }
-                    this.mFrsStageLiveData.liB = arrayList2;
+                    this.mFrsStageLiveData.ljK = arrayList2;
                 }
                 if (dataRes.school_recom_info != null) {
                     this.schoolRecommendPos = dataRes.school_recom_pos.intValue();
@@ -379,13 +381,13 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 }
                 this.mSortType = dataRes.sort_type.intValue();
                 this.needLog = dataRes.need_log.intValue();
-                com.baidu.tieba.recapp.d.a.cUZ().Ls(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.cVp().Lt(dataRes.asp_shown_info);
                 this.mCardShipinPos = dataRes.card_shipin_pos;
                 if (dataRes.card_shipin_new != null) {
                     for (int i6 = 0; i6 < dataRes.card_shipin_new.size(); i6++) {
                         bk bkVar3 = new bk();
                         if (this.mCardShipinPos != null && this.mCardShipinPos.size() >= dataRes.card_shipin_new.size()) {
-                            bkVar3.kw(this.mCardShipinPos.get(i6).intValue());
+                            bkVar3.ky(this.mCardShipinPos.get(i6).intValue());
                         }
                         bkVar3.gQ(true);
                         bkVar3.a(dataRes.card_shipin_new.get(i6));
@@ -454,11 +456,11 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                             zVar.link = serviceArea.serviceurl;
                             zVar.version = serviceArea.version;
                             String string = com.baidu.tbadk.core.sharedPref.b.aTX().getString("frs_service_version_" + this.forum.getName() + zVar.name, "");
-                            zVar.gQh = TextUtils.isEmpty(string) || !string.equals(serviceArea.version);
+                            zVar.gQs = TextUtils.isEmpty(string) || !string.equals(serviceArea.version);
                             if (serviceArea.area_smart_app != null) {
                                 aa aaVar = new aa();
                                 aaVar.c(serviceArea.area_smart_app);
-                                zVar.ljP = aaVar;
+                                zVar.lkY = aaVar;
                             }
                             if (this.forum != null) {
                                 zVar.forumName = this.forum.getName();
@@ -472,9 +474,10 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                         }
                         i7 = i;
                     }
-                    this.serviceAreaData.ljO = arrayList3.size();
+                    this.serviceAreaData.lkX = arrayList3.size();
                     this.serviceAreaData.dataList = arrayList3;
                 }
+                this.itemInfo = dataRes.item_info;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -548,7 +551,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                     }
                 }
             }
-            com.baidu.tieba.recapp.report.b.cVe().et(arrayList);
+            com.baidu.tieba.recapp.report.b.cVu().ev(arrayList);
         }
     }
 

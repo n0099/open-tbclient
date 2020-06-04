@@ -14,15 +14,15 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class SingleUsing<T, U> extends w<T> {
     final g<? super U> disposer;
     final boolean eager;
-    final Callable<U> nmS;
-    final h<? super U, ? extends aa<? extends T>> npn;
+    final Callable<U> noc;
+    final h<? super U, ? extends aa<? extends T>> nqx;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
         try {
-            U call = this.nmS.call();
+            U call = this.noc.call();
             try {
-                ((aa) io.reactivex.internal.functions.a.k(this.npn.apply(call), "The singleFunction returned a null SingleSource")).a(new UsingSingleObserver(yVar, call, this.eager, this.disposer));
+                ((aa) io.reactivex.internal.functions.a.k(this.nqx.apply(call), "The singleFunction returned a null SingleSource")).a(new UsingSingleObserver(yVar, call, this.eager, this.disposer));
             } catch (Throwable th) {
                 th = th;
                 io.reactivex.exceptions.a.L(th);

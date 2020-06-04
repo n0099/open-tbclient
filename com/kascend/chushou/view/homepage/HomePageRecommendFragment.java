@@ -87,7 +87,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         this.mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() { // from class: com.kascend.chushou.view.homepage.HomePageRecommendFragment.1
             @Override // android.support.v7.widget.GridLayoutManager.SpanSizeLookup
             public int getSpanSize(int i) {
-                if (HomePageRecommendFragment.this.mRecyclerView.KF(i) || HomePageRecommendFragment.this.mRecyclerView.KG(i)) {
+                if (HomePageRecommendFragment.this.mRecyclerView.KH(i) || HomePageRecommendFragment.this.mRecyclerView.KI(i)) {
                     return 4;
                 }
                 return com.kascend.chushou.view.a.a.b.a(HomePageRecommendFragment.this.mAdapter.getItemViewType(i - HomePageRecommendFragment.this.mRecyclerView.getHeaderViewCount()), 4);
@@ -206,14 +206,14 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         switch (i) {
             case 1:
                 if (!this.mLoadedSuc) {
-                    this.mEmptyView.Jl(1);
+                    this.mEmptyView.Jn(1);
                     this.mRecyclerView.setVisibility(8);
                     return;
                 }
                 return;
             case 2:
                 this.mLoadedSuc = true;
-                this.mEmptyView.Jl(2);
+                this.mEmptyView.Jn(2);
                 this.mRecyclerView.completeRefresh();
                 this.mRecyclerView.setVisibility(0);
                 return;
@@ -222,7 +222,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
             case 6:
                 this.mLoadedSuc = false;
                 this.mRecyclerView.completeRefresh();
-                this.mEmptyView.Jl(i);
+                this.mEmptyView.Jn(i);
                 this.mRecyclerView.setVisibility(8);
                 return;
             case 5:

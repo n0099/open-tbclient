@@ -13,13 +13,13 @@ import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
 /* loaded from: classes11.dex */
 public class d {
-    private a hlt;
-    private com.baidu.adp.framework.listener.a hlx = new com.baidu.adp.framework.listener.a(1003335, CmdConfigSocket.CMD_SEARCH_POST_FORUM) { // from class: com.baidu.tieba.forumsearch.controller.d.1
+    private a hlE;
+    private com.baidu.adp.framework.listener.a hlI = new com.baidu.adp.framework.listener.a(1003335, CmdConfigSocket.CMD_SEARCH_POST_FORUM) { // from class: com.baidu.tieba.forumsearch.controller.d.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != d.this.mPageId) {
-                if (d.this.hlt != null) {
-                    d.this.hlt.a(false, null);
+                if (d.this.hlE != null) {
+                    d.this.hlE.a(false, null);
                     return;
                 }
                 return;
@@ -28,8 +28,8 @@ public class d {
             if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
                 searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
             }
-            if (d.this.hlt != null) {
-                d.this.hlt.a(searchData != null, searchData);
+            if (d.this.hlE != null) {
+                d.this.hlE.a(searchData != null, searchData);
             }
         }
     };
@@ -44,12 +44,12 @@ public class d {
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId;
-        this.hlx.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.hlx);
+        this.hlI.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.hlI);
     }
 
     public void a(a aVar) {
-        this.hlt = aVar;
+        this.hlE = aVar;
     }
 
     public void Ez(String str) {

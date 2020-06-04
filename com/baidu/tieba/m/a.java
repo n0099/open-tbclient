@@ -56,12 +56,12 @@ public final class a {
                                 clearOldDexDir(context);
                                 File file = new File(applicationInfo.dataDir, SECONDARY_FOLDER_NAME);
                                 List<File> a = com.baidu.tieba.m.b.a(context, applicationInfo, file, false);
-                                if (dF(a)) {
+                                if (dH(a)) {
                                     installSecondaryDexes(classLoader, file, a);
                                 } else {
                                     Log.w("MultiDex", "Files were not valid zip files.  Forcing a reload.");
                                     List<File> a2 = com.baidu.tieba.m.b.a(context, applicationInfo, file, true);
-                                    if (!dF(a2)) {
+                                    if (!dH(a2)) {
                                         throw new RuntimeException("Zip files were not valid.");
                                     }
                                     installSecondaryDexes(classLoader, file, a2);
@@ -128,7 +128,7 @@ public final class a {
         }
     }
 
-    private static boolean dF(List<File> list) {
+    private static boolean dH(List<File> list) {
         for (File file : list) {
             if (!com.baidu.tieba.m.b.T(file)) {
                 return false;

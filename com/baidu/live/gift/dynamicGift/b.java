@@ -62,7 +62,7 @@ public class b {
         this.mScreenHeight = i2;
     }
 
-    public c ch(int i) {
+    public c cj(int i) {
         if (i < this.mImageCount && i < this.aKp.size()) {
             this.aKq = i;
             c cVar = this.aKo.get(this.aKp.get(i));

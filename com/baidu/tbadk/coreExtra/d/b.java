@@ -7,18 +7,18 @@ public class b {
         private static b ejb = new b();
     }
 
-    public static b bbY() {
+    public static b bbZ() {
         return a.ejb;
     }
 
     private b() {
     }
 
-    public void bbZ() {
+    public void bca() {
         xJ("kLCSError=1");
     }
 
-    public void mV(int i) {
+    public void mX(int i) {
         xJ("kNetStatus=" + i);
     }
 

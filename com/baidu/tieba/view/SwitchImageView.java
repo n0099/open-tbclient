@@ -6,67 +6,67 @@ import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 /* loaded from: classes.dex */
 public class SwitchImageView extends AppCompatImageView {
-    private int lOE;
-    private int lOF;
-    private boolean lOG;
-    private com.baidu.tbadk.core.util.d.a lOH;
-    private com.baidu.tbadk.core.util.d.a lOI;
+    private int lPM;
+    private int lPN;
+    private boolean lPO;
+    private com.baidu.tbadk.core.util.d.a lPP;
+    private com.baidu.tbadk.core.util.d.a lPQ;
     private int mCurrentState;
 
     public SwitchImageView(Context context) {
         super(context);
-        this.lOG = false;
+        this.lPO = false;
         init();
     }
 
     public SwitchImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.lOG = false;
+        this.lPO = false;
         init();
     }
 
     public SwitchImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.lOG = false;
+        this.lPO = false;
         init();
     }
 
     private void init() {
         this.mCurrentState = 0;
-        this.lOE = 0;
-        this.lOF = 0;
+        this.lPM = 0;
+        this.lPN = 0;
     }
 
     public void setStateImage(int i, int i2) {
-        this.lOE = i;
-        this.lOF = i2;
+        this.lPM = i;
+        this.lPN = i2;
     }
 
     public void setSvgStateImage(com.baidu.tbadk.core.util.d.a aVar, com.baidu.tbadk.core.util.d.a aVar2) {
-        this.lOH = aVar;
-        this.lOI = aVar2;
-        this.lOG = true;
+        this.lPP = aVar;
+        this.lPQ = aVar2;
+        this.lPO = true;
     }
 
     public void setState(int i) {
         if (i == 0) {
             this.mCurrentState = 0;
-            if (this.lOG) {
-                setImageDrawable(this.lOH.getDrawable());
+            if (this.lPO) {
+                setImageDrawable(this.lPP.getDrawable());
             } else {
-                setImageResource(this.lOE);
+                setImageResource(this.lPM);
             }
         } else if (i == 1) {
             this.mCurrentState = 1;
-            if (this.lOG) {
-                setImageDrawable(this.lOI.getDrawable());
+            if (this.lPO) {
+                setImageDrawable(this.lPQ.getDrawable());
             } else {
-                setImageResource(this.lOF);
+                setImageResource(this.lPN);
             }
         }
     }
 
-    public void dma() {
+    public void dmp() {
         if (this.mCurrentState == 0) {
             this.mCurrentState = 1;
             setState(1);

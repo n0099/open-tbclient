@@ -13,7 +13,7 @@ public class b {
         this.aqH = z2;
     }
 
-    private static int bw(int i) {
+    private static int by(int i) {
         switch (i) {
             case 1:
                 return 6;
@@ -44,7 +44,7 @@ public class b {
                     i2--;
                 }
             }
-            int bw = bw(i2);
+            int by = by(i2);
             iArr[0] = (byte) ((sArr[0] >> 3) & 31);
             iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
             iArr[2] = (byte) ((sArr[1] >> 1) & 31);
@@ -53,7 +53,7 @@ public class b {
             iArr[5] = (byte) ((sArr[3] >> 2) & 31);
             iArr[6] = (byte) (((sArr[3] & 3) << 3) | ((sArr[4] >> 5) & 7));
             iArr[7] = (byte) (sArr[4] & 31);
-            for (int i4 = 0; i4 < iArr.length - bw; i4++) {
+            for (int i4 = 0; i4 < iArr.length - by; i4++) {
                 char charAt = this.aqF.charAt(iArr[i4]);
                 if (this.aqH) {
                     charAt = Character.toLowerCase(charAt);
@@ -61,7 +61,7 @@ public class b {
                 byteArrayOutputStream.write(charAt);
             }
             if (this.aqG) {
-                for (int length = iArr.length - bw; length < iArr.length; length++) {
+                for (int length = iArr.length - by; length < iArr.length; length++) {
                     byteArrayOutputStream.write(61);
                 }
             }

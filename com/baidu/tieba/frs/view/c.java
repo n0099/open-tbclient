@@ -19,40 +19,40 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class c extends com.baidu.tieba.card.c<w> {
     private View.OnClickListener ags;
-    private com.baidu.tieba.horizonalList.widget.b gDw;
-    private HListView hQT;
-    public x hQU;
-    private List<com.baidu.tieba.horizonalList.widget.c> hQV;
+    private com.baidu.tieba.horizonalList.widget.b gDH;
+    private HListView hRG;
+    public x hRH;
+    private List<com.baidu.tieba.horizonalList.widget.c> hRI;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext);
         this.ags = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.bKS() != null) {
-                    c.this.bKS().a(view, null);
+                if (c.this.bKU() != null) {
+                    c.this.bKU().a(view, null);
                 }
             }
         };
-        this.hQT = new HListView(getContext());
-        this.hQT.setHeaderDividersEnabled(false);
-        this.hQT.setFooterDividersEnabled(false);
-        this.hQT.setSelector(R.drawable.list_selector_transparent);
-        this.hQU = new x(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_school_recommend_user, (ViewGroup) null), tbPageContext, bdUniqueId);
-        this.gDw = new com.baidu.tieba.horizonalList.widget.b(getContext(), R.layout.frs_school_recommend_user, this.hQU);
-        this.gDw.setOnClickListener(this.ags);
-        this.hQT.setAdapter((ListAdapter) this.gDw);
-        this.gBR.addView(this.hQT);
-        this.gBQ.setVisibility(8);
-        this.gBK.setTextSize(0, l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds28));
+        this.hRG = new HListView(getContext());
+        this.hRG.setHeaderDividersEnabled(false);
+        this.hRG.setFooterDividersEnabled(false);
+        this.hRG.setSelector(R.drawable.list_selector_transparent);
+        this.hRH = new x(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_school_recommend_user, (ViewGroup) null), tbPageContext, bdUniqueId);
+        this.gDH = new com.baidu.tieba.horizonalList.widget.b(getContext(), R.layout.frs_school_recommend_user, this.hRH);
+        this.gDH.setOnClickListener(this.ags);
+        this.hRG.setAdapter((ListAdapter) this.gDH);
+        this.gCc.addView(this.hRG);
+        this.gCb.setVisibility(8);
+        this.gBV.setTextSize(0, l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds28));
     }
 
     @Override // com.baidu.tieba.card.c, com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         super.onChangeSkinType(tbPageContext, i);
-        if (this.hQT != null && this.gDw != null) {
-            am.setViewTextColor(this.gBK, (int) R.color.cp_cont_d);
-            this.gDw.onSkinTypeChanged(i);
+        if (this.hRG != null && this.gDH != null) {
+            am.setViewTextColor(this.gBV, (int) R.color.cp_cont_d);
+            this.gDH.onSkinTypeChanged(i);
         }
     }
 
@@ -62,25 +62,25 @@ public class c extends com.baidu.tieba.card.c<w> {
         super.a((c) wVar);
         if (wVar != null && !v.isEmpty(wVar.getDataList())) {
             if (StringUtils.isNull(wVar.mGroupTitle)) {
-                this.gBK.setText(getContext().getResources().getString(R.string.school_recommend));
+                this.gBV.setText(getContext().getResources().getString(R.string.school_recommend));
             } else {
-                this.gBK.setText(wVar.mGroupTitle);
+                this.gBV.setText(wVar.mGroupTitle);
             }
-            if (cC(wVar.getDataList())) {
-                this.hQV = wVar.getDataList();
-                this.gDw.setData(this.hQV);
-                this.gDw.notifyDataSetChanged();
+            if (cD(wVar.getDataList())) {
+                this.hRI = wVar.getDataList();
+                this.gDH.setData(this.hRI);
+                this.gDH.notifyDataSetChanged();
             }
         }
     }
 
-    private boolean cC(List<com.baidu.tieba.horizonalList.widget.c> list) {
+    private boolean cD(List<com.baidu.tieba.horizonalList.widget.c> list) {
         if (v.isEmpty(list)) {
             return false;
         }
-        if (!v.isEmpty(this.hQV) && v.getCount(this.hQV) == v.getCount(list)) {
-            for (int i = 0; i < v.getCount(this.hQV); i++) {
-                com.baidu.tieba.horizonalList.widget.c cVar = (com.baidu.tieba.horizonalList.widget.c) v.getItem(this.hQV, i);
+        if (!v.isEmpty(this.hRI) && v.getCount(this.hRI) == v.getCount(list)) {
+            for (int i = 0; i < v.getCount(this.hRI); i++) {
+                com.baidu.tieba.horizonalList.widget.c cVar = (com.baidu.tieba.horizonalList.widget.c) v.getItem(this.hRI, i);
                 com.baidu.tieba.horizonalList.widget.c cVar2 = (com.baidu.tieba.horizonalList.widget.c) v.getItem(list, i);
                 if ((cVar instanceof at) && (cVar2 instanceof at) && !((at) cVar).metaData.getUserId().equals(((at) cVar2).metaData.getUserId())) {
                     return true;

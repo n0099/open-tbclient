@@ -162,7 +162,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
 
     @Override // com.baidu.swan.games.view.recommend.a.a.InterfaceC0442a
     @UiThread
-    public void iB(int i) {
+    public void iD(int i) {
         if (this.dei != null && i >= 0 && i < this.dei.deM.size()) {
             a(this.dei.deM.get(i), ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME);
         }

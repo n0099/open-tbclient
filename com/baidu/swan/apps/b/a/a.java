@@ -82,7 +82,7 @@ public class a extends aa {
             }
 
             @Override // com.baidu.swan.apps.b.a.b
-            public void ei(int i) {
+            public void ek(int i) {
                 if (i == 1) {
                     UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1002, "user cancel this operation").toString(), a.this.mCallback);
                 } else {

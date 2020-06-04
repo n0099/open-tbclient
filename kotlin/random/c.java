@@ -4,7 +4,7 @@ import kotlin.h;
 @h
 /* loaded from: classes7.dex */
 public final class c {
-    public static final int JS(int i) {
+    public static final int JU(int i) {
         return 31 - Integer.numberOfLeadingZeros(i);
     }
 

@@ -42,7 +42,7 @@ public abstract class c extends LazyLoadFragment {
 
     protected abstract void AT();
 
-    public static c cl(int i) {
+    public static c cn(int i) {
         switch (i) {
             case 0:
                 return new d();
@@ -69,9 +69,9 @@ public abstract class c extends LazyLoadFragment {
         this.aMw = dVar;
     }
 
-    public void bX(int i) {
+    public void bZ(int i) {
         if (this.aMJ != null) {
-            this.aMJ.bX(i);
+            this.aMJ.bZ(i);
         } else {
             this.aML = i;
         }
@@ -87,7 +87,7 @@ public abstract class c extends LazyLoadFragment {
         this.aMJ = new AlaGiftTabView(getPageContext(), AO(), AQ(), this.aMw.otherParams);
         this.aMJ.a(this.aMx);
         if (this.aML != 0) {
-            this.aMJ.bX(this.aML);
+            this.aMJ.bZ(this.aML);
         }
         this.aMJ.al(this.aMw.mLiveId, this.aMw.mRoomId);
         this.aMJ.s(this.aMw.aIJ, this.aMw.aIK);
@@ -95,14 +95,14 @@ public abstract class c extends LazyLoadFragment {
         this.aMJ.ac(TbadkCoreApplication.getInst().currentAccountFlowerNum);
         this.aMJ.a(this.aIw);
         this.aMJ.bf(this.aMw.aGS);
-        this.aMJ.cf(this.aMw.aGQ);
+        this.aMJ.ch(this.aMw.aGQ);
         this.aIf = this.aMw.aIf;
         this.aMJ.bn(this.aMw.aIf);
         this.aMJ.b(this.aMw.isNewUser, this.aMw.mLiveId, this.aMw.mRoomId, this.aMw.aJO);
         this.aMJ.aO(this.aMw.aJS);
-        this.aMJ.bB(this.aMw.aIL);
+        this.aMJ.bD(this.aMw.aIL);
         this.aMJ.bp(this.aMw.aIU);
-        this.aMJ.bY(this.aMw.aJT);
+        this.aMJ.ca(this.aMw.aJT);
         this.aMJ.aQ(this.aMw.aGZ);
         this.aMJ.bq(this.aMw.aJV);
         return this.aMJ.getRootView();

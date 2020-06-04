@@ -17,43 +17,43 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 /* loaded from: classes.dex */
 public class d {
-    private static d kOT;
-    private CustomMessageListener kOV = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.d.1
+    private static d kQc;
+    private CustomMessageListener kQe = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && d.this.kOU != null) {
-                d.this.kOU.cVm();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && d.this.kQd != null) {
+                d.this.kQd.cVC();
             }
         }
     };
-    private e kOU = new h();
+    private e kQd = new h();
 
-    public static d cVk() {
-        if (kOT == null) {
+    public static d cVA() {
+        if (kQc == null) {
             synchronized (d.class) {
-                if (kOT == null) {
-                    kOT = new d();
+                if (kQc == null) {
+                    kQc = new d();
                 }
             }
         }
-        return kOT;
+        return kQc;
     }
 
-    private boolean cVl() {
+    private boolean cVB() {
         return SwitchManager.getInstance().findType(AdUploadSwitch.KEY) != 0;
     }
 
     private d() {
-        MessageManager.getInstance().registerListener(this.kOV);
+        MessageManager.getInstance().registerListener(this.kQe);
     }
 
     public void a(c cVar) {
-        if (cVl() && cVar != null && this.kOU != null) {
+        if (cVB() && cVar != null && this.kQd != null) {
             if (j.isNetWorkAvailable()) {
-                this.kOU.b(cVar);
+                this.kQd.b(cVar);
             } else {
-                this.kOU.c(cVar);
+                this.kQd.c(cVar);
             }
         }
     }

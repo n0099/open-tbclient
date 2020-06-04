@@ -9,20 +9,20 @@ import com.baidu.live.tbadk.coreextra.view.CircleProgressView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class d {
-    private CircleProgressView fUs;
-    private TextView fUt;
+    private CircleProgressView fUD;
+    private TextView fUE;
     private Context mContext;
     private View mRootView;
 
     public d(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(context).inflate(a.h.ala_apk_downloading_view_layout, (ViewGroup) null);
-        this.fUs = (CircleProgressView) this.mRootView.findViewById(a.g.apk_download_progress);
-        this.fUt = (TextView) this.mRootView.findViewById(a.g.apk_download_progress_text);
+        this.fUD = (CircleProgressView) this.mRootView.findViewById(a.g.apk_download_progress);
+        this.fUE = (TextView) this.mRootView.findViewById(a.g.apk_download_progress_text);
         this.mRootView.setBackgroundResource(a.f.sdk_black_oval_shape_alpha50);
-        this.fUs.setCircleForegroundColor(context.getResources().getColor(a.d.sdk_white_alpha100));
-        this.fUs.setCircleBackgroundColor(context.getResources().getColor(a.d.sdk_black_alpha100));
-        this.fUs.setWidth(context.getResources().getDimensionPixelSize(a.e.sdk_ds4));
+        this.fUD.setCircleForegroundColor(context.getResources().getColor(a.d.sdk_white_alpha100));
+        this.fUD.setCircleBackgroundColor(context.getResources().getColor(a.d.sdk_black_alpha100));
+        this.fUD.setWidth(context.getResources().getDimensionPixelSize(a.e.sdk_ds4));
     }
 
     public View getRootView() {
@@ -43,7 +43,7 @@ public class d {
         } else if (i > 100) {
             i = 100;
         }
-        this.fUs.setProgress(i);
-        this.fUt.setText(i + "%");
+        this.fUD.setProgress(i);
+        this.fUE.setText(i + "%");
     }
 }

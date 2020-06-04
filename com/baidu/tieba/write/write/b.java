@@ -17,8 +17,8 @@ import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public class b {
     private String dlF;
-    private ArrayList<String> lQc;
-    private final String lWT = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private ArrayList<String> lRn;
+    private final String lYe = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -38,10 +38,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.isEmpty(this.lQc)) {
+        if (spannable != null && !v.isEmpty(this.lRn)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.lQc.iterator();
+                Iterator<String> it = this.lRn.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -74,7 +74,7 @@ public class b {
         return (backgroundColorSpanArr == null || backgroundColorSpanArr.length <= 0) ? spanned.length() : spanned.getSpanEnd(backgroundColorSpanArr[0]);
     }
 
-    public boolean h(EditText editText) {
+    public boolean i(EditText editText) {
         Editable text;
         if (editText == null || (text = editText.getText()) == null) {
             return false;
@@ -90,10 +90,10 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.isEmpty(dmg())) {
+        if (v.isEmpty(dmv())) {
             return false;
         }
-        return h(editText) || h(editText2);
+        return i(editText) || i(editText2);
     }
 
     public void b(EditText editText, EditText editText2) {
@@ -113,18 +113,18 @@ public class b {
     }
 
     public void aX(ArrayList<String> arrayList) {
-        this.lQc = arrayList;
+        this.lRn = arrayList;
     }
 
-    public ArrayList<String> dmg() {
-        return this.lQc;
+    public ArrayList<String> dmv() {
+        return this.lRn;
     }
 
-    public void Of(String str) {
+    public void Og(String str) {
         this.dlF = str;
     }
 
-    public String dmk() {
+    public String dmz() {
         return this.dlF;
     }
 

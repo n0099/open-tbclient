@@ -14,7 +14,7 @@ public class c {
     private List<o> dataList = new ArrayList();
     public boolean hasMore = true;
     public int pn = 0;
-    public int ldS = 0;
+    public int lfc = 0;
     public int dSG = 0;
 
     public List<o> getDataList() {

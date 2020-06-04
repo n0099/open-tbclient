@@ -62,10 +62,10 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: E */
         public ImageUploadResult doInBackground(String... strArr) {
-            return beu();
+            return bev();
         }
 
-        private ImageUploadResult beu() {
+        private ImageUploadResult bev() {
             a.this.eoY.a(this, null);
             ImageUploadResult am = a.this.eoY.am(a.this.mPath, this.isNeedAddWater);
             publishProgress(100);

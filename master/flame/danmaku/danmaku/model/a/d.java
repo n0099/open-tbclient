@@ -7,5 +7,5 @@ public interface d<T extends c<T>> {
 
     void b(T t);
 
-    T dNY();
+    T dOm();
 }

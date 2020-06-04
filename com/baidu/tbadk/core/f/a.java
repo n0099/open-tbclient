@@ -45,7 +45,7 @@ public class a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ShareEvent) && ((ShareEvent) customResponsedMessage.getData()).status == 1) {
-                e.mK(((ShareEvent) customResponsedMessage.getData()).channel);
+                e.mM(((ShareEvent) customResponsedMessage.getData()).channel);
                 a.this.aTW();
             }
         }
@@ -113,7 +113,7 @@ public class a {
             this.dLj = missionInfo.cleartime.intValue();
             com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b();
             bVar.bU(this.dLj);
-            bVar.jO(this.dLk);
+            bVar.jQ(this.dLk);
             com.baidu.tbadk.core.sharedPref.b.aTX().putInt("task_share_thread_success_data_total_limit", this.dLi);
             com.baidu.tbadk.core.sharedPref.b.aTX().putInt("task_share_thread_success_data_mission_id", this.missionId);
             com.baidu.tbadk.core.sharedPref.b.aTX().putInt("task_share_thread_success_data_action_id", this.activityId);

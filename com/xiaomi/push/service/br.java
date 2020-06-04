@@ -17,13 +17,13 @@ class br extends ft {
 
     @Override // com.xiaomi.push.ft
     /* renamed from: a */
-    public byte[] mo299a() {
+    public byte[] mo298a() {
         try {
             ek.b bVar = new ek.b();
-            bVar.a(be.a().m560a());
+            bVar.a(be.a().m559a());
             return bVar.a();
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m52a("getOBBString err: " + e.toString());
+            com.xiaomi.channel.commonutils.logger.b.m51a("getOBBString err: " + e.toString());
             return null;
         }
     }

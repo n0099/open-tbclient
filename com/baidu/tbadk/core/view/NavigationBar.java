@@ -681,9 +681,9 @@ public class NavigationBar extends RelativeLayout {
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
             am.setNavbarIconSrc(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
         } else if (this.mIsClose) {
-            SvgManager.aUV().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.aUW().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         } else {
-            SvgManager.aUV().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
+            SvgManager.aUW().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
         }
     }
 
@@ -694,9 +694,9 @@ public class NavigationBar extends RelativeLayout {
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
             am.setNavbarIconSrc(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
         } else if (this.mIsClose) {
-            SvgManager.aUV().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, i2, (SvgManager.SvgResourceStateType) null);
+            SvgManager.aUW().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, i2, (SvgManager.SvgResourceStateType) null);
         } else {
-            SvgManager.aUV().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, i2, (SvgManager.SvgResourceStateType) null);
+            SvgManager.aUW().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, i2, (SvgManager.SvgResourceStateType) null);
         }
     }
 

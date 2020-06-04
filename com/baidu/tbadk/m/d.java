@@ -82,7 +82,7 @@ public class d {
         return this.task_id;
     }
 
-    public String bfs() {
+    public String bft() {
         return this.abTag;
     }
 
@@ -90,7 +90,7 @@ public class d {
         this.abTag = str;
     }
 
-    public String bft() {
+    public String bfu() {
         return this.erw;
     }
 

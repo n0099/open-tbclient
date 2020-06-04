@@ -148,7 +148,7 @@ public class MessageRedDotView extends View {
 
     private void initView() {
         setLayerType(1, null);
-        aVX();
+        aVY();
         this.mTextPaint = new Paint(1);
         this.mTextPaint.setColor(am.getColor(R.color.cp_cont_a));
         if (this.dTS) {
@@ -181,7 +181,7 @@ public class MessageRedDotView extends View {
         this.dTR = new RectF();
     }
 
-    private void aVX() {
+    private void aVY() {
         String str = Build.MODEL;
         if (str.contains(RomUtils.MANUFACTURER_VIVO) && str.contains("X20")) {
             this.dTG = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds2);

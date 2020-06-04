@@ -11,15 +11,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class FlowableUsing<T, D> extends io.reactivex.g<T> {
     final io.reactivex.c.g<? super D> disposer;
     final boolean eager;
-    final Callable<? extends D> nmS;
-    final h<? super D, ? extends org.a.b<? extends T>> nnU;
+    final Callable<? extends D> noc;
+    final h<? super D, ? extends org.a.b<? extends T>> npg;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         try {
-            D call = this.nmS.call();
+            D call = this.noc.call();
             try {
-                ((org.a.b) io.reactivex.internal.functions.a.k(this.nnU.apply(call), "The sourceSupplier returned a null Publisher")).subscribe(new UsingSubscriber(cVar, call, this.disposer, this.eager));
+                ((org.a.b) io.reactivex.internal.functions.a.k(this.npg.apply(call), "The sourceSupplier returned a null Publisher")).subscribe(new UsingSubscriber(cVar, call, this.disposer, this.eager));
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.L(th);
                 try {

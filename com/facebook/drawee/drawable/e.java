@@ -39,7 +39,7 @@ public class e {
         return i;
     }
 
-    public static int GY(int i) {
+    public static int Ha(int i) {
         int i2 = i >>> 24;
         if (i2 == 255) {
             return -1;

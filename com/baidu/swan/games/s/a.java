@@ -62,7 +62,7 @@ public class a {
             return;
         }
         g.a aVar = new g.a(activity);
-        aVar.eR(a.h.swangame_reload_dialog_title).nq(str).aoj().a(new com.baidu.swan.apps.view.c.a()).eT(false);
+        aVar.eT(a.h.swangame_reload_dialog_title).nq(str).aoj().a(new com.baidu.swan.apps.view.c.a()).eT(false);
         aVar.d(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.games.s.a.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {

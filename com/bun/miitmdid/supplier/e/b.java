@@ -5,18 +5,18 @@ import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
 /* loaded from: classes6.dex */
 public class b implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
-    private a mjC;
-    private SupplierListener mjD;
+    private a mkM;
+    private SupplierListener mkN;
 
     public b(Context context, SupplierListener supplierListener) {
-        this.mjD = supplierListener;
-        this.mjC = new a(context, this);
+        this.mkN = supplierListener;
+        this.mkM = new a(context, this);
     }
 
     @Override // com.bun.miitmdid.supplier.c.a
     public void a() {
-        if (this.mjD != null) {
-            this.mjD.OnSupport(isSupported(), this);
+        if (this.mkN != null) {
+            this.mkN.OnSupport(isSupported(), this);
         }
     }
 
@@ -26,8 +26,8 @@ public class b implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
 
     @Override // com.bun.miitmdid.supplier.c.a
     public void a(boolean z) {
-        if (this.mjD != null) {
-            this.mjD.OnSupport(isSupported(), this);
+        if (this.mkN != null) {
+            this.mkN.OnSupport(isSupported(), this);
         }
     }
 
@@ -39,39 +39,39 @@ public class b implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
         String e;
-        return (isSupported() && (e = this.mjC.e()) != null) ? e : "";
+        return (isSupported() && (e = this.mkM.e()) != null) ? e : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
         String a;
-        return (isSupported() && (a = this.mjC.a()) != null) ? a : "";
+        return (isSupported() && (a = this.mkM.a()) != null) ? a : "";
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public String getUDID() {
         String b;
-        return (isSupported() && (b = this.mjC.b()) != null) ? b : "";
+        return (isSupported() && (b = this.mkM.b()) != null) ? b : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
         String d;
-        return (isSupported() && (d = this.mjC.d()) != null) ? d : "";
+        return (isSupported() && (d = this.mkM.d()) != null) ? d : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public boolean isSupported() {
-        if (this.mjC != null) {
-            return this.mjC.c();
+        if (this.mkM != null) {
+            return this.mkM.c();
         }
         return false;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void shutDown() {
-        if (this.mjC != null) {
-            this.mjC.f();
+        if (this.mkM != null) {
+            this.mkM.f();
         }
     }
 }

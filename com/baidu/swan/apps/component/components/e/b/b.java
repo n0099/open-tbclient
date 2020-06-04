@@ -15,7 +15,7 @@ public final class b extends com.baidu.swan.apps.component.a.b.a<SimpleDraweeVie
 
     public b(@NonNull Context context, @NonNull c cVar) {
         super(context, cVar);
-        es(4);
+        eu(4);
         this.bPV = new SwanAppComponentContainerView(context);
         this.bPW = new SimpleDraweeView(context);
     }
@@ -39,7 +39,7 @@ public final class b extends com.baidu.swan.apps.component.a.b.a<SimpleDraweeVie
     /* renamed from: a */
     public void ab(@NonNull SimpleDraweeView simpleDraweeView) {
         super.ab(simpleDraweeView);
-        simpleDraweeView.getHierarchy().b(p.b.mpY);
+        simpleDraweeView.getHierarchy().b(p.b.mri);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -49,7 +49,7 @@ public final class b extends com.baidu.swan.apps.component.a.b.a<SimpleDraweeVie
     public com.baidu.swan.apps.component.d.b a(@NonNull c cVar, @NonNull c cVar2) {
         com.baidu.swan.apps.component.d.b a = super.a(cVar, cVar2);
         if (cVar.bQa != cVar2.bQa) {
-            a.ew(9);
+            a.ey(9);
         }
         return a;
     }

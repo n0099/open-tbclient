@@ -9,7 +9,7 @@ import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.ResponseGetGroupActivityLocalMessage;
 /* loaded from: classes10.dex */
 public class d implements CustomMessageTask.CustomRunnable<Integer> {
-    private ResponseGetGroupActivityLocalMessage cpx() {
+    private ResponseGetGroupActivityLocalMessage cpG() {
         ResponseGetGroupActivityLocalMessage responseGetGroupActivityLocalMessage = new ResponseGetGroupActivityLocalMessage();
         responseGetGroupActivityLocalMessage.setError(-18);
         return responseGetGroupActivityLocalMessage;
@@ -18,7 +18,7 @@ public class d implements CustomMessageTask.CustomRunnable<Integer> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
         if (customMessage == null || !(customMessage instanceof RequestGetGroupActivityLocalMessage)) {
-            return cpx();
+            return cpG();
         }
         RequestGetGroupActivityLocalMessage requestGetGroupActivityLocalMessage = (RequestGetGroupActivityLocalMessage) customMessage;
         String str = "";
@@ -35,6 +35,6 @@ public class d implements CustomMessageTask.CustomRunnable<Integer> {
                 e.printStackTrace();
             }
         }
-        return cpx();
+        return cpG();
     }
 }

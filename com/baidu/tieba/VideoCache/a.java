@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private List<d> eLx = new ArrayList();
-    private long eLy = 0;
+    private List<d> eLI = new ArrayList();
+    private long eLJ = 0;
 
-    public List<d> blo() {
-        return this.eLx;
+    public List<d> blq() {
+        return this.eLI;
     }
 
-    public long blp() {
-        return this.eLy;
+    public long blr() {
+        return this.eLJ;
     }
 
     public void a(d dVar) {
-        if (this.eLx != null) {
-            this.eLx.add(dVar);
+        if (this.eLI != null) {
+            this.eLI.add(dVar);
             if (dVar != null) {
-                this.eLy += dVar.bly();
+                this.eLJ += dVar.blA();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.eLx != null) {
-            this.eLx.remove(dVar);
+        if (this.eLI != null) {
+            this.eLI.remove(dVar);
             if (dVar != null) {
-                this.eLy -= dVar.bly();
+                this.eLJ -= dVar.blA();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.eLx != null) {
-            d dVar = this.eLx.get(i);
+        if (this.eLI != null) {
+            d dVar = this.eLI.get(i);
             if (dVar != null) {
-                this.eLy -= dVar.bly();
+                this.eLJ -= dVar.blA();
             }
-            this.eLx.remove(i);
+            this.eLI.remove(i);
         }
     }
 
-    public int blq() {
-        if (this.eLx != null) {
-            return this.eLx.size();
+    public int bls() {
+        if (this.eLI != null) {
+            return this.eLI.size();
         }
         return 0;
     }
 
-    public d oT(int i) {
-        if (this.eLx != null) {
-            return this.eLx.get(i);
+    public d oV(int i) {
+        if (this.eLI != null) {
+            return this.eLI.get(i);
         }
         return null;
     }

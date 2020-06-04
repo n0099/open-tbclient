@@ -137,8 +137,8 @@ public final class b {
         if (com.baidu.swan.apps.swancore.b.arR()) {
             com.baidu.swan.apps.swancore.b.a.arX();
         }
-        bundle.putParcelable("bundle_key_swan_core", com.baidu.swan.apps.swancore.b.hb(0));
-        bundle.putParcelable("bundle_key_extension_core", com.baidu.swan.apps.extcore.b.fe(0));
+        bundle.putParcelable("bundle_key_swan_core", com.baidu.swan.apps.swancore.b.hd(0));
+        bundle.putParcelable("bundle_key_extension_core", com.baidu.swan.apps.extcore.b.fg(0));
         bundle.putInt("bundle_key_preload_switch", com.baidu.swan.apps.u.a.afn().Ra());
         bundle.putLong("bundle_key_preload_launch_time", currentTimeMillis);
         bundle.putBoolean("bundle_key_v8_ab", com.baidu.swan.apps.u.a.aeU().Rq());

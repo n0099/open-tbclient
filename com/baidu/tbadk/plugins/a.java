@@ -5,7 +5,7 @@ import android.content.ContentProvider;
 public class a {
     private static ContentProvider eub;
 
-    public static ContentProvider bfZ() {
+    public static ContentProvider bga() {
         return eub;
     }
 }

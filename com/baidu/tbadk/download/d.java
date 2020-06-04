@@ -47,7 +47,7 @@ public class d {
     private d() {
     }
 
-    public static d bcT() {
+    public static d bcU() {
         return ekB;
     }
 

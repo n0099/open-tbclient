@@ -58,51 +58,51 @@ public class d extends com.baidu.adp.widget.ListView.a<g, a> {
         if (gVar != null) {
             aVar.a(gVar);
         }
-        aVar.aWq();
+        aVar.aWr();
         return view;
     }
 
     /* loaded from: classes9.dex */
     public class a extends aa.a implements View.OnClickListener {
         View dJr;
-        ImageView hPo;
-        View hwZ;
-        CardForumHeadLayout jTR;
-        private g jTS;
+        ImageView hQb;
+        View hxk;
+        CardForumHeadLayout jUX;
+        private g jUY;
 
         public a(View view) {
             super(view);
-            this.jTR = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-            if (this.jTR != null) {
-                this.jTR.setOnClickListener(this.jTR);
-                this.jTR.setAfterClickListener(this);
+            this.jUX = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+            if (this.jUX != null) {
+                this.jUX.setOnClickListener(this.jUX);
+                this.jUX.setAfterClickListener(this);
             }
             this.dJr = ((ViewGroup) view).getChildAt(1);
-            this.hPo = (ImageView) ((ViewGroup) view).getChildAt(2);
-            this.hwZ = ((ViewGroup) view).getChildAt(3);
+            this.hQb = (ImageView) ((ViewGroup) view).getChildAt(2);
+            this.hxk = ((ViewGroup) view).getChildAt(3);
         }
 
         public void a(g gVar) {
             if (gVar != null) {
-                this.jTS = gVar;
-                this.hwZ.setVisibility(gVar.jES ? 0 : 8);
+                this.jUY = gVar;
+                this.hxk.setVisibility(gVar.jFY ? 0 : 8);
                 if (getView() != null) {
-                    getView().setPadding(0, 0, 0, gVar.jES ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
+                    getView().setPadding(0, 0, 0, gVar.jFY ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
                 }
-                this.jTR.setData(gVar.forumName, gVar.jER, gVar.postNum, gVar.memberNum);
+                this.jUX.setData(gVar.forumName, gVar.jFX, gVar.postNum, gVar.memberNum);
             }
         }
 
-        public void aWq() {
-            SvgManager.aUV().a(this.hPo, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
+        public void aWr() {
+            SvgManager.aUW().a(this.hQb, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
             am.setBackgroundColor(this.dJr, R.color.cp_bg_line_b);
-            am.setBackgroundColor(this.hwZ, R.color.cp_bg_line_b);
-            this.jTR.onChangeSkinType();
+            am.setBackgroundColor(this.hxk, R.color.cp_bg_line_b);
+            this.jUX.onChangeSkinType();
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new an("c13698").dh("tid", this.jTS.tid).dh("fid", this.jTS.fid).s("uid", TbadkCoreApplication.getCurrentAccountId()));
+            TiebaStatic.log(new an("c13698").dh("tid", this.jUY.tid).dh("fid", this.jUY.fid).s("uid", TbadkCoreApplication.getCurrentAccountId()));
         }
     }
 }

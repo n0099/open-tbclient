@@ -134,7 +134,7 @@ public class SwanVideoView extends FrameLayout {
                     SwanVideoView.this.drv.onBufferingUpdate(i);
                 }
                 if (SwanVideoView.this.drk != null) {
-                    SwanVideoView.this.drk.jI((SwanVideoView.this.getDuration() * i) / 100);
+                    SwanVideoView.this.drk.jK((SwanVideoView.this.getDuration() * i) / 100);
                 }
             }
         };
@@ -241,7 +241,7 @@ public class SwanVideoView extends FrameLayout {
                     SwanVideoView.this.drv.onBufferingUpdate(i);
                 }
                 if (SwanVideoView.this.drk != null) {
-                    SwanVideoView.this.drk.jI((SwanVideoView.this.getDuration() * i) / 100);
+                    SwanVideoView.this.drk.jK((SwanVideoView.this.getDuration() * i) / 100);
                 }
             }
         };
@@ -348,7 +348,7 @@ public class SwanVideoView extends FrameLayout {
                     SwanVideoView.this.drv.onBufferingUpdate(i2);
                 }
                 if (SwanVideoView.this.drk != null) {
-                    SwanVideoView.this.drk.jI((SwanVideoView.this.getDuration() * i2) / 100);
+                    SwanVideoView.this.drk.jK((SwanVideoView.this.getDuration() * i2) / 100);
                 }
             }
         };

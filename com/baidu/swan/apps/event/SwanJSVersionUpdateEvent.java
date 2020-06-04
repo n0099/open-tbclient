@@ -13,9 +13,9 @@ public class SwanJSVersionUpdateEvent {
     private final String mVersionString;
 
     private SwanJSVersionUpdateEvent() {
-        SwanCoreVersion ha = com.baidu.swan.apps.swancore.b.ha(0);
-        if (ha != null) {
-            this.mVersionNum = ha.swanCoreVersion;
+        SwanCoreVersion hc = com.baidu.swan.apps.swancore.b.hc(0);
+        if (hc != null) {
+            this.mVersionNum = hc.swanCoreVersion;
             this.mVersionString = com.baidu.swan.apps.swancore.b.bt(this.mVersionNum);
             return;
         }

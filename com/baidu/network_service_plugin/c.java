@@ -67,7 +67,7 @@ public class c {
 
     public static FlutterNetModelAuto F(String str, int i) {
         FlutterNetModelAuto flutterNetModelAuto = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
-        flutterNetModelAuto.dC(i);
+        flutterNetModelAuto.dE(i);
         return flutterNetModelAuto;
     }
 
@@ -75,7 +75,7 @@ public class c {
         if (i == 104102) {
             FlutterNetModelAuto flutterNetModelAuto = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
             flutterNetModelAuto.a(e(i, hashMap));
-            flutterNetModelAuto.dD(i);
+            flutterNetModelAuto.dF(i);
             flutterNetModelAuto.p(RequestUpdateMaskInfoMessage.class);
             flutterNetModelAuto.setResponseDataClass(ResponseUpdateMaskInfoMessage.class);
             return flutterNetModelAuto;
@@ -84,7 +84,7 @@ public class c {
             flutterNetModelAuto2.a(e(i, hashMap));
             flutterNetModelAuto2.setNeedCompress(false);
             flutterNetModelAuto2.cQ(true);
-            flutterNetModelAuto2.dD(i);
+            flutterNetModelAuto2.dF(i);
             flutterNetModelAuto2.p(RequestGetLivableForumList.class);
             flutterNetModelAuto2.setResponseDataClass(ResponseGetLivableForumList.class);
             return flutterNetModelAuto2;

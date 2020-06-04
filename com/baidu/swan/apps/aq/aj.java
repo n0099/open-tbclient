@@ -172,11 +172,11 @@ public final class aj {
     }
 
     public static String atN() {
-        return hH(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return hJ(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
     @Nullable
-    public static String hH(int i) {
+    public static String hJ(int i) {
         int i2 = 0;
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         if (stackTrace == null || stackTrace.length <= 0) {
@@ -381,7 +381,7 @@ public final class aj {
         }
         if (uri != null) {
             if (aVar != null) {
-                com.facebook.drawee.a.a.c.dvh().e(ImageRequestBuilder.ab(uri).dCl(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.aq.aj.4
+                com.facebook.drawee.a.a.c.dvv().e(ImageRequestBuilder.ab(uri).dCz(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.aq.aj.4
                     @Override // com.facebook.imagepipeline.e.b
                     protected void h(Bitmap bitmap) {
                         Bitmap copy;
@@ -412,7 +412,7 @@ public final class aj {
                         super.b(bVar);
                         q.a.this.h(str, null);
                     }
-                }, com.facebook.common.b.i.dun());
+                }, com.facebook.common.b.i.duB());
             } else {
                 q.b(uri, str2);
             }

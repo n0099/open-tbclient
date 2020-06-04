@@ -71,16 +71,16 @@ public abstract class a {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GOD_FEED_MSG_RECIEVED, Integer.valueOf(optInt5)));
                 }
                 if (optInt >= 0 && optInt2 >= 0 && optInt3 >= 0 && optInt6 >= 0 && optInt4 >= 0) {
-                    if (com.baidu.tbadk.coreExtra.messageCenter.d.aZS().aZV() <= 0) {
+                    if (com.baidu.tbadk.coreExtra.messageCenter.d.aZT().aZW() <= 0) {
                         optInt4 = 0;
                         optInt3 = 0;
                     }
-                    int i = com.baidu.tbadk.coreExtra.messageCenter.d.aZS().aZY() ? optInt3 : 0;
+                    int i = com.baidu.tbadk.coreExtra.messageCenter.d.aZT().aZZ() ? optInt3 : 0;
                     if (currentAccount != null && currentAccount.length() > 0) {
-                        int msgChat = com.baidu.tbadk.coreExtra.messageCenter.b.aZl().getMsgChat();
-                        int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.b.aZl().getMsgBookmark();
-                        com.baidu.tbadk.coreExtra.messageCenter.b.aZl().cF(jSONObject);
-                        com.baidu.tbadk.coreExtra.messageCenter.b.aZl().a(optInt, optInt2, optInt6, msgChat, i, msgBookmark, optInt4);
+                        int msgChat = com.baidu.tbadk.coreExtra.messageCenter.b.aZm().getMsgChat();
+                        int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.b.aZm().getMsgBookmark();
+                        com.baidu.tbadk.coreExtra.messageCenter.b.aZm().cF(jSONObject);
+                        com.baidu.tbadk.coreExtra.messageCenter.b.aZm().a(optInt, optInt2, optInt6, msgChat, i, msgBookmark, optInt4);
                     }
                 }
             } catch (Exception e) {

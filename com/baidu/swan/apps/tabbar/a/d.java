@@ -31,7 +31,7 @@ public class d extends a {
             com.baidu.swan.apps.console.c.e("CloseTabBarRedDotAction", "tabBarViewController is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!Ud.hC(optInt)) {
+        } else if (!Ud.hE(optInt)) {
             com.baidu.swan.apps.console.c.e("closeTabBarRedDot", "close red dot fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

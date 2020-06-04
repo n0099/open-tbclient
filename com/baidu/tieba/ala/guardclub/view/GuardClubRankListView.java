@@ -10,15 +10,15 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.guardclub.m;
 /* loaded from: classes3.dex */
 public class GuardClubRankListView extends BdListView {
-    private a fBr;
-    private boolean fBs;
-    private LoadMoreFooter fBt;
+    private a fBC;
+    private boolean fBD;
+    private LoadMoreFooter fBE;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void buU();
+        void buW();
 
-        void buV();
+        void buX();
     }
 
     public GuardClubRankListView(Context context, AttributeSet attributeSet) {
@@ -27,24 +27,24 @@ public class GuardClubRankListView extends BdListView {
     }
 
     public void setCallback(a aVar) {
-        this.fBr = aVar;
+        this.fBC = aVar;
     }
 
     public void setLoadMoreEnabled(boolean z, boolean z2) {
-        this.fBs = z;
+        this.fBD = z;
         if (z) {
-            buy();
+            buA();
         } else {
             jZ(z2);
         }
     }
 
     public void release() {
-        this.fBr = null;
-        bvg();
+        this.fBC = null;
+        bvi();
     }
 
-    public void bvg() {
+    public void bvi() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -65,9 +65,9 @@ public class GuardClubRankListView extends BdListView {
 
     private void init() {
         initUI();
-        bvh();
-        bvi();
         bvj();
+        bvk();
+        bvl();
     }
 
     private void initUI() {
@@ -79,7 +79,7 @@ public class GuardClubRankListView extends BdListView {
         setVerticalScrollBarEnabled(false);
     }
 
-    private void bvh() {
+    private void bvj() {
         setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
@@ -87,18 +87,18 @@ public class GuardClubRankListView extends BdListView {
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                if (GuardClubRankListView.this.fBr != null) {
-                    GuardClubRankListView.this.fBr.buU();
+                if (GuardClubRankListView.this.fBC != null) {
+                    GuardClubRankListView.this.fBC.buW();
                 }
-                if (GuardClubRankListView.this.fBr != null && GuardClubRankListView.this.fBs && !GuardClubRankListView.this.fBt.isLoading() && i + i2 > i3 - 2) {
-                    GuardClubRankListView.this.bvk();
-                    GuardClubRankListView.this.fBr.buV();
+                if (GuardClubRankListView.this.fBC != null && GuardClubRankListView.this.fBD && !GuardClubRankListView.this.fBE.isLoading() && i + i2 > i3 - 2) {
+                    GuardClubRankListView.this.bvm();
+                    GuardClubRankListView.this.fBC.buX();
                 }
             }
         });
     }
 
-    private void bvi() {
+    private void bvk() {
         setRecyclerListener(new AbsListView.RecyclerListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.2
             @Override // android.widget.AbsListView.RecyclerListener
             public void onMovedToScrapHeap(View view) {
@@ -110,39 +110,39 @@ public class GuardClubRankListView extends BdListView {
         });
     }
 
-    private void bvj() {
-        this.fBt = new LoadMoreFooter(getContext());
-        this.fBt.setBackgroundColor(getResources().getColor(a.d.live_gcb_primary));
-        this.fBt.createView();
+    private void bvl() {
+        this.fBE = new LoadMoreFooter(getContext());
+        this.fBE.setBackgroundColor(getResources().getColor(a.d.live_gcb_primary));
+        this.fBE.createView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvk() {
-        if (this.fBt != null) {
-            if (this.fBt.getView().getParent() == null) {
-                setNextPage(this.fBt);
+    public void bvm() {
+        if (this.fBE != null) {
+            if (this.fBE.getView().getParent() == null) {
+                setNextPage(this.fBE);
             }
-            this.fBt.showLoadView();
+            this.fBE.showLoadView();
         }
     }
 
-    private void buy() {
-        if (this.fBt != null) {
-            this.fBt.endLoadData();
+    private void buA() {
+        if (this.fBE != null) {
+            this.fBE.endLoadData();
             setNextPage(null);
         }
     }
 
     private void jZ(boolean z) {
         if (z) {
-            if (this.fBt != null) {
+            if (this.fBE != null) {
                 setNextPage(null);
             }
-        } else if (this.fBt != null) {
-            if (this.fBt.getView().getParent() == null) {
-                setNextPage(this.fBt);
+        } else if (this.fBE != null) {
+            if (this.fBE.getView().getParent() == null) {
+                setNextPage(this.fBE);
             }
-            this.fBt.showNoMoreData();
+            this.fBE.showNoMoreData();
         }
     }
 }

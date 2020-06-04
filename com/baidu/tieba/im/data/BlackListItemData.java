@@ -41,7 +41,7 @@ public class BlackListItemData extends AbstractImageProvider {
         this.userNameShow = str;
     }
 
-    public String baZ() {
+    public String bba() {
         return StringUtils.isNull(this.userNameShow) ? this.userName : this.userNameShow;
     }
 }

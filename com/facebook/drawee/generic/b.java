@@ -13,29 +13,29 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class b {
-    public static final p.b mqn = p.b.mqd;
-    public static final p.b mqo = p.b.mqe;
+    public static final p.b mrx = p.b.mrn;
+    public static final p.b mry = p.b.mro;
     private Drawable mBackground;
     private Resources mResources;
-    private p.b mqA;
-    private Matrix mqB;
-    private PointF mqC;
-    private ColorFilter mqD;
-    private List<Drawable> mqE;
-    private Drawable mqF;
-    private RoundingParams mqj;
-    private int mqp;
-    private boolean mqq;
-    private float mqr;
-    private Drawable mqs;
+    private boolean mrA;
+    private float mrB;
+    private Drawable mrC;
     @Nullable
-    private p.b mqt;
-    private Drawable mqu;
-    private p.b mqv;
-    private Drawable mqw;
-    private p.b mqx;
-    private Drawable mqy;
-    private p.b mqz;
+    private p.b mrD;
+    private Drawable mrE;
+    private p.b mrF;
+    private Drawable mrG;
+    private p.b mrH;
+    private Drawable mrI;
+    private p.b mrJ;
+    private p.b mrK;
+    private Matrix mrL;
+    private PointF mrM;
+    private ColorFilter mrN;
+    private List<Drawable> mrO;
+    private Drawable mrP;
+    private RoundingParams mrt;
+    private int mrz;
 
     public b(Resources resources) {
         this.mResources = resources;
@@ -43,157 +43,157 @@ public class b {
     }
 
     private void init() {
-        this.mqp = 150;
-        this.mqq = true;
-        this.mqr = 0.0f;
-        this.mqs = null;
-        this.mqt = mqn;
-        this.mqu = null;
-        this.mqv = mqn;
-        this.mqw = null;
-        this.mqx = mqn;
-        this.mqy = null;
-        this.mqz = mqn;
-        this.mqA = mqo;
-        this.mqB = null;
-        this.mqC = null;
-        this.mqD = null;
+        this.mrz = 150;
+        this.mrA = true;
+        this.mrB = 0.0f;
+        this.mrC = null;
+        this.mrD = mrx;
+        this.mrE = null;
+        this.mrF = mrx;
+        this.mrG = null;
+        this.mrH = mrx;
+        this.mrI = null;
+        this.mrJ = mrx;
+        this.mrK = mry;
+        this.mrL = null;
+        this.mrM = null;
+        this.mrN = null;
         this.mBackground = null;
-        this.mqE = null;
-        this.mqF = null;
-        this.mqj = null;
+        this.mrO = null;
+        this.mrP = null;
+        this.mrt = null;
     }
 
     public Resources getResources() {
         return this.mResources;
     }
 
-    public b Hg(int i) {
-        this.mqp = i;
+    public b Hi(int i) {
+        this.mrz = i;
         return this;
     }
 
-    public int dwq() {
-        return this.mqp;
+    public int dwE() {
+        return this.mrz;
     }
 
-    public boolean dwr() {
-        return this.mqq;
+    public boolean dwF() {
+        return this.mrA;
     }
 
     public b aC(float f) {
-        this.mqr = f;
+        this.mrB = f;
         return this;
     }
 
-    public float dws() {
-        return this.mqr;
+    public float dwG() {
+        return this.mrB;
     }
 
     public b n(@Nullable Drawable drawable) {
-        this.mqs = drawable;
+        this.mrC = drawable;
         return this;
     }
 
-    public b Hh(int i) {
-        this.mqs = this.mResources.getDrawable(i);
+    public b Hj(int i) {
+        this.mrC = this.mResources.getDrawable(i);
         return this;
     }
 
     @Nullable
-    public Drawable dwt() {
-        return this.mqs;
+    public Drawable dwH() {
+        return this.mrC;
     }
 
     public b c(@Nullable p.b bVar) {
-        this.mqt = bVar;
+        this.mrD = bVar;
         return this;
     }
 
     @Nullable
-    public p.b dwu() {
-        return this.mqt;
+    public p.b dwI() {
+        return this.mrD;
     }
 
     public b o(@Nullable Drawable drawable) {
-        this.mqu = drawable;
+        this.mrE = drawable;
         return this;
     }
 
     @Nullable
-    public Drawable dwv() {
-        return this.mqu;
+    public Drawable dwJ() {
+        return this.mrE;
     }
 
     public b d(@Nullable p.b bVar) {
-        this.mqv = bVar;
+        this.mrF = bVar;
         return this;
     }
 
     @Nullable
-    public p.b dww() {
-        return this.mqv;
+    public p.b dwK() {
+        return this.mrF;
     }
 
     public b p(@Nullable Drawable drawable) {
-        this.mqw = drawable;
+        this.mrG = drawable;
         return this;
     }
 
     @Nullable
-    public Drawable dwx() {
-        return this.mqw;
+    public Drawable dwL() {
+        return this.mrG;
     }
 
     public b e(@Nullable p.b bVar) {
-        this.mqx = bVar;
+        this.mrH = bVar;
         return this;
     }
 
     @Nullable
-    public p.b dwy() {
-        return this.mqx;
+    public p.b dwM() {
+        return this.mrH;
     }
 
     public b q(@Nullable Drawable drawable) {
-        this.mqy = drawable;
+        this.mrI = drawable;
         return this;
     }
 
     @Nullable
-    public Drawable dwz() {
-        return this.mqy;
+    public Drawable dwN() {
+        return this.mrI;
     }
 
     public b f(@Nullable p.b bVar) {
-        this.mqz = bVar;
+        this.mrJ = bVar;
         return this;
     }
 
     @Nullable
-    public p.b dwA() {
-        return this.mqz;
+    public p.b dwO() {
+        return this.mrJ;
     }
 
     public b g(@Nullable p.b bVar) {
-        this.mqA = bVar;
-        this.mqB = null;
+        this.mrK = bVar;
+        this.mrL = null;
         return this;
     }
 
     @Nullable
-    public p.b dwB() {
-        return this.mqA;
+    public p.b dwP() {
+        return this.mrK;
     }
 
     @Nullable
-    public PointF dwC() {
-        return this.mqC;
+    public PointF dwQ() {
+        return this.mrM;
     }
 
     @Nullable
-    public ColorFilter dwD() {
-        return this.mqD;
+    public ColorFilter dwR() {
+        return this.mrN;
     }
 
     public b r(@Nullable Drawable drawable) {
@@ -208,53 +208,53 @@ public class b {
 
     public b s(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.mqE = null;
+            this.mrO = null;
         } else {
-            this.mqE = Arrays.asList(drawable);
+            this.mrO = Arrays.asList(drawable);
         }
         return this;
     }
 
     @Nullable
-    public List<Drawable> dwE() {
-        return this.mqE;
+    public List<Drawable> dwS() {
+        return this.mrO;
     }
 
     public b t(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.mqF = null;
+            this.mrP = null;
         } else {
             StateListDrawable stateListDrawable = new StateListDrawable();
             stateListDrawable.addState(new int[]{16842919}, drawable);
-            this.mqF = stateListDrawable;
+            this.mrP = stateListDrawable;
         }
         return this;
     }
 
     @Nullable
-    public Drawable dwF() {
-        return this.mqF;
+    public Drawable dwT() {
+        return this.mrP;
     }
 
     public b b(@Nullable RoundingParams roundingParams) {
-        this.mqj = roundingParams;
+        this.mrt = roundingParams;
         return this;
     }
 
     @Nullable
-    public RoundingParams dwp() {
-        return this.mqj;
+    public RoundingParams dwD() {
+        return this.mrt;
     }
 
     private void validate() {
-        if (this.mqE != null) {
-            for (Drawable drawable : this.mqE) {
+        if (this.mrO != null) {
+            for (Drawable drawable : this.mrO) {
                 g.checkNotNull(drawable);
             }
         }
     }
 
-    public a dwG() {
+    public a dwU() {
         validate();
         return new a(this);
     }

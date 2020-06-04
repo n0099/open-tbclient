@@ -35,22 +35,22 @@ import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements a {
     private long dCX;
-    private long huU;
-    private TopicDetailModel igc;
-    private TopicDetailView igd;
-    private long ige = 1;
+    private long hvf;
+    private TopicDetailModel igP;
+    private TopicDetailView igQ;
+    private long igR = 1;
     private boolean mIsFromSchema = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.igc = new TopicDetailModel(getPageContext());
-        this.igd = new TopicDetailView(getPageContext(), this, bundle);
-        setContentView(this.igd);
+        this.igP = new TopicDetailModel(getPageContext());
+        this.igQ = new TopicDetailView(getPageContext(), this, bundle);
+        setContentView(this.igQ);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        this.igc.a(this);
+        this.igP.a(this);
         loadData();
         if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !com.baidu.adp.base.a.jm().bi("MainTabActivity")) {
             this.mIsFromSchema = true;
@@ -58,7 +58,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         if (this.mIsFromSchema) {
             setIsAddSwipeBackLayout(false);
         }
-        this.igd.getEditor().cgM();
+        this.igQ.getEditor().cgV();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -72,8 +72,8 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.igd != null && this.igd.getEditor() != null) {
-            this.igd.getEditor().bdS();
+        if (this.igQ != null && this.igQ.getEditor() != null) {
+            this.igQ.getEditor().bdT();
         }
     }
 
@@ -147,53 +147,53 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         if (this.dCX < 0) {
             finish();
         } else if (!j.isNetworkAvailableForImmediately()) {
-            this.igd.hideLoadingView();
-            this.igd.mq(true);
+            this.igQ.hideLoadingView();
+            this.igQ.mq(true);
         } else {
-            this.igd.bqO();
-            this.igd.fV(false);
-            if (this.igd != null && this.igd.getEditor() != null) {
-                this.igd.getEditor().setTopicId(this.dCX);
+            this.igQ.bqQ();
+            this.igQ.fV(false);
+            if (this.igQ != null && this.igQ.getEditor() != null) {
+                this.igQ.getEditor().setTopicId(this.dCX);
             }
-            this.igc.eq(this.dCX);
+            this.igP.eq(this.dCX);
         }
     }
 
     @Override // com.baidu.tieba.homepage.topic.topicdetail.a
     public void a(int i, com.baidu.tieba.homepage.topic.topicdetail.b.a aVar) {
-        this.igd.hideLoadingView();
+        this.igQ.hideLoadingView();
         if (i != 0 || aVar == null || v.isEmpty(aVar.mDataList)) {
-            this.igd.mq(true);
+            this.igQ.mq(true);
             return;
         }
-        this.igd.bqO();
-        this.igd.setData(aVar);
+        this.igQ.bqQ();
+        this.igQ.setData(aVar);
     }
 
     public void ep(long j) {
-        this.ige++;
-        this.huU = j;
-        this.igc.c(this.dCX, this.ige, this.huU);
+        this.igR++;
+        this.hvf = j;
+        this.igP.c(this.dCX, this.igR, this.hvf);
     }
 
     @Override // com.baidu.tieba.homepage.topic.topicdetail.a
     public void a(int i, boolean z, List<o> list) {
-        this.igd.setNextData(i, z, list);
+        this.igQ.setNextData(i, z, list);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.igd.onChangeSkinType();
+        this.igQ.onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.igd != null && this.igd.getEditor() != null) {
-            this.igd.getEditor().onActivityResult(i, i2, intent);
+        if (this.igQ != null && this.igQ.getEditor() != null) {
+            this.igQ.getEditor().onActivityResult(i, i2, intent);
         }
     }
 

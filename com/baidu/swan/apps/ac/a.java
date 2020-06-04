@@ -75,7 +75,7 @@ public class a {
         }
     }
 
-    public static int fZ(int i) {
+    public static int gb(int i) {
         switch (i) {
             case -2:
                 return 2;

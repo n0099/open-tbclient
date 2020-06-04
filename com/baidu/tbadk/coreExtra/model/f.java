@@ -93,7 +93,7 @@ public class f {
         }
     }
 
-    public static boolean baH() {
+    public static boolean baI() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.aTX().getBoolean(SharedPrefConfig.KEY_REPORT_PLAY_SWITCH, true) : een;
     }
 
@@ -101,15 +101,15 @@ public class f {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.aTX().getInt(SharedPrefConfig.KEY_REPORT_PLAY_UPLOAD_TYPE, 0) : eeo;
     }
 
-    public static int baI() {
+    public static int baJ() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.aTX().getInt(SharedPrefConfig.KEY_REPORT_PLAY_UPLOAD_NUMBER, 5) : eep;
     }
 
-    public static boolean baJ() {
+    public static boolean baK() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.aTX().getBoolean(SharedPrefConfig.KEY_REPORT_PLAY_MOOV_CHECK, false) : eeq;
     }
 
-    public static String baK() {
+    public static String baL() {
         String string = com.baidu.tbadk.core.sharedPref.b.aTX().getString(SharedPrefConfig.KEY_REPORT_PLAY_DEBUG_TYPE, "");
         if (StringUtils.isNull(string)) {
             return "";
@@ -118,33 +118,33 @@ public class f {
         return string;
     }
 
-    public static Map<String, String> baL() {
+    public static Map<String, String> baM() {
         if (!isInit) {
-            baK();
+            baL();
         }
         return mDebugParamsMap;
     }
 
-    public static String baM() {
+    public static String baN() {
         if (!isInit) {
-            baK();
+            baL();
         }
         return mDebugParamsMap == null ? "0" : mDebugParamsMap.get("debug_avformat_open_input");
     }
 
-    public static int baN() {
+    public static int baO() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.aTX().getInt(SharedPrefConfig.KEY_REPORT_PREPARE_MAX_WAIT_TIME, 10000) : ees;
     }
 
-    public static int baO() {
+    public static int baP() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.aTX().getInt(SharedPrefConfig.KEY_REPORT_PREPARE_MAX_LOADING_TIME, 3000) : eet;
     }
 
-    public static boolean baP() {
+    public static boolean baQ() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.aTX().getBoolean(SharedPrefConfig.KEY_REPORT_IS_OPEN_PREPARE_TIME, false) : eeu;
     }
 
-    private static String baQ() {
+    private static String baR() {
         String string = com.baidu.tbadk.core.sharedPref.b.aTX().getString(SharedPrefConfig.KEY_STEP_CHACHE_STRATEGY, "");
         if (StringUtils.isNull(string)) {
             return "";
@@ -153,9 +153,9 @@ public class f {
         return string;
     }
 
-    public static boolean baR() {
+    public static boolean baS() {
         if (!isInit) {
-            baQ();
+            baR();
         }
         if (eem == null) {
             return false;
@@ -168,9 +168,9 @@ public class f {
         return eeh;
     }
 
-    public static boolean baS() {
+    public static boolean baT() {
         if (!isInit) {
-            baQ();
+            baR();
         }
         if (eem == null) {
             return false;
@@ -183,9 +183,9 @@ public class f {
         return eei;
     }
 
-    public static int baT() {
+    public static int baU() {
         if (!isInit) {
-            baQ();
+            baR();
         }
         if (eem == null) {
             return 8;
@@ -198,9 +198,9 @@ public class f {
         return eej;
     }
 
-    public static int baU() {
+    public static int baV() {
         if (!isInit) {
-            baQ();
+            baR();
         }
         if (eem == null) {
             return 16;
@@ -213,9 +213,9 @@ public class f {
         return eek;
     }
 
-    public static boolean baV() {
+    public static boolean baW() {
         if (!isInit) {
-            baQ();
+            baR();
         }
         if (eem == null) {
             return dm("18:00", "01:00");

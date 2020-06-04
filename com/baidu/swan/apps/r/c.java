@@ -24,7 +24,7 @@ public class c extends g.a {
     @Override // com.baidu.swan.apps.r.g.a
     protected boolean a(Pipe.SourceChannel sourceChannel, Bundle bundle) {
         com.baidu.swan.apps.v.c.a lk = com.baidu.swan.apps.v.c.a.lk(bundle.getString("launch_id"));
-        lk.ahk().ln("DumpFileProcessor").fE(1);
+        lk.ahk().ln("DumpFileProcessor").fG(1);
         WritableByteChannel writableByteChannel = null;
         try {
             writableByteChannel = Channels.newChannel(new FileOutputStream(this.cgl, false));

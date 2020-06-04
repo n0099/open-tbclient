@@ -83,6 +83,7 @@ public class IntentConfig extends OrmObject {
     public static final String RECOM_SOURCE = "recom_source";
     public static final String REPLAY_URL = "replay_url";
     public static final String REQUEST_CODE = "request_code";
+    public static final String SEARCH_MAJOR_NAME = "major_name";
     public static final String SHARE_THREAD_ID = "share_thread_id";
     public static final String SHARE_TOAST_STATUS = "status";
     public static final String SHOW_KEYBOARD = "keyboard";
@@ -183,7 +184,7 @@ public class IntentConfig extends OrmObject {
                 bVar = ((com.baidu.tbadk.pageInfo.a) F).getTbPageInfo();
             }
             if (bVar != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", bVar.bfr());
+                this.mIntent.putExtra("tb_page_tag_source_trace", bVar.bfs());
             }
         }
     }
@@ -191,9 +192,9 @@ public class IntentConfig extends OrmObject {
     public void addPreSourceTrace() {
         if (this.mIntent != null && this.mContext != null) {
             com.baidu.tbadk.l.b dS = com.baidu.tbadk.l.c.dS(this.mContext);
-            ArrayList<String> bfo = dS == null ? null : dS.bfo();
-            if (!v.isEmpty(bfo)) {
-                this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", bfo);
+            ArrayList<String> bfp = dS == null ? null : dS.bfp();
+            if (!v.isEmpty(bfp)) {
+                this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", bfp);
             }
         }
     }
@@ -201,7 +202,7 @@ public class IntentConfig extends OrmObject {
     public void addPreSourceTrace(String str) {
         if (this.mIntent != null && this.mContext != null) {
             com.baidu.tbadk.l.b dS = com.baidu.tbadk.l.c.dS(this.mContext);
-            ArrayList<String> d = com.baidu.tbadk.l.c.d(dS == null ? null : dS.bfn(), str);
+            ArrayList<String> d = com.baidu.tbadk.l.c.d(dS == null ? null : dS.bfo(), str);
             if (!v.isEmpty(d)) {
                 this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", d);
             }

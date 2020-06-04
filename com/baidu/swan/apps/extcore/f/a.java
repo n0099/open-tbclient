@@ -22,16 +22,16 @@ import java.util.Locale;
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean fj(int i) {
-        return h.arO().getBoolean(fk(i), false);
+    public static boolean fl(int i) {
+        return h.arO().getBoolean(fm(i), false);
     }
 
     public static void v(int i, boolean z) {
-        h.arO().putBoolean(fk(i), z);
+        h.arO().putBoolean(fm(i), z);
     }
 
     @NonNull
-    private static String fk(int i) {
+    private static String fm(int i) {
         return i == 1 ? "key_is_need_update_game_ext_preset" : "key_is_need_update_preset";
     }
 
@@ -147,7 +147,7 @@ public class a {
         return sb.toString();
     }
 
-    public static boolean fl(int i) {
+    public static boolean fn(int i) {
         return i == 1 ? com.baidu.swan.apps.af.a.a.ami() : com.baidu.swan.apps.af.a.a.amh();
     }
 

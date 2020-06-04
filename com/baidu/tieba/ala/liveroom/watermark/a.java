@@ -8,39 +8,39 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a {
-    private AlaLiveRoomWatermarkView gig;
+    private AlaLiveRoomWatermarkView gir;
     private TbPageContext mTbPageContext;
 
-    public void bHu() {
-        if (this.gig != null && this.gig.getParent() != null) {
-            ((ViewGroup) this.gig.getParent()).removeView(this.gig);
+    public void bHw() {
+        if (this.gir != null && this.gir.getParent() != null) {
+            ((ViewGroup) this.gir.getParent()).removeView(this.gir);
         }
     }
 
     public void setTimeTextMode(boolean z) {
-        if (this.gig != null) {
-            this.gig.setTimeTextMode(z);
+        if (this.gir != null) {
+            this.gir.setTimeTextMode(z);
         }
     }
 
-    public int bHv() {
+    public int bHx() {
         int i = 0;
-        if (this.gig == null || this.gig.getLayoutParams() == null) {
+        if (this.gir == null || this.gir.getLayoutParams() == null) {
             return 0;
         }
-        if (this.gig.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-            i = ((FrameLayout.LayoutParams) this.gig.getLayoutParams()).topMargin;
-        } else if (this.gig.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-            i = ((RelativeLayout.LayoutParams) this.gig.getLayoutParams()).topMargin;
-        } else if (this.gig.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            i = ((LinearLayout.LayoutParams) this.gig.getLayoutParams()).topMargin;
+        if (this.gir.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+            i = ((FrameLayout.LayoutParams) this.gir.getLayoutParams()).topMargin;
+        } else if (this.gir.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            i = ((RelativeLayout.LayoutParams) this.gir.getLayoutParams()).topMargin;
+        } else if (this.gir.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            i = ((LinearLayout.LayoutParams) this.gir.getLayoutParams()).topMargin;
         }
         return i + this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(a.e.sdk_ds30);
     }
 
     public void setVisibility(int i) {
-        if (this.gig != null) {
-            this.gig.setVisibility(i);
+        if (this.gir != null) {
+            this.gir.setVisibility(i);
         }
     }
 }

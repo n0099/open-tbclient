@@ -11,32 +11,32 @@ import java.net.Socket;
 /* loaded from: classes9.dex */
 public class n {
     private static final String TAG = n.class.getSimpleName();
-    private ServerSocket eMs;
+    private ServerSocket eMD;
     private Context mContext;
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.VideoCache.n.1
         @Override // java.lang.Runnable
         public void run() {
             long j;
             j.D(n.TAG, "run ...");
-            n.this.blK();
+            n.this.blM();
             int i = 9000;
-            while (n.this.eMs == null && i < 10000) {
+            while (n.this.eMD == null && i < 10000) {
                 try {
-                    n.this.eMs = new ServerSocket(i);
+                    n.this.eMD = new ServerSocket(i);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    n.this.eMs = null;
+                    n.this.eMD = null;
                     i++;
                 }
             }
             j.D(n.TAG, "service port " + i);
-            n.this.oU(i);
-            e.blz();
-            k.blH();
-            while (!n.this.eMs.isClosed()) {
+            n.this.oW(i);
+            e.blB();
+            k.blJ();
+            while (!n.this.eMD.isClosed()) {
                 try {
                     j.D(n.TAG, "accept start");
-                    Socket accept = n.this.eMs.accept();
+                    Socket accept = n.this.eMD.accept();
                     j.D(n.TAG, "accept end");
                     if (accept != null) {
                         j.D(n.TAG, "连接视频服务的client:" + accept);
@@ -54,18 +54,18 @@ public class n {
                             try {
                                 int indexOf = originUrl.indexOf("?segment_postion=", 0);
                                 b.zv(originUrl.substring(0, indexOf));
-                                j = com.baidu.adp.lib.f.b.toLong(originUrl.substring(indexOf + i.eMm), 0L);
+                                j = com.baidu.adp.lib.f.b.toLong(originUrl.substring(indexOf + i.eMx), 0L);
                             } catch (Exception e2) {
                                 j = 0;
                             }
                             b.cY(j);
                             n.this.b(b, accept);
                         } else {
-                            j.D(n.TAG, "HandleSocketRunnable new request b=" + b.blE() + " e=" + b.blF());
+                            j.D(n.TAG, "HandleSocketRunnable new request b=" + b.blG() + " e=" + b.blH());
                             f fVar = new f(n.this.mContext);
                             fVar.setSocket(accept);
                             fVar.a(b);
-                            l.blI().s(fVar);
+                            l.blK().s(fVar);
                         }
                     }
                 } catch (Exception e3) {
@@ -80,16 +80,16 @@ public class n {
 
     public n(Context context) {
         this.mContext = context;
-        l.blI().s(this.mRunnable);
+        l.blK().s(this.mRunnable);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void blK() {
-        File file = new File(i.eMg);
+    public void blM() {
+        File file = new File(i.eMr);
         if (!file.exists()) {
             file.mkdir();
         }
-        File file2 = new File(i.eMh);
+        File file2 = new File(i.eMs);
         if (!file2.exists()) {
             file2.mkdir();
         }
@@ -105,7 +105,7 @@ public class n {
         if (!file4.exists()) {
             file4.mkdir();
         }
-        File file5 = new File(i.eMj);
+        File file5 = new File(i.eMu);
         if (!file5.exists()) {
             file5.mkdir();
         }
@@ -127,8 +127,8 @@ public class n {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void oU(int i) {
-        BufferedWriter bufferedWriter = i.eMl;
+    public void oW(int i) {
+        BufferedWriter bufferedWriter = i.eMw;
         try {
             try {
                 bufferedWriter = new BufferedWriter(new FileWriter(new File((String) bufferedWriter)));
@@ -178,8 +178,8 @@ public class n {
 
     public void destroy() {
         try {
-            if (this.eMs != null) {
-                this.eMs.close();
+            if (this.eMD != null) {
+                this.eMD.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -193,7 +193,7 @@ public class n {
         if (originUrl != null) {
             originUrl = originUrl.replace("?stop_cache=1", "");
         }
-        e.blz().zr(originUrl);
+        e.blB().zr(originUrl);
         d(socket);
         j.D(TAG, "handleStopCache out");
     }
@@ -203,7 +203,7 @@ public class n {
         j.D(TAG, "handleNotifyDownLoadNextSegment in");
         String originUrl = hVar.getOriginUrl();
         if (originUrl != null) {
-            e.blz().v(originUrl, hVar.blG());
+            e.blB().v(originUrl, hVar.blI());
         }
         d(socket);
         j.D(TAG, "handleNotifyDownLoadNextSegment out");
@@ -216,7 +216,7 @@ public class n {
         if (originUrl != null) {
             originUrl = originUrl.replace("?file_access=1", "");
         }
-        k.blH().zm(originUrl);
+        k.blJ().zm(originUrl);
         d(socket);
         j.D(TAG, "handleFileAccess out");
     }
@@ -224,7 +224,7 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(h hVar, Socket socket) {
         j.D(TAG, "handleDeleteExpiredFiles in");
-        k.blH().blt();
+        k.blJ().blv();
         d(socket);
         j.D(TAG, "handleDeleteExpiredFiles out");
     }
@@ -232,7 +232,7 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void e(h hVar, Socket socket) {
         j.D(TAG, "handleClearCache in");
-        k.blH().clearCache();
+        k.blJ().clearCache();
         d(socket);
         j.D(TAG, "handleClearCache out");
     }

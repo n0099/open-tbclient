@@ -31,67 +31,67 @@ import com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView;
 import com.baidu.tieba.ala.liveroom.challenge.view.b;
 /* loaded from: classes3.dex */
 public class c implements i {
-    private AlaChallengeLiveView fRP;
-    private b fRQ;
-    private h fRR;
-    private AlaChallengeCountDown fRS;
-    private j fRT;
+    private AlaChallengeLiveView fSa;
+    private b fSb;
+    private h fSc;
+    private AlaChallengeCountDown fSd;
+    private j fSe;
     private ViewGroup mParentView;
     private TbPageContext mTbPageContext;
-    private boolean fRU = false;
-    private boolean fRV = false;
-    private boolean fRW = false;
-    private boolean fRX = true;
-    private boolean fRY = false;
-    private boolean fRZ = false;
+    private boolean fSf = false;
+    private boolean fSg = false;
+    private boolean fSh = false;
+    private boolean fSi = true;
+    private boolean fSj = false;
+    private boolean fSk = false;
     private long challengeId = 0;
     private long aul = 0;
     private long liveId = -1;
-    private long fSa = 0;
+    private long fSl = 0;
     private boolean isHost = false;
-    private boolean fSb = false;
-    private boolean fSc = false;
-    private boolean fSd = false;
-    public boolean fRg = false;
-    private b.a fSe = new b.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.c.2
+    private boolean fSm = false;
+    private boolean fSn = false;
+    private boolean fSo = false;
+    public boolean fRr = false;
+    private b.a fSp = new b.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.c.2
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.b.a
-        public void bAF() {
-            if (c.this.fRP != null && c.this.fRP.getParent() != null) {
-                c.this.fRV = true;
-                if (c.this.fRR != null) {
-                    c.this.fRR.vt();
+        public void bAH() {
+            if (c.this.fSa != null && c.this.fSa.getParent() != null) {
+                c.this.fSg = true;
+                if (c.this.fSc != null) {
+                    c.this.fSc.vt();
                 }
-                c.this.fRP.setCloseBtnVisible(true);
-                c.this.fRP.setLiveContainerVisible(true);
+                c.this.fSa.setCloseBtnVisible(true);
+                c.this.fSa.setLiveContainerVisible(true);
                 if (!com.baidu.live.c.uN().getBoolean("SHARE_PRE_KEY_CHALLENGE_COUNT_DOWN" + c.this.challengeId, false)) {
                     com.baidu.live.c.uN().putBoolean("SHARE_PRE_KEY_CHALLENGE_COUNT_DOWN" + c.this.challengeId, true);
-                    if ((!c.this.fSc && !c.this.isHost) || (!c.this.fSb && c.this.isHost)) {
-                        if (c.this.fRS == null) {
-                            c.this.fRS = new AlaChallengeCountDown(c.this.mTbPageContext.getPageActivity());
+                    if ((!c.this.fSn && !c.this.isHost) || (!c.this.fSm && c.this.isHost)) {
+                        if (c.this.fSd == null) {
+                            c.this.fSd = new AlaChallengeCountDown(c.this.mTbPageContext.getPageActivity());
                         }
-                        RelativeLayout.LayoutParams layoutParams = c.this.fRS.getLayoutParams() != null ? (RelativeLayout.LayoutParams) c.this.fRS.getLayoutParams() : new RelativeLayout.LayoutParams(-2, -2);
+                        RelativeLayout.LayoutParams layoutParams = c.this.fSd.getLayoutParams() != null ? (RelativeLayout.LayoutParams) c.this.fSd.getLayoutParams() : new RelativeLayout.LayoutParams(-2, -2);
                         layoutParams.addRule(13);
-                        if (c.this.fRS.getParent() != null) {
-                            ((ViewGroup) c.this.fRS.getParent()).removeView(c.this.fRS);
+                        if (c.this.fSd.getParent() != null) {
+                            ((ViewGroup) c.this.fSd.getParent()).removeView(c.this.fSd);
                         }
-                        c.this.fRP.getLiveContainerView().addView(c.this.fRS, layoutParams);
-                        c.this.fRS.startCountDown();
+                        c.this.fSa.getLiveContainerView().addView(c.this.fSd, layoutParams);
+                        c.this.fSd.startCountDown();
                     }
                 }
                 if (c.this.isHost) {
-                    c.this.fRY = true;
+                    c.this.fSj = true;
                 }
-                c.this.bAM();
-                c.this.bAN();
+                c.this.bAO();
+                c.this.bAP();
             }
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.b.a
-        public void bAG() {
-            if (c.this.fRP != null && c.this.fRP.getParent() != null) {
-                c.this.fRW = false;
-                if (c.this.fRR != null) {
-                    c.this.fRR.aU(false);
+        public void bAI() {
+            if (c.this.fSa != null && c.this.fSa.getParent() != null) {
+                c.this.fSh = false;
+                if (c.this.fSc != null) {
+                    c.this.fSc.aU(false);
                 }
                 if (c.this.isHost) {
                     com.baidu.live.challenge.c cVar = new com.baidu.live.challenge.c();
@@ -101,50 +101,50 @@ public class c implements i {
                     cVar.liveId = c.this.liveId;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2913088, cVar));
                 }
-                c.this.fRP.setLiveContainerVisible(false);
-                c.this.fRY = true;
-                c.this.fRZ = true;
-                c.this.bAM();
-                c.this.bAN();
-                c.this.fRY = false;
-                c.this.fRZ = false;
+                c.this.fSa.setLiveContainerVisible(false);
+                c.this.fSj = true;
+                c.this.fSk = true;
+                c.this.bAO();
+                c.this.bAP();
+                c.this.fSj = false;
+                c.this.fSk = false;
             }
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.b.a
-        public void bAH() {
-            if (c.this.fRP != null && c.this.fRP.getParent() != null) {
-                if (!c.this.fRW) {
-                    c.this.bAL();
-                    c.this.bAO();
+        public void bAJ() {
+            if (c.this.fSa != null && c.this.fSa.getParent() != null) {
+                if (!c.this.fSh) {
+                    c.this.bAN();
+                    c.this.bAQ();
                 }
-                c.this.fRY = false;
+                c.this.fSj = false;
             }
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.b.a
-        public void bAI() {
-            c.this.fRZ = false;
+        public void bAK() {
+            c.this.fSk = false;
         }
     };
-    private AlaChallengeLiveView.a fSf = new AlaChallengeLiveView.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.c.3
+    private AlaChallengeLiveView.a fSq = new AlaChallengeLiveView.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.c.3
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.a
-        public void bAD() {
-            c.this.bAP();
+        public void bAF() {
+            c.this.bAR();
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.a
         public void d(al alVar) {
             if (alVar != null && alVar.azo != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(c.this.mTbPageContext.getPageActivity(), String.valueOf(alVar.azo.userId), alVar.azo.userName, alVar.azo.portrait, alVar.azo.sex, alVar.azo.levelId, null, null, 0L, alVar.azo.fansCount, alVar.azo.followCount, alVar.azo.userStatus, String.valueOf(alVar.azA.group_id), String.valueOf(alVar.azA.live_id), false, String.valueOf(c.this.fSa), alVar.azo.appId, alVar.azo.userName)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(c.this.mTbPageContext.getPageActivity(), String.valueOf(alVar.azo.userId), alVar.azo.userName, alVar.azo.portrait, alVar.azo.sex, alVar.azo.levelId, null, null, 0L, alVar.azo.fansCount, alVar.azo.followCount, alVar.azo.userStatus, String.valueOf(alVar.azA.group_id), String.valueOf(alVar.azA.live_id), false, String.valueOf(c.this.fSl), alVar.azo.appId, alVar.azo.userName)));
             }
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.a
         public void e(al alVar) {
             if (!c.this.isHost) {
-                if (c.this.fSd) {
-                    BdUtilHelper.hideSoftKeyPad(c.this.mTbPageContext.getPageActivity(), c.this.fRP);
+                if (c.this.fSo) {
+                    BdUtilHelper.hideSoftKeyPad(c.this.mTbPageContext.getPageActivity(), c.this.fSa);
                 } else if (!BdNetTypeUtil.isNetWorkAvailable()) {
                     c.this.mTbPageContext.showToast(a.i.sdk_neterror);
                 } else if ((com.baidu.live.v.a.Ge().aWF.aya || !TbadkCoreApplication.getInst().isMobileBaidu()) && alVar != null && alVar.azA != null) {
@@ -156,9 +156,9 @@ public class c implements i {
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.a
-        public void bAE() {
-            if (c.this.fRg && c.this.fRR != null) {
-                c.this.fRR.aV(c.this.fRg);
+        public void bAG() {
+            if (c.this.fRr && c.this.fSc != null) {
+                c.this.fSc.aV(c.this.fRr);
             }
         }
     };
@@ -166,10 +166,10 @@ public class c implements i {
 
     public c(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.fRQ = new b(tbPageContext.getPageActivity());
-        this.fRQ.a(this.fSe);
+        this.fSb = new b(tbPageContext.getPageActivity());
+        this.fSb.a(this.fSp);
         int i = ViewCommonUtil.getScreenFullSize(tbPageContext.getPageActivity())[0] / 2;
-        this.fRQ.bz(i, (i * 4) / 3);
+        this.fSb.bz(i, (i * 4) / 3);
     }
 
     @Override // com.baidu.live.challenge.i
@@ -179,32 +179,32 @@ public class c implements i {
 
     @Override // com.baidu.live.challenge.i
     public void b(boolean z, boolean z2, boolean z3) {
-        this.fSc = z;
+        this.fSn = z;
         this.isHost = z2;
-        this.fSb = z3;
+        this.fSm = z3;
     }
 
-    private void bAJ() {
-        if (this.fRP == null) {
-            this.fRP = new AlaChallengeLiveView(this.mTbPageContext.getPageActivity());
-            this.fRP.setIsHost(this.isHost);
-            this.fRP.setViewClickCallBack(this.fSf);
+    private void bAL() {
+        if (this.fSa == null) {
+            this.fSa = new AlaChallengeLiveView(this.mTbPageContext.getPageActivity());
+            this.fSa.setIsHost(this.isHost);
+            this.fSa.setViewClickCallBack(this.fSq);
         }
     }
 
     @Override // com.baidu.live.challenge.i
     public void setNeedCloseRecommendFloat(boolean z) {
-        this.fRg = z;
-        if (this.fRP != null) {
-            this.fRP.setNeedCloseRecommendFloat(this.fRg);
+        this.fRr = z;
+        if (this.fSa != null) {
+            this.fSa.setNeedCloseRecommendFloat(this.fRr);
         }
     }
 
-    private void bAK() {
+    private void bAM() {
         int i = 0;
-        if (this.fRP != null && this.mParentView != null) {
-            if (this.fRP.getParent() != null) {
-                ((ViewGroup) this.fRP.getParent()).removeView(this.fRP);
+        if (this.fSa != null && this.mParentView != null) {
+            if (this.fSa.getParent() != null) {
+                ((ViewGroup) this.fSa.getParent()).removeView(this.fSa);
             }
             int i2 = this.mParentView.getChildCount() >= 2 ? 2 : 0;
             while (true) {
@@ -217,90 +217,90 @@ public class c implements i {
                     i++;
                 }
             }
-            if (this.fRP.getLayoutParams() == null) {
+            if (this.fSa.getLayoutParams() == null) {
                 Rect visibilityRegion = ViewCommonUtil.getVisibilityRegion(this.mTbPageContext.getPageActivity());
-                this.mParentView.addView(this.fRP, i, new ViewGroup.LayoutParams(visibilityRegion.width(), visibilityRegion.height()));
+                this.mParentView.addView(this.fSa, i, new ViewGroup.LayoutParams(visibilityRegion.width(), visibilityRegion.height()));
                 return;
             }
-            this.mParentView.addView(this.fRP, i);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bAL() {
-        if (this.fRP != null && this.fRP.getParent() != null) {
-            ((ViewGroup) this.fRP.getParent()).removeView(this.fRP);
-        }
-    }
-
-    @Override // com.baidu.live.challenge.i
-    public void a(j jVar) {
-        this.fRT = jVar;
-    }
-
-    @Override // com.baidu.live.challenge.i
-    public void a(h hVar) {
-        this.fRR = hVar;
-    }
-
-    @Override // com.baidu.live.challenge.i
-    public void vv() {
-        if (BdLog.isDebugMode()) {
-            BdLog.e("onMasterPlayerFirstFrame:" + this.fRV);
-        }
-        this.fRZ = true;
-        bAN();
-    }
-
-    @Override // com.baidu.live.challenge.i
-    public void bE(int i) {
-        if (1 == i) {
-            this.fRY = true;
-            bAM();
-        }
-        if (2 == i) {
-            this.fRZ = true;
-            bAN();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bAM() {
-        if (this.fRV && this.fRY) {
-            this.fRQ.e(this.fRP);
-            if (this.fRP != null && this.fRP.getAnchorAnimLiveBgView() != null) {
-                this.fRP.getAnchorAnimLiveBgView().setImageDrawable(null);
-            }
+            this.mParentView.addView(this.fSa, i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bAN() {
-        if (this.fRV && this.fRZ) {
-            this.fRQ.d(this.fRP);
+        if (this.fSa != null && this.fSa.getParent() != null) {
+            ((ViewGroup) this.fSa.getParent()).removeView(this.fSa);
+        }
+    }
+
+    @Override // com.baidu.live.challenge.i
+    public void a(j jVar) {
+        this.fSe = jVar;
+    }
+
+    @Override // com.baidu.live.challenge.i
+    public void a(h hVar) {
+        this.fSc = hVar;
+    }
+
+    @Override // com.baidu.live.challenge.i
+    public void vv() {
+        if (BdLog.isDebugMode()) {
+            BdLog.e("onMasterPlayerFirstFrame:" + this.fSg);
+        }
+        this.fSk = true;
+        bAP();
+    }
+
+    @Override // com.baidu.live.challenge.i
+    public void bG(int i) {
+        if (1 == i) {
+            this.fSj = true;
+            bAO();
+        }
+        if (2 == i) {
+            this.fSk = true;
+            bAP();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bAO() {
+        if (this.fSg && this.fSj) {
+            this.fSb.e(this.fSa);
+            if (this.fSa != null && this.fSa.getAnchorAnimLiveBgView() != null) {
+                this.fSa.getAnchorAnimLiveBgView().setImageDrawable(null);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bAP() {
+        if (this.fSg && this.fSk) {
+            this.fSb.d(this.fSa);
         }
     }
 
     @Override // com.baidu.live.challenge.j.c
     public void b(ak akVar, al alVar, al alVar2) {
-        this.fRW = true;
-        this.fRX = false;
+        this.fSh = true;
+        this.fSi = false;
         f(akVar, alVar, alVar2);
     }
 
     @Override // com.baidu.live.challenge.j.c
     public void c(ak akVar, al alVar, al alVar2) {
-        this.fRW = true;
-        this.fRX = true;
+        this.fSh = true;
+        this.fSi = true;
         f(akVar, alVar, alVar2);
     }
 
     @Override // com.baidu.live.challenge.j.c
     public void d(ak akVar, final al alVar, al alVar2) {
         long j = -1;
-        if (this.fRU) {
-            this.fRW = true;
-            this.fRX = true;
+        if (this.fSf) {
+            this.fSh = true;
+            this.fSi = true;
             if (akVar.azr == 2) {
                 f(akVar, alVar, alVar2);
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.c.1
@@ -337,97 +337,97 @@ public class c implements i {
                 this.liveId = alVar.azA.live_id;
             }
         }
-        if (!this.fRU) {
-            this.fRU = true;
-            if (this.fRR != null) {
-                this.fRR.vs();
+        if (!this.fSf) {
+            this.fSf = true;
+            if (this.fSc != null) {
+                this.fSc.vs();
             }
-            bAJ();
-            bAK();
-            this.fRY = false;
-            this.fRZ = false;
-            if (this.fRQ != null && this.fRP != null) {
-                this.fRP.a(akVar, alVar, alVar2, true);
-                this.fRP.setRivalUserViewBg(alVar2);
-                this.fRP.setAnchorUserViewBg(alVar);
-                if (this.fRR != null) {
-                    this.fRR.a(akVar, alVar, alVar2);
+            bAL();
+            bAM();
+            this.fSj = false;
+            this.fSk = false;
+            if (this.fSb != null && this.fSa != null) {
+                this.fSa.a(akVar, alVar, alVar2, true);
+                this.fSa.setRivalUserViewBg(alVar2);
+                this.fSa.setAnchorUserViewBg(alVar);
+                if (this.fSc != null) {
+                    this.fSc.a(akVar, alVar, alVar2);
                 }
-                if (this.fRQ != null) {
-                    this.fRQ.a(this.mTbPageContext.getPageActivity(), this.fRP);
+                if (this.fSb != null) {
+                    this.fSb.a(this.mTbPageContext.getPageActivity(), this.fSa);
                 }
             }
         }
-        if (this.fRV && this.fRP != null) {
-            this.fRP.a(akVar, alVar, alVar2, false);
+        if (this.fSg && this.fSa != null) {
+            this.fSa.a(akVar, alVar, alVar2, false);
         }
     }
 
     @Override // com.baidu.live.challenge.i
     public void a(q qVar) {
         if (qVar != null && qVar.avj != null) {
-            this.fSa = qVar.avj.userId;
+            this.fSl = qVar.avj.userId;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(al alVar) {
-        if (this.fRR != null) {
-            this.fRR.vu();
+        if (this.fSc != null) {
+            this.fSc.vu();
         }
-        if (this.fRP != null) {
-            this.fRP.setAnchorUserViewBg(alVar);
+        if (this.fSa != null) {
+            this.fSa.setAnchorUserViewBg(alVar);
         }
-        if (this.fRP != null) {
-            this.fRP.bAB();
-            this.fRP.bAA();
-            this.fRQ.b(this.mTbPageContext.getPageActivity(), this.fRP);
+        if (this.fSa != null) {
+            this.fSa.bAD();
+            this.fSa.bAC();
+            this.fSb.b(this.mTbPageContext.getPageActivity(), this.fSa);
         }
     }
 
     @Override // com.baidu.live.challenge.i
     public void vm() {
-        if (this.fRW) {
-            if (this.fRR != null) {
-                this.fRR.aU(true);
+        if (this.fSh) {
+            if (this.fSc != null) {
+                this.fSc.aU(true);
             }
-            if (this.fRP != null) {
-                this.fRP.bAz();
+            if (this.fSa != null) {
+                this.fSa.bAB();
             }
-            this.fRY = false;
-            this.fRZ = false;
-            bAO();
+            this.fSj = false;
+            this.fSk = false;
+            bAQ();
             this.mHandler.removeCallbacksAndMessages(null);
-            bAL();
+            bAN();
         }
     }
 
     @Override // com.baidu.live.challenge.i
     public void onDestroy() {
-        bAO();
-        this.fRQ.a((b.a) null);
+        bAQ();
+        this.fSb.a((b.a) null);
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bAO() {
-        this.fRQ.yR();
-        if (this.fRP != null) {
-            this.fRP.releaseResource();
+    public void bAQ() {
+        this.fSb.yR();
+        if (this.fSa != null) {
+            this.fSa.releaseResource();
         }
-        if (this.fRS != null) {
-            this.fRS.bAx();
+        if (this.fSd != null) {
+            this.fSd.bAz();
         }
-        this.fRW = false;
-        this.fRU = false;
-        this.fRV = false;
+        this.fSh = false;
+        this.fSf = false;
+        this.fSg = false;
     }
 
     @Override // com.baidu.live.challenge.j.k
     public void c(boolean z, String str) {
         if (z) {
-            this.fRX = true;
-            this.fRP.setCloseBtnVisible(false);
+            this.fSi = true;
+            this.fSa.setCloseBtnVisible(false);
             return;
         }
         String str2 = (String) this.mTbPageContext.getPageActivity().getText(a.i.ala_challenge_do_request_fail);
@@ -438,7 +438,7 @@ public class c implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bAP() {
+    public void bAR() {
         BdAlertDialog bdAlertDialog = new BdAlertDialog(this.mTbPageContext.getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setCancelable(false);
@@ -449,7 +449,7 @@ public class c implements i {
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog2) {
                 bdAlertDialog2.dismiss();
-                c.this.fRT.vE();
+                c.this.fSe.vE();
                 TiebaInitialize.log(new StatisticItem("c13055"));
             }
         });
@@ -465,7 +465,7 @@ public class c implements i {
 
     @Override // com.baidu.live.challenge.i
     public boolean isActive() {
-        return this.fRW;
+        return this.fSh;
     }
 
     @Override // com.baidu.live.challenge.i

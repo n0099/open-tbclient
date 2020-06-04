@@ -19,35 +19,35 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class VideoTabFragment extends BaseFragment implements aj {
-    private a ijl;
-    private boolean ijm = false;
+    private a ijY;
+    private boolean ijZ = false;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.ijl == null) {
-            this.ijl = new a(getPageContext(), getUniqueId());
+        if (this.ijY == null) {
+            this.ijY = new a(getPageContext(), getUniqueId());
         }
-        this.ijl.init();
+        this.ijY.init();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.ijl == null || this.ijl.getView() == null) {
+        if (this.ijY == null || this.ijY.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.ijl.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.ijl.getView().getParent()).removeView(this.ijl.getView());
+        if (this.ijY.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.ijY.getView().getParent()).removeView(this.ijY.getView());
         }
-        return this.ijl.getView();
+        return this.ijY.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.ijl != null) {
-            this.ijl.loadData();
+        if (this.ijY != null) {
+            this.ijY.loadData();
         }
     }
 
@@ -55,30 +55,30 @@ public class VideoTabFragment extends BaseFragment implements aj {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (!this.ijm) {
-                this.ijm = true;
+            if (!this.ijZ) {
+                this.ijZ = true;
                 TiebaStatic.log(new an("c13579"));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.ijl != null) {
-            this.ijl.setPrimary(isPrimary());
+        if (this.ijY != null) {
+            this.ijY.setPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tieba.frs.aj
     public void Ho() {
-        if (this.ijl != null) {
-            this.ijl.Ho();
+        if (this.ijY != null) {
+            this.ijY.Ho();
         }
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void bqQ() {
+    public void bqS() {
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void bqR() {
+    public void bqT() {
     }
 
     @Override // com.baidu.tieba.frs.aj
@@ -90,15 +90,15 @@ public class VideoTabFragment extends BaseFragment implements aj {
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void aWq() {
+    public void aWr() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.ijl != null) {
-            this.ijl.aWq();
+        if (this.ijY != null) {
+            this.ijY.aWr();
         }
     }
 
@@ -119,16 +119,16 @@ public class VideoTabFragment extends BaseFragment implements aj {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.ijl != null) {
-            this.ijl.onPause();
+        if (this.ijY != null) {
+            this.ijY.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.ijl != null) {
-            this.ijl.onDestroy();
+        if (this.ijY != null) {
+            this.ijY.onDestroy();
         }
     }
 

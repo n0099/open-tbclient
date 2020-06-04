@@ -23,132 +23,132 @@ import com.baidu.tieba.newinterest.fragment.InterestedForumFragment;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 /* loaded from: classes10.dex */
-public class a implements View.OnClickListener, b.InterfaceC0675b, b.a, b.InterfaceC0676b {
+public class a implements View.OnClickListener, b.InterfaceC0676b, b.a, b.InterfaceC0677b {
     private BdListView.e Uf = new BdListView.e() { // from class: com.baidu.tieba.newinterest.b.a.1
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (a.this.jzH.hasMore()) {
-                a.this.jzH.cAP();
-                a.this.brK();
+            if (a.this.jAN.hasMore()) {
+                a.this.jAN.cBf();
+                a.this.brM();
             }
         }
     };
-    private PbListView fbY;
-    private final BdRecyclerView gxh;
-    private final InterestedForumFragment jzG;
-    private final com.baidu.tieba.newinterest.c.b jzH;
-    private com.baidu.tieba.newinterest.a.b jzI;
-    private final TBSpecificationBtn jzJ;
-    private final TBSpecificationBtn jzK;
+    private PbListView fcj;
+    private final BdRecyclerView gxs;
+    private final InterestedForumFragment jAM;
+    private final com.baidu.tieba.newinterest.c.b jAN;
+    private com.baidu.tieba.newinterest.a.b jAO;
+    private final TBSpecificationBtn jAP;
+    private final TBSpecificationBtn jAQ;
     private final TbPageContext<BaseFragmentActivity> mPageContext;
 
     public a(InterestedForumFragment interestedForumFragment, BdRecyclerView bdRecyclerView, TBSpecificationBtn tBSpecificationBtn, TBSpecificationBtn tBSpecificationBtn2, TbPageContext<BaseFragmentActivity> tbPageContext, com.baidu.tieba.newinterest.c.b bVar) {
-        this.jzG = interestedForumFragment;
-        this.gxh = bdRecyclerView;
-        this.jzH = bVar;
+        this.jAM = interestedForumFragment;
+        this.gxs = bdRecyclerView;
+        this.jAN = bVar;
         this.mPageContext = tbPageContext;
-        this.jzK = tBSpecificationBtn;
-        this.jzJ = tBSpecificationBtn2;
+        this.jAQ = tBSpecificationBtn;
+        this.jAP = tBSpecificationBtn2;
         initUI();
-        cAH();
+        bYI();
     }
 
     private void initUI() {
-        this.jzI = new com.baidu.tieba.newinterest.a.b();
-        this.gxh.setLayoutManager(new LinearLayoutManager(this.gxh.getContext()));
-        this.gxh.setAdapter(this.jzI);
-        this.fbY = new PbListView(this.gxh.getContext());
-        this.fbY.createView();
-        this.fbY.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.fbY.setLineGone();
-        this.fbY.setTextColor(am.getColor(R.color.cp_cont_d));
-        this.fbY.setTextSize(R.dimen.tbfontsize33);
-        this.fbY.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.gxh.setNextPage(this.fbY);
-        brK();
+        this.jAO = new com.baidu.tieba.newinterest.a.b();
+        this.gxs.setLayoutManager(new LinearLayoutManager(this.gxs.getContext()));
+        this.gxs.setAdapter(this.jAO);
+        this.fcj = new PbListView(this.gxs.getContext());
+        this.fcj.createView();
+        this.fcj.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.fcj.setLineGone();
+        this.fcj.setTextColor(am.getColor(R.color.cp_cont_d));
+        this.fcj.setTextSize(R.dimen.tbfontsize33);
+        this.fcj.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.gxs.setNextPage(this.fcj);
+        brM();
     }
 
-    private void cAH() {
-        this.gxh.setOnSrollToBottomListener(this.Uf);
-        this.jzH.a((b.InterfaceC0676b) this);
-        this.jzH.a((b.a) this);
-        this.jzI.a(this);
-        this.jzK.setOnClickListener(this);
+    private void bYI() {
+        this.gxs.setOnSrollToBottomListener(this.Uf);
+        this.jAN.a((b.InterfaceC0677b) this);
+        this.jAN.a((b.a) this);
+        this.jAO.a(this);
+        this.jAQ.setOnClickListener(this);
     }
 
-    public void brK() {
-        this.fbY.setTopExtraViewGone();
-        this.fbY.startLoadData();
-        this.fbY.setText(this.gxh.getContext().getString(R.string.list_loading));
-        this.fbY.showEmptyView(l.getDimens(this.gxh.getContext(), R.dimen.tbds217));
+    public void brM() {
+        this.fcj.setTopExtraViewGone();
+        this.fcj.startLoadData();
+        this.fcj.setText(this.gxs.getContext().getString(R.string.list_loading));
+        this.fcj.showEmptyView(l.getDimens(this.gxs.getContext(), R.dimen.tbds217));
     }
 
-    public void cAI() {
-        this.fbY.am(this.gxh.getContext().getString(R.string.interested_forum_list_no_more), l.getDimens(this.gxh.getContext(), R.dimen.tbds178));
-        this.fbY.setTextSize(R.dimen.tbds36);
-        this.fbY.setNoMoreTextColorId(R.color.cp_cont_d);
-        this.fbY.endLoadData();
-        this.fbY.showEmptyView(l.getDimens(this.gxh.getContext(), R.dimen.tbds217));
+    public void cAY() {
+        this.fcj.am(this.gxs.getContext().getString(R.string.interested_forum_list_no_more), l.getDimens(this.gxs.getContext(), R.dimen.tbds178));
+        this.fcj.setTextSize(R.dimen.tbds36);
+        this.fcj.setNoMoreTextColorId(R.color.cp_cont_d);
+        this.fcj.endLoadData();
+        this.fcj.showEmptyView(l.getDimens(this.gxs.getContext(), R.dimen.tbds217));
     }
 
-    public void cAF() {
-        this.jzI.cAF();
+    public void cAW() {
+        this.jAO.cAW();
     }
 
-    public void dO(List<com.baidu.tieba.newinterest.data.b> list) {
-        this.jzH.dU(list);
-        this.jzH.cAP();
+    public void dQ(List<com.baidu.tieba.newinterest.data.b> list) {
+        this.jAN.dW(list);
+        this.jAN.cBf();
     }
 
     @Override // com.baidu.tieba.newinterest.c.b.a
-    public void bsE() {
+    public void bsG() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(0)));
     }
 
-    @Override // com.baidu.tieba.newinterest.c.b.InterfaceC0676b
+    @Override // com.baidu.tieba.newinterest.c.b.InterfaceC0677b
     public void a(c cVar) {
-        if (cVar != null && cVar.jzN != null && !v.isEmpty(cVar.jzN)) {
-            if (this.gxh.getVisibility() == 8) {
-                this.gxh.setVisibility(0);
+        if (cVar != null && cVar.jAT != null && !v.isEmpty(cVar.jAT)) {
+            if (this.gxs.getVisibility() == 8) {
+                this.gxs.setVisibility(0);
             }
-            this.jzI.bC(cVar.jzN);
-            this.jzG.cAJ();
+            this.jAO.bC(cVar.jAT);
+            this.jAM.cAZ();
         }
-        if (!this.jzH.hasMore()) {
-            cAI();
+        if (!this.jAN.hasMore()) {
+            cAY();
         }
     }
 
-    @Override // com.baidu.tieba.newinterest.c.b.InterfaceC0676b
+    @Override // com.baidu.tieba.newinterest.c.b.InterfaceC0677b
     public void onError(int i, String str) {
-        this.jzG.onError(str);
+        this.jAM.onError(str);
     }
 
-    @Override // com.baidu.tieba.newinterest.a.b.InterfaceC0675b
+    @Override // com.baidu.tieba.newinterest.a.b.InterfaceC0676b
     public void X(int i, boolean z) {
-        if (i > 0 && !this.jzK.isEnabled()) {
-            this.jzK.setEnabled(true);
-            this.jzK.setText(this.gxh.getResources().getString(R.string.start_the_trip));
+        if (i > 0 && !this.jAQ.isEnabled()) {
+            this.jAQ.setEnabled(true);
+            this.jAQ.setText(this.gxs.getResources().getString(R.string.start_the_trip));
         } else if (i == 0) {
-            this.jzK.setEnabled(false);
-            this.jzK.setText(this.gxh.getResources().getString(R.string.try_to_select));
+            this.jAQ.setEnabled(false);
+            this.jAQ.setText(this.gxs.getResources().getString(R.string.try_to_select));
         }
         com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
         if (!z) {
-            this.jzJ.setText(this.mPageContext.getString(R.string.select_all));
-            this.jzJ.setConfig(cVar);
+            this.jAP.setText(this.mPageContext.getString(R.string.select_all));
+            this.jAP.setConfig(cVar);
             return;
         }
-        this.jzJ.setText(this.mPageContext.getString(R.string.unselect_all));
-        cVar.mk(R.color.cp_cont_d);
-        this.jzJ.setConfig(cVar);
+        this.jAP.setText(this.mPageContext.getString(R.string.unselect_all));
+        cVar.mm(R.color.cp_cont_d);
+        this.jAP.setConfig(cVar);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.jzK) {
+        if (view == this.jAQ) {
             try {
-                this.jzH.dS(this.jzI.cAE());
+                this.jAN.dU(this.jAO.cAV());
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }

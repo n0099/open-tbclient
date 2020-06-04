@@ -28,10 +28,10 @@ public class XMJobService extends Service {
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        private static class HandlerC0860a extends Handler {
+        private static class HandlerC0861a extends Handler {
             JobService a;
 
-            HandlerC0860a(JobService jobService) {
+            HandlerC0861a(JobService jobService) {
                 super(jobService.getMainLooper());
                 this.a = jobService;
             }
@@ -41,7 +41,7 @@ public class XMJobService extends Service {
                 switch (message.what) {
                     case 1:
                         JobParameters jobParameters = (JobParameters) message.obj;
-                        com.xiaomi.channel.commonutils.logger.b.m52a("Job finished " + jobParameters.getJobId());
+                        com.xiaomi.channel.commonutils.logger.b.m51a("Job finished " + jobParameters.getJobId());
                         this.a.jobFinished(jobParameters, false);
                         if (jobParameters.getJobId() == 1) {
                             fc.a(false);
@@ -62,13 +62,13 @@ public class XMJobService extends Service {
 
         @Override // android.app.job.JobService
         public boolean onStartJob(JobParameters jobParameters) {
-            com.xiaomi.channel.commonutils.logger.b.m52a("Job started " + jobParameters.getJobId());
+            com.xiaomi.channel.commonutils.logger.b.m51a("Job started " + jobParameters.getJobId());
             Intent intent = new Intent(this, XMPushService.class);
             intent.setAction("com.xiaomi.push.timer");
             intent.setPackage(getPackageName());
             startService(intent);
             if (this.f795a == null) {
-                this.f795a = new HandlerC0860a(this);
+                this.f795a = new HandlerC0861a(this);
             }
             this.f795a.sendMessage(Message.obtain(this.f795a, 1, jobParameters));
             return true;
@@ -76,7 +76,7 @@ public class XMJobService extends Service {
 
         @Override // android.app.job.JobService
         public boolean onStopJob(JobParameters jobParameters) {
-            com.xiaomi.channel.commonutils.logger.b.m52a("Job stop " + jobParameters.getJobId());
+            com.xiaomi.channel.commonutils.logger.b.m51a("Job stop " + jobParameters.getJobId());
             return false;
         }
     }

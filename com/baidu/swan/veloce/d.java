@@ -49,31 +49,31 @@ public class d {
         return bundle;
     }
 
-    private static Bundle jB(int i) {
+    private static Bundle jD(int i) {
         Bundle bundle = new Bundle();
         bundle.putInt("result_code", i);
         return bundle;
     }
 
     public static synchronized Bundle j(String str, Bundle bundle) {
-        Bundle jB;
+        Bundle jD;
         synchronized (d.class) {
             if (TextUtils.isEmpty(str)) {
-                jB = null;
+                jD = null;
             } else {
                 List<VeloceIpcResult.a> list = drf.get(str);
                 if (list == null) {
-                    jB = null;
+                    jD = null;
                 } else {
                     for (VeloceIpcResult.a aVar : list) {
                         aVar.a(VeloceIpcResult.f(0, bundle));
                     }
                     drf.remove(list);
-                    jB = jB(0);
+                    jD = jD(0);
                 }
             }
         }
-        return jB;
+        return jD;
     }
 
     public static DelegateResult k(@NonNull String str, @Nullable Bundle bundle) {

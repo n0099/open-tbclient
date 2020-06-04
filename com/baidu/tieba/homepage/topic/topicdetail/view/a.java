@@ -30,7 +30,7 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.m;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.coreExtra.data.aa;
+import com.baidu.tbadk.coreExtra.data.ab;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.pb.ImageModel;
 import com.baidu.tbadk.img.ImageFileInfo;
@@ -55,8 +55,8 @@ public class a extends com.baidu.tbadk.editortools.d {
     private boolean ent;
     private NewWriteModel.d enu;
     private View.OnClickListener eny;
-    private String igJ;
-    private c igK;
+    private String ihw;
+    private c ihx;
     private AntiHelper.a mInjectListener;
     private String mPostContent;
     private long mTopicId;
@@ -64,13 +64,13 @@ public class a extends com.baidu.tbadk.editortools.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ie(boolean z) {
-        if (bcW() != null) {
-            bcW().b(new com.baidu.tbadk.editortools.a(9, -1, Boolean.valueOf(z)));
+        if (bcX() != null) {
+            bcX().b(new com.baidu.tbadk.editortools.a(9, -1, Boolean.valueOf(z)));
         }
     }
 
     private void yo(String str) {
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(aXW().getPageActivity());
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(aXX().getPageActivity());
         aVar.vO(str);
         aVar.b(R.string.know, new a.b() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.a.3
             @Override // com.baidu.tbadk.core.dialog.a.b
@@ -78,7 +78,7 @@ public class a extends com.baidu.tbadk.editortools.d {
                 aVar2.dismiss();
             }
         });
-        aVar.b(aXW()).aST();
+        aVar.b(aXX()).aST();
     }
 
     public void ap(int i, String str) {
@@ -89,27 +89,27 @@ public class a extends com.baidu.tbadk.editortools.d {
         } else if (i == 230277 || i == 230278) {
             yo(str);
         } else {
-            aXW().showToast(str);
+            aXX().showToast(str);
         }
     }
 
-    public TbPageContext<?> aXW() {
+    public TbPageContext<?> aXX() {
         return this.dIF;
     }
 
     public a(EditorTools editorTools) {
         super(editorTools);
         this.mPostContent = "";
-        this.igJ = null;
+        this.ihw = null;
         this.ent = false;
         this.emL = null;
         this.writeImagesInfo = new WriteImagesInfo();
         this.emI = null;
         this.emV = new NewWriteModel.d() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.a.1
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, aa aaVar, WriteData writeData, AntiData antiData) {
+            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ab abVar, WriteData writeData, AntiData antiData) {
                 if (a.this.enu != null) {
-                    a.this.enu.callback(z, postWriteCallBackData, aaVar, writeData, antiData);
+                    a.this.enu.callback(z, postWriteCallBackData, abVar, writeData, antiData);
                 }
                 if (z) {
                     a.this.mPostContent = null;
@@ -125,23 +125,23 @@ public class a extends com.baidu.tbadk.editortools.d {
                     a.this.emH.d((WriteData) null);
                     a.this.emH.uy(false);
                     a.this.writeImagesInfo.clear();
-                    a.this.bdT();
-                    a.this.bcW().b(new com.baidu.tbadk.editortools.a(2, 10, null));
+                    a.this.bdU();
+                    a.this.bcX().b(new com.baidu.tbadk.editortools.a(2, 10, null));
                 } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.bv(i, str)) {
                     a.this.ap(i, str);
-                } else if (aaVar != null && writeData != null && !StringUtils.isNull(aaVar.getVcode_pic_url())) {
-                    writeData.setVcodeMD5(aaVar.getVcode_md5());
-                    writeData.setVcodeUrl(aaVar.getVcode_pic_url());
-                    writeData.setVcodeExtra(aaVar.aYm());
-                    if (com.baidu.tbadk.s.a.yX(aaVar.aYl())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.aXW().getPageActivity(), RequestResponseCode.REQUEST_VCODE, writeData, false, aaVar.aYl())));
+                } else if (abVar != null && writeData != null && !StringUtils.isNull(abVar.getVcode_pic_url())) {
+                    writeData.setVcodeMD5(abVar.getVcode_md5());
+                    writeData.setVcodeUrl(abVar.getVcode_pic_url());
+                    writeData.setVcodeExtra(abVar.aYn());
+                    if (com.baidu.tbadk.s.a.yX(abVar.aYm())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.aXX().getPageActivity(), RequestResponseCode.REQUEST_VCODE, writeData, false, abVar.aYm())));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.aXW().getPageActivity(), writeData, RequestResponseCode.REQUEST_VCODE)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.aXX().getPageActivity(), writeData, RequestResponseCode.REQUEST_VCODE)));
                     }
                 } else if (postWriteCallBackData != null && i == 227001) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(a.this.dIF.getPageActivity(), RequestResponseCode.REQUEST_VCODE, writeData, postWriteCallBackData.getAccessState())));
                 } else if (i != 238010) {
-                    a.this.aXW().showToast(str);
+                    a.this.aXX().showToast(str);
                 }
             }
         };
@@ -168,7 +168,7 @@ public class a extends com.baidu.tbadk.editortools.d {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(a.this.emL)) {
-                    l.showToast(a.this.aXW().getPageActivity(), a.this.emL);
+                    l.showToast(a.this.aXX().getPageActivity(), a.this.emL);
                 }
             }
         };
@@ -192,7 +192,7 @@ public class a extends com.baidu.tbadk.editortools.d {
                 this.writeImagesInfo.setMaxImagesAllowed(9);
             }
             if (this.writeImagesInfo != null && this.writeImagesInfo.getChosedFiles() != null && this.writeImagesInfo.getChosedFiles().size() > 0) {
-                bcW().b(new com.baidu.tbadk.editortools.a(2, 10, this.writeImagesInfo.getChosedFiles().size() + ""));
+                bcX().b(new com.baidu.tbadk.editortools.a(2, 10, this.writeImagesInfo.getChosedFiles().size() + ""));
             }
         }
     }
@@ -209,14 +209,14 @@ public class a extends com.baidu.tbadk.editortools.d {
                         } else {
                             E(intent);
                         }
-                        bcW().invalidate();
+                        bcX().invalidate();
                         return;
                     }
                     return;
                 case RequestResponseCode.REQUEST_IMAGE_VIEW /* 12003 */:
                     if (intent != null) {
                         if (intent.getBooleanExtra("delete", false)) {
-                            bdH();
+                            bdI();
                             this.emH.uy(false);
                             return;
                         }
@@ -238,9 +238,9 @@ public class a extends com.baidu.tbadk.editortools.d {
                         this.emH.d((WriteData) null);
                         this.emH.uy(false);
                         this.writeImagesInfo.clear();
-                        bdT();
-                        bcW().b(new com.baidu.tbadk.editortools.a(2, 10, null));
-                        this.enu.callback(true, postWriteCallBackData2, null, this.emH.cZP(), null);
+                        bdU();
+                        bcX().b(new com.baidu.tbadk.editortools.a(2, 10, null));
+                        this.enu.callback(true, postWriteCallBackData2, null, this.emH.daf(), null);
                         return;
                     }
                     return;
@@ -274,7 +274,7 @@ public class a extends com.baidu.tbadk.editortools.d {
                 case RequestResponseCode.REQUEST_VCODE /* 12006 */:
                     PostWriteCallBackData postWriteCallBackData3 = (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
                     if (this.enu != null) {
-                        this.enu.callback(false, postWriteCallBackData3, null, this.emH.cZP(), null);
+                        this.enu.callback(false, postWriteCallBackData3, null, this.emH.daf(), null);
                         return;
                     }
                     return;
@@ -307,7 +307,7 @@ public class a extends com.baidu.tbadk.editortools.d {
             this.writeImagesInfo.addChooseFile(imageFileInfo);
             this.writeImagesInfo.updateQuality();
             if (this.writeImagesInfo.getChosedFiles() != null) {
-                cgK();
+                cgT();
             }
         }
     }
@@ -322,12 +322,12 @@ public class a extends com.baidu.tbadk.editortools.d {
             this.writeImagesInfo.parseJson(stringExtra);
             this.writeImagesInfo.updateQuality();
             if (this.writeImagesInfo.getChosedFiles() != null) {
-                cgK();
+                cgT();
             }
         }
     }
 
-    private void cgK() {
+    private void cgT() {
         WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.dIF.getPageActivity(), 9, "0", null, null, null, 0, null, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, null, 0);
         writeActivityConfig.setTopicId(String.valueOf(this.mTopicId));
         writeActivityConfig.getIntent().putExtra("from", "topic_detail");
@@ -343,30 +343,30 @@ public class a extends com.baidu.tbadk.editortools.d {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
     }
 
-    public void bdR() {
-        if (this.emH.cZP() == null) {
+    public void bdS() {
+        if (this.emH.daf() == null) {
             this.emH.d(new WriteData());
         }
-        if (this.emH.cZP() != null) {
-            this.emH.cZP().setForumId("0");
-            this.emH.cZP().setType(9);
-            this.emH.cZP().setEntranceType(1);
-            this.emH.cZP().setCanNoForum(true);
-            this.emH.cZP().setTransmitForumData("[]");
-            this.emH.cZP().setCallFrom("1");
-            this.emH.cZP().setTopicId(String.valueOf(this.mTopicId));
-            this.emH.cZP().setContent(this.mPostContent);
-            this.emH.cZP().setIsNoTitle(true);
-            this.emH.cZP().setTitle("");
-            this.emH.cZP().setVoice(null);
-            this.emH.cZP().setVoiceDuringTime(-1);
-            if (!this.emH.deQ()) {
-                aXW().showToast((int) R.string.write_img_limit);
-            } else if (this.emP == null || !this.emP.bdt()) {
+        if (this.emH.daf() != null) {
+            this.emH.daf().setForumId("0");
+            this.emH.daf().setType(9);
+            this.emH.daf().setEntranceType(1);
+            this.emH.daf().setCanNoForum(true);
+            this.emH.daf().setTransmitForumData("[]");
+            this.emH.daf().setCallFrom("1");
+            this.emH.daf().setTopicId(String.valueOf(this.mTopicId));
+            this.emH.daf().setContent(this.mPostContent);
+            this.emH.daf().setIsNoTitle(true);
+            this.emH.daf().setTitle("");
+            this.emH.daf().setVoice(null);
+            this.emH.daf().setVoiceDuringTime(-1);
+            if (!this.emH.dff()) {
+                aXX().showToast((int) R.string.write_img_limit);
+            } else if (this.emP == null || !this.emP.bdu()) {
                 if (this.emO != null) {
-                    this.emO.bdu();
+                    this.emO.bdv();
                 }
-                if (!this.emH.deN()) {
+                if (!this.emH.dfc()) {
                 }
             }
         }
@@ -376,13 +376,13 @@ public class a extends com.baidu.tbadk.editortools.d {
         b(intent, true);
     }
 
-    public long cgL() {
+    public long cgU() {
         return this.mTopicId;
     }
 
-    private void bdH() {
-        if (bcW() != null) {
-            bcW().b(new com.baidu.tbadk.editortools.a(13, -1, null));
+    private void bdI() {
+        if (bcX() != null) {
+            bcX().b(new com.baidu.tbadk.editortools.a(13, -1, null));
         }
     }
 
@@ -390,7 +390,7 @@ public class a extends com.baidu.tbadk.editortools.d {
         this.emH.cancelLoadData();
     }
 
-    public void bdS() {
+    public void bdT() {
         WriteData writeData = new WriteData(2);
         writeData.setContent(this.mPostContent);
         writeData.setTopicId(String.valueOf(this.mTopicId));
@@ -398,7 +398,7 @@ public class a extends com.baidu.tbadk.editortools.d {
         w.b(String.valueOf(this.mTopicId), writeData);
     }
 
-    public void cgM() {
+    public void cgV() {
         w.e(String.valueOf(this.mTopicId), new w.a() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.a.5
             @Override // com.baidu.tieba.tbadkCore.w.a
             public void a(WriteData writeData) {
@@ -406,11 +406,11 @@ public class a extends com.baidu.tbadk.editortools.d {
                     if (writeData.getWriteImagesInfo() != null && a.this.writeImagesInfo.size() == 0) {
                         a.this.writeImagesInfo.copyFrom(writeData.getWriteImagesInfo());
                         if (a.this.writeImagesInfo != null && a.this.writeImagesInfo.getChosedFiles() != null && a.this.writeImagesInfo.getChosedFiles().size() > 0) {
-                            a.this.bcW().b(new com.baidu.tbadk.editortools.a(2, 10, a.this.writeImagesInfo.getChosedFiles().size() + ""));
+                            a.this.bcX().b(new com.baidu.tbadk.editortools.a(2, 10, a.this.writeImagesInfo.getChosedFiles().size() + ""));
                         }
                     }
                     if (a.this.writeImagesInfo == null || a.this.writeImagesInfo.size() == 0) {
-                        a.this.bcW().b(new com.baidu.tbadk.editortools.a(2, 10, null));
+                        a.this.bcX().b(new com.baidu.tbadk.editortools.a(2, 10, null));
                     }
                     if (!aq.isEmpty(writeData.getContent()) && aq.isEmpty(a.this.mPostContent)) {
                         a.this.mPostContent = writeData.getContent();
@@ -421,20 +421,20 @@ public class a extends com.baidu.tbadk.editortools.d {
         });
     }
 
-    public void bdT() {
+    public void bdU() {
         w.b(String.valueOf(this.mTopicId), (WriteData) null);
     }
 
     private void G(ArrayList<String> arrayList) {
-        if (bcW() != null) {
-            bcW().b(new com.baidu.tbadk.editortools.a(17, 29, arrayList));
+        if (bcX() != null) {
+            bcX().b(new com.baidu.tbadk.editortools.a(17, 29, arrayList));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ym(String str) {
-        if (bcW() != null) {
-            bcW().b(new com.baidu.tbadk.editortools.a(6, 29, str));
+        if (bcX() != null) {
+            bcX().b(new com.baidu.tbadk.editortools.a(6, 29, str));
         }
     }
 
@@ -447,14 +447,14 @@ public class a extends com.baidu.tbadk.editortools.d {
         this.ent = z;
     }
 
-    public void bdV() {
+    public void bdW() {
         m33if(false);
-        bcW().hide();
+        bcX().hide();
     }
 
-    public void bdY() {
+    public void bdZ() {
         m33if(true);
-        bcW().display();
+        bcX().display();
     }
 
     public void b(NewWriteModel.d dVar) {
@@ -465,11 +465,11 @@ public class a extends com.baidu.tbadk.editortools.d {
         this.emP = bVar;
     }
 
-    public c cgN() {
-        if (this.igK == null && bcW() != null) {
-            this.igK = (c) bcW().nf(29);
+    public c cgW() {
+        if (this.ihx == null && bcX() != null) {
+            this.ihx = (c) bcX().nh(29);
         }
-        return this.igK;
+        return this.ihx;
     }
 
     public WriteImagesInfo getWriteImagesInfo() {

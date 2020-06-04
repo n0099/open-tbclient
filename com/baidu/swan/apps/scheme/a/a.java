@@ -69,7 +69,7 @@ public class a extends UnitedSchemeBaseInterceptor {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             com.baidu.swan.apps.an.a pt = new com.baidu.swan.apps.an.a().bw(1L).bx(1L).pt("appId is empty");
             e.asQ().g(pt);
-            h.b(new d().oC(h.gS(0)).f(pt).bS(SuspensionBallEntity.KEY_SCHEME, uri.toString()));
+            h.b(new d().oC(h.gU(0)).f(pt).bS(SuspensionBallEntity.KEY_SCHEME, uri.toString()));
             g.a(pt);
             return true;
         }

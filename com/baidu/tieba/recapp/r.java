@@ -47,17 +47,17 @@ public class r {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.bcK().b(advertAppInfo);
+        com.baidu.tbadk.distribute.a.bcL().b(advertAppInfo);
         String str2 = advertAppInfo.dAv;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.e.cUs().a(advertAppInfo.dAx, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.Lh(advertAppInfo.dAx).intValue(), null, true, false, true, advertAppInfo.dAD.userPortrait, downloadStaticsData, advertAppInfo.dAD.userName);
+        com.baidu.tieba.recapp.download.e.cUI().a(advertAppInfo.dAx, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.Li(advertAppInfo.dAx).intValue(), null, true, false, true, advertAppInfo.dAD.userPortrait, downloadStaticsData, advertAppInfo.dAD.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.e.cUs().B(advertAppInfo.apkUrl, advertAppInfo.dAx, true);
+        com.baidu.tieba.recapp.download.e.cUI().B(advertAppInfo.apkUrl, advertAppInfo.dAx, true);
     }
 
     public static final void aN(Context context, String str) {
@@ -169,15 +169,15 @@ public class r {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        q.cUm().sendFRS(z, str, str2, str3, list, str4);
+        q.cUC().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        q.cUm().a(z, str, str2, str3, str4, list, str5);
+        q.cUC().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int b(TbPageContext tbPageContext, String str, String str2) {
-        if (com.baidu.tieba.a.bjL().bjM() != 1) {
+        if (com.baidu.tieba.a.bjN().bjO() != 1) {
             return f(tbPageContext, str);
         }
         if (tbPageContext == null || TextUtils.isEmpty(str)) {
@@ -232,15 +232,15 @@ public class r {
 
     private static boolean g(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        g cUj = q.cUm().cUj();
-        if (cUj == null) {
+        g cUz = q.cUC().cUz();
+        if (cUz == null) {
             return false;
         }
-        if (cUj.zP(str)) {
-            cUj.a(tbPageContext.getPageActivity(), strArr, true);
+        if (cUz.zP(str)) {
+            cUz.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return cUj.c(tbPageContext.getPageActivity(), strArr);
+        return cUz.c(tbPageContext.getPageActivity(), strArr);
     }
 
     public static int aO(Context context, String str) {
@@ -259,14 +259,14 @@ public class r {
 
     private static boolean aP(Context context, String str) {
         String[] strArr = {str};
-        g cUj = q.cUm().cUj();
-        if (cUj == null) {
+        g cUz = q.cUC().cUz();
+        if (cUz == null) {
             return false;
         }
-        if (cUj.zP(str)) {
-            cUj.a(context, strArr, true);
+        if (cUz.zP(str)) {
+            cUz.a(context, strArr, true);
             return true;
         }
-        return cUj.c(context, strArr);
+        return cUz.c(context, strArr);
     }
 }

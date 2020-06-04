@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class c {
     private int eaw;
 
-    public boolean aXG() {
+    public boolean aXH() {
         return this.eaw == 1;
     }
 

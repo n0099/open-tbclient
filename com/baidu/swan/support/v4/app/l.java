@@ -924,7 +924,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         }
     }
 
-    public Fragment jo(int i) {
+    public Fragment jq(int i) {
         if (this.mAdded != null) {
             for (int size = this.mAdded.size() - 1; size >= 0; size--) {
                 Fragment fragment = this.mAdded.get(size);
@@ -1697,17 +1697,17 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                 if (id == -1 && resourceId == -1 && string2 == null) {
                     throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Must specify unique android:id, android:tag, or have a parent with an id for " + string);
                 }
-                Fragment jo = resourceId != -1 ? jo(resourceId) : null;
-                if (jo == null && string2 != null) {
-                    jo = tw(string2);
+                Fragment jq = resourceId != -1 ? jq(resourceId) : null;
+                if (jq == null && string2 != null) {
+                    jq = tw(string2);
                 }
-                if (jo == null && id != -1) {
-                    jo = jo(id);
+                if (jq == null && id != -1) {
+                    jq = jq(id);
                 }
                 if (DEBUG) {
-                    Log.v("FragmentManager", "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + string + " existing=" + jo);
+                    Log.v("FragmentManager", "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + string + " existing=" + jq);
                 }
-                if (jo == null) {
+                if (jq == null) {
                     Fragment ae = Fragment.ae(context, string);
                     ae.mFromLayout = true;
                     ae.mFragmentId = resourceId != 0 ? resourceId : id;
@@ -1719,14 +1719,14 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                     ae.onInflate(this.dnP.getContext(), attributeSet, ae.mSavedFragmentState);
                     c(ae, true);
                     fragment = ae;
-                } else if (jo.mInLayout) {
+                } else if (jq.mInLayout) {
                     throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Duplicate id 0x" + Integer.toHexString(resourceId) + ", tag " + string2 + ", or parent id 0x" + Integer.toHexString(id) + " with another fragment for " + string);
                 } else {
-                    jo.mInLayout = true;
-                    if (!jo.mRetaining) {
-                        jo.onInflate(this.dnP.getContext(), attributeSet, jo.mSavedFragmentState);
+                    jq.mInLayout = true;
+                    if (!jq.mRetaining) {
+                        jq.onInflate(this.dnP.getContext(), attributeSet, jq.mSavedFragmentState);
                     }
-                    fragment = jo;
+                    fragment = jq;
                 }
                 if (this.mCurState < 1 && fragment.mFromLayout) {
                     a(fragment, 1, 0, 0, false);

@@ -7,41 +7,41 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class m extends BaseData {
-    private long eVS;
-    private ArrayList<g> eWs;
-    private String fsM;
-    private long fsN;
-    private long fsO = 5000;
-    private long fsP = 15;
-    private long fsQ;
-    private n fsR;
-
-    public long btJ() {
-        return this.fsO;
-    }
-
-    public long btK() {
-        return this.fsP;
-    }
+    private ArrayList<g> eWD;
+    private long eWd;
+    private String fsX;
+    private long fsY;
+    private long fsZ = 5000;
+    private long fta = 15;
+    private long ftb;
+    private n ftc;
 
     public long btL() {
-        return this.fsN;
-    }
-
-    public String HV() {
-        return this.fsM;
+        return this.fsZ;
     }
 
     public long btM() {
-        return this.fsQ;
+        return this.fta;
+    }
+
+    public long btN() {
+        return this.fsY;
+    }
+
+    public String HV() {
+        return this.fsX;
+    }
+
+    public long btO() {
+        return this.ftb;
     }
 
     public ArrayList<g> getList() {
-        return this.eWs;
+        return this.eWD;
     }
 
-    public n btN() {
-        return this.fsR;
+    public n btP() {
+        return this.ftc;
     }
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
@@ -50,29 +50,29 @@ public class m extends BaseData {
         if (jSONObject != null) {
             JSONObject optJSONObject2 = jSONObject.optJSONObject("rank_conf");
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("hour")) != null) {
-                this.eVS = optJSONObject.optLong("current_time", 0L);
-                this.fsM = optJSONObject.optString("current_hour", "");
-                this.fsN = optJSONObject.optLong("hour_rank_left_time", 0L);
-                this.fsO = optJSONObject.optLong("pull_interval", 5L) * 1000;
-                this.fsP = optJSONObject.optLong("verify_notice_interval", 15L);
-                this.fsQ = optJSONObject.optLong("show_champion_time", 0L);
+                this.eWd = optJSONObject.optLong("current_time", 0L);
+                this.fsX = optJSONObject.optString("current_hour", "");
+                this.fsY = optJSONObject.optLong("hour_rank_left_time", 0L);
+                this.fsZ = optJSONObject.optLong("pull_interval", 5L) * 1000;
+                this.fta = optJSONObject.optLong("verify_notice_interval", 15L);
+                this.ftb = optJSONObject.optLong("show_champion_time", 0L);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("rank_list");
             if (optJSONArray != null) {
-                this.eWs = new ArrayList<>();
+                this.eWD = new ArrayList<>();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
                     g gVar = new g();
                     gVar.parserJson(optJSONObject3);
-                    this.eWs.add(gVar);
+                    this.eWD.add(gVar);
                 }
             }
-            this.fsR = new n();
+            this.ftc = new n();
             JSONObject optJSONObject4 = jSONObject.optJSONObject("charm_data");
             if (optJSONObject4 != null) {
-                this.fsR.parserJson(optJSONObject4);
-                if (this.eWs != null && this.eWs.size() > 0) {
-                    this.fsR.fsX = JavaTypesHelper.toLong(this.eWs.get(this.eWs.size() - 1).point, 0L);
+                this.ftc.parserJson(optJSONObject4);
+                if (this.eWD != null && this.eWD.size() > 0) {
+                    this.ftc.fti = JavaTypesHelper.toLong(this.eWD.get(this.eWD.size() - 1).point, 0L);
                 }
             }
         }

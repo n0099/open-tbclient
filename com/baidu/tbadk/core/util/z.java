@@ -28,7 +28,7 @@ public class z {
         return new y(aVar);
     }
 
-    public static void kY(int i) {
+    public static void la(int i) {
         dNl = i;
     }
 }

@@ -86,7 +86,7 @@ public class GridPageView extends FrameLayout {
             if (GridPageView.this.djX == null) {
                 return 0;
             }
-            return GridPageView.this.djX.iZ(GridPageView.this.mPageIndex);
+            return GridPageView.this.djX.jb(GridPageView.this.mPageIndex);
         }
 
         @Override // android.widget.Adapter

@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.y;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.tieba.frs.h<com.baidu.tieba.tbadkCore.h, com.baidu.tieba.ala.livecard.a.c> implements y {
-    private com.baidu.tieba.ala.livecard.b.d fGd;
+    private com.baidu.tieba.ala.livecard.b.d fGo;
     private String mForumName;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -20,7 +20,7 @@ public class e extends com.baidu.tieba.frs.h<com.baidu.tieba.tbadkCore.h, com.ba
     }
 
     @Override // com.baidu.tieba.card.y
-    public void qw(int i) {
+    public void qy(int i) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,9 +31,9 @@ public class e extends com.baidu.tieba.frs.h<com.baidu.tieba.tbadkCore.h, com.ba
         if (this.mPageContext == null) {
             return null;
         }
-        this.fGd = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
-        this.fGd.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.c(this.fGd);
+        this.fGo = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
+        this.fGo.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.c(this.fGo);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,12 +43,12 @@ public class e extends com.baidu.tieba.frs.h<com.baidu.tieba.tbadkCore.h, com.ba
         super.a(i, view, viewGroup, (ViewGroup) hVar, (com.baidu.tieba.tbadkCore.h) cVar);
         if (hVar != null) {
             int i2 = 0;
-            if (this.hmG != null) {
-                i2 = this.hmG.getTopThreadSize();
+            if (this.hmR != null) {
+                i2 = this.hmR.getTopThreadSize();
             }
-            cVar.fGl.dDb = (i + 1) - i2;
-            cVar.fGl.setForumName(this.mForumName);
-            cVar.fGl.a(hVar);
+            cVar.fGw.dDb = (i + 1) - i2;
+            cVar.fGw.setForumName(this.mForumName);
+            cVar.fGw.a(hVar);
         }
         return view;
     }

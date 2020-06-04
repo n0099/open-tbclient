@@ -223,7 +223,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     public static class ClientParams implements Serializable {
         public ClientParams(JSONObject jSONObject) {
             if (jSONObject != null) {
-                a.bjL().parse(jSONObject);
+                a.bjN().parse(jSONObject);
             }
         }
     }

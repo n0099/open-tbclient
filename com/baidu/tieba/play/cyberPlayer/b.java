@@ -13,81 +13,81 @@ import com.baidu.tieba.play.y;
 /* loaded from: classes.dex */
 public class b {
     private bk dEA;
-    private y kzd;
-    private boolean kzm;
-    private long kzs;
-    private long htw = 0;
+    private y kAj;
+    private boolean kAs;
+    private long kAy;
+    private long htH = 0;
     private long mStartTime = 0;
-    private String kze = "1";
-    private k kAy = new k();
+    private String kAk = "1";
+    private k kBF = new k();
 
-    public void cRs() {
-        this.kAy.cyy();
+    public void cRI() {
+        this.kBF.cyP();
     }
 
     public void fl(long j) {
-        this.kzs = j;
-        this.kAy.cyz();
+        this.kAy = j;
+        this.kBF.cyQ();
     }
 
     public void onStart() {
         if (this.mStartTime != 0) {
-            this.htw = (System.currentTimeMillis() - this.mStartTime) + this.htw;
+            this.htH = (System.currentTimeMillis() - this.mStartTime) + this.htH;
         }
         this.mStartTime = System.currentTimeMillis();
-        this.kzm = true;
-        this.kAy.cyA();
+        this.kAs = true;
+        this.kBF.cyR();
     }
 
     public void a(TbCyberVideoView tbCyberVideoView) {
-        this.kAy.a(tbCyberVideoView);
+        this.kBF.a(tbCyberVideoView);
     }
 
     public void onPause() {
         if (this.mStartTime > 0) {
-            this.htw = (System.currentTimeMillis() - this.mStartTime) + this.htw;
+            this.htH = (System.currentTimeMillis() - this.mStartTime) + this.htH;
             this.mStartTime = 0L;
         }
-        this.kzm = false;
+        this.kAs = false;
     }
 
     public void onStop() {
         if (this.mStartTime > 0) {
-            this.htw = (System.currentTimeMillis() - this.mStartTime) + this.htw;
+            this.htH = (System.currentTimeMillis() - this.mStartTime) + this.htH;
             this.mStartTime = 0L;
         }
-        cQT();
-        this.htw = 0L;
+        cRj();
+        this.htH = 0L;
         this.mStartTime = 0L;
-        this.kzm = false;
-        this.kAy.cyx();
+        this.kAs = false;
+        this.kBF.cyO();
     }
 
     public void onComplete() {
         if (this.mStartTime > 0) {
-            this.htw = (System.currentTimeMillis() - this.mStartTime) + this.htw;
+            this.htH = (System.currentTimeMillis() - this.mStartTime) + this.htH;
             this.mStartTime = 0L;
         }
     }
 
     public void h(n nVar) {
-        this.dEA = nVar.cQV().aOi();
-        this.kzd = nVar.cQY();
+        this.dEA = nVar.cRl().aOi();
+        this.kAj = nVar.cRo();
     }
 
-    private void cQT() {
-        if (this.htw >= 0 && this.htw < 86400000) {
-            if (this.htw > 0) {
+    private void cRj() {
+        if (this.htH >= 0 && this.htH < 86400000) {
+            if (this.htH > 0) {
                 an anVar = new an(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
-                anVar.s("obj_duration", this.htw);
-                anVar.dh("obj_type", this.kze);
-                anVar.s("playduration", this.kzs);
+                anVar.s("obj_duration", this.htH);
+                anVar.dh("obj_type", this.kAk);
+                anVar.s("playduration", this.kAy);
                 anVar.ag("player_type", 1);
                 if (!aq.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     anVar.dh("task_id", TbadkCoreApplication.getInst().getTaskId());
                 }
-                if (this.kzd != null) {
-                    this.kzd.f(anVar);
+                if (this.kAj != null) {
+                    this.kAj.f(anVar);
                 }
                 if (!anVar.wq("obj_param5") && this.dEA != null) {
                     if (this.dEA.getBaijiahaoData() != null) {
@@ -101,9 +101,9 @@ public class b {
                     }
                 }
                 TiebaStatic.log(anVar);
-                l.a(this.htw, this.kze, this.kzd, "", this.kzs);
-            } else if (this.kzm) {
-                l.a(this.htw, this.kze, this.kzd, "", this.kzs);
+                l.a(this.htH, this.kAk, this.kAj, "", this.kAy);
+            } else if (this.kAs) {
+                l.a(this.htH, this.kAk, this.kAj, "", this.kAy);
             }
         }
     }

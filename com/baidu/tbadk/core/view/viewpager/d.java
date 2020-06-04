@@ -29,10 +29,10 @@ public class d {
         } else {
             this.dZx = false;
         }
-        this.dZw = aXh();
+        this.dZw = aXi();
     }
 
-    private List<o> aXh() {
+    private List<o> aXi() {
         ArrayList arrayList = new ArrayList();
         if (this.dZv != null) {
             if (this.dZx) {
@@ -52,7 +52,7 @@ public class d {
         return arrayList;
     }
 
-    public int ms(int i) {
+    public int mu(int i) {
         if (this.dZx) {
             int size = this.dZw.size();
             if (i == 0) {
@@ -66,42 +66,42 @@ public class d {
         return i;
     }
 
-    public int mt(int i) {
+    public int mv(int i) {
         if (this.dZx) {
             return i - this.dZA;
         }
         return i;
     }
 
-    public int aXi() {
+    public int aXj() {
         if (this.dZv == null) {
             return 0;
         }
         return this.dZv.size();
     }
 
-    public int aXj() {
+    public int aXk() {
         if (this.dZx) {
             return this.dZA;
         }
         return 0;
     }
 
-    public void mu(int i) {
+    public void mw(int i) {
         this.dZp = i;
         aH(this.dZv);
     }
 
-    public void mv(int i) {
+    public void mx(int i) {
         this.dZz = i;
         aH(this.dZv);
     }
 
-    public List<o> aXk() {
+    public List<o> aXl() {
         return this.dZw;
     }
 
-    public void mw(int i) {
+    public void my(int i) {
         this.dZA = i;
         aH(this.dZv);
     }

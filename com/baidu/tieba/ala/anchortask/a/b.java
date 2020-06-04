@@ -15,46 +15,46 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.live.b.b {
     private Activity clq;
-    private c flL;
-    private CustomMessageListener flM;
-    private PopupWindow.OnDismissListener flN;
+    private c flW;
+    private CustomMessageListener flX;
+    private PopupWindow.OnDismissListener flY;
 
     public b(Activity activity) {
         this.clq = activity;
-        brZ();
+        bsb();
     }
 
     @Override // com.baidu.live.b.b
     public void c(String str, long j, long j2) {
-        this.flL = new c(this.clq);
-        this.flL.setOnDismissListener(this.flN);
-        this.flL.bsa().setBackgroundColor(AZ(str));
+        this.flW = new c(this.clq);
+        this.flW.setOnDismissListener(this.flY);
+        this.flW.bsc().setBackgroundColor(AZ(str));
         g gVar = new g();
-        gVar.u(this.clq).a(this.flL).a(this.flL.bsa().getSchemeCallback());
+        gVar.u(this.clq).a(this.flW).a(this.flW.bsc().getSchemeCallback());
         com.baidu.live.view.web.a[] JF = gVar.JF();
         for (com.baidu.live.view.web.a aVar : JF) {
-            this.flL.bsa().addJavascriptInterface(aVar, aVar.getName());
+            this.flW.bsc().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.flL.show(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
+        this.flW.show(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
     }
 
     @Override // com.baidu.live.b.b
     public void resume() {
-        if (this.flL != null && this.flL.isShowing() && this.flL.bsa() != null) {
-            this.flL.bsa().onResume();
+        if (this.flW != null && this.flW.isShowing() && this.flW.bsc() != null) {
+            this.flW.bsc().onResume();
         }
     }
 
     @Override // com.baidu.live.b.b
     public void pause() {
-        if (this.flL != null && this.flL.isShowing() && this.flL.bsa() != null) {
-            this.flL.bsa().onPause();
+        if (this.flW != null && this.flW.isShowing() && this.flW.bsc() != null) {
+            this.flW.bsc().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.flL != null) {
-            this.flL.bsb();
+        if (this.flW != null) {
+            this.flW.bsd();
         }
     }
 
@@ -65,20 +65,20 @@ public class b implements com.baidu.live.b.b {
     @Override // com.baidu.live.b.b
     public void release() {
         yw();
-        MessageManager.getInstance().unRegisterListener(this.flM);
+        MessageManager.getInstance().unRegisterListener(this.flX);
     }
 
-    private void brZ() {
-        this.flM = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
+    private void bsb() {
+        this.flX = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.flL != null && b.this.flL.isShowing()) {
-                    b.this.flL.dismiss();
+                if (b.this.flW != null && b.this.flW.isShowing()) {
+                    b.this.flW.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.flM);
+        MessageManager.getInstance().registerListener(this.flX);
     }
 
     private int AZ(String str) {

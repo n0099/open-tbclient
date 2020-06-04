@@ -318,7 +318,7 @@ public final class Bdtls {
             public a mergeFrom(Random random) {
                 if (random != Random.getDefaultInstance()) {
                     if (random.hasGMTUnixTime()) {
-                        ii(random.getGMTUnixTime());
+                        ik(random.getGMTUnixTime());
                     }
                     if (random.hasRandomBytes()) {
                         h(random.getRandomBytes());
@@ -375,7 +375,7 @@ public final class Bdtls {
                 return (this.bitField0_ & 1) == 1;
             }
 
-            public a ii(int i) {
+            public a ik(int i) {
                 this.bitField0_ |= 1;
                 this.gMTUnixTime_ = i;
                 return this;
@@ -692,7 +692,7 @@ public final class Bdtls {
             public a mergeFrom(Extension extension) {
                 if (extension != Extension.getDefaultInstance()) {
                     if (extension.hasType()) {
-                        ih(extension.getType());
+                        ij(extension.getType());
                     }
                     if (extension.hasData()) {
                         g(extension.getData());
@@ -749,7 +749,7 @@ public final class Bdtls {
                 return (this.bitField0_ & 1) == 1;
             }
 
-            public a ih(int i) {
+            public a ij(int i) {
                 this.bitField0_ |= 1;
                 this.type_ = i;
                 return this;
@@ -1868,7 +1868,7 @@ public final class Bdtls {
                         i(serverHello.getCipherSuite());
                     }
                     if (serverHello.hasLifeTime()) {
-                        ij(serverHello.getLifeTime());
+                        il(serverHello.getLifeTime());
                     }
                     if (serverHello.hasSKR()) {
                         j(serverHello.getSKR());
@@ -1973,7 +1973,7 @@ public final class Bdtls {
                 return (this.bitField0_ & 4) == 4;
             }
 
-            public a ij(int i) {
+            public a il(int i) {
                 this.bitField0_ |= 4;
                 this.lifeTime_ = i;
                 return this;
@@ -2632,7 +2632,7 @@ public final class Bdtls {
             public a mergeFrom(Alert alert) {
                 if (alert != Alert.getDefaultInstance()) {
                     if (alert.hasLevel()) {
-                        ig(alert.getLevel());
+                        ii(alert.getLevel());
                     }
                     if (alert.hasDescription()) {
                         c(alert.getDescription());
@@ -2689,7 +2689,7 @@ public final class Bdtls {
                 return (this.bitField0_ & 1) == 1;
             }
 
-            public a ig(int i) {
+            public a ii(int i) {
                 this.bitField0_ |= 1;
                 this.level_ = i;
                 return this;

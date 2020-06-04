@@ -23,17 +23,17 @@ public abstract class a<T extends AbsThreadDataSupport> extends b<T> {
     protected UnfollowedDecorView afO;
     protected TbPageContext<?> dIF;
     protected boolean dXG;
-    public ThreadCommentAndPraiseInfoLayout fGo;
-    protected NEGFeedBackView fGz;
-    public ThreadCommentAndPraiseInfoLayout gBE;
-    protected FollowUserDecorView gBF;
-    protected ForumEnterLayout gBG;
-    protected boolean gBH;
+    protected NEGFeedBackView fGK;
+    public ThreadCommentAndPraiseInfoLayout fGz;
+    public ThreadCommentAndPraiseInfoLayout gBP;
+    protected FollowUserDecorView gBQ;
+    protected ForumEnterLayout gBR;
+    protected boolean gBS;
     protected BdUniqueId mBdUniqueId;
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fGz = null;
+        this.fGK = null;
         this.afO = null;
         this.dXG = false;
     }
@@ -67,49 +67,49 @@ public abstract class a<T extends AbsThreadDataSupport> extends b<T> {
     public void q(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
             setTag(bdUniqueId);
-            if (this.fGz != null) {
-                this.fGz.setUniqueId(bdUniqueId);
+            if (this.fGK != null) {
+                this.fGK.setUniqueId(bdUniqueId);
             }
-            if (this.gBF != null) {
-                this.gBF.setPageUniqueId(bdUniqueId);
+            if (this.gBQ != null) {
+                this.gBQ.setPageUniqueId(bdUniqueId);
             }
         }
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.fGz != null) {
-            this.fGz.setEventCallback(aVar);
+        if (this.fGK != null) {
+            this.fGK.setEventCallback(aVar);
         }
     }
 
-    public void si(int i) {
+    public void sk(int i) {
         this.currentPageType = i;
-        if (this.fGo != null) {
-            this.fGo.dWv = i;
+        if (this.fGz != null) {
+            this.fGz.dWv = i;
         }
-        if (this.gBE != null) {
-            this.gBE.dWv = i;
+        if (this.gBP != null) {
+            this.gBP.dWv = i;
         }
     }
 
     public void d(TbPageContext<?> tbPageContext, int i) {
-        if (this.fGo != null) {
-            this.fGo.onChangeSkinType();
-        }
-        if (this.gBE != null) {
-            this.gBE.onChangeSkinType();
-        }
         if (this.fGz != null) {
             this.fGz.onChangeSkinType();
+        }
+        if (this.gBP != null) {
+            this.gBP.onChangeSkinType();
+        }
+        if (this.fGK != null) {
+            this.fGK.onChangeSkinType();
         }
         if (this.afO != null) {
             this.afO.onChangeSkinType();
         }
-        if (this.gBG != null) {
-            this.gBG.onChangeSkinType(tbPageContext, i);
+        if (this.gBR != null) {
+            this.gBR.onChangeSkinType(tbPageContext, i);
         }
-        if (this.gBF != null) {
-            this.gBF.onChangeSkinType(i);
+        if (this.gBQ != null) {
+            this.gBQ.onChangeSkinType(i);
         }
     }
 
@@ -126,41 +126,41 @@ public abstract class a<T extends AbsThreadDataSupport> extends b<T> {
     public void aJ(ViewGroup viewGroup) {
         e(viewGroup, aL(viewGroup));
         aK(viewGroup);
-        bKP();
+        bKR();
+        bKS();
         bKQ();
-        bKO();
     }
 
-    private void bKO() {
-        if (this.gBG == null || this.gBG.getVisibility() != 0) {
-            setMarginsTop(this.fGo, bb(R.dimen.tbds20));
-            setMarginsTop(this.gBE, bb(R.dimen.tbds20));
+    private void bKQ() {
+        if (this.gBR == null || this.gBR.getVisibility() != 0) {
+            setMarginsTop(this.fGz, bb(R.dimen.tbds20));
+            setMarginsTop(this.gBP, bb(R.dimen.tbds20));
             return;
         }
-        setMarginsTop(this.fGo, 0);
-        setMarginsTop(this.gBE, 0);
+        setMarginsTop(this.fGz, 0);
+        setMarginsTop(this.gBP, 0);
     }
 
-    private void bKP() {
-        if (this.adw != null && this.adw.aOi() != null && this.gBG != null) {
+    private void bKR() {
+        if (this.adw != null && this.adw.aOi() != null && this.gBR != null) {
             if (this.adw.aOo() || this.adw.aOq()) {
-                this.gBG.setData(this.adw.aOi());
+                this.gBR.setData(this.adw.aOi());
             } else if (this.dXG) {
-                this.gBG.setData(this.adw.aOi());
+                this.gBR.setData(this.adw.aOi());
             }
         }
     }
 
-    public void bKQ() {
+    public void bKS() {
         if (this.adw != null && this.adw.aOi() != null) {
             bk aOi = this.adw.aOi();
             if (this.adw.aOp()) {
-                this.fGo.setVisibility(8);
-                this.gBH = this.gBE.setData(aOi);
+                this.fGz.setVisibility(8);
+                this.gBS = this.gBP.setData(aOi);
                 return;
             }
-            this.gBE.setVisibility(8);
-            this.gBH = this.fGo.setData(aOi);
+            this.gBP.setVisibility(8);
+            this.gBS = this.fGz.setData(aOi);
         }
     }
 
@@ -209,12 +209,12 @@ public abstract class a<T extends AbsThreadDataSupport> extends b<T> {
             return false;
         }
         if (this.adw.aOi() != null && this.adw.feedBackReasonMap != null && this.adw.feedBackReasonMap.size() > 0) {
-            if (this.fGz == null) {
-                this.fGz = new NEGFeedBackView(getTbPageContext());
-                viewGroup.addView(this.fGz);
+            if (this.fGK == null) {
+                this.fGK = new NEGFeedBackView(getTbPageContext());
+                viewGroup.addView(this.fGK);
             }
             if (this.adw.aOp()) {
-                this.fGz.setSvgResId(R.drawable.icon_pure_close12_n_svg, R.color.cp_cont_g);
+                this.fGK.setSvgResId(R.drawable.icon_pure_close12_n_svg, R.color.cp_cont_g);
                 int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
                 int dimens2 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
                 int dimens3 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
@@ -223,10 +223,10 @@ public abstract class a<T extends AbsThreadDataSupport> extends b<T> {
                 layoutParams.rightMargin = dimens3;
                 layoutParams.topMargin = dimens4;
                 layoutParams.gravity = 53;
-                this.fGz.setPadding(dimens2, dimens2, dimens2, dimens2);
-                this.fGz.setLayoutParams(layoutParams);
+                this.fGK.setPadding(dimens2, dimens2, dimens2, dimens2);
+                this.fGK.setLayoutParams(layoutParams);
             } else {
-                this.fGz.setSvgResId(R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g);
+                this.fGK.setSvgResId(R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g);
                 int dimens5 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds124);
                 int dimens6 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
                 int dimens7 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
@@ -235,35 +235,35 @@ public abstract class a<T extends AbsThreadDataSupport> extends b<T> {
                 layoutParams2.bottomMargin = dimens8;
                 layoutParams2.rightMargin = dimens7;
                 layoutParams2.gravity = 85;
-                this.fGz.setPadding(dimens6, dimens6, dimens6, dimens6);
-                this.fGz.setLayoutParams(layoutParams2);
+                this.fGK.setPadding(dimens6, dimens6, dimens6, dimens6);
+                this.fGK.setLayoutParams(layoutParams2);
             }
             ak akVar = new ak();
             akVar.setTid(this.adw.aOi().getTid());
             akVar.setFid(this.adw.aOi().getFid());
             akVar.setNid(this.adw.aOi().getNid());
             akVar.setFeedBackReasonMap(this.adw.feedBackReasonMap);
-            this.fGz.setVisibility(0);
-            this.fGz.setData(akVar);
-            this.fGz.setFirstRowSingleColumn(true);
+            this.fGK.setVisibility(0);
+            this.fGK.setData(akVar);
+            this.fGK.setFirstRowSingleColumn(true);
             return true;
         }
-        if (this.fGz != null) {
-            this.fGz.setVisibility(8);
+        if (this.fGK != null) {
+            this.fGK.setVisibility(8);
         }
         return false;
     }
 
     private void e(ViewGroup viewGroup, boolean z) {
         if (this.adw != null && this.adw.aOi() != null) {
-            if (this.gBF == null) {
-                this.gBF = new FollowUserDecorView(this.dIF.getPageActivity());
-                viewGroup.addView(this.gBF);
+            if (this.gBQ == null) {
+                this.gBQ = new FollowUserDecorView(this.dIF.getPageActivity());
+                viewGroup.addView(this.gBQ);
             }
-            if (bKR()) {
+            if (bKT()) {
                 boolean aOp = this.adw.aOp();
-                this.gBF.setPageUniqueId(this.mBdUniqueId);
-                this.gBF.setSvgIconResId(this.adw.aOr() ? R.drawable.icon_pure_add12_svg : 0);
+                this.gBQ.setPageUniqueId(this.mBdUniqueId);
+                this.gBQ.setSvgIconResId(this.adw.aOr() ? R.drawable.icon_pure_add12_svg : 0);
                 int bb = bb(R.dimen.tbds166);
                 int bb2 = bb(R.dimen.tbds78);
                 int bb3 = bb((z && aOp) ? R.dimen.tbds104 : R.dimen.tbds44);
@@ -272,15 +272,15 @@ public abstract class a<T extends AbsThreadDataSupport> extends b<T> {
                 layoutParams.topMargin = bb4;
                 layoutParams.rightMargin = bb3;
                 layoutParams.gravity = 53;
-                this.gBF.setLayoutParams(layoutParams);
-                this.gBF.setData(this.adw.aOi());
-            } else if (this.gBF != null) {
-                this.gBF.setVisibility(8);
+                this.gBQ.setLayoutParams(layoutParams);
+                this.gBQ.setData(this.adw.aOi());
+            } else if (this.gBQ != null) {
+                this.gBQ.setVisibility(8);
             }
         }
     }
 
-    private boolean bKR() {
+    private boolean bKT() {
         if (this.adw == null || this.adw.aOi() == null || this.adw.aOi().aQx() == null) {
             return false;
         }

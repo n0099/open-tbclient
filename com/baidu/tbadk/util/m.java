@@ -4,11 +4,11 @@ import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.tbadk.switchs.TBCdnPortraitSwitch;
 /* loaded from: classes.dex */
 public class m {
-    public static boolean bgv() {
-        return bgw();
+    public static boolean bgw() {
+        return bgx();
     }
 
-    public static boolean bgw() {
+    public static boolean bgx() {
         return com.baidu.tbadk.core.util.m.checkSD() && com.baidu.adp.gif.c.jQ();
     }
 

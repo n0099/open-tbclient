@@ -17,9 +17,11 @@ import java.util.ArrayList;
 public class b implements c {
     private boolean aSw;
     private String aSx;
-    private com.baidu.tieba.ala.charm.model.a fnQ;
-    private c.a fof;
-    private CustomMessageListener fog;
+    private com.baidu.tieba.ala.charm.model.a fob;
+    private c.a foq;
+
+    /* renamed from: for  reason: not valid java name */
+    private CustomMessageListener f4for;
     private String mGroupId;
     private String mLiveId;
     private String mOtherParams;
@@ -43,13 +45,13 @@ public class b implements c {
 
     @Override // com.baidu.tieba.ala.charm.c
     public void a(c.a aVar) {
-        this.fof = aVar;
+        this.foq = aVar;
     }
 
     @Override // com.baidu.tieba.ala.charm.c
-    public void bsZ() {
-        if (this.fnQ == null) {
-            this.fnQ = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUserId, new a.InterfaceC0532a() { // from class: com.baidu.tieba.ala.charm.b.1
+    public void btb() {
+        if (this.fob == null) {
+            this.fob = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUserId, new a.InterfaceC0532a() { // from class: com.baidu.tieba.ala.charm.b.1
                 @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0532a
                 public void a(ALaCharmDataList aLaCharmDataList) {
                     b.this.b(aLaCharmDataList);
@@ -57,21 +59,21 @@ public class b implements c {
 
                 @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0532a
                 public void ax(int i, String str) {
-                    if (b.this.fof != null) {
-                        b.this.fof.pU(str);
+                    if (b.this.foq != null) {
+                        b.this.foq.pU(str);
                     }
                 }
             });
         }
-        this.fnQ.J(1, 20, 1);
+        this.fob.J(1, 20, 1);
     }
 
     @Override // com.baidu.tieba.ala.charm.c
     public void a(ALaCharmData aLaCharmData) {
         if (aLaCharmData != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913186));
-            if (this.fof != null) {
-                this.fof.onClose();
+            if (this.foq != null) {
+                this.foq.onClose();
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.mPageContext.getPageActivity(), aLaCharmData.pay_userid, aLaCharmData.user_name, aLaCharmData.portrait, aLaCharmData.sex, aLaCharmData.level_id, null, null, 0L, aLaCharmData.fans_count, aLaCharmData.follow_count, aLaCharmData.user_status, this.mGroupId, this.mLiveId, this.aSw, this.aSx, null, aLaCharmData.user_name, this.mOtherParams)));
         }
@@ -79,33 +81,33 @@ public class b implements c {
 
     @Override // com.baidu.tieba.ala.charm.c
     public void release() {
-        this.fof = null;
-        if (this.fog != null) {
-            MessageManager.getInstance().unRegisterListener(this.fog);
+        this.foq = null;
+        if (this.f4for != null) {
+            MessageManager.getInstance().unRegisterListener(this.f4for);
         }
-        if (this.fnQ != null) {
-            this.fnQ.onDestroy();
+        if (this.fob != null) {
+            this.fob.onDestroy();
         }
     }
 
     private void registerListener() {
-        this.fog = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.charm.b.2
+        this.f4for = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.charm.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.fof != null) {
-                    b.this.fof.onClose();
+                if (b.this.foq != null) {
+                    b.this.foq.onClose();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.fog);
+        MessageManager.getInstance().registerListener(this.f4for);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(ALaCharmDataList aLaCharmDataList) {
         ArrayList<ALaCharmData> arrayList;
         String str;
-        if (this.fof != null && aLaCharmDataList != null && (arrayList = aLaCharmDataList.data) != null) {
+        if (this.foq != null && aLaCharmDataList != null && (arrayList = aLaCharmDataList.data) != null) {
             int size = arrayList.size();
             if (size > 3) {
                 if (size >= 20) {
@@ -113,10 +115,10 @@ public class b implements c {
                 } else {
                     str = "没有更多了哦";
                 }
-                this.fof.b(arrayList.subList(0, 3), arrayList.subList(3, size), str);
+                this.foq.b(arrayList.subList(0, 3), arrayList.subList(3, size), str);
                 return;
             }
-            this.fof.b(arrayList.subList(0, size), null, null);
+            this.foq.b(arrayList.subList(0, size), null, null);
         }
     }
 }

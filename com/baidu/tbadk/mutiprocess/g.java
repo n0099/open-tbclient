@@ -45,13 +45,13 @@ public class g {
         int myPid = Process.myPid();
         int pid = aVar.getPid();
         if (aVar.getType() == 2 && myPid == pid) {
-            beJ().d(aVar);
+            beK().d(aVar);
         } else {
-            beJ().f(aVar);
+            beK().f(aVar);
         }
     }
 
-    public static g beJ() {
+    public static g beK() {
         if (eqk == null) {
             synchronized (g.class) {
                 if (eqk == null) {

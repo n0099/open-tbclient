@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class DynamicUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
-    private a lMJ;
+    private a lNR;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -27,7 +27,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     public DynamicUserLikeButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-        cVar.mi(R.color.cp_link_tip_a);
+        cVar.mk(R.color.cp_link_tip_a);
         setConfig(cVar);
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));
     }
@@ -35,13 +35,13 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     public void hr(boolean z) {
         if (z) {
             com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-            cVar.mk(R.color.cp_cont_d);
+            cVar.mm(R.color.cp_cont_d);
             setConfig(cVar);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
         } else {
             com.baidu.tbadk.core.view.commonBtn.c cVar2 = new com.baidu.tbadk.core.view.commonBtn.c();
-            cVar2.mi(R.color.cp_link_tip_a);
+            cVar2.mk(R.color.cp_link_tip_a);
             setConfig(cVar2);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.attention));
@@ -63,13 +63,13 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void mo(int i) {
+    public void mq(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void bc(View view) {
-        if (this.lMJ != null) {
-            this.lMJ.bO(view);
+        if (this.lNR != null) {
+            this.lNR.bO(view);
         }
     }
 
@@ -79,10 +79,10 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void onChangeSkinType(int i) {
-        aWq();
+        aWr();
     }
 
     public void setOnClickEvent(a aVar) {
-        this.lMJ = aVar;
+        this.lNR = aVar;
     }
 }

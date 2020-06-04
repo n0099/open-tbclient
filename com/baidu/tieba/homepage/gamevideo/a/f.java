@@ -92,7 +92,7 @@ public class f extends com.baidu.adp.widget.ListView.a<k, ag<k>> {
         if (kVar == null || agVar == null || agVar.getView() == null || kVar.dEA == null) {
             return null;
         }
-        kVar.sr(kVar.position + 1);
+        kVar.st(kVar.position + 1);
         agVar.rM().setPosition(i);
         agVar.b((ag<k>) kVar);
         agVar.rM().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -104,7 +104,7 @@ public class f extends com.baidu.adp.widget.ListView.a<k, ag<k>> {
         this.epM = bdUniqueId;
     }
 
-    public void ww(int i) {
+    public void wy(int i) {
         this.dRA = i;
     }
 }

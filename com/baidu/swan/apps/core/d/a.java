@@ -88,8 +88,8 @@ public class a extends b implements View.OnClickListener {
     public void ae(View view) {
         ah(view);
         dz(true);
-        eH(-1);
-        eI(ViewCompat.MEASURED_STATE_MASK);
+        eJ(-1);
+        eK(ViewCompat.MEASURED_STATE_MASK);
         ji(null);
         dC(true);
     }
@@ -122,7 +122,7 @@ public class a extends b implements View.OnClickListener {
             if (agC != null && agC.isValid()) {
                 this.bUG = new com.baidu.swan.apps.view.a(this.mActivity, view, agC, a.f.bear_layout);
             }
-            eG(aoJ.getType());
+            eI(aoJ.getType());
             ((Button) view.findViewById(a.f.open_app_button)).setVisibility(8);
             if (DEBUG || com.baidu.swan.apps.w.f.ahV().ahz()) {
                 View inflate = ((ViewStub) view.findViewById(a.f.ai_app_console)).inflate();
@@ -184,7 +184,7 @@ public class a extends b implements View.OnClickListener {
                     public void onClick(View view2) {
                         if (a.this.mActivity != null) {
                             StringBuilder sb = new StringBuilder();
-                            sb.append("ENABLE CODE CACHE: ").append(com.baidu.swan.apps.u.a.aeU().ee(a.this.Qz())).append("\n");
+                            sb.append("ENABLE CODE CACHE: ").append(com.baidu.swan.apps.u.a.aeU().eg(a.this.Qz())).append("\n");
                             sb.append("ENABLE V8: ").append(com.baidu.swan.apps.core.turbo.d.abl().abA()).append("\n");
                             sb.append("APS VERSION: ").append(TextUtils.isEmpty(aoJ.getVersion()) ? "" : aoJ.getVersion()).append("\n");
                             sb.append("APPID VERSION: ").append(com.baidu.swan.apps.e.a.iw(aoG.id)).append("\n");
@@ -216,18 +216,18 @@ public class a extends b implements View.OnClickListener {
                     button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.4
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view2) {
-                            String gV;
+                            String gX;
                             String string;
                             if (a.this.mActivity != null) {
                                 if (a.this.Ym()) {
-                                    gV = com.baidu.swan.apps.swancore.a.arP().gV(1);
+                                    gX = com.baidu.swan.apps.swancore.a.arP().gX(1);
                                     string = a.this.mActivity.getResources().getString(a.h.ai_games_debug_game_core_version);
                                 } else {
-                                    gV = com.baidu.swan.apps.swancore.a.arP().gV(0);
+                                    gX = com.baidu.swan.apps.swancore.a.arP().gX(0);
                                     string = a.this.mActivity.getResources().getString(a.h.aiapps_swan_core_history_title);
                                 }
                                 g.a aVar = new g.a(a.this.mActivity);
-                                aVar.e(string).nq(gV).a(new com.baidu.swan.apps.view.c.a()).eT(false);
+                                aVar.e(string).nq(gX).a(new com.baidu.swan.apps.view.c.a()).eT(false);
                                 aVar.c(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.4.1
                                     @Override // android.content.DialogInterface.OnClickListener
                                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -282,7 +282,7 @@ public class a extends b implements View.OnClickListener {
                             @Override // java.lang.Runnable
                             public void run() {
                                 g.a aVar = new g.a(a.this.mActivity);
-                                aVar.eR(a.h.aiapps_debug_report_performance).nq(str).a(new com.baidu.swan.apps.view.c.a()).eT(false).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null);
+                                aVar.eT(a.h.aiapps_debug_report_performance).nq(str).a(new com.baidu.swan.apps.view.c.a()).eT(false).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null);
                                 aVar.aon();
                             }
                         });
@@ -304,7 +304,7 @@ public class a extends b implements View.OnClickListener {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             g.a aVar = new g.a(a.this.mActivity);
-            aVar.eR(a.h.aiapps_debug_start_inspect).eQ(a.h.aiapps_debug_inspect_message).a(new com.baidu.swan.apps.view.c.a()).eT(true);
+            aVar.eT(a.h.aiapps_debug_start_inspect).eS(a.h.aiapps_debug_inspect_message).a(new com.baidu.swan.apps.view.c.a()).eT(true);
             if (com.baidu.swan.apps.console.v8inspector.a.getStatus() == 0) {
                 aVar.c(a.h.aiapps_debug_inspect_normal, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.6.1
                     @Override // android.content.DialogInterface.OnClickListener
@@ -373,7 +373,7 @@ public class a extends b implements View.OnClickListener {
         }
     }
 
-    private void eG(int i) {
+    private void eI(int i) {
         ag.a(this.bUE, this.bUF, String.valueOf(i));
     }
 
@@ -545,7 +545,7 @@ public class a extends b implements View.OnClickListener {
             sb.append("version : ").append(aj.getPackageVersion(AppRuntime.getAppContext(), AppRuntime.getAppContext().getPackageName()));
             sb.append("\n");
             if (this.mActivity != null && com.baidu.swan.apps.runtime.e.aoF() != null && com.baidu.swan.apps.runtime.e.aoF().QJ() != null && (QJ = com.baidu.swan.apps.runtime.e.aoF().QJ()) != null) {
-                sb.append("enable code cache: ").append(com.baidu.swan.apps.u.a.aeU().ee(Qz())).append("\n");
+                sb.append("enable code cache: ").append(com.baidu.swan.apps.u.a.aeU().eg(Qz())).append("\n");
                 sb.append("enable V8: ").append(com.baidu.swan.apps.core.turbo.d.abl().abA()).append("\n");
                 sb.append("aps version: ").append(TextUtils.isEmpty(QJ.getVersion()) ? "" : QJ.getVersion()).append("\n");
                 String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), QJ.agD());

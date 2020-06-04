@@ -41,11 +41,11 @@ public class he {
             }
             return null;
         }
-        fi m334a = m334a();
-        m334a.a(fh.CHANNEL_STATS_COUNTER.a());
-        m334a.c(aVar.f120a);
-        m334a.c(aVar.f122a);
-        return m334a;
+        fi m333a = m333a();
+        m333a.a(fh.CHANNEL_STATS_COUNTER.a());
+        m333a.c(aVar.f120a);
+        m333a.c(aVar.f122a);
+        return m333a;
     }
 
     private fj a(int i) {
@@ -60,10 +60,10 @@ public class he {
             fjVar.b(a2);
         } catch (jc e) {
         }
-        LinkedList<bb.a> m159a = this.f428a.m159a();
-        while (m159a.size() > 0) {
+        LinkedList<bb.a> m158a = this.f428a.m158a();
+        while (m158a.size() > 0) {
             try {
-                fi a3 = a(m159a.getLast());
+                fi a3 = a(m158a.getLast());
                 if (a3 != null) {
                     a3.b(a2);
                 }
@@ -73,7 +73,7 @@ public class he {
                 if (a3 != null) {
                     arrayList.add(a3);
                 }
-                m159a.removeLast();
+                m158a.removeLast();
             } catch (jc e2) {
             } catch (NoSuchElementException e3) {
             }
@@ -90,12 +90,12 @@ public class he {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static he m332a() {
+    public static he m331a() {
         return a.a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m333a() {
+    private void m332a() {
         if (!this.f431a || System.currentTimeMillis() - this.f427a <= this.a) {
             return;
         }
@@ -105,10 +105,10 @@ public class he {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized fi m334a() {
+    public synchronized fi m333a() {
         fi fiVar;
         fiVar = new fi();
-        fiVar.a(az.m138a((Context) this.f429a.f424a));
+        fiVar.a(az.m137a((Context) this.f429a.f424a));
         fiVar.f322a = (byte) 0;
         fiVar.f326b = 1;
         fiVar.d((int) (System.currentTimeMillis() / 1000));
@@ -117,7 +117,7 @@ public class he {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized fj m335a() {
+    public synchronized fj m334a() {
         fj fjVar;
         fjVar = null;
         if (b()) {
@@ -131,7 +131,7 @@ public class he {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m336a(int i) {
+    public void m335a(int i) {
         int i2 = PersonListModel.CACHETIME;
         if (i > 0) {
             int i3 = i * 1000;
@@ -160,12 +160,12 @@ public class he {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m337a() {
+    public boolean m336a() {
         return this.f431a;
     }
 
     boolean b() {
-        m333a();
-        return this.f431a && this.f428a.m158a() > 0;
+        m332a();
+        return this.f431a && this.f428a.m157a() > 0;
     }
 }

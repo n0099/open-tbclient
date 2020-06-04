@@ -5,7 +5,7 @@ import android.content.Context;
 public interface a {
     C0490a aj(Context context, String str);
 
-    int bdj();
+    int bdk();
 
     int xY(String str);
 

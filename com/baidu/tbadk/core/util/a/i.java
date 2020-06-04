@@ -40,7 +40,7 @@ public class i implements a.InterfaceC0021a {
     private boolean mUseHttpAutoSwitch = TbadkCoreApplication.getInst().isHttpAutoSwitch();
     private boolean dPh = false;
 
-    public boolean aVi() {
+    public boolean aVj() {
         return this.dPf;
     }
 
@@ -58,7 +58,7 @@ public class i implements a.InterfaceC0021a {
         this.dPa = false;
     }
 
-    public boolean aVj() {
+    public boolean aVk() {
         if (com.baidu.tbadk.core.sharedPref.b.aTX().getInt("image_no_cache_switch", 0) == 1) {
             return this.needCache;
         }
@@ -147,7 +147,7 @@ public class i implements a.InterfaceC0021a {
         return wA(str);
     }
 
-    private boolean aVk() {
+    private boolean aVl() {
         if (this.dOX.KE) {
             return false;
         }
@@ -188,7 +188,7 @@ public class i implements a.InterfaceC0021a {
                 if (dPc == 2) {
                     s.a("A2T", dPe, this.errorCode, dPd);
                 }
-                if (true == aVk()) {
+                if (true == aVl()) {
                     this.mUseHttpClient = true;
                     this.dPh = true;
                     TbadkCoreApplication.getInst().setHttpClientOpen(true);
@@ -258,7 +258,7 @@ public class i implements a.InterfaceC0021a {
                 this.responseCode = this.dOV.kE().responseCode;
                 this.errorCode = this.dOV.kE().mNetErrorCode;
                 this.dPf = this.dOV.kE().kL();
-                if (this.mUseHttpAutoSwitch && true == aVk()) {
+                if (this.mUseHttpAutoSwitch && true == aVl()) {
                     this.mUseHttpClient = false;
                     TbadkCoreApplication.getInst().setHttpClientOpen(false);
                     dPd = 0;
@@ -285,7 +285,7 @@ public class i implements a.InterfaceC0021a {
                     this.dataSize = 0;
                 }
                 this.isGif = this.dOZ.isGif();
-                this.dPg = this.dOZ.aVh();
+                this.dPg = this.dOZ.aVi();
                 int size = this.dOV.kF().size();
                 if (size > 0) {
                     sb.append("_ipsize:");
@@ -444,7 +444,7 @@ public class i implements a.InterfaceC0021a {
         }
     }
 
-    public boolean aVl() {
+    public boolean aVm() {
         if (this.dOZ == null) {
             return false;
         }

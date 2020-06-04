@@ -12,8 +12,8 @@ import java.lang.reflect.Proxy;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class BaseChromiumApplication extends Application {
-    private final boolean maX;
-    private com.baidu.turbonet.base.b<b> maY;
+    private final boolean mch;
+    private com.baidu.turbonet.base.b<b> mci;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -25,8 +25,8 @@ public class BaseChromiumApplication extends Application {
     }
 
     protected BaseChromiumApplication(boolean z) {
-        this.maY = new com.baidu.turbonet.base.b<>();
-        this.maX = z;
+        this.mci = new com.baidu.turbonet.base.b<>();
+        this.mch = z;
     }
 
     @Override // android.content.ContextWrapper
@@ -38,10 +38,10 @@ public class BaseChromiumApplication extends Application {
     /* loaded from: classes.dex */
     private class a implements InvocationHandler {
         private final Activity mActivity;
-        private final Window.Callback mba;
+        private final Window.Callback mck;
 
         public a(Activity activity, Window.Callback callback) {
-            this.mba = callback;
+            this.mck = callback;
             this.mActivity = activity;
         }
 
@@ -52,7 +52,7 @@ public class BaseChromiumApplication extends Application {
                 return null;
             }
             try {
-                return method.invoke(this.mba, objArr);
+                return method.invoke(this.mck, objArr);
             } catch (InvocationTargetException e) {
                 if (e.getCause() instanceof AbstractMethodError) {
                     throw e.getCause();
@@ -62,8 +62,8 @@ public class BaseChromiumApplication extends Application {
         }
 
         public void onWindowFocusChanged(boolean z) {
-            this.mba.onWindowFocusChanged(z);
-            Iterator it = BaseChromiumApplication.this.maY.iterator();
+            this.mck.onWindowFocusChanged(z);
+            Iterator it = BaseChromiumApplication.this.mci.iterator();
             while (it.hasNext()) {
                 ((b) it.next()).k(this.mActivity, z);
             }
@@ -73,16 +73,16 @@ public class BaseChromiumApplication extends Application {
     @Override // android.app.Application
     public void onCreate() {
         super.onCreate();
-        if (this.maX) {
-            dpN();
+        if (this.mch) {
+            dqb();
         }
     }
 
     public void a(b bVar) {
-        this.maY.aJ(bVar);
+        this.mci.aJ(bVar);
     }
 
-    private void dpN() {
+    private void dqb() {
         ApplicationStatus.a(this);
         registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() { // from class: com.baidu.turbonet.base.BaseChromiumApplication.1
             @Override // android.app.Application.ActivityLifecycleCallbacks

@@ -25,7 +25,7 @@ public class e extends d {
         return this.b;
     }
 
-    public e Jf(int i) {
+    public e Jh(int i) {
         this.b = i;
         return this;
     }
@@ -34,16 +34,16 @@ public class e extends d {
         return this.a;
     }
 
-    public e Qz(String str) {
+    public e QA(String str) {
         this.a = str;
         return this;
     }
 
-    public H5Positon dFR() {
-        return this.mVi;
+    public H5Positon dGf() {
+        return this.mWs;
     }
 
-    public H5Positon dFS() {
-        return this.mVj;
+    public H5Positon dGg() {
+        return this.mWt;
     }
 }

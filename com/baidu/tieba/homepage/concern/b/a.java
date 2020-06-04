@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.ak;
 import com.baidu.tbadk.core.data.bk;
 /* loaded from: classes9.dex */
 public class a extends AbsThreadDataSupport {
-    public static final BdUniqueId hXV = BdUniqueId.gen();
+    public static final BdUniqueId hYI = BdUniqueId.gen();
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
     public bk aOi() {
@@ -20,6 +20,6 @@ public class a extends AbsThreadDataSupport {
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return hXV;
+        return hYI;
     }
 }

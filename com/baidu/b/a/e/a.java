@@ -4,6 +4,14 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 /* loaded from: classes13.dex */
 public class a {
+    public static int bs(int i) {
+        return (int) ((i * 16.0d) / 9.0d);
+    }
+
+    public static int bt(int i) {
+        return (int) ((i * 9.0d) / 16.0d);
+    }
+
     public static String a(String str, String str2, float f, TextPaint textPaint) {
         if (TextUtils.isEmpty(str2)) {
             str2 = "";

@@ -28,7 +28,7 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                 if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
                     o.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 } else {
-                    ba.aUZ().b((TbPageContext) com.baidu.adp.base.i.G(o.this.mContext), new String[]{tag.toString()});
+                    ba.aVa().b((TbPageContext) com.baidu.adp.base.i.G(o.this.mContext), new String[]{tag.toString()});
                 }
             }
         };
@@ -52,23 +52,23 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                 qVar.mRootLayout.setVisibility(8);
             } else {
                 if (qVar.mSkinType != this.mSkinType) {
-                    am.setViewTextColor(qVar.hkq, R.color.cp_cont_d, 1);
-                    am.setViewTextColor(qVar.hkp, R.color.cp_cont_b, 1);
-                    am.setBackgroundResource(qVar.hkr, R.drawable.frs_member_manito_bg);
+                    am.setViewTextColor(qVar.hkB, R.color.cp_cont_d, 1);
+                    am.setViewTextColor(qVar.hkA, R.color.cp_cont_b, 1);
+                    am.setBackgroundResource(qVar.hkC, R.drawable.frs_member_manito_bg);
                 }
-                int bTA = pVar.bTA();
-                if (bTA > 0) {
-                    qVar.hkq.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.numberUniformFormat(bTA)));
-                    qVar.hkr.setTag(R.id.assist_apply_tip, pVar.bTB());
-                    qVar.hkr.setOnClickListener(this.mClickListener);
-                    qVar.hkr.setEnabled(true);
-                    qVar.hkr.setClickable(true);
+                int bTC = pVar.bTC();
+                if (bTC > 0) {
+                    qVar.hkB.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.numberUniformFormat(bTC)));
+                    qVar.hkC.setTag(R.id.assist_apply_tip, pVar.bTD());
+                    qVar.hkC.setOnClickListener(this.mClickListener);
+                    qVar.hkC.setEnabled(true);
+                    qVar.hkC.setClickable(true);
                 } else {
-                    qVar.hkq.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-                    qVar.hkr.setEnabled(false);
-                    qVar.hkr.setClickable(false);
+                    qVar.hkB.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+                    qVar.hkC.setEnabled(false);
+                    qVar.hkC.setClickable(false);
                 }
-                qVar.hkq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                qVar.hkB.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                 qVar.mSkinType = this.mSkinType;
             }
         }
@@ -87,9 +87,9 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
         if (this.eap == null) {
             this.eap = new com.baidu.tbadk.coreExtra.view.b(activity);
         }
-        this.eap.bbw();
+        this.eap.bbx();
         this.eap.setAccountData(accountData);
-        this.eap.mO(1);
+        this.eap.mQ(1);
     }
 
     public void onDestroy() {

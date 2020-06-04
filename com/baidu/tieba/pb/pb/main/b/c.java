@@ -21,7 +21,7 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class c {
-    public a jWu = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
+    public a jXA = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
         @Override // com.baidu.tieba.pb.pb.main.b.c.a
         public void a(e eVar, bk bkVar, PostData postData, View view) {
             String A;
@@ -35,7 +35,7 @@ public class c {
                     if (!StringUtils.isNull(A) && A.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
                         A = A.substring(TbConfig.URL_IMAGE_PREFIX.length());
                     }
-                    bkVar = eVar.cCi();
+                    bkVar = eVar.cCy();
                     if (bkVar == null) {
                         return;
                     }
@@ -46,12 +46,12 @@ public class c {
                 kVar.setContent(bkVar.getAbstract());
                 if (bkVar.aQQ() != null) {
                     kVar.rc(true);
-                    kVar.Je(StringUtils.translateSecondsToString(bkVar.aQQ().video_duration.intValue()));
+                    kVar.Jf(StringUtils.translateSecondsToString(bkVar.aQQ().video_duration.intValue()));
                 } else {
                     kVar.rc(false);
                 }
                 if (!StringUtils.isNull(A)) {
-                    kVar.Jf(A);
+                    kVar.Jg(A);
                 }
                 String title = bkVar.getTitle();
                 if (StringUtils.isNull(title)) {
@@ -65,7 +65,7 @@ public class c {
                     tid = bkVar.getTid();
                     str = "?share=9105&fr=share";
                 }
-                kVar.C(c.this.JL("http://tieba.baidu.com/p/" + tid + str));
+                kVar.C(c.this.JM("http://tieba.baidu.com/p/" + tid + str));
                 ShareItem shareItem = new ShareItem();
                 shareItem.shareType = 1;
                 PbPostShareDialogConfig pbPostShareDialogConfig = new PbPostShareDialogConfig(c.this.mPageContext.getPageActivity(), shareItem, true, kVar);
@@ -94,7 +94,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Bitmap JL(String str) {
+    public Bitmap JM(String str) {
         CustomResponsedMessage runTask;
         if (str == null || str.length() == 0 || (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) == null || runTask.getData() == null) {
             return null;

@@ -123,7 +123,7 @@ public class x extends d implements n<com.baidu.tbadk.core.data.ak>, o {
     }
 
     private boolean d(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport instanceof com.baidu.tieba.card.data.k) && ((com.baidu.tieba.card.data.k) absThreadDataSupport).gHF;
+        return (absThreadDataSupport instanceof com.baidu.tieba.card.data.k) && ((com.baidu.tieba.card.data.k) absThreadDataSupport).gHQ;
     }
 
     public void e(AbsThreadDataSupport absThreadDataSupport) {

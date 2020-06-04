@@ -41,7 +41,7 @@ public class SwanAppAbTestStatic {
     public static String Tag = "tag";
 
     static {
-        bnW();
+        bnY();
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
@@ -87,7 +87,7 @@ public class SwanAppAbTestStatic {
                 }
             }
         });
-        ba.aUZ().a(new ba.a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.3
+        ba.aVa().a(new ba.a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.3
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 String str;
@@ -137,7 +137,7 @@ public class SwanAppAbTestStatic {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SAPI_INIT, TbadkCoreApplication.getInst().getApp()));
                 }
                 if (!SapiAccountManager.getInstance().isLogin()) {
-                    com.baidu.tieba.aiapps.apps.a.a.bnX().a((GetUserInfoResult) null);
+                    com.baidu.tieba.aiapps.apps.a.a.bnZ().a((GetUserInfoResult) null);
                 }
                 SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.4.1
                     /* JADX DEBUG: Method merged with bridge method */
@@ -153,7 +153,7 @@ public class SwanAppAbTestStatic {
                         h.arO().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
                         h.arO().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
                         h.arO().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
-                        com.baidu.tieba.aiapps.apps.a.a.bnX().a(getUserInfoResult);
+                        com.baidu.tieba.aiapps.apps.a.a.bnZ().a(getUserInfoResult);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -173,15 +173,15 @@ public class SwanAppAbTestStatic {
         });
     }
 
-    private static void bnW() {
+    private static void bnY() {
         SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
         if (Build.VERSION.SDK_INT > 21 && !TbadkCoreApplication.getInst().isRemoteProcess()) {
-            com.baidu.tieba.aiapps.apps.i.a.boH();
-            if (ProcessUtils.isMainProcess() && !c.dvi()) {
+            com.baidu.tieba.aiapps.apps.i.a.boJ();
+            if (ProcessUtils.isMainProcess() && !c.dvw()) {
                 c.initialize(AppRuntime.getAppContext());
             }
-            com.baidu.tieba.aiapps.apps.a.a.bnX().init(TbadkCoreApplication.getInst());
-            com.baidu.tieba.aiapps.apps.share.c.boF().es(TbadkCoreApplication.getInst());
+            com.baidu.tieba.aiapps.apps.a.a.bnZ().init(TbadkCoreApplication.getInst());
+            com.baidu.tieba.aiapps.apps.share.c.boH().es(TbadkCoreApplication.getInst());
         }
     }
 

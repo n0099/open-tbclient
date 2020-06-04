@@ -35,8 +35,8 @@ public class BdBaseViewPagerAdapter<T extends o, V extends a> extends PagerAdapt
     public void onClick(View view) {
         c<T, V> cVar;
         a bd = bd(view);
-        if (bd != null && bd.oX() != null && bd.oX().getType() != null && (cVar = this.dZb.get(bd.oX().getType())) != null && cVar.aXg() != null) {
-            cVar.aXg().c(bd, bd.oX());
+        if (bd != null && bd.oX() != null && bd.oX().getType() != null && (cVar = this.dZb.get(bd.oX().getType())) != null && cVar.aXh() != null) {
+            cVar.aXh().c(bd, bd.oX());
         }
     }
 
@@ -119,15 +119,15 @@ public class BdBaseViewPagerAdapter<T extends o, V extends a> extends PagerAdapt
         if (i >= this.mListData.size()) {
             return null;
         }
-        View mr = mr(i);
-        if (mr != null && mr.getParent() != viewGroup) {
-            viewGroup.addView(mr);
-            return mr;
+        View mt = mt(i);
+        if (mt != null && mt.getParent() != viewGroup) {
+            viewGroup.addView(mt);
+            return mt;
         }
-        return mr;
+        return mt;
     }
 
-    public View mr(int i) {
+    public View mt(int i) {
         if (i >= this.dZc.size() || i >= this.mListData.size()) {
             return null;
         }

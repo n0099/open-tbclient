@@ -14,13 +14,13 @@ import com.baidu.tieba.ala.data.c;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private ArrayList<AlaLiveWishListData> eVR;
-    private long eVS;
-    private boolean giN;
+    private ArrayList<AlaLiveWishListData> eWc;
+    private long eWd;
+    private boolean giY;
     private Context mContext;
     private LayoutInflater mInflater;
     private ArrayList<c> clk = new ArrayList<>();
-    private SparseArray<CountDownTimer> giM = new SparseArray<>();
+    private SparseArray<CountDownTimer> giX = new SparseArray<>();
 
     public b(Context context) {
         this.mContext = context;
@@ -33,16 +33,16 @@ public class b extends BaseAdapter {
     }
 
     public void lv(boolean z) {
-        this.giN = z;
+        this.giY = z;
     }
 
     public void aa(ArrayList<AlaLiveWishListData> arrayList) {
-        this.eVR = arrayList;
+        this.eWc = arrayList;
         notifyDataSetChanged();
     }
 
     public void dK(long j) {
-        this.eVS = j;
+        this.eWd = j;
     }
 
     public ArrayList<c> getData() {
@@ -76,31 +76,31 @@ public class b extends BaseAdapter {
             aVar = (com.baidu.tieba.ala.livewishlist.b.a) view.getTag();
         }
         c cVar = this.clk.get(i);
-        if (!ListUtils.isEmpty(this.eVR)) {
+        if (!ListUtils.isEmpty(this.eWc)) {
             int i2 = 0;
             while (true) {
                 int i3 = i2;
-                if (i3 >= this.eVR.size()) {
+                if (i3 >= this.eWc.size()) {
                     break;
-                } else if (!this.eVR.get(i3).wish_id.equals(cVar.fsh)) {
+                } else if (!this.eWc.get(i3).wish_id.equals(cVar.fss)) {
                     i2 = i3 + 1;
                 } else {
-                    aVar.a(this.eVR.get(i3));
+                    aVar.a(this.eWc.get(i3));
                     break;
                 }
             }
         }
-        aVar.lv(this.giN);
-        aVar.dK(this.eVS);
-        aVar.a(i, this.giM, cVar);
+        aVar.lv(this.giY);
+        aVar.dK(this.eWd);
+        aVar.a(i, this.giX, cVar);
         return view;
     }
 
-    public void bHz() {
-        if (this.giM != null) {
-            int size = this.giM.size();
+    public void bHB() {
+        if (this.giX != null) {
+            int size = this.giX.size();
             for (int i = 0; i < size; i++) {
-                CountDownTimer countDownTimer = this.giM.get(this.giM.keyAt(i));
+                CountDownTimer countDownTimer = this.giX.get(this.giX.keyAt(i));
                 if (countDownTimer != null) {
                     countDownTimer.cancel();
                 }

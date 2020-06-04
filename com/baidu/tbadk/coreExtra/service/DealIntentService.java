@@ -167,7 +167,7 @@ public class DealIntentService extends BdBaseService {
             dh.ag("obj_source", i);
             TiebaStatic.log(dh);
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                mJ(i2);
+                mL(i2);
             }
             String string = this.intent.getExtras().getString("stat");
             if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
@@ -189,7 +189,7 @@ public class DealIntentService extends BdBaseService {
                 TiebaStatic.eventStat(DealIntentService.this, "open_push", "start", 1, new Object[0]);
             }
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                mI(i2);
+                mK(i2);
             }
             return DealIntentService.ACTION_ON_POST_START;
         }
@@ -213,7 +213,7 @@ public class DealIntentService extends BdBaseService {
             DealIntentService.this.stopSelf();
         }
 
-        private void mI(int i) {
+        private void mK(int i) {
             switch (i) {
                 case 0:
                 case 1:
@@ -229,7 +229,7 @@ public class DealIntentService extends BdBaseService {
             }
         }
 
-        private void mJ(int i) {
+        private void mL(int i) {
             switch (i) {
                 case 6:
                     TiebaStatic.eventStat(DealIntentService.this, "notify_to_pk_before", "click");

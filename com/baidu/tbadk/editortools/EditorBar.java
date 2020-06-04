@@ -116,7 +116,7 @@ public class EditorBar extends RawLayout {
                         layoutParams.bottomMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.ds15);
                         layoutParams.topMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.ds15);
                     }
-                    layoutParams.nh(2);
+                    layoutParams.nj(2);
                     addView(bLauncher, layoutParams);
                 }
             }
@@ -185,21 +185,21 @@ public class EditorBar extends RawLayout {
                 layoutParams.gravity = 19;
             }
             if (z && aVar.position == 1) {
-                layoutParams.nh(2);
+                layoutParams.nj(2);
                 addView(view, layoutParams);
             } else if (!z && aVar.position != 1) {
                 switch (aVar.position) {
                     case 2:
-                        layoutParams.nh(2);
+                        layoutParams.nj(2);
                         break;
                     case 3:
-                        layoutParams.nh(1);
+                        layoutParams.nj(1);
                         break;
                     case 4:
-                        layoutParams.nh(3);
+                        layoutParams.nj(3);
                         break;
                     case 5:
-                        layoutParams.nh(2);
+                        layoutParams.nj(2);
                         view.setVisibility(8);
                         break;
                 }
@@ -306,14 +306,14 @@ public class EditorBar extends RawLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void na(int i) {
-        if (i == 2 && bcX() && this.ekQ != null) {
+    public void nc(int i) {
+        if (i == 2 && bcY() && this.ekQ != null) {
             this.ekQ.b(new com.baidu.tbadk.editortools.a(1, 3, null));
             return;
         }
-        a nb = nb(i);
-        if (nb != null) {
-            if (nb.position == 5) {
+        a nd = nd(i);
+        if (nd != null) {
+            if (nd.position == 5) {
                 for (g gVar : this.ekL) {
                     if (gVar.getToolId() == 2 || gVar.getToolId() == 1) {
                         gVar.display();
@@ -358,7 +358,7 @@ public class EditorBar extends RawLayout {
         }
     }
 
-    private a nb(int i) {
+    private a nd(int i) {
         for (a aVar : this.ekM) {
             if (aVar.ekV != null && aVar.ekV.getToolId() == i) {
                 return aVar;
@@ -367,7 +367,7 @@ public class EditorBar extends RawLayout {
         return null;
     }
 
-    private boolean bcX() {
+    private boolean bcY() {
         for (a aVar : this.ekM) {
             if (aVar.position == 5 && aVar.ekV != null && (aVar.ekV instanceof View) && ((View) aVar.ekV).getVisibility() == 0) {
                 return true;
@@ -376,7 +376,7 @@ public class EditorBar extends RawLayout {
         return false;
     }
 
-    public g nc(int i) {
+    public g ne(int i) {
         for (g gVar : this.ekL) {
             if (gVar.getToolId() == i) {
                 return gVar;
@@ -457,7 +457,7 @@ public class EditorBar extends RawLayout {
         }
     }
 
-    public View nd(int i) {
+    public View nf(int i) {
         for (g gVar : this.ekL) {
             if (gVar instanceof View) {
                 View view = (View) gVar;

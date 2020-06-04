@@ -49,7 +49,7 @@ public class f<T> implements Runnable {
     }
 
     public void aGC() {
-        je(1);
+        jg(1);
         this.dmh.N(this.dmf);
     }
 
@@ -58,21 +58,21 @@ public class f<T> implements Runnable {
     }
 
     public void aGE() {
-        je(2);
+        jg(2);
         this.dmh.ae(this.dmf);
     }
 
     public void aGF() {
-        je(10);
+        jg(10);
         this.dmh.L(this.dmf);
     }
 
     public void aGG() {
-        je(3);
+        jg(3);
         this.dmh.a((c<T>) this.dmf, this.dme.dmc);
     }
 
-    public boolean je(int i) {
+    public boolean jg(int i) {
         if (this.dme.dmd.state != i) {
             this.dme.dmd.state = i;
             if (i == 2 || i == 3 || i == 10) {
@@ -242,7 +242,7 @@ public class f<T> implements Runnable {
         if (z) {
             this.dme.dmd.currentSize = 0L;
         }
-        je(0);
+        jg(0);
         gj(false);
         this.dmi = false;
     }

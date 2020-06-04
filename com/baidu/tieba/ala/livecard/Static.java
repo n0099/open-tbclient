@@ -35,8 +35,8 @@ public class Static {
                         absDelegateAdapterList.add(new c(null, bk.dEX, null));
                         absDelegateAdapterList.add(new h(null, bk.dEW, null));
                         absDelegateAdapterList.add(new g(null, bk.dEY, null));
-                        absDelegateAdapterList.add(new a(null, com.baidu.tieba.tbadkCore.g.lix, null));
-                        absDelegateAdapterList.add(new e(null, com.baidu.tieba.tbadkCore.h.liA, null));
+                        absDelegateAdapterList.add(new a(null, com.baidu.tieba.tbadkCore.g.ljG, null));
+                        absDelegateAdapterList.add(new e(null, com.baidu.tieba.tbadkCore.h.ljJ, null));
                     }
                 }
             });
@@ -49,7 +49,7 @@ public class Static {
                         absDelegateAdapterList.add(new c(null, bk.dEX, null));
                         absDelegateAdapterList.add(new f(null, bk.dEW, null));
                         absDelegateAdapterList.add(new d(null, bk.dEY, null));
-                        absDelegateAdapterList.add(new f(null, com.baidu.tieba.tbadkCore.h.liA, null));
+                        absDelegateAdapterList.add(new f(null, com.baidu.tieba.tbadkCore.h.ljJ, null));
                     }
                 }
             });
@@ -65,7 +65,7 @@ public class Static {
                     }
                 }
             });
-            ae.bWM().uf(49);
+            ae.bWO().uh(49);
         }
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003390, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_FRS_NEGATIVE_URL);

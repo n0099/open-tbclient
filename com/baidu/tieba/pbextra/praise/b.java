@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class b {
-    private View kiR;
-    private HeadImageView kiS;
-    private TextView kiT;
-    private TextView kiU;
-    private ImageView kiV;
+    private View kjX;
+    private HeadImageView kjY;
+    private TextView kjZ;
+    private TextView kka;
+    private ImageView kkb;
 
     public static b b(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.kiR = null;
-        this.kiS = null;
-        this.kiT = null;
-        this.kiU = null;
-        this.kiV = null;
-        this.kiR = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
-        this.kiS = (HeadImageView) this.kiR.findViewById(R.id.zan_list_item_head);
-        this.kiT = (TextView) this.kiR.findViewById(R.id.zan_list_item_name);
-        this.kiU = (TextView) this.kiR.findViewById(R.id.zan_list_item_time);
-        this.kiV = (ImageView) this.kiR.findViewById(R.id.zan_list_item_line_bottom);
-        this.kiV.setVisibility(0);
-        this.kiR.setTag(this);
+        this.kjX = null;
+        this.kjY = null;
+        this.kjZ = null;
+        this.kka = null;
+        this.kkb = null;
+        this.kjX = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
+        this.kjY = (HeadImageView) this.kjX.findViewById(R.id.zan_list_item_head);
+        this.kjZ = (TextView) this.kjX.findViewById(R.id.zan_list_item_name);
+        this.kka = (TextView) this.kjX.findViewById(R.id.zan_list_item_time);
+        this.kkb = (ImageView) this.kjX.findViewById(R.id.zan_list_item_line_bottom);
+        this.kkb.setVisibility(0);
+        this.kjX.setTag(this);
     }
 
     public View getView() {
-        return this.kiR;
+        return this.kjX;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.kiT.setText(str);
-        this.kiS.setImageDrawable(null);
-        this.kiU.setText(aq.getFormatTime(j));
-        this.kiS.startLoad(str2, 28, false);
+        this.kjZ.setText(str);
+        this.kjY.setImageDrawable(null);
+        this.kka.setText(aq.getFormatTime(j));
+        this.kjY.startLoad(str2, 28, false);
     }
 }

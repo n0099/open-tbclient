@@ -13,7 +13,7 @@ public class PersonPrivateData extends OrmObject {
     private int ejU = 1;
     private int ejV = 1;
 
-    public int bcw() {
+    public int bcx() {
         return this.ejR;
     }
 

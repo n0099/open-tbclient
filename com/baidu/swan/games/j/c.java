@@ -49,7 +49,7 @@ public class c {
     }
 
     private h ZG() {
-        return new h.a().io(2).rx("master").azJ();
+        return new h.a().iq(2).rx("master").azJ();
     }
 
     public void finish() {
@@ -124,7 +124,7 @@ public class c {
         this.bSB.setFileSystemDelegatePolicy(new d());
         this.bSB.azx();
         this.bSB.azw();
-        if (com.baidu.swan.apps.u.a.aeU().ee(1)) {
+        if (com.baidu.swan.apps.u.a.aeU().eg(1)) {
             this.bSB.setCodeCacheSetting(com.baidu.swan.apps.core.b.a.aV("gamejs", this.bXk));
         }
     }
@@ -197,7 +197,7 @@ public class c {
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
         public V8EngineConfiguration.CodeCacheSetting ZH() {
-            if (com.baidu.swan.apps.u.a.aeU().ee(1)) {
+            if (com.baidu.swan.apps.u.a.aeU().eg(1)) {
                 return com.baidu.swan.apps.core.b.a.aV("gameframe", getInitBasePath());
             }
             return null;

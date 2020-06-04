@@ -54,7 +54,7 @@ public class AntiHelper {
         return true;
     }
 
-    public static boolean Ea(int i) {
+    public static boolean Ec(int i) {
         return i == 3250002 || i == 3250001 || i == 3250003 || i == 3250004 || i == 3250013;
     }
 
@@ -123,7 +123,7 @@ public class AntiHelper {
 
     public static boolean a(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         if (!f(antiData)) {
-            dem();
+            deB();
         }
         if (c(antiData) || e(antiData)) {
             if (antiData.isHas_chance()) {
@@ -301,14 +301,14 @@ public class AntiHelper {
     }
 
     public static boolean c(Context context, int i, String str) {
-        if (Eb(i)) {
+        if (Ed(i)) {
             aY(context, str);
             return true;
         }
         return false;
     }
 
-    public static boolean Eb(int i) {
+    public static boolean Ed(int i) {
         return i == 3250012;
     }
 
@@ -321,7 +321,7 @@ public class AntiHelper {
         }
     }
 
-    private static void dem() {
+    private static void deB() {
         com.baidu.tbadk.core.sharedPref.b.aTX().remove(SharedPrefConfig.ANTI_VCODE_NO_LONGER_TIP);
     }
 

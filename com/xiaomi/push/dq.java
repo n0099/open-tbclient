@@ -18,7 +18,7 @@ public class dq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dp m230a() {
+    public dp m229a() {
         return this.f225a;
     }
 

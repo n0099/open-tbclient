@@ -93,7 +93,7 @@ public class e extends aa {
             }
 
             @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-            public void ej(int i) {
+            public void el(int i) {
                 com.baidu.swan.apps.console.c.e("navigateTo", "check pages failed");
                 com.baidu.swan.apps.statistic.h.i(false, eVar.QJ().agK());
                 ahV.QK();

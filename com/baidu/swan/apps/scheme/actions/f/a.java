@@ -64,7 +64,7 @@ public final class a extends aa implements b.a {
             return;
         }
         int errorCode = hVar.getErrorCode();
-        callbackHandler.handleSchemeDispatchCallback(c0303a.bLz, UnitedSchemeUtility.wrapCallbackParams(errorCode, com.baidu.swan.apps.setting.oauth.c.gM(errorCode)).toString());
+        callbackHandler.handleSchemeDispatchCallback(c0303a.bLz, UnitedSchemeUtility.wrapCallbackParams(errorCode, com.baidu.swan.apps.setting.oauth.c.gO(errorCode)).toString());
     }
 
     @Override // com.baidu.swan.apps.api.module.f.b.a

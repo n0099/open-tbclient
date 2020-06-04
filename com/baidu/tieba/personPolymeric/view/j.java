@@ -15,26 +15,26 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class j extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.m> {
-    private HTypeListView kjH;
-    private com.baidu.tieba.personPolymeric.a.o kvo;
-    private View.OnClickListener kvw;
+    private HTypeListView kkN;
+    private View.OnClickListener kwC;
+    private com.baidu.tieba.personPolymeric.a.o kwu;
     private View mRootView;
     private TextView mTitleView;
     private long uid;
 
     public j(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.kvw = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.j.1
+        this.kwC = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                j.this.cPK();
+                j.this.cQa();
             }
         };
         this.currentPageType = 4;
         this.mRootView = getView();
         this.mTitleView = (TextView) this.mRootView.findViewById(R.id.card_person_vedio_list_title);
-        this.kjH = (HTypeListView) this.mRootView.findViewById(R.id.card_person_vedio_view_pager);
-        this.kvo = new com.baidu.tieba.personPolymeric.a.o(this.mTbPageContext, this.kjH);
+        this.kkN = (HTypeListView) this.mRootView.findViewById(R.id.card_person_vedio_view_pager);
+        this.kwu = new com.baidu.tieba.personPolymeric.a.o(this.mTbPageContext, this.kkN);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -54,18 +54,18 @@ public class j extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.personPolymeric.c.m mVar) {
-        if (mVar == null || v.isEmpty(mVar.ksU)) {
+        if (mVar == null || v.isEmpty(mVar.kua)) {
             this.mRootView.setVisibility(8);
             return;
         }
         this.uid = mVar.uid;
         this.mTitleView.setText(R.string.video_title_str);
-        this.kjH.setData(eo(mVar.ksU));
-        this.kvo.Y(this.kvw);
+        this.kkN.setData(eq(mVar.kua));
+        this.kwu.Y(this.kwC);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cPK() {
+    public void cQa() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoListActivityConfig(this.mContext).createNormalCfg(this.uid, "personal")));
     }
 
@@ -73,7 +73,7 @@ public class j extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
     public void onClick(View view) {
     }
 
-    private List<com.baidu.adp.widget.ListView.o> eo(List<com.baidu.adp.widget.ListView.o> list) {
+    private List<com.baidu.adp.widget.ListView.o> eq(List<com.baidu.adp.widget.ListView.o> list) {
         int count = v.getCount(list);
         if (count > 0) {
             List<com.baidu.adp.widget.ListView.o> arrayList = new ArrayList<>(list);

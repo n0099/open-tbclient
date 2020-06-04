@@ -11,11 +11,11 @@ public class b {
         this.bQU = new a(501, z);
     }
 
-    public void ew(int i) {
+    public void ey(int i) {
         this.bQU.set(i);
     }
 
-    public boolean ex(int i) {
+    public boolean ez(int i) {
         return this.bQU.get(i);
     }
 }

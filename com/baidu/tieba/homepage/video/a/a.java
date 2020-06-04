@@ -12,12 +12,12 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
     private BdTypeRecyclerView Vw;
-    private LinkedList<com.baidu.adp.widget.ListView.a> ial = new LinkedList<>();
-    private f ijn;
-    private b ijo;
-    private d ijp;
-    private e ijq;
-    private c ijr;
+    private LinkedList<com.baidu.adp.widget.ListView.a> iaY = new LinkedList<>();
+    private f ika;
+    private b ikb;
+    private d ikc;
+    private e ikd;
+    private c ike;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
@@ -27,22 +27,22 @@ public class a {
     }
 
     private void CY() {
-        this.ijn = new f(this.mPageContext, k.gHu);
-        this.ijo = new b(this.mPageContext, l.dEV);
-        this.ijp = new d(this.mPageContext, k.gHC);
-        this.ijq = new e(this.mPageContext, k.gHA);
-        this.ijr = new c(this.mPageContext, k.gHv);
-        this.ijn.a(this.Vw);
-        this.ijo.a(this.Vw);
-        this.ijp.a(this.Vw);
-        this.ijq.a(this.Vw);
-        this.ijr.a(this.Vw);
-        this.ial.add(this.ijn);
-        this.ial.add(this.ijo);
-        this.ial.add(this.ijp);
-        this.ial.add(this.ijq);
-        this.ial.add(this.ijr);
-        this.Vw.addAdapters(this.ial);
+        this.ika = new f(this.mPageContext, k.gHF);
+        this.ikb = new b(this.mPageContext, l.dEV);
+        this.ikc = new d(this.mPageContext, k.gHN);
+        this.ikd = new e(this.mPageContext, k.gHL);
+        this.ike = new c(this.mPageContext, k.gHG);
+        this.ika.a(this.Vw);
+        this.ikb.a(this.Vw);
+        this.ikc.a(this.Vw);
+        this.ikd.a(this.Vw);
+        this.ike.a(this.Vw);
+        this.iaY.add(this.ika);
+        this.iaY.add(this.ikb);
+        this.iaY.add(this.ikc);
+        this.iaY.add(this.ikd);
+        this.iaY.add(this.ike);
+        this.Vw.addAdapters(this.iaY);
     }
 
     public void notifyDataSetChanged() {
@@ -52,20 +52,20 @@ public class a {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.ijn != null) {
-            this.ijn.setPageUniqueId(bdUniqueId);
+        if (this.ika != null) {
+            this.ika.setPageUniqueId(bdUniqueId);
         }
-        if (this.ijo != null) {
-            this.ijo.setPageUniqueId(bdUniqueId);
+        if (this.ikb != null) {
+            this.ikb.setPageUniqueId(bdUniqueId);
         }
-        if (this.ijp != null) {
-            this.ijp.setPageUniqueId(bdUniqueId);
+        if (this.ikc != null) {
+            this.ikc.setPageUniqueId(bdUniqueId);
         }
-        if (this.ijq != null) {
-            this.ijq.setPageUniqueId(bdUniqueId);
+        if (this.ikd != null) {
+            this.ikd.setPageUniqueId(bdUniqueId);
         }
-        if (this.ijr != null) {
-            this.ijr.setPageUniqueId(bdUniqueId);
+        if (this.ike != null) {
+            this.ike.setPageUniqueId(bdUniqueId);
         }
     }
 
@@ -81,14 +81,14 @@ public class a {
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.ijq != null) {
-            this.ijq.setEventCallback(aVar);
+        if (this.ikd != null) {
+            this.ikd.setEventCallback(aVar);
         }
     }
 
     public void onPause() {
-        if (this.ijo != null) {
-            this.ijo.onPause();
+        if (this.ikb != null) {
+            this.ikb.onPause();
         }
     }
 
@@ -96,8 +96,8 @@ public class a {
     }
 
     public void b(com.baidu.tieba.homepage.personalize.model.e eVar) {
-        if (this.ijo != null) {
-            this.ijo.b(eVar);
+        if (this.ikb != null) {
+            this.ikb.b(eVar);
         }
     }
 }

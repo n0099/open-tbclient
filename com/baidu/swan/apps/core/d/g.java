@@ -72,8 +72,8 @@ public class g extends com.baidu.swan.apps.core.d.b implements AdapterView.OnIte
     @Override // com.baidu.swan.apps.core.d.b
     public void ae(View view) {
         ah(view);
-        eH(-1);
-        eI(ViewCompat.MEASURED_STATE_MASK);
+        eJ(-1);
+        eK(ViewCompat.MEASURED_STATE_MASK);
         ji(getString(a.h.common_menu_authority_management));
         dC(true);
         setRightZoneVisibility(false);
@@ -159,7 +159,7 @@ public class g extends com.baidu.swan.apps.core.d.b implements AdapterView.OnIte
     }
 
     private void a(final com.baidu.swan.apps.setting.oauth.e eVar) {
-        new g.a(aHv()).eR(a.h.aiapps_setting_scope_close_alert_title).eQ(a.h.aiapps_setting_scope_close_alert_msg).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_setting_scope_close_alert_btn_pos, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.g.3
+        new g.a(aHv()).eT(a.h.aiapps_setting_scope_close_alert_title).eS(a.h.aiapps_setting_scope_close_alert_msg).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_setting_scope_close_alert_btn_pos, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.g.3
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 g.this.Zc().aoR().putBoolean(g.bWc, true);
@@ -251,7 +251,7 @@ public class g extends com.baidu.swan.apps.core.d.b implements AdapterView.OnIte
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.widget.Adapter
-            /* renamed from: eN */
+            /* renamed from: eP */
             public com.baidu.swan.apps.setting.oauth.e getItem(int i) {
                 return (com.baidu.swan.apps.setting.oauth.e) g.this.mList.get(i);
             }

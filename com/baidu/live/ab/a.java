@@ -15,7 +15,7 @@ public interface a {
 
     void a(AlaLiveUserInfoData alaLiveUserInfoData, String str);
 
-    void dp(int i);
+    void dr(int i);
 
     void onDestroy();
 }

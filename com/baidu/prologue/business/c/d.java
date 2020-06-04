@@ -90,7 +90,7 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
         };
         this.bBf = new a.InterfaceC0248a() { // from class: com.baidu.prologue.business.c.d.2
             @Override // com.baidu.prologue.b.a.InterfaceC0248a
-            public void dR(int i) {
+            public void dT(int i) {
                 d.this.Ou().Oq();
             }
         };

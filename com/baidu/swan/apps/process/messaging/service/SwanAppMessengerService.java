@@ -308,12 +308,12 @@ public final class SwanAppMessengerService extends Service {
             }
             int i = message.arg1;
             e anp = e.anp();
-            c ge = anp.ge(i);
-            if (ge != null && (message.obj instanceof Bundle)) {
+            c gg = anp.gg(i);
+            if (gg != null && (message.obj instanceof Bundle)) {
                 Bundle bundle = (Bundle) message.obj;
                 bundle.setClassLoader(getClass().getClassLoader());
-                ge.S(bundle);
-                anp.ni("onLoaded => " + ge.toString());
+                gg.S(bundle);
+                anp.ni("onLoaded => " + gg.toString());
             }
         }
 
@@ -324,15 +324,15 @@ public final class SwanAppMessengerService extends Service {
             if (message.obj instanceof Bundle) {
                 Bundle bundle = (Bundle) message.obj;
                 bundle.setClassLoader(getClass().getClassLoader());
-                c ge = e.anp().ge(message.arg1);
-                if (ge != null) {
+                c gg = e.anp().gg(message.arg1);
+                if (gg != null) {
                     String string = bundle.getString("ai_apps_id", "");
                     if (TextUtils.isEmpty(string)) {
-                        string = ge.getAppId();
+                        string = gg.getAppId();
                     }
                     com.baidu.swan.apps.process.messaging.a.amG().mY(string);
-                    ge.anl();
-                    e.anp().ni("onUnloaded => " + ge.toString());
+                    gg.anl();
+                    e.anp().ni("onUnloaded => " + gg.toString());
                 }
             }
         }

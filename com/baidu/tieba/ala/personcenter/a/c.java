@@ -8,17 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private BdTypeListView faQ;
-    private com.baidu.tieba.ala.personcenter.d.a gnT;
-    private i gnU;
+    private BdTypeListView fbb;
+    private com.baidu.tieba.ala.personcenter.d.a goe;
+    private i gof;
     private TbPageContext mPageContext;
     private List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
     private List<o> mDataList = new ArrayList();
 
     public c(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, com.baidu.tieba.ala.personcenter.d.a aVar) {
         this.mPageContext = tbPageContext;
-        this.faQ = bdTypeListView;
-        this.gnT = aVar;
+        this.fbb = bdTypeListView;
+        this.goe = aVar;
         CY();
     }
 
@@ -30,11 +30,11 @@ public class c {
         h hVar = new h(this.mPageContext);
         d dVar = new d(this.mPageContext);
         a aVar = new a(this.mPageContext);
-        this.gnU = new i(this.mPageContext);
-        k kVar = new k(this.mPageContext, this.gnT);
+        this.gof = new i(this.mPageContext);
+        k kVar = new k(this.mPageContext, this.goe);
         j jVar = new j(this.mPageContext);
         this.aSj.add(bVar);
-        this.aSj.add(this.gnU);
+        this.aSj.add(this.gof);
         this.aSj.add(fVar);
         this.aSj.add(gVar);
         this.aSj.add(eVar);
@@ -43,38 +43,38 @@ public class c {
         this.aSj.add(aVar);
         this.aSj.add(kVar);
         this.aSj.add(jVar);
-        this.faQ.addAdapters(this.aSj);
+        this.fbb.addAdapters(this.aSj);
     }
 
     public void setData(List<o> list) {
-        if (this.faQ != null && !v.isEmpty(list)) {
+        if (this.fbb != null && !v.isEmpty(list)) {
             this.mDataList.clear();
             this.mDataList.addAll(list);
-            this.faQ.setData(this.mDataList);
+            this.fbb.setData(this.mDataList);
         }
     }
 
     public void setForumId(String str) {
-        if (this.gnU != null) {
-            this.gnU.setForumId(str);
+        if (this.gof != null) {
+            this.gof.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.gnU != null) {
-            this.gnU.setForumName(str);
+        if (this.gof != null) {
+            this.gof.setForumName(str);
         }
     }
 
     public void jl(boolean z) {
-        if (this.gnU != null) {
-            this.gnU.jl(z);
+        if (this.gof != null) {
+            this.gof.jl(z);
         }
     }
 
     public void CX(String str) {
-        if (this.gnU != null) {
-            this.gnU.CX(str);
+        if (this.gof != null) {
+            this.gof.CX(str);
         }
     }
 }

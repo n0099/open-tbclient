@@ -14,7 +14,7 @@ public class m implements o {
         return afZ;
     }
 
-    public String bcC() {
+    public String bcD() {
         return this.eka;
     }
 
@@ -30,7 +30,7 @@ public class m implements o {
         this.ekb = str;
     }
 
-    public boolean bcD() {
+    public boolean bcE() {
         return this.ekc;
     }
 

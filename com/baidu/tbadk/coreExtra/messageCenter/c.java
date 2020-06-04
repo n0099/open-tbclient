@@ -51,9 +51,9 @@ public class c {
                 } else if (customResponsedMessage.getCmd() == 2016001) {
                     c.this.f(customResponsedMessage);
                 } else if (customResponsedMessage.getCmd() == 2016010) {
-                    c.this.aZP();
-                } else if (customResponsedMessage.getCmd() == 2016011) {
                     c.this.aZQ();
+                } else if (customResponsedMessage.getCmd() == 2016011) {
+                    c.this.aZR();
                 }
             }
         }
@@ -62,7 +62,7 @@ public class c {
     private c() {
     }
 
-    public static c aZO() {
+    public static c aZP() {
         if (ecX == null) {
             synchronized (c.class) {
                 if (ecX == null) {
@@ -107,16 +107,8 @@ public class c {
             }
             NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) responsedMessage;
             z(newsNotifyMessage.getMsgAgree(), newsNotifyMessage.getMsgAtme(), newsNotifyMessage.getMsgReplyme());
-            aZR();
+            aZS();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aZP() {
-        z(this.ecY, this.ecZ, this.mReplyNum);
-        aI(this.mList);
-        aJ(this.mList);
-        aZR();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -124,7 +116,15 @@ public class c {
         z(this.ecY, this.ecZ, this.mReplyNum);
         aI(this.mList);
         aJ(this.mList);
-        aZR();
+        aZS();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aZR() {
+        z(this.ecY, this.ecZ, this.mReplyNum);
+        aI(this.mList);
+        aJ(this.mList);
+        aZS();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -148,7 +148,7 @@ public class c {
                 }
                 aI(this.mList);
                 aJ(this.mList);
-                aZR();
+                aZS();
             }
         }
     }
@@ -168,7 +168,7 @@ public class c {
             }
             aI(this.mList);
             aJ(this.mList);
-            aZR();
+            aZS();
         }
     }
 
@@ -189,19 +189,19 @@ public class c {
         this.mList.clear();
         aI(this.mList);
         aJ(this.mList);
-        aZR();
+        aZS();
     }
 
     private void z(int i, int i2, int i3) {
         boolean z = i > 0 || i2 > 0 || i3 > 0;
-        int i4 = (i <= 0 || !d.aZS().baj()) ? 0 : 0 + i;
-        if (i2 > 0 && d.aZS().aZX()) {
+        int i4 = (i <= 0 || !d.aZT().bak()) ? 0 : 0 + i;
+        if (i2 > 0 && d.aZT().aZY()) {
             i4 += i2;
         }
-        if (i3 > 0 && d.aZS().aZZ()) {
+        if (i3 > 0 && d.aZT().baa()) {
             i4 += i3;
         }
-        int i5 = d.aZS().aZV() == 0 ? 0 : i4;
+        int i5 = d.aZT().aZW() == 0 ? 0 : i4;
         this.edb = i5 <= 0 ? false : z;
         this.eda = i5;
         this.ecY = i;
@@ -223,8 +223,8 @@ public class c {
                     } else if (imMessageCenterPojo.getCustomGroupType() == -7) {
                         z = true;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        if (d.aZS().bai()) {
-                            GroupSettingItemData et = com.baidu.tieba.im.settingcache.b.cpp().et(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                        if (d.aZT().baj()) {
+                            GroupSettingItemData et = com.baidu.tieba.im.settingcache.b.cpy().et(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                             if (et != null) {
                                 if (et.isAcceptNotify()) {
                                     i += imMessageCenterPojo.getUnread_count();
@@ -236,8 +236,8 @@ public class c {
                         }
                         z = true;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        if (d.aZS().baa()) {
-                            PersonalSettingItemData et2 = com.baidu.tieba.im.settingcache.e.cps().et(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                        if (d.aZT().bab()) {
+                            PersonalSettingItemData et2 = com.baidu.tieba.im.settingcache.e.cpB().et(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                             if (et2 != null) {
                                 if (et2.isAcceptNotify()) {
                                     i += imMessageCenterPojo.getUnread_count();
@@ -250,7 +250,7 @@ public class c {
                         z = true;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
                         if (imMessageCenterPojo.getUserType() == 4) {
-                            if (d.aZS().baa()) {
+                            if (d.aZT().bab()) {
                                 i += imMessageCenterPojo.getUnread_count();
                                 z = true;
                             }
@@ -261,7 +261,7 @@ public class c {
                     }
                 }
             }
-            if (d.aZS().aZV() == 0) {
+            if (d.aZT().aZW() == 0) {
                 i = 0;
             }
             boolean z2 = i > 0 ? z : false;
@@ -317,10 +317,10 @@ public class c {
         if (imMessageCenterPojo == null) {
             return false;
         }
-        HashMap<Integer, HashSet> aZJ = b.aZl().aZJ();
-        if (aZJ != null && aZJ.size() > 0) {
-            HashSet hashSet = aZJ.get(0);
-            HashSet hashSet2 = aZJ.get(1);
+        HashMap<Integer, HashSet> aZK = b.aZm().aZK();
+        if (aZK != null && aZK.size() > 0) {
+            HashSet hashSet = aZK.get(0);
+            HashSet hashSet2 = aZK.get(1);
             if (hashSet != null && !aq.isEmpty(imMessageCenterPojo.getGid()) && hashSet.contains(imMessageCenterPojo.getGid())) {
                 return false;
             }
@@ -333,11 +333,11 @@ public class c {
 
     private boolean c(ImMessageCenterPojo imMessageCenterPojo) {
         HashSet hashSet;
-        HashMap<Integer, HashSet> aZJ = b.aZl().aZJ();
-        return (aZJ == null || aZJ.size() <= 0 || (hashSet = aZJ.get(0)) == null || aq.isEmpty(imMessageCenterPojo.getGid()) || !hashSet.contains(imMessageCenterPojo.getGid())) ? false : true;
+        HashMap<Integer, HashSet> aZK = b.aZm().aZK();
+        return (aZK == null || aZK.size() <= 0 || (hashSet = aZK.get(0)) == null || aq.isEmpty(imMessageCenterPojo.getGid()) || !hashSet.contains(imMessageCenterPojo.getGid())) ? false : true;
     }
 
-    private void aZR() {
+    private void aZS() {
         NewsRemindMessage newsRemindMessage = new NewsRemindMessage();
         newsRemindMessage.setMsgAgreeCount(this.ecY);
         newsRemindMessage.setMsgAtCount(this.ecZ);

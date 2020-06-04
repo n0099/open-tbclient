@@ -46,7 +46,7 @@ public class RefreshView extends FrameLayout implements a {
         if (this.status != 1) {
             this.status = 1;
             this.textView.setText("查看更多");
-            SvgManager.aUV().a(this.bxI, R.drawable.ic_icon_pure_jump_more24, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+            SvgManager.aUW().a(this.bxI, R.drawable.ic_icon_pure_jump_more24, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
         }
     }
 
@@ -55,7 +55,7 @@ public class RefreshView extends FrameLayout implements a {
         if (this.status != 2) {
             this.status = 2;
             this.textView.setText("释放跳转");
-            SvgManager.aUV().a(this.bxI, R.drawable.ic_icon_pure_jump24, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+            SvgManager.aUW().a(this.bxI, R.drawable.ic_icon_pure_jump24, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
         }
     }
 

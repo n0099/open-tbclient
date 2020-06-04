@@ -74,12 +74,12 @@ public class a {
         return packageInfo != null;
     }
 
-    public static boolean dRJ() {
-        Application dRk = h.dRk();
-        if (dRk == null) {
+    public static boolean dRX() {
+        Application dRy = h.dRy();
+        if (dRy == null) {
             return false;
         }
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) dRk.getSystemService("connectivity")).getActiveNetworkInfo();
+        NetworkInfo activeNetworkInfo = ((ConnectivityManager) dRy.getSystemService("connectivity")).getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
     }
 
@@ -100,7 +100,7 @@ public class a {
         return networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED;
     }
 
-    public static boolean dRK() {
+    public static boolean dRY() {
         FileInputStream fileInputStream;
         boolean z = false;
         try {
@@ -137,7 +137,7 @@ public class a {
         return true;
     }
 
-    public static String Kx(@ColorInt int i) {
+    public static String Kz(@ColorInt int i) {
         int red = Color.red(i);
         int green = Color.green(i);
         int blue = Color.blue(i);

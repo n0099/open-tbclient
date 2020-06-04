@@ -4,7 +4,7 @@ import com.baidu.ubc.r;
 /* loaded from: classes.dex */
 public class i implements r {
     @Override // com.baidu.ubc.r
-    public boolean dak() {
+    public boolean daA() {
         return true;
     }
 }

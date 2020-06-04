@@ -44,7 +44,7 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
         a(new x() { // from class: com.baidu.tieba.enterForum.tabfeed.a.j.1
             @Override // com.baidu.adp.widget.ListView.x
             public void a(View view, o oVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                aVar.bPP();
+                aVar.bPR();
                 an anVar = new an("c13647");
                 anVar.s("uid", TbadkApplication.getCurrentAccountId());
                 anVar.ag("obj_id", j.this.getPositionByType(i) + 1);
@@ -59,35 +59,35 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.enterForum.tabfeed.b.d dVar, com.baidu.tieba.card.a.a<a> aVar) {
-        if (dVar == null || aVar == null || aVar.bLU() == null) {
+        if (dVar == null || aVar == null || aVar.bLW() == null) {
             return null;
         }
-        aVar.bLU().a(dVar);
+        aVar.bLW().a(dVar);
         an anVar = new an("c13646");
         anVar.s("uid", TbadkApplication.getCurrentAccountId());
         anVar.ag("obj_id", getPositionByType(i) + 1);
         anVar.dh("resource_id", this.mTabName);
         TiebaStatic.log(anVar);
-        return aVar.bLU().getView();
+        return aVar.bLW().getView();
     }
 
     /* loaded from: classes9.dex */
     public static class a extends com.baidu.tieba.card.b<com.baidu.tieba.enterForum.tabfeed.b.d> {
-        private TbImageView gVF;
-        private String gVG;
+        private TbImageView gVQ;
+        private String gVR;
         private TbPageContext<?> mPageContext;
 
         public a(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
             super(tbPageContext, viewGroup);
             this.mPageContext = tbPageContext;
-            this.gVF = (TbImageView) getView().findViewById(R.id.image);
-            this.gVF.setOnClickListener(this);
-            this.gVF.setConrers(15);
-            this.gVF.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.gVF.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-            this.gVF.setDrawCorner(true);
-            this.gVF.setAutoChangeStyle(true);
-            this.gVF.setPlaceHolder(2);
+            this.gVQ = (TbImageView) getView().findViewById(R.id.image);
+            this.gVQ.setOnClickListener(this);
+            this.gVQ.setConrers(15);
+            this.gVQ.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.gVQ.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            this.gVQ.setDrawCorner(true);
+            this.gVQ.setAutoChangeStyle(true);
+            this.gVQ.setPlaceHolder(2);
         }
 
         @Override // com.baidu.tieba.card.b
@@ -103,24 +103,24 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
         @Override // com.baidu.tieba.card.b
         public void a(com.baidu.tieba.enterForum.tabfeed.b.d dVar) {
             if (dVar != null) {
-                this.gVG = dVar.res_link;
-                this.gVF.setScaleType(ImageView.ScaleType.FIT_XY);
-                this.gVF.setPlaceHolder(2);
-                this.gVF.startLoad(dVar.res_image, 10, false);
+                this.gVR = dVar.res_link;
+                this.gVQ.setScaleType(ImageView.ScaleType.FIT_XY);
+                this.gVQ.setPlaceHolder(2);
+                this.gVQ.startLoad(dVar.res_image, 10, false);
             }
             onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
 
-        public void bPP() {
-            if (!TextUtils.isEmpty(this.gVG)) {
-                ba.aUZ().b(this.mPageContext, new String[]{this.gVG});
+        public void bPR() {
+            if (!TextUtils.isEmpty(this.gVR)) {
+                ba.aVa().b(this.mPageContext, new String[]{this.gVR});
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == this.gVF) {
-                bPP();
+            if (view == this.gVQ) {
+                bPR();
             }
         }
     }

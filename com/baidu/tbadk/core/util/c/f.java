@@ -26,7 +26,7 @@ public class f implements com.baidu.adp.lib.e.e<a> {
         return null;
     }
 
-    private void aVq() {
+    private void aVr() {
         b bVar = new b(TbConfig.SHARE_HUB_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES);
         bVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         bVar.setSubFolder(true);
@@ -49,7 +49,7 @@ public class f implements com.baidu.adp.lib.e.e<a> {
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: c */
     public a a(String str, String str2, int i, int i2, com.baidu.adp.lib.e.a aVar, Object... objArr) {
-        aVq();
+        aVr();
         com.baidu.adp.widget.ImageView.a a2 = this.dPD.a(str, str2, i, i2, aVar, objArr);
         if (a2 != null && a2.getByteData() != null) {
             DiskFileOperate a3 = a(a2, str2);
@@ -64,7 +64,7 @@ public class f implements com.baidu.adp.lib.e.e<a> {
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: c */
     public a a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, com.baidu.adp.lib.e.a aVar, Object... objArr) {
-        aVq();
+        aVr();
         com.baidu.adp.widget.ImageView.a a2 = this.dPD.a(str, str2, i, i2, bdAsyncTask, aVar, objArr);
         if (a2 != null && a2.getByteData() != null) {
             DiskFileOperate a3 = a(a2, str2);

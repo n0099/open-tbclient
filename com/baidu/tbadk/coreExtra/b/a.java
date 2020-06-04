@@ -31,7 +31,7 @@ public class a {
         }
     }
 
-    public static a aXA() {
+    public static a aXB() {
         if (eat == null) {
             synchronized (a.class) {
                 if (eat == null) {
@@ -42,15 +42,15 @@ public class a {
         return eat;
     }
 
-    public boolean aXB() {
+    public boolean aXC() {
         return this.eas;
     }
 
-    public int aXC() {
+    public int aXD() {
         return this.eau;
     }
 
-    public String aXD() {
+    public String aXE() {
         return this.eas ? "pub_env=" + this.eau + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

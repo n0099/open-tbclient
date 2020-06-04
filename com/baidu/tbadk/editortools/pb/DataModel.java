@@ -4,9 +4,9 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public abstract class DataModel<T> extends BdBaseModel<T> {
-    public abstract boolean bdq();
+    public abstract boolean bdr();
 
-    public abstract String bdr();
+    public abstract String bds();
 
     public abstract WriteData yf(String str);
 

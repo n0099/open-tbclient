@@ -77,7 +77,7 @@ public class p {
         this.mId = str;
     }
 
-    public void jy(int i) {
+    public void jA(int i) {
         this.dpY = i;
     }
 
@@ -118,7 +118,7 @@ public class p {
     }
 
     public void aIx() {
-        if (g.drP().tF(this.mId)) {
+        if (g.dsd().tF(this.mId)) {
             this.dqa = UBC.getUBCContext().akR();
         }
     }

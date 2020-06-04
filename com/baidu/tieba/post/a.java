@@ -19,52 +19,52 @@ import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class a implements View.OnClickListener {
-    private static com.baidu.adp.widget.ImageView.a ktO;
-    private static String ktP;
+    private static com.baidu.adp.widget.ImageView.a kuU;
+    private static String kuV;
     public TextView agw;
     public TextView dVT;
     public TextView dWR;
-    private final LinearLayout iMP;
-    private final LinearLayout jtG;
-    private InterfaceC0705a kDA;
-    protected final LinearLayout ktL;
-    protected final ColumnLayout ktM;
-    protected final ColumnLayout ktN;
-    private int ktQ;
-    public LinearLayout ktR;
-    public HeadImageView ktS;
-    public TextView ktT;
+    private final LinearLayout iNC;
+    private final LinearLayout juM;
+    private InterfaceC0706a kEI;
+    protected final LinearLayout kuR;
+    protected final ColumnLayout kuS;
+    protected final ColumnLayout kuT;
+    private int kuW;
+    public LinearLayout kuX;
+    public HeadImageView kuY;
+    public TextView kuZ;
     private TbPageContext<?> mPageContext;
 
     /* renamed from: com.baidu.tieba.post.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0705a {
+    public interface InterfaceC0706a {
         void cV(View view);
     }
 
     public a(View view, TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.ktR = (LinearLayout) view.findViewById(R.id.top_line);
-        this.ktS = (HeadImageView) view.findViewById(R.id.portrait);
+        this.kuX = (LinearLayout) view.findViewById(R.id.top_line);
+        this.kuY = (HeadImageView) view.findViewById(R.id.portrait);
         this.agw = (TextView) view.findViewById(R.id.username);
         this.dVT = (TextView) view.findViewById(R.id.reply_time);
         this.dWR = (TextView) view.findViewById(R.id.forum_name);
-        this.ktT = (TextView) view.findViewById(R.id.reply_count);
-        this.jtG = (LinearLayout) view.findViewById(R.id.item_content);
-        this.ktM = (ColumnLayout) view.findViewById(R.id.item_header);
-        this.ktN = (ColumnLayout) view.findViewById(R.id.item_footer);
-        this.iMP = (LinearLayout) view.findViewById(R.id.person_thread);
-        this.ktL = (LinearLayout) view.findViewById(R.id.person_child);
-        this.ktQ = com.baidu.adp.lib.util.l.dip2px(view.getContext(), 42.0f);
-        if (this.jtG != null) {
-            this.jtG.setOnClickListener(this);
+        this.kuZ = (TextView) view.findViewById(R.id.reply_count);
+        this.juM = (LinearLayout) view.findViewById(R.id.item_content);
+        this.kuS = (ColumnLayout) view.findViewById(R.id.item_header);
+        this.kuT = (ColumnLayout) view.findViewById(R.id.item_footer);
+        this.iNC = (LinearLayout) view.findViewById(R.id.person_thread);
+        this.kuR = (LinearLayout) view.findViewById(R.id.person_child);
+        this.kuW = com.baidu.adp.lib.util.l.dip2px(view.getContext(), 42.0f);
+        if (this.juM != null) {
+            this.juM.setOnClickListener(this);
         }
-        this.ktS.setOnClickListener(this);
+        this.kuY.setOnClickListener(this);
         this.agw.setOnClickListener(this);
         this.dWR.setOnClickListener(this);
-        this.ktT.setOnClickListener(this);
-        this.ktM.setOnClickListener(this);
-        this.ktN.setOnClickListener(this);
+        this.kuZ.setOnClickListener(this);
+        this.kuS.setOnClickListener(this);
+        this.kuT.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
@@ -73,13 +73,13 @@ public class a implements View.OnClickListener {
             if (this.mPageContext != null) {
                 this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-        } else if (this.kDA != null) {
-            this.kDA.cV(view);
+        } else if (this.kEI != null) {
+            this.kEI.cV(view);
         }
     }
 
-    public void a(InterfaceC0705a interfaceC0705a) {
-        this.kDA = interfaceC0705a;
+    public void a(InterfaceC0706a interfaceC0706a) {
+        this.kEI = interfaceC0706a;
     }
 
     public void a(PersonPostModel.PostInfoList postInfoList, boolean z, String str) {
@@ -118,43 +118,43 @@ public class a implements View.OnClickListener {
             this.dVT.setText(str3);
             this.dWR.setText(str4);
             this.dWR.setTag(str4);
-            this.ktT.setText(str5);
-            this.ktT.setTag(strArr);
+            this.kuZ.setText(str5);
+            this.kuZ.setTag(strArr);
             this.dWR.setOnClickListener(this);
             if (postInfoList.mBaijiahaoInfo != null && !StringUtils.isNull(postInfoList.mBaijiahaoInfo.avatar)) {
-                Ks(postInfoList.mBaijiahaoInfo.avatar);
+                Kt(postInfoList.mBaijiahaoInfo.avatar);
             } else {
-                Ks(str);
+                Kt(str);
             }
-            if (this.jtG != null) {
-                this.jtG.setTag(strArr);
+            if (this.juM != null) {
+                this.juM.setTag(strArr);
             }
-            this.ktM.setTag(strArr);
-            this.ktN.setTag(strArr);
+            this.kuS.setTag(strArr);
+            this.kuT.setTag(strArr);
         }
     }
 
-    private void Ks(String str) {
-        if (ktP != null && !ktP.equals(str)) {
-            ktO = null;
+    private void Kt(String str) {
+        if (kuV != null && !kuV.equals(str)) {
+            kuU = null;
         }
-        if (ktO != null) {
-            this.ktS.setImageBitmap(ktO.getRawBitmap());
-            ktP = str;
+        if (kuU != null) {
+            this.kuY.setImageBitmap(kuU.getRawBitmap());
+            kuV = str;
             return;
         }
-        this.ktS.a(str, 12, this.ktQ, this.ktQ, false);
+        this.kuY.a(str, 12, this.kuW, this.kuW, false);
     }
 
     public void changeSkin(int i) {
         am.setViewTextColor(this.dWR, R.color.cp_cont_d, 1);
         am.setViewTextColor(this.dVT, R.color.cp_cont_d, 1);
         am.setViewTextColor(this.agw, R.color.cp_cont_f, 1);
-        am.setBackgroundResource(this.iMP, R.color.cp_bg_line_c);
-        am.setBackgroundResource(this.ktL, R.color.cp_bg_line_d);
+        am.setBackgroundResource(this.iNC, R.color.cp_bg_line_c);
+        am.setBackgroundResource(this.kuR, R.color.cp_bg_line_d);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
         }
-        this.ktT.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
-        am.setViewTextColor(this.ktT, R.color.cp_link_tip_c, 1);
+        this.kuZ.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
+        am.setViewTextColor(this.kuZ, R.color.cp_link_tip_c, 1);
     }
 }

@@ -8,14 +8,14 @@ public interface e {
 
         void qw(boolean z);
 
-        void zx(int i);
+        void zz(int i);
     }
 
     void a(a aVar);
 
-    void cya();
+    void cyr();
 
-    void cyb();
+    void cys();
 
-    void cyc();
+    void cyt();
 }

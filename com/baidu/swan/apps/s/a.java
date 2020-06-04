@@ -79,7 +79,7 @@ public class a extends aa {
             }
 
             @Override // com.baidu.swan.apps.s.b
-            public void ei(int i) {
+            public void ek(int i) {
                 String jSONObject;
                 if (i == 1) {
                     c.i("chooseInvoiceTitle", "choose invoice cancel");

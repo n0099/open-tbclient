@@ -45,7 +45,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
     public com.baidu.swan.apps.component.d.b a(@NonNull M m, @NonNull M m2) {
         com.baidu.swan.apps.component.d.b a = super.a(m, m2);
         if (!TextUtils.equals(m.bPi, m2.bPi)) {
-            a.ew(9);
+            a.ey(9);
         }
         return a;
     }
@@ -53,7 +53,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(@NonNull V v, @NonNull M m, @NonNull com.baidu.swan.apps.component.d.b bVar) {
         super.a((a<V, M>) v, (V) m, bVar);
-        if (bVar.ex(9)) {
+        if (bVar.ez(9)) {
             a((a<V, M>) v, (V) m);
         }
     }
@@ -72,19 +72,19 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
             String str = m.bPi;
             if (!TextUtils.isEmpty(str) && (iC = iC(str)) != null) {
                 c.d("Component-SimpleDrawee", "Image Uri:" + iC);
-                e b = com.facebook.drawee.a.a.c.dvf().c(v.getController());
+                e b = com.facebook.drawee.a.a.c.dvt().c(v.getController());
                 if (bVar != null) {
                     b.c(bVar);
                 }
                 b.Q(iC);
-                com.facebook.drawee.controller.a dvS = b.dvW();
+                com.facebook.drawee.controller.a dwg = b.dwk();
                 RoundingParams roundingParams = new RoundingParams();
                 roundingParams.aD(m.bPr);
-                com.facebook.drawee.generic.a dwG = new com.facebook.drawee.generic.b(v.getResources()).dwG();
-                dwG.a(roundingParams);
-                dwG.b(p.b.mpY);
-                v.setHierarchy(dwG);
-                v.setController(dvS);
+                com.facebook.drawee.generic.a dwU = new com.facebook.drawee.generic.b(v.getResources()).dwU();
+                dwU.a(roundingParams);
+                dwU.b(p.b.mri);
+                v.setHierarchy(dwU);
+                v.setController(dwg);
             }
         }
     }

@@ -428,10 +428,10 @@ public class e extends m {
 
     public String apb() {
         b.a aoJ = aoJ();
-        return aoJ != null ? gI(aoJ.getType()) : "0";
+        return aoJ != null ? gK(aoJ.getType()) : "0";
     }
 
-    private String gI(int i) {
+    private String gK(int i) {
         if (i == 0) {
             String versionCode = this.czV != null ? this.czV.getVersionCode() : "";
             if (TextUtils.isEmpty(versionCode)) {

@@ -17,7 +17,7 @@ abstract class a extends aa {
         return new com.baidu.swan.apps.canvas.b.a(unitedSchemeEntity.getParams().get("params"));
     }
 
-    public JSONObject ep(int i) {
+    public JSONObject er(int i) {
         return UnitedSchemeUtility.wrapCallbackParams(i);
     }
 

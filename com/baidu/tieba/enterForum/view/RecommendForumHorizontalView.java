@@ -31,16 +31,16 @@ import com.baidu.tieba.enterForum.view.horizontalpullview.RefreshView;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class RecommendForumHorizontalView extends LinearLayout {
-    private b.InterfaceC0600b gNT;
-    private boolean gNU;
-    private PullLeftRefreshLayout gYm;
-    private com.baidu.tieba.enterForum.a.b gYn;
-    private FrameLayout gYo;
-    private ImageView gYp;
-    private boolean gYq;
-    private boolean gYr;
-    private RefreshView gYs;
-    View.OnClickListener gYt;
+    private b.InterfaceC0600b gOe;
+    private boolean gOf;
+    private ImageView gYA;
+    private boolean gYB;
+    private boolean gYC;
+    private RefreshView gYD;
+    View.OnClickListener gYE;
+    private PullLeftRefreshLayout gYx;
+    private com.baidu.tieba.enterForum.a.b gYy;
+    private FrameLayout gYz;
     private int mFrom;
     private TbPageContext<?> mPageContext;
     private RecyclerView mRecyclerView;
@@ -53,10 +53,10 @@ public class RecommendForumHorizontalView extends LinearLayout {
 
     public RecommendForumHorizontalView(TbPageContext<?> tbPageContext, @Nullable AttributeSet attributeSet) {
         super(tbPageContext.getPageActivity(), attributeSet);
-        this.gYq = true;
-        this.gYr = false;
+        this.gYB = true;
+        this.gYC = false;
         this.mFrom = 0;
-        this.gNT = new b.InterfaceC0600b() { // from class: com.baidu.tieba.enterForum.view.RecommendForumHorizontalView.1
+        this.gOe = new b.InterfaceC0600b() { // from class: com.baidu.tieba.enterForum.view.RecommendForumHorizontalView.1
             @Override // com.baidu.tieba.enterForum.a.b.InterfaceC0600b
             public void a(View view, k kVar) {
                 if (kVar != null) {
@@ -73,7 +73,7 @@ public class RecommendForumHorizontalView extends LinearLayout {
                             }
                         } else {
                             anVar.ag("obj_locate", 1);
-                            anVar.ag("obj_type", RecommendForumHorizontalView.this.gNU ? 4 : 1);
+                            anVar.ag("obj_type", RecommendForumHorizontalView.this.gOf ? 4 : 1);
                         }
                         TiebaStatic.log(anVar);
                     }
@@ -86,19 +86,19 @@ public class RecommendForumHorizontalView extends LinearLayout {
                 an anVar = new an("c13645");
                 anVar.s("uid", TbadkApplication.getCurrentAccountId());
                 anVar.ag("obj_locate", 1);
-                anVar.ag("obj_type", RecommendForumHorizontalView.this.gNU ? 5 : 1);
+                anVar.ag("obj_type", RecommendForumHorizontalView.this.gOf ? 5 : 1);
                 anVar.ag("obj_source", 5);
                 TiebaStatic.log(anVar);
             }
         };
-        this.gYt = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.RecommendForumHorizontalView.2
+        this.gYE = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.RecommendForumHorizontalView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tieba.enterForum.b.b(RecommendForumHorizontalView.this.mPageContext, RecommendForumHorizontalView.this.tabName);
                 an anVar = new an("c13645");
                 anVar.s("uid", TbadkApplication.getCurrentAccountId());
                 anVar.ag("obj_locate", 1);
-                anVar.ag("obj_type", RecommendForumHorizontalView.this.gNU ? 5 : 1);
+                anVar.ag("obj_type", RecommendForumHorizontalView.this.gOf ? 5 : 1);
                 anVar.ag("obj_source", 2);
                 TiebaStatic.log(anVar);
             }
@@ -111,34 +111,34 @@ public class RecommendForumHorizontalView extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.recommend_forum_horizontal_view, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.gYo = (FrameLayout) findViewById(R.id.title_view);
+        this.gYz = (FrameLayout) findViewById(R.id.title_view);
         this.mTitle = (TextView) findViewById(R.id.tv_title);
-        this.gYp = (ImageView) findViewById(R.id.iv_into);
-        this.gYm = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
+        this.gYA = (ImageView) findViewById(R.id.iv_into);
+        this.gYx = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        this.gYn = new com.baidu.tieba.enterForum.a.b(this.mPageContext, this.mFrom);
+        this.gYy = new com.baidu.tieba.enterForum.a.b(this.mPageContext, this.mFrom);
         if (this.mFrom == 0) {
-            this.gYn.setHasLikeForum(this.gNU);
+            this.gYy.setHasLikeForum(this.gOf);
         } else if (this.mFrom == 1) {
-            this.gYn.setTabName(this.tabName);
+            this.gYy.setTabName(this.tabName);
         }
-        this.gYn.a(this.gNT);
+        this.gYy.a(this.gOe);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this.mPageContext.getPageActivity(), 0, false));
-        this.mRecyclerView.setAdapter(this.gYn);
+        this.mRecyclerView.setAdapter(this.gYy);
         this.mRecyclerView.setClipChildren(false);
-        this.gYn.notifyDataSetChanged();
+        this.gYy.notifyDataSetChanged();
         this.mTitle.setText(this.mPageContext.getPageActivity().getString(R.string.recommend_forum_title_horizontal));
-        this.gYp.setOnClickListener(this.gYt);
-        this.gYs = new RefreshView(getContext());
-        this.gYm.setRefreshViewAndListener(this.gYs);
-        this.gYm.setCallback(new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.enterForum.view.RecommendForumHorizontalView.3
+        this.gYA.setOnClickListener(this.gYE);
+        this.gYD = new RefreshView(getContext());
+        this.gYx.setRefreshViewAndListener(this.gYD);
+        this.gYx.setCallback(new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.enterForum.view.RecommendForumHorizontalView.3
             @Override // com.baidu.tieba.enterForum.view.horizontalpullview.PullLeftRefreshLayout.a
-            public void bQG() {
+            public void bQI() {
                 com.baidu.tieba.enterForum.b.b(RecommendForumHorizontalView.this.mPageContext, RecommendForumHorizontalView.this.tabName);
                 an anVar = new an("c13645");
                 anVar.s("uid", TbadkApplication.getCurrentAccountId());
                 anVar.ag("obj_locate", 1);
-                anVar.ag("obj_type", RecommendForumHorizontalView.this.gNU ? 5 : 1);
+                anVar.ag("obj_type", RecommendForumHorizontalView.this.gOf ? 5 : 1);
                 anVar.ag("obj_source", 4);
                 TiebaStatic.log(anVar);
             }
@@ -146,13 +146,13 @@ public class RecommendForumHorizontalView extends LinearLayout {
     }
 
     public void setSquareEntranceAtStart(boolean z) {
-        this.gYq = z;
+        this.gYB = z;
     }
 
     public void setShowMore(boolean z) {
-        this.gYr = z;
-        if (this.gYm != null) {
-            this.gYm.setEnablePull(z);
+        this.gYC = z;
+        if (this.gYx != null) {
+            this.gYx.setEnablePull(z);
         }
     }
 
@@ -165,42 +165,42 @@ public class RecommendForumHorizontalView extends LinearLayout {
     }
 
     public void b(l lVar) {
-        if (lVar != null && lVar.bOq() != null && lVar.bOq().size() > 0) {
+        if (lVar != null && lVar.bOs() != null && lVar.bOs().size() > 0) {
             ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList = new ArrayList<>();
-            ArrayList<k> bOq = lVar.bOq();
-            if (this.gYq) {
+            ArrayList<k> bOs = lVar.bOs();
+            if (this.gYB) {
                 arrayList.add(new com.baidu.tieba.enterForum.data.a());
-                if (bOq != null) {
-                    arrayList.addAll(bOq);
+                if (bOs != null) {
+                    arrayList.addAll(bOs);
                 }
             } else {
-                if (bOq != null) {
-                    arrayList.addAll(bOq);
+                if (bOs != null) {
+                    arrayList.addAll(bOs);
                 }
                 arrayList.add(new com.baidu.tieba.enterForum.data.a());
             }
-            this.gYn.setData(arrayList);
+            this.gYy.setData(arrayList);
         }
         if (this.mFrom == 0) {
-            if (this.gYo.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.gYo.getLayoutParams()).topMargin = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds38);
-                this.gYo.requestLayout();
+            if (this.gYz.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) this.gYz.getLayoutParams()).topMargin = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds38);
+                this.gYz.requestLayout();
             }
-        } else if (this.gYo.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) this.gYo.getLayoutParams()).topMargin = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds38);
-            this.gYo.requestLayout();
+        } else if (this.gYz.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) this.gYz.getLayoutParams()).topMargin = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds38);
+            this.gYz.requestLayout();
         }
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
         am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_b);
-        SvgManager.aUV().a(this.gYp, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
-        this.gYs.onChangeSkinType();
-        this.gYn.notifyDataSetChanged();
+        SvgManager.aUW().a(this.gYA, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
+        this.gYD.onChangeSkinType();
+        this.gYy.notifyDataSetChanged();
     }
 
     public void setHasLikeForum(boolean z) {
-        this.gNU = z;
+        this.gOf = z;
     }
 }

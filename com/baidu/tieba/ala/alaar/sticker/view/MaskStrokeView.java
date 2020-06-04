@@ -18,10 +18,10 @@ import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class MaskStrokeView extends View {
     private int aVp;
-    private Bitmap eYS;
-    private Canvas eYT;
-    private Paint eYU;
-    private int eYp;
+    private int eYA;
+    private Bitmap eZd;
+    private Canvas eZe;
+    private Paint eZf;
     private int height;
     private int width;
 
@@ -42,20 +42,20 @@ public class MaskStrokeView extends View {
             obtainStyledAttributes.recycle();
         }
         try {
-            this.eYS = drawableToBitmap(getResources().getDrawable(a.f.sticker_selected_bg));
-            this.eYT = new Canvas(this.eYS);
-            this.eYU = new Paint();
-            this.eYU.setColor(-1);
-            this.eYU.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-            this.eYU.setFlags(1);
+            this.eZd = drawableToBitmap(getResources().getDrawable(a.f.sticker_selected_bg));
+            this.eZe = new Canvas(this.eZd);
+            this.eZf = new Paint();
+            this.eZf.setColor(-1);
+            this.eZf.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+            this.eZf.setFlags(1);
             getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.MaskStrokeView.1
                 @Override // android.view.ViewTreeObserver.OnPreDrawListener
                 public boolean onPreDraw() {
                     MaskStrokeView.this.getViewTreeObserver().removeOnPreDrawListener(this);
                     MaskStrokeView.this.aVp = BdUtilHelper.dip2px(MaskStrokeView.this.getContext(), MaskStrokeView.this.width);
-                    MaskStrokeView.this.eYp = BdUtilHelper.dip2px(MaskStrokeView.this.getContext(), MaskStrokeView.this.height);
-                    MaskStrokeView.this.eYS = MaskStrokeView.this.drawableToBitmap(MaskStrokeView.this.getResources().getDrawable(a.f.sticker_selected_bg));
-                    MaskStrokeView.this.eYT = new Canvas(MaskStrokeView.this.eYS);
+                    MaskStrokeView.this.eYA = BdUtilHelper.dip2px(MaskStrokeView.this.getContext(), MaskStrokeView.this.height);
+                    MaskStrokeView.this.eZd = MaskStrokeView.this.drawableToBitmap(MaskStrokeView.this.getResources().getDrawable(a.f.sticker_selected_bg));
+                    MaskStrokeView.this.eZe = new Canvas(MaskStrokeView.this.eZd);
                     MaskStrokeView.this.invalidate();
                     return false;
                 }
@@ -67,8 +67,8 @@ public class MaskStrokeView extends View {
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        this.eYT.drawRoundRect(new RectF(e(getContext(), 3.0f), e(getContext(), 3.0f), getDefaultWidth() - e(getContext(), 3.0f), getDefaultHeight() - e(getContext(), 3.0f)), e(getContext(), 6.0f), e(getContext(), 6.0f), this.eYU);
-        canvas.drawBitmap(this.eYS, 0.0f, 0.0f, (Paint) null);
+        this.eZe.drawRoundRect(new RectF(e(getContext(), 3.0f), e(getContext(), 3.0f), getDefaultWidth() - e(getContext(), 3.0f), getDefaultHeight() - e(getContext(), 3.0f)), e(getContext(), 6.0f), e(getContext(), 6.0f), this.eZf);
+        canvas.drawBitmap(this.eZd, 0.0f, 0.0f, (Paint) null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -92,6 +92,6 @@ public class MaskStrokeView extends View {
     }
 
     private float getDefaultHeight() {
-        return this.eYp <= 0 ? e(getContext(), 60.0f) : this.eYp;
+        return this.eYA <= 0 ? e(getContext(), 60.0f) : this.eYA;
     }
 }

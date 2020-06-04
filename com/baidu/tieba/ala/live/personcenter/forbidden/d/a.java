@@ -18,7 +18,7 @@ public class a {
         this.bWU = (TextView) this.ddl.findViewById(a.g.text_user_name);
     }
 
-    public void qu(int i) {
+    public void qw(int i) {
         this.bWU.setText(this.mPageContext.getResources().getString(a.i.sdk_prc_person_forbiddenlist_header, Integer.valueOf(i)));
     }
 

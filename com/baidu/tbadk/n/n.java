@@ -33,7 +33,7 @@ public class n extends l {
     private long etk = -1;
     private long etl = -1;
 
-    public boolean bfL() {
+    public boolean bfM() {
         return this.esK;
     }
 
@@ -45,7 +45,7 @@ public class n extends l {
         this.esN = j;
     }
 
-    public long bfM() {
+    public long bfN() {
         return this.esN;
     }
 
@@ -142,7 +142,7 @@ public class n extends l {
         this.etd = j;
     }
 
-    public static n bfN() {
+    public static n bfO() {
         if (etm == null) {
             synchronized (n.class) {
                 if (etm == null) {
@@ -153,8 +153,8 @@ public class n extends l {
         return etm;
     }
 
-    public void bfO() {
-        if (this.etl - this.esN > 0 && !this.esL && this.eti > 0 && m.bfI().bfJ()) {
+    public void bfP() {
+        if (this.etl - this.esN > 0 && !this.esL && this.eti > 0 && m.bfJ().bfK()) {
             this.esL = true;
             long j = this.esO - this.esN;
             long j2 = -1;
@@ -200,7 +200,7 @@ public class n extends l {
     }
 
     public void cR(long j) {
-        if (m.bfI().bfJ() && j > 0) {
+        if (m.bfJ().bfK() && j > 0) {
             com.baidu.adp.lib.stats.a kY = kY();
             kY.append("procname", "remote");
             kY.append("costt", String.valueOf(j));

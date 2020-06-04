@@ -4,15 +4,15 @@ import java.util.List;
 import tbclient.ManagerElection;
 /* loaded from: classes9.dex */
 public class i {
-    private boolean gxU;
-    private int jEV;
-    private int jEW;
-    private List<String> jEX;
-    private List<String> jEY;
-    private List<String> jEZ;
-    private String jFa;
-    private boolean jFb;
-    private int jFc;
+    private boolean gyf;
+    private int jGb;
+    private int jGc;
+    private List<String> jGd;
+    private List<String> jGe;
+    private List<String> jGf;
+    private String jGg;
+    private boolean jGh;
+    private int jGi;
     private int status;
 
     public static i b(ManagerElection managerElection) {
@@ -20,16 +20,16 @@ public class i {
             return null;
         }
         i iVar = new i();
-        iVar.jEW = managerElection.begin_vote_time.intValue();
-        iVar.gxU = managerElection.can_vote.intValue() == 1;
-        iVar.jEV = managerElection.vote_num.intValue();
-        iVar.jFb = managerElection.is_show_distribute.intValue() == 1;
-        iVar.jFc = managerElection.remainder_time.intValue();
+        iVar.jGc = managerElection.begin_vote_time.intValue();
+        iVar.gyf = managerElection.can_vote.intValue() == 1;
+        iVar.jGb = managerElection.vote_num.intValue();
+        iVar.jGh = managerElection.is_show_distribute.intValue() == 1;
+        iVar.jGi = managerElection.remainder_time.intValue();
         iVar.status = managerElection.status.intValue();
-        iVar.jFa = managerElection.tail_text;
-        iVar.jEX = managerElection.vote_condition_pic;
-        iVar.jEY = managerElection.vote_condition_title;
-        iVar.jEZ = managerElection.vote_condition;
+        iVar.jGg = managerElection.tail_text;
+        iVar.jGd = managerElection.vote_condition_pic;
+        iVar.jGe = managerElection.vote_condition_title;
+        iVar.jGf = managerElection.vote_condition;
         return iVar;
     }
 
@@ -37,43 +37,43 @@ public class i {
         return this.status;
     }
 
-    public boolean cCP() {
-        return this.jFb;
+    public boolean cDf() {
+        return this.jGh;
     }
 
-    public int cCQ() {
-        return this.jFc;
+    public int cDg() {
+        return this.jGi;
     }
 
-    public int cCR() {
-        return this.jEV;
+    public int cDh() {
+        return this.jGb;
     }
 
-    public List<String> cCS() {
-        return this.jEY;
+    public List<String> cDi() {
+        return this.jGe;
     }
 
-    public List<String> cCT() {
-        return this.jEZ;
+    public List<String> cDj() {
+        return this.jGf;
     }
 
-    public String cCU() {
-        return this.jFa;
+    public String cDk() {
+        return this.jGg;
     }
 
-    public boolean bKl() {
-        return this.gxU;
+    public boolean bKn() {
+        return this.gyf;
     }
 
     public void lI(boolean z) {
-        this.gxU = z;
+        this.gyf = z;
     }
 
     public void setStatus(int i) {
         this.status = i;
     }
 
-    public void zU(int i) {
-        this.jEV = i;
+    public void zW(int i) {
+        this.jGb = i;
     }
 }

@@ -42,10 +42,10 @@ public class c implements d {
         }
 
         @Override // com.baidu.swan.apps.p.a.b.b.a
-        public void eu(int i) {
+        public void ew(int i) {
             bg("onKeyboardShow", "height: " + i);
             if (c.this.cfu != null) {
-                c.this.cfu.eu(i);
+                c.this.cfu.ew(i);
             }
         }
 
@@ -75,7 +75,7 @@ public class c implements d {
 
         void aen();
 
-        void eu(int i);
+        void ew(int i);
 
         void kw(String str);
     }
@@ -111,17 +111,17 @@ public class c implements d {
         this.cfu = aVar;
     }
 
-    public void fn(final int i) {
+    public void fp(final int i) {
         this.cfs.post(new Runnable() { // from class: com.baidu.swan.apps.p.a.c.1
             @Override // java.lang.Runnable
             public void run() {
-                c.this.fo(i);
+                c.this.fq(i);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fo(int i) {
+    public void fq(int i) {
         Activity aes = aes();
         if (aes != null) {
             this.cft = new com.baidu.swan.apps.p.a.b.b(aes, i, this.cfv);
@@ -216,9 +216,9 @@ public class c implements d {
         }
         int YS = QH.YS();
         for (int i = 0; i < YS; i++) {
-            com.baidu.swan.apps.core.d.b eK = QH.eK(i);
-            if (eK instanceof com.baidu.swan.apps.core.d.d) {
-                com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) eK;
+            com.baidu.swan.apps.core.d.b eM = QH.eM(i);
+            if (eM instanceof com.baidu.swan.apps.core.d.d) {
+                com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) eM;
                 if (TextUtils.equals(dVar.YB(), this.bIH)) {
                     return dVar;
                 }

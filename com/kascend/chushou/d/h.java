@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes5.dex */
 public class h {
-    private static h mHF;
+    private static h mIT;
     public List<String> f;
     private String o;
     private List<String> r;
@@ -38,28 +38,28 @@ public class h {
     private boolean t = true;
     public boolean d = false;
     public boolean e = true;
-    private List<Integer> mHG = new ArrayList();
+    private List<Integer> mIU = new ArrayList();
 
-    public static h dDZ() {
-        if (mHF == null) {
+    public static h dEn() {
+        if (mIT == null) {
             synchronized (h.class) {
-                if (mHF == null) {
-                    mHF = new h();
-                    mHF.x();
+                if (mIT == null) {
+                    mIT = new h();
+                    mIT.x();
                 }
             }
         }
-        return mHF;
+        return mIT;
     }
 
     private h() {
     }
 
     private void x() {
-        SharedPreferences sharedPreferences = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0);
+        SharedPreferences sharedPreferences = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0);
         this.h = sharedPreferences.getString("user_id", null);
         this.i = sharedPreferences.getString("nick_name", null);
-        this.a = sharedPreferences.getBoolean("open_hardware", tv.chushou.zues.utils.a.dRK());
+        this.a = sharedPreferences.getBoolean("open_hardware", tv.chushou.zues.utils.a.dRY());
         this.j = sharedPreferences.getBoolean("only_wifi", true);
         this.b = sharedPreferences.getBoolean("show_video_barrage", true);
         this.k = sharedPreferences.getString("choose_source", "2");
@@ -79,7 +79,7 @@ public class h {
 
     private void f(String str) {
         this.h = str;
-        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
         if (this.h != null) {
             edit.putString("user_id", this.h);
         } else {
@@ -94,7 +94,7 @@ public class h {
 
     private void g(String str) {
         this.i = str;
-        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
         if (this.h != null) {
             edit.putString("nick_name", this.h);
         } else {
@@ -124,14 +124,14 @@ public class h {
     public void a(boolean z) {
         if (this.b != z) {
             this.b = z;
-            SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+            SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
             edit.putBoolean("show_video_barrage", z);
             edit.apply();
         }
     }
 
-    private SharedPreferences.Editor dEa() {
-        return tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+    private SharedPreferences.Editor dEo() {
+        return tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
     }
 
     private void a(SharedPreferences.Editor editor) {
@@ -143,7 +143,7 @@ public class h {
     private void a(String str, SharedPreferences.Editor editor) {
         boolean z = false;
         if (editor == null) {
-            editor = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+            editor = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
             z = true;
         }
         if (str != null) {
@@ -164,7 +164,7 @@ public class h {
         boolean z = false;
         this.l = str;
         if (editor == null) {
-            editor = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+            editor = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
             z = true;
         }
         if (str != null) {
@@ -194,22 +194,22 @@ public class h {
     }
 
     public void h() {
-        SharedPreferences.Editor dEa = dEa();
+        SharedPreferences.Editor dEo = dEo();
         g((String) null);
         f((String) null);
-        b(null, dEa);
+        b(null, dEo);
         a((String) null);
         a(-1);
-        a((String) null, dEa);
-        a(dEa);
+        a((String) null, dEo);
+        a(dEo);
     }
 
     public void a(MyUserInfo myUserInfo) {
         if (myUserInfo != null) {
-            SharedPreferences.Editor dEa = dEa();
+            SharedPreferences.Editor dEo = dEo();
             f(myUserInfo.mUserID);
             g(myUserInfo.mNickname);
-            a(dEa);
+            a(dEo);
         }
     }
 
@@ -230,7 +230,7 @@ public class h {
     */
     private void a(String str, Object obj) {
         ObjectOutputStream objectOutputStream = "com_kascend_chushou_prefs";
-        SharedPreferences sharedPreferences = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0);
+        SharedPreferences sharedPreferences = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
             try {
@@ -313,11 +313,11 @@ public class h {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private <T> T Qv(String str) {
+    private <T> T Qw(String str) {
         Throwable th;
         ObjectInputStream objectInputStream;
         T t = null;
-        SharedPreferences sharedPreferences = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0);
+        SharedPreferences sharedPreferences = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0);
         boolean contains = sharedPreferences.contains(str);
         if (contains) {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(Base64.decode(sharedPreferences.getString(str, null), 0));
@@ -422,13 +422,13 @@ public class h {
         }
     }
 
-    public Object dEb() {
-        return dDZ().Qv("hotword");
+    public Object dEp() {
+        return dEn().Qw("hotword");
     }
 
     public void b(boolean z) {
         this.c = z;
-        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
         edit.putBoolean("hotword_anim", z);
         edit.apply();
     }
@@ -446,7 +446,7 @@ public class h {
 
     public void c(String str) {
         this.o = str;
-        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
         edit.putString("pre_key_room_toast_content", str);
         edit.apply();
     }
@@ -457,7 +457,7 @@ public class h {
 
     public void c(boolean z) {
         this.p = z;
-        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
         edit.putBoolean("pre_key_room_toast_newuser_danmu", z);
         edit.apply();
     }
@@ -468,17 +468,17 @@ public class h {
 
     public void d(boolean z) {
         this.q = z;
-        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
         edit.putBoolean("pre_key_room_toast_newuser_gift", z);
         edit.apply();
     }
 
     public int m() {
-        return tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).getInt("pre_key_room_danmu_loc", 1);
+        return tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).getInt("pre_key_room_danmu_loc", 1);
     }
 
     public void b(int i) {
-        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
         edit.putInt("pre_key_room_danmu_loc", i);
         edit.apply();
     }
@@ -489,7 +489,7 @@ public class h {
 
     public void e(boolean z) {
         this.d = z;
-        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
         edit.putBoolean("pre_key_room_danmu_open", z);
         edit.apply();
     }
@@ -500,17 +500,17 @@ public class h {
 
     public void f(boolean z) {
         this.e = z;
-        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
         edit.putBoolean("pre_key_room_danmu_full_open", z);
         edit.apply();
     }
 
     public String p() {
-        return tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).getString("pre_key_ad_interval_time", "");
+        return tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).getString("pre_key_ad_interval_time", "");
     }
 
     public void d(String str) {
-        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
         edit.putString("pre_key_ad_interval_time", str);
         edit.apply();
     }
@@ -521,7 +521,7 @@ public class h {
 
     public void g(boolean z) {
         this.s = z;
-        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
         edit.putBoolean("pre_key_auto_popup_redpacket", z);
         edit.apply();
     }
@@ -532,28 +532,28 @@ public class h {
 
     public void h(boolean z) {
         this.t = z;
-        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
         edit.putBoolean("pre_key_first_redpacket_config_dialog", z);
         edit.apply();
     }
 
     public String s() {
-        return tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).getString("pre_key_last_token", "");
+        return tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).getString("pre_key_last_token", "");
     }
 
     public void e(String str) {
-        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
         edit.putString("pre_key_last_token", str);
         edit.apply();
     }
 
-    public Set<String> dEc() {
-        Set<String> stringSet = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).getStringSet("show_firstrecharge_h5", null);
+    public Set<String> dEq() {
+        Set<String> stringSet = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).getStringSet("show_firstrecharge_h5", null);
         return stringSet != null ? new HashSet(stringSet) : new HashSet();
     }
 
     public void a(Set<String> set) {
-        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
         edit.putStringSet("show_firstrecharge_h5", set);
         edit.apply();
     }
@@ -564,8 +564,8 @@ public class h {
     }
 
     public void c(int i) {
-        if (this.mHG.size() <= 1 || this.mHG.get(0).intValue() != i) {
-            Iterator<Integer> it = this.mHG.iterator();
+        if (this.mIU.size() <= 1 || this.mIU.get(0).intValue() != i) {
+            Iterator<Integer> it = this.mIU.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -574,51 +574,51 @@ public class h {
                     break;
                 }
             }
-            this.mHG.add(0, Integer.valueOf(i));
-            if (this.mHG.size() > 20) {
-                this.mHG.remove(20);
+            this.mIU.add(0, Integer.valueOf(i));
+            if (this.mIU.size() > 20) {
+                this.mIU.remove(20);
             }
-            SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
-            edit.putString("pre_key_commonly_gift", tv.chushou.zues.utils.d.toJson(this.mHG));
+            SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+            edit.putString("pre_key_commonly_gift", tv.chushou.zues.utils.d.toJson(this.mIU));
             edit.apply();
         }
     }
 
     public void a(List<Integer> list) {
-        if (list == null || list.size() != this.mHG.size()) {
-            this.mHG.clear();
+        if (list == null || list.size() != this.mIU.size()) {
+            this.mIU.clear();
             if (list != null) {
-                this.mHG.addAll(list);
+                this.mIU.addAll(list);
             }
-            SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
-            edit.putString("pre_key_commonly_gift", tv.chushou.zues.utils.d.toJson(this.mHG));
+            SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+            edit.putString("pre_key_commonly_gift", tv.chushou.zues.utils.d.toJson(this.mIU));
             edit.apply();
         }
     }
 
-    public List<Integer> dEd() {
-        if (!tv.chushou.zues.utils.h.isEmpty(this.mHG)) {
-            return this.mHG;
+    public List<Integer> dEr() {
+        if (!tv.chushou.zues.utils.h.isEmpty(this.mIU)) {
+            return this.mIU;
         }
-        String string = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).getString("pre_key_commonly_gift", null);
+        String string = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).getString("pre_key_commonly_gift", null);
         if (tv.chushou.zues.utils.h.isEmpty(string)) {
             return null;
         }
         ArrayList arrayList = (ArrayList) tv.chushou.zues.utils.d.c(string, new com.google.gson.b.a<ArrayList<Integer>>() { // from class: com.kascend.chushou.d.h.1
         }.getType());
         if (!tv.chushou.zues.utils.h.isEmpty(arrayList)) {
-            this.mHG.addAll(arrayList);
+            this.mIU.addAll(arrayList);
         }
-        return this.mHG;
+        return this.mIU;
     }
 
     public void a(long j) {
-        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
+        SharedPreferences.Editor edit = tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).edit();
         edit.putLong("pre_key_exit_subscribetime", j);
         edit.apply();
     }
 
-    public long dEe() {
-        return tv.chushou.basis.d.b.dRk().getSharedPreferences("com_kascend_chushou_prefs", 0).getLong("pre_key_exit_subscribetime", 0L);
+    public long dEs() {
+        return tv.chushou.basis.d.b.dRy().getSharedPreferences("com_kascend_chushou_prefs", 0).getLong("pre_key_exit_subscribetime", 0L);
     }
 }

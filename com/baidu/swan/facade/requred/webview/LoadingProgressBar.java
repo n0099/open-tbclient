@@ -319,7 +319,7 @@ public class LoadingProgressBar extends View {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: hY */
+            /* renamed from: ia */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }

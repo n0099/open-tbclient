@@ -15,7 +15,7 @@ public class ag {
     public ag() {
         this.dCS = null;
         this.dCS = new ArrayList<>();
-        ke(0);
+        kg(0);
     }
 
     public UserData getUser() {
@@ -44,13 +44,13 @@ public class ag {
                     this.dCS.add(optJSONArray.optString(i, null));
                 }
             }
-            ke(jSONObject.optInt("retrytime"));
+            kg(jSONObject.optInt("retrytime"));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void ke(int i) {
+    public void kg(int i) {
         this.dCT = i;
     }
 }

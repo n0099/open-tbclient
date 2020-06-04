@@ -11,10 +11,10 @@ public interface b extends IInterface {
 
         /* renamed from: com.huawei.android.hms.pps.a.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0793a implements b {
+        public static class C0794a implements b {
             private IBinder a;
 
-            public C0793a(IBinder iBinder) {
+            public C0794a(IBinder iBinder) {
                 this.a = iBinder;
             }
 

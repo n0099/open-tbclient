@@ -30,7 +30,7 @@ public class b extends PopupWindow {
 
         void aen();
 
-        void eu(int i);
+        void ew(int i);
 
         void kw(String str);
     }
@@ -49,11 +49,11 @@ public class b extends PopupWindow {
             }
         };
         this.cfv = aVar;
-        fp(i);
+        fr(i);
         H(activity);
     }
 
-    private void fp(int i) {
+    private void fr(int i) {
         for (int i2 = 0; i2 < 9; i2++) {
             this.cfB[i2] = String.valueOf(i2 + 1);
         }
@@ -142,7 +142,7 @@ public class b extends PopupWindow {
                 ((SwanAppActivity) this.mActivity).a(this.cfE);
             }
             if (this.cfv != null) {
-                this.cfv.eu(this.bQg);
+                this.cfv.ew(this.bQg);
             }
         }
     }

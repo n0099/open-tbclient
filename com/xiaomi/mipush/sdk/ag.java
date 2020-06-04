@@ -61,7 +61,7 @@ public class ag {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m71a(String str) {
+    public void m70a(String str) {
         synchronized (this.f40a) {
             z zVar = new z();
             zVar.a = 0;
@@ -74,7 +74,7 @@ public class ag {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m72a(String str) {
+    public boolean m71a(String str) {
         boolean z;
         synchronized (this.f40a) {
             z zVar = new z();

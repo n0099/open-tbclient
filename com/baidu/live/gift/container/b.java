@@ -34,7 +34,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: bT */
+    /* renamed from: bV */
     public g getItem(int i) {
         if (this.aHr == null || i < 0 || i >= getCount() - 1) {
             return null;

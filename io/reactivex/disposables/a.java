@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public final class a implements b, io.reactivex.internal.disposables.a {
     volatile boolean disposed;
-    g<b> nmu;
+    g<b> nnE;
 
     @Override // io.reactivex.disposables.b
     public void dispose() {
@@ -15,8 +15,8 @@ public final class a implements b, io.reactivex.internal.disposables.a {
             synchronized (this) {
                 if (!this.disposed) {
                     this.disposed = true;
-                    g<b> gVar = this.nmu;
-                    this.nmu = null;
+                    g<b> gVar = this.nnE;
+                    this.nnE = null;
                     a(gVar);
                 }
             }
@@ -34,10 +34,10 @@ public final class a implements b, io.reactivex.internal.disposables.a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    g<b> gVar = this.nmu;
+                    g<b> gVar = this.nnE;
                     if (gVar == null) {
                         gVar = new g<>();
-                        this.nmu = gVar;
+                        this.nnE = gVar;
                     }
                     gVar.add(bVar);
                     return true;
@@ -64,7 +64,7 @@ public final class a implements b, io.reactivex.internal.disposables.a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    g<b> gVar = this.nmu;
+                    g<b> gVar = this.nnE;
                     if (gVar != null && gVar.remove(bVar)) {
                         z = true;
                     }
@@ -78,7 +78,7 @@ public final class a implements b, io.reactivex.internal.disposables.a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    g<b> gVar = this.nmu;
+                    g<b> gVar = this.nnE;
                     r0 = gVar != null ? gVar.size() : 0;
                 }
             }
@@ -87,10 +87,10 @@ public final class a implements b, io.reactivex.internal.disposables.a {
     }
 
     void a(g<b> gVar) {
-        Object[] dKX;
+        Object[] dLl;
         if (gVar != null) {
             ArrayList arrayList = null;
-            for (Object obj : gVar.dKX()) {
+            for (Object obj : gVar.dLl()) {
                 if (obj instanceof b) {
                     try {
                         ((b) obj).dispose();

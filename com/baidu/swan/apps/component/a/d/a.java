@@ -42,7 +42,7 @@ public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps
     public com.baidu.swan.apps.component.d.b a(@NonNull M m, @NonNull M m2) {
         com.baidu.swan.apps.component.d.b a = super.a(m, m2);
         if (m2.bPq != null && (m.bPq == null || !TextUtils.equals(m.bPq.toString(), m2.bPq.toString()))) {
-            a.ew(4);
+            a.ey(4);
         }
         return a;
     }
@@ -50,7 +50,7 @@ public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(@NonNull V v, @NonNull M m, @NonNull com.baidu.swan.apps.component.d.b bVar) {
         super.a((a<V, M>) v, (V) m, bVar);
-        if (bVar.ex(4)) {
+        if (bVar.ez(4)) {
             b(v, m);
             a((a<V, M>) v, (V) m);
             c(v, m);
@@ -108,7 +108,7 @@ public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps
     }
 
     public final boolean Vc() {
-        if (et(4) && Vn()) {
+        if (ev(4) && Vn()) {
             b bVar = (b) Vj();
             return (bVar.bPt == null || TextUtils.isEmpty(bVar.bPt.optString("duration"))) ? false : true;
         }
@@ -167,8 +167,8 @@ public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps
                         } else {
                             marginLayoutParams.topMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                         }
-                        bVar2.bPJ.fU(marginLayoutParams.leftMargin);
-                        bVar2.bPJ.fV(marginLayoutParams.topMargin);
+                        bVar2.bPJ.fW(marginLayoutParams.leftMargin);
+                        bVar2.bPJ.fX(marginLayoutParams.topMargin);
                         swanAppComponentContainerView.setLayoutParams(marginLayoutParams);
                     }
                 }

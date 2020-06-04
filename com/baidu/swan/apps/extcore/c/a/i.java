@@ -38,12 +38,12 @@ public class i extends aa {
                         com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, unitedSchemeEntity);
                         return;
                     }
-                    boolean fh = com.baidu.swan.apps.extcore.c.a.fh(b.optInt("emitReplaceSwanCore"));
-                    if (fh && !com.baidu.swan.apps.swancore.b.arS()) {
+                    boolean fj = com.baidu.swan.apps.extcore.c.a.fj(b.optInt("emitReplaceSwanCore"));
+                    if (fj && !com.baidu.swan.apps.swancore.b.arS()) {
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, context.getResources().getString(a.h.aiapps_debug_no_swan_core));
                         return;
                     }
-                    com.baidu.swan.apps.af.a.a.eA(fh);
+                    com.baidu.swan.apps.af.a.a.eA(fj);
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                     com.baidu.swan.apps.af.a.a.Yc();
                 }

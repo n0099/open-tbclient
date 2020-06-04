@@ -16,28 +16,28 @@ public final class R {
 
     /* loaded from: classes5.dex */
     public static final class drawable {
-        public static final int suspension_ball_cancel_window_icon = 0x7f021b73;
-        public static final int suspension_ball_cancel_window_icon_focus = 0x7f021b74;
+        public static final int suspension_ball_cancel_window_icon = 0x7f021b7a;
+        public static final int suspension_ball_cancel_window_icon_focus = 0x7f021b7b;
     }
 
     /* loaded from: classes5.dex */
     public static final class id {
-        public static final int svCancelBg = 0x7f0f2390;
+        public static final int svCancelBg = 0x7f0f23a7;
         public static final int tag_barrier_available_rect_bottom = 0x7f0f00eb;
         public static final int tag_barrier_available_rect_top = 0x7f0f00ec;
         public static final int tag_barrier_rect = 0x7f0f00ed;
         public static final int tag_barrier_type = 0x7f0f00ee;
-        public static final int tvCancelHint = 0x7f0f2391;
+        public static final int tvCancelHint = 0x7f0f23a8;
     }
 
     /* loaded from: classes5.dex */
     public static final class layout {
-        public static final int view_cancel_window = 0x7f03082e;
+        public static final int view_cancel_window = 0x7f030831;
     }
 
     /* loaded from: classes5.dex */
     public static final class string {
-        public static final int suspension_window_cancel = 0x7f0815e2;
+        public static final int suspension_window_cancel = 0x7f0815e9;
     }
 
     /* loaded from: classes5.dex */

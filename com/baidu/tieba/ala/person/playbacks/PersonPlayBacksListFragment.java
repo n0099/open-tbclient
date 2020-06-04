@@ -28,14 +28,14 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class PersonPlayBacksListFragment extends BaseFragment {
     private Context context;
-    private a gkf;
-    private BdListView gkg;
-    private d gkj;
-    private boolean gkk;
-    private Object gkl;
-    private AlaListEmptyView gkm;
-    private b gms;
-    private boolean gmt = true;
+    private a gkq;
+    private BdListView gkr;
+    private d gku;
+    private boolean gkv;
+    private Object gkw;
+    private AlaListEmptyView gkx;
+    private b gmD;
+    private boolean gmE = true;
     private String userId;
 
     public static PersonPlayBacksListFragment A(String str, Object obj) {
@@ -48,7 +48,7 @@ public class PersonPlayBacksListFragment extends BaseFragment {
     }
 
     public void an(Object obj) {
-        this.gkl = obj;
+        this.gkw = obj;
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -64,34 +64,34 @@ public class PersonPlayBacksListFragment extends BaseFragment {
         initData();
         ag(inflate);
         initListener();
-        bHV();
+        bHX();
         return inflate;
     }
 
     private void aLL() {
-        b(true, this.gkl);
+        b(true, this.gkw);
     }
 
     private void initListener() {
-        this.gkg.setOnSrollToBottomListener(new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.person.playbacks.PersonPlayBacksListFragment.1
+        this.gkr.setOnSrollToBottomListener(new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.person.playbacks.PersonPlayBacksListFragment.1
             @Override // com.baidu.live.adp.widget.listview.BdListView.OnScrollToBottomListener
             public void onScrollToBottom() {
-                if (!PersonPlayBacksListFragment.this.gmt) {
-                    PersonPlayBacksListFragment.this.gkj.hide();
+                if (!PersonPlayBacksListFragment.this.gmE) {
+                    PersonPlayBacksListFragment.this.gku.hide();
                 } else {
                     PersonPlayBacksListFragment.this.loadData();
                 }
             }
         });
-        this.gkj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.playbacks.PersonPlayBacksListFragment.2
+        this.gku.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.playbacks.PersonPlayBacksListFragment.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (PersonPlayBacksListFragment.this.gkf != null && PersonPlayBacksListFragment.this.gkf.getCount() == 0) {
+                if (PersonPlayBacksListFragment.this.gkq != null && PersonPlayBacksListFragment.this.gkq.getCount() == 0) {
                     PersonPlayBacksListFragment.this.loadData();
                 }
             }
         });
-        this.gkf.a(new a.b() { // from class: com.baidu.tieba.ala.person.playbacks.PersonPlayBacksListFragment.3
+        this.gkq.a(new a.b() { // from class: com.baidu.tieba.ala.person.playbacks.PersonPlayBacksListFragment.3
             @Override // com.baidu.tieba.ala.person.adapter.a.b
             public void a(AlaLiveInfoData alaLiveInfoData, View view) {
                 if (PersonPlayBacksListFragment.this.getPageContext().getOrignalPage() instanceof PersonCardActivity) {
@@ -107,26 +107,26 @@ public class PersonPlayBacksListFragment extends BaseFragment {
     }
 
     private void initData() {
-        this.gms = new b(getPageContext());
-        this.gms.a(new b.a() { // from class: com.baidu.tieba.ala.person.playbacks.PersonPlayBacksListFragment.4
+        this.gmD = new b(getPageContext());
+        this.gmD.a(new b.a() { // from class: com.baidu.tieba.ala.person.playbacks.PersonPlayBacksListFragment.4
             @Override // com.baidu.tieba.ala.person.c.b.a
             public void a(e eVar) {
                 if (eVar != null) {
-                    PersonPlayBacksListFragment.this.b(PersonPlayBacksListFragment.this.gkk, eVar);
-                    if (PersonPlayBacksListFragment.this.gkk) {
-                        PersonPlayBacksListFragment.this.gkk = false;
+                    PersonPlayBacksListFragment.this.b(PersonPlayBacksListFragment.this.gkv, eVar);
+                    if (PersonPlayBacksListFragment.this.gkv) {
+                        PersonPlayBacksListFragment.this.gkv = false;
                         return;
                     }
                     return;
                 }
                 PersonPlayBacksListFragment.this.showToast(a.i.ala_person_load_fail);
-                PersonPlayBacksListFragment.this.gkj.rJ(a.i.ala_person_load_fail_click);
+                PersonPlayBacksListFragment.this.gku.rL(a.i.ala_person_load_fail_click);
             }
 
             @Override // com.baidu.tieba.ala.person.c.b.a
             public void onFail(String str) {
                 PersonPlayBacksListFragment.this.showToast(str);
-                PersonPlayBacksListFragment.this.gkf.a(true, null, 2);
+                PersonPlayBacksListFragment.this.gkq.a(true, null, 2);
             }
         });
     }
@@ -134,55 +134,55 @@ public class PersonPlayBacksListFragment extends BaseFragment {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, Object obj) {
         if (obj != null && (obj instanceof e)) {
-            this.gmt = ((e) obj).gkJ.has_more == 1;
-            if (((e) obj).gkJ.has_more != 1) {
-                this.gkj.hide();
+            this.gmE = ((e) obj).gkU.has_more == 1;
+            if (((e) obj).gkU.has_more != 1) {
+                this.gku.hide();
             } else {
-                this.gkj.nx(a.i.sdk_loading);
+                this.gku.nz(a.i.sdk_loading);
             }
-            this.gkf.a(z, ((e) obj).bHY(), 2);
+            this.gkq.a(z, ((e) obj).bIa(), 2);
         }
     }
 
-    private void bHV() {
+    private void bHX() {
         if (JavaTypesHelper.toLong(this.userId, 0L) == 0) {
-            this.gkf.a(true, null, 2);
-        } else if (this.gms != null) {
-            if (this.gkl == null) {
-                this.gms.setCurrentPage(-1);
-                this.gkk = true;
+            this.gkq.a(true, null, 2);
+        } else if (this.gmD != null) {
+            if (this.gkw == null) {
+                this.gmD.setCurrentPage(-1);
+                this.gkv = true;
                 loadData();
                 return;
             }
-            this.gms.setCurrentPage(0);
+            this.gmD.setCurrentPage(0);
             aLL();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadData() {
-        if (this.gmt) {
-            this.gms.setUid(this.userId);
-            this.gms.CT(this.userId);
+        if (this.gmE) {
+            this.gmD.setUid(this.userId);
+            this.gmD.CT(this.userId);
         }
     }
 
     private void ag(View view) {
-        this.gkg = (BdListView) view.findViewById(a.g.listview);
-        this.gkf = new com.baidu.tieba.ala.person.adapter.a(this.context, 1);
-        this.gkg.setAdapter((ListAdapter) this.gkf);
-        this.gkj = new d(getPageContext());
-        this.gkj.createView();
-        this.gkg.setNextPage(this.gkj);
-        this.gkj.display();
-        this.gkj.nx(a.i.sdk_loading);
-        this.gkm = (AlaListEmptyView) view.findViewById(a.g.emptyview);
+        this.gkr = (BdListView) view.findViewById(a.g.listview);
+        this.gkq = new com.baidu.tieba.ala.person.adapter.a(this.context, 1);
+        this.gkr.setAdapter((ListAdapter) this.gkq);
+        this.gku = new d(getPageContext());
+        this.gku.createView();
+        this.gkr.setNextPage(this.gku);
+        this.gku.display();
+        this.gku.nz(a.i.sdk_loading);
+        this.gkx = (AlaListEmptyView) view.findViewById(a.g.emptyview);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.gkm.setParams(a.f.sdk_pic_live_empty01_hk, a.i.hk_ala_person_no_playbacks);
+            this.gkx.setParams(a.f.sdk_pic_live_empty01_hk, a.i.hk_ala_person_no_playbacks);
         } else {
-            this.gkm.setParams(a.f.sdk_pic_live_empty04_qm, a.i.hk_ala_person_no_playbacks);
+            this.gkx.setParams(a.f.sdk_pic_live_empty04_qm, a.i.hk_ala_person_no_playbacks);
         }
-        this.gkg.setEmptyView(this.gkm);
+        this.gkr.setEmptyView(this.gkx);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

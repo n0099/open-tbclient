@@ -14,20 +14,20 @@ import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class a extends BaseAdapter {
     private ArrayList<BlackListItemData> dJp;
-    private View.OnClickListener fZh = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.a.1
+    private View.OnClickListener fZs = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Object tag = view.getTag();
             if (tag != null && (tag instanceof BlackListItemData)) {
-                a.this.iMK.a(view, (BlackListItemData) tag);
+                a.this.iNx.a(view, (BlackListItemData) tag);
             }
         }
     };
-    private IMBlackListActivity iMK;
+    private IMBlackListActivity iNx;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(IMBlackListActivity iMBlackListActivity) {
-        this.iMK = iMBlackListActivity;
+        this.iNx = iMBlackListActivity;
     }
 
     public void setData(ArrayList<BlackListItemData> arrayList) {
@@ -76,36 +76,36 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private C0648a cqe() {
+    private C0648a cqn() {
         C0648a c0648a = new C0648a();
-        c0648a.rootView = LayoutInflater.from(this.iMK.getPageContext().getContext()).inflate(R.layout.im_black_list_item, (ViewGroup) null);
-        c0648a.iMM = (HeadImageView) c0648a.rootView.findViewById(R.id.header_view);
-        c0648a.iMM.setIsRound(true);
-        c0648a.gmQ = (TextView) c0648a.rootView.findViewById(R.id.user_name);
-        c0648a.iMN = (Button) c0648a.rootView.findViewById(R.id.remove_button);
+        c0648a.rootView = LayoutInflater.from(this.iNx.getPageContext().getContext()).inflate(R.layout.im_black_list_item, (ViewGroup) null);
+        c0648a.iNz = (HeadImageView) c0648a.rootView.findViewById(R.id.header_view);
+        c0648a.iNz.setIsRound(true);
+        c0648a.gnb = (TextView) c0648a.rootView.findViewById(R.id.user_name);
+        c0648a.iNA = (Button) c0648a.rootView.findViewById(R.id.remove_button);
         c0648a.rootView.setTag(c0648a);
-        c0648a.iMN.setOnClickListener(this.fZh);
+        c0648a.iNA.setOnClickListener(this.fZs);
         return c0648a;
     }
 
     private C0648a a(Object obj, BlackListItemData blackListItemData) {
         C0648a c0648a;
         if (obj == null) {
-            c0648a = cqe();
+            c0648a = cqn();
         } else {
             c0648a = (C0648a) obj;
         }
         a(c0648a, blackListItemData.JM());
-        c0648a.gmQ.setText(blackListItemData.baZ());
-        c0648a.iMN.setTag(blackListItemData);
-        this.iMK.getLayoutMode().onModeChanged(c0648a.rootView);
+        c0648a.gnb.setText(blackListItemData.bba());
+        c0648a.iNA.setTag(blackListItemData);
+        this.iNx.getLayoutMode().onModeChanged(c0648a.rootView);
         return c0648a;
     }
 
     private void a(C0648a c0648a, String str) {
         if (str != null) {
-            c0648a.iMM.setTag(str);
-            c0648a.iMM.startLoad(str, 12, false);
+            c0648a.iNz.setTag(str);
+            c0648a.iNz.startLoad(str, 12, false);
         }
     }
 
@@ -113,9 +113,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.imMessageCenter.im.friend.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public class C0648a {
-        public TextView gmQ;
-        public HeadImageView iMM;
-        public Button iMN;
+        public TextView gnb;
+        public Button iNA;
+        public HeadImageView iNz;
         public View rootView;
 
         private C0648a() {

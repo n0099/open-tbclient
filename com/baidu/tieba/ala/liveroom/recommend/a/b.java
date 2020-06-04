@@ -43,18 +43,18 @@ public class b extends AbsDelegateAdapter<com.baidu.tieba.ala.liveroom.recommend
                 string = this.mContext.getString(a.i.recommend_live_recommend);
                 break;
         }
-        aVar.gdC.getPaint().setShader(new LinearGradient(0.0f, 0.0f, dimensionPixelSize, 0.0f, Color.parseColor("#FF1E66"), Color.parseColor("#FF6619"), Shader.TileMode.CLAMP));
-        aVar.gdC.setText(string);
+        aVar.gdN.getPaint().setShader(new LinearGradient(0.0f, 0.0f, dimensionPixelSize, 0.0f, Color.parseColor("#FF1E66"), Color.parseColor("#FF6619"), Shader.TileMode.CLAMP));
+        aVar.gdN.setText(string);
         return view;
     }
 
     /* loaded from: classes3.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private TextView gdC;
+        private TextView gdN;
 
         private a(View view) {
             super(view);
-            this.gdC = (TextView) view.findViewById(a.g.ala_recommend_live_type);
+            this.gdN = (TextView) view.findViewById(a.g.ala_recommend_live_type);
         }
     }
 }

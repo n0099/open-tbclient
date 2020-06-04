@@ -4,5 +4,5 @@ import com.baidu.tbadk.core.data.bk;
 /* loaded from: classes3.dex */
 public class c {
     public bk ahg;
-    public int faY;
+    public int fbj;
 }

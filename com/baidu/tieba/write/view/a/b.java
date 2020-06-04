@@ -11,10 +11,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class b extends a {
     private static int mPadding;
-    private TextView lWj;
-    private TextView lWk;
-    private TextView lWl;
-    private TextView lWm;
+    private TextView lXu;
+    private TextView lXv;
+    private TextView lXw;
+    private TextView lXx;
 
     public b(e eVar) {
         super(eVar);
@@ -26,37 +26,37 @@ public class b extends a {
     }
 
     public void D(View.OnClickListener onClickListener) {
-        this.lWj.setTag(0);
-        this.lWk.setTag(1);
-        this.lWl.setTag(2);
-        this.lWm.setTag(3);
-        this.lWj.setOnClickListener(onClickListener);
-        this.lWk.setOnClickListener(onClickListener);
-        this.lWl.setOnClickListener(onClickListener);
-        this.lWm.setOnClickListener(onClickListener);
+        this.lXu.setTag(0);
+        this.lXv.setTag(1);
+        this.lXw.setTag(2);
+        this.lXx.setTag(3);
+        this.lXu.setOnClickListener(onClickListener);
+        this.lXv.setOnClickListener(onClickListener);
+        this.lXw.setOnClickListener(onClickListener);
+        this.lXx.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(R.layout.pic_rorate_view, (ViewGroup) null);
-        this.lWj = (TextView) this.mRootView.findViewById(R.id.rotate_left);
-        this.lWk = (TextView) this.mRootView.findViewById(R.id.rotate_right);
-        this.lWl = (TextView) this.mRootView.findViewById(R.id.rotate_left_right);
-        this.lWm = (TextView) this.mRootView.findViewById(R.id.rotate_up_down);
+        this.lXu = (TextView) this.mRootView.findViewById(R.id.rotate_left);
+        this.lXv = (TextView) this.mRootView.findViewById(R.id.rotate_right);
+        this.lXw = (TextView) this.mRootView.findViewById(R.id.rotate_left_right);
+        this.lXx = (TextView) this.mRootView.findViewById(R.id.rotate_up_down);
     }
 
     public void onChangeSkinType() {
-        am.setViewTextColor(this.lWj, (int) R.color.cp_cont_j);
-        am.setViewTextColor(this.lWk, (int) R.color.cp_cont_j);
-        am.setViewTextColor(this.lWl, (int) R.color.cp_cont_j);
-        am.setViewTextColor(this.lWm, (int) R.color.cp_cont_j);
-        this.lWj.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
-        this.lWk.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
-        this.lWm.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
-        this.lWl.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
-        this.lWj.setCompoundDrawablePadding(mPadding);
-        this.lWk.setCompoundDrawablePadding(mPadding);
-        this.lWm.setCompoundDrawablePadding(mPadding);
-        this.lWl.setCompoundDrawablePadding(mPadding);
+        am.setViewTextColor(this.lXu, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.lXv, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.lXw, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.lXx, (int) R.color.cp_cont_j);
+        this.lXu.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
+        this.lXv.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
+        this.lXx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
+        this.lXw.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
+        this.lXu.setCompoundDrawablePadding(mPadding);
+        this.lXv.setCompoundDrawablePadding(mPadding);
+        this.lXx.setCompoundDrawablePadding(mPadding);
+        this.lXw.setCompoundDrawablePadding(mPadding);
     }
 }

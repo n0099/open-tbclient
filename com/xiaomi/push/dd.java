@@ -87,7 +87,7 @@ public abstract class dd {
             try {
                 ArrayList<String> arrayList = new ArrayList<>();
                 cv cvVar = null;
-                if (z && (cvVar = cz.a().m214a(str)) != null) {
+                if (z && (cvVar = cz.a().m213a(str)) != null) {
                     arrayList = cvVar.a(str);
                 }
                 if (!arrayList.contains(str)) {
@@ -106,7 +106,7 @@ public abstract class dd {
                         }
                         e.printStackTrace();
                     }
-                    if (!dcVar.m223a(context, next, (List<ay>) arrayList2)) {
+                    if (!dcVar.m222a(context, next, (List<ay>) arrayList2)) {
                         return str2;
                     }
                     str2 = dcVar.a(context, next, (List<ay>) arrayList2);

@@ -15,10 +15,10 @@ public class k {
     private int mRate;
     private String mType;
     private String mVersion;
-    private String mhb;
-    private String mhc;
-    private String mhd;
-    private String mhe;
+    private String mim;
+    private String mio;
+    private String mip;
+    private String miq;
 
     public k(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
@@ -29,7 +29,7 @@ public class k {
         this.dpR = str5;
     }
 
-    public void ju(int i) {
+    public void jw(int i) {
         this.mRate = i;
     }
 
@@ -37,16 +37,16 @@ public class k {
         this.mCategory = str;
     }
 
-    public void jv(int i) {
+    public void jx(int i) {
         this.dpS = i;
     }
 
-    public void jw(int i) {
+    public void jy(int i) {
         this.dpT = i;
     }
 
-    public void Pf(String str) {
-        this.mhb = str;
+    public void Pg(String str) {
+        this.mim = str;
     }
 
     public String getId() {
@@ -73,8 +73,8 @@ public class k {
         return this.dpR;
     }
 
-    public String drR() {
-        return this.mhb;
+    public String dsf() {
+        return this.mim;
     }
 
     public int aIm() {
@@ -101,12 +101,12 @@ public class k {
         return this.dpU;
     }
 
-    public String drS() {
-        return this.mhc;
+    public String dsg() {
+        return this.mio;
     }
 
-    public void Pg(String str) {
-        this.mhc = str;
+    public void Ph(String str) {
+        this.mio = str;
     }
 
     public void setVersion(String str) {
@@ -117,19 +117,19 @@ public class k {
         return TextUtils.isEmpty(this.mVersion) ? "0" : this.mVersion;
     }
 
-    public void Ph(String str) {
-        this.mhd = str;
-    }
-
-    public String drT() {
-        return this.mhd;
-    }
-
     public void Pi(String str) {
-        this.mhe = str;
+        this.mip = str;
     }
 
-    public String drU() {
-        return this.mhe;
+    public String dsh() {
+        return this.mip;
+    }
+
+    public void Pj(String str) {
+        this.miq = str;
+    }
+
+    public String dsi() {
+        return this.miq;
     }
 }

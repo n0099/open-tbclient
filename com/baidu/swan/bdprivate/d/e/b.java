@@ -38,7 +38,7 @@ public class b {
             g.a aVar2 = new g.a(context);
             aVar2.a(new com.baidu.swan.apps.view.c.a());
             g ZF = aVar2.ZF();
-            aVar2.eR(b.g.swan_app_guide_notify_title).nq(context.getString(b.g.swan_app_guide_notify_msg)).aok().eU(com.baidu.swan.apps.u.a.afm().getNightModeSwitcherState()).c(b.g.swan_app_guide_positive_btn, a2).d(b.g.swan_app_guide_negative_btn, a2).aoj();
+            aVar2.eT(b.g.swan_app_guide_notify_title).nq(context.getString(b.g.swan_app_guide_notify_msg)).aok().eU(com.baidu.swan.apps.u.a.afm().getNightModeSwitcherState()).c(b.g.swan_app_guide_positive_btn, a2).d(b.g.swan_app_guide_negative_btn, a2).aoj();
             ZF.setCancelable(false);
             ZF.show();
         }

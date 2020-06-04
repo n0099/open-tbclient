@@ -10,23 +10,23 @@ import com.facebook.drawee.drawable.t;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class d extends g implements s {
-    private static ColorFilter mqG = null;
+    private static ColorFilter mrQ = null;
     private ColorFilter mColorFilter;
     @Nullable
-    Drawable mof;
-    private boolean mqH;
+    Drawable mpq;
+    private boolean mrR;
     @Nullable
-    private t mqI;
+    private t mrS;
 
     public d(Drawable drawable) {
         super(drawable);
-        this.mof = null;
+        this.mpq = null;
         this.mColorFilter = null;
-        this.mqH = true;
+        this.mrR = true;
     }
 
-    public void we(boolean z) {
-        this.mqH = z;
+    public void wg(boolean z) {
+        this.mrR = z;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -41,13 +41,13 @@ public class d extends g implements s {
 
     @Override // com.facebook.drawee.drawable.s
     public void a(@Nullable t tVar) {
-        this.mqI = tVar;
+        this.mrS = tVar;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public boolean setVisible(boolean z, boolean z2) {
-        if (this.mqI != null) {
-            this.mqI.wd(z);
+        if (this.mrS != null) {
+            this.mrS.wf(z);
         }
         return super.setVisible(z, z2);
     }
@@ -56,23 +56,23 @@ public class d extends g implements s {
     @SuppressLint({"WrongCall"})
     public void draw(Canvas canvas) {
         if (isVisible()) {
-            if (this.mqH && mqG != this.mColorFilter) {
-                this.mColorFilter = mqG;
+            if (this.mrR && mrQ != this.mColorFilter) {
+                this.mColorFilter = mrQ;
                 setColorFilter(this.mColorFilter);
             }
-            if (this.mqI != null) {
-                this.mqI.onDraw();
+            if (this.mrS != null) {
+                this.mrS.onDraw();
             }
             super.draw(canvas);
-            if (this.mof != null) {
-                this.mof.setBounds(getBounds());
-                this.mof.draw(canvas);
+            if (this.mpq != null) {
+                this.mpq.setBounds(getBounds());
+                this.mpq.draw(canvas);
             }
         }
     }
 
     public void j(@Nullable Drawable drawable) {
-        this.mof = drawable;
+        this.mpq = drawable;
         invalidateSelf();
     }
 }

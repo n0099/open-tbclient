@@ -113,7 +113,7 @@ public class InterviewLiveLayout extends FrameLayout implements n<AbsThreadDataS
                 float f3;
                 float f4;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a yv = c.bet().yv(com.baidu.adp.lib.e.c.kX().genCacheKey(tbImageView.getUrl(), InterviewLiveLayout.this.aha ? 13 : 14));
+                    com.baidu.adp.widget.ImageView.a yv = c.beu().yv(com.baidu.adp.lib.e.c.kX().genCacheKey(tbImageView.getUrl(), InterviewLiveLayout.this.aha ? 13 : 14));
                     if (yv != null) {
                         int width = yv.getWidth();
                         i = yv.getHeight();
@@ -168,7 +168,7 @@ public class InterviewLiveLayout extends FrameLayout implements n<AbsThreadDataS
         LayoutInflater.from(getContext()).inflate(R.layout.interview_live_layout, (ViewGroup) this, true);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         this.ahb = (TbImageView) findViewById(R.id.img_interview_live);
-        this.ahb.nK(15);
+        this.ahb.nM(15);
         this.ahb.setPlaceHolder(3);
         this.ahc = (LinearLayout) findViewById(R.id.interview_live_tip_bg);
         this.ahd = (ImageView) findViewById(R.id.interview_live_tip_img);

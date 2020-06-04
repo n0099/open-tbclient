@@ -340,12 +340,12 @@ public class a {
             if (this.mContext != null) {
                 this.bDV = new AudioRouteMonitor(new AudioRouteMonitor.a() { // from class: com.baidu.rtc.a.a.3
                     @Override // com.baidu.rtc.utils.AudioRouteMonitor.a
-                    public void dW(int i) {
+                    public void dY(int i) {
                         a.this.setEnableSpeaker(a.this.mContext, i == 0);
                     }
 
                     @Override // com.baidu.rtc.utils.AudioRouteMonitor.a
-                    public void dX(int i) {
+                    public void dZ(int i) {
                         a.this.j(a.this.mContext, i != 0);
                         if (i > 0) {
                             a.this.bDW = true;

@@ -143,7 +143,7 @@ public class a {
                     runnable = new Runnable() { // from class: com.baidu.swan.apps.k.a.4
                         @Override // java.lang.Runnable
                         public void run() {
-                            bVar.dr(i2);
+                            bVar.dt(i2);
                         }
                     };
                     break;

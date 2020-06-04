@@ -5,9 +5,9 @@ public interface a {
 
     void Qm();
 
-    boolean dSh();
+    boolean dSv();
 
-    boolean dSi();
+    boolean dSw();
 
     boolean isVisible();
 }

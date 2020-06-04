@@ -13,14 +13,14 @@ public final class UnicastSubject<T> extends b<T> {
     volatile boolean disposed;
     volatile boolean done;
     Throwable error;
-    boolean nrA;
-    final BasicIntQueueDisposable<T> nrU;
-    final AtomicReference<Runnable> nry;
+    final AtomicReference<Runnable> nsI;
+    boolean nsK;
+    final BasicIntQueueDisposable<T> nte;
     final AtomicBoolean once;
     final io.reactivex.internal.queue.a<T> queue;
 
-    public static <T> UnicastSubject<T> dLk() {
-        return new UnicastSubject<>(dKs(), true);
+    public static <T> UnicastSubject<T> dLy() {
+        return new UnicastSubject<>(dKG(), true);
     }
 
     public static <T> UnicastSubject<T> c(int i, Runnable runnable) {
@@ -29,26 +29,26 @@ public final class UnicastSubject<T> extends b<T> {
 
     UnicastSubject(int i, boolean z) {
         this.queue = new io.reactivex.internal.queue.a<>(io.reactivex.internal.functions.a.bD(i, "capacityHint"));
-        this.nry = new AtomicReference<>();
+        this.nsI = new AtomicReference<>();
         this.delayError = z;
         this.actual = new AtomicReference<>();
         this.once = new AtomicBoolean();
-        this.nrU = new UnicastQueueDisposable();
+        this.nte = new UnicastQueueDisposable();
     }
 
     UnicastSubject(int i, Runnable runnable, boolean z) {
         this.queue = new io.reactivex.internal.queue.a<>(io.reactivex.internal.functions.a.bD(i, "capacityHint"));
-        this.nry = new AtomicReference<>(io.reactivex.internal.functions.a.k(runnable, "onTerminate"));
+        this.nsI = new AtomicReference<>(io.reactivex.internal.functions.a.k(runnable, "onTerminate"));
         this.delayError = z;
         this.actual = new AtomicReference<>();
         this.once = new AtomicBoolean();
-        this.nrU = new UnicastQueueDisposable();
+        this.nte = new UnicastQueueDisposable();
     }
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
         if (!this.once.get() && this.once.compareAndSet(false, true)) {
-            uVar.onSubscribe(this.nrU);
+            uVar.onSubscribe(this.nte);
             this.actual.lazySet(uVar);
             if (this.disposed) {
                 this.actual.lazySet(null);
@@ -62,8 +62,8 @@ public final class UnicastSubject<T> extends b<T> {
     }
 
     void doTerminate() {
-        Runnable runnable = this.nry.get();
-        if (runnable != null && this.nry.compareAndSet(runnable, null)) {
+        Runnable runnable = this.nsI.get();
+        if (runnable != null && this.nsI.compareAndSet(runnable, null)) {
             runnable.run();
         }
     }
@@ -130,7 +130,7 @@ public final class UnicastSubject<T> extends b<T> {
             if (!z4) {
                 uVar.onNext(obj);
             } else {
-                i = this.nrU.addAndGet(-i);
+                i = this.nte.addAndGet(-i);
                 if (i == 0) {
                     return;
                 }
@@ -152,7 +152,7 @@ public final class UnicastSubject<T> extends b<T> {
                     e(uVar);
                     return;
                 }
-                i = this.nrU.addAndGet(-i);
+                i = this.nte.addAndGet(-i);
                 if (i == 0) {
                     return;
                 }
@@ -186,11 +186,11 @@ public final class UnicastSubject<T> extends b<T> {
     }
 
     void drain() {
-        if (this.nrU.getAndIncrement() == 0) {
+        if (this.nte.getAndIncrement() == 0) {
             u<? super T> uVar = this.actual.get();
             int i = 1;
             while (uVar == null) {
-                int addAndGet = this.nrU.addAndGet(-i);
+                int addAndGet = this.nte.addAndGet(-i);
                 if (addAndGet != 0) {
                     uVar = this.actual.get();
                     i = addAndGet;
@@ -198,7 +198,7 @@ public final class UnicastSubject<T> extends b<T> {
                     return;
                 }
             }
-            if (this.nrA) {
+            if (this.nsK) {
                 d(uVar);
             } else {
                 c(uVar);
@@ -216,7 +216,7 @@ public final class UnicastSubject<T> extends b<T> {
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
             if ((i & 2) != 0) {
-                UnicastSubject.this.nrA = true;
+                UnicastSubject.this.nsK = true;
                 return 2;
             }
             return 0;
@@ -243,7 +243,7 @@ public final class UnicastSubject<T> extends b<T> {
                 UnicastSubject.this.disposed = true;
                 UnicastSubject.this.doTerminate();
                 UnicastSubject.this.actual.lazySet(null);
-                if (UnicastSubject.this.nrU.getAndIncrement() == 0) {
+                if (UnicastSubject.this.nte.getAndIncrement() == 0) {
                     UnicastSubject.this.actual.lazySet(null);
                     UnicastSubject.this.queue.clear();
                 }

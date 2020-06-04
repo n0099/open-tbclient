@@ -25,7 +25,7 @@ public class a<T extends com.baidu.prologue.business.c.b> {
 
     public void a(T t) {
         this.bAw = t;
-        t.gG(this.bAx.bzZ).cS(this.bAx.isFullScreen()).dS(this.bAx.bAb).gF(String.valueOf(this.bAx.bAa)).cT(this.bAx.bAh).gH(this.bAx.bzY);
+        t.gG(this.bAx.bzZ).cS(this.bAx.isFullScreen()).dU(this.bAx.bAb).gF(String.valueOf(this.bAx.bAa)).cT(this.bAx.bAh).gH(this.bAx.bzY);
     }
 
     public T Op() {
@@ -42,12 +42,14 @@ public class a<T extends com.baidu.prologue.business.c.b> {
     }
 
     public void onAdShow() {
-        this.bAy.NY();
-        this.bzu.onAdShow();
-        this.bzu.NV().addView(Op().getRootView());
-        com.baidu.prologue.business.data.d.e(this.bAx);
-        f.h(this.bAx);
-        Log.d("SplashAdBasePresenter", "onadshow currate: " + this.bAx.bAg);
+        if (this.bAy != null && this.bzu != null && this.bzu.NV() != null) {
+            this.bAy.NY();
+            this.bzu.onAdShow();
+            this.bzu.NV().addView(Op().getRootView());
+            com.baidu.prologue.business.data.d.e(this.bAx);
+            f.h(this.bAx);
+            Log.d("SplashAdBasePresenter", "onadshow currate: " + this.bAx.bAg);
+        }
     }
 
     public void gD(String str) {

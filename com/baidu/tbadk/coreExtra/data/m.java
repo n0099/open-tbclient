@@ -6,7 +6,7 @@ public class m {
     private String mErrorString;
     private boolean mIsSuccess;
 
-    public l aXY() {
+    public l aXZ() {
         return this.eaV;
     }
 

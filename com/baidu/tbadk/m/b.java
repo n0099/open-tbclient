@@ -17,7 +17,7 @@ public abstract class b {
         if (dVar.isRouteStat) {
             dVar.setSorceKeyList(c.trimToSize(dVar.getSorceKeyList(), 6));
         } else {
-            int maxCostFromServer = getMaxCost() > e.bfu().getMaxCostFromServer() ? e.bfu().getMaxCostFromServer() : getMaxCost();
+            int maxCostFromServer = getMaxCost() > e.bfv().getMaxCostFromServer() ? e.bfv().getMaxCostFromServer() : getMaxCost();
             dVar.setSorceKeyList(c.trimToSize(dVar.getSorceKeyList(), maxCostFromServer <= 5 ? maxCostFromServer : 5));
         }
         return true;
@@ -37,7 +37,7 @@ public abstract class b {
         if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
             updataSwitchStaus(false);
             return false;
-        } else if (!e.bfu().isSmallFlowOpen()) {
+        } else if (!e.bfv().isSmallFlowOpen()) {
             updataSwitchStaus(false);
             return false;
         } else {

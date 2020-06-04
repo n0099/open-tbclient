@@ -48,7 +48,7 @@ public class u extends a {
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
         com.baidu.adp.widget.ImageView.a checkIsValidPhotoMemoryCache;
-        if (this.dPR || (checkIsValidPhotoMemoryCache = BitmapHelper.checkIsValidPhotoMemoryCache(str, com.baidu.tbadk.imageManager.c.bet().yu(str), i, i2)) == null || checkIsValidPhotoMemoryCache.getRawBitmap() == null || checkIsValidPhotoMemoryCache.getRawBitmap().isRecycled()) {
+        if (this.dPR || (checkIsValidPhotoMemoryCache = BitmapHelper.checkIsValidPhotoMemoryCache(str, com.baidu.tbadk.imageManager.c.beu().yu(str), i, i2)) == null || checkIsValidPhotoMemoryCache.getRawBitmap() == null || checkIsValidPhotoMemoryCache.getRawBitmap().isRecycled()) {
             return null;
         }
         checkIsValidPhotoMemoryCache.TA.resourceFromType = "memory";
@@ -78,7 +78,7 @@ public class u extends a {
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.av(i);
             aVar.aw(i2);
-            com.baidu.tbadk.imageManager.c.bet().b(str, aVar);
+            com.baidu.tbadk.imageManager.c.beu().b(str, aVar);
         }
     }
 
@@ -98,12 +98,12 @@ public class u extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aVn() {
+    public boolean aVo() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aVo() {
+    public boolean aVp() {
         return false;
     }
 
@@ -116,7 +116,7 @@ public class u extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int aVp() {
+    public int aVq() {
         return this.dPS;
     }
 }

@@ -74,7 +74,7 @@ public abstract class b<T extends com.baidu.swan.apps.extcore.model.b.a> extends
     }
 
     private boolean isNeedUpdate() {
-        if (!com.baidu.swan.apps.extcore.f.a.fj(this.ccV.acR())) {
+        if (!com.baidu.swan.apps.extcore.f.a.fl(this.ccV.acR())) {
             if (DEBUG) {
                 Log.d("ExtCore-PresetControl", "isNeedUpdate: false");
                 return false;

@@ -85,7 +85,7 @@ public class ShareItem {
     public String extData = null;
     public String localFile = null;
 
-    public Bundle bbb() {
+    public Bundle bbc() {
         return this.stats;
     }
 
@@ -98,7 +98,7 @@ public class ShareItem {
         this.typeShareToSmallApp = 0;
     }
 
-    public Bitmap bbc() {
+    public Bitmap bbd() {
         Bitmap bitmap;
         if (this.eff == null || (bitmap = this.eff.get()) == null || bitmap.isRecycled()) {
             return null;
@@ -110,7 +110,7 @@ public class ShareItem {
         this.eff = new WeakReference<>(bitmap);
     }
 
-    public byte[] bbd() {
+    public byte[] bbe() {
         Bitmap bitmap;
         byte[] bArr;
         if (this.eff == null || (bitmap = this.eff.get()) == null || bitmap.isRecycled()) {
@@ -131,7 +131,7 @@ public class ShareItem {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [294=4, 295=4, 297=4, 298=4] */
-    public void bbe() {
+    public void bbf() {
         FileOutputStream fileOutputStream = null;
         if (this.eff == null) {
             return;
@@ -148,11 +148,11 @@ public class ShareItem {
                     if (parentFile != null && !parentFile.exists()) {
                         parentFile.mkdirs();
                     }
-                    byte[] bbd = bbd();
-                    if (bbd != null) {
+                    byte[] bbe = bbe();
+                    if (bbe != null) {
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file);
                         try {
-                            fileOutputStream3.write(bbd);
+                            fileOutputStream3.write(bbe);
                             fileOutputStream3.close();
                             this.imageUri = Uri.fromFile(file);
                             this.eff = null;
@@ -271,8 +271,8 @@ public class ShareItem {
                 forwardInfo.originalBaijiahaoData = bkVar.dHm.oriUgcInfo;
                 forwardInfo.originalTid = bkVar.dHm.threadId;
                 if (i == 1) {
-                    if (postData != null && postData.ddw() != null) {
-                        str = postData.ddw().toString();
+                    if (postData != null && postData.ddL() != null) {
+                        str = postData.ddL().toString();
                     } else if (bkVar.getAbstract() != null) {
                         str = bkVar.aPZ().toString();
                     }

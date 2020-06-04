@@ -6,12 +6,12 @@ import java.util.HashMap;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes9.dex */
 public class x implements com.baidu.adp.widget.ListView.o {
-    public static final BdUniqueId jML = BdUniqueId.gen();
+    public static final BdUniqueId jNR = BdUniqueId.gen();
     public String cover;
     public MetaData dFJ;
     public String description;
     public boolean isChushou;
-    public int jMM;
+    public int jNS;
     public long liveId;
     public int liveStatus;
     public String routeType;
@@ -20,8 +20,8 @@ public class x implements com.baidu.adp.widget.ListView.o {
     private HashMap<String, MetaData> userMap;
     public String userName;
     private boolean dCL = false;
-    public boolean jMN = false;
-    public boolean jMO = false;
+    public boolean jNT = false;
+    public boolean jNU = false;
 
     public void a(AlaLiveInfo alaLiveInfo) {
         MetaData metaData;
@@ -29,7 +29,7 @@ public class x implements com.baidu.adp.widget.ListView.o {
             this.userName = alaLiveInfo.user_info.user_name;
             this.description = alaLiveInfo.description;
             this.cover = alaLiveInfo.cover;
-            this.jMM = alaLiveInfo.audience_count.intValue();
+            this.jNS = alaLiveInfo.audience_count.intValue();
             this.liveStatus = alaLiveInfo.live_status.intValue();
             this.liveId = alaLiveInfo.live_id.longValue();
             this.isChushou = alaLiveInfo.live_from.intValue() == 1;
@@ -50,7 +50,7 @@ public class x implements com.baidu.adp.widget.ListView.o {
 
     public void reset() {
         this.userName = null;
-        this.jMM = 0;
+        this.jNS = 0;
         this.description = null;
         this.cover = null;
         this.liveStatus = 0;
@@ -61,7 +61,7 @@ public class x implements com.baidu.adp.widget.ListView.o {
         this.thirdLiveType = null;
         this.thirdRoomId = null;
         this.routeType = null;
-        this.jMO = false;
+        this.jNU = false;
         this.dCL = false;
     }
 
@@ -71,6 +71,6 @@ public class x implements com.baidu.adp.widget.ListView.o {
 
     @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return jML;
+        return jNR;
     }
 }

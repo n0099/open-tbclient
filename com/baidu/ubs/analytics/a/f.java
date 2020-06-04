@@ -6,39 +6,39 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
 final class f {
-    private static f mhB;
-    private static SQLiteOpenHelper mhC;
-    private AtomicInteger mhD = new AtomicInteger();
-    private SQLiteDatabase mhE;
+    private static f miN;
+    private static SQLiteOpenHelper miO;
+    private AtomicInteger miP = new AtomicInteger();
+    private SQLiteDatabase miQ;
 
     f() {
     }
 
     private static synchronized void b(Context context) {
         synchronized (f.class) {
-            if (mhB == null) {
-                mhB = new f();
-                mhC = new d(context);
+            if (miN == null) {
+                miN = new f();
+                miO = new d(context);
             }
         }
     }
 
-    public static synchronized f dsm() {
+    public static synchronized f dsA() {
         f fVar;
         synchronized (f.class) {
-            if (mhB == null) {
-                b(com.baidu.ubs.analytics.d.dsk().getContext());
+            if (miN == null) {
+                b(com.baidu.ubs.analytics.d.dsy().getContext());
             }
-            fVar = mhB;
+            fVar = miN;
         }
         return fVar;
     }
 
-    public final synchronized SQLiteDatabase dsn() {
-        if (this.mhD.incrementAndGet() == 1) {
+    public final synchronized SQLiteDatabase dsB() {
+        if (this.miP.incrementAndGet() == 1) {
             com.baidu.ubs.analytics.d.b.H("***************新建立了 一个数据库的实例****************");
-            this.mhE = mhC.getWritableDatabase();
+            this.miQ = miO.getWritableDatabase();
         }
-        return this.mhE;
+        return this.miQ;
     }
 }

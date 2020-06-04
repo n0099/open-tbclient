@@ -15,30 +15,30 @@ import java.util.Iterator;
 public class c {
     private int bgColor;
     private String dlF;
-    private int hPe;
-    private ArrayList<String> lQc;
-    private int lQd;
-    private int lQe;
-    private int lQf = -1;
-    private boolean lQg = false;
-    private boolean lQh = false;
+    private int hPR;
+    private ArrayList<String> lRn;
+    private int lRo;
+    private int lRp;
+    private int lRq = -1;
+    private boolean lRr = false;
+    private boolean lRs = false;
 
     public SpannableStringBuilder a(Editable editable) {
-        if (editable == null || StringUtils.isNull(editable.toString()) || v.isEmpty(this.lQc)) {
+        if (editable == null || StringUtils.isNull(editable.toString()) || v.isEmpty(this.lRn)) {
             return null;
         }
         String obj = editable.toString();
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
-        boolean z = this.lQf >= 0;
-        this.lQf = -1;
-        Iterator<String> it = this.lQc.iterator();
+        boolean z = this.lRq >= 0;
+        this.lRq = -1;
+        Iterator<String> it = this.lRn.iterator();
         while (it.hasNext()) {
             String next = it.next();
             if (!StringUtils.isNull(next)) {
                 a(spannableStringBuilder, obj, next);
             }
         }
-        if (this.lQf >= 0 || z) {
+        if (this.lRq >= 0 || z) {
             ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
             if (imageSpanArr != null) {
                 for (ImageSpan imageSpan : imageSpanArr) {
@@ -56,19 +56,19 @@ public class c {
         if (spannableStringBuilder == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        if (this.hPe != 0 || this.bgColor != 0) {
+        if (this.hPR != 0 || this.bgColor != 0) {
             int indexOf = str.indexOf(str2);
             int length = str2.length();
             if (indexOf >= 0) {
-                if (this.lQf == -1) {
-                    this.lQf = indexOf + length;
-                } else if (indexOf + length < this.lQf) {
-                    this.lQf = indexOf + length;
+                if (this.lRq == -1) {
+                    this.lRq = indexOf + length;
+                } else if (indexOf + length < this.lRq) {
+                    this.lRq = indexOf + length;
                 }
             }
             while (indexOf >= 0) {
-                if (this.hPe != 0) {
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.hPe), indexOf, indexOf + length, 33);
+                if (this.hPR != 0) {
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.hPR), indexOf, indexOf + length, 33);
                 }
                 if (this.bgColor != 0) {
                     spannableStringBuilder.setSpan(new BackgroundColorSpan(this.bgColor), indexOf, indexOf + length, 33);
@@ -79,57 +79,57 @@ public class c {
     }
 
     public void onChangeSkinType() {
-        if (this.lQd != 0) {
-            this.hPe = am.getColor(this.lQd);
+        if (this.lRo != 0) {
+            this.hPR = am.getColor(this.lRo);
         }
-        if (this.lQe != 0) {
-            this.bgColor = am.getColor(this.lQe);
+        if (this.lRp != 0) {
+            this.bgColor = am.getColor(this.lRp);
         }
     }
 
     public void aX(ArrayList<String> arrayList) {
-        this.lQc = arrayList;
+        this.lRn = arrayList;
     }
 
-    public ArrayList<String> dmg() {
-        return this.lQc;
+    public ArrayList<String> dmv() {
+        return this.lRn;
     }
 
-    public void Ft(int i) {
-        this.lQd = i;
-        this.hPe = am.getColor(this.lQd);
+    public void Fv(int i) {
+        this.lRo = i;
+        this.hPR = am.getColor(this.lRo);
     }
 
-    public void Fu(int i) {
-        this.lQe = i;
-        this.bgColor = am.getColor(this.lQe);
+    public void Fw(int i) {
+        this.lRp = i;
+        this.bgColor = am.getColor(this.lRp);
     }
 
-    public int dmh() {
-        return this.lQf;
-    }
-
-    public void vl(boolean z) {
-        this.lQg = z;
-    }
-
-    public boolean dmi() {
-        return this.lQg;
+    public int dmw() {
+        return this.lRq;
     }
 
     public void vm(boolean z) {
-        this.lQh = z;
+        this.lRr = z;
     }
 
-    public boolean dmj() {
-        return this.lQh;
+    public boolean dmx() {
+        return this.lRr;
     }
 
-    public void Of(String str) {
+    public void vn(boolean z) {
+        this.lRs = z;
+    }
+
+    public boolean dmy() {
+        return this.lRs;
+    }
+
+    public void Og(String str) {
         this.dlF = str;
     }
 
-    public String dmk() {
+    public String dmz() {
         return this.dlF;
     }
 }

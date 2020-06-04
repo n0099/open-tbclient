@@ -30,7 +30,7 @@ public class AlaActiveBannerDot extends LinearLayout {
         setGravity(1);
     }
 
-    public void qz(int i) {
+    public void qB(int i) {
         if (getChildCount() > 0) {
             for (int i2 = 0; i2 < getChildCount(); i2++) {
                 if (i2 == i) {
@@ -42,7 +42,7 @@ public class AlaActiveBannerDot extends LinearLayout {
         }
     }
 
-    public void qA(int i) {
+    public void qC(int i) {
         if (i >= 0) {
             removeAllViews();
             if (i == 1) {

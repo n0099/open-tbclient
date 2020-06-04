@@ -24,9 +24,9 @@ public class i {
     }
 
     public static void a(m mVar, BdUniqueId bdUniqueId) {
-        if (mVar != null && !StringUtils.isNull(mVar.bcC()) && v.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
+        if (mVar != null && !StringUtils.isNull(mVar.bcD()) && v.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(1003063);
-            httpMessage.addParam("pic_url", mVar.bcC());
+            httpMessage.addParam("pic_url", mVar.bcD());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -34,13 +34,13 @@ public class i {
 
     public static void a(m mVar, List<o> list) {
         m mVar2;
-        if (mVar != null && !v.isEmpty(list) && !StringUtils.isNull(mVar.bcC())) {
+        if (mVar != null && !v.isEmpty(list) && !StringUtils.isNull(mVar.bcD())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 o oVar = list.get(i);
-                if ((oVar instanceof m) && (mVar2 = (m) oVar) != mVar && !mVar2.bcD()) {
-                    jSONArray.put(mVar2.bcC());
+                if ((oVar instanceof m) && (mVar2 = (m) oVar) != mVar && !mVar2.bcE()) {
+                    jSONArray.put(mVar2.bcD());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(1003064);
@@ -65,8 +65,8 @@ public class i {
                 o oVar = list.get(i);
                 if (oVar instanceof m) {
                     m mVar = (m) oVar;
-                    if (!mVar.bcD()) {
-                        jSONArray.put(mVar.bcC());
+                    if (!mVar.bcE()) {
+                        jSONArray.put(mVar.bcD());
                     }
                 }
             }

@@ -18,7 +18,7 @@ public class e {
     private e() {
     }
 
-    public static e bfu() {
+    public static e bfv() {
         if (ery == null) {
             synchronized (e.class) {
                 if (ery == null) {
@@ -103,10 +103,10 @@ public class e {
                 if (!aq.isEmpty(dVar.getTaskId())) {
                     anVar2.dh("task_id", String.valueOf(dVar.getTaskId()));
                 }
-                if (!aq.isEmpty(dVar.bfs())) {
-                    anVar2.dh("ab_tag", dVar.bfs());
+                if (!aq.isEmpty(dVar.bft())) {
+                    anVar2.dh("ab_tag", dVar.bft());
                 }
-                if (bfv()) {
+                if (bfw()) {
                     if (!StringUtils.isNull(dVar.objID)) {
                         anVar2.dh("obj_id", dVar.objID);
                     }
@@ -115,15 +115,15 @@ public class e {
                     }
                     anVar2.dh("obj_source", PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
                 }
-                if (!StringUtils.isNull(dVar.bft())) {
-                    anVar2.dh("obj_location", dVar.bft());
+                if (!StringUtils.isNull(dVar.bfu())) {
+                    anVar2.dh("obj_location", dVar.bfu());
                 }
                 TiebaStatic.log(anVar2);
             }
         }
     }
 
-    public boolean bfv() {
+    public boolean bfw() {
         return this.erz;
     }
 

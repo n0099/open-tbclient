@@ -81,7 +81,7 @@ public class a extends aa {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("direction", f);
-            jSONObject.put("accuracy", com.baidu.swan.apps.am.e.a.hu(i));
+            jSONObject.put("accuracy", com.baidu.swan.apps.am.e.a.hw(i));
             if (DEBUG) {
                 Log.d("SwanAppAction", "compassAngle : " + jSONObject.toString());
             }

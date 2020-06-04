@@ -22,9 +22,9 @@ public class b {
         if (cVar.aGO() == -1) {
             pMSAppInfo = com.baidu.swan.pms.database.a.aFV().tf(cVar.getBundleId());
             if (pMSAppInfo != null && com.baidu.swan.pms.database.a.aFV().c(com.baidu.swan.pms.model.f.class, cVar.getBundleId()) != null) {
-                cVar.jh(pMSAppInfo.versionCode);
+                cVar.jj(pMSAppInfo.versionCode);
             } else {
-                cVar.jh(0);
+                cVar.jj(0);
             }
         }
         hashMap.put("pkg_ver", String.valueOf(cVar.aGO()));
@@ -44,7 +44,7 @@ public class b {
         }
         String aGR = cVar.aGR();
         if (TextUtils.isEmpty(aGR)) {
-            aGR = jc(cVar.getCategory());
+            aGR = je(cVar.getCategory());
             cVar.tn(aGR);
         }
         if (TextUtils.isEmpty(aGR)) {
@@ -53,7 +53,7 @@ public class b {
         hashMap.put("framework_ver", aGR);
         String aGS = cVar.aGS();
         if (TextUtils.isEmpty(aGS)) {
-            aGS = jd(cVar.getCategory());
+            aGS = jf(cVar.getCategory());
             cVar.to(aGS);
         }
         if (TextUtils.isEmpty(aGS)) {
@@ -83,13 +83,13 @@ public class b {
         hashMap.put("expect_pkg_ver", String.valueOf(eVar.aGO()));
         hashMap.put("sub_id", eVar.aGV());
         if (TextUtils.isEmpty(eVar.aGR())) {
-            eVar.tr(jc(eVar.getCategory()));
+            eVar.tr(je(eVar.getCategory()));
         }
         if (!TextUtils.isEmpty(eVar.aGR())) {
             hashMap.put("framework_ver", eVar.aGR());
         }
         if (TextUtils.isEmpty(eVar.aGS())) {
-            eVar.ts(jd(eVar.getCategory()));
+            eVar.ts(jf(eVar.getCategory()));
         }
         if (!TextUtils.isEmpty(eVar.aGS())) {
             hashMap.put("extension_ver", eVar.aGS());
@@ -137,12 +137,12 @@ public class b {
         try {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("swan_core_ver", jc(0));
-            jSONObject2.put("swan_game_ver", jc(1));
+            jSONObject2.put("swan_core_ver", je(0));
+            jSONObject2.put("swan_game_ver", je(1));
             jSONObject.put("framework", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("swan_ext_ver", jd(0));
-            jSONObject3.put("game_ext_ver", jd(1));
+            jSONObject3.put("swan_ext_ver", jf(0));
+            jSONObject3.put("game_ext_ver", jf(1));
             jSONObject.put(ETAG.KEY_EXTENSION, jSONObject3);
             JSONArray jSONArray = new JSONArray();
             for (b.a aVar : bVar.aGN()) {
@@ -163,7 +163,7 @@ public class b {
         }
     }
 
-    private static String jc(int i) {
+    private static String je(int i) {
         String str = null;
         if (i == 1) {
             str = com.baidu.swan.pms.d.aFP().afY();
@@ -173,7 +173,7 @@ public class b {
         return TextUtils.isEmpty(str) ? "0" : str;
     }
 
-    private static String jd(int i) {
+    private static String jf(int i) {
         String str = null;
         if (i == 1) {
             str = com.baidu.swan.pms.d.aFP().afZ();

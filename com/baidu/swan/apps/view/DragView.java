@@ -23,7 +23,7 @@ public class DragView extends FrameLayout {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void fI(int i);
+        void fK(int i);
 
         void k(MotionEvent motionEvent);
 
@@ -90,7 +90,7 @@ public class DragView extends FrameLayout {
             public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
                 super.onViewPositionChanged(view, i, i2, i3, i4);
                 if (DragView.this.cLA != null) {
-                    DragView.this.cLA.fI(i2 - DragView.this.cLz);
+                    DragView.this.cLA.fK(i2 - DragView.this.cLz);
                 }
             }
 

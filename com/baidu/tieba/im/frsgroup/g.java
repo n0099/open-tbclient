@@ -25,10 +25,10 @@ public class g extends com.baidu.tieba.frs.h<h, i> {
                     int intValue = ((Integer) view.getTag()).intValue();
                     if (g.this.getItem(intValue) instanceof h) {
                         h hVar = (h) g.this.getItem(intValue);
-                        int cmn = hVar.cmn();
-                        if (cmn == 0 && (hVar.rS() instanceof GroupPermData)) {
+                        int cmw = hVar.cmw();
+                        if (cmw == 0 && (hVar.rS() instanceof GroupPermData)) {
                             g.this.a((GroupPermData) hVar.rS());
-                        } else if (cmn == 1) {
+                        } else if (cmw == 1) {
                             bc.checkUpIsLogin(g.this.mPageContext.getPageActivity());
                         }
                     }
@@ -51,8 +51,8 @@ public class g extends com.baidu.tieba.frs.h<h, i> {
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         if (hVar != null) {
-            iVar.a(hVar.cmo(), hVar.cmk(), hVar.cml(), hVar.cmm());
-            iVar.iAv.setTag(Integer.valueOf(i));
+            iVar.a(hVar.cmx(), hVar.cmt(), hVar.cmu(), hVar.cmv());
+            iVar.iBi.setTag(Integer.valueOf(i));
         }
         return view;
     }

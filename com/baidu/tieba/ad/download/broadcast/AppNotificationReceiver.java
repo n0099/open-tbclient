@@ -14,10 +14,10 @@ public class AppNotificationReceiver extends BroadcastReceiver {
             if ("android.intent.action.PACKAGE_ADDED".equals(intent.getAction())) {
                 String extractPackageName2 = extractPackageName(intent);
                 if (extractPackageName2 != null) {
-                    d.bmD().av(context, extractPackageName2);
+                    d.bmF().av(context, extractPackageName2);
                 }
             } else if ("android.intent.action.PACKAGE_REMOVED".equals(intent.getAction()) && (extractPackageName = extractPackageName(intent)) != null) {
-                d.bmD().ax(context, extractPackageName);
+                d.bmF().ax(context, extractPackageName);
             }
         }
     }

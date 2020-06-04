@@ -53,7 +53,7 @@ public class q {
                 if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
                     g gVar = new g(string, string2, string3, intValue, string5, string4);
                     if (jSONObject2.has("rate")) {
-                        gVar.ju(Integer.valueOf(jSONObject2.getString("rate")).intValue());
+                        gVar.jw(Integer.valueOf(jSONObject2.getString("rate")).intValue());
                     }
                     if (jSONObject2.has("bizid")) {
                         gVar.tM(jSONObject2.getString("bizid"));
@@ -62,10 +62,10 @@ public class q {
                         gVar.setCategory(jSONObject2.getString("c"));
                     }
                     if (jSONObject2.has("limitUnit")) {
-                        gVar.jv(Integer.valueOf(jSONObject2.getString("limitUnit")).intValue());
+                        gVar.jx(Integer.valueOf(jSONObject2.getString("limitUnit")).intValue());
                     }
                     if (jSONObject2.has("limitCnt")) {
-                        gVar.jw(Integer.valueOf(jSONObject2.getString("limitCnt")).intValue());
+                        gVar.jy(Integer.valueOf(jSONObject2.getString("limitCnt")).intValue());
                     }
                     if (jSONObject2.has("idtype")) {
                         gVar.tN(jSONObject2.getString("idtype"));

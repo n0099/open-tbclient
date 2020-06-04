@@ -88,7 +88,7 @@ public class b {
         if (!ZD()) {
             sslErrorHandler.cancel();
         } else {
-            new c.a(this.mContext).eR(a.h.aiapps_security_warning).a(a.h.aiapps_ssl_warnings_header, new b.c() { // from class: com.baidu.swan.apps.core.e.b.15
+            new c.a(this.mContext).eT(a.h.aiapps_security_warning).a(a.h.aiapps_ssl_warnings_header, new b.c() { // from class: com.baidu.swan.apps.core.e.b.15
                 private long[] bUH = null;
 
                 @Override // com.baidu.swan.apps.res.widget.dialog.b.c
@@ -186,7 +186,7 @@ public class b {
                 b(linearLayout, a.h.aiapps_ssl_unknown);
             }
         }
-        return new d.a(this.mContext).eR(a.h.aiapps_ssl_certificate).ak(b);
+        return new d.a(this.mContext).eT(a.h.aiapps_ssl_certificate).ak(b);
     }
 
     public void ju(String str) {
@@ -260,7 +260,7 @@ public class b {
             }
             return false;
         }
-        g.a a2 = new g.a(this.mContext).eR(a.h.aiapps_dialog_webcall_common_title).nq(str2).c(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.3
+        g.a a2 = new g.a(this.mContext).eT(a.h.aiapps_dialog_webcall_common_title).nq(str2).c(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.3
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (interfaceC0338b != null) {
@@ -294,7 +294,7 @@ public class b {
             }
             return false;
         }
-        g.a a2 = new g.a(this.mContext).eR(a.h.aiapps_dialog_webcall_common_title).nq(str2).c(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.6
+        g.a a2 = new g.a(this.mContext).eT(a.h.aiapps_dialog_webcall_common_title).nq(str2).c(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.6
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (interfaceC0338b != null) {
@@ -335,7 +335,7 @@ public class b {
         final EditText editText = (EditText) inflate.findViewById(a.f.value);
         editText.setText(str3);
         ((TextView) inflate.findViewById(a.f.message)).setText(str2);
-        g.a a2 = new g.a(this.mContext).eR(a.h.aiapps_dialog_webcall_common_title).ao(inflate).c(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.9
+        g.a a2 = new g.a(this.mContext).eT(a.h.aiapps_dialog_webcall_common_title).ao(inflate).c(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.9
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (interfaceC0338b != null) {

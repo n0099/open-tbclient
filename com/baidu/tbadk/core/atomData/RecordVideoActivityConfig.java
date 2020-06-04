@@ -15,7 +15,7 @@ public class RecordVideoActivityConfig extends IntentConfig {
 
     public RecordVideoActivityConfig(Context context, int i, ForumWriteData forumWriteData, WriteImagesInfo writeImagesInfo, String str, int i2) {
         super(context);
-        getIntent().putExtra(FORUM_WRITE_DATA, forumWriteData);
+        getIntent().putExtra("forum_write_data", forumWriteData);
         getIntent().putExtra(WRITE_IMAGE_INFO, writeImagesInfo);
         getIntent().putExtra("video_title", str);
         getIntent().putExtra(ENTRANCE_FLAG, i);

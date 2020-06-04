@@ -20,14 +20,14 @@ import java.util.List;
 public class b extends BaseAdapter {
     private String bdJ;
     private int bdK;
-    private AlbumActivity lRt;
+    private AlbumActivity lSE;
     private LayoutInflater mLayoutInflater;
     private List<com.baidu.tbadk.album.a> mList;
 
     public b(AlbumActivity albumActivity) {
-        this.lRt = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.lRt.getPageContext().getPageActivity());
-        this.bdK = l.getEquipmentWidth(this.lRt.getPageContext().getPageActivity()) / 2;
+        this.lSE = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.lSE.getPageContext().getPageActivity());
+        this.bdK = l.getEquipmentWidth(this.lSE.getPageContext().getPageActivity()) / 2;
     }
 
     public void b(List<com.baidu.tbadk.album.a> list, String str) {
@@ -42,7 +42,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: to */
+    /* renamed from: tq */
     public com.baidu.tbadk.album.a getItem(int i) {
         return (com.baidu.tbadk.album.a) v.getItem(this.mList, i);
     }
@@ -60,11 +60,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(R.layout.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.lRz = (TbImageView) view.findViewById(R.id.item_head);
+            aVar.lSK = (TbImageView) view.findViewById(R.id.item_head);
             aVar.bdM = (TextView) view.findViewById(R.id.item_name);
             aVar.bdN = (ImageView) view.findViewById(R.id.item_arrow);
-            aVar.lRz.setGifIconSupport(false);
-            aVar.lRz.setLongIconSupport(false);
+            aVar.lSK.setGifIconSupport(false);
+            aVar.lSK.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -86,9 +86,9 @@ public class b extends BaseAdapter {
             }
             MediaFileInfo aME = item.aME();
             if (aME instanceof VideoFileInfo) {
-                aVar.lRz.startLoad(((VideoFileInfo) aME).videoPath, 37, false);
+                aVar.lSK.startLoad(((VideoFileInfo) aME).videoPath, 37, false);
             } else if (aME instanceof ImageFileInfo) {
-                aVar.lRz.startLoad(((ImageFileInfo) aME).getFilePath(), 35, false);
+                aVar.lSK.startLoad(((ImageFileInfo) aME).getFilePath(), 35, false);
             }
             am.setViewTextColor(aVar.bdM, (int) R.color.cp_cont_b);
             am.setBackgroundResource(view, R.drawable.addresslist_item_bg);
@@ -100,7 +100,7 @@ public class b extends BaseAdapter {
     private class a {
         TextView bdM;
         ImageView bdN;
-        TbImageView lRz;
+        TbImageView lSK;
 
         private a() {
         }

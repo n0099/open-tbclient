@@ -34,7 +34,7 @@ public class g implements b {
     }
 
     @Override // com.facebook.cache.common.b
-    public String dtB() {
+    public String dtP() {
         return this.mKey;
     }
 }

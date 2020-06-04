@@ -86,11 +86,11 @@ public class MutiImgTextLayout extends LinearLayout implements n<AbsThreadDataSu
         VoiceData.VoiceModel voiceModel = aQL.get(0);
         this.ahm.setVoiceModel(voiceModel);
         this.ahm.setTag(voiceModel);
-        this.ahm.crm();
+        this.ahm.crv();
         if (voiceModel != null) {
-            this.ahm.yi(voiceModel.voice_status.intValue());
+            this.ahm.yk(voiceModel.voice_status.intValue());
         }
-        this.ahm.deL();
+        this.ahm.dfa();
         this.ahp = true;
     }
 

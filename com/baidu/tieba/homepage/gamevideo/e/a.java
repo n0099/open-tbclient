@@ -83,7 +83,7 @@ public class a {
         if (cVar != null && (ay = cVar.ay("c13488", true)) != null) {
             if (cVar.aOi() != null) {
                 bk aOi = cVar.aOi();
-                ay.ag("obj_name", aOi.aSb() != null && (aOi.aSb().ddw() != null || aOi.aSb().biy() != null) ? 1 : 0);
+                ay.ag("obj_name", aOi.aSb() != null && (aOi.aSb().ddL() != null || aOi.aSb().biA() != null) ? 1 : 0);
                 if (aOi.aQx() != null) {
                     ay.ag(TiebaInitialize.Params.AB_TYPE, aOi.aQx().hadConcerned() ? 1 : 0);
                 }

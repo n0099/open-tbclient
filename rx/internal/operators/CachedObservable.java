@@ -9,30 +9,30 @@ public final class CachedObservable<T> extends rx.d<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static final class a<T> extends rx.internal.util.c implements rx.e<T> {
-        static final ReplayProducer<?>[] nEs = new ReplayProducer[0];
-        final rx.d<? extends T> nEp;
-        final rx.subscriptions.d nEq;
-        volatile ReplayProducer<?>[] nEr;
-        volatile boolean nnb;
-        boolean nnc;
+        static final ReplayProducer<?>[] nFC = new ReplayProducer[0];
+        final rx.subscriptions.d nFA;
+        volatile ReplayProducer<?>[] nFB;
+        final rx.d<? extends T> nFz;
+        volatile boolean nol;
+        boolean nom;
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: rx.internal.operators.CachedObservable$ReplayProducer<?>[] */
         /* JADX WARN: Multi-variable type inference failed */
         public void a(ReplayProducer<T> replayProducer) {
-            synchronized (this.nEq) {
-                ReplayProducer<?>[] replayProducerArr = this.nEr;
+            synchronized (this.nFA) {
+                ReplayProducer<?>[] replayProducerArr = this.nFB;
                 int length = replayProducerArr.length;
                 ReplayProducer<?>[] replayProducerArr2 = new ReplayProducer[length + 1];
                 System.arraycopy(replayProducerArr, 0, replayProducerArr2, 0, length);
                 replayProducerArr2[length] = replayProducer;
-                this.nEr = replayProducerArr2;
+                this.nFB = replayProducerArr2;
             }
         }
 
         public void b(ReplayProducer<T> replayProducer) {
             int i = 0;
-            synchronized (this.nEq) {
-                ReplayProducer<?>[] replayProducerArr = this.nEr;
+            synchronized (this.nFA) {
+                ReplayProducer<?>[] replayProducerArr = this.nFB;
                 int length = replayProducerArr.length;
                 while (true) {
                     if (i >= length) {
@@ -46,13 +46,13 @@ public final class CachedObservable<T> extends rx.d<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        this.nEr = nEs;
+                        this.nFB = nFC;
                         return;
                     }
                     ReplayProducer<?>[] replayProducerArr2 = new ReplayProducer[length - 1];
                     System.arraycopy(replayProducerArr, 0, replayProducerArr2, 0, i);
                     System.arraycopy(replayProducerArr, i + 1, replayProducerArr2, i, (length - i) - 1);
-                    this.nEr = replayProducerArr2;
+                    this.nFB = replayProducerArr2;
                 }
             }
         }
@@ -74,14 +74,14 @@ public final class CachedObservable<T> extends rx.d<T> {
                     a.this.onCompleted();
                 }
             };
-            this.nEq.f(jVar);
-            this.nEp.a((rx.j<? super Object>) jVar);
-            this.nnb = true;
+            this.nFA.f(jVar);
+            this.nFz.a((rx.j<? super Object>) jVar);
+            this.nol = true;
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (!this.nnc) {
+            if (!this.nom) {
                 add(NotificationLite.next(t));
                 dispatch();
             }
@@ -89,26 +89,26 @@ public final class CachedObservable<T> extends rx.d<T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.nnc) {
-                this.nnc = true;
+            if (!this.nom) {
+                this.nom = true;
                 add(NotificationLite.error(th));
-                this.nEq.unsubscribe();
+                this.nFA.unsubscribe();
                 dispatch();
             }
         }
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.nnc) {
-                this.nnc = true;
-                add(NotificationLite.dPB());
-                this.nEq.unsubscribe();
+            if (!this.nom) {
+                this.nom = true;
+                add(NotificationLite.dPP());
+                this.nFA.unsubscribe();
                 dispatch();
             }
         }
 
         void dispatch() {
-            for (ReplayProducer<?> replayProducer : this.nEr) {
+            for (ReplayProducer<?> replayProducer : this.nFB) {
                 replayProducer.replay();
             }
         }
@@ -207,7 +207,7 @@ public final class CachedObservable<T> extends rx.d<T> {
                             if (size != 0) {
                                 Object[] objArr = this.currentBuffer;
                                 if (objArr == null) {
-                                    objArr = this.state.dKW();
+                                    objArr = this.state.dLk();
                                     this.currentBuffer = objArr;
                                 }
                                 int length = objArr.length - 1;

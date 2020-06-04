@@ -24,8 +24,8 @@ import tv.chushou.zues.widget.fresco.b;
 public class ItemTagView extends FrameLayout {
     private TextView c;
     private Context d;
-    private FrescoThumbnailView mTI;
-    private FrescoThumbnailView mTX;
+    private FrescoThumbnailView mUT;
+    private FrescoThumbnailView mVi;
 
     public ItemTagView(@NonNull Context context) {
         this(context, null, 0);
@@ -39,9 +39,9 @@ public class ItemTagView extends FrameLayout {
         super(context, attributeSet, i);
         this.d = context;
         View inflate = LayoutInflater.from(context).inflate(a.h.widget_room_tag, (ViewGroup) this, true);
-        this.mTI = (FrescoThumbnailView) inflate.findViewById(a.f.iv_bg);
-        this.mTX = (FrescoThumbnailView) inflate.findViewById(a.f.iv_tag_icon);
-        this.mTX.setVisibility(8);
+        this.mUT = (FrescoThumbnailView) inflate.findViewById(a.f.iv_bg);
+        this.mVi = (FrescoThumbnailView) inflate.findViewById(a.f.iv_tag_icon);
+        this.mVi.setVisibility(8);
         this.c = (TextView) inflate.findViewById(a.f.tv_tag);
     }
 
@@ -49,19 +49,19 @@ public class ItemTagView extends FrameLayout {
         if (listItem != null) {
             if (!TextUtils.isEmpty(listItem.mCornerIcon) && listItem.mDisplayTagBgHeight > 0) {
                 setVisibility(0);
-                this.mTX.setVisibility(8);
+                this.mVi.setVisibility(8);
                 this.c.setVisibility(8);
-                this.mTI.setVisibility(0);
-                this.mTI.i(listItem.mCornerIcon, a.c.transparent, b.C0923b.small, b.C0923b.small);
-                this.mTI.getHierarchy().Hf(a.e.bg_listitem_room_tag);
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mTI.getLayoutParams();
+                this.mUT.setVisibility(0);
+                this.mUT.i(listItem.mCornerIcon, a.c.transparent, b.C0924b.small, b.C0924b.small);
+                this.mUT.getHierarchy().Hh(a.e.bg_listitem_room_tag);
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mUT.getLayoutParams();
                 layoutParams.height = tv.chushou.zues.utils.a.dip2px(this.d, listItem.mDisplayTagBgHeight);
                 if (listItem.mDisplayTagBgWidth > 0.01f) {
                     layoutParams.width = (int) (layoutParams.height * listItem.mDisplayTagBgWidth);
                 } else {
                     layoutParams.width = -1;
                 }
-                this.mTI.setLayoutParams(layoutParams);
+                this.mUT.setLayoutParams(layoutParams);
             } else if (PayHelper.STATUS_SUCC.equals(listItem.mType)) {
                 b(listItem);
             } else {
@@ -79,16 +79,16 @@ public class ItemTagView extends FrameLayout {
         setVisibility(0);
         if (!h.isEmpty(str4)) {
             this.c.setVisibility(8);
-            this.mTI.setVisibility(0);
-            this.mTI.a(str4, a.c.transparent, b.C0923b.small, b.C0923b.small, 1, new FrescoThumbnailView.a() { // from class: com.kascend.chushou.widget.ItemTagView.1
+            this.mUT.setVisibility(0);
+            this.mUT.a(str4, a.c.transparent, b.C0924b.small, b.C0924b.small, 1, new FrescoThumbnailView.a() { // from class: com.kascend.chushou.widget.ItemTagView.1
                 @Override // tv.chushou.zues.widget.fresco.FrescoThumbnailView.a
                 public void dA(int i, int i2) {
                     e.d("ItemTagView", "on image size getwidth: " + i);
-                    if (ItemTagView.this.mTI != null && i2 > 0) {
-                        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) ItemTagView.this.mTI.getLayoutParams();
+                    if (ItemTagView.this.mUT != null && i2 > 0) {
+                        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) ItemTagView.this.mUT.getLayoutParams();
                         layoutParams.height = tv.chushou.zues.utils.a.dip2px(ItemTagView.this.d, 16.0f);
                         layoutParams.width = (int) (((i * 1.0d) / i2) * layoutParams.height);
-                        ItemTagView.this.mTI.setLayoutParams(layoutParams);
+                        ItemTagView.this.mUT.setLayoutParams(layoutParams);
                     }
                 }
             });
@@ -103,22 +103,22 @@ public class ItemTagView extends FrameLayout {
         this.c.setTextColor(color);
         this.c.setText(str);
         if (h.isEmpty(listItem.mDisplayTagIcon)) {
-            this.mTX.setVisibility(8);
+            this.mVi.setVisibility(8);
         } else {
             this.c.setPadding(tv.chushou.zues.utils.a.dip2px(this.d, 2.0f), 0, tv.chushou.zues.utils.a.dip2px(this.d, 4.0f), 0);
-            this.mTX.setVisibility(0);
-            this.mTX.i(listItem.mDisplayTagIcon, a.c.transparent, tv.chushou.zues.utils.a.dip2px(this.d, 9.0f), tv.chushou.zues.utils.a.dip2px(this.d, 9.0f));
+            this.mVi.setVisibility(0);
+            this.mVi.i(listItem.mDisplayTagIcon, a.c.transparent, tv.chushou.zues.utils.a.dip2px(this.d, 9.0f), tv.chushou.zues.utils.a.dip2px(this.d, 9.0f));
         }
-        this.mTI.i(str2, a.c.transparent, b.C0923b.small, b.C0923b.small);
-        this.mTI.getHierarchy().Hf(a.e.bg_listitem_room_tag);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mTI.getLayoutParams();
+        this.mUT.i(str2, a.c.transparent, b.C0924b.small, b.C0924b.small);
+        this.mUT.getHierarchy().Hh(a.e.bg_listitem_room_tag);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mUT.getLayoutParams();
         layoutParams.height = tv.chushou.zues.utils.a.dip2px(this.d, 16.0f);
         if (f != 0.0f) {
             layoutParams.width = (int) (layoutParams.height * f);
         } else {
             layoutParams.width = -1;
         }
-        this.mTI.setLayoutParams(layoutParams);
+        this.mUT.setLayoutParams(layoutParams);
     }
 
     public void b(ListItem listItem) {
@@ -138,29 +138,29 @@ public class ItemTagView extends FrameLayout {
             this.c.setTextColor(color);
             this.c.setText(listItem.mDisplayTag);
             if (h.isEmpty(listItem.mDisplayTagIcon)) {
-                this.mTX.setVisibility(8);
+                this.mVi.setVisibility(8);
             } else {
                 this.c.setPadding(tv.chushou.zues.utils.a.dip2px(this.d, 2.0f), 0, tv.chushou.zues.utils.a.dip2px(this.d, 4.0f), 0);
-                this.mTX.setVisibility(0);
-                this.mTX.i(listItem.mDisplayTagIcon, a.c.transparent, tv.chushou.zues.utils.a.dip2px(this.d, 9.0f), tv.chushou.zues.utils.a.dip2px(this.d, 9.0f));
+                this.mVi.setVisibility(0);
+                this.mVi.i(listItem.mDisplayTagIcon, a.c.transparent, tv.chushou.zues.utils.a.dip2px(this.d, 9.0f), tv.chushou.zues.utils.a.dip2px(this.d, 9.0f));
             }
-            this.mTI.i(listItem.mDisplayTagBackground, a.c.transparent, b.C0923b.small, b.C0923b.small);
-            this.mTI.getHierarchy().Hf(a.e.bg_listitem_room_tag);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mTI.getLayoutParams();
+            this.mUT.i(listItem.mDisplayTagBackground, a.c.transparent, b.C0924b.small, b.C0924b.small);
+            this.mUT.getHierarchy().Hh(a.e.bg_listitem_room_tag);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mUT.getLayoutParams();
             layoutParams.height = tv.chushou.zues.utils.a.dip2px(this.d, 16.0f);
             if (listItem.mDisplayTagBgWidth != 0.0f) {
                 layoutParams.width = (int) (layoutParams.height * listItem.mDisplayTagBgWidth);
             } else {
                 layoutParams.width = -1;
             }
-            this.mTI.setLayoutParams(layoutParams);
+            this.mUT.setLayoutParams(layoutParams);
         }
     }
 
     public void a(float f, float f2, float f3, float f4) {
-        RoundingParams dwp;
-        if (this.mTI != null && (dwp = this.mTI.getHierarchy().dwp()) != null) {
-            dwp.h(f, f2, f3, f4);
+        RoundingParams dwD;
+        if (this.mUT != null && (dwD = this.mUT.getHierarchy().dwD()) != null) {
+            dwD.h(f, f2, f3, f4);
         }
     }
 }

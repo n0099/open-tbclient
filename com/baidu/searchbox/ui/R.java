@@ -4,8 +4,8 @@ public final class R {
 
     /* loaded from: classes5.dex */
     public static final class drawable {
-        public static final int loading_progress = 0x7f021525;
-        public static final int loading_progress_animation = 0x7f021526;
+        public static final int loading_progress = 0x7f021529;
+        public static final int loading_progress_animation = 0x7f02152a;
     }
 
     /* loaded from: classes5.dex */

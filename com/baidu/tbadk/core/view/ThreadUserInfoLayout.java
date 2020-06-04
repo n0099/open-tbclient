@@ -78,7 +78,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
             public void onClick(View view) {
                 String url;
                 if (bc.checkUpIsLogin(ThreadUserInfoLayout.this.mContext) && ThreadUserInfoLayout.this.aee != null && ThreadUserInfoLayout.this.aee.aQx() != null && ThreadUserInfoLayout.this.aee.aQx().getTShowInfoNew() != null && v.getItem(ThreadUserInfoLayout.this.aee.aQx().getTShowInfoNew(), 0) != null && (url = ThreadUserInfoLayout.this.aee.aQx().getTShowInfoNew().get(0).getUrl()) != null && (com.baidu.adp.base.i.G(ThreadUserInfoLayout.this.mContext) instanceof TbPageContext)) {
-                    ba.aUZ().b((TbPageContext) com.baidu.adp.base.i.G(ThreadUserInfoLayout.this.mContext), new String[]{url});
+                    ba.aVa().b((TbPageContext) com.baidu.adp.base.i.G(ThreadUserInfoLayout.this.mContext), new String[]{url});
                 }
             }
         };
@@ -126,7 +126,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
             public void onClick(View view) {
                 String url;
                 if (bc.checkUpIsLogin(ThreadUserInfoLayout.this.mContext) && ThreadUserInfoLayout.this.aee != null && ThreadUserInfoLayout.this.aee.aQx() != null && ThreadUserInfoLayout.this.aee.aQx().getTShowInfoNew() != null && v.getItem(ThreadUserInfoLayout.this.aee.aQx().getTShowInfoNew(), 0) != null && (url = ThreadUserInfoLayout.this.aee.aQx().getTShowInfoNew().get(0).getUrl()) != null && (com.baidu.adp.base.i.G(ThreadUserInfoLayout.this.mContext) instanceof TbPageContext)) {
-                    ba.aUZ().b((TbPageContext) com.baidu.adp.base.i.G(ThreadUserInfoLayout.this.mContext), new String[]{url});
+                    ba.aVa().b((TbPageContext) com.baidu.adp.base.i.G(ThreadUserInfoLayout.this.mContext), new String[]{url});
                 }
             }
         };
@@ -174,7 +174,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
             public void onClick(View view) {
                 String url;
                 if (bc.checkUpIsLogin(ThreadUserInfoLayout.this.mContext) && ThreadUserInfoLayout.this.aee != null && ThreadUserInfoLayout.this.aee.aQx() != null && ThreadUserInfoLayout.this.aee.aQx().getTShowInfoNew() != null && v.getItem(ThreadUserInfoLayout.this.aee.aQx().getTShowInfoNew(), 0) != null && (url = ThreadUserInfoLayout.this.aee.aQx().getTShowInfoNew().get(0).getUrl()) != null && (com.baidu.adp.base.i.G(ThreadUserInfoLayout.this.mContext) instanceof TbPageContext)) {
-                    ba.aUZ().b((TbPageContext) com.baidu.adp.base.i.G(ThreadUserInfoLayout.this.mContext), new String[]{url});
+                    ba.aVa().b((TbPageContext) com.baidu.adp.base.i.G(ThreadUserInfoLayout.this.mContext), new String[]{url});
                 }
             }
         };
@@ -391,7 +391,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
                 if (NickNameActivitySwitch.isOn() && name_show != null && !name_show.equals(userName)) {
                     this.agw.setText(com.baidu.tieba.pb.c.aK(this.mContext, this.agw.getText().toString()));
                     this.agw.setGravity(16);
-                    this.agw.setTag(R.id.tag_nick_name_activity, com.baidu.tieba.pb.c.cBR());
+                    this.agw.setTag(R.id.tag_nick_name_activity, com.baidu.tieba.pb.c.cCh());
                     am.setViewTextColor(this.agw, R.color.cp_other_f, 1);
                 }
             }

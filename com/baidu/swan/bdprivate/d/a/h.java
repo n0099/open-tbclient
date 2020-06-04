@@ -79,9 +79,9 @@ public class h extends aa {
             public void H(com.baidu.swan.apps.setting.oauth.h<e.c> hVar) {
                 if (!hVar.isOk()) {
                     com.baidu.swan.apps.console.c.w("ThirdPartyLoginAction", hVar.getErrorCode() + " " + aVar.toString());
-                    String gM = com.baidu.swan.apps.setting.oauth.c.gM(hVar.getErrorCode());
-                    if (!TextUtils.isEmpty(gM)) {
-                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode(), gM).toString());
+                    String gO = com.baidu.swan.apps.setting.oauth.c.gO(hVar.getErrorCode());
+                    if (!TextUtils.isEmpty(gO)) {
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode(), gO).toString());
                     } else {
                         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode()).toString());
                     }

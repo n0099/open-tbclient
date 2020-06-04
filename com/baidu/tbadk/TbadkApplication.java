@@ -99,14 +99,14 @@ public class TbadkApplication extends TbadkCoreApplication {
                     boolean z3 = Build.VERSION.SDK_INT < 28 ? z2 : false;
                     if (!this.isKeepLiveProcess) {
                         if (!this.mPluginIsInited) {
-                            PluginPackageManager.nX().a(com.baidu.tbadk.o.c.bfW(), new d(), z3, (Object) null);
+                            PluginPackageManager.nX().a(com.baidu.tbadk.o.c.bfX(), new d(), z3, (Object) null);
                         }
                         PluginSettings ox = com.baidu.adp.plugin.packageManager.pluginSettings.c.oA().ox();
                         if (ox != null) {
                             String containerVersion = ox.getContainerVersion();
                             if (!TextUtils.isEmpty(containerVersion) && Util.K(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                                n.bfN().ir(z3);
-                                n.bfN().cz(System.currentTimeMillis() - currentTimeMillis);
+                                n.bfO().ir(z3);
+                                n.bfO().cz(System.currentTimeMillis() - currentTimeMillis);
                             }
                         }
                     }
@@ -129,17 +129,17 @@ public class TbadkApplication extends TbadkCoreApplication {
                         NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.2
                             @Override // com.baidu.appsearchlib.NASLib.NASCallBack
                             public void callback(String str2, String str3) {
-                                ba.aUZ().b(null, new String[]{str3});
+                                ba.aVa().b(null, new String[]{str3});
                             }
                         });
-                        n.bfN().cJ(System.currentTimeMillis() - currentTimeMillis2);
+                        n.bfO().cJ(System.currentTimeMillis() - currentTimeMillis2);
                     }
                     this.mAppInitHandler.sendEmptyMessage(9);
                     return;
                 case 9:
                     j.aUj();
                     if (this.isRemoteProcess) {
-                        n.bfN().cR(System.currentTimeMillis() - this.processCreateTime);
+                        n.bfO().cR(System.currentTimeMillis() - this.processCreateTime);
                         return;
                     }
                     return;
@@ -294,7 +294,7 @@ public class TbadkApplication extends TbadkCoreApplication {
             if (checkSyncPatchBlacklist() && com.baidu.adp.plugin.install.d.nF() && i == 0 && PluginPackageManager.nX().ob()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 PluginPackageManager.nX().oc();
-                n.bfN().cy(System.currentTimeMillis() - currentTimeMillis);
+                n.bfO().cy(System.currentTimeMillis() - currentTimeMillis);
             }
         }
     }

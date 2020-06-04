@@ -55,7 +55,7 @@ public class a implements Cloneable {
         return this.left;
     }
 
-    public void fU(int i) {
+    public void fW(int i) {
         this.left = i;
     }
 
@@ -63,7 +63,7 @@ public class a implements Cloneable {
         return this.f1001top;
     }
 
-    public void fV(int i) {
+    public void fX(int i) {
         this.f1001top = i;
     }
 

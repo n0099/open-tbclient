@@ -31,7 +31,7 @@ public class a {
     private Semaphore bFN;
 
     private a(int i) {
-        dF(i);
+        dH(i);
     }
 
     public static a Qn() {
@@ -45,7 +45,7 @@ public class a {
         return bFG;
     }
 
-    private void dF(int i) {
+    private void dH(int i) {
         this.bFH = new Thread() { // from class: com.baidu.spswitch.emotion.a.1
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {

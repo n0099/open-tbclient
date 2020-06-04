@@ -150,9 +150,9 @@ public class AlaGiftDrawPanel extends FrameLayout {
             PointF pointF = this.aLA.get(i2);
             float f = pointF.x - this.aLF;
             float f2 = pointF.y - this.aLH;
-            Bitmap cj = cj(i2);
-            if (cj != null && !cj.isRecycled()) {
-                canvas.drawBitmap(cj, f, f2, this.aLz);
+            Bitmap cl = cl(i2);
+            if (cl != null && !cl.isRecycled()) {
+                canvas.drawBitmap(cl, f, f2, this.aLz);
             }
             i = i2 + 1;
         }
@@ -167,7 +167,7 @@ public class AlaGiftDrawPanel extends FrameLayout {
         }
     }
 
-    private Bitmap cj(int i) {
+    private Bitmap cl(int i) {
         int i2 = 0;
         int i3 = -1;
         while (true) {
@@ -383,7 +383,7 @@ public class AlaGiftDrawPanel extends FrameLayout {
         mVar.aFB = this.aFB;
         mVar.eG(this.aFB != null ? this.aFB.xo() : "");
         mVar.setGiftId(this.aFB != null ? Integer.parseInt(this.aFB.xl()) : 0);
-        mVar.bM(getCurrentPointSize() - this.aLM);
+        mVar.bO(getCurrentPointSize() - this.aLM);
         return mVar;
     }
 

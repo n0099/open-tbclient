@@ -39,7 +39,7 @@ public class SignStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SupplementSignActivityConfig.class, SupplementSignActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        blh();
+        blj();
         Fv();
     }
 
@@ -69,11 +69,11 @@ public class SignStatic {
                         xVar.addPostData("sign_from", data.getFromPage());
                     }
                     SignStatic.a(xVar);
-                    xVar.aUA().aVa().mIsNeedTbs = true;
+                    xVar.aUA().aVb().mIsNeedTbs = true;
                     xVar.ha(true);
                     String postNetData = xVar.postNetData();
                     if (xVar.isNetSuccess()) {
-                        if (xVar.aUA().aVb().isRequestSuccess()) {
+                        if (xVar.aUA().aVc().isRequestSuccess()) {
                             signData = new SignData();
                             signData.parserJson(postNetData);
                             signData.forumId = id;
@@ -81,7 +81,7 @@ public class SignStatic {
                         } else if (!aq.isEmpty(postNetData)) {
                             JSONObject jSONObject = new JSONObject(postNetData);
                             signMessage.parserJson(xVar, jSONObject);
-                            if (AntiHelper.Ea(xVar.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
+                            if (AntiHelper.Ec(xVar.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
                                 signData = new SignData();
                                 signData.parserJson(postNetData);
                                 signData.is_signed = 1;
@@ -121,8 +121,8 @@ public class SignStatic {
         }
     }
 
-    private static void blh() {
-        ba.aUZ().a(new ba.a() { // from class: com.baidu.tieba.SignStatic.2
+    private static void blj() {
+        ba.aVa().a(new ba.a() { // from class: com.baidu.tieba.SignStatic.2
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {

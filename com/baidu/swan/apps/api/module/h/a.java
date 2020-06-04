@@ -293,7 +293,7 @@ public class a extends d {
                     bVar = new com.baidu.swan.apps.api.c.b(0, aVar.cEG);
                 } else {
                     int asM = (int) aVar.cFu.asM();
-                    bVar = new com.baidu.swan.apps.api.c.b(asM, com.baidu.swan.apps.setting.oauth.c.gM(asM));
+                    bVar = new com.baidu.swan.apps.api.c.b(asM, com.baidu.swan.apps.setting.oauth.c.gO(asM));
                     com.baidu.swan.games.v.c.g(a.this.TS().TQ(), bVar.toJsonString());
                 }
                 a.this.a(str, bVar);

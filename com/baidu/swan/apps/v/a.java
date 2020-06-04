@@ -94,7 +94,7 @@ public class a extends aa {
                 cVar.mDownloadUrl = optString5;
                 com.baidu.swan.apps.r.e.a(cVar, new e.b() { // from class: com.baidu.swan.apps.v.a.1
                     @Override // com.baidu.swan.apps.r.e.b
-                    public void dr(int i) {
+                    public void dt(int i) {
                     }
 
                     @Override // com.baidu.swan.apps.r.e.b

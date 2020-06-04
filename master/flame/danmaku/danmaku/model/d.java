@@ -2,18 +2,18 @@ package master.flame.danmaku.danmaku.model;
 /* loaded from: classes5.dex */
 public abstract class d {
     public int index;
-    protected f nvG;
-    public long nwa;
-    public String[] nwb;
-    public float nwc;
-    public int nwd;
-    public g nwi;
-    public n<?> nwn;
-    public boolean nwo;
-    public boolean nwp;
-    public String nwq;
-    public boolean nwr;
-    public boolean nwx;
+    protected f nwQ;
+    public String nxA;
+    public boolean nxB;
+    public boolean nxH;
+    public long nxk;
+    public String[] nxl;
+    public float nxm;
+    public int nxn;
+    public g nxs;
+    public n<?> nxx;
+    public boolean nxy;
+    public boolean nxz;
     public Object obj;
     public float rotationY;
     public Object tag;
@@ -21,122 +21,122 @@ public abstract class d {
     public int textColor;
     private long time;
     public int visibility;
-    public boolean nvZ = false;
-    public int nwe = 0;
+    public boolean nxj = false;
+    public int nxo = 0;
     public float bir = -1.0f;
     public int borderColor = 0;
     public int padding = 0;
-    public byte nwf = 0;
-    public float nwg = -1.0f;
-    public float nwh = -1.0f;
-    private int nwj = 0;
-    public int nwk = 0;
-    public int nwl = 0;
-    public int nwm = -1;
+    public byte nxp = 0;
+    public float nxq = -1.0f;
+    public float nxr = -1.0f;
+    private int nxt = 0;
+    public int nxu = 0;
+    public int nxv = 0;
+    public int nxw = -1;
     public int userId = 0;
     protected int alpha = c.MAX;
-    public int nws = 0;
-    public int nwt = -1;
-    public j nwu = null;
-    public int nwv = 0;
-    public int nww = -1;
+    public int nxC = 0;
+    public int nxD = -1;
+    public j nxE = null;
+    public int nxF = 0;
+    public int nxG = -1;
 
     public abstract void a(m mVar, float f, float f2);
 
     public abstract float[] a(m mVar, long j);
 
-    public abstract float dNf();
+    public abstract float dNt();
 
-    public abstract float dNg();
+    public abstract float dNu();
 
-    public abstract float dNh();
+    public abstract float dNv();
 
-    public abstract float dNi();
+    public abstract float dNw();
 
     public abstract int getType();
 
     public long getDuration() {
-        return this.nwi.value;
+        return this.nxs.value;
     }
 
     public int a(m mVar) {
         return mVar.n(this);
     }
 
-    public boolean dMZ() {
-        return this.nwg > -1.0f && this.nwh > -1.0f && this.nwk == this.nwu.nwG;
+    public boolean dNn() {
+        return this.nxq > -1.0f && this.nxr > -1.0f && this.nxu == this.nxE.nxQ;
     }
 
     public void a(m mVar, boolean z) {
         mVar.c(this, z);
-        this.nwk = this.nwu.nwG;
+        this.nxu = this.nxE.nxQ;
     }
 
     public boolean isPrepared() {
-        return this.nwm == this.nwu.nwL;
+        return this.nxw == this.nxE.nxV;
     }
 
     public void b(m mVar, boolean z) {
         mVar.b(this, z);
-        this.nwm = this.nwu.nwL;
+        this.nxw = this.nxE.nxV;
     }
 
-    public n<?> dNa() {
-        return this.nwn;
+    public n<?> dNo() {
+        return this.nxx;
     }
 
     public boolean isShown() {
-        return this.visibility == 1 && this.nwj == this.nwu.nwH;
+        return this.visibility == 1 && this.nxt == this.nxE.nxR;
     }
 
     public boolean isTimeOut() {
-        return this.nvG == null || gn(this.nvG.nwy);
+        return this.nwQ == null || gn(this.nwQ.nxI);
     }
 
     public boolean gn(long j) {
-        return j - dNk() >= this.nwi.value;
+        return j - dNy() >= this.nxs.value;
     }
 
-    public boolean dNb() {
-        return this.nvG == null || go(this.nvG.nwy);
+    public boolean dNp() {
+        return this.nwQ == null || go(this.nwQ.nxI);
     }
 
     public boolean go(long j) {
-        long dNk = j - dNk();
-        return dNk <= 0 || dNk >= this.nwi.value;
+        long dNy = j - dNy();
+        return dNy <= 0 || dNy >= this.nxs.value;
     }
 
-    public boolean dNc() {
-        return this.nvG == null || this.nvG.nwy < dNk();
+    public boolean dNq() {
+        return this.nwQ == null || this.nwQ.nxI < dNy();
     }
 
-    public boolean dNd() {
-        if (this.nwt != this.nwu.nwI) {
-            this.nws = 0;
+    public boolean dNr() {
+        if (this.nxD != this.nxE.nxS) {
+            this.nxC = 0;
             return false;
         }
         return true;
     }
 
-    public boolean dNe() {
-        return this.nwt == this.nwu.nwI && this.nws != 0;
+    public boolean dNs() {
+        return this.nxD == this.nxE.nxS && this.nxC != 0;
     }
 
     public void setVisibility(boolean z) {
         if (z) {
-            this.nwj = this.nwu.nwH;
+            this.nxt = this.nxE.nxR;
             this.visibility = 1;
             return;
         }
         this.visibility = 0;
     }
 
-    public f dNj() {
-        return this.nvG;
+    public f dNx() {
+        return this.nwQ;
     }
 
     public void c(f fVar) {
-        this.nvG = fVar;
+        this.nwQ = fVar;
     }
 
     public int getAlpha() {
@@ -148,27 +148,27 @@ public abstract class d {
     }
 
     public void gp(long j) {
-        this.nwa = j;
-        this.nwl = this.nwu.nwK;
+        this.nxk = j;
+        this.nxv = this.nxE.nxU;
     }
 
     public void setTime(long j) {
         this.time = j;
-        this.nwa = 0L;
+        this.nxk = 0L;
     }
 
     public long getTime() {
         return this.time;
     }
 
-    public long dNk() {
-        return (this.nwu == null || this.nwu.nwK != this.nwl) ? this.time : this.time + this.nwa;
+    public long dNy() {
+        return (this.nxE == null || this.nxE.nxU != this.nxv) ? this.time : this.time + this.nxk;
     }
 
-    public boolean dNl() {
-        if (this.nwu == null || this.nwu.nwK != this.nwl) {
+    public boolean dNz() {
+        if (this.nxE == null || this.nxE.nxU != this.nxv) {
             return false;
         }
-        return this.nwx;
+        return this.nxH;
     }
 }

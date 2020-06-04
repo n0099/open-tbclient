@@ -49,7 +49,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
 
     /* loaded from: classes.dex */
     public interface a {
-        void lN(int i);
+        void lP(int i);
     }
 
     public HorizontalListView(Context context, AttributeSet attributeSet) {
@@ -428,11 +428,11 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.mScroller.forceFinished(true);
             }
             int i6 = this.mCurrentX - this.mNextX;
-            lL(i6);
-            lK(i6);
+            lN(i6);
             lM(i6);
+            lO(i6);
             if (this.dTu != null) {
-                this.dTu.lN(getMiddleViewPosition());
+                this.dTu.lP(getMiddleViewPosition());
             }
             this.mCurrentX = this.mNextX;
             if (!this.mScroller.isFinished()) {
@@ -446,7 +446,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    private void lK(int i) {
+    private void lM(int i) {
         View childAt = getChildAt(getChildCount() - 1);
         aJ(childAt != null ? childAt.getRight() : 0, i);
         View childAt2 = getChildAt(0);
@@ -478,7 +478,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    private void lL(int i) {
+    private void lN(int i) {
         View childAt = getChildAt(0);
         while (childAt != null && childAt.getRight() + i <= 0) {
             this.dTo += childAt.getMeasuredWidth();
@@ -496,7 +496,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    private void lM(int i) {
+    private void lO(int i) {
         if (getChildCount() > 0) {
             this.dTo += i;
             int i2 = this.dTo;

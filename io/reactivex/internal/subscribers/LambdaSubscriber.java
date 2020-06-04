@@ -98,6 +98,6 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.nmD;
+        return this.onError != Functions.nnN;
     }
 }

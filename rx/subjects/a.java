@@ -6,10 +6,10 @@ import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
 /* loaded from: classes6.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] nrm = new Object[0];
-    private final SubjectSubscriptionManager<T> nKx;
+    private static final Object[] nsw = new Object[0];
+    private final SubjectSubscriptionManager<T> nLH;
 
-    public static <T> a<T> dQI() {
+    public static <T> a<T> dQW() {
         return e(null, false);
     }
 
@@ -32,25 +32,25 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.nKx = subjectSubscriptionManager;
+        this.nLH = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.nKx.getLatest() == null || this.nKx.active) {
-            Object dPB = NotificationLite.dPB();
-            for (SubjectSubscriptionManager.b<T> bVar : this.nKx.terminate(dPB)) {
-                bVar.ce(dPB);
+        if (this.nLH.getLatest() == null || this.nLH.active) {
+            Object dPP = NotificationLite.dPP();
+            for (SubjectSubscriptionManager.b<T> bVar : this.nLH.terminate(dPP)) {
+                bVar.ce(dPP);
             }
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.nKx.getLatest() == null || this.nKx.active) {
+        if (this.nLH.getLatest() == null || this.nLH.active) {
             Object error = NotificationLite.error(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.nKx.terminate(error)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.nLH.terminate(error)) {
                 try {
                     bVar.ce(error);
                 } catch (Throwable th2) {
@@ -60,15 +60,15 @@ public final class a<T> extends c<T, T> {
                     arrayList.add(th2);
                 }
             }
-            rx.exceptions.a.fv(arrayList);
+            rx.exceptions.a.fx(arrayList);
         }
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.nKx.getLatest() == null || this.nKx.active) {
+        if (this.nLH.getLatest() == null || this.nLH.active) {
             Object next = NotificationLite.next(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.nKx.next(next)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.nLH.next(next)) {
                 bVar.ce(next);
             }
         }

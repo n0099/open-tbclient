@@ -32,55 +32,55 @@ import java.util.List;
 public class AlaChallengeLiveView extends RelativeLayout implements View.OnClickListener, ChallengeJinzhuView.a {
     private al azm;
     private al azn;
-    private ChallengeJinzhuView fQA;
-    private ChallengeJinzhuView fQB;
-    private RelativeLayout fQC;
-    private RelativeLayout fQD;
-    private HeadImageView fQE;
-    private TextView fQF;
+    private View fQA;
+    private RelativeLayout fQB;
+    private TbImageView fQC;
+    private View fQD;
+    private RelativeLayout fQE;
+    private RelativeLayout fQF;
     private LinearLayout fQG;
-    private ChallengeJinzhuView fQH;
-    private ChallengeJinzhuView fQI;
-    private ChallengeJinzhuView fQJ;
-    private LinearLayout fQK;
-    private ImageView fQL;
-    private TextView fQM;
-    private LinearLayout fQN;
-    private TextView fQO;
-    private RelativeLayout fQP;
+    private ImageView fQH;
+    private TextView fQI;
+    private LinearLayout fQJ;
+    private ChallengeJinzhuView fQK;
+    private ChallengeJinzhuView fQL;
+    private ChallengeJinzhuView fQM;
+    private RelativeLayout fQN;
+    private RelativeLayout fQO;
+    private HeadImageView fQP;
     private TextView fQQ;
-    private TextView fQR;
-    private TextView fQS;
-    private TextView fQT;
-    private View fQU;
-    private View fQV;
-    private TextView fQW;
-    private a fQX;
-    private long fQY;
-    private long fQZ;
-    private RelativeLayout fQl;
-    private RelativeLayout fQm;
-    private RelativeLayout fQn;
-    private TbImageView fQo;
-    private View fQp;
-    private RelativeLayout fQq;
-    private TbImageView fQr;
-    private View fQs;
-    private RelativeLayout fQt;
-    private RelativeLayout fQu;
-    private LinearLayout fQv;
-    private ImageView fQw;
-    private TextView fQx;
-    private LinearLayout fQy;
-    private ChallengeJinzhuView fQz;
-    private int fRa;
-    private int fRb;
-    private ak fRc;
-    private ValueAnimator fRd;
-    private List<ai> fRe;
-    private List<ai> fRf;
-    public boolean fRg;
-    private CountDownTimer foC;
+    private LinearLayout fQR;
+    private ChallengeJinzhuView fQS;
+    private ChallengeJinzhuView fQT;
+    private ChallengeJinzhuView fQU;
+    private LinearLayout fQV;
+    private ImageView fQW;
+    private TextView fQX;
+    private LinearLayout fQY;
+    private TextView fQZ;
+    private RelativeLayout fQw;
+    private RelativeLayout fQx;
+    private RelativeLayout fQy;
+    private TbImageView fQz;
+    private RelativeLayout fRa;
+    private TextView fRb;
+    private TextView fRc;
+    private TextView fRd;
+    private TextView fRe;
+    private View fRf;
+    private View fRg;
+    private TextView fRh;
+    private a fRi;
+    private long fRj;
+    private long fRk;
+    private int fRl;
+    private int fRm;
+    private ak fRn;
+    private ValueAnimator fRo;
+    private List<ai> fRp;
+    private List<ai> fRq;
+    public boolean fRr;
+    private CountDownTimer foN;
     private boolean isHost;
     private Context mContext;
     private Handler mHandler;
@@ -89,9 +89,9 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bAD();
+        void bAF();
 
-        void bAE();
+        void bAG();
 
         void d(al alVar);
 
@@ -101,36 +101,36 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
     public AlaChallengeLiveView(Context context) {
         super(context);
         this.isHost = false;
-        this.fQY = -1L;
-        this.fQZ = -1L;
+        this.fRj = -1L;
+        this.fRk = -1L;
         this.screenWidth = -1;
-        this.fRa = 0;
-        this.fRb = 0;
-        this.fRg = false;
+        this.fRl = 0;
+        this.fRm = 0;
+        this.fRr = false;
         init(context);
     }
 
     public AlaChallengeLiveView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.isHost = false;
-        this.fQY = -1L;
-        this.fQZ = -1L;
+        this.fRj = -1L;
+        this.fRk = -1L;
         this.screenWidth = -1;
-        this.fRa = 0;
-        this.fRb = 0;
-        this.fRg = false;
+        this.fRl = 0;
+        this.fRm = 0;
+        this.fRr = false;
         init(context);
     }
 
     public AlaChallengeLiveView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.isHost = false;
-        this.fQY = -1L;
-        this.fQZ = -1L;
+        this.fRj = -1L;
+        this.fRk = -1L;
         this.screenWidth = -1;
-        this.fRa = 0;
-        this.fRb = 0;
-        this.fRg = false;
+        this.fRl = 0;
+        this.fRm = 0;
+        this.fRr = false;
         init(context);
     }
 
@@ -142,13 +142,13 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
     }
 
     public void setNeedCloseRecommendFloat(boolean z) {
-        this.fRg = z;
-        this.fQz.setNeedCloseRecommendFloat(this.fRg);
-        this.fQA.setNeedCloseRecommendFloat(this.fRg);
-        this.fQB.setNeedCloseRecommendFloat(this.fRg);
-        this.fQH.setNeedCloseRecommendFloat(this.fRg);
-        this.fQI.setNeedCloseRecommendFloat(this.fRg);
-        this.fQJ.setNeedCloseRecommendFloat(this.fRg);
+        this.fRr = z;
+        this.fQK.setNeedCloseRecommendFloat(this.fRr);
+        this.fQL.setNeedCloseRecommendFloat(this.fRr);
+        this.fQM.setNeedCloseRecommendFloat(this.fRr);
+        this.fQS.setNeedCloseRecommendFloat(this.fRr);
+        this.fQT.setNeedCloseRecommendFloat(this.fRr);
+        this.fQU.setNeedCloseRecommendFloat(this.fRr);
     }
 
     public void setIsHost(boolean z) {
@@ -157,151 +157,151 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
 
     private void initView(Context context) {
         this.rootView = (RelativeLayout) View.inflate(context, a.h.ala_challenge_panel_optation_view, this);
-        this.fQl = (RelativeLayout) this.rootView.findViewById(a.g.root_container);
-        this.fQn = (RelativeLayout) this.rootView.findViewById(a.g.anchor_live_anim_layout);
-        this.fQo = (TbImageView) this.rootView.findViewById(a.g.anchor_live_anim_bg);
-        this.fQq = (RelativeLayout) this.rootView.findViewById(a.g.rival_live_anim_layout);
-        this.fQr = (TbImageView) this.rootView.findViewById(a.g.rival_live_anim_bg);
-        this.fQm = (RelativeLayout) this.rootView.findViewById(a.g.pk_live_container);
-        this.fQu = (RelativeLayout) this.rootView.findViewById(a.g.pk_anchor_live_layout);
-        this.fQv = (LinearLayout) this.rootView.findViewById(a.g.anchor_streak_win_layout);
-        this.fQw = (ImageView) this.rootView.findViewById(a.g.anchor_user_pk_streak_img);
-        this.fQx = (TextView) this.rootView.findViewById(a.g.anchor_user_pk_streak_time);
-        this.fQt = (RelativeLayout) this.rootView.findViewById(a.g.jinzhu_container);
-        this.fQy = (LinearLayout) this.rootView.findViewById(a.g.anchor_jinzhu_layout);
-        this.fQz = (ChallengeJinzhuView) this.rootView.findViewById(a.g.anchor_jinzhu_1);
-        this.fQA = (ChallengeJinzhuView) this.rootView.findViewById(a.g.anchor_jinzhu_2);
-        this.fQB = (ChallengeJinzhuView) this.rootView.findViewById(a.g.anchor_jinzhu_3);
-        this.fQC = (RelativeLayout) this.rootView.findViewById(a.g.pk_rival_live_layout);
-        this.fQD = (RelativeLayout) this.rootView.findViewById(a.g.pk_rival_user_layout);
-        this.fQE = (HeadImageView) this.rootView.findViewById(a.g.ala_live_rival_user_image);
-        this.fQF = (TextView) this.rootView.findViewById(a.g.ala_live_rival_user_name);
-        this.fQK = (LinearLayout) this.rootView.findViewById(a.g.rival_streak_win_layout);
-        this.fQG = (LinearLayout) this.rootView.findViewById(a.g.rival_jinzhu_layout);
-        this.fQH = (ChallengeJinzhuView) this.rootView.findViewById(a.g.rival_jinzhu_1);
-        this.fQI = (ChallengeJinzhuView) this.rootView.findViewById(a.g.rival_jinzhu_2);
-        this.fQJ = (ChallengeJinzhuView) this.rootView.findViewById(a.g.rival_jinzhu_3);
-        this.fQL = (ImageView) this.rootView.findViewById(a.g.rival_user_pk_streak_img);
-        this.fQM = (TextView) this.rootView.findViewById(a.g.rival_user_pk_streak_time);
-        this.fQN = (LinearLayout) this.rootView.findViewById(a.g.pk_time_layout);
-        this.fQO = (TextView) this.rootView.findViewById(a.g.pk_time_label);
-        this.fQP = (RelativeLayout) this.rootView.findViewById(a.g.pk_score_progress_layout);
-        this.fQQ = (TextView) this.rootView.findViewById(a.g.pk_anchor_label);
-        this.fQS = (TextView) this.rootView.findViewById(a.g.pk_anchor_progress);
-        this.fQT = (TextView) this.rootView.findViewById(a.g.pk_rival_progress);
-        this.fQR = (TextView) this.rootView.findViewById(a.g.pk_rival_label);
-        this.fQW = (TextView) this.rootView.findViewById(a.g.btn_close_challenge_view);
-        this.fQU = this.rootView.findViewById(a.g.anchor_progress_bg);
-        this.fQV = this.rootView.findViewById(a.g.rival_progress_bg);
-        this.fQp = this.rootView.findViewById(a.g.anchor_live_anim_fore_bg);
-        this.fQs = this.rootView.findViewById(a.g.rival_live_anim_fore_bg);
-        this.fQD.setVisibility(0);
-        this.fQD.setBackgroundResource(a.f.sdk_round_host_header_bg);
-        this.fQE.setIsRound(true);
-        this.fQE.setAutoChangeStyle(false);
-        this.fQE.setDefaultBgResource(a.f.sdk_icon_default_avatar100_bg);
-        this.fQE.setIsNight(false);
-        this.fQC.setOnClickListener(this);
-        this.fQD.setOnClickListener(this);
-        this.fQW.setOnClickListener(this);
-        this.fQy.setVisibility(8);
-        this.fQG.setVisibility(8);
-        this.fQz.setClickListener(this);
-        this.fQA.setClickListener(this);
-        this.fQB.setClickListener(this);
-        this.fQH.setClickListener(this);
-        this.fQI.setClickListener(this);
-        this.fQJ.setClickListener(this);
+        this.fQw = (RelativeLayout) this.rootView.findViewById(a.g.root_container);
+        this.fQy = (RelativeLayout) this.rootView.findViewById(a.g.anchor_live_anim_layout);
+        this.fQz = (TbImageView) this.rootView.findViewById(a.g.anchor_live_anim_bg);
+        this.fQB = (RelativeLayout) this.rootView.findViewById(a.g.rival_live_anim_layout);
+        this.fQC = (TbImageView) this.rootView.findViewById(a.g.rival_live_anim_bg);
+        this.fQx = (RelativeLayout) this.rootView.findViewById(a.g.pk_live_container);
+        this.fQF = (RelativeLayout) this.rootView.findViewById(a.g.pk_anchor_live_layout);
+        this.fQG = (LinearLayout) this.rootView.findViewById(a.g.anchor_streak_win_layout);
+        this.fQH = (ImageView) this.rootView.findViewById(a.g.anchor_user_pk_streak_img);
+        this.fQI = (TextView) this.rootView.findViewById(a.g.anchor_user_pk_streak_time);
+        this.fQE = (RelativeLayout) this.rootView.findViewById(a.g.jinzhu_container);
+        this.fQJ = (LinearLayout) this.rootView.findViewById(a.g.anchor_jinzhu_layout);
+        this.fQK = (ChallengeJinzhuView) this.rootView.findViewById(a.g.anchor_jinzhu_1);
+        this.fQL = (ChallengeJinzhuView) this.rootView.findViewById(a.g.anchor_jinzhu_2);
+        this.fQM = (ChallengeJinzhuView) this.rootView.findViewById(a.g.anchor_jinzhu_3);
+        this.fQN = (RelativeLayout) this.rootView.findViewById(a.g.pk_rival_live_layout);
+        this.fQO = (RelativeLayout) this.rootView.findViewById(a.g.pk_rival_user_layout);
+        this.fQP = (HeadImageView) this.rootView.findViewById(a.g.ala_live_rival_user_image);
+        this.fQQ = (TextView) this.rootView.findViewById(a.g.ala_live_rival_user_name);
+        this.fQV = (LinearLayout) this.rootView.findViewById(a.g.rival_streak_win_layout);
+        this.fQR = (LinearLayout) this.rootView.findViewById(a.g.rival_jinzhu_layout);
+        this.fQS = (ChallengeJinzhuView) this.rootView.findViewById(a.g.rival_jinzhu_1);
+        this.fQT = (ChallengeJinzhuView) this.rootView.findViewById(a.g.rival_jinzhu_2);
+        this.fQU = (ChallengeJinzhuView) this.rootView.findViewById(a.g.rival_jinzhu_3);
+        this.fQW = (ImageView) this.rootView.findViewById(a.g.rival_user_pk_streak_img);
+        this.fQX = (TextView) this.rootView.findViewById(a.g.rival_user_pk_streak_time);
+        this.fQY = (LinearLayout) this.rootView.findViewById(a.g.pk_time_layout);
+        this.fQZ = (TextView) this.rootView.findViewById(a.g.pk_time_label);
+        this.fRa = (RelativeLayout) this.rootView.findViewById(a.g.pk_score_progress_layout);
+        this.fRb = (TextView) this.rootView.findViewById(a.g.pk_anchor_label);
+        this.fRd = (TextView) this.rootView.findViewById(a.g.pk_anchor_progress);
+        this.fRe = (TextView) this.rootView.findViewById(a.g.pk_rival_progress);
+        this.fRc = (TextView) this.rootView.findViewById(a.g.pk_rival_label);
+        this.fRh = (TextView) this.rootView.findViewById(a.g.btn_close_challenge_view);
+        this.fRf = this.rootView.findViewById(a.g.anchor_progress_bg);
+        this.fRg = this.rootView.findViewById(a.g.rival_progress_bg);
+        this.fQA = this.rootView.findViewById(a.g.anchor_live_anim_fore_bg);
+        this.fQD = this.rootView.findViewById(a.g.rival_live_anim_fore_bg);
+        this.fQO.setVisibility(0);
+        this.fQO.setBackgroundResource(a.f.sdk_round_host_header_bg);
+        this.fQP.setIsRound(true);
+        this.fQP.setAutoChangeStyle(false);
+        this.fQP.setDefaultBgResource(a.f.sdk_icon_default_avatar100_bg);
+        this.fQP.setIsNight(false);
+        this.fQN.setOnClickListener(this);
+        this.fQO.setOnClickListener(this);
+        this.fRh.setOnClickListener(this);
+        this.fQJ.setVisibility(8);
+        this.fQR.setVisibility(8);
+        this.fQK.setClickListener(this);
+        this.fQL.setClickListener(this);
+        this.fQM.setClickListener(this);
+        this.fQS.setClickListener(this);
+        this.fQT.setClickListener(this);
+        this.fQU.setClickListener(this);
     }
 
     private void updateView() {
-        this.fRb = g.au(this.mContext);
-        this.fRa = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds50);
+        this.fRm = g.au(this.mContext);
+        this.fRl = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds50);
         this.screenWidth = BdUtilHelper.getScreenDimensions(this.mContext)[0];
         int ax = g.ax(this.mContext);
         int aw = g.aw(this.mContext);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams.topMargin = this.fRb;
+        layoutParams.topMargin = this.fRm;
         layoutParams.height = aw;
-        this.fQm.setLayoutParams(layoutParams);
+        this.fQx.setLayoutParams(layoutParams);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(ax, aw);
         layoutParams2.addRule(9);
-        this.fQu.setLayoutParams(layoutParams2);
+        this.fQF.setLayoutParams(layoutParams2);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(ax, aw);
         layoutParams3.addRule(11);
-        this.fQC.setLayoutParams(layoutParams3);
+        this.fQN.setLayoutParams(layoutParams3);
         RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(ax, aw);
         layoutParams4.addRule(11);
-        layoutParams4.topMargin = this.fRb;
-        this.fQq.setLayoutParams(layoutParams4);
-        RelativeLayout.LayoutParams layoutParams5 = (RelativeLayout.LayoutParams) this.fQN.getLayoutParams();
-        layoutParams5.topMargin = this.fRb;
+        layoutParams4.topMargin = this.fRm;
+        this.fQB.setLayoutParams(layoutParams4);
+        RelativeLayout.LayoutParams layoutParams5 = (RelativeLayout.LayoutParams) this.fQY.getLayoutParams();
+        layoutParams5.topMargin = this.fRm;
         layoutParams5.addRule(14);
-        this.fQN.setLayoutParams(layoutParams5);
-        this.fQP.setAlpha(0.0f);
+        this.fQY.setLayoutParams(layoutParams5);
+        this.fRa.setAlpha(0.0f);
     }
 
     public View getAnchorAnimLiveLayout() {
-        return this.fQn;
+        return this.fQy;
     }
 
     public View getAnchorAnimLiveForeBg() {
-        return this.fQp;
+        return this.fQA;
     }
 
     public View getRivalAnimLiveLayout() {
-        return this.fQq;
+        return this.fQB;
     }
 
     public View getRivalAnimLiveForeBg() {
-        return this.fQs;
+        return this.fQD;
     }
 
     public TbImageView getAnchorAnimLiveBgView() {
-        return this.fQo;
+        return this.fQz;
     }
 
     public void setAnchorUserViewBg(al alVar) {
-        this.fQo.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.fQz.setScaleType(ImageView.ScaleType.FIT_XY);
         String str = "";
         if (alVar.azo != null) {
             str = alVar.azo.portrait;
         }
-        this.fQo.startLoad(str, 12, false);
-        this.fQo.setVisibility(0);
+        this.fQz.startLoad(str, 12, false);
+        this.fQz.setVisibility(0);
     }
 
     public void setRivalUserViewBg(al alVar) {
-        this.fQr.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.fQC.setScaleType(ImageView.ScaleType.FIT_XY);
         String str = "";
         if (alVar.azo != null) {
             str = alVar.azo.portrait;
         }
-        this.fQr.startLoad(str, 12, false);
+        this.fQC.startLoad(str, 12, false);
     }
 
     public View getLeftTimeView() {
-        return this.fQN;
+        return this.fQY;
     }
 
     public ViewGroup getLiveContainerView() {
-        return this.fQm;
+        return this.fQx;
     }
 
     public View getScoreProgressLayout() {
-        return this.fQP;
+        return this.fRa;
     }
 
     public View getJinzhuLayout() {
-        return this.fQt;
+        return this.fQE;
     }
 
     public View getCloseBtnView() {
-        return this.fQW;
+        return this.fRh;
     }
 
     public RelativeLayout getContainerView() {
-        return this.fQl;
+        return this.fQw;
     }
 
     public void a(ak akVar, al alVar, al alVar2, boolean z) {
@@ -315,43 +315,43 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
         }
         if (i == 2) {
             setCloseBtnVisible(true);
-            bAA();
+            bAC();
         } else if (i == 3) {
             setCloseBtnVisible(false);
             by(akVar.challengeResult, akVar.azx);
         } else {
-            btc();
+            bte();
             setCloseBtnVisible(false);
             by(akVar.challengeResult, akVar.azx);
         }
         a(alVar.azB);
         b(alVar2.azB);
-        this.fRc = akVar;
+        this.fRn = akVar;
     }
 
     private void a(aj ajVar) {
         ArrayList arrayList;
         if (ajVar == null) {
-            this.fQz.setVisibility(8);
-            this.fQA.setVisibility(8);
-            this.fQB.setVisibility(8);
+            this.fQK.setVisibility(8);
+            this.fQL.setVisibility(8);
+            this.fQM.setVisibility(8);
             return;
         }
-        this.fQy.setVisibility(0);
+        this.fQJ.setVisibility(0);
         if (ListUtils.isEmpty(ajVar.azp)) {
-            ajVar.azp = this.fRe;
+            ajVar.azp = this.fRp;
         }
         if (ListUtils.isEmpty(ajVar.azp)) {
-            this.fQz.setVisibility(0);
-            this.fQA.setVisibility(8);
-            this.fQB.setVisibility(8);
-            this.fQz.a(true, null, ajVar.liveId);
+            this.fQK.setVisibility(0);
+            this.fQL.setVisibility(8);
+            this.fQM.setVisibility(8);
+            this.fQK.a(true, null, ajVar.liveId);
             return;
         }
-        this.fRe = ajVar.azp;
-        this.fQz.setVisibility(8);
-        this.fQA.setVisibility(8);
-        this.fQB.setVisibility(8);
+        this.fRp = ajVar.azp;
+        this.fQK.setVisibility(8);
+        this.fQL.setVisibility(8);
+        this.fQM.setVisibility(8);
         if (ajVar.azp.size() > 3) {
             ArrayList arrayList2 = new ArrayList();
             for (int i = 0; i < 3; i++) {
@@ -365,14 +365,14 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
             ai aiVar = arrayList.get(i2);
             if (aiVar != null) {
                 if (aiVar.wp() || aiVar.isFirst()) {
-                    this.fQz.setVisibility(0);
-                    this.fQz.a(true, aiVar, ajVar.liveId);
+                    this.fQK.setVisibility(0);
+                    this.fQK.a(true, aiVar, ajVar.liveId);
                 } else if (aiVar.rank == 2) {
-                    this.fQA.setVisibility(0);
-                    this.fQA.a(true, aiVar, ajVar.liveId);
+                    this.fQL.setVisibility(0);
+                    this.fQL.a(true, aiVar, ajVar.liveId);
                 } else if (aiVar.rank == 3) {
-                    this.fQB.setVisibility(0);
-                    this.fQB.a(true, aiVar, ajVar.liveId);
+                    this.fQM.setVisibility(0);
+                    this.fQM.a(true, aiVar, ajVar.liveId);
                 }
             }
         }
@@ -381,26 +381,26 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
     private void b(aj ajVar) {
         List<ai> list;
         if (ajVar == null) {
-            this.fQH.setVisibility(8);
-            this.fQI.setVisibility(8);
-            this.fQJ.setVisibility(8);
+            this.fQS.setVisibility(8);
+            this.fQT.setVisibility(8);
+            this.fQU.setVisibility(8);
             return;
         }
-        this.fQG.setVisibility(0);
+        this.fQR.setVisibility(0);
         if (ListUtils.isEmpty(ajVar.azp)) {
-            ajVar.azp = this.fRf;
+            ajVar.azp = this.fRq;
         }
         if (ListUtils.isEmpty(ajVar.azp)) {
-            this.fQH.setVisibility(0);
-            this.fQI.setVisibility(8);
-            this.fQJ.setVisibility(8);
-            this.fQH.a(false, null, ajVar.liveId);
+            this.fQS.setVisibility(0);
+            this.fQT.setVisibility(8);
+            this.fQU.setVisibility(8);
+            this.fQS.a(false, null, ajVar.liveId);
             return;
         }
-        this.fRf = ajVar.azp;
-        this.fQH.setVisibility(8);
-        this.fQI.setVisibility(8);
-        this.fQJ.setVisibility(8);
+        this.fRq = ajVar.azp;
+        this.fQS.setVisibility(8);
+        this.fQT.setVisibility(8);
+        this.fQU.setVisibility(8);
         if (ajVar.azp.size() > 3) {
             list = ajVar.azp.subList(0, 3);
         } else {
@@ -410,14 +410,14 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
             ai aiVar = list.get(i);
             if (aiVar != null) {
                 if (aiVar.wp() || aiVar.isFirst()) {
-                    this.fQH.setVisibility(0);
-                    this.fQH.a(false, aiVar, ajVar.liveId);
+                    this.fQS.setVisibility(0);
+                    this.fQS.a(false, aiVar, ajVar.liveId);
                 } else if (aiVar.rank == 2) {
-                    this.fQI.setVisibility(0);
-                    this.fQI.a(false, aiVar, ajVar.liveId);
+                    this.fQT.setVisibility(0);
+                    this.fQT.a(false, aiVar, ajVar.liveId);
                 } else if (aiVar.rank == 3) {
-                    this.fQJ.setVisibility(0);
-                    this.fQJ.a(false, aiVar, ajVar.liveId);
+                    this.fQU.setVisibility(0);
+                    this.fQU.a(false, aiVar, ajVar.liveId);
                 }
             }
         }
@@ -425,42 +425,42 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
 
     private void a(long j, int i, long j2, long j3) {
         if (j3 >= j2 && a(j, i, j3)) {
-            btc();
-            if (this.fRc != null) {
-                u(this.fRc.azq, (j3 - j2) * 1000);
+            bte();
+            if (this.fRn != null) {
+                u(this.fRn.azq, (j3 - j2) * 1000);
             }
-            this.foC = new CountDownTimer((j3 - j2) * 1000, 1000L) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.1
+            this.foN = new CountDownTimer((j3 - j2) * 1000, 1000L) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.1
                 @Override // android.os.CountDownTimer
                 public void onTick(long j4) {
-                    if (AlaChallengeLiveView.this.fRc != null) {
-                        AlaChallengeLiveView.this.u(AlaChallengeLiveView.this.fRc.azq, j4);
+                    if (AlaChallengeLiveView.this.fRn != null) {
+                        AlaChallengeLiveView.this.u(AlaChallengeLiveView.this.fRn.azq, j4);
                     }
                 }
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
-                    if (AlaChallengeLiveView.this.fRc != null) {
-                        AlaChallengeLiveView.this.u(AlaChallengeLiveView.this.fRc.azq, 0L);
+                    if (AlaChallengeLiveView.this.fRn != null) {
+                        AlaChallengeLiveView.this.u(AlaChallengeLiveView.this.fRn.azq, 0L);
                     }
                 }
             };
-            this.foC.start();
+            this.foN.start();
         }
     }
 
     private boolean a(long j, int i, long j2) {
-        return (this.fRc != null && this.fRc.challengeId == j && this.fRc.azq == i && this.fRc.azt == j2) ? false : true;
+        return (this.fRn != null && this.fRn.challengeId == j && this.fRn.azq == i && this.fRn.azt == j2) ? false : true;
     }
 
-    private void btc() {
-        if (this.foC != null) {
-            this.foC.cancel();
+    private void bte() {
+        if (this.foN != null) {
+            this.foN.cancel();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void u(int i, long j) {
-        if (this.fQO != null) {
+        if (this.fQZ != null) {
             String formatSecondsTime = StringHelper.formatSecondsTime(Math.round(j / 1000.0d));
             String string = this.mContext.getString(a.i.ala_challenge_operate_challenge_time, formatSecondsTime);
             if (i == 2) {
@@ -470,150 +470,150 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
             } else if (i == 4) {
                 string = this.mContext.getString(a.i.ala_challenge_operate_over_time);
             }
-            this.fQO.setText(string);
+            this.fQZ.setText(string);
         }
     }
 
     public void setLiveContainerVisible(boolean z) {
-        this.fQm.setVisibility(z ? 0 : 4);
+        this.fQx.setVisibility(z ? 0 : 4);
     }
 
     public void setCloseBtnVisible(boolean z) {
         if (this.isHost) {
-            this.fQW.setVisibility(z ? 0 : 4);
+            this.fRh.setVisibility(z ? 0 : 4);
         } else {
-            this.fQW.setVisibility(4);
+            this.fRh.setVisibility(4);
         }
-    }
-
-    public void bAz() {
-        setCloseBtnVisible(false);
-        setLiveContainerVisible(false);
-        if (this.fRe != null) {
-            this.fRe.clear();
-            this.fRe = null;
-        }
-        if (this.fRf != null) {
-            this.fRf.clear();
-            this.fRf = null;
-        }
-        this.fRc = null;
-    }
-
-    public void by(int i, int i2) {
-        this.fQv.setVisibility(0);
-        this.fQK.setVisibility(0);
-        this.fQx.setVisibility(4);
-        this.fQM.setVisibility(4);
-        if (1 == i) {
-            this.fQw.setImageResource(a.f.icon_live_vs_win);
-            if (i2 >= 2) {
-                this.fQx.setVisibility(0);
-                this.fQx.setText(this.mContext.getResources().getString(a.i.ala_challenge_streak_win_label, Integer.valueOf(i2)));
-            } else {
-                this.fQx.setText("");
-            }
-            this.fQL.setImageResource(a.f.icon_live_vs_lose);
-        } else if (3 == i) {
-            this.fQw.setImageResource(a.f.icon_live_vs_draw);
-            this.fQL.setImageResource(a.f.icon_live_vs_draw);
-        } else if (2 == i) {
-            this.fQw.setImageResource(a.f.icon_live_vs_lose);
-            if (i2 >= 2) {
-                this.fQM.setVisibility(0);
-                this.fQM.setText(this.mContext.getResources().getString(a.i.ala_challenge_streak_win_label, Integer.valueOf(i2)));
-            } else {
-                this.fQM.setText("");
-            }
-            this.fQL.setImageResource(a.f.icon_live_vs_win);
-        } else {
-            bAA();
-        }
-    }
-
-    public void bAA() {
-        this.fQv.setVisibility(4);
-        this.fQK.setVisibility(4);
     }
 
     public void bAB() {
-        if (this.fRe != null) {
-            this.fRe.clear();
-            this.fRe = null;
+        setCloseBtnVisible(false);
+        setLiveContainerVisible(false);
+        if (this.fRp != null) {
+            this.fRp.clear();
+            this.fRp = null;
         }
-        if (this.fRf != null) {
-            this.fRf.clear();
-            this.fRf = null;
+        if (this.fRq != null) {
+            this.fRq.clear();
+            this.fRq = null;
+        }
+        this.fRn = null;
+    }
+
+    public void by(int i, int i2) {
+        this.fQG.setVisibility(0);
+        this.fQV.setVisibility(0);
+        this.fQI.setVisibility(4);
+        this.fQX.setVisibility(4);
+        if (1 == i) {
+            this.fQH.setImageResource(a.f.icon_live_vs_win);
+            if (i2 >= 2) {
+                this.fQI.setVisibility(0);
+                this.fQI.setText(this.mContext.getResources().getString(a.i.ala_challenge_streak_win_label, Integer.valueOf(i2)));
+            } else {
+                this.fQI.setText("");
+            }
+            this.fQW.setImageResource(a.f.icon_live_vs_lose);
+        } else if (3 == i) {
+            this.fQH.setImageResource(a.f.icon_live_vs_draw);
+            this.fQW.setImageResource(a.f.icon_live_vs_draw);
+        } else if (2 == i) {
+            this.fQH.setImageResource(a.f.icon_live_vs_lose);
+            if (i2 >= 2) {
+                this.fQX.setVisibility(0);
+                this.fQX.setText(this.mContext.getResources().getString(a.i.ala_challenge_streak_win_label, Integer.valueOf(i2)));
+            } else {
+                this.fQX.setText("");
+            }
+            this.fQW.setImageResource(a.f.icon_live_vs_win);
+        } else {
+            bAC();
+        }
+    }
+
+    public void bAC() {
+        this.fQG.setVisibility(4);
+        this.fQV.setVisibility(4);
+    }
+
+    public void bAD() {
+        if (this.fRp != null) {
+            this.fRp.clear();
+            this.fRp = null;
+        }
+        if (this.fRq != null) {
+            this.fRq.clear();
+            this.fRq = null;
         }
     }
 
     private void x(long j, long j2) {
         int i;
-        if (this.fQY != j || this.fQZ != j2) {
-            this.fQY = j;
-            this.fQZ = j2;
-            this.fQS.setText(String.valueOf(this.fQY));
-            this.fQT.setText(String.valueOf(this.fQZ));
-            float f = (float) (this.fQY + this.fQZ);
+        if (this.fRj != j || this.fRk != j2) {
+            this.fRj = j;
+            this.fRk = j2;
+            this.fRd.setText(String.valueOf(this.fRj));
+            this.fRe.setText(String.valueOf(this.fRk));
+            float f = (float) (this.fRj + this.fRk);
             final int dimensionPixelSize = (this.screenWidth - (this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds20) * 2)) - (this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds6) * 2);
             int i2 = dimensionPixelSize / 2;
             if (f != 0.0f) {
-                int i3 = (int) ((((float) this.fQY) / f) * dimensionPixelSize);
-                int i4 = ((LinearLayout.LayoutParams) this.fQU.getLayoutParams()).width;
-                if (i3 < this.fRa) {
-                    i = this.fRa;
+                int i3 = (int) ((((float) this.fRj) / f) * dimensionPixelSize);
+                int i4 = ((LinearLayout.LayoutParams) this.fRf.getLayoutParams()).width;
+                if (i3 < this.fRl) {
+                    i = this.fRl;
                 } else {
-                    i = i3 > dimensionPixelSize - this.fRa ? dimensionPixelSize - this.fRa : i3;
+                    i = i3 > dimensionPixelSize - this.fRl ? dimensionPixelSize - this.fRl : i3;
                 }
-                if (this.fRd != null) {
-                    this.fRd.cancel();
+                if (this.fRo != null) {
+                    this.fRo.cancel();
                 }
-                this.fRd = ValueAnimator.ofInt(i4, i);
-                this.fRd.setDuration(100L);
-                this.fRd.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.2
+                this.fRo = ValueAnimator.ofInt(i4, i);
+                this.fRo.setDuration(100L);
+                this.fRo.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.2
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) AlaChallengeLiveView.this.fQU.getLayoutParams();
+                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) AlaChallengeLiveView.this.fRf.getLayoutParams();
                         layoutParams.width = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                        AlaChallengeLiveView.this.fQU.setLayoutParams(layoutParams);
-                        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) AlaChallengeLiveView.this.fQV.getLayoutParams();
+                        AlaChallengeLiveView.this.fRf.setLayoutParams(layoutParams);
+                        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) AlaChallengeLiveView.this.fRg.getLayoutParams();
                         layoutParams2.width = dimensionPixelSize - layoutParams.width;
-                        AlaChallengeLiveView.this.fQV.setLayoutParams(layoutParams2);
+                        AlaChallengeLiveView.this.fRg.setLayoutParams(layoutParams2);
                     }
                 });
-                this.fRd.start();
+                this.fRo.start();
                 return;
             }
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fQU.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fRf.getLayoutParams();
             layoutParams.width = i2;
-            this.fQU.setLayoutParams(layoutParams);
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.fQV.getLayoutParams();
+            this.fRf.setLayoutParams(layoutParams);
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.fRg.getLayoutParams();
             layoutParams2.width = dimensionPixelSize - layoutParams.width;
-            this.fQV.setLayoutParams(layoutParams2);
+            this.fRg.setLayoutParams(layoutParams2);
         }
     }
 
     public void c(al alVar) {
         if (alVar == null || alVar.azo == null) {
-            this.fQD.setVisibility(4);
+            this.fQO.setVisibility(4);
             return;
         }
-        this.fQD.setTag(alVar);
-        this.fQE.startLoad(alVar.azo.portrait, 12, false, false);
+        this.fQO.setTag(alVar);
+        this.fQP.startLoad(alVar.azo.portrait, 12, false, false);
         String str = alVar.azo.userName;
         if (TextHelper.getTextLengthWithEmoji(str) > 12) {
             str = TextHelper.subStringWithEmoji(str, 12) + StringHelper.STRING_MORE;
         }
-        this.fQF.setText(str);
+        this.fQQ.setText(str);
     }
 
     public View getRivalUserInfoView() {
-        return this.fQD;
+        return this.fQO;
     }
 
     public void releaseResource() {
-        btc();
-        this.fRc = null;
+        bte();
+        this.fRn = null;
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
@@ -621,35 +621,35 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fQW) {
-            if (this.fQX != null) {
-                this.fQX.bAD();
+        if (view == this.fRh) {
+            if (this.fRi != null) {
+                this.fRi.bAF();
             }
-        } else if (view == this.fQD) {
-            if (this.fQX != null) {
-                if (this.fRg) {
-                    this.fQX.bAE();
+        } else if (view == this.fQO) {
+            if (this.fRi != null) {
+                if (this.fRr) {
+                    this.fRi.bAG();
                 } else {
-                    this.fQX.d((al) this.fQD.getTag());
+                    this.fRi.d((al) this.fQO.getTag());
                 }
             }
-        } else if (view == this.fQC && this.fQX != null) {
-            if (this.fRg) {
-                this.fQX.bAE();
+        } else if (view == this.fQN && this.fRi != null) {
+            if (this.fRr) {
+                this.fRi.bAG();
             } else {
-                this.fQX.e(this.azn);
+                this.fRi.e(this.azn);
             }
         }
     }
 
     public void setViewClickCallBack(a aVar) {
-        this.fQX = aVar;
+        this.fRi = aVar;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.view.ChallengeJinzhuView.a
-    public void bAC() {
-        if (this.fQX != null) {
-            this.fQX.bAE();
+    public void bAE() {
+        if (this.fRi != null) {
+            this.fRi.bAG();
         }
     }
 }

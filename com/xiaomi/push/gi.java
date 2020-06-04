@@ -165,7 +165,7 @@ public class gi extends gj {
             sb.append("<thread>").append(this.c).append("</thread>");
         }
         if (BdStatsConstant.StatsType.ERROR.equalsIgnoreCase(this.b) && (a = a()) != null) {
-            sb.append(a.m316a());
+            sb.append(a.m315a());
         }
         sb.append(o());
         sb.append("</message>");

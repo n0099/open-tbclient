@@ -28,76 +28,76 @@ import com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton;
 public class b extends aa.a {
     public TBLottieAnimationView agv;
     public TextView dXU;
-    public TextView eBh;
-    public TextView hsH;
-    private final int jFV;
-    private final int keU;
-    public ImageView keV;
-    public HeadPendantClickableView keW;
-    public UserIconBox keX;
-    public TextView keY;
-    public ImageView keZ;
-    public UserIconBox kfa;
-    public TextView kfb;
-    public TextView kfc;
-    public PbFirstFloorUserLikeButton kfd;
-    public RelativeLayout kfe;
-    public ImageView kff;
-    public RelativeLayout kfg;
-    public TextView kfh;
-    public TextView kfi;
-    private int kfj;
-    private int kfk;
+    public TextView eBs;
+    public TextView hsS;
+    private final int jHb;
+    private final int kga;
+    public ImageView kgb;
+    public HeadPendantClickableView kgc;
+    public UserIconBox kgd;
+    public TextView kge;
+    public ImageView kgf;
+    public UserIconBox kgg;
+    public TextView kgh;
+    public TextView kgi;
+    public PbFirstFloorUserLikeButton kgj;
+    public RelativeLayout kgk;
+    public ImageView kgl;
+    public RelativeLayout kgm;
+    public TextView kgn;
+    public TextView kgo;
+    private int kgp;
+    private int kgq;
     public View mRoot;
     private int mSkinType;
 
     public b(Context context, View view) {
         super(view);
-        this.keU = 2;
-        this.jFV = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        this.kga = 2;
+        this.jHb = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
         this.mSkinType = 3;
         this.mRoot = view;
-        this.keV = (ImageView) view.findViewById(R.id.thread_stamp_video_info_item);
-        this.keW = (HeadPendantClickableView) view.findViewById(R.id.head_view_video_info_item);
-        this.keW.setHasPendantStyle();
-        this.keW.getHeadView().setIsRound(true);
-        this.keW.getHeadView().setDrawBorder(false);
-        this.keW.getHeadView().setPlaceHolder(1);
+        this.kgb = (ImageView) view.findViewById(R.id.thread_stamp_video_info_item);
+        this.kgc = (HeadPendantClickableView) view.findViewById(R.id.head_view_video_info_item);
+        this.kgc.setHasPendantStyle();
+        this.kgc.getHeadView().setIsRound(true);
+        this.kgc.getHeadView().setDrawBorder(false);
+        this.kgc.getHeadView().setPlaceHolder(1);
         this.agv = (TBLottieAnimationView) view.findViewById(R.id.user_living_lottie);
-        this.keX = (UserIconBox) view.findViewById(R.id.vip_icon_video_info_item);
+        this.kgd = (UserIconBox) view.findViewById(R.id.vip_icon_video_info_item);
         this.dXU = (TextView) view.findViewById(R.id.user_name_video_info_item);
-        this.keY = (TextView) view.findViewById(R.id.user_identity_video_info_item);
-        this.keZ = (ImageView) view.findViewById(R.id.user_forum_level_video_info_item);
-        this.kfa = (UserIconBox) view.findViewById(R.id.user_yinji_video_info_item);
-        this.kfb = (TextView) view.findViewById(R.id.bjh_author_auth_video_info_item);
-        this.kfc = (TextView) view.findViewById(R.id.fans_count_video_info_item);
-        this.kfd = (PbFirstFloorUserLikeButton) view.findViewById(R.id.concern_video_info_item);
-        this.kfe = (RelativeLayout) view.findViewById(R.id.video_info_area_video_info_item);
-        this.hsH = (TextView) view.findViewById(R.id.title_video_info_item);
-        this.hsH.setTextSize(0, TbConfig.getContentSize());
-        this.hsH.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
-        this.kff = (ImageView) view.findViewById(R.id.btn_title_expand_video_info_item);
-        this.kfg = (RelativeLayout) view.findViewById(R.id.btn_wrapper_title_expand_video_info_item);
-        this.kfj = (l.getEquipmentWidth(TbadkCoreApplication.getInst()) - this.kfe.getPaddingLeft()) - this.kfe.getPaddingRight();
-        AV(0);
-        this.eBh = (TextView) view.findViewById(R.id.play_count_video_info_item);
-        this.kfh = (TextView) view.findViewById(R.id.publish_time_video_info_item);
-        this.kfi = (TextView) view.findViewById(R.id.publish_location_video_info_item);
+        this.kge = (TextView) view.findViewById(R.id.user_identity_video_info_item);
+        this.kgf = (ImageView) view.findViewById(R.id.user_forum_level_video_info_item);
+        this.kgg = (UserIconBox) view.findViewById(R.id.user_yinji_video_info_item);
+        this.kgh = (TextView) view.findViewById(R.id.bjh_author_auth_video_info_item);
+        this.kgi = (TextView) view.findViewById(R.id.fans_count_video_info_item);
+        this.kgj = (PbFirstFloorUserLikeButton) view.findViewById(R.id.concern_video_info_item);
+        this.kgk = (RelativeLayout) view.findViewById(R.id.video_info_area_video_info_item);
+        this.hsS = (TextView) view.findViewById(R.id.title_video_info_item);
+        this.hsS.setTextSize(0, TbConfig.getContentSize());
+        this.hsS.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
+        this.kgl = (ImageView) view.findViewById(R.id.btn_title_expand_video_info_item);
+        this.kgm = (RelativeLayout) view.findViewById(R.id.btn_wrapper_title_expand_video_info_item);
+        this.kgp = (l.getEquipmentWidth(TbadkCoreApplication.getInst()) - this.kgk.getPaddingLeft()) - this.kgk.getPaddingRight();
+        AX(0);
+        this.eBs = (TextView) view.findViewById(R.id.play_count_video_info_item);
+        this.kgn = (TextView) view.findViewById(R.id.publish_time_video_info_item);
+        this.kgo = (TextView) view.findViewById(R.id.publish_location_video_info_item);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         am.setBackgroundColor(this.mRoot, R.color.cp_bg_line_e);
-        this.kfb.setTextColor(am.getColor(R.color.cp_cont_d));
-        this.kfc.setTextColor(am.getColor(R.color.cp_cont_d));
-        this.kfd.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.hsH.setTextColor(am.getColor(R.color.cp_cont_b));
-        AV(this.kfk);
-        this.eBh.setTextColor(am.getColor(R.color.cp_cont_d));
-        this.kfh.setTextColor(am.getColor(R.color.cp_cont_d));
-        this.kfi.setTextColor(am.getColor(R.color.cp_cont_d));
+        this.kgh.setTextColor(am.getColor(R.color.cp_cont_d));
+        this.kgi.setTextColor(am.getColor(R.color.cp_cont_d));
+        this.kgj.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.hsS.setTextColor(am.getColor(R.color.cp_cont_b));
+        AX(this.kgq);
+        this.eBs.setTextColor(am.getColor(R.color.cp_cont_d));
+        this.kgn.setTextColor(am.getColor(R.color.cp_cont_d));
+        this.kgo.setTextColor(am.getColor(R.color.cp_cont_d));
         if (this.mSkinType != skinType) {
-            yw(skinType);
+            yy(skinType);
         }
         this.mSkinType = skinType;
     }
@@ -110,40 +110,40 @@ public class b extends aa.a {
         }
     }
 
-    public void AU(int i) {
+    public void AW(int i) {
         if (i > 0) {
-            am.setImageResource(this.keZ, BitmapHelper.getGradeResourceIdInEnterForum(i));
+            am.setImageResource(this.kgf, BitmapHelper.getGradeResourceIdInEnterForum(i));
         }
     }
 
     public void i(boolean z, boolean z2, boolean z3) {
         if (z) {
-            this.keV.setImageResource(R.drawable.pic_frs_headlines_n);
-            this.keV.setVisibility(0);
+            this.kgb.setImageResource(R.drawable.pic_frs_headlines_n);
+            this.kgb.setVisibility(0);
         } else if (z2 && z3) {
-            this.keV.setImageResource(R.drawable.pic_pb_stick_refined_n);
-            this.keV.setVisibility(0);
+            this.kgb.setImageResource(R.drawable.pic_pb_stick_refined_n);
+            this.kgb.setVisibility(0);
         } else if (z2) {
-            this.keV.setImageResource(R.drawable.pic_pb_refined_n);
-            this.keV.setVisibility(0);
+            this.kgb.setImageResource(R.drawable.pic_pb_refined_n);
+            this.kgb.setVisibility(0);
         } else if (z3) {
-            this.keV.setImageResource(R.drawable.pic_pb_stick_n);
-            this.keV.setVisibility(0);
+            this.kgb.setImageResource(R.drawable.pic_pb_stick_n);
+            this.kgb.setVisibility(0);
         } else {
-            this.keV.setVisibility(8);
+            this.kgb.setVisibility(8);
         }
     }
 
-    public void JU(String str) {
+    public void JV(String str) {
         StateListDrawable stateListDrawable;
         StateListDrawable stateListDrawable2 = null;
         if (Config.BAWU_TYPE_MANAGER.equals(str) || Config.BAWU_TYPE_ASSIST.equals(str)) {
             if (Config.BAWU_TYPE_MANAGER.equals(str)) {
-                stateListDrawable = c.aVz().ln(0).O(this.jFV).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).aVB();
-                stateListDrawable2 = c.aVz().ln(0).O(this.jFV).wJ("#4D000000").aVB();
+                stateListDrawable = c.aVA().lp(0).O(this.jHb).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).aVC();
+                stateListDrawable2 = c.aVA().lp(0).O(this.jHb).wJ("#4D000000").aVC();
             } else if (Config.BAWU_TYPE_ASSIST.equals(str)) {
-                stateListDrawable = c.aVz().ln(0).O(this.jFV).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).aVB();
-                stateListDrawable2 = c.aVz().ln(0).O(this.jFV).wJ("#4D000000").aVB();
+                stateListDrawable = c.aVA().lp(0).O(this.jHb).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).aVC();
+                stateListDrawable2 = c.aVA().lp(0).O(this.jHb).wJ("#4D000000").aVC();
             } else {
                 stateListDrawable = null;
             }
@@ -155,65 +155,65 @@ public class b extends aa.a {
             } else if (layerDrawable.getDrawable(1) != null) {
                 layerDrawable.getDrawable(1).setAlpha(0);
             }
-            this.keY.setBackgroundDrawable(layerDrawable);
-            am.setViewTextColor(this.keY, (int) R.color.cp_cont_a);
+            this.kge.setBackgroundDrawable(layerDrawable);
+            am.setViewTextColor(this.kge, (int) R.color.cp_cont_a);
         }
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.keW.setOnClickListener(onClickListener);
-        this.kfg.setOnClickListener(onClickListener);
-        this.keX.setOnClickListener(onClickListener);
+        this.kgc.setOnClickListener(onClickListener);
+        this.kgm.setOnClickListener(onClickListener);
+        this.kgd.setOnClickListener(onClickListener);
         this.dXU.setOnClickListener(onClickListener);
-        this.kfa.setOnClickListener(onClickListener);
+        this.kgg.setOnClickListener(onClickListener);
     }
 
     public void o(CharSequence charSequence) {
         int i = 1;
         if (charSequence != null) {
-            if (this.hsH.getPaint().measureText(charSequence, 0, charSequence.length()) + (this.hsH.getTextSize() * 2.0f) <= this.kfj * 2) {
+            if (this.hsS.getPaint().measureText(charSequence, 0, charSequence.length()) + (this.hsS.getTextSize() * 2.0f) <= this.kgp * 2) {
                 i = 0;
-            } else if (this.kfk == 1 || this.kfk == 2) {
-                i = this.kfk;
+            } else if (this.kgq == 1 || this.kgq == 2) {
+                i = this.kgq;
             }
-            AV(i);
-            this.hsH.setText(charSequence);
+            AX(i);
+            this.hsS.setText(charSequence);
         }
     }
 
-    public int cLY() {
-        return this.kfk;
+    public int cMo() {
+        return this.kgq;
     }
 
-    public void AV(int i) {
-        this.kfk = i;
+    public void AX(int i) {
+        this.kgq = i;
         if (i == 0) {
-            cLZ();
+            cMp();
         } else if (i == 1) {
-            cMa();
+            cMq();
         } else if (i == 2) {
-            cMb();
+            cMr();
         }
     }
 
-    private void cLZ() {
-        this.kfg.setVisibility(8);
-        this.hsH.setEllipsize(null);
-        this.hsH.setMaxLines(2);
+    private void cMp() {
+        this.kgm.setVisibility(8);
+        this.hsS.setEllipsize(null);
+        this.hsS.setMaxLines(2);
     }
 
-    private void cMa() {
-        this.kfg.setVisibility(0);
-        SvgManager.aUV().a(this.kff, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
-        this.hsH.setEllipsize(TextUtils.TruncateAt.END);
-        this.hsH.setMaxLines(2);
+    private void cMq() {
+        this.kgm.setVisibility(0);
+        SvgManager.aUW().a(this.kgl, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
+        this.hsS.setEllipsize(TextUtils.TruncateAt.END);
+        this.hsS.setMaxLines(2);
     }
 
-    private void cMb() {
-        this.kfg.setVisibility(0);
-        SvgManager.aUV().a(this.kff, R.drawable.icon_pure_fold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
-        this.hsH.setEllipsize(null);
-        this.hsH.setMaxLines(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+    private void cMr() {
+        this.kgm.setVisibility(0);
+        SvgManager.aUW().a(this.kgl, R.drawable.icon_pure_fold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
+        this.hsS.setEllipsize(null);
+        this.hsS.setMaxLines(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
     public void pW(boolean z) {
@@ -238,7 +238,7 @@ public class b extends aa.a {
         }
     }
 
-    private void yw(int i) {
+    private void yy(int i) {
         if (i == 1) {
             this.agv.setAnimation("live/card_live_bg_night.json");
         } else if (i == 4) {

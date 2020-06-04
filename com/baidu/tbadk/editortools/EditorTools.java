@@ -41,10 +41,10 @@ public class EditorTools extends LinearLayout {
     private Runnable elt;
     private List<Integer> elu;
 
-    public void bda() {
-        l nf = nf(3);
-        if (nf != null && (nf.ekV instanceof View)) {
-            View view = (View) nf.ekV;
+    public void bdb() {
+        l nh = nh(3);
+        if (nh != null && (nh.ekV instanceof View)) {
+            View view = (View) nh.ekV;
             view.requestFocus();
             com.baidu.adp.lib.util.l.showSoftKeyPad(getContext(), view);
         }
@@ -68,7 +68,7 @@ public class EditorTools extends LinearLayout {
         this.elt = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorTools.2
             @Override // java.lang.Runnable
             public void run() {
-                EditorTools.this.bda();
+                EditorTools.this.bdb();
             }
         };
         this.elu = new ArrayList();
@@ -79,11 +79,11 @@ public class EditorTools extends LinearLayout {
         this.elq = z;
     }
 
-    public boolean bdb() {
+    public boolean bdc() {
         return this.elq;
     }
 
-    public boolean bdc() {
+    public boolean bdd() {
         return this.elr;
     }
 
@@ -147,17 +147,17 @@ public class EditorTools extends LinearLayout {
         HashSet<Integer> hashSet;
         boolean z;
         g gVar;
-        l nf;
+        l nh;
         if (aVar != null) {
             if (aVar.code == 2) {
-                g nc = this.ele.nc(aVar.id);
-                if (nc != null) {
+                g ne = this.ele.ne(aVar.id);
+                if (ne != null) {
                     z = false;
                 } else {
-                    nc = this.elf.nc(aVar.id);
+                    ne = this.elf.ne(aVar.id);
                     z = true;
                 }
-                if (nc == null) {
+                if (ne == null) {
                     Iterator<g> it = this.elp.iterator();
                     while (it.hasNext()) {
                         gVar = it.next();
@@ -166,28 +166,28 @@ public class EditorTools extends LinearLayout {
                         }
                     }
                 }
-                gVar = nc;
+                gVar = ne;
                 if (gVar != null) {
                     gVar.a(aVar);
-                    if (z && (nf = nf(2)) != null && nf.ekV != null) {
-                        nf.ekV.a(aVar);
+                    if (z && (nh = nh(2)) != null && nh.ekV != null) {
+                        nh.ekV.a(aVar);
                     }
                 }
             } else if (aVar.code == 5) {
                 this.ele.a((l) null);
-                bbz();
+                bbA();
             } else if (aVar.id > 0) {
                 b bVar = this.eli.get(aVar.id);
                 if (bVar != null) {
                     if (aVar.code != 19 && aVar.code != 20 && aVar.id != 27) {
-                        this.ele.na(aVar.id);
+                        this.ele.nc(aVar.id);
                     }
-                    l nf2 = nf(aVar.id);
-                    if (nf2 != null && nf2.elM == 5) {
-                        bbz();
-                        bdd();
+                    l nh2 = nh(aVar.id);
+                    if (nh2 != null && nh2.elM == 5) {
+                        bbA();
+                        bde();
                     } else {
-                        this.elf.na(aVar.id);
+                        this.elf.nc(aVar.id);
                     }
                     bVar.a(aVar);
                 }
@@ -212,7 +212,7 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void bdd() {
+    public void bde() {
         boolean z;
         com.baidu.adp.lib.f.e.ld().removeCallbacks(this.elt);
         if (getContext() instanceof Activity) {
@@ -227,13 +227,13 @@ public class EditorTools extends LinearLayout {
             z = false;
         }
         if (!z) {
-            l nf = nf(3);
-            if (nf != null && (nf.ekV instanceof View)) {
-                com.baidu.adp.lib.util.l.hideSoftKeyPad(getContext(), (View) nf.ekV);
+            l nh = nh(3);
+            if (nh != null && (nh.ekV instanceof View)) {
+                com.baidu.adp.lib.util.l.hideSoftKeyPad(getContext(), (View) nh.ekV);
             }
-            l nf2 = nf(28);
-            if (nf2 != null && (nf2.ekV instanceof View)) {
-                com.baidu.adp.lib.util.l.hideSoftKeyPad(getContext(), (View) nf2.ekV);
+            l nh2 = nh(28);
+            if (nh2 != null && (nh2.ekV instanceof View)) {
+                com.baidu.adp.lib.util.l.hideSoftKeyPad(getContext(), (View) nh2.ekV);
             }
         }
     }
@@ -297,7 +297,7 @@ public class EditorTools extends LinearLayout {
                         this.elf.a(lVar.ekV);
                     } else if (lVar.elM == 1 || lVar.elM == 2 || lVar.elM == 3 || lVar.elM == 4 || lVar.elM == 5) {
                         this.ele.a(lVar.ekV, lVar.elM, !lVar.elN);
-                        if (lVar.elM == 5 && nf(1) == null) {
+                        if (lVar.elM == 5 && nh(1) == null) {
                             z = true;
                         }
                     }
@@ -364,10 +364,10 @@ public class EditorTools extends LinearLayout {
             if (this.elr) {
                 this.ele.setPadding(0, 0, 0, 0);
             }
-            bbz();
+            bbA();
             removeAllViews();
             if (this.ele.getBarLauncherType() != 4) {
-                bde();
+                bdf();
             }
             addView(this.ele);
             addView(this.elf);
@@ -375,7 +375,7 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    private void bde() {
+    private void bdf() {
         if (this.elg == null || this.elg.getParent() != null) {
             this.elg = new View(getContext());
             am.setBackgroundResource(this.elg, R.drawable.bottom_view_shadow);
@@ -398,7 +398,7 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public l nf(int i) {
+    public l nh(int i) {
         for (l lVar : this.elh) {
             if (lVar.id == i) {
                 return lVar;
@@ -411,15 +411,15 @@ public class EditorTools extends LinearLayout {
         return this.elh;
     }
 
-    public g nc(int i) {
-        g nc = this.ele.nc(i);
-        if (nc == null) {
-            return this.elf.nc(i);
+    public g ne(int i) {
+        g ne = this.ele.ne(i);
+        if (ne == null) {
+            return this.elf.ne(i);
         }
-        return nc;
+        return ne;
     }
 
-    public void bdf() {
+    public void bdg() {
         this.ele.h(this.els);
     }
 
@@ -442,9 +442,9 @@ public class EditorTools extends LinearLayout {
         }
         if (this.elo) {
             this.elo = false;
-            bbz();
+            bbA();
         }
-        if (!bcY() && z) {
+        if (!bcZ() && z) {
             com.baidu.adp.lib.f.e.ld().postDelayed(this.elt, 200L);
         }
         setVisibility(0);
@@ -456,13 +456,13 @@ public class EditorTools extends LinearLayout {
     }
 
     public void hide() {
-        bbz();
+        bbA();
         setVisibility(8);
-        bdd();
+        bde();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EDITOR_VISIBILITY_CHANGED, false));
     }
 
-    public void bbz() {
+    public void bbA() {
         this.elf.hide();
         this.ele.a((l) null);
     }
@@ -475,8 +475,8 @@ public class EditorTools extends LinearLayout {
         this.ele.setBarLauncherEnabled(z, i);
     }
 
-    public boolean bcY() {
-        return this.elf.bcY();
+    public boolean bcZ() {
+        return this.elf.bcZ();
     }
 
     public void setFrom(int i) {
@@ -518,17 +518,17 @@ public class EditorTools extends LinearLayout {
         if (view instanceof g) {
             g gVar = (g) view;
             int toolId = gVar.getToolId();
-            l nf = nf(toolId);
-            if (nf.qH()) {
+            l nh = nh(toolId);
+            if (nh.qH()) {
                 b(new a(31, 0, Integer.valueOf(gVar.getToolId())));
-                this.ele.a(nf);
+                this.ele.a(nh);
                 if (gVar.getToolId() == 1) {
                     gVar.hide();
                     display();
                     b(new a(1, 3, null));
-                } else if (nf.ekV == null) {
-                    if (nf.elO != null && nf.elO.length > 0) {
-                        b(new a(nf.elO[0], -1, null));
+                } else if (nh.ekV == null) {
+                    if (nh.elO != null && nh.elO.length > 0) {
+                        b(new a(nh.elO[0], -1, null));
                     }
                 } else {
                     b(new a(1, toolId, null));
@@ -537,7 +537,7 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void bdg() {
+    public void bdh() {
         this.ele.a((l) null);
     }
 

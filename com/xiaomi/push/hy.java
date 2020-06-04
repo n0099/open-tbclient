@@ -108,15 +108,15 @@ public class hy implements ix<hy, Object>, Serializable, Cloneable {
         int a18;
         int a19;
         if (getClass().equals(hyVar.getClass())) {
-            int compareTo = Boolean.valueOf(m369a()).compareTo(Boolean.valueOf(hyVar.m369a()));
+            int compareTo = Boolean.valueOf(m368a()).compareTo(Boolean.valueOf(hyVar.m368a()));
             if (compareTo == 0) {
-                if (!m369a() || (a19 = iy.a(this.f488a, hyVar.f488a)) == 0) {
-                    int compareTo2 = Boolean.valueOf(m371b()).compareTo(Boolean.valueOf(hyVar.m371b()));
+                if (!m368a() || (a19 = iy.a(this.f488a, hyVar.f488a)) == 0) {
+                    int compareTo2 = Boolean.valueOf(m370b()).compareTo(Boolean.valueOf(hyVar.m370b()));
                     if (compareTo2 == 0) {
-                        if (!m371b() || (a18 = iy.a(this.f489a, hyVar.f489a)) == 0) {
-                            int compareTo3 = Boolean.valueOf(m372c()).compareTo(Boolean.valueOf(hyVar.m372c()));
+                        if (!m370b() || (a18 = iy.a(this.f489a, hyVar.f489a)) == 0) {
+                            int compareTo3 = Boolean.valueOf(m371c()).compareTo(Boolean.valueOf(hyVar.m371c()));
                             if (compareTo3 == 0) {
-                                if (!m372c() || (a17 = iy.a(this.f493b, hyVar.f493b)) == 0) {
+                                if (!m371c() || (a17 = iy.a(this.f493b, hyVar.f493b)) == 0) {
                                     int compareTo4 = Boolean.valueOf(d()).compareTo(Boolean.valueOf(hyVar.d()));
                                     if (compareTo4 == 0) {
                                         if (!d() || (a16 = iy.a(this.f495c, hyVar.f495c)) == 0) {
@@ -244,12 +244,12 @@ public class hy implements ix<hy, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m367a() {
+    public String m366a() {
         return this.f489a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m368a() {
+    public void m367a() {
         if (this.f489a == null) {
             throw new jj("Required field 'id' was not present! Struct: " + toString());
         }
@@ -263,18 +263,18 @@ public class hy implements ix<hy, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ix
     public void a(ji jiVar) {
-        jiVar.m487a();
+        jiVar.m486a();
         while (true) {
-            jf m483a = jiVar.m483a();
-            if (m483a.a == 0) {
+            jf m482a = jiVar.m482a();
+            if (m482a.a == 0) {
                 jiVar.f();
-                m368a();
+                m367a();
                 return;
             }
-            switch (m483a.f777a) {
+            switch (m482a.f777a) {
                 case 1:
-                    if (m483a.a != 12) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 12) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
                         this.f488a = new ib();
@@ -282,90 +282,90 @@ public class hy implements ix<hy, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 2:
-                    if (m483a.a != 11) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 11) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
-                        this.f489a = jiVar.m488a();
+                        this.f489a = jiVar.m487a();
                         break;
                     }
                 case 3:
-                    if (m483a.a != 11) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 11) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
-                        this.f493b = jiVar.m488a();
+                        this.f493b = jiVar.m487a();
                         break;
                     }
                 case 4:
-                    if (m483a.a != 11) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 11) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
-                        this.f495c = jiVar.m488a();
+                        this.f495c = jiVar.m487a();
                         break;
                     }
                 case 5:
-                    if (m483a.a != 10) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 10) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
-                        this.f486a = jiVar.m482a();
+                        this.f486a = jiVar.m481a();
                         a(true);
                         break;
                     }
                 case 6:
-                    if (m483a.a != 10) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 10) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
-                        this.f492b = jiVar.m482a();
+                        this.f492b = jiVar.m481a();
                         b(true);
                         break;
                     }
                 case 7:
-                    if (m483a.a != 11) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 11) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
-                        this.f496d = jiVar.m488a();
+                        this.f496d = jiVar.m487a();
                         break;
                     }
                 case 8:
-                    if (m483a.a != 11) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 11) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
-                        this.f497e = jiVar.m488a();
+                        this.f497e = jiVar.m487a();
                         break;
                     }
                 case 9:
-                    if (m483a.a != 11) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 11) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
-                        this.f498f = jiVar.m488a();
+                        this.f498f = jiVar.m487a();
                         break;
                     }
                 case 10:
-                    if (m483a.a != 11) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 11) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
-                        this.f499g = jiVar.m488a();
+                        this.f499g = jiVar.m487a();
                         break;
                     }
                 case 11:
-                    if (m483a.a != 11) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 11) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
-                        this.f500h = jiVar.m488a();
+                        this.f500h = jiVar.m487a();
                         break;
                     }
                 case 12:
-                    if (m483a.a != 12) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 12) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
                         this.f487a = new hz();
@@ -373,36 +373,36 @@ public class hy implements ix<hy, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 13:
-                    if (m483a.a != 11) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 11) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
-                        this.f501i = jiVar.m488a();
+                        this.f501i = jiVar.m487a();
                         break;
                     }
                 case 14:
-                    if (m483a.a != 2) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 2) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
-                        this.f491a = jiVar.m492a();
+                        this.f491a = jiVar.m491a();
                         c(true);
                         break;
                     }
                 case 15:
-                    if (m483a.a != 11) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 11) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
-                        this.f502j = jiVar.m488a();
+                        this.f502j = jiVar.m487a();
                         break;
                     }
                 case 16:
-                    if (m483a.a != 10) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 10) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
-                        this.f494c = jiVar.m482a();
+                        this.f494c = jiVar.m481a();
                         d(true);
                         break;
                     }
@@ -410,22 +410,22 @@ public class hy implements ix<hy, Object>, Serializable, Cloneable {
                 case 18:
                 case 19:
                 default:
-                    jl.a(jiVar, m483a.a);
+                    jl.a(jiVar, m482a.a);
                     break;
                 case 20:
-                    if (m483a.a != 11) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 11) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
-                        this.f503k = jiVar.m488a();
+                        this.f503k = jiVar.m487a();
                         break;
                     }
                 case 21:
-                    if (m483a.a != 11) {
-                        jl.a(jiVar, m483a.a);
+                    if (m482a.a != 11) {
+                        jl.a(jiVar, m482a.a);
                         break;
                     } else {
-                        this.f504l = jiVar.m488a();
+                        this.f504l = jiVar.m487a();
                         break;
                     }
             }
@@ -438,28 +438,28 @@ public class hy implements ix<hy, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m369a() {
+    public boolean m368a() {
         return this.f488a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m370a(hy hyVar) {
+    public boolean m369a(hy hyVar) {
         if (hyVar == null) {
             return false;
         }
-        boolean m369a = m369a();
-        boolean m369a2 = hyVar.m369a();
-        if ((m369a || m369a2) && !(m369a && m369a2 && this.f488a.m396a(hyVar.f488a))) {
+        boolean m368a = m368a();
+        boolean m368a2 = hyVar.m368a();
+        if ((m368a || m368a2) && !(m368a && m368a2 && this.f488a.m395a(hyVar.f488a))) {
             return false;
         }
-        boolean m371b = m371b();
-        boolean m371b2 = hyVar.m371b();
-        if ((m371b || m371b2) && !(m371b && m371b2 && this.f489a.equals(hyVar.f489a))) {
+        boolean m370b = m370b();
+        boolean m370b2 = hyVar.m370b();
+        if ((m370b || m370b2) && !(m370b && m370b2 && this.f489a.equals(hyVar.f489a))) {
             return false;
         }
-        boolean m372c = m372c();
-        boolean m372c2 = hyVar.m372c();
-        if ((m372c || m372c2) && !(m372c && m372c2 && this.f493b.equals(hyVar.f493b))) {
+        boolean m371c = m371c();
+        boolean m371c2 = hyVar.m371c();
+        if ((m371c || m371c2) && !(m371c && m371c2 && this.f493b.equals(hyVar.f493b))) {
             return false;
         }
         boolean d2 = d();
@@ -504,7 +504,7 @@ public class hy implements ix<hy, Object>, Serializable, Cloneable {
         }
         boolean l2 = l();
         boolean l3 = hyVar.l();
-        if ((l2 || l3) && !(l2 && l3 && this.f487a.m379a(hyVar.f487a))) {
+        if ((l2 || l3) && !(l2 && l3 && this.f487a.m378a(hyVar.f487a))) {
             return false;
         }
         boolean m2 = m();
@@ -543,9 +543,9 @@ public class hy implements ix<hy, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
-        m368a();
+        m367a();
         jiVar.a(f485a);
-        if (this.f488a != null && m369a()) {
+        if (this.f488a != null && m368a()) {
             jiVar.a(a);
             this.f488a.b(jiVar);
             jiVar.b();
@@ -636,7 +636,7 @@ public class hy implements ix<hy, Object>, Serializable, Cloneable {
             jiVar.b();
         }
         jiVar.c();
-        jiVar.m491a();
+        jiVar.m490a();
     }
 
     public void b(boolean z) {
@@ -644,7 +644,7 @@ public class hy implements ix<hy, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m371b() {
+    public boolean m370b() {
         return this.f489a != null;
     }
 
@@ -657,7 +657,7 @@ public class hy implements ix<hy, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m372c() {
+    public boolean m371c() {
         return this.f493b != null;
     }
 
@@ -675,7 +675,7 @@ public class hy implements ix<hy, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hy)) {
-            return m370a((hy) obj);
+            return m369a((hy) obj);
         }
         return false;
     }
@@ -739,7 +739,7 @@ public class hy implements ix<hy, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("PushMessage(");
         boolean z = true;
-        if (m369a()) {
+        if (m368a()) {
             sb.append("to:");
             if (this.f488a == null) {
                 sb.append("null");

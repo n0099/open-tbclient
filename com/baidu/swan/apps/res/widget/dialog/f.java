@@ -22,7 +22,7 @@ public class f extends g.a {
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider));
         layoutParams2.addRule(2, this.cyL.mBtnPanelLayout.getId());
         this.cyL.mDivider2.setLayoutParams(layoutParams2);
-        gB(a.c.aiapps_action_sheet_split_color);
+        gD(a.c.aiapps_action_sheet_split_color);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams3.addRule(2, this.cyL.mDivider2.getId());
         this.cyL.mDialogContentPanel.setLayoutParams(layoutParams3);

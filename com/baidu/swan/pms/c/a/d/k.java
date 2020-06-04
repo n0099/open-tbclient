@@ -14,7 +14,7 @@ public class k extends com.baidu.swan.pms.c.a.b {
         if (!this.mIsAttached) {
             if (z) {
                 this.dmp.dme.dmd.currentSize = 0L;
-                this.dmp.je(0);
+                this.dmp.jg(0);
             }
             d.aGy().j(this.dmp);
         }

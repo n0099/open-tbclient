@@ -52,15 +52,15 @@ public class VisitedForumData extends OrmObject {
         }
     }
 
-    public String bcE() {
+    public String bcF() {
         return this.mForumImageUrl;
     }
 
-    public boolean bcF() {
+    public boolean bcG() {
         return this.ekd;
     }
 
-    public int bcG() {
+    public int bcH() {
         return this.eke;
     }
 
@@ -72,11 +72,11 @@ public class VisitedForumData extends OrmObject {
         return this.mForumId;
     }
 
-    public String bcH() {
+    public String bcI() {
         return this.ekf;
     }
 
-    public int bcI() {
+    public int bcJ() {
         return this.ekg;
     }
 
@@ -84,7 +84,7 @@ public class VisitedForumData extends OrmObject {
         return this.mThemeColorInfo;
     }
 
-    public boolean bcJ() {
+    public boolean bcK() {
         return this.ekh;
     }
 }

@@ -49,8 +49,8 @@ public class a {
     public void a(Activity activity, final com.baidu.swan.apps.core.f.b<Boolean> bVar) {
         if (activity != null && bVar != null) {
             g.a aVar = new g.a(activity);
-            aVar.eR(a.h.aiapps_confirm_close_title).nq(adV().getContent()).a(new com.baidu.swan.apps.view.c.a()).eT(true);
-            aVar.gv(a.c.aiapps_modal_confirm_color);
+            aVar.eT(a.h.aiapps_confirm_close_title).nq(adV().getContent()).a(new com.baidu.swan.apps.view.c.a()).eT(true);
+            aVar.gx(a.c.aiapps_modal_confirm_color);
             aVar.c(a.h.aiapps_dialog_nagtive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.o.a.1
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {

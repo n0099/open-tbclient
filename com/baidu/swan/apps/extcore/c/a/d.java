@@ -56,7 +56,7 @@ public class d extends aa {
     public void b(final Context context, String str, final String str2, final CallbackHandler callbackHandler) {
         com.baidu.swan.apps.r.e.a(str, new e.b() { // from class: com.baidu.swan.apps.extcore.c.a.d.2
             @Override // com.baidu.swan.apps.r.e.b
-            public void dr(int i) {
+            public void dt(int i) {
             }
 
             @Override // com.baidu.swan.apps.r.e.b

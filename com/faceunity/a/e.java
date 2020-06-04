@@ -19,21 +19,21 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes10.dex */
 public class e {
     private boolean boH;
-    private h lmg;
-    private c mAW;
+    private h lnq;
     private MediaCodec.BufferInfo mBufferInfo;
+    private c mCh;
     private MediaCodec mEncoder;
     private Surface mInputSurface;
     private int mTrackIndex;
     private Bundle cth = new Bundle();
-    private long mBz = 0;
-    private boolean mBv = false;
+    private long mCK = 0;
+    private boolean mCG = false;
 
     public e(int i, int i2, int i3, c cVar) throws IOException {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, l.class);
         l lVar = runTask != null ? (l) runTask.getData() : null;
         if (lVar != null) {
-            this.lmg = lVar.cyB();
+            this.lnq = lVar.cyS();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat(f.b, i, i2);
@@ -51,11 +51,11 @@ public class e {
         }
         this.mTrackIndex = -1;
         this.boH = false;
-        this.mAW = cVar;
+        this.mCh = cVar;
     }
 
     public synchronized void requestStop() {
-        this.mBv = true;
+        this.mCG = true;
     }
 
     public Surface getInputSurface() {
@@ -68,15 +68,15 @@ public class e {
             this.mEncoder.release();
             this.mEncoder = null;
         }
-        if (this.mAW != null) {
+        if (this.mCh != null) {
             try {
-                this.mAW.stop();
+                this.mCh.stop();
             } catch (IllegalStateException e) {
-                if (this.lmg != null) {
-                    this.lmg.bj(17, com.baidu.tieba.k.a.t(e));
+                if (this.lnq != null) {
+                    this.lnq.bj(17, com.baidu.tieba.k.a.t(e));
                 }
             }
-            this.mAW = null;
+            this.mCh = null;
         }
     }
 
@@ -99,19 +99,19 @@ public class e {
                 }
                 MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                 Log.d("VideoEncoder", "encoder output format changed: " + outputFormat);
-                this.mTrackIndex = this.mAW.c(outputFormat);
-                if (!this.mAW.start()) {
-                    synchronized (this.mAW) {
-                        while (!this.mAW.isStarted() && !this.mBv) {
+                this.mTrackIndex = this.mCh.c(outputFormat);
+                if (!this.mCh.start()) {
+                    synchronized (this.mCh) {
+                        while (!this.mCh.isStarted() && !this.mCG) {
                             try {
-                                this.mAW.wait(100L);
+                                this.mCh.wait(100L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
                 }
-                if (!this.mBv) {
+                if (!this.mCG) {
                     this.boH = true;
                 } else {
                     return;
@@ -132,12 +132,12 @@ public class e {
                     }
                     byteBuffer.position(this.mBufferInfo.offset);
                     byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                    this.mAW.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                    this.mCh.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
                 }
                 this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.mBz >= 500) {
+                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.mCK >= 500) {
                     this.mEncoder.setParameters(this.cth);
-                    this.mBz = System.currentTimeMillis();
+                    this.mCK = System.currentTimeMillis();
                 }
                 if ((this.mBufferInfo.flags & 4) != 0) {
                     if (!z) {

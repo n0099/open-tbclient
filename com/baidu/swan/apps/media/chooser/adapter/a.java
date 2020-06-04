@@ -312,7 +312,7 @@ public class a extends BaseAdapter {
                 com.baidu.swan.apps.media.chooser.b.e.e(mediaModel);
                 c0358a.clC.startAnimation(AnimationUtils.loadAnimation(this.clq, a.C0281a.swanapp_album_checkshake));
                 if (this.cls != null) {
-                    this.cls.fH(selectedCount);
+                    this.cls.fJ(selectedCount);
                 }
                 notifyDataSetChanged();
                 return;
@@ -322,7 +322,7 @@ public class a extends BaseAdapter {
         c0358a.clB.setImageResource(a.e.swanapp_album_unselect_thumb_icon);
         c0358a.clA.setVisibility(8);
         if (this.cls != null) {
-            this.cls.fH(selectedCount);
+            this.cls.fJ(selectedCount);
         }
         notifyDataSetChanged();
     }
@@ -369,9 +369,9 @@ public class a extends BaseAdapter {
     private void a(String str, C0358a c0358a) {
         ImageRequestBuilder ab = ImageRequestBuilder.ab(Uri.fromFile(new File(str)));
         ab.c(new com.facebook.imagepipeline.common.d((int) (this.mItemWidth / 2.0f), (int) (this.mItemHeight / 2.0f)));
-        ab.wo(true);
-        ab.a(com.facebook.imagepipeline.common.b.dya().wg(true).dyi());
-        c0358a.cly.setController(com.facebook.drawee.a.a.c.dvf().bb(ab.dCl()).wa(false).c(c0358a.cly.getController()).dvW());
+        ab.wq(true);
+        ab.a(com.facebook.imagepipeline.common.b.dyo().wi(true).dyw());
+        c0358a.cly.setController(com.facebook.drawee.a.a.c.dvt().bb(ab.dCz()).wc(false).c(c0358a.cly.getController()).dwk());
     }
 
     private String aX(long j) {

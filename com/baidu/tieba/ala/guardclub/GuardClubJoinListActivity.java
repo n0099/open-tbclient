@@ -22,14 +22,14 @@ public class GuardClubJoinListActivity extends BaseActivity<GuardClubJoinListAct
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021132 && (httpResponsedMessage instanceof LiveSyncHttpResponseMessage)) {
-                if ((httpResponsedMessage.getError() == 0) && ((LiveSyncHttpResponseMessage) httpResponsedMessage).Fu() != null && GuardClubJoinListActivity.this.fxG != null) {
-                    GuardClubJoinListActivity.this.fxG.notifyDataSetInvalidated();
+                if ((httpResponsedMessage.getError() == 0) && ((LiveSyncHttpResponseMessage) httpResponsedMessage).Fu() != null && GuardClubJoinListActivity.this.fxR != null) {
+                    GuardClubJoinListActivity.this.fxR.notifyDataSetInvalidated();
                 }
             }
         }
     };
     private TextView bjM;
-    private g fxG;
+    private g fxR;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
@@ -69,8 +69,8 @@ public class GuardClubJoinListActivity extends BaseActivity<GuardClubJoinListAct
                 findViewById2.setVisibility(0);
                 backBar.setVisibility(8);
             }
-            this.fxG = new g(this, getIntent().getStringExtra(IntentConfig.OTHER_PARAMS), getUniqueId());
-            View view = this.fxG.getView();
+            this.fxR = new g(this, getIntent().getStringExtra(IntentConfig.OTHER_PARAMS), getUniqueId());
+            View view = this.fxR.getView();
             if (view != null) {
                 frameLayout.addView(view, new FrameLayout.LayoutParams(-1, -1));
             }
@@ -88,8 +88,8 @@ public class GuardClubJoinListActivity extends BaseActivity<GuardClubJoinListAct
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.fxG != null) {
-            this.fxG.aCE();
+        if (this.fxR != null) {
+            this.fxR.aCE();
         }
     }
 }

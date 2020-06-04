@@ -10,7 +10,7 @@ import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements com.baidu.tbadk.widget.tab.a {
-    private BaseFragment gQg;
+    private BaseFragment gQr;
     private boolean isPrimary;
     private FragmentManager mFragmentManager;
     private List<a> mFragments;
@@ -19,7 +19,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
     /* loaded from: classes9.dex */
     public static class a {
         public Fragment fragment;
-        public boolean gQh;
+        public boolean gQs;
         public String tabName;
         public String title;
     }
@@ -66,11 +66,11 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
     }
 
     @Override // com.baidu.tbadk.widget.tab.a
-    public boolean or(int i) {
+    public boolean ot(int i) {
         if (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null || !(this.mFragments.get(i).fragment instanceof EnterForumTabFeedFragment)) {
             return false;
         }
-        return this.mFragments.get(i).gQh;
+        return this.mFragments.get(i).gQs;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
@@ -84,7 +84,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
             if (obj instanceof BaseFragment) {
                 BaseFragment baseFragment = (BaseFragment) obj;
                 baseFragment.setPrimary(true);
-                this.gQg = baseFragment;
+                this.gQr = baseFragment;
             }
         }
     }
@@ -94,8 +94,8 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
     }
 
     public String getCurrentPageKey() {
-        if (this.gQg instanceof BaseFragment) {
-            return this.gQg.getCurrentPageKey();
+        if (this.gQr instanceof BaseFragment) {
+            return this.gQr.getCurrentPageKey();
         }
         return null;
     }

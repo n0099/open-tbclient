@@ -20,92 +20,98 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes9.dex */
 public class c implements NetModel.b {
-    private d huK;
-    private FrsCommonTabRequestData huO;
-    private FrsCommonTabNetModel huP;
-    private FrsDynamicRequestData huQ;
-    private FrsDynamicModel huR;
-    private boolean huS;
-    private FrsCommonTabFragment hup;
+    private FrsCommonTabFragment huA;
+    private d huV;
+    private FrsCommonTabRequestData huZ;
+    private FrsCommonTabNetModel hva;
+    private FrsDynamicRequestData hvb;
+    private FrsDynamicModel hvc;
+    private boolean hvd;
     private boolean isDynamic;
     private int mErrorCode;
     private String mErrorString;
-    private HashSet<String> huT = new HashSet<>();
+    private HashSet<String> hve = new HashSet<>();
     private int mPn = 1;
-    private long huU = -1;
+    private long hvf = -1;
 
     public c(FrsCommonTabFragment frsCommonTabFragment, int i, int i2, String str, int i3) {
         if (frsCommonTabFragment != null) {
-            this.hup = frsCommonTabFragment;
+            this.huA = frsCommonTabFragment;
             if (i2 == 89) {
                 this.isDynamic = true;
-                this.huQ = new FrsDynamicRequestData();
-                this.huQ.forumId = i;
-                this.huQ.scrH = l.getEquipmentHeight(TbadkCoreApplication.getInst());
-                this.huQ.scrW = l.getEquipmentWidth(TbadkCoreApplication.getInst());
-                this.huQ.scrDip = l.getEquipmentDensity(TbadkCoreApplication.getInst());
-                this.huR = new FrsDynamicModel(frsCommonTabFragment.getPageContext(), this.huQ);
-                this.huR.a(this);
-                this.huR.setUniqueId(frsCommonTabFragment.getUniqueId());
+                this.hvb = new FrsDynamicRequestData();
+                this.hvb.forumId = i;
+                this.hvb.scrH = l.getEquipmentHeight(TbadkCoreApplication.getInst());
+                this.hvb.scrW = l.getEquipmentWidth(TbadkCoreApplication.getInst());
+                this.hvb.scrDip = l.getEquipmentDensity(TbadkCoreApplication.getInst());
+                this.hvc = new FrsDynamicModel(frsCommonTabFragment.getPageContext(), this.hvb);
+                this.hvc.a(this);
+                this.hvc.setUniqueId(frsCommonTabFragment.getUniqueId());
                 return;
             }
             this.isDynamic = false;
-            this.huO = new FrsCommonTabRequestData();
-            this.huO.fid = i;
-            this.huO.tabId = i2;
-            this.huO.isDefaultNavTab = un(i2) ? 1 : 0;
-            this.huO.tabName = str;
-            this.huO.isGeneralTab = i3;
-            this.huP = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.huO);
-            this.huP.a(this);
-            this.huP.setUniqueId(frsCommonTabFragment.getUniqueId());
+            this.huZ = new FrsCommonTabRequestData();
+            this.huZ.fid = i;
+            this.huZ.tabId = i2;
+            this.huZ.isDefaultNavTab = up(i2) ? 1 : 0;
+            this.huZ.tabName = str;
+            this.huZ.isGeneralTab = i3;
+            this.hva = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.huZ);
+            this.hva.a(this);
+            this.hva.setUniqueId(frsCommonTabFragment.getUniqueId());
         }
     }
 
-    private boolean un(int i) {
-        return (this.hup == null || this.hup.huC == null || this.hup.huC.mHeadLineDefaultNavTabId != i) ? false : true;
+    public void setTabType(int i) {
+        if (this.huZ != null) {
+            this.huZ.tabType = i;
+        }
     }
 
-    public void uo(int i) {
-        this.huS = true;
+    private boolean up(int i) {
+        return (this.huA == null || this.huA.huN == null || this.huA.huN.mHeadLineDefaultNavTabId != i) ? false : true;
+    }
+
+    public void uq(int i) {
+        this.hvd = true;
         if (!this.isDynamic) {
-            if (!this.huP.isLoading()) {
+            if (!this.hva.isLoading()) {
                 this.mPn = 1;
-                this.huO.pn = this.mPn;
-                this.huO.sortType = i;
-                if (this.huU >= 0) {
-                    this.huO.lastThreadId = this.huU;
+                this.huZ.pn = this.mPn;
+                this.huZ.sortType = i;
+                if (this.hvf >= 0) {
+                    this.huZ.lastThreadId = this.hvf;
                 }
-                this.huP.loadData();
+                this.hva.loadData();
             }
-        } else if (!this.huR.isLoading()) {
-            if (ar.aUW().aUX()) {
-                this.huQ.qType = 2;
+        } else if (!this.hvc.isLoading()) {
+            if (ar.aUX().aUY()) {
+                this.hvb.qType = 2;
             } else {
-                this.huQ.qType = 1;
+                this.hvb.qType = 1;
             }
-            this.huQ.lastThreadId = 0L;
-            this.huR.loadData();
+            this.hvb.lastThreadId = 0L;
+            this.hvc.loadData();
         }
     }
 
-    public void up(int i) {
-        this.huS = false;
+    public void ur(int i) {
+        this.hvd = false;
         if (!this.isDynamic) {
-            if (!this.huP.isLoading()) {
+            if (!this.hva.isLoading()) {
                 this.mPn++;
-                this.huO.pn = this.mPn;
-                this.huO.sortType = i;
-                this.huO.lastThreadId = -1L;
-                this.huP.loadData();
+                this.huZ.pn = this.mPn;
+                this.huZ.sortType = i;
+                this.huZ.lastThreadId = -1L;
+                this.hva.loadData();
             }
-        } else if (!this.huR.isLoading()) {
-            if (ar.aUW().aUX()) {
-                this.huQ.qType = 2;
+        } else if (!this.hvc.isLoading()) {
+            if (ar.aUX().aUY()) {
+                this.hvb.qType = 2;
             } else {
-                this.huQ.qType = 1;
+                this.hvb.qType = 1;
             }
-            this.huR.loadData();
+            this.hvc.loadData();
         }
     }
 
@@ -113,50 +119,50 @@ public class c implements NetModel.b {
         if (dVar == null) {
             return false;
         }
-        if (this.huS) {
-            this.huK = dVar;
-            this.huT.clear();
+        if (this.hvd) {
+            this.huV = dVar;
+            this.hve.clear();
             Iterator<o> it = dVar.threadList.iterator();
             while (it.hasNext()) {
                 o next = it.next();
                 if (next instanceof bk) {
                     String tid = ((bk) next).getTid();
-                    if (!this.huT.contains(tid)) {
-                        this.huT.add(tid);
+                    if (!this.hve.contains(tid)) {
+                        this.hve.add(tid);
                     }
                 }
             }
         } else {
-            this.huK.hasMore = dVar.hasMore;
-            this.huK.userMap.putAll(dVar.userMap);
+            this.huV.hasMore = dVar.hasMore;
+            this.huV.userMap.putAll(dVar.userMap);
             Iterator<o> it2 = dVar.threadList.iterator();
             while (it2.hasNext()) {
                 o next2 = it2.next();
                 if (next2 instanceof bk) {
                     String tid2 = ((bk) next2).getTid();
-                    if (!this.huT.contains(tid2)) {
-                        ((bk) next2).dHx = this.hup.isBrandForum;
-                        this.huK.threadList.add(next2);
-                        this.huT.add(tid2);
+                    if (!this.hve.contains(tid2)) {
+                        ((bk) next2).dHx = this.huA.isBrandForum;
+                        this.huV.threadList.add(next2);
+                        this.hve.add(tid2);
                     }
                 }
             }
         }
-        this.hup.a(this.huK);
+        this.huA.a(this.huV);
         return true;
     }
 
     public void ap(bk bkVar) {
-        if (bkVar != null && this.huK != null && this.huK.threadList != null) {
-            if (v.isEmpty(this.huK.threadList)) {
-                this.huK.threadList.add(bkVar);
+        if (bkVar != null && this.huV != null && this.huV.threadList != null) {
+            if (v.isEmpty(this.huV.threadList)) {
+                this.huV.threadList.add(bkVar);
             } else {
-                if (this.huK.threadList.size() == 1 && (this.huK.threadList.get(0) instanceof p)) {
-                    this.huK.threadList.remove(0);
+                if (this.huV.threadList.size() == 1 && (this.huV.threadList.get(0) instanceof p)) {
+                    this.huV.threadList.remove(0);
                 }
-                this.huK.threadList.add(0, bkVar);
+                this.huV.threadList.add(0, bkVar);
             }
-            this.hup.a(this.huK);
+            this.huA.a(this.huV);
         }
     }
 
@@ -176,7 +182,7 @@ public class c implements NetModel.b {
                     if (!v.isEmpty(dVar2.threadList)) {
                         o oVar = (o) v.getItem(dVar2.threadList, dVar2.threadList.size() - 1);
                         if (oVar instanceof bk) {
-                            this.huQ.lastThreadId = com.baidu.adp.lib.f.b.toLong(((bk) oVar).getId(), 0L);
+                            this.hvb.lastThreadId = com.baidu.adp.lib.f.b.toLong(((bk) oVar).getId(), 0L);
                         }
                     }
                     dVar = dVar2;
@@ -189,7 +195,7 @@ public class c implements NetModel.b {
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
                 if (this.mErrorCode != 0) {
-                    this.hup.a(errorData);
+                    this.huA.a(errorData);
                 }
             }
         }
@@ -211,7 +217,7 @@ public class c implements NetModel.b {
                     if (!v.isEmpty(dVar2.threadList)) {
                         o oVar = (o) v.getItem(dVar2.threadList, dVar2.threadList.size() - 1);
                         if (oVar instanceof bk) {
-                            this.huQ.lastThreadId = com.baidu.adp.lib.f.b.toLong(((bk) oVar).getId(), 0L);
+                            this.hvb.lastThreadId = com.baidu.adp.lib.f.b.toLong(((bk) oVar).getId(), 0L);
                         }
                     }
                     dVar = dVar2;
@@ -224,21 +230,21 @@ public class c implements NetModel.b {
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
                 if (this.mErrorCode != 0) {
-                    this.hup.a(errorData);
+                    this.huA.a(errorData);
                 }
             }
         }
     }
 
     public boolean hasData() {
-        return (this.huK == null || v.isEmpty(this.huK.threadList)) ? false : true;
+        return (this.huV == null || v.isEmpty(this.huV.threadList)) ? false : true;
     }
 
     public void eg(long j) {
-        this.huU = j;
+        this.hvf = j;
     }
 
-    public boolean bXS() {
-        return this.huS;
+    public boolean bXV() {
+        return this.hvd;
     }
 }

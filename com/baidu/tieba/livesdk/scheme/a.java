@@ -11,7 +11,7 @@ public class a implements g {
     public void openScheme(String str) {
         Activity currentActivity;
         if (!StringUtils.isNull(str) && (currentActivity = com.baidu.adp.base.a.jm().currentActivity()) != null) {
-            ba.aUZ().a((TbPageContext) i.G(currentActivity), new String[]{str}, true);
+            ba.aVa().a((TbPageContext) i.G(currentActivity), new String[]{str}, true);
         }
     }
 

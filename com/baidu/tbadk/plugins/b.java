@@ -47,7 +47,7 @@ public class b {
         return false;
     }
 
-    public static boolean bga() {
+    public static boolean bgb() {
         return PluginPackageManager.nX().cw("com.baidu.tieba.pluginHotTopic");
     }
 
@@ -67,7 +67,7 @@ public class b {
                 return true;
             }
             return true;
-        } else if (bga()) {
+        } else if (bgb()) {
             String string4 = tbPageContext.getResources().getString(R.string.plugin_hottopic_not_active);
             String string5 = tbPageContext.getResources().getString(R.string.setup);
             if (z) {

@@ -28,107 +28,107 @@ public class d {
     private d() {
     }
 
-    public static d aZS() {
+    public static d aZT() {
         return edi;
     }
 
     public void initSetting() {
-        com.baidu.tieba.tbadkCore.util.a.det();
+        com.baidu.tieba.tbadkCore.util.a.deI();
     }
 
-    public void aZT() {
-        com.baidu.tieba.tbadkCore.util.a.aZT();
+    public void aZU() {
+        com.baidu.tieba.tbadkCore.util.a.aZU();
     }
 
-    public boolean aZU() {
+    public boolean aZV() {
         return this.edj > 0;
     }
 
-    public int aZV() {
+    public int aZW() {
         return this.edj;
     }
 
-    public boolean aZW() {
+    public boolean aZX() {
         return this.edl;
     }
 
-    public boolean aZX() {
+    public boolean aZY() {
         return this.edm;
     }
 
-    public boolean aZY() {
+    public boolean aZZ() {
         return this.edp;
     }
 
-    public boolean aZZ() {
+    public boolean baa() {
         return this.edn;
     }
 
-    public boolean baa() {
+    public boolean bab() {
         return this.edk;
     }
 
-    public boolean bab() {
+    public boolean bac() {
         return this.edr;
     }
 
-    public boolean bac() {
+    public boolean bad() {
         return this.eds;
     }
 
-    public boolean bad() {
+    public boolean bae() {
         return this.edt;
     }
 
-    public boolean bae() {
+    public boolean baf() {
         return this.edq;
     }
 
-    public String baf() {
+    public String bag() {
         return this.edu;
     }
 
-    public String bag() {
+    public String bah() {
         return this.edv;
     }
 
-    private void bah() {
+    private void bai() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
 
     public void hv(boolean z) {
         this.edk = z;
-        bah();
+        bai();
     }
 
-    public void mG(int i) {
+    public void mI(int i) {
         if (i == 0) {
             this.edj = i;
-            b.aZl().setMsgBookmark(0);
-            b.aZl().setMsgGiftNum(0);
-            b.aZl().setMsgFans(0);
+            b.aZm().setMsgBookmark(0);
+            b.aZm().setMsgGiftNum(0);
+            b.aZm().setMsgFans(0);
         } else {
             this.edj = 300;
         }
-        bah();
+        bai();
     }
 
-    public boolean bai() {
+    public boolean baj() {
         return TbadkSettings.getInst().loadBoolean(SharedPrefConfig.GROUP_NOTIFY, true) && TbadkCoreApplication.getInst().appResponseToIntentClass(GroupChatActivityConfig.class);
     }
 
     public void hw(boolean z) {
         TbadkSettings.getInst().saveBoolean(SharedPrefConfig.GROUP_NOTIFY, z);
-        bah();
+        bai();
     }
 
-    public boolean baj() {
+    public boolean bak() {
         return this.edo;
     }
 
     public void hx(boolean z) {
         this.edo = z;
-        bah();
+        bai();
     }
 
     public void hy(boolean z) {
@@ -163,18 +163,18 @@ public class d {
         com.baidu.tbadk.core.sharedPref.b.aTX().putBoolean(SharedPrefConfig.PERMIT_SCREEN_LOCK, z);
     }
 
-    public boolean bak() {
+    public boolean bal() {
         return com.baidu.tbadk.core.sharedPref.b.aTX().getBoolean(SharedPrefConfig.PERMIT_SCREEN_LOCK, true);
     }
 
     public void hE(boolean z) {
         this.edn = z;
-        bah();
+        bai();
     }
 
     public void hF(boolean z) {
         this.edm = z;
-        bah();
+        bai();
     }
 
     public void hG(boolean z) {
@@ -182,30 +182,30 @@ public class d {
     }
 
     public boolean isSignAlertOn() {
-        return f.ban().isSignAlertOn();
+        return f.bao().isSignAlertOn();
     }
 
     public void setSignAlertOn(boolean z) {
-        f.ban().setSignAlertOn(z);
+        f.bao().setSignAlertOn(z);
     }
 
     public int getSignAlertHours() {
-        return f.ban().getSignAlertHours();
+        return f.bao().getSignAlertHours();
     }
 
     public int getSignAlertMins() {
-        return f.ban().getSignAlertMins();
+        return f.bao().getSignAlertMins();
     }
 
     public void setSignAlertTime(int i, int i2) {
-        f.ban().setSignAlertTime(i, i2);
+        f.bao().setSignAlertTime(i, i2);
     }
 
     public void updateSignAlarm() {
-        f.ban().updateSignAlarm();
+        f.bao().updateSignAlarm();
     }
 
-    public void mH(int i) {
+    public void mJ(int i) {
         if (i == 0) {
             hC(false);
             hA(false);
@@ -221,7 +221,7 @@ public class d {
         }
     }
 
-    public int bal() {
+    public int bam() {
         if (!this.edr && !this.edq) {
             return 0;
         }
@@ -238,7 +238,7 @@ public class d {
         TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.REMIND_FORUM_BROADCAST_SWITCH, z);
     }
 
-    public boolean bam() {
+    public boolean ban() {
         return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.REMIND_FORUM_BROADCAST_SWITCH, true);
     }
 }

@@ -16,11 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    private static final int eDk = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-    private static final int jFU = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
-    private static final int kuy = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+    private static final int eDv = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+    private static final int jHa = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+    private static final int kvE = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
 
-    public static List<o> ek(List<o> list) {
+    public static List<o> em(List<o> list) {
         bk bkVar;
         ArrayList arrayList = new ArrayList();
         if (v.isEmpty(list)) {
@@ -41,7 +41,7 @@ public class a {
         return arrayList;
     }
 
-    public static List<o> el(List<bk> list) {
+    public static List<o> en(List<bk> list) {
         ArrayList arrayList = new ArrayList();
         if (v.isEmpty(list)) {
             return arrayList;
@@ -93,33 +93,33 @@ public class a {
                 } else {
                     kVar3.isLinkThread = false;
                     if (bkVar.aQA()) {
-                        kVar3.gHD = true;
+                        kVar3.gHO = true;
                     } else {
-                        kVar3.gHD = false;
+                        kVar3.gHO = false;
                     }
                 }
                 kVar3.dEA = bkVar;
-                kVar3.gHE = true;
+                kVar3.gHP = true;
                 kVar = kVar3;
             } else if (l.ac(bkVar)) {
                 kVar = new l(bkVar);
             }
             if (kVar != null) {
-                kVar.bLF();
+                kVar.bLH();
                 c.a(c.aMx(), kVar);
             }
         }
         return kVar;
     }
 
-    public static List<o> em(List<bk> list) {
+    public static List<o> eo(List<bk> list) {
         ArrayList arrayList = new ArrayList();
         if (!v.isEmpty(list)) {
             e aMx = c.aMx();
             com.baidu.tieba.personPolymeric.c.k kVar = new com.baidu.tieba.personPolymeric.c.k();
-            kVar.paddingBottom = kuy;
-            kVar.paddingTop = jFU;
-            kVar.paddingLeft = eDk;
+            kVar.paddingBottom = kvE;
+            kVar.paddingTop = jHa;
+            kVar.paddingLeft = eDv;
             kVar.titleId = R.string.person_center_tab_main_list_title;
             arrayList.add(kVar);
             for (int i = 0; i < list.size(); i++) {

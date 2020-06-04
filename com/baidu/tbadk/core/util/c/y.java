@@ -23,17 +23,17 @@ public class y extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aVn() {
+    public boolean aVo() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aVo() {
+    public boolean aVp() {
         return true;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int aVp() {
+    public int aVq() {
         return this.procType;
     }
 }

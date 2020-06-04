@@ -17,8 +17,8 @@ import java.util.Iterator;
 public class b extends RecyclerView.Adapter<a> {
     private ArrayList<com.baidu.tieba.forbidden.fans.a> fansList;
     private Context mContext;
-    private View.OnClickListener hik = null;
-    private View.OnClickListener fFG = null;
+    private View.OnClickListener hiv = null;
+    private View.OnClickListener fFR = null;
 
     public b(Context context) {
         this.mContext = context;
@@ -35,14 +35,14 @@ public class b extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        com.baidu.tieba.forbidden.fans.a tr;
-        if (aVar != null && (tr = tr(i)) != null) {
-            aVar.him.startLoad(tr.portrait, 12, false);
-            aVar.hin.setText(tr.nameShow);
-            aVar.hio.setOnClickListener(this.hik);
-            aVar.hio.setTag(tr);
-            aVar.hil.setOnClickListener(this.fFG);
-            aVar.hil.setTag(tr);
+        com.baidu.tieba.forbidden.fans.a tt;
+        if (aVar != null && (tt = tt(i)) != null) {
+            aVar.hix.startLoad(tt.portrait, 12, false);
+            aVar.hiy.setText(tt.nameShow);
+            aVar.hiz.setOnClickListener(this.hiv);
+            aVar.hiz.setTag(tt);
+            aVar.hiw.setOnClickListener(this.fFR);
+            aVar.hiw.setTag(tt);
             a(aVar);
         }
     }
@@ -52,7 +52,7 @@ public class b extends RecyclerView.Adapter<a> {
         return v.getCount(this.fansList);
     }
 
-    private com.baidu.tieba.forbidden.fans.a tr(int i) {
+    private com.baidu.tieba.forbidden.fans.a tt(int i) {
         return (com.baidu.tieba.forbidden.fans.a) v.getItem(this.fansList, i);
     }
 
@@ -79,43 +79,43 @@ public class b extends RecyclerView.Adapter<a> {
         return false;
     }
 
-    public boolean bTk() {
+    public boolean bTm() {
         return v.isEmpty(this.fansList);
     }
 
     /* loaded from: classes10.dex */
     public static class a extends RecyclerView.ViewHolder {
         public View dividerLine;
-        public View hil;
-        public ClickableHeaderImageView him;
-        public TextView hin;
-        public TextView hio;
+        public View hiw;
+        public ClickableHeaderImageView hix;
+        public TextView hiy;
+        public TextView hiz;
 
         public a(View view) {
             super(view);
-            this.hil = view.findViewById(R.id.container_forbidden_item);
-            this.him = (ClickableHeaderImageView) view.findViewById(R.id.view_fans_photo);
-            this.him.setRadius(l.getDimens(view.getContext(), R.dimen.ds90));
-            this.him.setAutoChangeStyle(true);
-            this.him.setClickable(false);
-            this.hin = (TextView) view.findViewById(R.id.view_fans_name);
-            this.hio = (TextView) view.findViewById(R.id.view_fans_remove);
+            this.hiw = view.findViewById(R.id.container_forbidden_item);
+            this.hix = (ClickableHeaderImageView) view.findViewById(R.id.view_fans_photo);
+            this.hix.setRadius(l.getDimens(view.getContext(), R.dimen.ds90));
+            this.hix.setAutoChangeStyle(true);
+            this.hix.setClickable(false);
+            this.hiy = (TextView) view.findViewById(R.id.view_fans_name);
+            this.hiz = (TextView) view.findViewById(R.id.view_fans_remove);
             this.dividerLine = view.findViewById(R.id.line_divider);
         }
     }
 
     private void a(a aVar) {
-        am.setViewTextColor(aVar.hin, (int) R.color.cp_cont_b);
+        am.setViewTextColor(aVar.hiy, (int) R.color.cp_cont_b);
         am.setBackgroundColor(aVar.dividerLine, R.color.cp_bg_line_c);
-        am.setViewTextColor(aVar.hio, (int) R.color.btn_color_remove);
-        am.setBackgroundResource(aVar.hio, R.drawable.btn_transparent_focus_border_bg);
+        am.setViewTextColor(aVar.hiz, (int) R.color.btn_color_remove);
+        am.setBackgroundResource(aVar.hiz, R.drawable.btn_transparent_focus_border_bg);
     }
 
     public void w(View.OnClickListener onClickListener) {
-        this.hik = onClickListener;
+        this.hiv = onClickListener;
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.fFG = onClickListener;
+        this.fFR = onClickListener;
     }
 }

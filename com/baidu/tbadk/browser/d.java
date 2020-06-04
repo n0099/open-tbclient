@@ -48,7 +48,7 @@ public class d {
                 }
             }
         });
-        ba.aUZ().a(new ba.c() { // from class: com.baidu.tbadk.browser.d.2
+        ba.aVa().a(new ba.c() { // from class: com.baidu.tbadk.browser.d.2
             @Override // com.baidu.tbadk.core.util.ba.c
             public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, ba.d dVar, boolean z2) {
                 if (z2) {
@@ -65,7 +65,7 @@ public class d {
     }
 
     private static void aNy() {
-        ba.aUZ().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.3
+        ba.aVa().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.3
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 Bundle parserQuery;
@@ -248,7 +248,7 @@ public class d {
     }
 
     private static void aNz() {
-        ba.aUZ().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.6
+        ba.aVa().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.6
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 PbActivityConfig createNormalCfg;
@@ -309,7 +309,7 @@ public class d {
     }
 
     private static void aNA() {
-        ba.aUZ().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.7
+        ba.aVa().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.7
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

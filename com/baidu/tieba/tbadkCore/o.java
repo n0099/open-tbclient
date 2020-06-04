@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.ActBtn;
 /* loaded from: classes.dex */
 public class o implements com.baidu.adp.widget.ListView.o {
-    public static final BdUniqueId ljw = BdUniqueId.gen();
+    public static final BdUniqueId lkF = BdUniqueId.gen();
     public String text;
     public String url;
 
@@ -17,6 +17,6 @@ public class o implements com.baidu.adp.widget.ListView.o {
 
     @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return ljw;
+        return lkF;
     }
 }

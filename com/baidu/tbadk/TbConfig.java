@@ -511,6 +511,7 @@ public class TbConfig {
     public static final String URL_PROFESSION_PERMISSION = "c/f/frs/zoneRight";
     public static final String URL_RECOMMEND_FORUM_TEST_CLOSE = "c/f/recommend/testclose";
     public static final String URL_REMOVE_FANS = "c/c/user/removeFans";
+    public static final String URL_SEARCH_MAJOR = "c/f/forum/searchMajor";
     public static final String URL_SET_PRIVACY = "c/c/thread/setPrivacy";
     public static final String URL_SHARE_REPORT = "c/c/thread/share";
     public static final String URL_SHARE_SUCCESS_TO_REPLY_SERVER = "/c/c/video/share";
@@ -761,7 +762,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.bet().setPhotoMaxNum(i);
+            c.beu().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

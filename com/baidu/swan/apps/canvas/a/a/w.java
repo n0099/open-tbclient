@@ -19,7 +19,7 @@ public class w extends a {
     public void a(b bVar, Canvas canvas) {
         if (this.bOt > 0.0f && this.bOu > 0.0f) {
             if (bVar.US() == 0) {
-                bVar.eq(canvas.save());
+                bVar.es(canvas.save());
             }
             canvas.scale(this.bOt, this.bOu);
         }

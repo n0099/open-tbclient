@@ -14,10 +14,10 @@ import com.baidu.tieba.ala.alasquare.special_forum.data.SpecialLiveResponseMessa
 import com.baidu.tieba.ala.alasquare.special_forum.data.h;
 /* loaded from: classes3.dex */
 public class a {
-    private InterfaceC0527a fiF;
+    private InterfaceC0527a fiQ;
     private boolean isLoading;
     private TbPageContext mPageContext;
-    private HttpMessageListener fiD = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.a.1
+    private HttpMessageListener fiO = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -25,11 +25,11 @@ public class a {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021093 && (httpResponsedMessage instanceof SpecialLiveResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.mCurTag) {
                 SpecialLiveResponseMessage specialLiveResponseMessage = (SpecialLiveResponseMessage) httpResponsedMessage;
                 if (!specialLiveResponseMessage.isSuccess() || specialLiveResponseMessage.getData() == null) {
-                    if (a.this.fiF != null) {
-                        a.this.fiF.ax(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (a.this.fiQ != null) {
+                        a.this.fiQ.ax(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     }
-                } else if (a.this.fiF != null) {
-                    a.this.fiF.b(specialLiveResponseMessage.getData());
+                } else if (a.this.fiQ != null) {
+                    a.this.fiQ.b(specialLiveResponseMessage.getData());
                 }
             }
         }
@@ -46,7 +46,7 @@ public class a {
 
     public a(TbPageContext tbPageContext, InterfaceC0527a interfaceC0527a) {
         this.mPageContext = tbPageContext;
-        this.fiF = interfaceC0527a;
+        this.fiQ = interfaceC0527a;
         Fv();
         registerListener();
     }
@@ -58,7 +58,7 @@ public class a {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.fiD);
+        MessageManager.getInstance().registerListener(this.fiO);
     }
 
     public void loadData() {
@@ -76,6 +76,6 @@ public class a {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
-        MessageManager.getInstance().unRegisterListener(this.fiD);
+        MessageManager.getInstance().unRegisterListener(this.fiO);
     }
 }

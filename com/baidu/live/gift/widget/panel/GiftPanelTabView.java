@@ -24,7 +24,7 @@ public class GiftPanelTabView extends LinearLayout {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bV(int i);
+        void bX(int i);
     }
 
     public GiftPanelTabView(Context context, @Nullable AttributeSet attributeSet) {
@@ -72,7 +72,7 @@ public class GiftPanelTabView extends LinearLayout {
         View findChild = findChild((int) this.mMotionEvent.getX(), (int) this.mMotionEvent.getY());
         this.mMotionEvent = null;
         if (findChild != null && (findPosByView = findPosByView(findChild)) != -1 && findPosByView != this.aNX && this.aNS != null) {
-            this.aNS.bV(findPosByView);
+            this.aNS.bX(findPosByView);
         }
         return true;
     }

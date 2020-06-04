@@ -7,12 +7,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class w extends m<x, y> {
-    private BdUniqueId ibz;
+    private BdUniqueId icm;
     private com.baidu.tieba.pb.data.e pbData;
 
     public w(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
-        super(bVar, x.jML);
-        this.ibz = bdUniqueId;
+        super(bVar, x.jNR);
+        this.icm = bdUniqueId;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class w extends m<x, y> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bU */
     public y b(ViewGroup viewGroup) {
-        return new y(LayoutInflater.from(this.mContext).inflate(R.layout.pb_image_ala_recomment_layout, viewGroup, false), this.jJa.getPageContext(), this.ibz);
+        return new y(LayoutInflater.from(this.mContext).inflate(R.layout.pb_image_ala_recomment_layout, viewGroup, false), this.jKg.getPageContext(), this.icm);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

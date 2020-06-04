@@ -7,21 +7,21 @@ import com.baidu.tbadk.core.util.an;
 /* loaded from: classes8.dex */
 public class l extends c implements com.baidu.tbadk.core.util.f.a {
     public static final BdUniqueId dEV = BdUniqueId.gen();
-    public static String gHp = "";
-    public static String gHq = "";
-    public static String gHJ = "";
-    public static String gHo = "";
-    public static String gHK = "";
-    public static String gHL = "";
-    public static String gHM = "";
-    public boolean gHI = false;
-    public boolean gHN = true;
+    public static String gHA = "";
+    public static String gHB = "";
+    public static String gHU = "";
+    public static String gHz = "";
+    public static String gHV = "";
+    public static String gHW = "";
+    public static String gHX = "";
+    public boolean gHT = false;
+    public boolean gHY = true;
     public boolean dEo = false;
-    public boolean gHO = false;
+    public boolean gHZ = false;
     public boolean dEu = false;
     public boolean dEv = false;
-    public boolean gHH = false;
-    public boolean gHF = false;
+    public boolean gHS = false;
+    public boolean gHQ = false;
     public int sourceType = 0;
 
     public l(bk bkVar) {
@@ -38,22 +38,22 @@ public class l extends c implements com.baidu.tbadk.core.util.f.a {
             return k.TYPE;
         }
         if (this.dEo) {
-            return k.gHu;
+            return k.gHF;
         }
-        if (this.gHO) {
+        if (this.gHZ) {
             return dEV;
         }
         if (this.dEu) {
-            return k.gHA;
+            return k.gHL;
         }
         if (this.dEv) {
-            return k.gHC;
+            return k.gHN;
         }
-        if (this.gHH) {
-            return k.gHB;
+        if (this.gHS) {
+            return k.gHM;
         }
-        if (this.gHF) {
-            return k.gHv;
+        if (this.gHQ) {
+            return k.gHG;
         }
         return dEV;
     }
@@ -64,7 +64,7 @@ public class l extends c implements com.baidu.tbadk.core.util.f.a {
             return null;
         }
         if (this.dEA.aQl() != 5) {
-            this.dEA.kp(1);
+            this.dEA.kr(1);
         }
         return this.dEA;
     }
@@ -89,7 +89,7 @@ public class l extends c implements com.baidu.tbadk.core.util.f.a {
             } else if (this.dEA.aPk()) {
                 anVar.ag("obj_type", 2);
             }
-            anVar.ag("obj_param1", bLE() ? 2 : 1);
+            anVar.ag("obj_param1", bLG() ? 2 : 1);
             if (this.dEA.aQx() != null) {
                 anVar.dh("obj_id", this.dEA.aQx().getUserId());
             }
@@ -97,11 +97,11 @@ public class l extends c implements com.baidu.tbadk.core.util.f.a {
         return anVar;
     }
 
-    public an bLL() {
-        an ay = ay(gHJ, true);
+    public an bLN() {
+        an ay = ay(gHU, true);
         if (ay != null && aOi() != null) {
             bk aOi = aOi();
-            ay.ag("obj_name", aOi.aSb() != null && (aOi.aSb().ddw() != null || aOi.aSb().biy() != null) ? 1 : 0);
+            ay.ag("obj_name", aOi.aSb() != null && (aOi.aSb().ddL() != null || aOi.aSb().biA() != null) ? 1 : 0);
             if (aOi.aQx() != null) {
                 ay.ag(TiebaInitialize.Params.AB_TYPE, aOi.aQx().hadConcerned() ? 1 : 0);
             }
@@ -115,7 +115,7 @@ public class l extends c implements com.baidu.tbadk.core.util.f.a {
     }
 
     public an b(bk bkVar, int i) {
-        an ay = ay(gHo, true);
+        an ay = ay(gHz, true);
         if (ay != null) {
             if (i != -1) {
                 ay.ag("click_locate", i);
@@ -136,8 +136,8 @@ public class l extends c implements com.baidu.tbadk.core.util.f.a {
         return b(bkVar, -1);
     }
 
-    public an bLS() {
-        an ay = ay(gHM, true);
+    public an bLU() {
+        an ay = ay(gHX, true);
         if (ay != null && aOi() != null) {
             bk aOi = aOi();
             if (aOi.getBaijiahaoData() != null) {
@@ -151,7 +151,7 @@ public class l extends c implements com.baidu.tbadk.core.util.f.a {
     }
 
     public an ai(bk bkVar) {
-        an ay = ay(gHp, true);
+        an ay = ay(gHA, true);
         if (ay != null && aOi() != null) {
             bk aOi = aOi();
             if (aOi.getBaijiahaoData() != null) {

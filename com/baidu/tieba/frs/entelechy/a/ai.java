@@ -14,17 +14,17 @@ public interface ai {
 
     void b(ArrayList<com.baidu.adp.widget.ListView.o> arrayList, FrsViewData frsViewData);
 
-    HashMap<Integer, bk> bYm();
-
-    int bYn();
-
-    void bYo();
-
-    int bYp();
+    HashMap<Integer, bk> bYp();
 
     int bYq();
 
     void bYr();
+
+    int bYs();
+
+    int bYt();
+
+    void bYu();
 
     List<com.baidu.adp.widget.ListView.o> getDatas();
 

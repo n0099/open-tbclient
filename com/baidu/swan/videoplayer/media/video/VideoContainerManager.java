@@ -30,7 +30,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
         this.mContext = context;
         this.bPV = new SwanAppComponentContainerView(this.mContext);
         this.bPV.setBackgroundColor(Color.parseColor("#666666"));
-        es(1);
+        eu(1);
     }
 
     public void e(c cVar) {
@@ -134,7 +134,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
         private void aJM() {
             this.dss = new SimpleDraweeView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.dss.getHierarchy().b(p.b.mqe);
+            this.dss.getHierarchy().b(p.b.mro);
             addView(this.dss, layoutParams);
         }
 
@@ -167,7 +167,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "cover";
                 }
-                p.b bVar = p.b.mqe;
+                p.b bVar = p.b.mro;
                 char c = 65535;
                 switch (str2.hashCode()) {
                     case 3143043:
@@ -191,16 +191,16 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 }
                 switch (c) {
                     case 0:
-                        p.b bVar2 = p.b.mqd;
+                        p.b bVar2 = p.b.mrn;
                         break;
                     case 1:
-                        p.b bVar3 = p.b.mqe;
+                        p.b bVar3 = p.b.mro;
                         break;
                     case 2:
-                        p.b bVar4 = p.b.mpY;
+                        p.b bVar4 = p.b.mri;
                         break;
                 }
-                this.dss.getHierarchy().b(p.b.mqe);
+                this.dss.getHierarchy().b(p.b.mro);
                 a(str, this.dss);
             }
         }
@@ -217,7 +217,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
             if (measuredWidth > 0 && measuredHeight > 0) {
                 ab.c(new d(measuredWidth, measuredHeight));
             }
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dvf().c(simpleDraweeView.getController()).bb(ab.dCl()).dvW());
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dvt().c(simpleDraweeView.getController()).bb(ab.dCz()).dwk());
         }
 
         public Uri getUri(String str) {

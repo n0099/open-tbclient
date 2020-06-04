@@ -17,9 +17,9 @@ import com.baidu.tieba.R;
 public class MessageCardBottomView extends LinearLayout {
     private TextView dVS;
     private String fName;
-    private ViewGroup iQY;
-    private ImageView iQZ;
-    private TextView iRa;
+    private ViewGroup iRL;
+    private ImageView iRM;
+    private TextView iRN;
 
     public MessageCardBottomView(Context context) {
         super(context);
@@ -34,9 +34,9 @@ public class MessageCardBottomView extends LinearLayout {
     private void initUI(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.message_card_bottom_layout, (ViewGroup) this, true);
         this.dVS = (TextView) inflate.findViewById(R.id.message_bottom_bar_name);
-        this.iQY = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
-        this.iQZ = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
-        this.iRa = (TextView) inflate.findViewById(R.id.message_bottom_reply);
+        this.iRL = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
+        this.iRM = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
+        this.iRN = (TextView) inflate.findViewById(R.id.message_bottom_reply);
     }
 
     public void setData(String str, boolean z) {
@@ -45,7 +45,7 @@ public class MessageCardBottomView extends LinearLayout {
             return;
         }
         setVisibility(0);
-        this.iQY.setVisibility(z ? 0 : 8);
+        this.iRL.setVisibility(z ? 0 : 8);
         if (aq.isEmpty(str)) {
             this.dVS.setVisibility(8);
             return;
@@ -57,11 +57,11 @@ public class MessageCardBottomView extends LinearLayout {
 
     public void onChangeSkinType() {
         am.setViewTextColor(this.dVS, (int) R.color.cp_cont_d);
-        am.setViewTextColor(this.iRa, (int) R.drawable.selector_comment_and_prise_item_text_color);
-        SvgManager.aUV().a(this.iQZ, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
+        am.setViewTextColor(this.iRN, (int) R.drawable.selector_comment_and_prise_item_text_color);
+        SvgManager.aUW().a(this.iRM, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
     }
 
     public View getReplyContainer() {
-        return this.iQY;
+        return this.iRL;
     }
 }

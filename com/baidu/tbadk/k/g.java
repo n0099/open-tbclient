@@ -159,7 +159,7 @@ public class g extends a {
         }
     }
 
-    public void bew() {
+    public void bex() {
         if (this.epF != null) {
             ((RelativeLayout.LayoutParams) this.epF.getLayoutParams()).addRule(15, 0);
         }

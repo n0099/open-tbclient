@@ -23,117 +23,117 @@ import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class c {
     TextView bem;
-    LinearLayout hay;
+    LinearLayout haJ;
     private boolean isShow;
-    a lfA;
-    LinearLayout lfB;
-    final View lff;
-    final View lfg;
-    LinearLayout lfh;
-    private ImageView lfj;
-    BdListView lfk;
-    BdListView lfl;
-    TextView lfm;
-    TextView lfn;
-    LinearLayout lfo;
-    TextView lfp;
-    ImageView lfq;
-    LinearLayout lfr;
-    TextView lfs;
-    ImageView lft;
-    g lfu;
-    g lfv;
-    PopupWindow lfw;
-    View lfx;
-    ForumListActivity lfy;
-    ListView lfz;
+    LinearLayout lgA;
+    TextView lgB;
+    ImageView lgC;
+    g lgD;
+    g lgE;
+    PopupWindow lgF;
+    View lgG;
+    ForumListActivity lgH;
+    ListView lgI;
+    a lgJ;
+    LinearLayout lgK;
+    final View lgo;
+    final View lgp;
+    LinearLayout lgq;
+    private ImageView lgs;
+    BdListView lgt;
+    BdListView lgu;
+    TextView lgv;
+    TextView lgw;
+    LinearLayout lgx;
+    TextView lgy;
+    ImageView lgz;
     NavigationBar mNavigationBar;
     ProgressBar mProgressBar;
     ViewPager mViewPager;
-    boolean lfi = true;
-    private int lfC = 0;
+    boolean lgr = true;
+    private int lgL = 0;
 
     public c(ForumListActivity forumListActivity) {
         this.isShow = false;
-        this.hay = (LinearLayout) forumListActivity.findViewById(R.id.forum_list_root);
+        this.haJ = (LinearLayout) forumListActivity.findViewById(R.id.forum_list_root);
         this.mViewPager = (ViewPager) forumListActivity.findViewById(R.id.view_pager);
         this.mViewPager.setOnPageChangeListener(forumListActivity);
-        this.lfh = (LinearLayout) forumListActivity.findViewById(R.id.tab_strip);
+        this.lgq = (LinearLayout) forumListActivity.findViewById(R.id.tab_strip);
         this.mNavigationBar = (NavigationBar) forumListActivity.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.lfB = (LinearLayout) this.mNavigationBar.setTitleView(R.layout.nb_item_forum_list, (View.OnClickListener) null);
-        this.bem = (TextView) this.lfB.findViewById(R.id.title_text);
-        this.lfj = (ImageView) this.lfB.findViewById(R.id.forum_list_title_arrow);
-        this.lfm = (TextView) forumListActivity.findViewById(R.id.tab_recommends);
-        this.lfm.setOnClickListener(forumListActivity);
-        this.lfn = (TextView) forumListActivity.findViewById(R.id.tab_hot);
-        this.lfn.setOnClickListener(forumListActivity);
-        this.lfu = new g(forumListActivity.getPageContext());
-        this.lfv = new g(forumListActivity.getPageContext());
-        this.lfo = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
-        this.lff = this.lfo.findViewById(R.id.footer_background);
-        this.lfp = (TextView) this.lfo.findViewById(R.id.footer_text);
-        this.lfq = (ImageView) this.lfo.findViewById(R.id.footer_icon);
-        this.lfr = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
-        this.lfg = this.lfr.findViewById(R.id.footer_background);
-        this.lfs = (TextView) this.lfr.findViewById(R.id.footer_text);
-        this.lft = (ImageView) this.lfr.findViewById(R.id.footer_icon);
+        this.lgK = (LinearLayout) this.mNavigationBar.setTitleView(R.layout.nb_item_forum_list, (View.OnClickListener) null);
+        this.bem = (TextView) this.lgK.findViewById(R.id.title_text);
+        this.lgs = (ImageView) this.lgK.findViewById(R.id.forum_list_title_arrow);
+        this.lgv = (TextView) forumListActivity.findViewById(R.id.tab_recommends);
+        this.lgv.setOnClickListener(forumListActivity);
+        this.lgw = (TextView) forumListActivity.findViewById(R.id.tab_hot);
+        this.lgw.setOnClickListener(forumListActivity);
+        this.lgD = new g(forumListActivity.getPageContext());
+        this.lgE = new g(forumListActivity.getPageContext());
+        this.lgx = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
+        this.lgo = this.lgx.findViewById(R.id.footer_background);
+        this.lgy = (TextView) this.lgx.findViewById(R.id.footer_text);
+        this.lgz = (ImageView) this.lgx.findViewById(R.id.footer_icon);
+        this.lgA = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
+        this.lgp = this.lgA.findViewById(R.id.footer_background);
+        this.lgB = (TextView) this.lgA.findViewById(R.id.footer_text);
+        this.lgC = (ImageView) this.lgA.findViewById(R.id.footer_icon);
         this.mProgressBar = (ProgressBar) forumListActivity.findViewById(R.id.loading);
         this.isShow = false;
-        this.lfy = forumListActivity;
-        this.lfA = new a(this.lfy.getPageContext().getContext());
+        this.lgH = forumListActivity;
+        this.lgJ = new a(this.lgH.getPageContext().getContext());
     }
 
     public View a(int i, AdapterView.OnItemClickListener onItemClickListener) {
-        View inflate = LayoutInflater.from(this.lfy.getPageContext().getPageActivity()).inflate(R.layout.forum_list__dir_menu, (ViewGroup) null);
-        this.lfz = (ListView) inflate.findViewById(R.id.dir_menu_list);
-        this.lfz.setOnItemClickListener(onItemClickListener);
+        View inflate = LayoutInflater.from(this.lgH.getPageContext().getPageActivity()).inflate(R.layout.forum_list__dir_menu, (ViewGroup) null);
+        this.lgI = (ListView) inflate.findViewById(R.id.dir_menu_list);
+        this.lgI.setOnItemClickListener(onItemClickListener);
         inflate.setBackgroundResource(R.drawable.bg_allsproutpop_dropdown);
-        this.lfC = this.lfA.getCount();
-        this.lfz.setAdapter((ListAdapter) this.lfA);
+        this.lgL = this.lgJ.getCount();
+        this.lgI.setAdapter((ListAdapter) this.lgJ);
         return inflate;
     }
 
     public void c(AdapterView.OnItemClickListener onItemClickListener) {
         if (!this.isShow) {
             this.isShow = true;
-            if (this.lfx == null) {
-                this.lfx = a(0, onItemClickListener);
+            if (this.lgG == null) {
+                this.lgG = a(0, onItemClickListener);
             }
-            int dip2px = (l.dip2px(this.lfy.getPageContext().getPageActivity(), 160.0f) - this.lfB.getWidth()) / 2;
-            if (this.lfw == null) {
-                this.lfw = new PopupWindow(this.lfx, l.dip2px(this.lfy.getPageContext().getPageActivity(), 160.0f), -2, true);
-                this.lfw.setBackgroundDrawable(new ColorDrawable(17170445));
-                if (this.lfC > 6) {
-                    this.lfw.setHeight(l.dip2px(this.lfy.getPageContext().getPageActivity(), 272.0f));
+            int dip2px = (l.dip2px(this.lgH.getPageContext().getPageActivity(), 160.0f) - this.lgK.getWidth()) / 2;
+            if (this.lgF == null) {
+                this.lgF = new PopupWindow(this.lgG, l.dip2px(this.lgH.getPageContext().getPageActivity(), 160.0f), -2, true);
+                this.lgF.setBackgroundDrawable(new ColorDrawable(17170445));
+                if (this.lgL > 6) {
+                    this.lgF.setHeight(l.dip2px(this.lgH.getPageContext().getPageActivity(), 272.0f));
                 }
             }
-            this.lfw.setOutsideTouchable(true);
-            this.lfw.setFocusable(true);
-            this.lfx.setFocusable(true);
-            this.lfx.setFocusableInTouchMode(true);
-            com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(this.lfw, this.lfB, 0 - dip2px, l.dip2px(this.lfy.getPageContext().getPageActivity(), 0.0f));
-            this.lfx.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.tieba.square.flist.c.1
+            this.lgF.setOutsideTouchable(true);
+            this.lgF.setFocusable(true);
+            this.lgG.setFocusable(true);
+            this.lgG.setFocusableInTouchMode(true);
+            com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(this.lgF, this.lgK, 0 - dip2px, l.dip2px(this.lgH.getPageContext().getPageActivity(), 0.0f));
+            this.lgG.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.tieba.square.flist.c.1
                 @Override // android.view.View.OnKeyListener
                 public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                    if (i == 4 && c.this.lfw.isShowing()) {
-                        com.baidu.adp.lib.f.g.dismissPopupWindow(c.this.lfw, c.this.lfy.getPageContext().getPageActivity());
+                    if (i == 4 && c.this.lgF.isShowing()) {
+                        com.baidu.adp.lib.f.g.dismissPopupWindow(c.this.lgF, c.this.lgH.getPageContext().getPageActivity());
                         return false;
                     }
                     return false;
                 }
             });
-            this.lfx.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.square.flist.c.2
+            this.lgG.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.square.flist.c.2
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                    if (c.this.lfw.isShowing()) {
-                        com.baidu.adp.lib.f.g.dismissPopupWindow(c.this.lfw, c.this.lfy.getPageContext().getPageActivity());
+                    if (c.this.lgF.isShowing()) {
+                        com.baidu.adp.lib.f.g.dismissPopupWindow(c.this.lgF, c.this.lgH.getPageContext().getPageActivity());
                         return false;
                     }
                     return false;
                 }
             });
-            this.lfw.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.square.flist.c.3
+            this.lgF.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.square.flist.c.3
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
                     c.this.isShow = false;
@@ -141,38 +141,38 @@ public class c {
             });
             return;
         }
-        com.baidu.adp.lib.f.g.dismissPopupWindow(this.lfw, this.lfy.getPageContext().getPageActivity());
+        com.baidu.adp.lib.f.g.dismissPopupWindow(this.lgF, this.lgH.getPageContext().getPageActivity());
         this.isShow = false;
     }
 
-    public void dbV() {
-        this.lfh.setVisibility(0);
+    public void dck() {
+        this.lgq.setVisibility(0);
     }
 
-    public void dbW() {
-        this.lfh.setVisibility(8);
+    public void dcl() {
+        this.lgq.setVisibility(8);
     }
 
-    public void dbX() {
+    public void dcm() {
         if (this.mProgressBar != null) {
             this.mProgressBar.setVisibility(8);
         }
         if (this.mViewPager != null) {
-            if (this.mViewPager.getCurrentItem() == 0 && this.lfk != null) {
-                this.lfk.completePullRefreshPostDelayed(0L);
-            } else if (this.lfl != null) {
-                this.lfl.completePullRefreshPostDelayed(0L);
+            if (this.mViewPager.getCurrentItem() == 0 && this.lgt != null) {
+                this.lgt.completePullRefreshPostDelayed(0L);
+            } else if (this.lgu != null) {
+                this.lgu.completePullRefreshPostDelayed(0L);
             }
         }
     }
 
-    public void dbY() {
-        this.lfj.setVisibility(4);
-        this.lfB.setClickable(false);
-        this.lfB.setOnClickListener(null);
+    public void dcn() {
+        this.lgs.setVisibility(4);
+        this.lgK.setClickable(false);
+        this.lgK.setOnClickListener(null);
     }
 
-    public void dbZ() {
-        this.lfj.setVisibility(0);
+    public void dco() {
+        this.lgs.setVisibility(0);
     }
 }

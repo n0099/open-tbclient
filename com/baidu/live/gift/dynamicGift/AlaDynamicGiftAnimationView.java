@@ -19,7 +19,7 @@ public class AlaDynamicGiftAnimationView extends ImageView {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
     public interface a {
-        void cg(int i);
+        void ci(int i);
 
         void zJ();
 
@@ -37,7 +37,7 @@ public class AlaDynamicGiftAnimationView extends ImageView {
             }
 
             @Override // com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.a
-            public void cg(int i) {
+            public void ci(int i) {
                 if (AlaDynamicGiftAnimationView.this.aJX != null) {
                     AlaDynamicGiftAnimationView.this.aJX.onFrameUpdate(i);
                 }
@@ -68,7 +68,7 @@ public class AlaDynamicGiftAnimationView extends ImageView {
             }
 
             @Override // com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.a
-            public void cg(int i) {
+            public void ci(int i) {
                 if (AlaDynamicGiftAnimationView.this.aJX != null) {
                     AlaDynamicGiftAnimationView.this.aJX.onFrameUpdate(i);
                 }
@@ -99,7 +99,7 @@ public class AlaDynamicGiftAnimationView extends ImageView {
             }
 
             @Override // com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.a
-            public void cg(int i2) {
+            public void ci(int i2) {
                 if (AlaDynamicGiftAnimationView.this.aJX != null) {
                     AlaDynamicGiftAnimationView.this.aJX.onFrameUpdate(i2);
                 }

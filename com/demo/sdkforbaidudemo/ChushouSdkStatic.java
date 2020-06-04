@@ -39,7 +39,7 @@ public class ChushouSdkStatic {
                 }
             }
         });
-        ba.aUZ().a(new ba.a() { // from class: com.demo.sdkforbaidudemo.ChushouSdkStatic.3
+        ba.aVa().a(new ba.a() { // from class: com.demo.sdkforbaidudemo.ChushouSdkStatic.3
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null) {

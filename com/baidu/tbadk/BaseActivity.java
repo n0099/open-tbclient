@@ -681,7 +681,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-            com.baidu.tbadk.m.e.bfu().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            com.baidu.tbadk.m.e.bfv().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
         }
         this.customToast.onPause();
         TbadkCoreApplication.getInst().DelResumeNum();
@@ -1065,7 +1065,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
                 this.loadingView = new g(getPageContext().getContext());
             } else {
                 this.loadingView = new g(getPageContext().getContext(), i);
-                this.loadingView.bew();
+                this.loadingView.bex();
             }
             this.loadingView.onChangeSkinType();
         }
@@ -1094,6 +1094,9 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
     }
 
     public h getRefreshView() {
+        if (this.mRefreshView == null) {
+            this.mRefreshView = new h(getPageContext().getContext(), getNetRefreshListener());
+        }
         return this.mRefreshView;
     }
 
@@ -1274,8 +1277,8 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
                 if (!com.baidu.tbadk.core.sharedPref.b.aTX().getBoolean(SharedPrefConfig.KEY_IS_WINDOW_PERMISSION_DIALOG_SHOWN, false)) {
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this);
                     aVar.gX(false);
-                    aVar.kC(R.string.request_permission_default_title);
-                    aVar.kD(R.string.request_window_permission_default_text);
+                    aVar.kE(R.string.request_permission_default_title);
+                    aVar.kF(R.string.request_window_permission_default_text);
                     aVar.a(R.string.isopen, new a.b() { // from class: com.baidu.tbadk.BaseActivity.6
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -1422,10 +1425,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
     }
 
     public void registerResponsedEventListener(Class<? extends com.baidu.tbadk.mutiprocess.a> cls, com.baidu.tbadk.mutiprocess.h hVar) {
-        com.baidu.tbadk.mutiprocess.g.beJ().a(cls, hVar, getUniqueId());
+        com.baidu.tbadk.mutiprocess.g.beK().a(cls, hVar, getUniqueId());
     }
 
     public void unRegisterResponsedEventListener() {
-        com.baidu.tbadk.mutiprocess.g.beJ().m(getUniqueId());
+        com.baidu.tbadk.mutiprocess.g.beK().m(getUniqueId());
     }
 }

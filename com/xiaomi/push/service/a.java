@@ -52,7 +52,7 @@ public class a {
             synchronized (obj) {
                 try {
                     File file2 = new File(context.getFilesDir(), str2);
-                    com.xiaomi.push.y.m588a(file2);
+                    com.xiaomi.push.y.m587a(file2);
                     randomAccessFile = new RandomAccessFile(file2, "rw");
                     try {
                         fileLock = randomAccessFile.getChannel().lock();
@@ -115,7 +115,7 @@ public class a {
                 }
             }
         } else {
-            com.xiaomi.channel.commonutils.logger.b.m52a("No ready file to get data from " + str);
+            com.xiaomi.channel.commonutils.logger.b.m51a("No ready file to get data from " + str);
         }
         return str3;
     }
@@ -127,7 +127,7 @@ public class a {
             try {
                 try {
                     File file = new File(context.getFilesDir(), str3);
-                    com.xiaomi.push.y.m588a(file);
+                    com.xiaomi.push.y.m587a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         fileLock = randomAccessFile.getChannel().lock();

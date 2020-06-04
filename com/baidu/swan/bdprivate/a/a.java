@@ -325,7 +325,7 @@ public final class a {
                     if (com.baidu.swan.apps.b.DEBUG) {
                         Log.e("AccountUtils", delegateResult.mResult.getString(TiebaInitialize.LogFields.ERROR_MESSAGE));
                     }
-                    com.baidu.swan.apps.b.a.b.this.ei(0);
+                    com.baidu.swan.apps.b.a.b.this.ek(0);
                     return;
                 }
                 if (com.baidu.swan.apps.b.DEBUG) {

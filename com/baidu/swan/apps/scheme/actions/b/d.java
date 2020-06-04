@@ -29,7 +29,7 @@ public class d extends b {
                     }
                 }
                 if (d.this.cCt) {
-                    com.baidu.swan.apps.res.widget.b.d.k(eVar.getApplicationContext(), a.h.aiapps_cancel_fav_success).gG(2).showHighlightToast();
+                    com.baidu.swan.apps.res.widget.b.d.k(eVar.getApplicationContext(), a.h.aiapps_cancel_fav_success).gI(2).showHighlightToast();
                 }
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
             }
@@ -45,7 +45,7 @@ public class d extends b {
                     }
                 }
                 if (d.this.cCt) {
-                    com.baidu.swan.apps.res.widget.b.d.k(eVar.getApplicationContext(), a.h.aiapps_cancel_fav_fail).gG(2).showToast();
+                    com.baidu.swan.apps.res.widget.b.d.k(eVar.getApplicationContext(), a.h.aiapps_cancel_fav_fail).gI(2).showToast();
                 }
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
             }

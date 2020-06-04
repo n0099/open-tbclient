@@ -12,93 +12,37 @@ import tbclient.Abstract;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class b {
-    private static b kOx;
-    private List<JSONObject> kOA;
-    private List<JSONObject> kOy;
-    private List<JSONObject> kOz;
+    private static b kPG;
+    private List<JSONObject> kPH;
+    private List<JSONObject> kPI;
+    private List<JSONObject> kPJ;
 
-    public static b cVe() {
-        if (kOx == null) {
+    public static b cVu() {
+        if (kPG == null) {
             synchronized (b.class) {
-                if (kOx == null) {
-                    kOx = new b();
+                if (kPG == null) {
+                    kPG = new b();
                 }
             }
         }
-        return kOx;
-    }
-
-    public synchronized void es(List<JSONObject> list) {
-        if (this.kOy == null) {
-            this.kOy = new ArrayList();
-        }
-        this.kOy.clear();
-        this.kOy.addAll(list);
-    }
-
-    public String cVf() {
-        synchronized (this) {
-            if (v.isEmpty(this.kOy)) {
-                return "";
-            }
-            JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.kOy) {
-                if (jSONObject != null) {
-                    jSONArray.put(jSONObject);
-                }
-            }
-            try {
-                return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes("UTF-8"));
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-    }
-
-    public synchronized void et(List<JSONObject> list) {
-        if (this.kOz == null) {
-            this.kOz = new ArrayList();
-        }
-        this.kOz.clear();
-        this.kOz.addAll(list);
-    }
-
-    public String cVg() {
-        synchronized (this) {
-            if (v.isEmpty(this.kOz)) {
-                return "";
-            }
-            JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.kOz) {
-                if (jSONObject != null) {
-                    jSONArray.put(jSONObject);
-                }
-            }
-            try {
-                return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes("UTF-8"));
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
+        return kPG;
     }
 
     public synchronized void eu(List<JSONObject> list) {
-        if (this.kOA == null) {
-            this.kOA = new ArrayList();
+        if (this.kPH == null) {
+            this.kPH = new ArrayList();
         }
-        this.kOA.clear();
-        this.kOA.addAll(list);
+        this.kPH.clear();
+        this.kPH.addAll(list);
     }
 
-    public String cVh() {
+    public String cVv() {
         synchronized (this) {
-            if (v.isEmpty(this.kOA)) {
+            if (v.isEmpty(this.kPH)) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.kOA) {
+            for (JSONObject jSONObject : this.kPH) {
                 if (jSONObject != null) {
                     jSONArray.put(jSONObject);
                 }
@@ -112,10 +56,66 @@ public class b {
         }
     }
 
-    public synchronized void cVi() {
-        if (this.kOA != null) {
-            this.kOA.clear();
-            this.kOA = null;
+    public synchronized void ev(List<JSONObject> list) {
+        if (this.kPI == null) {
+            this.kPI = new ArrayList();
+        }
+        this.kPI.clear();
+        this.kPI.addAll(list);
+    }
+
+    public String cVw() {
+        synchronized (this) {
+            if (v.isEmpty(this.kPI)) {
+                return "";
+            }
+            JSONArray jSONArray = new JSONArray();
+            for (JSONObject jSONObject : this.kPI) {
+                if (jSONObject != null) {
+                    jSONArray.put(jSONObject);
+                }
+            }
+            try {
+                return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes("UTF-8"));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+    }
+
+    public synchronized void ew(List<JSONObject> list) {
+        if (this.kPJ == null) {
+            this.kPJ = new ArrayList();
+        }
+        this.kPJ.clear();
+        this.kPJ.addAll(list);
+    }
+
+    public String cVx() {
+        synchronized (this) {
+            if (v.isEmpty(this.kPJ)) {
+                return "";
+            }
+            JSONArray jSONArray = new JSONArray();
+            for (JSONObject jSONObject : this.kPJ) {
+                if (jSONObject != null) {
+                    jSONArray.put(jSONObject);
+                }
+            }
+            try {
+                return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes("UTF-8"));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+    }
+
+    public synchronized void cVy() {
+        if (this.kPJ != null) {
+            this.kPJ.clear();
+            this.kPJ = null;
         }
     }
 

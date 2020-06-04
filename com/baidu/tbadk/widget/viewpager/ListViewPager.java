@@ -10,8 +10,8 @@ import com.baidu.adp.widget.SwipeBackLayout;
 /* loaded from: classes.dex */
 public class ListViewPager extends ViewPager {
     private boolean dTw;
-    private float eHl;
-    private float eHm;
+    private float eHw;
+    private float eHx;
     private float lastX;
     private float lastY;
     private GestureDetector mGestureDetector;
@@ -102,18 +102,18 @@ public class ListViewPager extends ViewPager {
                 }
                 this.lastX = 0.0f;
                 this.lastY = 0.0f;
-                this.eHl = 0.0f;
-                this.eHm = 0.0f;
+                this.eHw = 0.0f;
+                this.eHx = 0.0f;
                 break;
             case 2:
                 if (this.mSwipeControlInterface != null) {
                     this.mSwipeControlInterface.enableSwipeBack();
                 }
-                this.eHl = motionEvent.getX() - this.lastX;
-                this.eHm = motionEvent.getY() - this.lastY;
+                this.eHw = motionEvent.getX() - this.lastX;
+                this.eHx = motionEvent.getY() - this.lastY;
                 this.lastX = motionEvent.getX();
                 this.lastY = motionEvent.getY();
-                if (getCurrentItem() != 0 && Math.abs(this.eHl) > Math.abs(this.eHm)) {
+                if (getCurrentItem() != 0 && Math.abs(this.eHw) > Math.abs(this.eHx)) {
                     requestParentInterceptTouchEvent(true);
                     break;
                 }

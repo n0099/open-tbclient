@@ -44,7 +44,7 @@ public final class a {
         dsm.put(10008, "MEDIA_ERR_DECODE");
     }
 
-    public static int jC(int i) {
+    public static int jE(int i) {
         if (dsl.indexOfKey(i) < 0) {
             if (DEBUG) {
                 Log.e("LiveStatusCodeAdapter", "Please check sStatusCodeMap already putted correct K,V pair. what: " + i);
@@ -67,11 +67,11 @@ public final class a {
         return jSONObject;
     }
 
-    public static JSONObject jD(int i) {
-        return y("errMsg", jE(i));
+    public static JSONObject jF(int i) {
+        return y("errMsg", jG(i));
     }
 
-    private static String jE(int i) {
+    private static String jG(int i) {
         return dsm.get(i, "MEDIA_ERR_SRC_NOT_SUPPORTED");
     }
 }

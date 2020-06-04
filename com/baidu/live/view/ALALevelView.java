@@ -253,8 +253,8 @@ public class ALALevelView extends LinearLayout {
     }
 
     private void setupClubIcon(int i) {
-        String cn = com.baidu.live.guardclub.g.BH().cn(i);
-        if (TextUtils.isEmpty(cn)) {
+        String cp = com.baidu.live.guardclub.g.BH().cp(i);
+        if (TextUtils.isEmpty(cp)) {
             a(this.bhv);
             return;
         }
@@ -264,7 +264,7 @@ public class ALALevelView extends LinearLayout {
         } else {
             this.bhv.stopLoad();
         }
-        this.bhv.startLoad(cn, 10, false);
+        this.bhv.startLoad(cp, 10, false);
         if (this.bhv.getParent() == null) {
             addView(this.bhv, b(false, false, getResources().getDimensionPixelOffset(a.e.sdk_tbds62)));
             this.bhy++;

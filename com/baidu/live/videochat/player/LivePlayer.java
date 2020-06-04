@@ -93,16 +93,16 @@ public class LivePlayer extends FrameLayout implements f {
             aVar.a(null);
             aVar.d(this.mContext, Uri.parse(c));
             aVar.setDecodeMode(i);
-            aVar.cB(8);
+            aVar.cD(8);
             addView(aVar.getPlayerView(), layoutParams);
             aVar.a(new d() { // from class: com.baidu.live.videochat.player.LivePlayer.1
                 @Override // com.baidu.live.liveroom.e.c
                 public void a(a aVar2, int i3, int i4) {
                     if (i3 == 904) {
                         if (LivePlayer.this.bgW != null) {
-                            LivePlayer.this.bgW.bE(1);
+                            LivePlayer.this.bgW.bG(1);
                         }
-                        aVar.cB(0);
+                        aVar.cD(0);
                     }
                 }
             });

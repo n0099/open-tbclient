@@ -8,25 +8,25 @@ import com.tb.airbnb.lottie.model.content.ShapeStroke;
 /* loaded from: classes6.dex */
 public class q extends a {
     private final String name;
-    private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> niC;
-    private final com.tb.airbnb.lottie.model.layer.a nis;
+    private final com.tb.airbnb.lottie.model.layer.a njC;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> niw;
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> njG;
+    private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> njM;
 
     public q(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, ShapeStroke shapeStroke) {
-        super(fVar, aVar, shapeStroke.dIY().toPaintCap(), shapeStroke.dIZ().toPaintJoin(), shapeStroke.ih(), shapeStroke.dIO(), shapeStroke.dIX(), shapeStroke.m50if(), shapeStroke.dJa());
-        this.nis = aVar;
+        super(fVar, aVar, shapeStroke.dJm().toPaintCap(), shapeStroke.dJn().toPaintJoin(), shapeStroke.ih(), shapeStroke.dJc(), shapeStroke.dJl(), shapeStroke.m49if(), shapeStroke.dJo());
+        this.njC = aVar;
         this.name = shapeStroke.getName();
-        this.niC = shapeStroke.dJo().dII();
-        this.niC.b(this);
-        aVar.a(this.niC);
+        this.njM = shapeStroke.dJC().dIW();
+        this.njM.b(this);
+        aVar.a(this.njM);
     }
 
     @Override // com.tb.airbnb.lottie.a.a.a, com.tb.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
-        this.paint.setColor(this.niC.getValue().intValue());
-        if (this.niw != null) {
-            this.paint.setColorFilter(this.niw.getValue());
+        this.paint.setColor(this.njM.getValue().intValue());
+        if (this.njG != null) {
+            this.paint.setColorFilter(this.njG.getValue());
         }
         super.a(canvas, matrix, i);
     }
@@ -40,15 +40,15 @@ public class q extends a {
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         super.a((q) t, (com.tb.airbnb.lottie.e.c<q>) cVar);
         if (t == com.tb.airbnb.lottie.j.Aw) {
-            this.niC.a(cVar);
+            this.njM.a(cVar);
         } else if (t == com.tb.airbnb.lottie.j.AV) {
             if (cVar == null) {
-                this.niw = null;
+                this.njG = null;
                 return;
             }
-            this.niw = new com.tb.airbnb.lottie.a.b.p(cVar);
-            this.niw.b(this);
-            this.nis.a(this.niC);
+            this.njG = new com.tb.airbnb.lottie.a.b.p(cVar);
+            this.njG.b(this);
+            this.njC.a(this.njM);
         }
     }
 }

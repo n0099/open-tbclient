@@ -18,11 +18,11 @@ public class c extends IntentConfig {
         getIntent().putStringArrayListExtra("key_used_gift_list", arrayList);
     }
 
-    public void bz(int i) {
+    public void bB(int i) {
         getIntent().putExtra("key_chosen_gift_num", i);
     }
 
-    public void bA(int i) {
+    public void bC(int i) {
         getIntent().putExtra("key_chosen_date", i);
     }
 }

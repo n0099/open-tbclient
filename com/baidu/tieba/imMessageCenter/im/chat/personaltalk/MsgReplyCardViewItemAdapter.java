@@ -28,10 +28,10 @@ public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgRe
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgReplyCardView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgReplyCardView cjB = aVar.cjB();
-        cjB.a(this.mPageContext, chatMessage, viewGroup);
-        cjB.a(this.isD);
-        cjB.setPosition(i);
+        MsgReplyCardView cjK = aVar.cjK();
+        cjK.a(this.mPageContext, chatMessage, viewGroup);
+        cjK.a(this.itq);
+        cjK.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

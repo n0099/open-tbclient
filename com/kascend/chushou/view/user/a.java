@@ -77,43 +77,43 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
     private TextView k;
     private TextView l;
     private TextView m;
-    private RelativeLayout mKb;
-    private FrescoThumbnailView mPT;
-    private FrescoThumbnailView mTO;
-    private FrescoThumbnailView mTX;
-    private RelativeLayout mVP;
-    private ViewStub mYP;
-    private ImageSubscribeButton mYQ;
-    private EllipsizedTextView mYR;
-    private FrescoThumbnailView mYS;
-    private LinearLayout mYT;
-    private FrescoThumbnailView mYU;
-    private FrescoThumbnailView mYV;
-    private FrescoThumbnailView mYW;
-    private AchievementView mYX;
-    private SimpleDraweeSpanTextView mYY;
-    private RelativeLayout mYZ;
-    private EmptyLoadingView mYl;
-    private LinearLayout mZa;
-    private FlowLayout mZb;
-    private FlowLayout mZc;
-    private LinearLayout mZd;
-    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<ListItem> mZe;
-    private c mZf;
-    private JSONObject mZg;
-    private FrameLayout mZi;
-    private InterfaceC0823a mZj;
+    private RelativeLayout mLl;
+    private FrescoThumbnailView mRe;
+    private FrescoThumbnailView mUZ;
+    private FrescoThumbnailView mVi;
+    private RelativeLayout mXa;
+    private ViewStub mZZ;
+    private EmptyLoadingView mZv;
     private TextView n;
+    private ImageSubscribeButton naa;
+    private EllipsizedTextView nab;
+    private FrescoThumbnailView nac;
+    private LinearLayout nad;
+    private FrescoThumbnailView nae;
+    private FrescoThumbnailView naf;
+    private FrescoThumbnailView nag;
+    private AchievementView nah;
+    private SimpleDraweeSpanTextView nai;
+    private RelativeLayout naj;
+    private LinearLayout nak;
+    private FlowLayout nal;
+    private FlowLayout nam;
+    private LinearLayout nan;
+    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<ListItem> nao;
+    private c nap;
+    private JSONObject naq;
+    private FrameLayout nas;
+    private InterfaceC0824a nat;
     private TextView p;
     private TextView v;
     private boolean w = true;
     private boolean W = false;
-    private RoomSpaceData mZh = null;
+    private RoomSpaceData nar = null;
     private boolean Y = false;
 
     /* renamed from: com.kascend.chushou.view.user.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0823a {
+    public interface InterfaceC0824a {
         void a(RoomSpaceData roomSpaceData);
     }
 
@@ -146,12 +146,12 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
             this.S = arguments.getBoolean("autoload", false);
         }
         if (this.mContext instanceof VideoPlayer) {
-            this.mZg = e.P("_fromView", Constants.VIA_REPORT_TYPE_WPA_STATE);
-            this.U = this.mZg == null ? "" : this.mZg.toString();
+            this.naq = e.P("_fromView", Constants.VIA_REPORT_TYPE_WPA_STATE);
+            this.U = this.naq == null ? "" : this.naq.toString();
             this.N = Constants.VIA_REPORT_TYPE_WPA_STATE;
         } else if (this.mContext instanceof UserRoomActivity) {
-            this.mZg = e.P("_fromView", Constants.VIA_REPORT_TYPE_DATALINE);
-            this.U = this.mZg == null ? "" : this.mZg.toString();
+            this.naq = e.P("_fromView", Constants.VIA_REPORT_TYPE_DATALINE);
+            this.U = this.naq == null ? "" : this.naq.toString();
             this.N = Constants.VIA_REPORT_TYPE_DATALINE;
         }
         MyUserInfo userInfo = LoginManager.Instance().getUserInfo();
@@ -163,24 +163,24 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
     @Override // com.kascend.chushou.view.base.b
     protected View initView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(a.h.fragment_user_space_bottom_new, viewGroup, false);
-        this.mYP = (ViewStub) inflate.findViewById(a.f.viewstub_bg);
-        this.mYl = (EmptyLoadingView) inflate.findViewById(a.f.empty_view);
+        this.mZZ = (ViewStub) inflate.findViewById(a.f.viewstub_bg);
+        this.mZv = (EmptyLoadingView) inflate.findViewById(a.f.empty_view);
         if (this.P == 1 || this.P == 2) {
         }
         this.d = inflate.findViewById(a.f.userspace_header);
         this.e = (RelativeLayout) this.d.findViewById(a.f.rl_live_userinfo);
-        this.mPT = (FrescoThumbnailView) this.d.findViewById(a.f.iv_avatar);
-        this.mTO = (FrescoThumbnailView) this.d.findViewById(a.f.iv_avatar_decoration);
+        this.mRe = (FrescoThumbnailView) this.d.findViewById(a.f.iv_avatar);
+        this.mUZ = (FrescoThumbnailView) this.d.findViewById(a.f.iv_avatar_decoration);
         this.M = (ImageView) this.d.findViewById(a.f.iv_sex);
-        this.mYQ = (ImageSubscribeButton) this.d.findViewById(a.f.subscribe_btn);
-        this.mYR = (EllipsizedTextView) this.d.findViewById(a.f.tv_nickname);
+        this.naa = (ImageSubscribeButton) this.d.findViewById(a.f.subscribe_btn);
+        this.nab = (EllipsizedTextView) this.d.findViewById(a.f.tv_nickname);
         this.d.findViewById(a.f.rl_nameinfo).setOnLongClickListener(new View.OnLongClickListener() { // from class: com.kascend.chushou.view.user.a.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                if (a.this.mZh == null || a.this.mZh.user == null || a.this.mZh.room == null) {
+                if (a.this.nar == null || a.this.nar.user == null || a.this.nar.room == null) {
                     return false;
                 }
-                e.a(a.this.getChildFragmentManager(), a.this.mZh.user.nickname, a.this.mZh.room.id, a.this.mZh.user.uid);
+                e.a(a.this.getChildFragmentManager(), a.this.nar.user.nickname, a.this.nar.room.id, a.this.nar.user.uid);
                 return true;
             }
         });
@@ -192,33 +192,33 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
         this.G = (RelativeLayout) this.d.findViewById(a.f.ll_fans_live);
         this.E = (TextView) this.d.findViewById(a.f.tv_fans);
         this.F = (TextView) this.d.findViewById(a.f.tv_subscribe);
-        this.mYS = (FrescoThumbnailView) this.d.findViewById(a.f.iv_live_status_bg);
+        this.nac = (FrescoThumbnailView) this.d.findViewById(a.f.iv_live_status_bg);
         this.p = (TextView) this.d.findViewById(a.f.tv_live_status);
         this.E.setOnClickListener(this);
         this.F.setOnClickListener(this);
         this.v = (TextView) this.d.findViewById(a.f.tv_live_notice);
-        this.mYT = (LinearLayout) this.d.findViewById(a.f.ll_user_space_contribution);
-        this.mYU = (FrescoThumbnailView) this.d.findViewById(a.f.iv_image01);
-        this.mYV = (FrescoThumbnailView) this.d.findViewById(a.f.iv_image02);
-        this.mYW = (FrescoThumbnailView) this.d.findViewById(a.f.iv_image03);
-        this.mYX = (AchievementView) this.d.findViewById(a.f.av_medal);
-        this.mZi = (FrameLayout) this.d.findViewById(a.f.fl_user_detail);
-        this.mKb = (RelativeLayout) this.d.findViewById(a.f.rl_user_level);
-        this.mYY = (SimpleDraweeSpanTextView) this.d.findViewById(a.f.tv_live_level);
-        this.mVP = (RelativeLayout) this.d.findViewById(a.f.rl_signature);
+        this.nad = (LinearLayout) this.d.findViewById(a.f.ll_user_space_contribution);
+        this.nae = (FrescoThumbnailView) this.d.findViewById(a.f.iv_image01);
+        this.naf = (FrescoThumbnailView) this.d.findViewById(a.f.iv_image02);
+        this.nag = (FrescoThumbnailView) this.d.findViewById(a.f.iv_image03);
+        this.nah = (AchievementView) this.d.findViewById(a.f.av_medal);
+        this.nas = (FrameLayout) this.d.findViewById(a.f.fl_user_detail);
+        this.mLl = (RelativeLayout) this.d.findViewById(a.f.rl_user_level);
+        this.nai = (SimpleDraweeSpanTextView) this.d.findViewById(a.f.tv_live_level);
+        this.mXa = (RelativeLayout) this.d.findViewById(a.f.rl_signature);
         this.A = (TextView) this.d.findViewById(a.f.tv_live_signature);
-        this.mZa = (LinearLayout) this.d.findViewById(a.f.ll_medal);
-        this.mZb = (FlowLayout) this.d.findViewById(a.f.fl_medal_container);
+        this.nak = (LinearLayout) this.d.findViewById(a.f.ll_medal);
+        this.nal = (FlowLayout) this.d.findViewById(a.f.fl_medal_container);
         this.B = (RelativeLayout) this.d.findViewById(a.f.rl_favourite_games);
-        this.mZc = (FlowLayout) this.d.findViewById(a.f.fl_games_container);
-        this.mYZ = (RelativeLayout) this.d.findViewById(a.f.rl_achievement);
+        this.nam = (FlowLayout) this.d.findViewById(a.f.fl_games_container);
+        this.naj = (RelativeLayout) this.d.findViewById(a.f.rl_achievement);
         this.D = (TextView) this.d.findViewById(a.f.tv_achievement);
-        this.mZd = (LinearLayout) this.d.findViewById(a.f.ll_recommend);
+        this.nan = (LinearLayout) this.d.findViewById(a.f.ll_recommend);
         RecyclerView recyclerView = (RecyclerView) this.d.findViewById(a.f.lv_recommend);
-        this.mZe = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<ListItem>(a.h.view_recommend_item, new d() { // from class: com.kascend.chushou.view.user.a.2
+        this.nao = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<ListItem>(a.h.view_recommend_item, new d() { // from class: com.kascend.chushou.view.user.a.2
             @Override // tv.chushou.zues.widget.adapterview.d
             public void B(View view, int i) {
-                ListItem listItem = (ListItem) a.this.mZe.getItem(i);
+                ListItem listItem = (ListItem) a.this.nao.getItem(i);
                 if (listItem != null) {
                     e.a(a.this.getContext(), listItem, e.P("_fromView", a.this.N, "_fromPos", com.kascend.chushou.toolkit.a.b.a(listItem.mDisplayStyle)));
                 }
@@ -226,9 +226,9 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
         }) { // from class: com.kascend.chushou.view.user.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // tv.chushou.zues.widget.adapterview.recyclerview.a.a
-            public void a(a.View$OnLongClickListenerC0920a view$OnLongClickListenerC0920a, ListItem listItem) {
+            public void a(a.View$OnLongClickListenerC0921a view$OnLongClickListenerC0921a, ListItem listItem) {
                 if (TextUtils.equals(listItem.mDisplayStyle, "10")) {
-                    FoodView foodView = (FoodView) view$OnLongClickListenerC0920a.KB(a.f.iv_ad);
+                    FoodView foodView = (FoodView) view$OnLongClickListenerC0921a.KD(a.f.iv_ad);
                     int i = tv.chushou.zues.utils.a.gv(foodView.getContext()).x;
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) foodView.getLayoutParams();
                     layoutParams.width = i;
@@ -236,7 +236,7 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                     foodView.setLayoutParams(layoutParams);
                     foodView.a(listItem, (FoodView.a) null, true, Constants.VIA_REPORT_TYPE_DATALINE);
                 } else if (TextUtils.equals(listItem.mDisplayStyle, "32")) {
-                    FoodView foodView2 = (FoodView) view$OnLongClickListenerC0920a.KB(a.f.iv_ad);
+                    FoodView foodView2 = (FoodView) view$OnLongClickListenerC0921a.KD(a.f.iv_ad);
                     int i2 = tv.chushou.zues.utils.a.gv(foodView2.getContext()).x;
                     RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) foodView2.getLayoutParams();
                     layoutParams2.width = i2;
@@ -244,16 +244,16 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                     foodView2.setLayoutParams(layoutParams2);
                     foodView2.b(listItem, (FoodView.a) null, true, Constants.VIA_REPORT_TYPE_DATALINE);
                 } else if (TextUtils.equals(listItem.mDisplayStyle, "30")) {
-                    view$OnLongClickListenerC0920a.a(a.f.ftv_icon, listItem.mCover, tv.chushou.widget.a.c.dRB(), b.C0923b.small, b.C0923b.small);
-                    view$OnLongClickListenerC0920a.a(a.f.tv_desc, listItem.mDesc);
-                    view$OnLongClickListenerC0920a.a(a.f.tv_name, listItem.mName);
+                    view$OnLongClickListenerC0921a.a(a.f.ftv_icon, listItem.mCover, tv.chushou.widget.a.c.dRP(), b.C0924b.small, b.C0924b.small);
+                    view$OnLongClickListenerC0921a.a(a.f.tv_desc, listItem.mDesc);
+                    view$OnLongClickListenerC0921a.a(a.f.tv_name, listItem.mName);
                 }
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // tv.chushou.zues.widget.adapterview.recyclerview.a.a
-            public int Jk(int i) {
-                return i == 1 ? a.h.item_listitem_small_poster : super.Jk(i);
+            public int Jm(int i) {
+                return i == 1 ? a.h.item_listitem_small_poster : super.Jm(i);
             }
 
             @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -266,14 +266,14 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
             }
         };
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(this.mZe);
+        recyclerView.setAdapter(this.nao);
         recyclerView.setFocusableInTouchMode(false);
         recyclerView.requestFocus();
-        this.mPT.setOnClickListener(this);
+        this.mRe.setOnClickListener(this);
         this.v.setOnClickListener(this);
         this.A.setOnClickListener(this);
-        this.mYQ.setOnClickListener(this);
-        this.mYT.setOnClickListener(this);
+        this.naa.setOnClickListener(this);
+        this.nad.setOnClickListener(this);
         this.p.setOnClickListener(this);
         tv.chushou.zues.a.a.register(this);
         this.Y = true;
@@ -286,9 +286,9 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
     @Override // com.kascend.chushou.view.base.b
     protected void initData() {
         this.d.setVisibility(8);
-        this.mYl.Jl(1);
-        if (this.mZh != null) {
-            a(this.mZh);
+        this.mZv.Jn(1);
+        if (this.nar != null) {
+            a(this.nar);
         }
     }
 
@@ -313,9 +313,9 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
     }
 
     public void a() {
-        if (this.mZh == null) {
+        if (this.nar == null) {
             if (!h.isEmpty(this.Q) || !h.isEmpty(this.R)) {
-                com.kascend.chushou.c.c.dDV().b(this.R, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.view.user.a.4
+                com.kascend.chushou.c.c.dEj().b(this.R, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.view.user.a.4
                     @Override // com.kascend.chushou.c.b
                     public void a() {
                     }
@@ -326,18 +326,18 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                             Response response = (Response) tv.chushou.zues.utils.d.c(str, new com.google.gson.b.a<Response<RoomSpaceData>>() { // from class: com.kascend.chushou.view.user.a.4.1
                             }.getType());
                             if (response != null && response.code == 0 && response.data != 0) {
-                                a.this.mZh = (RoomSpaceData) response.data;
-                                if (a.this.mZh.user != null && h.isEmpty(a.this.Q)) {
-                                    a.this.Q = a.this.mZh.user.uid;
+                                a.this.nar = (RoomSpaceData) response.data;
+                                if (a.this.nar.user != null && h.isEmpty(a.this.Q)) {
+                                    a.this.Q = a.this.nar.user.uid;
                                 }
-                                if (a.this.mZh.room != null && h.isEmpty(a.this.R)) {
-                                    a.this.R = a.this.mZh.room.id;
+                                if (a.this.nar.room != null && h.isEmpty(a.this.R)) {
+                                    a.this.R = a.this.nar.room.id;
                                 }
                                 if (a.this.Y) {
-                                    a.this.a(a.this.mZh);
+                                    a.this.a(a.this.nar);
                                 }
-                                if (a.this.mZj != null) {
-                                    a.this.mZj.a(a.this.mZh);
+                                if (a.this.nat != null) {
+                                    a.this.nat.a(a.this.nar);
                                 }
                             } else if (response != null) {
                                 a(response.code, response.message);
@@ -380,22 +380,22 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                 }
             } else if (id == a.f.tv_live_status) {
                 if (!h.isEmpty(this.R)) {
-                    if (this.mZf == null || !this.mZf.a(view)) {
+                    if (this.nap == null || !this.nap.a(view)) {
                         ListItem listItem = new ListItem();
                         Object[] objArr = new Object[2];
                         objArr[0] = "_fromView";
                         objArr[1] = this.P == 1 ? Constants.VIA_REPORT_TYPE_DATALINE : Constants.VIA_REPORT_TYPE_START_WAP;
                         JSONObject P = e.P(objArr);
-                        if (this.mZh != null && this.mZh.user != null) {
-                            listItem.mCreater = this.mZh.user.nickname;
+                        if (this.nar != null && this.nar.user != null) {
+                            listItem.mCreater = this.nar.user.nickname;
                         }
                         listItem.mTargetKey = this.R;
-                        if (this.mZh != null) {
-                            if ("5".equals(this.mZh.liveType)) {
+                        if (this.nar != null) {
+                            if ("5".equals(this.nar.liveType)) {
                                 listItem.mType = Constants.VIA_REPORT_TYPE_WPA_STATE;
                             } else {
                                 listItem.mType = "1";
-                                listItem.mLiveType = this.mZh.liveType;
+                                listItem.mLiveType = this.nar.liveType;
                             }
                         } else {
                             listItem.mType = "1";
@@ -414,20 +414,20 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
     public void onActivityResult(int i, int i2, Intent intent) {
         if (i == 11) {
             tv.chushou.zues.widget.kpswitch.b.d.hideKeyboard(getActivity());
-            if (i2 == -1 && this.mZh != null && this.mZh.room != null) {
-                this.mZh.room.announcement = String.valueOf(intent.getData());
-                e(this.mZh);
+            if (i2 == -1 && this.nar != null && this.nar.room != null) {
+                this.nar.room.announcement = String.valueOf(intent.getData());
+                e(this.nar);
             }
         }
     }
 
     @Subscribe
     public void onMessageEvent(i iVar) {
-        if (!isFinishing() && this.mZh != null) {
+        if (!isFinishing() && this.nar != null) {
             if (iVar.a == 15) {
-                if ((iVar.b instanceof String) && this.W && this.mZh.user != null) {
-                    this.mZh.user.signature = (String) iVar.b;
-                    a(this.mZh.user);
+                if ((iVar.b instanceof String) && this.W && this.nar.user != null) {
+                    this.nar.user.signature = (String) iVar.b;
+                    a(this.nar.user);
                 }
             } else if (iVar.a == 0 || iVar.a == 1) {
                 if ((iVar.b instanceof Boolean) && ((Boolean) iVar.b).booleanValue()) {
@@ -437,43 +437,43 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                         this.W = true;
                     }
                     if (z != this.W) {
-                        this.mZh = null;
+                        this.nar = null;
                         a();
                     }
                 }
-            } else if (iVar.a == 10 && (iVar.b instanceof String) && this.W && this.mZh.room != null) {
-                this.mZh.room.announcement = (String) iVar.b;
-                e(this.mZh);
+            } else if (iVar.a == 10 && (iVar.b instanceof String) && this.W && this.nar.room != null) {
+                this.nar.room.announcement = (String) iVar.b;
+                e(this.nar);
             }
         }
     }
 
     @Subscribe
     public void onRefreshSubscribeEvent(m mVar) {
-        if (!isFinishing() && this.mZh != null) {
-            if (!h.isEmpty(mVar.a) && this.mZh.user != null && mVar.a.equals(this.mZh.user.uid)) {
+        if (!isFinishing() && this.nar != null) {
+            if (!h.isEmpty(mVar.a) && this.nar.user != null && mVar.a.equals(this.nar.user.uid)) {
                 if (mVar.c) {
-                    this.mZh.isSubscribed = true;
+                    this.nar.isSubscribed = true;
                     a(2);
                 } else {
-                    this.mZh.isSubscribed = false;
+                    this.nar.isSubscribed = false;
                     a(0);
                 }
             }
-            if (!h.isEmpty(mVar.b) && this.mZh.room != null && mVar.b.equals(this.mZh.room.id)) {
+            if (!h.isEmpty(mVar.b) && this.nar.room != null && mVar.b.equals(this.nar.room.id)) {
                 if (mVar.c) {
-                    this.mZh.isSubscribed = true;
+                    this.nar.isSubscribed = true;
                     a(2);
                     return;
                 }
-                this.mZh.isSubscribed = false;
+                this.nar.isSubscribed = false;
                 a(0);
             }
         }
     }
 
     public void a(c cVar) {
-        this.mZf = cVar;
+        this.nap = cVar;
     }
 
     public void b() {
@@ -487,7 +487,7 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                 this.W = roomSpaceData.user.uid.equals(userInfo.mUserID);
             }
             this.d.setVisibility(0);
-            this.mYl.setVisibility(8);
+            this.mZv.setVisibility(8);
             a(roomSpaceData.skinInfo);
             c(roomSpaceData);
             f(roomSpaceData);
@@ -499,30 +499,30 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
     private void a(RoomSpaceData.SkinBean skinBean) {
         String str;
         int gD;
-        if (skinBean != null && this.mYP != null) {
+        if (skinBean != null && this.mZZ != null) {
             if (this.P == 2) {
                 str = skinBean.background;
             } else {
                 str = skinBean.homeBackground;
             }
             if (!h.isEmpty(str)) {
-                if (this.mTX == null) {
-                    this.mTX = (FrescoThumbnailView) this.mYP.inflate();
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mTX.getLayoutParams();
+                if (this.mVi == null) {
+                    this.mVi = (FrescoThumbnailView) this.mZZ.inflate();
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mVi.getLayoutParams();
                     layoutParams.width = -1;
                     Point gv = tv.chushou.zues.utils.a.gv(this.mContext);
                     if (this.P == 2) {
                         gD = (gv.y - ((gv.x * this.mContext.getResources().getInteger(a.g.h_thumb_height_def)) / this.mContext.getResources().getInteger(a.g.h_thumb_width_def))) - this.mContext.getResources().getDimensionPixelSize(a.d.videoplayer_tab_height);
-                        if (com.kascend.chushou.b.dDS().d == 1) {
+                        if (com.kascend.chushou.b.dEg().d == 1) {
                             gD -= tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(this.mContext);
                         }
                     } else {
                         gD = gv.y - tv.chushou.zues.utils.systemBar.b.gD(this.mContext);
                     }
                     layoutParams.height = gD;
-                    this.mTX.setLayoutParams(layoutParams);
+                    this.mVi.setLayoutParams(layoutParams);
                 }
-                this.mTX.bV(str, a.c.kas_white);
+                this.mVi.bV(str, a.c.kas_white);
             }
         }
     }
@@ -533,20 +533,20 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
             this.e.setVisibility(0);
             this.j.setVisibility(0);
             this.G.setVisibility(8);
-            this.M.setImageResource(tv.chushou.widget.a.c.Sm(roomBean.creator.gender));
-            this.mPT.bV(roomBean.creator.avatar, com.kascend.chushou.view.a.a(roomBean.creator.gender));
+            this.M.setImageResource(tv.chushou.widget.a.c.Sn(roomBean.creator.gender));
+            this.mRe.bV(roomBean.creator.avatar, com.kascend.chushou.view.a.a(roomBean.creator.gender));
             if (roomBean.creator.meta != null) {
                 if (h.isEmpty(roomBean.creator.meta.avatarFrame)) {
-                    this.mTO.setVisibility(8);
+                    this.mUZ.setVisibility(8);
                 } else {
-                    this.mTO.setVisibility(0);
-                    this.mTO.setAnim(true);
-                    this.mTO.bV(roomBean.creator.meta.avatarFrame.get(0), 0);
+                    this.mUZ.setVisibility(0);
+                    this.mUZ.setAnim(true);
+                    this.mUZ.bV(roomBean.creator.meta.avatarFrame.get(0), 0);
                 }
             } else {
-                this.mTO.setVisibility(8);
+                this.mUZ.setVisibility(8);
             }
-            this.mYR.setText(roomBean.creator.nickname);
+            this.nab.setText(roomBean.creator.nickname);
             this.l.setText("");
             this.k.setText(new tv.chushou.zues.widget.a.c().append(this.mContext.getString(a.i.follower_title)).append("：").append(tv.chushou.zues.utils.b.formatNumber(String.valueOf(roomSpaceData.fansCount))));
             if (roomBean.liveStatus != null && roomBean.liveStatus.game != null && !h.isEmpty(roomBean.liveStatus.game.name)) {
@@ -568,7 +568,7 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                 this.n.setVisibility(8);
             }
             RoomSpaceData.SkinBean skinBean = roomSpaceData.skinInfo;
-            this.mYQ.a(skinBean != null ? skinBean.subscribeBtnBg : "", skinBean != null ? skinBean.subscribedBtnBg : "");
+            this.naa.a(skinBean != null ? skinBean.subscribeBtnBg : "", skinBean != null ? skinBean.subscribedBtnBg : "");
             if (roomSpaceData.isSubscribed) {
                 a(2);
             } else {
@@ -585,7 +585,7 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                 d(roomSpaceData);
             }
             if (this.P == 2) {
-                this.mYT.setVisibility(8);
+                this.nad.setVisibility(8);
             } else {
                 ArrayList arrayList = new ArrayList();
                 if (!h.isEmpty(roomSpaceData.roomGiftBillboardList)) {
@@ -596,15 +596,15 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                     }
                 }
                 if (h.isEmpty(arrayList)) {
-                    this.mYT.setVisibility(8);
+                    this.nad.setVisibility(8);
                 } else {
-                    this.mYT.setVisibility(0);
-                    FrescoThumbnailView[] frescoThumbnailViewArr = {this.mYW, this.mYV, this.mYU};
+                    this.nad.setVisibility(0);
+                    FrescoThumbnailView[] frescoThumbnailViewArr = {this.nag, this.naf, this.nae};
                     Collections.reverse(arrayList);
                     for (int i = 0; i < frescoThumbnailViewArr.length; i++) {
                         if (i < arrayList.size()) {
                             frescoThumbnailViewArr[i].setVisibility(0);
-                            frescoThumbnailViewArr[i].bV((String) arrayList.get(i), tv.chushou.widget.a.c.dRB());
+                            frescoThumbnailViewArr[i].bV((String) arrayList.get(i), tv.chushou.widget.a.c.dRP());
                         } else {
                             frescoThumbnailViewArr[i].setVisibility(8);
                         }
@@ -616,12 +616,12 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
     }
 
     private void a(int i) {
-        this.mYQ.a(i);
+        this.naa.a(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
-        this.mYQ.b(i);
+        this.naa.b(i);
     }
 
     private void d(RoomSpaceData roomSpaceData) {
@@ -654,7 +654,7 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                 if (roomSpaceData.skinInfo != null) {
                     str = roomSpaceData.skinInfo.lastLiveTimeBtnBg;
                 }
-                this.mYS.bV(str, 0);
+                this.nac.bV(str, 0);
                 this.p.setBackgroundResource(a.e.user_space_live_bg);
                 tv.chushou.zues.widget.a.c cVar3 = new tv.chushou.zues.widget.a.c();
                 cVar3.a(this.mContext, a.e.live_white, a.d.room_live_icon_width, a.d.room_live_icon_height).append(" ").a(this.mContext.getString(a.i.user_space_live), new ForegroundColorSpan(ContextCompat.getColor(this.mContext, a.c.white)));
@@ -665,7 +665,7 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                 if (roomSpaceData.skinInfo != null) {
                     str2 = roomSpaceData.skinInfo.lastLiveTimeBtnBg;
                 }
-                this.mYS.bV(str2, 0);
+                this.nac.bV(str2, 0);
                 this.p.setBackgroundResource(a.e.user_space_last_live_bg);
                 tv.chushou.zues.widget.a.c cVar4 = new tv.chushou.zues.widget.a.c();
                 cVar4.a(this.mContext, a.e.live_white, a.d.room_live_icon_width, a.d.room_live_icon_height).append(" ").a(roomBean.lastLiveTimeDesc, new ForegroundColorSpan(ContextCompat.getColor(this.mContext, a.c.white)));
@@ -703,22 +703,22 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
     }
 
     private void f(RoomSpaceData roomSpaceData) {
-        if (this.mYX != null && roomSpaceData != null) {
-            this.mYX.a(roomSpaceData.achievementMedalInfo, roomSpaceData.user != null ? roomSpaceData.user.uid : this.Q);
+        if (this.nah != null && roomSpaceData != null) {
+            this.nah.a(roomSpaceData.achievementMedalInfo, roomSpaceData.user != null ? roomSpaceData.user.uid : this.Q);
         }
     }
 
     private void g(RoomSpaceData roomSpaceData) {
         if (roomSpaceData != null) {
             if (roomSpaceData.user == null || (h.isEmpty(roomSpaceData.user.levelMedal) && ((roomSpaceData.user.meta == null || h.isEmpty(roomSpaceData.user.meta.nobleMedal)) && h.isEmpty(roomSpaceData.user.signature) && h.isEmpty(roomSpaceData.likedGameList) && roomSpaceData.bangCount == 0 && roomSpaceData.giftPointCount == 0 && h.isEmpty(roomSpaceData.medalList)))) {
-                this.mZi.setVisibility(8);
+                this.nas.setVisibility(8);
                 return;
             }
-            this.mZi.setVisibility(0);
+            this.nas.setVisibility(0);
             if (roomSpaceData.user == null || (h.isEmpty(roomSpaceData.user.levelMedal) && (roomSpaceData.user.meta == null || h.isEmpty(roomSpaceData.user.meta.nobleMedal)))) {
-                this.mKb.setVisibility(8);
+                this.mLl.setVisibility(8);
             } else {
-                this.mKb.setVisibility(0);
+                this.mLl.setVisibility(0);
                 tv.chushou.zues.widget.a.c cVar = new tv.chushou.zues.widget.a.c();
                 if (roomSpaceData.user.meta != null) {
                     a(cVar, roomSpaceData.user.meta.nobleMedal);
@@ -730,13 +730,13 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                 cVar.a(new b.c() { // from class: com.kascend.chushou.view.user.a.5
                     @Override // com.facebook.drawee.span.b.c
                     public void d(com.facebook.drawee.span.b bVar) {
-                        if (a.this.mYY != null) {
-                            a.this.mYY.measure(0, 0);
-                            a.this.mYY.requestLayout();
+                        if (a.this.nai != null) {
+                            a.this.nai.measure(0, 0);
+                            a.this.nai.requestLayout();
                         }
                     }
                 });
-                this.mYY.setDraweeSpanStringBuilder(cVar);
+                this.nai.setDraweeSpanStringBuilder(cVar);
             }
             a(roomSpaceData.user);
             b(roomSpaceData.medalList);
@@ -745,18 +745,18 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
             } else {
                 this.B.setVisibility(0);
                 for (RoomSpaceData.LikedGameBean likedGameBean : roomSpaceData.likedGameList) {
-                    TextView textView = (TextView) getLayoutInflater().inflate(a.h.view_favor_game_tag, (ViewGroup) this.mZc, false);
+                    TextView textView = (TextView) getLayoutInflater().inflate(a.h.view_favor_game_tag, (ViewGroup) this.nam, false);
                     textView.setText(likedGameBean.name);
-                    this.mZc.addView(textView);
+                    this.nam.addView(textView);
                 }
             }
             boolean z = !roomSpaceData.hiddenList.contains("giftPointCount");
             boolean z2 = !roomSpaceData.hiddenList.contains("bangCount");
             if (true == z && roomSpaceData.giftPointCount <= 0 && true == z2 && roomSpaceData.bangCount <= 0) {
-                this.mYZ.setVisibility(8);
+                this.naj.setVisibility(8);
                 return;
             }
-            this.mYZ.setVisibility(0);
+            this.naj.setVisibility(0);
             tv.chushou.zues.widget.a.c cVar2 = new tv.chushou.zues.widget.a.c();
             if (!z2) {
                 cVar2.J(this.mContext, a.e.user_space_bubble).append(" ").append(this.mContext.getString(a.i.user_space_bang_private)).append("    ");
@@ -775,8 +775,8 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
     private void a(tv.chushou.zues.widget.a.c cVar, String str) {
         if (!TextUtils.isEmpty(str)) {
             int length = cVar.length();
-            com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(getResources()).Hh(com.kascend.chushou.view.a.a()).dwG(), this.mContext);
-            a.setController(com.facebook.drawee.a.a.c.dvf().PU(str).wa(true).dvW());
+            com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(getResources()).Hj(com.kascend.chushou.view.a.a()).dwU(), this.mContext);
+            a.setController(com.facebook.drawee.a.a.c.dvt().PV(str).wc(true).dwk());
             cVar.append("1");
             int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.d.user_level_icon_height);
             cVar.a(a, length, length, dimensionPixelSize, dimensionPixelSize, true, 2);
@@ -786,42 +786,42 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
 
     private void a(UserBean userBean) {
         if (userBean == null || h.isEmpty(userBean.signature)) {
-            this.mVP.setVisibility(8);
+            this.mXa.setVisibility(8);
             return;
         }
-        this.mVP.setVisibility(0);
+        this.mXa.setVisibility(0);
         this.A.setText(userBean.signature);
     }
 
     private void a(List<ListItem> list) {
         if (h.isEmpty(list)) {
-            this.mZd.setVisibility(8);
+            this.nan.setVisibility(8);
             return;
         }
-        this.mZd.setVisibility(0);
-        this.mZe.fx(list);
+        this.nan.setVisibility(0);
+        this.nao.fz(list);
     }
 
     private void b(List<RoomSpaceData.MedalBean> list) {
         if (!h.isEmpty(list)) {
-            this.mZa.setVisibility(0);
+            this.nak.setVisibility(0);
             for (RoomSpaceData.MedalBean medalBean : list) {
-                FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) getLayoutInflater().inflate(a.h.view_medal, (ViewGroup) this.mZb, false);
+                FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) getLayoutInflater().inflate(a.h.view_medal, (ViewGroup) this.nal, false);
                 frescoThumbnailView.setAnim(true);
-                frescoThumbnailView.a(medalBean.url, a.e.default_medal_icon, b.C0923b.small, b.C0923b.small, 1);
-                this.mZb.addView(frescoThumbnailView);
+                frescoThumbnailView.a(medalBean.url, a.e.default_medal_icon, b.C0924b.small, b.C0924b.small, 1);
+                this.nal.addView(frescoThumbnailView);
             }
             return;
         }
-        this.mZa.setVisibility(8);
+        this.nak.setVisibility(8);
     }
 
     private void d() {
         String str;
         String str2;
         String str3;
-        if (this.mZh != null) {
-            final boolean z = this.mZh.isSubscribed;
+        if (this.nar != null) {
+            final boolean z = this.nar.isSubscribed;
             final com.kascend.chushou.c.b bVar = new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.view.user.a.6
                 @Override // com.kascend.chushou.c.b
                 public void a() {
@@ -833,8 +833,8 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                         ParserRet dF = com.kascend.chushou.c.a.dF(jSONObject);
                         if (dF.mRc == 0) {
                             a.this.a(!z, true, -1, null);
-                            a.this.mZh.isSubscribed = a.this.mZh.isSubscribed ? false : true;
-                            if (a.this.mZh.isSubscribed) {
+                            a.this.nar.isSubscribed = a.this.nar.isSubscribed ? false : true;
+                            if (a.this.nar.isSubscribed) {
                                 a.this.b(2);
                                 return;
                             } else {
@@ -854,10 +854,10 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                 }
             };
             if (this.mContext instanceof VideoPlayer) {
-                com.kascend.chushou.player.b dEl = ((VideoPlayer) this.mContext).dEl();
-                if (dEl != null && dEl.h != null) {
+                com.kascend.chushou.player.b dEz = ((VideoPlayer) this.mContext).dEz();
+                if (dEz != null && dEz.h != null) {
                     try {
-                        str = new JSONObject(dEl.h).optString("_sc");
+                        str = new JSONObject(dEz.h).optString("_sc");
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -886,17 +886,17 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                 str3 = null;
             }
             final String a = e.a("_fromView", str3, "_fromPos", str2, "_sc", str);
-            if (this.mZh.user != null) {
+            if (this.nar.user != null) {
                 if (z) {
-                    e.a(this.mContext, this.mZh.user.nickname, new b.a() { // from class: com.kascend.chushou.view.user.a.7
+                    e.a(this.mContext, this.nar.user.nickname, new b.a() { // from class: com.kascend.chushou.view.user.a.7
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar2.dSo();
-                            com.kascend.chushou.c.c.dDV().b(bVar, (String) null, a.this.mZh.user.uid, a);
+                            bVar2.dSC();
+                            com.kascend.chushou.c.c.dEj().b(bVar, (String) null, a.this.nar.user.uid, a);
                         }
                     });
                 } else {
-                    com.kascend.chushou.c.c.dDV().a(bVar, (String) null, this.mZh.user.uid, a);
+                    com.kascend.chushou.c.c.dEj().a(bVar, (String) null, this.nar.user.uid, a);
                 }
             }
         }
@@ -919,7 +919,7 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
         }
     }
 
-    public void a(InterfaceC0823a interfaceC0823a) {
-        this.mZj = interfaceC0823a;
+    public void a(InterfaceC0824a interfaceC0824a) {
+        this.nat = interfaceC0824a;
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.k;
 /* loaded from: classes.dex */
 public interface l {
-    e IC(String str);
+    e ID(String str);
 
     i at(String str, String str2, String str3);
 
-    h cyB();
+    h cyS();
 }

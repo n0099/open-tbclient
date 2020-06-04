@@ -25,41 +25,41 @@ import tbclient.GetHotGod.DataRes;
 import tbclient.User;
 /* loaded from: classes11.dex */
 public class b {
-    private a hVe;
-    private boolean hVf;
-    private LongSparseArray<MetaData> hVh;
+    private a hVR;
+    private boolean hVS;
+    private LongSparseArray<MetaData> hVU;
     private BaseActivity mActivity;
     private int pn = 0;
-    public List<o> hjv = new ArrayList();
-    public int hVg = 1;
-    private com.baidu.adp.framework.listener.a hiS = new com.baidu.adp.framework.listener.a(1003099, CmdConfigSocket.CMD_GET_HOT_GOD) { // from class: com.baidu.tieba.godSquare.model.b.1
+    public List<o> hjG = new ArrayList();
+    public int hVT = 1;
+    private com.baidu.adp.framework.listener.a hjd = new com.baidu.adp.framework.listener.a(1003099, CmdConfigSocket.CMD_GET_HOT_GOD) { // from class: com.baidu.tieba.godSquare.model.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (b.this.hVe != null) {
+            if (b.this.hVR != null) {
                 if (responsedMessage instanceof GodSquareHttpResponsedMsg) {
                     GodSquareHttpResponsedMsg godSquareHttpResponsedMsg = (GodSquareHttpResponsedMsg) responsedMessage;
-                    b.this.hVe.a(b.this.a(godSquareHttpResponsedMsg.getResult()), b.this.hVf, godSquareHttpResponsedMsg.getHasMore(), godSquareHttpResponsedMsg.getErrorString());
+                    b.this.hVR.a(b.this.a(godSquareHttpResponsedMsg.getResult()), b.this.hVS, godSquareHttpResponsedMsg.getHasMore(), godSquareHttpResponsedMsg.getErrorString());
                 } else if (responsedMessage instanceof GodSquareSocketResponsedMsg) {
                     GodSquareSocketResponsedMsg godSquareSocketResponsedMsg = (GodSquareSocketResponsedMsg) responsedMessage;
-                    b.this.hVe.a(b.this.a(godSquareSocketResponsedMsg.getResult()), b.this.hVf, godSquareSocketResponsedMsg.getHasMore(), godSquareSocketResponsedMsg.getErrorString());
+                    b.this.hVR.a(b.this.a(godSquareSocketResponsedMsg.getResult()), b.this.hVS, godSquareSocketResponsedMsg.getHasMore(), godSquareSocketResponsedMsg.getErrorString());
                 }
             }
         }
     };
-    private CustomMessageListener hiT = new CustomMessageListener(CmdConfigCustom.CMD_GET_HOT_GOD_CACHE) { // from class: com.baidu.tieba.godSquare.model.b.2
+    private CustomMessageListener hje = new CustomMessageListener(CmdConfigCustom.CMD_GET_HOT_GOD_CACHE) { // from class: com.baidu.tieba.godSquare.model.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (b.this.hVe != null) {
+            if (b.this.hVR != null) {
                 if (!(customResponsedMessage instanceof GodSquareCacheResponsedMsg)) {
-                    b.this.wd(1);
+                    b.this.wf(1);
                     return;
                 }
                 GodSquareCacheResponsedMsg godSquareCacheResponsedMsg = (GodSquareCacheResponsedMsg) customResponsedMessage;
                 if (godSquareCacheResponsedMsg.getResult() == null || v.isEmpty(godSquareCacheResponsedMsg.getResult().user_list)) {
-                    b.this.wd(1);
+                    b.this.wf(1);
                 } else {
-                    b.this.hVe.a(b.this.a(godSquareCacheResponsedMsg.getResult()), b.this.hVf, true, godSquareCacheResponsedMsg.getErrorString());
+                    b.this.hVR.a(b.this.a(godSquareCacheResponsedMsg.getResult()), b.this.hVS, true, godSquareCacheResponsedMsg.getErrorString());
                 }
             }
         }
@@ -71,28 +71,28 @@ public class b {
     }
 
     public b(a aVar, BaseActivity baseActivity) {
-        this.hVe = aVar;
+        this.hVR = aVar;
         this.mActivity = baseActivity;
         registerListener();
     }
 
     public void update() {
-        this.hVg = 1;
-        this.hVf = true;
+        this.hVT = 1;
+        this.hVS = true;
         if (j.isNetworkAvailableForImmediately()) {
-            wd(1);
+            wf(1);
         } else {
-            we(1);
+            wg(1);
         }
     }
 
-    public void bqv() {
-        this.hVf = false;
-        wd(this.pn + 1);
+    public void bqx() {
+        this.hVS = false;
+        wf(this.pn + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wd(int i) {
+    public void wf(int i) {
         if (this.mActivity != null) {
             this.pn = i;
             GodSquareRequestMsg godSquareRequestMsg = new GodSquareRequestMsg();
@@ -101,7 +101,7 @@ public class b {
         }
     }
 
-    private void we(int i) {
+    private void wg(int i) {
         if (this.mActivity != null) {
             GodSquareCacheRequestMsg godSquareCacheRequestMsg = new GodSquareCacheRequestMsg();
             godSquareCacheRequestMsg.cacheKey = i + "";
@@ -111,8 +111,8 @@ public class b {
 
     private void registerListener() {
         if (this.mActivity != null) {
-            this.mActivity.registerListener(this.hiT);
-            this.mActivity.registerListener(this.hiS);
+            this.mActivity.registerListener(this.hje);
+            this.mActivity.registerListener(this.hjd);
         }
     }
 
@@ -124,12 +124,12 @@ public class b {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        cI(dataRes.user_list);
+        cJ(dataRes.user_list);
         ArrayList arrayList2 = new ArrayList();
         ArrayList arrayList3 = new ArrayList();
-        if (!v.isEmpty(dataRes.recommend_uid_list) && this.hVf) {
+        if (!v.isEmpty(dataRes.recommend_uid_list) && this.hVS) {
             for (Long l : dataRes.recommend_uid_list) {
-                if (l != null && (metaData2 = this.hVh.get(l.longValue())) != null) {
+                if (l != null && (metaData2 = this.hVU.get(l.longValue())) != null) {
                     h hVar = new h();
                     hVar.dFJ = metaData2;
                     hVar.type = 1;
@@ -146,16 +146,16 @@ public class b {
         }
         if (!v.isEmpty(dataRes.hot_uid_list)) {
             for (Long l2 : dataRes.hot_uid_list) {
-                if (l2 != null && (metaData = this.hVh.get(l2.longValue())) != null) {
+                if (l2 != null && (metaData = this.hVU.get(l2.longValue())) != null) {
                     h hVar2 = new h();
                     hVar2.dFJ = metaData;
                     hVar2.type = 0;
-                    hVar2.rank = this.hVg;
+                    hVar2.rank = this.hVT;
                     arrayList3.add(hVar2);
-                    this.hVg++;
+                    this.hVT++;
                 }
             }
-            if (this.mActivity != null && !v.isEmpty(arrayList3) && this.hVf) {
+            if (this.mActivity != null && !v.isEmpty(arrayList3) && this.hVS) {
                 e eVar2 = new e();
                 eVar2.title = this.mActivity.getResources().getString(R.string.hot_god);
                 if (v.isEmpty(arrayList2)) {
@@ -170,19 +170,19 @@ public class b {
         return arrayList;
     }
 
-    private void cI(List<User> list) {
-        if (this.hVh == null) {
-            this.hVh = new LongSparseArray<>();
+    private void cJ(List<User> list) {
+        if (this.hVU == null) {
+            this.hVU = new LongSparseArray<>();
         }
         for (User user : list) {
             h hVar = new h();
             hVar.dFJ = new MetaData();
             hVar.dFJ.parserProtobuf(user);
-            this.hVh.put(user.id.longValue(), hVar.dFJ);
+            this.hVU.put(user.id.longValue(), hVar.dFJ);
         }
     }
 
     public boolean el(long j) {
-        return (this.hVh == null || this.hVh.get(j) == null) ? false : true;
+        return (this.hVU == null || this.hVU.get(j) == null) ? false : true;
     }
 }

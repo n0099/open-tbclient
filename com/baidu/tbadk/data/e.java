@@ -15,7 +15,7 @@ public class e {
     public HashMap<String, String> uploadDataNumMap = new HashMap<>();
     public HashMap<String, String> mergeDataFrequencyMap = new HashMap<>();
 
-    public static synchronized e bct() {
+    public static synchronized e bcu() {
         e eVar;
         synchronized (e.class) {
             if (ejO == null) {

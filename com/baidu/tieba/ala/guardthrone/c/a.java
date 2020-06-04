@@ -21,7 +21,7 @@ import org.apache.http.HttpHost;
 public class a implements com.baidu.live.h.a {
     private q aJj;
     private FrameLayout ddl;
-    private HeadImageView fCb;
+    private HeadImageView fCm;
     private boolean isHost = false;
     private int mGiftTabId;
     private ImageView mIconView;
@@ -36,27 +36,27 @@ public class a implements com.baidu.live.h.a {
         if (this.ddl == null) {
             this.ddl = new FrameLayout(this.mTbPageContext.getPageActivity());
         }
-        if (this.fCb == null) {
-            this.fCb = new HeadImageView(this.mTbPageContext.getPageActivity());
+        if (this.fCm == null) {
+            this.fCm = new HeadImageView(this.mTbPageContext.getPageActivity());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.e.sdk_ds60), BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.e.sdk_ds60));
             layoutParams.gravity = 17;
-            this.ddl.addView(this.fCb, layoutParams);
+            this.ddl.addView(this.fCm, layoutParams);
         }
         if (this.mIconView == null) {
             this.mIconView = new ImageView(this.mTbPageContext.getPageActivity());
             this.ddl.addView(this.mIconView, new FrameLayout.LayoutParams(-2, -2));
         }
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.fCb.setDefaultResource(a.f.sdk_icon_default_avatar100_hk);
+            this.fCm.setDefaultResource(a.f.sdk_icon_default_avatar100_hk);
         } else {
-            this.fCb.setDefaultResource(a.f.sdk_icon_default_avatar100);
+            this.fCm.setDefaultResource(a.f.sdk_icon_default_avatar100);
         }
-        this.fCb.setIsRound(true);
-        this.fCb.setDrawBorder(true);
-        this.fCb.setBorderColor(this.mTbPageContext.getResources().getColor(a.d.sdk_cp_bg_line_k_alpha10_1));
-        this.fCb.setAutoChangeStyle(false);
-        this.fCb.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fCb.setVisibility(8);
+        this.fCm.setIsRound(true);
+        this.fCm.setDrawBorder(true);
+        this.fCm.setBorderColor(this.mTbPageContext.getResources().getColor(a.d.sdk_cp_bg_line_k_alpha10_1));
+        this.fCm.setAutoChangeStyle(false);
+        this.fCm.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fCm.setVisibility(8);
         this.mIconView.setImageResource(a.f.icon_live_guardthrone_no);
         this.ddl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardthrone.c.a.1
             @Override // android.view.View.OnClickListener
@@ -78,13 +78,13 @@ public class a implements com.baidu.live.h.a {
             }
             if (str == null || TextUtils.isEmpty(str) || !str.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
                 this.mIconView.setImageResource(a.f.icon_live_guardthrone_no);
-                this.fCb.reset();
-                this.fCb.setVisibility(8);
+                this.fCm.reset();
+                this.fCm.setVisibility(8);
                 return;
             }
-            k.a(this.fCb, str, true, false);
+            k.a(this.fCm, str, true, false);
             this.mIconView.setImageResource(a.f.icon_live_guardthrone_have);
-            this.fCb.setVisibility(0);
+            this.fCm.setVisibility(0);
         }
     }
 
@@ -99,7 +99,7 @@ public class a implements com.baidu.live.h.a {
     }
 
     @Override // com.baidu.live.h.a
-    public void cr(int i) {
+    public void ct(int i) {
         this.mGiftTabId = i;
     }
 }

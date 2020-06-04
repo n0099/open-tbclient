@@ -28,17 +28,17 @@ public class b extends PopupWindow {
     public interface a {
         void Vs();
 
-        void eu(int i);
+        void ew(int i);
     }
 
     public b(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, int i, int i2) {
         super(swanAppActivity);
         this.cfB = new String[12];
-        fp(i);
+        fr(i);
         a(swanAppActivity, editText, i2);
     }
 
-    private void fp(int i) {
+    private void fr(int i) {
         for (int i2 = 0; i2 < 9; i2++) {
             this.cfB[i2] = String.valueOf(i2 + 1);
         }
@@ -127,7 +127,7 @@ public class b extends PopupWindow {
         if (!isShowing()) {
             showAtLocation(this.bQd.getWindow().getDecorView(), 80, 0, 0);
             if (this.cgh != null) {
-                this.cgh.eu(this.bQg);
+                this.cgh.ew(this.bQg);
             }
         }
     }

@@ -22,7 +22,7 @@ public abstract class a {
         return rect.top < rect.bottom && rect.bottom <= bitmap.getHeight() && rect.left < rect.right && rect.right <= bitmap.getWidth();
     }
 
-    public void fX(int i) {
+    public void fZ(int i) {
         if (this.cpM == null) {
             this.cpM = new TreeSet();
         } else {

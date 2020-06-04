@@ -14,62 +14,62 @@ import java.util.Iterator;
 /* loaded from: classes8.dex */
 public abstract class c extends AbsThreadDataSupport implements ae {
     public bk dEA;
-    private String gGP;
-    private int gGQ;
-    private String gGR;
-    private String gGS;
-    public int gGU;
+    private String gHa;
+    private int gHb;
+    private String gHc;
+    private String gHd;
+    public int gHf;
     private String mExtra;
     private String mSource;
     public String tid;
     public int objType = 1;
-    private Integer gGT = 0;
+    private Integer gHe = 0;
     public int dEB = 0;
     public int dEC = 0;
 
     public void setWeight(String str) {
-        this.gGP = str;
+        this.gHa = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void sr(int i) {
-        this.gGQ = i;
+    public void st(int i) {
+        this.gHb = i;
     }
 
     public void Dp(String str) {
-        this.gGR = str;
+        this.gHc = str;
     }
 
-    public int bLz() {
-        return this.gGQ;
+    public int bLB() {
+        return this.gHb;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
     public String aOl() {
-        return this.mSource + "#" + this.gGQ + "#" + this.gGR;
+        return this.mSource + "#" + this.gHb + "#" + this.gHc;
     }
 
     public String getWeight() {
-        return this.gGP;
+        return this.gHa;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String bLA() {
-        return this.gGR;
+    public String bLC() {
+        return this.gHc;
     }
 
-    public String bLB() {
-        return this.gGS;
+    public String bLD() {
+        return this.gHd;
     }
 
     public void Dq(String str) {
-        this.gGS = str;
+        this.gHd = str;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
@@ -89,12 +89,12 @@ public abstract class c extends AbsThreadDataSupport implements ae {
         return this.mExtra;
     }
 
-    public Integer bLC() {
-        return this.gGT;
+    public Integer bLE() {
+        return this.gHe;
     }
 
     public void k(Integer num) {
-        this.gGT = num;
+        this.gHe = num;
     }
 
     public an Dr(String str) {
@@ -106,20 +106,20 @@ public abstract class c extends AbsThreadDataSupport implements ae {
         if (aOi == null || str.length() == 0) {
             return null;
         }
-        an dh = new an(str).dh("fid", String.valueOf(aOi.getFid())).dh("tid", String.valueOf(aOi.getTid())).dh("nid", aOi.getNid()).dh("obj_id", getExtra()).dh("obj_param1", getWeight()).ag(TiebaInitialize.Params.OBJ_PARAM2, 1).dh("obj_source", getSource()).ag("obj_locate", bLz()).dh("uid", TbadkCoreApplication.getCurrentAccount()).dh(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.bLh());
+        an dh = new an(str).dh("fid", String.valueOf(aOi.getFid())).dh("tid", String.valueOf(aOi.getTid())).dh("nid", aOi.getNid()).dh("obj_id", getExtra()).dh("obj_param1", getWeight()).ag(TiebaInitialize.Params.OBJ_PARAM2, 1).dh("obj_source", getSource()).ag("obj_locate", bLB()).dh("uid", TbadkCoreApplication.getCurrentAccount()).dh(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.bLj());
         if (!z) {
-            dh.ag("obj_type", bLD());
+            dh.ag("obj_type", bLF());
         } else {
             if (aOi.dHk > 0) {
                 dh.ag("midpageflag", 1);
             } else {
                 dh.ag("midpageflag", 0);
             }
-            dh.dh("ab_tag", bLA());
-            dh.ag("is_vertical", bLC().intValue());
+            dh.dh("ab_tag", bLC());
+            dh.ag("is_vertical", bLE().intValue());
         }
-        if (aOi.aSb() != null && aOi.aSb().ddw() != null && aOi.aSb().ddw().biq() != null && aOi.aSb().ddw().biq().size() > 0) {
-            dh.ag(TiebaInitialize.Params.OBJ_TO, aOi.aSb().llr ? 2 : 1);
+        if (aOi.aSb() != null && aOi.aSb().ddL() != null && aOi.aSb().ddL().bis() != null && aOi.aSb().ddL().bis().size() > 0) {
+            dh.ag(TiebaInitialize.Params.OBJ_TO, aOi.aSb().lmA ? 2 : 1);
         }
         return dh;
     }
@@ -129,9 +129,9 @@ public abstract class c extends AbsThreadDataSupport implements ae {
         if (aOi == null) {
             return null;
         }
-        an dh = new an(str).dh("fid", String.valueOf(aOi.getFid())).dh("tid", String.valueOf(aOi.getTid())).ag(TiebaInitialize.Params.OBJ_PARAM2, 1).dh("obj_param1", getWeight()).dh("obj_source", getSource()).ag("obj_locate", bLz()).dh("obj_name", bLA()).dh("uid", TbadkCoreApplication.getCurrentAccount()).dh(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.bLh());
+        an dh = new an(str).dh("fid", String.valueOf(aOi.getFid())).dh("tid", String.valueOf(aOi.getTid())).ag(TiebaInitialize.Params.OBJ_PARAM2, 1).dh("obj_param1", getWeight()).dh("obj_source", getSource()).ag("obj_locate", bLB()).dh("obj_name", bLC()).dh("uid", TbadkCoreApplication.getCurrentAccount()).dh(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.bLj());
         if (i == 0) {
-            dh.ag("obj_type", bLD());
+            dh.ag("obj_type", bLF());
         } else {
             dh.ag("obj_type", i);
         }
@@ -139,7 +139,7 @@ public abstract class c extends AbsThreadDataSupport implements ae {
         return dh;
     }
 
-    private int bLD() {
+    private int bLF() {
         int i;
         int i2 = 0;
         bk aOi = aOi();
@@ -175,12 +175,12 @@ public abstract class c extends AbsThreadDataSupport implements ae {
         return null;
     }
 
-    public void ss(int i) {
-        this.gGU = i;
+    public void su(int i) {
+        this.gHf = i;
     }
 
-    public boolean bLE() {
-        return this.gGU == 1;
+    public boolean bLG() {
+        return this.gHf == 1;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
@@ -193,14 +193,14 @@ public abstract class c extends AbsThreadDataSupport implements ae {
         akVar.setFid(aOi().getFid());
         akVar.setNid(aOi().getNid());
         akVar.setFeedBackReasonMap(this.feedBackReasonMap);
-        akVar.weight = this.gGP;
+        akVar.weight = this.gHa;
         akVar.source = this.mSource;
         akVar.extra = this.mExtra;
         akVar.threadType = aOi().threadType;
         return akVar;
     }
 
-    public void bLF() {
+    public void bLH() {
         if (this.dEA == null) {
         }
     }

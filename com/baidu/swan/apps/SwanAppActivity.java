@@ -71,7 +71,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ServiceConne
         com.baidu.swan.apps.u.a.afI().SP();
         com.baidu.swan.apps.process.messaging.client.a.amQ().amS();
         this.mIsFromSchema = true;
-        g.gR(bundle == null ? 0 : 1);
+        g.gT(bundle == null ? 0 : 1);
         super.onCreate(bundle);
         a(FrameLifeState.JUST_CREATED);
         if (!s.checkActivityRefuseServiceAndFinish(this)) {
@@ -571,7 +571,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ServiceConne
     }
 
     @UiThread
-    public void ec(int i) {
+    public void ee(int i) {
         if (DEBUG) {
             Log.i("SwanAppActivity", "handleSwanAppExit:" + i + ", pid:" + Process.myPid());
         }
@@ -591,7 +591,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ServiceConne
             i = 3;
         }
         if (QD() != null) {
-            QD().hO(i);
+            QD().hQ(i);
         }
     }
 
@@ -710,9 +710,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ServiceConne
 
     public void p(String... strArr) {
         QI();
-        HashSet dup = strArr == null ? com.facebook.common.internal.i.dup() : com.facebook.common.internal.i.O(strArr);
-        if (dup.contains("flag_finish_activity")) {
-            if (dup.contains("flag_remove_task")) {
+        HashSet duD = strArr == null ? com.facebook.common.internal.i.duD() : com.facebook.common.internal.i.O(strArr);
+        if (duD.contains("flag_finish_activity")) {
+            if (duD.contains("flag_remove_task")) {
                 QR();
             } else {
                 finish();

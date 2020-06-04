@@ -6,53 +6,53 @@ import android.view.View;
 /* loaded from: classes.dex */
 public abstract class h {
     protected View dMf;
-    protected com.baidu.tieba.write.a lQD;
-    protected a lQI;
+    protected com.baidu.tieba.write.a lRO;
+    protected a lRT;
     protected View mAnchorView;
     protected Context mContext;
     protected int mState = 4;
-    protected Rect lQN = new Rect();
-    protected Rect lQO = new Rect();
+    protected Rect lRZ = new Rect();
+    protected Rect lSa = new Rect();
 
     /* loaded from: classes.dex */
     public interface a {
-        void El(int i);
+        void En(int i);
     }
 
     public abstract void aiD();
 
-    public abstract void dmo();
+    public abstract void dmD();
 
-    public abstract void dmp();
+    public abstract void dmE();
 
     public abstract void onDestroy();
 
     public h(Context context, com.baidu.tieba.write.a aVar) {
         this.mContext = context;
-        this.lQD = aVar;
+        this.lRO = aVar;
     }
 
     public void b(a aVar) {
-        this.lQI = aVar;
+        this.lRT = aVar;
     }
 
     public void c(View view, View view2) {
         this.mAnchorView = view;
         this.dMf = view2;
         if (this.dMf != null) {
-            this.dMf.getGlobalVisibleRect(this.lQN);
+            this.dMf.getGlobalVisibleRect(this.lRZ);
         }
     }
 
     public void show() {
-        dmo();
+        dmD();
     }
 
     public void eJ(boolean z) {
         if (z) {
             aiD();
         } else {
-            dmp();
+            dmE();
         }
     }
 }

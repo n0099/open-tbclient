@@ -107,7 +107,7 @@ public class CardUserInfoLayout extends LinearLayout implements o {
             public void onClick(View view) {
                 String url;
                 if (bc.checkUpIsLogin(CardUserInfoLayout.this.mContext) && CardUserInfoLayout.this.aee != null && CardUserInfoLayout.this.aee.aQx() != null && CardUserInfoLayout.this.aee.aQx().getTShowInfoNew() != null && v.getItem(CardUserInfoLayout.this.aee.aQx().getTShowInfoNew(), 0) != null && (url = CardUserInfoLayout.this.aee.aQx().getTShowInfoNew().get(0).getUrl()) != null && (i.G(CardUserInfoLayout.this.mContext) instanceof TbPageContext)) {
-                    ba.aUZ().b((TbPageContext) i.G(CardUserInfoLayout.this.mContext), new String[]{url});
+                    ba.aVa().b((TbPageContext) i.G(CardUserInfoLayout.this.mContext), new String[]{url});
                 }
             }
         };
@@ -573,9 +573,9 @@ public class CardUserInfoLayout extends LinearLayout implements o {
             boolean z2 = UtilHelper.isDecimal(aQN) && UtilHelper.isDecimal(aQO);
             boolean isSystemLocationProviderEnabled = UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst());
             if (z2 && isSystemLocationProviderEnabled) {
-                AppPosInfo cVd = com.baidu.tieba.recapp.d.a.cUZ().cVd();
-                String str = cVd.latitude;
-                String str2 = cVd.longitude;
+                AppPosInfo cVt = com.baidu.tieba.recapp.d.a.cVp().cVt();
+                String str = cVt.latitude;
+                String str2 = cVt.longitude;
                 if (!UtilHelper.isDecimal(str) || !UtilHelper.isDecimal(str2)) {
                     z = false;
                 }
@@ -604,7 +604,7 @@ public class CardUserInfoLayout extends LinearLayout implements o {
         this.agC.setVisibility(z ? 0 : 8);
         if (z) {
             this.agC.setText(str);
-            SvgManager.aUV().a(this.agB, R.drawable.icon_pure_post_location_n_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+            SvgManager.aUW().a(this.agB, R.drawable.icon_pure_post_location_n_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
             am.setViewTextColor(this.agC, (int) R.color.cp_cont_d);
         }
     }
@@ -659,8 +659,8 @@ public class CardUserInfoLayout extends LinearLayout implements o {
 
     private void rY() {
         this.tbds6 = l.getDimens(this.mContext, R.dimen.tbds6);
-        this.agG = new LayerDrawable(new Drawable[]{c.aVz().ln(0).O(this.tbds6).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).aVB(), c.aVz().ln(0).O(this.tbds6).wJ("#4D000000").aVB()});
-        this.agH = new LayerDrawable(new Drawable[]{c.aVz().ln(0).O(this.tbds6).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).aVB(), c.aVz().ln(0).O(this.tbds6).wJ("#4D000000").aVB()});
+        this.agG = new LayerDrawable(new Drawable[]{c.aVA().lp(0).O(this.tbds6).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).aVC(), c.aVA().lp(0).O(this.tbds6).wJ("#4D000000").aVC()});
+        this.agH = new LayerDrawable(new Drawable[]{c.aVA().lp(0).O(this.tbds6).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).aVC(), c.aVA().lp(0).O(this.tbds6).wJ("#4D000000").aVC()});
     }
 
     public RelativeLayout getSuffixContainer() {

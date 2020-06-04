@@ -36,22 +36,22 @@ public class b {
             TiebaStatic.log(anVar);
             return;
         }
-        Bundle bbb = shareEntity.bbb();
-        if (bbb != null) {
-            int i3 = bbb.getInt("obj_param1");
+        Bundle bbc = shareEntity.bbc();
+        if (bbc != null) {
+            int i3 = bbc.getInt("obj_param1");
             if (i3 != 0) {
                 anVar.ag("obj_param1", i3);
                 if (i3 == 2) {
-                    anVar.dh("fid", bbb.getString("fid"));
+                    anVar.dh("fid", bbc.getString("fid"));
                 } else if (i3 == 3) {
-                    int i4 = bbb.getInt("obj_type");
+                    int i4 = bbc.getInt("obj_type");
                     if (i4 != 0) {
                         anVar.ag("obj_type", i4);
                     }
-                    anVar.dh("tid", bbb.getString("tid")).dh("fid", bbb.getString("fid"));
+                    anVar.dh("tid", bbc.getString("tid")).dh("fid", bbc.getString("fid"));
                 }
             }
-            String string = bbb.getString(TiebaInitialize.Params.OBJ_URL);
+            String string = bbc.getString(TiebaInitialize.Params.OBJ_URL);
             if (!aq.isEmpty(string)) {
                 anVar.dh(TiebaInitialize.Params.OBJ_URL, string);
             }
@@ -86,11 +86,11 @@ public class b {
             TiebaStatic.log(anVar);
             return;
         }
-        Bundle bbb = shareEntity.bbb();
-        if (bbb != null) {
-            anVar.dh("tid", bbb.getString("tid"));
-            anVar.dh("uid", bbb.getString("uid"));
-            anVar.dh("fid", bbb.getString("fid"));
+        Bundle bbc = shareEntity.bbc();
+        if (bbc != null) {
+            anVar.dh("tid", bbc.getString("tid"));
+            anVar.dh("uid", bbc.getString("uid"));
+            anVar.dh("fid", bbc.getString("fid"));
         }
         TiebaStatic.log(anVar);
     }

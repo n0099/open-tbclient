@@ -134,7 +134,7 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
     }
 
-    public void bE(int i) {
+    public void bG(int i) {
     }
 
     public void a(e eVar, f fVar) {

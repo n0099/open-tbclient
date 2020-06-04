@@ -77,7 +77,7 @@ public class c implements View.OnClickListener {
                         c.this.dYT.setIsFromNetWork(false);
                         c.this.dYT.setFansNum(fansNum);
                         if (c.this.dYU != null) {
-                            c.this.dYU.mo(fansNum);
+                            c.this.dYU.mq(fansNum);
                             if (z) {
                                 if (c.this.dYX != null) {
                                     c.this.dYX.hs(data.isAttention);
@@ -136,11 +136,11 @@ public class c implements View.OnClickListener {
         this.dYT = aVar;
         if (this.dYU != null && this.dYT != null) {
             this.dYU.r(aVar.getIsLike(), aVar.getLikeStatus());
-            this.dYU.mo(aVar.getFansNum());
+            this.dYU.mq(aVar.getFansNum());
         }
     }
 
-    public com.baidu.tbadk.core.view.userLike.a aXb() {
+    public com.baidu.tbadk.core.view.userLike.a aXc() {
         return this.dYT;
     }
 

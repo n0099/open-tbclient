@@ -8,9 +8,9 @@ public abstract class c {
     private com.baidu.adp.widget.ImageView.a elU;
     private int rows;
 
-    public abstract boolean bdk();
+    public abstract boolean bdl();
 
-    public abstract EmotionGroupType bdl();
+    public abstract EmotionGroupType bdm();
 
     public abstract int getEmotionsCount();
 
@@ -22,7 +22,7 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public abstract String ni(int i);
+    public abstract String nk(int i);
 
     public abstract boolean yb(String str);
 
@@ -30,7 +30,7 @@ public abstract class c {
 
     public abstract com.baidu.adp.widget.ImageView.a yd(String str);
 
-    public com.baidu.adp.widget.ImageView.a bdm() {
+    public com.baidu.adp.widget.ImageView.a bdn() {
         return this.elT;
     }
 
@@ -41,7 +41,7 @@ public abstract class c {
         this.elT = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a bdn() {
+    public com.baidu.adp.widget.ImageView.a bdo() {
         return this.elU;
     }
 
@@ -52,21 +52,21 @@ public abstract class c {
         this.elU = aVar;
     }
 
-    public int bdo() {
+    public int bdp() {
         return this.cols;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void nj(int i) {
+    public void nl(int i) {
         this.cols = i;
     }
 
-    public int bdp() {
+    public int bdq() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void nk(int i) {
+    public void nm(int i) {
         this.rows = i;
     }
 }

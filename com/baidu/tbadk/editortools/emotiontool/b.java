@@ -360,7 +360,7 @@ public class b implements com.baidu.tbadk.imageManager.a {
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public int bdj() {
+    public int bdk() {
         return elQ.size();
     }
 

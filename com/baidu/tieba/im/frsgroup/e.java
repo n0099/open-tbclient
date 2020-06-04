@@ -68,15 +68,15 @@ public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
             fVar.rootView.setTag(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Integer.valueOf(i));
             fVar.a(groupInfoData);
             am.setBackgroundResource(fVar.rootView, R.drawable.frs_group_item_bg);
-            am.setViewTextColor(fVar.iAf, R.color.cp_cont_b, 1);
-            am.setViewTextColor(fVar.iAg, R.color.cp_cont_b, 1);
-            am.setBackgroundResource(fVar.iAg, R.drawable.bg_jinqun_meizi);
-            fVar.iAg.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
-            am.setViewTextColor(fVar.iAh, R.color.cp_cont_b, 1);
-            am.setBackgroundResource(fVar.iAj, R.drawable.icon_grade_small_star);
-            am.setBackgroundResource(fVar.iAk, R.drawable.icon_grade_small_star);
-            am.setBackgroundResource(fVar.iAl, R.drawable.icon_grade_small_star);
-            am.setViewTextColor(fVar.iAi, R.color.cp_cont_c, 1);
+            am.setViewTextColor(fVar.iAS, R.color.cp_cont_b, 1);
+            am.setViewTextColor(fVar.iAT, R.color.cp_cont_b, 1);
+            am.setBackgroundResource(fVar.iAT, R.drawable.bg_jinqun_meizi);
+            fVar.iAT.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
+            am.setViewTextColor(fVar.iAU, R.color.cp_cont_b, 1);
+            am.setBackgroundResource(fVar.iAW, R.drawable.icon_grade_small_star);
+            am.setBackgroundResource(fVar.iAX, R.drawable.icon_grade_small_star);
+            am.setBackgroundResource(fVar.iAY, R.drawable.icon_grade_small_star);
+            am.setViewTextColor(fVar.iAV, R.color.cp_cont_c, 1);
             am.setBackgroundColor(fVar.dividerLine, R.color.cp_bg_line_c);
         }
         return view;

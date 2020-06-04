@@ -29,12 +29,12 @@ public class a {
             return new C0398a();
         }
 
-        public C0398a hL(int i) {
+        public C0398a hN(int i) {
             this.statusBarColor = i;
             return this;
         }
 
-        public C0398a hM(int i) {
+        public C0398a hO(int i) {
             this.customStatBarViewBg = i;
             return this;
         }

@@ -258,10 +258,10 @@ public abstract class MiPushClient {
     private static boolean checkPermission(Context context) {
         boolean z = true;
         if (context != null) {
-            if (!com.xiaomi.push.l.m498a() && !"com.xiaomi.xmsf".equals(context.getPackageName()) && TextUtils.isEmpty(com.xiaomi.push.i.b(context))) {
+            if (!com.xiaomi.push.l.m497a() && !"com.xiaomi.xmsf".equals(context.getPackageName()) && TextUtils.isEmpty(com.xiaomi.push.i.b(context))) {
                 if (context.getApplicationInfo().targetSdkVersion < 23 || Build.VERSION.SDK_INT < 23) {
                     String f = com.xiaomi.push.i.f(context);
-                    String m386a = com.xiaomi.push.i.m386a();
+                    String m385a = com.xiaomi.push.i.m385a();
                     if (TextUtils.isEmpty(f)) {
                     }
                 } else if (!com.xiaomi.push.m.a(context, "android.permission.READ_PHONE_STATE")) {
@@ -306,7 +306,7 @@ public abstract class MiPushClient {
     }
 
     public static void clearLocalNotificationType(Context context) {
-        aq.a(context).m91e();
+        aq.a(context).m90e();
     }
 
     public static void clearNotification(Context context) {
@@ -373,14 +373,14 @@ public abstract class MiPushClient {
     }
 
     public static String getAppRegion(Context context) {
-        if (b.m92a(context).m101c()) {
-            return b.m92a(context).f();
+        if (b.m91a(context).m100c()) {
+            return b.m91a(context).f();
         }
         return null;
     }
 
     private static boolean getDefaultSwitch() {
-        return com.xiaomi.push.l.m499b();
+        return com.xiaomi.push.l.m498b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -407,8 +407,8 @@ public abstract class MiPushClient {
     }
 
     public static String getRegId(Context context) {
-        if (b.m92a(context).m101c()) {
-            return b.m92a(context).m100c();
+        if (b.m91a(context).m100c()) {
+            return b.m91a(context).m99c();
         }
         return null;
     }
@@ -428,7 +428,7 @@ public abstract class MiPushClient {
         com.xiaomi.push.service.ak.a(context).a(new ak.a(100, "perf event job update") { // from class: com.xiaomi.mipush.sdk.MiPushClient.6
             @Override // com.xiaomi.push.service.ak.a
             protected void onCallback() {
-                fa.m270a(context);
+                fa.m269a(context);
             }
         });
     }
@@ -441,28 +441,28 @@ public abstract class MiPushClient {
     /* JADX INFO: Access modifiers changed from: private */
     public static void initialize(Context context, String str, String str2, MiPushClientCallback miPushClientCallback, String str3, ICallbackResult iCallbackResult) {
         try {
-            com.xiaomi.channel.commonutils.logger.b.m52a("sdk_version = 3_7_5");
+            com.xiaomi.channel.commonutils.logger.b.m51a("sdk_version = 3_7_5");
             if (miPushClientCallback != null) {
                 PushMessageHandler.a(miPushClientCallback);
             }
             if (iCallbackResult != null) {
                 PushMessageHandler.a(iCallbackResult);
             }
-            if (com.xiaomi.push.t.m585a(sContext)) {
+            if (com.xiaomi.push.t.m584a(sContext)) {
                 x.a(sContext);
             }
-            if (b.m92a(sContext).a(str, str2) || checkPermission(sContext)) {
-                boolean z = b.m92a(sContext).a() != Constants.a();
+            if (b.m91a(sContext).a(str, str2) || checkPermission(sContext)) {
+                boolean z = b.m91a(sContext).a() != Constants.a();
                 if (!z && !shouldSendRegRequest(sContext)) {
-                    aq.a(sContext).m83a();
-                    com.xiaomi.channel.commonutils.logger.b.m52a("Could not send  register message within 5s repeatly .");
+                    aq.a(sContext).m82a();
+                    com.xiaomi.channel.commonutils.logger.b.m51a("Could not send  register message within 5s repeatly .");
                     return;
                 }
-                if (z || !b.m92a(sContext).a(str, str2) || b.m92a(sContext).m103e()) {
+                if (z || !b.m91a(sContext).a(str, str2) || b.m91a(sContext).m102e()) {
                     String a = bf.a(6);
-                    b.m92a(sContext).m94a();
-                    b.m92a(sContext).a(Constants.a());
-                    b.m92a(sContext).a(str, str2, a);
+                    b.m91a(sContext).m93a();
+                    b.m91a(sContext).a(Constants.a());
+                    b.m91a(sContext).a(str, str2, a);
                     MiTinyDataClient.a.a().b(MiTinyDataClient.PENDING_REASON_APPID);
                     clearExtras(sContext);
                     im imVar = new im();
@@ -471,7 +471,7 @@ public abstract class MiPushClient {
                     imVar.e(str2);
                     imVar.d(sContext.getPackageName());
                     imVar.f(a);
-                    imVar.c(com.xiaomi.push.g.m305a(sContext, sContext.getPackageName()));
+                    imVar.c(com.xiaomi.push.g.m304a(sContext, sContext.getPackageName()));
                     imVar.b(com.xiaomi.push.g.a(sContext, sContext.getPackageName()));
                     imVar.h("3_7_5");
                     imVar.a(30705);
@@ -486,7 +486,7 @@ public abstract class MiPushClient {
                             imVar.k(bf.a(g) + Constants.ACCEPT_TIME_SEPARATOR_SP + com.xiaomi.push.i.j(sContext));
                         }
                     }
-                    imVar.j(com.xiaomi.push.i.m386a());
+                    imVar.j(com.xiaomi.push.i.m385a());
                     int a2 = com.xiaomi.push.i.a();
                     if (a2 >= 0) {
                         imVar.c(a2);
@@ -496,30 +496,30 @@ public abstract class MiPushClient {
                 } else {
                     if (1 == PushMessageHelper.getPushMode(sContext)) {
                         checkNotNull(miPushClientCallback, BuyTBeanActivityConfig.CALLBACK);
-                        miPushClientCallback.onInitializeResult(0L, null, b.m92a(sContext).m100c());
+                        miPushClientCallback.onInitializeResult(0L, null, b.m91a(sContext).m99c());
                     } else {
                         ArrayList arrayList = new ArrayList();
-                        arrayList.add(b.m92a(sContext).m100c());
+                        arrayList.add(b.m91a(sContext).m99c());
                         PushMessageHelper.sendCommandMessageBroadcast(sContext, PushMessageHelper.generateCommandMessage(fg.COMMAND_REGISTER.f318a, arrayList, 0L, null, null));
                     }
-                    aq.a(sContext).m83a();
-                    if (b.m92a(sContext).m96a()) {
+                    aq.a(sContext).m82a();
+                    if (b.m91a(sContext).m95a()) {
                         il ilVar = new il();
-                        ilVar.b(b.m92a(sContext).m93a());
+                        ilVar.b(b.m91a(sContext).m92a());
                         ilVar.c("client_info_update");
                         ilVar.a(com.xiaomi.push.service.an.a());
                         ilVar.f616a = new HashMap();
-                        ilVar.f616a.put("app_version", com.xiaomi.push.g.m305a(sContext, sContext.getPackageName()));
+                        ilVar.f616a.put("app_version", com.xiaomi.push.g.m304a(sContext, sContext.getPackageName()));
                         ilVar.f616a.put(Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.g.a(sContext, sContext.getPackageName())));
                         ilVar.f616a.put("push_sdk_vn", "3_7_5");
                         ilVar.f616a.put("push_sdk_vc", Integer.toString(30705));
-                        String e = b.m92a(sContext).e();
+                        String e = b.m91a(sContext).e();
                         if (!TextUtils.isEmpty(e)) {
                             ilVar.f616a.put("deviceid", e);
                         }
                         aq.a(sContext).a((aq) ilVar, hm.Notification, false, (hz) null);
                     }
-                    if (!com.xiaomi.push.n.m500a(sContext, "update_devId", false)) {
+                    if (!com.xiaomi.push.n.m499a(sContext, "update_devId", false)) {
                         updateImeiOrOaid();
                         com.xiaomi.push.n.a(sContext, "update_devId", true);
                     }
@@ -539,7 +539,7 @@ public abstract class MiPushClient {
                     }
                     if (shouldUseMIUIPush(sContext) && shouldPullNotification(sContext)) {
                         il ilVar2 = new il();
-                        ilVar2.b(b.m92a(sContext).m93a());
+                        ilVar2.b(b.m91a(sContext).m92a());
                         ilVar2.c(hw.PullOfflineMessage.f475a);
                         ilVar2.a(com.xiaomi.push.service.an.a());
                         ilVar2.a(false);
@@ -593,20 +593,20 @@ public abstract class MiPushClient {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void reInitialize(Context context, ia iaVar) {
-        if (b.m92a(context).m101c()) {
+        if (b.m91a(context).m100c()) {
             String a = bf.a(6);
-            String m93a = b.m92a(context).m93a();
-            String b = b.m92a(context).b();
-            b.m92a(context).m94a();
-            b.m92a(context).a(Constants.a());
-            b.m92a(context).a(m93a, b, a);
+            String m92a = b.m91a(context).m92a();
+            String b = b.m91a(context).b();
+            b.m91a(context).m93a();
+            b.m91a(context).a(Constants.a());
+            b.m91a(context).a(m92a, b, a);
             im imVar = new im();
             imVar.a(com.xiaomi.push.service.an.a());
-            imVar.b(m93a);
+            imVar.b(m92a);
             imVar.e(b);
             imVar.f(a);
             imVar.d(context.getPackageName());
-            imVar.c(com.xiaomi.push.g.m305a(context, context.getPackageName()));
+            imVar.c(com.xiaomi.push.g.m304a(context, context.getPackageName()));
             imVar.a(iaVar);
             aq.a(context).a(imVar, false);
         }
@@ -645,7 +645,7 @@ public abstract class MiPushClient {
             sContext = context;
         }
         Context context2 = sContext;
-        com.xiaomi.push.t.m583a(context2);
+        com.xiaomi.push.t.m582a(context2);
         if (!NetworkStatusReceiver.a()) {
             registerNetworkReceiver(sContext);
         }
@@ -724,10 +724,10 @@ public abstract class MiPushClient {
     }
 
     public static void reportAppRunInBackground(Context context, boolean z) {
-        if (b.m92a(context).m99b()) {
+        if (b.m91a(context).m98b()) {
             hw hwVar = z ? hw.APP_SLEEP : hw.APP_WAKEUP;
             il ilVar = new il();
-            ilVar.b(b.m92a(context).m93a());
+            ilVar.b(b.m91a(context).m92a());
             ilVar.c(hwVar.f475a);
             ilVar.d(context.getPackageName());
             ilVar.a(com.xiaomi.push.service.an.a());
@@ -773,11 +773,11 @@ public abstract class MiPushClient {
         il ilVar = new il();
         if (!TextUtils.isEmpty(str2)) {
             ilVar.b(str2);
-        } else if (!b.m92a(context).m99b()) {
+        } else if (!b.m91a(context).m98b()) {
             com.xiaomi.channel.commonutils.logger.b.d("do not report clicked message");
             return;
         } else {
-            ilVar.b(b.m92a(context).m93a());
+            ilVar.b(b.m91a(context).m92a());
         }
         ilVar.c("bar:click");
         ilVar.a(str);
@@ -846,7 +846,7 @@ public abstract class MiPushClient {
                 PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(fg.COMMAND_SET_ALIAS.f318a, arrayList, 0L, null, str3));
             }
         } else if (fg.COMMAND_UNSET_ALIAS.f318a.equalsIgnoreCase(str) && aliasSetTime(context, str2) < 0) {
-            com.xiaomi.channel.commonutils.logger.b.m52a("Don't cancel alias for " + bf.a(arrayList.toString(), 3) + " is unseted");
+            com.xiaomi.channel.commonutils.logger.b.m51a("Don't cancel alias for " + bf.a(arrayList.toString(), 3) + " is unseted");
         } else if (fg.COMMAND_SET_ACCOUNT.f318a.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - accountSetTime(context, str2)) < BdKVCache.MILLS_1Hour) {
             if (1 == PushMessageHelper.getPushMode(context)) {
                 PushMessageHandler.a(context, str3, str, 0L, null, arrayList);
@@ -856,21 +856,21 @@ public abstract class MiPushClient {
         } else if (!fg.COMMAND_UNSET_ACCOUNT.f318a.equalsIgnoreCase(str) || accountSetTime(context, str2) >= 0) {
             setCommand(context, str, arrayList, str3);
         } else {
-            com.xiaomi.channel.commonutils.logger.b.m52a("Don't cancel account for " + bf.a(arrayList.toString(), 3) + " is unseted");
+            com.xiaomi.channel.commonutils.logger.b.m51a("Don't cancel account for " + bf.a(arrayList.toString(), 3) + " is unseted");
         }
     }
 
     protected static void setCommand(Context context, String str, ArrayList<String> arrayList, String str2) {
-        if (TextUtils.isEmpty(b.m92a(context).m93a())) {
+        if (TextUtils.isEmpty(b.m91a(context).m92a())) {
             return;
         }
         ig igVar = new ig();
         igVar.a(com.xiaomi.push.service.an.a());
-        igVar.b(b.m92a(context).m93a());
+        igVar.b(b.m91a(context).m92a());
         igVar.c(str);
         Iterator<String> it = arrayList.iterator();
         while (it.hasNext()) {
-            igVar.m408a(it.next());
+            igVar.m407a(it.next());
         }
         igVar.e(str2);
         igVar.d(context.getPackageName());
@@ -897,11 +897,11 @@ public abstract class MiPushClient {
     }
 
     public static boolean shouldUseMIUIPush(Context context) {
-        return aq.a(context).m85a();
+        return aq.a(context).m84a();
     }
 
     public static void subscribe(Context context, String str, String str2) {
-        if (TextUtils.isEmpty(b.m92a(context).m93a()) || TextUtils.isEmpty(str)) {
+        if (TextUtils.isEmpty(b.m91a(context).m92a()) || TextUtils.isEmpty(str)) {
             return;
         }
         if (Math.abs(System.currentTimeMillis() - topicSubscribedTime(context, str)) <= 86400000) {
@@ -916,7 +916,7 @@ public abstract class MiPushClient {
         }
         iq iqVar = new iq();
         iqVar.a(com.xiaomi.push.service.an.a());
-        iqVar.b(b.m92a(context).m93a());
+        iqVar.b(b.m91a(context).m92a());
         iqVar.c(str);
         iqVar.d(context.getPackageName());
         iqVar.e(str2);
@@ -978,17 +978,17 @@ public abstract class MiPushClient {
     public static void unregisterPush(Context context) {
         h.c(context);
         com.xiaomi.push.service.ak.a(context).a();
-        if (b.m92a(context).m99b()) {
+        if (b.m91a(context).m98b()) {
             is isVar = new is();
             isVar.a(com.xiaomi.push.service.an.a());
-            isVar.b(b.m92a(context).m93a());
-            isVar.c(b.m92a(context).m100c());
-            isVar.e(b.m92a(context).b());
+            isVar.b(b.m91a(context).m92a());
+            isVar.c(b.m91a(context).m99c());
+            isVar.e(b.m91a(context).b());
             isVar.d(context.getPackageName());
             aq.a(context).a(isVar);
             PushMessageHandler.a();
             PushMessageHandler.b();
-            b.m92a(context).m98b();
+            b.m91a(context).m97b();
             clearLocalNotificationType(context);
             clearNotification(context);
             clearExtras(context);
@@ -1004,14 +1004,14 @@ public abstract class MiPushClient {
     }
 
     public static void unsubscribe(Context context, String str, String str2) {
-        if (b.m92a(context).m99b()) {
+        if (b.m91a(context).m98b()) {
             if (topicSubscribedTime(context, str) < 0) {
-                com.xiaomi.channel.commonutils.logger.b.m52a("Don't cancel subscribe for " + str + " is unsubscribed");
+                com.xiaomi.channel.commonutils.logger.b.m51a("Don't cancel subscribe for " + str + " is unsubscribed");
                 return;
             }
             iu iuVar = new iu();
             iuVar.a(com.xiaomi.push.service.an.a());
-            iuVar.b(b.m92a(context).m93a());
+            iuVar.b(b.m91a(context).m92a());
             iuVar.c(str);
             iuVar.d(context.getPackageName());
             iuVar.e(str2);
@@ -1029,7 +1029,7 @@ public abstract class MiPushClient {
                 }
                 if (com.xiaomi.push.i.f(MiPushClient.sContext) != null || com.xiaomi.push.au.a(MiPushClient.sContext).a()) {
                     il ilVar = new il();
-                    ilVar.b(b.m92a(MiPushClient.sContext).m93a());
+                    ilVar.b(b.m91a(MiPushClient.sContext).m92a());
                     ilVar.c("client_info_update");
                     ilVar.a(com.xiaomi.push.service.an.a());
                     ilVar.a(new HashMap());
@@ -1039,12 +1039,12 @@ public abstract class MiPushClient {
                         str = str + Constants.ACCEPT_TIME_SEPARATOR_SP + h;
                     }
                     if (!TextUtils.isEmpty(str)) {
-                        ilVar.m431a().put(Constants.EXTRA_KEY_IMEI_MD5, str);
+                        ilVar.m430a().put(Constants.EXTRA_KEY_IMEI_MD5, str);
                     }
-                    com.xiaomi.push.au.a(MiPushClient.sContext).a(ilVar.m431a());
+                    com.xiaomi.push.au.a(MiPushClient.sContext).a(ilVar.m430a());
                     int a = com.xiaomi.push.i.a();
                     if (a >= 0) {
-                        ilVar.m431a().put("space_id", Integer.toString(a));
+                        ilVar.m430a().put("space_id", Integer.toString(a));
                     }
                     aq.a(MiPushClient.sContext).a((aq) ilVar, hm.Notification, false, (hz) null);
                 }

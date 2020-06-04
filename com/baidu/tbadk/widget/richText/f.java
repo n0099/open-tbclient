@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class f extends ClickableSpan {
-    private String eDX;
-    private int eDY;
+    private String eEi;
+    private int eEj;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -42,8 +42,8 @@ public class f extends ClickableSpan {
         this.mType = i;
     }
 
-    public void oo(int i) {
-        this.eDY = i;
+    public void oq(int i) {
+        this.eEj = i;
     }
 
     public void setColor(int i) {
@@ -54,12 +54,12 @@ public class f extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void op(int i) {
+    public void or(int i) {
         this.urlType = i;
     }
 
     public void zc(String str) {
-        this.eDX = str;
+        this.eEi = str;
     }
 
     public String getLink() {
@@ -70,7 +70,7 @@ public class f extends ClickableSpan {
     public void updateDrawState(TextPaint textPaint) {
         if (this.textColor != -1) {
             textPaint.setColor(am.getColor(this.textColor));
-        } else if (biP()) {
+        } else if (biR()) {
             textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.cp_link_tip_c));
         } else {
             textPaint.setColor(textPaint.linkColor);
@@ -78,18 +78,18 @@ public class f extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.eDY == 1 && biP()) {
+        } else if (this.eEj == 1 && biR()) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = am.getColor(R.color.cp_bg_line_c);
             } else {
                 textPaint.bgColor = am.getColor(R.color.cp_bg_line_z);
             }
-        } else if (this.eDY == 2) {
+        } else if (this.eEj == 2) {
             textPaint.bgColor = am.getColor(R.color.transparent);
         }
     }
 
-    private boolean biP() {
+    private boolean biR() {
         switch (this.mType) {
             case 2:
             case 16:
@@ -104,7 +104,7 @@ public class f extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.eDX));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.eEi));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {

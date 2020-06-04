@@ -69,7 +69,7 @@ public class a extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.apps.extco
         }
 
         private com.baidu.swan.apps.extcore.b.b acC() {
-            return b.fd(Qz());
+            return b.ff(Qz());
         }
 
         protected int Qz() {

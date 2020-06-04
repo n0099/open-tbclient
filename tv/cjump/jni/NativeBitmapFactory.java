@@ -10,9 +10,9 @@ import android.util.Log;
 import java.lang.reflect.Field;
 /* loaded from: classes5.dex */
 public class NativeBitmapFactory {
-    static Field nSA = null;
-    static boolean nSB = false;
-    static boolean nSC = false;
+    static Field nTK = null;
+    static boolean nTL = false;
+    static boolean nTM = false;
 
     private static native Bitmap createBitmap(int i, int i2, int i3, boolean z);
 
@@ -22,69 +22,69 @@ public class NativeBitmapFactory {
 
     private static native boolean release();
 
-    public static boolean dSr() {
-        return Build.VERSION.SDK_INT < 11 || (nSB && nSA != null);
+    public static boolean dSF() {
+        return Build.VERSION.SDK_INT < 11 || (nTL && nTK != null);
     }
 
-    public static void dSs() {
-        if (!nSC) {
+    public static void dSG() {
+        if (!nTM) {
             if (!DeviceUtils.isRealARMArch() && !DeviceUtils.isRealX86Arch()) {
-                nSC = true;
-                nSB = false;
-            } else if (!nSB) {
+                nTM = true;
+                nTL = false;
+            } else if (!nTL) {
                 try {
                     if (Build.VERSION.SDK_INT >= 11 && Build.VERSION.SDK_INT < 23) {
                         System.loadLibrary("ndkbitmap");
-                        nSB = true;
+                        nTL = true;
                     } else {
-                        nSC = true;
-                        nSB = false;
+                        nTM = true;
+                        nTL = false;
                     }
                 } catch (Error e) {
                     e.printStackTrace();
-                    nSC = true;
-                    nSB = false;
+                    nTM = true;
+                    nTL = false;
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    nSC = true;
-                    nSB = false;
+                    nTM = true;
+                    nTL = false;
                 }
-                if (nSB) {
+                if (nTL) {
                     if (!init()) {
                         release();
-                        nSC = true;
-                        nSB = false;
+                        nTM = true;
+                        nTL = false;
                     } else {
-                        dSu();
-                        if (!dSv()) {
+                        dSI();
+                        if (!dSJ()) {
                             release();
-                            nSC = true;
-                            nSB = false;
+                            nTM = true;
+                            nTL = false;
                         }
                     }
                 }
-                Log.e("NativeBitmapFactory", "loaded" + nSB);
+                Log.e("NativeBitmapFactory", "loaded" + nTL);
             }
         }
     }
 
-    public static synchronized void dSt() {
+    public static synchronized void dSH() {
         synchronized (NativeBitmapFactory.class) {
-            boolean z = nSB;
-            nSA = null;
-            nSB = false;
+            boolean z = nTL;
+            nTK = null;
+            nTL = false;
             if (z) {
                 release();
             }
         }
     }
 
-    static void dSu() {
+    static void dSI() {
         try {
-            nSA = Bitmap.Config.class.getDeclaredField("nativeInt");
-            nSA.setAccessible(true);
+            nTK = Bitmap.Config.class.getDeclaredField("nativeInt");
+            nTK.setAccessible(true);
         } catch (NoSuchFieldException e) {
-            nSA = null;
+            nTK = null;
             e.printStackTrace();
         }
     }
@@ -100,11 +100,11 @@ public class NativeBitmapFactory {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static boolean dSv() {
+    private static boolean dSJ() {
         Bitmap bitmap;
         boolean z;
         boolean z2 = true;
-        if (nSA == null) {
+        if (nTK == null) {
             return false;
         }
         Bitmap bitmap2 = null;
@@ -178,10 +178,10 @@ public class NativeBitmapFactory {
 
     public static int f(Bitmap.Config config) {
         try {
-            if (nSA == null) {
+            if (nTK == null) {
                 return 0;
             }
-            return nSA.getInt(config);
+            return nTK.getInt(config);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
             return 0;
@@ -198,7 +198,7 @@ public class NativeBitmapFactory {
     public static synchronized Bitmap a(int i, int i2, Bitmap.Config config, boolean z) {
         Bitmap createBitmap;
         synchronized (NativeBitmapFactory.class) {
-            createBitmap = (!nSB || nSA == null) ? Bitmap.createBitmap(i, i2, config) : b(i, i2, config, z);
+            createBitmap = (!nTL || nTK == null) ? Bitmap.createBitmap(i, i2, config) : b(i, i2, config, z);
         }
         return createBitmap;
     }

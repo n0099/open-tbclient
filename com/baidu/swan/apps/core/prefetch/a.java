@@ -142,7 +142,7 @@ public final class a {
             }
 
             @Override // com.baidu.swan.apps.core.a.a.a.InterfaceC0331a
-            public void eE(int i) {
+            public void eG(int i) {
                 if (a.DEBUG) {
                     Log.d("PrefetchEnv", "prepareBundle failed: " + i);
                 }

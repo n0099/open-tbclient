@@ -28,7 +28,7 @@ public class j {
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.top_general_image);
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
             aVar.aP(inflate);
-            aVar.kG(2);
+            aVar.kI(2);
             aVar.gX(true);
             aVar.setAutoNight(true);
             aVar.gW(true);
@@ -82,7 +82,7 @@ public class j {
             }
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
             aVar.aP(inflate);
-            aVar.kG(2);
+            aVar.kI(2);
             aVar.gX(false);
             aVar.setAutoNight(true);
             aVar.gW(true);
@@ -104,13 +104,13 @@ public class j {
             com.baidu.tbadk.core.util.am.setImageResource(tbImageView, R.drawable.backguard_mask_apity);
             com.baidu.tbadk.core.util.am.setViewTextColor(textView, (int) R.color.cp_cont_j);
             com.baidu.tbadk.core.util.am.setViewTextColor(textView2, (int) R.color.cp_link_tip_c);
-            SvgManager.aUV().a(imageView, R.drawable.ic_icon_popup_close_n, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.aUW().a(imageView, R.drawable.ic_icon_popup_close_n, SvgManager.SvgResourceStateType.NORMAL);
             textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.j.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     com.baidu.tbadk.core.dialog.a.this.dismiss();
                     if (intValue == 1) {
-                        ba.aUZ().b(tbPageContext, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", str2, str)});
+                        ba.aVa().b(tbPageContext, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", str2, str)});
                     }
                 }
             });

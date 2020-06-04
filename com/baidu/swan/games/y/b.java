@@ -11,7 +11,7 @@ public class b {
 
         void d(int i, long j, long j2);
 
-        void ej(int i);
+        void el(int i);
     }
 
     public static void a(String str, a aVar) {
@@ -23,7 +23,7 @@ public class b {
             }
             String ny = com.baidu.swan.games.y.a.aBW().ny(str);
             if (TextUtils.isEmpty(ny)) {
-                aVar.ej(2112);
+                aVar.el(2112);
             } else {
                 com.baidu.swan.pms.c.a(new com.baidu.swan.pms.c.d.e(aoF.id, Integer.valueOf(aoF.getVersion()).intValue(), ny, 1), new com.baidu.swan.games.y.b.a(aoF.id, aoF.getVersion(), com.baidu.swan.games.y.a.aBW().X(str, 2), aVar));
             }

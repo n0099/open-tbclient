@@ -4,46 +4,46 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class c {
-    private boolean mvb;
-    private boolean mvc;
-    private boolean mvd;
-    private boolean mve;
+    private boolean mwl;
+    private boolean mwm;
+    private boolean mwn;
+    private boolean mwo;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b mvf;
-    private int mva = 100;
+    private com.facebook.imagepipeline.decoder.b mwp;
+    private int mwk = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int dyb() {
-        return this.mva;
+    public int dyp() {
+        return this.mwk;
     }
 
-    public boolean dyc() {
-        return this.mvb;
+    public boolean dyq() {
+        return this.mwl;
     }
 
-    public boolean dyd() {
-        return this.mvc;
+    public boolean dyr() {
+        return this.mwm;
     }
 
-    public boolean dye() {
-        return this.mvd;
+    public boolean dys() {
+        return this.mwn;
     }
 
-    public c wg(boolean z) {
-        this.mve = z;
+    public c wi(boolean z) {
+        this.mwo = z;
         return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b dyf() {
-        return this.mvf;
+    public com.facebook.imagepipeline.decoder.b dyt() {
+        return this.mwp;
     }
 
-    public boolean dyg() {
-        return this.mve;
+    public boolean dyu() {
+        return this.mwo;
     }
 
-    public Bitmap.Config dyh() {
+    public Bitmap.Config dyv() {
         return this.mBitmapConfig;
     }
 
@@ -52,7 +52,7 @@ public class c {
         return this;
     }
 
-    public b dyi() {
+    public b dyw() {
         return new b(this);
     }
 }

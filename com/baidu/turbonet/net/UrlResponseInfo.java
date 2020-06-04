@@ -7,81 +7,81 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes.dex */
 public final class UrlResponseInfo {
-    private final int mdR;
-    private final List<String> mfj;
-    private final String mfk;
-    private final boolean mfl;
-    private final String mfm;
-    private final String mfn;
-    private final AtomicLong mfo = new AtomicLong();
-    private final HeaderBlock mfp;
+    private final int mfb;
+    private final List<String> mgt;
+    private final String mgu;
+    private final boolean mgv;
+    private final String mgw;
+    private final String mgx;
+    private final AtomicLong mgy = new AtomicLong();
+    private final HeaderBlock mgz;
 
     /* loaded from: classes.dex */
     public static final class HeaderBlock {
-        private final List<Map.Entry<String, String>> mfq;
+        private final List<Map.Entry<String, String>> mgA;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public HeaderBlock(List<Map.Entry<String, String>> list) {
-            this.mfq = list;
+            this.mgA = list;
         }
 
-        public List<Map.Entry<String, String>> drp() {
-            return this.mfq;
+        public List<Map.Entry<String, String>> drD() {
+            return this.mgA;
         }
     }
 
     public UrlResponseInfo(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3) {
-        this.mfj = Collections.unmodifiableList(list);
-        this.mdR = i;
-        this.mfk = str;
-        this.mfp = new HeaderBlock(Collections.unmodifiableList(list2));
-        this.mfl = z;
-        this.mfm = str2;
-        this.mfn = str3;
+        this.mgt = Collections.unmodifiableList(list);
+        this.mfb = i;
+        this.mgu = str;
+        this.mgz = new HeaderBlock(Collections.unmodifiableList(list2));
+        this.mgv = z;
+        this.mgw = str2;
+        this.mgx = str3;
     }
 
     public String getUrl() {
-        return this.mfj.get(this.mfj.size() - 1);
+        return this.mgt.get(this.mgt.size() - 1);
     }
 
-    public List<String> drj() {
-        return this.mfj;
+    public List<String> drx() {
+        return this.mgt;
     }
 
     public int getHttpStatusCode() {
-        return this.mdR;
+        return this.mfb;
     }
 
-    public String drk() {
-        return this.mfk;
+    public String dry() {
+        return this.mgu;
     }
 
-    public List<Map.Entry<String, String>> drl() {
-        return this.mfp.drp();
+    public List<Map.Entry<String, String>> drz() {
+        return this.mgz.drD();
     }
 
-    public boolean drm() {
-        return this.mfl;
+    public boolean drA() {
+        return this.mgv;
     }
 
-    public String drn() {
-        return this.mfm;
+    public String drB() {
+        return this.mgw;
     }
 
-    public String dro() {
-        return this.mfn;
+    public String drC() {
+        return this.mgx;
     }
 
     public long getReceivedBytesCount() {
-        return this.mfo.get();
+        return this.mgy.get();
     }
 
     public String toString() {
-        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), drj().toString(), Integer.valueOf(getHttpStatusCode()), drk(), drl().toString(), Boolean.valueOf(drm()), drn(), dro(), Long.valueOf(getReceivedBytesCount()));
+        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), drx().toString(), Integer.valueOf(getHttpStatusCode()), dry(), drz().toString(), Boolean.valueOf(drA()), drB(), drC(), Long.valueOf(getReceivedBytesCount()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void fz(long j) {
-        this.mfo.set(j);
+        this.mgy.set(j);
     }
 }

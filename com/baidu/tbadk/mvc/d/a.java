@@ -18,7 +18,7 @@ public class a implements b {
         this.eqM = z;
     }
 
-    public boolean bff() {
+    public boolean bfg() {
         return this.eqO;
     }
 
@@ -26,7 +26,7 @@ public class a implements b {
         this.eqO = z;
     }
 
-    public boolean bfg() {
+    public boolean bfh() {
         return this.eqP;
     }
 
@@ -34,7 +34,7 @@ public class a implements b {
         this.eqP = z;
     }
 
-    public boolean bfh() {
+    public boolean bfi() {
         return this.eqQ;
     }
 

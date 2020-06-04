@@ -142,7 +142,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 if (ChangeSystemPhotoActivity.this.euq != null && ChangeSystemPhotoActivity.this.euq.size() > 0 && ChangeSystemPhotoActivity.this.euq.size() > i && ChangeSystemPhotoActivity.this.euq.get(i) != null) {
                     ChangeSystemPhotoActivity.this.eur = i;
                     ChangeSystemPhotoActivity.this.it(true);
-                    ChangeSystemPhotoActivity.this.eup.nF(i);
+                    ChangeSystemPhotoActivity.this.eup.nH(i);
                     ChangeSystemPhotoActivity.this.eup.notifyDataSetChanged();
                 }
             }
@@ -152,10 +152,10 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public void initData() {
         this.euv = getIntent().getBooleanExtra("need_upload", true);
         this.euq = new ArrayList<>();
-        bgf();
+        bgg();
     }
 
-    private void bgf() {
+    private void bgg() {
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
             SapiAccountManager.getInstance().getAccountService().getPopularPortraitsInfo(new GetPopularPortraitsCallback() { // from class: com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity.4
@@ -169,7 +169,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                                 b bVar = new b();
                                 bVar.setUrl(popularPortraitsInfo.url);
                                 bVar.setNum(popularPortraitsInfo.num);
-                                bVar.nG(popularPortraitsInfo.myItem);
+                                bVar.nI(popularPortraitsInfo.myItem);
                                 bVar.yM(popularPortraitsInfo.series);
                                 ChangeSystemPhotoActivity.this.euq.add(bVar);
                             }
@@ -211,7 +211,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
 
     public void showDialog() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.kD(R.string.enter_forum_cancel_change_tip);
+        aVar.kF(R.string.enter_forum_cancel_change_tip);
         aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity.5
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -293,7 +293,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 e = e2;
             }
             try {
-                if (this.mNetwork.aUA().aVb().isRequestSuccess()) {
+                if (this.mNetwork.aUA().aVc().isRequestSuccess()) {
                     return str;
                 }
                 return null;
@@ -321,7 +321,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 if (ChangeSystemPhotoActivity.this.euw != null) {
                     ChangeSystemPhotoActivity.this.euw.setDialogVisiable(false);
                 }
-                if (this.mNetwork.aUA().aVb().isRequestSuccess()) {
+                if (this.mNetwork.aUA().aVc().isRequestSuccess()) {
                     new com.baidu.tbadk.core.view.c().showSuccessToast(ChangeSystemPhotoActivity.this.getResources().getString(R.string.reset_success));
                     Intent intent = new Intent();
                     intent.putExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL, ChangeSystemPhotoActivity.this.euu);

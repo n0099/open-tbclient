@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.c, a> {
     public h(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.c.hYb);
+        super(context, com.baidu.tieba.homepage.concern.b.c.hYO);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         if (cVar.tipString != null) {
             aVar.tipText.setText(cVar.tipString);
         }
-        switch (cVar.hYc) {
+        switch (cVar.hYP) {
             case 2:
                 aVar.ce(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
                 break;
@@ -45,15 +45,15 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* loaded from: classes9.dex */
     public static class a extends aa.a {
         private int agt;
-        public ViewGroup hXy;
-        public ImageView hXz;
+        public ViewGroup hYl;
+        public ImageView hYm;
         public TextView tipText;
 
         public a(View view) {
             super(view);
             this.agt = 3;
-            this.hXy = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
-            this.hXz = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
+            this.hYl = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
+            this.hYm = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
             this.tipText = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
         }
 
@@ -61,7 +61,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             if (this.agt != i) {
                 am.setViewTextColor(this.tipText, (int) R.color.cp_cont_j);
             }
-            am.setImageResource(this.hXz, i2);
+            am.setImageResource(this.hYm, i2);
             this.agt = i;
         }
     }

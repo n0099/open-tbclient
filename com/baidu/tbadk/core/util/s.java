@@ -543,7 +543,7 @@ public class s {
     }
 
     private static String aUp() {
-        return com.baidu.tbadk.imageManager.c.bet().toLogString();
+        return com.baidu.tbadk.imageManager.c.beu().toLogString();
     }
 
     private static String aUq() {

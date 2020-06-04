@@ -63,7 +63,7 @@ public class a extends aa {
             if (hVar == null || hVar.mData == null) {
                 int errorCode = hVar == null ? 10001 : hVar.getErrorCode();
                 com.baidu.swan.apps.setting.oauth.c.c("empty auth result", true);
-                jSONObject.put("errMsg", com.baidu.swan.apps.setting.oauth.c.gM(errorCode));
+                jSONObject.put("errMsg", com.baidu.swan.apps.setting.oauth.c.gO(errorCode));
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, errorCode).toString());
                 com.baidu.swan.games.v.c.f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, errorCode).toString());
             } else if (!hVar.isOk()) {

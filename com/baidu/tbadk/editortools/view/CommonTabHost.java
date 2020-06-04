@@ -32,7 +32,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
     public interface a {
         void adb();
 
-        void beg();
+        void beh();
 
         void c(com.baidu.tbadk.editortools.view.a aVar);
     }
@@ -55,10 +55,10 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
                 int i = 0;
                 boolean z2 = false;
                 while (i < size) {
-                    a.b beb = ((com.baidu.tbadk.editortools.view.a) CommonTabHost.this.dJp.get(i)).beb();
-                    if (beb != null) {
+                    a.b bec = ((com.baidu.tbadk.editortools.view.a) CommonTabHost.this.dJp.get(i)).bec();
+                    if (bec != null) {
                         z = true;
-                        CommonTabHost.this.c(beb);
+                        CommonTabHost.this.c(bec);
                     } else {
                         z = z2;
                     }
@@ -76,7 +76,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
             }
 
             @Override // com.baidu.tbadk.editortools.view.CommonTabHost.a
-            public void beg() {
+            public void beh() {
                 CommonTabHost.this.showProgressBar();
             }
 
@@ -107,10 +107,10 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
                 int i = 0;
                 boolean z2 = false;
                 while (i < size) {
-                    a.b beb = ((com.baidu.tbadk.editortools.view.a) CommonTabHost.this.dJp.get(i)).beb();
-                    if (beb != null) {
+                    a.b bec = ((com.baidu.tbadk.editortools.view.a) CommonTabHost.this.dJp.get(i)).bec();
+                    if (bec != null) {
                         z = true;
-                        CommonTabHost.this.c(beb);
+                        CommonTabHost.this.c(bec);
                     } else {
                         z = z2;
                     }
@@ -128,7 +128,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
             }
 
             @Override // com.baidu.tbadk.editortools.view.CommonTabHost.a
-            public void beg() {
+            public void beh() {
                 CommonTabHost.this.showProgressBar();
             }
 
@@ -196,7 +196,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
     }
 
     @Override // com.baidu.tbadk.editortools.view.CommonTabWidgetView.a
-    public void np(int i) {
+    public void nr(int i) {
         setCurrentTab(i);
     }
 

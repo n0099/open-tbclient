@@ -20,7 +20,7 @@ public class k {
         this.dCS = new ArrayList<>(3);
     }
 
-    public ArrayList<String> aXX() {
+    public ArrayList<String> aXY() {
         return this.dCS;
     }
 

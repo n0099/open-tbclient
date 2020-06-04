@@ -6,15 +6,15 @@ import tbclient.HistorySwan.DataRes;
 import tbclient.SmartApp;
 /* loaded from: classes11.dex */
 public class a {
-    private List<SmartApp> knx;
+    private List<SmartApp> koD;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.knx = new ArrayList(dataRes.swan_list);
+            this.koD = new ArrayList(dataRes.swan_list);
         }
     }
 
-    public List<SmartApp> cNO() {
-        return this.knx;
+    public List<SmartApp> cOe() {
+        return this.koD;
     }
 }

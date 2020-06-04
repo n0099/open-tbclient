@@ -245,12 +245,12 @@ public class a extends com.baidu.swan.apps.core.d.b implements View.OnClickListe
                 fW(true);
             }
         } else if (view.getId() == R.id.finish) {
-            iG(16);
+            iI(16);
             aEl();
         } else if (view.getId() == R.id.search) {
             b(this.dgT);
         } else if (view.getId() == R.id.cancel) {
-            iG(17);
+            iI(17);
             aEl();
         }
     }
@@ -325,7 +325,7 @@ public class a extends com.baidu.swan.apps.core.d.b implements View.OnClickListe
         }
     }
 
-    private void iG(int i) {
+    private void iI(int i) {
         if (this.dha != null) {
             switch (i) {
                 case 16:
@@ -428,7 +428,7 @@ public class a extends com.baidu.swan.apps.core.d.b implements View.OnClickListe
 
     @Override // com.baidu.swan.apps.core.d.b
     public boolean Tc() {
-        iG(17);
+        iI(17);
         return false;
     }
 

@@ -11,7 +11,7 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class e {
     private static File ate = h.getPrivateCaptureRootChildDir("duFilter");
-    private static List<String> eXb = Collections.synchronizedList(new ArrayList());
+    private static List<String> eXm = Collections.synchronizedList(new ArrayList());
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -40,7 +40,7 @@ public class e {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return com.baidu.tieba.ala.alaar.sticker.download.b.bpC().isRunning(str);
+        return com.baidu.tieba.ala.alaar.sticker.download.b.bpE().isRunning(str);
     }
 
     public static void a(final String str, final a aVar) {
@@ -54,8 +54,8 @@ public class e {
                 return;
             }
             final String md5 = Md5.toMd5(str);
-            eXb.add(str);
-            com.baidu.tieba.ala.alaar.sticker.download.b.bpC().a(str, ate, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.e.1
+            eXm.add(str);
+            com.baidu.tieba.ala.alaar.sticker.download.b.bpE().a(str, ate, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.e.1
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onStarted() {
                     super.onStarted();
@@ -85,7 +85,7 @@ public class e {
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onCompleted(String str2) {
                     super.onCompleted(str2);
-                    e.eXb.remove(str);
+                    e.eXm.remove(str);
                     if (!TextUtils.isEmpty(str2) && a.this != null) {
                         File file = new File(str2);
                         File AI = e.AI(md5);
@@ -110,7 +110,7 @@ public class e {
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void a(DownloadException downloadException) {
                     int i;
-                    e.eXb.remove(str);
+                    e.eXm.remove(str);
                     super.a(downloadException);
                     if (a.this != null) {
                         String str2 = null;

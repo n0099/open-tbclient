@@ -15,13 +15,13 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
     private Map<Integer, Boolean> bdI = new HashMap();
-    private AlbumActivity lRt;
+    private AlbumActivity lSE;
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mList;
 
     public AlbumImagePagerAdapter(AlbumActivity albumActivity) {
-        this.lRt = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.lRt.getPageContext().getPageActivity());
+        this.lSE = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.lSE.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -44,11 +44,11 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         viewGroup.removeView((View) obj);
     }
 
-    public ImageFileInfo zH(int i) {
+    public ImageFileInfo zJ(int i) {
         return (ImageFileInfo) v.getItem(this.mList, i);
     }
 
-    public boolean dk(int i) {
+    public boolean dm(int i) {
         if (this.bdI.get(Integer.valueOf(i)) == null) {
             return false;
         }
@@ -72,10 +72,10 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         tbImageView2.setDefaultErrorResource(0);
         tbImageView2.setGifIconSupport(false);
         tbImageView2.setLongIconSupport(false);
-        ImageFileInfo zH = zH(i);
-        if (zH != null) {
-            tbImageView2.startLoad(zH.getFilePath(), 35, false, true);
-            tbImageView.startLoad(zH.getFilePath(), 36, false);
+        ImageFileInfo zJ = zJ(i);
+        if (zJ != null) {
+            tbImageView2.startLoad(zJ.getFilePath(), 35, false, true);
+            tbImageView.startLoad(zJ.getFilePath(), 36, false);
             this.bdI.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);

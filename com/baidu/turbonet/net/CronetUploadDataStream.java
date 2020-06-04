@@ -13,23 +13,23 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes.dex */
 public final class CronetUploadDataStream implements UploadDataSink {
     private final Executor mExecutor;
-    private Runnable mcf;
-    private final UploadDataProvider mcq;
-    private final CronetUrlRequest mcr;
-    private long mcs;
-    private long mct;
-    private final Runnable mcu = new Runnable() { // from class: com.baidu.turbonet.net.CronetUploadDataStream.1
+    private final UploadDataProvider mdA;
+    private final CronetUrlRequest mdB;
+    private long mdC;
+    private long mdD;
+    private Runnable mdp;
+    private final Runnable mdE = new Runnable() { // from class: com.baidu.turbonet.net.CronetUploadDataStream.1
         @Override // java.lang.Runnable
         public void run() {
             synchronized (CronetUploadDataStream.this.mLock) {
-                if (CronetUploadDataStream.this.mcv != 0) {
+                if (CronetUploadDataStream.this.mdF != 0) {
                     CronetUploadDataStream.this.a(UserCallback.NOT_IN_CALLBACK);
                     if (CronetUploadDataStream.this.mByteBuffer == null) {
                         throw new IllegalStateException("Unexpected readData call. Buffer is null");
                     }
-                    CronetUploadDataStream.this.mcw = UserCallback.READ;
+                    CronetUploadDataStream.this.mdG = UserCallback.READ;
                     try {
-                        CronetUploadDataStream.this.mcq.a(CronetUploadDataStream.this, CronetUploadDataStream.this.mByteBuffer);
+                        CronetUploadDataStream.this.mdA.a(CronetUploadDataStream.this, CronetUploadDataStream.this.mByteBuffer);
                     } catch (Exception e) {
                         CronetUploadDataStream.this.onError(e);
                     }
@@ -40,11 +40,11 @@ public final class CronetUploadDataStream implements UploadDataSink {
     private ByteBuffer mByteBuffer = null;
     private final Object mLock = new Object();
     @GuardedBy("mLock")
-    private long mcv = 0;
+    private long mdF = 0;
     @GuardedBy("mLock")
-    private UserCallback mcw = UserCallback.NOT_IN_CALLBACK;
+    private UserCallback mdG = UserCallback.NOT_IN_CALLBACK;
     @GuardedBy("mLock")
-    private boolean mcx = false;
+    private boolean mdH = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -72,14 +72,14 @@ public final class CronetUploadDataStream implements UploadDataSink {
 
     public CronetUploadDataStream(UploadDataProvider uploadDataProvider, Executor executor, CronetUrlRequest cronetUrlRequest) {
         this.mExecutor = executor;
-        this.mcq = uploadDataProvider;
-        this.mcr = cronetUrlRequest;
+        this.mdA = uploadDataProvider;
+        this.mdB = cronetUrlRequest;
     }
 
     @CalledByNative
     void readData(ByteBuffer byteBuffer) {
         this.mByteBuffer = byteBuffer;
-        C(this.mcu);
+        C(this.mdE);
     }
 
     @CalledByNative
@@ -88,11 +88,11 @@ public final class CronetUploadDataStream implements UploadDataSink {
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (CronetUploadDataStream.this.mLock) {
-                    if (CronetUploadDataStream.this.mcv != 0) {
+                    if (CronetUploadDataStream.this.mdF != 0) {
                         CronetUploadDataStream.this.a(UserCallback.NOT_IN_CALLBACK);
-                        CronetUploadDataStream.this.mcw = UserCallback.REWIND;
+                        CronetUploadDataStream.this.mdG = UserCallback.REWIND;
                         try {
-                            CronetUploadDataStream.this.mcq.a(CronetUploadDataStream.this);
+                            CronetUploadDataStream.this.mdA.a(CronetUploadDataStream.this);
                         } catch (Exception e) {
                             CronetUploadDataStream.this.onError(e);
                         }
@@ -105,58 +105,58 @@ public final class CronetUploadDataStream implements UploadDataSink {
     /* JADX INFO: Access modifiers changed from: private */
     @GuardedBy("mLock")
     public void a(UserCallback userCallback) {
-        if (this.mcw != userCallback) {
-            throw new IllegalStateException("Expected " + userCallback + ", but was " + this.mcw);
+        if (this.mdG != userCallback) {
+            throw new IllegalStateException("Expected " + userCallback + ", but was " + this.mdG);
         }
     }
 
     @CalledByNative
     void onUploadDataStreamDestroyed() {
-        dqh();
+        dqv();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onError(Throwable th) {
         synchronized (this.mLock) {
-            if (this.mcw == UserCallback.NOT_IN_CALLBACK) {
+            if (this.mdG == UserCallback.NOT_IN_CALLBACK) {
                 throw new IllegalStateException("There is no read or rewind or length check in progress.");
             }
-            this.mcw = UserCallback.NOT_IN_CALLBACK;
+            this.mdG = UserCallback.NOT_IN_CALLBACK;
             this.mByteBuffer = null;
-            dqi();
+            dqw();
         }
-        this.mcr.u(th);
+        this.mdB.u(th);
     }
 
     @Override // com.baidu.turbonet.net.UploadDataSink
-    public void vF(boolean z) {
+    public void vH(boolean z) {
         synchronized (this.mLock) {
             a(UserCallback.READ);
-            if (z && this.mcs >= 0) {
+            if (z && this.mdC >= 0) {
                 throw new IllegalArgumentException("Non-chunked upload can't have last chunk");
             }
             int position = this.mByteBuffer.position();
-            this.mct -= position;
-            if (this.mct < 0 && this.mcs >= 0) {
-                throw new IllegalArgumentException(String.format("Read upload data length %d exceeds expected length %d", Long.valueOf(this.mcs - this.mct), Long.valueOf(this.mcs)));
+            this.mdD -= position;
+            if (this.mdD < 0 && this.mdC >= 0) {
+                throw new IllegalArgumentException(String.format("Read upload data length %d exceeds expected length %d", Long.valueOf(this.mdC - this.mdD), Long.valueOf(this.mdC)));
             }
             this.mByteBuffer = null;
-            this.mcw = UserCallback.NOT_IN_CALLBACK;
-            dqi();
-            if (this.mcv != 0) {
-                nativeOnReadSucceeded(this.mcv, position, z);
+            this.mdG = UserCallback.NOT_IN_CALLBACK;
+            dqw();
+            if (this.mdF != 0) {
+                nativeOnReadSucceeded(this.mdF, position, z);
             }
         }
     }
 
     @Override // com.baidu.turbonet.net.UploadDataSink
-    public void dqg() {
+    public void dqu() {
         synchronized (this.mLock) {
             a(UserCallback.REWIND);
-            this.mcw = UserCallback.NOT_IN_CALLBACK;
-            this.mct = this.mcs;
-            if (this.mcv != 0) {
-                nativeOnRewindSucceeded(this.mcv);
+            this.mdG = UserCallback.NOT_IN_CALLBACK;
+            this.mdD = this.mdC;
+            if (this.mdF != 0) {
+                nativeOnRewindSucceeded(this.mdF);
             }
         }
     }
@@ -174,25 +174,25 @@ public final class CronetUploadDataStream implements UploadDataSink {
         try {
             this.mExecutor.execute(runnable);
         } catch (Throwable th) {
-            this.mcr.u(th);
+            this.mdB.u(th);
         }
     }
 
-    private void dqh() {
+    private void dqv() {
         synchronized (this.mLock) {
-            if (this.mcw == UserCallback.READ) {
-                this.mcx = true;
-            } else if (this.mcv != 0) {
-                nativeDestroy(this.mcv);
-                this.mcv = 0L;
-                if (this.mcf != null) {
-                    this.mcf.run();
+            if (this.mdG == UserCallback.READ) {
+                this.mdH = true;
+            } else if (this.mdF != 0) {
+                nativeDestroy(this.mdF);
+                this.mdF = 0L;
+                if (this.mdp != null) {
+                    this.mdp.run();
                 }
                 C(new Runnable() { // from class: com.baidu.turbonet.net.CronetUploadDataStream.3
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            CronetUploadDataStream.this.mcq.close();
+                            CronetUploadDataStream.this.mdA.close();
                         } catch (IOException e) {
                             Log.e("CronetUploadDataStream", "Exception thrown when closing", e);
                         }
@@ -202,37 +202,37 @@ public final class CronetUploadDataStream implements UploadDataSink {
         }
     }
 
-    private void dqi() {
+    private void dqw() {
         synchronized (this.mLock) {
-            if (this.mcw == UserCallback.READ) {
+            if (this.mdG == UserCallback.READ) {
                 throw new IllegalStateException("Method should not be called when read has not completed.");
             }
-            if (this.mcx) {
-                dqh();
+            if (this.mdH) {
+                dqv();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void dqj() {
+    public void dqx() {
         synchronized (this.mLock) {
-            this.mcw = UserCallback.GET_LENGTH;
+            this.mdG = UserCallback.GET_LENGTH;
         }
         try {
-            this.mcs = this.mcq.getLength();
-            this.mct = this.mcs;
+            this.mdC = this.mdA.getLength();
+            this.mdD = this.mdC;
         } catch (Throwable th) {
             onError(th);
         }
         synchronized (this.mLock) {
-            this.mcw = UserCallback.NOT_IN_CALLBACK;
+            this.mdG = UserCallback.NOT_IN_CALLBACK;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void fx(long j) {
         synchronized (this.mLock) {
-            this.mcv = nativeAttachUploadDataToRequest(j, this.mcs);
+            this.mdF = nativeAttachUploadDataToRequest(j, this.mdC);
         }
     }
 }

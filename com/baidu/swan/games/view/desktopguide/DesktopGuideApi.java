@@ -65,7 +65,7 @@ public class DesktopGuideApi implements b {
             if (this.bKh != null) {
                 this.bKh.a(new b.a() { // from class: com.baidu.swan.games.view.desktopguide.DesktopGuideApi.1
                     @Override // com.baidu.swan.games.view.b.a
-                    public void ek(int i) {
+                    public void em(int i) {
                         if (i == 0 && DesktopGuideApi.this.bKb != null && DesktopGuideApi.this.bKb.isShowing()) {
                             DesktopGuideApi.this.HR();
                             DesktopGuideApi.this.a(DesktopApiStatus.USER_CANCEL);
@@ -172,7 +172,7 @@ public class DesktopGuideApi implements b {
     public void a(@NonNull final Activity activity, @NonNull final e eVar, @NonNull final DesktopGuideType desktopGuideType, @NonNull String str, Bitmap bitmap) {
         TX();
         if (this.bKh != null) {
-            this.bKh.iw(1);
+            this.bKh.iy(1);
         }
         View inflate = LayoutInflater.from(activity).inflate(a.g.aiapps_favorite_guide_normal, (ViewGroup) null, false);
         TextView textView = (TextView) inflate.findViewById(a.f.favorite_guide_content);
@@ -251,7 +251,7 @@ public class DesktopGuideApi implements b {
         } else {
             com.baidu.swan.apps.aj.a.a(context, QJ, new a.InterfaceC0287a() { // from class: com.baidu.swan.games.view.desktopguide.DesktopGuideApi.8
                 @Override // com.baidu.swan.apps.aj.a.InterfaceC0287a
-                public void gP(int i) {
+                public void gR(int i) {
                     DesktopApiStatus desktopApiStatus;
                     String str;
                     switch (i) {

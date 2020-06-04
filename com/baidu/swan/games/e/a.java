@@ -36,7 +36,7 @@ public class a extends aa {
                     cVar.mDownloadUrl = ad(context, optString);
                     new com.baidu.swan.apps.k.a().a(cVar, b.acM().getPath(), new e.b() { // from class: com.baidu.swan.games.e.a.1
                         @Override // com.baidu.swan.apps.r.e.b
-                        public void dr(int i) {
+                        public void dt(int i) {
                         }
 
                         @Override // com.baidu.swan.apps.r.e.b

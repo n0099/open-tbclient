@@ -84,7 +84,7 @@ public class b extends com.baidu.swan.apps.component.a.c.b {
         this.selectionEnd = i2;
     }
 
-    public void er(int i) {
+    public void et(int i) {
         this.mViewHeight = i;
     }
 }

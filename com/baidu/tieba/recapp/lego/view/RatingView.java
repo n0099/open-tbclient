@@ -14,13 +14,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes13.dex */
 public class RatingView extends LinearLayout {
-    private a kMK;
+    private a kNT;
     private Context mContext;
 
     /* loaded from: classes13.dex */
     public static class a {
-        public String jcm;
-        public Double jcn;
+        public String jcZ;
+        public Double jda;
         public String title;
     }
 
@@ -47,7 +47,7 @@ public class RatingView extends LinearLayout {
         return imageView;
     }
 
-    private a Lo(String str) {
+    private a Lp(String str) {
         a aVar = new a();
         aVar.title = "";
         if (!TextUtils.isEmpty(str)) {
@@ -57,7 +57,7 @@ public class RatingView extends LinearLayout {
                     if (!TextUtils.isEmpty(matcher.group(1))) {
                         aVar.title = matcher.group(1);
                     }
-                    aVar.jcn = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
+                    aVar.jda = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
                 } catch (NumberFormatException e) {
                     aVar.title = str;
                 }
@@ -69,19 +69,19 @@ public class RatingView extends LinearLayout {
     }
 
     public void setRating(String str, String str2) {
-        this.kMK = Lo(str2);
-        this.kMK.jcm = str;
-        cuq();
+        this.kNT = Lp(str2);
+        this.kNT.jcZ = str;
+        cuz();
     }
 
-    private void cuq() {
+    private void cuz() {
         int i;
         removeAllViews();
-        if (this.kMK != null) {
-            if (!TextUtils.isEmpty(this.kMK.jcm)) {
+        if (this.kNT != null) {
+            if (!TextUtils.isEmpty(this.kNT.jcZ)) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView = new TextView(this.mContext);
-                textView.setText(this.kMK.jcm);
+                textView.setText(this.kNT.jcZ);
                 textView.setTextSize(0, l.getDimens(this.mContext, R.dimen.fontsize24));
                 textView.setTextColor(am.getColor(R.color.cp_cont_d));
                 textView.setPadding(0, 0, l.getDimens(this.mContext, R.dimen.ds30), 0);
@@ -89,10 +89,10 @@ public class RatingView extends LinearLayout {
                 textView.setIncludeFontPadding(false);
                 addView(textView);
             }
-            if (!TextUtils.isEmpty(this.kMK.title)) {
+            if (!TextUtils.isEmpty(this.kNT.title)) {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView2 = new TextView(this.mContext);
-                textView2.setText(this.kMK.title);
+                textView2.setText(this.kNT.title);
                 textView2.setTextSize(0, l.getDimens(this.mContext, R.dimen.fontsize24));
                 textView2.setTextColor(am.getColor(R.color.cp_cont_d));
                 textView2.setPadding(0, 0, l.getDimens(this.mContext, R.dimen.ds6), 0);
@@ -100,8 +100,8 @@ public class RatingView extends LinearLayout {
                 textView2.setIncludeFontPadding(false);
                 addView(textView2);
             }
-            if (this.kMK.jcn != null && !Double.isNaN(this.kMK.jcn.doubleValue())) {
-                Integer valueOf = Integer.valueOf(this.kMK.jcn.intValue());
+            if (this.kNT.jda != null && !Double.isNaN(this.kNT.jda.doubleValue())) {
+                Integer valueOf = Integer.valueOf(this.kNT.jda.intValue());
                 if (valueOf.intValue() > 10) {
                     valueOf = 10;
                 }

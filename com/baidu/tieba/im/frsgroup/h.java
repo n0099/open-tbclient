@@ -5,49 +5,49 @@ import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes10.dex */
 public class h implements o {
-    public static final BdUniqueId iAo = BdUniqueId.gen();
+    public static final BdUniqueId iBb = BdUniqueId.gen();
     private Object agg;
-    private NoDataViewFactory.ImgType iAp;
-    private String iAq;
-    private String iAr;
-    private String iAs;
-    private int iAt;
+    private NoDataViewFactory.ImgType iBc;
+    private String iBd;
+    private String iBe;
+    private String iBf;
+    private int iBg;
 
     @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return iAo;
+        return iBb;
     }
 
-    public String cmk() {
-        return this.iAq;
+    public String cmt() {
+        return this.iBd;
     }
 
     public void Gx(String str) {
-        this.iAq = str;
+        this.iBd = str;
     }
 
-    public String cml() {
-        return this.iAr;
+    public String cmu() {
+        return this.iBe;
     }
 
     public void Gy(String str) {
-        this.iAr = str;
+        this.iBe = str;
     }
 
-    public String cmm() {
-        return this.iAs;
+    public String cmv() {
+        return this.iBf;
     }
 
     public void Gz(String str) {
-        this.iAs = str;
+        this.iBf = str;
     }
 
-    public int cmn() {
-        return this.iAt;
+    public int cmw() {
+        return this.iBg;
     }
 
-    public void xE(int i) {
-        this.iAt = i;
+    public void xG(int i) {
+        this.iBg = i;
     }
 
     public Object rS() {
@@ -58,11 +58,11 @@ public class h implements o {
         this.agg = obj;
     }
 
-    public NoDataViewFactory.ImgType cmo() {
-        return this.iAp;
+    public NoDataViewFactory.ImgType cmx() {
+        return this.iBc;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.iAp = imgType;
+        this.iBc = imgType;
     }
 }

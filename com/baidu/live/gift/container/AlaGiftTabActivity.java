@@ -248,7 +248,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
                 }
             }
         }
-        bU(i);
+        bW(i);
     }
 
     @Override // com.baidu.live.gift.container.AlaGiftTabView.a
@@ -521,8 +521,8 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
         }
         this.aHA.setCallback(new GiftPanelTabView.a() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.8
             @Override // com.baidu.live.gift.widget.panel.GiftPanelTabView.a
-            public void bV(int i) {
-                AlaGiftTabActivity.this.bU(i);
+            public void bX(int i) {
+                AlaGiftTabActivity.this.bW(i);
             }
         });
     }
@@ -618,10 +618,10 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     private void zd() {
         this.aHF.setCallback(new GiftPanelDrawContainerView.a() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.11
             @Override // com.baidu.live.gift.widget.panel.GiftPanelDrawContainerView.a
-            public void bW(int i) {
+            public void bY(int i) {
                 com.baidu.live.gift.panel.c zi = AlaGiftTabActivity.this.zi();
                 if (zi != null && zi.aMJ != null) {
-                    zi.aMJ.ce(i);
+                    zi.aMJ.cg(i);
                 }
             }
 
@@ -696,7 +696,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bU(int i) {
+    public void bW(int i) {
         if (this.aHA != null) {
             this.aHA.setSelect(i);
         }
@@ -761,7 +761,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
         if (alaLiveGiftUIInfo != null && alaLiveGiftUIInfo.getCategoryTextSelectedColor() != 0 && (this.aHC.getAdapter() instanceof GiftPanelFragmentPagerAdapter) && ((GiftPanelFragmentPagerAdapter) this.aHC.getAdapter()).AM() != null && this.aHR != null) {
             for (SupportXFragment supportXFragment : this.aHR) {
                 if (supportXFragment instanceof com.baidu.live.gift.panel.c) {
-                    ((com.baidu.live.gift.panel.c) supportXFragment).bX(alaLiveGiftUIInfo.getCategoryTextSelectedColor());
+                    ((com.baidu.live.gift.panel.c) supportXFragment).bZ(alaLiveGiftUIInfo.getCategoryTextSelectedColor());
                 }
             }
         }
@@ -779,7 +779,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
             view.setBackgroundColor(0);
             linearLayout.addView(view, new LinearLayout.LayoutParams(-1, ze()));
             this.mContentLayout.addView(linearLayout, 0);
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dvf().c(simpleDraweeView.getController()).bb(ImageRequestBuilder.ab(Uri.parse(alaLiveGiftUIInfo.getVerticalBgUrl())).a(com.facebook.imagepipeline.common.e.dyl()).a(com.facebook.imagepipeline.common.b.dya().c(Bitmap.Config.RGB_565).dyi()).dCl()).wa(true).c(new com.facebook.drawee.controller.c<f>() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.4
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dvt().c(simpleDraweeView.getController()).bb(ImageRequestBuilder.ab(Uri.parse(alaLiveGiftUIInfo.getVerticalBgUrl())).a(com.facebook.imagepipeline.common.e.dyz()).a(com.facebook.imagepipeline.common.b.dyo().c(Bitmap.Config.RGB_565).dyw()).dCz()).wc(true).c(new com.facebook.drawee.controller.c<f>() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.4
                 @Override // com.facebook.drawee.controller.c
                 public void g(String str, Object obj) {
                 }
@@ -809,7 +809,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
                 @Override // com.facebook.drawee.controller.c
                 public void eV(String str) {
                 }
-            }).dvW());
+            }).dwk());
         }
     }
 

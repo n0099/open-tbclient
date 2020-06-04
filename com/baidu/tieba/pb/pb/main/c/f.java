@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class f extends a {
-    private int jJK;
-    private bk jWB;
-    private al jWH;
-    private AbsThreadDataSupport jWy;
-    private aa jWz;
+    private int jKQ;
+    private AbsThreadDataSupport jXE;
+    private aa jXF;
+    private bk jXH;
+    private al jXN;
     private LinearLayout mRootView;
 
     public f(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
-        this.jJK = i;
+        this.jKQ = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
@@ -36,32 +36,32 @@ public class f extends a {
             this.mRootView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         }
         this.mRootView.removeAllViews();
-        if (this.jWz == null) {
-            this.jWz = new aa(this.dIF);
-            this.jWz.b((Boolean) true);
+        if (this.jXF == null) {
+            this.jXF = new aa(this.dIF);
+            this.jXF.b((Boolean) true);
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         layoutParams.topMargin = this.dIF.getResources().getDimensionPixelOffset(R.dimen.tbds39);
         layoutParams.leftMargin = this.dIF.getResources().getDimensionPixelOffset(R.dimen.tbds44);
         layoutParams.rightMargin = this.dIF.getResources().getDimensionPixelOffset(R.dimen.tbds44);
-        this.mRootView.addView(this.jWz.getView(), layoutParams);
-        if (this.jWH == null) {
-            this.jWH = new al(this.dIF.getPageActivity());
+        this.mRootView.addView(this.jXF.getView(), layoutParams);
+        if (this.jXN == null) {
+            this.jXN = new al(this.dIF.getPageActivity());
         }
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams2.topMargin = this.dIF.getResources().getDimensionPixelOffset(R.dimen.tbds22);
-        this.mRootView.addView(this.jWH.getView(), layoutParams2);
+        this.mRootView.addView(this.jXN.getView(), layoutParams2);
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.jWx = originalThreadInfo;
-        this.jWB = originalThreadInfo == null ? null : originalThreadInfo.aPf();
-        this.jWy = new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.f.1
+        this.jXD = originalThreadInfo;
+        this.jXH = originalThreadInfo == null ? null : originalThreadInfo.aPf();
+        this.jXE = new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.f.1
             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
             public bk aOi() {
-                return f.this.jWB;
+                return f.this.jXH;
             }
 
             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
@@ -74,37 +74,37 @@ public class f extends a {
                 return null;
             }
         };
-        if (this.jWH != null) {
-            this.jWH.D(this.jWy);
+        if (this.jXN != null) {
+            this.jXN.D(this.jXE);
         }
-        if (this.jWz != null) {
-            this.jWz.D(this.jWy);
+        if (this.jXF != null) {
+            this.jXF.D(this.jXE);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(com.baidu.tieba.card.aa aaVar) {
         super.a(aaVar);
-        if (this.jWH != null) {
-            this.jWH.setOnCardSubClickListener(this.jWw);
+        if (this.jXN != null) {
+            this.jXN.setOnCardSubClickListener(this.jXC);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(b.a aVar) {
         super.a(aVar);
-        if (this.jWH != null) {
-            this.jWH.a(aVar);
+        if (this.jXN != null) {
+            this.jXN.a(aVar);
         }
-        if (this.jWz != null) {
-            this.jWz.a(aVar);
+        if (this.jXF != null) {
+            this.jXF.a(aVar);
         }
         if (this.mRootView != null) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.c.f.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (f.this.adu != null) {
-                        f.this.adu.a(f.this.jWy);
+                        f.this.adu.a(f.this.jXE);
                     }
                 }
             });
@@ -116,11 +116,11 @@ public class f extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_g);
-            if (this.jWz != null) {
-                this.jWz.onChangeSkinType(tbPageContext, i);
+            if (this.jXF != null) {
+                this.jXF.onChangeSkinType(tbPageContext, i);
             }
-            if (this.jWH != null) {
-                this.jWH.onChangeSkinType(tbPageContext, i);
+            if (this.jXN != null) {
+                this.jXN.onChangeSkinType(tbPageContext, i);
             }
         }
     }

@@ -15,8 +15,8 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class c {
-    private TbImageView fMU;
-    private View fMV;
+    private TbImageView fNf;
+    private View fNg;
     private TbPageContext mContext;
     private TextView mTitleView;
     private String mUrl;
@@ -29,8 +29,8 @@ public class c {
 
     private void init() {
         this.mView = LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.h.back_to_come_button, (ViewGroup) null);
-        this.fMV = this.mView.findViewById(a.g.back_to_come_root);
-        this.fMU = (TbImageView) this.mView.findViewById(a.g.back_to_come_logo);
+        this.fNg = this.mView.findViewById(a.g.back_to_come_root);
+        this.fNf = (TbImageView) this.mView.findViewById(a.g.back_to_come_logo);
         this.mTitleView = (TextView) this.mView.findViewById(a.g.back_to_come_title);
     }
 
@@ -55,19 +55,19 @@ public class c {
     public void a(b bVar) {
         if (bVar != null) {
             if (!TextUtils.isEmpty(bVar.getImageUrl())) {
-                this.fMU.setVisibility(0);
-                this.fMU.setAutoChangeStyle(false);
-                this.fMU.startLoad(bVar.getImageUrl(), 10, false);
+                this.fNf.setVisibility(0);
+                this.fNf.setAutoChangeStyle(false);
+                this.fNf.startLoad(bVar.getImageUrl(), 10, false);
             } else if (bVar.getImageId() != 0) {
-                this.fMU.setVisibility(0);
-                this.fMU.setImageResource(bVar.getImageId());
+                this.fNf.setVisibility(0);
+                this.fNf.setImageResource(bVar.getImageId());
             } else {
-                this.fMU.setVisibility(8);
+                this.fNf.setVisibility(8);
             }
             if (!TextUtils.isEmpty(bVar.getTitle())) {
                 this.mTitleView.setText(bVar.getTitle());
-            } else if (bVar.bzv() != 0) {
-                this.mTitleView.setText(bVar.bzv());
+            } else if (bVar.bzx() != 0) {
+                this.mTitleView.setText(bVar.bzx());
             }
             if (!TextUtils.isEmpty(bVar.getScheme())) {
                 this.mUrl = bVar.getScheme();
@@ -75,7 +75,7 @@ public class c {
         }
     }
 
-    public void bzw() {
+    public void bzy() {
         try {
             if (!TextUtils.isEmpty(this.mUrl) && this.mContext != null) {
                 Intent intent = new Intent();
@@ -92,7 +92,7 @@ public class c {
         return this.mView;
     }
 
-    public View bzx() {
-        return this.fMV;
+    public View bzz() {
+        return this.fNg;
     }
 }

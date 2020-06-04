@@ -25,22 +25,22 @@ public class a {
     private View.OnClickListener ege = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.s.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.gdJ != null && view == a.this.gdJ.getView() && !UtilHelper.isFastDoubleClick()) {
+            if (a.this.gdU != null && view == a.this.gdU.getView() && !UtilHelper.isFastDoubleClick()) {
                 if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
                     AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.RENAME_CLICK);
                     alaStaticItem.addParams("other_params", a.this.otherParams);
                     AlaStaticsManager.getInst().onStatic(alaStaticItem);
                 }
                 if (!com.baidu.live.r.a.Ga().Gb().c(a.this.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_SDK_RENAME)) {
-                    a.this.gdK = new c(a.this.mTbPageContext.getPageActivity(), a.this.mTbPageContext, a.this.aJj, a.this.otherParams);
-                    a.this.gdK.show();
+                    a.this.gdV = new c(a.this.mTbPageContext.getPageActivity(), a.this.mTbPageContext, a.this.aJj, a.this.otherParams);
+                    a.this.gdV.show();
                 }
             }
         }
     };
-    private ViewGroup fox;
-    protected b gdJ;
-    private c gdK;
+    private ViewGroup foI;
+    protected b gdU;
+    private c gdV;
     protected TbPageContext mTbPageContext;
     private String otherParams;
 
@@ -58,17 +58,17 @@ public class a {
             return false;
         }
         this.aJj = qVar;
-        if (this.gdJ == null) {
-            this.gdJ = new b(getPageContext(), qVar.avC, this.ege);
+        if (this.gdU == null) {
+            this.gdU = new b(getPageContext(), qVar.avC, this.ege);
         }
-        if (this.fox != null && this.fox.indexOfChild(this.gdJ.getView()) > 0) {
-            this.fox.removeView(this.gdJ.getView());
+        if (this.foI != null && this.foI.indexOfChild(this.gdU.getView()) > 0) {
+            this.foI.removeView(this.gdU.getView());
         }
-        this.fox = viewGroup;
-        this.gdJ.getView().setId(a.g.guide_rename_view);
-        this.gdJ.getView().setVisibility(0);
+        this.foI = viewGroup;
+        this.gdU.getView().setId(a.g.guide_rename_view);
+        this.gdU.getView().setVisibility(0);
         initTasks();
-        bGa();
+        bGc();
         return true;
     }
 
@@ -76,16 +76,16 @@ public class a {
         this.otherParams = str;
     }
 
-    private void bGa() {
+    private void bGc() {
         com.baidu.live.r.a.Ga().a(new com.baidu.live.r.c() { // from class: com.baidu.tieba.ala.liveroom.s.a.1
         });
     }
 
     private void CI(String str) {
         if (this.aJj != null) {
-            bGb();
-            if (this.gdK != null && this.gdK.isShowing()) {
-                this.gdK.onSuccess();
+            bGd();
+            if (this.gdV != null && this.gdV.isShowing()) {
+                this.gdV.onSuccess();
             }
             if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
                 AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.REMANE_SUC);
@@ -102,8 +102,8 @@ public class a {
     }
 
     private void CJ(String str) {
-        if (this.gdK != null && this.gdK.isShowing()) {
-            this.gdK.onFail();
+        if (this.gdV != null && this.gdV.isShowing()) {
+            this.gdV.onFail();
         }
         if (!TextUtils.isEmpty(str)) {
             this.mTbPageContext.showToast(str);
@@ -128,13 +128,13 @@ public class a {
             layoutParams.addRule(12);
             layoutParams.setMargins(getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds18), 0, getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds180), 0);
             layoutParams.bottomMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_tbds130) + getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds18);
-            viewGroup.addView(this.gdJ.getView(), layoutParams);
+            viewGroup.addView(this.gdU.getView(), layoutParams);
         }
     }
 
-    public void bGb() {
-        if (this.fox != null && this.fox.indexOfChild(this.gdJ.getView()) > 0) {
-            this.fox.removeView(this.gdJ.getView());
+    public void bGd() {
+        if (this.foI != null && this.foI.indexOfChild(this.gdU.getView()) > 0) {
+            this.foI.removeView(this.gdU.getView());
         }
     }
 

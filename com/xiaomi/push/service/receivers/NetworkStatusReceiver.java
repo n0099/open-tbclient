@@ -49,19 +49,19 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context) {
-        if (!aq.a(context).m85a() && b.m92a(context).m101c() && !b.m92a(context).m103e()) {
+        if (!aq.a(context).m84a() && b.m91a(context).m100c() && !b.m91a(context).m102e()) {
             try {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context, "com.xiaomi.push.service.XMPushService"));
                 intent.setAction("com.xiaomi.push.network_status_changed");
-                bb.a(context).m556a(intent);
+                bb.a(context).m555a(intent);
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
             }
         }
-        gx.m328a(context);
-        if (az.b(context) && aq.a(context).m88b()) {
-            aq.a(context).m89c();
+        gx.m327a(context);
+        if (az.b(context) && aq.a(context).m87b()) {
+            aq.a(context).m88c();
         }
         if (az.b(context)) {
             if ("syncing".equals(ag.a(context).a(av.DISABLE_PUSH))) {

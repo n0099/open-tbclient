@@ -35,7 +35,7 @@ public class a extends aa {
             }
             com.baidu.swan.games.l.a.c(optString, new e.b() { // from class: com.baidu.swan.games.k.a.a.1
                 @Override // com.baidu.swan.apps.r.e.b
-                public void dr(int i) {
+                public void dt(int i) {
                 }
 
                 @Override // com.baidu.swan.apps.r.e.b

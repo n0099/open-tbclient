@@ -38,7 +38,7 @@ public class g extends m {
     public synchronized g a(ReadableByteChannel readableByteChannel) {
         long currentTimeMillis = System.currentTimeMillis();
         this.cgx.ahi();
-        final com.baidu.swan.apps.aq.b.a X = new com.baidu.swan.apps.aq.b.a().hJ(32768).a(30L, TimeUnit.SECONDS).X(this.cgw.toBundle());
+        final com.baidu.swan.apps.aq.b.a X = new com.baidu.swan.apps.aq.b.a().hL(32768).a(30L, TimeUnit.SECONDS).X(this.cgw.toBundle());
         X.t(new com.baidu.swan.apps.aq.e.b<String>() { // from class: com.baidu.swan.apps.r.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.aq.e.b

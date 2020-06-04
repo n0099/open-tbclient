@@ -70,7 +70,7 @@ final class a extends com.baidu.swan.apps.p.b<com.baidu.swan.apps.p.e.b.a> {
             }
 
             @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0364a
-            public void ft(int i) {
+            public void fv(int i) {
                 if (a.this.cfi != null) {
                     a.this.cfi.onCallback(a.this, "onInfo", Integer.valueOf(i));
                 }

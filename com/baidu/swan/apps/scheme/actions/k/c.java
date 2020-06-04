@@ -22,7 +22,7 @@ public class c {
             com.baidu.swan.apps.console.c.v("FirstPageAction", "in adb/wireless debug mode");
             WebView.setWebContentsDebuggingEnabled(true);
             final com.baidu.swan.apps.console.v8inspector.a aVar2 = new com.baidu.swan.apps.console.v8inspector.a(com.baidu.swan.apps.u.a.aeR());
-            final com.baidu.swan.apps.res.widget.dialog.g aon = new g.a(com.baidu.swan.apps.runtime.d.aoB().aoz()).eR(a.h.aiapps_debug_start_inspect).eQ(a.h.aiapps_debug_inspect_waiting).a(new com.baidu.swan.apps.view.c.a()).eT(false).c(a.h.aiapps_debug_inspect_skip, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.actions.k.c.1
+            final com.baidu.swan.apps.res.widget.dialog.g aon = new g.a(com.baidu.swan.apps.runtime.d.aoB().aoz()).eT(a.h.aiapps_debug_start_inspect).eS(a.h.aiapps_debug_inspect_waiting).a(new com.baidu.swan.apps.view.c.a()).eT(false).c(a.h.aiapps_debug_inspect_skip, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.actions.k.c.1
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                     com.baidu.swan.apps.console.v8inspector.a.this.stop();
@@ -83,7 +83,7 @@ public class c {
                 Log.i("FirstPageAction", "startFirstPage:: loadingView=" + QD);
             }
             if (QD != null) {
-                QD.hO(1);
+                QD.hQ(1);
             }
             com.baidu.swan.apps.runtime.d aoB = com.baidu.swan.apps.runtime.d.aoB();
             if (aoB.ane() && TextUtils.equals(aoB.getAppId(), bVar.getAppId())) {

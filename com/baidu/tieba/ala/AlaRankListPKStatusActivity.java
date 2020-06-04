@@ -33,10 +33,10 @@ import com.baidu.tieba.ala.adapter.AlaRankListPKStatusFragmentAdapter;
 /* loaded from: classes3.dex */
 public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements View.OnTouchListener {
     private int avX;
-    private String eUJ;
-    private boolean eUK;
-    private FragmentTabHost eUR;
-    private AlaRankListPKStatusFragmentAdapter eUS;
+    private String eUU;
+    private boolean eUV;
+    private FragmentTabHost eVc;
+    private AlaRankListPKStatusFragmentAdapter eVd;
     private String mPortrait;
     private View mRootView;
     private int mScreenWidth;
@@ -79,14 +79,14 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
             if (bundle != null) {
                 this.avX = bundle.getInt("live_type", 1);
                 this.mUserId = bundle.getLong(TbEnum.SystemMessage.KEY_USER_ID, 0L);
-                this.eUJ = bundle.getString("rank_list_type", "");
-                this.eUK = bundle.getBoolean("rank_list_from");
+                this.eUU = bundle.getString("rank_list_type", "");
+                this.eUV = bundle.getBoolean("rank_list_from");
                 this.mPortrait = bundle.getString("portrait");
             } else {
                 this.avX = getIntent().getIntExtra("live_type", 1);
                 this.mUserId = getIntent().getLongExtra(TbEnum.SystemMessage.KEY_USER_ID, 0L);
-                this.eUJ = getIntent().getStringExtra("rank_list_type");
-                this.eUK = getIntent().getBooleanExtra("rank_list_from", false);
+                this.eUU = getIntent().getStringExtra("rank_list_type");
+                this.eUV = getIntent().getBooleanExtra("rank_list_from", false);
                 this.mPortrait = getIntent().getStringExtra("portrait");
             }
             registerListener(this.aES);
@@ -106,42 +106,42 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
             }
         });
         ((TextView) this.mRootView.findViewById(a.g.ala_rank_list_title)).setText(a.i.ala_rank_list_pk_status_panel_title);
-        bpe();
+        bpg();
         initTabSpec();
         if (UtilHelper.canUseStyleImmersiveSticky() && UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
             h.T(this.mRootView);
         }
     }
 
-    private void bpe() {
-        this.eUR = (FragmentTabHost) findViewById(a.g.ala_rank_list_tabhost);
-        this.eUR.setup(getSupportFragmentManager());
-        this.eUR.setTabWidgetViewHeight((int) getResources().getDimension(a.e.sdk_ds80));
-        this.eUR.getFragmentTabWidget().setAbsoluteWeight(true);
-        this.eUR.getFragmentTabWidget().setDiverColor(getResources().getColor(a.d.sdk_cp_cont_b));
-        this.eUR.getFragmentTabWidget().setDviderRectWidth(-2);
-        this.eUR.getFragmentTabWidget().setDviderRectHeight(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.e.sdk_ds4));
+    private void bpg() {
+        this.eVc = (FragmentTabHost) findViewById(a.g.ala_rank_list_tabhost);
+        this.eVc.setup(getSupportFragmentManager());
+        this.eVc.setTabWidgetViewHeight((int) getResources().getDimension(a.e.sdk_ds80));
+        this.eVc.getFragmentTabWidget().setAbsoluteWeight(true);
+        this.eVc.getFragmentTabWidget().setDiverColor(getResources().getColor(a.d.sdk_cp_cont_b));
+        this.eVc.getFragmentTabWidget().setDviderRectWidth(-2);
+        this.eVc.getFragmentTabWidget().setDviderRectHeight(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.e.sdk_ds4));
     }
 
     private void initTabSpec() {
-        this.eUS = new AlaRankListPKStatusFragmentAdapter(this, this.avX, this.mUserId, this.eUK, this.mPortrait);
-        int AD = this.eUS.AD(this.eUJ);
-        int count = this.eUS.getCount();
+        this.eVd = new AlaRankListPKStatusFragmentAdapter(this, this.avX, this.mUserId, this.eUV, this.mPortrait);
+        int AD = this.eVd.AD(this.eUU);
+        int count = this.eVd.getCount();
         for (int i = 0; i < count; i++) {
-            Fragment item = this.eUS.getItem(i);
+            Fragment item = this.eVd.getItem(i);
             if (item != null) {
-                a(item, this.eUS.pq(i));
+                a(item, this.eVd.ps(i));
             }
         }
-        FragmentTabWidget fragmentTabWidget = this.eUR.getFragmentTabWidget();
+        FragmentTabWidget fragmentTabWidget = this.eVc.getFragmentTabWidget();
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) fragmentTabWidget.getLayoutParams();
         layoutParams.gravity = 1;
         layoutParams.width = -1;
         layoutParams.leftMargin = (int) getResources().getDimension(a.e.sdk_ds34);
         layoutParams.rightMargin = (int) getResources().getDimension(a.e.sdk_ds34);
         fragmentTabWidget.setLayoutParams(layoutParams);
-        this.eUR.initViewPagerWithNoType();
-        this.eUR.setCurrentTab(AD);
+        this.eVc.initViewPagerWithNoType();
+        this.eVc.setCurrentTab(AD);
     }
 
     private void a(Fragment fragment, String str) {
@@ -153,7 +153,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
             fragmentTabIndicator.setTextColorResId(a.d.ala_rank_list_tab_text_color);
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(a.e.sdk_fontsize32));
             tabSpec.mIndicatorView = fragmentTabIndicator;
-            this.eUR.addTabSpec(tabSpec);
+            this.eVc.addTabSpec(tabSpec);
         }
     }
 
@@ -163,8 +163,8 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
         super.onSaveInstanceState(bundle);
         bundle.putLong(TbEnum.SystemMessage.KEY_USER_ID, this.mUserId);
         bundle.putInt("live_type", this.avX);
-        bundle.putString("rank_list_type", this.eUJ);
-        bundle.putBoolean("rank_list_from", this.eUK);
+        bundle.putString("rank_list_type", this.eUU);
+        bundle.putBoolean("rank_list_from", this.eUV);
         bundle.putString("portrait", this.mPortrait);
     }
 
@@ -172,8 +172,8 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
     protected void onRestoreInstanceState(Bundle bundle) {
         bundle.putLong(TbEnum.SystemMessage.KEY_USER_ID, this.mUserId);
         bundle.putInt("live_type", this.avX);
-        bundle.putString("rank_list_type", this.eUJ);
-        bundle.putBoolean("rank_list_from", this.eUK);
+        bundle.putString("rank_list_type", this.eUU);
+        bundle.putBoolean("rank_list_from", this.eUV);
         bundle.putString("portrait", this.mPortrait);
         super.onRestoreInstanceState(bundle);
     }
@@ -229,7 +229,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
         return false;
     }
 
-    private void bpf() {
+    private void bph() {
         if (this instanceof Activity) {
             overridePendingTransition(a.C0182a.sdk_activity_open_translate_from_right, a.C0182a.sdk_activity_close_translate_to_right);
         } else {
@@ -239,12 +239,12 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
-        bpf();
+        bph();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void closeAnimation() {
-        bpf();
+        bph();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity

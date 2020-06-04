@@ -9,16 +9,16 @@ import com.baidu.live.adp.lib.safe.SafeHandler;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaLiveStreamStatusView extends LinearLayout {
-    private boolean fMH;
-    private TextView ggM;
-    private int ggN;
-    private Runnable ggO;
+    private boolean fMS;
+    private TextView ggX;
+    private int ggY;
+    private Runnable ggZ;
 
     public AlaLiveStreamStatusView(Context context) {
         super(context);
-        this.ggN = 1;
-        this.fMH = true;
-        this.ggO = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
+        this.ggY = 1;
+        this.fMS = true;
+        this.ggZ = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveStreamStatusView.this.setVisibility(4);
@@ -29,9 +29,9 @@ public class AlaLiveStreamStatusView extends LinearLayout {
 
     public AlaLiveStreamStatusView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ggN = 1;
-        this.fMH = true;
-        this.ggO = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
+        this.ggY = 1;
+        this.fMS = true;
+        this.ggZ = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveStreamStatusView.this.setVisibility(4);
@@ -42,9 +42,9 @@ public class AlaLiveStreamStatusView extends LinearLayout {
 
     public AlaLiveStreamStatusView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ggN = 1;
-        this.fMH = true;
-        this.ggO = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
+        this.ggY = 1;
+        this.fMS = true;
+        this.ggZ = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveStreamStatusView.this.setVisibility(4);
@@ -55,12 +55,12 @@ public class AlaLiveStreamStatusView extends LinearLayout {
 
     private void initViews() {
         View.inflate(getContext(), a.h.ala_live_stream_status_layout, this);
-        this.ggM = (TextView) findViewById(a.g.ala_live_stream_status_txt);
+        this.ggX = (TextView) findViewById(a.g.ala_live_stream_status_txt);
     }
 
     public void a(int i, boolean z, int i2, boolean z2) {
         String string;
-        this.ggN = i2;
+        this.ggY = i2;
         setVisibility(0);
         if (z && i >= 80) {
             setVisibility(4);
@@ -68,8 +68,8 @@ public class AlaLiveStreamStatusView extends LinearLayout {
             setVisibility(0);
         }
         if (i > 80) {
-            SafeHandler.getInst().removeCallbacks(this.ggO);
-            SafeHandler.getInst().postDelayed(this.ggO, 5000L);
+            SafeHandler.getInst().removeCallbacks(this.ggZ);
+            SafeHandler.getInst().postDelayed(this.ggZ, 5000L);
             string = getContext().getResources().getString(a.i.ala_stream_status_very_good);
         } else if (i > 40) {
             string = getContext().getResources().getString(a.i.ala_stream_status_good);
@@ -78,22 +78,22 @@ public class AlaLiveStreamStatusView extends LinearLayout {
         } else {
             string = getContext().getResources().getString(a.i.ala_stream_status_bad);
         }
-        this.ggM.setText(string);
+        this.ggX.setText(string);
     }
 
     public int getCurLevel() {
-        return this.ggN;
+        return this.ggY;
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.fMH) {
+        if (!this.fMS) {
             i = 4;
         }
         super.setVisibility(i);
     }
 
     public void setCanVisible(boolean z) {
-        this.fMH = z;
+        this.fMS = z;
     }
 }

@@ -29,11 +29,11 @@ import com.baidu.tieba.ala.data.j;
 import com.baidu.tieba.ala.f.g;
 /* loaded from: classes3.dex */
 public class AlaDeleteWishActivity extends BaseFragmentActivity implements g.a {
-    private Button eTQ;
-    private Button eTR;
-    private g eTS;
-    private String eTT;
-    private long eTU;
+    private Button eUb;
+    private Button eUc;
+    private g eUd;
+    private String eUe;
+    private long eUf;
     private Context mContext;
     private View mRootView;
     private int mScreenWidth;
@@ -90,9 +90,9 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements g.a {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
             this.aHL = false;
             this.mRootView.setVisibility(4);
-            this.eTS = new g(getPageContext(), null, this, null);
-            this.eTT = getIntent().getStringExtra("wish_id");
-            this.eTU = getIntent().getLongExtra("index_id", 0L);
+            this.eUd = new g(getPageContext(), null, this, null);
+            this.eUe = getIntent().getStringExtra("wish_id");
+            this.eUf = getIntent().getLongExtra("index_id", 0L);
         }
     }
 
@@ -168,15 +168,15 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements g.a {
     private void initView() {
         this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.h.ala_wish_list_delete_item_layout, (ViewGroup) null);
         setContentView(this.mRootView);
-        this.eTQ = (Button) this.mRootView.findViewById(a.g.ala_wish_list_delete_item_ok);
-        this.eTR = (Button) this.mRootView.findViewById(a.g.ala_wish_list_delete_item_cancle);
-        this.eTQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.3
+        this.eUb = (Button) this.mRootView.findViewById(a.g.ala_wish_list_delete_item_ok);
+        this.eUc = (Button) this.mRootView.findViewById(a.g.ala_wish_list_delete_item_cancle);
+        this.eUb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaDeleteWishActivity.this.eTS.CR(AlaDeleteWishActivity.this.eTT);
+                AlaDeleteWishActivity.this.eUd.CR(AlaDeleteWishActivity.this.eUe);
             }
         });
-        this.eTR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.4
+        this.eUc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaDeleteWishActivity.this.finish();
@@ -192,10 +192,10 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements g.a {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        boQ();
+        boS();
     }
 
-    private void boQ() {
+    private void boS() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -237,8 +237,8 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements g.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.eTS != null) {
-            this.eTS.bHG();
+        if (this.eUd != null) {
+            this.eUd.bHI();
         }
         super.onDestroy();
         this.mHandler.removeCallbacksAndMessages(null);
@@ -249,7 +249,7 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements g.a {
     @Override // com.baidu.tieba.ala.f.g.a
     public void a(j jVar) {
         Intent intent = new Intent();
-        intent.putExtra("index_id", this.eTU);
+        intent.putExtra("index_id", this.eUf);
         setResult(-1, intent);
         finish();
     }

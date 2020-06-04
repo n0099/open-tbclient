@@ -31,19 +31,19 @@ import java.util.List;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class e {
-    private static com.baidu.adp.lib.e.b eDL = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.richText.e.4
+    private static com.baidu.adp.lib.e.b eDW = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.richText.e.4
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.e.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass4) aVar, str, i);
             if (aVar != null) {
-                com.baidu.tbadk.imageManager.c.bet().addBitmap(str, aVar.getRawBitmap());
+                com.baidu.tbadk.imageManager.c.beu().addBitmap(str, aVar.getRawBitmap());
             }
         }
     };
 
-    public static int om(int i) {
+    public static int oo(int i) {
         switch (i) {
             case 0:
                 return 1;
@@ -117,7 +117,7 @@ public class e {
     }
 
     public static CharSequence a(bk bkVar, PbContent pbContent) {
-        switch (om(pbContent.type.intValue())) {
+        switch (oo(pbContent.type.intValue())) {
             case 2:
                 return a(bkVar, pbContent.type.intValue(), pbContent.text, pbContent.link);
             case 4:
@@ -162,7 +162,7 @@ public class e {
                 }
             };
         }
-        fVar.op(i2);
+        fVar.or(i2);
         if (i2 == 1) {
             fVar.setTextColor(R.color.cp_cont_d);
         } else {
@@ -190,16 +190,16 @@ public class e {
         int xY;
         String str2;
         a.C0490a ys;
-        if (str == null || (xY = TbFaceManager.bes().xY(str)) == 0) {
+        if (str == null || (xY = TbFaceManager.bet().xY(str)) == 0) {
             return null;
         }
-        String ya = TbFaceManager.bes().ya(str);
+        String ya = TbFaceManager.bet().ya(str);
         if (!TextUtils.isEmpty(str) && str.startsWith("shoubai_emoji_")) {
             str2 = "[" + ya + "]";
-            ys = TbFaceManager.bes().ys("image_emoticon");
+            ys = TbFaceManager.bet().ys("image_emoticon");
         } else {
             str2 = "#(" + ya + ")";
-            ys = TbFaceManager.bes().ys(str);
+            ys = TbFaceManager.bet().ys(str);
         }
         SpannableString spannableString = new SpannableString(str2 + " ");
         d dVar = new d(TbadkCoreApplication.getInst().getContext(), xY);
@@ -221,15 +221,15 @@ public class e {
             String str2 = bkVar.mUrl;
             String str3 = bkVar.dGF;
             if (!StringUtils.isNull(str2) && !StringUtils.isNull(str2)) {
-                Bitmap bitmap = com.baidu.tbadk.imageManager.c.bet().getBitmap(str2);
+                Bitmap bitmap = com.baidu.tbadk.imageManager.c.beu().getBitmap(str2);
                 if ((bitmap == null || !w.ai(str2, 10)) && (aj = w.aj(str2, 10)) != null) {
                     bitmap = aj.getRawBitmap();
-                    com.baidu.tbadk.imageManager.c.bet().addBitmap(str2, bitmap);
+                    com.baidu.tbadk.imageManager.c.beu().addBitmap(str2, bitmap);
                 }
-                Bitmap bitmap2 = com.baidu.tbadk.imageManager.c.bet().getBitmap(str3);
+                Bitmap bitmap2 = com.baidu.tbadk.imageManager.c.beu().getBitmap(str3);
                 if ((bitmap2 == null || !w.ai(str3, 10)) && (aj2 = w.aj(str3, 10)) != null) {
                     bitmap2 = aj2.getRawBitmap();
-                    com.baidu.tbadk.imageManager.c.bet().addBitmap(str3, bitmap2);
+                    com.baidu.tbadk.imageManager.c.beu().addBitmap(str3, bitmap2);
                 }
                 Bitmap bitmap3 = bitmap2;
                 if (bitmap != null && !bitmap.isRecycled() && bitmap3 != null && !bitmap3.isRecycled()) {
@@ -251,8 +251,8 @@ public class e {
                     }
                     return;
                 }
-                com.baidu.adp.lib.e.c.kX().a(str2, 10, eDL, null);
-                com.baidu.adp.lib.e.c.kX().a(str3, 10, eDL, null);
+                com.baidu.adp.lib.e.c.kX().a(str2, 10, eDW, null);
+                com.baidu.adp.lib.e.c.kX().a(str3, 10, eDW, null);
             }
         }
     }
@@ -269,7 +269,7 @@ public class e {
                 kVar.ejY = bkVar.aQk();
             }
             com.baidu.tbadk.plugins.b.a(kVar);
-            ba.aUZ().b(tbPageContextSupport.getPageContext(), new String[]{kVar.mLink, kVar.ejY});
+            ba.aVa().b(tbPageContextSupport.getPageContext(), new String[]{kVar.mLink, kVar.ejY});
         }
     }
 
@@ -325,11 +325,11 @@ public class e {
     public static void yZ(String str) {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (!TextUtils.isEmpty(str) && (currentActivity instanceof TbPageContextSupport)) {
-            ba.aUZ().b(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{str});
+            ba.aVa().b(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{str});
         }
     }
 
-    public static SpannableString on(int i) {
+    public static SpannableString op(int i) {
         String string;
         int i2;
         if (i == com.baidu.adp.newwidget.ImageView.b.PI) {
@@ -347,7 +347,7 @@ public class e {
         int dimenPixelSize5 = UtilHelper.getDimenPixelSize(R.dimen.tbds0);
         int dimenPixelSize6 = UtilHelper.getDimenPixelSize(R.dimen.tbds12);
         com.baidu.tbadk.core.view.a.a aVar = new com.baidu.tbadk.core.view.a.a(i2, dimenPixelSize, dimenPixelSize2, R.color.cp_cont_a, dimenPixelSize3, dimenPixelSize4, dimenPixelSize5);
-        aVar.mn(dimenPixelSize6);
+        aVar.mp(dimenPixelSize6);
         spannableString.setSpan(aVar, 0, spannableString.length(), 17);
         return spannableString;
     }

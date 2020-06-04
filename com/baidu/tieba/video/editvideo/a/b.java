@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class b extends BaseAdapter implements View.OnClickListener {
-    private com.baidu.tieba.video.editvideo.data.a lBx;
+    private com.baidu.tieba.video.editvideo.data.a lCG;
     private List<com.baidu.tieba.video.editvideo.data.a> mList = new ArrayList();
 
     public void setData(List<com.baidu.tieba.video.editvideo.data.a> list) {
         if (list != null) {
             this.mList = list;
             if (this.mList.size() > 0) {
-                this.lBx = this.mList.get(0);
+                this.lCG = this.mList.get(0);
             }
         }
     }
@@ -50,16 +50,16 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_filter, (ViewGroup) null);
-            aVar.lBy = (TbImageView) view.findViewById(R.id.iv_effect);
-            aVar.lBy.setIsRound(true);
-            aVar.lBy.setDrawerType(1);
-            aVar.lBy.setDefaultBgResource(R.color.transparent);
-            aVar.lBy.setBorderWidth(l.getDimens(viewGroup.getContext(), R.dimen.ds4));
-            aVar.lBy.setBorderColor(am.getColor(R.color.cp_link_tip_a));
-            aVar.lBy.setConrers(15);
-            aVar.jMo = (TextView) view.findViewById(R.id.tv_name);
-            am.setViewTextColor(aVar.jMo, (int) R.color.cp_cont_j);
-            aVar.jMo = (TextView) view.findViewById(R.id.tv_name);
+            aVar.lCH = (TbImageView) view.findViewById(R.id.iv_effect);
+            aVar.lCH.setIsRound(true);
+            aVar.lCH.setDrawerType(1);
+            aVar.lCH.setDefaultBgResource(R.color.transparent);
+            aVar.lCH.setBorderWidth(l.getDimens(viewGroup.getContext(), R.dimen.ds4));
+            aVar.lCH.setBorderColor(am.getColor(R.color.cp_link_tip_a));
+            aVar.lCH.setConrers(15);
+            aVar.jNu = (TextView) view.findViewById(R.id.tv_name);
+            am.setViewTextColor(aVar.jNu, (int) R.color.cp_cont_j);
+            aVar.jNu = (TextView) view.findViewById(R.id.tv_name);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -67,15 +67,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (i >= 0 && i < this.mList.size()) {
             com.baidu.tieba.video.editvideo.data.a aVar2 = this.mList.get(i);
             if (aVar2 != null) {
-                aVar.lBy.setTag(aVar2);
-                aVar.lBy.setOnClickListener(this);
-                aVar.lBy.startLoad(String.valueOf(aVar2.lBX), 24, false);
-                aVar.jMo.setText(aVar2.name);
+                aVar.lCH.setTag(aVar2);
+                aVar.lCH.setOnClickListener(this);
+                aVar.lCH.startLoad(String.valueOf(aVar2.lDg), 24, false);
+                aVar.jNu.setText(aVar2.name);
             }
-            if (!TextUtils.isEmpty(aVar2.name) && this.lBx != null && TextUtils.equals(aVar2.name, this.lBx.name)) {
-                aVar.lBy.setDrawBorder(true);
+            if (!TextUtils.isEmpty(aVar2.name) && this.lCG != null && TextUtils.equals(aVar2.name, this.lCG.name)) {
+                aVar.lCH.setDrawBorder(true);
             } else {
-                aVar.lBy.setDrawBorder(false);
+                aVar.lCH.setDrawBorder(false);
             }
         }
         return view;
@@ -84,15 +84,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.iv_effect && (view.getTag() instanceof com.baidu.tieba.video.editvideo.data.a)) {
-            this.lBx = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
+            this.lCG = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
             notifyDataSetChanged();
         }
     }
 
     /* loaded from: classes10.dex */
     class a {
-        TextView jMo;
-        TbImageView lBy;
+        TextView jNu;
+        TbImageView lCH;
 
         a() {
         }

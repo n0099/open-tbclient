@@ -138,7 +138,7 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
             m.a(this.mTitle, this.adw.aOi().getId(), this.agi.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, (int) R.color.cp_cont_d);
         }
         am.setViewTextColor(this.agh, (int) R.color.cp_cont_a);
-        com.baidu.tbadk.core.util.e.a.aVv().ln(0).lp(R.color.cp_mask_b_alpha42).O(this.agk).aR(this.agh);
-        com.baidu.tbadk.core.util.e.a.aVv().ln(0).j(R.color.cp_mask_b, R.color.cp_mask_b_alpha33).Q(l.getDimens(getContext(), R.dimen.tbds10)).P(l.getDimens(getContext(), R.dimen.tbds10)).S(l.getDimens(getContext(), R.dimen.tbds10)).R(l.getDimens(getContext(), R.dimen.tbds10)).lv(128).aR(this.agj);
+        com.baidu.tbadk.core.util.e.a.aVw().lp(0).lr(R.color.cp_mask_b_alpha42).O(this.agk).aR(this.agh);
+        com.baidu.tbadk.core.util.e.a.aVw().lp(0).j(R.color.cp_mask_b, R.color.cp_mask_b_alpha33).Q(l.getDimens(getContext(), R.dimen.tbds10)).P(l.getDimens(getContext(), R.dimen.tbds10)).S(l.getDimens(getContext(), R.dimen.tbds10)).R(l.getDimens(getContext(), R.dimen.tbds10)).lx(128).aR(this.agj);
     }
 }

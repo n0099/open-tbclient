@@ -28,11 +28,11 @@ import com.baidu.tieba.barselect.view.BazhuHeadView;
 public class CandidateInfoLayout extends CardBasicLayout {
     private TextView agw;
     private View.OnClickListener ege;
-    private BazhuHeadView gAh;
-    private LinearLayout gAi;
-    private TextView gAj;
-    private ImageView gAk;
-    private TextView gAl;
+    private BazhuHeadView gAs;
+    private LinearLayout gAt;
+    private TextView gAu;
+    private ImageView gAv;
+    private TextView gAw;
     private Context mContext;
 
     public CandidateInfoLayout(Context context) {
@@ -44,9 +44,9 @@ public class CandidateInfoLayout extends CardBasicLayout {
         this.ege = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.CandidateInfoLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (CandidateInfoLayout.this.gAn != null && CandidateInfoLayout.this.gAn.getUid() != 0) {
+                if (CandidateInfoLayout.this.gAy != null && CandidateInfoLayout.this.gAy.getUid() != 0) {
                     long j = b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
-                    long uid = CandidateInfoLayout.this.gAn.getUid();
+                    long uid = CandidateInfoLayout.this.gAy.getUid();
                     if (CandidateInfoLayout.this.getContext() instanceof Activity) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(CandidateInfoLayout.this.getContext()).createNormalConfig(uid, uid == j, false)));
                     }
@@ -69,26 +69,26 @@ public class CandidateInfoLayout extends CardBasicLayout {
     }
 
     private void rV() {
-        this.gAh = (BazhuHeadView) findViewById(R.id.user_avatar);
-        if (this.gAh.getHeadView() != null) {
-            this.gAh.getHeadView().setIsRound(true);
+        this.gAs = (BazhuHeadView) findViewById(R.id.user_avatar);
+        if (this.gAs.getHeadView() != null) {
+            this.gAs.getHeadView().setIsRound(true);
         }
-        this.gAi = (LinearLayout) findViewById(R.id.user_name_and_active_status);
+        this.gAt = (LinearLayout) findViewById(R.id.user_name_and_active_status);
         this.agw = (TextView) findViewById(R.id.user_name);
-        this.gAj = (TextView) findViewById(R.id.vote_id);
-        this.gAl = (TextView) findViewById(R.id.agree_post_reply_num);
-        this.gAk = (ImageView) findViewById(R.id.grade);
+        this.gAu = (TextView) findViewById(R.id.vote_id);
+        this.gAw = (TextView) findViewById(R.id.agree_post_reply_num);
+        this.gAv = (ImageView) findViewById(R.id.grade);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         String str;
         super.setData(i, fVar);
-        if (this.gwA == null || this.gAn == null || this.status < 0) {
+        if (this.gwL == null || this.gAy == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        if (this.status == a.gAD) {
+        if (this.status == a.gAO) {
             int dimens = l.getDimens(this.mContext, R.dimen.tbds191);
             int dimens2 = l.getDimens(this.mContext, R.dimen.tbds157);
             int dimens3 = l.getDimens(this.mContext, R.dimen.tbds6);
@@ -96,43 +96,43 @@ public class CandidateInfoLayout extends CardBasicLayout {
             int dimens5 = l.getDimens(this.mContext, R.dimen.tbds30);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimens2, dimens);
             layoutParams.setMargins(layoutParams.leftMargin - dimens3, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
-            this.gAh.setLayoutParams(layoutParams);
-            this.gAh.lK(true);
-            this.gAh.setBawuLogoView(R.drawable.pic_election_bazhu);
-            this.gAh.setPendantView(R.drawable.icon_crown);
+            this.gAs.setLayoutParams(layoutParams);
+            this.gAs.lK(true);
+            this.gAs.setBawuLogoView(R.drawable.pic_election_bazhu);
+            this.gAs.setPendantView(R.drawable.icon_crown);
             this.agw.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize46));
             setGravity(16);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams2.setMargins(dimens5, dimens4, layoutParams2.rightMargin, dimens3);
-            this.gAh.setLayoutParams(layoutParams);
-            this.gAi.setLayoutParams(layoutParams2);
+            this.gAs.setLayoutParams(layoutParams);
+            this.gAt.setLayoutParams(layoutParams2);
         } else {
-            this.gAh.lK(false);
+            this.gAs.lK(false);
         }
-        this.gAh.wQ(this.gAn.getPortrait());
-        this.gAh.setOnClickListener(this.ege);
-        this.agw.setText(aq.cutChineseAndEnglishWithSuffix(this.gAn.getNickname(), 14, StringHelper.STRING_MORE));
-        setGrade(this.gAn.bKc());
-        if (this.gAn.bKb() < 1000) {
-            String str2 = "0000" + this.gAn.bKb();
+        this.gAs.wQ(this.gAy.getPortrait());
+        this.gAs.setOnClickListener(this.ege);
+        this.agw.setText(aq.cutChineseAndEnglishWithSuffix(this.gAy.getNickname(), 14, StringHelper.STRING_MORE));
+        setGrade(this.gAy.bKe());
+        if (this.gAy.bKd() < 1000) {
+            String str2 = "0000" + this.gAy.bKd();
             str = str2.substring(str2.length() - 4, str2.length());
         } else {
-            str = "" + this.gAn.bKb();
+            str = "" + this.gAy.bKd();
         }
-        this.gAj.setText("NO." + str);
-        this.gAl.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), aq.co(this.gAn.bKa()), aq.co(this.gAn.getThread_num()), aq.co(this.gAn.getPost_num())));
+        this.gAu.setText("NO." + str);
+        this.gAw.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), aq.co(this.gAy.bKc()), aq.co(this.gAy.getThread_num()), aq.co(this.gAy.getPost_num())));
     }
 
     public void setGrade(int i) {
-        am.setImageResource(this.gAk, BitmapHelper.getGradeResourceIdInEnterForum(i));
+        am.setImageResource(this.gAv, BitmapHelper.getGradeResourceIdInEnterForum(i));
     }
 
-    public void qi(int i) {
+    public void qk(int i) {
         am.setViewTextColor(this.agw, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.gAj, R.color.cp_cont_d, 1, i);
-        am.setViewTextColor(this.gAl, R.color.cp_cont_d, 1, i);
-        if (this.gAn != null) {
-            setGrade(this.gAn.bKc());
+        am.setViewTextColor(this.gAu, R.color.cp_cont_d, 1, i);
+        am.setViewTextColor(this.gAw, R.color.cp_cont_d, 1, i);
+        if (this.gAy != null) {
+            setGrade(this.gAy.bKe());
         }
     }
 }

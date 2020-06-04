@@ -62,9 +62,9 @@ public class b extends f {
                 aVar.setCategory(pMSAppInfo.appCategory);
             }
             if (!map2.containsKey(aVar.getBundleId())) {
-                aVar.jf(0);
+                aVar.jh(0);
             } else {
-                aVar.jf(pMSAppInfo.versionCode);
+                aVar.jh(pMSAppInfo.versionCode);
             }
             aVar.bN(pMSAppInfo.appSign);
         }
@@ -112,7 +112,7 @@ public class b extends f {
             return this.dmE;
         }
 
-        void jf(int i) {
+        void jh(int i) {
             this.dmD = i;
         }
 

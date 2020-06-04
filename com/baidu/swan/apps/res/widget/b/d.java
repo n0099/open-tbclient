@@ -52,7 +52,7 @@ public class d {
         return dVar;
     }
 
-    public d gC(@NonNull int i) {
+    public d gE(@NonNull int i) {
         this.mMaxLines = i;
         return this;
     }
@@ -72,17 +72,17 @@ public class d {
         return this;
     }
 
-    public d gD(int i) {
+    public d gF(int i) {
         this.mButtonStyle = i;
         return this;
     }
 
-    public d gE(int i) {
+    public d gG(int i) {
         this.mBottomShowAnimationType = i;
         return this;
     }
 
-    public d gF(int i) {
+    public d gH(int i) {
         this.mBottomIconStyle = i;
         return this;
     }
@@ -92,7 +92,7 @@ public class d {
         return this;
     }
 
-    public d gG(int i) {
+    public d gI(int i) {
         if (i < 1 || i > 10) {
             this.mDuration = 2;
         } else {
@@ -111,7 +111,7 @@ public class d {
         return this;
     }
 
-    public d gH(@DrawableRes int i) {
+    public d gJ(@DrawableRes int i) {
         if (this.mContext != null && this.mContext.getResources() != null) {
             this.mHighlightIcon = this.mContext.getResources().getDrawable(i);
         }

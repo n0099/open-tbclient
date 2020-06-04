@@ -38,9 +38,9 @@ public class ay {
 
     public void b(com.baidu.tieba.play.y yVar) {
         if (yVar != null) {
-            yVar.kAl = this.recomWeight;
+            yVar.kBr = this.recomWeight;
             yVar.mSource = this.recomSource;
-            yVar.kAp = this.dDO;
+            yVar.kBv = this.dDO;
             yVar.mExtra = this.recomExtra;
         }
     }

@@ -88,7 +88,7 @@ public class i {
         if (!isAvailable()) {
             com.baidu.swan.apps.res.widget.b.d.k(com.baidu.swan.apps.runtime.d.aoB().aoz(), a.h.aiapps_debug_report_invalid_params).showToast();
         } else if (this.crM == null || this.crM.length() <= 0) {
-            new g.a(com.baidu.swan.apps.runtime.d.aoB().aoz()).eR(a.h.aiapps_debug_report_performance).eQ(a.h.aiapps_debug_report_no_data).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null).aon();
+            new g.a(com.baidu.swan.apps.runtime.d.aoB().aoz()).eT(a.h.aiapps_debug_report_performance).eS(a.h.aiapps_debug_report_no_data).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null).aon();
         } else {
             com.baidu.swan.c.a.f postRequest = com.baidu.swan.c.c.a.aFx().postRequest();
             postRequest.requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), this.crM.toString()));
@@ -96,13 +96,13 @@ public class i {
             int min = Math.min(this.crN.length, 4);
             b bVar = new b(min, aVar);
             for (int i = 0; i < min; i++) {
-                postRequest.url(gb(i));
+                postRequest.url(gd(i));
                 postRequest.build().executeAsync(bVar);
             }
         }
     }
 
-    private String gb(int i) {
+    private String gd(int i) {
         if (!isAvailable() || i >= this.crN.length) {
             return "";
         }
@@ -149,7 +149,7 @@ public class i {
             if (this.crR == null) {
                 return;
             }
-            this.crR.gc(a.h.aiapps_debug_report_success);
+            this.crR.ge(a.h.aiapps_debug_report_success);
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -157,7 +157,7 @@ public class i {
             if (this.crQ || this.crP.incrementAndGet() < this.mCount || this.crR == null) {
                 return;
             }
-            this.crR.gc(a.h.aiapps_debug_report_fail);
+            this.crR.ge(a.h.aiapps_debug_report_fail);
         }
     }
 
@@ -166,7 +166,7 @@ public class i {
         public abstract void jh(String str);
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void gc(int i) {
+        public void ge(int i) {
             Application aeR = com.baidu.swan.apps.u.a.aeR();
             if (aeR != null) {
                 jh(aeR.getString(i));

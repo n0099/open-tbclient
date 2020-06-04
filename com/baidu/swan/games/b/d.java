@@ -30,7 +30,7 @@ public class d {
                 Log.d("AntiAddictionManager", gVar.toString());
             }
             d.this.mStartTime = System.currentTimeMillis();
-            if (d.this.ie(gVar.cTA)) {
+            if (d.this.ig(gVar.cTA)) {
                 d.this.bD(gVar.interval * 1000);
                 d.this.Z(gVar.state, gVar.cTz);
             }
@@ -184,7 +184,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ie(int i) {
+    public boolean ig(int i) {
         this.aFD = i;
         if (1 == i) {
             axj();

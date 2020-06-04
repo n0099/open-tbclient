@@ -5,15 +5,15 @@ import com.baidu.tbadk.core.data.PrivateForumPopInfoData;
 import tbclient.ForumRecommend.DataRes;
 /* loaded from: classes9.dex */
 public class e {
-    private HotSearchInfoData gOD;
+    private HotSearchInfoData gOO;
     private boolean isSucc;
     private int sortType;
     private int time = 0;
-    private i gOy = new i();
-    private l gOz = new l();
-    private ForumCreateInfoData gOA = new ForumCreateInfoData();
-    private PrivateForumPopInfoData gOB = new PrivateForumPopInfoData();
-    private p gOC = new p();
+    private i gOJ = new i();
+    private l gOK = new l();
+    private ForumCreateInfoData gOL = new ForumCreateInfoData();
+    private PrivateForumPopInfoData gOM = new PrivateForumPopInfoData();
+    private p gON = new p();
 
     public e() {
         this.isSucc = true;
@@ -25,7 +25,7 @@ public class e {
     }
 
     public HotSearchInfoData getHotSearchInfoData() {
-        return this.gOD;
+        return this.gOO;
     }
 
     public void a(DataRes dataRes) {
@@ -34,23 +34,23 @@ public class e {
                 setTime(dataRes.time.intValue());
                 this.sortType = dataRes.sort_type.intValue() == 0 ? 1 : dataRes.sort_type.intValue();
                 if (dataRes.like_forum != null) {
-                    this.gOy.bQ(dataRes.like_forum);
+                    this.gOJ.bQ(dataRes.like_forum);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.gOz.bR(dataRes.recommend_forum_info);
+                    this.gOK.bR(dataRes.recommend_forum_info);
                 }
                 if (dataRes.forum_create_info != null) {
-                    this.gOA.a(dataRes.forum_create_info);
+                    this.gOL.a(dataRes.forum_create_info);
                 }
                 if (dataRes.private_forum_popinfo != null) {
-                    this.gOB.a(dataRes.private_forum_popinfo);
+                    this.gOM.a(dataRes.private_forum_popinfo);
                 }
                 if (dataRes.hot_search != null) {
-                    this.gOD = new HotSearchInfoData();
-                    this.gOD.a(dataRes.hot_search);
+                    this.gOO = new HotSearchInfoData();
+                    this.gOO.a(dataRes.hot_search);
                 }
                 if (dataRes.nav_tab_info != null) {
-                    this.gOC.bS(dataRes.nav_tab_info);
+                    this.gON.bS(dataRes.nav_tab_info);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -58,36 +58,36 @@ public class e {
         }
     }
 
-    public i bNR() {
-        return this.gOy;
+    public i bNT() {
+        return this.gOJ;
     }
 
     public void a(i iVar) {
-        this.gOy = iVar;
+        this.gOJ = iVar;
     }
 
     public void a(l lVar) {
-        this.gOz = lVar;
+        this.gOK = lVar;
     }
 
-    public l bNS() {
-        return this.gOz;
+    public l bNU() {
+        return this.gOK;
     }
 
     public void a(ForumCreateInfoData forumCreateInfoData) {
-        this.gOA = forumCreateInfoData;
+        this.gOL = forumCreateInfoData;
     }
 
-    public ForumCreateInfoData bNT() {
-        return this.gOA;
+    public ForumCreateInfoData bNV() {
+        return this.gOL;
     }
 
     public void a(PrivateForumPopInfoData privateForumPopInfoData) {
-        this.gOB = privateForumPopInfoData;
+        this.gOM = privateForumPopInfoData;
     }
 
-    public PrivateForumPopInfoData bNU() {
-        return this.gOB;
+    public PrivateForumPopInfoData bNW() {
+        return this.gOM;
     }
 
     public void setIsSuccess(boolean z) {
@@ -103,7 +103,7 @@ public class e {
     }
 
     public void a(HotSearchInfoData hotSearchInfoData) {
-        this.gOD = hotSearchInfoData;
+        this.gOO = hotSearchInfoData;
     }
 
     public int getSortType() {
@@ -115,10 +115,10 @@ public class e {
     }
 
     public void a(p pVar) {
-        this.gOC = pVar;
+        this.gON = pVar;
     }
 
-    public p bNV() {
-        return this.gOC;
+    public p bNX() {
+        return this.gON;
     }
 }

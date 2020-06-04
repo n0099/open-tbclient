@@ -35,7 +35,7 @@ public class ImBarrageOptionListView extends HListView {
 
         boolean DA();
 
-        void bV(int i);
+        void bX(int i);
     }
 
     public ImBarrageOptionListView(Context context, AttributeSet attributeSet) {
@@ -68,7 +68,7 @@ public class ImBarrageOptionListView extends HListView {
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         if (this.aVj != null) {
-            this.aVj.cs(UtilHelper.getRealScreenOrientation(getContext()));
+            this.aVj.cu(UtilHelper.getRealScreenOrientation(getContext()));
             this.aVj.notifyDataSetChanged();
         }
     }
@@ -126,13 +126,13 @@ public class ImBarrageOptionListView extends HListView {
         setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.live.im.view.barrage.ImBarrageOptionListView.1
             @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
             public void a(AdapterView<?> adapterView, View view, int i, long j) {
-                ImBarrageOptionListView.this.cv(i);
+                ImBarrageOptionListView.this.cx(i);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cv(int i) {
+    public void cx(int i) {
         bj item;
         if (this.aVk && this.aVj != null && this.aVl != null && fv(m.CL().CO()) != i && (item = this.aVj.getItem(i)) != null) {
             if (item.type == 16 && !this.aVl.DA()) {
@@ -146,7 +146,7 @@ public class ImBarrageOptionListView extends HListView {
                 }
             }
             setSelectPos(i);
-            this.aVl.bV(i);
+            this.aVl.bX(i);
         }
     }
 
@@ -186,16 +186,16 @@ public class ImBarrageOptionListView extends HListView {
             this.aVn = bjVarArr;
             this.aVo = map;
             this.from = i2;
-            this.aVp = cx(i);
+            this.aVp = cz(i);
         }
 
         public void a(Map<String, Integer> map, int i) {
             this.aVo = map;
-            this.aVp = cx(i);
+            this.aVp = cz(i);
         }
 
-        public void cs(int i) {
-            this.aVp = cx(i);
+        public void cu(int i) {
+            this.aVp = cz(i);
         }
 
         @Override // android.widget.Adapter
@@ -208,7 +208,7 @@ public class ImBarrageOptionListView extends HListView {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        /* renamed from: cw */
+        /* renamed from: cy */
         public bj getItem(int i) {
             if (i < 0 || i >= getCount()) {
                 return null;
@@ -306,7 +306,7 @@ public class ImBarrageOptionListView extends HListView {
             return view;
         }
 
-        private int cx(int i) {
+        private int cz(int i) {
             int count;
             int dimens = BdUtilHelper.getDimens(ImBarrageOptionListView.this.getContext(), a.e.sdk_ds220);
             if (i == 1 && (count = getCount()) <= 3) {

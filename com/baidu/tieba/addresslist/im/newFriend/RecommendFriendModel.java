@@ -13,10 +13,10 @@ import com.baidu.tbadk.util.l;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
-    private static final String eQF = TbConfig.SERVER_ADDRESS + "c/r/friend/getRecommendList";
-    private static TbHttpMessageTask task = new TbHttpMessageTask(1001900, eQF);
-    private a eQE;
-    private final HttpMessageListener eQG;
+    private static final String eQQ = TbConfig.SERVER_ADDRESS + "c/r/friend/getRecommendList";
+    private static TbHttpMessageTask task = new TbHttpMessageTask(1001900, eQQ);
+    private a eQP;
+    private final HttpMessageListener eQR;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -32,15 +32,15 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
     public RecommendFriendModel(NewFriendsActivity newFriendsActivity, a aVar) {
         super(newFriendsActivity.getPageContext());
-        this.eQE = null;
-        this.eQG = new HttpMessageListener(1001900) { // from class: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.1
+        this.eQP = null;
+        this.eQR = new HttpMessageListener(1001900) { // from class: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001900) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof RecommendFriendResponseMessage)) {
-                        if (RecommendFriendModel.this.eQE != null) {
-                            RecommendFriendModel.this.eQE.cK(null);
+                        if (RecommendFriendModel.this.eQP != null) {
+                            RecommendFriendModel.this.eQP.cK(null);
                             return;
                         }
                         return;
@@ -48,8 +48,8 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                     RecommendFriendResponseMessage recommendFriendResponseMessage = (RecommendFriendResponseMessage) httpResponsedMessage;
                     final String errMsg = recommendFriendResponseMessage.getErrMsg();
                     if (recommendFriendResponseMessage.getError() != 0) {
-                        if (RecommendFriendModel.this.eQE != null) {
-                            RecommendFriendModel.this.eQE.cK(errMsg);
+                        if (RecommendFriendModel.this.eQP != null) {
+                            RecommendFriendModel.this.eQP.cK(errMsg);
                             return;
                         }
                         return;
@@ -58,10 +58,10 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                     ad.b(new ac<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.ac
-                        /* renamed from: bmZ */
+                        /* renamed from: bnb */
                         public Void doInBackground() {
                             if (datas != null && datas.size() > 0) {
-                                b.bnf().bg(datas);
+                                b.bnh().bg(datas);
                                 return null;
                             }
                             return null;
@@ -71,20 +71,20 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                         @Override // com.baidu.tbadk.util.l
                         /* renamed from: a */
                         public void onReturnDataInUI(Void r3) {
-                            RecommendFriendModel.this.eQE.An(errMsg);
+                            RecommendFriendModel.this.eQP.An(errMsg);
                         }
                     });
                 }
             }
         };
-        this.eQE = aVar;
+        this.eQP = aVar;
     }
 
     public void registerListener() {
-        registerListener(this.eQG);
+        registerListener(this.eQR);
     }
 
-    public void bnl() {
+    public void bnn() {
         sendMessage(new HttpMessage(1001900));
     }
 

@@ -8,14 +8,14 @@ import java.util.ArrayList;
 public class a {
     public com.baidu.live.o.f aWl;
     public long enterTime;
-    public com.baidu.live.o.e fTa;
-    public com.baidu.tieba.ala.liveroom.m.c fTb;
-    public AlaLiveView fTc;
-    public boolean fTd;
-    public boolean fTe = false;
-    public boolean fTf = false;
-    public ArrayList<AlaBroadcastGiftToastData> fTg;
-    public boolean fTh;
+    public com.baidu.live.o.e fTl;
+    public com.baidu.tieba.ala.liveroom.m.c fTm;
+    public AlaLiveView fTn;
+    public boolean fTo;
+    public boolean fTp = false;
+    public boolean fTq = false;
+    public ArrayList<AlaBroadcastGiftToastData> fTr;
+    public boolean fTs;
     public String fromType;
     public TbPageContext pageContext;
 }

@@ -48,12 +48,12 @@ public class NoDataViewFactory {
                 return this;
             }
 
-            public a lO(int i) {
+            public a lQ(int i) {
                 this.dUo = i;
                 return this;
             }
 
-            public b aWa() {
+            public b aWb() {
                 return new b(this);
             }
         }
@@ -61,14 +61,14 @@ public class NoDataViewFactory {
         public static b a(a aVar) {
             a aVar2 = new a();
             aVar2.b(aVar);
-            return aVar2.aWa();
+            return aVar2.aWb();
         }
 
         public static b a(a aVar, int i) {
             a aVar2 = new a();
             aVar2.b(aVar);
-            aVar2.lO(i);
-            return aVar2.aWa();
+            aVar2.lQ(i);
+            return aVar2.aWb();
         }
     }
 
@@ -112,27 +112,27 @@ public class NoDataViewFactory {
                 return this;
             }
 
-            public a lP(int i) {
+            public a lR(int i) {
                 this.mMarginTop = i;
                 return this;
             }
 
-            public a lQ(int i) {
+            public a lS(int i) {
                 this.dUj = i;
                 return this;
             }
 
-            public a lR(int i) {
+            public a lT(int i) {
                 this.mHeight = i;
                 return this;
             }
 
-            public a lS(int i) {
+            public a lU(int i) {
                 this.mWidth = i;
                 return this;
             }
 
-            public c aWb() {
+            public c aWc() {
                 return new c(this);
             }
         }
@@ -140,24 +140,24 @@ public class NoDataViewFactory {
         public static c a(ImgType imgType, int i) {
             a aVar = new a();
             aVar.b(imgType);
-            aVar.lP(i);
-            return aVar.aWb();
+            aVar.lR(i);
+            return aVar.aWc();
         }
 
         public static c a(ImgType imgType, int i, int i2, int i3, int i4) {
             a aVar = new a();
             aVar.b(imgType);
-            aVar.lQ(i);
-            aVar.lP(i2);
-            aVar.lR(i3);
-            aVar.lS(i4);
-            return aVar.aWb();
+            aVar.lS(i);
+            aVar.lR(i2);
+            aVar.lT(i3);
+            aVar.lU(i4);
+            return aVar.aWc();
         }
 
         public static c a(ImgType imgType) {
             a aVar = new a();
             aVar.b(imgType);
-            return aVar.aWb();
+            return aVar.aWc();
         }
     }
 
@@ -195,12 +195,12 @@ public class NoDataViewFactory {
                 return this;
             }
 
-            public a lU(int i) {
+            public a lW(int i) {
                 this.dUs = i;
                 return this;
             }
 
-            public d aWc() {
+            public d aWd() {
                 return new d(this);
             }
         }
@@ -208,11 +208,11 @@ public class NoDataViewFactory {
         public static d aL(int i, int i2) {
             a aVar = new a();
             aVar.wT(TbadkCoreApplication.getInst().getResources().getString(i));
-            aVar.lU(i2);
-            return aVar.aWc();
+            aVar.lW(i2);
+            return aVar.aWd();
         }
 
-        public static d lT(int i) {
+        public static d lV(int i) {
             return wR(TbadkCoreApplication.getInst().getResources().getString(i));
         }
 
@@ -223,14 +223,14 @@ public class NoDataViewFactory {
         public static d wR(String str) {
             a aVar = new a();
             aVar.wT(str);
-            return aVar.aWc();
+            return aVar.aWd();
         }
 
         public static d dj(String str, String str2) {
             a aVar = new a();
             aVar.wT(str);
             aVar.wS(str2);
-            return aVar.aWc();
+            return aVar.aWd();
         }
     }
 

@@ -96,7 +96,7 @@ public class e implements a.InterfaceC0418a {
                 boolean z = e.this.cSa.width != e.this.cSa.realWidth;
                 e.this.awF();
                 if (e.this.cSd != null) {
-                    e.this.cSd.hZ(e.this.cSa.width);
+                    e.this.cSd.ib(e.this.cSa.width);
                     com.baidu.swan.games.view.a.c.b(e.this.cSd.getConvertView(), new com.baidu.swan.apps.model.a.a.a(ag.B(e.this.cSa.left), ag.B(e.this.cSa.f1006top), ag.B(e.this.cSa.realWidth), ag.B(e.this.cSa.realHeight)));
                 }
                 if (str.equals("width") && z && e.this.cRZ != null) {
@@ -131,7 +131,7 @@ public class e implements a.InterfaceC0418a {
 
     private void awD() {
         this.cSd = new com.baidu.swan.game.ad.a(this.mContext);
-        this.cSd.hZ(this.cSa.width);
+        this.cSd.ib(this.cSa.width);
         if (com.baidu.swan.games.view.a.c.ay(this.cSd.getConvertView())) {
             com.baidu.swan.games.view.a.c.av(this.cSd.getConvertView());
         }
@@ -164,7 +164,7 @@ public class e implements a.InterfaceC0418a {
                 }
             }
         });
-        this.cSd.hZ(this.cSa.width);
+        this.cSd.ib(this.cSa.width);
         if (com.baidu.swan.games.view.a.c.ay(this.cSd.getConvertView())) {
             com.baidu.swan.games.view.a.c.av(this.cSd.getConvertView());
         }
@@ -183,7 +183,7 @@ public class e implements a.InterfaceC0418a {
         if (aoF != null) {
             str = aoF.getAppKey();
         }
-        com.baidu.swan.game.ad.c.c cVar = new com.baidu.swan.game.ad.c.c(this.mContext, new b.a().qA(this.cRd).qB(this.cQa).qC(str).ic(this.cSa.width).id(this.cSa.height).awu());
+        com.baidu.swan.game.ad.c.c cVar = new com.baidu.swan.game.ad.c.c(this.mContext, new b.a().qA(this.cRd).qB(this.cQa).qC(str).ie(this.cSa.width).m27if(this.cSa.height).awu());
         com.baidu.swan.game.ad.c.a aVar = new com.baidu.swan.game.ad.c.a(this.mContext);
         aVar.a(this);
         com.baidu.swan.games.view.a.b.cC("banner", null);

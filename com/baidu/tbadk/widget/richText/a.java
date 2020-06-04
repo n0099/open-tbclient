@@ -9,38 +9,38 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    public static final float eCG = l.getEquipmentDensity(TbadkCoreApplication.getInst());
+    public static final float eCR = l.getEquipmentDensity(TbadkCoreApplication.getInst());
     protected TbImageView.c ahi;
-    protected boolean eCU;
-    public int eDe;
-    public int eDf;
-    public int eDg;
+    protected boolean eDf;
+    public int eDp;
+    public int eDq;
+    public int eDr;
     public boolean mIsFromCDN;
-    protected float eCH = 0.0f;
-    protected float eCI = 0.0f;
+    protected float eCS = 0.0f;
+    protected float eCT = 0.0f;
     protected int dSp = 0;
-    protected int eCJ = 0;
+    protected int eCU = 0;
     protected float mTextSize = 15.0f;
-    protected int eCK = -1;
-    protected int eCL = -1;
+    protected int eCV = -1;
+    protected int eCW = -1;
     protected int mTextColor = ViewCompat.MEASURED_STATE_MASK;
-    protected int eCM = 200;
-    protected int eCN = 200;
-    protected int eCO = 0;
-    protected int eCP = 0;
-    protected boolean eCQ = false;
-    protected int eCR = -9989158;
-    protected ImageView.ScaleType eCS = ImageView.ScaleType.CENTER_CROP;
-    public boolean eCT = false;
-    public int eCV = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds16);
-    public int eCW = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-    public int eCX = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
-    protected int eCY = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+    protected int eCX = 200;
+    protected int eCY = 200;
     protected int eCZ = 0;
-    protected int eDa = -1;
-    protected int eDb = -1;
-    protected int eDc = -1;
-    protected boolean eDd = false;
+    protected int eDa = 0;
+    protected boolean eDb = false;
+    protected int eDc = -9989158;
+    protected ImageView.ScaleType eDd = ImageView.ScaleType.CENTER_CROP;
+    public boolean eDe = false;
+    public int eDg = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds16);
+    public int eDh = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+    public int eDi = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
+    protected int eDj = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+    protected int eDk = 0;
+    protected int eDl = -1;
+    protected int eDm = -1;
+    protected int eDn = -1;
+    protected boolean eDo = false;
 
     public a() {
     }
@@ -52,101 +52,101 @@ public class a {
     }
 
     public void b(TypedArray typedArray) {
-        this.eCJ = typedArray.getDimensionPixelSize(5, 0);
+        this.eCU = typedArray.getDimensionPixelSize(5, 0);
         this.dSp = typedArray.getDimensionPixelSize(2, 0);
-        this.eCH = typedArray.getFloat(12, 1.12f);
+        this.eCS = typedArray.getFloat(12, 1.12f);
         this.mTextSize = typedArray.getDimensionPixelSize(1, (int) this.mTextSize);
         this.mTextColor = typedArray.getColor(0, this.mTextColor);
-        this.eCM = typedArray.getDimensionPixelSize(8, this.eCM);
-        this.eCN = typedArray.getDimensionPixelSize(11, this.eCN);
-        this.eCO = typedArray.getResourceId(3, 0);
-        this.eCK = typedArray.getDimensionPixelSize(10, this.eCK);
-        this.eCL = typedArray.getDimensionPixelSize(4, this.eCL);
-        this.eCP = typedArray.getResourceId(9, 0);
-        this.eCQ = typedArray.getBoolean(6, false);
-        this.eDb = this.eCJ;
+        this.eCX = typedArray.getDimensionPixelSize(8, this.eCX);
+        this.eCY = typedArray.getDimensionPixelSize(11, this.eCY);
+        this.eCZ = typedArray.getResourceId(3, 0);
+        this.eCV = typedArray.getDimensionPixelSize(10, this.eCV);
+        this.eCW = typedArray.getDimensionPixelSize(4, this.eCW);
+        this.eDa = typedArray.getResourceId(9, 0);
+        this.eDb = typedArray.getBoolean(6, false);
+        this.eDm = this.eCU;
     }
 
     public void release() {
     }
 
     public void bb(int i, int i2) {
-        this.eCK = i;
-        this.eCL = i2;
-    }
-
-    public void nY(int i) {
-        this.eCP = i;
-    }
-
-    public void nZ(int i) {
-        this.eCM = i;
-    }
-
-    public void oa(int i) {
-        this.eCN = i;
-    }
-
-    public void ob(int i) {
-        this.eCO = i;
-    }
-
-    public void setSupportNoImage() {
-        this.eCT = true;
-    }
-
-    public void setLineSpacing(float f, float f2) {
-        this.eCH = f2;
-        this.eCI = f;
-    }
-
-    public void bc(int i, int i2) {
         this.eCV = i;
         this.eCW = i2;
     }
 
-    public void oc(int i) {
-        this.eCX = i;
-    }
-
-    public void od(int i) {
-        this.eCY = i;
-    }
-
-    public void oe(int i) {
-        this.eCJ = i;
-    }
-
-    public void of(int i) {
-        this.eCZ = i;
-    }
-
-    public void og(int i) {
+    public void oa(int i) {
         this.eDa = i;
     }
 
+    public void ob(int i) {
+        this.eCX = i;
+    }
+
+    public void oc(int i) {
+        this.eCY = i;
+    }
+
+    public void od(int i) {
+        this.eCZ = i;
+    }
+
+    public void setSupportNoImage() {
+        this.eDe = true;
+    }
+
+    public void setLineSpacing(float f, float f2) {
+        this.eCS = f2;
+        this.eCT = f;
+    }
+
+    public void bc(int i, int i2) {
+        this.eDg = i;
+        this.eDh = i2;
+    }
+
+    public void oe(int i) {
+        this.eDi = i;
+    }
+
+    public void of(int i) {
+        this.eDj = i;
+    }
+
+    public void og(int i) {
+        this.eCU = i;
+    }
+
     public void oh(int i) {
-        this.eDb = i;
+        this.eDk = i;
     }
 
     public void oi(int i) {
-        this.eDc = i;
+        this.eDl = i;
+    }
+
+    public void oj(int i) {
+        this.eDm = i;
+    }
+
+    public void ok(int i) {
+        this.eDn = i;
     }
 
     public void setTextSize(int i) {
         this.mTextSize = i;
     }
 
-    public boolean bip() {
-        return this.eDd;
+    public boolean bir() {
+        return this.eDo;
     }
 
     public void iG(boolean z) {
-        this.eDd = z;
+        this.eDo = z;
     }
 
     public void iH(boolean z) {
-        this.eCU = z;
+        this.eDf = z;
     }
 
     public int[] u(int i, int i2, int i3, int i4) {
@@ -157,14 +157,14 @@ public class a {
         int[] iArr = {imageResize[0], imageResize[1]};
         int i5 = iArr[0];
         int i6 = iArr[1];
-        if (!this.eCU || i3 <= i5 || eCG <= 1.0f) {
+        if (!this.eDf || i3 <= i5 || eCR <= 1.0f) {
             i3 = i5;
         } else {
-            if (i5 * eCG <= i3) {
-                if (i5 * eCG > i3 * 0.68f) {
+            if (i5 * eCR <= i3) {
+                if (i5 * eCR > i3 * 0.68f) {
                     i3 = (int) (i3 * 0.68f);
                 } else {
-                    i3 = (int) (i5 * eCG);
+                    i3 = (int) (i5 * eCR);
                 }
             }
             if (iArr[0] > 0) {
@@ -175,30 +175,30 @@ public class a {
     }
 
     public void a(a aVar) {
-        this.eCH = aVar.eCH;
-        this.eCI = aVar.eCI;
-        this.dSp = aVar.dSp;
-        this.eCJ = aVar.eCJ;
-        this.mTextSize = aVar.mTextSize;
-        this.eCK = aVar.eCK;
-        this.eCL = aVar.eCL;
-        this.mTextColor = aVar.mTextColor;
-        this.eCM = aVar.eCM;
-        this.eCN = aVar.eCN;
-        this.eCO = aVar.eCO;
-        this.eCP = aVar.eCP;
-        this.eCQ = aVar.eCQ;
-        this.mIsFromCDN = aVar.mIsFromCDN;
-        this.eCR = aVar.eCR;
+        this.eCS = aVar.eCS;
         this.eCT = aVar.eCT;
+        this.dSp = aVar.dSp;
         this.eCU = aVar.eCU;
+        this.mTextSize = aVar.mTextSize;
         this.eCV = aVar.eCV;
         this.eCW = aVar.eCW;
+        this.mTextColor = aVar.mTextColor;
+        this.eCX = aVar.eCX;
         this.eCY = aVar.eCY;
         this.eCZ = aVar.eCZ;
         this.eDa = aVar.eDa;
-        this.eDb = aVar.eCJ;
+        this.eDb = aVar.eDb;
+        this.mIsFromCDN = aVar.mIsFromCDN;
         this.eDc = aVar.eDc;
-        this.eDd = aVar.eDd;
+        this.eDe = aVar.eDe;
+        this.eDf = aVar.eDf;
+        this.eDg = aVar.eDg;
+        this.eDh = aVar.eDh;
+        this.eDj = aVar.eDj;
+        this.eDk = aVar.eDk;
+        this.eDl = aVar.eDl;
+        this.eDm = aVar.eCU;
+        this.eDn = aVar.eDn;
+        this.eDo = aVar.eDo;
     }
 }

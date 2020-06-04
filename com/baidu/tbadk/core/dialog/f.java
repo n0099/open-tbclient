@@ -124,7 +124,7 @@ public class f implements View.OnClickListener {
         }
     }
 
-    public f kO(int i) {
+    public f kQ(int i) {
         if (i > 0) {
             this.duration = i * 1000;
         }

@@ -146,7 +146,7 @@ public class h extends com.baidu.swan.apps.api.a.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, @NonNull String str, int i, @NonNull String str2, final String str3) {
-        com.baidu.swan.apps.res.widget.b.d.ce(context).g(str).h(str2).gG(i).b(new d.a() { // from class: com.baidu.swan.apps.api.module.e.h.6
+        com.baidu.swan.apps.res.widget.b.d.ce(context).g(str).h(str2).gI(i).b(new d.a() { // from class: com.baidu.swan.apps.api.module.e.h.6
             @Override // com.baidu.swan.apps.res.widget.b.d.a
             public void onToastClick() {
                 if (!TextUtils.isEmpty(str3)) {
@@ -158,17 +158,17 @@ public class h extends com.baidu.swan.apps.api.a.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, str).gG(i).fb(z).gC(2).showToast();
+        com.baidu.swan.apps.res.widget.b.d.a(context, str).gI(i).fb(z).gE(2).showToast();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, @NonNull String str, int i, Drawable drawable, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, H(str, 14)).d(drawable).gG(i).fb(z).showHighlightToast();
+        com.baidu.swan.apps.res.widget.b.d.a(context, H(str, 14)).d(drawable).gI(i).fb(z).showHighlightToast();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(Context context, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, H(str, 14)).gG(i).fb(z).showHighLoadingToast();
+        com.baidu.swan.apps.res.widget.b.d.a(context, H(str, 14)).gI(i).fb(z).showHighLoadingToast();
     }
 
     private void Ug() {

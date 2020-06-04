@@ -63,7 +63,7 @@ public interface d {
 
     long Rz();
 
-    boolean ee(int i);
+    boolean eg(int i);
 
     JSONObject getRawSwitch();
 

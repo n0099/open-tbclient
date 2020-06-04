@@ -16,9 +16,9 @@ public final class w {
             return false;
         }
         try {
-            a bgH = a.bgH();
+            a bgI = a.bgI();
             for (String str : strArr) {
-                if (bgH.getProperty(str) != null) {
+                if (bgI.getProperty(str) != null) {
                     return true;
                 }
             }
@@ -38,7 +38,7 @@ public final class w {
             this.evr.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a bgH() throws IOException {
+        public static a bgI() throws IOException {
             if (evq == null) {
                 synchronized (a.class) {
                     if (evq == null) {

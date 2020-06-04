@@ -18,5 +18,5 @@ public interface k {
 
     void dc(boolean z);
 
-    void ed(int i);
+    void ef(int i);
 }

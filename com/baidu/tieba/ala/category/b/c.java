@@ -10,10 +10,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c implements IAdapterData {
-    public static final BdUniqueId fnt = BdUniqueId.gen();
+    public static final BdUniqueId fnE = BdUniqueId.gen();
     private String desc;
-    private String fnu;
-    private List<IAdapterData> fnv;
+    private String fnF;
+    private List<IAdapterData> fnG;
     private String icon;
     private String id;
     private String name;
@@ -21,18 +21,18 @@ public class c implements IAdapterData {
     public void cM(JSONObject jSONObject) {
         this.id = jSONObject.optString("id");
         this.name = jSONObject.optString("name");
-        this.fnu = jSONObject.optString(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
+        this.fnF = jSONObject.optString(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
         this.icon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
         this.desc = jSONObject.optString("desc");
         JSONArray optJSONArray = jSONObject.optJSONArray("sub_list");
         if (optJSONArray != null) {
-            this.fnv = new ArrayList();
+            this.fnG = new ArrayList();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 c cVar = new c();
                 cVar.cM(optJSONObject);
-                this.fnv.add(cVar);
+                this.fnG.add(cVar);
             }
         }
     }
@@ -45,12 +45,12 @@ public class c implements IAdapterData {
         return this.name;
     }
 
-    public List<IAdapterData> bsO() {
-        return this.fnv;
+    public List<IAdapterData> bsQ() {
+        return this.fnG;
     }
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return fnt;
+        return fnE;
     }
 }

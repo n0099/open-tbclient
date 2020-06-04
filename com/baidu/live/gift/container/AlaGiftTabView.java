@@ -302,7 +302,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
         }
     }
 
-    public void bX(int i) {
+    public void bZ(int i) {
         int childCount;
         this.aIS = i;
         if (this.aIm != null && (childCount = this.aIm.getChildCount()) > 0) {
@@ -398,7 +398,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
     public void aO(boolean z) {
     }
 
-    public void bB(int i) {
+    public void bD(int i) {
         this.aIL = i;
     }
 
@@ -414,7 +414,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
         this.aIU = z;
     }
 
-    public void bY(int i) {
+    public void ca(int i) {
         this.avV = i;
     }
 
@@ -443,22 +443,22 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            AlaGiftTabView.this.bZ(this.mPosition);
+            AlaGiftTabView.this.cb(this.mPosition);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bZ(int i) {
+    public void cb(int i) {
         if (this.aIR != null) {
             this.aIR.c(false, this.aIQ);
         }
-        ca(i);
+        cc(i);
         this.aIj.setCurrentItem(this.aIx);
         zu();
         zo();
     }
 
-    private void ca(int i) {
+    private void cc(int i) {
         int min = Math.min(i, this.aIF.size());
         int i2 = 0;
         for (int i3 = 0; i3 < min; i3++) {
@@ -506,7 +506,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
             g item = aVar.getItem(i);
             if (item != null) {
                 d(item);
-                aVar.bQ(i);
+                aVar.bS(i);
                 aVar.notifyDataSetChanged();
                 this.aIo.setVisibility(aVar.getCount() > 0 ? 0 : 4);
                 eZ("1");
@@ -936,7 +936,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                     break;
                 }
                 if (z2) {
-                    this.aIu.add(cb(i7));
+                    this.aIu.add(cd(i7));
                     this.aIF.append(i7, 1);
                 } else {
                     i iVar2 = arrayList.get(i7);
@@ -1085,7 +1085,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                 if (fVar == null || this.aIJ != fVar.getCategoryId()) {
                     i = i3 + 1;
                 } else {
-                    ca(i3);
+                    cc(i3);
                     break;
                 }
             }
@@ -1134,17 +1134,17 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
         final com.baidu.live.gift.container.a aVar = new com.baidu.live.gift.container.a(this.mContext, this.mType);
         aVar.bf(this.aGS);
         aVar.setGiftItems(list);
-        aVar.bP(this.aGQ);
+        aVar.bR(this.aGQ);
         aVar.aQ(this.aGZ);
-        aVar.bQ(i);
+        aVar.bS(i);
         if (this.isLandscape) {
             if (this.aIj.getHeight() > 0) {
-                aVar.bR(this.aIj.getHeight() / 3);
+                aVar.bT(this.aIj.getHeight() / 3);
             } else {
                 this.aIj.post(new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabView.17
                     @Override // java.lang.Runnable
                     public void run() {
-                        aVar.bR(AlaGiftTabView.this.aIj.getHeight() / 3);
+                        aVar.bT(AlaGiftTabView.this.aIj.getHeight() / 3);
                         aVar.notifyDataSetChanged();
                     }
                 });
@@ -1169,7 +1169,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
         return frameLayout;
     }
 
-    private FrameLayout cb(int i) {
+    private FrameLayout cd(int i) {
         FrameLayout b2 = b(null, -1, i);
         int i2 = 0;
         while (true) {
@@ -1223,7 +1223,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                     this.aIm.addView(viewGroup, layoutParams);
                 }
             }
-            cc(this.aIz);
+            ce(this.aIz);
         }
     }
 
@@ -1236,7 +1236,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void cc(int i) {
+    private void ce(int i) {
         int i2;
         JSONArray jSONArray;
         JSONException e;
@@ -1362,7 +1362,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                         gradientTextView.setGradientTextColor(-57754, -39399);
                     }
                     gradientTextView.setTypeface(Typeface.defaultFromStyle(1));
-                    cd(i);
+                    cf(i);
                     this.aIz = i;
                     this.aIl.scrollTo(viewGroup2.getLeft(), 0);
                 }
@@ -1395,7 +1395,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
         }
     }
 
-    private void cd(int i) {
+    private void cf(int i) {
         int childCount = this.aIm.getChildCount();
         if (i >= 0 && i < childCount && this.aHY != null && this.aHY.size() > i && this.aHY.get(i) != null) {
             this.aIG.get(i);
@@ -1445,10 +1445,10 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                     if (gridView.getAdapter() != null) {
                         com.baidu.live.gift.container.a aVar = (com.baidu.live.gift.container.a) gridView.getAdapter();
                         if (aVar.getSelectedPosition() >= 0 && i != this.aIy) {
-                            aVar.bQ(-1);
+                            aVar.bS(-1);
                         }
                         if (aVar.getSelectedPosition() < 0 && i == this.aIy) {
-                            aVar.bQ(this.mSelectedPosition);
+                            aVar.bS(this.mSelectedPosition);
                         }
                         aVar.notifyDataSetChanged();
                         this.aIo.setVisibility(aVar.getCount() <= 0 ? 4 : 0);
@@ -1486,7 +1486,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                     }
                     this.aIk.setCount(this.aIF.get(i2));
                     this.aIk.onPageSelected(i3);
-                    cc(i2);
+                    ce(i2);
                     return;
                 }
             }
@@ -1506,7 +1506,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
         this.aIw = dVar;
     }
 
-    public void ce(int i) {
+    public void cg(int i) {
         this.aIE = i;
     }
 
@@ -1631,7 +1631,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
         this.aGS = z;
     }
 
-    public void cf(int i) {
+    public void ch(int i) {
         this.aGQ = i;
     }
 

@@ -14,9 +14,9 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a kOv;
-    private String kOt;
-    private String kOu = b.aTX().getString(SharedPrefConfig.ASP_SHOWN_INFO, "");
+    private static a kPE;
+    private String kPC;
+    private String kPD = b.aTX().getString(SharedPrefConfig.ASP_SHOWN_INFO, "");
     private String latitude;
     private String longitude;
     private long saveTime;
@@ -24,15 +24,15 @@ public class a {
     private a() {
     }
 
-    public static a cUZ() {
-        if (kOv == null) {
+    public static a cVp() {
+        if (kPE == null) {
             synchronized (c.class) {
-                if (kOv == null) {
-                    kOv = new a();
+                if (kPE == null) {
+                    kPE = new a();
                 }
             }
         }
-        return kOv;
+        return kPE;
     }
 
     public void FY(String str) {
@@ -47,53 +47,53 @@ public class a {
         this.saveTime = j;
     }
 
-    private String cVa() {
-        if (TextUtils.isEmpty(this.kOt)) {
+    private String cVq() {
+        if (TextUtils.isEmpty(this.kPC)) {
             WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo != null) {
-                this.kOt = connectionInfo.getBSSID();
+                this.kPC = connectionInfo.getBSSID();
             } else {
-                this.kOt = "";
+                this.kPC = "";
             }
         }
-        return this.kOt;
-    }
-
-    public void Lr(String str) {
-        this.kOt = str;
+        return this.kPC;
     }
 
     public void Ls(String str) {
-        this.kOu = str;
+        this.kPC = str;
     }
 
-    public void cVb() {
-        b.aTX().putString(SharedPrefConfig.ASP_SHOWN_INFO, this.kOu);
+    public void Lt(String str) {
+        this.kPD = str;
     }
 
-    public AppPosInfo cVc() {
+    public void cVr() {
+        b.aTX().putString(SharedPrefConfig.ASP_SHOWN_INFO, this.kPD);
+    }
+
+    public AppPosInfo cVs() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
-        builder.ap_mac = cVa();
+        builder.ap_mac = cVq();
         builder.ap_connected = Boolean.valueOf(j.isWifiNet());
         builder.latitude = this.latitude;
         builder.longitude = this.longitude;
         builder.addr_timestamp = Long.valueOf(this.saveTime);
         builder.coordinate_type = "bd09ll";
-        builder.asp_shown_info = this.kOu;
-        MercatorModel.MercatorData mercatorData = MercatorModel.deu().getMercatorData();
+        builder.asp_shown_info = this.kPD;
+        MercatorModel.MercatorData mercatorData = MercatorModel.deJ().getMercatorData();
         if (mercatorData != null) {
-            builder.mercator_lat = mercatorData.dew();
-            builder.mercator_lon = mercatorData.dev();
-            builder.mercator_city = Integer.valueOf(mercatorData.dey());
-            builder.mercator_radius = mercatorData.dex();
-            builder.mercator_time = Long.valueOf(mercatorData.dez());
+            builder.mercator_lat = mercatorData.deL();
+            builder.mercator_lon = mercatorData.deK();
+            builder.mercator_city = Integer.valueOf(mercatorData.deN());
+            builder.mercator_radius = mercatorData.deM();
+            builder.mercator_time = Long.valueOf(mercatorData.deO());
         }
         return builder.build(false);
     }
 
-    public AppPosInfo cVd() {
+    public AppPosInfo cVt() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
-        builder.ap_mac = cVa();
+        builder.ap_mac = cVq();
         builder.ap_connected = Boolean.valueOf(j.isWifiNet());
         builder.latitude = this.latitude;
         builder.longitude = this.longitude;
@@ -109,14 +109,14 @@ public class a {
         }
         builder.addr_timestamp = Long.valueOf(this.saveTime);
         builder.coordinate_type = "BD09LL";
-        builder.asp_shown_info = this.kOu;
-        MercatorModel.MercatorData mercatorData = MercatorModel.deu().getMercatorData();
+        builder.asp_shown_info = this.kPD;
+        MercatorModel.MercatorData mercatorData = MercatorModel.deJ().getMercatorData();
         if (mercatorData != null) {
-            builder.mercator_lat = mercatorData.dew();
-            builder.mercator_lon = mercatorData.dev();
-            builder.mercator_city = Integer.valueOf(mercatorData.dey());
-            builder.mercator_radius = mercatorData.dex();
-            builder.mercator_time = Long.valueOf(mercatorData.dez());
+            builder.mercator_lat = mercatorData.deL();
+            builder.mercator_lon = mercatorData.deK();
+            builder.mercator_city = Integer.valueOf(mercatorData.deN());
+            builder.mercator_radius = mercatorData.deM();
+            builder.mercator_time = Long.valueOf(mercatorData.deO());
         }
         return builder.build(false);
     }

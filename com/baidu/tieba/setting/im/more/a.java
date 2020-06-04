@@ -7,126 +7,126 @@ import tbclient.SimpleUser;
 public class a {
     private int ejS;
     private int ejV;
-    private int kTG;
-    private int kTH;
-    private boolean kTI;
-    private int kTJ;
-    private SimpleUser kTK;
-    private int kTL;
+    private int kUP;
+    private int kUQ;
+    private boolean kUR;
+    private int kUS;
+    private SimpleUser kUT;
+    private int kUU;
 
-    public boolean cWG() {
+    public boolean cWW() {
         com.baidu.tbadk.core.sharedPref.b aTX = com.baidu.tbadk.core.sharedPref.b.aTX();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.kTG = aTX.getInt("post" + currentAccount, 0);
-        this.kTH = aTX.getInt("like" + currentAccount, 0);
+        this.kUP = aTX.getInt("post" + currentAccount, 0);
+        this.kUQ = aTX.getInt("like" + currentAccount, 0);
         this.ejS = aTX.getInt(TbEnum.ParamKey.GROUP + currentAccount, 0);
         this.ejV = aTX.getInt("live" + currentAccount, 0);
-        this.kTJ = aTX.getInt("reply" + currentAccount, 1);
-        this.kTI = TbadkCoreApplication.getInst().getLocationShared();
-        return (this.kTG == 0 && this.kTH == 0 && this.ejS == 0 && this.ejV == 0 && this.kTJ == 1) ? false : true;
+        this.kUS = aTX.getInt("reply" + currentAccount, 1);
+        this.kUR = TbadkCoreApplication.getInst().getLocationShared();
+        return (this.kUP == 0 && this.kUQ == 0 && this.ejS == 0 && this.ejV == 0 && this.kUS == 1) ? false : true;
     }
 
     public void b(a aVar) {
         if (aVar != null) {
-            this.kTG = aVar.kTG;
-            this.kTH = aVar.kTH;
+            this.kUP = aVar.kUP;
+            this.kUQ = aVar.kUQ;
             this.ejS = aVar.ejS;
-            this.kTI = aVar.kTI;
+            this.kUR = aVar.kUR;
             this.ejV = aVar.ejV;
-            this.kTL = aVar.kTL;
-            this.kTJ = aVar.kTJ;
+            this.kUU = aVar.kUU;
+            this.kUS = aVar.kUS;
         }
     }
 
-    public int cWH() {
-        return this.kTG;
+    public int cWX() {
+        return this.kUP;
     }
 
     public void bB(String str, int i) {
         com.baidu.tbadk.core.sharedPref.b.aTX().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void cWI() {
+    public void cWY() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         com.baidu.tbadk.core.sharedPref.b aTX = com.baidu.tbadk.core.sharedPref.b.aTX();
-        aTX.putInt("post" + currentAccount, this.kTG);
-        aTX.putInt("like" + currentAccount, this.kTH);
+        aTX.putInt("post" + currentAccount, this.kUP);
+        aTX.putInt("like" + currentAccount, this.kUQ);
         aTX.putInt(TbEnum.ParamKey.GROUP + currentAccount, this.ejS);
         aTX.putInt("live" + currentAccount, this.ejV);
-        aTX.putInt("reply" + currentAccount, this.kTJ);
-        TbadkCoreApplication.getInst().setLocationShared(this.kTI);
-    }
-
-    public void CK(int i) {
-        this.kTG = i;
-    }
-
-    public int cWJ() {
-        return this.kTH;
-    }
-
-    public void CL(int i) {
-        if (i <= 3 && i >= 1) {
-            this.kTH = i;
-        }
-    }
-
-    public int cWK() {
-        return this.ejV;
+        aTX.putInt("reply" + currentAccount, this.kUS);
+        TbadkCoreApplication.getInst().setLocationShared(this.kUR);
     }
 
     public void CM(int i) {
+        this.kUP = i;
+    }
+
+    public int cWZ() {
+        return this.kUQ;
+    }
+
+    public void CN(int i) {
+        if (i <= 3 && i >= 1) {
+            this.kUQ = i;
+        }
+    }
+
+    public int cXa() {
+        return this.ejV;
+    }
+
+    public void CO(int i) {
         if (i <= 3 && i >= 1) {
             this.ejV = i;
         }
     }
 
-    public int cWL() {
+    public int cXb() {
         return this.ejS;
     }
 
-    public void CN(int i) {
+    public void CP(int i) {
         if (i <= 3 && i >= 1) {
             this.ejS = i;
         }
     }
 
-    public boolean cWM() {
-        return this.kTI;
-    }
-
-    public void CO(int i) {
-        switch (i) {
-            case 1:
-                this.kTI = true;
-                return;
-            default:
-                this.kTI = false;
-                return;
-        }
-    }
-
-    public SimpleUser bmq() {
-        return this.kTK;
-    }
-
-    public void b(SimpleUser simpleUser) {
-        this.kTK = simpleUser;
-    }
-
-    public void CP(int i) {
-        this.kTL = i;
+    public boolean cXc() {
+        return this.kUR;
     }
 
     public void CQ(int i) {
-        if (i == 0) {
-            this.kTJ = 1;
-        } else {
-            this.kTJ = i;
+        switch (i) {
+            case 1:
+                this.kUR = true;
+                return;
+            default:
+                this.kUR = false;
+                return;
         }
     }
 
-    public int cWN() {
-        return this.kTJ;
+    public SimpleUser bms() {
+        return this.kUT;
+    }
+
+    public void b(SimpleUser simpleUser) {
+        this.kUT = simpleUser;
+    }
+
+    public void CR(int i) {
+        this.kUU = i;
+    }
+
+    public void CS(int i) {
+        if (i == 0) {
+            this.kUS = 1;
+        } else {
+            this.kUS = i;
+        }
+    }
+
+    public int cXd() {
+        return this.kUS;
     }
 }

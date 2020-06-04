@@ -10,69 +10,69 @@ import tbclient.Tabfeedlist.DataRes;
 import tbclient.ThreadInfo;
 /* loaded from: classes9.dex */
 public class a {
-    private ArrayList<o> gVH;
-    private ArrayList<d> gVI;
-    private l gVJ;
-    private c gVK;
-    private boolean gVL;
+    private ArrayList<o> gVS;
+    private ArrayList<d> gVT;
+    private l gVU;
+    private c gVV;
+    private boolean gVW;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.gVH = new ArrayList<>(v.getCount(dataRes.thread_list));
+            this.gVS = new ArrayList<>(v.getCount(dataRes.thread_list));
             for (ThreadInfo threadInfo : dataRes.thread_list) {
                 bk bkVar = new bk();
                 bkVar.a(threadInfo);
-                this.gVH.add(bkVar);
+                this.gVS.add(bkVar);
             }
-            this.gVI = new ArrayList<>();
+            this.gVT = new ArrayList<>();
             if (!v.isEmpty(dataRes.resource_list)) {
                 for (GeneralResource generalResource : dataRes.resource_list) {
                     d dVar = new d();
                     dVar.a(generalResource);
-                    this.gVI.add(dVar);
+                    this.gVT.add(dVar);
                 }
             }
-            this.gVJ = new l();
-            this.gVJ.bR(dataRes.recommend_forum_info);
+            this.gVU = new l();
+            this.gVU.bR(dataRes.recommend_forum_info);
             if (dataRes.hot_userrank_entry != null) {
-                this.gVK = new c();
-                this.gVK.hot_user = dataRes.hot_userrank_entry.hot_user;
-                this.gVK.module_name = dataRes.hot_userrank_entry.module_name;
-                this.gVK.module_icon = dataRes.hot_userrank_entry.module_icon;
+                this.gVV = new c();
+                this.gVV.hot_user = dataRes.hot_userrank_entry.hot_user;
+                this.gVV.module_name = dataRes.hot_userrank_entry.module_name;
+                this.gVV.module_icon = dataRes.hot_userrank_entry.module_icon;
             }
-            this.gVL = dataRes.is_new_url.intValue() == 1;
+            this.gVW = dataRes.is_new_url.intValue() == 1;
         }
     }
 
-    public ArrayList<o> bPQ() {
-        return this.gVH;
+    public ArrayList<o> bPS() {
+        return this.gVS;
     }
 
-    public ArrayList<d> bPR() {
-        return this.gVI;
+    public ArrayList<d> bPT() {
+        return this.gVT;
     }
 
-    public l bPS() {
-        return this.gVJ;
+    public l bPU() {
+        return this.gVU;
     }
 
-    public c bPT() {
-        return this.gVK;
+    public c bPV() {
+        return this.gVV;
     }
 
-    public boolean bPU() {
-        return this.gVL;
+    public boolean bPW() {
+        return this.gVW;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: bPV */
+    /* renamed from: bPX */
     public a clone() {
         a aVar = new a();
-        aVar.gVH = this.gVH;
-        aVar.gVI = this.gVI;
-        aVar.gVJ = this.gVJ;
-        aVar.gVK = this.gVK;
-        aVar.gVL = this.gVL;
+        aVar.gVS = this.gVS;
+        aVar.gVT = this.gVT;
+        aVar.gVU = this.gVU;
+        aVar.gVV = this.gVV;
+        aVar.gVW = this.gVW;
         return aVar;
     }
 }

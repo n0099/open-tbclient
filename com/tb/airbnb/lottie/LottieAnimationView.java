@@ -591,7 +591,7 @@ public class LottieAnimationView extends ImageView {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: JE */
+            /* renamed from: JG */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }

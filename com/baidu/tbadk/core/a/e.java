@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class e {
     public static HashMap<String, Integer> dzn = new HashMap<>();
 
-    public static int jZ(int i) {
+    public static int kb(int i) {
         String str = TbadkCoreApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + i;
         if (dzn.containsKey(str)) {
             return dzn.get(str).intValue();
@@ -24,9 +24,9 @@ public class e {
     public static void a(PersonPrivateData personPrivateData) {
         if (personPrivateData != null) {
             String str = TbadkCoreApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + 2;
-            int bcw = personPrivateData.bcw();
+            int bcx = personPrivateData.bcx();
             if (!dzn.containsKey(str)) {
-                dzn.put(str, Integer.valueOf(bcw));
+                dzn.put(str, Integer.valueOf(bcx));
             }
         }
     }

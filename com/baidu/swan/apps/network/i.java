@@ -56,7 +56,7 @@ public class i extends com.baidu.swan.apps.network.a implements f {
         Pair<HttpRequest, Integer> q = com.baidu.swan.apps.api.module.network.b.q(b, str);
         HttpRequest httpRequest = (HttpRequest) q.first;
         if (httpRequest == null) {
-            unitedSchemeEntity.result = fY(((Integer) q.second).intValue());
+            unitedSchemeEntity.result = ga(((Integer) q.second).intValue());
             return false;
         }
         a(eVar, b, httpRequest, str, callbackHandler);

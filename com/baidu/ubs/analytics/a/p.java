@@ -3,29 +3,29 @@ package com.baidu.ubs.analytics.a;
 import java.util.List;
 /* loaded from: classes8.dex */
 public final class p {
-    private o mhH = new o();
+    private o miT = new o();
 
     public final void c(n nVar) {
-        this.mhH.a(nVar);
+        this.miT.a(nVar);
     }
 
     public final void b(n nVar) {
-        this.mhH.b(nVar);
+        this.miT.b(nVar);
     }
 
-    public final List<n> dsl() {
-        return this.mhH.dsl();
+    public final List<n> dsz() {
+        return this.miT.dsz();
     }
 
     public final void B(String str) {
-        this.mhH.B(str);
+        this.miT.B(str);
     }
 
-    public final void Ps(String str) {
-        this.mhH.B(str);
+    public final void Pt(String str) {
+        this.miT.B(str);
     }
 
-    public final boolean Pr(String str) {
-        return this.mhH.Pr(str);
+    public final boolean Ps(String str) {
+        return this.miT.Ps(str);
     }
 }

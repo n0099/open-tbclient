@@ -30,7 +30,7 @@ public class i extends com.baidu.adp.widget.ListView.a<bj, com.baidu.card.a<bk>>
     private aa<bk> adt;
     private t aib;
     private BdUniqueId epM;
-    private am gVA;
+    private am gVL;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
@@ -61,7 +61,7 @@ public class i extends com.baidu.adp.widget.ListView.a<bj, com.baidu.card.a<bk>>
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, bk bkVar) {
-                s.bLq().jv(true);
+                s.bLs().jv(true);
                 i.this.g(view, bkVar);
             }
         };
@@ -96,11 +96,11 @@ public class i extends com.baidu.adp.widget.ListView.a<bj, com.baidu.card.a<bk>>
                     }
                 }
             });
-            this.gVA = gVar;
+            this.gVL = gVar;
         }
-        this.gVA.setPageUniqueId(this.epM);
-        this.gVA.setFrom("14");
-        aVar.c(this.gVA);
+        this.gVL.setPageUniqueId(this.epM);
+        this.gVL.setFrom("14");
+        aVar.c(this.gVL);
         ae a = aVar.a(false, viewGroup, this.aib);
         com.baidu.card.a<bk> aVar2 = new com.baidu.card.a<>(a);
         aVar2.setPageId(this.epM);
@@ -140,7 +140,7 @@ public class i extends com.baidu.adp.widget.ListView.a<bj, com.baidu.card.a<bk>>
         aVar.b((com.baidu.card.a<bk>) bjVar.dEA);
         aVar.rM().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         aVar.rM().a(this.adt);
-        s.bLq().e(com.baidu.tieba.enterForum.a.h(bjVar.aOi(), this.mTabName));
+        s.bLs().e(com.baidu.tieba.enterForum.a.h(bjVar.aOi(), this.mTabName));
         return aVar.getView();
     }
 
@@ -151,9 +151,9 @@ public class i extends com.baidu.adp.widget.ListView.a<bj, com.baidu.card.a<bk>>
             yVar.mLocate = "20";
             yVar.ais = bkVar.tid;
             yVar.mSource = bkVar.mRecomSource;
-            yVar.kAl = bkVar.mRecomAbTag;
-            yVar.kAm = bkVar.mRecomWeight;
-            yVar.kAn = "14";
+            yVar.kBr = bkVar.mRecomAbTag;
+            yVar.kBs = bkVar.mRecomWeight;
+            yVar.kBt = "14";
             yVar.mGroupId = this.mTabName;
             yVar.mFloor = String.valueOf(bkVar.dDb);
             if (bkVar.aRO() != null) {
@@ -161,10 +161,10 @@ public class i extends com.baidu.adp.widget.ListView.a<bj, com.baidu.card.a<bk>>
             }
             if (bkVar.aOi() != null) {
                 yVar.evm = String.valueOf(bkVar.aOi().getFid());
-                yVar.kAu = bkVar.aOi().getNid();
+                yVar.kBA = bkVar.aOi().getNid();
                 if (bkVar.aOi().aQQ() != null) {
-                    yVar.kAq = bkVar.aOi().aQQ().video_md5;
-                    yVar.kAs = String.valueOf(bkVar.aOi().aQQ().is_vertical);
+                    yVar.kBw = bkVar.aOi().aQQ().video_md5;
+                    yVar.kBy = String.valueOf(bkVar.aOi().aQQ().is_vertical);
                 }
             }
             yVar.mUid = TbadkCoreApplication.getCurrentAccount();

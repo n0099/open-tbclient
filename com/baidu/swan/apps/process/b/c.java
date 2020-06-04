@@ -122,7 +122,7 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
         if (z) {
             int i = bundle.getInt("ipc_session_repal", SwanAppProcessInfo.UNKNOWN.index);
             if (SwanAppProcessInfo.checkProcessId(i)) {
-                bVar.gd(i);
+                bVar.gf(i);
             } else if (SwanAppProcessInfo.SERVICE.index == i) {
                 bVar.eG(true);
             }

@@ -18,7 +18,7 @@ public class z extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
 
     /* JADX INFO: Access modifiers changed from: protected */
     public z(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.o.gIn);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.o.gIy);
         this.mPageContext = tbPageContext;
     }
 
@@ -34,9 +34,9 @@ public class z extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.o oVar, com.baidu.tieba.card.a.a aVar) {
-        aVar.bLU().a(oVar);
-        aVar.bLU().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.s.bLq().e(new an("c10718").dh("obj_id", String.valueOf(oVar.gIo)));
+        aVar.bLW().a(oVar);
+        aVar.bLW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        com.baidu.tieba.card.s.bLs().e(new an("c10718").dh("obj_id", String.valueOf(oVar.gIz)));
         return aVar.getView();
     }
 }

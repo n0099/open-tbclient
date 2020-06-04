@@ -118,14 +118,14 @@ public class a {
         return true;
     }
 
-    public void iz(int i) {
+    public void iB(int i) {
         this.ddL.setVisibility(0);
         this.ddK.setFocusableInTouchMode(true);
         this.ddK.requestFocus();
         this.ddJ.setVisibility(8);
         this.ddN = true;
         if (this.ddO != null) {
-            this.ddO.ir(i);
+            this.ddO.it(i);
         }
     }
 

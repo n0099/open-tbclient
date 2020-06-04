@@ -13,5 +13,5 @@ public interface a {
 
     void a(InterfaceC0596a interfaceC0596a);
 
-    void bMo();
+    void bMq();
 }

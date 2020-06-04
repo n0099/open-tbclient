@@ -17,38 +17,38 @@ import java.util.List;
 public class a extends BaseAdapter {
     private Context mContext;
     private int mType = 0;
-    private List<String> ews = new ArrayList();
-    private List<String> ewt = new ArrayList();
-    private List<String> ewu = new ArrayList();
+    private List<String> ewD = new ArrayList();
+    private List<String> ewE = new ArrayList();
+    private List<String> ewF = new ArrayList();
 
     public a(Context context) {
         this.mContext = context;
     }
 
     public void setData(List<String> list, List<String> list2) {
-        this.ewt.clear();
-        this.ewu.clear();
+        this.ewE.clear();
+        this.ewF.clear();
         if (!v.isEmpty(list) && !v.isEmpty(list2)) {
-            this.ewt.addAll(list);
-            this.ewu.addAll(list2);
+            this.ewE.addAll(list);
+            this.ewF.addAll(list2);
         }
         notifyDataSetChanged();
     }
 
     public void setData(List<String> list, List<String> list2, List<String> list3) {
-        this.ews.clear();
+        this.ewD.clear();
         if (!v.isEmpty(list)) {
-            this.ews.addAll(list);
+            this.ewD.addAll(list);
         }
         setData(list2, list3);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.isEmpty(this.ewt)) {
+        if (v.isEmpty(this.ewE)) {
             return 0;
         }
-        return this.ewt.size();
+        return this.ewE.size();
     }
 
     @Override // android.widget.Adapter
@@ -75,14 +75,14 @@ public class a extends BaseAdapter {
         if (this.mType == 0) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.pb_vote_select_rule_item, (ViewGroup) null, false);
             b bVar = new b(view);
-            if (!v.isEmpty(this.ewt) && this.ewt.size() > i && !TextUtils.isEmpty(this.ewt.get(i))) {
-                bVar.ewv.setText(this.ewt.get(i));
-                bVar.ewv.setVisibility(0);
+            if (!v.isEmpty(this.ewE) && this.ewE.size() > i && !TextUtils.isEmpty(this.ewE.get(i))) {
+                bVar.ewG.setText(this.ewE.get(i));
+                bVar.ewG.setVisibility(0);
             } else {
-                bVar.ewv.setVisibility(8);
+                bVar.ewG.setVisibility(8);
             }
-            if (!v.isEmpty(this.ewu) && this.ewu.size() > i && !TextUtils.isEmpty(this.ewu.get(i))) {
-                bVar.bWU.setText(this.ewu.get(i));
+            if (!v.isEmpty(this.ewF) && this.ewF.size() > i && !TextUtils.isEmpty(this.ewF.get(i))) {
+                bVar.bWU.setText(this.ewF.get(i));
                 bVar.bWU.setVisibility(0);
             } else {
                 bVar.bWU.setVisibility(8);
@@ -94,18 +94,18 @@ public class a extends BaseAdapter {
         } else if (this.mType == 1) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.bar_select_rule_item, (ViewGroup) null, false);
             C0496a c0496a = new C0496a(view);
-            if (!v.isEmpty(this.ews) && this.ews.size() > i && !TextUtils.isEmpty(this.ews.get(i))) {
+            if (!v.isEmpty(this.ewD) && this.ewD.size() > i && !TextUtils.isEmpty(this.ewD.get(i))) {
                 c0496a.dRP.setDefaultResource(R.drawable.transparent_bg);
-                c0496a.dRP.startLoad(this.ews.get(i), 10, false);
+                c0496a.dRP.startLoad(this.ewD.get(i), 10, false);
             }
-            if (!v.isEmpty(this.ewt) && this.ewt.size() > i && !TextUtils.isEmpty(this.ewt.get(i))) {
-                c0496a.ewv.setText(this.ewt.get(i));
-                c0496a.ewv.setVisibility(0);
+            if (!v.isEmpty(this.ewE) && this.ewE.size() > i && !TextUtils.isEmpty(this.ewE.get(i))) {
+                c0496a.ewG.setText(this.ewE.get(i));
+                c0496a.ewG.setVisibility(0);
             } else {
-                c0496a.ewv.setVisibility(8);
+                c0496a.ewG.setVisibility(8);
             }
-            if (!v.isEmpty(this.ewu) && this.ewu.size() > i && !TextUtils.isEmpty(this.ewu.get(i))) {
-                c0496a.bWU.setText(this.ewu.get(i));
+            if (!v.isEmpty(this.ewF) && this.ewF.size() > i && !TextUtils.isEmpty(this.ewF.get(i))) {
+                c0496a.bWU.setText(this.ewF.get(i));
                 c0496a.bWU.setVisibility(0);
             } else {
                 c0496a.bWU.setVisibility(8);
@@ -120,14 +120,14 @@ public class a extends BaseAdapter {
 
     public void a(b bVar) {
         if (bVar != null) {
-            am.setViewTextColor(bVar.ewv, (int) R.color.cp_cont_b);
+            am.setViewTextColor(bVar.ewG, (int) R.color.cp_cont_b);
             am.setViewTextColor(bVar.bWU, (int) R.color.cp_cont_d);
         }
     }
 
     public void a(C0496a c0496a) {
         if (c0496a != null) {
-            am.setViewTextColor(c0496a.ewv, R.color.cp_cont_b, 1);
+            am.setViewTextColor(c0496a.ewG, R.color.cp_cont_b, 1);
             am.setViewTextColor(c0496a.bWU, R.color.cp_cont_d, 1);
         }
     }
@@ -135,10 +135,10 @@ public class a extends BaseAdapter {
     /* loaded from: classes.dex */
     public class b {
         public TextView bWU;
-        public TextView ewv;
+        public TextView ewG;
 
         public b(View view) {
-            this.ewv = (TextView) view.findViewById(R.id.pb_vote_select_rule_title);
+            this.ewG = (TextView) view.findViewById(R.id.pb_vote_select_rule_title);
             this.bWU = (TextView) view.findViewById(R.id.pb_vote_select_rule_content);
         }
     }
@@ -148,12 +148,12 @@ public class a extends BaseAdapter {
     public class C0496a {
         public TextView bWU;
         public TbImageView dRP;
-        public TextView ewv;
+        public TextView ewG;
 
         public C0496a(View view) {
             this.dRP = (TbImageView) view.findViewById(R.id.bar_select_rule_head_view);
             this.dRP.setDefaultBgResource(R.color.cp_bg_line_g);
-            this.ewv = (TextView) view.findViewById(R.id.bar_select_rule_title);
+            this.ewG = (TextView) view.findViewById(R.id.bar_select_rule_title);
             this.bWU = (TextView) view.findViewById(R.id.bar_select_rule_content);
         }
     }

@@ -279,7 +279,7 @@ public class a {
         return false;
     }
 
-    public boolean hF(int i) {
+    public boolean hH(int i) {
         if (asX() && cJA && this.cJx != null) {
             int i2 = 0;
             for (ActivityManager.AppTask appTask : this.cJx.getAppTasks()) {

@@ -26,7 +26,7 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a cT(int i) {
+    public static a cV(int i) {
         return g(2, i, 0, 0);
     }
 

@@ -167,7 +167,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void gh(int i) {
+    public void gj(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

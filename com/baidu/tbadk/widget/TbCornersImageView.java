@@ -20,19 +20,19 @@ public class TbCornersImageView extends AppCompatImageView {
     private int borderColor;
     private int borderWidth;
     private int cornerRadius;
-    private boolean ewB;
-    private boolean ewC;
-    private int ewD;
-    private int ewE;
-    private int ewF;
-    private int ewG;
-    private int ewH;
-    private int ewI;
-    private int ewJ;
-    private float[] ewK;
-    private float[] ewL;
-    private RectF ewM;
-    private RectF ewN;
+    private boolean ewM;
+    private boolean ewN;
+    private int ewO;
+    private int ewP;
+    private int ewQ;
+    private int ewR;
+    private int ewS;
+    private int ewT;
+    private int ewU;
+    private float[] ewV;
+    private float[] ewW;
+    private RectF ewX;
+    private RectF ewY;
     private int height;
     private Paint paint;
     private Path path;
@@ -50,45 +50,45 @@ public class TbCornersImageView extends AppCompatImageView {
     public TbCornersImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.borderColor = -1;
-        this.ewE = -1;
+        this.ewP = -1;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.CornersImageView, 0, 0);
         for (int i2 = 0; i2 < obtainStyledAttributes.getIndexCount(); i2++) {
             int index = obtainStyledAttributes.getIndex(i2);
             if (index == 7) {
-                this.ewC = obtainStyledAttributes.getBoolean(index, this.ewC);
+                this.ewN = obtainStyledAttributes.getBoolean(index, this.ewN);
             } else if (index == 4) {
-                this.ewB = obtainStyledAttributes.getBoolean(index, this.ewB);
+                this.ewM = obtainStyledAttributes.getBoolean(index, this.ewM);
             } else if (index == 1) {
                 this.borderWidth = obtainStyledAttributes.getDimensionPixelSize(index, this.borderWidth);
             } else if (index == 2) {
                 this.borderColor = obtainStyledAttributes.getColor(index, this.borderColor);
             } else if (index == 6) {
-                this.ewD = obtainStyledAttributes.getDimensionPixelSize(index, this.ewD);
+                this.ewO = obtainStyledAttributes.getDimensionPixelSize(index, this.ewO);
             } else if (index == 3) {
-                this.ewE = obtainStyledAttributes.getColor(index, this.ewE);
+                this.ewP = obtainStyledAttributes.getColor(index, this.ewP);
             } else if (index == 0) {
                 this.cornerRadius = obtainStyledAttributes.getDimensionPixelSize(index, this.cornerRadius);
             } else if (index == 11) {
-                this.ewF = obtainStyledAttributes.getDimensionPixelSize(index, this.ewF);
+                this.ewQ = obtainStyledAttributes.getDimensionPixelSize(index, this.ewQ);
             } else if (index == 10) {
-                this.ewG = obtainStyledAttributes.getDimensionPixelSize(index, this.ewG);
+                this.ewR = obtainStyledAttributes.getDimensionPixelSize(index, this.ewR);
             } else if (index == 5) {
-                this.ewH = obtainStyledAttributes.getDimensionPixelSize(index, this.ewH);
+                this.ewS = obtainStyledAttributes.getDimensionPixelSize(index, this.ewS);
             } else if (index == 8) {
-                this.ewI = obtainStyledAttributes.getDimensionPixelSize(index, this.ewI);
+                this.ewT = obtainStyledAttributes.getDimensionPixelSize(index, this.ewT);
             } else if (index == 9) {
-                this.ewJ = obtainStyledAttributes.getColor(index, this.ewJ);
+                this.ewU = obtainStyledAttributes.getColor(index, this.ewU);
             }
         }
         obtainStyledAttributes.recycle();
-        this.ewK = new float[8];
-        this.ewL = new float[8];
-        this.ewN = new RectF();
-        this.ewM = new RectF();
+        this.ewV = new float[8];
+        this.ewW = new float[8];
+        this.ewY = new RectF();
+        this.ewX = new RectF();
         this.paint = new Paint();
         this.path = new Path();
-        bhm();
-        bhn();
+        bho();
+        bhp();
     }
 
     @Override // android.view.View
@@ -96,23 +96,23 @@ public class TbCornersImageView extends AppCompatImageView {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = i;
         this.height = i2;
-        bhk();
-        bhl();
+        bhm();
+        bhn();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.saveLayer(this.ewM, null, 31);
-        if (!this.ewC) {
-            canvas.scale((((this.width - (this.borderWidth * 2)) - (this.ewD * 2)) * 1.0f) / this.width, (((this.height - (this.borderWidth * 2)) - (this.ewD * 2)) * 1.0f) / this.height, this.width / 2.0f, this.height / 2.0f);
+        canvas.saveLayer(this.ewX, null, 31);
+        if (!this.ewN) {
+            canvas.scale((((this.width - (this.borderWidth * 2)) - (this.ewO * 2)) * 1.0f) / this.width, (((this.height - (this.borderWidth * 2)) - (this.ewO * 2)) * 1.0f) / this.height, this.width / 2.0f, this.height / 2.0f);
         }
         super.onDraw(canvas);
         this.paint.reset();
         this.path.reset();
-        if (this.ewB) {
+        if (this.ewM) {
             this.path.addCircle(this.width / 2.0f, this.height / 2.0f, this.biG, Path.Direction.CCW);
         } else {
-            this.path.addRoundRect(this.ewM, this.ewL, Path.Direction.CCW);
+            this.path.addRoundRect(this.ewX, this.ewW, Path.Direction.CCW);
         }
         this.paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         this.paint.setAntiAlias(true);
@@ -124,13 +124,13 @@ public class TbCornersImageView extends AppCompatImageView {
         } else {
             this.paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
             Path path = new Path();
-            path.addRect(this.ewM, Path.Direction.CW);
+            path.addRect(this.ewX, Path.Direction.CW);
             path.op(this.path, Path.Op.DIFFERENCE);
             canvas.drawPath(path, this.paint);
         }
         this.paint.setXfermode(null);
-        if (this.ewJ != 0) {
-            this.paint.setColor(this.ewJ);
+        if (this.ewU != 0) {
+            this.paint.setColor(this.ewU);
             canvas.drawPath(this.path, this.paint);
         }
         canvas.restore();
@@ -138,15 +138,15 @@ public class TbCornersImageView extends AppCompatImageView {
     }
 
     private void C(Canvas canvas) {
-        if (this.ewB) {
+        if (this.ewM) {
             if (this.borderWidth > 0) {
                 a(canvas, this.borderWidth, this.borderColor, this.biG - (this.borderWidth / 2.0f));
             }
-            if (this.ewD > 0) {
-                a(canvas, this.ewD, this.ewE, (this.biG - this.borderWidth) - (this.ewD / 2.0f));
+            if (this.ewO > 0) {
+                a(canvas, this.ewO, this.ewP, (this.biG - this.borderWidth) - (this.ewO / 2.0f));
             }
         } else if (this.borderWidth > 0) {
-            a(canvas, this.borderWidth, this.borderColor, this.ewN, this.ewK);
+            a(canvas, this.borderWidth, this.borderColor, this.ewY, this.ewV);
         }
     }
 
@@ -169,68 +169,68 @@ public class TbCornersImageView extends AppCompatImageView {
         this.paint.setStyle(Paint.Style.STROKE);
     }
 
-    private void bhk() {
-        if (!this.ewB) {
-            this.ewN.set(this.borderWidth / 2.0f, this.borderWidth / 2.0f, this.width - (this.borderWidth / 2.0f), this.height - (this.borderWidth / 2.0f));
+    private void bhm() {
+        if (!this.ewM) {
+            this.ewY.set(this.borderWidth / 2.0f, this.borderWidth / 2.0f, this.width - (this.borderWidth / 2.0f), this.height - (this.borderWidth / 2.0f));
         }
     }
 
-    private void bhl() {
-        if (this.ewB) {
+    private void bhn() {
+        if (this.ewM) {
             this.biG = Math.min(this.width, this.height) / 2.0f;
-            this.ewM.set((this.width / 2.0f) - this.biG, (this.height / 2.0f) - this.biG, (this.width / 2.0f) + this.biG, (this.height / 2.0f) + this.biG);
+            this.ewX.set((this.width / 2.0f) - this.biG, (this.height / 2.0f) - this.biG, (this.width / 2.0f) + this.biG, (this.height / 2.0f) + this.biG);
             return;
         }
-        this.ewM.set(0.0f, 0.0f, this.width, this.height);
-        if (this.ewC) {
-            this.ewM = this.ewN;
+        this.ewX.set(0.0f, 0.0f, this.width, this.height);
+        if (this.ewN) {
+            this.ewX = this.ewY;
         }
     }
 
-    private void bhm() {
-        if (!this.ewB) {
+    private void bho() {
+        if (!this.ewM) {
             if (this.cornerRadius > 0) {
-                for (int i = 0; i < this.ewK.length; i++) {
-                    this.ewK[i] = this.cornerRadius;
-                    this.ewL[i] = this.cornerRadius - (this.borderWidth / 2.0f);
+                for (int i = 0; i < this.ewV.length; i++) {
+                    this.ewV[i] = this.cornerRadius;
+                    this.ewW[i] = this.cornerRadius - (this.borderWidth / 2.0f);
                 }
                 return;
             }
-            float[] fArr = this.ewK;
-            float[] fArr2 = this.ewK;
-            float f = this.ewF;
+            float[] fArr = this.ewV;
+            float[] fArr2 = this.ewV;
+            float f = this.ewQ;
             fArr2[1] = f;
             fArr[0] = f;
-            float[] fArr3 = this.ewK;
-            float[] fArr4 = this.ewK;
-            float f2 = this.ewG;
+            float[] fArr3 = this.ewV;
+            float[] fArr4 = this.ewV;
+            float f2 = this.ewR;
             fArr4[3] = f2;
             fArr3[2] = f2;
-            float[] fArr5 = this.ewK;
-            float[] fArr6 = this.ewK;
-            float f3 = this.ewI;
+            float[] fArr5 = this.ewV;
+            float[] fArr6 = this.ewV;
+            float f3 = this.ewT;
             fArr6[5] = f3;
             fArr5[4] = f3;
-            float[] fArr7 = this.ewK;
-            float[] fArr8 = this.ewK;
-            float f4 = this.ewH;
+            float[] fArr7 = this.ewV;
+            float[] fArr8 = this.ewV;
+            float f4 = this.ewS;
             fArr8[7] = f4;
             fArr7[6] = f4;
-            float[] fArr9 = this.ewL;
-            float f5 = this.ewF - (this.borderWidth / 2.0f);
-            this.ewL[1] = f5;
+            float[] fArr9 = this.ewW;
+            float f5 = this.ewQ - (this.borderWidth / 2.0f);
+            this.ewW[1] = f5;
             fArr9[0] = f5;
-            float[] fArr10 = this.ewL;
-            float f6 = this.ewG - (this.borderWidth / 2.0f);
-            this.ewL[3] = f6;
+            float[] fArr10 = this.ewW;
+            float f6 = this.ewR - (this.borderWidth / 2.0f);
+            this.ewW[3] = f6;
             fArr10[2] = f6;
-            float[] fArr11 = this.ewL;
-            float f7 = this.ewI - (this.borderWidth / 2.0f);
-            this.ewL[5] = f7;
+            float[] fArr11 = this.ewW;
+            float f7 = this.ewT - (this.borderWidth / 2.0f);
+            this.ewW[5] = f7;
             fArr11[4] = f7;
-            float[] fArr12 = this.ewL;
-            float f8 = this.ewH - (this.borderWidth / 2.0f);
-            this.ewL[7] = f8;
+            float[] fArr12 = this.ewW;
+            float f8 = this.ewS - (this.borderWidth / 2.0f);
+            this.ewW[7] = f8;
             fArr12[6] = f8;
         }
     }
@@ -239,19 +239,19 @@ public class TbCornersImageView extends AppCompatImageView {
         if (z) {
             this.cornerRadius = 0;
         }
+        bho();
         bhm();
-        bhk();
         invalidate();
     }
 
-    private void bhn() {
-        if (!this.ewB) {
-            this.ewD = 0;
+    private void bhp() {
+        if (!this.ewM) {
+            this.ewO = 0;
         }
     }
 
     public void setMaskColor(@ColorInt int i) {
-        this.ewJ = i;
+        this.ewU = i;
         invalidate();
     }
 
@@ -266,13 +266,13 @@ public class TbCornersImageView extends AppCompatImageView {
     }
 
     public void setInnerBorderWidth(int i) {
-        this.ewD = i;
-        bhn();
+        this.ewO = i;
+        bhp();
         invalidate();
     }
 
     public void setInnerBorderColor(@ColorInt int i) {
-        this.ewE = i;
+        this.ewP = i;
         invalidate();
     }
 
@@ -282,22 +282,22 @@ public class TbCornersImageView extends AppCompatImageView {
     }
 
     public void setCornerTopLeftRadius(int i) {
-        this.ewF = i;
+        this.ewQ = i;
         iA(true);
     }
 
     public void setCornerTopRightRadius(int i) {
-        this.ewG = i;
+        this.ewR = i;
         iA(true);
     }
 
     public void setCornerBottomLeftRadius(int i) {
-        this.ewH = i;
+        this.ewS = i;
         iA(true);
     }
 
     public void setCornerBottomRightRadius(int i) {
-        this.ewI = i;
+        this.ewT = i;
         iA(true);
     }
 }

@@ -4,8 +4,8 @@ import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class c extends kotlin.b.a {
-    public static final a ntg = new a(null);
-    private static final c ntf = new c((char) 1, (char) 0);
+    public static final a nur = new a(null);
+    private static final c nuq = new c((char) 1, (char) 0);
 
     public c(char c, char c2) {
         super(c, c2, 1);
@@ -13,12 +13,12 @@ public final class c extends kotlin.b.a {
 
     @Override // kotlin.b.a
     public boolean isEmpty() {
-        return dLT() > dLU();
+        return dMh() > dMi();
     }
 
     @Override // kotlin.b.a
     public boolean equals(Object obj) {
-        return (obj instanceof c) && ((isEmpty() && ((c) obj).isEmpty()) || (dLT() == ((c) obj).dLT() && dLU() == ((c) obj).dLU()));
+        return (obj instanceof c) && ((isEmpty() && ((c) obj).isEmpty()) || (dMh() == ((c) obj).dMh() && dMi() == ((c) obj).dMi()));
     }
 
     @Override // kotlin.b.a
@@ -26,12 +26,12 @@ public final class c extends kotlin.b.a {
         if (isEmpty()) {
             return -1;
         }
-        return (dLT() * 31) + dLU();
+        return (dMh() * 31) + dMi();
     }
 
     @Override // kotlin.b.a
     public String toString() {
-        return dLT() + IStringUtil.TOP_PATH + dLU();
+        return dMh() + IStringUtil.TOP_PATH + dMi();
     }
 
     @kotlin.h

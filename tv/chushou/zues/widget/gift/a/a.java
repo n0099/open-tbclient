@@ -6,14 +6,14 @@ public class a {
     public String mNickName;
     public boolean mShowAvatar;
     public String mUserId;
-    public String nPe;
-    public String nPf;
-    public String nPg;
-    public String nPh;
-    public String nPi;
-    public int nPj;
-    public int nPk;
-    public long nPl;
+    public String nQo;
+    public String nQp;
+    public String nQq;
+    public String nQr;
+    public String nQs;
+    public int nQt;
+    public int nQu;
+    public long nQv;
 
     public boolean equals(Object obj) {
         a aVar = (a) obj;

@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d {
-    public File fmw = null;
+    public File fmH = null;
     public String mLoadingFile;
     public String mMd5;
     public String mType;
@@ -18,26 +18,26 @@ public class d {
     public String mVersion;
 
     public boolean isLoaded() {
-        return bss() != null && bss().exists();
+        return bsu() != null && bsu().exists();
     }
 
     public String getName() {
         return this.mVersion + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMd5;
     }
 
-    public File bss() {
-        if (this.fmw == null && !TextUtils.isEmpty(this.mVersion)) {
-            this.fmw = new File(bst(), getName());
+    public File bsu() {
+        if (this.fmH == null && !TextUtils.isEmpty(this.mVersion)) {
+            this.fmH = new File(bsv(), getName());
         }
-        return this.fmw;
+        return this.fmH;
     }
 
     public String getFilePath() {
-        return bss().getAbsolutePath();
+        return bsu().getAbsolutePath();
     }
 
-    public String bst() {
-        return TextUtils.equals(this.mType, "so") ? c.bsq().getAbsolutePath() : c.bsr().getAbsolutePath();
+    public String bsv() {
+        return TextUtils.equals(this.mType, "so") ? c.bss().getAbsolutePath() : c.bst().getAbsolutePath();
     }
 
     public String getLoadingFile() {
@@ -69,21 +69,21 @@ public class d {
                 }
             }
             com.baidu.tieba.ala.a.b.a.unzipFile(file, file2.getAbsolutePath());
-            file2.renameTo(bss());
+            file2.renameTo(bsu());
         } catch (Exception e3) {
             z = false;
             e = e3;
         }
         if (isLoaded()) {
-            if (bsu()) {
+            if (bsw()) {
                 z = true;
                 if (!z) {
                     try {
-                        com.baidu.tieba.ala.a.b.a.deleteDir(bss());
+                        com.baidu.tieba.ala.a.b.a.deleteDir(bsu());
                     } catch (Exception e4) {
                         e = e4;
                         e.printStackTrace();
-                        com.baidu.tieba.ala.a.b.a.deleteDir(bss());
+                        com.baidu.tieba.ala.a.b.a.deleteDir(bsu());
                         return z;
                     }
                 }
@@ -98,10 +98,10 @@ public class d {
         return z;
     }
 
-    public boolean bsu() {
+    public boolean bsw() {
         JSONArray optJSONArray;
         try {
-            File file = new File(bss(), "files.json");
+            File file = new File(bsu(), "files.json");
             if (file == null || !file.exists()) {
                 return false;
             }

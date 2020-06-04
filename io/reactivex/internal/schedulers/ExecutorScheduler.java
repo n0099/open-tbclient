@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ExecutorScheduler extends v {
-    static final v npJ = io.reactivex.f.a.dLg();
+    static final v nqT = io.reactivex.f.a.dLu();
     final Executor executor;
 
     public ExecutorScheduler(Executor executor) {
@@ -25,7 +25,7 @@ public final class ExecutorScheduler extends v {
     }
 
     @Override // io.reactivex.v
-    public v.c dKx() {
+    public v.c dKL() {
         return new ExecutorWorker(this.executor);
     }
 
@@ -65,7 +65,7 @@ public final class ExecutorScheduler extends v {
             }
         }
         DelayedRunnable delayedRunnable = new DelayedRunnable(M);
-        delayedRunnable.timed.replace(npJ.b(new a(delayedRunnable), j, timeUnit));
+        delayedRunnable.timed.replace(nqT.b(new a(delayedRunnable), j, timeUnit));
         return delayedRunnable;
     }
 
@@ -89,8 +89,8 @@ public final class ExecutorScheduler extends v {
         volatile boolean disposed;
         final Executor executor;
         final AtomicInteger wip = new AtomicInteger();
-        final io.reactivex.disposables.a npN = new io.reactivex.disposables.a();
-        final MpscLinkedQueue<Runnable> npM = new MpscLinkedQueue<>();
+        final io.reactivex.disposables.a nqX = new io.reactivex.disposables.a();
+        final MpscLinkedQueue<Runnable> nqW = new MpscLinkedQueue<>();
 
         public ExecutorWorker(Executor executor) {
             this.executor = executor;
@@ -102,14 +102,14 @@ public final class ExecutorScheduler extends v {
                 return EmptyDisposable.INSTANCE;
             }
             BooleanRunnable booleanRunnable = new BooleanRunnable(io.reactivex.e.a.M(runnable));
-            this.npM.offer(booleanRunnable);
+            this.nqW.offer(booleanRunnable);
             if (this.wip.getAndIncrement() == 0) {
                 try {
                     this.executor.execute(this);
                     return booleanRunnable;
                 } catch (RejectedExecutionException e) {
                     this.disposed = true;
-                    this.npM.clear();
+                    this.nqW.clear();
                     io.reactivex.e.a.onError(e);
                     return EmptyDisposable.INSTANCE;
                 }
@@ -127,8 +127,8 @@ public final class ExecutorScheduler extends v {
             }
             SequentialDisposable sequentialDisposable = new SequentialDisposable();
             SequentialDisposable sequentialDisposable2 = new SequentialDisposable(sequentialDisposable);
-            ScheduledRunnable scheduledRunnable = new ScheduledRunnable(new a(sequentialDisposable2, io.reactivex.e.a.M(runnable)), this.npN);
-            this.npN.a(scheduledRunnable);
+            ScheduledRunnable scheduledRunnable = new ScheduledRunnable(new a(sequentialDisposable2, io.reactivex.e.a.M(runnable)), this.nqX);
+            this.nqX.a(scheduledRunnable);
             if (this.executor instanceof ScheduledExecutorService) {
                 try {
                     scheduledRunnable.setFuture(((ScheduledExecutorService) this.executor).schedule((Callable) scheduledRunnable, j, timeUnit));
@@ -138,7 +138,7 @@ public final class ExecutorScheduler extends v {
                     return EmptyDisposable.INSTANCE;
                 }
             } else {
-                scheduledRunnable.setFuture(new b(ExecutorScheduler.npJ.b(scheduledRunnable, j, timeUnit)));
+                scheduledRunnable.setFuture(new b(ExecutorScheduler.nqT.b(scheduledRunnable, j, timeUnit)));
             }
             sequentialDisposable.replace(scheduledRunnable);
             return sequentialDisposable2;
@@ -148,9 +148,9 @@ public final class ExecutorScheduler extends v {
         public void dispose() {
             if (!this.disposed) {
                 this.disposed = true;
-                this.npN.dispose();
+                this.nqX.dispose();
                 if (this.wip.getAndIncrement() == 0) {
-                    this.npM.clear();
+                    this.nqW.clear();
                 }
             }
         }
@@ -184,7 +184,7 @@ public final class ExecutorScheduler extends v {
         */
         public void run() {
             int i = 1;
-            MpscLinkedQueue<Runnable> mpscLinkedQueue = this.npM;
+            MpscLinkedQueue<Runnable> mpscLinkedQueue = this.nqW;
             while (true) {
                 int i2 = i;
                 if (this.disposed) {
@@ -240,16 +240,16 @@ public final class ExecutorScheduler extends v {
         /* loaded from: classes7.dex */
         final class a implements Runnable {
             private final Runnable decoratedRun;
-            private final SequentialDisposable npO;
+            private final SequentialDisposable nqY;
 
             a(SequentialDisposable sequentialDisposable, Runnable runnable) {
-                this.npO = sequentialDisposable;
+                this.nqY = sequentialDisposable;
                 this.decoratedRun = runnable;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                this.npO.replace(ExecutorWorker.this.K(this.decoratedRun));
+                this.nqY.replace(ExecutorWorker.this.K(this.decoratedRun));
             }
         }
     }
@@ -295,21 +295,21 @@ public final class ExecutorScheduler extends v {
 
         public Runnable getWrappedRunnable() {
             Runnable runnable = get();
-            return runnable != null ? runnable : Functions.nmz;
+            return runnable != null ? runnable : Functions.nnJ;
         }
     }
 
     /* loaded from: classes7.dex */
     final class a implements Runnable {
-        private final DelayedRunnable npK;
+        private final DelayedRunnable nqU;
 
         a(DelayedRunnable delayedRunnable) {
-            this.npK = delayedRunnable;
+            this.nqU = delayedRunnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.npK.direct.replace(ExecutorScheduler.this.J(this.npK));
+            this.nqU.direct.replace(ExecutorScheduler.this.J(this.nqU));
         }
     }
 }

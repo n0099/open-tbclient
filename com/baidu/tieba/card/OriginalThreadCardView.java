@@ -22,13 +22,13 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class OriginalThreadCardView extends RelativeLayout {
-    private TbImageView gGd;
-    private ImageView gGe;
-    private ImageView gGf;
-    private int gGg;
-    private a gGh;
-    public int gGi;
-    public boolean gGj;
+    private TbImageView gGo;
+    private ImageView gGp;
+    private ImageView gGq;
+    private int gGr;
+    private a gGs;
+    public int gGt;
+    public boolean gGu;
     private Context mContext;
     private int mSkinType;
     private TextView mTitleView;
@@ -40,21 +40,21 @@ public class OriginalThreadCardView extends RelativeLayout {
 
     public OriginalThreadCardView(Context context) {
         super(context);
-        this.gGj = true;
+        this.gGu = true;
         this.mSkinType = 3;
         init(context);
     }
 
     public OriginalThreadCardView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gGj = true;
+        this.gGu = true;
         this.mSkinType = 3;
         init(context);
     }
 
     public OriginalThreadCardView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gGj = true;
+        this.gGu = true;
         this.mSkinType = 3;
         init(context);
     }
@@ -64,23 +64,23 @@ public class OriginalThreadCardView extends RelativeLayout {
             this.mContext = context;
             View inflate = LayoutInflater.from(context).inflate(R.layout.card_original_pb_layout, (ViewGroup) this, true);
             this.mTitleView = (TextView) inflate.findViewById(R.id.textview_thread_abstract);
-            this.gGd = (TbImageView) inflate.findViewById(R.id.imageview_thread_pic);
-            this.gGe = (ImageView) inflate.findViewById(R.id.icon_video_type);
-            this.gGf = (ImageView) findViewById(R.id.thread_pic_mask);
-            this.gGd.setLongIconSupport(false);
-            this.gGd.setGifIconSupport(false);
-            this.gGd.setRadius(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds10));
-            this.gGd.setConrers(5);
+            this.gGo = (TbImageView) inflate.findViewById(R.id.imageview_thread_pic);
+            this.gGp = (ImageView) inflate.findViewById(R.id.icon_video_type);
+            this.gGq = (ImageView) findViewById(R.id.thread_pic_mask);
+            this.gGo.setLongIconSupport(false);
+            this.gGo.setGifIconSupport(false);
+            this.gGo.setRadius(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds10));
+            this.gGo.setConrers(5);
             int equipmentWidth = (((com.baidu.adp.lib.util.l.getEquipmentWidth(context) - (com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds44) * 2)) - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds26) * 2)) - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10) * 4)) / 5;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gGd.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gGo.getLayoutParams();
             layoutParams.width = equipmentWidth;
             layoutParams.height = equipmentWidth;
-            this.gGd.setLayoutParams(layoutParams);
-            this.gGf.setLayoutParams(layoutParams);
+            this.gGo.setLayoutParams(layoutParams);
+            this.gGq.setLayoutParams(layoutParams);
             int dimens = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds78);
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gGe.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gGp.getLayoutParams();
             layoutParams2.leftMargin = (equipmentWidth - dimens) / 2;
-            this.gGe.setLayoutParams(layoutParams2);
+            this.gGp.setLayoutParams(layoutParams2);
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.mTitleView.getLayoutParams();
             layoutParams3.height = equipmentWidth;
             this.mTitleView.setLayoutParams(layoutParams3);
@@ -94,8 +94,8 @@ public class OriginalThreadCardView extends RelativeLayout {
                         } else {
                             OriginalThreadCardView.this.e(originalThreadInfo);
                         }
-                        if (OriginalThreadCardView.this.gGh != null) {
-                            OriginalThreadCardView.this.gGh.a(originalThreadInfo);
+                        if (OriginalThreadCardView.this.gGs != null) {
+                            OriginalThreadCardView.this.gGs.a(originalThreadInfo);
                         }
                     }
                 }
@@ -104,7 +104,7 @@ public class OriginalThreadCardView extends RelativeLayout {
     }
 
     public void setUsePlaceHolder(boolean z) {
-        this.gGj = z;
+        this.gGu = z;
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -116,49 +116,49 @@ public class OriginalThreadCardView extends RelativeLayout {
         if (originalThreadInfo != null) {
             switch (originalThreadInfo.showType) {
                 case 1:
-                    this.gGg = 0;
-                    this.gGd.setDefaultResource(R.color.cp_bg_line_c);
-                    if (this.gGj) {
-                        this.gGd.setPlaceHolder(2);
+                    this.gGr = 0;
+                    this.gGo.setDefaultResource(R.color.cp_bg_line_c);
+                    if (this.gGu) {
+                        this.gGo.setPlaceHolder(2);
                     } else {
-                        this.gGd.setDefaultBgResource(R.color.cp_bg_line_j);
+                        this.gGo.setDefaultBgResource(R.color.cp_bg_line_j);
                     }
-                    this.gGd.setVisibility(0);
-                    this.gGd.startLoad(originalThreadInfo.showPicUrl, 10, false);
+                    this.gGo.setVisibility(0);
+                    this.gGo.startLoad(originalThreadInfo.showPicUrl, 10, false);
                     break;
                 case 2:
-                    this.gGg = 0;
-                    this.gGd.setDefaultResource(R.drawable.icon_card_url_n);
-                    this.gGd.setDefaultBgResource(R.color.cp_bg_line_j);
-                    this.gGd.setVisibility(0);
-                    this.gGd.startLoad(originalThreadInfo.showPicUrl, 10, false);
+                    this.gGr = 0;
+                    this.gGo.setDefaultResource(R.drawable.icon_card_url_n);
+                    this.gGo.setDefaultBgResource(R.color.cp_bg_line_j);
+                    this.gGo.setVisibility(0);
+                    this.gGo.startLoad(originalThreadInfo.showPicUrl, 10, false);
                     break;
                 case 3:
-                    this.gGg = R.drawable.icon_share_play_n;
-                    this.gGd.setDefaultResource(R.color.cp_bg_line_c);
-                    this.gGd.setDefaultBgResource(R.color.cp_bg_line_j);
-                    this.gGd.setVisibility(0);
-                    this.gGd.startLoad(originalThreadInfo.showPicUrl, 10, false);
+                    this.gGr = R.drawable.icon_share_play_n;
+                    this.gGo.setDefaultResource(R.color.cp_bg_line_c);
+                    this.gGo.setDefaultBgResource(R.color.cp_bg_line_j);
+                    this.gGo.setVisibility(0);
+                    this.gGo.startLoad(originalThreadInfo.showPicUrl, 10, false);
                     break;
                 case 4:
-                    this.gGg = R.drawable.icon_share_card_live;
-                    this.gGd.setDefaultResource(R.color.cp_bg_line_c);
-                    this.gGd.setDefaultBgResource(R.color.cp_bg_line_j);
-                    this.gGd.setVisibility(0);
-                    this.gGd.startLoad(originalThreadInfo.showPicUrl, 10, false);
+                    this.gGr = R.drawable.icon_share_card_live;
+                    this.gGo.setDefaultResource(R.color.cp_bg_line_c);
+                    this.gGo.setDefaultBgResource(R.color.cp_bg_line_j);
+                    this.gGo.setVisibility(0);
+                    this.gGo.startLoad(originalThreadInfo.showPicUrl, 10, false);
                     break;
                 default:
-                    this.gGg = 0;
-                    this.gGd.setVisibility(8);
+                    this.gGr = 0;
+                    this.gGo.setVisibility(8);
                     break;
             }
-            if (this.gGg != 0) {
-                this.gGe.setVisibility(0);
-                this.gGf.setVisibility(0);
-                am.setImageResource(this.gGe, this.gGg);
+            if (this.gGr != 0) {
+                this.gGp.setVisibility(0);
+                this.gGq.setVisibility(0);
+                am.setImageResource(this.gGp, this.gGr);
             } else {
-                this.gGe.setVisibility(8);
-                this.gGf.setVisibility(8);
+                this.gGp.setVisibility(8);
+                this.gGq.setVisibility(8);
             }
             this.mTitleView.setText(originalThreadInfo.showText);
             setTag(originalThreadInfo);
@@ -169,49 +169,49 @@ public class OriginalThreadCardView extends RelativeLayout {
         if (shareInfo != null) {
             switch (shareInfo.showType) {
                 case 1:
-                    this.gGg = 0;
-                    this.gGd.setDefaultResource(R.color.cp_bg_line_c);
-                    if (this.gGj) {
-                        this.gGd.setPlaceHolder(2);
+                    this.gGr = 0;
+                    this.gGo.setDefaultResource(R.color.cp_bg_line_c);
+                    if (this.gGu) {
+                        this.gGo.setPlaceHolder(2);
                     } else {
-                        this.gGd.setDefaultBgResource(R.color.cp_bg_line_j);
+                        this.gGo.setDefaultBgResource(R.color.cp_bg_line_j);
                     }
-                    this.gGd.setVisibility(0);
-                    this.gGd.startLoad(shareInfo.showPicUrl, 10, false);
+                    this.gGo.setVisibility(0);
+                    this.gGo.startLoad(shareInfo.showPicUrl, 10, false);
                     break;
                 case 2:
-                    this.gGg = 0;
-                    this.gGd.setDefaultResource(R.drawable.icon_card_url_n);
-                    this.gGd.setDefaultBgResource(R.color.cp_bg_line_j);
-                    this.gGd.setVisibility(0);
-                    this.gGd.startLoad(shareInfo.showPicUrl, 10, false);
+                    this.gGr = 0;
+                    this.gGo.setDefaultResource(R.drawable.icon_card_url_n);
+                    this.gGo.setDefaultBgResource(R.color.cp_bg_line_j);
+                    this.gGo.setVisibility(0);
+                    this.gGo.startLoad(shareInfo.showPicUrl, 10, false);
                     break;
                 case 3:
-                    this.gGg = R.drawable.icon_share_play_n;
-                    this.gGd.setDefaultResource(R.color.cp_bg_line_c);
-                    this.gGd.setDefaultBgResource(R.color.cp_bg_line_j);
-                    this.gGd.setVisibility(0);
-                    this.gGd.startLoad(shareInfo.showPicUrl, 10, false);
+                    this.gGr = R.drawable.icon_share_play_n;
+                    this.gGo.setDefaultResource(R.color.cp_bg_line_c);
+                    this.gGo.setDefaultBgResource(R.color.cp_bg_line_j);
+                    this.gGo.setVisibility(0);
+                    this.gGo.startLoad(shareInfo.showPicUrl, 10, false);
                     break;
                 case 4:
-                    this.gGg = R.drawable.icon_share_card_live;
-                    this.gGd.setDefaultResource(R.color.cp_bg_line_c);
-                    this.gGd.setDefaultBgResource(R.color.cp_bg_line_j);
-                    this.gGd.setVisibility(0);
-                    this.gGd.startLoad(shareInfo.showPicUrl, 10, false);
+                    this.gGr = R.drawable.icon_share_card_live;
+                    this.gGo.setDefaultResource(R.color.cp_bg_line_c);
+                    this.gGo.setDefaultBgResource(R.color.cp_bg_line_j);
+                    this.gGo.setVisibility(0);
+                    this.gGo.startLoad(shareInfo.showPicUrl, 10, false);
                     break;
                 default:
-                    this.gGg = 0;
-                    this.gGd.setVisibility(8);
+                    this.gGr = 0;
+                    this.gGo.setVisibility(8);
                     break;
             }
-            if (this.gGg != 0) {
-                this.gGe.setVisibility(0);
-                this.gGf.setVisibility(0);
-                am.setImageResource(this.gGe, this.gGg);
+            if (this.gGr != 0) {
+                this.gGp.setVisibility(0);
+                this.gGq.setVisibility(0);
+                am.setImageResource(this.gGp, this.gGr);
             } else {
-                this.gGe.setVisibility(8);
-                this.gGf.setVisibility(8);
+                this.gGp.setVisibility(8);
+                this.gGq.setVisibility(8);
             }
             this.mTitleView.setText(shareInfo.showText);
             setTag(shareInfo);
@@ -219,7 +219,7 @@ public class OriginalThreadCardView extends RelativeLayout {
     }
 
     public void setSubClickListener(a aVar) {
-        this.gGh = aVar;
+        this.gGs = aVar;
     }
 
     public void onChangeSkinType() {
@@ -227,8 +227,8 @@ public class OriginalThreadCardView extends RelativeLayout {
         if (this.mSkinType != skinType) {
             this.mSkinType = skinType;
             am.setViewTextColor(this.mTitleView, (int) R.color.cp_cont_j);
-            if (this.gGg != 0) {
-                am.setImageResource(this.gGe, this.gGg);
+            if (this.gGr != 0) {
+                am.setImageResource(this.gGp, this.gGr);
             }
             setBackgroundDrawable(am.aE(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds20), am.getColor(R.color.cp_bg_line_g)));
         }
@@ -281,7 +281,7 @@ public class OriginalThreadCardView extends RelativeLayout {
                 PbActivityConfig pbActivityConfig = new PbActivityConfig(this.mContext);
                 pbActivityConfig.createNormalCfg(originalThreadInfo.threadId, null, null);
                 pbActivityConfig.setForumId(String.valueOf(originalThreadInfo.forumId));
-                pbActivityConfig.setStartFrom(this.gGi);
+                pbActivityConfig.setStartFrom(this.gGt);
                 pbActivityConfig.setBjhData(originalThreadInfo.oriUgcInfo);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
                 return;
@@ -289,7 +289,7 @@ public class OriginalThreadCardView extends RelativeLayout {
             PbActivityConfig pbActivityConfig2 = new PbActivityConfig(this.mContext);
             pbActivityConfig2.createNormalCfg(originalThreadInfo.threadId, originalThreadInfo.postId, null);
             pbActivityConfig2.setForumId(String.valueOf(originalThreadInfo.forumId));
-            pbActivityConfig2.setStartFrom(this.gGi);
+            pbActivityConfig2.setStartFrom(this.gGt);
             pbActivityConfig2.setBjhData(originalThreadInfo.oriUgcInfo);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig2));
         }

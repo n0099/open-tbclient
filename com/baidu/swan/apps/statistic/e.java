@@ -68,7 +68,7 @@ public final class e {
         Bundle agP;
         if (bVar != null && ard() && (agP = bVar.agP()) != null && agP.getLong("page_display_flag_for_statistic") > 0) {
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-            fVar.mFrom = h.gS(bVar.getAppFrameType());
+            fVar.mFrom = h.gU(bVar.getAppFrameType());
             fVar.mAppId = bVar.getAppId();
             fVar.mSource = bVar.agK();
             fVar.mType = Config.LAUNCH;
@@ -231,7 +231,7 @@ public final class e {
                 j2 = j - j3;
             }
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-            fVar.mFrom = h.gS(aVar.getAppFrameType());
+            fVar.mFrom = h.gU(aVar.getAppFrameType());
             fVar.mAppId = appId;
             if (com.baidu.swan.apps.console.debugger.a.e.Wm()) {
                 fVar.mSource = "remote-debug";

@@ -17,11 +17,11 @@ public class v {
     private JSONObject dqq;
     private List<k> dqr = new ArrayList();
     private int mThreshold;
-    private JSONObject mhf;
-    private JSONObject mhg;
-    private JSONObject mhh;
-    private String mhi;
-    private String mhj;
+    private JSONObject mir;
+    private JSONObject mis;
+    private JSONObject mit;
+    private String miu;
+    private String miv;
 
     public v(String str, JSONObject jSONObject) {
         this.cgm = str;
@@ -40,43 +40,43 @@ public class v {
         return this.dqr;
     }
 
-    public void eZ(List<k> list) {
+    public void fb(List<k> list) {
         this.dqr = list;
     }
 
-    public String drV() {
-        return this.mhi;
+    public String dsj() {
+        return this.miu;
     }
 
-    public String drW() {
-        return this.mhj;
+    public String dsk() {
+        return this.miv;
     }
 
-    public JSONObject drX() {
-        return this.mhh;
+    public JSONObject dsl() {
+        return this.mit;
     }
 
-    public JSONObject drY() {
-        return this.mhf;
+    public JSONObject dsm() {
+        return this.mir;
     }
 
     private void dE(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("threshold") > 0) {
-                    this.mhf.put("threshold", jSONObject.optString("threshold"));
+                    this.mir.put("threshold", jSONObject.optString("threshold"));
                 }
                 if (jSONObject.optInt("timeup") > 0) {
-                    this.mhf.put("timeup", jSONObject.optString("timeup"));
+                    this.mir.put("timeup", jSONObject.optString("timeup"));
                 }
                 if (jSONObject.optString("step") != null) {
-                    this.mhf.put("step", jSONObject.optString("step"));
+                    this.mir.put("step", jSONObject.optString("step"));
                 }
                 if (jSONObject.optString("replace") != null) {
-                    this.mhf.put("replace", jSONObject.optString("replace"));
+                    this.mir.put("replace", jSONObject.optString("replace"));
                 }
                 if (jSONObject.optJSONObject("del") != null) {
-                    this.mhf.put("del", jSONObject.optJSONObject("del"));
+                    this.mir.put("del", jSONObject.optJSONObject("del"));
                 }
             } catch (JSONException e) {
                 if (DEBUG) {
@@ -92,19 +92,19 @@ public class v {
                 return false;
             }
             JSONObject jSONObject = this.dqq;
-            this.mhg = jSONObject.optJSONObject("set");
+            this.mis = jSONObject.optJSONObject("set");
             this.mThreshold = jSONObject.optInt("threshold", 10000);
             this.dqp = jSONObject.optInt("timeup", PersonListModel.CACHETIME);
-            this.mhj = jSONObject.optString("step");
-            this.mhi = jSONObject.optString("replace");
-            this.mhh = jSONObject.optJSONObject("del");
-            if (this.mhg != null) {
-                this.mhf = new JSONObject();
+            this.miv = jSONObject.optString("step");
+            this.miu = jSONObject.optString("replace");
+            this.mit = jSONObject.optJSONObject("del");
+            if (this.mis != null) {
+                this.mir = new JSONObject();
                 JSONObject jSONObject2 = new JSONObject();
-                Iterator<String> keys = this.mhg.keys();
+                Iterator<String> keys = this.mis.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    JSONObject jSONObject3 = this.mhg.getJSONObject(next);
+                    JSONObject jSONObject3 = this.mis.getJSONObject(next);
                     if (jSONObject3 != null) {
                         JSONObject jSONObject4 = jSONObject3.getJSONObject("data");
                         String string = jSONObject3.getString("version");
@@ -121,33 +121,33 @@ public class v {
                                 if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
                                     k kVar = new k(next, string2, string3, i, string5, string4);
                                     if (jSONObject4.has("rate")) {
-                                        kVar.ju(jSONObject4.getInt("rate"));
+                                        kVar.jw(jSONObject4.getInt("rate"));
                                     }
                                     if (jSONObject4.has("c")) {
                                         kVar.setCategory(jSONObject4.getString("c"));
                                     }
                                     if (jSONObject4.has("limitUnit")) {
-                                        kVar.jv(jSONObject4.getInt("limitUnit"));
+                                        kVar.jx(jSONObject4.getInt("limitUnit"));
                                     }
                                     if (jSONObject4.has("limitCnt")) {
-                                        kVar.jw(jSONObject4.getInt("limitCnt"));
+                                        kVar.jy(jSONObject4.getInt("limitCnt"));
                                     }
                                     if (jSONObject4.has("idtype")) {
                                         kVar.tN(jSONObject4.getString("idtype"));
                                     }
                                     if (jSONObject4.has("ch")) {
-                                        kVar.Pf(jSONObject4.getString("ch"));
+                                        kVar.Pg(jSONObject4.getString("ch"));
                                     }
                                     if (jSONObject4.has("dfc")) {
-                                        kVar.Pg(jSONObject4.getString("dfc"));
+                                        kVar.Ph(jSONObject4.getString("dfc"));
                                     }
                                     if (jSONObject4.has("reallog")) {
-                                        kVar.Ph(jSONObject4.getString("reallog"));
+                                        kVar.Pi(jSONObject4.getString("reallog"));
                                     }
                                     if (jSONObject4.has("gflow")) {
                                         String string6 = jSONObject4.getString("gflow");
                                         if (!TextUtils.isEmpty(string6) && !TextUtils.equals(string6, "0")) {
-                                            kVar.Pi(string6);
+                                            kVar.Pj(string6);
                                         }
                                     }
                                     kVar.setVersion(string);
@@ -157,7 +157,7 @@ public class v {
                         }
                     }
                 }
-                this.mhf.put("set", jSONObject2);
+                this.mir.put("set", jSONObject2);
                 dE(jSONObject);
             }
             return true;

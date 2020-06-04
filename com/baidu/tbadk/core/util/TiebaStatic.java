@@ -93,22 +93,22 @@ public class TiebaStatic {
     }
 
     public static void net(com.baidu.tbadk.core.util.a.a aVar) {
-        if (aVar != null && aVar.aVc().dOA.Kd <= 180000) {
+        if (aVar != null && aVar.aVd().dOA.Kd <= 180000) {
             try {
-                if (aVar.aVc().dOA.Kd >= 0 && aVar.aVc().dOA.connectTime >= 0 && aVar.aVc().dOA.Kc >= 0) {
-                    int i = aVar.aVb().mServerErrorCode;
-                    if (!aVar.aVb().isNetSuccess()) {
-                        i = aVar.aVb().mNetErrorCode;
+                if (aVar.aVd().dOA.Kd >= 0 && aVar.aVd().dOA.connectTime >= 0 && aVar.aVd().dOA.Kc >= 0) {
+                    int i = aVar.aVc().mServerErrorCode;
+                    if (!aVar.aVc().isNetSuccess()) {
+                        i = aVar.aVc().mNetErrorCode;
                     }
                     String str = null;
                     String currentActivity = ay.getCurrentActivity();
                     if (i != 0) {
-                        str = aVar.aVb().mErrorString;
+                        str = aVar.aVc().mErrorString;
                     }
-                    if (aVar.aVa().mIsRequestImage) {
-                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.aVa().getApiName(), currentActivity, aVar.aVc().dOA.downloadSize, aVar.aVc().dOA.Kb, aVar.aVc().dOA.Kd, aVar.aVc().dOA.connectTime, aVar.aVc().dOA.Kc, aVar.aVc().dOA.retry, i, str, new Object[0]);
+                    if (aVar.aVb().mIsRequestImage) {
+                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.aVb().getApiName(), currentActivity, aVar.aVd().dOA.downloadSize, aVar.aVd().dOA.Kb, aVar.aVd().dOA.Kd, aVar.aVd().dOA.connectTime, aVar.aVd().dOA.Kc, aVar.aVd().dOA.retry, i, str, new Object[0]);
                     } else {
-                        BdStatisticsManager.getInstance().net(aVar.aVa().getApiName(), currentActivity, aVar.aVc().dOA.downloadSize, aVar.aVc().dOA.Kb, aVar.aVc().dOA.Kd, aVar.aVc().dOA.connectTime, aVar.aVc().dOA.Kc, aVar.aVc().dOA.retry, i, str, new Object[0]);
+                        BdStatisticsManager.getInstance().net(aVar.aVb().getApiName(), currentActivity, aVar.aVd().dOA.downloadSize, aVar.aVd().dOA.Kb, aVar.aVd().dOA.Kd, aVar.aVd().dOA.connectTime, aVar.aVd().dOA.Kc, aVar.aVd().dOA.retry, i, str, new Object[0]);
                     }
                 }
             } catch (Exception e) {
@@ -292,7 +292,7 @@ public class TiebaStatic {
             s.aUk();
             s.aUl();
             s.aUm();
-            com.baidu.tbadk.n.j.bfG();
+            com.baidu.tbadk.n.j.bfH();
             com.baidu.adp.lib.e.d.kZ();
             BdStatisticsManager.getInstance().save();
             sendMultiProcessBroadcast();
@@ -437,11 +437,11 @@ public class TiebaStatic {
             if (!StringUtils.isNull(sampleId)) {
                 anVar.dh("sample_id", sampleId);
             }
-            String bgi = com.baidu.tbadk.util.a.bgh().bgi();
-            if (!StringUtils.isNull(bgi)) {
-                anVar.dh("newabtest_result", bgi);
+            String bgj = com.baidu.tbadk.util.a.bgi().bgj();
+            if (!StringUtils.isNull(bgj)) {
+                anVar.dh("newabtest_result", bgj);
             }
-            com.baidu.tbadk.l.e.bfq().c(anVar);
+            com.baidu.tbadk.l.e.bfr().c(anVar);
         }
     }
 

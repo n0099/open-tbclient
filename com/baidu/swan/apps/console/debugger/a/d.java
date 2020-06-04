@@ -252,7 +252,7 @@ public abstract class d {
         cVar.agQ().putString("aiapp_extra_pkg_downloading", "0");
         cVar.agQ().putLong("launch_flag_for_statistic", System.currentTimeMillis());
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-        fVar.mFrom = h.gS(cVar.getAppFrameType());
+        fVar.mFrom = h.gU(cVar.getAppFrameType());
         fVar.b(cVar);
         fVar.mType = Config.LAUNCH;
         fVar.cGz = "1";
@@ -269,7 +269,7 @@ public abstract class d {
     public static void b(com.baidu.swan.apps.v.b.c cVar) {
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.b(cVar);
-        fVar.mFrom = h.gS(cVar.getAppFrameType());
+        fVar.mFrom = h.gU(cVar.getAppFrameType());
         fVar.mType = Config.LAUNCH;
         fVar.mSource = "remote-debug";
         fVar.mValue = "downloadsuccess";

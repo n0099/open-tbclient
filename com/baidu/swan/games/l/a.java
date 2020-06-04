@@ -192,7 +192,7 @@ public class a {
         }
         long currentTimeMillis2 = System.currentTimeMillis();
         if (DEBUG) {
-            com.baidu.swan.apps.r.a.a.fw((int) (currentTimeMillis2 - currentTimeMillis));
+            com.baidu.swan.apps.r.a.a.fy((int) (currentTimeMillis2 - currentTimeMillis));
         }
         if (!unzipFile) {
             com.baidu.swan.apps.an.a pt2 = new com.baidu.swan.apps.an.a().bw(5L).bx(7L).pt("小游戏bundle解压失败! PkgType=" + i);

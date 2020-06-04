@@ -34,8 +34,8 @@ public class PersonInfoDelegateStatic extends b {
     private MessageRedDotView tipView;
 
     static {
-        bqt();
-        com.baidu.tieba.p.a.cVL();
+        bqv();
+        com.baidu.tieba.p.a.cWb();
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.personCenter.PersonInfoDelegateStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -115,7 +115,7 @@ public class PersonInfoDelegateStatic extends b {
         MessageManager.getInstance().registerListener(this.maintabEmotionListener);
     }
 
-    private static void bqt() {
+    private static void bqv() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PROFILE, ProfileSocketResponseMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002700, com.baidu.tieba.tbadkCore.a.a.bF(Config.USER_INFO_ADDRESS, CmdConfigSocket.CMD_PROFILE));
         tbHttpMessageTask.setIsNeedLogin(false);

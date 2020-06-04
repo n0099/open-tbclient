@@ -8,7 +8,7 @@ public final class g {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static int cGc = 0;
 
-    public static void gR(int i) {
+    public static void gT(int i) {
         cGc = i;
     }
 

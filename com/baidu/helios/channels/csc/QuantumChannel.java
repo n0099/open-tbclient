@@ -226,7 +226,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
             }
         }
 
-        static byte bv(int i) {
+        static byte bx(int i) {
             switch (i) {
                 case 0:
                     return (byte) 0;
@@ -433,7 +433,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
                 try {
                     Object ag = this.apJ.ag(context);
                     if (ag == null) {
-                        return a.e.bt(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
+                        return a.e.bv(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
                     }
                     try {
                         if (this.apI.b(1L) == 1 && (d2 = this.apI.d()) != null && d2.equals(ec.ux()) && e(ag, packageName)) {
@@ -463,7 +463,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
                                 }
                                 try {
                                     if (c(ag, packageName) != nextInt) {
-                                        return a.e.bt(-103);
+                                        return a.e.bv(-103);
                                     }
                                     try {
                                         a(ag, a(packageName), 1);
@@ -472,56 +472,56 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
                                         return a.e.tY();
                                     } catch (b e2) {
                                         this.apI.a(4L, 6L);
-                                        return a.e.bt(-101);
+                                        return a.e.bv(-101);
                                     } catch (d.a e3) {
-                                        return a.e.bt(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
+                                        return a.e.bv(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
                                     }
                                 } catch (b e4) {
                                     this.apI.a(4L, 6L);
-                                    return a.e.bt(-101);
+                                    return a.e.bv(-101);
                                 } catch (g e5) {
-                                    return a.e.bt(-103);
+                                    return a.e.bv(-103);
                                 } catch (d.a e6) {
-                                    return a.e.bt(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
+                                    return a.e.bv(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
                                 }
                             } catch (b e7) {
                                 this.apI.a(4L, 6L);
-                                return a.e.bt(-101);
+                                return a.e.bv(-101);
                             } catch (d.a e8) {
-                                return a.e.bt(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
+                                return a.e.bv(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
                             }
                         } catch (b e9) {
                             this.apI.a(4L, 6L);
-                            return a.e.bt(-101);
+                            return a.e.bv(-101);
                         } catch (d.a e10) {
-                            return a.e.bt(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
+                            return a.e.bv(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
                         }
                     } catch (b e11) {
                         this.apI.a(4L, 6L);
-                        return a.e.bt(-101);
+                        return a.e.bv(-101);
                     } catch (g e12) {
                         try {
                             a(ag, a(packageName), 0);
                         } catch (Exception e13) {
                         }
-                        return a.e.bt(-103);
+                        return a.e.bv(-103);
                     } catch (d.a e14) {
-                        return a.e.bt(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
+                        return a.e.bv(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
                     }
                 } catch (d.a e15) {
-                    return a.e.bt(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
+                    return a.e.bv(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
                 }
             }
-            return a.e.bt(-101);
+            return a.e.bv(-101);
         } catch (PackageManager.NameNotFoundException e16) {
-            return a.e.bt(-100);
+            return a.e.bv(-100);
         }
     }
 
     private int c(Object obj, String str) {
         d.a aVar = new d.a();
         for (int i = 0; i < d; i++) {
-            aVar.b(d.bv(f(obj, w(str, i))));
+            aVar.b(d.bx(f(obj, w(str, i))));
         }
         byte[] b2 = aVar.uc().b();
         int i2 = 0;
@@ -534,7 +534,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
     private byte[] d(Object obj, String str) {
         d.a aVar = new d.a();
         for (int i = 0; i < b; i++) {
-            aVar.b(d.bv(f(obj, v(str, i))));
+            aVar.b(d.bx(f(obj, v(str, i))));
         }
         return aVar.uc().b();
     }
@@ -605,7 +605,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
                     } catch (b e2) {
                         return a.g.j(e2);
                     } catch (g e3) {
-                        return a.g.bu(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
+                        return a.g.bw(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
                     } catch (d.a e4) {
                         return a.g.e(-101, null);
                     }
@@ -639,12 +639,12 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
                         fVar2.tX();
                         return dZ;
                     } catch (g e6) {
-                        a.g bu = a.g.bu(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
+                        a.g bw = a.g.bw(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
                         if (!fVar.apG || fVar2 == null) {
-                            return bu;
+                            return bw;
                         }
                         fVar2.tX();
-                        return bu;
+                        return bw;
                     }
                 } catch (b e7) {
                     a.g j = a.g.j(e7);

@@ -36,7 +36,7 @@ public class TBSpecificationBtn extends View {
         this.dYk = true;
         this.dYl = new a.InterfaceC0478a() { // from class: com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn.1
             @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0478a
-            public void aWU() {
+            public void aWV() {
                 int width = TBSpecificationBtn.this.getWidth();
                 if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.dYf.dYu * 2) != width) {
                     TBSpecificationBtn.this.requestLayout();
@@ -44,8 +44,8 @@ public class TBSpecificationBtn extends View {
             }
 
             @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0478a
-            public void aWV() {
-                TBSpecificationBtn.this.aWS();
+            public void aWW() {
+                TBSpecificationBtn.this.aWT();
                 int width = TBSpecificationBtn.this.getWidth();
                 if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.dYf.dYu * 2) != width) {
                     TBSpecificationBtn.this.requestLayout();
@@ -55,8 +55,8 @@ public class TBSpecificationBtn extends View {
             }
 
             @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0478a
-            public void aWW() {
-                TBSpecificationBtn.this.aWT();
+            public void aWX() {
+                TBSpecificationBtn.this.aWU();
                 TBSpecificationBtn.this.invalidate();
             }
         };
@@ -71,7 +71,7 @@ public class TBSpecificationBtn extends View {
         this.dYk = true;
         this.dYl = new a.InterfaceC0478a() { // from class: com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn.1
             @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0478a
-            public void aWU() {
+            public void aWV() {
                 int width = TBSpecificationBtn.this.getWidth();
                 if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.dYf.dYu * 2) != width) {
                     TBSpecificationBtn.this.requestLayout();
@@ -79,8 +79,8 @@ public class TBSpecificationBtn extends View {
             }
 
             @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0478a
-            public void aWV() {
-                TBSpecificationBtn.this.aWS();
+            public void aWW() {
+                TBSpecificationBtn.this.aWT();
                 int width = TBSpecificationBtn.this.getWidth();
                 if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.dYf.dYu * 2) != width) {
                     TBSpecificationBtn.this.requestLayout();
@@ -90,8 +90,8 @@ public class TBSpecificationBtn extends View {
             }
 
             @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0478a
-            public void aWW() {
-                TBSpecificationBtn.this.aWT();
+            public void aWX() {
+                TBSpecificationBtn.this.aWU();
                 TBSpecificationBtn.this.invalidate();
             }
         };
@@ -106,7 +106,7 @@ public class TBSpecificationBtn extends View {
         this.dYk = true;
         this.dYl = new a.InterfaceC0478a() { // from class: com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn.1
             @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0478a
-            public void aWU() {
+            public void aWV() {
                 int width = TBSpecificationBtn.this.getWidth();
                 if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.dYf.dYu * 2) != width) {
                     TBSpecificationBtn.this.requestLayout();
@@ -114,8 +114,8 @@ public class TBSpecificationBtn extends View {
             }
 
             @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0478a
-            public void aWV() {
-                TBSpecificationBtn.this.aWS();
+            public void aWW() {
+                TBSpecificationBtn.this.aWT();
                 int width = TBSpecificationBtn.this.getWidth();
                 if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.dYf.dYu * 2) != width) {
                     TBSpecificationBtn.this.requestLayout();
@@ -125,8 +125,8 @@ public class TBSpecificationBtn extends View {
             }
 
             @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0478a
-            public void aWW() {
-                TBSpecificationBtn.this.aWT();
+            public void aWX() {
+                TBSpecificationBtn.this.aWU();
                 TBSpecificationBtn.this.invalidate();
             }
         };
@@ -200,13 +200,13 @@ public class TBSpecificationBtn extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWS() {
-        this.dYh = this.dYf.aWX();
-        this.dYi = this.dYf.aWY();
+    public void aWT() {
+        this.dYh = this.dYf.aWY();
+        this.dYi = this.dYf.aWZ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWT() {
+    public void aWU() {
         if (getHeight() != 0) {
             this.dYg = this.dYf.T(getHeight() / 2);
         }
@@ -249,8 +249,8 @@ public class TBSpecificationBtn extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         if (this.dYj) {
+            aWU();
             aWT();
-            aWS();
             this.dYj = false;
         }
         if (this.dYg != null) {
@@ -304,9 +304,9 @@ public class TBSpecificationBtn extends View {
         super.drawableStateChanged();
     }
 
-    public void aWq() {
-        aWS();
+    public void aWr() {
         aWT();
+        aWU();
         invalidate();
     }
 }

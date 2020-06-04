@@ -7,9 +7,9 @@ import android.os.SystemClock;
 /* loaded from: classes13.dex */
 public class b extends g implements Runnable {
     private int mInterval;
-    private boolean mpc;
-    float mpd;
-    private boolean mpe;
+    private boolean mqm;
+    float mqn;
+    private boolean mqo;
 
     public b(Drawable drawable, int i) {
         this(drawable, i, true);
@@ -17,10 +17,10 @@ public class b extends g implements Runnable {
 
     public b(Drawable drawable, int i, boolean z) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.mpd = 0.0f;
-        this.mpe = false;
+        this.mqn = 0.0f;
+        this.mqo = false;
         this.mInterval = i;
-        this.mpc = z;
+        this.mqm = z;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -29,31 +29,31 @@ public class b extends g implements Runnable {
         Rect bounds = getBounds();
         int i = bounds.right - bounds.left;
         int i2 = bounds.bottom - bounds.top;
-        float f = this.mpd;
-        if (!this.mpc) {
-            f = 360.0f - this.mpd;
+        float f = this.mqn;
+        if (!this.mqm) {
+            f = 360.0f - this.mqn;
         }
         canvas.rotate(f, (i / 2) + bounds.left, bounds.top + (i2 / 2));
         super.draw(canvas);
         canvas.restoreToCount(save);
-        dwa();
+        dwo();
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.mpe = false;
-        this.mpd += dwb();
+        this.mqo = false;
+        this.mqn += dwp();
         invalidateSelf();
     }
 
-    private void dwa() {
-        if (!this.mpe) {
-            this.mpe = true;
+    private void dwo() {
+        if (!this.mqo) {
+            this.mqo = true;
             scheduleSelf(this, SystemClock.uptimeMillis() + 20);
         }
     }
 
-    private int dwb() {
+    private int dwp() {
         return (int) ((20.0f / this.mInterval) * 360.0f);
     }
 }

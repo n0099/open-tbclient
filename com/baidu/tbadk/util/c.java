@@ -5,7 +5,7 @@ import com.baidu.adp.base.BdBaseApplication;
 public class c {
     private static c euJ;
 
-    public static c bgm() {
+    public static c bgn() {
         if (euJ == null) {
             euJ = new c();
         }

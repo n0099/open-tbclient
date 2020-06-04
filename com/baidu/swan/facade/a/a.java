@@ -6,6 +6,6 @@ public class a {
     }
 
     public static b avh() {
-        return com.baidu.tieba.aiapps.apps.h.d.boC();
+        return com.baidu.tieba.aiapps.apps.h.d.boE();
     }
 }

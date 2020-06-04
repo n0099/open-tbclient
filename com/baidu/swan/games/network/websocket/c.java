@@ -35,7 +35,7 @@ public class c extends WebSocketEventTarget {
         this.taskId = String.format(Locale.CHINA, "WebSocketTask-%d", Long.valueOf(System.currentTimeMillis()));
         int rm = k.rm("url");
         if (rm != 7) {
-            a(k, "connectSocket", String.format("parameter error: parameter.url should be %s instead of %s", com.baidu.swan.games.w.a.d.iu(7), com.baidu.swan.games.w.a.d.iu(rm)));
+            a(k, "connectSocket", String.format("parameter error: parameter.url should be %s instead of %s", com.baidu.swan.games.w.a.d.iw(7), com.baidu.swan.games.w.a.d.iw(rm)));
         } else {
             String optString = k.optString("url");
             String optString2 = k.optString("__plugin__");

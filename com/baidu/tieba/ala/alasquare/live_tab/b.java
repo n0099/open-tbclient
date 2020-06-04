@@ -11,9 +11,9 @@ import java.util.List;
 public class b {
     private BdTypeRecyclerView Vw;
     private List<com.baidu.adp.widget.ListView.a> aSj;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a fcf;
-    private d fcr;
-    private boolean fcs = false;
+    private d fcC;
+    private boolean fcD = false;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a fcq;
     private Context mContext;
     private TbPageContext mPageContext;
 
@@ -26,11 +26,11 @@ public class b {
 
     private void CY() {
         this.aSj = new ArrayList();
-        this.fcr = new d(this.mPageContext);
-        this.fcr.jl(this.fcs);
-        this.fcf = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.aSj.add(this.fcr);
-        this.aSj.add(this.fcf);
+        this.fcC = new d(this.mPageContext);
+        this.fcC.jl(this.fcD);
+        this.fcq = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.aSj.add(this.fcC);
+        this.aSj.add(this.fcq);
         this.Vw.addAdapters(this.aSj);
     }
 
@@ -45,6 +45,6 @@ public class b {
     }
 
     public void jl(boolean z) {
-        this.fcs = z;
+        this.fcD = z;
     }
 }

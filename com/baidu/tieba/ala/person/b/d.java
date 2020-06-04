@@ -12,55 +12,55 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.person.b.a;
 /* loaded from: classes3.dex */
 public class d implements com.baidu.live.liveroom.d.d {
-    private CustomMessageListener fHR = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
+    private CustomMessageListener fIc = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.gma != null && d.this.gma.isEmpty() && !d.this.gma.isLoading()) {
-                d.this.gma.refreshData();
+            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.gml != null && d.this.gml.isEmpty() && !d.this.gml.isLoading()) {
+                d.this.gml.refreshData();
             }
         }
     };
-    private BdUniqueId fpc;
-    private int glW;
-    private b gma;
+    private BdUniqueId fpn;
+    private int gmh;
+    private b gml;
     private TbPageContext mPageContext;
     private String mUserId;
 
     public d(TbPageContext tbPageContext, int i, String str, BdUniqueId bdUniqueId) {
-        this.fpc = null;
+        this.fpn = null;
         this.mPageContext = tbPageContext;
-        this.glW = i;
+        this.gmh = i;
         this.mUserId = str;
-        this.fpc = bdUniqueId;
-        this.gma = new b(this.mPageContext, this.glW, this.mUserId, this.fpc);
-        if (this.gma != null && this.gma.isEmpty() && !this.gma.isLoading()) {
-            this.gma.refreshData();
+        this.fpn = bdUniqueId;
+        this.gml = new b(this.mPageContext, this.gmh, this.mUserId, this.fpn);
+        if (this.gml != null && this.gml.isEmpty() && !this.gml.isLoading()) {
+            this.gml.refreshData();
         }
-        MessageManager.getInstance().registerListener(this.fHR);
+        MessageManager.getInstance().registerListener(this.fIc);
     }
 
     public void as(String str, boolean z) {
-        if (this.gma != null) {
-            this.gma.as(str, z);
+        if (this.gml != null) {
+            this.gml.as(str, z);
         }
     }
 
     public int getTabType() {
-        return this.glW;
+        return this.gmh;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.gma == null) {
+        if (this.gml == null) {
             return null;
         }
-        return this.gma.aWN();
+        return this.gml.aWO();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        return this.glW == 0 ? this.mPageContext.getString(a.i.ala_person_fans) : this.mPageContext.getString(a.i.ala_person_attentions);
+        return this.gmh == 0 ? this.mPageContext.getString(a.i.ala_person_fans) : this.mPageContext.getString(a.i.ala_person_attentions);
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -69,8 +69,8 @@ public class d implements com.baidu.live.liveroom.d.d {
     }
 
     public void a(a.InterfaceC0581a interfaceC0581a) {
-        if (this.gma != null) {
-            this.gma.a(interfaceC0581a);
+        if (this.gml != null) {
+            this.gml.a(interfaceC0581a);
         }
     }
 
@@ -89,16 +89,16 @@ public class d implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fHR);
-        if (this.gma != null) {
-            this.gma.onDestory();
+        MessageManager.getInstance().unRegisterListener(this.fIc);
+        if (this.gml != null) {
+            this.gml.onDestory();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onChangeSkinType(int i) {
-        if (this.gma != null) {
-            this.gma.onChangeSkinType(i);
+        if (this.gml != null) {
+            this.gml.onChangeSkinType(i);
         }
     }
 }

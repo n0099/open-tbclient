@@ -375,7 +375,7 @@ public class b {
         }
     }
 
-    public static void bK(int i) {
+    public static void bM(int i) {
         FileSerialDownLoader.getInstance().cancelDownloadByType(i);
     }
 }

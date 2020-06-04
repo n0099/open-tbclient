@@ -16,7 +16,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes9.dex */
 public class a {
-    private final c hYk = new c();
+    private final c hYX = new c();
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         int i2;
@@ -150,7 +150,7 @@ public class a {
                 } else if (l.ac(bkVar)) {
                     l lVar = new l(bkVar);
                     lVar.tid = bkVar.getTid();
-                    lVar.ss(concernData.source.intValue());
+                    lVar.su(concernData.source.intValue());
                     if (lVar.isValid()) {
                         linkedList.add(lVar);
                     }
@@ -173,7 +173,7 @@ public class a {
                     kVar2.Dq(kVar2.dEA.isLinkThread() ? "4" : "1");
                     kVar2.position = i3;
                     kVar2.isLinkThread = false;
-                    kVar2.ss(concernData.source.intValue());
+                    kVar2.su(concernData.source.intValue());
                     if (kVar2.dEA != null && kVar2.isValid() && !StringUtils.isNull(kVar2.dEA.getId()) && !"0".equals(kVar2.dEA.getTid())) {
                         linkedList.add(kVar2);
                     }
@@ -183,8 +183,8 @@ public class a {
             i3 = i2;
         }
         com.baidu.tbadk.a.a.c.a(aMx, linkedList);
-        this.hYk.eIk = linkedList;
-        return this.hYk;
+        this.hYX.eIv = linkedList;
+        return this.hYX;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -215,7 +215,7 @@ public class a {
                     }
                 }
             }
-            this.hYk.ifm = v.getCount(list) - count;
+            this.hYX.ifZ = v.getCount(list) - count;
         }
     }
 

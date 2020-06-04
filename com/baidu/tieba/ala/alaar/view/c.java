@@ -11,77 +11,77 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.alaar.sticker.a.e;
 /* loaded from: classes3.dex */
 public class c {
-    private TextView eNe;
-    private TbImageView eYW;
-    public ImageView eYX;
-    private ObjectAnimator eYY;
-    public ImageView eZU;
+    private TextView eNp;
+    private TbImageView eZh;
+    public ImageView eZi;
+    private ObjectAnimator eZj;
+    public ImageView faf;
     public View mRootView;
 
     public c(View view) {
         this.mRootView = view;
-        this.eYW = (TbImageView) this.mRootView.findViewById(a.g.filter_img);
-        this.eYW.setDefaultBgResource(a.f.filter_beauty_item_bg);
-        this.eYW.setIsRound(true);
-        this.eYW.setAutoChangeStyle(false);
-        this.eYW.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eYW.setDrawBorder(false);
-        this.eYX = (ImageView) this.mRootView.findViewById(a.g.filter_unload);
-        this.eZU = (ImageView) this.mRootView.findViewById(a.g.filter_bg);
-        this.eNe = (TextView) this.mRootView.findViewById(a.g.filter_text);
+        this.eZh = (TbImageView) this.mRootView.findViewById(a.g.filter_img);
+        this.eZh.setDefaultBgResource(a.f.filter_beauty_item_bg);
+        this.eZh.setIsRound(true);
+        this.eZh.setAutoChangeStyle(false);
+        this.eZh.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.eZh.setDrawBorder(false);
+        this.eZi = (ImageView) this.mRootView.findViewById(a.g.filter_unload);
+        this.faf = (ImageView) this.mRootView.findViewById(a.g.filter_bg);
+        this.eNp = (TextView) this.mRootView.findViewById(a.g.filter_text);
     }
 
     public void b(d dVar) {
         if (dVar != null) {
-            this.eYW.setVisibility(0);
+            this.eZh.setVisibility(0);
             if (this.mRootView.getContext().getString(a.i.beauty_yuantu).equals(dVar.getName()) || e.AH(dVar.uX())) {
-                this.eYX.setVisibility(4);
-                bqa();
+                this.eZi.setVisibility(4);
+                bqc();
             } else if (!TextUtils.isEmpty(dVar.uX()) && e.cz(dVar.uX())) {
-                this.eYX.setVisibility(0);
+                this.eZi.setVisibility(0);
                 startLoadingAnim();
             } else {
-                this.eYX.setVisibility(0);
-                this.eYX.setRotation(0.0f);
-                this.eYX.setImageResource(a.f.sticker_unload);
-                bqa();
+                this.eZi.setVisibility(0);
+                this.eZi.setRotation(0.0f);
+                this.eZi.setImageResource(a.f.sticker_unload);
+                bqc();
             }
-            this.eNe.setText(dVar.getName());
+            this.eNp.setText(dVar.getName());
             c(dVar);
         }
     }
 
     public void c(d dVar) {
         if (dVar != null) {
-            this.eYW.startLoad(dVar.uY(), 10, false);
+            this.eZh.startLoad(dVar.uY(), 10, false);
         }
     }
 
-    public void bqf() {
-        this.eNe.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_cont_i));
-        this.eZU.setVisibility(4);
+    public void bqh() {
+        this.eNp.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_cont_i));
+        this.faf.setVisibility(4);
     }
 
-    public void bqg() {
-        this.eNe.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_other_b));
-        this.eZU.setVisibility(0);
+    public void bqi() {
+        this.eNp.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_other_b));
+        this.faf.setVisibility(0);
     }
 
     public void startLoadingAnim() {
-        if (this.eYY == null) {
-            this.eYY = ObjectAnimator.ofFloat(this.eYX, "rotation", 0.0f, 359.0f);
-            this.eYY.setRepeatCount(-1);
-            this.eYY.setDuration(1000L);
+        if (this.eZj == null) {
+            this.eZj = ObjectAnimator.ofFloat(this.eZi, "rotation", 0.0f, 359.0f);
+            this.eZj.setRepeatCount(-1);
+            this.eZj.setDuration(1000L);
         }
-        if (!this.eYY.isRunning()) {
-            this.eYX.setImageResource(a.f.sticker_loading);
-            this.eYY.start();
+        if (!this.eZj.isRunning()) {
+            this.eZi.setImageResource(a.f.sticker_loading);
+            this.eZj.start();
         }
     }
 
-    public void bqa() {
-        if (this.eYY != null && this.eYY.isRunning()) {
-            this.eYY.cancel();
+    public void bqc() {
+        if (this.eZj != null && this.eZj.isRunning()) {
+            this.eZj.cancel();
         }
     }
 }

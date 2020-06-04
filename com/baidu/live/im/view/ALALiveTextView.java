@@ -427,7 +427,7 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
             }
 
             @Override // com.baidu.live.im.view.barrage.ImBarrageOptionListView.a
-            public void bV(int i) {
+            public void bX(int i) {
                 ALALiveTextView.this.En();
                 ALALiveTextView.this.bL(false);
             }

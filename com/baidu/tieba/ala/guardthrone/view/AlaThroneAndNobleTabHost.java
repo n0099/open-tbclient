@@ -31,8 +31,8 @@ public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.
     private FrameLayout atw;
     private LinearLayout atx;
     private CustomViewPager aty;
-    private a fCh;
-    private b fCi;
+    private a fCs;
+    private b fCt;
     private int mCurrentTabIndex;
     private boolean mIsClicked;
 
@@ -178,8 +178,8 @@ public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.
             this.mCurrentTabIndex = i;
             updateTabStyles();
             invalidate();
-            if (this.fCh != null) {
-                this.fCh.a(this.mCurrentTabIndex, (com.baidu.live.h.b) ListUtils.getItem(this.atK, this.mCurrentTabIndex));
+            if (this.fCs != null) {
+                this.fCs.a(this.mCurrentTabIndex, (com.baidu.live.h.b) ListUtils.getItem(this.atK, this.mCurrentTabIndex));
             }
         }
     }
@@ -190,12 +190,12 @@ public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.
             this.mCurrentTabIndex = i;
             updateTabStyles();
             invalidate();
-            if (this.fCh != null) {
-                this.fCh.a(this.mCurrentTabIndex, (com.baidu.live.h.b) ListUtils.getItem(this.atK, this.mCurrentTabIndex));
+            if (this.fCs != null) {
+                this.fCs.a(this.mCurrentTabIndex, (com.baidu.live.h.b) ListUtils.getItem(this.atK, this.mCurrentTabIndex));
             }
         }
-        if (this.fCi != null) {
-            this.fCi.onPageSelected(i);
+        if (this.fCt != null) {
+            this.fCt.onPageSelected(i);
         }
     }
 
@@ -207,11 +207,11 @@ public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.
     }
 
     public void setOnPageChangeListener(a aVar) {
-        this.fCh = aVar;
+        this.fCs = aVar;
     }
 
     public void setPageSelectedListener(b bVar) {
-        this.fCi = bVar;
+        this.fCt = bVar;
     }
 
     public void setAdapter(AlaThroneAndNobleControllerAdapter alaThroneAndNobleControllerAdapter) {

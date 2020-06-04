@@ -9,38 +9,38 @@ import java.io.File;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class b implements d {
-    private static File eXl = h.getPrivateCaptureRootChildDir("duModel");
+    private static File eXw = h.getPrivateCaptureRootChildDir("duModel");
     private File cgl;
-    private File eXm;
-    private LinkedList<com.baidu.tieba.ala.alaar.sticker.download.a.a> eXn;
-    private a eXo;
-    private com.baidu.tieba.ala.alaar.sticker.model.a eXp;
-    private Sticker.AbilityModel eXq;
+    private com.baidu.tieba.ala.alaar.sticker.model.a eXA;
+    private Sticker.AbilityModel eXB;
+    private File eXx;
+    private LinkedList<com.baidu.tieba.ala.alaar.sticker.download.a.a> eXy;
+    private a eXz;
     private File mFolder;
 
     public b(com.baidu.tieba.ala.alaar.sticker.model.a aVar) {
-        this(aVar, eXl);
+        this(aVar, eXw);
     }
 
     public b(com.baidu.tieba.ala.alaar.sticker.model.a aVar, File file) {
-        this.eXp = aVar;
+        this.eXA = aVar;
         this.mFolder = file;
-        this.eXn = new LinkedList<>();
-        this.cgl = new File(file, this.eXp.eXk);
-        this.eXm = new File(file, this.eXp.eXk + ".zip");
-        this.eXq = new Sticker.AbilityModel();
-        this.eXq.setFile(this.cgl);
+        this.eXy = new LinkedList<>();
+        this.cgl = new File(file, this.eXA.eXv);
+        this.eXx = new File(file, this.eXA.eXv + ".zip");
+        this.eXB = new Sticker.AbilityModel();
+        this.eXB.setFile(this.cgl);
     }
 
-    public String bpQ() {
-        if (this.eXp == null) {
+    public String bpS() {
+        if (this.eXA == null) {
             return null;
         }
-        return this.eXp.eXk;
+        return this.eXA.eXv;
     }
 
-    public Sticker.AbilityModel bpR() {
-        return this.eXq;
+    public Sticker.AbilityModel bpT() {
+        return this.eXB;
     }
 
     public boolean isLoaded() {
@@ -48,7 +48,7 @@ public class b implements d {
     }
 
     public boolean isLoading() {
-        return this.eXo != null;
+        return this.eXz != null;
     }
 
     public File getLocalFile() {
@@ -65,17 +65,17 @@ public class b implements d {
             return;
         }
         if (aVar != null) {
-            this.eXn.push(aVar);
+            this.eXy.push(aVar);
         }
-        bpS();
+        bpU();
     }
 
-    private void bpS() {
+    private void bpU() {
         if (!isLoaded() && !isLoading()) {
             synchronized (this) {
                 if (!isLoaded() && !isLoading()) {
-                    this.eXo = new a();
-                    com.baidu.tieba.ala.alaar.sticker.download.b.bpC().a(this.eXp.mUrl, this.mFolder, this.eXm.getName(), this.eXo);
+                    this.eXz = new a();
+                    com.baidu.tieba.ala.alaar.sticker.download.b.bpE().a(this.eXA.mUrl, this.mFolder, this.eXx.getName(), this.eXz);
                 }
             }
         }
@@ -84,21 +84,21 @@ public class b implements d {
     /* JADX INFO: Access modifiers changed from: protected */
     public void f(final DownloadException downloadException) {
         synchronized (this) {
-            this.eXo = null;
+            this.eXz = null;
         }
-        if (this.eXn != null && !this.eXn.isEmpty()) {
+        if (this.eXy != null && !this.eXy.isEmpty()) {
             final boolean isLoaded = isLoaded();
             new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.sticker.model.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (isLoaded) {
-                        while (b.this.eXn != null && b.this.eXn.size() > 0) {
-                            ((com.baidu.tieba.ala.alaar.sticker.download.a.a) b.this.eXn.pollFirst()).onCompleted(b.this.cgl.getAbsolutePath());
+                        while (b.this.eXy != null && b.this.eXy.size() > 0) {
+                            ((com.baidu.tieba.ala.alaar.sticker.download.a.a) b.this.eXy.pollFirst()).onCompleted(b.this.cgl.getAbsolutePath());
                         }
                         return;
                     }
-                    while (b.this.eXn != null && b.this.eXn.size() > 0) {
-                        ((com.baidu.tieba.ala.alaar.sticker.download.a.a) b.this.eXn.pollFirst()).a(downloadException);
+                    while (b.this.eXy != null && b.this.eXy.size() > 0) {
+                        ((com.baidu.tieba.ala.alaar.sticker.download.a.a) b.this.eXy.pollFirst()).a(downloadException);
                     }
                 }
             });
@@ -109,7 +109,7 @@ public class b implements d {
         boolean z = false;
         try {
             File file = new File(str);
-            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuAbilityModel", "onCompleted-unzip:" + str + "\nto " + this.cgl.getAbsolutePath() + ", sk:" + this.eXp.eXk);
+            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuAbilityModel", "onCompleted-unzip:" + str + "\nto " + this.cgl.getAbsolutePath() + ", sk:" + this.eXA.eXv);
             File file2 = new File(this.cgl + ".ziping");
             if (file2.exists()) {
                 com.baidu.tieba.ala.alaar.sticker.b.c.deleteFileOrDir(file2);
@@ -126,8 +126,8 @@ public class b implements d {
     }
 
     protected void g(DownloadException downloadException) {
-        if (this.eXm.exists()) {
-            this.eXm.delete();
+        if (this.eXx.exists()) {
+            this.eXx.delete();
         }
         f(downloadException);
     }
@@ -141,7 +141,7 @@ public class b implements d {
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void onStarted() {
             super.onStarted();
-            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuAbilityModel", "onStarted url:" + b.this.eXp.mUrl);
+            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuAbilityModel", "onStarted url:" + b.this.eXA.mUrl);
         }
 
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
@@ -164,7 +164,7 @@ public class b implements d {
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void a(DownloadException downloadException) {
             super.a(downloadException);
-            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuAbilityModel", "onFailed " + (downloadException != null ? downloadException.getErrorMessage() : "") + "\n" + b.this.eXp.mUrl);
+            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuAbilityModel", "onFailed " + (downloadException != null ? downloadException.getErrorMessage() : "") + "\n" + b.this.eXA.mUrl);
             b.this.g(downloadException);
         }
     }

@@ -8,7 +8,7 @@ import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 /* loaded from: classes5.dex */
 public class AnimationImageView extends AppCompatImageView {
-    private AnimationDrawable mZD;
+    private AnimationDrawable naN;
 
     public AnimationImageView(Context context) {
         this(context, null, 0);
@@ -63,10 +63,10 @@ public class AnimationImageView extends AppCompatImageView {
     }
 
     public int getTotalDuration() {
-        if (this.mZD != null) {
+        if (this.naN != null) {
             int i = 0;
-            for (int i2 = 0; i2 < this.mZD.getNumberOfFrames(); i2++) {
-                i += this.mZD.getDuration(i2);
+            for (int i2 = 0; i2 < this.naN.getNumberOfFrames(); i2++) {
+                i += this.naN.getDuration(i2);
             }
             return i;
         }
@@ -75,13 +75,13 @@ public class AnimationImageView extends AppCompatImageView {
 
     private void startPlay() {
         if (getBackground() instanceof AnimationDrawable) {
-            this.mZD = (AnimationDrawable) getBackground();
+            this.naN = (AnimationDrawable) getBackground();
             post(new Runnable() { // from class: com.kascend.chushou.widget.AnimationImageView.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (AnimationImageView.this.mZD != null) {
-                        AnimationImageView.this.mZD.start();
-                        if (AnimationImageView.this.mZD.isOneShot()) {
+                    if (AnimationImageView.this.naN != null) {
+                        AnimationImageView.this.naN.start();
+                        if (AnimationImageView.this.naN.isOneShot()) {
                             AnimationImageView.this.postDelayed(new Runnable() { // from class: com.kascend.chushou.widget.AnimationImageView.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {

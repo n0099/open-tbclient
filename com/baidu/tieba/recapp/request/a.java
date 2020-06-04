@@ -23,13 +23,13 @@ public class a {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(String... strArr) {
-                HashMap ctl = a.this.ctl();
+                HashMap ctu = a.this.ctu();
                 HashMap b = a.this.b(str, i, i2, i3, str2, str3);
                 e eVar = new e();
                 eVar.kD().setUrl(a.this.url);
                 eVar.kD().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-                if (ctl != null && !ctl.isEmpty()) {
-                    eVar.kD().v(a.this.ctl());
+                if (ctu != null && !ctu.isEmpty()) {
+                    eVar.kD().v(a.this.ctu());
                 }
                 if (b != null && !b.isEmpty()) {
                     ArrayList arrayList = new ArrayList();
@@ -46,7 +46,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, String> ctl() {
+    public HashMap<String, String> ctu() {
         String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put(SM.COOKIE, cookie);

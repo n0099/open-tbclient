@@ -57,7 +57,7 @@ public class d extends a {
                 } else if (hVar == null || hVar.aqH() == null) {
                     com.baidu.swan.apps.console.c.e("SwanAppAction", "authorize recorder failed : result is invalid");
                 } else {
-                    String str = "authorize recorder failed : " + com.baidu.swan.apps.setting.oauth.c.gM(errorCode);
+                    String str = "authorize recorder failed : " + com.baidu.swan.apps.setting.oauth.c.gO(errorCode);
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode(), str));
                     com.baidu.swan.apps.console.c.w("SwanAppAction", str);
                 }
@@ -107,7 +107,7 @@ public class d extends a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        String str = "authorize camera failed : " + com.baidu.swan.apps.setting.oauth.c.gM(i);
+        String str = "authorize camera failed : " + com.baidu.swan.apps.setting.oauth.c.gO(i);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(i, str));
         com.baidu.swan.apps.console.c.w("SwanAppAction", str);
     }

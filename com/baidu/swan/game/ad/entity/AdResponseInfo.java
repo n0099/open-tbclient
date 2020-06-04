@@ -17,7 +17,7 @@ public class AdResponseInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ib */
+        /* renamed from: id */
         public AdResponseInfo[] newArray(int i) {
             return new AdResponseInfo[i];
         }

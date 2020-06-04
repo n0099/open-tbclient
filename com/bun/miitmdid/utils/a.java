@@ -3,7 +3,7 @@ package com.bun.miitmdid.utils;
 import android.util.Log;
 /* loaded from: classes6.dex */
 public class a {
-    private static a mjO;
+    private static a mkY;
     private int b = -1;
 
     private a() {
@@ -22,7 +22,7 @@ public class a {
     }
 
     public static void a(boolean z) {
-        dtg().b = z ? 1 : 0;
+        dtu().b = z ? 1 : 0;
     }
 
     public static void b(String str, String str2) {
@@ -38,17 +38,17 @@ public class a {
     }
 
     public static boolean b() {
-        return dtg().b == 1;
+        return dtu().b == 1;
     }
 
-    public static a dtg() {
-        if (mjO == null) {
+    public static a dtu() {
+        if (mkY == null) {
             synchronized (a.class) {
-                if (mjO == null) {
-                    mjO = new a();
+                if (mkY == null) {
+                    mkY = new a();
                 }
             }
         }
-        return mjO;
+        return mkY;
     }
 }

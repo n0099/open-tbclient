@@ -57,19 +57,19 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
     public com.baidu.swan.apps.component.d.b a(@NonNull M m, @NonNull M m2) {
         com.baidu.swan.apps.component.d.b a = super.a(m, m2);
         if (getView() != 0 && !TextUtils.equals(((SwanEditText) getView()).getText().toString(), m2.text)) {
-            a.ew(6);
+            a.ey(6);
         }
         if (m.maxLength != m2.maxLength) {
-            a.ew(10);
+            a.ey(10);
         }
         if (m.bPe != m2.bPe) {
-            a.ew(11);
+            a.ey(11);
         }
         if (m.selectionStart != m2.selectionStart || m.selectionEnd != m2.selectionEnd) {
-            a.ew(12);
+            a.ey(12);
         }
         if (!TextUtils.equals(m.bPf, m2.bPf)) {
-            a.ew(13);
+            a.ey(13);
         }
         return a;
     }
@@ -77,16 +77,16 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(@NonNull V v, @NonNull M m, @NonNull com.baidu.swan.apps.component.d.b bVar) {
         super.a((a<V, M>) v, (V) m, bVar);
-        if (bVar.ex(11)) {
+        if (bVar.ez(11)) {
             b((a<V, M>) v, (V) m);
         }
-        if (bVar.ex(12)) {
+        if (bVar.ez(12)) {
             c((a<V, M>) v, (V) m);
         }
-        if (bVar.ex(10)) {
+        if (bVar.ez(10)) {
             d((a<V, M>) v, (V) m);
         }
-        if (bVar.ex(13)) {
+        if (bVar.ez(13)) {
             e((a<V, M>) v, (V) m);
         }
     }

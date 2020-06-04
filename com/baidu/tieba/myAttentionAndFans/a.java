@@ -7,22 +7,22 @@ import android.widget.FrameLayout;
 /* loaded from: classes10.dex */
 public class a extends Animation {
     private FrameLayout.LayoutParams clt;
-    private View jsm;
-    private int jsn;
+    private View jts;
+    private int jtt;
     private int mType;
 
     public a(View view, int i, int i2) {
         if (view != null) {
-            this.jsm = view;
-            if (this.jsm.getVisibility() == 8 && i2 > 0) {
-                this.jsn = i2;
+            this.jts = view;
+            if (this.jts.getVisibility() == 8 && i2 > 0) {
+                this.jtt = i2;
             } else {
-                this.jsn = this.jsm.getMeasuredHeight();
+                this.jtt = this.jts.getMeasuredHeight();
             }
             this.clt = (FrameLayout.LayoutParams) view.getLayoutParams();
             this.mType = i;
             if (this.mType == 0) {
-                this.clt.bottomMargin = -this.jsn;
+                this.clt.bottomMargin = -this.jtt;
                 return;
             }
             this.clt.bottomMargin = 0;
@@ -34,19 +34,19 @@ public class a extends Animation {
         super.applyTransformation(f, transformation);
         if (f < 1.0f) {
             if (this.mType == 0) {
-                this.clt.bottomMargin = (-this.jsn) + ((int) (this.jsn * f));
+                this.clt.bottomMargin = (-this.jtt) + ((int) (this.jtt * f));
             } else {
-                this.clt.bottomMargin = -((int) (this.jsn * f));
+                this.clt.bottomMargin = -((int) (this.jtt * f));
             }
-            this.jsm.requestLayout();
+            this.jts.requestLayout();
         } else if (this.mType == 0) {
             this.clt.bottomMargin = 0;
-            this.jsm.requestLayout();
-            this.jsn = this.jsm.getMeasuredHeight();
+            this.jts.requestLayout();
+            this.jtt = this.jts.getMeasuredHeight();
         } else {
-            this.clt.bottomMargin = -this.jsn;
-            this.jsm.setVisibility(8);
-            this.jsm.requestLayout();
+            this.clt.bottomMargin = -this.jtt;
+            this.jts.setVisibility(8);
+            this.jts.requestLayout();
         }
     }
 }

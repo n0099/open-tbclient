@@ -19,81 +19,81 @@ import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class c extends Dialog {
-    private a eXC;
-    private AlaStickerTabHost eXV;
-    private com.baidu.tieba.ala.alaar.sticker.view.a eXW;
-    private com.baidu.tieba.ala.alaar.sticker.view.a eXX;
-    private com.baidu.tieba.ala.alaar.sticker.view.a eXY;
-    private BdUniqueId eXZ;
-    private BdUniqueId eYa;
-    private HttpMessageListener eYb;
-    private HttpMessageListener eYc;
+    private a eXN;
+    private AlaStickerTabHost eYg;
+    private com.baidu.tieba.ala.alaar.sticker.view.a eYh;
+    private com.baidu.tieba.ala.alaar.sticker.view.a eYi;
+    private com.baidu.tieba.ala.alaar.sticker.view.a eYj;
+    private BdUniqueId eYk;
+    private BdUniqueId eYl;
+    private HttpMessageListener eYm;
+    private HttpMessageListener eYn;
 
     /* loaded from: classes3.dex */
     public interface a {
         void a(FuFaceItem fuFaceItem, String str);
 
-        void bpX();
+        void bpZ();
     }
 
     public c(@NonNull Context context, a aVar) {
         super(context);
-        this.eYb = new HttpMessageListener(1021155) { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.1
+        this.eYm = new HttpMessageListener(1021155) { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (!(httpResponsedMessage instanceof GetArStickerListHttpResponseMessage) || httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                    if (c.this.eXY != null) {
-                        c.this.eXY.setDatas(null);
+                    if (c.this.eYj != null) {
+                        c.this.eYj.setDatas(null);
                         return;
                     }
                     return;
                 }
                 GetArStickerListHttpResponseMessage getArStickerListHttpResponseMessage = (GetArStickerListHttpResponseMessage) httpResponsedMessage;
-                if (c.this.eXY != null) {
-                    c.this.eXY.setDatas(getArStickerListHttpResponseMessage.eWz);
+                if (c.this.eYj != null) {
+                    c.this.eYj.setDatas(getArStickerListHttpResponseMessage.eWK);
                 }
             }
         };
-        this.eYc = new HttpMessageListener(1021156) { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.2
+        this.eYn = new HttpMessageListener(1021156) { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if ((httpResponsedMessage instanceof GetPicTxtStickerListHttpResponseMessage) && !httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     GetPicTxtStickerListHttpResponseMessage getPicTxtStickerListHttpResponseMessage = (GetPicTxtStickerListHttpResponseMessage) httpResponsedMessage;
-                    if (getPicTxtStickerListHttpResponseMessage.getOrginalMessage() != null && getPicTxtStickerListHttpResponseMessage.getOrginalMessage().getTag() == c.this.eXZ && c.this.eXW != null) {
-                        c.this.eXW.setDatas(getPicTxtStickerListHttpResponseMessage.eWB);
+                    if (getPicTxtStickerListHttpResponseMessage.getOrginalMessage() != null && getPicTxtStickerListHttpResponseMessage.getOrginalMessage().getTag() == c.this.eYk && c.this.eYh != null) {
+                        c.this.eYh.setDatas(getPicTxtStickerListHttpResponseMessage.eWM);
                     }
-                    if (getPicTxtStickerListHttpResponseMessage.getOrginalMessage() != null && getPicTxtStickerListHttpResponseMessage.getOrginalMessage().getTag() == c.this.eYa && c.this.eXX != null) {
-                        c.this.eXX.setDatas(getPicTxtStickerListHttpResponseMessage.eWB);
+                    if (getPicTxtStickerListHttpResponseMessage.getOrginalMessage() != null && getPicTxtStickerListHttpResponseMessage.getOrginalMessage().getTag() == c.this.eYl && c.this.eYi != null) {
+                        c.this.eYi.setDatas(getPicTxtStickerListHttpResponseMessage.eWM);
                     }
                 }
             }
         };
-        this.eXC = aVar;
+        this.eXN = aVar;
         getContext().setTheme(a.j.theme_operation_portrait_dialog);
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
-        bpY();
+        bqa();
         setContentView(a.h.ala_master_sticker_layout);
         ViewGroup.LayoutParams layoutParams = findViewById(a.g.ala_master_sticker_root_view).getLayoutParams();
         if (layoutParams != null) {
             layoutParams.width = BdUtilHelper.getScreenDimensions(getContext())[0];
         }
-        this.eXV = (AlaStickerTabHost) findViewById(a.g.ala_master_sticker_view_pager);
-        bpZ();
-        MessageManager.getInstance().registerListener(this.eYc);
-        MessageManager.getInstance().registerListener(this.eYb);
+        this.eYg = (AlaStickerTabHost) findViewById(a.g.ala_master_sticker_view_pager);
+        bqb();
+        MessageManager.getInstance().registerListener(this.eYn);
+        MessageManager.getInstance().registerListener(this.eYm);
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.eYc);
-        MessageManager.getInstance().unRegisterListener(this.eYb);
+        MessageManager.getInstance().unRegisterListener(this.eYn);
+        MessageManager.getInstance().unRegisterListener(this.eYm);
     }
 
-    private void bpY() {
+    private void bqa() {
         Window window = getWindow();
         if (window != null) {
             WindowManager.LayoutParams attributes = window.getAttributes();
@@ -102,15 +102,15 @@ public class c extends Dialog {
         }
     }
 
-    private void bpZ() {
+    private void bqb() {
         LinkedList linkedList = new LinkedList();
         if (com.baidu.live.v.a.Ge().aYP != null && com.baidu.live.v.a.Ge().aYP.aAG != null && com.baidu.live.v.a.Ge().aYP.aAG.ws()) {
-            this.eXY = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 3, this.eXC);
-            linkedList.add(this.eXY);
-            com.baidu.tieba.ala.alaar.sticker.a.f.bpP();
+            this.eYj = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 3, this.eXN);
+            linkedList.add(this.eYj);
+            com.baidu.tieba.ala.alaar.sticker.a.f.bpR();
         }
-        this.eXV.setData(linkedList);
-        this.eXZ = BdUniqueId.gen();
-        this.eYa = BdUniqueId.gen();
+        this.eYg.setData(linkedList);
+        this.eYk = BdUniqueId.gen();
+        this.eYl = BdUniqueId.gen();
     }
 }

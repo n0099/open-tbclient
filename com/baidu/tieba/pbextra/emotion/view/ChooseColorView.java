@@ -11,9 +11,9 @@ import android.view.View;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class ChooseColorView extends View {
-    private boolean kiA;
-    private Bitmap kiB;
-    private int kiz;
+    private int kjF;
+    private boolean kjG;
+    private Bitmap kjH;
     private int mBorderColor;
     private Paint mBorderPaint;
     private float mBorderWidth;
@@ -30,7 +30,7 @@ public class ChooseColorView extends View {
 
     public ChooseColorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kiz = ViewCompat.MEASURED_STATE_MASK;
+        this.kjF = ViewCompat.MEASURED_STATE_MASK;
         this.mBorderColor = -1;
         this.mBorderWidth = getResources().getDimensionPixelSize(R.dimen.ds4);
         init();
@@ -39,18 +39,18 @@ public class ChooseColorView extends View {
     private void init() {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(this.kiz);
+        this.mPaint.setColor(this.kjF);
         this.mBorderPaint = new Paint();
         this.mBorderPaint.setColor(this.mBorderColor);
         this.mBorderPaint.setAntiAlias(true);
         this.mBorderPaint.setStyle(Paint.Style.STROKE);
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
-        this.kiB = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
+        this.kjH = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
     }
 
     public void setChooseColor(int i) {
-        this.kiz = i;
-        this.mPaint.setColor(this.kiz);
+        this.kjF = i;
+        this.mPaint.setColor(this.kjF);
     }
 
     public void setRadius(int i) {
@@ -58,11 +58,11 @@ public class ChooseColorView extends View {
     }
 
     public int getChooseColor() {
-        return this.kiz;
+        return this.kjF;
     }
 
     public void setIsChooseView(boolean z) {
-        this.kiA = z;
+        this.kjG = z;
         invalidate();
     }
 
@@ -71,8 +71,8 @@ public class ChooseColorView extends View {
         super.onDraw(canvas);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mPaint);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mBorderPaint);
-        if (this.kiA) {
-            canvas.drawBitmap(this.kiB, getWidth() - this.kiB.getWidth(), 0.0f, (Paint) null);
+        if (this.kjG) {
+            canvas.drawBitmap(this.kjH, getWidth() - this.kjH.getWidth(), 0.0f, (Paint) null);
         }
     }
 }

@@ -27,7 +27,7 @@ public class AdElementInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ia */
+        /* renamed from: ic */
         public AdElementInfo[] newArray(int i) {
             return new AdElementInfo[i];
         }

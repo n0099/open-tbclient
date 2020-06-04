@@ -3,29 +3,29 @@ package com.faceunity.gles;
 import com.faceunity.gles.Drawable2d;
 /* loaded from: classes10.dex */
 public class c {
-    private final Drawable2d mBC = new Drawable2d(Drawable2d.Prefab.FULL_RECTANGLE);
-    private Texture2dProgram mBD;
+    private final Drawable2d mCN = new Drawable2d(Drawable2d.Prefab.FULL_RECTANGLE);
+    private Texture2dProgram mCO;
 
     public c(Texture2dProgram texture2dProgram) {
-        this.mBD = texture2dProgram;
+        this.mCO = texture2dProgram;
     }
 
     public void release(boolean z) {
-        if (this.mBD != null) {
+        if (this.mCO != null) {
             if (z) {
-                this.mBD.release();
+                this.mCO.release();
             }
-            this.mBD = null;
+            this.mCO = null;
         }
     }
 
     public int createTextureObject() {
-        return this.mBD.createTextureObject();
+        return this.mCO.createTextureObject();
     }
 
     public void drawFrame(int i, float[] fArr) {
-        if (this.mBD != null) {
-            this.mBD.draw(d.IDENTITY_MATRIX, this.mBC.getVertexArray(), 0, this.mBC.getVertexCount(), this.mBC.getCoordsPerVertex(), this.mBC.getVertexStride(), fArr, this.mBC.getTexCoordArray(), i, this.mBC.getTexCoordStride());
+        if (this.mCO != null) {
+            this.mCO.draw(d.IDENTITY_MATRIX, this.mCN.getVertexArray(), 0, this.mCN.getVertexCount(), this.mCN.getCoordsPerVertex(), this.mCN.getVertexStride(), fArr, this.mCN.getTexCoordArray(), i, this.mCN.getTexCoordStride());
         }
     }
 }

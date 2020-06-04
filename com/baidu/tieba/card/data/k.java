@@ -9,17 +9,6 @@ import com.baidu.tbadk.core.util.v;
 import tbclient.SmartApp;
 /* loaded from: classes8.dex */
 public class k extends c {
-    public static String gHb = "";
-    public static String gHc = "";
-    public static String gHd = "";
-    public static String gHe = "";
-    public static String gHf = "";
-    public static String gHg = "";
-    public static String gHh = "";
-    public static String gHi = "";
-    public static String gHj = "";
-    public static String gHk = "";
-    public static String gHl = "";
     public static String gHm = "";
     public static String gHn = "";
     public static String gHo = "";
@@ -27,8 +16,19 @@ public class k extends c {
     public static String gHq = "";
     public static String gHr = "";
     public static String gHs = "";
+    public static String gHt = "";
+    public static String gHu = "";
+    public static String gHv = "";
+    public static String gHw = "";
+    public static String gHx = "";
+    public static String gHy = "";
+    public static String gHz = "";
+    public static String gHA = "";
+    public static String gHB = "";
+    public static String gHC = "";
+    public static String gHD = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId gHt = BdUniqueId.gen();
+    public static final BdUniqueId gHE = BdUniqueId.gen();
     public static final BdUniqueId dET = BdUniqueId.gen();
     public static final BdUniqueId dEZ = BdUniqueId.gen();
     public static final BdUniqueId dFa = BdUniqueId.gen();
@@ -36,29 +36,29 @@ public class k extends c {
     public static final BdUniqueId dFc = BdUniqueId.gen();
     public static final BdUniqueId dFg = BdUniqueId.gen();
     public static final BdUniqueId dFh = BdUniqueId.gen();
-    public static final BdUniqueId gHu = BdUniqueId.gen();
-    public static final BdUniqueId gHv = BdUniqueId.gen();
-    public static final BdUniqueId gHw = BdUniqueId.gen();
-    public static final BdUniqueId gHx = BdUniqueId.gen();
-    public static final BdUniqueId gHy = BdUniqueId.gen();
-    public static final BdUniqueId gHz = BdUniqueId.gen();
-    public static final BdUniqueId gHA = BdUniqueId.gen();
-    public static final BdUniqueId gHB = BdUniqueId.gen();
-    public static final BdUniqueId gHC = BdUniqueId.gen();
-    public boolean gHD = false;
+    public static final BdUniqueId gHF = BdUniqueId.gen();
+    public static final BdUniqueId gHG = BdUniqueId.gen();
+    public static final BdUniqueId gHH = BdUniqueId.gen();
+    public static final BdUniqueId gHI = BdUniqueId.gen();
+    public static final BdUniqueId gHJ = BdUniqueId.gen();
+    public static final BdUniqueId gHK = BdUniqueId.gen();
+    public static final BdUniqueId gHL = BdUniqueId.gen();
+    public static final BdUniqueId gHM = BdUniqueId.gen();
+    public static final BdUniqueId gHN = BdUniqueId.gen();
+    public boolean gHO = false;
     public boolean isLinkThread = false;
     public boolean dEy = false;
-    public boolean gHE = false;
+    public boolean gHP = false;
     public boolean dEo = false;
-    public boolean gHF = false;
+    public boolean gHQ = false;
     public boolean dEu = false;
     public boolean dEp = false;
-    public boolean gHG = false;
+    public boolean gHR = false;
     public boolean dEs = false;
     public boolean dEt = false;
     public boolean dEv = false;
-    public boolean gHH = false;
-    public boolean gHI = false;
+    public boolean gHS = false;
+    public boolean gHT = false;
     public boolean emp = true;
 
     public static boolean ac(bk bkVar) {
@@ -99,31 +99,31 @@ public class k extends c {
             }
             return dEZ;
         } else if (this.dEo) {
-            return gHu;
+            return gHF;
         } else {
             if (this.dEp) {
-                return gHw;
+                return gHH;
             }
-            if (this.gHG) {
-                return gHx;
+            if (this.gHR) {
+                return gHI;
             }
             if (this.dEs) {
-                return gHy;
+                return gHJ;
             }
             if (this.dEt) {
-                return gHz;
+                return gHK;
             }
             if (this.dEu) {
-                return gHA;
+                return gHL;
             }
             if (this.dEv) {
-                return gHC;
+                return gHN;
             }
-            if (this.gHH) {
-                return gHB;
+            if (this.gHS) {
+                return gHM;
             }
-            if (this.gHF) {
-                return gHv;
+            if (this.gHQ) {
+                return gHG;
             }
             return TYPE;
         }
@@ -137,15 +137,15 @@ public class k extends c {
         if (this.dEA.aQl() == 5) {
             return this.dEA;
         }
-        this.dEA.kp(1);
+        this.dEA.kr(1);
         return this.dEA;
     }
 
-    public boolean bLJ() {
+    public boolean bLL() {
         return (this.dEA == null || v.getCount(this.dEA.aQL()) == 0) ? false : true;
     }
 
-    public boolean bLK() {
+    public boolean bLM() {
         return this.dEA == null || this.dEA.aRB();
     }
 
@@ -153,15 +153,15 @@ public class k extends c {
         return this.dEA != null && this.dEA.aPk();
     }
 
-    public an bLL() {
+    public an bLN() {
         SmartApp aRn;
-        if (bLJ()) {
-            an Dr = Dr(gHg);
+        if (bLL()) {
+            an Dr = Dr(gHr);
             if (Dr != null) {
                 Dr.setPosition(this.position);
                 if (aOi() != null) {
                     bk aOi = aOi();
-                    Dr.ag("obj_name", aOi.aSb() != null && (aOi.aSb().ddw() != null || aOi.aSb().biy() != null) ? 1 : 0);
+                    Dr.ag("obj_name", aOi.aSb() != null && (aOi.aSb().ddL() != null || aOi.aSb().biA() != null) ? 1 : 0);
                     if (aOi.aQx() != null) {
                         Dr.ag(TiebaInitialize.Params.AB_TYPE, aOi.aQx().hadConcerned() ? 1 : 0);
                     }
@@ -169,8 +169,8 @@ public class k extends c {
                 }
             }
             return Dr;
-        } else if (bLK()) {
-            an Dr2 = Dr(gHm);
+        } else if (bLM()) {
+            an Dr2 = Dr(gHx);
             if (Dr2 != null) {
                 Dr2.setPosition(this.position);
                 if (aOi() != null && (aRn = aOi().aRn()) != null) {
@@ -184,16 +184,16 @@ public class k extends c {
         } else if (aPk()) {
             return null;
         } else {
-            an Dr3 = Dr(gHb);
+            an Dr3 = Dr(gHm);
             if (Dr3 != null) {
                 Dr3.setPosition(this.position);
-                Dr3.dh("ab_tag", bLA()).dh(TiebaInitialize.Params.AB_ACTION, "show");
+                Dr3.dh("ab_tag", bLC()).dh(TiebaInitialize.Params.AB_ACTION, "show");
                 if (aOi() != null) {
                     bk aOi2 = aOi();
-                    boolean z = (aOi2.aSb() == null || (aOi2.aSb().ddw() == null && aOi2.aSb().biy() == null)) ? false : true;
+                    boolean z = (aOi2.aSb() == null || (aOi2.aSb().ddL() == null && aOi2.aSb().biA() == null)) ? false : true;
                     Dr3.ag("obj_name", z ? 1 : 0);
-                    if (z && aOi2.aSb().ddw() != null && aOi2.aSb().ddw().biq() != null && aOi2.aSb().ddw().biq().size() > 0) {
-                        Dr3.ag(TiebaInitialize.Params.OBJ_TO, aOi2.aSb().llr ? 2 : 1);
+                    if (z && aOi2.aSb().ddL() != null && aOi2.aSb().ddL().bis() != null && aOi2.aSb().ddL().bis().size() > 0) {
+                        Dr3.ag(TiebaInitialize.Params.OBJ_TO, aOi2.aSb().lmA ? 2 : 1);
                     }
                     if (aOi2.aQx() != null) {
                         Dr3.ag(TiebaInitialize.Params.AB_TYPE, aOi2.aQx().hadConcerned() ? 1 : 0);
@@ -237,7 +237,7 @@ public class k extends c {
             }
             anVar.ag("obj_type", i);
             anVar.dh("obj_id", this.dEA.aQx().getUserId());
-            anVar.ag("obj_param1", bLE() ? 2 : 1);
+            anVar.ag("obj_param1", bLG() ? 2 : 1);
         }
         return anVar;
     }
@@ -245,26 +245,26 @@ public class k extends c {
     public an Du(String str) {
         an Dr = Dr(str);
         if (Dr != null) {
-            Dr.dh("ab_tag", bLA()).dh(TiebaInitialize.Params.AB_ACTION, "show");
+            Dr.dh("ab_tag", bLC()).dh(TiebaInitialize.Params.AB_ACTION, "show");
             if (aOi() != null) {
                 bk aOi = aOi();
-                boolean z = (aOi.aSb() == null || (aOi.aSb().ddw() == null && aOi.aSb().biy() == null)) ? false : true;
+                boolean z = (aOi.aSb() == null || (aOi.aSb().ddL() == null && aOi.aSb().biA() == null)) ? false : true;
                 Dr.ag("obj_name", z ? 1 : 0);
-                if (z && aOi.aSb().ddw() != null && aOi.aSb().ddw().biq() != null && aOi.aSb().ddw().biq().size() > 0) {
-                    Dr.ag(TiebaInitialize.Params.OBJ_TO, aOi.aSb().llr ? 2 : 1);
+                if (z && aOi.aSb().ddL() != null && aOi.aSb().ddL().bis() != null && aOi.aSb().ddL().bis().size() > 0) {
+                    Dr.ag(TiebaInitialize.Params.OBJ_TO, aOi.aSb().lmA ? 2 : 1);
                 }
             }
         }
         return Dr;
     }
 
-    public an bLM() {
+    public an bLO() {
         an Dr;
         SmartApp aRn;
-        if (bLJ()) {
-            Dr = Dr(gHh);
-        } else if (bLK()) {
-            an Dr2 = Dr(gHn);
+        if (bLL()) {
+            Dr = Dr(gHs);
+        } else if (bLM()) {
+            an Dr2 = Dr(gHy);
             if (Dr2 != null && aOi() != null && (aRn = aOi().aRn()) != null) {
                 Dr2.dh("obj_type", aRn.id);
                 Dr2.dh("obj_name", aRn.name);
@@ -272,9 +272,9 @@ public class k extends c {
             }
             return Dr2;
         } else {
-            Dr = Dr(gHc);
+            Dr = Dr(gHn);
             if (Dr != null) {
-                Dr.dh("ab_tag", bLA()).dh(TiebaInitialize.Params.AB_ACTION, "click");
+                Dr.dh("ab_tag", bLC()).dh(TiebaInitialize.Params.AB_ACTION, "click");
                 if (aOi() != null) {
                     bk aOi = aOi();
                     if (aOi.getBaijiahaoData() != null) {
@@ -291,12 +291,12 @@ public class k extends c {
         return Dr;
     }
 
-    public an bLN() {
-        if (bLJ()) {
-            return Dr(gHi);
+    public an bLP() {
+        if (bLL()) {
+            return Dr(gHt);
         }
         if (l.ac(this.dEA)) {
-            an ay = ay(gHq, true);
+            an ay = ay(gHB, true);
             if (ay != null && aOi() != null) {
                 bk aOi = aOi();
                 if (aOi.getBaijiahaoData() != null) {
@@ -309,9 +309,9 @@ public class k extends c {
             }
             return ay;
         }
-        an aI = aI(gHd, 0);
+        an aI = aI(gHo, 0);
         if (aI != null) {
-            aI.dh("ab_tag", bLA()).dh(TiebaInitialize.Params.AB_ACTION, "click");
+            aI.dh("ab_tag", bLC()).dh(TiebaInitialize.Params.AB_ACTION, "click");
             if (aOi() != null) {
                 bk aOi2 = aOi();
                 if (aOi2.getBaijiahaoData() != null) {
@@ -326,9 +326,9 @@ public class k extends c {
         return aI;
     }
 
-    public an bLO() {
+    public an bLQ() {
         if (l.ac(this.dEA)) {
-            an ay = ay(gHp, true);
+            an ay = ay(gHA, true);
             if (ay != null && aOi() != null) {
                 bk aOi = aOi();
                 if (aOi.getBaijiahaoData() != null) {
@@ -339,12 +339,12 @@ public class k extends c {
                 return ay;
             }
             return ay;
-        } else if (bLJ()) {
-            return Dr(gHj);
+        } else if (bLL()) {
+            return Dr(gHu);
         } else {
-            an Dr = Dr(gHe);
+            an Dr = Dr(gHp);
             if (Dr != null) {
-                Dr.dh("ab_tag", bLA()).dh(TiebaInitialize.Params.AB_ACTION, "click");
+                Dr.dh("ab_tag", bLC()).dh(TiebaInitialize.Params.AB_ACTION, "click");
                 if (aOi() != null) {
                     bk aOi2 = aOi();
                     if (aOi2.getBaijiahaoData() != null) {
@@ -360,13 +360,13 @@ public class k extends c {
         }
     }
 
-    public an bLP() {
-        if (bLJ()) {
-            return Dr(gHk);
+    public an bLR() {
+        if (bLL()) {
+            return Dr(gHv);
         }
-        an Dr = Dr(gHf);
+        an Dr = Dr(gHq);
         if (Dr != null) {
-            Dr.dh("ab_tag", bLA()).dh(TiebaInitialize.Params.AB_ACTION, "click");
+            Dr.dh("ab_tag", bLC()).dh(TiebaInitialize.Params.AB_ACTION, "click");
             if (aOi() != null) {
                 bk aOi = aOi();
                 if (aOi.getBaijiahaoData() != null) {
@@ -381,12 +381,12 @@ public class k extends c {
         return Dr;
     }
 
-    public an bLQ() {
-        return Dr(gHl);
+    public an bLS() {
+        return Dr(gHw);
     }
 
-    public an bLR() {
-        an ay = ay(gHo, true);
+    public an bLT() {
+        an ay = ay(gHz, true);
         if (aOi() != null) {
             bk aOi = aOi();
             if (aOi.getBaijiahaoData() != null) {

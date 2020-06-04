@@ -23,45 +23,45 @@ import java.util.zip.ZipInputStream;
 /* loaded from: classes6.dex */
 public class b {
     private final Context appContext;
-    private final a nkw;
+    private final a nlG;
     private final String url;
 
     public static l<d> be(Context context, String str) {
-        return new b(context, str).dJy();
+        return new b(context, str).dJM();
     }
 
     private b(Context context, String str) {
         this.appContext = context.getApplicationContext();
         this.url = str;
-        this.nkw = new a(this.appContext, str);
+        this.nlG = new a(this.appContext, str);
     }
 
-    private l<d> dJy() {
+    private l<d> dJM() {
         return new l<>(new Callable<k<d>>() { // from class: com.tb.airbnb.lottie.network.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: dIu */
+            /* renamed from: dII */
             public k<d> call() throws Exception {
-                return b.this.dJz();
+                return b.this.dJN();
             }
         });
     }
 
     @WorkerThread
-    public k<d> dJz() {
-        d dJA = dJA();
-        if (dJA != null) {
-            return new k<>(dJA);
+    public k<d> dJN() {
+        d dJO = dJO();
+        if (dJO != null) {
+            return new k<>(dJO);
         }
         c.debug("Animation for " + this.url + " not found in cache. Fetching from network.");
-        return dJB();
+        return dJP();
     }
 
     @WorkerThread
     @Nullable
-    private d dJA() {
+    private d dJO() {
         k<d> j;
-        Pair<FileExtension, InputStream> iU = this.nkw.iU();
+        Pair<FileExtension, InputStream> iU = this.nlG.iU();
         if (iU == null) {
             return null;
         }
@@ -79,16 +79,16 @@ public class b {
     }
 
     @WorkerThread
-    private k<d> dJB() {
+    private k<d> dJP() {
         try {
-            return dJC();
+            return dJQ();
         } catch (IOException e) {
             return new k<>(e);
         }
     }
 
     @WorkerThread
-    private k dJC() throws IOException {
+    private k dJQ() throws IOException {
         FileExtension fileExtension;
         k<d> c;
         c.debug("Fetching " + this.url);
@@ -127,16 +127,16 @@ public class b {
                 case 0:
                     c.debug("Handling zip response.");
                     fileExtension = FileExtension.Zip;
-                    c = e.c(new ZipInputStream(new FileInputStream(this.nkw.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
+                    c = e.c(new ZipInputStream(new FileInputStream(this.nlG.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
                     break;
                 default:
                     c.debug("Received json response.");
                     fileExtension = FileExtension.Json;
-                    c = e.j(new FileInputStream(new File(this.nkw.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
+                    c = e.j(new FileInputStream(new File(this.nlG.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
                     break;
             }
             if (c.getValue() != null) {
-                this.nkw.a(fileExtension);
+                this.nlG.a(fileExtension);
             }
             c.debug("Completed fetch from network. Success: " + (c.getValue() != null));
             return c;

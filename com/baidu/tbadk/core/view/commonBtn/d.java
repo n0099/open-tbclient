@@ -17,31 +17,31 @@ public class d extends a {
         this.dYC = false;
     }
 
-    public void ml(@ColorInt int i) {
+    public void mn(@ColorInt int i) {
         this.dYn = i;
         this.dYC = false;
         this.dYy = false;
         if (this.dYA != null) {
-            this.dYA.aWW();
+            this.dYA.aWX();
         }
     }
 
-    public void aXa() {
+    public void aXb() {
         this.dYn = R.color.cp_cont_a;
         this.dYC = false;
         this.dYy = true;
         if (this.dYA != null) {
-            this.dYA.aWW();
+            this.dYA.aWX();
         }
     }
 
-    public void mk(@ColorRes int i) {
+    public void mm(@ColorRes int i) {
         this.dYn = i;
         this.dYo = R.color.cp_btn_b;
         this.dYC = true;
         this.dYy = true;
         if (this.dYA != null) {
-            this.dYA.aWW();
+            this.dYA.aWX();
         }
     }
 

@@ -11,8 +11,8 @@ import com.baidu.live.u.a;
 public class a implements b {
     private String aWr;
     private String ayw;
-    private com.baidu.tieba.ala.guardthrone.view.a fBL;
-    private com.baidu.tieba.ala.guardthrone.view.a fBM;
+    private com.baidu.tieba.ala.guardthrone.view.a fBW;
+    private com.baidu.tieba.ala.guardthrone.view.a fBX;
     private boolean mIsHost;
     private String mLiveId;
     private RelativeLayout mRootView;
@@ -32,21 +32,21 @@ public class a implements b {
 
     private void initView() {
         this.mRootView = new RelativeLayout(this.mTbPageContext.getPageActivity());
-        this.fBL = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, false, this.mIsHost);
-        this.fBL.d(this.mLiveId, this.aWr, this.ayw, this.mTabId);
-        this.fBM = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, true, this.mIsHost);
-        this.fBM.d(this.mLiveId, this.aWr, this.ayw, this.mTabId);
+        this.fBW = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, false, this.mIsHost);
+        this.fBW.d(this.mLiveId, this.aWr, this.ayw, this.mTabId);
+        this.fBX = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, true, this.mIsHost);
+        this.fBX.d(this.mLiveId, this.aWr, this.ayw, this.mTabId);
         if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) == 2) {
-            this.fBM.getRootView().setVisibility(0);
-            this.fBL.getRootView().setVisibility(8);
+            this.fBX.getRootView().setVisibility(0);
+            this.fBW.getRootView().setVisibility(8);
         } else {
-            this.fBM.getRootView().setVisibility(8);
-            this.fBL.getRootView().setVisibility(0);
+            this.fBX.getRootView().setVisibility(8);
+            this.fBW.getRootView().setVisibility(0);
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        this.mRootView.addView(this.fBL.getRootView(), layoutParams);
-        this.mRootView.addView(this.fBM.getRootView(), layoutParams);
+        this.mRootView.addView(this.fBW.getRootView(), layoutParams);
+        this.mRootView.addView(this.fBX.getRootView(), layoutParams);
     }
 
     @Override // com.baidu.live.h.b
@@ -60,28 +60,28 @@ public class a implements b {
 
     @Override // com.baidu.live.h.b
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.fBL != null && this.fBM != null) {
+        if (this.fBW != null && this.fBX != null) {
             if (configuration.orientation == 2) {
-                this.fBM.getRootView().setVisibility(0);
-                this.fBL.getRootView().setVisibility(8);
+                this.fBX.getRootView().setVisibility(0);
+                this.fBW.getRootView().setVisibility(8);
             } else {
-                this.fBM.getRootView().setVisibility(8);
-                this.fBL.getRootView().setVisibility(0);
+                this.fBX.getRootView().setVisibility(8);
+                this.fBW.getRootView().setVisibility(0);
             }
-            this.fBL.aNc();
-            this.fBM.aNc();
+            this.fBW.aNc();
+            this.fBX.aNc();
         }
     }
 
     @Override // com.baidu.live.h.b
     public void onDestroy() {
-        if (this.fBL != null) {
-            this.fBL.bvz();
-            this.fBL.onDestroy();
+        if (this.fBW != null) {
+            this.fBW.bvB();
+            this.fBW.onDestroy();
         }
-        if (this.fBM != null) {
-            this.fBM.bvz();
-            this.fBM.onDestroy();
+        if (this.fBX != null) {
+            this.fBX.bvB();
+            this.fBX.onDestroy();
         }
     }
 

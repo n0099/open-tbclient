@@ -49,7 +49,7 @@ public class b extends com.baidu.swan.games.view.recommend.a.a {
     }
 
     private void initDialog() {
-        g.a ao = new g.a(this.mContext).eT(true).eR(true).eW(false).aol().aom().gA(17170445).ao(this.deC);
+        g.a ao = new g.a(this.mContext).eT(true).eR(true).eW(false).aol().aom().gC(17170445).ao(this.deC);
         ao.eS(false);
         this.deB = ao.ZF();
         com.baidu.swan.apps.aq.d.b(f.ahV().ahF(), this.deB);
@@ -67,9 +67,9 @@ public class b extends com.baidu.swan.games.view.recommend.a.a {
         });
         this.deG.a(new a.InterfaceC0443a() { // from class: com.baidu.swan.games.view.recommend.c.b.2
             @Override // com.baidu.swan.games.view.recommend.c.a.InterfaceC0443a
-            public void iF(int i) {
+            public void iH(int i) {
                 if (b.this.dej != null) {
-                    b.this.dej.iB(i);
+                    b.this.dej.iD(i);
                 }
                 b.this.aDn();
             }

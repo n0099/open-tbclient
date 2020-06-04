@@ -20,7 +20,7 @@ public interface c {
 
         com.facebook.a.a aL(Object obj) throws IOException;
 
-        boolean dtK();
+        boolean dtY();
     }
 
     b C(String str, Object obj) throws IOException;
@@ -29,13 +29,13 @@ public interface c {
 
     boolean E(String str, Object obj) throws IOException;
 
-    long PJ(String str) throws IOException;
+    long PK(String str) throws IOException;
 
     long a(a aVar) throws IOException;
 
-    void dtG();
+    void dtU();
 
-    Collection<a> dtH() throws IOException;
+    Collection<a> dtV() throws IOException;
 
     boolean isExternal();
 }

@@ -154,7 +154,7 @@ public class a {
         return this.mConvertView;
     }
 
-    public void hZ(int i) {
+    public void ib(int i) {
         this.mContentWidth = ag.B(i);
         this.mContentHeight = (int) (this.mContentWidth / com.baidu.swan.game.ad.e.d.cRD);
         this.mConvertView.setLayoutParams(new RelativeLayout.LayoutParams(this.mContentWidth, this.mContentHeight));

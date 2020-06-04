@@ -67,9 +67,9 @@ public class a extends BaseAdapter {
         } else {
             c0494a = (C0494a) view.getTag();
         }
-        if (nE(i) == 1) {
+        if (nG(i) == 1) {
             c0494a.ehT.setPadding(0, this.padding, 0, 0);
-        } else if (nE(i) == 2) {
+        } else if (nG(i) == 2) {
             c0494a.ehT.setPadding(0, 0, 0, this.padding);
         } else {
             c0494a.ehT.setPadding(0, 0, 0, 0);
@@ -91,7 +91,7 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public int nE(int i) {
+    public int nG(int i) {
         if (i / 4 == 0) {
             return 1;
         }
@@ -122,7 +122,7 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void nF(int i) {
+    public void nH(int i) {
         this.eur = i;
     }
 

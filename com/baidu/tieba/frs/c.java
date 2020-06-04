@@ -10,15 +10,15 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
 public class c implements ai {
-    public static final AtomicReference<ai> hmf = new AtomicReference<>(null);
-    private static final ai hmg = new c();
+    public static final AtomicReference<ai> hmq = new AtomicReference<>(null);
+    private static final ai hmr = new c();
 
     private c() {
     }
 
-    public static ai bUh() {
-        ai aiVar = hmf.get();
-        return aiVar == null ? hmg : aiVar;
+    public static ai bUj() {
+        ai aiVar = hmq.get();
+        return aiVar == null ? hmr : aiVar;
     }
 
     @Override // com.baidu.tieba.frs.ai

@@ -342,7 +342,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
     }
 
     private void ja(String str) {
-        if (a.b.ee(0) && !TextUtils.isEmpty(str)) {
+        if (a.b.eg(0) && !TextUtils.isEmpty(str)) {
             String path = Uri.parse(str).getPath();
             if (DEBUG) {
                 Log.d("SwanAppWebViewManager", "pathList item: " + str + " ,folder: " + path + " ,parent: " + new File(path).getParent());
@@ -452,7 +452,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
         return false;
     }
 
-    public void eD(int i) {
+    public void eF(int i) {
         this.bTP = i;
         if (DEBUG) {
             Log.d("SwanAppWebViewManager", "CustomView orientation has been set to [" + this.bTP + "] for once");

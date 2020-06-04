@@ -3,60 +3,60 @@ package com.facebook.fresco.animation.d;
 import com.facebook.fresco.animation.a.d;
 /* loaded from: classes13.dex */
 public class a implements b {
-    private final d mrG;
-    private long msz = -1;
+    private final d msR;
+    private long mtJ = -1;
 
     public a(d dVar) {
-        this.mrG = dVar;
+        this.msR = dVar;
     }
 
     @Override // com.facebook.fresco.animation.d.b
     public int J(long j, long j2) {
-        if (!dxn() && j / dxm() >= this.mrG.getLoopCount()) {
+        if (!dxB() && j / dxA() >= this.msR.getLoopCount()) {
             return -1;
         }
-        return fP(j % dxm());
+        return fP(j % dxA());
     }
 
-    public long dxm() {
-        if (this.msz != -1) {
-            return this.msz;
+    public long dxA() {
+        if (this.mtJ != -1) {
+            return this.mtJ;
         }
-        this.msz = 0L;
-        int frameCount = this.mrG.getFrameCount();
+        this.mtJ = 0L;
+        int frameCount = this.msR.getFrameCount();
         for (int i = 0; i < frameCount; i++) {
-            this.msz += this.mrG.Hm(i);
+            this.mtJ += this.msR.Ho(i);
         }
-        return this.msz;
+        return this.mtJ;
     }
 
     @Override // com.facebook.fresco.animation.d.b
     public long fO(long j) {
         long j2 = 0;
-        long dxm = dxm();
-        if (dxm == 0) {
+        long dxA = dxA();
+        if (dxA == 0) {
             return -1L;
         }
-        if (dxn() || j / dxm() < this.mrG.getLoopCount()) {
-            long j3 = j % dxm;
-            int frameCount = this.mrG.getFrameCount();
+        if (dxB() || j / dxA() < this.msR.getLoopCount()) {
+            long j3 = j % dxA;
+            int frameCount = this.msR.getFrameCount();
             for (int i = 0; i < frameCount && j2 <= j3; i++) {
-                j2 += this.mrG.Hm(i);
+                j2 += this.msR.Ho(i);
             }
             return (j2 - j3) + j;
         }
         return -1L;
     }
 
-    public boolean dxn() {
-        return this.mrG.getLoopCount() == 0;
+    public boolean dxB() {
+        return this.msR.getLoopCount() == 0;
     }
 
     int fP(long j) {
         int i = 0;
         long j2 = 0;
         do {
-            j2 += this.mrG.Hm(i);
+            j2 += this.msR.Ho(i);
             i++;
         } while (j >= j2);
         return i - 1;

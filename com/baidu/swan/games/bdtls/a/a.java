@@ -27,23 +27,23 @@ public class a {
         int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
         byte[] bArr = new byte[32];
         new Random().nextBytes(bArr);
-        Bdtls.Random build = Bdtls.Random.newBuilder().ii(currentTimeMillis).h(ByteString.copyFrom(bArr)).build();
+        Bdtls.Random build = Bdtls.Random.newBuilder().ik(currentTimeMillis).h(ByteString.copyFrom(bArr)).build();
         int auV = DH.auV();
         int auU = DH.auU();
         int am = DH.am(auV, auU);
         jVar.d(Integer.valueOf(auV));
         jVar.e(Integer.valueOf(auU));
         jVar.f(Integer.valueOf(am));
-        byte[] m27if = d.m27if(am);
-        if (m27if == null || (encrypt = RSA.encrypt(m27if)) == null) {
+        byte[] ih = d.ih(am);
+        if (ih == null || (encrypt = RSA.encrypt(ih)) == null) {
             return null;
         }
         byte[] bytes = e.toHexString(Certificate.de(com.baidu.swan.apps.u.a.aeR()), "", false).getBytes(StandardCharsets.UTF_8);
         LinkedList linkedList = new LinkedList();
-        linkedList.offer(Bdtls.Extension.newBuilder().ih(0).g(ByteString.copyFrom(encrypt)).build());
-        linkedList.offer(Bdtls.Extension.newBuilder().ih(1).g(ByteString.copyFrom(new byte[]{0})).build());
-        linkedList.offer(Bdtls.Extension.newBuilder().ih(2).g(ByteString.copyFrom(d.m27if(auV))).build());
-        linkedList.offer(Bdtls.Extension.newBuilder().ih(3).g(ByteString.copyFrom(bytes)).build());
+        linkedList.offer(Bdtls.Extension.newBuilder().ij(0).g(ByteString.copyFrom(encrypt)).build());
+        linkedList.offer(Bdtls.Extension.newBuilder().ij(1).g(ByteString.copyFrom(new byte[]{0})).build());
+        linkedList.offer(Bdtls.Extension.newBuilder().ij(2).g(ByteString.copyFrom(d.ih(auV))).build());
+        linkedList.offer(Bdtls.Extension.newBuilder().ij(3).g(ByteString.copyFrom(bytes)).build());
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BDTLS", "groupId encode=" + auV);
             Log.d("BDTLS", "secretC encode=" + auU);

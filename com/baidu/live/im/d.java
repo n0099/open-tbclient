@@ -1692,7 +1692,7 @@ public class d extends BdBaseModel {
             short s = imSendMsgData.msgType;
             com.baidu.live.im.data.a a2 = a(s, str2, z, z2, i, this.avH);
             if (s == 126) {
-                a2.ct(imSendMsgData.barrageType);
+                a2.cv(imSendMsgData.barrageType);
                 a2.fr(imSendMsgData.barrageId);
                 a2.a(imSendMsgData.barrageCardInfo);
             }
@@ -1716,7 +1716,7 @@ public class d extends BdBaseModel {
                 }
                 aVar.setOtherParams(str);
                 aVar.ak(imSendMsgData.price);
-                aVar.ct(imSendMsgData.barrageType);
+                aVar.cv(imSendMsgData.barrageType);
                 aVar.fr(imSendMsgData.barrageId);
                 aVar.a(imSendMsgData.barrageCardInfo);
                 aVar.k(strArr);

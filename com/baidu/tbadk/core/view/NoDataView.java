@@ -60,10 +60,10 @@ public class NoDataView extends LinearLayout {
         this.dUd.setTextSize(R.dimen.tbds42);
         this.dUd.setConfig(bVar);
         this.dUh = (LinearLayout) this.mRootView.findViewById(R.id.two_button_layout);
-        aVY();
+        aVZ();
     }
 
-    private void aVY() {
+    private void aVZ() {
         int equipmentHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
         if (equipmentHeight > 0) {
             int i = (int) (equipmentHeight * 0.11d);
@@ -88,13 +88,13 @@ public class NoDataView extends LinearLayout {
             ((TbPageContext) eVar).getLayoutMode().onModeChanged(this);
         }
         if (this.dUd != null) {
-            this.dUd.aWq();
+            this.dUd.aWr();
         }
         if (this.dUe != null) {
-            this.dUe.aWq();
+            this.dUe.aWr();
         }
         if (this.dUf != null) {
-            this.dUf.aWq();
+            this.dUf.aWr();
         }
         if (this.dUi == NoDataViewFactory.ImgType.WEBVIEW) {
             this.dTY.setImageBitmap(am.getBitmap565Quality(R.drawable.new_pic_emotion_08));
@@ -228,7 +228,7 @@ public class NoDataView extends LinearLayout {
         onChangeSkinType(eVar, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void aVZ() {
+    public void aWa() {
         this.dTY.setImageDrawable(null);
         this.dTY.startLoad(null, 10, false);
     }

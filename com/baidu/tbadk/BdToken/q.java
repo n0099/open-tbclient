@@ -21,7 +21,7 @@ public class q {
             if (tag instanceof CompleteTaskToastData) {
                 CompleteTaskToastData completeTaskToastData = (CompleteTaskToastData) tag;
                 if (!TextUtils.isEmpty(completeTaskToastData.url) && (aLJ = q.aLJ()) != null) {
-                    ba.aUZ().b(aLJ, new String[]{completeTaskToastData.url});
+                    ba.aVa().b(aLJ, new String[]{completeTaskToastData.url});
                     com.baidu.tbadk.BdToken.completeTask.c.aB(completeTaskToastData.activityId, completeTaskToastData.missionId);
                 }
             }
@@ -98,7 +98,7 @@ public class q {
             return null;
         }
         com.baidu.tbadk.core.dialog.f d = com.baidu.tbadk.core.dialog.f.d(aLJ.getPageActivity(), completeTaskToastData.message);
-        d.kO(completeTaskToastData.duration);
+        d.kQ(completeTaskToastData.duration);
         d.setOnClickListener(mOnClickListener);
         d.setTag(completeTaskToastData);
         d.aTc();

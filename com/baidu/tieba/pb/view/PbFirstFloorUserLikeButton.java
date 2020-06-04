@@ -11,9 +11,9 @@ import com.baidu.tieba.R;
 public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
     protected String dYD;
     protected String dYE;
-    private com.baidu.tbadk.core.view.commonBtn.c kfx;
-    private com.baidu.tbadk.core.view.commonBtn.c kfy;
-    public View.OnClickListener kfz;
+    private com.baidu.tbadk.core.view.commonBtn.c kgD;
+    private com.baidu.tbadk.core.view.commonBtn.c kgE;
+    public View.OnClickListener kgF;
 
     public PbFirstFloorUserLikeButton(Context context) {
         super(context);
@@ -35,17 +35,17 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
         this.dYE = TbadkCoreApplication.getInst().getString(R.string.attention);
         setTextSize(R.dimen.tbds36);
         setText(this.dYE);
-        this.kfx = new com.baidu.tbadk.core.view.commonBtn.c();
-        this.kfx.mi(R.color.cp_link_tip_a);
-        this.kfx.k(R.drawable.ic_icon_pure_add12_svg, 0, true);
-        this.kfx.mf(l.getDimens(getContext(), R.dimen.tbds36));
-        this.kfy = new com.baidu.tbadk.core.view.commonBtn.c();
-        this.kfy.mk(R.color.cp_cont_d);
-        setConfig(this.kfx);
+        this.kgD = new com.baidu.tbadk.core.view.commonBtn.c();
+        this.kgD.mk(R.color.cp_link_tip_a);
+        this.kgD.k(R.drawable.ic_icon_pure_add12_svg, 0, true);
+        this.kgD.mh(l.getDimens(getContext(), R.dimen.tbds36));
+        this.kgE = new com.baidu.tbadk.core.view.commonBtn.c();
+        this.kgE.mm(R.color.cp_cont_d);
+        setConfig(this.kgD);
     }
 
     public void setFollowIconSize(int i) {
-        this.kfx.mf(i);
+        this.kgD.mh(i);
     }
 
     @Override // android.view.View
@@ -60,12 +60,12 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
                 setVisibility(8);
                 setClickable(false);
                 setText(this.dYD);
-                setConfig(this.kfy);
+                setConfig(this.kgE);
             } else {
                 setVisibility(0);
                 setClickable(true);
                 setText(this.dYE);
-                setConfig(this.kfx);
+                setConfig(this.kgD);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -83,12 +83,12 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void mo(int i) {
+    public void mq(int i) {
     }
 
     public void bc(View view) {
-        if (this.kfz != null) {
-            this.kfz.onClick(view);
+        if (this.kgF != null) {
+            this.kgF.onClick(view);
         }
     }
 
@@ -98,6 +98,6 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     public void onChangeSkinType(int i) {
-        aWq();
+        aWr();
     }
 }

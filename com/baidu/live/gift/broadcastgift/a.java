@@ -232,7 +232,7 @@ public class a implements u {
         }
     }
 
-    private void bO(int i) {
+    private void bQ(int i) {
         if (i == 0) {
             this.aGr.setVisibility(8);
             return;
@@ -285,14 +285,14 @@ public class a implements u {
         if (alaBroadcastGiftToastData.localBroadcastType == 1 || alaBroadcastGiftToastData.localBroadcastType == 2) {
             if (alaBroadcastGiftToastData.localBroadcastType == 1) {
                 this.aGo.setClickable(false);
-                bO(a.f.icon_live_remind_white_n);
+                bQ(a.f.icon_live_remind_white_n);
             } else if (alaBroadcastGiftToastData.localBroadcastType == 2) {
                 if (this.aGj == alaBroadcastGiftToastData.live_id || this.aGi) {
                     this.aGo.setClickable(false);
                 } else {
                     this.aGo.setClickable(true);
                 }
-                bO(a.f.champion_icon);
+                bQ(a.f.champion_icon);
             }
             this.aGt.setVisibility(8);
             this.aGo.setBackgroundResource(a.f.ala_broadcast_gift_toast_bg);

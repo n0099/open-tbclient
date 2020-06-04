@@ -7,7 +7,7 @@ public class b {
     public long endTime;
     public int id;
     public String linkUrl;
-    public String lpm;
+    public String lqv;
     public long showTime = 3000;
     public int showType;
     public long startTime;
@@ -21,16 +21,16 @@ public class b {
             this.endTime = jSONObject.optLong("end_time", 0L);
             this.showType = jSONObject.optInt("show_type", 0);
             this.dGg = jSONObject.optInt("show_status", 0);
-            this.lpm = jSONObject.optString("resource_url");
+            this.lqv = jSONObject.optString("resource_url");
             this.linkUrl = jSONObject.optString("link_url");
         }
     }
 
-    public boolean dfa() {
+    public boolean dfp() {
         return this.showType == 1;
     }
 
-    public boolean bnA() {
+    public boolean bnC() {
         return this.showType == 3 || this.showType == 4;
     }
 

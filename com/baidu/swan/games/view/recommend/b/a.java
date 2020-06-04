@@ -38,7 +38,7 @@ public class a extends com.baidu.swan.games.view.recommend.a.a {
                     if (a.this.mPosition == -1) {
                         a.this.dej.aDh();
                     } else {
-                        a.this.dej.iB(a.this.mPosition);
+                        a.this.dej.iD(a.this.mPosition);
                     }
                 }
             }
@@ -66,18 +66,18 @@ public class a extends com.baidu.swan.games.view.recommend.a.a {
             super.aDc();
             return;
         }
-        this.mPosition = iD(this.mPosition);
+        this.mPosition = iF(this.mPosition);
         this.dev.dex.animate().setDuration(160L).alpha(1.0f);
         this.deu.dex.animate().setDuration(160L).alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.games.view.recommend.b.a.2
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                RecommendItemModel iE = a.this.iE(a.this.mPosition);
-                a.this.deu.dey.setImageURI(iE.iconUrl);
-                a.this.deu.dez.setText(iE.appName);
+                RecommendItemModel iG = a.this.iG(a.this.mPosition);
+                a.this.deu.dey.setImageURI(iG.iconUrl);
+                a.this.deu.dez.setText(iG.appName);
                 a.this.deu.dex.setAlpha(1.0f);
-                RecommendItemModel iE2 = a.this.iE(a.this.iD(a.this.mPosition));
-                a.this.dev.dey.setImageURI(iE2.iconUrl);
-                a.this.dev.dez.setText(iE2.appName);
+                RecommendItemModel iG2 = a.this.iG(a.this.iF(a.this.mPosition));
+                a.this.dev.dey.setImageURI(iG2.iconUrl);
+                a.this.dev.dez.setText(iG2.appName);
                 a.this.dev.dex.setAlpha(0.0f);
                 a.super.aDc();
             }
@@ -89,7 +89,7 @@ public class a extends com.baidu.swan.games.view.recommend.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int iD(int i) {
+    public int iF(int i) {
         if (i + 1 == this.dei.deM.size()) {
             return -1;
         }
@@ -97,7 +97,7 @@ public class a extends com.baidu.swan.games.view.recommend.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public RecommendItemModel iE(int i) {
+    public RecommendItemModel iG(int i) {
         return i == -1 ? this.dei.deL : this.dei.deM.get(i);
     }
 }

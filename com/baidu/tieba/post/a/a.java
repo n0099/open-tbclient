@@ -16,56 +16,56 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
-    private ArrayList<o> eVf = new ArrayList<>();
-    private BdTypeListView faQ;
-    public j kEv;
-    private b kEw;
-    public i kqs;
+    private ArrayList<o> eVq = new ArrayList<>();
+    private BdTypeListView fbb;
+    public j kFD;
+    private b kFE;
+    public i kry;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.faQ = bdTypeListView;
+        this.fbb = bdTypeListView;
         v(tbPageContext);
     }
 
     private void v(TbPageContext<?> tbPageContext) {
-        this.kqs = new i(tbPageContext);
-        this.kEv = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.ksR);
-        this.kEw = new e(tbPageContext, this, tbPageContext.getUniqueId());
-        this.kEv.a(this.kEw);
-        this.aSj.add(this.kqs);
-        this.aSj.add(this.kEv);
-        this.faQ.addAdapters(this.aSj);
+        this.kry = new i(tbPageContext);
+        this.kFD = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.ktX);
+        this.kFE = new e(tbPageContext, this, tbPageContext.getUniqueId());
+        this.kFD.a(this.kFE);
+        this.aSj.add(this.kry);
+        this.aSj.add(this.kFD);
+        this.fbb.addAdapters(this.aSj);
     }
 
     public void T(ArrayList<o> arrayList) {
-        if (arrayList != null && this.faQ != null) {
-            this.eVf.clear();
-            this.eVf.addAll(arrayList);
-            this.faQ.setData(this.eVf);
+        if (arrayList != null && this.fbb != null) {
+            this.eVq.clear();
+            this.eVq.addAll(arrayList);
+            this.fbb.setData(this.eVq);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.faQ.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.faQ.getAdapter().notifyDataSetChanged();
+        if (this.fbb.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.fbb.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void startPullRefresh() {
-        if (this.faQ != null) {
-            this.faQ.startPullRefresh();
+        if (this.fbb != null) {
+            this.fbb.startPullRefresh();
         }
     }
 
-    public boolean KI(String str) {
+    public boolean KJ(String str) {
         boolean z;
         if (aq.isEmpty(str)) {
             return false;
         }
-        if (this.faQ == null || this.eVf == null) {
+        if (this.fbb == null || this.eVq == null) {
             return false;
         }
-        Iterator<o> it = this.eVf.iterator();
+        Iterator<o> it = this.eVq.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -79,8 +79,8 @@ public class a {
             }
         }
         if (z) {
-            this.eVf = PersonPostModel.mergeDynamicThreadByTime(this.eVf);
-            this.faQ.setData(this.eVf);
+            this.eVq = PersonPostModel.mergeDynamicThreadByTime(this.eVq);
+            this.fbb.setData(this.eVq);
             notifyDataSetChanged();
             return z;
         }

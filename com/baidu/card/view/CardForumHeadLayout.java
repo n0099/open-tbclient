@@ -116,7 +116,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.agt) {
             this.agt = skinType;
-            Drawable a = SvgManager.aUV().a(R.drawable.icon_pure_card_ba16_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
+            Drawable a = SvgManager.aUW().a(R.drawable.icon_pure_card_ba16_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
             int dimens = l.getDimens(getContext(), R.dimen.tbds42);
             a.setBounds(0, 0, dimens, dimens);
             this.ago.setCompoundDrawables(null, null, a, null);

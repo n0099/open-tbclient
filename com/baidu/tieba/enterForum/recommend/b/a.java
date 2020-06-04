@@ -15,42 +15,42 @@ import tbclient.Recommforum.RecommForum;
 import tbclient.Recommforum.TestInfo;
 /* loaded from: classes9.dex */
 public class a {
-    private List<f> gSX;
-    private HashMap<String, Integer> gSY;
-    private LinkedHashMap<String, List<b>> gSZ;
-    private HashMap<Long, Integer> gTa;
-    private HashMap<String, List<b>> gTb;
+    private List<f> gTi;
+    private HashMap<String, Integer> gTj;
+    private LinkedHashMap<String, List<b>> gTk;
+    private HashMap<Long, Integer> gTl;
+    private HashMap<String, List<b>> gTm;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!v.isEmpty(dataRes.test_info)) {
-                this.gSX = new ArrayList();
-                this.gTa = new HashMap<>();
-                this.gTb = new HashMap<>();
+                this.gTi = new ArrayList();
+                this.gTl = new HashMap<>();
+                this.gTm = new HashMap<>();
                 for (TestInfo testInfo : dataRes.test_info) {
                     if (testInfo != null) {
                         f fVar = new f();
                         fVar.a(testInfo);
-                        this.gSX.add(fVar);
+                        this.gTi.add(fVar);
                         if (testInfo.recomm_forum != null && !v.isEmpty(testInfo.recomm_forum.forums)) {
                             ArrayList arrayList = new ArrayList();
                             for (RecommendForumInfo recommendForumInfo : testInfo.recomm_forum.forums) {
                                 if (recommendForumInfo != null) {
                                     b bVar = new b();
                                     bVar.b(recommendForumInfo);
-                                    bVar.gTh = 1;
+                                    bVar.gTs = 1;
                                     arrayList.add(bVar);
                                 }
                             }
-                            this.gTa.put(Long.valueOf(fVar.testId), testInfo.recomm_forum.page_size);
-                            this.gTb.put(String.valueOf(fVar.testId) + "|" + testInfo.recomm_forum.title, arrayList);
+                            this.gTl.put(Long.valueOf(fVar.testId), testInfo.recomm_forum.page_size);
+                            this.gTm.put(String.valueOf(fVar.testId) + "|" + testInfo.recomm_forum.title, arrayList);
                         }
                     }
                 }
             }
             if (!v.isEmpty(dataRes.recomm_forum)) {
-                this.gSY = new HashMap<>();
-                this.gSZ = new LinkedHashMap<>();
+                this.gTj = new HashMap<>();
+                this.gTk = new LinkedHashMap<>();
                 for (RecommForum recommForum : dataRes.recomm_forum) {
                     if (recommForum != null && !v.isEmpty(recommForum.forums)) {
                         ArrayList arrayList2 = new ArrayList();
@@ -58,12 +58,12 @@ public class a {
                             if (recommendForumInfo2 != null) {
                                 b bVar2 = new b();
                                 bVar2.b(recommendForumInfo2);
-                                bVar2.gTh = 2;
+                                bVar2.gTs = 2;
                                 arrayList2.add(bVar2);
                             }
                         }
-                        this.gSY.put(recommForum.title, recommForum.page_size);
-                        this.gSZ.put(recommForum.title, arrayList2);
+                        this.gTj.put(recommForum.title, recommForum.page_size);
+                        this.gTk.put(recommForum.title, arrayList2);
                     }
                 }
             }
@@ -72,33 +72,33 @@ public class a {
 
     private List<b> DN(String str) {
         ArrayList arrayList = new ArrayList();
-        if (this.gSZ != null && this.gSZ.size() > 0) {
-            arrayList.addAll(this.gSZ.get(str));
+        if (this.gTk != null && this.gTk.size() > 0) {
+            arrayList.addAll(this.gTk.get(str));
         }
         return arrayList;
     }
 
     private List<b> DO(String str) {
         ArrayList arrayList = new ArrayList();
-        if (this.gTb != null && this.gTb.size() > 0) {
-            arrayList.addAll(this.gTb.get(str));
+        if (this.gTm != null && this.gTm.size() > 0) {
+            arrayList.addAll(this.gTm.get(str));
         }
         return arrayList;
     }
 
     public List<o> mm(boolean z) {
         ArrayList arrayList = new ArrayList();
-        if (this.gSY != null && this.gSY.size() > 0) {
-            for (String str : this.gSY.keySet()) {
+        if (this.gTj != null && this.gTj.size() > 0) {
+            for (String str : this.gTj.keySet()) {
                 if (!StringUtils.isNull(str)) {
-                    int intValue = this.gSY.get(str).intValue();
+                    int intValue = this.gTj.get(str).intValue();
                     d dVar = new d();
                     dVar.setTitle(str);
                     dVar.needTopMargin = !z;
-                    dVar.sV(intValue);
+                    dVar.sX(intValue);
                     dVar.bW(DN(str));
                     arrayList.add(dVar);
-                    arrayList.addAll(dVar.bPA());
+                    arrayList.addAll(dVar.bPC());
                 }
             }
         }
@@ -110,8 +110,8 @@ public class a {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        if (this.gTb != null && this.gTb.size() > 0) {
-            Iterator<String> it = this.gTb.keySet().iterator();
+        if (this.gTm != null && this.gTm.size() > 0) {
+            Iterator<String> it = this.gTm.keySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -121,14 +121,14 @@ public class a {
                     String[] split = next.split("[|]");
                     if (String.valueOf(j).equals(split[0]) && split.length == 2 && !StringUtils.isNull(split[1])) {
                         String str = split[1];
-                        int intValue = this.gTa.get(Long.valueOf(j)).intValue();
+                        int intValue = this.gTl.get(Long.valueOf(j)).intValue();
                         d dVar = new d();
                         dVar.setTitle(str);
                         dVar.needTopMargin = !z;
-                        dVar.sV(intValue);
+                        dVar.sX(intValue);
                         dVar.bW(DO(next));
                         arrayList.add(dVar);
-                        arrayList.addAll(dVar.bPA());
+                        arrayList.addAll(dVar.bPC());
                     }
                 }
             }
@@ -138,17 +138,17 @@ public class a {
 
     public List<f> dZ(long j) {
         int i;
-        if (v.isEmpty(this.gSX)) {
+        if (v.isEmpty(this.gTi)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        int size = this.gSX.size();
+        int size = this.gTi.size();
         int i2 = 0;
         while (true) {
             if (i2 >= size) {
                 i = 0;
                 break;
-            } else if (this.gSX.get(i2).testId == j) {
+            } else if (this.gTi.get(i2).testId == j) {
                 i = i2;
                 break;
             } else {
@@ -156,17 +156,17 @@ public class a {
             }
         }
         if (i == 0) {
-            arrayList.add(this.gSX.get(size - 1));
-            arrayList.addAll(this.gSX.subList(0, size - 1));
+            arrayList.add(this.gTi.get(size - 1));
+            arrayList.addAll(this.gTi.subList(0, size - 1));
         } else {
-            arrayList.addAll(this.gSX.subList(i - 1, size));
-            arrayList.addAll(this.gSX.subList(0, i - 1));
+            arrayList.addAll(this.gTi.subList(i - 1, size));
+            arrayList.addAll(this.gTi.subList(0, i - 1));
         }
         return arrayList;
     }
 
-    public List<f> bPx() {
-        return this.gSX;
+    public List<f> bPz() {
+        return this.gTi;
     }
 
     public List<o> h(long j, boolean z) {
@@ -187,7 +187,7 @@ public class a {
             }
         }
         e eVar = new e();
-        eVar.gTq = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
+        eVar.gTB = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
         arrayList.add(eVar);
         return arrayList;
     }

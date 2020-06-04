@@ -15,38 +15,38 @@ import com.baidu.tieba.interestlabel.view.LabelSettingView;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements a {
-    private LabelSettingView iUW;
-    private LabelSettingModel iUX;
+    private LabelSettingView iVJ;
+    private LabelSettingModel iVK;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iUW = new LabelSettingView(getPageContext(), this);
-        this.iUX = new LabelSettingModel(getPageContext());
-        setContentView(this.iUW);
-        this.iUX.a(this);
-        csq();
+        this.iVJ = new LabelSettingView(getPageContext(), this);
+        this.iVK = new LabelSettingModel(getPageContext());
+        setContentView(this.iVJ);
+        this.iVK.a(this);
+        csz();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
-    public void csq() {
+    public void csz() {
         if (!j.isNetworkAvailableForImmediately()) {
-            this.iUW.hideLoadingView();
-            this.iUW.mq(true);
+            this.iVJ.hideLoadingView();
+            this.iVJ.mq(true);
             return;
         }
-        this.iUW.bqO();
-        this.iUW.fV(true);
-        this.iUX.csw();
+        this.iVJ.bqQ();
+        this.iVJ.fV(true);
+        this.iVK.csF();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
-    public void dp(List<Integer> list) {
+    public void dq(List<Integer> list) {
         if (!j.isNetworkAvailableForImmediately()) {
             showToast(R.string.neterror);
         } else {
-            this.iUX.dq(list);
+            this.iVK.dr(list);
         }
     }
 
@@ -54,13 +54,13 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
     public void a(LabelRequestEnum labelRequestEnum, b bVar, int i) {
         switch (labelRequestEnum) {
             case GET_LABEL:
-                this.iUW.hideLoadingView();
-                if (bVar == null || v.isEmpty(bVar.csu())) {
-                    this.iUW.mq(true);
+                this.iVJ.hideLoadingView();
+                if (bVar == null || v.isEmpty(bVar.csD())) {
+                    this.iVJ.mq(true);
                     return;
                 }
-                this.iUW.bqO();
-                this.iUW.setData(bVar);
+                this.iVJ.bqQ();
+                this.iVJ.setData(bVar);
                 return;
             case SUB_LABEL:
                 if (i == 0) {
@@ -78,13 +78,13 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iUW.onChangeSkinType();
+        this.iVJ.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.iUW != null && this.iUW.csG()) {
-            this.iUW.showDialog();
+        if (i == 4 && this.iVJ != null && this.iVJ.csP()) {
+            this.iVJ.showDialog();
             return true;
         }
         return super.onKeyDown(i, keyEvent);

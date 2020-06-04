@@ -23,25 +23,25 @@ import java.nio.ByteBuffer;
 public class aj {
     /* JADX INFO: Access modifiers changed from: protected */
     public static <T extends ix<T, ?>> ii a(Context context, T t, hm hmVar) {
-        return a(context, t, hmVar, !hmVar.equals(hm.Registration), context.getPackageName(), b.m92a(context).m93a());
+        return a(context, t, hmVar, !hmVar.equals(hm.Registration), context.getPackageName(), b.m91a(context).m92a());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static <T extends ix<T, ?>> ii a(Context context, T t, hm hmVar, boolean z, String str, String str2) {
         byte[] a = iw.a(t);
         if (a == null) {
-            com.xiaomi.channel.commonutils.logger.b.m52a("invoke convertThriftObjectToBytes method, return null.");
+            com.xiaomi.channel.commonutils.logger.b.m51a("invoke convertThriftObjectToBytes method, return null.");
             return null;
         }
         ii iiVar = new ii();
         if (z) {
-            String d = b.m92a(context).d();
+            String d = b.m91a(context).d();
             if (TextUtils.isEmpty(d)) {
-                com.xiaomi.channel.commonutils.logger.b.m52a("regSecret is empty, return null");
+                com.xiaomi.channel.commonutils.logger.b.m51a("regSecret is empty, return null");
                 return null;
             }
             try {
-                a = com.xiaomi.push.h.b(bc.m160a(d), a);
+                a = com.xiaomi.push.h.b(bc.m159a(d), a);
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.d("encryption error. ");
             }
@@ -60,19 +60,19 @@ public class aj {
     }
 
     public static ix a(Context context, ii iiVar) {
-        byte[] m422a;
-        if (iiVar.m424b()) {
+        byte[] m421a;
+        if (iiVar.m423b()) {
             try {
-                m422a = com.xiaomi.push.h.a(bc.m160a(b.m92a(context).d()), iiVar.m422a());
+                m421a = com.xiaomi.push.h.a(bc.m159a(b.m91a(context).d()), iiVar.m421a());
             } catch (Exception e) {
                 throw new t("the aes decrypt failed.", e);
             }
         } else {
-            m422a = iiVar.m422a();
+            m421a = iiVar.m421a();
         }
         ix a = a(iiVar.a(), iiVar.f605b);
         if (a != null) {
-            iw.a(a, m422a);
+            iw.a(a, m421a);
         }
         return a;
     }

@@ -7,6 +7,7 @@ import com.baidu.tbadk.core.atomData.NewAdTbWebViewActivityConfig;
 public class NewWebVideoActivityConfig extends NewAdTbWebViewActivityConfig {
     public static final String KEY_CHARGE_STYLE = "charge_style";
     public static final String KEY_CHARGE_URL = "charge_url";
+    public static final String KEY_GOOD_STYLE = "good_style";
     public static final String KEY_TAIL_FRAME = "tail_frame";
     public static final String KEY_VIDEO_DURATION = "video_duration";
     public static final String KEY_VIDEO_RATIO = "video_ratio";
@@ -38,6 +39,10 @@ public class NewWebVideoActivityConfig extends NewAdTbWebViewActivityConfig {
 
     public void setTailFrame(String str) {
         getIntent().putExtra("tail_frame", str);
+    }
+
+    public void setGoodStyle(int i) {
+        getIntent().putExtra("good_style", i);
     }
 
     private void init(String str, String str2, float f, int i) {

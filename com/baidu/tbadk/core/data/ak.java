@@ -57,7 +57,7 @@ public class ak {
         this.feedBackReasonMap = sparseArray;
     }
 
-    public void kf(int i) {
+    public void kh(int i) {
         this.dCZ = i;
     }
 

@@ -30,24 +30,24 @@ public class g extends com.baidu.adp.widget.ListView.a<k, ag<k>> implements com.
     private String aeX;
     private boolean aha;
     public BdUniqueId epM;
-    private int glW;
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> hsh;
-    private com.baidu.adp.lib.d.b<TbImageView> hsi;
-    private int kqO;
-    private int kqP;
+    private int gmh;
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> hss;
+    private com.baidu.adp.lib.d.b<TbImageView> hst;
+    private int krU;
+    private int krV;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.aha = true;
-        this.kqO = 0;
-        this.kqP = 0;
-        this.glW = 0;
-        this.hsh = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.1
+        this.krU = 0;
+        this.krV = 0;
+        this.gmh = 0;
+        this.hss = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bXl */
+            /* renamed from: bXn */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(g.this.mPageContext.getPageActivity());
             }
@@ -73,10 +73,10 @@ public class g extends com.baidu.adp.widget.ListView.a<k, ag<k>> implements com.
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.hsi = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.2
+        this.hst = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: aWM */
+            /* renamed from: aWN */
             public TbImageView makeObject() {
                 TbImageView tbImageView = new TbImageView(g.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
@@ -129,7 +129,7 @@ public class g extends com.baidu.adp.widget.ListView.a<k, ag<k>> implements com.
             }
         };
         this.mPageContext = tbPageContext;
-        cgg();
+        cgp();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -142,16 +142,16 @@ public class g extends com.baidu.adp.widget.ListView.a<k, ag<k>> implements com.
         eVar.setPageUniqueId(this.epM);
         eVar.aY(1024);
         eVar.aY(32768);
-        if (this.kqO > 0) {
-            eVar.aX(this.kqO);
+        if (this.krU > 0) {
+            eVar.aX(this.krU);
         }
         eVar.aC(false);
         eVar.aD(false);
         aVar.a(eVar);
         final t tVar = new t(this.mPageContext.getPageActivity());
         tVar.setFrom("index");
-        tVar.setConstrainLayoutPool(this.hsh);
-        tVar.setConstrainImagePool(this.hsi);
+        tVar.setConstrainLayoutPool(this.hss);
+        tVar.setConstrainImagePool(this.hst);
         tVar.setFromCDN(this.aha);
         aVar.c(tVar);
         aVar.rK().be(l.getDimens(this.mContext, R.dimen.tbds25));
@@ -181,7 +181,7 @@ public class g extends com.baidu.adp.widget.ListView.a<k, ag<k>> implements com.
         rL.setSourceForPb(4);
         ag agVar = new ag(rL);
         agVar.setPageId(this.epM);
-        agVar.bl(this.kqP);
+        agVar.bl(this.krV);
         a(new x() { // from class: com.baidu.tieba.personPolymeric.a.a.g.5
             @Override // com.baidu.adp.widget.ListView.x
             public void a(View view, o oVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -207,7 +207,7 @@ public class g extends com.baidu.adp.widget.ListView.a<k, ag<k>> implements com.
         if (kVar == null || agVar == null || agVar.getView() == null || kVar.dEA == null) {
             return null;
         }
-        kVar.sr(kVar.position + 1);
+        kVar.st(kVar.position + 1);
         agVar.rM().setPage(this.aeX);
         if (!this.mIsHost) {
             agVar.rO();
@@ -224,20 +224,20 @@ public class g extends com.baidu.adp.widget.ListView.a<k, ag<k>> implements com.
         this.aeX = str;
     }
 
-    public void Br(int i) {
-        this.kqO = i;
+    public void Bt(int i) {
+        this.krU = i;
     }
 
-    public void Bq(int i) {
-        this.kqP = i;
+    public void Bs(int i) {
+        this.krV = i;
     }
 
-    private void cgg() {
-        k.gHr = "c13542";
+    private void cgp() {
+        k.gHC = "c13542";
     }
 
     public void setTabType(int i) {
-        this.glW = i;
+        this.gmh = i;
     }
 
     public void setIsHost(boolean z) {

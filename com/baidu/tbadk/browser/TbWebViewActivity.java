@@ -300,7 +300,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             TbWebChromeClient tbWebChromeClient = new TbWebChromeClient(this);
             tbWebChromeClient.setOnJsPromptCallback(this.jsCallback);
             this.mWebView.setWebChromeClient(tbWebChromeClient);
-            com.baidu.tieba.t.c.dgk().trackWebView(this, this.mWebView, tbWebChromeClient);
+            com.baidu.tieba.t.c.dgz().trackWebView(this, this.mWebView, tbWebChromeClient);
             if (this.mEnableJs) {
                 addJavascriptInterface();
             }
@@ -633,7 +633,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.ddZ();
+            this.jsBridge.deo();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
@@ -682,7 +682,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 }
                 TbWebViewActivity.this.mView.gF(TbWebViewActivity.this.isNeedShowShareItem());
                 if (!StringUtils.isNull(TbWebViewActivity.this.mUrl) && TbWebViewActivity.this.mUrl.contains(TbWebViewActivity.KEY_TASK_CENTER_PREFIX_URL)) {
-                    TbWebViewActivity.this.mView.jV(8);
+                    TbWebViewActivity.this.mView.jX(8);
                 }
                 TbWebViewActivity.this.hideProgressBar();
                 TbWebViewActivity.this.stopLoadTimer();
@@ -723,7 +723,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             if (RedirectInterceptionSwitch.isOn() && this.mIsPageLoading && Build.VERSION.SDK_INT >= 26 && (UtilHelper.isOppoDevice() || UtilHelper.isVivoDevice())) {
                 return false;
             }
-            int a = ba.aUZ().a(TbWebViewActivity.this.getPageContext(), new String[]{str, TbWebViewActivity.this.mUrl});
+            int a = ba.aVa().a(TbWebViewActivity.this.getPageContext(), new String[]{str, TbWebViewActivity.this.mUrl});
             if (a == 1) {
                 TbWebViewActivity.this.finish();
                 return true;
@@ -937,7 +937,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     private void showRightMoreIcon(int i) {
         if (this.mView != null) {
-            this.mView.jV(i);
+            this.mView.jX(i);
         }
     }
 
@@ -1088,7 +1088,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handlerWebViewResume() {
-        if (this.timerData != null && this.timerData.isOpen() && !this.timerData.bcz() && this.mCommonTbJsBridge != null) {
+        if (this.timerData != null && this.timerData.isOpen() && !this.timerData.bcA() && this.mCommonTbJsBridge != null) {
             try {
                 this.timerData.hO(true);
                 long currentTimeMillis = System.currentTimeMillis();
@@ -1110,7 +1110,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     private void handlerWebViewPause() {
         if (this.timerData != null && this.timerData.isOpen()) {
-            this.timerData.bcA();
+            this.timerData.bcB();
             com.baidu.tbadk.core.sharedPref.b.aTX().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("key_spring_festival_timer"), System.currentTimeMillis());
         }
     }

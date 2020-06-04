@@ -5,7 +5,7 @@ import java.util.List;
 public interface q {
     String akR();
 
-    List<String> dai();
+    List<String> day();
 
     boolean isPeakTime();
 

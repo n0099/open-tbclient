@@ -34,33 +34,33 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends d {
-    private static int fqu;
+    private static int fqF;
     private CommonEmptyView aYj;
-    private BdGridView fqv;
-    private a fqw;
-    private List<g> fqx;
-    private g fqy;
+    private BdGridView fqG;
+    private a fqH;
+    private List<g> fqI;
+    private g fqJ;
 
     public b(AlaChooseGiftActivity alaChooseGiftActivity, FrameLayout frameLayout, String str, ArrayList<String> arrayList, int i, int i2) {
         super(alaChooseGiftActivity, frameLayout, str, arrayList, i, i2);
         initView();
-        fqu = (int) (BdUtilHelper.getScreenDimensions(this.mContext)[0] / 4.0d);
+        fqF = (int) (BdUtilHelper.getScreenDimensions(this.mContext)[0] / 4.0d);
     }
 
     @Override // com.baidu.tieba.ala.b.d
-    protected int btm() {
+    protected int bto() {
         return a.h.ala_choose_gift;
     }
 
     @Override // com.baidu.tieba.ala.b.d
     protected void initView() {
-        this.fqv = (BdGridView) this.mRootView.findViewById(a.g.choose_gift_gridview);
-        this.fqv.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.b.b.1
+        this.fqG = (BdGridView) this.mRootView.findViewById(a.g.choose_gift_gridview);
+        this.fqG.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.b.b.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                b.this.fqy = (g) b.this.fqx.get(i);
-                b.this.fqJ = b.this.fqy.xl();
-                b.this.fqw.Bz(b.this.fqJ);
+                b.this.fqJ = (g) b.this.fqI.get(i);
+                b.this.fqU = b.this.fqJ.xl();
+                b.this.fqH.Bz(b.this.fqU);
             }
         });
         this.aYj = (CommonEmptyView) this.mRootView.findViewById(a.g.choose_gift_empty_view);
@@ -83,20 +83,20 @@ public class b extends d {
 
     @Override // com.baidu.tieba.ala.b.d
     public void confirm() {
-        if (this.fqy != null) {
+        if (this.fqJ != null) {
             Intent intent = new Intent();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("gift_title", this.fqy.xm());
-                jSONObject.put("gift_url", this.fqy.xo());
-                jSONObject.put(LogConfig.LOG_GIFT_ID, this.fqy.xl());
+                jSONObject.put("gift_title", this.fqJ.xm());
+                jSONObject.put("gift_url", this.fqJ.xo());
+                jSONObject.put(LogConfig.LOG_GIFT_ID, this.fqJ.xl());
                 intent.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, jSONObject.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            this.fqH.setResult(-1, intent);
+            this.fqS.setResult(-1, intent);
         }
-        this.fqH.finish();
+        this.fqS.finish();
     }
 
     private void e(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
@@ -105,7 +105,7 @@ public class b extends d {
             showNoDataView();
             return;
         }
-        this.fqv.setVisibility(0);
+        this.fqG.setVisibility(0);
         this.aYj.setVisibility(8);
         if (TbadkCoreApplication.getInst().isHaokan()) {
             i = com.baidu.live.v.a.Ge().aYP.aAT.aCK;
@@ -121,27 +121,27 @@ public class b extends d {
             }
             i next = it.next();
             if (next != null && i == next.getCategoryId()) {
-                this.fqx = next.xM();
+                this.fqI = next.xM();
                 break;
             }
         }
-        if (ListUtils.isEmpty(this.fqx)) {
+        if (ListUtils.isEmpty(this.fqI)) {
             showNoDataView();
         } else {
-            bto();
+            btq();
         }
     }
 
     private void abh() {
-        bqS();
+        bqU();
     }
 
     private void showNoDataView() {
-        bqS();
+        bqU();
     }
 
-    private void bqS() {
-        this.fqv.setVisibility(8);
+    private void bqU() {
+        this.fqG.setVisibility(8);
         this.aYj.setVisibility(0);
         this.aYj.reset();
         this.aYj.setTitle(a.i.sdk_net_fail_tip_rank);
@@ -156,32 +156,32 @@ public class b extends d {
         this.aYj.setVisibility(0);
     }
 
-    private void bto() {
+    private void btq() {
         ArrayList arrayList = new ArrayList();
-        for (g gVar : this.fqx) {
+        for (g gVar : this.fqI) {
             if (gVar != null && gVar.xl() != null) {
-                if (gVar.xl().equals(this.fqJ)) {
-                    this.fqy = gVar;
+                if (gVar.xl().equals(this.fqU)) {
+                    this.fqJ = gVar;
                 }
-                if (!ListUtils.isEmpty(this.eTK) && this.eTK.contains(gVar.xl())) {
+                if (!ListUtils.isEmpty(this.eTV) && this.eTV.contains(gVar.xl())) {
                     arrayList.add(gVar);
                 }
             }
         }
         if (!ListUtils.isEmpty(arrayList)) {
-            this.fqx.removeAll(arrayList);
+            this.fqI.removeAll(arrayList);
         }
-        this.fqw = new a(this.fqH.getPageContext());
-        this.fqv.setAdapter((ListAdapter) this.fqw);
-        this.fqw.By(this.fqJ);
-        this.fqw.setData(this.fqx);
+        this.fqH = new a(this.fqS.getPageContext());
+        this.fqG.setAdapter((ListAdapter) this.fqH);
+        this.fqH.By(this.fqU);
+        this.fqH.setData(this.fqI);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a extends BaseAdapter {
         private List<g> dataList;
-        private String eTJ;
+        private String eTU;
         private Context mContext;
 
         public a(TbPageContext tbPageContext) {
@@ -189,12 +189,12 @@ public class b extends d {
         }
 
         public void By(String str) {
-            this.eTJ = str;
+            this.eTU = str;
         }
 
         public void Bz(String str) {
-            if (this.eTJ == null || !this.eTJ.equals(str)) {
-                this.eTJ = str;
+            if (this.eTU == null || !this.eTU.equals(str)) {
+                this.eTU = str;
                 notifyDataSetChanged();
             }
         }
@@ -214,7 +214,7 @@ public class b extends d {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        /* renamed from: bS */
+        /* renamed from: bU */
         public g getItem(int i) {
             if (this.dataList == null) {
                 return null;
@@ -234,15 +234,15 @@ public class b extends d {
                 C0529b c0529b2 = new C0529b();
                 view = LayoutInflater.from(this.mContext).inflate(a.h.ala_choose_gift_item, viewGroup, false);
                 ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-                layoutParams.width = b.fqu;
-                layoutParams.height = b.fqu;
+                layoutParams.width = b.fqF;
+                layoutParams.height = b.fqF;
                 view.setLayoutParams(layoutParams);
-                c0529b2.fqA = (FrameLayout) view.findViewById(a.g.item_root);
-                c0529b2.fqB = (TbImageView) view.findViewById(a.g.item_gift_img);
-                c0529b2.fqB.setDefaultBgResource(a.f.icon_live_gift_default);
-                c0529b2.fqB.setDefaultErrorResource(a.f.icon_live_gift_default);
-                c0529b2.fqB.setAutoChangeStyle(false);
-                c0529b2.fqC = (TextView) view.findViewById(a.g.item_gift_title);
+                c0529b2.fqL = (FrameLayout) view.findViewById(a.g.item_root);
+                c0529b2.fqM = (TbImageView) view.findViewById(a.g.item_gift_img);
+                c0529b2.fqM.setDefaultBgResource(a.f.icon_live_gift_default);
+                c0529b2.fqM.setDefaultErrorResource(a.f.icon_live_gift_default);
+                c0529b2.fqM.setAutoChangeStyle(false);
+                c0529b2.fqN = (TextView) view.findViewById(a.g.item_gift_title);
                 c0529b2.aHf = (TextView) view.findViewById(a.g.item_gift_price);
                 view.setTag(c0529b2);
                 c0529b = c0529b2;
@@ -251,13 +251,13 @@ public class b extends d {
             }
             g item = getItem(i);
             if (item != null) {
-                c0529b.fqB.startLoad(item.xo(), 10, false);
-                c0529b.fqC.setText(item.xm());
+                c0529b.fqM.startLoad(item.xo(), 10, false);
+                c0529b.fqN.setText(item.xm());
                 a(c0529b.aHf, item.getPrice());
-                if (item.xl().equals(this.eTJ)) {
-                    c0529b.fqA.setBackgroundResource(a.f.choose_gift_chosen_bg);
+                if (item.xl().equals(this.eTU)) {
+                    c0529b.fqL.setBackgroundResource(a.f.choose_gift_chosen_bg);
                 } else {
-                    c0529b.fqA.setBackgroundColor(this.mContext.getResources().getColor(a.d.sdk_transparent));
+                    c0529b.fqL.setBackgroundColor(this.mContext.getResources().getColor(a.d.sdk_transparent));
                 }
             }
             return view;
@@ -279,9 +279,9 @@ public class b extends d {
     /* loaded from: classes3.dex */
     private class C0529b {
         public TextView aHf;
-        public FrameLayout fqA;
-        public TbImageView fqB;
-        public TextView fqC;
+        public FrameLayout fqL;
+        public TbImageView fqM;
+        public TextView fqN;
 
         private C0529b() {
         }

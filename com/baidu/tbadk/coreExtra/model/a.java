@@ -133,7 +133,7 @@ public class a {
                     }
                     this.mNetwork.addPostData("in_live", this.inLive);
                     this.mNetwork.addPostData("authsid", this.authSid);
-                    this.mNetwork.aUA().aVa().mIsNeedTbs = true;
+                    this.mNetwork.aUA().aVb().mIsNeedTbs = true;
                     String postNetData = this.mNetwork.postNetData();
                     this.tokenData = AuthTokenData.parse(postNetData);
                     return postNetData;
@@ -153,13 +153,13 @@ public class a {
             a.this.edL = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.isSucc = this.mNetwork.aUA().aVb().isRequestSuccess();
+                aVar.isSucc = this.mNetwork.aUA().aVc().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
                 aVar.parserJson(str, this.showToastAfterAttentionSuc);
-                if (this.mNetwork.aUA().aVb().isRequestSuccess()) {
+                if (this.mNetwork.aUA().aVc().isRequestSuccess()) {
                     aVar.ecK = null;
                 }
                 int serverErrorCode = this.mNetwork.getServerErrorCode();
@@ -214,7 +214,7 @@ public class a {
             com.baidu.tbadk.core.sharedPref.b.aTX().putBoolean("first_call_attention", false);
             zArr = new boolean[2];
             zArr[0] = !NotificationManagerCompat.from(this.mPageContext.getPageActivity()).areNotificationsEnabled();
-            zArr[1] = !com.baidu.tbadk.coreExtra.messageCenter.d.aZS().aZU();
+            zArr[1] = !com.baidu.tbadk.coreExtra.messageCenter.d.aZT().aZV();
             if (!zArr[0] && !zArr[1] && tbPageContext != null) {
                 tbPageContext.showToast(R.string.attention_success);
             }

@@ -25,7 +25,7 @@ public class h extends a {
         return this.aND;
     }
 
-    public View bex() {
+    public View bey() {
         return this.epB;
     }
 
@@ -43,7 +43,7 @@ public class h extends a {
         this.epH = R.drawable.new_pic_emotion_08;
         this.epB.setOnClickListener(onClickListener);
         this.attachedView.setOnClickListener(null);
-        nv(0);
+        nx(0);
     }
 
     public void setSubText(String str) {
@@ -68,12 +68,13 @@ public class h extends a {
         }
     }
 
-    public void nt(int i) {
+    public void nv(int i) {
         this.epH = i;
     }
 
-    public void nu(int i) {
-        this.epA.setImageResource(i);
+    public void nw(int i) {
+        this.epH = i;
+        am.setImageResource(this.epA, i);
     }
 
     public void setButtonText(String str) {
@@ -105,7 +106,7 @@ public class h extends a {
         }
     }
 
-    public void nv(int i) {
+    public void nx(int i) {
         int i2;
         if (i < 0) {
             i = 0;
@@ -143,7 +144,7 @@ public class h extends a {
         am.setViewTextColor(this.aND, R.color.cp_cont_j, 1, skinType);
         am.setBackgroundColor(this.attachedView, R.color.cp_bg_line_d);
         if (this.epB != null) {
-            this.epB.aWq();
+            this.epB.aWr();
         }
     }
 

@@ -18,7 +18,7 @@ public class ao {
         return this.dDj;
     }
 
-    public void kg(int i) {
+    public void ki(int i) {
         this.dDj = i;
     }
 
@@ -26,7 +26,7 @@ public class ao {
         return this.total_num;
     }
 
-    public void kh(int i) {
+    public void kj(int i) {
         this.total_num = i;
     }
 
@@ -38,7 +38,7 @@ public class ao {
         return this.dDk;
     }
 
-    public void ki(int i) {
+    public void kk(int i) {
         this.dDk = i;
     }
 
@@ -46,7 +46,7 @@ public class ao {
         return this.current_page;
     }
 
-    public void kj(int i) {
+    public void kl(int i) {
         this.current_page = i;
     }
 
@@ -54,11 +54,11 @@ public class ao {
         return this.dDl;
     }
 
-    public void kk(int i) {
+    public void km(int i) {
         this.dDl = i;
     }
 
-    public void kl(int i) {
+    public void kn(int i) {
         this.has_more = i;
     }
 
@@ -66,7 +66,7 @@ public class ao {
         return this.has_more;
     }
 
-    public void km(int i) {
+    public void ko(int i) {
         this.dDm = i;
     }
 

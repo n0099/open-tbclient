@@ -51,7 +51,7 @@ public class FRSRefreshButton extends ImageView {
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setAntiAlias(true);
-        this.mIcon = SvgManager.aUV().a(R.drawable.icon_pure_refresh24_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL);
+        this.mIcon = SvgManager.aUW().a(R.drawable.icon_pure_refresh24_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL);
         setLayerType(1, null);
     }
 
@@ -97,7 +97,7 @@ public class FRSRefreshButton extends ImageView {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            this.mIcon = SvgManager.aUV().a(R.drawable.icon_pure_refresh24_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL);
+            this.mIcon = SvgManager.aUW().a(R.drawable.icon_pure_refresh24_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL);
             invalidate();
         }
     }

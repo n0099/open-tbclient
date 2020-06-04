@@ -36,7 +36,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
     private View cOQ;
     private ProgressBar cOS;
     private a.InterfaceC0372a czh;
-    private b eTx;
+    private b eTI;
     private boolean mIsLeftTitleInvalidate;
     private TextView mLeftFirstView;
     private TextView mLeftSecondView;
@@ -636,7 +636,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
     }
 
     public void setOnDoubleClickListener(b bVar) {
-        this.eTx = bVar;
+        this.eTI = bVar;
     }
 
     public void setOnMenuItemsUpdateListener(a.InterfaceC0372a interfaceC0372a) {
@@ -656,8 +656,8 @@ public class SwanAppBdActionBar extends RelativeLayout {
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
         public boolean onDoubleTap(MotionEvent motionEvent) {
-            if (SwanAppBdActionBar.this.eTx != null) {
-                SwanAppBdActionBar.this.eTx.onDoubleClick(SwanAppBdActionBar.this);
+            if (SwanAppBdActionBar.this.eTI != null) {
+                SwanAppBdActionBar.this.eTI.onDoubleClick(SwanAppBdActionBar.this);
             }
             return super.onDoubleTap(motionEvent);
         }

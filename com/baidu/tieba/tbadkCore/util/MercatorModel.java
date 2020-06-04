@@ -16,26 +16,26 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class MercatorModel {
-    private final a.InterfaceC0020a flb;
-    private boolean lnL;
+    private final a.InterfaceC0020a flm;
+    private boolean loY;
 
     private MercatorModel() {
-        this.lnL = false;
-        this.flb = new a.InterfaceC0020a() { // from class: com.baidu.tieba.tbadkCore.util.MercatorModel.1
+        this.loY = false;
+        this.flm = new a.InterfaceC0020a() { // from class: com.baidu.tieba.tbadkCore.util.MercatorModel.1
             @Override // com.baidu.adp.lib.c.a.InterfaceC0020a
             public void onLocationGeted(int i, String str, Address address) {
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                if (i == 0 && address != null && inst != null && !MercatorModel.this.lnL) {
-                    MercatorModel.this.lnL = true;
+                if (i == 0 && address != null && inst != null && !MercatorModel.this.loY) {
+                    MercatorModel.this.loY = true;
                     String valueOf = String.valueOf(address.getLatitude());
                     String valueOf2 = String.valueOf(address.getLongitude());
                     String locString = BDLocManager.getInstance(inst).getLocString();
                     String version = TbConfig.getVersion();
                     String cuid = TbadkCoreApplication.getInst().getCuid();
                     String clientIP = UtilHelper.getClientIP();
-                    com.baidu.tieba.recapp.d.a.cUZ().FZ(valueOf);
-                    com.baidu.tieba.recapp.d.a.cUZ().FY(valueOf2);
-                    com.baidu.tieba.recapp.d.a.cUZ().fm(System.currentTimeMillis());
+                    com.baidu.tieba.recapp.d.a.cVp().FZ(valueOf);
+                    com.baidu.tieba.recapp.d.a.cVp().FY(valueOf2);
+                    com.baidu.tieba.recapp.d.a.cVp().fm(System.currentTimeMillis());
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MERCATOR);
                     httpMessage.addParam("cuid", cuid);
                     httpMessage.addParam("cip", clientIP);
@@ -44,7 +44,7 @@ public class MercatorModel {
                     httpMessage.addParam("longitude", valueOf2);
                     httpMessage.addParam("latitude", valueOf);
                     MessageManager.getInstance().sendMessage(httpMessage);
-                    MercatorModel.this.lnL = false;
+                    MercatorModel.this.loY = false;
                 }
             }
         };
@@ -54,17 +54,17 @@ public class MercatorModel {
     }
 
     public void startLoad() {
-        com.baidu.adp.lib.c.a.kq().a(true, this.flb);
+        com.baidu.adp.lib.c.a.kq().a(true, this.flm);
     }
 
-    public static MercatorModel deu() {
-        return a.lnS;
+    public static MercatorModel deJ() {
+        return a.lpf;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final MercatorModel lnS = new MercatorModel();
+        private static final MercatorModel lpf = new MercatorModel();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -98,41 +98,41 @@ public class MercatorModel {
 
     /* loaded from: classes.dex */
     public static class MercatorData extends OrmObject {
-        String lnN;
-        String lnO;
-        String lnP;
-        int lnQ;
-        long lnR;
+        String lpa;
+        String lpb;
+        String lpc;
+        int lpd;
+        long lpe;
 
         public MercatorData() {
         }
 
         public MercatorData(String str, String str2, String str3, int i, long j) {
-            this.lnN = str;
-            this.lnO = str2;
-            this.lnP = str3;
-            this.lnQ = i;
-            this.lnR = j;
+            this.lpa = str;
+            this.lpb = str2;
+            this.lpc = str3;
+            this.lpd = i;
+            this.lpe = j;
         }
 
-        public String dev() {
-            return this.lnN;
+        public String deK() {
+            return this.lpa;
         }
 
-        public String dew() {
-            return this.lnO;
+        public String deL() {
+            return this.lpb;
         }
 
-        public String dex() {
-            return this.lnP;
+        public String deM() {
+            return this.lpc;
         }
 
-        public int dey() {
-            return this.lnQ;
+        public int deN() {
+            return this.lpd;
         }
 
-        public long dez() {
-            return this.lnR;
+        public long deO() {
+            return this.lpe;
         }
     }
 }

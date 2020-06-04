@@ -4,19 +4,19 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class PipedOutputStreamAndroid25 extends OutputStream {
-    private PipedInputStreamAndroid25 meD;
+    private PipedInputStreamAndroid25 mfN;
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        if (this.meD == null) {
+        if (this.mfN == null) {
             throw new IOException("Pipe not connected");
         }
-        this.meD.Gn(i);
+        this.mfN.Gp(i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
-        if (this.meD == null) {
+        if (this.mfN == null) {
             throw new IOException("Pipe not connected");
         }
         if (bArr == null) {
@@ -26,23 +26,23 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
             throw new IndexOutOfBoundsException();
         }
         if (i2 != 0) {
-            this.meD.r(bArr, i, i2);
+            this.mfN.r(bArr, i, i2);
         }
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public synchronized void flush() throws IOException {
-        if (this.meD != null) {
-            synchronized (this.meD) {
-                this.meD.notifyAll();
+        if (this.mfN != null) {
+            synchronized (this.mfN) {
+                this.mfN.notifyAll();
             }
         }
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.meD != null) {
-            this.meD.dqP();
+        if (this.mfN != null) {
+            this.mfN.drd();
         }
     }
 }

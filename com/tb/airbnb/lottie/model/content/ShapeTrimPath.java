@@ -4,10 +4,10 @@ import com.tb.airbnb.lottie.a.a.r;
 /* loaded from: classes6.dex */
 public class ShapeTrimPath implements b {
     private final String name;
-    private final Type niU;
-    private final com.tb.airbnb.lottie.model.a.b nka;
-    private final com.tb.airbnb.lottie.model.a.b nkd;
-    private final com.tb.airbnb.lottie.model.a.b nke;
+    private final Type nke;
+    private final com.tb.airbnb.lottie.model.a.b nlk;
+    private final com.tb.airbnb.lottie.model.a.b nln;
+    private final com.tb.airbnb.lottie.model.a.b nlo;
 
     /* loaded from: classes6.dex */
     public enum Type {
@@ -28,30 +28,30 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, com.tb.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.niU = type;
-        this.nkd = bVar;
-        this.nke = bVar2;
-        this.nka = bVar3;
+        this.nke = type;
+        this.nln = bVar;
+        this.nlo = bVar2;
+        this.nlk = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type dIy() {
-        return this.niU;
-    }
-
-    public com.tb.airbnb.lottie.model.a.b dJq() {
+    public Type dIM() {
         return this.nke;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dJr() {
-        return this.nkd;
+    public com.tb.airbnb.lottie.model.a.b dJE() {
+        return this.nlo;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dJm() {
-        return this.nka;
+    public com.tb.airbnb.lottie.model.a.b dJF() {
+        return this.nln;
+    }
+
+    public com.tb.airbnb.lottie.model.a.b dJA() {
+        return this.nlk;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.nkd + ", end: " + this.nke + ", offset: " + this.nka + "}";
+        return "Trim Path: {start: " + this.nln + ", end: " + this.nlo + ", offset: " + this.nlk + "}";
     }
 }

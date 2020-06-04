@@ -9,7 +9,7 @@ public class b {
     private b() {
     }
 
-    public static synchronized b bgj() {
+    public static synchronized b bgk() {
         b bVar;
         synchronized (b.class) {
             if (euI == null) {
@@ -20,14 +20,14 @@ public class b {
         return bVar;
     }
 
-    public void bgk() {
-        String bgl = bgl();
-        if (!TextUtils.isEmpty(bgl)) {
-            com.baidu.adp.lib.e.c.kX().a(bgl, 10, null, 0, 0, null, new Object[0]);
+    public void bgl() {
+        String bgm = bgm();
+        if (!TextUtils.isEmpty(bgm)) {
+            com.baidu.adp.lib.e.c.kX().a(bgm, 10, null, 0, 0, null, new Object[0]);
         }
     }
 
-    public String bgl() {
+    public String bgm() {
         return TbadkSettings.getInst().loadString("ad_url", null);
     }
 }

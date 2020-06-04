@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public final class a {
-    public static <T> List<T> dIs() {
+    public static <T> List<T> dIG() {
         return new MutableOnWriteList(Collections.emptyList());
     }
 
-    public static <K, V> Map<K, V> dIt() {
+    public static <K, V> Map<K, V> dIH() {
         return new LinkedHashMap();
     }
 
@@ -75,7 +75,7 @@ public final class a {
         return obj == obj2 || (obj != null && obj.equals(obj2));
     }
 
-    public static void fl(List<?> list) {
+    public static void fn(List<?> list) {
         if (list == null) {
             throw new NullPointerException("list == null");
         }

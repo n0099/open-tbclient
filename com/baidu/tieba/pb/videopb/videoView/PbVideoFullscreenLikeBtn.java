@@ -6,7 +6,7 @@ import android.view.View;
 import com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton;
 /* loaded from: classes9.dex */
 public class PbVideoFullscreenLikeBtn extends PbFirstFloorUserLikeButton {
-    private View.OnClickListener keO;
+    private View.OnClickListener kfU;
 
     public PbVideoFullscreenLikeBtn(Context context) {
         super(context);
@@ -24,12 +24,12 @@ public class PbVideoFullscreenLikeBtn extends PbFirstFloorUserLikeButton {
     public void bc(View view) {
         setText(this.dYD);
         setClickable(false);
-        if (this.keO != null) {
-            this.keO.onClick(view);
+        if (this.kfU != null) {
+            this.kfU.onClick(view);
         }
     }
 
     public void setOnclickEvent(View.OnClickListener onClickListener) {
-        this.keO = onClickListener;
+        this.kfU = onClickListener;
     }
 }

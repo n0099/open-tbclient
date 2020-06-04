@@ -18,7 +18,7 @@ public class e {
 
     /* loaded from: classes11.dex */
     public interface b {
-        void fF(int i);
+        void fH(int i);
     }
 
     public void bU(Context context) {
@@ -154,7 +154,7 @@ public class e {
                     }
                     a.b(a.this);
                     if (a.this.ciz <= 0 && a.this.ciy != null) {
-                        a.this.ciy.fF(1);
+                        a.this.ciy.fH(1);
                         a.this.UI();
                     }
                 }

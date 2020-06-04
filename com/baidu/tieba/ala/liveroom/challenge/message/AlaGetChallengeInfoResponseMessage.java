@@ -49,15 +49,15 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
         this.azn = alVar;
     }
 
-    public ak bzM() {
+    public ak bzO() {
         return this.azl;
     }
 
-    public al bzN() {
+    public al bzP() {
         return this.azm;
     }
 
-    public al bzO() {
+    public al bzQ() {
         return this.azn;
     }
 }

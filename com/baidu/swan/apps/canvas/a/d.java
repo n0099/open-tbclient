@@ -19,8 +19,8 @@ public class d extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject ep(int i) {
-        return super.ep(i);
+    public /* bridge */ /* synthetic */ JSONObject er(int i) {
+        return super.er(i);
     }
 
     public d(j jVar) {
@@ -32,17 +32,17 @@ public class d extends a {
         boolean z = false;
         com.baidu.swan.apps.canvas.b.a d = d(unitedSchemeEntity);
         if (d == null) {
-            unitedSchemeEntity.result = ep(201);
+            unitedSchemeEntity.result = er(201);
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "insert action parse model is null");
         } else if (context == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "context is null");
-            unitedSchemeEntity.result = ep(1001);
+            unitedSchemeEntity.result = er(1001);
         } else {
             String str = d.bPF;
             com.baidu.swan.apps.model.a.a.a aVar = d.bPJ;
             if (TextUtils.isEmpty(str) || aVar == null || !aVar.isValid()) {
                 com.baidu.swan.apps.console.c.e("SwanAppCanvas", "canvas id is empty or position is null");
-                unitedSchemeEntity.result = ep(202);
+                unitedSchemeEntity.result = er(202);
             } else {
                 com.baidu.swan.apps.component.b.c Vg = new com.baidu.swan.apps.component.components.d.a(context, d).Vg();
                 z = Vg.isSuccess();

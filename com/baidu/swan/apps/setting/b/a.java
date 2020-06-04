@@ -95,7 +95,7 @@ public final class a {
             com.baidu.swan.apps.setting.oauth.c.c("SwanApp is null", true);
             this.cFu.by(10001L);
             finish();
-            gO(10001);
+            gQ(10001);
             return;
         }
         this.bLN.aoR().cDE.b(this.cFx);
@@ -118,7 +118,7 @@ public final class a {
                     com.baidu.swan.apps.setting.oauth.c.c("bad MaOpenData response", true);
                     a.this.cFu.by(10001L);
                     a.this.finish();
-                    a.this.gO(10001);
+                    a.this.gQ(10001);
                     return;
                 }
                 c.i("OpenData", hVar.mData.toString());
@@ -128,7 +128,7 @@ public final class a {
                     com.baidu.swan.apps.setting.oauth.c.c("by errno", true);
                     a.this.cFu.by(10001L);
                     a.this.finish();
-                    a.this.gO(10001);
+                    a.this.gQ(10001);
                     return;
                 }
                 JSONObject optJSONObject = hVar.mData.optJSONObject("data");
@@ -136,7 +136,7 @@ public final class a {
                     com.baidu.swan.apps.setting.oauth.c.c("by data parse", true);
                     a.this.cFu.by(10001L);
                     a.this.finish();
-                    a.this.gO(10001);
+                    a.this.gQ(10001);
                     return;
                 }
                 com.baidu.swan.apps.setting.oauth.e bk = com.baidu.swan.apps.setting.oauth.e.bk(optJSONObject.optJSONObject("scope"));
@@ -144,7 +144,7 @@ public final class a {
                     com.baidu.swan.apps.setting.oauth.c.c("illegal scope", true);
                     a.this.cFu.by(10001L);
                     a.this.finish();
-                    a.this.gO(10001);
+                    a.this.gQ(10001);
                     return;
                 }
                 a.this.cEG = optJSONObject.optJSONObject("opendata");
@@ -263,7 +263,7 @@ public final class a {
                     } else if (hVar == null || !hVar.isOk() || hVar.mData == null || hVar.mData.cEU == null) {
                         a.this.cFu.by(10002L).pt("bad Accredit response");
                         a.this.finish();
-                        a.this.gO(10002);
+                        a.this.gQ(10002);
                     } else {
                         a.this.cEG = hVar.mData.cEU;
                         a.this.finish();
@@ -278,7 +278,7 @@ public final class a {
                 public void H(h<b.d> hVar) {
                     if (hVar == null || !hVar.isOk()) {
                         a.this.cFu.by(10002L).pt("bad authorize response");
-                        a.this.gO(10002);
+                        a.this.gQ(10002);
                     }
                     a.this.finish();
                 }
@@ -326,7 +326,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gO(int i) {
+    public void gQ(int i) {
         a(i, com.baidu.swan.apps.setting.oauth.e.i(this.mScope, new JSONObject()));
     }
 
@@ -340,11 +340,11 @@ public final class a {
             }
             return;
         }
-        com.baidu.swan.apps.statistic.a.d oD = new com.baidu.swan.apps.statistic.a.d().gT(i).a(aoG.QJ()).oC(com.baidu.swan.apps.statistic.h.gS(aoG.Qz())).oD(aoG.getAppId());
+        com.baidu.swan.apps.statistic.a.d oD = new com.baidu.swan.apps.statistic.a.d().gV(i).a(aoG.QJ()).oC(com.baidu.swan.apps.statistic.h.gU(aoG.Qz())).oD(aoG.getAppId());
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appid", aoG.getAppId());
-            jSONObject.put("msg", com.baidu.swan.apps.setting.oauth.c.gM(i));
+            jSONObject.put("msg", com.baidu.swan.apps.setting.oauth.c.gO(i));
             if (eVar != null) {
                 jSONObject.put("scope", eVar.id);
                 jSONObject.put("scopeData", eVar.cEp);

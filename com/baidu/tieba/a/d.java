@@ -9,57 +9,57 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class d {
-    private static volatile d eMI;
-    private ArrayList<Integer> eME = new ArrayList<>();
-    private c eMF;
-    private a eMJ;
-    private List<an> eMK;
+    private static volatile d eMT;
+    private ArrayList<Integer> eMP = new ArrayList<>();
+    private c eMQ;
+    private a eMU;
+    private List<an> eMV;
 
-    public static d blZ() {
-        if (eMI == null) {
+    public static d bmb() {
+        if (eMT == null) {
             synchronized (c.class) {
-                if (eMI == null) {
-                    eMI = new d();
+                if (eMT == null) {
+                    eMT = new d();
                 }
             }
         }
-        return eMI;
+        return eMT;
     }
 
     private d() {
-        this.eME.add(1);
-        this.eME.add(2);
-        this.eMF = new c();
-        this.eMJ = new a(this.eMF, this.eME);
-        pd(com.baidu.tbadk.core.sharedPref.b.aTX().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
+        this.eMP.add(1);
+        this.eMP.add(2);
+        this.eMQ = new c();
+        this.eMU = new a(this.eMQ, this.eMP);
+        pf(com.baidu.tbadk.core.sharedPref.b.aTX().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
     }
 
     public int as(String str, int i) {
-        if (this.eMJ == null) {
+        if (this.eMU == null) {
             return 0;
         }
-        return this.eMJ.as(str, i);
+        return this.eMU.as(str, i);
     }
 
     public void zK(String str) {
-        if (this.eMJ != null) {
-            this.eMJ.zJ(str);
+        if (this.eMU != null) {
+            this.eMU.zJ(str);
         }
     }
 
     public void e(an anVar) {
         if (anVar != null) {
-            if (this.eMK == null) {
-                this.eMK = new ArrayList();
+            if (this.eMV == null) {
+                this.eMV = new ArrayList();
             }
-            this.eMK.add(anVar);
+            this.eMV.add(anVar);
         }
     }
 
     public void de(String str, String str2) {
-        if (!v.isEmpty(this.eMK) && this.eMF != null && this.eMF.blX()) {
+        if (!v.isEmpty(this.eMV) && this.eMQ != null && this.eMQ.blZ()) {
             int i = -1;
-            for (an anVar : this.eMK) {
+            for (an anVar : this.eMV) {
                 if (anVar != null) {
                     if (anVar.getPosition() == 0) {
                         a(str, str2, anVar);
@@ -70,12 +70,12 @@ public class d {
                     i = i;
                 }
             }
-            this.eMK.clear();
+            this.eMV.clear();
         }
     }
 
     public void a(String str, String str2, an anVar) {
-        if (anVar != null && this.eMF != null && this.eMF.blX()) {
+        if (anVar != null && this.eMQ != null && this.eMQ.blZ()) {
             HashMap hashMap = new HashMap();
             List<Object> params = anVar.getParams();
             if (params != null) {
@@ -99,20 +99,20 @@ public class d {
     }
 
     public void onPageStart(String str) {
-        if (aq.isEmpty(str) || this.eMF == null || !this.eMF.blX()) {
-            com.baidu.ubs.analytics.a.Pn(str);
-        }
-    }
-
-    public void onPageEnd(String str) {
-        if (aq.isEmpty(str) || this.eMF == null || !this.eMF.blX()) {
+        if (aq.isEmpty(str) || this.eMQ == null || !this.eMQ.blZ()) {
             com.baidu.ubs.analytics.a.Po(str);
         }
     }
 
-    public void pd(int i) {
-        if (this.eMF != null) {
-            this.eMF.pd(i);
+    public void onPageEnd(String str) {
+        if (aq.isEmpty(str) || this.eMQ == null || !this.eMQ.blZ()) {
+            com.baidu.ubs.analytics.a.Pp(str);
+        }
+    }
+
+    public void pf(int i) {
+        if (this.eMQ != null) {
+            this.eMQ.pf(i);
         }
     }
 }

@@ -72,7 +72,7 @@ public class k {
         this.mId = str;
     }
 
-    public void jy(int i) {
+    public void jA(int i) {
         this.dpY = i;
     }
 

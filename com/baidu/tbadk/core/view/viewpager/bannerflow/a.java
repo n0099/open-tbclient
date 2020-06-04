@@ -6,7 +6,7 @@ import com.baidu.adp.widget.ListView.o;
 public abstract class a implements o {
     public static final BdUniqueId dZB = BdUniqueId.gen();
 
-    public abstract Object aXl();
+    public abstract Object aXm();
 
     public abstract String getImageUrl();
 

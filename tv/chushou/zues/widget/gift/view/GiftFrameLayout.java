@@ -28,61 +28,61 @@ import tv.chushou.zues.widget.fresco.b;
 import tv.chushou.zues.widget.gift.a.a;
 /* loaded from: classes5.dex */
 public class GiftFrameLayout extends FrameLayout {
-    public static double nPr = 1.0d;
-    public static double nPs = 500.0d;
-    public static double nPt = 200.0d;
-    public static double nPu = 1000.0d;
+    public static double nQB = 1.0d;
+    public static double nQC = 500.0d;
+    public static double nQD = 200.0d;
+    public static double nQE = 1000.0d;
     private String TAG;
     private boolean isShowing;
     private Context mContext;
     private LayoutInflater mInflater;
     private int mType;
-    private AnimatorSet nPA;
-    private FrameLayout nPB;
-    private FrescoThumbnailView nPC;
-    private View nPD;
-    private FrescoThumbnailView nPE;
-    private FrescoThumbnailView nPF;
-    private FrescoThumbnailView nPG;
-    private TextView nPH;
-    private TextView nPI;
-    private LinearLayout nPJ;
-    private ComboNumView nPK;
-    private int nPL;
-    private int nPM;
-    private a nPN;
-    private c nPO;
-    private boolean nPP;
-    private Animation nPQ;
-    private Animation nPR;
-    private Animation.AnimationListener nPS;
-    private boolean nPT;
-    private long nPU;
-    private b nPV;
-    public int nPW;
-    private ObjectAnimator nPv;
-    private ObjectAnimator nPw;
-    private AnimatorSet nPx;
-    private ObjectAnimator nPy;
-    private ObjectAnimator nPz;
+    private ObjectAnimator nQF;
+    private ObjectAnimator nQG;
+    private AnimatorSet nQH;
+    private ObjectAnimator nQI;
+    private ObjectAnimator nQJ;
+    private AnimatorSet nQK;
+    private FrameLayout nQL;
+    private FrescoThumbnailView nQM;
+    private View nQN;
+    private FrescoThumbnailView nQO;
+    private FrescoThumbnailView nQP;
+    private FrescoThumbnailView nQQ;
+    private TextView nQR;
+    private TextView nQS;
+    private LinearLayout nQT;
+    private ComboNumView nQU;
+    private int nQV;
+    private int nQW;
+    private a nQX;
+    private c nQY;
+    private boolean nQZ;
+    private Animation nRa;
+    private Animation nRb;
+    private Animation.AnimationListener nRc;
+    private boolean nRd;
+    private long nRe;
+    private b nRf;
+    public int nRg;
     public long updateTime;
 
     static /* synthetic */ int d(GiftFrameLayout giftFrameLayout) {
-        int i = giftFrameLayout.nPM;
-        giftFrameLayout.nPM = i + 1;
+        int i = giftFrameLayout.nQW;
+        giftFrameLayout.nQW = i + 1;
         return i;
     }
 
     static /* synthetic */ long h(GiftFrameLayout giftFrameLayout) {
-        long j = giftFrameLayout.nPU;
-        giftFrameLayout.nPU = j - 1;
+        long j = giftFrameLayout.nRe;
+        giftFrameLayout.nRe = j - 1;
         return j;
     }
 
     public void setLayoutDefaultBg(int i) {
-        this.nPW = i;
-        if (this.nPC != null && this.nPN != null) {
-            this.nPC.bV(this.nPN.nPi, this.nPW);
+        this.nRg = i;
+        if (this.nQM != null && this.nQX != null) {
+            this.nQM.bV(this.nQX.nQs, this.nRg);
         }
     }
 
@@ -99,12 +99,12 @@ public class GiftFrameLayout extends FrameLayout {
         this.TAG = "GiftFrameLayout";
         this.mType = 1;
         this.updateTime = 0L;
-        this.nPL = 0;
-        this.nPM = 0;
+        this.nQV = 0;
+        this.nQW = 0;
         this.isShowing = false;
-        this.nPP = false;
-        this.nPT = false;
-        this.nPW = b.d.zues_show_gift_animation;
+        this.nQZ = false;
+        this.nRd = false;
+        this.nRg = b.d.zues_show_gift_animation;
         this.mType = i;
         this.mContext = context;
         this.mInflater = LayoutInflater.from(context);
@@ -118,36 +118,36 @@ public class GiftFrameLayout extends FrameLayout {
         } else {
             inflate = this.mInflater.inflate(b.f.zues_widget_play_show_gift_item, (ViewGroup) this, false);
         }
-        this.nPJ = (LinearLayout) inflate.findViewById(b.e.tv_text_content);
-        this.nPB = (FrameLayout) inflate.findViewById(b.e.fl_gift);
-        this.nPC = (FrescoThumbnailView) inflate.findViewById(b.e.iv_gift_bg);
-        this.nPG = (FrescoThumbnailView) inflate.findViewById(b.e.iv_gift_icon);
-        this.nPG.setAnim(true);
-        this.nPD = inflate.findViewById(b.e.rl_user_avatar);
-        this.nPE = (FrescoThumbnailView) inflate.findViewById(b.e.iv_gift_user);
-        this.nPF = (FrescoThumbnailView) inflate.findViewById(b.e.iv_gift_user_frame);
-        this.nPH = (TextView) inflate.findViewById(b.e.tv_gift_user);
-        this.nPI = (TextView) inflate.findViewById(b.e.tv_gift_desc);
+        this.nQT = (LinearLayout) inflate.findViewById(b.e.tv_text_content);
+        this.nQL = (FrameLayout) inflate.findViewById(b.e.fl_gift);
+        this.nQM = (FrescoThumbnailView) inflate.findViewById(b.e.iv_gift_bg);
+        this.nQQ = (FrescoThumbnailView) inflate.findViewById(b.e.iv_gift_icon);
+        this.nQQ.setAnim(true);
+        this.nQN = inflate.findViewById(b.e.rl_user_avatar);
+        this.nQO = (FrescoThumbnailView) inflate.findViewById(b.e.iv_gift_user);
+        this.nQP = (FrescoThumbnailView) inflate.findViewById(b.e.iv_gift_user_frame);
+        this.nQR = (TextView) inflate.findViewById(b.e.tv_gift_user);
+        this.nQS = (TextView) inflate.findViewById(b.e.tv_gift_desc);
         addView(inflate);
-        this.nPO = new c(this.mContext.getMainLooper(), new Handler.Callback() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.1
+        this.nQY = new c(this.mContext.getMainLooper(), new Handler.Callback() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.1
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        GiftFrameLayout.this.dSf();
+                        GiftFrameLayout.this.dSt();
                         return false;
                     default:
                         return false;
                 }
             }
         });
-        this.nPK = (ComboNumView) findViewById(b.e.ll_numb);
+        this.nQU = (ComboNumView) findViewById(b.e.ll_numb);
         if (this.mType == 2) {
-            this.nPK.setType(2);
+            this.nQU.setType(2);
         }
-        this.nPQ = AnimationUtils.loadAnimation(this.mContext, b.a.zues_scalein_switch);
-        this.nPR = AnimationUtils.loadAnimation(this.mContext, b.a.zues_scalein_end);
-        this.nPS = new Animation.AnimationListener() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.2
+        this.nRa = AnimationUtils.loadAnimation(this.mContext, b.a.zues_scalein_switch);
+        this.nRb = AnimationUtils.loadAnimation(this.mContext, b.a.zues_scalein_end);
+        this.nRc = new Animation.AnimationListener() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -155,39 +155,39 @@ public class GiftFrameLayout extends FrameLayout {
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 boolean z;
-                int i = GiftFrameLayout.this.nPL - GiftFrameLayout.this.nPM;
+                int i = GiftFrameLayout.this.nQV - GiftFrameLayout.this.nQW;
                 if (i > 150) {
-                    GiftFrameLayout.this.nPM = (i / 10) + GiftFrameLayout.this.nPM;
+                    GiftFrameLayout.this.nQW = (i / 10) + GiftFrameLayout.this.nQW;
                     z = true;
                 } else if (i > 50) {
-                    GiftFrameLayout.this.nPM += 5;
+                    GiftFrameLayout.this.nQW += 5;
                     z = true;
                 } else if (i > 40) {
-                    GiftFrameLayout.this.nPM += 4;
+                    GiftFrameLayout.this.nQW += 4;
                     z = true;
                 } else if (i > 30) {
-                    GiftFrameLayout.this.nPM += 3;
+                    GiftFrameLayout.this.nQW += 3;
                     z = true;
                 } else if (i > 20) {
-                    GiftFrameLayout.this.nPM += 2;
+                    GiftFrameLayout.this.nQW += 2;
                     z = true;
                 } else if (i <= 0) {
-                    GiftFrameLayout.this.nPM = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+                    GiftFrameLayout.this.nQW = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
                     z = false;
                 } else {
                     GiftFrameLayout.d(GiftFrameLayout.this);
                     z = true;
                 }
-                if (GiftFrameLayout.this.nPO != null) {
+                if (GiftFrameLayout.this.nQY != null) {
                     if (z) {
-                        if (!GiftFrameLayout.this.nPO.Kr(1)) {
-                            GiftFrameLayout.this.nPO.Kq(1);
+                        if (!GiftFrameLayout.this.nQY.Kt(1)) {
+                            GiftFrameLayout.this.nQY.Ks(1);
                             return;
                         }
                         return;
                     }
-                    tv.chushou.zues.a.a.post(new tv.chushou.zues.widget.gift.b.a(GiftFrameLayout.this.nPN, tv.chushou.zues.widget.gift.b.a.REMOVE));
-                    GiftFrameLayout.this.nPO.removeMessages(1);
+                    tv.chushou.zues.a.a.post(new tv.chushou.zues.widget.gift.b.a(GiftFrameLayout.this.nQX, tv.chushou.zues.widget.gift.b.a.REMOVE));
+                    GiftFrameLayout.this.nQY.removeMessages(1);
                 }
             }
 
@@ -195,87 +195,87 @@ public class GiftFrameLayout extends FrameLayout {
             public void onAnimationRepeat(Animation animation) {
             }
         };
-        this.nPQ.setAnimationListener(this.nPS);
-        this.nPR.setAnimationListener(this.nPS);
+        this.nRa.setAnimationListener(this.nRc);
+        this.nRb.setAnimationListener(this.nRc);
     }
 
     public boolean isShowing() {
         return this.isShowing;
     }
 
-    public boolean dSe() {
-        return this.nPP;
+    public boolean dSs() {
+        return this.nQZ;
     }
 
     public void b(a aVar) {
-        this.nPP = false;
+        this.nQZ = false;
         this.updateTime = System.currentTimeMillis();
         this.isShowing = true;
         setGift(aVar);
-        if (this.nPv == null) {
-            this.nPv = tv.chushou.zues.widget.gift.a.a(this.nPB, -getWidth(), 0.0f, Double.valueOf(nPs * nPr).longValue());
-            this.nPv.addListener(new AnimatorListenerAdapter() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.3
+        if (this.nQF == null) {
+            this.nQF = tv.chushou.zues.widget.gift.a.a(this.nQL, -getWidth(), 0.0f, Double.valueOf(nQC * nQB).longValue());
+            this.nQF.addListener(new AnimatorListenerAdapter() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.3
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                     super.onAnimationStart(animator);
                     GiftFrameLayout.this.setVisibility(0);
                     GiftFrameLayout.this.setAlpha(1.0f);
-                    GiftFrameLayout.this.setStartNumber(GiftFrameLayout.this.nPN.nPj);
+                    GiftFrameLayout.this.setStartNumber(GiftFrameLayout.this.nQX.nQt);
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (GiftFrameLayout.this.nPN != null) {
-                        if (GiftFrameLayout.this.nPN.nPk != GiftFrameLayout.this.nPN.nPj) {
-                            GiftFrameLayout.this.setEndNumber(GiftFrameLayout.this.nPN.nPk);
+                    if (GiftFrameLayout.this.nQX != null) {
+                        if (GiftFrameLayout.this.nQX.nQu != GiftFrameLayout.this.nQX.nQt) {
+                            GiftFrameLayout.this.setEndNumber(GiftFrameLayout.this.nQX.nQu);
                             return;
                         }
-                        GiftFrameLayout.this.nPM = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-                        tv.chushou.zues.a.a.post(new tv.chushou.zues.widget.gift.b.a(GiftFrameLayout.this.nPN, tv.chushou.zues.widget.gift.b.a.REMOVE));
+                        GiftFrameLayout.this.nQW = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+                        tv.chushou.zues.a.a.post(new tv.chushou.zues.widget.gift.b.a(GiftFrameLayout.this.nQX, tv.chushou.zues.widget.gift.b.a.REMOVE));
                     }
                 }
             });
         } else {
-            this.nPv.setDuration(Double.valueOf(nPs * nPr).longValue());
+            this.nQF.setDuration(Double.valueOf(nQC * nQB).longValue());
         }
-        if (this.nPw == null) {
-            this.nPw = tv.chushou.zues.widget.gift.a.b(this.nPG, -tv.chushou.zues.utils.a.dip2px(this.mContext, 160.0f), 0.0f, Double.valueOf(nPt * nPr).longValue());
-            this.nPw.addListener(new AnimatorListenerAdapter() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.4
+        if (this.nQG == null) {
+            this.nQG = tv.chushou.zues.widget.gift.a.b(this.nQQ, -tv.chushou.zues.utils.a.dip2px(this.mContext, 160.0f), 0.0f, Double.valueOf(nQD * nQB).longValue());
+            this.nQG.addListener(new AnimatorListenerAdapter() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.4
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                     super.onAnimationStart(animator);
-                    if (GiftFrameLayout.this.nPG != null) {
-                        GiftFrameLayout.this.nPG.setVisibility(0);
+                    if (GiftFrameLayout.this.nQQ != null) {
+                        GiftFrameLayout.this.nQQ.setVisibility(0);
                     }
                 }
             });
         } else {
-            this.nPw.setDuration(Double.valueOf(nPt * nPr).longValue());
+            this.nQG.setDuration(Double.valueOf(nQD * nQB).longValue());
         }
-        if (this.nPx == null) {
-            this.nPx = tv.chushou.zues.widget.gift.a.a(this.nPv, this.nPw);
-            this.nPx.start();
+        if (this.nQH == null) {
+            this.nQH = tv.chushou.zues.widget.gift.a.a(this.nQF, this.nQG);
+            this.nQH.start();
             return;
         }
-        this.nPx.start();
+        this.nQH.start();
     }
 
     public void a(long j, float f) {
-        if (this.nPV != null) {
-            this.nPV.dispose();
+        if (this.nRf != null) {
+            this.nRf.dispose();
         }
-        long j2 = this.nPU == 0 ? (long) (nPs * nPr) : 0L;
-        if (this.nPU < j) {
-            this.nPU = j;
+        long j2 = this.nRe == 0 ? (long) (nQC * nQB) : 0L;
+        if (this.nRe < j) {
+            this.nRe = j;
         }
-        if (this.nPU != 0) {
-            this.nPV = g.a(0L, this.nPU, j2, 1000.0f * f, TimeUnit.MILLISECONDS).a(io.reactivex.a.b.a.dKy()).b(new io.reactivex.c.g<Long>() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.5
+        if (this.nRe != 0) {
+            this.nRf = g.a(0L, this.nRe, j2, 1000.0f * f, TimeUnit.MILLISECONDS).a(io.reactivex.a.b.a.dKM()).b(new io.reactivex.c.g<Long>() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // io.reactivex.c.g
                 /* renamed from: i */
                 public void accept(Long l) throws Exception {
                     GiftFrameLayout.h(GiftFrameLayout.this);
-                    if (GiftFrameLayout.this.nPU == 0) {
+                    if (GiftFrameLayout.this.nRe == 0) {
                         GiftFrameLayout.this.hide();
                     }
                 }
@@ -286,57 +286,57 @@ public class GiftFrameLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
         if (this.mContext != null) {
-            this.nPP = true;
-            if (this.nPy == null) {
-                this.nPy = tv.chushou.zues.widget.gift.a.a(this, 0, -tv.chushou.zues.utils.a.dip2px(this.mContext, 55.0f), Double.valueOf(nPu * nPr).longValue(), 0);
-                this.nPy.addListener(new AnimatorListenerAdapter() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.6
+            this.nQZ = true;
+            if (this.nQI == null) {
+                this.nQI = tv.chushou.zues.widget.gift.a.a(this, 0, -tv.chushou.zues.utils.a.dip2px(this.mContext, 55.0f), Double.valueOf(nQE * nQB).longValue(), 0);
+                this.nQI.addListener(new AnimatorListenerAdapter() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.6
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
                         GiftFrameLayout.this.setVisibility(4);
-                        if (GiftFrameLayout.this.nPG != null) {
-                            GiftFrameLayout.this.nPG.setVisibility(4);
+                        if (GiftFrameLayout.this.nQQ != null) {
+                            GiftFrameLayout.this.nQQ.setVisibility(4);
                         }
                     }
                 });
             } else {
-                this.nPy.setDuration(Double.valueOf(nPu * nPr).longValue());
+                this.nQI.setDuration(Double.valueOf(nQE * nQB).longValue());
             }
-            if (this.nPz == null) {
-                this.nPz = tv.chushou.zues.widget.gift.a.a((View) this, -tv.chushou.zues.utils.a.dip2px(this.mContext, 55.0f), 0, 20L);
+            if (this.nQJ == null) {
+                this.nQJ = tv.chushou.zues.widget.gift.a.a((View) this, -tv.chushou.zues.utils.a.dip2px(this.mContext, 55.0f), 0, 20L);
             }
-            if (this.nPA == null) {
-                this.nPA = tv.chushou.zues.widget.gift.a.a(this.nPy, this.nPz);
-                this.nPA.addListener(new AnimatorListenerAdapter() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.7
+            if (this.nQK == null) {
+                this.nQK = tv.chushou.zues.widget.gift.a.a(this.nQI, this.nQJ);
+                this.nQK.addListener(new AnimatorListenerAdapter() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.7
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
                         GiftFrameLayout.this.isShowing = false;
-                        GiftFrameLayout.this.nPN = null;
-                        GiftFrameLayout.this.dSg();
+                        GiftFrameLayout.this.nQX = null;
+                        GiftFrameLayout.this.dSu();
                         tv.chushou.zues.a.a.post(new tv.chushou.zues.widget.gift.b.a(null, tv.chushou.zues.widget.gift.b.a.GET));
                     }
                 });
-                this.nPA.start();
+                this.nQK.start();
                 return;
             }
-            this.nPA.start();
+            this.nQK.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dSf() {
+    public void dSt() {
         int i;
-        if (this.nPM > this.nPL) {
-            this.nPM = this.nPL;
-            if (this.nPO != null) {
-                tv.chushou.zues.a.a.post(new tv.chushou.zues.widget.gift.b.a(this.nPN, tv.chushou.zues.widget.gift.b.a.REMOVE));
-                this.nPO.removeMessages(1);
+        if (this.nQW > this.nQV) {
+            this.nQW = this.nQV;
+            if (this.nQY != null) {
+                tv.chushou.zues.a.a.post(new tv.chushou.zues.widget.gift.b.a(this.nQX, tv.chushou.zues.widget.gift.b.a.REMOVE));
+                this.nQY.removeMessages(1);
                 return;
             }
             return;
         }
-        this.nPT = this.nPM == this.nPL;
-        this.nPK.setNumber(this.nPM);
-        int i2 = this.nPL - this.nPM;
+        this.nRd = this.nQW == this.nQV;
+        this.nQU.setNumber(this.nQW);
+        int i2 = this.nQV - this.nQW;
         if (i2 > 20) {
             i = 50;
         } else if (i2 > 10) {
@@ -346,130 +346,130 @@ public class GiftFrameLayout extends FrameLayout {
         } else {
             i = 300;
         }
-        this.nPQ.setDuration(i);
-        this.nPK.startAnimation(this.nPT ? this.nPR : this.nPQ);
+        this.nRa.setDuration(i);
+        this.nQU.startAnimation(this.nRd ? this.nRb : this.nRa);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dSg() {
-        this.nPM = 0;
+    public void dSu() {
+        this.nQW = 0;
     }
 
-    public void KJ(int i) {
+    public void KL(int i) {
         this.updateTime = System.currentTimeMillis();
-        if (this.nPN != null) {
-            this.nPN.nPk = i;
-            setEndNumber(this.nPN.nPk);
+        if (this.nQX != null) {
+            this.nQX.nQu = i;
+            setEndNumber(this.nQX.nQu);
         }
-        if (this.nPV != null) {
-            this.nPV.dispose();
+        if (this.nRf != null) {
+            this.nRf.dispose();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setStartNumber(int i) {
-        this.nPM = i;
-        this.nPK.setNumber(this.nPM);
+        this.nQW = i;
+        this.nQU.setNumber(this.nQW);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setEndNumber(int i) {
-        this.nPL = i;
-        if (this.nPM == Integer.MAX_VALUE) {
-            this.nPM = this.nPL;
+        this.nQV = i;
+        if (this.nQW == Integer.MAX_VALUE) {
+            this.nQW = this.nQV;
         }
-        if (this.nPO != null && !this.nPO.Kr(1)) {
-            this.nPO.Kq(1);
+        if (this.nQY != null && !this.nQY.Kt(1)) {
+            this.nQY.Ks(1);
         }
     }
 
     public a getGift() {
-        return this.nPN;
+        return this.nQX;
     }
 
     private void setGift(a aVar) {
-        this.nPN = aVar;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.nPJ.getLayoutParams();
+        this.nQX = aVar;
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.nQT.getLayoutParams();
         if (aVar.mShowAvatar) {
-            this.nPD.setVisibility(0);
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.nPD.getLayoutParams();
-            this.nPE.setVisibility(0);
-            this.nPE.i(aVar.nPe, b.C0914b.zues_default_placeholder_bg, b.a.small, b.a.small);
-            if (h.isEmpty(aVar.nPf)) {
-                this.nPF.setVisibility(8);
+            this.nQN.setVisibility(0);
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.nQN.getLayoutParams();
+            this.nQO.setVisibility(0);
+            this.nQO.i(aVar.nQo, b.C0915b.zues_default_placeholder_bg, b.a.small, b.a.small);
+            if (h.isEmpty(aVar.nQp)) {
+                this.nQP.setVisibility(8);
                 layoutParams2.setMargins(tv.chushou.zues.utils.a.dip2px(this.mContext, 14.0f), 0, tv.chushou.zues.utils.a.dip2px(this.mContext, 4.0f), 0);
             } else {
-                this.nPF.setVisibility(0);
-                this.nPF.i(aVar.nPf, b.C0914b.float_transparent, b.C0923b.nOZ, b.C0923b.nOZ);
+                this.nQP.setVisibility(0);
+                this.nQP.i(aVar.nQp, b.C0915b.float_transparent, b.C0924b.nQj, b.C0924b.nQj);
                 layoutParams2.setMargins(tv.chushou.zues.utils.a.dip2px(this.mContext, 10.5f), 0, tv.chushou.zues.utils.a.dip2px(this.mContext, 4.0f), 0);
             }
             layoutParams.setMargins(0, 0, 0, 0);
         } else {
-            this.nPD.setVisibility(8);
+            this.nQN.setVisibility(8);
             layoutParams.setMargins(tv.chushou.zues.utils.a.dip2px(this.mContext, 10.0f), 0, 0, 0);
         }
-        this.nPG.h(aVar.nPh, b.d.zues_btn_gift_icon, b.C0923b.nOY, b.C0923b.nOY);
-        this.nPJ.setLayoutParams(layoutParams);
-        this.nPH.setText(aVar.mNickName);
-        this.nPI.setText(aVar.nPg);
-        this.nPC.bV(aVar.nPi, this.nPW);
+        this.nQQ.h(aVar.nQr, b.d.zues_btn_gift_icon, b.C0924b.nQi, b.C0924b.nQi);
+        this.nQT.setLayoutParams(layoutParams);
+        this.nQR.setText(aVar.mNickName);
+        this.nQS.setText(aVar.nQq);
+        this.nQM.bV(aVar.nQs, this.nRg);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.nPx != null) {
-            this.nPx.cancel();
-            this.nPx = null;
+        if (this.nQH != null) {
+            this.nQH.cancel();
+            this.nQH = null;
         }
-        if (this.nPv != null) {
-            this.nPv.cancel();
-            this.nPv = null;
+        if (this.nQF != null) {
+            this.nQF.cancel();
+            this.nQF = null;
         }
-        if (this.nPw != null) {
-            this.nPw.cancel();
-            this.nPw = null;
+        if (this.nQG != null) {
+            this.nQG.cancel();
+            this.nQG = null;
         }
-        if (this.nPA != null) {
-            this.nPA.cancel();
-            this.nPA = null;
+        if (this.nQK != null) {
+            this.nQK.cancel();
+            this.nQK = null;
         }
-        if (this.nPy != null) {
-            this.nPy.cancel();
-            this.nPy = null;
+        if (this.nQI != null) {
+            this.nQI.cancel();
+            this.nQI = null;
         }
-        if (this.nPz != null) {
-            this.nPz.cancel();
-            this.nPz = null;
+        if (this.nQJ != null) {
+            this.nQJ.cancel();
+            this.nQJ = null;
         }
-        if (this.nPQ != null) {
-            this.nPQ.cancel();
-            this.nPQ = null;
+        if (this.nRa != null) {
+            this.nRa.cancel();
+            this.nRa = null;
         }
-        if (this.nPR != null) {
-            this.nPR.cancel();
-            this.nPR = null;
+        if (this.nRb != null) {
+            this.nRb.cancel();
+            this.nRb = null;
         }
-        this.nPS = null;
+        this.nRc = null;
         this.mInflater = null;
         this.mContext = null;
-        this.nPB = null;
-        this.nPC = null;
-        this.nPE = null;
-        this.nPG = null;
-        this.nPH = null;
-        this.nPI = null;
-        if (this.nPK != null) {
-            this.nPK.release();
-            this.nPK = null;
+        this.nQL = null;
+        this.nQM = null;
+        this.nQO = null;
+        this.nQQ = null;
+        this.nQR = null;
+        this.nQS = null;
+        if (this.nQU != null) {
+            this.nQU.release();
+            this.nQU = null;
         }
-        this.nPN = null;
-        if (this.nPO != null) {
-            this.nPO.cg(null);
-            this.nPO = null;
+        this.nQX = null;
+        if (this.nQY != null) {
+            this.nQY.cg(null);
+            this.nQY = null;
         }
-        if (this.nPV != null) {
-            this.nPV.dispose();
+        if (this.nRf != null) {
+            this.nRf.dispose();
         }
     }
 }

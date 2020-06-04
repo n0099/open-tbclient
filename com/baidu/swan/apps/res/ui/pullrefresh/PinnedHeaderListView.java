@@ -20,7 +20,7 @@ public class PinnedHeaderListView extends ListView {
     public interface a {
         void b(View view, int i, int i2);
 
-        int gl(int i);
+        int gn(int i);
     }
 
     public PinnedHeaderListView(Context context) {
@@ -49,7 +49,7 @@ public class PinnedHeaderListView extends ListView {
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                PinnedHeaderListView.this.gk(i);
+                PinnedHeaderListView.this.gm(i);
                 if (PinnedHeaderListView.this.cwS != null) {
                     PinnedHeaderListView.this.cwS.onScroll(absListView, i, i2, i3);
                 }
@@ -93,7 +93,7 @@ public class PinnedHeaderListView extends ListView {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mHeaderView != null) {
             this.mHeaderView.layout(0, 0, this.cwQ, this.cwR);
-            gk(getFirstVisiblePosition());
+            gm(getFirstVisiblePosition());
         }
     }
 
@@ -102,11 +102,11 @@ public class PinnedHeaderListView extends ListView {
         this.cwS = onScrollListener;
     }
 
-    public void gk(int i) {
+    public void gm(int i) {
         int i2;
         int i3 = 255;
         if (this.mHeaderView != null && this.cwO != null) {
-            switch (this.cwO.gl(i)) {
+            switch (this.cwO.gn(i)) {
                 case 0:
                     this.cwP = false;
                     return;

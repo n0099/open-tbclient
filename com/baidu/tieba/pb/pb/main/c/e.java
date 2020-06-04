@@ -14,37 +14,37 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.aa;
 /* loaded from: classes9.dex */
 public class e extends a {
-    private int jJK;
-    private bk jWB;
-    private m jWF;
-    private AbsThreadDataSupport jWy;
+    private int jKQ;
+    private AbsThreadDataSupport jXE;
+    private bk jXH;
+    private m jXL;
     private View mRootView;
 
     public e(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
-        this.jJK = i;
+        this.jKQ = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
-        if (this.jWF == null) {
-            this.jWF = new m(this.dIF.getPageActivity());
-            this.jWF.b((Boolean) true);
-            this.jWF.setFrom("pb");
-            this.jWF.e(this.dIF.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.dIF.getResources().getDimensionPixelOffset(R.dimen.tbds39), this.dIF.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.dIF.getResources().getDimensionPixelSize(R.dimen.tbds40));
+        if (this.jXL == null) {
+            this.jXL = new m(this.dIF.getPageActivity());
+            this.jXL.b((Boolean) true);
+            this.jXL.setFrom("pb");
+            this.jXL.e(this.dIF.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.dIF.getResources().getDimensionPixelOffset(R.dimen.tbds39), this.dIF.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.dIF.getResources().getDimensionPixelSize(R.dimen.tbds40));
         }
-        this.mRootView = this.jWF.getView();
+        this.mRootView = this.jXL.getView();
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.jWx = originalThreadInfo;
-        this.jWB = originalThreadInfo == null ? null : originalThreadInfo.aPf();
-        this.jWy = new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.e.1
+        this.jXD = originalThreadInfo;
+        this.jXH = originalThreadInfo == null ? null : originalThreadInfo.aPf();
+        this.jXE = new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.e.1
             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
             public bk aOi() {
-                return e.this.jWB;
+                return e.this.jXH;
             }
 
             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
@@ -57,31 +57,31 @@ public class e extends a {
                 return null;
             }
         };
-        if (this.jWF != null) {
-            this.jWF.D(this.jWy);
+        if (this.jXL != null) {
+            this.jXL.D(this.jXE);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(aa aaVar) {
         super.a(aaVar);
-        if (this.jWF != null) {
-            this.jWF.setOnCardSubClickListener(this.jWw);
+        if (this.jXL != null) {
+            this.jXL.setOnCardSubClickListener(this.jXC);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(b.a aVar) {
         super.a(aVar);
-        if (this.jWF != null) {
-            this.jWF.a(aVar);
+        if (this.jXL != null) {
+            this.jXL.a(aVar);
         }
         if (this.mRootView != null) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.c.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (e.this.adu != null) {
-                        e.this.adu.a(e.this.jWy);
+                        e.this.adu.a(e.this.jXE);
                     }
                 }
             });
@@ -93,8 +93,8 @@ public class e extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_c);
-            if (this.jWF != null) {
-                this.jWF.onChangeSkinType(tbPageContext, i);
+            if (this.jXL != null) {
+                this.jXL.onChangeSkinType(tbPageContext, i);
             }
         }
     }

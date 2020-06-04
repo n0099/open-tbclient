@@ -11,12 +11,12 @@ public class bh extends ai.a {
     }
 
     private boolean a() {
-        return com.xiaomi.clientreport.manager.a.a(this.a).m56a().isPerfUploadSwitchOpen();
+        return com.xiaomi.clientreport.manager.a.a(this.a).m55a().isPerfUploadSwitchOpen();
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo164a() {
+    public int mo163a() {
         return 100887;
     }
 

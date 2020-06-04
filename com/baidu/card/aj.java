@@ -67,7 +67,7 @@ public class aj extends b<AbsThreadDataSupport> {
     }
 
     public void bn(int i) {
-        this.afK.gGi = i;
+        this.afK.gGt = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -28,7 +28,7 @@ public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements r {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ViewEventCenter bfm() {
+    public ViewEventCenter bfn() {
         return this.era;
     }
 
@@ -41,7 +41,7 @@ public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements r {
         return this.data;
     }
 
-    public S beT() {
+    public S beU() {
         return this.eqv;
     }
 

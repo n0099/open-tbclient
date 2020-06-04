@@ -6,18 +6,18 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class e {
-    private static int bbf() {
+    private static int bbg() {
         if (aq.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             return 3;
         }
         return com.baidu.tbadk.core.sharedPref.b.aTX().getInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
     }
 
-    public static int bbg() {
-        if (TbSingleton.getInstance().getSharePanelConfData() == null || !TbSingleton.getInstance().getSharePanelConfData().aYg()) {
+    public static int bbh() {
+        if (TbSingleton.getInstance().getSharePanelConfData() == null || !TbSingleton.getInstance().getSharePanelConfData().aYh()) {
             return -1;
         }
-        switch (bbf()) {
+        switch (bbg()) {
             case 2:
                 return R.drawable.icon_mask_share_circle40_svg;
             case 3:
@@ -34,7 +34,7 @@ public class e {
         }
     }
 
-    public static void mK(int i) {
+    public static void mM(int i) {
         if (i > 0 && !aq.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             com.baidu.tbadk.core.sharedPref.b.aTX().putInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
         }

@@ -37,7 +37,7 @@ public class a implements Cloneable {
         return this.bmY;
     }
 
-    public void dx(int i) {
+    public void dz(int i) {
         this.bmY = i;
     }
 

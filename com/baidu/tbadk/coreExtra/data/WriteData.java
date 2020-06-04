@@ -35,6 +35,7 @@ public class WriteData extends OrmObject implements Serializable {
     public static final int VIDEO_REVIEW_TYPE_NOT_NEED = 2;
     private String callFrom;
     private boolean canNoForum;
+    private String comment_head;
     private int entranceType;
     private boolean isAd;
     private boolean isBJHPost;
@@ -45,6 +46,7 @@ public class WriteData extends OrmObject implements Serializable {
     private boolean isShareThread;
     private boolean isToDynamic;
     private boolean isUserFeedback;
+    private String item_id;
     private String linkUrl;
     private String linkUrlCode;
     private String mAuthSid;
@@ -1049,5 +1051,21 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setIsGeneralTab(int i) {
         this.isGeneralTab = i;
+    }
+
+    public String getItem_id() {
+        return this.item_id;
+    }
+
+    public void setItem_id(String str) {
+        this.item_id = str;
+    }
+
+    public String getComment_head() {
+        return this.comment_head;
+    }
+
+    public void setComment_head(String str) {
+        this.comment_head = str;
     }
 }

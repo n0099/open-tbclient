@@ -34,7 +34,7 @@ public class GiftPanelDrawContainerView extends LinearLayout implements View.OnC
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bW(int i);
+        void bY(int i);
 
         void zm();
     }
@@ -57,7 +57,7 @@ public class GiftPanelDrawContainerView extends LinearLayout implements View.OnC
                     GiftPanelDrawContainerView.this.Bu();
                 }
                 if (GiftPanelDrawContainerView.this.aNI != null) {
-                    GiftPanelDrawContainerView.this.aNI.bW(i);
+                    GiftPanelDrawContainerView.this.aNI.bY(i);
                 }
             }
         };

@@ -203,10 +203,10 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
             @Override // com.baidu.swan.apps.media.chooser.c.f
             public void a(RecyclerView.ViewHolder viewHolder) {
                 if (SwanAppAlbumPreviewActivity.this.clk != null) {
-                    MediaModel fM = SwanAppAlbumPreviewActivity.this.clg.fM(viewHolder.getAdapterPosition());
+                    MediaModel fO = SwanAppAlbumPreviewActivity.this.clg.fO(viewHolder.getAdapterPosition());
                     int size = SwanAppAlbumPreviewActivity.this.clk.size();
                     for (int i = 0; i < size; i++) {
-                        if (SwanAppAlbumPreviewActivity.this.clk.get(i) != null && ((MediaModel) SwanAppAlbumPreviewActivity.this.clk.get(i)).equals(fM)) {
+                        if (SwanAppAlbumPreviewActivity.this.clk.get(i) != null && ((MediaModel) SwanAppAlbumPreviewActivity.this.clk.get(i)).equals(fO)) {
                             a.eh(true);
                             SwanAppAlbumPreviewActivity.this.mViewPager.setCurrentItem(i);
                             a.eh(false);
@@ -483,9 +483,9 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
     }
 
     @Override // com.baidu.swan.apps.view.DragView.a
-    public void fI(int i) {
-        fJ(i);
-        fK(i);
+    public void fK(int i) {
+        fL(i);
+        fM(i);
         if (i != 0 && this.clh) {
             c(new ColorDrawable(Color.parseColor("#1a1a1a")));
             this.ckV.setBackground(new ColorDrawable(0));
@@ -514,7 +514,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         }
     }
 
-    private void fJ(int i) {
+    private void fL(int i) {
         float f = i == 0 ? 0.0f : 1.0f;
         if (this.clc != null) {
             this.clc.setAlpha(1.0f - f);
@@ -524,7 +524,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         }
     }
 
-    private void fK(int i) {
+    private void fM(int i) {
         int i2;
         int abs = Math.abs(i);
         if (abs >= 0 && abs < 300.0f) {

@@ -25,9 +25,9 @@ public interface a {
 
     void bX(boolean z);
 
-    void cD(int i);
+    void cF(int i);
 
-    void cE(int i);
+    void cG(int i);
 
     void m(ViewGroup viewGroup);
 

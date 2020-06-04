@@ -302,11 +302,11 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         this.dRt.setOnClickListener(this.mOnClickListener);
         this.dRv = new com.baidu.tieba.tbadkCore.data.e();
         this.dRv.uniqueId = getPageId();
-        aVM();
+        aVN();
         setAgreeAnimationResource();
     }
 
-    private void aVM() {
+    private void aVN() {
         LinearLayout linearLayout = new LinearLayout(getContext());
         this.dRH = linearLayout;
         linearLayout.setOrientation(0);
@@ -357,7 +357,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         setAgreeAlone(this.dRI);
     }
 
-    public void aVN() {
+    public void aVO() {
         int dimens = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds112);
         int dimens2 = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds19);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimens, dimens);
@@ -405,7 +405,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         this.dRt.setLayoutParams(layoutParams4);
     }
 
-    public void aVO() {
+    public void aVP() {
         int dimens = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds152);
         int i = -com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds38);
         removeAllViews();
@@ -581,7 +581,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         setTextNormalColor(this.dRt);
     }
 
-    public void aVP() {
+    public void aVQ() {
         aT(this.dRq);
     }
 
@@ -611,25 +611,25 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                                 this.dRu.hasAgree = true;
                                 this.dRu.agreeNum++;
                                 hg(true);
-                                com.baidu.tieba.o.a.cTS().E(getTbPageContext());
+                                com.baidu.tieba.o.a.cUi().E(getTbPageContext());
                                 if (this.dRz != null) {
                                     this.dRz.dBc = 0;
                                     i2 = 0;
                                 }
                             }
-                            lE(i2);
+                            lG(i2);
                         } else {
                             this.dRu.agreeType = 2;
                             this.dRu.hasAgree = true;
                             this.dRu.agreeNum++;
                             hg(true);
-                            com.baidu.tieba.o.a.cTS().E(getTbPageContext());
+                            com.baidu.tieba.o.a.cUi().E(getTbPageContext());
                             if (this.dRz != null) {
                                 this.dRz.dBc = 0;
                             }
                         }
                         i2 = 0;
-                        lE(i2);
+                        lG(i2);
                     } else if (view.getId() == this.dRs.getId()) {
                         this.dRs.cancelAnimation();
                         if (this.dRz != null) {
@@ -663,7 +663,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                                 this.dRz.dBg = 1;
                             }
                         }
-                        lE(i);
+                        lG(i);
                     }
                     this.dRv.agreeData = this.dRu;
                     if (this.dRu.isInThread) {
@@ -679,7 +679,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                     if (this.ags != null) {
                         this.ags.onClick(view);
                     }
-                    aVQ();
+                    aVR();
                 }
             }
         }
@@ -692,7 +692,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         com.baidu.tbadk.mutiprocess.g.publishEvent(agreeEvent);
     }
 
-    public void lE(int i) {
+    public void lG(int i) {
         if (this.dRu != null) {
             HttpMessage httpMessage = new HttpMessage(1001601);
             httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
@@ -731,7 +731,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         }
     }
 
-    public void aVQ() {
+    public void aVR() {
         if (this.dRz != null && this.dRu != null) {
             int i = 0;
             if (this.dRu.baijiahaoData != null) {
@@ -768,8 +768,8 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                             dh.dh("obj_param6", this.dRu.baijiahaoData.oriUgcVid);
                         }
                     }
-                    if (lF(this.dRz.dAZ) && lG(this.dRz.dBd) != -1) {
-                        dh.ag(TiebaInitialize.Params.OBJ_TO, lG(this.dRz.dBd));
+                    if (lH(this.dRz.dAZ) && lI(this.dRz.dBd) != -1) {
+                        dh.ag(TiebaInitialize.Params.OBJ_TO, lI(this.dRz.dBd));
                     }
                     if (this.mFrom == 1 || this.mFrom == 2) {
                         dh.dh("obj_tab", PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
@@ -843,11 +843,11 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         }
     }
 
-    public static boolean lF(int i) {
+    public static boolean lH(int i) {
         return i == 4 || i == 5 || i == 12;
     }
 
-    public static int lG(int i) {
+    public static int lI(int i) {
         if (i == 2) {
             return 1;
         }
@@ -945,7 +945,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         this.dRI = z;
     }
 
-    public boolean aVR() {
+    public boolean aVS() {
         return this.dRI;
     }
 

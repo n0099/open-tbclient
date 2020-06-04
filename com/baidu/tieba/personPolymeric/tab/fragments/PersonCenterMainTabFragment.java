@@ -15,10 +15,10 @@ import tbclient.User;
 /* loaded from: classes11.dex */
 public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     private boolean isHost = false;
-    private com.baidu.tieba.personPolymeric.tab.view.a kuh;
-    private User kuj;
-    private b kuq;
-    private com.baidu.tieba.personPolymeric.c.a kur;
+    private com.baidu.tieba.personPolymeric.tab.view.a kvn;
+    private User kvp;
+    private b kvw;
+    private com.baidu.tieba.personPolymeric.c.a kvx;
     private long mUserId;
 
     public static PersonCenterMainTabFragment l(long j, boolean z) {
@@ -40,9 +40,9 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.person_center_common_tab_layout, viewGroup, false);
-        this.kuh = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
-        this.kuq = new b(getPageContext(), this.isHost);
-        this.kuh.addHeaderView(this.kuq.getView());
+        this.kvn = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
+        this.kvw = new b(getPageContext(), this.isHost);
+        this.kvn.addHeaderView(this.kvw.getView());
         return inflate;
     }
 
@@ -60,10 +60,10 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     }
 
     public void d(com.baidu.tieba.personPolymeric.c.a aVar) {
-        if (aVar != null && this.kuh != null && isAdded()) {
+        if (aVar != null && this.kvn != null && isAdded()) {
             f(aVar);
         } else if (aVar != null) {
-            this.kur = aVar;
+            this.kvx = aVar;
         }
     }
 
@@ -79,28 +79,28 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void tf(boolean z) {
-        bUy();
+        bUA();
     }
 
-    public void bUy() {
-        if (this.kuh != null && isAdded()) {
-            this.kuh.bUy();
+    public void bUA() {
+        if (this.kvn != null && isAdded()) {
+            this.kvn.bUA();
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void d(User user) {
-        this.kuj = user;
+        this.kvp = user;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kuh != null) {
-            this.kuh.onChangeSkinType(i);
+        if (this.kvn != null) {
+            this.kvn.onChangeSkinType(i);
         }
-        if (this.kuq != null) {
-            this.kuq.onChangeSkinType(i);
+        if (this.kvw != null) {
+            this.kvw.onChangeSkinType(i);
         }
     }
 
@@ -114,21 +114,21 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.kuh != null && this.kuq != null && this.kur != null) {
-            f(this.kur);
-            this.kur = null;
+        if (this.kvn != null && this.kvw != null && this.kvx != null) {
+            f(this.kvx);
+            this.kvx = null;
         }
     }
 
     private void f(com.baidu.tieba.personPolymeric.c.a aVar) {
-        if (this.kuh != null && this.kuq != null && aVar != null) {
-            List<o> em = com.baidu.tieba.personPolymeric.tab.b.a.em(aVar.getNewestThreadList());
-            if (!v.isEmpty(em)) {
-                this.kuh.Bx(R.string.person_center_tab_main_footer_text);
+        if (this.kvn != null && this.kvw != null && aVar != null) {
+            List<o> eo = com.baidu.tieba.personPolymeric.tab.b.a.eo(aVar.getNewestThreadList());
+            if (!v.isEmpty(eo)) {
+                this.kvn.Bz(R.string.person_center_tab_main_footer_text);
             }
-            this.kuh.en(em);
-            this.kuq.b(aVar);
-            this.kuq.am(v.isEmpty(em), isHost());
+            this.kvn.ep(eo);
+            this.kvw.b(aVar);
+            this.kvw.am(v.isEmpty(eo), isHost());
         }
     }
 }

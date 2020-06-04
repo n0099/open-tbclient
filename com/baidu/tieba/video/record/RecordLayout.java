@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class RecordLayout extends RelativeLayout {
-    private a lHj;
+    private a lIs;
     private float mDownX;
     private int mFlingDistance;
     private int mMaximumVelocity;
@@ -18,9 +18,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void dkk();
+        void dkA();
 
-        void dkl();
+        void dkz();
     }
 
     public RecordLayout(Context context) {
@@ -56,21 +56,21 @@ public class RecordLayout extends RelativeLayout {
                 break;
             case 1:
             case 3:
-                if (this.lHj != null) {
+                if (this.lIs != null) {
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.mDownX);
                     if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                         if (rawX > 0) {
-                            this.lHj.dkl();
+                            this.lIs.dkA();
                         } else {
-                            this.lHj.dkk();
+                            this.lIs.dkz();
                         }
                     } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.getEquipmentWidth(getContext())) {
                         if (rawX > 0) {
-                            this.lHj.dkl();
+                            this.lIs.dkA();
                         } else {
-                            this.lHj.dkl();
+                            this.lIs.dkA();
                         }
                     }
                     this.mVelocityTracker.clear();
@@ -84,6 +84,6 @@ public class RecordLayout extends RelativeLayout {
     }
 
     public void setListener(a aVar) {
-        this.lHj = aVar;
+        this.lIs = aVar;
     }
 }

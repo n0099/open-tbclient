@@ -22,67 +22,67 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
-    private static final float feA = TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds20);
-    private static final float[] fgI = {0.0f, 0.0f, 0.0f, 0.0f, feA, feA, feA, feA};
+    private static final float feL = TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds20);
+    private static final float[] fgT = {0.0f, 0.0f, 0.0f, 0.0f, feL, feL, feL, feL};
     private TextView dXU;
-    private int[] feE;
-    private TbImageView fgB;
-    private HeadImageView fgC;
-    private View fgD;
-    private TextView fgE;
-    private View fgF;
-    private TabLiveStageLiveZanLottieView fgG;
-    private SdkLiveInfoData fgH;
+    private int[] feP;
+    private TbImageView fgM;
+    private HeadImageView fgN;
+    private View fgO;
+    private TextView fgP;
+    private View fgQ;
+    private TabLiveStageLiveZanLottieView fgR;
+    private SdkLiveInfoData fgS;
     private TextView mTitle;
     private int mType;
 
     public TabLiveStageLiveView(Context context) {
         super(context);
         this.mType = 101;
-        this.feE = new int[]{TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha50)};
+        this.feP = new int[]{TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha50)};
         init();
     }
 
     public TabLiveStageLiveView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mType = 101;
-        this.feE = new int[]{TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha50)};
+        this.feP = new int[]{TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha50)};
         init();
     }
 
     public TabLiveStageLiveView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mType = 101;
-        this.feE = new int[]{TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha50)};
+        this.feP = new int[]{TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha50)};
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.tab_stage_view, this);
-        setRoundLayoutRadius(new float[]{feA, feA, feA, feA, feA, feA, feA, feA});
-        this.fgG = (TabLiveStageLiveZanLottieView) findViewById(R.id.zan_lottie_view);
-        this.fgG.setForbidAutoUpdateState(true);
-        this.fgB = (TbImageView) findViewById(R.id.cover);
-        this.fgB.setBackgroundColor(0);
-        this.fgB.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
-        this.fgB.setConrers(15);
-        this.fgC = (HeadImageView) findViewById(R.id.head_img);
-        this.fgC.setAutoChangeStyle(false);
-        this.fgC.setClickable(true);
-        this.fgC.setIsRound(true);
-        this.fgC.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds1));
-        this.fgD = findViewById(R.id.head_mask_view);
+        setRoundLayoutRadius(new float[]{feL, feL, feL, feL, feL, feL, feL, feL});
+        this.fgR = (TabLiveStageLiveZanLottieView) findViewById(R.id.zan_lottie_view);
+        this.fgR.setForbidAutoUpdateState(true);
+        this.fgM = (TbImageView) findViewById(R.id.cover);
+        this.fgM.setBackgroundColor(0);
+        this.fgM.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
+        this.fgM.setConrers(15);
+        this.fgN = (HeadImageView) findViewById(R.id.head_img);
+        this.fgN.setAutoChangeStyle(false);
+        this.fgN.setClickable(true);
+        this.fgN.setIsRound(true);
+        this.fgN.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds1));
+        this.fgO = findViewById(R.id.head_mask_view);
         this.mTitle = (TextView) findViewById(R.id.title);
         this.dXU = (TextView) findViewById(R.id.user_name);
-        this.fgE = (TextView) findViewById(R.id.audience_count);
-        this.fgF = findViewById(R.id.bottom_gradient_bg);
-        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.feE);
-        gradientDrawable.setCornerRadii(fgI);
-        this.fgF.setBackgroundDrawable(gradientDrawable);
+        this.fgP = (TextView) findViewById(R.id.audience_count);
+        this.fgQ = findViewById(R.id.bottom_gradient_bg);
+        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.feP);
+        gradientDrawable.setCornerRadii(fgT);
+        this.fgQ.setBackgroundDrawable(gradientDrawable);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.TabLiveStageLiveView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.baidu.tieba.ala.alasquare.live_tab.c.a(TabLiveStageLiveView.this.getContext(), TabLiveStageLiveView.this.fgH);
+                com.baidu.tieba.ala.alasquare.live_tab.c.a(TabLiveStageLiveView.this.getContext(), TabLiveStageLiveView.this.fgS);
                 if (TabLiveStageLiveView.this.mType != 101) {
                     if (TabLiveStageLiveView.this.mType == 102) {
                         an anVar = new an("c13559");
@@ -97,7 +97,7 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
                 TiebaStatic.log(anVar2);
             }
         });
-        brp();
+        brr();
     }
 
     public void setData(SdkLiveInfoData sdkLiveInfoData, int i) {
@@ -105,43 +105,43 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
             setVisibility(4);
             return;
         }
-        this.fgH = sdkLiveInfoData;
+        this.fgS = sdkLiveInfoData;
         this.mType = i;
-        this.fgB.setPlaceHolder(3);
-        this.fgB.startLoad(sdkLiveInfoData.liveInfo.cover, 10, false);
+        this.fgM.setPlaceHolder(3);
+        this.fgM.startLoad(sdkLiveInfoData.liveInfo.cover, 10, false);
         if (sdkLiveInfoData.liveAuthor != null) {
             String name_show = sdkLiveInfoData.liveAuthor.getName_show();
             if (ae.getTextLengthWithEmoji(name_show) > 16) {
                 name_show = ae.subStringWithEmoji(name_show, 16) + StringHelper.STRING_MORE;
             }
             this.dXU.setText(name_show);
-            AlaUtilHelper.startLoadPortrait(this.fgC, sdkLiveInfoData.liveAuthor.portrait, false);
+            AlaUtilHelper.startLoadPortrait(this.fgN, sdkLiveInfoData.liveAuthor.portrait, false);
             if (1 == TbadkCoreApplication.getInst().getSkinType()) {
-                this.fgD.setVisibility(0);
+                this.fgO.setVisibility(0);
             } else {
-                this.fgD.setVisibility(8);
+                this.fgO.setVisibility(8);
             }
         }
         this.mTitle.setText(sdkLiveInfoData.title);
-        this.fgE.setText(getContext().getResources().getString(R.string.square_sub_live_audience_label, aq.cl(sdkLiveInfoData.liveInfo.audienceCount)));
+        this.fgP.setText(getContext().getResources().getString(R.string.square_sub_live_audience_label, aq.cl(sdkLiveInfoData.liveInfo.audienceCount)));
     }
 
     public void onChangeSkinType() {
         am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_a);
         am.setViewTextColor(this.dXU, (int) R.color.cp_cont_a);
-        am.setViewTextColor(this.fgE, (int) R.color.cp_cont_a);
+        am.setViewTextColor(this.fgP, (int) R.color.cp_cont_a);
         Drawable drawable = am.getDrawable(getContext().getResources(), (int) R.drawable.tab_icon_living_seeding);
         drawable.setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18), getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18));
-        this.fgE.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-        this.fgE.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelOffset(R.dimen.tbds8));
+        this.fgP.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+        this.fgP.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelOffset(R.dimen.tbds8));
     }
 
-    private void brp() {
+    private void brr() {
         try {
-            this.fgG.setAnimation("zan_lottie_anim.json");
-            this.fgG.setImageAssetsFolder("images/");
-            this.fgG.loop(true);
-            this.fgG.playAnimation();
+            this.fgR.setAnimation("zan_lottie_anim.json");
+            this.fgR.setImageAssetsFolder("images/");
+            this.fgR.loop(true);
+            this.fgR.playAnimation();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -150,15 +150,15 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.fgG != null && !this.fgG.isAnimating()) {
-            this.fgG.playAnimation();
+        if (this.fgR != null && !this.fgR.isAnimating()) {
+            this.fgR.playAnimation();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        if (this.fgG != null && this.fgG.isAnimating()) {
-            this.fgG.pauseAnimation();
+        if (this.fgR != null && this.fgR.isAnimating()) {
+            this.fgR.pauseAnimation();
         }
         super.onDetachedFromWindow();
     }

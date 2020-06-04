@@ -17,16 +17,16 @@ import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public final class a implements g {
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a eND = new a();
+    private static a eNO = new a();
     private final List<g.a> mListeners = new LinkedList();
     private final ConcurrentHashMap<String, g.b> mHandlers = new ConcurrentHashMap<>();
-    private g.c eNE = null;
+    private g.c eNP = null;
 
     private a() {
     }
 
-    public static a bms() {
-        return eND;
+    public static a bmu() {
+        return eNO;
     }
 
     public void a(final g.a aVar) {
@@ -50,7 +50,7 @@ public final class a implements g {
     }
 
     public void a(g.c cVar) {
-        this.eNE = cVar;
+        this.eNP = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, g.d dVar, boolean z2) {
@@ -94,7 +94,7 @@ public final class a implements g {
                 break;
             }
         }
-        if (!z3 && this.eNE != null) {
+        if (!z3 && this.eNP != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -154,7 +154,7 @@ public final class a implements g {
 
     private void a(Context context, String str, String str2, boolean z, g.d dVar, boolean z2) {
         if (pattern.matcher(str2).find()) {
-            this.eNE.b(context, str, str2, z, dVar, z2);
+            this.eNP.b(context, str, str2, z, dVar, z2);
         }
     }
 

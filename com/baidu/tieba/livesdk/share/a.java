@@ -53,7 +53,7 @@ public class a implements IShareChannel, f {
 
     private void a(int i, ShareEntity shareEntity, IShareCallback iShareCallback) {
         if (shareEntity != null) {
-            if (!yX(i)) {
+            if (!yZ(i)) {
                 if (iShareCallback != null) {
                     iShareCallback.onShare(0, 0, "");
                     return;
@@ -67,7 +67,7 @@ public class a implements IShareChannel, f {
         }
     }
 
-    private boolean yX(int i) {
+    private boolean yZ(int i) {
         boolean z = false;
         switch (i) {
             case 2:
