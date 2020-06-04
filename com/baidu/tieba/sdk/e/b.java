@@ -22,9 +22,9 @@ public class b implements CustomMessageTask.CustomRunnable {
             if (!(alaLiveRoomActivityConfig.getContext() instanceof Activity)) {
                 intent.addFlags(268435456);
             }
-            e cWn = com.baidu.tieba.sdk.d.a.cWj().cWn();
-            if (cWn != null) {
-                cWn.f(alaLiveRoomActivityConfig.getContext(), intent);
+            e cWD = com.baidu.tieba.sdk.d.a.cWz().cWD();
+            if (cWD != null) {
+                cWD.f(alaLiveRoomActivityConfig.getContext(), intent);
                 return null;
             }
             return null;

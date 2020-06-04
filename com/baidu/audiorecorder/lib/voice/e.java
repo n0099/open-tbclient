@@ -55,7 +55,7 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
                 return false;
             }
             stopPlay(true);
-            this.Zz = com.baidu.tbadk.core.voice.a.aXn();
+            this.Zz = com.baidu.tbadk.core.voice.a.aXo();
             String wX = com.baidu.tbadk.core.voice.a.wX(this.Zz);
             if (this.ZA == null) {
                 this.ZA = new a();

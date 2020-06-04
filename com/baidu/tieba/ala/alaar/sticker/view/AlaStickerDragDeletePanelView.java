@@ -12,12 +12,12 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaStickerDragDeletePanelView extends RelativeLayout {
-    private RelativeLayout eYf;
-    private View eYg;
-    private ImageView eYh;
-    private TextView eYi;
-    private TextView eYj;
-    private View eYk;
+    private RelativeLayout eYq;
+    private View eYr;
+    private ImageView eYs;
+    private TextView eYt;
+    private TextView eYu;
+    private View eYv;
 
     public AlaStickerDragDeletePanelView(Context context) {
         super(context);
@@ -36,57 +36,57 @@ public class AlaStickerDragDeletePanelView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(getContext()).inflate(a.h.ala_sticker_delete_panel, this);
-        this.eYf = (RelativeLayout) findViewById(a.g.delete_panel_top);
-        this.eYg = findViewById(a.g.delete_panel_top_bg);
-        this.eYk = findViewById(a.g.delete_panel_delete_info);
-        this.eYh = (ImageView) findViewById(a.g.delete_panel_delete_img);
-        this.eYi = (TextView) findViewById(a.g.delete_panel_delete_text);
-        this.eYj = (TextView) findViewById(a.g.delete_panel_bottom);
+        this.eYq = (RelativeLayout) findViewById(a.g.delete_panel_top);
+        this.eYr = findViewById(a.g.delete_panel_top_bg);
+        this.eYv = findViewById(a.g.delete_panel_delete_info);
+        this.eYs = (ImageView) findViewById(a.g.delete_panel_delete_img);
+        this.eYt = (TextView) findViewById(a.g.delete_panel_delete_text);
+        this.eYu = (TextView) findViewById(a.g.delete_panel_bottom);
     }
 
     public void jf(boolean z) {
         if (z) {
-            this.eYg.setBackgroundResource(a.d.color_live_sticker_red_40);
-            this.eYh.setBackgroundResource(a.f.icon_live_paste_delete_on_n);
-            this.eYi.setText(a.i.ala_live_sticker_delete);
+            this.eYr.setBackgroundResource(a.d.color_live_sticker_red_40);
+            this.eYs.setBackgroundResource(a.f.icon_live_paste_delete_on_n);
+            this.eYt.setText(a.i.ala_live_sticker_delete);
             return;
         }
-        this.eYg.setBackgroundResource(a.d.color_live_sticker_red_50);
-        this.eYh.setBackgroundResource(a.f.icon_live_paste_delete_n);
-        this.eYi.setText(a.i.ala_live_sticker_delete_move);
+        this.eYr.setBackgroundResource(a.d.color_live_sticker_red_50);
+        this.eYs.setBackgroundResource(a.f.icon_live_paste_delete_n);
+        this.eYt.setText(a.i.ala_live_sticker_delete_move);
     }
 
     public void setTopDeletePanelHeight(int i) {
         if (i > getResources().getDimensionPixelOffset(a.e.sdk_ds30)) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eYf.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eYq.getLayoutParams();
             layoutParams.height = i;
-            this.eYf.setLayoutParams(layoutParams);
+            this.eYq.setLayoutParams(layoutParams);
         } else {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.eYf.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.eYq.getLayoutParams();
             layoutParams2.height = getTopDeletePanelHeight();
-            this.eYf.setLayoutParams(layoutParams2);
+            this.eYq.setLayoutParams(layoutParams2);
         }
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.eYk.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.eYv.getLayoutParams();
             layoutParams3.addRule(12);
             layoutParams3.bottomMargin = getResources().getDimensionPixelOffset(a.e.sdk_ds40);
-            this.eYk.setLayoutParams(layoutParams3);
+            this.eYv.setLayoutParams(layoutParams3);
             return;
         }
-        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.eYk.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.eYv.getLayoutParams();
         layoutParams4.addRule(15);
-        this.eYk.setLayoutParams(layoutParams4);
+        this.eYv.setLayoutParams(layoutParams4);
     }
 
     public int getTopDeletePanelBottom() {
-        return this.eYf.getBottom();
+        return this.eYq.getBottom();
     }
 
     public void setDeleteBottomHeight(int i) {
         if (i > 0) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eYj.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eYu.getLayoutParams();
             layoutParams.height = i;
-            this.eYj.setLayoutParams(layoutParams);
+            this.eYu.setLayoutParams(layoutParams);
         }
     }
 

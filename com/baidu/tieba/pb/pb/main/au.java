@@ -20,7 +20,7 @@ import java.util.Random;
 /* loaded from: classes9.dex */
 public class au {
     private static TextView evA;
-    private static final int[] jRa = {R.string.i_have_a_bold_idea, R.string.give_you_a_god_comment_chance, R.string.wait_for_you_so_long_time_finally_you_come, R.string.hot_or_not_hot_up_to_you, R.string.let_us_talk_dont_shy};
+    private static final int[] jSg = {R.string.i_have_a_bold_idea, R.string.give_you_a_god_comment_chance, R.string.wait_for_you_so_long_time_finally_you_come, R.string.hot_or_not_hot_up_to_you, R.string.let_us_talk_dont_shy};
 
     public static Intent aC(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
@@ -34,11 +34,11 @@ public class au {
         return intent;
     }
 
-    public static int cGX() {
-        return jRa[new Random().nextInt(jRa.length)];
+    public static int cHn() {
+        return jSg[new Random().nextInt(jSg.length)];
     }
 
-    public static String Jx(String str) {
+    public static String Jy(String str) {
         return TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedBarText(str, 7, false)});
     }
 
@@ -84,20 +84,20 @@ public class au {
         }
     }
 
-    public static int cGY() {
+    public static int cHo() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds88);
     }
 
-    public static int cGZ() {
+    public static int cHp() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds195);
     }
 
     public static int q(com.baidu.tieba.pb.data.e eVar) {
-        if (eVar == null || eVar.cCi() == null) {
+        if (eVar == null || eVar.cCy() == null) {
             return 0;
         }
-        if (eVar.cCi().aRV()) {
-            return (com.baidu.tbadk.core.util.v.isEmpty(eVar.cCE()) && (eVar.cCh() == null || StringUtils.isNull(eVar.cCh().getForumName()))) ? 0 : 2;
+        if (eVar.cCy().aRV()) {
+            return (com.baidu.tbadk.core.util.v.isEmpty(eVar.cCU()) && (eVar.cCx() == null || StringUtils.isNull(eVar.cCx().getForumName()))) ? 0 : 2;
         }
         return 1;
     }

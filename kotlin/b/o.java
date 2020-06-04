@@ -4,11 +4,11 @@ package kotlin.b;
 /* loaded from: classes7.dex */
 public class o extends n {
     public static final f dN(int i, int i2) {
-        return f.ntn.ao(i, i2, -1);
+        return f.nuy.ao(i, i2, -1);
     }
 
     public static final h dO(int i, int i2) {
-        return i2 <= Integer.MIN_VALUE ? h.ntp.dMb() : new h(i, i2 - 1);
+        return i2 <= Integer.MIN_VALUE ? h.nuA.dMp() : new h(i, i2 - 1);
     }
 
     public static final int dP(int i, int i2) {

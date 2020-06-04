@@ -47,7 +47,7 @@ public final class a {
                 this.dai.add(sf);
             }
             if (hVar != null) {
-                hVar.iN(sf.intValue());
+                hVar.iP(sf.intValue());
             }
             return true;
         }
@@ -61,7 +61,7 @@ public final class a {
                 Integer next = it.next();
                 if (hVar != null) {
                     q.l((Object) next, "id");
-                    hVar.iN(next.intValue());
+                    hVar.iP(next.intValue());
                 }
             }
         }

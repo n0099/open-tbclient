@@ -79,7 +79,7 @@ public class c {
             }
             jSONObject.put("zeus", com.baidu.swan.apps.u.a.afd().be(AppRuntime.getAppContext()));
             jSONObject.put("net", SwanAppNetworkUtils.getNetworkClass());
-            jSONObject.put("swaninfo", com.baidu.swan.apps.swancore.b.hb(com.baidu.swan.apps.runtime.d.aoB().Qz()).toString());
+            jSONObject.put("swaninfo", com.baidu.swan.apps.swancore.b.hd(com.baidu.swan.apps.runtime.d.aoB().Qz()).toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -87,7 +87,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void fW(@StringRes int i) {
+    public static void fY(@StringRes int i) {
         String aoH = com.baidu.swan.apps.runtime.e.aoH();
         Context ahF = com.baidu.swan.apps.w.f.ahV().ahF();
         if (ahF == null) {
@@ -95,7 +95,7 @@ public class c {
         }
         if (!TextUtils.isEmpty(aoH)) {
             if (aoH.lastIndexOf("_dev") > 0 || aoH.lastIndexOf("_trial") > 0) {
-                com.baidu.swan.apps.res.widget.b.d.k(ahF, i).gG(5).gC(3).showToast();
+                com.baidu.swan.apps.res.widget.b.d.k(ahF, i).gI(5).gE(3).showToast();
             }
         }
     }

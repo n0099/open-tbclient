@@ -10,9 +10,9 @@ import com.baidu.android.util.devices.RomUtils;
 import java.lang.reflect.Field;
 /* loaded from: classes13.dex */
 public class h extends MediaPlayer {
-    private b eKF;
-    private Handler eKH;
-    private Handler.Callback eKI;
+    private b eKQ;
+    private Handler eKS;
+    private Handler.Callback eKT;
 
     /* loaded from: classes13.dex */
     public interface b {
@@ -26,12 +26,12 @@ public class h extends MediaPlayer {
                 declaredField.setAccessible(true);
                 Object obj = declaredField.get(this);
                 if (obj instanceof Handler) {
-                    this.eKH = (Handler) obj;
+                    this.eKS = (Handler) obj;
                     Field declaredField2 = Handler.class.getDeclaredField("mCallback");
                     declaredField2.setAccessible(true);
                     Object obj2 = declaredField2.get(obj);
                     if (obj2 instanceof Handler.Callback) {
-                        this.eKI = (Handler.Callback) obj2;
+                        this.eKT = (Handler.Callback) obj2;
                     }
                     declaredField2.set(obj, new a());
                 }
@@ -50,8 +50,8 @@ public class h extends MediaPlayer {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             try {
-                if ((h.this.eKI == null || !h.this.eKI.handleMessage(message)) && h.this.eKH != null) {
-                    h.this.eKH.handleMessage(message);
+                if ((h.this.eKT == null || !h.this.eKT.handleMessage(message)) && h.this.eKS != null) {
+                    h.this.eKS.handleMessage(message);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -65,8 +65,8 @@ public class h extends MediaPlayer {
     public void q(Throwable th) {
         if (th != null) {
             String t = com.baidu.tieba.k.a.t(th);
-            if (this.eKF != null) {
-                this.eKF.handleOppoError(t);
+            if (this.eKQ != null) {
+                this.eKQ.handleOppoError(t);
             }
         }
     }
@@ -79,6 +79,6 @@ public class h extends MediaPlayer {
     }
 
     public void a(b bVar) {
-        this.eKF = bVar;
+        this.eKQ = bVar;
     }
 }

@@ -7,7 +7,7 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public class FCMPushHelper {
     public static void clearToken(Context context) {
-        h.m111a(context, d.ASSEMBLE_PUSH_FCM);
+        h.m110a(context, d.ASSEMBLE_PUSH_FCM);
     }
 
     public static void convertMessage(Intent intent) {
@@ -15,7 +15,7 @@ public class FCMPushHelper {
     }
 
     public static boolean isFCMSwitchOpen(Context context) {
-        return h.m113a(context, d.ASSEMBLE_PUSH_FCM) && MiPushClient.getOpenFCMPush(context);
+        return h.m112a(context, d.ASSEMBLE_PUSH_FCM) && MiPushClient.getOpenFCMPush(context);
     }
 
     public static void notifyFCMNotificationCome(Context context, Map<String, String> map) {

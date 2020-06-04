@@ -22,7 +22,7 @@ public class a {
     /* renamed from: com.baidu.tbadk.coreExtra.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0481a {
-        void bbW();
+        void bbX();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -31,7 +31,7 @@ public class a {
         private static a eja = new a();
     }
 
-    public static a bbR() {
+    public static a bbS() {
         return c.eja;
     }
 
@@ -44,13 +44,13 @@ public class a {
         this.eiU = null;
     }
 
-    public int bbS() {
+    public int bbT() {
         return com.baidu.tbadk.core.sharedPref.b.aTX().getInt("KeyOfSharedPrefImCount", 0);
     }
 
-    public String bbT() {
-        int bbS = bbS();
-        if (bbS >= 10) {
+    public String bbU() {
+        int bbT = bbT();
+        if (bbT >= 10) {
             com.baidu.tbadk.core.sharedPref.b.aTX().putInt("KeyOfSharedPrefImCount", 0);
             com.baidu.tbadk.core.sharedPref.b.aTX().putString("KeyOfSharedPrefValidIp", "");
             this.eiT = null;
@@ -60,7 +60,7 @@ public class a {
             this.eiT = com.baidu.tbadk.core.sharedPref.b.aTX().getString("KeyOfSharedPrefValidIp", null);
         }
         if (!k.isEmpty(this.eiT)) {
-            com.baidu.tbadk.core.sharedPref.b.aTX().putInt("KeyOfSharedPrefImCount", bbS + 1);
+            com.baidu.tbadk.core.sharedPref.b.aTX().putInt("KeyOfSharedPrefImCount", bbT + 1);
         } else {
             this.eiT = null;
         }
@@ -85,11 +85,11 @@ public class a {
         return this.eiU;
     }
 
-    public void bbU() {
+    public void bbV() {
         this.eiW = false;
     }
 
-    public boolean bbV() {
+    public boolean bbW() {
         return this.eiW;
     }
 
@@ -133,7 +133,7 @@ public class a {
             try {
                 this.mNetwork = new x(TbConfig.SERVER_ADDRESS + TbConfig.GET_IP_LIST);
                 String postNetData = this.mNetwork.postNetData();
-                if (this.mNetwork.aUA().aVb().isRequestSuccess() && postNetData != null) {
+                if (this.mNetwork.aUA().aVc().isRequestSuccess() && postNetData != null) {
                     JSONObject jSONObject = new JSONObject(postNetData);
                     if (jSONObject.optInt("error_code") == 0) {
                         String optString = jSONObject.optString("urls");
@@ -145,7 +145,7 @@ public class a {
                                 f fVar = new f();
                                 fVar.xK(str2);
                                 if (fVar.isSucc()) {
-                                    hashMap.put(str2, Integer.valueOf(fVar.bce()));
+                                    hashMap.put(str2, Integer.valueOf(fVar.bcf()));
                                 }
                             }
                             if (hashMap.size() > 0) {
@@ -193,7 +193,7 @@ public class a {
         public void onPostExecute(Void r3) {
             a.this.eiV = null;
             if (this.eiX != null) {
-                this.eiX.bbW();
+                this.eiX.bbX();
             }
         }
 
@@ -203,7 +203,7 @@ public class a {
         public void onCancelled(Void r3) {
             a.this.eiV = null;
             if (this.eiX != null) {
-                this.eiX.bbW();
+                this.eiX.bbX();
             }
         }
 
@@ -212,7 +212,7 @@ public class a {
         public void onCancelled() {
             a.this.eiV = null;
             if (this.eiX != null) {
-                this.eiX.bbW();
+                this.eiX.bbX();
             }
         }
 

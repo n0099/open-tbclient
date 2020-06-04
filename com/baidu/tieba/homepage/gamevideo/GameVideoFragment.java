@@ -18,50 +18,50 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class GameVideoFragment extends BaseFragment implements aj {
-    private c iak;
+    private c iaX;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.iak == null) {
-            this.iak = new c(getPageContext(), getUniqueId());
+        if (this.iaX == null) {
+            this.iaX = new c(getPageContext(), getUniqueId());
         }
-        this.iak.init();
+        this.iaX.init();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.iak == null || this.iak.getView() == null) {
+        if (this.iaX == null || this.iaX.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.iak.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.iak.getView().getParent()).removeView(this.iak.getView());
+        if (this.iaX.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.iaX.getView().getParent()).removeView(this.iaX.getView());
         }
-        return this.iak.getView();
+        return this.iaX.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.iak != null) {
-            this.iak.loadData();
+        if (this.iaX != null) {
+            this.iaX.loadData();
         }
     }
 
     @Override // com.baidu.tieba.frs.aj
     public void Ho() {
-        if (this.iak != null) {
-            this.iak.Ho();
+        if (this.iaX != null) {
+            this.iaX.Ho();
         }
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void bqQ() {
+    public void bqS() {
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void bqR() {
+    public void bqT() {
     }
 
     @Override // com.baidu.tieba.frs.aj
@@ -73,15 +73,15 @@ public class GameVideoFragment extends BaseFragment implements aj {
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void aWq() {
+    public void aWr() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.iak != null) {
-            this.iak.aWq();
+        if (this.iaX != null) {
+            this.iaX.aWr();
         }
     }
 
@@ -91,24 +91,24 @@ public class GameVideoFragment extends BaseFragment implements aj {
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.iak != null) {
-            this.iak.setPrimary(isPrimary());
+        if (this.iaX != null) {
+            this.iaX.setPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.iak != null) {
-            this.iak.onPause();
+        if (this.iaX != null) {
+            this.iaX.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.iak != null) {
-            this.iak.onDestroy();
+        if (this.iaX != null) {
+            this.iaX.onDestroy();
         }
     }
 

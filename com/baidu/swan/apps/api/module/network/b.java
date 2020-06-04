@@ -132,7 +132,7 @@ public class b extends d {
             Pair<HttpRequest, Integer> q = q(jSONObject, hL);
             HttpRequest httpRequest = (HttpRequest) q.first;
             if (httpRequest == null) {
-                return el(((Integer) q.second).intValue());
+                return en(((Integer) q.second).intValue());
             }
             a(eVar, jSONObject, httpRequest, hL, (InterfaceC0313b) null, TextUtils.isEmpty(str) ? "" : str);
         }
@@ -146,7 +146,7 @@ public class b extends d {
                 Pair<HttpRequest, Integer> q = b.q(jSONObject, str);
                 HttpRequest httpRequest = (HttpRequest) q.first;
                 if (httpRequest == null) {
-                    b.this.a(str2, b.this.el(((Integer) q.second).intValue()));
+                    b.this.a(str2, b.this.en(((Integer) q.second).intValue()));
                     return;
                 }
                 b.this.a(eVar, jSONObject, httpRequest, str, (InterfaceC0313b) null, str2);
@@ -371,7 +371,7 @@ public class b extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.swan.apps.api.c.b el(int i) {
+    public com.baidu.swan.apps.api.c.b en(int i) {
         String str = "";
         int i2 = 202;
         switch (i) {
@@ -461,7 +461,7 @@ public class b extends d {
 
     public static void a(e eVar, String str, long j, long j2) {
         if (eVar != null && !TextUtils.isEmpty(str) && j >= 0) {
-            com.baidu.swan.apps.statistic.a.d oD = new com.baidu.swan.apps.statistic.a.d().f(new com.baidu.swan.apps.an.a().bw(5L).bx(39L)).a(eVar.aoJ()).oC(h.gS(com.baidu.swan.apps.runtime.d.aoB().Qz())).oD(com.baidu.swan.apps.runtime.d.aoB().getAppId());
+            com.baidu.swan.apps.statistic.a.d oD = new com.baidu.swan.apps.statistic.a.d().f(new com.baidu.swan.apps.an.a().bw(5L).bx(39L)).a(eVar.aoJ()).oC(h.gU(com.baidu.swan.apps.runtime.d.aoB().Qz())).oD(com.baidu.swan.apps.runtime.d.aoB().getAppId());
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("exceptionUrl", str);

@@ -14,15 +14,15 @@ import com.baidu.swan.apps.u.b.d;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes12.dex */
 public class a implements d {
-    private LocationClient dfy;
-    private LocationClientOption eSy;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final long eSz = TimeUnit.MINUTES.toMillis(3);
-    private static final C0513a eSA = new C0513a();
+    private static final long eSK = TimeUnit.MINUTES.toMillis(3);
+    private static final C0513a eSL = new C0513a();
+    private LocationClient dfy;
+    private LocationClientOption eSJ;
 
     @Override // com.baidu.swan.apps.u.b.d
     public void a(String str, boolean z, boolean z2, d.a aVar) {
-        BDLocation dh = eSA.dh(bof());
+        BDLocation dh = eSL.dh(boh());
         boolean z3 = dh != null;
         if (z3) {
             aVar.a(a(dh, str));
@@ -35,12 +35,12 @@ public class a implements d {
             locationClientOption.setIgnoreKillProcess(true);
             locationClientOption.setIsNeedAddress(true);
             this.dfy.setLocOption(locationClientOption);
-            this.eSy = locationClientOption;
+            this.eSJ = locationClientOption;
             this.dfy.start();
         }
         this.dfy.registerLocationListener(new b(this.dfy, aVar, str, z3));
-        this.eSy.setIsNeedAltitude(z2);
-        this.dfy.setLocOption(this.eSy);
+        this.eSJ.setIsNeedAltitude(z2);
+        this.dfy.setLocOption(this.eSJ);
         aj.p(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.d.a.1
             @Override // java.lang.Runnable
             public void run() {
@@ -51,7 +51,7 @@ public class a implements d {
 
     @Override // com.baidu.swan.apps.u.b.d
     public com.baidu.swan.apps.scheme.actions.f.b agi() {
-        BDLocation bDLocation = eSA.eSD;
+        BDLocation bDLocation = eSL.eSO;
         if (bDLocation == null) {
             return null;
         }
@@ -60,8 +60,8 @@ public class a implements d {
 
     @Override // com.baidu.swan.apps.u.b.d
     public void agj() {
-        long bof = bof();
-        if (eSA.eSD == null || (bof > 0 && !eSA.dg(bof))) {
+        long boh = boh();
+        if (eSL.eSO == null || (boh > 0 && !eSL.dg(boh))) {
             if (DEBUG) {
                 Log.i("SwanAppLocationImpl", "onWarmUp");
             }
@@ -108,45 +108,45 @@ public class a implements d {
         return dArr;
     }
 
-    private long bof() {
-        return eSz;
+    private long boh() {
+        return eSK;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes12.dex */
     public static class b extends BDAbstractLocationListener {
         String coorType;
-        LocationClient eSE;
-        d.a eSF;
-        boolean eSG;
+        LocationClient eSP;
+        d.a eSQ;
+        boolean eSR;
 
         public b(LocationClient locationClient, d.a aVar, String str, boolean z) {
-            this.eSE = locationClient;
-            this.eSF = aVar;
+            this.eSP = locationClient;
+            this.eSQ = aVar;
             this.coorType = str;
-            this.eSG = z;
+            this.eSR = z;
         }
 
         @Override // com.baidu.location.BDAbstractLocationListener
         public void onReceiveLocation(BDLocation bDLocation) {
-            this.eSE.unRegisterLocationListener(this);
+            this.eSP.unRegisterLocationListener(this);
             int locType = bDLocation.getLocType();
-            if (!a.pk(locType)) {
-                if (!this.eSG) {
-                    this.eSF.onFailed(locType);
+            if (!a.pm(locType)) {
+                if (!this.eSR) {
+                    this.eSQ.onFailed(locType);
                     return;
                 }
                 return;
             }
-            a.eSA.e(bDLocation);
-            if (!this.eSG) {
-                this.eSF.a(a.a(bDLocation, this.coorType));
+            a.eSL.e(bDLocation);
+            if (!this.eSR) {
+                this.eSQ.a(a.a(bDLocation, this.coorType));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean pk(int i) {
+    public static boolean pm(int i) {
         return i == 65 || i == 61 || i == 161 || i == 66 || i == 68;
     }
 
@@ -185,24 +185,24 @@ public class a implements d {
     /* renamed from: com.baidu.tieba.aiapps.apps.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes12.dex */
     public static class C0513a {
-        private long eSC;
-        private BDLocation eSD;
+        private long eSN;
+        private BDLocation eSO;
 
         private C0513a() {
-            this.eSC = 0L;
+            this.eSN = 0L;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public synchronized void e(BDLocation bDLocation) {
-            this.eSD = bDLocation;
-            this.eSC = System.currentTimeMillis();
+            this.eSO = bDLocation;
+            this.eSN = System.currentTimeMillis();
         }
 
         synchronized boolean dg(long j) {
             boolean z = true;
             synchronized (this) {
-                long currentTimeMillis = System.currentTimeMillis() - this.eSC;
-                boolean z2 = this.eSD != null;
+                long currentTimeMillis = System.currentTimeMillis() - this.eSN;
+                boolean z2 = this.eSO != null;
                 boolean z3 = currentTimeMillis < j;
                 if (!z2 || !z3) {
                     z = false;
@@ -215,7 +215,7 @@ public class a implements d {
         }
 
         synchronized BDLocation dh(long j) {
-            return dg(j) ? this.eSD : null;
+            return dg(j) ? this.eSO : null;
         }
     }
 }

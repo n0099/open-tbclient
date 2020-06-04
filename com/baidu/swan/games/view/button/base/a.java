@@ -88,7 +88,7 @@ public class a {
         this.ddq = interfaceC0441a;
     }
 
-    public static int iy(@ColorInt int i) {
+    public static int iA(@ColorInt int i) {
         int i2 = (16711680 & i) >> 16;
         int i3 = (65280 & i) >> 8;
         int i4 = i & 255;

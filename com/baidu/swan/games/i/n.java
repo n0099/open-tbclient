@@ -200,7 +200,7 @@ public class n {
         return null;
     }
 
-    public static JSExceptionType ip(int i) {
+    public static JSExceptionType ir(int i) {
         switch (i) {
             case -5:
                 return JSExceptionType.RangeError;
@@ -646,7 +646,7 @@ public class n {
             if (cVar == null) {
                 aVar.throwJSException(jSExceptionType, str2 + str);
             } else if (cVar.errCode != 0) {
-                aVar.throwJSException(ip(cVar.errCode), str2 + cVar.errMsg);
+                aVar.throwJSException(ir(cVar.errCode), str2 + cVar.errMsg);
             }
         }
     }
@@ -740,7 +740,7 @@ public class n {
         return "fail parameter error: parameter." + str + " should be String instead of " + str2;
     }
 
-    public static String iq(int i) {
+    public static String is(int i) {
         switch (i) {
             case 1:
             case 9:

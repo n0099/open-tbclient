@@ -106,7 +106,7 @@ public class e {
     public void writeFile(JsObject jsObject) {
         if (n.a(this.cWX, this.bSB, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
             final int a = n.a("filePath", jsObject);
-            final String iq = n.iq(n.a("data", jsObject));
+            final String is = n.is(n.a("data", jsObject));
             final int a2 = n.a("encoding", jsObject);
             final byte[] g = n.g(jsObject);
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
@@ -118,10 +118,10 @@ public class e {
                     @Override // java.lang.Runnable
                     public void run() {
                         final c a4 = e.this.cWX.a(false, i2, TextUtils.isEmpty(i) ? g : i, n.i("encoding", a3));
-                        if (!TextUtils.isEmpty(iq)) {
-                            a4.errMsg = iq;
+                        if (!TextUtils.isEmpty(is)) {
+                            a4.errMsg = is;
                             a4.errCode = -2;
-                            n.a(e.this.bSB, iq);
+                            n.a(e.this.bSB, is);
                         } else if (a2 != 7 && a2 != 12) {
                             a4.errMsg = "fail encoding must be a string";
                             a4.errCode = -2;
@@ -542,7 +542,7 @@ public class e {
             final int a = n.a("encoding", jsObject);
             final int a2 = n.a("filePath", jsObject);
             int a3 = n.a("data", jsObject);
-            final String iq = (a3 == 5 || a3 == 2 || a3 == 3) ? "fail data argument must not be a number" : n.iq(a3);
+            final String is = (a3 == 5 || a3 == 2 || a3 == 3) ? "fail data argument must not be a number" : n.is(a3);
             final byte[] g = n.g(jsObject);
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
             final Map<String, Object> a4 = n.a(this.cWX, jsObject, bVar, "appendFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
@@ -553,10 +553,10 @@ public class e {
                     @Override // java.lang.Runnable
                     public void run() {
                         final c b = e.this.cWX.b(i2, TextUtils.isEmpty(i) ? g : i, n.i("encoding", a4), false);
-                        if (!TextUtils.isEmpty(iq)) {
-                            b.errMsg = iq;
+                        if (!TextUtils.isEmpty(is)) {
+                            b.errMsg = is;
                             b.errCode = -2;
-                            n.a(e.this.bSB, iq);
+                            n.a(e.this.bSB, is);
                         } else if (a != 7 && a != 12) {
                             b.errMsg = "fail encoding must be a string";
                             b.errCode = -2;

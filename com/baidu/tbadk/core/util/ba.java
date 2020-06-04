@@ -70,7 +70,7 @@ public class ba {
         return spannableString;
     }
 
-    public static ba aUZ() {
+    public static ba aVa() {
         return dOo;
     }
 

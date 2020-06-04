@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class BawuManagerApplyInfoView extends RelativeLayout {
-    private TextView hiD;
-    private TextView hiE;
-    private TextView hiF;
+    private TextView hiO;
+    private TextView hiP;
+    private TextView hiQ;
     private Context mContext;
     private View mRoot;
 
@@ -38,31 +38,31 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
 
     private void initView() {
         this.mRoot = LayoutInflater.from(this.mContext).inflate(R.layout.bawu_manager_apply_layout, this);
-        this.hiD = (TextView) this.mRoot.findViewById(R.id.imageview_apply_btn);
-        this.hiE = (TextView) this.mRoot.findViewById(R.id.textview_manager_apply);
-        this.hiF = (TextView) this.mRoot.findViewById(R.id.textview_manager_left_num);
+        this.hiO = (TextView) this.mRoot.findViewById(R.id.imageview_apply_btn);
+        this.hiP = (TextView) this.mRoot.findViewById(R.id.textview_manager_apply);
+        this.hiQ = (TextView) this.mRoot.findViewById(R.id.textview_manager_left_num);
     }
 
     public void aJ(String str, int i) {
-        this.hiE.setText(str);
-        this.hiD.setBackgroundDrawable(SvgManager.aUV().a(R.drawable.ic_icon_pure_ba_add_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
+        this.hiP.setText(str);
+        this.hiO.setBackgroundDrawable(SvgManager.aUW().a(R.drawable.ic_icon_pure_ba_add_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
         if (i > 0) {
-            this.hiF.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.numberUniformFormat(i)));
-            this.hiD.setEnabled(true);
-            this.hiD.setClickable(true);
-            am.setViewTextColor(this.hiE, R.color.cp_cont_b, 1);
-            am.setViewTextColor(this.hiF, R.color.cp_link_tip_d, 1);
+            this.hiQ.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.numberUniformFormat(i)));
+            this.hiO.setEnabled(true);
+            this.hiO.setClickable(true);
+            am.setViewTextColor(this.hiP, R.color.cp_cont_b, 1);
+            am.setViewTextColor(this.hiQ, R.color.cp_link_tip_d, 1);
             return;
         }
-        this.hiF.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-        this.hiD.setEnabled(false);
-        this.hiD.setClickable(false);
-        am.setViewTextColor(this.hiE, R.color.cp_cont_d, 1);
-        am.setViewTextColor(this.hiF, R.color.cp_cont_d, 1);
+        this.hiQ.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+        this.hiO.setEnabled(false);
+        this.hiO.setClickable(false);
+        am.setViewTextColor(this.hiP, R.color.cp_cont_d, 1);
+        am.setViewTextColor(this.hiQ, R.color.cp_cont_d, 1);
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.hiD.setOnClickListener(onClickListener);
+        this.hiO.setOnClickListener(onClickListener);
     }
 }

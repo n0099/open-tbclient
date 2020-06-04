@@ -18,40 +18,40 @@ import com.baidu.tieba.ala.person.c.c;
 import com.baidu.tieba.ala.person.view.PersonEmptyView;
 /* loaded from: classes3.dex */
 public class b {
-    private LoadingView foX;
-    private BdUniqueId fpc;
-    private a.InterfaceC0581a glP;
-    private com.baidu.tieba.ala.person.adapter.a glR;
-    private BdListView glS;
-    private com.baidu.tieba.ala.person.c.c glT;
-    private com.baidu.tieba.ala.person.view.d glU;
-    private PersonEmptyView glV;
-    private int glW;
-    private boolean glX;
+    private LoadingView fpi;
+    private BdUniqueId fpn;
+    private a.InterfaceC0581a gma;
+    private com.baidu.tieba.ala.person.adapter.a gmc;
+    private BdListView gmd;
+    private com.baidu.tieba.ala.person.c.c gme;
+    private com.baidu.tieba.ala.person.view.d gmf;
+    private PersonEmptyView gmg;
+    private int gmh;
+    private boolean gmi;
     private boolean mHasMore;
     private TbPageContext mPageContext;
     private View mRootView;
     private int mSkinType;
     private String mUserId;
     private boolean mIsLoading = false;
-    private c.a glY = new c.a() { // from class: com.baidu.tieba.ala.person.b.b.5
+    private c.a gmj = new c.a() { // from class: com.baidu.tieba.ala.person.b.b.5
         @Override // com.baidu.tieba.ala.person.c.c.a
         public void c(com.baidu.tieba.ala.person.a.d dVar) {
             b.this.hideLoadingView();
             if (dVar == null) {
                 CustomToast.newInstance().showToast(a.i.ala_person_load_fail);
-                b.this.glU.rJ(a.i.ala_person_load_fail_click);
+                b.this.gmf.rL(a.i.ala_person_load_fail_click);
                 return;
             }
             b.this.mHasMore = dVar.has_more == 1;
             if (dVar.has_more != 1) {
-                b.this.glU.hide();
+                b.this.gmf.hide();
             } else {
-                b.this.glU.nx(a.i.sdk_loading);
+                b.this.gmf.nz(a.i.sdk_loading);
             }
-            b.this.glR.a(b.this.glX, dVar.user_list, b.this.glW);
-            if (b.this.glX) {
-                b.this.glX = false;
+            b.this.gmc.a(b.this.gmi, dVar.user_list, b.this.gmh);
+            if (b.this.gmi) {
+                b.this.gmi = false;
             }
         }
 
@@ -59,70 +59,70 @@ public class b {
         public void onFail(String str) {
             b.this.hideLoadingView();
             CustomToast.newInstance().showToast(str);
-            b.this.glR.a(true, null, b.this.glW);
-            if (b.this.glV != null) {
-                b.this.glS.setEmptyView(b.this.glV);
+            b.this.gmc.a(true, null, b.this.gmh);
+            if (b.this.gmg != null) {
+                b.this.gmd.setEmptyView(b.this.gmg);
             }
         }
     };
 
     public b(TbPageContext tbPageContext, int i, String str, BdUniqueId bdUniqueId) {
-        this.fpc = null;
+        this.fpn = null;
         this.mPageContext = tbPageContext;
-        this.glW = i;
+        this.gmh = i;
         this.mUserId = str;
-        this.fpc = bdUniqueId;
+        this.fpn = bdUniqueId;
         initView();
         initListener();
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_person_card_list_view_layout, (ViewGroup) null);
-        this.glS = (BdListView) this.mRootView.findViewById(a.g.ala_person_card_list_view);
-        this.glR = new com.baidu.tieba.ala.person.adapter.a(this.mPageContext.getPageActivity(), 2);
-        this.glS.setAdapter((ListAdapter) this.glR);
-        this.glU = new com.baidu.tieba.ala.person.view.d(this.mPageContext);
-        this.glU.createView();
-        this.glU.display();
-        this.glU.nx(a.i.sdk_loading);
-        this.glS.setNextPage(this.glU);
-        this.glV = (PersonEmptyView) this.mRootView.findViewById(a.g.ala_person_card_emptyview);
-        if (this.glW == 0) {
-            this.glV.setParams(a.f.sdk_emotion07, -1, a.i.ala_person_no_fans);
+        this.gmd = (BdListView) this.mRootView.findViewById(a.g.ala_person_card_list_view);
+        this.gmc = new com.baidu.tieba.ala.person.adapter.a(this.mPageContext.getPageActivity(), 2);
+        this.gmd.setAdapter((ListAdapter) this.gmc);
+        this.gmf = new com.baidu.tieba.ala.person.view.d(this.mPageContext);
+        this.gmf.createView();
+        this.gmf.display();
+        this.gmf.nz(a.i.sdk_loading);
+        this.gmd.setNextPage(this.gmf);
+        this.gmg = (PersonEmptyView) this.mRootView.findViewById(a.g.ala_person_card_emptyview);
+        if (this.gmh == 0) {
+            this.gmg.setParams(a.f.sdk_emotion07, -1, a.i.ala_person_no_fans);
         } else {
-            this.glV.setParams(a.f.sdk_emotion07, -1, a.i.ala_person_no_attention_desc);
+            this.gmg.setParams(a.f.sdk_emotion07, -1, a.i.ala_person_no_attention_desc);
         }
-        this.glS.setEmptyView(this.glV);
-        this.glT = new com.baidu.tieba.ala.person.c.c(this.mPageContext);
-        this.glT.a(this.glY);
+        this.gmd.setEmptyView(this.gmg);
+        this.gme = new com.baidu.tieba.ala.person.c.c(this.mPageContext);
+        this.gme.a(this.gmj);
     }
 
     public void refreshData() {
-        this.glT.setPn(0);
-        this.glX = true;
+        this.gme.setPn(0);
+        this.gmi = true;
         showLoadingView();
-        this.glT.h(this.glW, this.mUserId, "");
+        this.gme.h(this.gmh, this.mUserId, "");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadData() {
         if (this.mHasMore) {
-            this.glT.h(this.glW, this.mUserId, "");
+            this.gme.h(this.gmh, this.mUserId, "");
         }
     }
 
     public void as(String str, boolean z) {
-        if (this.glR != null) {
-            this.glR.as(str, z);
+        if (this.gmc != null) {
+            this.gmc.as(str, z);
         }
     }
 
-    public View aWN() {
+    public View aWO() {
         return this.mRootView;
     }
 
     public void a(a.InterfaceC0581a interfaceC0581a) {
-        this.glP = interfaceC0581a;
+        this.gma = interfaceC0581a;
     }
 
     public void showLoadingView() {
@@ -136,74 +136,74 @@ public class b {
     }
 
     private void initListener() {
-        this.glS.setOnSrollToBottomListener(new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.person.b.b.1
+        this.gmd.setOnSrollToBottomListener(new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.person.b.b.1
             @Override // com.baidu.live.adp.widget.listview.BdListView.OnScrollToBottomListener
             public void onScrollToBottom() {
                 if (!b.this.mHasMore) {
-                    b.this.glU.hide();
+                    b.this.gmf.hide();
                 } else {
                     b.this.loadData();
                 }
             }
         });
-        this.glU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.b.b.2
+        this.gmf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.b.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.glR != null && b.this.glR.getCount() == 0) {
+                if (b.this.gmc != null && b.this.gmc.getCount() == 0) {
                     b.this.loadData();
                 }
             }
         });
-        this.glR.a(new a.InterfaceC0580a() { // from class: com.baidu.tieba.ala.person.b.b.3
+        this.gmc.a(new a.InterfaceC0580a() { // from class: com.baidu.tieba.ala.person.b.b.3
             @Override // com.baidu.tieba.ala.person.adapter.a.InterfaceC0580a
             public void a(com.baidu.tieba.ala.person.a.b bVar, View view) {
                 if (!TbadkCoreApplication.isLogin()) {
                     ViewHelper.skipToLoginActivity(b.this.mPageContext.getPageActivity());
                 } else if (bVar != null && bVar.portrait != null && bVar.id != null) {
-                    if (bVar.fEB == 0) {
-                        bVar.fEB = 1;
-                        com.baidu.live.data.d dVar = new com.baidu.live.data.d(bVar.portrait, bVar.id, bVar.metaKey, "1", true, b.this.fpc);
+                    if (bVar.fEM == 0) {
+                        bVar.fEM = 1;
+                        com.baidu.live.data.d dVar = new com.baidu.live.data.d(bVar.portrait, bVar.id, bVar.metaKey, "1", true, b.this.fpn);
                         dVar.setFrom("source_person_card_list");
                         com.baidu.live.view.a.Jl().a(bVar.id, dVar);
                     } else {
-                        bVar.fEB = 0;
-                        com.baidu.live.data.d dVar2 = new com.baidu.live.data.d(bVar.portrait, bVar.id, bVar.metaKey, "1", false, b.this.fpc);
+                        bVar.fEM = 0;
+                        com.baidu.live.data.d dVar2 = new com.baidu.live.data.d(bVar.portrait, bVar.id, bVar.metaKey, "1", false, b.this.fpn);
                         dVar2.setFrom("source_person_card_list");
                         com.baidu.live.view.a.Jl().a(bVar.id, dVar2);
                     }
-                    b.this.glR.notifyDataSetChanged();
+                    b.this.gmc.notifyDataSetChanged();
                 }
             }
         });
-        this.glR.a(new a.c() { // from class: com.baidu.tieba.ala.person.b.b.4
+        this.gmc.a(new a.c() { // from class: com.baidu.tieba.ala.person.b.b.4
             @Override // com.baidu.tieba.ala.person.adapter.a.c
             public void b(com.baidu.tieba.ala.person.a.b bVar, View view) {
-                if (b.this.glP != null) {
-                    b.this.glP.a(bVar, view, b.this.glW);
+                if (b.this.gma != null) {
+                    b.this.gma.a(bVar, view, b.this.gmh);
                 }
             }
         });
     }
 
     public boolean isEmpty() {
-        return this.glR == null || this.glR.getCount() <= 0;
+        return this.gmc == null || this.gmc.getCount() <= 0;
     }
 
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        if (this.foX != null) {
-            this.foX.setSkinType(i);
-            this.foX.onChangeSkinType();
+        if (this.fpi != null) {
+            this.fpi.setSkinType(i);
+            this.fpi.onChangeSkinType();
         }
-        if (this.glR != null) {
-            this.glR.setSkinType(i);
-            this.glR.notifyDataSetChanged();
+        if (this.gmc != null) {
+            this.gmc.setSkinType(i);
+            this.gmc.notifyDataSetChanged();
         }
     }
 
     public void onDestory() {
-        if (this.glT != null) {
-            this.glT.cancel();
+        if (this.gme != null) {
+            this.gme.cancel();
         }
     }
 }

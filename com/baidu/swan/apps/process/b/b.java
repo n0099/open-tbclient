@@ -94,7 +94,7 @@ public final class b extends com.baidu.swan.apps.v.b.a.c<b> implements a {
         return agG;
     }
 
-    public b gd(int i) {
+    public b gf(int i) {
         b agG;
         synchronized (this.cts) {
             this.ctw.add(Integer.valueOf(i));

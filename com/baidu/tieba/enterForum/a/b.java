@@ -23,8 +23,8 @@ import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<com.baidu.tbadk.mvc.b.a> clk = new ArrayList<>();
-    private InterfaceC0600b gNT;
-    private boolean gNU;
+    private InterfaceC0600b gOe;
+    private boolean gOf;
     private int mFrom;
     private TbPageContext<?> mPageContext;
     private String mTabName;
@@ -70,7 +70,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 anVar.s("fid", ((k) aVar).getForumId());
                 if (this.mFrom == 0) {
                     anVar.ag("obj_locate", 1);
-                    anVar.ag("obj_type", this.gNU ? 3 : 1);
+                    anVar.ag("obj_type", this.gOf ? 3 : 1);
                 } else if (this.mFrom == 1) {
                     anVar.ag("obj_locate", 2);
                     anVar.dh("resource_id", this.mTabName);
@@ -100,7 +100,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public void a(InterfaceC0600b interfaceC0600b) {
-        this.gNT = interfaceC0600b;
+        this.gOe = interfaceC0600b;
     }
 
     /* loaded from: classes9.dex */
@@ -108,24 +108,24 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private TextView aJn;
         private String attention;
         private TextView dVS;
-        private BarImageView gNV;
-        private ImageView gNW;
-        private k gOa;
+        private BarImageView gOg;
+        private ImageView gOh;
+        private k gOl;
         private View mRootView;
 
         public c(View view) {
             super(view);
             this.mRootView = view;
             this.attention = TbadkCoreApplication.getInst().getString(R.string.attention);
-            this.gNV = (BarImageView) this.mRootView.findViewById(R.id.forum_icon);
-            this.gNW = (ImageView) this.mRootView.findViewById(R.id.square_icon);
+            this.gOg = (BarImageView) this.mRootView.findViewById(R.id.forum_icon);
+            this.gOh = (ImageView) this.mRootView.findViewById(R.id.square_icon);
             this.dVS = (TextView) this.mRootView.findViewById(R.id.forum_name);
             this.aJn = (TextView) this.mRootView.findViewById(R.id.desc);
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.b.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (b.this.gNT != null) {
-                        b.this.gNT.a(view2, c.this.gOa);
+                    if (b.this.gOe != null) {
+                        b.this.gOe.a(view2, c.this.gOl);
                     }
                 }
             });
@@ -133,21 +133,21 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         public void a(k kVar) {
             if (kVar != null) {
-                this.gOa = kVar;
-                this.gNV.setShowOval(true);
-                this.gNV.setShowOuterBorder(false);
-                this.gNV.setShowInnerBorder(true);
-                this.gNV.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-                this.gNV.setStrokeColorResId(R.color.cp_border_a);
-                this.gNW.setVisibility(8);
-                this.gNV.setVisibility(0);
-                this.gNV.startLoad(kVar.getAvatar(), 10, false);
+                this.gOl = kVar;
+                this.gOg.setShowOval(true);
+                this.gOg.setShowOuterBorder(false);
+                this.gOg.setShowInnerBorder(true);
+                this.gOg.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+                this.gOg.setStrokeColorResId(R.color.cp_border_a);
+                this.gOh.setVisibility(8);
+                this.gOg.setVisibility(0);
+                this.gOg.startLoad(kVar.getAvatar(), 10, false);
                 if (aq.getChineseAndEnglishLength(kVar.getForumName()) <= 10) {
                     this.dVS.setText(kVar.getForumName());
                 } else {
                     this.dVS.setText(aq.cutChineseAndEnglishWithSuffix(kVar.getForumName(), 8, StringHelper.STRING_MORE));
                 }
-                this.aJn.setText(this.attention + " " + aq.cn(kVar.bOo()));
+                this.aJn.setText(this.attention + " " + aq.cn(kVar.bOq()));
                 onChangeSkinType();
             }
         }
@@ -163,23 +163,23 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private TextView aJn;
         private String attention;
         private TextView dVS;
-        private BarImageView gNV;
-        private ImageView gNW;
+        private BarImageView gOg;
+        private ImageView gOh;
         private View mRootView;
 
         public a(View view) {
             super(view);
             this.mRootView = view;
             this.attention = TbadkCoreApplication.getInst().getString(R.string.attention);
-            this.gNV = (BarImageView) this.mRootView.findViewById(R.id.forum_icon);
-            this.gNW = (ImageView) this.mRootView.findViewById(R.id.square_icon);
+            this.gOg = (BarImageView) this.mRootView.findViewById(R.id.forum_icon);
+            this.gOh = (ImageView) this.mRootView.findViewById(R.id.square_icon);
             this.dVS = (TextView) this.mRootView.findViewById(R.id.forum_name);
             this.aJn = (TextView) this.mRootView.findViewById(R.id.desc);
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.b.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (b.this.gNT != null) {
-                        b.this.gNT.bM(view2);
+                    if (b.this.gOe != null) {
+                        b.this.gOe.bM(view2);
                     }
                 }
             });
@@ -187,9 +187,9 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         public void a(com.baidu.tieba.enterForum.data.a aVar) {
             if (aVar != null) {
-                this.gNW.setVisibility(0);
-                this.gNV.setVisibility(8);
-                SvgManager.aUV().a(this.gNW, R.drawable.ic_icon_pure_square28, (SvgManager.SvgResourceStateType) null);
+                this.gOh.setVisibility(0);
+                this.gOg.setVisibility(8);
+                SvgManager.aUW().a(this.gOh, R.drawable.ic_icon_pure_square28, (SvgManager.SvgResourceStateType) null);
                 this.dVS.setText(R.string.forum_square_title);
                 this.aJn.setText(R.string.forum_square_desc_1);
                 onChangeSkinType();
@@ -207,6 +207,6 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public void setHasLikeForum(boolean z) {
-        this.gNU = z;
+        this.gOf = z;
     }
 }

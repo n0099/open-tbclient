@@ -29,7 +29,7 @@ public interface c {
 
     void c(TbPageContext tbPageContext);
 
-    void cs(int i);
+    void cu(int i);
 
     void eW(String str);
 

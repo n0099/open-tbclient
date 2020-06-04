@@ -48,7 +48,7 @@ public class a extends aa {
         if ((context instanceof com.baidu.swan.apps.am.f.c) && (QL = ((com.baidu.swan.apps.am.f.c) context).QL()) != null) {
             QL.a(new com.baidu.swan.apps.am.f.a() { // from class: com.baidu.swan.apps.am.f.a.a.1
                 @Override // com.baidu.swan.apps.am.f.a
-                public void hv(int i) {
+                public void hx(int i) {
                     c.i("MemoryWarningAction", "trimMemory consume level:" + i);
                     if (i == 10 || i == 15) {
                         JSONObject jSONObject = new JSONObject();

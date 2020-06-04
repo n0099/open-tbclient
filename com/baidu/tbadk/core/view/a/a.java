@@ -27,7 +27,7 @@ public class a extends ReplacementSpan {
         this.dYQ = i7;
     }
 
-    public void mn(int i) {
+    public void mp(int i) {
         this.dYR = i;
     }
 

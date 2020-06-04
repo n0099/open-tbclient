@@ -55,14 +55,14 @@ public class a extends com.baidu.swan.apps.api.a.d {
         if (DEBUG) {
             Log.d("Api-NavigateBack", "real back delta: " + optInt);
         }
-        final e.b eM = QH.jp("navigateBack").ae(e.bVP, e.bVO).eM(optInt);
+        final e.b eO = QH.jp("navigateBack").ae(e.bVP, e.bVO).eO(optInt);
         aj.p(new Runnable() { // from class: com.baidu.swan.apps.api.module.g.a.1
             @Override // java.lang.Runnable
             public void run() {
                 if (YS > 1) {
                     com.baidu.swan.apps.aq.e.a(QH, a.this.getContext(), 1);
                 }
-                eM.commit();
+                eO.commit();
             }
         });
         g.bA("route", uuid).f(new UbcFlowEvent("na_push_page_end"));

@@ -51,10 +51,10 @@ public class f {
     }
 
     public static boolean dM(Context context) {
-        return bbh();
+        return bbi();
     }
 
-    public static boolean bbh() {
+    public static boolean bbi() {
         return TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.CMD_CREATE_SHARE_DIALOG);
     }
 
@@ -146,7 +146,7 @@ public class f {
         if (shareItem == null) {
             return null;
         }
-        if ((shareItem.imageUri == null || shareItem.imageUri.equals("")) && shareItem.bbc() == null) {
+        if ((shareItem.imageUri == null || shareItem.imageUri.equals("")) && shareItem.bbd() == null) {
             String str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
             if (str.startsWith(LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND)) {
                 str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
@@ -210,7 +210,7 @@ public class f {
 
     private boolean xx(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
-        if (ba.aUZ().UrlValidated(str)) {
+        if (ba.aVa().UrlValidated(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

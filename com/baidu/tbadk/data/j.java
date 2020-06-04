@@ -5,7 +5,7 @@ public class j {
     private String method;
     private boolean open;
 
-    public boolean bcz() {
+    public boolean bcA() {
         return this.ejX;
     }
 
@@ -13,7 +13,7 @@ public class j {
         this.ejX = z;
     }
 
-    public void bcA() {
+    public void bcB() {
         this.ejX = false;
     }
 

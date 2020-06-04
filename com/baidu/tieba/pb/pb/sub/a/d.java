@@ -27,29 +27,29 @@ public class d extends com.baidu.tieba.pb.pb.sub.a.a<com.baidu.tieba.pb.pb.sub.b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.sub.a.a, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.pb.sub.b.b bVar, a aVar) {
-        ((a) this.TM).kan.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
+        ((a) this.TM).kbu.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
         ((a) this.TM).onChangeSkinType();
         return aVar.getView();
     }
 
     /* loaded from: classes9.dex */
     public static class a extends aa.a {
-        private View gEG;
-        private TextView kan;
+        private View gER;
+        private TextView kbu;
         private int mSkinType;
 
         public a(View view) {
             super(view);
             this.mSkinType = 3;
-            this.kan = (TextView) view.findViewById(R.id.floor_reply_text);
-            this.gEG = view.findViewById(R.id.floor_reply_top_line);
+            this.kbu = (TextView) view.findViewById(R.id.floor_reply_text);
+            this.gER = view.findViewById(R.id.floor_reply_top_line);
         }
 
         public void onChangeSkinType() {
             if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                am.setViewTextColor(this.kan, (int) R.color.cp_cont_b);
-                am.setBackgroundColor(this.gEG, R.color.cp_bg_line_c);
-                am.setBackgroundColor(this.kan, R.color.cp_bg_line_d);
+                am.setViewTextColor(this.kbu, (int) R.color.cp_cont_b);
+                am.setBackgroundColor(this.gER, R.color.cp_bg_line_c);
+                am.setBackgroundColor(this.kbu, R.color.cp_bg_line_d);
             }
             this.mSkinType = TbadkApplication.getInst().getSkinType();
         }

@@ -40,7 +40,7 @@ public class a {
     public File D(JSONArray jSONArray) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            gQ(9);
+            gS(9);
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("_app_id", e.aoH() == null ? "" : e.aoH());
             jSONObject.put("_date", i.a(new Date(currentTimeMillis), "yyyy-MM-dd HH:mm:ss"));
@@ -75,7 +75,7 @@ public class a {
         }
     }
 
-    private void gQ(int i) {
+    private void gS(int i) {
         File[] arb = arb();
         if (arb != null && arb.length != 0) {
             long currentTimeMillis = System.currentTimeMillis();

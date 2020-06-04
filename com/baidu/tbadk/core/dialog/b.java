@@ -62,7 +62,7 @@ public class b {
         return this;
     }
 
-    public b kH(int i) {
+    public b kJ(int i) {
         return vP(this.mActivity.getResources().getString(i));
     }
 
@@ -83,12 +83,12 @@ public class b {
         return this;
     }
 
-    public b kI(int i) {
+    public b kK(int i) {
         this.mAnimationStyleId = i;
         return this;
     }
 
-    public b kJ(int i) {
+    public b kL(int i) {
         this.mDialogGravity = i;
         return this;
     }

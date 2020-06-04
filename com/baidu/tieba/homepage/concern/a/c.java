@@ -208,9 +208,9 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         if (kVar == null || agVar == null || agVar.getView() == null || kVar.dEA == null) {
             return null;
         }
-        kVar.sr(kVar.position + 1);
+        kVar.st(kVar.position + 1);
         agVar.rM().setPosition(i);
-        com.baidu.tieba.card.s.bLq().e(kVar.Dt("c12351"));
+        com.baidu.tieba.card.s.bLs().e(kVar.Dt("c12351"));
         agVar.rM().setPage(this.aeX);
         agVar.a(true, kVar.aOp() ? Align.ALIGN_RIGHT_TOP : Align.ALIGN_RIGHT_BOTTOM);
         agVar.b((ag<com.baidu.tieba.card.data.k>) kVar);

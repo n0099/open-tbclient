@@ -24,7 +24,7 @@ public class c {
         c cVar = new c();
         try {
             cVar.mAppKey = jSONObject.getString("appKey");
-            cVar.bRE = jSONObject.getString("appUrl") + "?swanJsVersion" + ETAG.EQUAL + com.baidu.swan.apps.swancore.b.gZ(0) + ETAG.ITEM_SEPARATOR + "appVersion" + ETAG.EQUAL + aj.getVersionName();
+            cVar.bRE = jSONObject.getString("appUrl") + "?swanJsVersion" + ETAG.EQUAL + com.baidu.swan.apps.swancore.b.hb(0) + ETAG.ITEM_SEPARATOR + "appVersion" + ETAG.EQUAL + aj.getVersionName();
             cVar.Oh = jSONObject.getString("wsUrl");
             cVar.bRF = jSONObject.optString("notInHistory", "1");
             cVar.bRG = jSONObject.optString("masterPreload");
@@ -43,12 +43,12 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String ez(int i) {
+    public String eB(int i) {
         return O(i, this.bRE);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String eA(int i) {
+    public String eC(int i) {
         return O(i, this.Oh);
     }
 

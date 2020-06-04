@@ -60,14 +60,14 @@ public class o extends BdAsyncTask<String, String, b> {
         if (TextUtils.isEmpty(this.url)) {
             return new b(false, "url is null");
         }
-        if (!bgz()) {
+        if (!bgA()) {
             return new b(false, "make file error");
         }
         if (!this.evf) {
-            if (!bgA()) {
+            if (!bgB()) {
                 return new b(false, "download error");
             }
-        } else if (!bgB()) {
+        } else if (!bgC()) {
             return new b(false, "decode base64 error");
         }
         return new b(true, null);
@@ -88,14 +88,14 @@ public class o extends BdAsyncTask<String, String, b> {
                 this.evd.onError(-1, bVar.getMessage());
             }
         } else {
-            bgC();
+            bgD();
             if (this.evd != null) {
                 this.evd.onSuccess(this.imagePath);
             }
         }
     }
 
-    private boolean bgz() {
+    private boolean bgA() {
         File externalStoragePublicDirectory;
         String lowerCase;
         try {
@@ -140,7 +140,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean bgA() {
+    private boolean bgB() {
         return m(this.url, this.imagePath, 3);
     }
 
@@ -281,7 +281,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean bgB() {
+    private boolean bgC() {
         FileOutputStream fileOutputStream;
         byte[] decode = Base64.decode(this.url.substring(this.url.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP) + 1, this.url.length()), 0);
         for (int i = 0; i < decode.length; i++) {
@@ -375,7 +375,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private void bgC() {
+    private void bgD() {
         if (this.eve != null) {
             TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.eve)));
         }

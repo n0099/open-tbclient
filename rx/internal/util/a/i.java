@@ -10,41 +10,41 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.nsq;
-        long j = this.nJu;
-        long dKM = dKM();
-        long gw = gw(dKM);
+        E[] eArr = this.ntA;
+        long j = this.nKE;
+        long dLa = dLa();
+        long gw = gw(dLa);
         if (b(eArr, gw) != null) {
-            if (dKM - dKN() > j) {
+            if (dLa - dLb() > j) {
                 return false;
             }
             do {
             } while (b(eArr, gw) != null);
             a(eArr, gw, e);
-            gy(1 + dKM);
+            gy(1 + dLa);
             return true;
         }
         a(eArr, gw, e);
-        gy(1 + dKM);
+        gy(1 + dLa);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long dKN;
-        long dQg = dQg();
+        long dLb;
+        long dQu = dQu();
         do {
-            dKN = dKN();
-            if (dKN >= dQg) {
-                long dKM = dKM();
-                if (dKN >= dKM) {
+            dLb = dLb();
+            if (dLb >= dQu) {
+                long dLa = dLa();
+                if (dLb >= dLa) {
                     return null;
                 }
-                gz(dKM);
+                gz(dLa);
             }
-        } while (!V(dKN, 1 + dKN));
-        long gw = gw(dKN);
-        E[] eArr = this.nsq;
+        } while (!V(dLb, 1 + dLb));
+        long gw = gw(dLb);
+        E[] eArr = this.ntA;
         E a = a(eArr, gw);
         b(eArr, gw, null);
         return a;
@@ -53,36 +53,36 @@ public final class i<E> extends m<E> {
     @Override // java.util.Queue
     public E peek() {
         E gx;
-        long dQg = dQg();
+        long dQu = dQu();
         do {
-            long dKN = dKN();
-            if (dKN >= dQg) {
-                long dKM = dKM();
-                if (dKN >= dKM) {
+            long dLb = dLb();
+            if (dLb >= dQu) {
+                long dLa = dLa();
+                if (dLb >= dLa) {
                     return null;
                 }
-                gz(dKM);
+                gz(dLa);
             }
-            gx = gx(gw(dKN));
+            gx = gx(gw(dLb));
         } while (gx == null);
         return gx;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dKN = dKN();
+        long dLb = dLb();
         while (true) {
-            long dKM = dKM();
-            long dKN2 = dKN();
-            if (dKN == dKN2) {
-                return (int) (dKM - dKN2);
+            long dLa = dLa();
+            long dLb2 = dLb();
+            if (dLb == dLb2) {
+                return (int) (dLa - dLb2);
             }
-            dKN = dKN2;
+            dLb = dLb2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dKN() == dKM();
+        return dLb() == dLa();
     }
 }

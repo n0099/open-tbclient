@@ -16,16 +16,16 @@ import com.baidu.live.u.a;
 public class b extends com.baidu.tieba.ala.liveroom.a {
     private int afQ;
     private TextView epN;
-    private boolean fMH;
-    private ObjectAnimator fYY;
-    private int fYZ;
+    private boolean fMS;
+    private ObjectAnimator fZj;
+    private int fZk;
     private Context mContext;
     private View mRootView;
 
     public b(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext);
-        this.fYZ = 4000;
-        this.fMH = true;
+        this.fZk = 4000;
+        this.fMS = true;
         this.mContext = tbPageContext.getPageActivity();
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.ala_liveroom_translate_view, (ViewGroup) null);
         this.epN = (TextView) this.mRootView.findViewById(a.g.translate_content);
@@ -43,33 +43,33 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
     public void aE(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             if (i > 0) {
-                this.fYZ = i;
+                this.fZk = i;
             }
-            if (this.fMH) {
+            if (this.fMS) {
                 this.mRootView.setVisibility(0);
             }
             this.epN.setText(str);
-            bEm();
+            bEo();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.fYY != null) {
-            this.fYY.cancel();
-            this.fYY = null;
+        if (this.fZj != null) {
+            this.fZj.cancel();
+            this.fZj = null;
         }
     }
 
-    private void bEm() {
+    private void bEo() {
         this.afQ = BdUtilHelper.getScreenSize((Activity) this.mContext).widthPixels;
-        this.fYY = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.afQ, -this.afQ);
-        this.fYY.setDuration(this.fYZ);
-        this.fYY.start();
+        this.fZj = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.afQ, -this.afQ);
+        this.fZj.setDuration(this.fZk);
+        this.fZj.start();
     }
 
     public void setCanVisible(boolean z) {
-        this.fMH = z;
+        this.fMS = z;
     }
 
     public void setVisible(int i) {

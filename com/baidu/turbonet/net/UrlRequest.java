@@ -17,20 +17,20 @@ public interface UrlRequest {
 
     /* loaded from: classes.dex */
     public static abstract class StatusListener {
-        public abstract void Gs(int i);
+        public abstract void Gu(int i);
     }
-
-    void FZ(int i);
-
-    void Ga(int i);
 
     void Gb(int i);
 
-    void OJ(String str);
+    void Gc(int i);
+
+    void Gd(int i);
 
     void OK(String str);
 
     void OL(String str);
+
+    void OM(String str);
 
     void a(UploadDataProvider uploadDataProvider, Executor executor);
 
@@ -38,11 +38,11 @@ public interface UrlRequest {
 
     void cancel();
 
-    void dql();
+    void dqA();
 
-    void dqm();
+    void dqB();
 
-    void dqn();
+    void dqz();
 
     Object getTag();
 
@@ -60,24 +60,24 @@ public interface UrlRequest {
         final Executor mExecutor;
         Object mTag;
         final String mUrl;
-        final Callback mcH;
-        boolean mcX;
-        boolean mcY;
-        boolean mcZ;
-        boolean mdb;
-        int mdc;
-        int mdd;
-        int mde;
-        int mdf;
-        String mdg;
-        String mdh;
-        final TurbonetEngine met;
-        UploadDataProvider mfg;
-        Executor mfh;
-        boolean mfi;
-        final ArrayList<Pair<String, String>> mff = new ArrayList<>();
+        final Callback mdR;
+        boolean meh;
+        boolean mei;
+        boolean mej;
+        boolean mel;
+        int mem;
+        int men;
+        int meo;
+        int mep;
+        String meq;
+        String mer;
+        final TurbonetEngine mfD;
+        UploadDataProvider mgq;
+        Executor mgr;
+        boolean mgs;
+        final ArrayList<Pair<String, String>> mgp = new ArrayList<>();
         int mPriority = 3;
-        Collection<Object> mcW = Collections.emptyList();
+        Collection<Object> meg = Collections.emptyList();
 
         @Retention(RetentionPolicy.SOURCE)
         /* loaded from: classes.dex */
@@ -98,21 +98,21 @@ public interface UrlRequest {
                 throw new NullPointerException("TurbonetEngine is required.");
             }
             this.mUrl = str;
-            this.mcH = callback;
+            this.mdR = callback;
             this.mExecutor = executor;
-            this.met = turbonetEngine;
-            this.mfi = false;
-            this.mdb = false;
-            this.mdc = 0;
-            this.mdd = 0;
-            this.mde = 0;
-            this.mdf = 0;
+            this.mfD = turbonetEngine;
+            this.mgs = false;
+            this.mel = false;
+            this.mem = 0;
+            this.men = 0;
+            this.meo = 0;
+            this.mep = 0;
             this.mTag = null;
-            this.mdg = null;
-            this.mdh = null;
+            this.meq = null;
+            this.mer = null;
         }
 
-        public Builder OV(String str) {
+        public Builder OW(String str) {
             if (str == null) {
                 throw new NullPointerException("Method is required.");
             }
@@ -130,48 +130,48 @@ public interface UrlRequest {
             if (Headers.ACCEPT_ENCODING.equalsIgnoreCase(str)) {
                 Log.w("cronet", "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
             } else {
-                this.mff.add(Pair.create(str, str2));
+                this.mgp.add(Pair.create(str, str2));
             }
             return this;
         }
 
-        public Builder drf() {
-            this.mcX = true;
+        public Builder drt() {
+            this.meh = true;
             return this;
         }
 
-        public Builder drg() {
-            this.mfi = true;
+        public Builder dru() {
+            this.mgs = true;
             return this;
         }
 
-        public Builder drh() {
-            this.mcZ = true;
-            return this;
-        }
-
-        public Builder Go(int i) {
-            this.mdc = i;
-            return this;
-        }
-
-        public Builder Gp(int i) {
-            this.mdd = i;
+        public Builder drv() {
+            this.mej = true;
             return this;
         }
 
         public Builder Gq(int i) {
-            this.mde = i;
+            this.mem = i;
             return this;
         }
 
-        public Builder OW(String str) {
-            this.mdg = str;
+        public Builder Gr(int i) {
+            this.men = i;
+            return this;
+        }
+
+        public Builder Gs(int i) {
+            this.meo = i;
             return this;
         }
 
         public Builder OX(String str) {
-            this.mdh = str;
+            this.meq = str;
+            return this;
+        }
+
+        public Builder OY(String str) {
+            this.mer = str;
             return this;
         }
 
@@ -185,50 +185,50 @@ public interface UrlRequest {
             if (this.cVs == null) {
                 this.cVs = "POST";
             }
-            this.mfg = uploadDataProvider;
-            this.mfh = executor;
+            this.mgq = uploadDataProvider;
+            this.mgr = executor;
             return this;
         }
 
-        public UrlRequest dri() {
-            UrlRequest a = this.met.a(this.mUrl, this.mcH, this.mExecutor, this.mPriority, this.mcW, this.mcX, this.mcY, this.mcZ);
+        public UrlRequest drw() {
+            UrlRequest a = this.mfD.a(this.mUrl, this.mdR, this.mExecutor, this.mPriority, this.meg, this.meh, this.mei, this.mej);
             if (this.cVs != null) {
-                a.OJ(this.cVs);
+                a.OK(this.cVs);
             }
-            Iterator<Pair<String, String>> it = this.mff.iterator();
+            Iterator<Pair<String, String>> it = this.mgp.iterator();
             while (it.hasNext()) {
                 Pair<String, String> next = it.next();
                 a.addHeader((String) next.first, (String) next.second);
             }
-            if (this.mfg != null) {
-                a.a(this.mfg, this.mfh);
+            if (this.mgq != null) {
+                a.a(this.mgq, this.mgr);
             }
-            if (this.mfi) {
-                a.dqm();
+            if (this.mgs) {
+                a.dqA();
             }
-            if (this.mdb) {
-                a.dqn();
+            if (this.mel) {
+                a.dqB();
             }
-            if (this.mdc > 0) {
-                a.setTimeout(this.mdc);
+            if (this.mem > 0) {
+                a.setTimeout(this.mem);
             }
-            if (this.mdd > 0) {
-                a.FZ(this.mdd);
+            if (this.men > 0) {
+                a.Gb(this.men);
             }
-            if (this.mde > 0) {
-                a.Ga(this.mde);
+            if (this.meo > 0) {
+                a.Gc(this.meo);
             }
-            if (this.mdf > 0) {
-                a.Gb(this.mdf);
+            if (this.mep > 0) {
+                a.Gd(this.mep);
             }
             if (this.mTag != null) {
                 a.setTag(this.mTag);
             }
-            if (!TextUtils.isEmpty(this.mdg)) {
-                a.OK(this.mdg);
+            if (!TextUtils.isEmpty(this.meq)) {
+                a.OL(this.meq);
             }
-            if (!TextUtils.isEmpty(this.mdh)) {
-                a.OL(this.mdh);
+            if (!TextUtils.isEmpty(this.mer)) {
+                a.OM(this.mer);
             }
             return a;
         }
@@ -267,7 +267,7 @@ public interface UrlRequest {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static int Gr(int i) {
+        public static int Gt(int i) {
             if ($assertionsDisabled || (i >= 0 && i <= 15)) {
                 switch (i) {
                     case 0:

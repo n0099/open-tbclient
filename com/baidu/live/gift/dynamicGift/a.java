@@ -78,11 +78,11 @@ public class a {
                 this.aKm = true;
                 this.aKa.zJ();
             } else {
-                this.aKa.cg(this.aKf);
+                this.aKa.ci(this.aKf);
             }
         }
-        c ch = this.aKl.ch(this.aKf);
-        if (ch == null || ch.bitmap == null || ch.bitmap.isRecycled()) {
+        c cj = this.aKl.cj(this.aKf);
+        if (cj == null || cj.bitmap == null || cj.bitmap.isRecycled()) {
             if (this.aKi > 5) {
                 if (this.aKa != null) {
                     this.aKa.zK();
@@ -99,8 +99,8 @@ public class a {
             return;
         }
         this.aKf++;
-        float width = ch.aKP * ch.bitmap.getWidth() * this.aKh;
-        float height = ch.aKP * ch.bitmap.getHeight() * this.aKh;
+        float width = cj.aKP * cj.bitmap.getWidth() * this.aKh;
+        float height = cj.aKP * cj.bitmap.getHeight() * this.aKh;
         canvas.save();
         if (this.aKk + width > this.aKg) {
             this.aKk = (int) (this.aKg - width);
@@ -116,15 +116,15 @@ public class a {
         Paint paint = new Paint();
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
         try {
-            if (!ch.bitmap.isRecycled()) {
-                canvas.drawBitmap(ch.bitmap, (Rect) null, rectF, paint);
+            if (!cj.bitmap.isRecycled()) {
+                canvas.drawBitmap(cj.bitmap, (Rect) null, rectF, paint);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         canvas.restore();
-        ch.aKQ = true;
-        this.aKl.fa(ch.filePath);
+        cj.aKQ = true;
+        this.aKl.fa(cj.filePath);
         Message obtain2 = Message.obtain();
         obtain2.what = 1;
         this.aKl.getHandler().sendMessage(obtain2);

@@ -91,7 +91,7 @@ public class e {
                     FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(tbPageContext.getPageActivity());
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
                     if (frsPrivateShareDialogView.a(frsViewData, tbPageContext, aVar)) {
-                        aVar.kG(2);
+                        aVar.kI(2);
                         aVar.aP(frsPrivateShareDialogView);
                         aVar.b(tbPageContext).aST();
                     }
@@ -125,7 +125,7 @@ public class e {
             final FrsShareCardView frsShareCardView = new FrsShareCardView(frsFragment.getPageContext().getPageActivity());
             frsShareCardView.setPageId(frsFragment.getUniqueId());
             frsShareCardView.setData(h);
-            aVar.kG(1);
+            aVar.kI(1);
             aVar.aP(frsShareCardView);
             aVar.a(R.string.share, new a.b() { // from class: com.baidu.tieba.frs.f.e.3
                 @Override // com.baidu.tbadk.core.dialog.a.b

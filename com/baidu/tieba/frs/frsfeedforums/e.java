@@ -28,7 +28,7 @@ import java.util.List;
 public class e extends BaseAdapter {
     private TbPageContext<FrsMoreFeedForumsActivity> dIF;
     private LikeModel dYI;
-    private List<FeedForumData> hyS;
+    private List<FeedForumData> hzF;
     private int mSkinType;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.frsfeedforums.e.1
         @Override // android.view.View.OnClickListener
@@ -53,7 +53,7 @@ public class e extends BaseAdapter {
             }
         }
     };
-    private com.baidu.adp.base.d gPR = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.frsfeedforums.e.2
+    private com.baidu.adp.base.d gQc = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.frsfeedforums.e.2
         @Override // com.baidu.adp.base.d
         public void callback(Object obj) {
             if (AntiHelper.bv(e.this.dYI.getErrorCode(), e.this.dYI.getErrorString())) {
@@ -73,25 +73,25 @@ public class e extends BaseAdapter {
     public e(TbPageContext<FrsMoreFeedForumsActivity> tbPageContext) {
         this.dIF = tbPageContext;
         this.dYI = new LikeModel(tbPageContext);
-        this.dYI.setLoadDataCallBack(this.gPR);
+        this.dYI.setLoadDataCallBack(this.gQc);
     }
 
     public void setData(List<FeedForumData> list) {
-        this.hyS = list;
+        this.hzF = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hyS != null) {
-            return this.hyS.size();
+        if (this.hzF != null) {
+            return this.hzF.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.hyS != null) {
-            return this.hyS.get(i);
+        if (this.hzF != null) {
+            return this.hzF.get(i);
         }
         return null;
     }
@@ -109,7 +109,7 @@ public class e extends BaseAdapter {
             view = LayoutInflater.from(this.dIF.getPageActivity()).inflate(R.layout.frs_more_feed_forum_item, (ViewGroup) null);
             b bVar2 = new b(view);
             view.setTag(bVar2);
-            bVar2.hza.setTag(bVar2);
+            bVar2.hzN.setTag(bVar2);
             bVar = bVar2;
         } else {
             bVar = (b) view.getTag();
@@ -119,18 +119,18 @@ public class e extends BaseAdapter {
             return null;
         }
         bVar.position = i;
-        bVar.ePw.setOnClickListener(this.mOnClickListener);
-        bVar.hyX.setPlaceHolder(1);
-        bVar.hyX.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        bVar.hyX.startLoad(feedForumData.getAvatar(), 15, false);
+        bVar.ePH.setOnClickListener(this.mOnClickListener);
+        bVar.hzK.setPlaceHolder(1);
+        bVar.hzK.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        bVar.hzK.startLoad(feedForumData.getAvatar(), 15, false);
         bVar.mTitle.setText(feedForumData.getForumName());
-        bVar.hyY.setText(String.format(this.dIF.getPageActivity().getString(R.string.attention_post_count), uy(feedForumData.getMemberCount()), uy(feedForumData.getPostNum())));
-        bVar.hyZ.setText(feedForumData.getReason());
+        bVar.hzL.setText(String.format(this.dIF.getPageActivity().getString(R.string.attention_post_count), uA(feedForumData.getMemberCount()), uA(feedForumData.getPostNum())));
+        bVar.hzM.setText(feedForumData.getReason());
         if (feedForumData.getIsLike() == 0) {
-            bVar.hza.setClickable(true);
-            bVar.hza.setOnClickListener(this.mOnClickListener);
-            bVar.hza.setEnabled(true);
-            bVar.hza.hr(false);
+            bVar.hzN.setClickable(true);
+            bVar.hzN.setOnClickListener(this.mOnClickListener);
+            bVar.hzN.setEnabled(true);
+            bVar.hzN.hr(false);
         } else {
             a(bVar);
         }
@@ -140,10 +140,10 @@ public class e extends BaseAdapter {
 
     private void b(b bVar) {
         if (bVar.agt != this.mSkinType) {
-            am.setBackgroundResource(bVar.ePw, R.drawable.frs_like_feed_forum_item_bg);
+            am.setBackgroundResource(bVar.ePH, R.drawable.frs_like_feed_forum_item_bg);
             am.setViewTextColor(bVar.mTitle, R.color.cp_cont_b, 1);
-            am.setViewTextColor(bVar.hyY, R.color.cp_cont_c, 1);
-            am.setViewTextColor(bVar.hyZ, R.color.cp_link_tip_d, 1);
+            am.setViewTextColor(bVar.hzL, R.color.cp_cont_c, 1);
+            am.setViewTextColor(bVar.hzM, R.color.cp_link_tip_d, 1);
             if (bVar.mDivider != null) {
                 am.setBackgroundColor(bVar.mDivider, R.color.cp_bg_line_c);
             }
@@ -152,13 +152,13 @@ public class e extends BaseAdapter {
     }
 
     private void a(b bVar) {
-        if (bVar != null && bVar.hza != null) {
-            bVar.hza.hr(true);
-            bVar.hza.setEnabled(false);
+        if (bVar != null && bVar.hzN != null) {
+            bVar.hzN.hr(true);
+            bVar.hzN.setEnabled(false);
         }
     }
 
-    private String uy(int i) {
+    private String uA(int i) {
         if (i < 0) {
             return "0";
         }

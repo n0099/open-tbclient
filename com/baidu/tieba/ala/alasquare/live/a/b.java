@@ -13,52 +13,52 @@ import java.util.List;
 public class b {
     private final List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
     private e dJb;
-    private BdTypeListView faQ;
-    private a faR;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.a faS;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.b faT;
+    private BdTypeListView fbb;
+    private a fbc;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.a fbd;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.b fbe;
 
     public b(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         this.dJb = tbPageContext;
-        this.faQ = bdTypeListView;
+        this.fbb = bdTypeListView;
         CY();
     }
 
     private void CY() {
-        this.faT = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.dJb);
-        this.faT.setFrom(1);
-        this.faS = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.dJb);
-        this.faS.setFrom(1);
-        this.faR = new a((TbPageContext) this.dJb, com.baidu.tieba.ala.alasquare.live.b.b.faX);
-        this.aSj.add(this.faT);
-        this.aSj.add(this.faS);
-        this.aSj.add(this.faR);
-        this.faQ.addAdapters(this.aSj);
+        this.fbe = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.dJb);
+        this.fbe.setFrom(1);
+        this.fbd = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.dJb);
+        this.fbd.setFrom(1);
+        this.fbc = new a((TbPageContext) this.dJb, com.baidu.tieba.ala.alasquare.live.b.b.fbi);
+        this.aSj.add(this.fbe);
+        this.aSj.add(this.fbd);
+        this.aSj.add(this.fbc);
+        this.fbb.addAdapters(this.aSj);
     }
 
     public void setDatas(List<o> list) {
-        if (this.faQ != null) {
-            this.faQ.setData(list);
+        if (this.fbb != null) {
+            this.fbb.setData(list);
         }
     }
 
-    public void px(int i) {
-        this.faT.px(i);
-        this.faS.px(i);
+    public void pz(int i) {
+        this.fbe.pz(i);
+        this.fbd.pz(i);
     }
 
     public void notifyDataSetChanged() {
-        if (this.faQ != null && (this.faQ.getAdapter() instanceof BaseAdapter)) {
-            this.faQ.getAdapter().notifyDataSetChanged();
+        if (this.fbb != null && (this.fbb.getAdapter() instanceof BaseAdapter)) {
+            this.fbb.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.faR.a(iAlaSquareTabController);
+        this.fbc.a(iAlaSquareTabController);
     }
 
     public void a(i iVar) {
-        this.faT.b(iVar);
-        this.faS.b(iVar);
+        this.fbe.b(iVar);
+        this.fbd.b(iVar);
     }
 }

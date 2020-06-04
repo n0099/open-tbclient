@@ -7,23 +7,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String lza;
-    private a lzb;
+    private String lAj;
+    private a lAk;
 
     /* loaded from: classes.dex */
     public interface a {
-        void csi();
+        void csr();
 
-        void csj();
+        void css();
 
-        void csk();
+        void cst();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.lza = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.lzb = aVar;
+        this.lAj = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.lAk = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,9 +33,9 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            x xVar = new x(this.lza);
-            xVar.aUA().aVa().mIsNeedAddCommenParam = false;
-            xVar.aUA().aVa().mIsUseCurrentBDUSS = false;
+            x xVar = new x(this.lAj);
+            xVar.aUA().aVb().mIsNeedAddCommenParam = false;
+            xVar.aUA().aVb().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(xVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.lzb != null && num != null) {
+        if (this.lAk != null && num != null) {
             if (num.intValue() == -1) {
-                this.lzb.onError(null);
+                this.lAk.onError(null);
             } else if (num.intValue() == 1) {
-                this.lzb.csi();
+                this.lAk.csr();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.lzb.csj();
+                this.lAk.css();
             } else {
-                this.lzb.csk();
+                this.lAk.cst();
             }
         }
     }

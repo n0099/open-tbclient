@@ -9,8 +9,8 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GuardClubJoinListHttpResponseMessage extends JsonHttpResponsedMessage {
     public int count;
-    public int fzA;
-    public List<d> fzz;
+    public List<d> fzK;
+    public int fzL;
     public boolean hasMore;
 
     public GuardClubJoinListHttpResponseMessage() {
@@ -22,17 +22,17 @@ public class GuardClubJoinListHttpResponseMessage extends JsonHttpResponsedMessa
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.fzA = optJSONObject.optInt(Config.PACKAGE_NAME);
+            this.fzL = optJSONObject.optInt(Config.PACKAGE_NAME);
             this.hasMore = optJSONObject.optInt("has_more") == 1;
             this.count = optJSONObject.optInt("count");
             JSONArray optJSONArray = optJSONObject.optJSONArray("guard_club_lists");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.fzz = new ArrayList();
+                this.fzK = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     d dVar = new d();
                     dVar.parseJson(optJSONObject2);
-                    this.fzz.add(dVar);
+                    this.fzK.add(dVar);
                 }
             }
         }

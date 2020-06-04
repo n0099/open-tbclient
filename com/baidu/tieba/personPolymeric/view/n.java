@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class n extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.o> {
-    private TbImageView kwe;
-    private TextView kwf;
+    private TbImageView kxk;
+    private TextView kxl;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -19,16 +19,16 @@ public class n extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.mPageContext = tbPageContext;
         this.mRootView.setTag(this);
-        this.kwe = (TbImageView) this.mRootView.findViewById(R.id.gift_pic);
-        this.kwf = (TextView) this.mRootView.findViewById(R.id.gift_num_text);
+        this.kxk = (TbImageView) this.mRootView.findViewById(R.id.gift_pic);
+        this.kxl = (TextView) this.mRootView.findViewById(R.id.gift_num_text);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        am.setBackgroundResource(this.kwe, R.drawable.item_gift_selector);
-        am.setBackgroundColor(this.kwf, R.color.common_color_10294);
-        am.setViewTextColor(this.kwf, (int) R.color.cp_link_tip_a);
+        am.setBackgroundResource(this.kxk, R.drawable.item_gift_selector);
+        am.setBackgroundColor(this.kxl, R.color.common_color_10294);
+        am.setViewTextColor(this.kxl, (int) R.color.cp_link_tip_a);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -44,19 +44,19 @@ public class n extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
             return;
         }
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        this.kwe.startLoad(oVar.picUrl, 10, false);
+        this.kxk.startLoad(oVar.picUrl, 10, false);
         this.mRootView.setOnClickListener(this);
         if (oVar.giftNum > 0) {
-            this.kwf.setVisibility(0);
+            this.kxl.setVisibility(0);
             if (oVar.giftNum > 99) {
-                this.kwf.setText("99");
+                this.kxl.setText("99");
                 return;
             } else {
-                this.kwf.setText(String.valueOf(oVar.giftNum));
+                this.kxl.setText(String.valueOf(oVar.giftNum));
                 return;
             }
         }
-        this.kwf.setVisibility(8);
+        this.kxl.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

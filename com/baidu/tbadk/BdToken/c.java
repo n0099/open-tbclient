@@ -213,7 +213,7 @@ public class c {
 
     public void aLn() {
         this.duF.compareAndSet(true, false);
-        this.duE.jS(0);
+        this.duE.jU(0);
         this.duE.setTid(0L);
         this.duE.setFid(0L);
         if (this.duI != null) {
@@ -272,7 +272,7 @@ public class c {
                         b(bVar, j);
                     }
                 }
-                this.duE.jS(i);
+                this.duE.jU(i);
                 this.duE.setTid(j);
                 this.duL = j;
                 this.duF.compareAndSet(false, true);
@@ -303,7 +303,7 @@ public class c {
             m mVar2 = new m(bVar, j);
             mVar2.bX(0L);
             mVar2.gz(false);
-            mVar2.jQ(bVar.getTag());
+            mVar2.jS(bVar.getTag());
             bVar.a(mVar2);
         }
     }
@@ -328,7 +328,7 @@ public class c {
             k kVar2 = new k(bVar, j);
             kVar2.bX(0L);
             kVar2.gz(false);
-            kVar2.jQ(bVar.getTag());
+            kVar2.jS(bVar.getTag());
             bVar.a(kVar2);
         }
     }
@@ -358,13 +358,13 @@ public class c {
                             j jVar = new j(bVar, j);
                             jVar.bX(0L);
                             jVar.gz(false);
-                            jVar.jQ(bVar.getTag());
+                            jVar.jS(bVar.getTag());
                             bVar.a(jVar);
                         }
                         z2 = z;
                     }
                 }
-                this.duE.jS(i);
+                this.duE.jU(i);
                 this.duE.setFid(j);
                 this.duF.compareAndSet(false, true);
                 synchronized (this.duF) {
@@ -374,7 +374,7 @@ public class c {
         }
     }
 
-    public void jR(int i) {
+    public void jT(int i) {
         boolean z;
         if (isMainProcess() && i != 0 && this.duG) {
             this.duK = i;
@@ -404,7 +404,7 @@ public class c {
                         z2 = z;
                     }
                 }
-                this.duE.jS(i);
+                this.duE.jU(i);
                 this.duF.compareAndSet(false, true);
                 synchronized (this.duF) {
                     this.duF.notify();
@@ -444,7 +444,7 @@ public class c {
                     z2 = z;
                 }
             }
-            this.duE.jS(i);
+            this.duE.jU(i);
             this.duF.compareAndSet(false, true);
             synchronized (this.duF) {
                 this.duF.notify();
@@ -803,7 +803,7 @@ public class c {
                 z = z2;
             }
             if (z && !this.duF.get()) {
-                this.duE.jS(com.baidu.tbadk.BdToken.b.dtR);
+                this.duE.jU(com.baidu.tbadk.BdToken.b.dtR);
                 this.duF.compareAndSet(false, true);
                 synchronized (this.duF) {
                     this.duF.notify();
@@ -824,7 +824,7 @@ public class c {
             this.duU = false;
         }
 
-        public synchronized void jS(int i) {
+        public synchronized void jU(int i) {
             this.duT = i;
         }
 
@@ -899,7 +899,7 @@ public class c {
                     com.baidu.tbadk.BdToken.h next = it.next();
                     if ((next instanceof l) && !((l) next).isTimeout() && !next.gt()) {
                         this.duU = false;
-                        next.jT(1);
+                        next.jV(1);
                         if (next.aLC() >= next.aLB().aKY()) {
                             next.gz(true);
                             bVar2.s(bVar);
@@ -921,7 +921,7 @@ public class c {
                         m mVar = (m) next;
                         if (this.dul != 0 && mVar.getTid() == this.dul && !next.gt()) {
                             this.duU = false;
-                            next.jT(1);
+                            next.jV(1);
                             if (next.aLC() >= next.aLB().aKY()) {
                                 next.gz(true);
                                 if (next.aLB().aKN() >= next.aLB().getThreadNum()) {
@@ -935,7 +935,7 @@ public class c {
                         if (!bVar.aLh() && kVar.getTag() == bVar.getTag()) {
                             if (this.dul != 0 && kVar.getTid() == this.dul && !next.gt()) {
                                 this.duU = false;
-                                next.jT(1);
+                                next.jV(1);
                             }
                             i = (int) (i + next.aLC());
                             if (this.dul != 0 && kVar.getTid() == this.dul && !next.gt()) {
@@ -955,7 +955,7 @@ public class c {
                     } else if (next instanceof j) {
                         if (this.mFid != 0 && ((j) next).getFid() == this.mFid && !next.gt()) {
                             this.duU = false;
-                            next.jT(1);
+                            next.jV(1);
                             if (next.aLC() >= next.aLB().aKY()) {
                                 next.gz(true);
                                 if (next.aLB().aKM() >= next.aLB().aKZ()) {
@@ -965,7 +965,7 @@ public class c {
                         }
                     } else if ((next instanceof i) && !next.gt()) {
                         this.duU = false;
-                        next.jT(1);
+                        next.jV(1);
                         if (next.aLC() >= next.aLB().aKY()) {
                             next.gz(true);
                             bVar2.c(next);

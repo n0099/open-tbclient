@@ -11,48 +11,48 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class c {
-    private BdTypeListView faQ;
-    private NewSubPbActivity jYF;
-    private com.baidu.tieba.pb.pb.sub.a.b jZv;
-    private com.baidu.tieba.pb.pb.sub.a.d jZw;
-    private x jZx;
+    private BdTypeListView fbb;
+    private NewSubPbActivity jZL;
+    private com.baidu.tieba.pb.pb.sub.a.b kaC;
+    private com.baidu.tieba.pb.pb.sub.a.d kaD;
+    private x kaE;
     private List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
     private View.OnClickListener aIH = null;
-    private boolean gJL = false;
-    private boolean jZy = true;
+    private boolean gJW = false;
+    private boolean kaF = true;
 
     public c(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
-        this.jYF = newSubPbActivity;
-        this.faQ = bdTypeListView;
+        this.jZL = newSubPbActivity;
+        this.fbb = bdTypeListView;
     }
 
     public void CY() {
-        this.jZv = new com.baidu.tieba.pb.pb.sub.a.b(this.jYF, PostData.lkJ);
-        this.jZv.y(this.aIH);
-        this.jZv.a(this.jZx);
-        this.jZv.setFromCDN(this.jZy);
-        this.aSj.add(this.jZv);
-        this.jZw = new com.baidu.tieba.pb.pb.sub.a.d(this.jYF, com.baidu.tieba.pb.pb.sub.b.b.kap);
-        this.aSj.add(this.jZw);
-        this.aSj.add(new com.baidu.tieba.pb.pb.sub.a.c(this.jYF, com.baidu.tieba.pb.pb.sub.b.a.kao));
-        this.faQ.addAdapters(this.aSj);
+        this.kaC = new com.baidu.tieba.pb.pb.sub.a.b(this.jZL, PostData.llS);
+        this.kaC.y(this.aIH);
+        this.kaC.a(this.kaE);
+        this.kaC.setFromCDN(this.kaF);
+        this.aSj.add(this.kaC);
+        this.kaD = new com.baidu.tieba.pb.pb.sub.a.d(this.jZL, com.baidu.tieba.pb.pb.sub.b.b.kbw);
+        this.aSj.add(this.kaD);
+        this.aSj.add(new com.baidu.tieba.pb.pb.sub.a.c(this.jZL, com.baidu.tieba.pb.pb.sub.b.a.kbv));
+        this.fbb.addAdapters(this.aSj);
     }
 
     public void b(bk bkVar, List<o> list) {
-        this.jZv.setThreadData(bkVar);
-        if (this.jYF.cJn().cGl()) {
-            this.jZv.JR(this.jYF.cJn().cFs());
+        this.kaC.setThreadData(bkVar);
+        if (this.jZL.cJD().cGB()) {
+            this.kaC.JS(this.jZL.cJD().cFI());
         }
-        this.faQ.setData(list);
-        this.faQ.getAdapter().notifyDataSetChanged();
+        this.fbb.setData(list);
+        this.fbb.getAdapter().notifyDataSetChanged();
     }
 
     public boolean anV() {
-        return this.gJL;
+        return this.gJW;
     }
 
     public void setHasMoreData(boolean z) {
-        this.gJL = z;
+        this.gJW = z;
     }
 
     public void y(View.OnClickListener onClickListener) {
@@ -60,20 +60,20 @@ public class c {
     }
 
     public void c(View.OnLongClickListener onLongClickListener) {
-        this.jZv.setOnLongClickListener(onLongClickListener);
+        this.kaC.setOnLongClickListener(onLongClickListener);
     }
 
     public void setOnImageClickListener(TbRichTextView.i iVar) {
-        this.jZv.setOnImageClickListener(iVar);
+        this.kaC.setOnImageClickListener(iVar);
     }
 
     public void setFromCDN(boolean z) {
-        this.jZy = z;
+        this.kaF = z;
     }
 
     public void notifyDataSetChanged() {
-        if (this.faQ.getAdapter() != null) {
-            this.faQ.getAdapter().notifyDataSetChanged();
+        if (this.fbb.getAdapter() != null) {
+            this.fbb.getAdapter().notifyDataSetChanged();
         }
     }
 }

@@ -56,7 +56,7 @@ public class ad extends com.baidu.swan.apps.network.a implements com.baidu.swan.
         final String valueOf = String.valueOf(System.currentTimeMillis());
         Request a = a(b, optString, hL, valueOf, eVar, callbackHandler);
         if (a == null) {
-            unitedSchemeEntity.result = fY(this.cBK);
+            unitedSchemeEntity.result = ga(this.cBK);
             mg(valueOf);
             return false;
         }

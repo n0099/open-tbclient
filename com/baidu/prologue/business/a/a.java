@@ -49,7 +49,7 @@ public class a {
     public void a(File file, String str, b bVar, String str2, InterfaceC0250a interfaceC0250a, final a.InterfaceC0248a interfaceC0248a, boolean z) {
         if (file == null || !file.exists() || !file.isFile()) {
             this.bAp = false;
-            interfaceC0248a.dR(4);
+            interfaceC0248a.dT(4);
             return;
         }
         if (DEBUG) {
@@ -58,11 +58,11 @@ public class a {
         this.bAl.a(bVar);
         this.bAl.a(new a.InterfaceC0248a() { // from class: com.baidu.prologue.business.a.a.1
             @Override // com.baidu.prologue.b.a.InterfaceC0248a
-            public void dR(int i) {
+            public void dT(int i) {
                 if (a.DEBUG) {
                     throw new IllegalStateException("MediaPlayer set video file Error!");
                 }
-                interfaceC0248a.dR(i);
+                interfaceC0248a.dT(i);
             }
         });
         this.bAl.a(c.b(file, str));
@@ -85,22 +85,26 @@ public class a {
         if (this.bAp) {
             if (this.bAq) {
                 this.bAs.onPrepared();
-            } else {
+            } else if (this.bAl != null) {
                 this.bAl.prepareAsync();
             }
         }
     }
 
     public void pause() {
-        this.bAl.pause();
+        if (this.bAl != null) {
+            this.bAl.pause();
+        }
     }
 
     public void play() {
-        this.bAl.start();
+        if (this.bAl != null) {
+            this.bAl.start();
+        }
     }
 
     public boolean Om() {
-        return this.bAl.Om();
+        return this.bAl != null && this.bAl.Om();
     }
 
     public View On() {

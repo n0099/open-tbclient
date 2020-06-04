@@ -63,7 +63,7 @@ public class a extends c {
                 return;
             }
             if (k.optBoolean("microphoneEnabled", false)) {
-                it(2);
+                iv(2);
             }
             aBq();
             com.baidu.swan.games.u.b.a.aBG();

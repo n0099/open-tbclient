@@ -57,7 +57,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                 super.onLoaded((AnonymousClass2) aVar, str, i);
                 if (FragmentTabIndicator.this.mIconView == null || aVar == null || !aVar.isValidNow()) {
-                    FragmentTabIndicator.this.beA();
+                    FragmentTabIndicator.this.beB();
                     return;
                 }
                 FragmentTabIndicator.this.mIconView.setBackgroundResource(0);
@@ -82,7 +82,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                 super.onLoaded((AnonymousClass2) aVar, str, i);
                 if (FragmentTabIndicator.this.mIconView == null || aVar == null || !aVar.isValidNow()) {
-                    FragmentTabIndicator.this.beA();
+                    FragmentTabIndicator.this.beB();
                     return;
                 }
                 FragmentTabIndicator.this.mIconView.setBackgroundResource(0);
@@ -100,7 +100,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         this.mIconView = (ImageView) inflate.findViewById(R.id.view_bottom_icon);
         this.epN = (TextView) inflate.findViewById(R.id.view_bottom_text);
         this.epN.setDuplicateParentStateEnabled(true);
-        beA();
+        beB();
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
@@ -217,7 +217,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setIconResourceId(int i) {
         this.epK = i;
-        beA();
+        beB();
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
@@ -275,7 +275,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         if (this.epN != null) {
             this.epN.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getSkinDrawable(null, this.drawableTopResId), am.getSkinDrawable(null, this.drawableRightResId), (Drawable) null);
         }
-        bez();
+        beA();
         for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.mTips.entrySet()) {
             entry.getValue().onChangeSkin(i);
         }
@@ -287,7 +287,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void bey() {
+    public void bez() {
         if (this.animationResId > 0 && this.epJ) {
             try {
                 this.epJ = false;
@@ -338,7 +338,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             layoutParams.addRule(14, -1);
             this.mIconView.setLayoutParams(layoutParams);
         }
-        bez();
+        beA();
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
@@ -358,7 +358,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             layoutParams2.addRule(14, -1);
             this.mIconView.setLayoutParams(layoutParams2);
         }
-        bez();
+        beA();
     }
 
     @Override // android.view.View
@@ -398,20 +398,20 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         }
     }
 
-    private void bez() {
+    private void beA() {
         if (this.drawableTopResId <= 0 && this.drawableRightResId <= 0) {
             if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(this.epL)) {
                 com.baidu.adp.lib.e.c.kX().a(this.epL, 10, this.dLn, getBdUniqueId());
             } else if (!TextUtils.isEmpty(this.iconUrl)) {
                 com.baidu.adp.lib.e.c.kX().a(this.iconUrl, 10, this.dLn, getBdUniqueId());
             } else {
-                beA();
+                beB();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void beA() {
+    public void beB() {
         if (this.epK > 0) {
             am.setImageResource(this.mIconView, this.epK);
         }

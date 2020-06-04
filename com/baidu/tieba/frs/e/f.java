@@ -11,11 +11,11 @@ import com.baidu.tieba.frs.e.b;
 /* loaded from: classes9.dex */
 public class f {
     private com.baidu.tbadk.n.a.a Vt;
-    private g hKa;
-    private b hKj;
+    private g hKN;
+    private b hKW;
     private Context mContext;
     private ViewGroup mParent;
-    private b.a hKk = new b.a() { // from class: com.baidu.tieba.frs.e.f.1
+    private b.a hKX = new b.a() { // from class: com.baidu.tieba.frs.e.f.1
         @Override // com.baidu.tieba.frs.e.b.a
         public void onStateChanged(int i) {
             if (i == 1) {
@@ -23,15 +23,15 @@ public class f {
                     if (f.this.Vt == null) {
                         f.this.Vt = new com.baidu.tbadk.n.a.a("anim_switch_trans_frs");
                     }
-                    f.this.Vt.bfP();
+                    f.this.Vt.bfQ();
                 }
             } else if (i == 2) {
                 f.this.showContentView();
                 if (f.this.Vt != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
-                    f.this.Vt.bfQ();
+                    f.this.Vt.bfR();
                 }
             } else if (i == 0) {
-                f.this.cbi();
+                f.this.cbq();
             }
         }
     };
@@ -45,21 +45,21 @@ public class f {
     public f(Context context, ViewGroup viewGroup, Intent intent) {
         this.mContext = context;
         this.mParent = viewGroup;
-        this.hKa = new g(context);
-        this.hKj = c.a(this.hKa, intent);
-        this.hKj.a(this.hKk);
+        this.hKN = new g(context);
+        this.hKW = c.a(this.hKN, intent);
+        this.hKW.a(this.hKX);
     }
 
-    public void cbg() {
+    public void cbo() {
         if (this.mParent != null) {
-            cbi();
-            this.mParent.addView(this.hKa.mRootView);
-            cbh();
-            this.hKj.caW();
+            cbq();
+            this.mParent.addView(this.hKN.mRootView);
+            cbp();
+            this.hKW.cbe();
         }
     }
 
-    public void bUk() {
+    public void bUm() {
         if (this.mParent != null) {
             hide();
         }
@@ -68,12 +68,12 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
         com.baidu.adp.lib.f.e.ld().removeCallbacks(this.mHideRunnable);
-        if (this.hKj.getState() == 1) {
+        if (this.hKW.getState() == 1) {
             com.baidu.adp.lib.f.e.ld().postDelayed(this.mHideRunnable, 10L);
             return;
         }
         showContentView();
-        this.hKj.caX();
+        this.hKW.cbf();
     }
 
     public static boolean T(Intent intent) {
@@ -90,7 +90,7 @@ public class f {
         }
     }
 
-    private void cbh() {
+    private void cbp() {
         View findViewById;
         if (this.mParent != null && (this.mParent.getChildAt(0) instanceof SwipeBackLayout)) {
             this.mParent.getChildAt(0).setVisibility(8);
@@ -101,10 +101,10 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbi() {
-        ViewParent parent = this.hKa.mRootView.getParent();
+    public void cbq() {
+        ViewParent parent = this.hKN.mRootView.getParent();
         if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(this.hKa.mRootView);
+            ((ViewGroup) parent).removeView(this.hKN.mRootView);
         }
         com.baidu.adp.lib.f.e.ld().removeCallbacks(this.mHideRunnable);
     }

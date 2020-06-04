@@ -17,7 +17,7 @@ public class c {
         this.gravity = i;
     }
 
-    public final void kR(int i) {
+    public final void kT(int i) {
         this.dJY = i;
     }
 
@@ -29,7 +29,7 @@ public class c {
         return this.dJZ;
     }
 
-    public final void kS(int i) {
+    public final void kU(int i) {
         this.dJZ = i;
     }
 
@@ -37,11 +37,11 @@ public class c {
         this.dKa = i;
     }
 
-    public final void kT(int i) {
+    public final void kV(int i) {
         this.dKb = i;
     }
 
-    public void kU(int i) {
+    public void kW(int i) {
         this.dKc = i;
     }
 

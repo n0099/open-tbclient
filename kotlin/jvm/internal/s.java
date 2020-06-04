@@ -2,30 +2,30 @@ package kotlin.jvm.internal;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class s implements l {
-    private final String ilP;
-    private final Class<?> nsR;
+    private final String imD;
+    private final Class<?> nub;
 
     public s(Class<?> cls, String str) {
         q.m(cls, "jClass");
         q.m(str, "moduleName");
-        this.nsR = cls;
-        this.ilP = str;
+        this.nub = cls;
+        this.imD = str;
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> dLK() {
-        return this.nsR;
+    public Class<?> dLY() {
+        return this.nub;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof s) && q.l(dLK(), ((s) obj).dLK());
+        return (obj instanceof s) && q.l(dLY(), ((s) obj).dLY());
     }
 
     public int hashCode() {
-        return dLK().hashCode();
+        return dLY().hashCode();
     }
 
     public String toString() {
-        return dLK().toString() + " (Kotlin reflection is not available)";
+        return dLY().toString() + " (Kotlin reflection is not available)";
     }
 }

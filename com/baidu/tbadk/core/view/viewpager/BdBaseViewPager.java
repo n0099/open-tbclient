@@ -235,7 +235,7 @@ public class BdBaseViewPager extends ViewPager {
             }
         }
 
-        public void mq(int i) {
+        public void ms(int i) {
             this.baj = i;
         }
     }

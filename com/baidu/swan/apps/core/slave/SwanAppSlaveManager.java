@@ -148,7 +148,7 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements c<NgWe
         if (frameLayout != null) {
             if (cVar.cBg) {
                 this.bZK = new PullToRefreshNgWebView(this.bTB.getBaseContext(), this, PullToRefreshBase.HEADERTYPE.SWAN_APP_HEADER);
-                eh(SwanAppConfigData.dT(cVar.cBf));
+                ej(SwanAppConfigData.dT(cVar.cBf));
                 a(this.bZK);
                 a(frameLayout, this.bZK);
             } else {
@@ -172,17 +172,17 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements c<NgWe
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.c
-    public boolean eh(int i) {
+    public boolean ej(int i) {
         NeutralHeaderLoadingLayout neutralHeaderLoadingLayout;
         if (this.bZK != null && (neutralHeaderLoadingLayout = (NeutralHeaderLoadingLayout) this.bZK.getHeaderLoadingLayout()) != null) {
-            return neutralHeaderLoadingLayout.eh(i);
+            return neutralHeaderLoadingLayout.ej(i);
         }
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.c
     public void a(com.baidu.swan.apps.core.turbo.b bVar) {
-        if (bVar != null && a.b.ee(0)) {
+        if (bVar != null && a.b.eg(0)) {
             if (DEBUG) {
                 Log.d("SwanAppSlaveManager", "pathList item: " + bVar.appPath);
             }
@@ -370,10 +370,10 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements c<NgWe
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.c
-    public void eg(int i) {
+    public void ei(int i) {
         Th().setVisibility(i);
         if (this.bZL != null) {
-            this.bZL.hP(i);
+            this.bZL.hR(i);
         }
         if (Ta() != null) {
             Ta().setVisibility(i);

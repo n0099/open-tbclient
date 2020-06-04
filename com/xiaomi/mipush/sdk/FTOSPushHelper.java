@@ -14,7 +14,7 @@ public class FTOSPushHelper {
     private static void a(Context context) {
         AbstractPushManager a2 = e.a(context).a(d.ASSEMBLE_PUSH_FTOS);
         if (a2 != null) {
-            com.xiaomi.channel.commonutils.logger.b.m52a("ASSEMBLE_PUSH :  register fun touch os when network change!");
+            com.xiaomi.channel.commonutils.logger.b.m51a("ASSEMBLE_PUSH :  register fun touch os when network change!");
             a2.register();
         }
     }
@@ -34,7 +34,7 @@ public class FTOSPushHelper {
     }
 
     public static boolean hasNetwork(Context context) {
-        return h.m112a(context);
+        return h.m111a(context);
     }
 
     public static void notifyFTOSNotificationClicked(Context context, Map<String, String> map) {

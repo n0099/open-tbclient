@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class s implements n {
-    private List<AppData> kJv;
+    private List<AppData> kKD;
 
     @Override // com.baidu.tieba.recapp.n
     public com.baidu.adp.widget.ListView.a<?, ?> a(m mVar, BdUniqueId bdUniqueId) {
@@ -58,35 +58,35 @@ public class s implements n {
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public i cUg() {
-        return a.cTX();
+    public i cUw() {
+        return a.cUn();
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public k cUh() {
-        return a.cTX();
+    public k cUx() {
+        return a.cUn();
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public com.baidu.tieba.r.a cUi() {
-        return com.baidu.tieba.ad.statis.a.bmP();
+    public com.baidu.tieba.r.a cUy() {
+        return com.baidu.tieba.ad.statis.a.bmR();
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public g cUj() {
-        return com.baidu.tieba.ad.a.bms();
+    public g cUz() {
+        return com.baidu.tieba.ad.a.bmu();
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public List<AppData> cUk() {
-        if (this.kJv == null) {
-            this.kJv = new ArrayList();
+    public List<AppData> cUA() {
+        if (this.kKD == null) {
+            this.kKD = new ArrayList();
         }
-        return this.kJv;
+        return this.kKD;
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public void cUl() {
-        AdDebugService.updateFloatView(this.kJv != null ? StringUtils.string(Integer.valueOf(this.kJv.size())) : "0");
+    public void cUB() {
+        AdDebugService.updateFloatView(this.kKD != null ? StringUtils.string(Integer.valueOf(this.kKD.size())) : "0");
     }
 }

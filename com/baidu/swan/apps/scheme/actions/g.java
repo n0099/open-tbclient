@@ -66,7 +66,7 @@ public class g extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
         final String hL = com.baidu.swan.apps.api.module.network.c.hL(aoH);
         Request v = v(b, hL);
         if (v == null) {
-            unitedSchemeEntity.result = fY(this.cBK);
+            unitedSchemeEntity.result = ga(this.cBK);
             return false;
         }
         final String httpUrl = v.url().toString();

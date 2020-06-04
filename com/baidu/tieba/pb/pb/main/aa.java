@@ -6,14 +6,14 @@ import java.util.HashMap;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes9.dex */
 public class aa implements com.baidu.adp.widget.ListView.o {
-    public static final BdUniqueId jNg = BdUniqueId.gen();
+    public static final BdUniqueId jOm = BdUniqueId.gen();
     public String cover;
     private boolean dCL;
     public MetaData dFJ;
     public String description;
     public boolean isChushou;
-    public int jMM;
-    public boolean jMN = false;
+    public int jNS;
+    public boolean jNT = false;
     public long liveId;
     public int liveStatus;
     public String routeType;
@@ -27,7 +27,7 @@ public class aa implements com.baidu.adp.widget.ListView.o {
         if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.pb_display_type.intValue() == 3 && alaLiveInfo.live_status.intValue() == 1) {
             this.userName = alaLiveInfo.user_info.user_name;
             this.liveStatus = alaLiveInfo.live_status.intValue();
-            this.jMM = alaLiveInfo.audience_count.intValue();
+            this.jNS = alaLiveInfo.audience_count.intValue();
             this.description = alaLiveInfo.description;
             this.cover = alaLiveInfo.cover;
             this.liveId = alaLiveInfo.live_id.longValue();
@@ -54,6 +54,6 @@ public class aa implements com.baidu.adp.widget.ListView.o {
 
     @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return jNg;
+        return jOm;
     }
 }

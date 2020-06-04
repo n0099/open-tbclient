@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class q extends aa.a {
-    public static BdUniqueId hqf = BdUniqueId.gen();
+    public static BdUniqueId hqq = BdUniqueId.gen();
     private LinearLayout ehT;
     private int epD;
-    public TextView hqg;
-    public ImageView hqh;
-    private int hqi;
-    private CustomMessageListener hqj;
+    public TextView hqr;
+    public ImageView hqs;
+    private int hqt;
+    private CustomMessageListener hqu;
     private ViewGroup mParent;
     private View mRootView;
     private Rect rect;
@@ -30,34 +30,34 @@ public class q extends aa.a {
     public q(View view, ViewGroup viewGroup) {
         super(view);
         this.rect = new Rect();
-        this.hqj = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.q.1
+        this.hqu = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.q.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Integer num;
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer) && (num = (Integer) customResponsedMessage.getData()) != null) {
-                    q.this.ns(num.intValue());
+                    q.this.nu(num.intValue());
                 }
             }
         };
         this.mRootView = view;
         this.mParent = viewGroup;
         this.ehT = (LinearLayout) view.findViewById(R.id.container);
-        this.hqh = (ImageView) view.findViewById(R.id.emotion_view);
-        this.hqg = (TextView) view.findViewById(R.id.no_data_tips);
-        com.baidu.tbadk.core.util.am.setImageResource(this.hqh, R.drawable.new_pic_emotion_06);
-        this.hqj.setTag(hqf);
-        MessageManager.getInstance().registerListener(this.hqj);
-        bWA();
+        this.hqs = (ImageView) view.findViewById(R.id.emotion_view);
+        this.hqr = (TextView) view.findViewById(R.id.no_data_tips);
+        com.baidu.tbadk.core.util.am.setImageResource(this.hqs, R.drawable.new_pic_emotion_06);
+        this.hqu.setTag(hqq);
+        MessageManager.getInstance().registerListener(this.hqu);
+        bWC();
     }
 
-    private void bWA() {
+    private void bWC() {
         if (this.mRootView != null) {
             this.mRootView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() { // from class: com.baidu.tieba.frs.q.2
                 @Override // android.view.View.OnLayoutChangeListener
                 public void onLayoutChange(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
                     if (q.this.bV(view)) {
-                        q.this.ns(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                        q.this.nu(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                     }
                 }
             });
@@ -73,13 +73,13 @@ public class q extends aa.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ns(int i) {
+    public void nu(int i) {
         if (this.mRootView != null && this.mParent != null) {
             if (this.epD <= 0) {
                 this.epD = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
             }
-            if (i != Integer.MAX_VALUE || this.hqi != Integer.MAX_VALUE) {
-                this.hqi = i;
+            if (i != Integer.MAX_VALUE || this.hqt != Integer.MAX_VALUE) {
+                this.hqt = i;
                 if (this.mParent.getLocalVisibleRect(this.rect)) {
                     int i2 = this.rect.bottom;
                     int abs = Math.abs(this.ehT.getTop());

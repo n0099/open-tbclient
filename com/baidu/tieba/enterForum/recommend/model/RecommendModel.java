@@ -14,7 +14,7 @@ import com.baidu.tieba.enterForum.recommend.message.ResponseSocketRecommendMessa
 /* loaded from: classes9.dex */
 public class RecommendModel extends BdBaseModel {
     private a dve;
-    private com.baidu.tieba.enterForum.recommend.a gTt;
+    private com.baidu.tieba.enterForum.recommend.a gTE;
     private boolean mIsLoading;
     private TbPageContext<?> mPageContext;
 
@@ -25,7 +25,7 @@ public class RecommendModel extends BdBaseModel {
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 RecommendModel.this.mIsLoading = false;
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && RecommendModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && RecommendModel.this.gTt != null) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && RecommendModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && RecommendModel.this.gTE != null) {
                     com.baidu.tieba.enterForum.recommend.b.a aVar = null;
                     if (responsedMessage instanceof ResponseHttpRecommendMessage) {
                         aVar = ((ResponseHttpRecommendMessage) responsedMessage).getRecommendData();
@@ -33,14 +33,14 @@ public class RecommendModel extends BdBaseModel {
                     if (responsedMessage instanceof ResponseSocketRecommendMessage) {
                         aVar = ((ResponseSocketRecommendMessage) responsedMessage).getRecommendData();
                     }
-                    RecommendModel.this.gTt.a(responsedMessage.getError(), aVar);
+                    RecommendModel.this.gTE.a(responsedMessage.getError(), aVar);
                 }
             }
         };
     }
 
     public void setPresenter(com.baidu.tieba.enterForum.recommend.a aVar) {
-        this.gTt = aVar;
+        this.gTE = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -50,10 +50,10 @@ public class RecommendModel extends BdBaseModel {
         registerListener(this.dve);
     }
 
-    public void bPD() {
+    public void bPF() {
         if (!j.isNetworkAvailableForImmediately()) {
-            if (this.gTt != null) {
-                this.gTt.a(-1, null);
+            if (this.gTE != null) {
+                this.gTE.a(-1, null);
             }
         } else if (!this.mIsLoading) {
             cancelLoadData();

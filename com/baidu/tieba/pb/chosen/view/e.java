@@ -16,16 +16,16 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 /* loaded from: classes10.dex */
 public class e {
     private Context context;
-    private Animation jDB;
-    private View jDt;
-    private TextView jDu;
-    private ImageView jDv;
-    private TextView jDw;
-    private TextView jDx;
-    private a jDy;
-    public boolean jDz;
-    private long jDA = 0;
-    private boolean jDC = false;
+    private TextView jEA;
+    private ImageView jEB;
+    private TextView jEC;
+    private TextView jED;
+    private a jEE;
+    public boolean jEF;
+    private Animation jEH;
+    private View jEz;
+    private long jEG = 0;
+    private boolean jEI = false;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -36,59 +36,59 @@ public class e {
 
     public e(Context context) {
         this.context = context;
-        this.jDt = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
-        this.jDu = (TextView) this.jDt.findViewById(R.id.chosen_post_info_copyright);
-        this.jDv = (ImageView) this.jDt.findViewById(R.id.chosen_post_info_praise_icon);
-        this.jDw = (TextView) this.jDt.findViewById(R.id.chosen_post_info_praise_num);
-        this.jDx = (TextView) this.jDt.findViewById(R.id.chosen_post_info_original_post);
+        this.jEz = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
+        this.jEA = (TextView) this.jEz.findViewById(R.id.chosen_post_info_copyright);
+        this.jEB = (ImageView) this.jEz.findViewById(R.id.chosen_post_info_praise_icon);
+        this.jEC = (TextView) this.jEz.findViewById(R.id.chosen_post_info_praise_num);
+        this.jED = (TextView) this.jEz.findViewById(R.id.chosen_post_info_original_post);
     }
 
-    public View cCb() {
-        return this.jDt;
+    public View cCr() {
+        return this.jEz;
     }
 
     public void a(a aVar) {
-        this.jDy = aVar;
+        this.jEE = aVar;
     }
 
-    public void zS(int i) {
-        if (this.jDu != null) {
-            this.jDu.setText(i);
+    public void zU(int i) {
+        if (this.jEA != null) {
+            this.jEA.setText(i);
         }
     }
 
     public void N(View.OnClickListener onClickListener) {
-        if (this.jDx != null) {
-            this.jDx.setOnClickListener(onClickListener);
+        if (this.jED != null) {
+            this.jED.setOnClickListener(onClickListener);
         }
     }
 
     public void fe(long j) {
         if (j >= 0) {
-            this.jDA = j;
-            if (this.jDw != null) {
-                this.jDw.setVisibility(0);
-                this.jDw.setText(this.context.getString(R.string.chosen_pb_praise_num, aq.numFormatOver10000(j)));
+            this.jEG = j;
+            if (this.jEC != null) {
+                this.jEC.setVisibility(0);
+                this.jEC.setText(this.context.getString(R.string.chosen_pb_praise_num, aq.numFormatOver10000(j)));
             }
-            if (this.jDw != null && this.jDw.getVisibility() == 8) {
-                this.jDw.setVisibility(0);
+            if (this.jEC != null && this.jEC.getVisibility() == 8) {
+                this.jEC.setVisibility(0);
             }
         }
     }
 
     public void a(final ExcellentPbThreadInfo excellentPbThreadInfo) {
         if (excellentPbThreadInfo != null) {
-            zS(R.string.chosen_pb_copyright);
+            zU(R.string.chosen_pb_copyright);
             fe(excellentPbThreadInfo.zan.zansum.longValue());
             ra(excellentPbThreadInfo.zan.is_zan.booleanValue());
-            this.jDv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
+            this.jEB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!e.this.jDC && bc.checkUpIsLogin(e.this.context)) {
-                        e.this.jDC = true;
-                        e.this.jDv.startAnimation(e.this.cCd());
-                        if (e.this.jDy != null) {
-                            e.this.jDy.qW(e.this.jDz);
+                    if (!e.this.jEI && bc.checkUpIsLogin(e.this.context)) {
+                        e.this.jEI = true;
+                        e.this.jEB.startAnimation(e.this.cCt());
+                        if (e.this.jEE != null) {
+                            e.this.jEE.qW(e.this.jEF);
                         }
                     }
                 }
@@ -96,43 +96,43 @@ public class e {
             N(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.jDy != null) {
-                        e.this.jDy.t(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
+                    if (e.this.jEE != null) {
+                        e.this.jEE.t(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
                     }
                 }
             });
         }
     }
 
-    public void cCc() {
-        this.jDC = false;
+    public void cCs() {
+        this.jEI = false;
     }
 
     public void qZ(boolean z) {
         ra(z);
         if (z) {
-            this.jDA++;
+            this.jEG++;
         } else {
-            this.jDA--;
+            this.jEG--;
         }
-        fe(this.jDA);
+        fe(this.jEG);
     }
 
     private void ra(boolean z) {
-        this.jDz = z;
+        this.jEF = z;
         if (z) {
-            am.setImageResource(this.jDv, R.drawable.btn_zambia_big_s);
+            am.setImageResource(this.jEB, R.drawable.btn_zambia_big_s);
         } else {
-            am.setImageResource(this.jDv, R.drawable.btn_zambia_big_n);
+            am.setImageResource(this.jEB, R.drawable.btn_zambia_big_n);
         }
-        this.jDv.setVisibility(0);
+        this.jEB.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation cCd() {
-        if (this.jDB == null) {
-            this.jDB = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
+    public Animation cCt() {
+        if (this.jEH == null) {
+            this.jEH = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
         }
-        return this.jDB;
+        return this.jEH;
     }
 }

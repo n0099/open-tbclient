@@ -20,7 +20,7 @@ public class b implements com.baidu.spswitch.a {
         return new int[]{i, i2};
     }
 
-    public boolean eb(int i) {
+    public boolean ed(int i) {
         if (i == 0) {
             this.bGt = false;
         }

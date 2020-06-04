@@ -34,14 +34,14 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public boolean ur(int i) {
+    public boolean ut(int i) {
         return false;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(h hVar, n nVar, FrsViewData frsViewData) {
         if (hVar != null && nVar != null && frsViewData != null) {
-            hVar.cbQ();
+            hVar.cbY();
             if (frsViewData != null && frsViewData.getForum() != null) {
                 nVar.a(frsViewData.getForum().getFrsBannerData());
             }

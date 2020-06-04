@@ -94,7 +94,7 @@ public abstract class b<T extends com.baidu.prologue.business.b.a> implements Vi
         return this;
     }
 
-    public b<T> dS(int i) {
+    public b<T> dU(int i) {
         this.bAM = i;
         return this;
     }

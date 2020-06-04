@@ -286,7 +286,7 @@ public class HListView extends AbsHListView {
             checkFocus();
             this.mDataSetObserver = new AbsHListView.a();
             this.mAdapter.registerDataSetObserver(this.mDataSetObserver);
-            this.mRecycler.cK(this.mAdapter.getViewTypeCount());
+            this.mRecycler.cM(this.mAdapter.getViewTypeCount());
             if (this.mStackFromRight) {
                 lookForSelectablePosition = lookForSelectablePosition(this.mItemCount - 1, false);
             } else {
@@ -614,7 +614,7 @@ public class HListView extends AbsHListView {
             i4 = obtainView.getMeasuredWidth();
             i5 = obtainView.getMeasuredHeight();
             r1 = Build.VERSION.SDK_INT >= 11 ? combineMeasuredStates(0, obtainView.getMeasuredState()) : 0;
-            if (recycleOnMeasure() && this.mRecycler.cL(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).baa)) {
+            if (recycleOnMeasure() && this.mRecycler.cN(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).baa)) {
                 this.mRecycler.d(obtainView, -1);
             }
         }
@@ -687,7 +687,7 @@ public class HListView extends AbsHListView {
             View obtainView = obtainView(i2, zArr);
             measureScrapChildWidth(obtainView, i2, i);
             int i9 = i2 > 0 ? i6 + i7 : i6;
-            if (recycleOnMeasure && jVar.cL(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).baa)) {
+            if (recycleOnMeasure && jVar.cN(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).baa)) {
                 jVar.d(obtainView, -1);
             }
             i6 = obtainView.getMeasuredWidth() + i9;
@@ -721,7 +721,7 @@ public class HListView extends AbsHListView {
         while (i2 <= i3) {
             View obtainView = obtainView(i2, zArr);
             measureScrapChildWidth(obtainView, i2, i);
-            if (recycleOnMeasure && jVar.cL(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).baa)) {
+            if (recycleOnMeasure && jVar.cN(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).baa)) {
                 jVar.d(obtainView, -1);
             }
             i10 = Math.max(i10, obtainView.getMeasuredWidth() + i9);
@@ -1079,10 +1079,10 @@ public class HListView extends AbsHListView {
     }
 
     private View makeAndAddView(int i, int i2, boolean z, int i3, boolean z2) {
-        View cM;
-        if (!this.mDataChanged && (cM = this.mRecycler.cM(i)) != null) {
-            setupChild(cM, i, i2, z, i3, z2, true);
-            return cM;
+        View cO;
+        if (!this.mDataChanged && (cO = this.mRecycler.cO(i)) != null) {
+            setupChild(cO, i, i2, z, i3, z2, true);
+            return cO;
         }
         View obtainView = obtainView(i, this.mIsScrap);
         setupChild(obtainView, i, i2, z, i3, z2, this.mIsScrap[0]);
@@ -1910,7 +1910,7 @@ public class HListView extends AbsHListView {
             while (true) {
                 View view = childAt2;
                 if (view.getRight() < i3) {
-                    if (jVar.cL(((AbsHListView.LayoutParams) view.getLayoutParams()).baa)) {
+                    if (jVar.cN(((AbsHListView.LayoutParams) view.getLayoutParams()).baa)) {
                         detachViewFromParent(view);
                         jVar.d(view, this.mFirstPosition);
                     } else {
@@ -1937,7 +1937,7 @@ public class HListView extends AbsHListView {
                 int i4 = childCount2;
                 View view2 = childAt4;
                 if (view2.getLeft() > width) {
-                    if (jVar.cL(((AbsHListView.LayoutParams) view2.getLayoutParams()).baa)) {
+                    if (jVar.cN(((AbsHListView.LayoutParams) view2.getLayoutParams()).baa)) {
                         detachViewFromParent(view2);
                         jVar.d(view2, this.mFirstPosition + i4);
                     } else {

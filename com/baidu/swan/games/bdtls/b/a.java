@@ -63,7 +63,7 @@ public class a<T> extends b {
             public String parseResponse(Response response, int i) throws Exception {
                 Headers headers = response.headers();
                 if (headers != null && TextUtils.equals(headers.get("Bdtls"), "recovery")) {
-                    e.axN().axO().il(0);
+                    e.axN().axO().in(0);
                     return "recovery";
                 } else if (!a.this.cVq) {
                     if (a.this.cVn != null) {
@@ -140,7 +140,7 @@ public class a<T> extends b {
     }
 
     @Override // com.baidu.swan.games.bdtls.b.b
-    public void im(int i) {
+    public void io(int i) {
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BDTLS", "onRequestError=" + i);
         }

@@ -6,37 +6,37 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class b {
-    private Map<DownloadCacheKey, AdDownloadData> eOA;
+    private Map<DownloadCacheKey, AdDownloadData> eOL;
 
     /* loaded from: classes8.dex */
     private static final class a {
-        private static final b eOB = new b();
+        private static final b eOM = new b();
     }
 
     private b() {
-        this.eOA = new HashMap();
+        this.eOL = new HashMap();
     }
 
-    public static b bmA() {
-        return a.eOB;
+    public static b bmC() {
+        return a.eOM;
     }
 
     public void a(@NonNull DownloadCacheKey downloadCacheKey, @NonNull AdDownloadData adDownloadData) {
-        if (this.eOA.get(downloadCacheKey) == null) {
-            this.eOA.put(downloadCacheKey, adDownloadData);
+        if (this.eOL.get(downloadCacheKey) == null) {
+            this.eOL.put(downloadCacheKey, adDownloadData);
         }
     }
 
     public AdDownloadData b(@NonNull DownloadCacheKey downloadCacheKey) {
-        return this.eOA.get(downloadCacheKey);
+        return this.eOL.get(downloadCacheKey);
     }
 
     public Map<DownloadCacheKey, AdDownloadData> zT(String str) {
-        HashMap hashMap = new HashMap(this.eOA.size());
+        HashMap hashMap = new HashMap(this.eOL.size());
         if (TextUtils.isEmpty(str)) {
             return hashMap;
         }
-        for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : this.eOA.entrySet()) {
+        for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : this.eOL.entrySet()) {
             if (entry.getKey() != null && entry.getKey().samePackage(str)) {
                 hashMap.put(entry.getKey(), entry.getValue());
             }

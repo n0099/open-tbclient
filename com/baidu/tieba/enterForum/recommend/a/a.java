@@ -14,11 +14,11 @@ import java.util.List;
 public class a {
     private List<com.baidu.adp.widget.ListView.a> aSj;
     private List<o> forumList;
-    private t gSQ;
-    private b gSR;
-    private c gSS;
-    private d gST;
-    private aa<com.baidu.tieba.card.data.b> gSU = new aa<com.baidu.tieba.card.data.b>() { // from class: com.baidu.tieba.enterForum.recommend.a.a.1
+    private t gTb;
+    private b gTc;
+    private c gTd;
+    private d gTe;
+    private aa<com.baidu.tieba.card.data.b> gTf = new aa<com.baidu.tieba.card.data.b>() { // from class: com.baidu.tieba.enterForum.recommend.a.a.1
         @Override // com.baidu.tieba.card.aa
         public void a(View view, com.baidu.tieba.card.data.b bVar) {
             if (bVar != null && (bVar instanceof com.baidu.tieba.enterForum.recommend.b.d)) {
@@ -27,21 +27,21 @@ public class a {
                 for (o oVar : a.this.forumList) {
                     if (oVar instanceof com.baidu.tieba.enterForum.recommend.b.d) {
                         if (title.equals(((com.baidu.tieba.enterForum.recommend.b.d) oVar).getTitle())) {
-                            List<com.baidu.tieba.enterForum.recommend.b.c> bPA = ((com.baidu.tieba.enterForum.recommend.b.d) oVar).bPA();
+                            List<com.baidu.tieba.enterForum.recommend.b.c> bPC = ((com.baidu.tieba.enterForum.recommend.b.d) oVar).bPC();
                             arrayList.add(oVar);
-                            arrayList.addAll(bPA);
+                            arrayList.addAll(bPC);
                         } else {
-                            List<com.baidu.tieba.enterForum.recommend.b.c> bPz = ((com.baidu.tieba.enterForum.recommend.b.d) oVar).bPz();
+                            List<com.baidu.tieba.enterForum.recommend.b.c> bPB = ((com.baidu.tieba.enterForum.recommend.b.d) oVar).bPB();
                             arrayList.add(oVar);
-                            arrayList.addAll(bPz);
+                            arrayList.addAll(bPB);
                         }
                     }
                 }
                 e eVar = new e();
-                eVar.gTq = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
+                eVar.gTB = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
                 arrayList.add(eVar);
                 if (arrayList.size() > 0) {
-                    a.this.gSQ.setData(arrayList);
+                    a.this.gTb.setData(arrayList);
                 }
             }
         }
@@ -50,30 +50,30 @@ public class a {
 
     public a(TbPageContext tbPageContext, t tVar) {
         this.mPageContext = tbPageContext;
-        this.gSQ = tVar;
+        this.gTb = tVar;
         CY();
-        this.gSQ.addAdapters(this.aSj);
+        this.gTb.addAdapters(this.aSj);
     }
 
     private void CY() {
         this.aSj = new ArrayList();
-        this.gSR = new b(this.mPageContext);
-        this.aSj.add(this.gSR);
-        this.gSS = new c(this.mPageContext, this.gSU);
-        this.aSj.add(this.gSS);
-        this.gST = new d(this.mPageContext);
-        this.aSj.add(this.gST);
+        this.gTc = new b(this.mPageContext);
+        this.aSj.add(this.gTc);
+        this.gTd = new c(this.mPageContext, this.gTf);
+        this.aSj.add(this.gTd);
+        this.gTe = new d(this.mPageContext);
+        this.aSj.add(this.gTe);
     }
 
     public void notifyDataSetChanged() {
-        if (this.gSQ != null) {
-            this.gSQ.getListAdapter().notifyDataSetChanged();
+        if (this.gTb != null) {
+            this.gTb.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<o> list) {
         this.forumList = list;
-        this.gSQ.setData(list);
+        this.gTb.setData(list);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {

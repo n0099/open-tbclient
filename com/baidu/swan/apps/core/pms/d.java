@@ -159,7 +159,7 @@ public class d extends j {
             Log.e("SwanAppBatchDownloadCallback", "onFetchError: " + aVar.toString());
         }
         if (this.bXs != null) {
-            this.bXs.eT(aVar.errorNo);
+            this.bXs.eV(aVar.errorNo);
         }
     }
 

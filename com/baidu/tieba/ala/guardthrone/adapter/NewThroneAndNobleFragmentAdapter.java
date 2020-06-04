@@ -6,20 +6,20 @@ import com.baidu.live.tbadk.core.BaseFragment;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class NewThroneAndNobleFragmentAdapter extends FragmentPagerAdapter {
-    private ArrayList<BaseFragment> eWt;
+    private ArrayList<BaseFragment> eWE;
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (this.eWt == null) {
+        if (this.eWE == null) {
             return null;
         }
-        return this.eWt.get(i);
+        return this.eWE.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.eWt != null) {
-            return this.eWt.size();
+        if (this.eWE != null) {
+            return this.eWE.size();
         }
         return 0;
     }

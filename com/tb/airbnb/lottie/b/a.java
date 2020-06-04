@@ -13,14 +13,14 @@ import java.util.Map;
 public class a {
     private final AssetManager assetManager;
     @Nullable
-    private com.tb.airbnb.lottie.a njo;
-    private final h<String> njn = new h<>();
+    private com.tb.airbnb.lottie.a nky;
+    private final h<String> nkx = new h<>();
     private final Map<h<String>, Typeface> CH = new HashMap();
     private final Map<String, Typeface> CI = new HashMap();
     private String CK = ".ttf";
 
     public a(Drawable.Callback callback, @Nullable com.tb.airbnb.lottie.a aVar) {
-        this.njo = aVar;
+        this.nky = aVar;
         if (!(callback instanceof View)) {
             Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
             this.assetManager = null;
@@ -30,15 +30,15 @@ public class a {
     }
 
     public void a(@Nullable com.tb.airbnb.lottie.a aVar) {
-        this.njo = aVar;
+        this.nky = aVar;
     }
 
     public Typeface n(String str, String str2) {
-        this.njn.set(str, str2);
-        Typeface typeface = this.CH.get(this.njn);
+        this.nkx.set(str, str2);
+        Typeface typeface = this.CH.get(this.nkx);
         if (typeface == null) {
             Typeface a = a(bc(str), str2);
-            this.CH.put(this.njn, a);
+            this.CH.put(this.nkx, a);
             return a;
         }
         return typeface;
@@ -49,10 +49,10 @@ public class a {
         Typeface typeface = this.CI.get(str);
         if (typeface == null) {
             typeface = null;
-            if (this.njo != null) {
-                typeface = this.njo.aT(str);
+            if (this.nky != null) {
+                typeface = this.nky.aT(str);
             }
-            if (this.njo != null && typeface == null && (aU = this.njo.aU(str)) != null) {
+            if (this.nky != null && typeface == null && (aU = this.nky.aU(str)) != null) {
                 typeface = Typeface.createFromAsset(this.assetManager, aU);
             }
             if (typeface == null) {

@@ -17,7 +17,7 @@ public abstract class CollectFragment extends BaseFragment {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                CollectFragment.this.jW(CollectFragment.this.getType());
+                CollectFragment.this.jY(CollectFragment.this.getType());
                 if (!CollectFragment.this.dyV) {
                     CollectFragment.this.p(false, CollectFragment.this.getType());
                 }
@@ -46,7 +46,7 @@ public abstract class CollectFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void jW(int i) {
+    public void jY(int i) {
         Bundle bundle = new Bundle();
         this.dyV = !aNN() && j.isNetWorkAvailable();
         bundle.putBoolean("is_enable_edit", this.dyV);

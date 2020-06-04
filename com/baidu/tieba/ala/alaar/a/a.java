@@ -25,16 +25,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends BdBaseModel implements f {
-    private AlaFilterAndBeautyData eWC;
-    private HttpMessageListener eWD = new HttpMessageListener(1021163) { // from class: com.baidu.tieba.ala.alaar.a.a.1
+    private AlaFilterAndBeautyData eWN;
+    private HttpMessageListener eWO = new HttpMessageListener(1021163) { // from class: com.baidu.tieba.ala.alaar.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AlaFilterAndBeautyResponseMessage) {
                 AlaFilterAndBeautyResponseMessage alaFilterAndBeautyResponseMessage = (AlaFilterAndBeautyResponseMessage) httpResponsedMessage;
-                a.this.eWC = alaFilterAndBeautyResponseMessage.bpz();
-                if (a.this.eWC != null) {
-                    a.this.eWC.asO = alaFilterAndBeautyResponseMessage.getOrginalMessage().getTag();
+                a.this.eWN = alaFilterAndBeautyResponseMessage.bpB();
+                if (a.this.eWN != null) {
+                    a.this.eWN.asO = alaFilterAndBeautyResponseMessage.getOrginalMessage().getTag();
                 }
                 a.this.a(alaFilterAndBeautyResponseMessage);
             }
@@ -60,10 +60,10 @@ public class a extends BdBaseModel implements f {
     }
 
     private void initTasks() {
-        bpB();
+        bpD();
     }
 
-    private void bpB() {
+    private void bpD() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021163, TbConfig.SERVER_ADDRESS + "ala/sys/showConf");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -72,11 +72,11 @@ public class a extends BdBaseModel implements f {
     }
 
     private void registerListener() {
-        registerListener(this.eWD);
+        registerListener(this.eWO);
     }
 
     private void unregisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.eWD);
+        MessageManager.getInstance().unRegisterListener(this.eWO);
     }
 
     @Override // com.baidu.live.ar.f
@@ -94,7 +94,7 @@ public class a extends BdBaseModel implements f {
 
     @Override // com.baidu.live.ar.f
     public AlaFilterAndBeautyData va() {
-        return this.eWC;
+        return this.eWN;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -104,18 +104,18 @@ public class a extends BdBaseModel implements f {
             et(this.mContext);
             return;
         }
-        AlaFilterAndBeautyData bpz = alaFilterAndBeautyResponseMessage.bpz();
-        if (bpz == null) {
-            bpz = alaFilterAndBeautyResponseMessage.pr(com.baidu.minivideo.arface.a.getVersion());
+        AlaFilterAndBeautyData bpB = alaFilterAndBeautyResponseMessage.bpB();
+        if (bpB == null) {
+            bpB = alaFilterAndBeautyResponseMessage.pt(com.baidu.minivideo.arface.a.getVersion());
         } else {
-            aw(bpz.asH, com.baidu.minivideo.arface.a.getVersion());
+            aw(bpB.asH, com.baidu.minivideo.arface.a.getVersion());
         }
-        if (bpz == null) {
+        if (bpB == null) {
             Log.d("ArUpdate", "@.@ onGetFilterAndBeauty data == null");
             et(this.mContext);
             return;
         }
-        b(bpz);
+        b(bpB);
     }
 
     private void b(AlaFilterAndBeautyData alaFilterAndBeautyData) {

@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.aa;
 /* loaded from: classes9.dex */
 public class d extends a {
-    public TextView eNe;
+    public TextView eNp;
     private LinearLayout mRootView;
 
     public d(TbPageContext tbPageContext, int i) {
@@ -23,14 +23,14 @@ public class d extends a {
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
         this.mRootView = (LinearLayout) this.dIF.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
-        this.eNe = (TextView) this.mRootView.findViewById(R.id.text);
+        this.eNp = (TextView) this.mRootView.findViewById(R.id.text);
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.eNe.setText(new SpannableString(originalThreadInfo.title));
-        am.setViewTextColor(this.eNe, (int) R.color.cp_cont_b);
+        this.eNp.setText(new SpannableString(originalThreadInfo.title));
+        am.setViewTextColor(this.eNp, (int) R.color.cp_cont_b);
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
@@ -48,7 +48,7 @@ public class d extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_c);
-            am.setViewTextColor(this.eNe, (int) R.color.cp_cont_b);
+            am.setViewTextColor(this.eNp, (int) R.color.cp_cont_b);
         }
     }
 }

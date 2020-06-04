@@ -157,11 +157,11 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         this.mContainer.setLayoutParams(layoutParams);
     }
 
-    public void aWe() {
+    public void aWf() {
         this.mRoot.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
     }
 
-    public void aWf() {
+    public void aWg() {
         this.dUM = false;
         this.dUK.setVisibility(8);
         hideEmptyView();
@@ -179,7 +179,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         this.dUK.setVisibility(0);
         this.dUL = R.drawable.new_pic_emotion_03;
         changeSkin(TbadkCoreApplication.getInst().getSkinType());
-        lX(i);
+        lZ(i);
         this.dUN = false;
     }
 
@@ -301,7 +301,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         this.mEmpty.setVisibility(0);
     }
 
-    public void lW(int i) {
+    public void lY(int i) {
         if (this.mTopExtraView != null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mTopExtraView.getLayoutParams();
             layoutParams.height = i;
@@ -339,11 +339,11 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         return this.mProgressBar != null && this.mProgressBar.getVisibility() == 0;
     }
 
-    public boolean aWg() {
+    public boolean aWh() {
         return this.dUM;
     }
 
-    public void lX(int i) {
+    public void lZ(int i) {
         int equipmentHeight = (com.baidu.adp.lib.util.l.getEquipmentHeight(this.mContext) - ((int) this.mContext.getResources().getDimension(R.dimen.tbds589))) / 2;
         if (i > 0) {
             equipmentHeight -= i / 2;

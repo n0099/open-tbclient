@@ -211,9 +211,9 @@ public final class a {
     }
 
     public static List<String> e(com.baidu.swan.apps.core.d.e eVar) {
-        com.baidu.swan.apps.core.d.b eK;
-        if (eVar != null && eVar.YS() >= com.baidu.swan.apps.api.module.g.b.bLW && (eK = eVar.eK(0)) != null && (eK instanceof com.baidu.swan.apps.core.d.d)) {
-            return ((com.baidu.swan.apps.core.d.d) eK).YC();
+        com.baidu.swan.apps.core.d.b eM;
+        if (eVar != null && eVar.YS() >= com.baidu.swan.apps.api.module.g.b.bLW && (eM = eVar.eM(0)) != null && (eM instanceof com.baidu.swan.apps.core.d.d)) {
+            return ((com.baidu.swan.apps.core.d.d) eM).YC();
         }
         return null;
     }

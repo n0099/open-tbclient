@@ -75,7 +75,7 @@ public class a extends c {
                 if (propertyType == 7) {
                     return d.ad(jsObject.toString(i));
                 }
-                return d.sz(String.format("parameter error: the key must be string instead of %s.", d.iu(propertyType)));
+                return d.sz(String.format("parameter error: the key must be string instead of %s.", d.iw(propertyType)));
             }
         }
         return d.sz("parameter error: the parameter key is necessary.");

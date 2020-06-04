@@ -11,98 +11,98 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.view.PbGiftListView;
 /* loaded from: classes9.dex */
 public class s {
-    private View jJJ;
-    private ViewStub jJL;
-    private PbGiftListView jJM;
-    private ViewStub jJN;
-    private LinearLayout jJO;
-    public View jJP;
-    public BaseWebView jJQ;
-    private int jJI = 0;
-    private int jJK = 0;
+    private View jKP;
+    private ViewStub jKR;
+    private PbGiftListView jKS;
+    private ViewStub jKT;
+    private LinearLayout jKU;
+    public View jKV;
+    public BaseWebView jKW;
+    private int jKO = 0;
+    private int jKQ = 0;
 
     public s(View view) {
-        this.jJJ = view;
-        this.jJL = (ViewStub) view.findViewById(R.id.gift_list_viewStub);
-        this.jJN = (ViewStub) view.findViewById(R.id.link_thread_viewStub);
+        this.jKP = view;
+        this.jKR = (ViewStub) view.findViewById(R.id.gift_list_viewStub);
+        this.jKT = (ViewStub) view.findViewById(R.id.link_thread_viewStub);
     }
 
-    public void Ae(int i) {
-        this.jJK = i;
+    public void Ag(int i) {
+        this.jKQ = i;
     }
 
     public void a(com.baidu.tbadk.core.data.aq aqVar, String str, String str2, long j, long j2, long j3) {
-        if (aqVar == null || com.baidu.tbadk.core.util.v.isEmpty(aqVar.aPv()) || this.jJL == null) {
-            if (this.jJM != null) {
-                this.jJM.setVisibility(8);
+        if (aqVar == null || com.baidu.tbadk.core.util.v.isEmpty(aqVar.aPv()) || this.jKR == null) {
+            if (this.jKS != null) {
+                this.jKS.setVisibility(8);
                 return;
             }
             return;
         }
-        if (this.jJM == null) {
-            this.jJM = (PbGiftListView) this.jJL.inflate();
+        if (this.jKS == null) {
+            this.jKS = (PbGiftListView) this.jKR.inflate();
         }
-        this.jJM.setVisibility(0);
-        this.jJM.a(aqVar, str, str2, j, j2, j3);
-        this.jJM.onChangeSkinType();
+        this.jKS.setVisibility(0);
+        this.jKS.a(aqVar, str, str2, j, j2, j3);
+        this.jKS.onChangeSkinType();
     }
 
     public void a(com.baidu.tbadk.core.data.af afVar) {
         if (afVar != null && !com.baidu.tbadk.core.util.aq.isEmpty(afVar.getLinkUrl())) {
-            if ((this.jJQ == null || !this.jJQ.getIsLoaded()) && afVar.aOZ() == com.baidu.tbadk.core.data.af.dCM && this.jJN != null) {
+            if ((this.jKW == null || !this.jKW.getIsLoaded()) && afVar.aOZ() == com.baidu.tbadk.core.data.af.dCM && this.jKT != null) {
                 if (afVar.aPa()) {
-                    if (this.jJO != null) {
-                        this.jJO.setVisibility(8);
+                    if (this.jKU != null) {
+                        this.jKU.setVisibility(8);
                         return;
                     }
                     return;
                 }
-                if (this.jJO == null) {
-                    this.jJO = (LinearLayout) this.jJN.inflate();
-                    this.jJP = this.jJO.findViewById(R.id.link_thread_divider);
-                    this.jJQ = (BaseWebView) this.jJO.findViewById(R.id.link_thread_webview);
+                if (this.jKU == null) {
+                    this.jKU = (LinearLayout) this.jKT.inflate();
+                    this.jKV = this.jKU.findViewById(R.id.link_thread_divider);
+                    this.jKW = (BaseWebView) this.jKU.findViewById(R.id.link_thread_webview);
                 }
-                this.jJP.setVisibility(0);
-                com.baidu.tbadk.core.util.am.setBackgroundColor(this.jJP, R.color.cp_bg_line_c);
-                this.jJQ.setVisibility(0);
-                this.jJQ.setFocusable(false);
-                this.jJQ.setBackgroundColor(0);
-                this.jJQ.getSettings().setCacheMode(-1);
-                this.jJQ.setVerticalScrollBarEnabled(false);
-                this.jJQ.setHorizontalScrollBarEnabled(false);
-                this.jJQ.getSettings().setAllowFileAccess(true);
-                this.jJQ.getSettings().setAppCacheEnabled(true);
-                this.jJQ.getSettings().setDomStorageEnabled(true);
-                this.jJQ.getSettings().setDatabaseEnabled(true);
-                this.jJQ.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.pb.pb.main.s.1
+                this.jKV.setVisibility(0);
+                com.baidu.tbadk.core.util.am.setBackgroundColor(this.jKV, R.color.cp_bg_line_c);
+                this.jKW.setVisibility(0);
+                this.jKW.setFocusable(false);
+                this.jKW.setBackgroundColor(0);
+                this.jKW.getSettings().setCacheMode(-1);
+                this.jKW.setVerticalScrollBarEnabled(false);
+                this.jKW.setHorizontalScrollBarEnabled(false);
+                this.jKW.getSettings().setAllowFileAccess(true);
+                this.jKW.getSettings().setAppCacheEnabled(true);
+                this.jKW.getSettings().setDomStorageEnabled(true);
+                this.jKW.getSettings().setDatabaseEnabled(true);
+                this.jKW.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.pb.pb.main.s.1
                     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
                     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                         return true;
                     }
                 });
-                this.jJQ.setOnPageFinishedListener(new BaseWebView.c() { // from class: com.baidu.tieba.pb.pb.main.s.2
+                this.jKW.setOnPageFinishedListener(new BaseWebView.c() { // from class: com.baidu.tieba.pb.pb.main.s.2
                     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
                     public void onPageFinished(WebView webView, String str) {
                         webView.loadUrl("javascript:(function(){var iframe=document.getElementsByClassName(\"video_iframe\");if(iframe&&iframe.length>0){for(var i=iframe.length-1;i>=0;i--){iframe[i].contentWindow.document.getElementsByClassName(\"tvp_fullscreen_button\")[0].style.display=\"none\"}}})();");
                     }
                 });
-                this.jJQ.loadUrl(afVar.getLinkUrl());
+                this.jKW.loadUrl(afVar.getLinkUrl());
             }
         }
     }
 
     public void destroy() {
-        if (this.jJQ != null) {
-            this.jJQ.removeAllViews();
-            this.jJQ.getSettings().setBuiltInZoomControls(true);
-            this.jJQ.setVisibility(8);
+        if (this.jKW != null) {
+            this.jKW.removeAllViews();
+            this.jKW.getSettings().setBuiltInZoomControls(true);
+            this.jKW.setVisibility(8);
             com.baidu.adp.lib.f.e.ld().postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.main.s.3
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        if (s.this.jJQ != null) {
-                            s.this.jJQ.destroy();
-                            s.this.jJQ = null;
+                        if (s.this.jKW != null) {
+                            s.this.jKW.destroy();
+                            s.this.jKW = null;
                         }
                     } catch (Throwable th) {
                         BdLog.e(th);
@@ -113,9 +113,9 @@ public class s {
     }
 
     public void resume() {
-        if (this.jJQ != null) {
+        if (this.jKW != null) {
             try {
-                this.jJQ.onResume();
+                this.jKW.onResume();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -123,9 +123,9 @@ public class s {
     }
 
     public void pause() {
-        if (this.jJQ != null) {
+        if (this.jKW != null) {
             try {
-                this.jJQ.onPause();
+                this.jKW.onPause();
             } catch (Exception e) {
                 e.printStackTrace();
             }

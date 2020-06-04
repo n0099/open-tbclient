@@ -13,7 +13,7 @@ public class h {
     private h() {
     }
 
-    public static h aVL() {
+    public static h aVM() {
         if (dRm == null) {
             synchronized (h.class) {
                 if (dRm == null) {
@@ -31,7 +31,7 @@ public class h {
         for (String str : list) {
             if (!TextUtils.isEmpty(str)) {
                 if (this.dRn.get(str) == null) {
-                    if (this.dRn.size() < e.aVJ().aVK()) {
+                    if (this.dRn.size() < e.aVK().aVL()) {
                         g.log("put loadingQueue  url: " + str);
                         f wN = wN(str);
                         this.dRn.put(str, wN);

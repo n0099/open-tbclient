@@ -108,6 +108,6 @@ public class a {
     }
 
     public static void Ag() {
-        com.baidu.live.f.b.bK(19);
+        com.baidu.live.f.b.bM(19);
     }
 }

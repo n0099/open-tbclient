@@ -36,7 +36,7 @@ public class BLauncher extends ImageView implements g {
     public void setIcon() {
         if (this.ekG != null) {
             if (this.ekG.elJ) {
-                setImageDrawable(SvgManager.aUV().x(this.ekG.elH, this.ekG.elI, this.mSkinType));
+                setImageDrawable(SvgManager.aUW().x(this.ekG.elH, this.ekG.elI, this.mSkinType));
             } else {
                 am.setImageResource(this, this.ekG.elH, this.mSkinType);
             }
@@ -59,7 +59,7 @@ public class BLauncher extends ImageView implements g {
 
     @Override // com.baidu.tbadk.editortools.g
     public void hide() {
-        bcV();
+        bcW();
         setVisibility(8);
     }
 
@@ -94,7 +94,7 @@ public class BLauncher extends ImageView implements g {
         }
     }
 
-    public void bcV() {
+    public void bcW() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -109,7 +109,7 @@ public class BLauncher extends ImageView implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                bcV();
+                bcW();
             } else if (aVar.data instanceof String) {
                 xW((String) aVar.data);
             }

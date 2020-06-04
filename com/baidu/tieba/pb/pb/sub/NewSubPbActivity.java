@@ -75,7 +75,7 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.coreExtra.data.aa;
+import com.baidu.tbadk.coreExtra.data.ab;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.editortools.pb.PbEditorData;
 import com.baidu.tbadk.editortools.pb.i;
@@ -116,165 +116,165 @@ import java.util.concurrent.ConcurrentHashMap;
 import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes9.dex */
 public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements BdListView.e, VoiceManager.c, h, com.baidu.tieba.pb.pb.a<NewSubPbActivity> {
-    private static String jYe = "tbgametype";
+    private static String jZk = "tbgametype";
     private View.OnClickListener aIH;
-    private com.baidu.adp.lib.d.b<ImageView> eBr;
-    private com.baidu.adp.lib.d.b<GifView> eBs;
-    private com.baidu.adp.lib.d.b<TextView> eEf;
-    private com.baidu.adp.lib.d.b<View> eEg;
-    private com.baidu.adp.lib.d.b<LinearLayout> eEh;
-    private com.baidu.adp.lib.d.b<RelativeLayout> eEi;
-    private az hQO;
-    private VoiceManager hnh;
-    private com.baidu.tieba.frs.profession.permission.c hqP;
-    public aj iPP;
-    private com.baidu.tbadk.editortools.pb.h iQa;
-    private com.baidu.tieba.write.c ihc;
-    private EditText ihd;
-    private com.baidu.tieba.pb.pb.main.b.a jGR;
-    private e jKS;
-    private com.baidu.tbadk.core.view.c jKT;
-    private com.baidu.adp.widget.ImageView.a jKW;
-    private String jKX;
-    private TbRichTextMemeInfo jKY;
-    private com.baidu.tieba.pb.pb.report.a jKw;
-    private com.baidu.tbadk.baseEditMark.a jKx;
-    private PostWriteCallBackData jMA;
-    private String jSP;
-    private SubPbModel jYf;
-    private ForumManageModel jYg;
-    private com.baidu.tieba.pb.pb.sub.a jYh;
-    private ad jYi;
-    private AbsListView.OnScrollListener jYj;
-    private TbRichTextView.i jYk;
-    private SubPbModel.a jYl;
-    private com.baidu.adp.base.d jYm;
-    private BdUniqueId jYq;
-    private com.baidu.tieba.pb.e<n> jYs;
-    private boolean jYt;
-    private l jYu;
+    private com.baidu.adp.lib.d.b<ImageView> eBC;
+    private com.baidu.adp.lib.d.b<GifView> eBD;
+    private com.baidu.adp.lib.d.b<TextView> eEq;
+    private com.baidu.adp.lib.d.b<View> eEr;
+    private com.baidu.adp.lib.d.b<LinearLayout> eEs;
+    private com.baidu.adp.lib.d.b<RelativeLayout> eEt;
+    private az hRB;
+    private VoiceManager hns;
+    private com.baidu.tieba.frs.profession.permission.c hra;
+    public aj iQC;
+    private com.baidu.tbadk.editortools.pb.h iQN;
+    private com.baidu.tieba.write.c ihP;
+    private EditText ihQ;
+    private com.baidu.tieba.pb.pb.main.b.a jHX;
+    private com.baidu.tieba.pb.pb.report.a jLC;
+    private com.baidu.tbadk.baseEditMark.a jLD;
+    private e jLY;
+    private com.baidu.tbadk.core.view.c jLZ;
+    private com.baidu.adp.widget.ImageView.a jMc;
+    private String jMd;
+    private TbRichTextMemeInfo jMe;
+    private PostWriteCallBackData jNG;
+    private String jTV;
+    private l jZA;
+    private SubPbModel jZl;
+    private ForumManageModel jZm;
+    private com.baidu.tieba.pb.pb.sub.a jZn;
+    private ad jZo;
+    private AbsListView.OnScrollListener jZp;
+    private TbRichTextView.i jZq;
+    private SubPbModel.a jZr;
+    private com.baidu.adp.base.d jZs;
+    private BdUniqueId jZw;
+    private com.baidu.tieba.pb.e<n> jZy;
+    private boolean jZz;
     private Object mExtra;
     private View.OnLongClickListener mOnLongClickListener;
     private PermissionJudgePolicy mPermissionJudgement;
     private boolean mIsFromCDN = true;
-    private int jLF = 0;
-    PostData ihL = null;
-    private a.InterfaceC0471a jLB = null;
-    private a jYn = null;
-    private a jYo = null;
+    private int jML = 0;
+    PostData iiy = null;
+    private a.InterfaceC0471a jMH = null;
+    private a jZt = null;
+    private a jZu = null;
     private boolean mIsPaused = false;
-    private boolean jYp = false;
-    private boolean jYr = false;
+    private boolean jZv = false;
+    private boolean jZx = false;
     private boolean elr = false;
     private com.baidu.tbadk.editortools.pb.c emO = new com.baidu.tbadk.editortools.pb.c() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.1
         @Override // com.baidu.tbadk.editortools.pb.c
-        public void bdu() {
-            NewSubPbActivity.this.jYh.cJu();
+        public void bdv() {
+            NewSubPbActivity.this.jZn.cJK();
         }
     };
-    private int jGn = 0;
+    private int jHt = 0;
     private boolean mIsFromSchema = false;
     private com.baidu.tbadk.editortools.pb.b emP = new com.baidu.tbadk.editortools.pb.b() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.12
         @Override // com.baidu.tbadk.editortools.pb.b
-        public boolean bdt() {
-            if (!NewSubPbActivity.this.ihc.dmi()) {
-                return (NewSubPbActivity.this.iPP == null || NewSubPbActivity.this.jYf == null || NewSubPbActivity.this.jYf.bUa() == null || NewSubPbActivity.this.iPP.aD(NewSubPbActivity.this.jYf.bUa().replyPrivateFlag, aj.dNH)) ? false : true;
+        public boolean bdu() {
+            if (!NewSubPbActivity.this.ihP.dmx()) {
+                return (NewSubPbActivity.this.iQC == null || NewSubPbActivity.this.jZl == null || NewSubPbActivity.this.jZl.bUc() == null || NewSubPbActivity.this.iQC.aD(NewSubPbActivity.this.jZl.bUc().replyPrivateFlag, aj.dNH)) ? false : true;
             }
-            NewSubPbActivity.this.showToast(NewSubPbActivity.this.ihc.dmk());
-            if (NewSubPbActivity.this.iQa.bdK()) {
-                NewSubPbActivity.this.iQa.a(NewSubPbActivity.this.jMA);
+            NewSubPbActivity.this.showToast(NewSubPbActivity.this.ihP.dmz());
+            if (NewSubPbActivity.this.iQN.bdL()) {
+                NewSubPbActivity.this.iQN.a(NewSubPbActivity.this.jNG);
             }
             NewSubPbActivity.this.ov(true);
             return true;
         }
     };
-    private NewWriteModel.d ihj = new NewWriteModel.d() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.23
+    private NewWriteModel.d ihW = new NewWriteModel.d() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.23
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, aa aaVar, WriteData writeData, AntiData antiData) {
-            if (z && NewSubPbActivity.this.iQa != null && NewSubPbActivity.this.iQa.bcW() != null) {
-                NewSubPbActivity.this.iQa.bcW().hide();
-                if (NewSubPbActivity.this.jYf.cJT()) {
-                    TiebaStatic.log(new an("c10367").dh("post_id", NewSubPbActivity.this.jYf.bdr()));
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ab abVar, WriteData writeData, AntiData antiData) {
+            if (z && NewSubPbActivity.this.iQN != null && NewSubPbActivity.this.iQN.bcX() != null) {
+                NewSubPbActivity.this.iQN.bcX().hide();
+                if (NewSubPbActivity.this.jZl.cKj()) {
+                    TiebaStatic.log(new an("c10367").dh("post_id", NewSubPbActivity.this.jZl.bds()));
                 }
             }
             if (z) {
-                NewSubPbActivity.this.ihc.Of(null);
-                NewSubPbActivity.this.ihc.aX(null);
-                NewSubPbActivity.this.ihc.vl(false);
+                NewSubPbActivity.this.ihP.Og(null);
+                NewSubPbActivity.this.ihP.aX(null);
+                NewSubPbActivity.this.ihP.vm(false);
             } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
-                NewSubPbActivity.this.ihc.aX(postWriteCallBackData.getSensitiveWords());
-                NewSubPbActivity.this.ihc.Of(postWriteCallBackData.getErrorString());
-                if (!v.isEmpty(NewSubPbActivity.this.ihc.dmg())) {
-                    NewSubPbActivity.this.jMA = postWriteCallBackData;
-                    if (NewSubPbActivity.this.iQa.bdK()) {
-                        NewSubPbActivity.this.iQa.a(NewSubPbActivity.this.jMA);
+                NewSubPbActivity.this.ihP.aX(postWriteCallBackData.getSensitiveWords());
+                NewSubPbActivity.this.ihP.Og(postWriteCallBackData.getErrorString());
+                if (!v.isEmpty(NewSubPbActivity.this.ihP.dmv())) {
+                    NewSubPbActivity.this.jNG = postWriteCallBackData;
+                    if (NewSubPbActivity.this.iQN.bdL()) {
+                        NewSubPbActivity.this.iQN.a(NewSubPbActivity.this.jNG);
                     }
                     NewSubPbActivity.this.ov(true);
                 } else {
                     return;
                 }
-            } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 238010 && NewSubPbActivity.this.iPP != null) {
-                NewSubPbActivity.this.iPP.a(postWriteCallBackData.getReplyPrivacyTip());
+            } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 238010 && NewSubPbActivity.this.iQC != null) {
+                NewSubPbActivity.this.iQC.a(postWriteCallBackData.getReplyPrivacyTip());
             }
-            NewSubPbActivity.this.jYh.cJv();
+            NewSubPbActivity.this.jZn.cJL();
         }
     };
-    private CustomMessageListener jLs = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_ADD) { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.32
+    private CustomMessageListener jMy = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_ADD) { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.32
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteAddResponseMessage) && customResponsedMessage.getOrginalMessage().getTag() == NewSubPbActivity.this.jYq) {
-                NewSubPbActivity.this.jYh.bGf();
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteAddResponseMessage) && customResponsedMessage.getOrginalMessage().getTag() == NewSubPbActivity.this.jZw) {
+                NewSubPbActivity.this.jZn.bGh();
                 UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) customResponsedMessage.getData();
                 if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
-                    NewSubPbActivity.this.jKT.showSuccessToast(NewSubPbActivity.this.jKS.getResources().getString(R.string.mute_success));
+                    NewSubPbActivity.this.jLZ.showSuccessToast(NewSubPbActivity.this.jLY.getResources().getString(R.string.mute_success));
                 } else if (userMuteAddResponseMessage.getMuteErrorCode() == 220017) {
                     String errorString = userMuteAddResponseMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = NewSubPbActivity.this.jKS.getResources().getString(R.string.mute_error_beyond_limit);
+                        errorString = NewSubPbActivity.this.jLY.getResources().getString(R.string.mute_error_beyond_limit);
                     }
                     NewSubPbActivity.this.yo(errorString);
                 } else if (userMuteAddResponseMessage.getMuteErrorCode() == 1990043) {
-                    NewSubPbActivity.this.cEV();
+                    NewSubPbActivity.this.cFl();
                 } else {
                     String errorString2 = userMuteAddResponseMessage.getErrorString();
                     if (aq.isEmpty(errorString2)) {
-                        errorString2 = NewSubPbActivity.this.jKS.getResources().getString(R.string.mute_fail);
+                        errorString2 = NewSubPbActivity.this.jLY.getResources().getString(R.string.mute_fail);
                     }
-                    NewSubPbActivity.this.jKT.showFailToast(errorString2);
+                    NewSubPbActivity.this.jLZ.showFailToast(errorString2);
                 }
             }
         }
     };
-    private CustomMessageListener jLt = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_DEL) { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.33
+    private CustomMessageListener jMz = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_DEL) { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.33
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteDelResponseMessage) && customResponsedMessage.getOrginalMessage().getTag() == NewSubPbActivity.this.jYq) {
-                NewSubPbActivity.this.jYh.bGf();
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteDelResponseMessage) && customResponsedMessage.getOrginalMessage().getTag() == NewSubPbActivity.this.jZw) {
+                NewSubPbActivity.this.jZn.bGh();
                 UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
                 if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                    NewSubPbActivity.this.jKT.showSuccessToast(NewSubPbActivity.this.jKS.getResources().getString(R.string.un_mute_success));
+                    NewSubPbActivity.this.jLZ.showSuccessToast(NewSubPbActivity.this.jLY.getResources().getString(R.string.un_mute_success));
                     return;
                 }
                 String muteMessage = userMuteDelResponseMessage.getMuteMessage();
                 if (aq.isEmpty(muteMessage)) {
-                    muteMessage = NewSubPbActivity.this.jKS.getResources().getString(R.string.un_mute_fail);
+                    muteMessage = NewSubPbActivity.this.jLY.getResources().getString(R.string.un_mute_fail);
                 }
-                NewSubPbActivity.this.jKT.showFailToast(muteMessage);
+                NewSubPbActivity.this.jLZ.showFailToast(muteMessage);
             }
         }
     };
-    private CustomMessageListener jLu = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_CHECK_RESPONSE) { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.34
+    private CustomMessageListener jMA = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_CHECK_RESPONSE) { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.34
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             boolean z;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a) && customResponsedMessage.getOrginalMessage().getTag() == NewSubPbActivity.this.jYq) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a) && customResponsedMessage.getOrginalMessage().getTag() == NewSubPbActivity.this.jZw) {
                 com.baidu.tieba.usermute.a aVar = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
-                NewSubPbActivity.this.jYh.bGf();
+                NewSubPbActivity.this.jZn.bGh();
                 SparseArray<Object> sparseArray = (SparseArray) NewSubPbActivity.this.mExtra;
-                DataRes dataRes = aVar.lzt;
+                DataRes dataRes = aVar.lAC;
                 if (aVar.error == 0 && dataRes != null) {
                     boolean z2 = com.baidu.adp.lib.f.b.toInt(dataRes.is_mute, 0) == 1;
                     sparseArray.put(R.id.tag_user_mute_visible, true);
@@ -288,24 +288,24 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 if (intValue == 0) {
                     NewSubPbActivity.this.a(z, sparseArray);
                 } else if (intValue == 1) {
-                    NewSubPbActivity.this.jYh.a(sparseArray, z);
+                    NewSubPbActivity.this.jZn.a(sparseArray, z);
                 }
             }
         }
     };
-    boolean jLG = false;
-    private final b.a jLI = new b.a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.11
+    boolean jMM = false;
+    private final b.a jMO = new b.a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.11
         @Override // com.baidu.tbadk.core.dialog.b.a
         public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
             bVar.dismiss();
-            if (NewSubPbActivity.this.jKW != null && !TextUtils.isEmpty(NewSubPbActivity.this.jKX)) {
+            if (NewSubPbActivity.this.jMc != null && !TextUtils.isEmpty(NewSubPbActivity.this.jMd)) {
                 if (i == 0) {
-                    if (NewSubPbActivity.this.jKY == null) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_USER_COLLECT, NewSubPbActivity.this.jKX));
+                    if (NewSubPbActivity.this.jMe == null) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_USER_COLLECT, NewSubPbActivity.this.jMd));
                     } else {
                         d.a aVar = new d.a();
-                        aVar.url = NewSubPbActivity.this.jKX;
-                        aVar.pkgId = NewSubPbActivity.this.jKY.memeInfo.pck_id.intValue() < 0 ? "" : "" + NewSubPbActivity.this.jKY.memeInfo.pck_id;
+                        aVar.url = NewSubPbActivity.this.jMd;
+                        aVar.pkgId = NewSubPbActivity.this.jMe.memeInfo.pck_id.intValue() < 0 ? "" : "" + NewSubPbActivity.this.jMe.memeInfo.pck_id;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_USER_COLLECT, aVar));
                     }
                 } else if (i == 1) {
@@ -315,20 +315,20 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                     NewSubPbActivity.this.mPermissionJudgement.clearRequestPermissionList();
                     NewSubPbActivity.this.mPermissionJudgement.appendRequestPermission(NewSubPbActivity.this.getPageContext().getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
                     if (!NewSubPbActivity.this.mPermissionJudgement.startRequestPermission(NewSubPbActivity.this.getPageContext().getPageActivity())) {
-                        if (NewSubPbActivity.this.hQO == null) {
-                            NewSubPbActivity.this.hQO = new az(NewSubPbActivity.this.getPageContext());
+                        if (NewSubPbActivity.this.hRB == null) {
+                            NewSubPbActivity.this.hRB = new az(NewSubPbActivity.this.getPageContext());
                         }
-                        NewSubPbActivity.this.hQO.j(NewSubPbActivity.this.jKX, NewSubPbActivity.this.jKW.getImageByte());
+                        NewSubPbActivity.this.hRB.j(NewSubPbActivity.this.jMd, NewSubPbActivity.this.jMc.getImageByte());
                     } else {
                         return;
                     }
                 }
-                NewSubPbActivity.this.jKW = null;
-                NewSubPbActivity.this.jKX = null;
+                NewSubPbActivity.this.jMc = null;
+                NewSubPbActivity.this.jMd = null;
             }
         }
     };
-    private CustomMessageListener itM = new CustomMessageListener(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK) { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.16
+    private CustomMessageListener iuz = new CustomMessageListener(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK) { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.16
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -338,7 +338,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
             }
         }
     };
-    CustomMessageListener hoy = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_PENDANT) { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.29
+    CustomMessageListener hoJ = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_PENDANT) { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.29
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -346,10 +346,10 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (!StringUtils.isNull(currentAccount)) {
                     com.baidu.tbadk.data.l lVar = (com.baidu.tbadk.data.l) customResponsedMessage.getData();
-                    if (NewSubPbActivity.this.jYf.cJM() != null && NewSubPbActivity.this.jYf.cJM().cDc() != null && NewSubPbActivity.this.jYf.cJM().cDc().aQx() != null && currentAccount.equals(NewSubPbActivity.this.jYf.cJM().cDc().aQx().getUserId()) && NewSubPbActivity.this.jYf.cJM().cDc().aQx().getPendantData() != null) {
-                        NewSubPbActivity.this.jYf.cJM().cDc().aQx().getPendantData().vx(lVar.aOP());
-                        NewSubPbActivity.this.jYf.cJM().cDc().aQx().getPendantData().cr(lVar.bcB());
-                        NewSubPbActivity.this.jYh.a(NewSubPbActivity.this.jYf.cJM(), NewSubPbActivity.this.jYf.cJM().cDc(), NewSubPbActivity.this.jYf.cJM().coK(), NewSubPbActivity.this.jYf.cJM().aML(), NewSubPbActivity.this.jYf.cCx(), NewSubPbActivity.this.jYf.cJZ() != null);
+                    if (NewSubPbActivity.this.jZl.cKc() != null && NewSubPbActivity.this.jZl.cKc().cDs() != null && NewSubPbActivity.this.jZl.cKc().cDs().aQx() != null && currentAccount.equals(NewSubPbActivity.this.jZl.cKc().cDs().aQx().getUserId()) && NewSubPbActivity.this.jZl.cKc().cDs().aQx().getPendantData() != null) {
+                        NewSubPbActivity.this.jZl.cKc().cDs().aQx().getPendantData().vx(lVar.aOP());
+                        NewSubPbActivity.this.jZl.cKc().cDs().aQx().getPendantData().cr(lVar.bcC());
+                        NewSubPbActivity.this.jZn.a(NewSubPbActivity.this.jZl.cKc(), NewSubPbActivity.this.jZl.cKc().cDs(), NewSubPbActivity.this.jZl.cKc().coT(), NewSubPbActivity.this.jZl.cKc().aML(), NewSubPbActivity.this.jZl.cCN(), NewSubPbActivity.this.jZl.cKp() != null);
                     }
                 }
             }
@@ -369,74 +369,74 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
             this.mIsFromSchema = getIntent().getBooleanExtra(SubPbActivityConfig.KEY_IS_FROM_SCHEMA, false);
         }
         super.onCreate(bundle);
-        this.jKS = getPageContext();
-        this.jYp = true;
-        this.ihc = new com.baidu.tieba.write.c();
-        this.ihc.Fu(R.color.cp_cont_h_alpha85);
-        this.ihc.Ft(R.color.cp_cont_a);
-        bwA();
-        cJk();
+        this.jLY = getPageContext();
+        this.jZv = true;
+        this.ihP = new com.baidu.tieba.write.c();
+        this.ihP.Fw(R.color.cp_cont_h_alpha85);
+        this.ihP.Fv(R.color.cp_cont_a);
+        bwC();
+        cJA();
         initData(bundle);
         initUI();
-        ((SubPbView) this.jYh.getRootView()).show();
+        ((SubPbView) this.jZn.getRootView()).show();
         pP(false);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        this.jYh.ss(this.mIsFromSchema);
-        this.jKT = new com.baidu.tbadk.core.view.c();
-        this.jKT.toastTime = 1000L;
-        registerListener(this.jLu);
-        registerListener(this.jLs);
-        registerListener(this.jLt);
-        this.jYq = getUniqueId();
+        this.jZn.ss(this.mIsFromSchema);
+        this.jLZ = new com.baidu.tbadk.core.view.c();
+        this.jLZ.toastTime = 1000L;
+        registerListener(this.jMA);
+        registerListener(this.jMy);
+        registerListener(this.jMz);
+        this.jZw = getUniqueId();
         UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_REGISTER_LISTENER);
         userMuteAddAndDelCustomMessage.from = 1;
-        userMuteAddAndDelCustomMessage.mId = this.jYq;
-        userMuteAddAndDelCustomMessage.setTag(this.jYq);
+        userMuteAddAndDelCustomMessage.mId = this.jZw;
+        userMuteAddAndDelCustomMessage.setTag(this.jZw);
         MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
         UserMuteCheckCustomMessage userMuteCheckCustomMessage = new UserMuteCheckCustomMessage(CmdConfigCustom.CMD_USER_MUTE_CHECK_REGISTER_LISTENER);
-        userMuteCheckCustomMessage.mId = this.jYq;
-        userMuteCheckCustomMessage.setTag(this.jYq);
+        userMuteCheckCustomMessage.mId = this.jZw;
+        userMuteCheckCustomMessage.setTag(this.jZw);
         MessageManager.getInstance().sendMessage(userMuteCheckCustomMessage);
-        this.iPP = new aj(getPageContext());
-        this.iPP.a(new aj.a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.35
+        this.iQC = new aj(getPageContext());
+        this.iQC.a(new aj.a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.35
             @Override // com.baidu.tbadk.core.util.aj.a
             public void q(boolean z, int i) {
                 if (z) {
-                    NewSubPbActivity.this.iQa.bdR();
+                    NewSubPbActivity.this.iQN.bdS();
                 }
             }
         });
-        this.jKw = new com.baidu.tieba.pb.pb.report.a(this);
-        this.jKw.w(getUniqueId());
-        this.jGR = new com.baidu.tieba.pb.pb.main.b.a(this);
+        this.jLC = new com.baidu.tieba.pb.pb.report.a(this);
+        this.jLC.w(getUniqueId());
+        this.jHX = new com.baidu.tieba.pb.pb.main.b.a(this);
     }
 
     public void initUI() {
-        this.jYh = new com.baidu.tieba.pb.pb.sub.a(this, this.aIH);
-        this.jYh.a(this.jYf);
-        setContentView(this.jYh.getRootView(), new FrameLayout.LayoutParams(-1, -1));
-        this.jYh.setOnScrollListener(this.jYj);
-        this.jYh.b(this);
-        this.jYh.setOnImageClickListener(this.jYk);
-        this.jYh.setOnLongClickListener(this.mOnLongClickListener);
-        this.jYh.f(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.36
+        this.jZn = new com.baidu.tieba.pb.pb.sub.a(this, this.aIH);
+        this.jZn.a(this.jZl);
+        setContentView(this.jZn.getRootView(), new FrameLayout.LayoutParams(-1, -1));
+        this.jZn.setOnScrollListener(this.jZp);
+        this.jZn.b(this);
+        this.jZn.setOnImageClickListener(this.jZq);
+        this.jZn.setOnLongClickListener(this.mOnLongClickListener);
+        this.jZn.f(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.36
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (NewSubPbActivity.this.jYf != null) {
-                    NewSubPbActivity.this.jYf.loadData();
+                if (NewSubPbActivity.this.jZl != null) {
+                    NewSubPbActivity.this.jZl.loadData();
                 }
             }
         });
-        this.jYh.a(this.jYn);
-        this.jYh.b(this.jYo);
-        if (this.jYf != null && this.jYf.cJm() && !this.jYf.cJY()) {
-            this.jYh.cJA().setVisibility(8);
+        this.jZn.a(this.jZt);
+        this.jZn.b(this.jZu);
+        if (this.jZl != null && this.jZl.cJC() && !this.jZl.cKo()) {
+            this.jZn.cJQ().setVisibility(8);
         } else {
-            this.jYh.cJA().setVisibility(0);
+            this.jZn.cJQ().setVisibility(0);
         }
-        if (this.jYf != null && !this.jYf.cJm()) {
-            this.jYh.setIsFromPb(false);
+        if (this.jZl != null && !this.jZl.cJC()) {
+            this.jZn.setIsFromPb(false);
         }
     }
 
@@ -450,107 +450,107 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     }
 
     public void initData(Bundle bundle) {
-        this.jYf = new SubPbModel(getPageContext());
-        this.jYf.b(new PbFakeFloorModel.a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.37
+        this.jZl = new SubPbModel(getPageContext());
+        this.jZl.b(new PbFakeFloorModel.a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.37
             @Override // com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel.a
             public void s(PostData postData) {
-                NewSubPbActivity.this.jYh.u(postData);
-                NewSubPbActivity.this.jYh.b((BdListView.e) null);
+                NewSubPbActivity.this.jZn.u(postData);
+                NewSubPbActivity.this.jZn.b((BdListView.e) null);
             }
         });
-        this.jYg = new ForumManageModel(getPageContext());
-        this.jYg.setLoadDataCallBack(this.jYm);
-        this.hnh = new VoiceManager();
-        this.hnh.onCreate(getPageContext());
-        this.jKx = com.baidu.tbadk.baseEditMark.a.a(this);
-        if (this.jKx != null) {
-            this.jKx.a(this.jLB);
+        this.jZm = new ForumManageModel(getPageContext());
+        this.jZm.setLoadDataCallBack(this.jZs);
+        this.hns = new VoiceManager();
+        this.hns.onCreate(getPageContext());
+        this.jLD = com.baidu.tbadk.baseEditMark.a.a(this);
+        if (this.jLD != null) {
+            this.jLD.a(this.jMH);
         }
         if (bundle != null) {
-            this.jYf.initWithBundle(bundle);
+            this.jZl.initWithBundle(bundle);
         } else {
-            this.jYf.initWithIntent(getIntent());
+            this.jZl.initWithIntent(getIntent());
         }
-        this.jYf.a(this.jYl);
-        if (this.jYf.cJm()) {
-            this.jYf.loadData();
+        this.jZl.a(this.jZr);
+        if (this.jZl.cJC()) {
+            this.jZl.loadData();
         } else {
-            this.jYf.cJR();
+            this.jZl.cKh();
         }
     }
 
-    public void cJk() {
-        this.jYl = new SubPbModel.a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.2
+    public void cJA() {
+        this.jZr = new SubPbModel.a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.2
             @Override // com.baidu.tieba.pb.pb.sub.SubPbModel.a
             public void a(boolean z, int i, String str, n nVar) {
-                if (NewSubPbActivity.this.jYh != null) {
-                    NewSubPbActivity.this.jYh.cJv();
+                if (NewSubPbActivity.this.jZn != null) {
+                    NewSubPbActivity.this.jZn.cJL();
                     if (!z) {
                         NewSubPbActivity.this.br(i, str);
                         return;
                     }
-                    NewSubPbActivity.this.jYh.hideNoDataView();
+                    NewSubPbActivity.this.jZn.hideNoDataView();
                     if (nVar != null) {
-                        if (nVar.cDc() != null || NewSubPbActivity.this.jYf != null) {
-                            nVar.cDc().a(NewSubPbActivity.this.jYf.cJX());
+                        if (nVar.cDs() != null || NewSubPbActivity.this.jZl != null) {
+                            nVar.cDs().a(NewSubPbActivity.this.jZl.cKn());
                         }
-                        if (NewSubPbActivity.this.jYh != null) {
+                        if (NewSubPbActivity.this.jZn != null) {
                             NewSubPbActivity.this.pP(nVar.aOi() != null && nVar.aOi().isBjh());
-                            if (NewSubPbActivity.this.iQa != null && NewSubPbActivity.this.iQa.bcW() != null) {
-                                NewSubPbActivity.this.iQa.bcW().onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+                            if (NewSubPbActivity.this.iQN != null && NewSubPbActivity.this.iQN.bcX() != null) {
+                                NewSubPbActivity.this.iQN.bcX().onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
                             }
-                            NewSubPbActivity.this.jYh.a(nVar, NewSubPbActivity.this.jYf.cCx(), NewSubPbActivity.this.jYf.cJZ() != null);
-                            if (NewSubPbActivity.this.jYp) {
-                                NewSubPbActivity.this.jYh.getListView().setSelectionFromTop(NewSubPbActivity.this.jYh.getListView().getHeaderViewsCount() + 1, -com.baidu.adp.lib.util.l.getDimens(NewSubPbActivity.this, R.dimen.tbds18));
-                                NewSubPbActivity.this.cJl();
-                                NewSubPbActivity.this.jYp = false;
+                            NewSubPbActivity.this.jZn.a(nVar, NewSubPbActivity.this.jZl.cCN(), NewSubPbActivity.this.jZl.cKp() != null);
+                            if (NewSubPbActivity.this.jZv) {
+                                NewSubPbActivity.this.jZn.getListView().setSelectionFromTop(NewSubPbActivity.this.jZn.getListView().getHeaderViewsCount() + 1, -com.baidu.adp.lib.util.l.getDimens(NewSubPbActivity.this, R.dimen.tbds18));
+                                NewSubPbActivity.this.cJB();
+                                NewSubPbActivity.this.jZv = false;
                             }
                         }
-                        if (NewSubPbActivity.this.iQa != null) {
-                            NewSubPbActivity.this.iQa.a(nVar.bUa());
-                            NewSubPbActivity.this.iQa.setThreadData(nVar.aOi());
+                        if (NewSubPbActivity.this.iQN != null) {
+                            NewSubPbActivity.this.iQN.a(nVar.bUc());
+                            NewSubPbActivity.this.iQN.setThreadData(nVar.aOi());
                         }
-                        if (NewSubPbActivity.this.jYs == null) {
-                            NewSubPbActivity.this.jYs = new com.baidu.tieba.pb.e();
+                        if (NewSubPbActivity.this.jZy == null) {
+                            NewSubPbActivity.this.jZy = new com.baidu.tieba.pb.e();
                         }
-                        NewSubPbActivity.this.jYs.setData(nVar);
-                        NewSubPbActivity.this.jYs.setType(0);
-                        NewSubPbActivity.this.iPP.a(NewSubPbActivity.this.jYf.cKc());
+                        NewSubPbActivity.this.jZy.setData(nVar);
+                        NewSubPbActivity.this.jZy.setType(0);
+                        NewSubPbActivity.this.iQC.a(NewSubPbActivity.this.jZl.cKs());
                     }
                 }
             }
         };
-        this.jLB = new a.InterfaceC0471a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.3
+        this.jMH = new a.InterfaceC0471a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.3
             @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0471a
             public void c(boolean z, boolean z2, String str) {
                 if (z) {
-                    if (NewSubPbActivity.this.jKx != null) {
-                        NewSubPbActivity.this.jKx.gC(z2);
+                    if (NewSubPbActivity.this.jLD != null) {
+                        NewSubPbActivity.this.jLD.gC(z2);
                     }
-                    MarkData aMO = NewSubPbActivity.this.jKx.aMO();
+                    MarkData aMO = NewSubPbActivity.this.jLD.aMO();
                     com.baidu.tieba.pb.e eVar = new com.baidu.tieba.pb.e();
                     eVar.setType(2);
                     if (z2) {
                         eVar.setData(aMO);
-                        if (NewSubPbActivity.this.jKx != null) {
+                        if (NewSubPbActivity.this.jLD != null) {
                             if (aMO != null) {
-                                NewSubPbActivity.this.jYf.su(true);
-                                NewSubPbActivity.this.jYf.JQ(NewSubPbActivity.this.jYf.bdr());
+                                NewSubPbActivity.this.jZl.su(true);
+                                NewSubPbActivity.this.jZl.JR(NewSubPbActivity.this.jZl.bds());
                                 NewSubPbActivity.this.showToast(R.string.add_mark_on_pb);
                             } else {
                                 NewSubPbActivity.this.showToast(NewSubPbActivity.this.getPageContext().getString(R.string.add_mark));
                             }
-                            if (NewSubPbActivity.this.jYh != null) {
-                                NewSubPbActivity.this.jYh.st(true);
+                            if (NewSubPbActivity.this.jZn != null) {
+                                NewSubPbActivity.this.jZn.st(true);
                             }
                         }
                     } else {
                         eVar.setData(null);
-                        NewSubPbActivity.this.jYf.su(false);
-                        NewSubPbActivity.this.jYf.JQ(null);
+                        NewSubPbActivity.this.jZl.su(false);
+                        NewSubPbActivity.this.jZl.JR(null);
                         NewSubPbActivity.this.showToast(NewSubPbActivity.this.getPageContext().getString(R.string.remove_mark));
-                        if (NewSubPbActivity.this.jYh != null) {
-                            NewSubPbActivity.this.jYh.st(false);
+                        if (NewSubPbActivity.this.jZn != null) {
+                            NewSubPbActivity.this.jZn.st(false);
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, eVar));
@@ -559,15 +559,15 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 NewSubPbActivity.this.showToast(NewSubPbActivity.this.getPageContext().getString(R.string.update_mark_failed));
             }
         };
-        this.jYn = new a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.4
+        this.jZt = new a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.4
             @Override // com.baidu.tieba.pb.pb.sub.NewSubPbActivity.a
             public void callback(Object obj) {
                 Object[] objArr = (Object[]) obj;
                 String str = "";
                 String str2 = "";
                 String str3 = "";
-                if (NewSubPbActivity.this.jYf.cJM() != null && NewSubPbActivity.this.jYf.cJM().aOi() != null && NewSubPbActivity.this.jYf.cJM().aOi().aQx() != null) {
-                    str = String.valueOf(NewSubPbActivity.this.jYf.cJM().aOi().aQx().getUserId());
+                if (NewSubPbActivity.this.jZl.cKc() != null && NewSubPbActivity.this.jZl.cKc().aOi() != null && NewSubPbActivity.this.jZl.cKc().aOi().aQx() != null) {
+                    str = String.valueOf(NewSubPbActivity.this.jZl.cKc().aOi().aQx().getUserId());
                 }
                 String str4 = "";
                 if (objArr.length > 1) {
@@ -583,10 +583,10 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 if (objArr.length > 4) {
                     str3 = String.valueOf(objArr[4]);
                 }
-                NewSubPbActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(NewSubPbActivity.this.getPageContext().getPageActivity(), NewSubPbActivity.this.jYf.cJM().bdP().getId(), NewSubPbActivity.this.jYf.cJM().bdP().getName(), NewSubPbActivity.this.jYf.cJM().aOi().getId(), str, str4, str2, str5, str3)));
+                NewSubPbActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(NewSubPbActivity.this.getPageContext().getPageActivity(), NewSubPbActivity.this.jZl.cKc().bdQ().getId(), NewSubPbActivity.this.jZl.cKc().bdQ().getName(), NewSubPbActivity.this.jZl.cKc().aOi().getId(), str, str4, str2, str5, str3)));
             }
         };
-        this.jYo = new a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.5
+        this.jZu = new a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.5
             /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.pb.pb.sub.NewSubPbActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.baidu.tieba.pb.pb.sub.NewSubPbActivity.a
@@ -594,16 +594,16 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 Object[] objArr = (Object[]) obj;
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.length() > 0) {
-                    if (!NewSubPbActivity.this.jYg.dek() && objArr != null && objArr.length >= 4) {
+                    if (!NewSubPbActivity.this.jZm.dez() && objArr != null && objArr.length >= 4) {
                         String valueOf = String.valueOf(objArr[0]);
                         int i = com.baidu.adp.lib.f.b.toInt(String.valueOf(objArr[1]), 0);
                         boolean z = com.baidu.adp.lib.f.b.toBoolean(String.valueOf(objArr[2]), false);
                         int i2 = com.baidu.adp.lib.f.b.toInt(String.valueOf(objArr[3]), 0);
-                        if (NewSubPbActivity.this.jYf != null && NewSubPbActivity.this.jYf.cJM() != null && NewSubPbActivity.this.jYf.cJM().bdP() != null && NewSubPbActivity.this.jYf.cJM().aOi() != null) {
+                        if (NewSubPbActivity.this.jZl != null && NewSubPbActivity.this.jZl.cKc() != null && NewSubPbActivity.this.jZl.cKc().bdQ() != null && NewSubPbActivity.this.jZl.cKc().aOi() != null) {
                             if (objArr.length > 4) {
-                                NewSubPbActivity.this.jYg.MG(String.valueOf(objArr[4]));
+                                NewSubPbActivity.this.jZm.MH(String.valueOf(objArr[4]));
                             }
-                            NewSubPbActivity.this.jYg.a(NewSubPbActivity.this.jYf.cJM().bdP().getId(), NewSubPbActivity.this.jYf.cJM().bdP().getName(), NewSubPbActivity.this.jYf.cJM().aOi().getId(), valueOf, i2, i, z, NewSubPbActivity.this.jYf.cJM().aOi().getBaijiahaoData());
+                            NewSubPbActivity.this.jZm.a(NewSubPbActivity.this.jZl.cKc().bdQ().getId(), NewSubPbActivity.this.jZl.cKc().bdQ().getName(), NewSubPbActivity.this.jZl.cKc().aOi().getId(), valueOf, i2, i, z, NewSubPbActivity.this.jZl.cKc().aOi().getBaijiahaoData());
                             return;
                         }
                         return;
@@ -613,25 +613,25 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 TbadkCoreApplication.getInst().login(NewSubPbActivity.this.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(NewSubPbActivity.this.getPageContext().getPageActivity(), true, RequestResponseCode.REQUEST_LOGIN_PB_DEL_POST)));
             }
         };
-        this.jYm = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.6
+        this.jZs = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.6
             @Override // com.baidu.adp.base.d
             public void callback(Object obj) {
                 boolean z = false;
                 if (obj == null) {
-                    NewSubPbActivity.this.jYh.a(NewSubPbActivity.this.jYg.getLoadDataMode(), false, (String) null, false);
+                    NewSubPbActivity.this.jZn.a(NewSubPbActivity.this.jZm.getLoadDataMode(), false, (String) null, false);
                     return;
                 }
-                switch (NewSubPbActivity.this.jYg.getLoadDataMode()) {
+                switch (NewSubPbActivity.this.jZm.getLoadDataMode()) {
                     case 0:
                         ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                        if (bVar.jZp != 1002 || bVar.fEF) {
+                        if (bVar.kaw != 1002 || bVar.fEQ) {
                             z = true;
                         }
                         NewSubPbActivity.this.a(bVar, z);
                         return;
                     case 1:
                         ForumManageModel.d dVar = (ForumManageModel.d) obj;
-                        NewSubPbActivity.this.jYh.a(1, dVar.OU, dVar.lnC, true);
+                        NewSubPbActivity.this.jZn.a(1, dVar.OU, dVar.loP, true);
                         return;
                     default:
                         return;
@@ -644,8 +644,8 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         return (view instanceof TbImageView) || (view instanceof TbMemeImageView) || (view instanceof GifView);
     }
 
-    public void bwA() {
-        registerListener(this.hoy);
+    public void bwC() {
+        registerListener(this.hoJ);
         this.aIH = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.7
             /* JADX DEBUG: Multi-variable search result rejected for r2v85, resolved type: com.baidu.tieba.pb.pb.sub.NewSubPbActivity */
             /* JADX WARN: Multi-variable type inference failed */
@@ -654,94 +654,94 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 PostData postData;
                 SparseArray sparseArray;
                 boolean z = false;
-                if (view != null || NewSubPbActivity.this.jYh != null) {
-                    if (view == NewSubPbActivity.this.jYh.cJG()) {
-                        NewSubPbActivity.this.jYh.cHU();
+                if (view != null || NewSubPbActivity.this.jZn != null) {
+                    if (view == NewSubPbActivity.this.jZn.cJW()) {
+                        NewSubPbActivity.this.jZn.cIk();
                         String str = view.getTag(R.id.tag_user_id) instanceof String ? (String) view.getTag(R.id.tag_user_id) : null;
                         String str2 = view.getTag(R.id.tag_user_name) instanceof String ? (String) view.getTag(R.id.tag_user_name) : null;
                         String str3 = view.getTag(R.id.tag_virtual_user_url) instanceof String ? (String) view.getTag(R.id.tag_virtual_user_url) : null;
                         if (str3 != null) {
                             if (NewSubPbActivity.this.checkUpIsLogin()) {
-                                ba.aUZ().b(NewSubPbActivity.this.getPageContext(), new String[]{str3});
+                                ba.aVa().b(NewSubPbActivity.this.getPageContext(), new String[]{str3});
                             }
                         } else if (str != null) {
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(NewSubPbActivity.this.getPageContext().getPageActivity(), str, str2, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
                         }
-                    } else if (view != NewSubPbActivity.this.jYh.bZu()) {
-                        if (view != NewSubPbActivity.this.jYh.cJz()) {
-                            if (view != NewSubPbActivity.this.jYh.cJy()) {
-                                if (view == NewSubPbActivity.this.jYh.cJt()) {
-                                    NewSubPbActivity.this.jYh.cHU();
-                                    if (NewSubPbActivity.this.jYf.loadData()) {
-                                        NewSubPbActivity.this.jYh.cJr();
+                    } else if (view != NewSubPbActivity.this.jZn.bZC()) {
+                        if (view != NewSubPbActivity.this.jZn.cJP()) {
+                            if (view != NewSubPbActivity.this.jZn.cJO()) {
+                                if (view == NewSubPbActivity.this.jZn.cJJ()) {
+                                    NewSubPbActivity.this.jZn.cIk();
+                                    if (NewSubPbActivity.this.jZl.loadData()) {
+                                        NewSubPbActivity.this.jZn.cJH();
                                     }
-                                } else if (view == NewSubPbActivity.this.jYh.cJA() || view == NewSubPbActivity.this.jYh.cJB() || view == NewSubPbActivity.this.jYh.cJD()) {
-                                    if (NewSubPbActivity.this.jYr) {
-                                        NewSubPbActivity.this.jYr = false;
+                                } else if (view == NewSubPbActivity.this.jZn.cJQ() || view == NewSubPbActivity.this.jZn.cJR() || view == NewSubPbActivity.this.jZn.cJT()) {
+                                    if (NewSubPbActivity.this.jZx) {
+                                        NewSubPbActivity.this.jZx = false;
                                         return;
                                     }
-                                    if (NewSubPbActivity.this.jYf.cJM() != null && NewSubPbActivity.this.jYf.cJM().aOi() != null) {
-                                        z = au.a(NewSubPbActivity.this.jYf.cJM().aOi().getBaijiahaoData());
+                                    if (NewSubPbActivity.this.jZl.cKc() != null && NewSubPbActivity.this.jZl.cKc().aOi() != null) {
+                                        z = au.a(NewSubPbActivity.this.jZl.cKc().aOi().getBaijiahaoData());
                                     }
                                     if (z) {
-                                        PbActivityConfig createNormalCfg = new PbActivityConfig(NewSubPbActivity.this.getActivity()).createNormalCfg(NewSubPbActivity.this.jYf.cFt(), null, "");
-                                        if (!StringUtils.isNull(NewSubPbActivity.this.jYf.getFromForumId())) {
-                                            createNormalCfg.setForumId(NewSubPbActivity.this.jYf.getFromForumId());
+                                        PbActivityConfig createNormalCfg = new PbActivityConfig(NewSubPbActivity.this.getActivity()).createNormalCfg(NewSubPbActivity.this.jZl.cFJ(), null, "");
+                                        if (!StringUtils.isNull(NewSubPbActivity.this.jZl.getFromForumId())) {
+                                            createNormalCfg.setForumId(NewSubPbActivity.this.jZl.getFromForumId());
                                         }
-                                        if (NewSubPbActivity.this.jYf.cJM() != null && NewSubPbActivity.this.jYf.cJM().aOi() != null) {
-                                            createNormalCfg.setBjhData(NewSubPbActivity.this.jYf.cJM().aOi().getBaijiahaoData());
+                                        if (NewSubPbActivity.this.jZl.cKc() != null && NewSubPbActivity.this.jZl.cKc().aOi() != null) {
+                                            createNormalCfg.setBjhData(NewSubPbActivity.this.jZl.cKc().aOi().getBaijiahaoData());
                                         }
                                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
                                         return;
                                     }
-                                    PbActivityConfig createNormalCfg2 = new PbActivityConfig(NewSubPbActivity.this.getActivity()).createNormalCfg(NewSubPbActivity.this.jYf.cFt(), NewSubPbActivity.this.jYf.bdr(), "");
-                                    if (!StringUtils.isNull(NewSubPbActivity.this.jYf.getFromForumId())) {
-                                        createNormalCfg2.setForumId(NewSubPbActivity.this.jYf.getFromForumId());
+                                    PbActivityConfig createNormalCfg2 = new PbActivityConfig(NewSubPbActivity.this.getActivity()).createNormalCfg(NewSubPbActivity.this.jZl.cFJ(), NewSubPbActivity.this.jZl.bds(), "");
+                                    if (!StringUtils.isNull(NewSubPbActivity.this.jZl.getFromForumId())) {
+                                        createNormalCfg2.setForumId(NewSubPbActivity.this.jZl.getFromForumId());
                                     }
                                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg2));
-                                } else if (NewSubPbActivity.this.jYh.cJE() == null || view != NewSubPbActivity.this.jYh.cJE().cGs()) {
-                                    if (NewSubPbActivity.this.jYh.cJE() == null || view != NewSubPbActivity.this.jYh.cJE().cGv()) {
-                                        if (NewSubPbActivity.this.jYh.cJE() == null || view != NewSubPbActivity.this.jYh.cJE().cGt()) {
-                                            if (NewSubPbActivity.this.jYh.cJE() == null || view != NewSubPbActivity.this.jYh.cJE().cGu()) {
-                                                if (NewSubPbActivity.this.jYh.cJE() == null || view != NewSubPbActivity.this.jYh.cJE().cGw()) {
-                                                    if (view == NewSubPbActivity.this.jYh.cJx() || view == NewSubPbActivity.this.jYh.cJD()) {
+                                } else if (NewSubPbActivity.this.jZn.cJU() == null || view != NewSubPbActivity.this.jZn.cJU().cGI()) {
+                                    if (NewSubPbActivity.this.jZn.cJU() == null || view != NewSubPbActivity.this.jZn.cJU().cGL()) {
+                                        if (NewSubPbActivity.this.jZn.cJU() == null || view != NewSubPbActivity.this.jZn.cJU().cGJ()) {
+                                            if (NewSubPbActivity.this.jZn.cJU() == null || view != NewSubPbActivity.this.jZn.cJU().cGK()) {
+                                                if (NewSubPbActivity.this.jZn.cJU() == null || view != NewSubPbActivity.this.jZn.cJU().cGM()) {
+                                                    if (view == NewSubPbActivity.this.jZn.cJN() || view == NewSubPbActivity.this.jZn.cJT()) {
                                                         if (NewSubPbActivity.this.checkUpIsLogin()) {
-                                                            if (NewSubPbActivity.this.iQa.bdU()) {
-                                                                NewSubPbActivity.this.iQa.bdV();
+                                                            if (NewSubPbActivity.this.iQN.bdV()) {
+                                                                NewSubPbActivity.this.iQN.bdW();
                                                                 return;
                                                             } else {
-                                                                NewSubPbActivity.this.iQa.yp(null);
+                                                                NewSubPbActivity.this.iQN.yp(null);
                                                                 return;
                                                             }
                                                         }
                                                         return;
                                                     } else if (view != null && (view.getTag() instanceof l)) {
-                                                        NewSubPbActivity.this.jYu = (l) view.getTag();
+                                                        NewSubPbActivity.this.jZA = (l) view.getTag();
                                                         if (bc.checkUpIsLogin(NewSubPbActivity.this.getPageContext().getPageActivity())) {
-                                                            if (NewSubPbActivity.this.jYr) {
-                                                                NewSubPbActivity.this.jYr = false;
+                                                            if (NewSubPbActivity.this.jZx) {
+                                                                NewSubPbActivity.this.jZx = false;
                                                                 return;
-                                                            } else if ((NewSubPbActivity.this.iPP == null || NewSubPbActivity.this.jYf == null || NewSubPbActivity.this.jYf.bUa() == null || NewSubPbActivity.this.iPP.kZ(NewSubPbActivity.this.jYf.bUa().replyPrivateFlag)) && (sparseArray = (SparseArray) view.getTag(R.id.tag_from)) != null) {
+                                                            } else if ((NewSubPbActivity.this.iQC == null || NewSubPbActivity.this.jZl == null || NewSubPbActivity.this.jZl.bUc() == null || NewSubPbActivity.this.iQC.lb(NewSubPbActivity.this.jZl.bUc().replyPrivateFlag)) && (sparseArray = (SparseArray) view.getTag(R.id.tag_from)) != null) {
                                                                 if (sparseArray.get(R.id.tag_clip_board) instanceof PostData) {
                                                                     PostData postData2 = (PostData) sparseArray.get(R.id.tag_clip_board);
                                                                     if (postData2 != null && postData2.aQx() != null) {
                                                                         MetaData aQx = postData2.aQx();
-                                                                        NewSubPbActivity.this.iQa.setReplyId(aQx.getUserId());
+                                                                        NewSubPbActivity.this.iQN.setReplyId(aQx.getUserId());
                                                                         boolean booleanValue = sparseArray.get(R.id.tag_is_subpb) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_is_subpb)).booleanValue() : true;
                                                                         if (!(view.getTag(R.id.tag_subpb_ban_display_keyboard) instanceof Boolean) || view.getTag(R.id.tag_subpb_ban_display_keyboard) != Boolean.TRUE) {
                                                                             r6 = false;
                                                                         }
                                                                         if (!booleanValue) {
                                                                             if (!r6) {
-                                                                                NewSubPbActivity.this.iQa.yq("");
+                                                                                NewSubPbActivity.this.iQN.yq("");
                                                                             }
                                                                         } else if (!r6) {
-                                                                            NewSubPbActivity.this.iQa.yq(aQx.getName_show());
+                                                                            NewSubPbActivity.this.iQN.yq(aQx.getName_show());
                                                                         }
                                                                     }
-                                                                    NewSubPbActivity.this.jYh.cJp();
+                                                                    NewSubPbActivity.this.jZn.cJF();
                                                                 }
-                                                                if (NewSubPbActivity.this.jYt) {
+                                                                if (NewSubPbActivity.this.jZz) {
                                                                     NewSubPbActivity.this.sr(false);
                                                                     return;
                                                                 }
@@ -752,13 +752,13 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                                         }
                                                         return;
                                                     } else if (view == null || view.getId() != R.id.post_info_commont_img) {
-                                                        if (NewSubPbActivity.this.jYi == null || view != NewSubPbActivity.this.jYi.cGu()) {
-                                                            if (NewSubPbActivity.this.jYi == null || view != NewSubPbActivity.this.jYi.cGs()) {
-                                                                if (NewSubPbActivity.this.jYi == null || view != NewSubPbActivity.this.jYi.cGv()) {
-                                                                    if (NewSubPbActivity.this.jYi == null || view != NewSubPbActivity.this.jYi.cGw()) {
-                                                                        if (NewSubPbActivity.this.jYi == null || view != NewSubPbActivity.this.jYi.cGy()) {
-                                                                            if (NewSubPbActivity.this.jYi == null || view != NewSubPbActivity.this.jYi.cGz()) {
-                                                                                if (NewSubPbActivity.this.jYi != null && view == NewSubPbActivity.this.jYi.cGt()) {
+                                                        if (NewSubPbActivity.this.jZo == null || view != NewSubPbActivity.this.jZo.cGK()) {
+                                                            if (NewSubPbActivity.this.jZo == null || view != NewSubPbActivity.this.jZo.cGI()) {
+                                                                if (NewSubPbActivity.this.jZo == null || view != NewSubPbActivity.this.jZo.cGL()) {
+                                                                    if (NewSubPbActivity.this.jZo == null || view != NewSubPbActivity.this.jZo.cGM()) {
+                                                                        if (NewSubPbActivity.this.jZo == null || view != NewSubPbActivity.this.jZo.cGO()) {
+                                                                            if (NewSubPbActivity.this.jZo == null || view != NewSubPbActivity.this.jZo.cGP()) {
+                                                                                if (NewSubPbActivity.this.jZo != null && view == NewSubPbActivity.this.jZo.cGJ()) {
                                                                                     if (!j.isNetWorkAvailable()) {
                                                                                         NewSubPbActivity.this.showToast(R.string.network_not_available);
                                                                                         return;
@@ -776,10 +776,10 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                                                                                 return;
                                                                                             }
                                                                                             sparseArray2.put(R.id.tag_check_mute_from, 2);
-                                                                                            NewSubPbActivity.this.jYh.cI(view);
+                                                                                            NewSubPbActivity.this.jZn.cI(view);
                                                                                             return;
                                                                                         } else if (booleanValue3) {
-                                                                                            NewSubPbActivity.this.jYh.a(((Integer) sparseArray2.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray2.get(R.id.tag_del_post_id), ((Integer) sparseArray2.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray2.get(R.id.tag_del_post_is_self)).booleanValue());
+                                                                                            NewSubPbActivity.this.jZn.a(((Integer) sparseArray2.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray2.get(R.id.tag_del_post_id), ((Integer) sparseArray2.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray2.get(R.id.tag_del_post_is_self)).booleanValue());
                                                                                             return;
                                                                                         } else {
                                                                                             return;
@@ -804,8 +804,8 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                                                                     Object obj = ((SparseArray) view.getTag()).get(R.id.tag_clip_board);
                                                                                     if (obj instanceof PostData) {
                                                                                         PostData postData3 = (PostData) obj;
-                                                                                        if (postData3.getType() != PostData.lkK && !TextUtils.isEmpty(postData3.getBimg_url()) && k.aNQ().isShowImages()) {
-                                                                                            NewSubPbActivity.this.JN(postData3.getId());
+                                                                                        if (postData3.getType() != PostData.llT && !TextUtils.isEmpty(postData3.getBimg_url()) && k.aNQ().isShowImages()) {
+                                                                                            NewSubPbActivity.this.JO(postData3.getId());
                                                                                             return;
                                                                                         }
                                                                                         return;
@@ -814,43 +814,43 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                                                                 } else {
                                                                                     return;
                                                                                 }
-                                                                            } else if (NewSubPbActivity.this.jKW != null && !TextUtils.isEmpty(NewSubPbActivity.this.jKX)) {
+                                                                            } else if (NewSubPbActivity.this.jMc != null && !TextUtils.isEmpty(NewSubPbActivity.this.jMd)) {
                                                                                 if (NewSubPbActivity.this.mPermissionJudgement == null) {
                                                                                     NewSubPbActivity.this.mPermissionJudgement = new PermissionJudgePolicy();
                                                                                 }
                                                                                 NewSubPbActivity.this.mPermissionJudgement.clearRequestPermissionList();
                                                                                 NewSubPbActivity.this.mPermissionJudgement.appendRequestPermission(NewSubPbActivity.this.getPageContext().getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
                                                                                 if (!NewSubPbActivity.this.mPermissionJudgement.startRequestPermission(NewSubPbActivity.this.getPageContext().getPageActivity())) {
-                                                                                    if (NewSubPbActivity.this.hQO == null) {
-                                                                                        NewSubPbActivity.this.hQO = new az(NewSubPbActivity.this.getPageContext());
+                                                                                    if (NewSubPbActivity.this.hRB == null) {
+                                                                                        NewSubPbActivity.this.hRB = new az(NewSubPbActivity.this.getPageContext());
                                                                                     }
-                                                                                    NewSubPbActivity.this.hQO.j(NewSubPbActivity.this.jKX, NewSubPbActivity.this.jKW.getImageByte());
-                                                                                    NewSubPbActivity.this.jKW = null;
-                                                                                    NewSubPbActivity.this.jKX = null;
+                                                                                    NewSubPbActivity.this.hRB.j(NewSubPbActivity.this.jMd, NewSubPbActivity.this.jMc.getImageByte());
+                                                                                    NewSubPbActivity.this.jMc = null;
+                                                                                    NewSubPbActivity.this.jMd = null;
                                                                                     return;
                                                                                 }
                                                                                 return;
                                                                             } else {
                                                                                 return;
                                                                             }
-                                                                        } else if (NewSubPbActivity.this.jKW != null && !TextUtils.isEmpty(NewSubPbActivity.this.jKX)) {
-                                                                            if (NewSubPbActivity.this.jKY == null) {
-                                                                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_USER_COLLECT, NewSubPbActivity.this.jKX));
+                                                                        } else if (NewSubPbActivity.this.jMc != null && !TextUtils.isEmpty(NewSubPbActivity.this.jMd)) {
+                                                                            if (NewSubPbActivity.this.jMe == null) {
+                                                                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_USER_COLLECT, NewSubPbActivity.this.jMd));
                                                                             } else {
                                                                                 d.a aVar = new d.a();
-                                                                                aVar.url = NewSubPbActivity.this.jKX;
-                                                                                aVar.pkgId = NewSubPbActivity.this.jKY.memeInfo.pck_id.intValue() < 0 ? "" : "" + NewSubPbActivity.this.jKY.memeInfo.pck_id;
+                                                                                aVar.url = NewSubPbActivity.this.jMd;
+                                                                                aVar.pkgId = NewSubPbActivity.this.jMe.memeInfo.pck_id.intValue() < 0 ? "" : "" + NewSubPbActivity.this.jMe.memeInfo.pck_id;
                                                                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_USER_COLLECT, aVar));
                                                                             }
-                                                                            NewSubPbActivity.this.jKW = null;
-                                                                            NewSubPbActivity.this.jKX = null;
+                                                                            NewSubPbActivity.this.jMc = null;
+                                                                            NewSubPbActivity.this.jMd = null;
                                                                             return;
                                                                         } else {
                                                                             return;
                                                                         }
-                                                                    } else if (NewSubPbActivity.this.ihL != null) {
-                                                                        NewSubPbActivity.this.ihL.fp(NewSubPbActivity.this.getPageContext().getPageActivity());
-                                                                        NewSubPbActivity.this.ihL = null;
+                                                                    } else if (NewSubPbActivity.this.iiy != null) {
+                                                                        NewSubPbActivity.this.iiy.fp(NewSubPbActivity.this.getPageContext().getPageActivity());
+                                                                        NewSubPbActivity.this.iiy = null;
                                                                         return;
                                                                     } else {
                                                                         return;
@@ -858,7 +858,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                                                 }
                                                                 SparseArray sparseArray3 = (SparseArray) view.getTag();
                                                                 if (sparseArray3 != null && (sparseArray3.get(R.id.tag_del_post_type) instanceof Integer) && (sparseArray3.get(R.id.tag_del_post_id) instanceof String) && (sparseArray3.get(R.id.tag_manage_user_identity) instanceof Integer) && (sparseArray3.get(R.id.tag_del_post_is_self) instanceof Boolean)) {
-                                                                    NewSubPbActivity.this.jYh.a(((Integer) sparseArray3.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray3.get(R.id.tag_del_post_id), ((Integer) sparseArray3.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray3.get(R.id.tag_del_post_is_self)).booleanValue());
+                                                                    NewSubPbActivity.this.jZn.a(((Integer) sparseArray3.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray3.get(R.id.tag_del_post_id), ((Integer) sparseArray3.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray3.get(R.id.tag_del_post_is_self)).booleanValue());
                                                                     return;
                                                                 }
                                                                 return;
@@ -874,7 +874,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                                         } else {
                                                             Object tag = view.getTag();
                                                             if (tag instanceof String) {
-                                                                NewSubPbActivity.this.Jl((String) tag);
+                                                                NewSubPbActivity.this.Jm((String) tag);
                                                                 return;
                                                             } else if (tag instanceof SparseArray) {
                                                                 SparseArray<Object> sparseArray4 = (SparseArray) tag;
@@ -892,20 +892,20 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                                     } else if (NewSubPbActivity.this.checkUpIsLogin() && (view.getTag() instanceof SparseArray)) {
                                                         SparseArray sparseArray5 = (SparseArray) view.getTag();
                                                         if ((sparseArray5.get(R.id.tag_load_sub_data) instanceof PostData) && (postData = (PostData) sparseArray5.get(R.id.tag_load_sub_data)) != null) {
-                                                            if (NewSubPbActivity.this.jYf != null) {
-                                                                TiebaStatic.log(new an("c13700").dh("tid", NewSubPbActivity.this.jYf.cFu()).dh("fid", NewSubPbActivity.this.jYf.getFromForumId()).s("uid", TbadkCoreApplication.getCurrentAccountId()).dh("post_id", postData.getId()).ag("obj_type", 3));
+                                                            if (NewSubPbActivity.this.jZl != null) {
+                                                                TiebaStatic.log(new an("c13700").dh("tid", NewSubPbActivity.this.jZl.cFK()).dh("fid", NewSubPbActivity.this.jZl.getFromForumId()).s("uid", TbadkCoreApplication.getCurrentAccountId()).dh("post_id", postData.getId()).ag("obj_type", 3));
                                                             }
                                                             if (postData.aQx() != null) {
                                                                 MetaData aQx2 = postData.aQx();
-                                                                NewSubPbActivity.this.iQa.setReplyId(aQx2.getUserId());
+                                                                NewSubPbActivity.this.iQN.setReplyId(aQx2.getUserId());
                                                                 if (!(sparseArray5.get(R.id.tag_is_subpb) instanceof Boolean ? ((Boolean) sparseArray5.get(R.id.tag_is_subpb)).booleanValue() : true)) {
-                                                                    NewSubPbActivity.this.iQa.yq("");
+                                                                    NewSubPbActivity.this.iQN.yq("");
                                                                 } else {
-                                                                    NewSubPbActivity.this.iQa.yq(aQx2.getName_show());
+                                                                    NewSubPbActivity.this.iQN.yq(aQx2.getName_show());
                                                                 }
                                                             }
-                                                            NewSubPbActivity.this.jYh.cJp();
-                                                            if (NewSubPbActivity.this.jYt) {
+                                                            NewSubPbActivity.this.jZn.cJF();
+                                                            if (NewSubPbActivity.this.jZz) {
                                                                 NewSubPbActivity.this.sr(false);
                                                                 return;
                                                             }
@@ -932,11 +932,11 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                                 return;
                                             }
                                             Object tag2 = view.getTag();
-                                            NewSubPbActivity.this.jYh.cHU();
+                                            NewSubPbActivity.this.jZn.cIk();
                                             if (tag2 instanceof String) {
                                                 String str4 = (String) tag2;
                                                 if (NewSubPbActivity.this.checkUpIsLogin()) {
-                                                    NewSubPbActivity.this.Jl(str4);
+                                                    NewSubPbActivity.this.Jm(str4);
                                                     return;
                                                 }
                                                 return;
@@ -953,7 +953,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                                 return;
                                             }
                                         } else if (j.isNetWorkAvailable()) {
-                                            NewSubPbActivity.this.jYh.cHU();
+                                            NewSubPbActivity.this.jZn.cIk();
                                             if (NewSubPbActivity.this.checkUpIsLogin()) {
                                                 NewSubPbActivity.this.cM(view);
                                                 return;
@@ -964,56 +964,56 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                             return;
                                         }
                                     }
-                                    NewSubPbActivity.this.jYh.cHU();
+                                    NewSubPbActivity.this.jZn.cIk();
                                     SparseArray sparseArray8 = (SparseArray) view.getTag();
                                     if (sparseArray8 != null) {
-                                        NewSubPbActivity.this.jYh.a(((Integer) sparseArray8.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray8.get(R.id.tag_del_post_id), ((Integer) sparseArray8.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray8.get(R.id.tag_del_post_is_self)).booleanValue());
+                                        NewSubPbActivity.this.jZn.a(((Integer) sparseArray8.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray8.get(R.id.tag_del_post_id), ((Integer) sparseArray8.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray8.get(R.id.tag_del_post_is_self)).booleanValue());
                                     }
                                 } else {
                                     TiebaStatic.log(new an("c11739").ag("obj_locate", 2));
-                                    NewSubPbActivity.this.jYh.cHU();
-                                    if (NewSubPbActivity.this.checkUpIsLogin() && NewSubPbActivity.this.jYf.cJM() != null) {
-                                        NewSubPbActivity.this.n(NewSubPbActivity.this.jYf.cJM().cDc());
+                                    NewSubPbActivity.this.jZn.cIk();
+                                    if (NewSubPbActivity.this.checkUpIsLogin() && NewSubPbActivity.this.jZl.cKc() != null) {
+                                        NewSubPbActivity.this.n(NewSubPbActivity.this.jZl.cKc().cDs());
                                     }
                                 }
                             } else if (NewSubPbActivity.this.checkUpIsLogin()) {
-                                NewSubPbActivity.this.jYh.cJo();
-                                NewSubPbActivity.this.jYh.cJp();
-                                if (NewSubPbActivity.this.iQa != null) {
-                                    NewSubPbActivity.this.iQa.bdX();
+                                NewSubPbActivity.this.jZn.cJE();
+                                NewSubPbActivity.this.jZn.cJF();
+                                if (NewSubPbActivity.this.iQN != null) {
+                                    NewSubPbActivity.this.iQN.bdY();
                                 }
                             }
                         } else if (NewSubPbActivity.this.checkUpIsLogin()) {
-                            NewSubPbActivity.this.jYh.cJo();
-                            NewSubPbActivity.this.jYh.cJp();
-                            if (NewSubPbActivity.this.iQa != null) {
-                                NewSubPbActivity.this.iQa.bdW();
+                            NewSubPbActivity.this.jZn.cJE();
+                            NewSubPbActivity.this.jZn.cJF();
+                            if (NewSubPbActivity.this.iQN != null) {
+                                NewSubPbActivity.this.iQN.bdX();
                             }
                         }
                     } else if (NewSubPbActivity.this.checkUpIsLogin()) {
-                        NewSubPbActivity.this.cEu();
-                        if (NewSubPbActivity.this.jYf != null && NewSubPbActivity.this.jYf.cJM() != null && NewSubPbActivity.this.jYf.cJM().aOi() != null && NewSubPbActivity.this.jYf.cJM().aOi().aQx() != null) {
-                            TiebaStatic.log(new an("c13402").dh("tid", NewSubPbActivity.this.jYf.cFt()).s("fid", NewSubPbActivity.this.jYf.cJM().aOi().getFid()).ag("obj_locate", 5).dh("uid", NewSubPbActivity.this.jYf.cJM().aOi().aQx().getUserId()));
+                        NewSubPbActivity.this.cEK();
+                        if (NewSubPbActivity.this.jZl != null && NewSubPbActivity.this.jZl.cKc() != null && NewSubPbActivity.this.jZl.cKc().aOi() != null && NewSubPbActivity.this.jZl.cKc().aOi().aQx() != null) {
+                            TiebaStatic.log(new an("c13402").dh("tid", NewSubPbActivity.this.jZl.cFJ()).s("fid", NewSubPbActivity.this.jZl.cKc().aOi().getFid()).ag("obj_locate", 5).dh("uid", NewSubPbActivity.this.jZl.cKc().aOi().aQx().getUserId()));
                         }
                     }
                 }
             }
         };
-        this.jYj = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.8
+        this.jZp = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.8
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 2 || i == 1) {
-                    NewSubPbActivity.this.jYh.cHU();
-                    if (NewSubPbActivity.this.jGn != 2 && NewSubPbActivity.this.jGn != 1) {
-                        NewSubPbActivity.this.jYh.cJJ();
+                    NewSubPbActivity.this.jZn.cIk();
+                    if (NewSubPbActivity.this.jHt != 2 && NewSubPbActivity.this.jHt != 1) {
+                        NewSubPbActivity.this.jZn.cJZ();
                     }
                 }
-                NewSubPbActivity.this.iQa.bdV();
+                NewSubPbActivity.this.iQN.bdW();
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                NewSubPbActivity.this.jYh.cJF();
+                NewSubPbActivity.this.jZn.cJV();
             }
         };
         this.mOnLongClickListener = new View.OnLongClickListener() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.9
@@ -1026,7 +1026,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
             public boolean onLongClick(View view) {
                 SparseArray<Object> sparseArray;
                 SparseArray<Object> sparseArray2;
-                if (NewSubPbActivity.this.jYh != null && NewSubPbActivity.this.jYh.cJw()) {
+                if (NewSubPbActivity.this.jZn != null && NewSubPbActivity.this.jZn.cJM()) {
                     return false;
                 }
                 try {
@@ -1037,38 +1037,38 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 }
                 if (sparseArray == null && NewSubPbActivity.this.cD(view)) {
                     if (view instanceof TbImageView) {
-                        NewSubPbActivity.this.jKW = ((TbImageView) view).getBdImage();
-                        NewSubPbActivity.this.jKX = ((TbImageView) view).getUrl();
-                        if (NewSubPbActivity.this.jKW == null || TextUtils.isEmpty(NewSubPbActivity.this.jKX)) {
+                        NewSubPbActivity.this.jMc = ((TbImageView) view).getBdImage();
+                        NewSubPbActivity.this.jMd = ((TbImageView) view).getUrl();
+                        if (NewSubPbActivity.this.jMc == null || TextUtils.isEmpty(NewSubPbActivity.this.jMd)) {
                             return true;
                         }
                         if (view.getTag(R.id.tag_rich_text_meme_info) == null || !(view.getTag(R.id.tag_rich_text_meme_info) instanceof TbRichTextImageInfo)) {
-                            NewSubPbActivity.this.jKY = null;
+                            NewSubPbActivity.this.jMe = null;
                         } else {
-                            NewSubPbActivity.this.jKY = (TbRichTextMemeInfo) view.getTag(R.id.tag_rich_text_meme_info);
+                            NewSubPbActivity.this.jMe = (TbRichTextMemeInfo) view.getTag(R.id.tag_rich_text_meme_info);
                         }
                     } else if (view instanceof GifView) {
                         if (((GifView) view).getBdImage() == null) {
                             return true;
                         }
-                        NewSubPbActivity.this.jKW = ((GifView) view).getBdImage();
+                        NewSubPbActivity.this.jMc = ((GifView) view).getBdImage();
                         if (!TextUtils.isEmpty(((GifView) view).getBdImage().getUrl())) {
-                            NewSubPbActivity.this.jKX = ((GifView) view).getBdImage().getUrl();
+                            NewSubPbActivity.this.jMd = ((GifView) view).getBdImage().getUrl();
                         }
                         if (view.getTag(R.id.tag_rich_text_meme_info) == null || !(view.getTag(R.id.tag_rich_text_meme_info) instanceof TbRichTextImageInfo)) {
-                            NewSubPbActivity.this.jKY = null;
+                            NewSubPbActivity.this.jMe = null;
                         } else {
-                            NewSubPbActivity.this.jKY = (TbRichTextMemeInfo) view.getTag(R.id.tag_rich_text_meme_info);
+                            NewSubPbActivity.this.jMe = (TbRichTextMemeInfo) view.getTag(R.id.tag_rich_text_meme_info);
                         }
                     } else if ((view instanceof TbMemeImageView) && ((TbMemeImageView) view).getBdImage() != null) {
-                        NewSubPbActivity.this.jKW = ((TbMemeImageView) view).getBdImage();
+                        NewSubPbActivity.this.jMc = ((TbMemeImageView) view).getBdImage();
                         if (!TextUtils.isEmpty(((TbMemeImageView) view).getBdImage().getUrl())) {
-                            NewSubPbActivity.this.jKX = ((TbMemeImageView) view).getBdImage().getUrl();
+                            NewSubPbActivity.this.jMd = ((TbMemeImageView) view).getBdImage().getUrl();
                         }
                         if (view.getTag(R.id.tag_rich_text_meme_info) == null || !(view.getTag(R.id.tag_rich_text_meme_info) instanceof TbRichTextImageInfo)) {
-                            NewSubPbActivity.this.jKY = null;
+                            NewSubPbActivity.this.jMe = null;
                         } else {
-                            NewSubPbActivity.this.jKY = (TbRichTextMemeInfo) view.getTag(R.id.tag_rich_text_meme_info);
+                            NewSubPbActivity.this.jMe = (TbRichTextMemeInfo) view.getTag(R.id.tag_rich_text_meme_info);
                         }
                     }
                     if (view.getParent() instanceof TbRichTextView) {
@@ -1079,7 +1079,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                             sparseArray2 = sparseArray;
                         }
                     } else if (!(view.getParent().getParent() instanceof TbRichTextView)) {
-                        NewSubPbActivity.this.jYh.a(NewSubPbActivity.this.jLI, NewSubPbActivity.this.jKW.isGif());
+                        NewSubPbActivity.this.jZn.a(NewSubPbActivity.this.jMO, NewSubPbActivity.this.jMc.isGif());
                     } else {
                         try {
                             sparseArray2 = (SparseArray) ((TbRichTextView) view.getParent().getParent()).getTag();
@@ -1089,35 +1089,35 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                         }
                     }
                     if (sparseArray2 == null) {
-                        NewSubPbActivity.this.ihL = (PostData) sparseArray2.get(R.id.tag_clip_board);
-                        if (NewSubPbActivity.this.ihL == null || NewSubPbActivity.this.jKx == null) {
+                        NewSubPbActivity.this.iiy = (PostData) sparseArray2.get(R.id.tag_clip_board);
+                        if (NewSubPbActivity.this.iiy == null || NewSubPbActivity.this.jLD == null) {
                             return true;
                         }
-                        if (NewSubPbActivity.this.jKx != null) {
-                            NewSubPbActivity.this.jKx.gC(NewSubPbActivity.this.jYf.cJS());
+                        if (NewSubPbActivity.this.jLD != null) {
+                            NewSubPbActivity.this.jLD.gC(NewSubPbActivity.this.jZl.cKi());
                         }
-                        boolean z = NewSubPbActivity.this.jKx.aML() && NewSubPbActivity.this.ihL.getId() != null && NewSubPbActivity.this.ihL.getId().equals(NewSubPbActivity.this.jYf.cJU());
-                        if (NewSubPbActivity.this.jYi == null) {
-                            NewSubPbActivity.this.jYi = new ad(NewSubPbActivity.this.getPageContext(), NewSubPbActivity.this.aIH);
-                            NewSubPbActivity.this.jYh.cN(NewSubPbActivity.this.jYi.getView());
-                            NewSubPbActivity.this.jYi.rH(NewSubPbActivity.this.mIsLogin);
+                        boolean z = NewSubPbActivity.this.jLD.aML() && NewSubPbActivity.this.iiy.getId() != null && NewSubPbActivity.this.iiy.getId().equals(NewSubPbActivity.this.jZl.cKk());
+                        if (NewSubPbActivity.this.jZo == null) {
+                            NewSubPbActivity.this.jZo = new ad(NewSubPbActivity.this.getPageContext(), NewSubPbActivity.this.aIH);
+                            NewSubPbActivity.this.jZn.cN(NewSubPbActivity.this.jZo.getView());
+                            NewSubPbActivity.this.jZo.rH(NewSubPbActivity.this.mIsLogin);
                         }
-                        NewSubPbActivity.this.jYi.showDialog();
+                        NewSubPbActivity.this.jZo.showDialog();
                         boolean z2 = NewSubPbActivity.this.ru(sparseArray2.get(R.id.tag_del_post_is_self) instanceof Boolean ? ((Boolean) sparseArray2.get(R.id.tag_del_post_is_self)).booleanValue() : false) && NewSubPbActivity.this.isLogin();
-                        boolean z3 = (NewSubPbActivity.this.jYf.cJM() == null || NewSubPbActivity.this.jYf.cJM().aOi() == null || !NewSubPbActivity.this.jYf.cJM().aOi().isBjh()) ? false : true;
+                        boolean z3 = (NewSubPbActivity.this.jZl.cKc() == null || NewSubPbActivity.this.jZl.cKc().aOi() == null || !NewSubPbActivity.this.jZl.cKc().aOi().isBjh()) ? false : true;
                         boolean booleanValue = sparseArray2.get(R.id.tag_is_subpb) instanceof Boolean ? ((Boolean) sparseArray2.get(R.id.tag_is_subpb)).booleanValue() : false;
                         if (z) {
-                            NewSubPbActivity.this.jYi.cGs().setText(R.string.remove_mark);
+                            NewSubPbActivity.this.jZo.cGI().setText(R.string.remove_mark);
                         } else {
-                            NewSubPbActivity.this.jYi.cGs().setText(R.string.mark);
+                            NewSubPbActivity.this.jZo.cGI().setText(R.string.mark);
                         }
                         if (booleanValue || z3) {
-                            NewSubPbActivity.this.jYi.cGs().setVisibility(8);
+                            NewSubPbActivity.this.jZo.cGI().setVisibility(8);
                         } else {
-                            NewSubPbActivity.this.jYi.cGs().setVisibility(0);
+                            NewSubPbActivity.this.jZo.cGI().setVisibility(0);
                         }
                         if (NewSubPbActivity.this.cD(view)) {
-                            if (NewSubPbActivity.this.jKW != null && !NewSubPbActivity.this.jKW.isGif()) {
+                            if (NewSubPbActivity.this.jMc != null && !NewSubPbActivity.this.jMc.isGif()) {
                                 sparseArray2.put(R.id.tag_richtext_image, true);
                             } else {
                                 sparseArray2.put(R.id.tag_richtext_image, false);
@@ -1127,7 +1127,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                             sparseArray2.put(R.id.tag_richtext_image, false);
                             sparseArray2.put(R.id.tag_richtext_emotion, false);
                         }
-                        NewSubPbActivity.this.jYi.a(sparseArray2, NewSubPbActivity.this.cCx(), z2);
+                        NewSubPbActivity.this.jZo.a(sparseArray2, NewSubPbActivity.this.cCN(), z2);
                         return true;
                     }
                     return true;
@@ -1137,7 +1137,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 }
             }
         };
-        this.jYk = new TbRichTextView.i() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.10
+        this.jZq = new TbRichTextView.i() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.10
             /* JADX DEBUG: Multi-variable search result rejected for r2v19, resolved type: com.baidu.tbadk.core.atomData.ImageViewerConfig */
             /* JADX DEBUG: Multi-variable search result rejected for r2v44, resolved type: com.baidu.tbadk.core.atomData.ImageViewerConfig */
             /* JADX WARN: Multi-variable type inference failed */
@@ -1155,16 +1155,16 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 boolean z6;
                 try {
                     if (view.getTag(R.id.tag_rich_text_meme_info) == null || !(view.getTag(R.id.tag_rich_text_meme_info) instanceof TbRichTextMemeInfo) || !(view instanceof TbImageView)) {
-                        n cJM = NewSubPbActivity.this.jYf.cJM();
+                        n cKc = NewSubPbActivity.this.jZl.cKc();
                         TbRichText bu = NewSubPbActivity.this.bu(str, i);
                         TbRichTextData tbRichTextData = null;
-                        if (bu != null && bu.biq() != null) {
-                            tbRichTextData = bu.biq().get(NewSubPbActivity.this.jLF);
+                        if (bu != null && bu.bis() != null) {
+                            tbRichTextData = bu.bis().get(NewSubPbActivity.this.jML);
                         }
                         if (tbRichTextData != null) {
                             ArrayList<String> arrayList2 = new ArrayList<>();
                             ConcurrentHashMap<String, ImageUrlData> concurrentHashMap3 = new ConcurrentHashMap<>();
-                            if (!tbRichTextData.biw().biH()) {
+                            if (!tbRichTextData.biy().biJ()) {
                                 String b = NewSubPbActivity.this.b(tbRichTextData);
                                 arrayList2.add(b);
                                 ImageUrlData imageUrlData = new ImageUrlData();
@@ -1174,24 +1174,24 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                 String str4 = null;
                                 String str5 = null;
                                 String str6 = null;
-                                if (cJM == null) {
+                                if (cKc == null) {
                                     str3 = null;
                                     z5 = false;
                                 } else {
-                                    if (cJM.bdP() != null) {
-                                        str4 = cJM.bdP().getName();
-                                        str5 = cJM.bdP().getId();
+                                    if (cKc.bdQ() != null) {
+                                        str4 = cKc.bdQ().getName();
+                                        str5 = cKc.bdQ().getId();
                                     }
-                                    if (cJM.aOi() != null) {
-                                        str6 = cJM.aOi().getId();
+                                    if (cKc.aOi() != null) {
+                                        str6 = cKc.aOi().getId();
                                     }
                                     str3 = str6;
                                     z5 = true;
                                 }
-                                if (NewSubPbActivity.this.jYf.cJZ() != null) {
-                                    concurrentHashMap2 = NewSubPbActivity.this.jYf.cJZ();
-                                    z6 = NewSubPbActivity.this.jYf.cKb();
-                                    arrayList2 = NewSubPbActivity.this.jYf.cKa();
+                                if (NewSubPbActivity.this.jZl.cKp() != null) {
+                                    concurrentHashMap2 = NewSubPbActivity.this.jZl.cKp();
+                                    z6 = NewSubPbActivity.this.jZl.cKr();
+                                    arrayList2 = NewSubPbActivity.this.jZl.cKq();
                                 } else {
                                     concurrentHashMap2 = concurrentHashMap3;
                                     z6 = z5;
@@ -1204,11 +1204,11 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                 NewSubPbActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
                                 return;
                             }
-                            NewSubPbActivity.this.jLG = false;
+                            NewSubPbActivity.this.jMM = false;
                             String str7 = "";
-                            TbRichText ddw = cJM.cDc().ddw();
+                            TbRichText ddL = cKc.cDs().ddL();
                             int size = arrayList2.size();
-                            int a2 = NewSubPbActivity.this.a(ddw, bu, i, i, arrayList2, concurrentHashMap3);
+                            int a2 = NewSubPbActivity.this.a(ddL, bu, i, i, arrayList2, concurrentHashMap3);
                             int size2 = arrayList2.size();
                             if (size != size2) {
                                 str7 = arrayList2.get(size2 - 1);
@@ -1216,25 +1216,25 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                             String str8 = null;
                             String str9 = null;
                             String str10 = null;
-                            if (cJM == null) {
+                            if (cKc == null) {
                                 str2 = null;
                                 z3 = false;
                             } else {
-                                if (cJM.bdP() != null) {
-                                    str8 = cJM.bdP().getName();
-                                    str9 = cJM.bdP().getId();
+                                if (cKc.bdQ() != null) {
+                                    str8 = cKc.bdQ().getName();
+                                    str9 = cKc.bdQ().getId();
                                 }
-                                if (cJM.aOi() != null) {
-                                    str10 = cJM.aOi().getId();
+                                if (cKc.aOi() != null) {
+                                    str10 = cKc.aOi().getId();
                                 }
                                 str2 = str10;
                                 z3 = true;
                             }
-                            if (NewSubPbActivity.this.jYf.cJZ() != null) {
-                                concurrentHashMap = NewSubPbActivity.this.jYf.cJZ();
-                                z4 = NewSubPbActivity.this.jYf.cKb();
-                                arrayList = NewSubPbActivity.this.jYf.cKa();
-                                i2 = a2 + NewSubPbActivity.this.jYf.getOffset();
+                            if (NewSubPbActivity.this.jZl.cKp() != null) {
+                                concurrentHashMap = NewSubPbActivity.this.jZl.cKp();
+                                z4 = NewSubPbActivity.this.jZl.cKr();
+                                arrayList = NewSubPbActivity.this.jZl.cKq();
+                                i2 = a2 + NewSubPbActivity.this.jZl.getOffset();
                             } else {
                                 concurrentHashMap = concurrentHashMap3;
                                 i2 = a2;
@@ -1265,10 +1265,10 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
 
     /* JADX INFO: Access modifiers changed from: private */
     public bk aOi() {
-        if (this.jYf == null || this.jYf.cJM() == null) {
+        if (this.jZl == null || this.jZl.cKc() == null) {
             return null;
         }
-        return this.jYf.cJM().aOi();
+        return this.jZl.cKc().aOi();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1290,40 +1290,40 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     public int a(TbRichText tbRichText, TbRichText tbRichText2, int i, int i2, ArrayList<String> arrayList, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
         int i3;
         int i4;
-        TbRichTextImageInfo biw;
+        TbRichTextImageInfo biy;
         if (tbRichText == tbRichText2) {
-            this.jLG = true;
+            this.jMM = true;
         }
-        if (tbRichText != null && tbRichText.biq() != null) {
-            int size = tbRichText.biq().size();
+        if (tbRichText != null && tbRichText.bis() != null) {
+            int size = tbRichText.bis().size();
             int i5 = -1;
             int i6 = 0;
             int i7 = i;
             while (i6 < size) {
-                if (tbRichText.biq().get(i6) != null && tbRichText.biq().get(i6).getType() == 8) {
+                if (tbRichText.bis().get(i6) != null && tbRichText.bis().get(i6).getType() == 8) {
                     i5++;
                     int equipmentDensity = (int) com.baidu.adp.lib.util.l.getEquipmentDensity(TbadkCoreApplication.getInst());
-                    int width = tbRichText.biq().get(i6).biw().getWidth() * equipmentDensity;
-                    int height = tbRichText.biq().get(i6).biw().getHeight() * equipmentDensity;
-                    if ((width < 80 || height < 80 || height * width < 10000) || !tbRichText.biq().get(i6).biw().biH()) {
+                    int width = tbRichText.bis().get(i6).biy().getWidth() * equipmentDensity;
+                    int height = tbRichText.bis().get(i6).biy().getHeight() * equipmentDensity;
+                    if ((width < 80 || height < 80 || height * width < 10000) || !tbRichText.bis().get(i6).biy().biJ()) {
                         if (tbRichText == tbRichText2 && i5 <= i2) {
                             i4 = i7 - 1;
                             i3 = i5;
                         }
                     } else {
-                        TbRichTextData tbRichTextData = tbRichText.biq().get(i6);
+                        TbRichTextData tbRichTextData = tbRichText.bis().get(i6);
                         String b = b(tbRichTextData);
                         arrayList.add(b);
-                        if (!TextUtils.isEmpty(b) && tbRichTextData != null && (biw = tbRichTextData.biw()) != null) {
-                            String biJ = biw.biJ();
+                        if (!TextUtils.isEmpty(b) && tbRichTextData != null && (biy = tbRichTextData.biy()) != null) {
+                            String biL = biy.biL();
                             ImageUrlData imageUrlData = new ImageUrlData();
-                            imageUrlData.imageUrl = biJ;
+                            imageUrlData.imageUrl = biL;
                             imageUrlData.urlType = this.mIsFromCDN ? 17 : 18;
                             if (concurrentHashMap != null) {
                                 concurrentHashMap.put(b, imageUrlData);
                             }
                         }
-                        if (!this.jLG) {
+                        if (!this.jMM) {
                             i4 = i7 + 1;
                             i3 = i5;
                         }
@@ -1347,8 +1347,8 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
-        if (this.jYi != null) {
-            this.jYi.rH(z);
+        if (this.jZo != null) {
+            this.jZo.rH(z);
         }
     }
 
@@ -1358,19 +1358,19 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
             return null;
         }
         StringBuilder sb = new StringBuilder(150);
-        TbRichTextImageInfo biw = tbRichTextData.biw();
-        if (biw != null) {
-            if (!StringUtils.isNull(biw.biG())) {
-                return biw.biG();
+        TbRichTextImageInfo biy = tbRichTextData.biy();
+        if (biy != null) {
+            if (!StringUtils.isNull(biy.biI())) {
+                return biy.biI();
             }
-            if (biw.getHeight() * biw.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
-                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (biw.getHeight() * biw.getWidth()));
+            if (biy.getHeight() * biy.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
+                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (biy.getHeight() * biy.getWidth()));
                 sb.append("width=");
-                sb.append(String.valueOf((int) (biw.getWidth() * sqrt)));
+                sb.append(String.valueOf((int) (biy.getWidth() * sqrt)));
                 sb.append("&height=");
-                sb.append(String.valueOf((int) (sqrt * biw.getHeight())));
+                sb.append(String.valueOf((int) (sqrt * biy.getHeight())));
             } else {
-                float width = biw.getWidth() / biw.getHeight();
+                float width = biy.getWidth() / biy.getHeight();
                 double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
                 sb.append("width=");
                 sb.append(String.valueOf((int) (width * sqrt2)));
@@ -1378,7 +1378,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 sb.append(String.valueOf((int) sqrt2));
             }
             sb.append("&src=");
-            sb.append(aq.getUrlEncode(biw.getSrc()));
+            sb.append(aq.getUrlEncode(biy.getSrc()));
             return sb.toString();
         }
         return null;
@@ -1386,13 +1386,13 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
 
     /* JADX INFO: Access modifiers changed from: private */
     public TbRichText bu(String str, int i) {
-        if (this.jYf == null || this.jYf.cJM() == null || str == null || i < 0) {
+        if (this.jZl == null || this.jZl.cKc() == null || str == null || i < 0) {
             return null;
         }
-        n cJM = this.jYf.cJM();
-        TbRichText a2 = a(cJM.cDc(), str, i);
+        n cKc = this.jZl.cKc();
+        TbRichText a2 = a(cKc.cDs(), str, i);
         if (a2 == null) {
-            TbRichText a3 = a(cJM.cDc(), str, i);
+            TbRichText a3 = a(cKc.cDs(), str, i);
             if (a3 != null) {
             }
             return a3;
@@ -1404,24 +1404,24 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         if (postData == null) {
             return null;
         }
-        TbRichText ddw = postData.ddw();
-        if (ddw != null) {
-            ArrayList<TbRichTextData> biq = ddw.biq();
-            int size = biq.size();
+        TbRichText ddL = postData.ddL();
+        if (ddL != null) {
+            ArrayList<TbRichTextData> bis = ddL.bis();
+            int size = bis.size();
             int i2 = -1;
             int i3 = 0;
             while (i3 < size) {
-                if (biq.get(i3) != null && biq.get(i3).getType() == 8) {
+                if (bis.get(i3) != null && bis.get(i3).getType() == 8) {
                     i2++;
-                    if (biq.get(i3).biw().biJ().equals(str)) {
+                    if (bis.get(i3).biy().biL().equals(str)) {
                         int equipmentDensity = (int) com.baidu.adp.lib.util.l.getEquipmentDensity(TbadkCoreApplication.getInst());
-                        int width = biq.get(i3).biw().getWidth() * equipmentDensity;
-                        int height = biq.get(i3).biw().getHeight() * equipmentDensity;
+                        int width = bis.get(i3).biy().getWidth() * equipmentDensity;
+                        int height = bis.get(i3).biy().getHeight() * equipmentDensity;
                         if (width < 80 || height < 80 || height * width < 10000) {
                             return null;
                         }
-                        this.jLF = i3;
-                        return ddw;
+                        this.jML = i3;
+                        return ddL;
                     } else if (i2 > i) {
                         break;
                     }
@@ -1434,27 +1434,27 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cEu() {
+    public void cEK() {
         Intent intent = getIntent();
         if (intent != null ? intent.getBooleanExtra("key_is_from_dynamic", false) : false) {
-            if (this.iPP == null || this.jYf == null || this.jYf.bUa() == null || this.iPP.kZ(this.jYf.bUa().replyPrivateFlag)) {
-                if (this.iQa.bdK()) {
-                    this.iQa.a((PostWriteCallBackData) null);
+            if (this.iQC == null || this.jZl == null || this.jZl.bUc() == null || this.iQC.lb(this.jZl.bUc().replyPrivateFlag)) {
+                if (this.iQN.bdL()) {
+                    this.iQN.a((PostWriteCallBackData) null);
                     return;
                 }
-                this.jYh.cJo();
-                this.jYh.cJp();
-                if (this.iQa != null) {
-                    this.iQa.bdY();
+                this.jZn.cJE();
+                this.jZn.cJF();
+                if (this.iQN != null) {
+                    this.iQN.bdZ();
                     return;
                 }
                 return;
             }
             return;
         }
-        if (this.hqP == null) {
-            this.hqP = new com.baidu.tieba.frs.profession.permission.c(getPageContext());
-            this.hqP.a(new c.a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.13
+        if (this.hra == null) {
+            this.hra = new com.baidu.tieba.frs.profession.permission.c(getPageContext());
+            this.hra.a(new c.a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.13
                 @Override // com.baidu.tieba.frs.profession.permission.c.a
                 public void na(boolean z) {
                 }
@@ -1466,73 +1466,73 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 @Override // com.baidu.tieba.frs.profession.permission.c.a
                 public void nb(boolean z) {
                     if (z) {
-                        if (NewSubPbActivity.this.iPP == null || NewSubPbActivity.this.jYf == null || NewSubPbActivity.this.jYf.bUa() == null || NewSubPbActivity.this.iPP.kZ(NewSubPbActivity.this.jYf.bUa().replyPrivateFlag)) {
-                            if (NewSubPbActivity.this.iQa.bdK()) {
-                                NewSubPbActivity.this.iQa.a((PostWriteCallBackData) null);
+                        if (NewSubPbActivity.this.iQC == null || NewSubPbActivity.this.jZl == null || NewSubPbActivity.this.jZl.bUc() == null || NewSubPbActivity.this.iQC.lb(NewSubPbActivity.this.jZl.bUc().replyPrivateFlag)) {
+                            if (NewSubPbActivity.this.iQN.bdL()) {
+                                NewSubPbActivity.this.iQN.a((PostWriteCallBackData) null);
                                 return;
                             }
-                            NewSubPbActivity.this.jYh.cJo();
-                            NewSubPbActivity.this.jYh.cJp();
-                            if (NewSubPbActivity.this.iQa != null) {
-                                NewSubPbActivity.this.iQa.bdY();
+                            NewSubPbActivity.this.jZn.cJE();
+                            NewSubPbActivity.this.jZn.cJF();
+                            if (NewSubPbActivity.this.iQN != null) {
+                                NewSubPbActivity.this.iQN.bdZ();
                             }
                         }
                     }
                 }
             });
         }
-        if (this.jYf != null && this.jYf.cJM() != null && this.jYf.cJM().bdP() != null) {
-            this.hqP.D(this.jYf.cJM().bdP().getId(), com.baidu.adp.lib.f.b.toLong(this.jYf.cFt(), 0L));
+        if (this.jZl != null && this.jZl.cKc() != null && this.jZl.cKc().bdQ() != null) {
+            this.hra.D(this.jZl.cKc().bdQ().getId(), com.baidu.adp.lib.f.b.toLong(this.jZl.cFJ(), 0L));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean ru(boolean z) {
-        if (this.jYf == null) {
+        if (this.jZl == null) {
             return false;
         }
-        return ((cCx() != 0) || this.jYf.cJM() == null || this.jYf.cJM().aOi() == null || this.jYf.cJM().aOi().aQx() == null || this.jYf.cJM().aOi().aSx() || TextUtils.equals(this.jYf.cJM().aOi().aQx().getUserId(), TbadkCoreApplication.getCurrentAccount()) || z) ? false : true;
+        return ((cCN() != 0) || this.jZl.cKc() == null || this.jZl.cKc().aOi() == null || this.jZl.cKc().aOi().aQx() == null || this.jZl.cKc().aOi().aSx() || TextUtils.equals(this.jZl.cKc().aOi().aQx().getUserId(), TbadkCoreApplication.getCurrentAccount()) || z) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void br(int i, String str) {
-        if (this.jYf.cJN()) {
+        if (this.jZl.cKd()) {
             showToast(str);
         } else if (com.baidu.adp.lib.util.l.isNetOk()) {
             if (i == 4) {
-                this.jYh.Dh(str + "(4)");
+                this.jZn.Dh(str + "(4)");
             } else {
-                this.jYh.xA(R.string.no_data_text);
+                this.jZn.xC(R.string.no_data_text);
             }
         } else {
-            this.jYh.xA(R.string.recommend_pb_no_net_text);
+            this.jZn.xC(R.string.recommend_pb_no_net_text);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void pP(boolean z) {
-        this.iQa = (com.baidu.tbadk.editortools.pb.h) new i(z).dN(getActivity());
-        if (this.iQa != null) {
-            this.iQa.a(getPageContext());
-            this.iQa.b(this.jYf);
-            this.iQa.b(this.ihj);
-            this.iQa.a(this.emO);
-            this.iQa.a(this.emP);
-            this.iQa.bcW().hW(true);
-            this.iQa.h(getPageContext());
+        this.iQN = (com.baidu.tbadk.editortools.pb.h) new i(z).dN(getActivity());
+        if (this.iQN != null) {
+            this.iQN.a(getPageContext());
+            this.iQN.b(this.jZl);
+            this.iQN.b(this.ihW);
+            this.iQN.a(this.emO);
+            this.iQN.a(this.emP);
+            this.iQN.bcX().hW(true);
+            this.iQN.h(getPageContext());
         }
-        if (this.jYh != null) {
-            this.jYh.i(this.iQa);
+        if (this.jZn != null) {
+            this.jZn.i(this.iQN);
         }
-        if (this.iQa != null && this.jYf != null) {
-            this.iQa.a(this.jYf.bUa());
-            this.iQa.bdV();
+        if (this.iQN != null && this.jZl != null) {
+            this.iQN.a(this.jZl.bUc());
+            this.iQN.bdW();
         }
-        if (this.iQa != null) {
-            this.iQa.bdZ().setDefaultHint(cHi());
-            this.iQa.bdZ().setHint(cHi());
-            this.ihd = this.iQa.bdZ().getInputView();
-            this.ihd.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.14
+        if (this.iQN != null) {
+            this.iQN.bea().setDefaultHint(cHy());
+            this.iQN.bea().setHint(cHy());
+            this.ihQ = this.iQN.bea().getInputView();
+            this.ihQ.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.14
                 @Override // android.text.TextWatcher
                 public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 }
@@ -1543,25 +1543,25 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
 
                 @Override // android.text.TextWatcher
                 public void afterTextChanged(Editable editable) {
-                    if (NewSubPbActivity.this.ihc != null) {
-                        if (!NewSubPbActivity.this.ihc.dmj()) {
+                    if (NewSubPbActivity.this.ihP != null) {
+                        if (!NewSubPbActivity.this.ihP.dmy()) {
                             NewSubPbActivity.this.ov(false);
                         }
-                        NewSubPbActivity.this.ihc.vm(false);
+                        NewSubPbActivity.this.ihP.vn(false);
                     }
                 }
             });
         }
     }
 
-    public void cJl() {
+    public void cJB() {
         if (!TbadkCoreApplication.isLogin()) {
-            this.iQa.bdV();
-        } else if (!StringUtils.isNull(this.jYf.cJV())) {
-            if (this.jYh.cJs() && com.baidu.adp.lib.util.l.isNetOk()) {
-                this.jYh.bSd();
+            this.iQN.bdW();
+        } else if (!StringUtils.isNull(this.jZl.cKl())) {
+            if (this.jZn.cJI() && com.baidu.adp.lib.util.l.isNetOk()) {
+                this.jZn.bSf();
             } else {
-                this.jYh.cJv();
+                this.jZn.cJL();
             }
         }
     }
@@ -1578,12 +1578,12 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                     sparseArray.put(R.id.tag_from, 1);
                     c(sparseArray);
                 } else {
-                    this.jYh.cI(view);
+                    this.jZn.cI(view);
                 }
             } else if (booleanValue2) {
-                this.jYh.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
+                this.jZn.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
             }
-            g.dismissPopupWindow(this.jYh.cJC(), getPageContext().getPageActivity());
+            g.dismissPopupWindow(this.jZn.cJS(), getPageContext().getPageActivity());
         }
     }
 
@@ -1599,7 +1599,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
             String[] strArr = new String[1];
             strArr[0] = z ? getResources().getString(R.string.un_mute) : getResources().getString(R.string.mute);
             com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(getPageContext().getPageActivity());
-            bVar.kH(R.string.operation);
+            bVar.kJ(R.string.operation);
             bVar.a(strArr, new b.a() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.15
                 @Override // com.baidu.tbadk.core.dialog.b.a
                 public void a(com.baidu.tbadk.core.dialog.b bVar2, int i, View view) {
@@ -1626,8 +1626,8 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                 str6 = (String) sparseArray.get(R.id.tag_user_mute_mute_nameshow);
                             }
                             UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_HANDLE_CLICK);
-                            userMuteAddAndDelCustomMessage.setData(z, str, str2, str3, str4, 1, str5, NewSubPbActivity.this.jYq);
-                            userMuteAddAndDelCustomMessage.setTag(NewSubPbActivity.this.jYq);
+                            userMuteAddAndDelCustomMessage.setData(z, str, str2, str3, str4, 1, str5, NewSubPbActivity.this.jZw);
+                            userMuteAddAndDelCustomMessage.setTag(NewSubPbActivity.this.jZw);
                             NewSubPbActivity.this.a(z, userMuteAddAndDelCustomMessage, str5, str2, str6);
                             break;
                     }
@@ -1644,24 +1644,24 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         if (sparseArray.get(R.id.tag_user_mute_mute_userid) instanceof String) {
             str = (String) sparseArray.get(R.id.tag_user_mute_mute_userid);
         }
-        this.jYh.showLoadingDialog();
+        this.jZn.showLoadingDialog();
         UserMuteCheckCustomMessage userMuteCheckCustomMessage = new UserMuteCheckCustomMessage(CmdConfigCustom.CMD_USER_MUTE_CHECK_REQUEST);
         userMuteCheckCustomMessage.userIdF = com.baidu.adp.lib.f.b.toLong(currentAccount, 0L);
         userMuteCheckCustomMessage.userIdT = com.baidu.adp.lib.f.b.toLong(str, 0L);
         this.mExtra = sparseArray;
-        userMuteCheckCustomMessage.mId = this.jYq;
-        userMuteCheckCustomMessage.setTag(this.jYq);
+        userMuteCheckCustomMessage.mId = this.jZw;
+        userMuteCheckCustomMessage.setTag(this.jZw);
         MessageManager.getInstance().sendMessage(userMuteCheckCustomMessage);
     }
 
     public void a(ForumManageModel.b bVar, boolean z) {
         int i = 0;
         if (bVar != null) {
-            this.jYh.a(0, bVar.OU, bVar.lnC, z);
+            this.jZn.a(0, bVar.OU, bVar.loP, z);
             if (bVar.OU) {
-                if (bVar.gUl == 1) {
-                    if (this.jYh.getListView() instanceof BdTypeListView) {
-                        List<o> data = ((BdTypeListView) this.jYh.getListView()).getData();
+                if (bVar.gUw == 1) {
+                    if (this.jZn.getListView() instanceof BdTypeListView) {
+                        List<o> data = ((BdTypeListView) this.jZn.getListView()).getData();
                         if (!v.isEmpty(data)) {
                             while (i < data.size() && (!(data.get(i) instanceof PostData) || !bVar.mPostId.equals(((PostData) data.get(i)).getId()))) {
                                 i++;
@@ -1669,16 +1669,16 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                             if (i < data.size()) {
                                 data.remove(i);
                             }
-                            this.jYh.notifyDataSetChanged();
+                            this.jZn.notifyDataSetChanged();
                         }
                     }
-                } else if (bVar.gUl == 2) {
-                    this.jYf.JP(bVar.mPostId);
-                    this.jYh.a(this.jYf.cJM(), this.jYf.cCx(), this.jYf.cJZ() != null);
-                    if (this.jYf.cJW()) {
-                        this.jYf.sv(false);
-                        this.jYh.cJq();
-                        this.jYf.loadData();
+                } else if (bVar.gUw == 2) {
+                    this.jZl.JQ(bVar.mPostId);
+                    this.jZn.a(this.jZl.cKc(), this.jZl.cCN(), this.jZl.cKp() != null);
+                    if (this.jZl.cKm()) {
+                        this.jZl.sv(false);
+                        this.jZn.cJG();
+                        this.jZl.loadData();
                     }
                 }
                 com.baidu.tieba.pb.e eVar = new com.baidu.tieba.pb.e();
@@ -1689,10 +1689,10 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         }
     }
 
-    public void Jl(String str) {
-        if (this.jYf != null && this.jYf.cJM() != null && this.jYf.cJM().aOi() != null && this.jYf.cJM().aOi().isBjh()) {
-            String format = String.format(TbConfig.URL_BJH_REPORT, this.jYf.cFt(), str);
-            bk aOi = this.jYf.cJM().aOi();
+    public void Jm(String str) {
+        if (this.jZl != null && this.jZl.cKc() != null && this.jZl.cKc().aOi() != null && this.jZl.cKc().aOi().isBjh()) {
+            String format = String.format(TbConfig.URL_BJH_REPORT, this.jZl.cFJ(), str);
+            bk aOi = this.jZl.cKc().aOi();
             if (aOi.aPm()) {
                 format = format + "&channelid=33833";
             } else if (aOi.aSu()) {
@@ -1700,13 +1700,13 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
             } else if (aOi.aPn()) {
                 format = format + "&channelid=33840";
             }
-            Jm(format);
+            Jn(format);
             return;
         }
-        this.jKw.JM(str);
+        this.jLC.JN(str);
     }
 
-    private void Jm(String str) {
+    private void Jn(String str) {
         TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this, "", str, true);
         tbWebViewActivityConfig.setFixTitle(true);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig));
@@ -1715,18 +1715,18 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     public void n(PostData postData) {
         if (postData != null) {
             boolean z = false;
-            if (this.jYf.cJS() && postData.getId() != null && postData.getId().equals(this.jYf.cJU())) {
+            if (this.jZl.cKi() && postData.getId() != null && postData.getId().equals(this.jZl.cKk())) {
                 z = true;
             }
-            MarkData o = this.jYf.o(postData);
+            MarkData o = this.jZl.o(postData);
             if (o != null) {
-                this.jYh.cHU();
-                if (this.jKx != null) {
-                    this.jKx.a(o);
+                this.jZn.cIk();
+                if (this.jLD != null) {
+                    this.jLD.a(o);
                     if (!z) {
-                        this.jKx.aMN();
+                        this.jLD.aMN();
                     } else {
-                        this.jKx.aMM();
+                        this.jLD.aMM();
                     }
                 }
             }
@@ -1736,8 +1736,8 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (bundle != null && this.jYf != null) {
-            this.jYf.aA(bundle);
+        if (bundle != null && this.jZl != null) {
+            this.jZl.aA(bundle);
         }
     }
 
@@ -1748,14 +1748,14 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         if (i == 25035) {
             d(i2, intent);
         }
-        if (this.iQa != null) {
-            this.iQa.onActivityResult(i, i2, intent);
+        if (this.iQN != null) {
+            this.iQN.onActivityResult(i, i2, intent);
         }
     }
 
     private void d(int i, Intent intent) {
-        this.iQa.bcW().bbz();
-        this.iQa.bdV();
+        this.iQN.bcX().bbA();
+        this.iQN.bdW();
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra(PbFullScreenEditorActivityConfig.EDITOR_DATA);
             if (serializableExtra instanceof PbEditorData) {
@@ -1763,16 +1763,16 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 WriteData writeData = new WriteData();
                 writeData.setContent(pbEditorData.getContent());
                 writeData.setSubPbReplyPrefix(pbEditorData.getSubPbReplyPrefix());
-                this.iQa.b(writeData);
-                this.iQa.setVoiceModel(pbEditorData.getVoiceModel());
-                com.baidu.tbadk.editortools.l nf = this.iQa.bcW().nf(6);
-                if (nf != null && nf.ekV != null) {
-                    nf.ekV.a(new com.baidu.tbadk.editortools.a(52, 0, pbEditorData.getVoiceModel()));
+                this.iQN.b(writeData);
+                this.iQN.setVoiceModel(pbEditorData.getVoiceModel());
+                com.baidu.tbadk.editortools.l nh = this.iQN.bcX().nh(6);
+                if (nh != null && nh.ekV != null) {
+                    nh.ekV.a(new com.baidu.tbadk.editortools.a(52, 0, pbEditorData.getVoiceModel()));
                 }
                 if (i == -1) {
-                    this.iQa.bdR();
+                    this.iQN.bdS();
                 }
-                this.jYh.cJJ();
+                this.jZn.cJZ();
             }
         }
     }
@@ -1781,8 +1781,8 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (this.hnh != null) {
-            this.hnh.onStart(getPageContext());
+        if (this.hns != null) {
+            this.hns.onStart(getPageContext());
         }
     }
 
@@ -1792,11 +1792,11 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         this.mIsPaused = true;
         super.onPause();
         com.baidu.tbadk.BdToken.c.aLi().aLn();
-        if (this.hnh != null) {
-            this.hnh.onPause(getPageContext());
+        if (this.hns != null) {
+            this.hns.onPause(getPageContext());
         }
-        MessageManager.getInstance().unRegisterListener(this.itM);
-        this.jYh.cbz();
+        MessageManager.getInstance().unRegisterListener(this.iuz);
+        this.jZn.cbH();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -1804,45 +1804,45 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     public void onResume() {
         this.mIsPaused = false;
         super.onResume();
-        cEY();
-        if (this.hnh != null) {
-            this.hnh.onResume(getPageContext());
+        cFo();
+        if (this.hns != null) {
+            this.hns.onResume(getPageContext());
         }
-        registerListener(this.itM);
-        this.jYh.cbA();
+        registerListener(this.iuz);
+        this.jZn.cbI();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.hnh != null) {
-            this.hnh.onStop(getPageContext());
+        if (this.hns != null) {
+            this.hns.onStop(getPageContext());
         }
-        this.iQa.onStop();
+        this.iQN.onStop();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, this.jYs));
-        this.jYf.cancelLoadData();
-        this.jYf.destory();
-        this.jYg.cancelLoadData();
-        if (this.hnh != null) {
-            this.hnh.onDestory(getPageContext());
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, this.jZy));
+        this.jZl.cancelLoadData();
+        this.jZl.destory();
+        this.jZm.cancelLoadData();
+        if (this.hns != null) {
+            this.hns.onDestory(getPageContext());
         }
-        this.jYh.cHU();
-        this.jYh.bZP();
-        MessageManager.getInstance().unRegisterListener(this.jLs);
-        MessageManager.getInstance().unRegisterListener(this.jLt);
-        MessageManager.getInstance().unRegisterListener(this.jLu);
-        MessageManager.getInstance().unRegisterListener(this.jYq);
-        this.jKS = null;
-        this.jKT = null;
-        if (this.iPP != null) {
-            this.iPP.onDestroy();
+        this.jZn.cIk();
+        this.jZn.bZX();
+        MessageManager.getInstance().unRegisterListener(this.jMy);
+        MessageManager.getInstance().unRegisterListener(this.jMz);
+        MessageManager.getInstance().unRegisterListener(this.jMA);
+        MessageManager.getInstance().unRegisterListener(this.jZw);
+        this.jLY = null;
+        this.jLZ = null;
+        if (this.iQC != null) {
+            this.iQC.onDestroy();
         }
     }
 
@@ -1850,33 +1850,33 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.jYh.onChangeSkinType(i);
+        this.jZn.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        return this.hnh;
+        return this.hns;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager.b c(VoiceData.VoiceModel voiceModel) {
         View findViewWithTag;
-        View cJx = this.jYh.cJx();
-        if (cJx == null || (findViewWithTag = cJx.findViewWithTag(voiceModel)) == null) {
+        View cJN = this.jZn.cJN();
+        if (cJN == null || (findViewWithTag = cJN.findViewWithTag(voiceModel)) == null) {
             return null;
         }
         return (VoiceManager.b) findViewWithTag;
     }
 
-    public boolean JE(String str) {
+    public boolean JF(String str) {
         Map<String, String> paramPair;
         if (!TextUtils.isEmpty(str) && (paramPair = ba.getParamPair(ba.getParamStr(str))) != null) {
-            this.jYr = true;
+            this.jZx = true;
             String str2 = paramPair.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                return JE(com.baidu.adp.lib.util.k.getUrlDecode(str2));
+                return JF(com.baidu.adp.lib.util.k.getUrlDecode(str2));
             }
-            String str3 = paramPair.get(jYe);
+            String str3 = paramPair.get(jZk);
             return !TextUtils.isEmpty(str3) && str3.equals("1");
         }
         return false;
@@ -1885,7 +1885,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     @Override // com.baidu.tbadk.widget.richText.h
     public void f(Context context, String str, boolean z) {
         if (!TextUtils.isEmpty(str)) {
-            if (JE(str)) {
+            if (JF(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(getApplicationContext(), null, str, null));
                 return;
             }
@@ -1898,16 +1898,16 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_START_HOT_TOPIC_ACTIVITY, kVar));
                 }
             } else {
-                ba.aUZ().b(getPageContext(), new String[]{str});
+                ba.aVa().b(getPageContext(), new String[]{str});
             }
-            this.jYr = true;
+            this.jZx = true;
         }
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
     public void al(Context context, String str) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), str, null)));
-        this.jYr = true;
+        this.jZx = true;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
@@ -1928,32 +1928,32 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
 
     @Override // com.baidu.tbadk.widget.richText.h
     public ListView getListView() {
-        if (this.jYh != null) {
-            return this.jYh.getListView();
+        if (this.jZn != null) {
+            return this.jZn.getListView();
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public int biX() {
+    public int biZ() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<TextView> biZ() {
-        if (this.eEf == null) {
-            this.eEf = TbRichTextView.u(getPageContext().getPageActivity(), 8);
+    public com.baidu.adp.lib.d.b<TextView> bjb() {
+        if (this.eEq == null) {
+            this.eEq = TbRichTextView.u(getPageContext().getPageActivity(), 8);
         }
-        return this.eEf;
+        return this.eEq;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<GifView> bja() {
-        if (this.eBs == null) {
-            this.eBs = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.17
+    public com.baidu.adp.lib.d.b<GifView> bjc() {
+        if (this.eBD == null) {
+            this.eBD = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.17
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.d.c
-                /* renamed from: bPO */
+                /* renamed from: bPQ */
                 public GifView makeObject() {
                     return new GifView(NewSubPbActivity.this.getPageContext().getPageActivity());
                 }
@@ -1980,16 +1980,16 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 }
             }, 20, 0);
         }
-        return this.eBs;
+        return this.eBD;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<ImageView> biY() {
-        if (this.eBr == null) {
-            this.eBr = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.18
+    public com.baidu.adp.lib.d.b<ImageView> bja() {
+        if (this.eBC == null) {
+            this.eBC = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.18
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.d.c
-                /* renamed from: bjk */
+                /* renamed from: bjm */
                 public ImageView makeObject() {
                     ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(NewSubPbActivity.this.getPageContext().getPageActivity());
                     boolean isShowImages = k.aNQ().isShowImages();
@@ -2058,16 +2058,16 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 }
             }, 8, 0);
         }
-        return this.eBr;
+        return this.eBC;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<View> bjb() {
-        if (this.eEg == null) {
-            this.eEg = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<View>() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.19
+    public com.baidu.adp.lib.d.b<View> bjd() {
+        if (this.eEr == null) {
+            this.eEr = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<View>() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.19
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.d.c
-                /* renamed from: cFf */
+                /* renamed from: cFv */
                 public View makeObject() {
                     PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(NewSubPbActivity.this.getPageContext().getPageActivity(), PlayVoiceBntNew.PLAY_TYPE.NORMAL);
                     playVoiceBntNew.setVoiceManager(NewSubPbActivity.this.getVoiceManager());
@@ -2098,16 +2098,16 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 }
             }, 8, 0);
         }
-        return this.eEg;
+        return this.eEr;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<LinearLayout> bjc() {
-        if (this.eEh == null) {
-            this.eEh = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<LinearLayout>() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.20
+    public com.baidu.adp.lib.d.b<LinearLayout> bje() {
+        if (this.eEs == null) {
+            this.eEs = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<LinearLayout>() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.20
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.d.c
-                /* renamed from: cFh */
+                /* renamed from: cFx */
                 public LinearLayout makeObject() {
                     LinearLayout linearLayout = new LinearLayout(NewSubPbActivity.this.getPageContext().getPageActivity());
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
@@ -2142,15 +2142,15 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 }
             }, 15, 0);
         }
-        return this.eEh;
+        return this.eEs;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<RelativeLayout> bjd() {
-        this.eEi = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<RelativeLayout>() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.21
+    public com.baidu.adp.lib.d.b<RelativeLayout> bjf() {
+        this.eEt = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<RelativeLayout>() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.21
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cFg */
+            /* renamed from: cFw */
             public RelativeLayout makeObject() {
                 return new RelativeLayout(NewSubPbActivity.this.getPageContext().getPageActivity());
             }
@@ -2175,41 +2175,41 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 return relativeLayout;
             }
         }, 10, 0);
-        return this.eEi;
+        return this.eEt;
     }
 
     @Override // com.baidu.tieba.pb.pb.a
-    public com.baidu.tieba.pb.pb.main.b.a cDn() {
-        return this.jGR;
+    public com.baidu.tieba.pb.pb.main.b.a cDD() {
+        return this.jHX;
     }
 
     @Override // com.baidu.tieba.pb.pb.a
-    public boolean cDo() {
-        return (this.jYf == null || this.jYf.cJM() == null || this.jYf.cJM().aOi() == null || this.jYf.cJM().aOi().aRV()) ? false : true;
+    public boolean cDE() {
+        return (this.jZl == null || this.jZl.cKc() == null || this.jZl.cKc().aOi() == null || this.jZl.cKc().aOi().aRV()) ? false : true;
     }
 
     @Override // com.baidu.tieba.pb.pb.a
-    public String cDp() {
-        if (this.jYf == null || this.jYf.cJM() == null || this.jYf.cJM().aOi() == null) {
+    public String cDF() {
+        if (this.jZl == null || this.jZl.cKc() == null || this.jZl.cKc().aOi() == null) {
             return null;
         }
-        return this.jYf.cJM().aOi().aQC();
+        return this.jZl.cKc().aOi().aQC();
     }
 
     @Override // com.baidu.tieba.pb.pb.a
-    public int cDq() {
-        if (this.jYf == null) {
+    public int cDG() {
+        if (this.jZl == null) {
             return 0;
         }
-        return this.jYf.cCx();
+        return this.jZl.cCN();
     }
 
     @Override // com.baidu.tieba.pb.pb.a
-    public boolean Jg(String str) {
-        if (StringUtils.isNull(str) || this.jYf == null || this.jYf.cJM() == null || this.jYf.cJM().aOi() == null || this.jYf.cJM().aOi().aQx() == null) {
+    public boolean Jh(String str) {
+        if (StringUtils.isNull(str) || this.jZl == null || this.jZl.cKc() == null || this.jZl.cKc().aOi() == null || this.jZl.cKc().aOi().aQx() == null) {
             return false;
         }
-        return str.equals(this.jYf.cJM().aOi().aQx().getUserId());
+        return str.equals(this.jZl.cKc().aOi().aQx().getUserId());
     }
 
     @Override // android.view.Window.Callback
@@ -2218,10 +2218,10 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.jYh.cJs() && com.baidu.adp.lib.util.l.isNetOk()) {
-            this.jYf.loadData();
+        if (this.jZn.cJI() && com.baidu.adp.lib.util.l.isNetOk()) {
+            this.jZl.loadData();
         } else {
-            this.jYh.cJv();
+            this.jZn.cJL();
         }
     }
 
@@ -2250,13 +2250,13 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
             str6 = (String) sparseArray.get(R.id.tag_user_mute_mute_nameshow);
         }
         UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_HANDLE_CLICK);
-        userMuteAddAndDelCustomMessage.setData(z, str, str3, str4, str7, 1, str5, this.jYq);
-        userMuteAddAndDelCustomMessage.setTag(this.jYq);
+        userMuteAddAndDelCustomMessage.setData(z, str, str3, str4, str7, 1, str5, this.jZw);
+        userMuteAddAndDelCustomMessage.setTag(this.jZw);
         a(z, userMuteAddAndDelCustomMessage, str5, str3, str6);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void JN(String str) {
+    public void JO(String str) {
         if (!StringUtils.isNull(str) && bc.checkUpIsLogin(getPageContext().getPageActivity())) {
             String string = com.baidu.tbadk.core.sharedPref.b.aTX().getString("bubble_link", "");
             if (!StringUtils.isNull(string)) {
@@ -2289,7 +2289,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
 
             @Override // com.baidu.tbadk.m.b
             public int getMaxCost() {
-                return com.baidu.tbadk.m.e.bfu().getMaxCostFromServer();
+                return com.baidu.tbadk.m.e.bfv().getMaxCostFromServer();
             }
         };
     }
@@ -2297,13 +2297,13 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public com.baidu.tbadk.m.d getPageStayDurationItem() {
         com.baidu.tbadk.m.d pageStayDurationItem = super.getPageStayDurationItem();
-        if (pageStayDurationItem != null && this.jYf != null) {
-            if (this.jYf.cJM() != null && this.jYf.cJM().bdP() != null) {
-                pageStayDurationItem.setFid(com.baidu.adp.lib.f.b.toLong(this.jYf.cJM().bdP().getId(), 0L));
+        if (pageStayDurationItem != null && this.jZl != null) {
+            if (this.jZl.cKc() != null && this.jZl.cKc().bdQ() != null) {
+                pageStayDurationItem.setFid(com.baidu.adp.lib.f.b.toLong(this.jZl.cKc().bdQ().getId(), 0L));
             }
-            pageStayDurationItem.setTid(com.baidu.adp.lib.f.b.toLong(this.jYf.cFt(), 0L));
-            if (this.jYf.cJM() != null && this.jYf.cJM().aOi() != null) {
-                pageStayDurationItem.setNid(this.jYf.cJM().aOi().getNid());
+            pageStayDurationItem.setTid(com.baidu.adp.lib.f.b.toLong(this.jZl.cFJ(), 0L));
+            if (this.jZl.cKc() != null && this.jZl.cKc().aOi() != null) {
+                pageStayDurationItem.setNid(this.jZl.cKc().aOi().getNid());
             }
         }
         return pageStayDurationItem;
@@ -2313,9 +2313,9 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         return this.mIsPaused;
     }
 
-    public boolean cJm() {
-        if (this.jYf != null) {
-            return this.jYf.cJm();
+    public boolean cJC() {
+        if (this.jZl != null) {
+            return this.jZl.cJC();
         }
         return false;
     }
@@ -2323,20 +2323,20 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, final UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage, String str, String str2, String str3) {
         if (z) {
-            this.jYh.showLoadingDialog();
+            this.jZn.showLoadingDialog();
             MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
             return;
         }
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.jKS.getPageActivity());
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.jLY.getPageActivity());
         if (aq.isEmpty(str)) {
-            aVar.vO(this.jKS.getResources().getString(R.string.block_mute_message_alert, str3));
+            aVar.vO(this.jLY.getResources().getString(R.string.block_mute_message_alert, str3));
         } else {
             aVar.vO(str);
         }
         aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.24
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                NewSubPbActivity.this.jYh.showLoadingDialog();
+                NewSubPbActivity.this.jZn.showLoadingDialog();
                 MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
                 aVar2.dismiss();
             }
@@ -2347,7 +2347,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 aVar2.dismiss();
             }
         });
-        aVar.b(this.jKS).aST();
+        aVar.b(this.jLY).aST();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -2355,7 +2355,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         if (str == null) {
             str = "";
         }
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.jKS.getPageActivity());
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.jLY.getPageActivity());
         aVar.vO(str);
         aVar.b(R.string.know, new a.b() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.26
             @Override // com.baidu.tbadk.core.dialog.a.b
@@ -2363,11 +2363,11 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 aVar2.dismiss();
             }
         });
-        aVar.b(this.jKS).aST();
+        aVar.b(this.jLY).aST();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cEV() {
+    public void cFl() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
         aVar.vO(getResources().getString(R.string.mute_is_super_member_function));
         aVar.a(R.string.open_now, new a.b() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.27
@@ -2375,12 +2375,12 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (Build.VERSION.SDK_INT < 11) {
                     aVar2.dismiss();
-                    ((TbPageContext) NewSubPbActivity.this.jKS).showToast(R.string.frs_header_games_unavailable);
+                    ((TbPageContext) NewSubPbActivity.this.jLY).showToast(R.string.frs_header_games_unavailable);
                     return;
                 }
                 TiebaStatic.log("c10025");
                 aVar2.dismiss();
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) NewSubPbActivity.this.jKS.getPageActivity(), 2, true, 4);
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) NewSubPbActivity.this.jLY.getPageActivity(), 2, true, 4);
                 if (!StringUtils.isNULL("4010001001")) {
                     memberPayActivityConfig.setSceneId("4010001001");
                 }
@@ -2393,16 +2393,16 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 aVar2.dismiss();
             }
         });
-        aVar.b(this.jKS).aST();
+        aVar.b(this.jLY).aST();
     }
 
-    public SubPbModel cJn() {
-        return this.jYf;
+    public SubPbModel cJD() {
+        return this.jZl;
     }
 
-    public int cCx() {
-        if (this.jYf != null) {
-            return this.jYf.cCx();
+    public int cCN() {
+        if (this.jZl != null) {
+            return this.jZl.cCN();
         }
         return 0;
     }
@@ -2426,27 +2426,27 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     }
 
     public void ov(boolean z) {
-        if (this.ihd != null && this.ihd.getText() != null) {
-            int selectionEnd = this.ihd.getSelectionEnd();
-            SpannableStringBuilder a2 = this.ihc.a(this.ihd.getText());
+        if (this.ihQ != null && this.ihQ.getText() != null) {
+            int selectionEnd = this.ihQ.getSelectionEnd();
+            SpannableStringBuilder a2 = this.ihP.a(this.ihQ.getText());
             if (a2 != null) {
-                this.ihc.vm(true);
-                this.ihd.setText(a2);
-                if (z && this.ihc.dmh() >= 0) {
-                    this.ihd.requestFocus();
-                    this.ihd.setSelection(this.ihc.dmh());
+                this.ihP.vn(true);
+                this.ihQ.setText(a2);
+                if (z && this.ihP.dmw() >= 0) {
+                    this.ihQ.requestFocus();
+                    this.ihQ.setSelection(this.ihP.dmw());
                 } else {
-                    this.ihd.setSelection(selectionEnd);
+                    this.ihQ.setSelection(selectionEnd);
                 }
-                this.ihc.vl(this.ihc.dmh() >= 0);
+                this.ihP.vm(this.ihP.dmw() >= 0);
             }
         }
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        if (this.iQa != null && this.iQa.bcW() != null && this.iQa.bcW().bcY()) {
-            this.iQa.bcW().bbz();
+        if (this.iQN != null && this.iQN.bcX() != null && this.iQN.bcX().bcZ()) {
+            this.iQN.bcX().bbA();
         } else {
             super.onBackPressed();
         }
@@ -2458,19 +2458,19 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         com.baidu.tbadk.core.util.f.d.a(rVar, getUniqueId(), this);
     }
 
-    public String cHi() {
-        if (!aq.isEmpty(this.jSP)) {
-            return this.jSP;
+    public String cHy() {
+        if (!aq.isEmpty(this.jTV)) {
+            return this.jTV;
         }
-        this.jSP = getResources().getString(com.baidu.tieba.pb.pb.main.au.cGX());
-        return this.jSP;
+        this.jTV = getResources().getString(com.baidu.tieba.pb.pb.main.au.cHn());
+        return this.jTV;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onKeyboardVisibilityChanged(boolean z) {
         super.onKeyboardVisibilityChanged(z);
-        this.jYt = z;
+        this.jZz = z;
         sr(true);
     }
 
@@ -2486,27 +2486,27 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 childAt.requestLayout();
             }
         }
-        if (this.jYh != null && this.jYh.getListView() != null && this.jYu != null && this.jYu.mPosition != -1) {
-            final int headerViewsCount = this.jYu.mPosition + this.jYh.getListView().getHeaderViewsCount();
-            if (this.jYu.getView() != null) {
-                final int height = this.jYu.getView().getHeight();
-                final int height2 = ((rect.height() - this.jYh.cJI()) - this.jYh.getNavigationBarHeight()) - this.jYh.cJH();
+        if (this.jZn != null && this.jZn.getListView() != null && this.jZA != null && this.jZA.mPosition != -1) {
+            final int headerViewsCount = this.jZA.mPosition + this.jZn.getListView().getHeaderViewsCount();
+            if (this.jZA.getView() != null) {
+                final int height = this.jZA.getView().getHeight();
+                final int height2 = ((rect.height() - this.jZn.cJY()) - this.jZn.getNavigationBarHeight()) - this.jZn.cJX();
                 final int i = height - height2;
                 if (i > 0) {
-                    this.jYh.getListView().post(new Runnable() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.30
+                    this.jZn.getListView().post(new Runnable() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.30
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (NewSubPbActivity.this.jYh != null && NewSubPbActivity.this.jYh.getListView() != null) {
-                                NewSubPbActivity.this.jYh.getListView().setSelectionFromTop(headerViewsCount, NewSubPbActivity.this.jYh.getNavigationBarHeight() - i);
+                            if (NewSubPbActivity.this.jZn != null && NewSubPbActivity.this.jZn.getListView() != null) {
+                                NewSubPbActivity.this.jZn.getListView().setSelectionFromTop(headerViewsCount, NewSubPbActivity.this.jZn.getNavigationBarHeight() - i);
                             }
                         }
                     });
                 } else {
-                    this.jYh.getListView().post(new Runnable() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.31
+                    this.jZn.getListView().post(new Runnable() { // from class: com.baidu.tieba.pb.pb.sub.NewSubPbActivity.31
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (NewSubPbActivity.this.jYh != null && NewSubPbActivity.this.jYh.getListView() != null) {
-                                NewSubPbActivity.this.jYh.getListView().setSelectionFromTop(headerViewsCount, NewSubPbActivity.this.jYh.getNavigationBarHeight() + (height2 - height));
+                            if (NewSubPbActivity.this.jZn != null && NewSubPbActivity.this.jZn.getListView() != null) {
+                                NewSubPbActivity.this.jZn.getListView().setSelectionFromTop(headerViewsCount, NewSubPbActivity.this.jZn.getNavigationBarHeight() + (height2 - height));
                             }
                         }
                     });
@@ -2515,17 +2515,17 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         }
     }
 
-    private void cEY() {
-        if (this.jYf != null && !aq.isEmpty(this.jYf.cFt())) {
-            com.baidu.tbadk.BdToken.c.aLi().o(com.baidu.tbadk.BdToken.b.dtS, com.baidu.adp.lib.f.b.toLong(this.jYf.cFt(), 0L));
+    private void cFo() {
+        if (this.jZl != null && !aq.isEmpty(this.jZl.cFJ())) {
+            com.baidu.tbadk.BdToken.c.aLi().o(com.baidu.tbadk.BdToken.b.dtS, com.baidu.adp.lib.f.b.toLong(this.jZl.cFJ(), 0L));
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public long getMissionTid() {
-        if (this.jYf == null || aq.isEmpty(this.jYf.cFt())) {
+        if (this.jZl == null || aq.isEmpty(this.jZl.cFJ())) {
             return 0L;
         }
-        return com.baidu.adp.lib.f.b.toLong(this.jYf.cFt(), 0L);
+        return com.baidu.adp.lib.f.b.toLong(this.jZl.cFJ(), 0L);
     }
 }

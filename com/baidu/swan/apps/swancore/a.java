@@ -33,17 +33,17 @@ public class a {
         return C0390a.cHj;
     }
 
-    public static String gU(int i) {
+    public static String gW(int i) {
         return i == 1 ? "installed_game_swan_js_md5" : "installed_swan_js_md5";
     }
 
     public void c(long j, int i) {
         boolean z;
-        List<b> gW = gW(i);
-        if (gW.size() >= 10) {
-            gW.remove(0);
+        List<b> gY = gY(i);
+        if (gY.size() >= 10) {
+            gY.remove(0);
         }
-        Iterator<b> it = gW.iterator();
+        Iterator<b> it = gY.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -56,14 +56,14 @@ public class a {
             }
         }
         if (!z) {
-            gW.add(new b(Calendar.getInstance().getTimeInMillis(), j));
+            gY.add(new b(Calendar.getInstance().getTimeInMillis(), j));
             HashSet hashSet = new HashSet();
-            for (b bVar : gW) {
+            for (b bVar : gY) {
                 if (bVar != null) {
                     hashSet.add(bVar.toJson());
                 }
             }
-            h.arO().putStringSet(gX(i), hashSet);
+            h.arO().putStringSet(gZ(i), hashSet);
         }
     }
 
@@ -84,18 +84,18 @@ public class a {
         });
     }
 
-    public String gV(int i) {
+    public String gX(int i) {
         StringBuilder sb = new StringBuilder();
-        String string = h.arO().getString(gU(i), "");
+        String string = h.arO().getString(gW(i), "");
         if (!TextUtils.isEmpty(string)) {
             sb.append("md5: ").append(string).append("\n").append("\n");
         }
-        List<b> gW = gW(i);
-        int size = gW.size();
+        List<b> gY = gY(i);
+        int size = gY.size();
         int i2 = 0;
         boolean z = false;
         while (i2 < size) {
-            b bVar = gW.get(i2);
+            b bVar = gY.get(i2);
             if (bVar != null) {
                 z = true;
                 sb.append(bVar.toString());
@@ -107,10 +107,10 @@ public class a {
             z = z;
         }
         if (!z) {
-            sb.append(new b(System.currentTimeMillis(), com.baidu.swan.apps.swancore.c.a.hh(i)).toString());
+            sb.append(new b(System.currentTimeMillis(), com.baidu.swan.apps.swancore.c.a.hj(i)).toString());
         } else {
             SwanCoreVersion ahx = f.ahV().ahx();
-            b bVar2 = gW.get(size - 1);
+            b bVar2 = gY.get(size - 1);
             if (bVar2 != null && ahx != null && ahx.swanCoreVersion > bVar2.swanCoreVersion) {
                 sb.append("\n");
                 sb.append(new b(System.currentTimeMillis(), ahx.swanCoreVersion).toString());
@@ -119,9 +119,9 @@ public class a {
         return sb.toString();
     }
 
-    private List<b> gW(int i) {
+    private List<b> gY(int i) {
         ArrayList arrayList = new ArrayList();
-        Set<String> stringSet = h.arO().getStringSet(gX(i), null);
+        Set<String> stringSet = h.arO().getStringSet(gZ(i), null);
         if (stringSet == null || stringSet.size() == 0) {
             return arrayList;
         }
@@ -200,7 +200,7 @@ public class a {
         }
     }
 
-    private static String gX(int i) {
+    private static String gZ(int i) {
         return i == 1 ? "aigames_core_ver_list_key" : "aiapps_core_ver_list_key";
     }
 }

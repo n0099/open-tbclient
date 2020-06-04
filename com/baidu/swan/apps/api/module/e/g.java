@@ -34,7 +34,7 @@ public class g extends com.baidu.swan.apps.api.a.d {
         if (Ud == null) {
             com.baidu.swan.apps.console.c.e("Api-TabBar", "tabBarViewController is null");
             return new com.baidu.swan.apps.api.c.b(1001, "tabBarViewController is null");
-        } else if (!Ud.hC(optInt)) {
+        } else if (!Ud.hE(optInt)) {
             com.baidu.swan.apps.console.c.e("Api-TabBar", "close red dot fail");
             return new com.baidu.swan.apps.api.c.b(1001, "close red dot fail");
         } else {

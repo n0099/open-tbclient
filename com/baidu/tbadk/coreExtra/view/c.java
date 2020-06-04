@@ -17,7 +17,7 @@ public class c {
         this.labelName = str;
     }
 
-    public void mP(int i) {
+    public void mR(int i) {
         this.ehy = i;
     }
 

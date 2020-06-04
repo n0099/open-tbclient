@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c {
-    private static HashMap<String, e> lmp;
+    private static HashMap<String, e> lnz;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.tbadkCore.d.c.1
@@ -17,11 +17,11 @@ public class c {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if ((customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    c.DW(1);
+                    c.DY(1);
                 }
             }
         });
-        lmp = new HashMap<>();
+        lnz = new HashMap<>();
     }
 
     public static void C(String str, String str2, boolean z) {
@@ -29,8 +29,8 @@ public class c {
             str2 = "";
         }
         String str3 = str + str2;
-        if (!lmp.containsKey(str3)) {
-            lmp.put(str3, new e(str, str2, z));
+        if (!lnz.containsKey(str3)) {
+            lnz.put(str3, new e(str, str2, z));
         }
     }
 
@@ -39,40 +39,40 @@ public class c {
             str2 = "";
         }
         String str3 = str + str2;
-        if (!lmp.containsKey(str3)) {
-            lmp.put(str3, new e(str, str2, z));
+        if (!lnz.containsKey(str3)) {
+            lnz.put(str3, new e(str, str2, z));
         }
-        return lmp.get(str3);
+        return lnz.get(str3);
     }
 
-    public static void ddQ() {
+    public static void def() {
     }
 
-    public static void DW(int i) {
-        for (String str : lmp.keySet()) {
-            a(lmp.get(str), i);
+    public static void DY(int i) {
+        for (String str : lnz.keySet()) {
+            a(lnz.get(str), i);
         }
     }
 
     public static void a(e eVar, int i) {
-        d dVar = eVar.lmt;
-        d dVar2 = eVar.lmu;
-        d dVar3 = eVar.lmv;
+        d dVar = eVar.lnD;
+        d dVar2 = eVar.lnE;
+        d dVar3 = eVar.lnF;
         if (dVar.num + dVar2.num + dVar3.num >= i) {
             com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
             aVar.append("act", eVar.type);
-            aVar.append("httpTimeCost", String.valueOf(dVar.lmq));
+            aVar.append("httpTimeCost", String.valueOf(dVar.lnA));
             aVar.append("httpNum", String.valueOf(dVar.num));
-            aVar.append("httpFailnum", String.valueOf(dVar.lmr));
+            aVar.append("httpFailnum", String.valueOf(dVar.lnB));
             aVar.append("httpSize", String.valueOf(dVar.size));
-            aVar.append("socketTimeCost", String.valueOf(dVar2.lmq));
+            aVar.append("socketTimeCost", String.valueOf(dVar2.lnA));
             aVar.append("socketNum", String.valueOf(dVar2.num));
-            aVar.append("socketFailnum", String.valueOf(dVar2.lmr));
+            aVar.append("socketFailnum", String.valueOf(dVar2.lnB));
             aVar.append("socketSize", String.valueOf(dVar2.size));
-            aVar.append("abortTimeCost", String.valueOf(dVar3.lmq));
+            aVar.append("abortTimeCost", String.valueOf(dVar3.lnA));
             aVar.append("abortNum", String.valueOf(dVar3.num));
             aVar.append("netType", eVar.netType);
-            aVar.append("isJson", eVar.lms ? "1" : "0");
+            aVar.append("isJson", eVar.lnC ? "1" : "0");
             BdStatisticsManager.getInstance().debug("frs", aVar);
             dVar.reset();
             dVar2.reset();

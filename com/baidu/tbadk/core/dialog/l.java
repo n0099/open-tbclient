@@ -69,7 +69,7 @@ public class l extends BaseAdapter {
         }
         aVar.dJq.setChecked(mVar.isChecked());
         aVar.dJq.setButtonDrawable(mVar.isChecked() ? am.getDrawable(R.drawable.icon_set_list_ok_s) : new ColorDrawable(R.color.common_color_10022));
-        if (kP(i)) {
+        if (kR(i)) {
             aVar.dJr.setVisibility(8);
             am.setBackgroundResource(view, R.drawable.dialog_single_button_bg_selector);
         } else {
@@ -82,7 +82,7 @@ public class l extends BaseAdapter {
         return view;
     }
 
-    private boolean kP(int i) {
+    private boolean kR(int i) {
         return this.dJp != null && i == this.dJp.size() + (-1);
     }
 

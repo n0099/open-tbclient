@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 /* loaded from: classes11.dex */
 public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
-    private b ldp;
-    private a ldq;
+    private a leA;
+    private b lez;
     private String mAuthSid;
     private String mForumId;
     private String mForumName;
@@ -26,7 +26,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         super(signAllForumActivity.getPageContext());
         this.mForumName = null;
         this.mForumId = null;
-        this.ldp = null;
+        this.lez = null;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -39,20 +39,20 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         return false;
     }
 
-    public void dbq() {
-        if (this.ldp != null) {
-            this.ldp.cancel();
-            this.ldp = null;
+    public void dbG() {
+        if (this.lez != null) {
+            this.lez.cancel();
+            this.lez = null;
         }
     }
 
     public void fl(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.ldp == null) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.lez == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.ldp = new b();
-            this.ldp.setPriority(2);
-            this.ldp.execute(new Object[0]);
+            this.lez = new b();
+            this.lez.setPriority(2);
+            this.lez.execute(new Object[0]);
         }
     }
 
@@ -83,10 +83,10 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
                 this.mNetwork.addPostData("kw", SignSingleModel.this.mForumName);
                 this.mNetwork.addPostData("fid", SignSingleModel.this.mForumId);
                 this.mNetwork.addPostData("authsid", SignSingleModel.this.mAuthSid);
-                this.mNetwork.aUA().aVa().mIsNeedTbs = true;
+                this.mNetwork.aUA().aVb().mIsNeedTbs = true;
                 this.mNetwork.ha(true);
                 String postNetData = this.mNetwork.postNetData();
-                if (!this.mNetwork.isNetSuccess() || !this.mNetwork.aUA().aVb().isRequestSuccess()) {
+                if (!this.mNetwork.isNetSuccess() || !this.mNetwork.aUA().aVc().isRequestSuccess()) {
                     signData = null;
                 } else {
                     SignData signData2 = new SignData();
@@ -121,9 +121,9 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
             if (this.mNetwork != null) {
                 this.mNetwork.cancelNetConnect();
             }
-            SignSingleModel.this.ldp = null;
+            SignSingleModel.this.lez = null;
             super.cancel(true);
-            SignSingleModel.this.ldq.fk(SignSingleModel.this.mForumId, null);
+            SignSingleModel.this.leA.fk(SignSingleModel.this.mForumId, null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -131,18 +131,18 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
         public void onPostExecute(SignData signData) {
-            SignSingleModel.this.ldp = null;
+            SignSingleModel.this.lez = null;
             if (signData != null || this.mNetwork == null) {
-                SignSingleModel.this.ldq.c(signData);
+                SignSingleModel.this.leA.c(signData);
                 return;
             }
             SignSingleModel.this.mErrorCode = this.mNetwork.getServerErrorCode();
             SignSingleModel.this.mErrorString = this.mNetwork.getErrorString();
-            SignSingleModel.this.ldq.fk(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
+            SignSingleModel.this.leA.fk(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
         }
     }
 
     public void a(a aVar) {
-        this.ldq = aVar;
+        this.leA = aVar;
     }
 }

@@ -19,36 +19,36 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
-    private BdTypeListView faQ;
-    private o hkv;
-    private r hkw;
+    private BdTypeListView fbb;
+    private o hkG;
+    private r hkH;
 
-    public List<com.baidu.adp.widget.ListView.a> bqW() {
+    public List<com.baidu.adp.widget.ListView.a> bqY() {
         return this.aSj;
     }
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
-        this.faQ = bdTypeListView;
-        this.aSj.add(new i(baseActivity.getPageContext(), j.hjH));
-        this.aSj.add(new l(baseActivity.getPageContext(), m.hjT));
-        this.aSj.add(new g(baseActivity.getPageContext(), k.hmR));
-        this.aSj.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.hjk));
-        this.aSj.add(new d(baseActivity.getPageContext(), e.hjn));
+        this.fbb = bdTypeListView;
+        this.aSj.add(new i(baseActivity.getPageContext(), j.hjS));
+        this.aSj.add(new l(baseActivity.getPageContext(), m.hke));
+        this.aSj.add(new g(baseActivity.getPageContext(), k.hnc));
+        this.aSj.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.hjv));
+        this.aSj.add(new d(baseActivity.getPageContext(), e.hjy));
         this.aSj.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
-        this.hkv = new o(baseActivity.getPageContext(), p.hkj);
-        this.aSj.add(this.hkv);
-        this.hkw = new r(baseActivity.getPageContext(), s.hkt);
-        this.aSj.add(this.hkw);
+        this.hkG = new o(baseActivity.getPageContext(), p.hku);
+        this.aSj.add(this.hkG);
+        this.hkH = new r(baseActivity.getPageContext(), s.hkE);
+        this.aSj.add(this.hkH);
     }
 
     public void notifyDataSetChanged() {
-        if (this.faQ != null && (this.faQ.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
-            this.faQ.getAdapter().notifyDataSetChanged();
+        if (this.fbb != null && (this.fbb.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
+            this.fbb.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.hkv.onDestroy();
-        this.hkw.onDestroy();
+        this.hkG.onDestroy();
+        this.hkH.onDestroy();
     }
 }

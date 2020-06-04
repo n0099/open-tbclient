@@ -141,8 +141,8 @@ public class b {
                 }
                 try {
                     try {
-                        File file = new File(e.LF().dA(1).c());
-                        File file2 = new File(e.LF().dA(2).c());
+                        File file = new File(e.LF().dC(1).c());
+                        File file2 = new File(e.LF().dC(2).c());
                         String parent = file.getParent();
                         String parent2 = file2.getParent();
                         try {
@@ -196,14 +196,14 @@ public class b {
 
     private static boolean e(int i, Map<String, String> map) {
         boolean a2;
-        d dA = e.LF().dA(i);
-        if (dA == null) {
+        d dC = e.LF().dC(i);
+        if (dC == null) {
             CyberLog.e("CyberLibsLoader", "Unable to find (" + i + ") LibInfo");
             return false;
         }
-        String a3 = dA.a();
-        String b2 = dA.b();
-        String c2 = dA.c();
+        String a3 = dC.a();
+        String b2 = dC.b();
+        String c2 = dC.c();
         if (!new File(c2).exists()) {
             if (i == 8) {
                 i = 16;
@@ -226,7 +226,7 @@ public class b {
         } else if (e.LF().h(i)) {
             a2 = c(i, map);
         } else {
-            if (e.LF().dB(i)) {
+            if (e.LF().dD(i)) {
                 a2 = a(i, c2);
             }
             a2 = true;

@@ -19,16 +19,16 @@ public class ShareEntity implements Parcelable {
             shareEntity.setTitle(parcel.readString());
             shareEntity.setContent(parcel.readString());
             shareEntity.setLinkUrl(parcel.readString());
-            shareEntity.LQ(parcel.readString());
-            shareEntity.Dc(parcel.readInt());
+            shareEntity.LR(parcel.readString());
+            shareEntity.De(parcel.readInt());
             shareEntity.setVideoUrl(parcel.readString());
             shareEntity.setImageUri((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
             shareEntity.setLocation((Location) parcel.readParcelable(Location.class.getClassLoader()));
             shareEntity.ae(parcel.readBundle());
-            shareEntity.De(parcel.readInt());
+            shareEntity.Dg(parcel.readInt());
             shareEntity.setTid(parcel.readString());
-            shareEntity.Dd(parcel.readInt());
-            shareEntity.LR(parcel.readString());
+            shareEntity.Df(parcel.readInt());
+            shareEntity.LS(parcel.readString());
             shareEntity.topic = parcel.readString();
             shareEntity.taskCompleteId = parcel.readString();
             shareEntity.diskPicOperate = parcel.readBundle();
@@ -40,7 +40,7 @@ public class ShareEntity implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Df */
+        /* renamed from: Dh */
         public ShareEntity[] newArray(int i) {
             return new ShareEntity[i];
         }
@@ -69,7 +69,7 @@ public class ShareEntity implements Parcelable {
         this.stats = bundle;
     }
 
-    public Bundle bbb() {
+    public Bundle bbc() {
         return this.stats;
     }
 
@@ -101,7 +101,7 @@ public class ShareEntity implements Parcelable {
         this.readCount = j;
     }
 
-    public long cZl() {
+    public long cZB() {
         return this.readCount;
     }
 
@@ -109,7 +109,7 @@ public class ShareEntity implements Parcelable {
         this.isVideoThread = z;
     }
 
-    public boolean cZm() {
+    public boolean cZC() {
         return this.isVideoThread;
     }
 
@@ -121,11 +121,11 @@ public class ShareEntity implements Parcelable {
         this.linkUrl = str;
     }
 
-    public void LQ(String str) {
+    public void LR(String str) {
         this.localFile = str;
     }
 
-    public String cZn() {
+    public String cZD() {
         return this.localFile;
     }
 
@@ -145,15 +145,15 @@ public class ShareEntity implements Parcelable {
         this.location = location;
     }
 
-    public int cZo() {
+    public int cZE() {
         return this.shareTo;
     }
 
-    public void Dc(int i) {
+    public void De(int i) {
         this.shareTo = i;
     }
 
-    public int cZp() {
+    public int cZF() {
         return this.shareType;
     }
 
@@ -165,27 +165,27 @@ public class ShareEntity implements Parcelable {
         return this.tid;
     }
 
-    public void LR(String str) {
+    public void LS(String str) {
         this.fName = str;
     }
 
-    public String cZq() {
+    public String cZG() {
         return this.fName;
     }
 
-    public void Dd(int i) {
+    public void Df(int i) {
         this.typeShareToSmallApp = i;
     }
 
-    public int cZr() {
+    public int cZH() {
         return this.typeShareToSmallApp;
     }
 
-    public void De(int i) {
+    public void Dg(int i) {
         this.shareType = i;
     }
 
-    public boolean cZs() {
+    public boolean cZI() {
         return this.shareType != 0 && (this.shareTo == 8 || this.shareTo == 4 || this.shareTo == 3 || this.shareTo == 2);
     }
 

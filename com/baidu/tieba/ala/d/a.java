@@ -20,12 +20,12 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a {
     private Activity clq;
-    private BdListView fCM;
-    private LinearLayout fCN;
-    private LinearLayout fCO;
-    private com.baidu.tieba.ala.adapter.a fCP;
-    private AlaChallengeHistoryHeaderView fCQ;
-    private TextView fCR;
+    private BdListView fCX;
+    private LinearLayout fCY;
+    private LinearLayout fCZ;
+    private com.baidu.tieba.ala.adapter.a fDa;
+    private AlaChallengeHistoryHeaderView fDb;
+    private TextView fDc;
     private TbPageContext<BaseFragmentActivity> mTbPageContext;
     private View view;
 
@@ -37,41 +37,41 @@ public class a {
 
     private void initView() {
         this.view = LayoutInflater.from(this.clq).inflate(a.h.ala_challenge_fragment_layout, (ViewGroup) null);
-        this.fCM = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
-        this.fCM.setVisibility(4);
-        this.fCN = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
-        this.fCO = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
-        this.fCR = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
-        this.fCP = new com.baidu.tieba.ala.adapter.a(this.clq);
-        this.fCM.setAdapter((ListAdapter) this.fCP);
-        this.fCQ = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
-        this.fCM.setEmptyView(this.fCN);
+        this.fCX = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
+        this.fCX.setVisibility(4);
+        this.fCY = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
+        this.fCZ = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
+        this.fDc = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
+        this.fDa = new com.baidu.tieba.ala.adapter.a(this.clq);
+        this.fCX.setAdapter((ListAdapter) this.fDa);
+        this.fDb = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
+        this.fCX.setEmptyView(this.fCY);
     }
 
     public void a(ArrayList<com.baidu.tieba.ala.data.a> arrayList, k kVar) {
-        this.fCM.setVisibility(0);
+        this.fCX.setVisibility(0);
         if (!ListUtils.isEmpty(arrayList) && kVar != null) {
-            if (this.fCQ.getParent() == null) {
-                if (this.fCQ.getParent() != null) {
-                    ((ViewGroup) this.fCQ.getParent()).removeView(this.fCQ);
+            if (this.fDb.getParent() == null) {
+                if (this.fDb.getParent() != null) {
+                    ((ViewGroup) this.fDb.getParent()).removeView(this.fDb);
                 }
-                this.fCM.addHeaderView(this.fCQ);
-                this.fCQ.setData(kVar);
+                this.fCX.addHeaderView(this.fDb);
+                this.fDb.setData(kVar);
             }
-        } else if (this.fCQ.getParent() != null) {
-            ((ViewGroup) this.fCQ.getParent()).removeView(this.fCQ);
+        } else if (this.fDb.getParent() != null) {
+            ((ViewGroup) this.fDb.getParent()).removeView(this.fDb);
         }
-        if (this.fCP != null && arrayList != null) {
-            this.fCP.setData(arrayList);
+        if (this.fDa != null && arrayList != null) {
+            this.fDa.setData(arrayList);
         }
     }
 
     public void BX(String str) {
         if (!StringUtils.isNull(str)) {
-            if (this.fCP != null && this.fCP.getCount() <= 0) {
-                this.fCN.setVisibility(8);
-                this.fCO.setVisibility(0);
-                this.fCR.setText(str);
+            if (this.fDa != null && this.fDa.getCount() <= 0) {
+                this.fCY.setVisibility(8);
+                this.fCZ.setVisibility(0);
+                this.fDc.setText(str);
                 return;
             }
             BdUtilHelper.showToast(this.clq, str, 1);

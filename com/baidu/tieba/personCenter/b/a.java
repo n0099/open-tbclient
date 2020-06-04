@@ -15,46 +15,46 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
-    private BdTypeListView faQ;
-    private d kkM;
-    private com.baidu.tieba.personCenter.a.a kkN;
-    private com.baidu.tieba.personCenter.a.b kkO;
-    private f kkP;
-    private e kkQ;
-    private com.baidu.tieba.personCenter.a.c kkv;
+    private BdTypeListView fbb;
+    private com.baidu.tieba.personCenter.a.c klB;
+    private d klS;
+    private com.baidu.tieba.personCenter.a.a klT;
+    private com.baidu.tieba.personCenter.a.b klU;
+    private f klV;
+    private e klW;
 
     public a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.faQ = bdTypeListView;
+        this.fbb = bdTypeListView;
         a(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.kkM = new d(tbPageContext, h.klz);
-        this.kkN = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.c.d.kle);
-        this.kkO = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.c.e.klf);
-        this.kkP = new f(tbPageContext, m.klK);
-        this.kkv = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.kly);
-        this.kkQ = new e(tbPageContext, j.klF);
-        this.aSj.add(this.kkM);
-        this.aSj.add(this.kkN);
-        this.aSj.add(this.kkO);
-        this.aSj.add(this.kkP);
-        this.aSj.add(this.kkv);
-        this.aSj.add(this.kkQ);
+        this.klS = new d(tbPageContext, h.kmF);
+        this.klT = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.c.d.kmk);
+        this.klU = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.c.e.kml);
+        this.klV = new f(tbPageContext, m.kmQ);
+        this.klB = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.kmE);
+        this.klW = new e(tbPageContext, j.kmL);
+        this.aSj.add(this.klS);
+        this.aSj.add(this.klT);
+        this.aSj.add(this.klU);
+        this.aSj.add(this.klV);
+        this.aSj.add(this.klB);
+        this.aSj.add(this.klW);
         bdTypeListView.addAdapters(this.aSj);
     }
 
     public void onChangeSkinType() {
-        if (this.faQ != null && (this.faQ.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
-            this.faQ.getAdapter().notifyDataSetChanged();
+        if (this.fbb != null && (this.fbb.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
+            this.fbb.getAdapter().notifyDataSetChanged();
         }
     }
 
-    public void cNe() {
-        this.kkN.cNe();
+    public void cNu() {
+        this.klT.cNu();
     }
 
-    public void cNf() {
-        this.kkN.destroy();
+    public void cNv() {
+        this.klT.destroy();
     }
 }

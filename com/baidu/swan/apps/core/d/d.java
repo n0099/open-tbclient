@@ -183,10 +183,10 @@ public class d extends b implements a.InterfaceC0377a {
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    public boolean eH(int i) {
-        boolean eH = super.eH(i);
+    public boolean eJ(int i) {
+        boolean eJ = super.eJ(i);
         YL();
-        return eH;
+        return eJ;
     }
 
     @Override // com.baidu.swan.apps.core.d.b
@@ -534,8 +534,8 @@ public class d extends b implements a.InterfaceC0377a {
             com.baidu.swan.apps.performance.h.mD(str);
         }
         ji(lq.cBd);
-        eI(SwanAppConfigData.dT(lq.cBe));
-        eH(lq.cBc);
+        eK(SwanAppConfigData.dT(lq.cBe));
+        eJ(lq.cBc);
         YL();
         YO();
     }
@@ -548,9 +548,9 @@ public class d extends b implements a.InterfaceC0377a {
             if (!cVar.SZ()) {
                 cVar.a(this.bVv, lq);
             }
-            cVar.eg(0);
+            cVar.ei(0);
             if (this.bVw != null) {
-                this.bVw.eg(8);
+                this.bVw.ei(8);
             }
             this.bVw = cVar;
         }
@@ -606,11 +606,11 @@ public class d extends b implements a.InterfaceC0377a {
     }
 
     private boolean a(e eVar, SwanAppConfigData swanAppConfigData) {
-        b eK = eVar.eK(0);
-        if (eK == null || !(eK instanceof d)) {
+        b eM = eVar.eM(0);
+        if (eM == null || !(eM instanceof d)) {
             return false;
         }
-        String page = ((d) eK).YF().getPage();
+        String page = ((d) eM).YF().getPage();
         return swanAppConfigData.nL(page) || TextUtils.equals(swanAppConfigData.ahE(), page);
     }
 
@@ -729,7 +729,7 @@ public class d extends b implements a.InterfaceC0377a {
                 this.bVD = new com.baidu.swan.apps.core.f.c() { // from class: com.baidu.swan.apps.core.d.d.4
                     @Override // com.baidu.swan.apps.core.f.c
                     public void onScrollChanged(int i, int i2, int i3, int i4) {
-                        d.this.eJ(i2);
+                        d.this.eL(i2);
                     }
                 };
             }
@@ -827,7 +827,7 @@ public class d extends b implements a.InterfaceC0377a {
             if (centerTitleView != null) {
                 centerTitleView.setAlpha(i2);
             }
-            eJ(i);
+            eL(i);
             dE(z);
         }
     }
@@ -854,7 +854,7 @@ public class d extends b implements a.InterfaceC0377a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eJ(int i) {
+    public void eL(int i) {
         TextView centerTitleView;
         View aum;
         Drawable background;

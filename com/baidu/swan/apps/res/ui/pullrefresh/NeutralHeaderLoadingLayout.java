@@ -63,12 +63,12 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void gh(int i) {
+    public void gj(int i) {
         if (DEBUG) {
             Log.e("NeutralLoadingLayout", "pullLength = " + i);
         }
         if (getState() == ILoadingLayout.State.PULL_TO_REFRESH) {
-            this.cwt.setAnimPercent(gi(i));
+            this.cwt.setAnimPercent(gk(i));
         }
         if (i > this.cwc) {
             setTranslationY((this.cwc - i) / 2);
@@ -139,7 +139,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         this.cwt.anL();
     }
 
-    protected float gi(int i) {
+    protected float gk(int i) {
         float f;
         if (i < this.cwb) {
             f = i < this.cwa ? 0.0f : (i - this.cwa) / (this.cwb - this.cwa);
@@ -153,11 +153,11 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         return f2;
     }
 
-    public boolean eh(int i) {
+    public boolean ej(int i) {
         if (this.cwt == null) {
             return false;
         }
-        this.cwt.eh(i);
+        this.cwt.ej(i);
         return true;
     }
 }

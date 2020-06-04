@@ -135,14 +135,14 @@ public final class SwanLauncher {
         JSONObject jSONObject;
         PMSAppInfo tf;
         if (DEBUG) {
-            Log.d("SwanLauncher", "onUpdateFinished() SwanCoreVersion: " + com.baidu.swan.apps.swancore.b.hb(i));
-            Log.d("SwanLauncher", "onUpdateFinished() ExtensionCoreVersion: " + com.baidu.swan.apps.extcore.b.fe(i));
+            Log.d("SwanLauncher", "onUpdateFinished() SwanCoreVersion: " + com.baidu.swan.apps.swancore.b.hd(i));
+            Log.d("SwanLauncher", "onUpdateFinished() ExtensionCoreVersion: " + com.baidu.swan.apps.extcore.b.fg(i));
         }
         if (com.baidu.swan.apps.swancore.b.arR()) {
             com.baidu.swan.apps.swancore.b.a.arX();
         }
-        bundle.putParcelable("swanCoreVersion", com.baidu.swan.apps.swancore.b.hb(i));
-        bundle.putParcelable("extensionCore", com.baidu.swan.apps.extcore.b.fe(i));
+        bundle.putParcelable("swanCoreVersion", com.baidu.swan.apps.swancore.b.hd(i));
+        bundle.putParcelable("extensionCore", com.baidu.swan.apps.extcore.b.fg(i));
         Bundle d = com.baidu.swan.apps.af.a.a.d(com.baidu.swan.apps.v.b.c.F(bundle));
         if (d != null) {
             bundle.putAll(d);
@@ -313,7 +313,7 @@ public final class SwanLauncher {
         if (arrayList == null || arrayList.isEmpty()) {
             cVar.onCompleted();
         } else {
-            rx.b.l(arrayList).b(rx.a.b.a.dPv()).a(rx.a.b.a.dPv()).c(cVar);
+            rx.b.l(arrayList).b(rx.a.b.a.dPJ()).a(rx.a.b.a.dPJ()).c(cVar);
         }
     }
 

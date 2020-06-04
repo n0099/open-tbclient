@@ -106,7 +106,7 @@ public class d extends com.baidu.swan.apps.api.a.d {
                     }
 
                     @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-                    public void ej(int i) {
+                    public void el(int i) {
                         com.baidu.swan.apps.console.c.e("Api-ReLaunch", "check pages failed");
                         ahV.QK();
                         if (com.baidu.swan.apps.api.a.d.DEBUG) {

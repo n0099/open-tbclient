@@ -20,7 +20,7 @@ public class g implements q {
     }
 
     @Override // com.baidu.ubc.q
-    public List<String> dai() {
+    public List<String> day() {
         return null;
     }
 }

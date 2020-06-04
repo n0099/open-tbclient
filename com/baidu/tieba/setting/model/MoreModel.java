@@ -4,8 +4,8 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes13.dex */
 public class MoreModel extends BdBaseModel {
-    private boolean kUu;
-    private PersonChangeData krP;
+    private boolean kVD;
+    private PersonChangeData ksV;
 
     /* loaded from: classes13.dex */
     public enum TaskType {
@@ -15,24 +15,24 @@ public class MoreModel extends BdBaseModel {
 
     public MoreModel(PersonChangeData personChangeData) {
         super(null);
-        this.krP = null;
-        this.kUu = false;
-        this.krP = personChangeData;
-        if (this.krP == null) {
-            this.krP = new PersonChangeData();
+        this.ksV = null;
+        this.kVD = false;
+        this.ksV = personChangeData;
+        if (this.ksV == null) {
+            this.ksV = new PersonChangeData();
         }
     }
 
     public void b(PersonChangeData personChangeData) {
-        this.krP = personChangeData;
+        this.ksV = personChangeData;
     }
 
     public void tR(boolean z) {
-        this.kUu = z;
+        this.kVD = z;
     }
 
-    public boolean cXb() {
-        return this.kUu;
+    public boolean cXr() {
+        return this.kVD;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -45,7 +45,7 @@ public class MoreModel extends BdBaseModel {
         return false;
     }
 
-    public PersonChangeData cXc() {
-        return this.krP;
+    public PersonChangeData cXs() {
+        return this.ksV;
     }
 }

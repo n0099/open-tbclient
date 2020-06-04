@@ -39,7 +39,7 @@ public class v {
     private v() {
     }
 
-    public static synchronized v bgG() {
+    public static synchronized v bgH() {
         v vVar;
         synchronized (v.class) {
             if (evn == null) {

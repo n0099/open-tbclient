@@ -32,7 +32,7 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
                     arrayList.add(bVar);
                 }
             }
-            this.mHistoryData.fhi = arrayList;
+            this.mHistoryData.fht = arrayList;
         }
     }
 

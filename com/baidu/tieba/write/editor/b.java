@@ -24,25 +24,25 @@ public class b extends l {
         }
     }
 
-    public void vt(boolean z) {
+    public void vv(boolean z) {
         if (this.ekV instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ekV).vt(z);
+            ((EditorInfoContainer) this.ekV).vv(z);
         }
     }
 
-    public void bPf() {
+    public void bPh() {
         if (this.ekV instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ekV).bPf();
+            ((EditorInfoContainer) this.ekV).bPh();
         }
     }
 
-    public void dmS() {
+    public void dni() {
         if (this.ekV instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ekV).dmS();
+            ((EditorInfoContainer) this.ekV).dni();
         }
     }
 
-    public void dmW() {
+    public void dnm() {
         if (this.ekV instanceof EditorInfoContainer) {
             ((EditorInfoContainer) this.ekV).hide();
         }

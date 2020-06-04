@@ -25,24 +25,24 @@ public class a extends f {
     @Override // com.baidu.swan.pms.a.g
     public void ZL() {
         super.ZL();
-        eW(0);
+        eY(0);
     }
 
     @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
     public void b(com.baidu.swan.pms.model.a aVar) {
         super.b(aVar);
-        eW(-1);
+        eY(-1);
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
     protected void ZR() {
         super.ZR();
         if (aaa() == null) {
-            eW(1);
+            eY(1);
             ba("page_route_download", "0");
             return;
         }
-        eW(-1);
+        eY(-1);
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
@@ -52,10 +52,10 @@ public class a extends f {
 
     @Override // com.baidu.swan.apps.core.pms.f
     protected void p(Throwable th) {
-        eW(-1);
+        eY(-1);
     }
 
-    private void eW(final int i) {
+    private void eY(final int i) {
         aj.p(new Runnable() { // from class: com.baidu.swan.apps.core.pms.c.a.1
             @Override // java.lang.Runnable
             public void run() {

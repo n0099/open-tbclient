@@ -513,9 +513,9 @@ public class b {
             throw new SecurityException("No supported signatures found");
         }
         String e3 = e(i2);
-        Pair<String, ? extends AlgorithmParameterSpec> bx = bx(i2);
-        String str = (String) bx.first;
-        AlgorithmParameterSpec algorithmParameterSpec = (AlgorithmParameterSpec) bx.second;
+        Pair<String, ? extends AlgorithmParameterSpec> bz = bz(i2);
+        String str = (String) bz.first;
+        AlgorithmParameterSpec algorithmParameterSpec = (AlgorithmParameterSpec) bz.second;
         try {
             PublicKey generatePublic = KeyFactory.getInstance(e3).generatePublic(new X509EncodedKeySpec(g3));
             Signature signature = Signature.getInstance(str);
@@ -765,7 +765,7 @@ public class b {
         return a(randomAccessFile, randomAccessFile.getFD(), c(randomAccessFile));
     }
 
-    private static Pair<String, ? extends AlgorithmParameterSpec> bx(int i) {
+    private static Pair<String, ? extends AlgorithmParameterSpec> bz(int i) {
         switch (i) {
             case 257:
                 return Pair.create("SHA256withRSA/PSS", new PSSParameterSpec("SHA-256", "MGF1", MGF1ParameterSpec.SHA256, 32, 1));

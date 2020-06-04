@@ -12,28 +12,28 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public class a<T> extends RecyclerView.Adapter<b<T>> {
     protected List<T> aAp;
-    private final int naE;
-    private com.kascend.chushou.widget.convenientbanner.c.a<T> naF;
-    private ConvenientBanner naG;
-    private boolean nax;
+    private boolean nbH;
+    private final int nbO;
+    private com.kascend.chushou.widget.convenientbanner.c.a<T> nbP;
+    private ConvenientBanner nbQ;
 
     public a(com.kascend.chushou.widget.convenientbanner.c.a<T> aVar, List<T> list, boolean z, ConvenientBanner convenientBanner) {
-        this.naF = aVar;
-        this.naE = aVar.getLayoutId();
+        this.nbP = aVar;
+        this.nbO = aVar.getLayoutId();
         this.aAp = list;
-        this.nax = z;
-        this.naG = convenientBanner;
+        this.nbH = z;
+        this.nbQ = convenientBanner;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: D */
+    /* renamed from: E */
     public b<T> onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(this.naE, viewGroup, false);
-        if (this.naG != null) {
-            inflate.setTag(this.naG);
+        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(this.nbO, viewGroup, false);
+        if (this.nbQ != null) {
+            inflate.setTag(this.nbQ);
         }
-        return this.naF.du(inflate);
+        return this.nbP.du(inflate);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,10 +59,10 @@ public class a<T> extends RecyclerView.Adapter<b<T>> {
         if (this.aAp == null || this.aAp.size() == 0) {
             return 0;
         }
-        return this.nax ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.aAp.size();
+        return this.nbH ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.aAp.size();
     }
 
-    public int brV() {
+    public int brX() {
         return this.aAp.size();
     }
 }

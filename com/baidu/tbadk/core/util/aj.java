@@ -70,7 +70,7 @@ public class aj {
         MessageManager.getInstance().registerListener(this.dNP);
     }
 
-    public boolean kZ(int i) {
+    public boolean lb(int i) {
         if (i == dNK) {
             com.baidu.adp.lib.util.l.showToast(this.dIF.getPageActivity(), (int) R.string.reason_cannot_reply_thread);
             return false;
@@ -101,7 +101,7 @@ public class aj {
     private void aUM() {
         if (this.Zw == null) {
             this.Zw = new com.baidu.tbadk.core.dialog.a(this.dIF.getPageActivity());
-            this.Zw.kD(R.string.message_privacy_fans_can_reply);
+            this.Zw.kF(R.string.message_privacy_fans_can_reply);
             this.Zw.a(R.string.attention_and_reply, new a.b() { // from class: com.baidu.tbadk.core.util.aj.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {

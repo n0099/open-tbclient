@@ -39,9 +39,9 @@ public class fj implements ix<fj, Object>, Serializable, Cloneable {
         int a3;
         int a4;
         if (getClass().equals(fjVar.getClass())) {
-            int compareTo = Boolean.valueOf(m276a()).compareTo(Boolean.valueOf(fjVar.m276a()));
+            int compareTo = Boolean.valueOf(m275a()).compareTo(Boolean.valueOf(fjVar.m275a()));
             if (compareTo == 0) {
-                if (!m276a() || (a4 = iy.a(this.f334a, fjVar.f334a)) == 0) {
+                if (!m275a() || (a4 = iy.a(this.f334a, fjVar.f334a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(fjVar.b()));
                     if (compareTo2 == 0) {
                         if (!b() || (a3 = iy.a(this.f336b, fjVar.f336b)) == 0) {
@@ -81,36 +81,36 @@ public class fj implements ix<fj, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ix
     public void a(ji jiVar) {
-        jiVar.m487a();
+        jiVar.m486a();
         while (true) {
-            jf m483a = jiVar.m483a();
-            if (m483a.a == 0) {
+            jf m482a = jiVar.m482a();
+            if (m482a.a == 0) {
                 jiVar.f();
                 a();
                 return;
             }
-            switch (m483a.f777a) {
+            switch (m482a.f777a) {
                 case 1:
-                    if (m483a.a == 11) {
-                        this.f334a = jiVar.m488a();
+                    if (m482a.a == 11) {
+                        this.f334a = jiVar.m487a();
                         break;
                     } else {
-                        jl.a(jiVar, m483a.a);
+                        jl.a(jiVar, m482a.a);
                         break;
                     }
                 case 2:
-                    if (m483a.a == 11) {
-                        this.f336b = jiVar.m488a();
+                    if (m482a.a == 11) {
+                        this.f336b = jiVar.m487a();
                         break;
                     } else {
-                        jl.a(jiVar, m483a.a);
+                        jl.a(jiVar, m482a.a);
                         break;
                     }
                 case 3:
-                    if (m483a.a == 15) {
-                        jg m484a = jiVar.m484a();
-                        this.f335a = new ArrayList(m484a.f778a);
-                        for (int i = 0; i < m484a.f778a; i++) {
+                    if (m482a.a == 15) {
+                        jg m483a = jiVar.m483a();
+                        this.f335a = new ArrayList(m483a.f778a);
+                        for (int i = 0; i < m483a.f778a; i++) {
                             fi fiVar = new fi();
                             fiVar.a(jiVar);
                             this.f335a.add(fiVar);
@@ -118,11 +118,11 @@ public class fj implements ix<fj, Object>, Serializable, Cloneable {
                         jiVar.i();
                         break;
                     } else {
-                        jl.a(jiVar, m483a.a);
+                        jl.a(jiVar, m482a.a);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m483a.a);
+                    jl.a(jiVar, m482a.a);
                     break;
             }
             jiVar.g();
@@ -130,18 +130,18 @@ public class fj implements ix<fj, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m276a() {
+    public boolean m275a() {
         return this.f334a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m277a(fj fjVar) {
+    public boolean m276a(fj fjVar) {
         if (fjVar == null) {
             return false;
         }
-        boolean m276a = m276a();
-        boolean m276a2 = fjVar.m276a();
-        if ((m276a || m276a2) && !(m276a && m276a2 && this.f334a.equals(fjVar.f334a))) {
+        boolean m275a = m275a();
+        boolean m275a2 = fjVar.m275a();
+        if ((m275a || m275a2) && !(m275a && m275a2 && this.f334a.equals(fjVar.f334a))) {
             return false;
         }
         boolean b2 = b();
@@ -178,7 +178,7 @@ public class fj implements ix<fj, Object>, Serializable, Cloneable {
             jiVar.b();
         }
         jiVar.c();
-        jiVar.m491a();
+        jiVar.m490a();
     }
 
     public boolean b() {
@@ -191,7 +191,7 @@ public class fj implements ix<fj, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof fj)) {
-            return m277a((fj) obj);
+            return m276a((fj) obj);
         }
         return false;
     }

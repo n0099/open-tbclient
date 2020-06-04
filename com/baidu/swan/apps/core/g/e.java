@@ -86,7 +86,7 @@ public class e implements a {
 
     @Override // com.baidu.swan.apps.core.g.a
     public void a(com.baidu.swan.apps.core.turbo.a aVar) {
-        if (com.baidu.swan.apps.u.a.aeU().ee(0) && aVar != null) {
+        if (com.baidu.swan.apps.u.a.aeU().eg(0) && aVar != null) {
             if (DEBUG) {
                 Log.d("V8MasterAdapter", "pathList item: " + aVar.appPath);
             }

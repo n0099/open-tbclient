@@ -25,7 +25,7 @@ public class b {
     public boolean mIsRequestImage = false;
     public int mImageType = 0;
 
-    public g aVe() {
+    public g aVf() {
         return this.dOz;
     }
 
@@ -66,23 +66,23 @@ public class b {
         }
         int netType = j.netType();
         qVar.addPostData("net_type", String.valueOf(netType));
-        String aXD = com.baidu.tbadk.coreExtra.b.a.aXA().aXD();
+        String aXE = com.baidu.tbadk.coreExtra.b.a.aXB().aXE();
         if (TbSingleton.getInstance().isVisitPreviewServer()) {
-            aXD = aXD + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
+            aXE = aXE + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
         }
         if (1 == netType) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                str = aXD + "ka=open";
+                str = aXE + "ka=open";
                 z = true;
             }
-            str = aXD;
+            str = aXE;
             z = false;
         } else {
             if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
-                str = aXD + "ka=open";
+                str = aXE + "ka=open";
                 z = true;
             }
-            str = aXD;
+            str = aXE;
             z = false;
         }
         com.baidu.adp.lib.network.a.a.setKeepAlive(z);

@@ -7,14 +7,14 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AntiContentHttpResponseMessage extends JsonHttpResponsedMessage {
     private int bAb;
-    private int eWx;
-    private int eWy;
-    public List<FuFaceItem> eWz;
+    private int eWI;
+    private int eWJ;
+    public List<FuFaceItem> eWK;
     private int mask;
 
     public AntiContentHttpResponseMessage() {
         super(1021158);
-        this.eWz = null;
+        this.eWK = null;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -22,14 +22,14 @@ public class AntiContentHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.eWx = optJSONObject.optInt("auditType");
+            this.eWI = optJSONObject.optInt("auditType");
             this.mask = optJSONObject.optInt("mask");
             this.bAb = optJSONObject.optInt("display");
-            this.eWy = optJSONObject.optInt("ansSense");
+            this.eWJ = optJSONObject.optInt("ansSense");
         }
     }
 
-    public boolean bpA() {
+    public boolean bpC() {
         return this.bAb == 1;
     }
 }

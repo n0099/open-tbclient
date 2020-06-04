@@ -7,56 +7,56 @@ import java.io.InputStream;
 public final class j {
     int distance;
     int j;
-    int nBB;
-    byte[] nBD;
-    int nBG;
-    boolean nBH;
-    boolean nBI;
-    boolean nBJ;
-    int nBU;
-    int nBV;
-    byte[] nBW;
-    byte[] nBX;
-    int nBY;
-    int nBZ;
-    int nCa;
-    int nCb;
-    int nCc;
-    int nCd;
-    byte[] nCe;
-    int nCf;
-    int nCg;
-    int nCh;
-    int nCi;
-    int nCj;
-    int nCk;
-    int nCl;
-    int nCq;
-    int nCr;
-    int nCs;
-    int nCt;
-    int ngb;
+    int nCL;
+    byte[] nCN;
+    int nCQ;
+    boolean nCR;
+    boolean nCS;
+    boolean nCT;
+    int nDA;
+    int nDB;
+    int nDC;
+    int nDD;
+    int nDe;
+    int nDf;
+    byte[] nDg;
+    byte[] nDh;
+    int nDi;
+    int nDj;
+    int nDk;
+    int nDl;
+    int nDm;
+    int nDn;
+    byte[] nDo;
+    int nDp;
+    int nDq;
+    int nDr;
+    int nDs;
+    int nDt;
+    int nDu;
+    int nDv;
+    int nhl;
     byte[] output;
-    int nBA = 0;
-    final a nBC = new a();
-    final int[] nBE = new int[3240];
-    final int[] nBF = new int[3240];
-    final g nBK = new g();
-    final g nBL = new g();
-    final g nBM = new g();
-    final int[] nBN = new int[3];
-    final int[] nBO = new int[3];
-    final int[] nBP = new int[6];
-    final int[] nBQ = {16, 15, 11, 4};
+    int nCK = 0;
+    final a nCM = new a();
+    final int[] nCO = new int[3240];
+    final int[] nCP = new int[3240];
+    final g nCU = new g();
+    final g nCV = new g();
+    final g nCW = new g();
+    final int[] nCX = new int[3];
+    final int[] nCY = new int[3];
+    final int[] nCZ = new int[6];
+    final int[] nDa = {16, 15, 11, 4};
     int pos = 0;
-    int fEi = 0;
-    int nBR = 0;
-    boolean nBS = false;
-    int nBT = 0;
-    int nCm = 0;
-    long nCn = 0;
-    byte[] nCo = new byte[0];
-    int nCp = 0;
+    int fEt = 0;
+    int nDb = 0;
+    boolean nDc = false;
+    int nDd = 0;
+    int nDw = 0;
+    long nDx = 0;
+    byte[] nDy = new byte[0];
+    int nDz = 0;
 
     private static int i(a aVar) {
         if (a.a(aVar, 1) == 0) {
@@ -75,27 +75,27 @@ public final class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(j jVar, InputStream inputStream) {
-        if (jVar.nBA != 0) {
+        if (jVar.nCK != 0) {
             throw new IllegalStateException("State MUST be uninitialized");
         }
-        a.a(jVar.nBC, inputStream);
-        int i = i(jVar.nBC);
+        a.a(jVar.nCM, inputStream);
+        int i = i(jVar.nCM);
         if (i == 9) {
             throw new BrotliRuntimeException("Invalid 'windowBits' code");
         }
-        jVar.nCl = 1 << i;
-        jVar.nCk = jVar.nCl - 16;
-        jVar.nBA = 1;
+        jVar.nDv = 1 << i;
+        jVar.nDu = jVar.nDv - 16;
+        jVar.nCK = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void j(j jVar) throws IOException {
-        if (jVar.nBA == 0) {
+        if (jVar.nCK == 0) {
             throw new IllegalStateException("State MUST be initialized");
         }
-        if (jVar.nBA != 11) {
-            jVar.nBA = 11;
-            a.e(jVar.nBC);
+        if (jVar.nCK != 11) {
+            jVar.nCK = 11;
+            a.e(jVar.nCM);
         }
     }
 }

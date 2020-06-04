@@ -12,7 +12,7 @@ import com.baidu.tbadk.coreExtra.relationship.c;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class AssortView extends View {
-    private a eRf;
+    private a eRq;
     private Paint mPaint;
     private int mPosition;
 
@@ -20,7 +20,7 @@ public class AssortView extends View {
     public interface a {
         void Ae(String str);
 
-        void bmT();
+        void bmV();
     }
 
     public AssortView(Context context) {
@@ -46,7 +46,7 @@ public class AssortView extends View {
     }
 
     public void setOnTouchListener(a aVar) {
-        this.eRf = aVar;
+        this.eRq = aVar;
     }
 
     @Override // android.view.View
@@ -80,22 +80,22 @@ public class AssortView extends View {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.mPosition = y;
-                    if (this.eRf != null) {
-                        this.eRf.Ae(c.eeA[this.mPosition]);
+                    if (this.eRq != null) {
+                        this.eRq.Ae(c.eeA[this.mPosition]);
                         return true;
                     }
                     return true;
                 case 1:
-                    if (this.eRf != null) {
-                        this.eRf.bmT();
+                    if (this.eRq != null) {
+                        this.eRq.bmV();
                     }
                     this.mPosition = -1;
                     return true;
                 case 2:
                     if (this.mPosition != y) {
                         this.mPosition = y;
-                        if (this.eRf != null) {
-                            this.eRf.Ae(c.eeA[this.mPosition]);
+                        if (this.eRq != null) {
+                            this.eRq.Ae(c.eeA[this.mPosition]);
                             return true;
                         }
                         return true;
@@ -106,8 +106,8 @@ public class AssortView extends View {
             }
         }
         this.mPosition = -1;
-        if (this.eRf != null) {
-            this.eRf.bmT();
+        if (this.eRq != null) {
+            this.eRq.bmV();
             return true;
         }
         return true;

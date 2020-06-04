@@ -15,6 +15,6 @@ public class e extends com.baidu.swan.apps.p.a<com.baidu.swan.apps.p.c.c> {
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.p.c.c cVar) {
         int i = command.arg1;
         a(cVar, command.what, "(keyboardHeight)" + i, true);
-        cVar.fr(i);
+        cVar.ft(i);
     }
 }

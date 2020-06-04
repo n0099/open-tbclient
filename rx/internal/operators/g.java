@@ -8,7 +8,7 @@ import rx.g;
 import rx.schedulers.Schedulers;
 /* loaded from: classes6.dex */
 public final class g<T> implements d.a<T> {
-    static final rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>> nFs = new rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>>() { // from class: rx.internal.operators.g.1
+    static final rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>> nGC = new rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>>() { // from class: rx.internal.operators.g.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: rx.d<R>, rx.d<?> */
         @Override // rx.functions.f
@@ -24,10 +24,10 @@ public final class g<T> implements d.a<T> {
             });
         }
     };
-    final rx.d<T> nEp;
-    private final rx.functions.f<? super rx.d<? extends Notification<?>>, ? extends rx.d<?>> nFp;
-    final boolean nFq;
-    final boolean nFr;
+    final rx.d<T> nFz;
+    final boolean nGA;
+    final boolean nGB;
+    private final rx.functions.f<? super rx.d<? extends Notification<?>>, ? extends rx.d<?>> nGz;
     private final rx.g scheduler;
 
     @Override // rx.functions.b
@@ -36,7 +36,7 @@ public final class g<T> implements d.a<T> {
     }
 
     public static <T> rx.d<T> b(rx.d<T> dVar) {
-        return a(dVar, nFs);
+        return a(dVar, nGC);
     }
 
     public static <T> rx.d<T> a(rx.d<T> dVar, rx.functions.f<? super rx.d<? extends Notification<?>>, ? extends rx.d<?>> fVar) {
@@ -44,10 +44,10 @@ public final class g<T> implements d.a<T> {
     }
 
     private g(rx.d<T> dVar, rx.functions.f<? super rx.d<? extends Notification<?>>, ? extends rx.d<?>> fVar, boolean z, boolean z2, rx.g gVar) {
-        this.nEp = dVar;
-        this.nFp = fVar;
-        this.nFq = z;
-        this.nFr = z2;
+        this.nFz = dVar;
+        this.nGz = fVar;
+        this.nGA = z;
+        this.nGB = z2;
         this.scheduler = gVar;
     }
 
@@ -58,8 +58,8 @@ public final class g<T> implements d.a<T> {
         jVar.add(createWorker);
         final rx.subscriptions.d dVar = new rx.subscriptions.d();
         jVar.add(dVar);
-        final rx.subjects.b<T, T> dQM = rx.subjects.a.dQI().dQM();
-        dQM.b(rx.b.f.dQm());
+        final rx.subjects.b<T, T> dRa = rx.subjects.a.dQW().dRa();
+        dRa.b(rx.b.f.dQA());
         final rx.internal.producers.a aVar = new rx.internal.producers.a();
         final rx.functions.a aVar2 = new rx.functions.a() { // from class: rx.internal.operators.g.2
             @Override // rx.functions.a
@@ -73,7 +73,7 @@ public final class g<T> implements d.a<T> {
                             if (!this.done) {
                                 this.done = true;
                                 unsubscribe();
-                                dQM.onNext(Notification.dPe());
+                                dRa.onNext(Notification.dPs());
                             }
                         }
 
@@ -82,7 +82,7 @@ public final class g<T> implements d.a<T> {
                             if (!this.done) {
                                 this.done = true;
                                 unsubscribe();
-                                dQM.onNext(Notification.U(th));
+                                dRa.onNext(Notification.U(th));
                             }
                         }
 
@@ -90,12 +90,12 @@ public final class g<T> implements d.a<T> {
                         public void onNext(T t) {
                             if (!this.done) {
                                 jVar.onNext(t);
-                                dPD();
+                                dPR();
                                 aVar.produced(1L);
                             }
                         }
 
-                        private void dPD() {
+                        private void dPR() {
                             long j;
                             do {
                                 j = atomicLong.get();
@@ -111,11 +111,11 @@ public final class g<T> implements d.a<T> {
                         }
                     };
                     dVar.f(jVar2);
-                    g.this.nEp.a((rx.j) jVar2);
+                    g.this.nFz.a((rx.j) jVar2);
                 }
             }
         };
-        final rx.d<?> call = this.nFp.call(dQM.a((d.b<? extends T, ? super T>) new d.b<Notification<?>, Notification<?>>() { // from class: rx.internal.operators.g.3
+        final rx.d<?> call = this.nGz.call(dRa.a((d.b<? extends T, ? super T>) new d.b<Notification<?>, Notification<?>>() { // from class: rx.internal.operators.g.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             public rx.j<? super Notification<?>> call(final rx.j<? super Notification<?>> jVar2) {
@@ -134,10 +134,10 @@ public final class g<T> implements d.a<T> {
                     @Override // rx.e
                     /* renamed from: b */
                     public void onNext(Notification<?> notification) {
-                        if (notification.dPi() && g.this.nFq) {
+                        if (notification.dPw() && g.this.nGA) {
                             jVar2.onCompleted();
-                        } else if (notification.dKu() && g.this.nFr) {
-                            jVar2.onError(notification.dPf());
+                        } else if (notification.dKI() && g.this.nGB) {
+                            jVar2.onError(notification.dPt());
                         } else {
                             jVar2.onNext(notification);
                         }

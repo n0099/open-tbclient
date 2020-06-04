@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class a {
-    private ArrayList<Integer> eME;
-    private c eMF;
+    private ArrayList<Integer> eMP;
+    private c eMQ;
     private HashMap<String, b> mData = new HashMap<>();
 
     public a(c cVar, ArrayList<Integer> arrayList) {
-        this.eME = arrayList;
-        this.eMF = cVar;
+        this.eMP = arrayList;
+        this.eMQ = cVar;
     }
 
     public int as(String str, int i) {
-        if (this.mData == null || aq.isEmpty(str) || this.eME == null || !this.eME.contains(Integer.valueOf(i))) {
+        if (this.mData == null || aq.isEmpty(str) || this.eMP == null || !this.eMP.contains(Integer.valueOf(i))) {
             return 0;
         }
         if (!this.mData.containsKey(str)) {
@@ -25,19 +25,19 @@ public class a {
         if (bVar == null) {
             return 0;
         }
-        return bVar.oY(i);
+        return bVar.pa(i);
     }
 
     public void zJ(String str) {
-        if (this.mData != null && !aq.isEmpty(str) && this.eMF != null) {
+        if (this.mData != null && !aq.isEmpty(str) && this.eMQ != null) {
             if (this.mData.containsKey(str)) {
                 b bVar = this.mData.get(str);
-                this.eMF.a(this.eME, bVar);
+                this.eMQ.a(this.eMP, bVar);
                 this.mData.put(str, bVar);
                 return;
             }
             b bVar2 = new b();
-            this.eMF.a(this.eME, bVar2);
+            this.eMQ.a(this.eMP, bVar2);
             this.mData.put(str, bVar2);
         }
     }

@@ -42,44 +42,44 @@ public class a extends Drawable {
         this.aUK.setAntiAlias(true);
     }
 
-    public static a aVI() {
+    public static a aVJ() {
         return new a();
     }
 
-    public a lw(int i) {
+    public a ly(int i) {
         this.dQI = i;
         return this;
     }
 
-    public a lx(int i) {
+    public a lz(int i) {
         this.dRf = i;
         return this;
     }
 
-    public a ly(int i) {
+    public a lA(int i) {
         this.dRd = i;
         return this;
     }
 
-    public a lz(@ColorRes int i) {
+    public a lB(@ColorRes int i) {
         this.dRc = com.baidu.tbadk.core.util.e.c.a.getColor(i);
         this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, this.dRc);
         return this;
     }
 
-    public a lA(int i) {
+    public a lC(int i) {
         this.mShadowRadius = i;
         this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, this.dRc);
         return this;
     }
 
-    public a lB(int i) {
+    public a lD(int i) {
         this.mOffsetX = i;
         this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, this.dRc);
         return this;
     }
 
-    public a lC(int i) {
+    public a lE(int i) {
         this.mOffsetY = i;
         this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, this.dRc);
         return this;
@@ -99,7 +99,7 @@ public class a extends Drawable {
         return this;
     }
 
-    public a lD(@ColorRes int i) {
+    public a lF(@ColorRes int i) {
         this.dRe[0] = com.baidu.tbadk.core.util.e.c.a.getColor(i);
         return this;
     }

@@ -13,17 +13,17 @@ import java.util.List;
 import tbclient.ThreadInfo;
 /* loaded from: classes9.dex */
 public class d {
-    public static long ifE;
-    private String ifD;
+    public static long igr;
+    private String igq;
 
-    public void cP(List<o> list) {
+    public void cQ(List<o> list) {
         com.baidu.tieba.card.data.c cVar;
         if (TbadkCoreApplication.isLogin()) {
-            if (this.ifD == null) {
-                this.ifD = com.baidu.tbadk.core.sharedPref.b.aTX().getString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), "");
+            if (this.igq == null) {
+                this.igq = com.baidu.tbadk.core.sharedPref.b.aTX().getString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), "");
             }
-            if (!StringUtils.isNull(this.ifD)) {
-                String[] split = this.ifD.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            if (!StringUtils.isNull(this.igq)) {
+                String[] split = this.igq.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 if (split.length == 2) {
                     String str = split[0];
                     long j = com.baidu.adp.lib.f.b.toLong(split[1], 0L);
@@ -32,7 +32,7 @@ public class d {
                             if ((list.get(i) instanceof com.baidu.tieba.card.data.c) && (cVar = (com.baidu.tieba.card.data.c) list.get(i)) != null && !StringUtils.isNull(cVar.tid) && cVar.tid.equals(str)) {
                                 c cVar2 = new c();
                                 cVar2.mTimeStamp = j;
-                                cVar2.ifC = false;
+                                cVar2.igp = false;
                                 list.add(i, cVar2);
                                 return;
                             }
@@ -46,23 +46,23 @@ public class d {
     public void e(boolean z, List<ThreadInfo> list) {
         ThreadInfo threadInfo;
         if (TbadkCoreApplication.isLogin() && !v.isEmpty(list) && z && (threadInfo = (ThreadInfo) v.getItem(list, 0)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
-            this.ifD = null;
-            ifE = threadInfo.tid.longValue();
+            this.igq = null;
+            igr = threadInfo.tid.longValue();
             com.baidu.tbadk.core.sharedPref.b.aTX().putString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis());
         }
     }
 
     public void b(ThreadInfo threadInfo) {
-        if (h.ifa && threadInfo != null && threadInfo != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
-            this.ifD = null;
-            ifE = threadInfo.tid.longValue();
+        if (h.ifN && threadInfo != null && threadInfo != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
+            this.igq = null;
+            igr = threadInfo.tid.longValue();
             com.baidu.tbadk.core.sharedPref.b.aTX().putString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis());
         }
     }
 
     public static void a(long j, int i, List<ThreadInfo> list, List<o> list2) {
         final ThreadInfo threadInfo;
-        if (j == ifE && !v.isEmpty(list) && !v.isEmpty(list2)) {
+        if (j == igr && !v.isEmpty(list) && !v.isEmpty(list2)) {
             if (i == 0) {
                 int i2 = 0;
                 while (true) {
@@ -79,7 +79,7 @@ public class d {
                     }
                 }
             } else if (v.getCount(list) > i + 1 && (threadInfo = list.get(i + 1)) != null && threadInfo.tid.longValue() != 0) {
-                ifE = threadInfo.tid.longValue();
+                igr = threadInfo.tid.longValue();
                 ad.a(new ac<Object>() { // from class: com.baidu.tieba.homepage.personalize.b.d.1
                     @Override // com.baidu.tbadk.util.ac
                     public Object doInBackground() {

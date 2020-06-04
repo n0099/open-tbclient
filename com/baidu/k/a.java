@@ -5,7 +5,7 @@ import android.util.Base64;
 import java.io.UnsupportedEncodingException;
 /* loaded from: classes13.dex */
 public class a {
-    public static String Pm(String str) {
+    public static String Pn(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "process";
         }

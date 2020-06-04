@@ -38,7 +38,7 @@ public class d {
         return new JsObject();
     }
 
-    public static String iu(int i) {
+    public static String iw(int i) {
         switch (i) {
             case 1:
                 return "boolean";

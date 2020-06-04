@@ -9,7 +9,7 @@ import rx.k;
 /* loaded from: classes6.dex */
 public class g implements k {
     public static final int SIZE;
-    public volatile Object nJd;
+    public volatile Object nKn;
     private Queue<Object> queue;
     private final int size;
 
@@ -29,12 +29,12 @@ public class g implements k {
         SIZE = i;
     }
 
-    public static g dPY() {
-        return ae.dQh() ? new g(false, SIZE) : new g();
+    public static g dQm() {
+        return ae.dQv() ? new g(false, SIZE) : new g();
     }
 
-    public static g dPZ() {
-        return ae.dQh() ? new g(true, SIZE) : new g();
+    public static g dQn() {
+        return ae.dQv() ? new g(true, SIZE) : new g();
     }
 
     private g(Queue<Object> queue, int i) {
@@ -80,8 +80,8 @@ public class g implements k {
     }
 
     public void onCompleted() {
-        if (this.nJd == null) {
-            this.nJd = NotificationLite.dPB();
+        if (this.nKn == null) {
+            this.nKn = NotificationLite.dPP();
         }
     }
 
@@ -96,9 +96,9 @@ public class g implements k {
             Queue<Object> queue = this.queue;
             if (queue != null) {
                 Object poll = queue.poll();
-                obj = this.nJd;
+                obj = this.nKn;
                 if (poll == null && obj != null && queue.peek() == null) {
-                    this.nJd = null;
+                    this.nKn = null;
                 } else {
                     obj = poll;
                 }
@@ -115,7 +115,7 @@ public class g implements k {
                 obj = null;
             } else {
                 Object peek = queue.peek();
-                obj = this.nJd;
+                obj = this.nKn;
                 if (peek != null || obj == null || queue.peek() != null) {
                     obj = peek;
                 }

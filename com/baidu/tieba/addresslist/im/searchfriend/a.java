@@ -18,24 +18,24 @@ import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class a {
     private Context context;
-    private EditText eQS;
-    private TextView eQT;
-    private ImageView eQU;
-    private InterfaceC0510a eQV;
-    private View.OnClickListener eQW = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.1
+    private EditText eRd;
+    private TextView eRe;
+    private ImageView eRf;
+    private InterfaceC0510a eRg;
+    private View.OnClickListener eRh = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == a.this.eQT) {
-                String charSequence2String = k.charSequence2String(a.this.eQS.getText(), null);
+            if (view == a.this.eRe) {
+                String charSequence2String = k.charSequence2String(a.this.eRd.getText(), null);
                 if (!StringUtils.isNULL(charSequence2String)) {
                     if (charSequence2String.trim().length() != 0) {
                         a.this.Aq(charSequence2String.trim());
-                        a.this.eQT.setClickable(false);
+                        a.this.eRe.setClickable(false);
                     } else if (charSequence2String.length() > 0) {
                         a.this.mPageContext.showToast(R.string.input_content);
                     }
                 }
-            } else if (view == a.this.eQU) {
+            } else if (view == a.this.eRf) {
                 a.this.Ap("");
             }
         }
@@ -50,21 +50,21 @@ public class a {
     }
 
     public void ja(boolean z) {
-        this.eQT.setClickable(z);
+        this.eRe.setClickable(z);
     }
 
     public void Ap(String str) {
-        this.eQS.setText(str);
+        this.eRd.setText(str);
     }
 
     public a(TbPageContext<?> tbPageContext, View view) {
         this.mPageContext = tbPageContext;
         this.context = this.mPageContext.getPageActivity();
-        this.eQS = (EditText) view.findViewById(R.id.new_search_friend_input);
-        this.eQT = (TextView) view.findViewById(R.id.new_search_friend_search);
-        this.eQU = (ImageView) view.findViewById(R.id.new_search_friend_del);
-        this.eQT.setOnClickListener(this.eQW);
-        this.eQU.setOnClickListener(this.eQW);
+        this.eRd = (EditText) view.findViewById(R.id.new_search_friend_input);
+        this.eRe = (TextView) view.findViewById(R.id.new_search_friend_search);
+        this.eRf = (ImageView) view.findViewById(R.id.new_search_friend_del);
+        this.eRe.setOnClickListener(this.eRh);
+        this.eRf.setOnClickListener(this.eRh);
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -77,38 +77,38 @@ public class a {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (TextUtils.isEmpty(editable)) {
-                    a.this.eQU.setVisibility(8);
+                    a.this.eRf.setVisibility(8);
                 } else {
-                    a.this.eQU.setVisibility(0);
+                    a.this.eRf.setVisibility(0);
                 }
             }
         };
-        this.eQS.addTextChangedListener(this.mTextWatcher);
+        this.eRd.addTextChangedListener(this.mTextWatcher);
         changeSkin(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void bnn() {
-        this.eQS.removeTextChangedListener(this.mTextWatcher);
+    public void bnp() {
+        this.eRd.removeTextChangedListener(this.mTextWatcher);
     }
 
-    public void bno() {
-        l.hideSoftKeyPad(this.context, this.eQS);
+    public void bnq() {
+        l.hideSoftKeyPad(this.context, this.eRd);
     }
 
     public void a(InterfaceC0510a interfaceC0510a) {
-        this.eQV = interfaceC0510a;
+        this.eRg = interfaceC0510a;
     }
 
     public void changeSkin(int i) {
-        am.setViewTextColor(this.eQT, R.color.cp_cont_g, 1);
-        this.eQS.setHintTextColor(am.getColor(R.color.cp_cont_e));
-        am.setImageResource(this.eQU, R.drawable.icon_search_close);
+        am.setViewTextColor(this.eRe, R.color.cp_cont_g, 1);
+        this.eRd.setHintTextColor(am.getColor(R.color.cp_cont_e));
+        am.setImageResource(this.eRf, R.drawable.icon_search_close);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Aq(String str) {
-        if (this.eQV != null) {
-            this.eQV.Ao(str);
+        if (this.eRg != null) {
+            this.eRg.Ao(str);
         }
     }
 }

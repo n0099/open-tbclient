@@ -18,11 +18,11 @@ import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcer
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MyConcernTabModel extends BdBaseModel {
-    private a feb;
-    private b fec;
+    private a fem;
+    private b fen;
     private TbPageContext mTbPageContext;
     private int pn = 1;
-    private HttpMessageListener fed = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST) { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel.1
+    private HttpMessageListener feo = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST) { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -30,15 +30,15 @@ public class MyConcernTabModel extends BdBaseModel {
                 AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse = (AlaLiveTabMyConcernResponse) httpResponsedMessage;
                 boolean z = v.isEmpty(alaLiveTabMyConcernResponse.followList) && v.isEmpty(alaLiveTabMyConcernResponse.recommendList) && v.isEmpty(alaLiveTabMyConcernResponse.followCloseList) && alaLiveTabMyConcernResponse.followStatus == 0;
                 if (alaLiveTabMyConcernResponse.getError() != 0 || !alaLiveTabMyConcernResponse.isSuccess() || z) {
-                    if (MyConcernTabModel.this.feb != null) {
-                        MyConcernTabModel.this.feb.jq(MyConcernTabModel.this.pn == 1);
+                    if (MyConcernTabModel.this.fem != null) {
+                        MyConcernTabModel.this.fem.jq(MyConcernTabModel.this.pn == 1);
                         return;
                     }
                     return;
                 }
-                MyConcernTabModel.this.fec.c(alaLiveTabMyConcernResponse, MyConcernTabModel.this.pn == 1);
-                if (MyConcernTabModel.this.feb != null) {
-                    MyConcernTabModel.this.feb.c(MyConcernTabModel.this.fec.bra(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.pn == 1);
+                MyConcernTabModel.this.fen.c(alaLiveTabMyConcernResponse, MyConcernTabModel.this.pn == 1);
+                if (MyConcernTabModel.this.fem != null) {
+                    MyConcernTabModel.this.fem.c(MyConcernTabModel.this.fen.brc(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.pn == 1);
                 }
                 MyConcernTabModel.this.pn = alaLiveTabMyConcernResponse.pn + 1;
             }
@@ -54,12 +54,12 @@ public class MyConcernTabModel extends BdBaseModel {
 
     public MyConcernTabModel(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.fec = new b(this.mTbPageContext);
-        bqo();
-        MessageManager.getInstance().registerListener(this.fed);
+        this.fen = new b(this.mTbPageContext);
+        bqq();
+        MessageManager.getInstance().registerListener(this.feo);
     }
 
-    private void bqo() {
+    private void bqq() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_TAB_SUB_MY_CONCERN_LIST);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -70,29 +70,29 @@ public class MyConcernTabModel extends BdBaseModel {
 
     public void Ho() {
         this.pn = 1;
-        this.fec.clearData();
-        pB(1);
+        this.fen.clearData();
+        pD(1);
     }
 
-    public void bqX() {
-        pB(this.pn);
+    public void bqZ() {
+        pD(this.pn);
     }
 
-    private void pB(int i) {
+    private void pD(int i) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
         httpMessage.addParam(Config.PACKAGE_NAME, i);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void onDestroy() {
-        this.fec.clearData();
-        if (this.fed != null) {
-            MessageManager.getInstance().unRegisterListener(this.fed);
+        this.fen.clearData();
+        if (this.feo != null) {
+            MessageManager.getInstance().unRegisterListener(this.feo);
         }
     }
 
     public void a(a aVar) {
-        this.feb = aVar;
+        this.fem = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -106,6 +106,6 @@ public class MyConcernTabModel extends BdBaseModel {
     }
 
     public void x(Class<? extends com.baidu.tieba.card.data.b> cls) {
-        this.fec.x(cls);
+        this.fen.x(cls);
     }
 }

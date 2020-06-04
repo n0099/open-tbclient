@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public abstract class b {
-    protected g hKa;
-    protected a hKb;
-    protected boolean hKc;
-    protected boolean hvg;
+    protected g hKN;
+    protected a hKO;
+    protected boolean hKP;
+    protected boolean hvr;
     protected Intent mIntent;
     protected int mState = 0;
 
@@ -20,26 +20,26 @@ public abstract class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void caW();
+    public abstract void cbe();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void caX();
+    public abstract void cbf();
 
     public b(g gVar, Intent intent) {
-        this.hKc = true;
-        this.hvg = false;
-        this.hKa = gVar;
+        this.hKP = true;
+        this.hvr = false;
+        this.hKN = gVar;
         this.mIntent = intent;
-        e Fg = d.cbc().Fg(this.mIntent.getStringExtra("info_forum_name_text"));
-        this.hKc = Fg.cbe();
-        this.hvg = Fg.cbd();
-        if (Fg.cbf()) {
-            ((RelativeLayout.LayoutParams) this.hKa.hKq.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
+        e Fg = d.cbk().Fg(this.mIntent.getStringExtra("info_forum_name_text"));
+        this.hKP = Fg.cbm();
+        this.hvr = Fg.cbl();
+        if (Fg.cbn()) {
+            ((RelativeLayout.LayoutParams) this.hKN.hLd.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
         }
     }
 
     public void a(a aVar) {
-        this.hKb = aVar;
+        this.hKO = aVar;
     }
 
     public int getState() {

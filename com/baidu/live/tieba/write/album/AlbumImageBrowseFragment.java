@@ -38,16 +38,16 @@ public class AlbumImageBrowseFragment extends BaseFragment {
             if (view != AlbumImageBrowseFragment.this.bdz && view == AlbumImageBrowseFragment.this.bdy && AlbumImageBrowseFragment.this.bdx != null && AlbumImageBrowseFragment.this.bdi != null && AlbumImageBrowseFragment.this.bdw != null) {
                 if (AlbumImageBrowseFragment.this.bdi.Hz()) {
                     AlbumImageBrowseFragment.this.bdw.showToast(a.i.sdk_ph_album_choose_switch_tip);
-                } else if (AlbumImageBrowseFragment.this.bdx.dk(AlbumImageBrowseFragment.this.mCurrentIndex)) {
-                    ImageFileInfo dj = AlbumImageBrowseFragment.this.bdx.dj(AlbumImageBrowseFragment.this.mCurrentIndex);
-                    if (AlbumImageBrowseFragment.this.bdi.isAdded(dj)) {
-                        if (AlbumImageBrowseFragment.this.bdw.b(dj)) {
+                } else if (AlbumImageBrowseFragment.this.bdx.dm(AlbumImageBrowseFragment.this.mCurrentIndex)) {
+                    ImageFileInfo dl = AlbumImageBrowseFragment.this.bdx.dl(AlbumImageBrowseFragment.this.mCurrentIndex);
+                    if (AlbumImageBrowseFragment.this.bdi.isAdded(dl)) {
+                        if (AlbumImageBrowseFragment.this.bdw.b(dl)) {
                             AlbumImageBrowseFragment.this.a(AlbumImageBrowseFragment.this.bdy, false);
-                            AlbumImageBrowseFragment.this.bdw.a(dj, false);
+                            AlbumImageBrowseFragment.this.bdw.a(dl, false);
                         }
-                    } else if (AlbumImageBrowseFragment.this.bdw.a(dj)) {
+                    } else if (AlbumImageBrowseFragment.this.bdw.a(dl)) {
                         AlbumImageBrowseFragment.this.a(AlbumImageBrowseFragment.this.bdy, true);
-                        AlbumImageBrowseFragment.this.bdw.a(dj, true);
+                        AlbumImageBrowseFragment.this.bdw.a(dl, true);
                     }
                     AlbumImageBrowseFragment.this.Hm();
                 }
@@ -59,13 +59,13 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         public void onPageSelected(int i) {
             AlbumImageBrowseFragment.this.mCurrentIndex = i;
             if (AlbumImageBrowseFragment.this.bdx != null && AlbumImageBrowseFragment.this.bdi != null) {
-                ImageFileInfo dj = AlbumImageBrowseFragment.this.bdx.dj(AlbumImageBrowseFragment.this.mCurrentIndex);
-                if (AlbumImageBrowseFragment.this.bdi.isAdded(dj)) {
+                ImageFileInfo dl = AlbumImageBrowseFragment.this.bdx.dl(AlbumImageBrowseFragment.this.mCurrentIndex);
+                if (AlbumImageBrowseFragment.this.bdi.isAdded(dl)) {
                     AlbumImageBrowseFragment.this.a(AlbumImageBrowseFragment.this.bdy, true);
                 } else {
                     AlbumImageBrowseFragment.this.a(AlbumImageBrowseFragment.this.bdy, false);
                 }
-                if (dj == null || !dj.isGif()) {
+                if (dl == null || !dl.isGif()) {
                     AlbumImageBrowseFragment.this.bdB.setVisibility(0);
                 } else {
                     AlbumImageBrowseFragment.this.bdB.setVisibility(8);
@@ -197,8 +197,8 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         long j;
         if (this.bdw != null && this.bdB != null) {
             if (this.bdx != null) {
-                ImageFileInfo dj = this.bdx.dj(this.mCurrentIndex);
-                j = dj != null ? FileHelper.getFileSize(dj.getFilePath()) : 0L;
+                ImageFileInfo dl = this.bdx.dl(this.mCurrentIndex);
+                j = dl != null ? FileHelper.getFileSize(dl.getFilePath()) : 0L;
             } else {
                 j = 0;
             }

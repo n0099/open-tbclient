@@ -43,7 +43,7 @@ public abstract class b<P extends com.baidu.swan.apps.extcore.d.b, R extends com
     public ExtensionCore acH() {
         String path;
         int acR = this.ccW.ccV.acR();
-        if (com.baidu.swan.apps.extcore.f.a.fl(acR)) {
+        if (com.baidu.swan.apps.extcore.f.a.fn(acR)) {
             ExtensionCore extensionCore = new ExtensionCore();
             extensionCore.extensionCoreVersionCode = 0L;
             extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.f.a.aS(0L);

@@ -12,9 +12,9 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
     private List<com.baidu.adp.widget.ListView.a> aSj;
-    private BdTypeListView faQ;
-    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a grD;
-    private c grE;
+    private BdTypeListView fbb;
+    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a grO;
+    private c grP;
     private List<o> mDataList;
     private TbPageContext mPageContext;
 
@@ -24,23 +24,23 @@ public class b {
 
     public b(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.faQ = bdTypeListView;
+        this.fbb = bdTypeListView;
         CY();
     }
 
     private void CY() {
         this.aSj = new ArrayList();
-        this.grD = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
-        this.aSj.add(this.grD);
-        this.grE = new c(this.mPageContext.getPageActivity());
-        this.aSj.add(this.grE);
-        this.faQ.addAdapters(this.aSj);
+        this.grO = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
+        this.aSj.add(this.grO);
+        this.grP = new c(this.mPageContext.getPageActivity());
+        this.aSj.add(this.grP);
+        this.fbb.addAdapters(this.aSj);
     }
 
     public void setData(List<o> list) {
         if (!v.isEmpty(list)) {
-            this.faQ.setData(list);
-            this.mDataList = this.faQ.getData();
+            this.fbb.setData(list);
+            this.mDataList = this.fbb.getData();
         }
     }
 

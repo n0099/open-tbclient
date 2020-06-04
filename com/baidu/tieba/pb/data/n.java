@@ -19,93 +19,93 @@ public class n {
     private AntiData eaU;
     private int enF;
     private ForumData enm;
-    public boolean hQi;
-    public Error jFx;
+    public boolean hQV;
+    public Error jGD;
     private int mPageSize = 20;
-    private int jFv = -1;
-    private boolean jFw = false;
-    private PostData jFs = null;
-    private ArrayList<PostData> jFt = new ArrayList<>();
-    private int jFu = 1;
+    private int jGB = -1;
+    private boolean jGC = false;
+    private PostData jGy = null;
+    private ArrayList<PostData> jGz = new ArrayList<>();
+    private int jGA = 1;
 
-    public Error cDb() {
-        return this.jFx;
+    public Error cDr() {
+        return this.jGD;
     }
 
-    public PostData cDc() {
-        return this.jFs;
+    public PostData cDs() {
+        return this.jGy;
     }
 
     public void g(PostData postData) {
-        this.jFs = postData;
+        this.jGy = postData;
     }
 
-    public int cDd() {
-        if (this.jFv == -1) {
-            this.jFv = this.aIx;
+    public int cDt() {
+        if (this.jGB == -1) {
+            this.jGB = this.aIx;
         }
-        return this.jFv;
+        return this.jGB;
     }
 
-    public int cDe() {
-        return this.jFv;
+    public int cDu() {
+        return this.jGB;
     }
 
     public void a(n nVar, boolean z) {
         if (nVar != null) {
-            b(nVar.bUa());
-            this.jFv = nVar.bkj();
-            a(nVar.bdP());
+            b(nVar.bUc());
+            this.jGB = nVar.bkl();
+            a(nVar.bdQ());
             setPageSize(nVar.getPageSize());
             setThreadData(nVar.aOi());
             setTotalCount(nVar.getTotalCount());
-            zV(nVar.cDh());
-            this.jFt.addAll(0, nVar.cDg());
+            zX(nVar.cDx());
+            this.jGz.addAll(0, nVar.cDw());
         }
     }
 
     public void b(n nVar, boolean z) {
         if (nVar != null) {
-            b(nVar.bUa());
-            a(nVar.bdP());
-            g(nVar.cDc());
+            b(nVar.bUc());
+            a(nVar.bdQ());
+            g(nVar.cDs());
             setThreadData(nVar.aOi());
-            if (nVar.cDg() != null) {
-                setCurrentPage(nVar.bkj());
+            if (nVar.cDw() != null) {
+                setCurrentPage(nVar.bkl());
                 setPageSize(nVar.getPageSize());
                 setTotalCount(nVar.getTotalCount());
-                zV(nVar.cDh());
+                zX(nVar.cDx());
             }
-            int size = this.jFt.size();
+            int size = this.jGz.size();
             if (z && size % this.mPageSize != 0) {
                 for (int i = 0; i < size % this.mPageSize; i++) {
-                    this.jFt.remove(this.jFt.size() - 1);
+                    this.jGz.remove(this.jGz.size() - 1);
                 }
             }
-            this.jFt.addAll(nVar.cDg());
+            this.jGz.addAll(nVar.cDw());
         }
     }
 
     public void c(n nVar, boolean z) {
         if (nVar != null) {
-            b(nVar.bUa());
-            a(nVar.bdP());
-            g(nVar.cDc());
+            b(nVar.bUc());
+            a(nVar.bdQ());
+            g(nVar.cDs());
             setThreadData(nVar.aOi());
-            if (nVar.cDg() != null && nVar.cDg().size() > 0) {
-                setCurrentPage(nVar.bkj());
+            if (nVar.cDw() != null && nVar.cDw().size() > 0) {
+                setCurrentPage(nVar.bkl());
                 setPageSize(nVar.getPageSize());
                 setTotalCount(nVar.getTotalCount());
-                zV(nVar.cDh());
+                zX(nVar.cDx());
             }
-            int size = this.jFt.size();
+            int size = this.jGz.size();
             if (z && size % this.mPageSize != 0) {
                 for (int i = 0; i < size % this.mPageSize; i++) {
-                    this.jFt.remove(this.jFt.size() - 1);
+                    this.jGz.remove(this.jGz.size() - 1);
                 }
             }
-            this.jFt.addAll(nVar.cDg());
-            cDf();
+            this.jGz.addAll(nVar.cDw());
+            cDv();
         }
     }
 
@@ -115,46 +115,46 @@ public class n {
 
     public void a(n nVar) {
         if (nVar != null) {
-            b(nVar.bUa());
-            a(nVar.bdP());
-            g(nVar.cDc());
+            b(nVar.bUc());
+            a(nVar.bdQ());
+            g(nVar.cDs());
             setThreadData(nVar.aOi());
-            if (nVar.cDg() != null && nVar.cDg().size() > 0) {
-                setCurrentPage(nVar.bkj());
+            if (nVar.cDw() != null && nVar.cDw().size() > 0) {
+                setCurrentPage(nVar.bkl());
                 setPageSize(nVar.getPageSize());
                 setTotalCount(nVar.getTotalCount());
-                zV(nVar.cDh());
-                this.jFv = (this.aIx - (((nVar.cDg().size() - 1) + this.mPageSize) / this.mPageSize)) + 1;
-                if (this.jFv < 0) {
-                    this.jFv = 0;
+                zX(nVar.cDx());
+                this.jGB = (this.aIx - (((nVar.cDw().size() - 1) + this.mPageSize) / this.mPageSize)) + 1;
+                if (this.jGB < 0) {
+                    this.jGB = 0;
                 }
             }
-            this.jFt.addAll(nVar.cDg());
+            this.jGz.addAll(nVar.cDw());
         }
     }
 
-    public void cDf() {
-        if (this.jFv < 0) {
-            this.jFv = this.aIx;
-        } else if (this.jFv > this.aIx) {
-            this.jFv = this.aIx;
+    public void cDv() {
+        if (this.jGB < 0) {
+            this.jGB = this.aIx;
+        } else if (this.jGB > this.aIx) {
+            this.jGB = this.aIx;
         }
     }
 
-    public ArrayList<PostData> cDg() {
-        return this.jFt;
+    public ArrayList<PostData> cDw() {
+        return this.jGz;
     }
 
     public void aL(ArrayList<PostData> arrayList) {
-        this.jFt = arrayList;
+        this.jGz = arrayList;
     }
 
-    public int cDh() {
-        return this.jFu;
+    public int cDx() {
+        return this.jGA;
     }
 
-    public void zV(int i) {
-        this.jFu = i;
+    public void zX(int i) {
+        this.jGA = i;
     }
 
     public int getTotalCount() {
@@ -175,7 +175,7 @@ public class n {
         }
     }
 
-    public int bkj() {
+    public int bkl() {
         return this.aIx;
     }
 
@@ -187,7 +187,7 @@ public class n {
         this.enm = forumData;
     }
 
-    public ForumData bdP() {
+    public ForumData bdQ() {
         return this.enm;
     }
 
@@ -195,7 +195,7 @@ public class n {
         this.eaU = antiData;
     }
 
-    public AntiData bUa() {
+    public AntiData bUc() {
         return this.eaU;
     }
 
@@ -203,16 +203,16 @@ public class n {
         this.ahg = bkVar;
     }
 
-    public boolean coK() {
-        return (this.ahg == null || this.jFs == null || this.ahg.aQx() == null || this.ahg.aQx().getUserId() == null || this.jFs.aQx() == null || this.jFs.aQx().getUserId() == null || !this.ahg.aQx().getUserId().equals(this.jFs.aQx().getUserId())) ? false : true;
+    public boolean coT() {
+        return (this.ahg == null || this.jGy == null || this.ahg.aQx() == null || this.ahg.aQx().getUserId() == null || this.jGy.aQx() == null || this.jGy.aQx().getUserId() == null || !this.ahg.aQx().getUserId().equals(this.jGy.aQx().getUserId())) ? false : true;
     }
 
     public boolean aML() {
-        return this.jFw;
+        return this.jGC;
     }
 
     public boolean hasMore() {
-        return this.aIx < this.jFu;
+        return this.aIx < this.jGA;
     }
 
     public bk aOi() {
@@ -234,7 +234,7 @@ public class n {
             ForumData forumData = new ForumData();
             forumData.parserProtobuf(dataRes.forum);
             nVar.a(forumData);
-            nVar.hQi = forumData.isBrandForum;
+            nVar.hQV = forumData.isBrandForum;
             PostData postData = new PostData();
             postData.uq(forumData.isBrandForum);
             postData.a(dataRes.post, context);
@@ -261,7 +261,7 @@ public class n {
                 nVar.setCurrentPage(intValue3);
                 nVar.setPageSize(intValue2);
                 nVar.setTotalCount(intValue4);
-                nVar.zV(intValue);
+                nVar.zX(intValue);
             }
             return nVar;
         } catch (Exception e) {

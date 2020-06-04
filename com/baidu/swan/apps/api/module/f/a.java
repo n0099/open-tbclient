@@ -64,7 +64,7 @@ public class a extends d implements b.a {
             return;
         }
         int errorCode = hVar.getErrorCode();
-        a(c0303a.bLz, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.gM(errorCode)));
+        a(c0303a.bLz, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.gO(errorCode)));
     }
 
     @Override // com.baidu.swan.apps.api.module.f.b.a

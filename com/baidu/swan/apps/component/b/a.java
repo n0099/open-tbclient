@@ -268,12 +268,12 @@ public abstract class a<V extends View, M extends b> {
     }
 
     @NonNull
-    public final a es(int i) {
+    public final a eu(int i) {
         this.mFlags |= i;
         return this;
     }
 
-    public final boolean et(int i) {
+    public final boolean ev(int i) {
         return (this.mFlags & i) == i;
     }
 
@@ -298,13 +298,13 @@ public abstract class a<V extends View, M extends b> {
     public com.baidu.swan.apps.component.d.b a(@NonNull M m, @NonNull M m2) {
         com.baidu.swan.apps.component.d.b bVar = new com.baidu.swan.apps.component.d.b();
         if (m2.bPJ != null && m2.bPJ.a(m.bPJ)) {
-            bVar.ew(3);
+            bVar.ey(3);
         }
         if (m.hidden != m2.hidden) {
-            bVar.ew(1);
+            bVar.ey(1);
         }
         if (m.bPI != m2.bPI) {
-            bVar.ew(2);
+            bVar.ey(2);
         }
         return bVar;
     }
@@ -353,10 +353,10 @@ public abstract class a<V extends View, M extends b> {
             com.baidu.swan.apps.component.e.a.aS("Component-Base", "renderContainerView with a null container view");
             return;
         }
-        if (bVar.ex(1)) {
+        if (bVar.ez(1)) {
             this.bPy.setHidden(m.hidden);
         }
-        if (bVar.ex(2)) {
+        if (bVar.ez(2)) {
             a(this.bPy, (SwanAppComponentContainerView) m);
         }
     }

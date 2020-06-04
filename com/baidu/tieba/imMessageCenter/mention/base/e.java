@@ -12,12 +12,12 @@ import java.util.List;
 public class e {
     private BdTypeRecyclerView Vw;
     private List<com.baidu.adp.widget.ListView.a> aSj = new LinkedList();
-    private ArrayList<o> gMN;
-    private b iQT;
-    private b iQU;
-    private b iQV;
-    private b iQW;
-    private b iQX;
+    private ArrayList<o> gMY;
+    private b iRG;
+    private b iRH;
+    private b iRI;
+    private b iRJ;
+    private b iRK;
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext != null && bdTypeRecyclerView != null) {
@@ -27,16 +27,16 @@ public class e {
     }
 
     private void v(TbPageContext tbPageContext) {
-        this.iQT = new b(tbPageContext, a.iQC);
-        this.iQU = new b(tbPageContext, a.iQD);
-        this.iQV = new b(tbPageContext, a.iQG);
-        this.iQW = new b(tbPageContext, a.iQF);
-        this.iQX = new b(tbPageContext, a.iQE);
-        this.aSj.add(this.iQT);
-        this.aSj.add(this.iQU);
-        this.aSj.add(this.iQV);
-        this.aSj.add(this.iQW);
-        this.aSj.add(this.iQX);
+        this.iRG = new b(tbPageContext, a.iRp);
+        this.iRH = new b(tbPageContext, a.iRq);
+        this.iRI = new b(tbPageContext, a.iRt);
+        this.iRJ = new b(tbPageContext, a.iRs);
+        this.iRK = new b(tbPageContext, a.iRr);
+        this.aSj.add(this.iRG);
+        this.aSj.add(this.iRH);
+        this.aSj.add(this.iRI);
+        this.aSj.add(this.iRJ);
+        this.aSj.add(this.iRK);
         this.Vw.addAdapters(this.aSj);
     }
 
@@ -47,7 +47,7 @@ public class e {
 
     public void setData(ArrayList<o> arrayList) {
         this.Vw.setData(arrayList);
-        this.gMN = arrayList;
+        this.gMY = arrayList;
     }
 
     public void notifyDataSetChanged() {
@@ -63,8 +63,8 @@ public class e {
     }
 
     public void setOnCardSubClickListener(aa aaVar) {
-        this.iQX.setOnCardSubClickListener(aaVar);
-        this.iQW.setOnCardSubClickListener(aaVar);
-        this.iQV.setOnCardSubClickListener(aaVar);
+        this.iRK.setOnCardSubClickListener(aaVar);
+        this.iRJ.setOnCardSubClickListener(aaVar);
+        this.iRI.setOnCardSubClickListener(aaVar);
     }
 }

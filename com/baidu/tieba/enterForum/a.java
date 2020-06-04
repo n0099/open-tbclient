@@ -40,7 +40,7 @@ public class a {
         a.ag("obj_param5", aj(bkVar));
         a.ag("obj_type", bkVar.aRE());
         if (bkVar.aSb() != null) {
-            a.ag("obj_name", bkVar.aSb().llG ? 1 : 0);
+            a.ag("obj_name", bkVar.aSb().lmP ? 1 : 0);
         }
         if (bkVar.getBaijiahaoData() != null) {
             a.dh("obj_param4", bkVar.getBaijiahaoData().oriUgcNid);

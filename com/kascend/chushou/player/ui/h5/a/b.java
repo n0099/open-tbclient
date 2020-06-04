@@ -20,9 +20,9 @@ public class b extends LinearLayout implements View.OnClickListener {
     private TextView c;
     private TextView d;
     private boolean f;
-    private FrescoThumbnailView mTI;
-    private FrescoThumbnailView mTX;
-    private com.kascend.chushou.player.ui.h5.c.b mUK;
+    private FrescoThumbnailView mUT;
+    private com.kascend.chushou.player.ui.h5.c.b mVU;
+    private FrescoThumbnailView mVi;
 
     public b(Context context) {
         super(context);
@@ -32,14 +32,14 @@ public class b extends LinearLayout implements View.OnClickListener {
 
     private void a(Context context) {
         LayoutInflater.from(context).inflate(a.h.view_lucky_draw_notifier, (ViewGroup) this, true);
-        this.mTI = (FrescoThumbnailView) findViewById(a.f.iv_lucky_draw_icon);
-        this.mTI.setAnim(true);
-        this.mTX = (FrescoThumbnailView) findViewById(a.f.iv_lucky_draw_text_bg);
+        this.mUT = (FrescoThumbnailView) findViewById(a.f.iv_lucky_draw_icon);
+        this.mUT.setAnim(true);
+        this.mVi = (FrescoThumbnailView) findViewById(a.f.iv_lucky_draw_text_bg);
         this.c = (TextView) findViewById(a.f.tv_lucky_draw_text);
         this.d = (TextView) findViewById(a.f.tv_count);
-        this.mTI.setOnClickListener(this);
+        this.mUT.setOnClickListener(this);
         this.d.setVisibility(8);
-        this.mTX.setVisibility(8);
+        this.mVi.setVisibility(8);
         this.c.setVisibility(8);
     }
 
@@ -47,15 +47,15 @@ public class b extends LinearLayout implements View.OnClickListener {
         if (bVar == null) {
             setVisibility(8);
         } else if (!this.f) {
-            this.mUK = bVar;
-            this.mTI.i(bVar.a, com.kascend.chushou.view.a.a(""), b.C0923b.nOZ, b.C0923b.nOZ);
+            this.mVU = bVar;
+            this.mUT.i(bVar.a, com.kascend.chushou.view.a.a(""), b.C0924b.nQj, b.C0924b.nQj);
             this.f = true;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        String str = this.mUK.q;
+        String str = this.mVU.q;
         char c = 65535;
         switch (str.hashCode()) {
             case 1819:
@@ -85,18 +85,18 @@ public class b extends LinearLayout implements View.OnClickListener {
         }
         switch (c) {
             case 0:
-                tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.b(9, this.mUK));
+                tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.b(9, this.mVU));
                 return;
             case 1:
                 ListItem listItem = new ListItem();
                 listItem.mType = "98";
-                listItem.mUrl = this.mUK.o;
+                listItem.mUrl = this.mVU.o;
                 tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.b(2, listItem));
                 return;
             case 2:
                 ListItem listItem2 = new ListItem();
                 listItem2.mType = "99";
-                listItem2.mUrl = this.mUK.o;
+                listItem2.mUrl = this.mVU.o;
                 e.a(getContext(), listItem2, (JSONObject) null);
                 return;
             case 3:
@@ -104,7 +104,7 @@ public class b extends LinearLayout implements View.OnClickListener {
                 if (a == null) {
                     a = com.kascend.chushou.d.b.e();
                 }
-                e.a(a, this.mUK.o);
+                e.a(a, this.mVU.o);
                 return;
             default:
                 return;

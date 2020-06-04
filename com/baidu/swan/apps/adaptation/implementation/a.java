@@ -28,7 +28,7 @@ public class a implements com.baidu.swan.apps.adaptation.a.k {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.k
-    public void ed(int i) {
+    public void ef(int i) {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.k

@@ -336,7 +336,7 @@ public class a implements aa {
                         }
 
                         @Override // com.baidu.live.gift.biggift.b
-                        public void bN(int i6) {
+                        public void bP(int i6) {
                         }
 
                         @Override // com.baidu.live.gift.biggift.b

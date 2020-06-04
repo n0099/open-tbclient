@@ -78,7 +78,7 @@ public final class c {
             }
             if (a) {
                 this.bQO.put(Vj.bPF, aVar);
-                if (aVar.et(2)) {
+                if (aVar.ev(2)) {
                     com.baidu.swan.apps.console.c.w("Component-Container", name + " insert with FLAG_CAN_NO_COMPONENT_ID");
                     List<com.baidu.swan.apps.component.b.a> list = this.bQP.get(str);
                     if (list == null) {
@@ -109,18 +109,18 @@ public final class c {
             com.baidu.swan.apps.console.c.e("Component-Container", "don't insert" + name);
         }
         if (aVar instanceof com.baidu.swan.apps.component.components.e.c.a) {
-            if (bVar.ex(7)) {
+            if (bVar.ez(7)) {
                 boolean a = b.a(this, aVar, Vj, Vl, bVar);
                 if (!a) {
                     com.baidu.swan.apps.component.e.a.aS("Component-Container", name + " perform scroll type update fail");
                     return a;
                 }
                 return a;
-            } else if (bVar.ex(8)) {
+            } else if (bVar.ez(8)) {
                 b.b(this, aVar, Vj, Vl, bVar);
             }
         }
-        if (bVar.ex(3) && !a(aVar, Vl, Vj)) {
+        if (bVar.ez(3) && !a(aVar, Vl, Vj)) {
             com.baidu.swan.apps.console.c.e("Component-Container", name + " perform position update fail");
             return false;
         }
@@ -180,9 +180,9 @@ public final class c {
                     com.baidu.swan.apps.component.e.a.aS("Component-Container", name + " removeComponentForScroll fail");
                 }
             }
-            if (c || aVar.et(1)) {
+            if (c || aVar.ev(1)) {
                 this.bQO.remove(str2);
-                if (aVar.et(2)) {
+                if (aVar.ev(2)) {
                     com.baidu.swan.apps.console.c.w("Component-Container", name + " remove with FLAG_CAN_NO_COMPONENT_ID");
                     List<com.baidu.swan.apps.component.b.a> list = this.bQP.get(str);
                     if (list != null) {

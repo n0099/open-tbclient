@@ -30,11 +30,11 @@ public class b {
         this.url = str;
     }
 
-    public String bfV() {
+    public String bfW() {
         return "-netErrorCode-" + this.errorCode + "-serverCode-" + this.etI + "-dnsStatus-" + this.etJ + "-exception-" + this.exception + "-url-" + this.url + "-dataLenth-" + this.Kp + "-fileLength-" + this.Kq + "-contentLen-" + this.Kr;
     }
 
-    public void nD(int i) {
+    public void nF(int i) {
         this.etI = i;
     }
 }

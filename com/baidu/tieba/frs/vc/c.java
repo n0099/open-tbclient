@@ -10,24 +10,24 @@ import java.net.URLEncoder;
 import tbclient.PopInfo;
 /* loaded from: classes9.dex */
 public class c {
-    private a hLm;
-    private final FrsFragment hpb;
+    private a hLZ;
+    private final FrsFragment hpm;
 
     public c(FrsFragment frsFragment) {
-        this.hpb = frsFragment;
+        this.hpm = frsFragment;
     }
 
     public void refresh() {
-        if (TbadkCoreApplication.isLogin() && this.hpb != null && this.hpb.bVs() != null && this.hpb.bVs().getForum() != null && !StringUtils.isNull(this.hpb.bVs().getForum().getName()) && this.hpb.bVs().enterFrsDialogInfo != null && cbt() && this.hLm == null) {
-            this.hLm = new a();
-            this.hLm.execute(new Void[0]);
+        if (TbadkCoreApplication.isLogin() && this.hpm != null && this.hpm.bVu() != null && this.hpm.bVu().getForum() != null && !StringUtils.isNull(this.hpm.bVu().getForum().getName()) && this.hpm.bVu().enterFrsDialogInfo != null && cbB() && this.hLZ == null) {
+            this.hLZ = new a();
+            this.hLZ.execute(new Void[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cbt() {
-        PopInfo popInfo = this.hpb.bVs().enterFrsDialogInfo;
-        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.hpb.bVs().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
+    public boolean cbB() {
+        PopInfo popInfo = this.hpm.bVu().enterFrsDialogInfo;
+        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.hpm.bVu().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -41,7 +41,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(Void... voidArr) {
             com.baidu.adp.lib.cache.l<String> vM = com.baidu.tbadk.core.c.a.aSS().vM("tb.enter_frs_dialog_list");
-            String encode = URLEncoder.encode(c.this.hpb.bVs().getForum().getName());
+            String encode = URLEncoder.encode(c.this.hpm.bVu().getForum().getName());
             if (vM.get(encode) == null) {
                 vM.setForever(encode, "1");
                 return true;
@@ -53,9 +53,9 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (bool.booleanValue() && c.this.cbt() && c.this.hpb.isAdded()) {
-                final PopInfo popInfo = c.this.hpb.bVs().enterFrsDialogInfo;
-                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.hpb.getActivity());
+            if (bool.booleanValue() && c.this.cbB() && c.this.hpm.isAdded()) {
+                final PopInfo popInfo = c.this.hpm.bVu().enterFrsDialogInfo;
+                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.hpm.getActivity());
                 aVar.vN(popInfo.title);
                 aVar.vO(popInfo.v_title);
                 aVar.isShowTitleAndMessage();
@@ -72,13 +72,13 @@ public class c {
                     /* JADX WARN: Multi-variable type inference failed */
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        ba.aUZ().b(c.this.hpb.getPageContext(), new String[]{popInfo.ahead_url});
+                        ba.aVa().b(c.this.hpm.getPageContext(), new String[]{popInfo.ahead_url});
                         if (aVar2 != null) {
                             aVar2.dismiss();
                         }
                     }
                 });
-                aVar.b(c.this.hpb.getPageContext()).aST();
+                aVar.b(c.this.hpm.getPageContext()).aST();
             }
         }
     }

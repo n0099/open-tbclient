@@ -6,9 +6,9 @@ import com.baidu.live.data.al;
 public interface e {
     void a(ak akVar, al alVar, al alVar2);
 
-    void bzB();
+    void bzD();
 
-    void bzC();
+    void bzE();
 
     void vt();
 }

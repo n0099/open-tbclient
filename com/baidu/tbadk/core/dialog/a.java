@@ -68,7 +68,7 @@ public class a {
         return this;
     }
 
-    public a kC(int i) {
+    public a kE(int i) {
         vN(this.mActivity.getResources().getString(i));
         return this;
     }
@@ -112,7 +112,7 @@ public class a {
         return this;
     }
 
-    public a kD(int i) {
+    public a kF(int i) {
         if (this.mActivity != null) {
             this.mMessage = this.mActivity.getResources().getString(i);
         }
@@ -151,7 +151,7 @@ public class a {
         this.mRealView = (ViewGroup) this.mRootView.findViewById(R.id.real_view);
     }
 
-    public a kE(int i) {
+    public a kG(int i) {
         if (isAutoNight()) {
             this.mButtonTextColor = am.getColor(i);
         } else {
@@ -160,7 +160,7 @@ public class a {
         return this;
     }
 
-    public a kF(int i) {
+    public a kH(int i) {
         if (isAutoNight()) {
             this.dIs = am.getColor(i);
         } else {
@@ -169,7 +169,7 @@ public class a {
         return this;
     }
 
-    public a kG(int i) {
+    public a kI(int i) {
         this.dialogSize = i;
         return this;
     }

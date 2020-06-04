@@ -15,7 +15,7 @@ public class PMSAppInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: jb */
+        /* renamed from: jd */
         public PMSAppInfo[] newArray(int i) {
             return new PMSAppInfo[i];
         }

@@ -19,8 +19,8 @@ public final class EmptyCoroutineContext implements Serializable, c {
     }
 
     @Override // kotlin.coroutines.c
-    public <E extends c.b> E get(c.InterfaceC0877c<E> interfaceC0877c) {
-        q.m(interfaceC0877c, "key");
+    public <E extends c.b> E get(c.InterfaceC0878c<E> interfaceC0878c) {
+        q.m(interfaceC0878c, "key");
         return null;
     }
 
@@ -37,8 +37,8 @@ public final class EmptyCoroutineContext implements Serializable, c {
     }
 
     @Override // kotlin.coroutines.c
-    public c minusKey(c.InterfaceC0877c<?> interfaceC0877c) {
-        q.m(interfaceC0877c, "key");
+    public c minusKey(c.InterfaceC0878c<?> interfaceC0878c) {
+        q.m(interfaceC0878c, "key");
         return this;
     }
 

@@ -27,12 +27,12 @@ public class ae extends com.baidu.tieba.frs.h<com.baidu.tieba.tbadkCore.o, af> {
     public af b(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_video_activity_item, (ViewGroup) null);
         af afVar = new af(inflate);
-        am.setViewTextColor(afVar.eTD, (int) R.color.cp_cont_b);
-        am.setViewTextColor(afVar.hwW, (int) R.color.cp_cont_h);
-        am.setImageResource(afVar.hwV, R.drawable.icon_news_list_prompt);
-        am.setImageResource(afVar.hwX, R.drawable.icon_index_category_arrow_r);
-        am.setBackgroundColor(afVar.hwY, R.color.cp_bg_line_c);
-        am.setBackgroundColor(afVar.hwZ, R.color.cp_bg_line_c);
+        am.setViewTextColor(afVar.eTO, (int) R.color.cp_cont_b);
+        am.setViewTextColor(afVar.hxh, (int) R.color.cp_cont_h);
+        am.setImageResource(afVar.hxg, R.drawable.icon_news_list_prompt);
+        am.setImageResource(afVar.hxi, R.drawable.icon_index_category_arrow_r);
+        am.setBackgroundColor(afVar.hxj, R.color.cp_bg_line_c);
+        am.setBackgroundColor(afVar.hxk, R.color.cp_bg_line_c);
         am.setBackgroundResource(inflate, R.drawable.home_thread_card_item_bg);
         return afVar;
     }
@@ -54,11 +54,11 @@ public class ae extends com.baidu.tieba.frs.h<com.baidu.tieba.tbadkCore.o, af> {
                 }
             }
         });
-        afVar.eTD.setText(oVar != null ? oVar.text : "");
+        afVar.eTO.setText(oVar != null ? oVar.text : "");
         if (eh(com.baidu.tbadk.core.sharedPref.b.aTX().getLong(SharedPrefConfig.FRS_VIDEO_ACTIVITY_TIP + this.mForumId, 0L))) {
-            afVar.hwV.setVisibility(0);
+            afVar.hxg.setVisibility(0);
         } else {
-            afVar.hwV.setVisibility(8);
+            afVar.hxg.setVisibility(8);
         }
         return afVar.getView();
     }

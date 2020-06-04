@@ -20,7 +20,7 @@ public class b {
         }
     }
 
-    public TbPageTag bfr() {
+    public TbPageTag bfs() {
         return this.eru;
     }
 

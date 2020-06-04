@@ -27,8 +27,8 @@ public class b extends Dialog {
     private View bjL;
     private f bkg;
     private Activity clq;
-    private a fSE;
-    private RoundRectRelativeLayout fSF;
+    private a fSP;
+    private RoundRectRelativeLayout fSQ;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -42,14 +42,14 @@ public class b extends Dialog {
     }
 
     public void a(a aVar) {
-        this.fSE = aVar;
+        this.fSP = aVar;
     }
 
     public void b(f fVar) {
         this.bkg = fVar;
     }
 
-    public CommonWebLayout bsa() {
+    public CommonWebLayout bsc() {
         return this.bjK;
     }
 
@@ -92,11 +92,11 @@ public class b extends Dialog {
 
     private void initView() {
         float dimensionPixelOffset = this.clq.getResources().getDimensionPixelOffset(a.e.sdk_ds20);
-        this.fSF = new RoundRectRelativeLayout(this.clq);
-        this.fSF.setCornerRadius(dimensionPixelOffset, dimensionPixelOffset, 0.0f, 0.0f);
+        this.fSQ = new RoundRectRelativeLayout(this.clq);
+        this.fSQ.setCornerRadius(dimensionPixelOffset, dimensionPixelOffset, 0.0f, 0.0f);
         initWebView();
-        bAT();
-        setContentView(this.fSF);
+        bAV();
+        setContentView(this.fSQ);
     }
 
     private void initWebView() {
@@ -125,8 +125,8 @@ public class b extends Dialog {
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
             public boolean a(String str, JsResult jsResult) {
-                if (b.this.fSE != null) {
-                    return b.this.fSE.a(str, jsResult);
+                if (b.this.fSP != null) {
+                    return b.this.fSP.a(str, jsResult);
                 }
                 return true;
             }
@@ -137,12 +137,12 @@ public class b extends Dialog {
         for (com.baidu.live.view.web.a aVar : JF) {
             this.bjK.addJavascriptInterface(aVar, aVar.getName());
         }
-        this.fSF.addView(this.bjK, new ViewGroup.LayoutParams(-1, -1));
+        this.fSQ.addView(this.bjK, new ViewGroup.LayoutParams(-1, -1));
     }
 
-    private void bAT() {
+    private void bAV() {
         this.bjL = LayoutInflater.from(this.clq).inflate(a.h.live_commerce_web_goods_progress, (ViewGroup) null);
-        this.fSF.addView(this.bjL, new ViewGroup.LayoutParams(-1, -1));
+        this.fSQ.addView(this.bjL, new ViewGroup.LayoutParams(-1, -1));
     }
 
     private void xT() {
@@ -163,8 +163,8 @@ public class b extends Dialog {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 1.0f, 1, 0.0f);
         translateAnimation.setDuration(300L);
         translateAnimation.setInterpolator(new LinearInterpolator());
-        if (this.fSF != null) {
-            this.fSF.startAnimation(translateAnimation);
+        if (this.fSQ != null) {
+            this.fSQ.startAnimation(translateAnimation);
         }
     }
 }

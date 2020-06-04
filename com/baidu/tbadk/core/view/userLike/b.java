@@ -9,7 +9,7 @@ public interface b {
 
     void g(View.OnClickListener onClickListener);
 
-    void mo(int i);
+    void mq(int i);
 
     void r(boolean z, int i);
 }

@@ -4,14 +4,14 @@ import android.net.Uri;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class d implements b {
-    final List<b> mkf;
+    final List<b> mlp;
 
-    public List<b> dtC() {
-        return this.mkf;
+    public List<b> dtQ() {
+        return this.mlp;
     }
 
     public String toString() {
-        return "MultiCacheKey:" + this.mkf.toString();
+        return "MultiCacheKey:" + this.mlp.toString();
     }
 
     public boolean equals(Object obj) {
@@ -19,20 +19,20 @@ public class d implements b {
             return true;
         }
         if (obj instanceof d) {
-            return this.mkf.equals(((d) obj).mkf);
+            return this.mlp.equals(((d) obj).mlp);
         }
         return false;
     }
 
     @Override // com.facebook.cache.common.b
     public int hashCode() {
-        return this.mkf.hashCode();
+        return this.mlp.hashCode();
     }
 
     @Override // com.facebook.cache.common.b
     public boolean G(Uri uri) {
-        for (int i = 0; i < this.mkf.size(); i++) {
-            if (this.mkf.get(i).G(uri)) {
+        for (int i = 0; i < this.mlp.size(); i++) {
+            if (this.mlp.get(i).G(uri)) {
                 return true;
             }
         }
@@ -40,7 +40,7 @@ public class d implements b {
     }
 
     @Override // com.facebook.cache.common.b
-    public String dtB() {
-        return this.mkf.get(0).dtB();
+    public String dtP() {
+        return this.mlp.get(0).dtP();
     }
 }

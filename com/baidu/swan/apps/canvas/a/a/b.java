@@ -70,7 +70,7 @@ public class b implements Cloneable {
         }
     }
 
-    public void eq(int i) {
+    public void es(int i) {
         this.bNW = i;
     }
 

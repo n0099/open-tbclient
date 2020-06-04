@@ -229,8 +229,8 @@ public final class a {
             amv.le(cVar.agV());
             amv.lf(cVar.agZ());
             amv.kR("0");
-            amv.fB(cVar.getAppFrameType());
-            amv.fA(cVar.getOrientation());
+            amv.fD(cVar.getAppFrameType());
+            amv.fC(cVar.getOrientation());
             if (mR(cVar.agZ()) || amr()) {
                 amv.kX(cVar.getAppId());
             }

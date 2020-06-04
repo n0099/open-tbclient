@@ -314,9 +314,9 @@ public final class g {
             try {
                 if (this.crJ != null) {
                     if (this.crK) {
-                        String hH = aj.hH(crI);
-                        if (!TextUtils.isEmpty(hH)) {
-                            this.crJ.put("stacktrace", hH);
+                        String hJ = aj.hJ(crI);
+                        if (!TextUtils.isEmpty(hJ)) {
+                            this.crJ.put("stacktrace", hJ);
                         }
                     }
                     this.cGu.put("info", this.crJ);

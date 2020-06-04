@@ -14,7 +14,7 @@ class a extends com.baidu.swan.apps.p.b<c> {
         super(cVar);
         this.cfp = new c.a() { // from class: com.baidu.swan.apps.p.a.a.1
             @Override // com.baidu.swan.apps.p.a.c.a
-            public void eu(int i) {
+            public void ew(int i) {
                 if (a.this.cfi != null) {
                     a.this.cfi.onCallback(a.this, "onCustomKeyboardShow", Integer.valueOf(i));
                 }

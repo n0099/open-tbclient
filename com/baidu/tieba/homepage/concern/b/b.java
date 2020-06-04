@@ -11,10 +11,10 @@ import tbclient.User;
 import tbclient.Userlike.ConcernData;
 /* loaded from: classes9.dex */
 public class b extends AbsThreadDataSupport {
-    public static final BdUniqueId hXW = BdUniqueId.gen();
-    public static final Integer hXX = 6;
-    private boolean hXY;
-    private List<MetaData> hXZ = new ArrayList();
+    public static final BdUniqueId hYJ = BdUniqueId.gen();
+    public static final Integer hYK = 6;
+    private boolean hYL;
+    private List<MetaData> hYM = new ArrayList();
 
     public void bQ(List<User> list) {
         if (list != null) {
@@ -22,7 +22,7 @@ public class b extends AbsThreadDataSupport {
             for (int i = 0; i < min; i++) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i));
-                this.hXZ.add(metaData);
+                this.hYM.add(metaData);
             }
         }
     }
@@ -31,16 +31,16 @@ public class b extends AbsThreadDataSupport {
         if (concernData == null) {
             return false;
         }
-        return concernData.recom_type.equals(hXX);
+        return concernData.recom_type.equals(hYK);
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return hXW;
+        return hYJ;
     }
 
-    public List<MetaData> ceA() {
-        return this.hXZ;
+    public List<MetaData> ceI() {
+        return this.hYM;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
@@ -53,11 +53,11 @@ public class b extends AbsThreadDataSupport {
         return new ak();
     }
 
-    public boolean ceB() {
-        return this.hXY;
+    public boolean ceJ() {
+        return this.hYL;
     }
 
     public void oe(boolean z) {
-        this.hXY = z;
+        this.hYL = z;
     }
 }

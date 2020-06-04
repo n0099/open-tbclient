@@ -18,7 +18,7 @@ public class a extends com.baidu.live.view.web.a {
     public void fO(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl CloseBridgeJsInterface params = " + str);
         if (this.bkg != null) {
-            this.bkg.dt(-1);
+            this.bkg.dv(-1);
         }
     }
 }

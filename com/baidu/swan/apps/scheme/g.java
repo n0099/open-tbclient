@@ -847,7 +847,7 @@ public class g extends UnitedSchemeBaseDispatcher {
             return false;
         }
         final int color = i == -1 ? context.getResources().getColor(a.c.aiapps_action_sheet_item_color) : i;
-        g.a a = new g.a(context).eR(true).eY(true).eW(true).eT(true).a(new com.baidu.swan.apps.view.c.a()).gr(context.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider)).gA(a.e.aiapps_action_sheet_bg).d(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.16
+        g.a a = new g.a(context).eR(true).eY(true).eW(true).eT(true).a(new com.baidu.swan.apps.view.c.a()).gt(context.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider)).gC(a.e.aiapps_action_sheet_bg).d(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.16
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i3) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
@@ -890,7 +890,7 @@ public class g extends UnitedSchemeBaseDispatcher {
         });
         a.ao(inflate);
         a.aol();
-        a.gs(l(context, arrayList.size()));
+        a.gu(l(context, arrayList.size()));
         final com.baidu.swan.apps.res.widget.dialog.g ZF = a.ZF();
         Window window = ZF.getWindow();
         if (window != null) {
@@ -987,11 +987,11 @@ public class g extends UnitedSchemeBaseDispatcher {
                         }
                         switch (c) {
                             case 0:
-                                com.baidu.swan.apps.res.widget.b.d.a(context, string2).gG(hD).showToast();
+                                com.baidu.swan.apps.res.widget.b.d.a(context, string2).gI(hD).showToast();
                                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                                 return;
                             case 1:
-                                com.baidu.swan.apps.res.widget.b.d.a(context, string2).d((Drawable) null).gG(hD).showHighlightToast();
+                                com.baidu.swan.apps.res.widget.b.d.a(context, string2).d((Drawable) null).gI(hD).showHighlightToast();
                                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                                 return;
                             case 2:
@@ -1011,7 +1011,7 @@ public class g extends UnitedSchemeBaseDispatcher {
                                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                                     return;
                                 } else if (TextUtils.equals(optString6, "2") || TextUtils.equals(optString6, "3")) {
-                                    com.baidu.swan.apps.res.widget.b.d.ce(context).d(uri).gF(i).f(optString4).g(string2).h(optString5).gD(2).gE(i2).gG(hD).b(new d.a() { // from class: com.baidu.swan.apps.scheme.g.5.1
+                                    com.baidu.swan.apps.res.widget.b.d.ce(context).d(uri).gH(i).f(optString4).g(string2).h(optString5).gF(2).gG(i2).gI(hD).b(new d.a() { // from class: com.baidu.swan.apps.scheme.g.5.1
                                         @Override // com.baidu.swan.apps.res.widget.b.d.a
                                         public void onToastClick() {
                                             callbackHandler.handleSchemeDispatchCallback(optString2, "");
@@ -1020,7 +1020,7 @@ public class g extends UnitedSchemeBaseDispatcher {
                                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                                     return;
                                 } else {
-                                    com.baidu.swan.apps.res.widget.b.d.ce(context).d(uri).gF(i).f(optString4).g(string2).h(optString5).gD(1).gE(i2).gG(hD).b(new d.a() { // from class: com.baidu.swan.apps.scheme.g.5.2
+                                    com.baidu.swan.apps.res.widget.b.d.ce(context).d(uri).gH(i).f(optString4).g(string2).h(optString5).gF(1).gG(i2).gI(hD).b(new d.a() { // from class: com.baidu.swan.apps.scheme.g.5.2
                                         @Override // com.baidu.swan.apps.res.widget.b.d.a
                                         public void onToastClick() {
                                             callbackHandler.handleSchemeDispatchCallback(optString2, "");

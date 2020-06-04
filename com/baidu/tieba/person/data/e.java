@@ -5,13 +5,13 @@ import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class e {
     private ArrayList<o> dJp;
-    private boolean kkb = true;
+    private boolean klh = true;
 
     public void aQ(ArrayList<o> arrayList) {
         this.dJp = arrayList;
     }
 
     public void sN(boolean z) {
-        this.kkb = z;
+        this.klh = z;
     }
 }

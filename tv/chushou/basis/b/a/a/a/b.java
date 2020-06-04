@@ -1,14 +1,14 @@
 package tv.chushou.basis.b.a.a.a;
 /* loaded from: classes5.dex */
 public class b {
-    private static final a nLI = new a("iT$0xM@v");
+    private static final a nMS = new a("iT$0xM@v");
 
     public static String encrypt(String str) {
-        return toHex(nLI.encrypt(str.getBytes()));
+        return toHex(nMS.encrypt(str.getBytes()));
     }
 
     public static String decrypt(String str) {
-        return new String(nLI.decrypt(toByte(str)));
+        return new String(nMS.decrypt(toByte(str)));
     }
 
     private static byte[] toByte(String str) {

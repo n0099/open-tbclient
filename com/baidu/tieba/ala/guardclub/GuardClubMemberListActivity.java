@@ -20,10 +20,10 @@ import com.baidu.tieba.ala.guardclub.model.g;
 /* loaded from: classes3.dex */
 public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberListActivity> {
     private TextView bjM;
-    private j fxw;
-    private g.a fyi = new g.a() { // from class: com.baidu.tieba.ala.guardclub.GuardClubMemberListActivity.3
+    private j fxH;
+    private g.a fyt = new g.a() { // from class: com.baidu.tieba.ala.guardclub.GuardClubMemberListActivity.3
         @Override // com.baidu.tieba.ala.guardclub.model.g.a
-        public void qn(int i) {
+        public void qp(int i) {
             if (GuardClubMemberListActivity.this.bjM != null) {
                 GuardClubMemberListActivity.this.bjM.setText(String.format(GuardClubMemberListActivity.this.getString(a.i.guard_member_number), Integer.valueOf(i)));
             }
@@ -78,8 +78,8 @@ public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberLis
                 findViewById2.setVisibility(0);
                 backBar.setVisibility(8);
             }
-            this.fxw = new j(this, getIntent().getLongExtra("live_id", 0L), getIntent().getLongExtra("room_id", 0L), getIntent().getLongExtra("anchor_id", 0L), getIntent().getStringExtra("feed_id"), getIntent().getBooleanExtra("is_live_owner", false), true, true, true, getIntent().getStringExtra(IntentConfig.OTHER_PARAMS), getUniqueId(), this.fyi);
-            View view = this.fxw.getView();
+            this.fxH = new j(this, getIntent().getLongExtra("live_id", 0L), getIntent().getLongExtra("room_id", 0L), getIntent().getLongExtra("anchor_id", 0L), getIntent().getStringExtra("feed_id"), getIntent().getBooleanExtra("is_live_owner", false), true, true, true, getIntent().getStringExtra(IntentConfig.OTHER_PARAMS), getUniqueId(), this.fyt);
+            View view = this.fxH.getView();
             if (view != null) {
                 frameLayout.addView(view, new FrameLayout.LayoutParams(-1, -1));
             }
@@ -107,8 +107,8 @@ public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberLis
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.fxw != null) {
-            this.fxw.aCE();
+        if (this.fxH != null) {
+            this.fxH.aCE();
         }
         MessageManager.getInstance().unRegisterListener(this.notifyDialogDismissListener);
     }

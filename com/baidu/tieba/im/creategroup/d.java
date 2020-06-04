@@ -12,110 +12,110 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class d implements o {
-    CreateGroupStepActivity iwe;
-    TbImageView iwf;
-    private int iwi;
-    EditText iwo;
-    TextView iwp;
+    CreateGroupStepActivity iwR;
+    TbImageView iwS;
+    private int iwV;
+    EditText ixb;
+    TextView ixc;
     private int mIndex;
     private int mStep;
     View mView;
 
     public d(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
-        this.iwe = null;
+        this.iwR = null;
         this.mView = null;
-        this.iwf = null;
-        this.iwo = null;
-        this.iwp = null;
-        this.iwe = createGroupStepActivity;
+        this.iwS = null;
+        this.ixb = null;
+        this.ixc = null;
+        this.iwR = createGroupStepActivity;
         this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(R.layout.create_group_step2_view, (ViewGroup) null);
-        this.iwf = (TbImageView) this.mView.findViewById(R.id.step2_img_bg);
-        this.iwo = (EditText) this.mView.findViewById(R.id.step2_group_info);
-        this.iwp = (TextView) this.mView.findViewById(R.id.step2_group_info_count);
+        this.iwS = (TbImageView) this.mView.findViewById(R.id.step2_img_bg);
+        this.ixb = (EditText) this.mView.findViewById(R.id.step2_group_info);
+        this.ixc = (TextView) this.mView.findViewById(R.id.step2_group_info_count);
         this.mIndex = i;
         this.mStep = i2;
-        this.iwi = i3;
+        this.iwV = i3;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int ckc() {
+    public int ckl() {
         return this.mIndex;
     }
 
-    public EditText cko() {
-        return this.iwo;
+    public EditText ckx() {
+        return this.ixb;
     }
 
-    public TextView ckp() {
-        return this.iwp;
+    public TextView cky() {
+        return this.ixc;
     }
 
-    public void xs(int i) {
+    public void xu(int i) {
         String charSequence2String;
-        if (ckq() / 2 > i && (charSequence2String = com.baidu.adp.lib.util.k.charSequence2String(this.iwo.getText(), null)) != null && charSequence2String.length() > 2) {
+        if (ckz() / 2 > i && (charSequence2String = com.baidu.adp.lib.util.k.charSequence2String(this.ixb.getText(), null)) != null && charSequence2String.length() > 2) {
             while (com.baidu.tieba.im.util.f.getTextLength(charSequence2String) / 2 > i) {
                 charSequence2String = charSequence2String.substring(0, charSequence2String.length() - 1);
             }
-            this.iwo.setText(charSequence2String);
-            this.iwo.setSelection(charSequence2String.length());
+            this.ixb.setText(charSequence2String);
+            this.ixb.setSelection(charSequence2String.length());
         }
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public View getView() {
-        TiebaStatic.eventStat(this.iwe.getPageContext().getPageActivity(), "create_g_intro", "pv", 1, new Object[0]);
+        TiebaStatic.eventStat(this.iwR.getPageContext().getPageActivity(), "create_g_intro", "pv", 1, new Object[0]);
         return this.mView;
     }
 
-    public int ckq() {
-        return com.baidu.tieba.im.util.f.getTrimmedTextLength(this.iwo);
+    public int ckz() {
+        return com.baidu.tieba.im.util.f.getTrimmedTextLength(this.ixb);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void cki() {
-        this.iwf.setBackgroundDrawable(null);
-    }
-
     public void ckr() {
-        this.iwe.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.iwe.getLayoutMode().onModeChanged(this.iwp);
+        this.iwS.setBackgroundDrawable(null);
+    }
+
+    public void ckA() {
+        this.iwR.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.iwR.getLayoutMode().onModeChanged(this.ixc);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void ckj() {
+    public void cks() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
-        this.iwe.getLayoutMode().setNightMode(z);
-        this.iwe.getLayoutMode().onModeChanged(this.mView);
-        String a = c.a(this.iwe.getActivity(), c.iwk, z);
-        this.iwo.setHintTextColor(am.getColor(R.color.common_color_10005));
-        this.iwf.startLoad(a, 29, false);
+        this.iwR.getLayoutMode().setNightMode(z);
+        this.iwR.getLayoutMode().onModeChanged(this.mView);
+        String a = c.a(this.iwR.getActivity(), c.iwX, z);
+        this.ixb.setHintTextColor(am.getColor(R.color.common_color_10005));
+        this.iwS.startLoad(a, 29, false);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return String.format(this.iwe.getPageContext().getString(R.string.group_create_step_intro), Integer.valueOf(this.mStep));
+        return String.format(this.iwR.getPageContext().getString(R.string.group_create_step_intro), Integer.valueOf(this.mStep));
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String ckl() {
-        if (this.mIndex != this.iwi) {
-            return this.iwe.getPageContext().getString(R.string.next_step);
+    public String cku() {
+        if (this.mIndex != this.iwV) {
+            return this.iwR.getPageContext().getString(R.string.next_step);
         }
-        return this.iwe.getPageContext().getString(R.string.group_create_step_done_tip);
+        return this.iwR.getPageContext().getString(R.string.group_create_step_done_tip);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean ckm() {
+    public boolean ckv() {
         return false;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getErrMsg() {
-        return this.iwe.getPageContext().getString(R.string.group_step_info_error);
+        return this.iwR.getPageContext().getString(R.string.group_step_info_error);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean ckn() {
+    public boolean ckw() {
         return true;
     }
 }

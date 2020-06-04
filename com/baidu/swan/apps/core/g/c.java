@@ -39,7 +39,7 @@ public class c extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
 
     @Override // com.baidu.swan.apps.core.g.a
     public void a(com.baidu.swan.apps.core.turbo.a aVar) {
-        if (aVar != null && a.b.ee(0)) {
+        if (aVar != null && a.b.eg(0)) {
             if (DEBUG) {
                 Log.d("SwanAppMasterManager", "pathList item: " + aVar.appPath);
             }

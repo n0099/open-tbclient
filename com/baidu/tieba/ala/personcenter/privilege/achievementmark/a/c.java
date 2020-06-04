@@ -6,27 +6,27 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    private String gqg;
-    private int gqi;
+    private String gqr;
+    private int gqt;
     private List<b> list = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) {
-        this.gqg = jSONObject.optString("mark_type_name");
-        this.gqi = jSONObject.optInt("mark_type_wear");
+        this.gqr = jSONObject.optString("mark_type_name");
+        this.gqt = jSONObject.optInt("mark_type_wear");
         JSONArray optJSONArray = jSONObject.optJSONArray("mark_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 b bVar = new b();
                 bVar.parserJson(optJSONArray.optJSONObject(i));
-                bVar.CY(this.gqg);
-                bVar.rM(this.gqi);
+                bVar.CY(this.gqr);
+                bVar.rO(this.gqt);
                 this.list.add(bVar);
             }
         }
     }
 
-    public String bIu() {
-        return this.gqg;
+    public String bIw() {
+        return this.gqr;
     }
 
     public List<b> getList() {

@@ -11,23 +11,23 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 public class b {
     private Context mContext;
     private Rect mRect = new Rect();
-    private Bitmap mat;
+    private Bitmap mbE;
 
     public b(Context context) {
         this.mContext = context;
     }
 
-    public void FS(int i) {
-        this.mat = BitmapHelper.getResBitmap(this.mContext, i);
+    public void FU(int i) {
+        this.mbE = BitmapHelper.getResBitmap(this.mContext, i);
     }
 
     public void a(Canvas canvas, float f, float f2) {
-        if (this.mat != null) {
-            this.mRect.left = (int) (f - (this.mat.getWidth() / 2));
-            this.mRect.right = (int) ((this.mat.getWidth() / 2) + f);
-            this.mRect.top = (int) (f2 - (this.mat.getHeight() / 2));
-            this.mRect.bottom = (int) ((this.mat.getHeight() / 2) + f2);
-            canvas.drawBitmap(this.mat, (Rect) null, this.mRect, (Paint) null);
+        if (this.mbE != null) {
+            this.mRect.left = (int) (f - (this.mbE.getWidth() / 2));
+            this.mRect.right = (int) ((this.mbE.getWidth() / 2) + f);
+            this.mRect.top = (int) (f2 - (this.mbE.getHeight() / 2));
+            this.mRect.bottom = (int) ((this.mbE.getHeight() / 2) + f2);
+            canvas.drawBitmap(this.mbE, (Rect) null, this.mRect, (Paint) null);
         }
     }
 

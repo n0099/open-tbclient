@@ -3,7 +3,7 @@ package rx.b;
 import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes6.dex */
 public final class a {
-    private static final rx.e<Object> nJE = new rx.e<Object>() { // from class: rx.b.a.1
+    private static final rx.e<Object> nKO = new rx.e<Object>() { // from class: rx.b.a.1
         @Override // rx.e
         public final void onCompleted() {
         }
@@ -18,7 +18,7 @@ public final class a {
         }
     };
 
-    public static <T> rx.e<T> dQl() {
-        return (rx.e<T>) nJE;
+    public static <T> rx.e<T> dQz() {
+        return (rx.e<T>) nKO;
     }
 }

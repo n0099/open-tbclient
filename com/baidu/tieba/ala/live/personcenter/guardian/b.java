@@ -18,24 +18,24 @@ import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
     private ArrayList<com.baidu.tieba.ala.live.personcenter.guardian.a> dJp;
-    private AlaGuardianListActivity fFF;
-    private View.OnClickListener fFG = null;
-    private View.OnClickListener fpn = null;
+    private AlaGuardianListActivity fFQ;
+    private View.OnClickListener fFR = null;
+    private View.OnClickListener fpz = null;
 
     public b(AlaGuardianListActivity alaGuardianListActivity) {
         this.dJp = null;
-        this.fFF = null;
-        this.fFF = alaGuardianListActivity;
+        this.fFQ = null;
+        this.fFQ = alaGuardianListActivity;
         this.dJp = new ArrayList<>();
     }
 
     public void l(View.OnClickListener onClickListener) {
-        this.fpn = onClickListener;
+        this.fpz = onClickListener;
     }
 
     public void c(c cVar) {
         this.dJp.clear();
-        this.dJp.addAll(cVar.bwe());
+        this.dJp.addAll(cVar.bwg());
     }
 
     @Override // android.widget.Adapter
@@ -63,78 +63,78 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.fFF.getPageContext().getPageActivity()).inflate(a.h.sdk_prc_person_center_guardian_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.fFQ.getPageContext().getPageActivity()).inflate(a.h.sdk_prc_person_center_guardian_item, (ViewGroup) null);
             aVar = new a(view);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.qv(i);
-        this.fFF.getLayoutMode().onModeChanged(view);
+        aVar.qx(i);
+        this.fFQ.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* loaded from: classes3.dex */
     class a {
-        ImageView fFH;
-        TextView fFI;
-        LinearLayout fFJ;
-        TextView fFK;
-        ViewGroup fpH;
-        HeadImageView fpK;
-        TextView fpL;
+        ImageView fFS;
+        TextView fFT;
+        LinearLayout fFU;
+        TextView fFV;
+        ViewGroup fpS;
+        HeadImageView fpV;
+        TextView fpW;
         TextView mName;
 
         public a(View view) {
-            this.fFH = (ImageView) view.findViewById(a.g.imgGradeRound);
-            this.fFI = (TextView) view.findViewById(a.g.tvGradeNum);
-            this.fpH = (ViewGroup) view.findViewById(a.g.item_view);
-            this.fpH.setOnClickListener(b.this.fFG);
-            this.fpK = (HeadImageView) view.findViewById(a.g.photo);
-            this.fpK.setRadius(BdUtilHelper.getDimens(b.this.fFF.getPageContext().getPageActivity(), a.e.sdk_ds90));
-            this.fpK.setAutoChangeStyle(true);
-            this.fpK.setClickable(false);
-            this.fFJ = (LinearLayout) view.findViewById(a.g.info);
+            this.fFS = (ImageView) view.findViewById(a.g.imgGradeRound);
+            this.fFT = (TextView) view.findViewById(a.g.tvGradeNum);
+            this.fpS = (ViewGroup) view.findViewById(a.g.item_view);
+            this.fpS.setOnClickListener(b.this.fFR);
+            this.fpV = (HeadImageView) view.findViewById(a.g.photo);
+            this.fpV.setRadius(BdUtilHelper.getDimens(b.this.fFQ.getPageContext().getPageActivity(), a.e.sdk_ds90));
+            this.fpV.setAutoChangeStyle(true);
+            this.fpV.setClickable(false);
+            this.fFU = (LinearLayout) view.findViewById(a.g.info);
             this.mName = (TextView) view.findViewById(a.g.ala_name);
-            this.fpL = (TextView) view.findViewById(a.g.ala_intro);
-            this.fFK = (TextView) view.findViewById(a.g.attention_btn);
-            this.fFK.setOnClickListener(b.this.fpn);
+            this.fpW = (TextView) view.findViewById(a.g.ala_intro);
+            this.fFV = (TextView) view.findViewById(a.g.attention_btn);
+            this.fFV.setOnClickListener(b.this.fpz);
         }
 
-        public void qv(int i) {
+        public void qx(int i) {
             com.baidu.tieba.ala.live.personcenter.guardian.a aVar = (com.baidu.tieba.ala.live.personcenter.guardian.a) b.this.getItem(i);
             if (aVar != null) {
-                this.fpH.setTag(Integer.valueOf(i));
-                this.fFK.setTag(Integer.valueOf(i));
-                pY(i);
-                k.a(this.fpK, aVar.portrait, true, !StringUtils.isNull(aVar.appId));
+                this.fpS.setTag(Integer.valueOf(i));
+                this.fFV.setTag(Integer.valueOf(i));
+                qa(i);
+                k.a(this.fpV, aVar.portrait, true, !StringUtils.isNull(aVar.appId));
                 this.mName.setText(aVar.getNameShow());
-                this.fpL.setText(b.this.fFF.getResources().getString(a.i.sdk_prc_guardian_list_item_charm, aVar.fFy));
+                this.fpW.setText(b.this.fFQ.getResources().getString(a.i.sdk_prc_guardian_list_item_charm, aVar.fFJ));
                 jH(aVar.followStatus != 0);
             }
         }
 
         private void jH(boolean z) {
-            if (this.fFK != null) {
-                this.fFK.setVisibility(8);
+            if (this.fFV != null) {
+                this.fFV.setVisibility(8);
             }
         }
 
-        public void pY(int i) {
-            this.fFH.setVisibility(8);
-            this.fFI.setVisibility(8);
+        public void qa(int i) {
+            this.fFS.setVisibility(8);
+            this.fFT.setVisibility(8);
             if (i == 0) {
-                this.fFH.setVisibility(0);
-                SkinManager.setImageResource(this.fFH, a.f.sdk_prc_icon_grade_round_no1);
+                this.fFS.setVisibility(0);
+                SkinManager.setImageResource(this.fFS, a.f.sdk_prc_icon_grade_round_no1);
             } else if (i == 1) {
-                this.fFH.setVisibility(0);
-                SkinManager.setImageResource(this.fFH, a.f.sdk_prc_icon_grade_round_no2);
+                this.fFS.setVisibility(0);
+                SkinManager.setImageResource(this.fFS, a.f.sdk_prc_icon_grade_round_no2);
             } else if (i == 2) {
-                this.fFH.setVisibility(0);
-                SkinManager.setImageResource(this.fFH, a.f.sdk_prc_icon_grade_round_no3);
+                this.fFS.setVisibility(0);
+                SkinManager.setImageResource(this.fFS, a.f.sdk_prc_icon_grade_round_no3);
             } else {
-                this.fFI.setVisibility(0);
-                this.fFI.setText(String.valueOf(i + 1));
+                this.fFT.setVisibility(0);
+                this.fFT.setText(String.valueOf(i + 1));
             }
         }
     }
@@ -147,7 +147,7 @@ public class b extends BaseAdapter {
                     break;
                 }
                 com.baidu.tieba.ala.live.personcenter.guardian.a next = it.next();
-                if (str.equals(next.fFt)) {
+                if (str.equals(next.fFE)) {
                     if (z) {
                         next.followStatus = 1;
                     } else {

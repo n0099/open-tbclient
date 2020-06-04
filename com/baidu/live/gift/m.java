@@ -80,7 +80,7 @@ public class m implements Cloneable {
         return this.aFz;
     }
 
-    public void bM(int i) {
+    public void bO(int i) {
         this.aFz = i;
     }
 }

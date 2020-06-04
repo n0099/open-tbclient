@@ -9,18 +9,18 @@ import org.json.JSONObject;
 public class d implements ae {
     private String avatar;
     private String errorMsg;
-    private int fiv;
+    private int fiH;
     private int forumId;
     private String forumName;
     private boolean isSigned;
-    private int lbB;
-    private int lbC;
-    private int lbD;
-    private int lbE;
-    private boolean lbF;
-    private boolean lbG;
-    private boolean lbH;
-    private int lbI;
+    private int lcK;
+    private int lcL;
+    private int lcM;
+    private int lcN;
+    private boolean lcO;
+    private boolean lcP;
+    private boolean lcQ;
+    private int lcR;
 
     public int getForumId() {
         return this.forumId;
@@ -34,82 +34,82 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int daI() {
-        return this.lbB;
+    public int daY() {
+        return this.lcK;
     }
 
-    public int daJ() {
-        return this.fiv;
+    public int daZ() {
+        return this.fiH;
     }
 
-    public int daK() {
-        return this.lbC;
+    public int dba() {
+        return this.lcL;
     }
 
-    public int daL() {
-        return this.lbD;
+    public int dbb() {
+        return this.lcM;
     }
 
-    public int daM() {
-        return this.lbE;
-    }
-
-    public void Dw(int i) {
-        this.lbB = i;
-    }
-
-    public void Dx(int i) {
-        this.fiv = i;
+    public int dbc() {
+        return this.lcN;
     }
 
     public void Dy(int i) {
-        this.lbC = i;
+        this.lcK = i;
     }
 
-    public boolean brz() {
+    public void Dz(int i) {
+        this.fiH = i;
+    }
+
+    public void DA(int i) {
+        this.lcL = i;
+    }
+
+    public boolean brB() {
         return this.isSigned;
     }
 
     public void ue(boolean z) {
         this.isSigned = z;
-        this.lbB = 1;
+        this.lcK = 1;
     }
 
-    public boolean daN() {
-        return this.lbG;
+    public boolean dbd() {
+        return this.lcP;
     }
 
     public void uf(boolean z) {
-        this.lbG = z;
-        this.lbB = 0;
+        this.lcP = z;
+        this.lcK = 0;
     }
 
-    public boolean daO() {
-        return this.lbH;
+    public boolean dbe() {
+        return this.lcQ;
     }
 
     public void ug(boolean z) {
-        this.lbH = z;
+        this.lcQ = z;
     }
 
-    public int daP() {
-        return this.lbI;
+    public int dbf() {
+        return this.lcR;
     }
 
-    public void Dz(int i) {
-        this.lbI = i;
+    public void DB(int i) {
+        this.lcR = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean daQ() {
-        return this.lbF;
+    public boolean dbg() {
+        return this.lcO;
     }
 
     public void uh(boolean z) {
-        this.lbF = z;
+        this.lcO = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -117,14 +117,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.lbB = jSONObject.optInt("is_sign_in");
-            this.fiv = jSONObject.optInt("cont_sign_num");
-            this.lbC = jSONObject.optInt("user_level");
-            this.lbD = jSONObject.optInt("user_exp");
-            this.lbE = jSONObject.optInt("need_exp");
-            if (this.lbB != 0) {
+            this.lcK = jSONObject.optInt("is_sign_in");
+            this.fiH = jSONObject.optInt("cont_sign_num");
+            this.lcL = jSONObject.optInt("user_level");
+            this.lcM = jSONObject.optInt("user_exp");
+            this.lcN = jSONObject.optInt("need_exp");
+            if (this.lcK != 0) {
                 this.isSigned = true;
-                this.lbG = false;
+                this.lcP = false;
             }
         }
     }

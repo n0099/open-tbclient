@@ -135,7 +135,7 @@ public class a<T extends d> implements PullToRefreshBaseWebView.a, com.baidu.swa
         return true;
     }
 
-    public void hP(int i) {
+    public void hR(int i) {
         this.cNl.setVisibility(i);
     }
 

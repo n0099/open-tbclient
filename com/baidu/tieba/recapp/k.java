@@ -1,9 +1,9 @@
 package com.baidu.tieba.recapp;
 /* loaded from: classes.dex */
 public interface k {
-    void cTZ();
+    void cUp();
 
-    void cUa();
+    void cUq();
 
-    int cUb();
+    int cUr();
 }

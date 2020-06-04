@@ -23,8 +23,8 @@ import tbclient.AlaLiveInfo;
 /* loaded from: classes9.dex */
 public class HomePageAlaRecommendLayout extends LinearLayout {
     private CustomMessageListener dNP;
-    private BdRecyclerView gwN;
-    private com.baidu.tieba.homepage.personalize.a.a ifK;
+    private BdRecyclerView gwY;
+    private com.baidu.tieba.homepage.personalize.a.a igx;
     private Context mContext;
     private List<AlaLiveInfo> mData;
     private int mSkinType;
@@ -45,7 +45,7 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
                     for (AlaLiveInfo alaLiveInfo : HomePageAlaRecommendLayout.this.mData) {
                         if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.user_info.user_id != null && data.toUid.equals(alaLiveInfo.user_info.user_id.toString())) {
                             HomePageAlaRecommendLayout.this.mData.remove(alaLiveInfo);
-                            HomePageAlaRecommendLayout.this.cgB();
+                            HomePageAlaRecommendLayout.this.cgK();
                             return;
                         }
                     }
@@ -60,33 +60,33 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.home_page_ala_recommend_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.gwN = (BdRecyclerView) findViewById(R.id.ala_recommend_list);
-        this.ifK = new com.baidu.tieba.homepage.personalize.a.a(this.mContext);
-        this.gwN.setAdapter(this.ifK);
-        this.gwN.setLayoutManager(new LinearLayoutManager(this.mContext, 0, false));
-        this.gwN.setItemAnimator(new DefaultItemAnimator());
+        this.gwY = (BdRecyclerView) findViewById(R.id.ala_recommend_list);
+        this.igx = new com.baidu.tieba.homepage.personalize.a.a(this.mContext);
+        this.gwY.setAdapter(this.igx);
+        this.gwY.setLayoutManager(new LinearLayoutManager(this.mContext, 0, false));
+        this.gwY.setItemAnimator(new DefaultItemAnimator());
         int dimens = l.getDimens(this.mContext, R.dimen.tbds20);
-        this.gwN.addItemDecoration(new a(dimens, 0, dimens));
+        this.gwY.addItemDecoration(new a(dimens, 0, dimens));
     }
 
     public void setData(com.baidu.tieba.homepage.personalize.data.f fVar) {
-        if (fVar == null || v.isEmpty(fVar.cgq())) {
+        if (fVar == null || v.isEmpty(fVar.cgz())) {
             setVisibility(8);
             return;
         }
-        this.mData = fVar.cgq();
+        this.mData = fVar.cgz();
         setVisibility(0);
-        cgB();
+        cgK();
     }
 
-    public void cgB() {
+    public void cgK() {
         if (v.isEmpty(this.mData)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.ifK.setData(this.mData);
-        this.ifK.notifyDataSetChanged();
+        this.igx.setData(this.mData);
+        this.igx.notifyDataSetChanged();
     }
 
     public void onChangeSkinType(int i) {

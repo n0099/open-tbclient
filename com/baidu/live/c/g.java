@@ -37,7 +37,7 @@ public class g extends IntentConfig {
         getIntent().putExtra("entry_super_customer", z);
     }
 
-    public void bB(int i) {
+    public void bD(int i) {
         getIntent().putExtra("guard_club_join_amount", i);
     }
 

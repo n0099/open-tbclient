@@ -171,10 +171,10 @@ public class a {
     private byte[] m(int i, int i2, int i3, int i4) {
         int i5 = i + 7;
         byte[] bArr = new byte[i5];
-        int fR = fR(i3);
+        int fT = fT(i3);
         bArr[0] = -1;
         bArr[1] = -15;
-        bArr[2] = (byte) ((fR << 2) + ((i2 - 1) << 6) + (i4 >> 2));
+        bArr[2] = (byte) ((fT << 2) + ((i2 - 1) << 6) + (i4 >> 2));
         bArr[3] = (byte) (((i4 & 3) << 6) + (i5 >> 11));
         bArr[4] = (byte) ((i5 & 2047) >> 3);
         bArr[5] = (byte) (((i5 & 7) << 5) + 31);
@@ -182,7 +182,7 @@ public class a {
         return bArr;
     }
 
-    private int fR(int i) {
+    private int fT(int i) {
         switch (i) {
             case 7350:
                 return 12;

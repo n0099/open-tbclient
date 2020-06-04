@@ -199,7 +199,7 @@ public class c {
             b.a aoJ = d.aoB().aox().aoJ();
             pW(aoJ.abT());
             pV(aoJ.getIconUrl());
-            hN(aoJ.getType());
+            hP(aoJ.getType());
             this.cMn = (ImageView) this.cMl.findViewById(a.f.light_print);
             this.cMo = (ImageView) this.cMl.findViewById(a.f.dark_print);
             this.mRightMenuImageView = (ImageView) this.cMl.findViewById(a.f.titlebar_right_menu_img);
@@ -270,7 +270,7 @@ public class c {
                         aly.ald();
                     }
                     c.this.cMs.moveTaskToBack(true);
-                    an.atY().hI(2);
+                    an.atY().hK(2);
                     c.this.auu();
                 }
             }
@@ -300,11 +300,11 @@ public class c {
         }
     }
 
-    private void hN(int i) {
+    private void hP(int i) {
         ag.a(this.bUE, this.bUF, String.valueOf(i));
     }
 
-    public void hO(final int i) {
+    public void hQ(final int i) {
         Handler mainHandler = d.getMainHandler();
         if (this.cMC != null) {
             mainHandler.removeCallbacks(this.cMC);

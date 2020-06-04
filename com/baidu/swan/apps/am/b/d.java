@@ -30,7 +30,7 @@ public class d {
                     } else {
                         i = 0;
                     }
-                    ((a) entry.getValue()).ht(i);
+                    ((a) entry.getValue()).hv(i);
                 }
             }
         }
@@ -38,7 +38,7 @@ public class d {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void ht(int i);
+        void hv(int i);
     }
 
     private d() {

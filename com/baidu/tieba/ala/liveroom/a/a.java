@@ -8,29 +8,29 @@ import com.baidu.live.view.web.g;
 /* loaded from: classes3.dex */
 public class a implements c {
     private long aWv;
-    private b fIb;
-    private long fIc;
-    private String fId;
-    private CustomMessageListener flM;
-    private boolean fzW;
+    private boolean fAh;
+    private b fIm;
+    private long fIn;
+    private String fIo;
+    private CustomMessageListener flX;
     private Activity mActivity;
 
     public a(Activity activity) {
         this.mActivity = activity;
-        brZ();
+        bsb();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void setHost(boolean z) {
-        this.fzW = z;
+        this.fAh = z;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void g(long j, String str) {
-        this.fIc = j;
-        this.fId = str;
-        if (this.fId == null) {
-            this.fId = "";
+        this.fIn = j;
+        this.fIo = str;
+        if (this.fIo == null) {
+            this.fIo = "";
         }
     }
 
@@ -41,60 +41,60 @@ public class a implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void aA(String str, int i) {
-        this.fIb = new b(this.mActivity);
+        this.fIm = new b(this.mActivity);
         g gVar = new g();
-        gVar.u(this.mActivity).a(this.fIb).a(this.fIb.bsa().getSchemeCallback()).aB(this.fIc).fU(this.fId).cv(this.fzW).aC(this.aWv);
+        gVar.u(this.mActivity).a(this.fIm).a(this.fIm.bsc().getSchemeCallback()).aB(this.fIn).fU(this.fIo).cv(this.fAh).aC(this.aWv);
         com.baidu.live.view.web.a[] JF = gVar.JF();
         for (com.baidu.live.view.web.a aVar : JF) {
-            this.fIb.bsa().addJavascriptInterface(aVar, aVar.getName());
+            this.fIm.bsc().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.fIb.aB(str, i);
+        this.fIm.aB(str, i);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void resume() {
-        if (this.fIb != null && this.fIb.isShowing() && this.fIb.bsa() != null) {
-            this.fIb.bsa().onResume();
+        if (this.fIm != null && this.fIm.isShowing() && this.fIm.bsc() != null) {
+            this.fIm.bsc().onResume();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void pause() {
-        if (this.fIb != null && this.fIb.isShowing() && this.fIb.bsa() != null) {
-            this.fIb.bsa().onPause();
+        if (this.fIm != null && this.fIm.isShowing() && this.fIm.bsc() != null) {
+            this.fIm.bsc().onPause();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
-    public void cs(int i) {
-        if (this.fIb != null && this.fIb.isShowing()) {
-            this.fIb.cs(i);
+    public void cu(int i) {
+        if (this.fIm != null && this.fIm.isShowing()) {
+            this.fIm.cu(i);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void release() {
-        this.fIc = 0L;
-        this.fId = "";
-        MessageManager.getInstance().unRegisterListener(this.flM);
-        if (this.fIb != null) {
-            this.fIb.bsb();
-            if (this.fIb.bsa() != null) {
-                this.fIb.bsa().release();
+        this.fIn = 0L;
+        this.fIo = "";
+        MessageManager.getInstance().unRegisterListener(this.flX);
+        if (this.fIm != null) {
+            this.fIm.bsd();
+            if (this.fIm.bsc() != null) {
+                this.fIm.bsc().release();
             }
         }
     }
 
-    private void brZ() {
-        this.flM = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.a.a.1
+    private void bsb() {
+        this.flX = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (a.this.fIb != null && a.this.fIb.isShowing()) {
-                    a.this.fIb.dismiss();
+                if (a.this.fIm != null && a.this.fIm.isShowing()) {
+                    a.this.fIm.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.flM);
+        MessageManager.getInstance().registerListener(this.flX);
     }
 }

@@ -7,12 +7,12 @@ import rx.internal.util.a.h;
 /* loaded from: classes6.dex */
 abstract class a<E> extends AbstractQueue<E> {
     protected final int mask;
-    protected final AtomicReferenceArray<E> nJo;
+    protected final AtomicReferenceArray<E> nKy;
 
     public a(int i) {
-        int JL = h.JL(i);
-        this.mask = JL - 1;
-        this.nJo = new AtomicReferenceArray<>(JL);
+        int JN = h.JN(i);
+        this.mask = JN - 1;
+        this.nKy = new AtomicReferenceArray<>(JN);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
@@ -51,6 +51,6 @@ abstract class a<E> extends AbstractQueue<E> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E lvElement(int i) {
-        return b(this.nJo, i);
+        return b(this.nKy, i);
     }
 }

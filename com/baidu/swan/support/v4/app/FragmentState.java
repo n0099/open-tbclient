@@ -18,7 +18,7 @@ public final class FragmentState implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: jq */
+        /* renamed from: js */
         public FragmentState[] newArray(int i) {
             return new FragmentState[i];
         }

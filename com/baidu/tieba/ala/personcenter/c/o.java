@@ -3,14 +3,14 @@ package com.baidu.tieba.ala.personcenter.c;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class o {
-    public String goM;
-    public String goN;
-    public String goO;
-    public String goP;
-    public String goQ;
-    public String goR;
-    public String goS;
-    public String goT;
+    public String goX;
+    public String goY;
+    public String goZ;
+    public String gpa;
+    public String gpb;
+    public String gpc;
+    public String gpd;
+    public String gpe;
     public String location;
     public String portrait;
     public String sex;
@@ -18,18 +18,18 @@ public class o {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.goM = jSONObject.optString("user_id");
+            this.goX = jSONObject.optString("user_id");
             this.userName = jSONObject.optString("user_name");
             this.sex = jSONObject.optString("sex");
-            this.goN = jSONObject.optString("description");
+            this.goY = jSONObject.optString("description");
             this.portrait = jSONObject.optString("portrait");
-            this.goO = jSONObject.optString("level_id");
+            this.goZ = jSONObject.optString("level_id");
             this.location = jSONObject.optString("location");
-            this.goP = jSONObject.optString("follow_status");
-            this.goR = jSONObject.optString("follow_count");
-            this.goQ = jSONObject.optString("fans_count");
-            this.goS = jSONObject.optString("live_count");
-            this.goT = jSONObject.optString("record_count");
+            this.gpa = jSONObject.optString("follow_status");
+            this.gpc = jSONObject.optString("follow_count");
+            this.gpb = jSONObject.optString("fans_count");
+            this.gpd = jSONObject.optString("live_count");
+            this.gpe = jSONObject.optString("record_count");
         }
     }
 }

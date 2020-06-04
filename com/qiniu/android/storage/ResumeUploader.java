@@ -26,29 +26,29 @@ final class ResumeUploader implements Runnable {
     private File f;
     private RandomAccessFile file = null;
     private final String key;
-    private final Client nfA;
-    private final long nfZ;
-    private final UpCompletionHandler ngN;
-    private final UploadOptions ngO;
-    private final Configuration ngP;
-    private final byte[] ngQ;
-    private final String[] ngR;
-    private final StringMap ngS;
-    private final long ngT;
-    private final String ngU;
-    private long ngV;
-    private UpToken ngW;
+    private final Client ngK;
+    private final UpCompletionHandler nhX;
+    private final UploadOptions nhY;
+    private final Configuration nhZ;
+    private final long nhj;
+    private final byte[] nia;
+    private final String[] nib;
+    private final StringMap nic;
+    private final long nie;
+    private final String nif;
+    private long nig;
+    private UpToken nih;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ResumeUploader(Client client, Configuration configuration, File file, String str, UpToken upToken, final UpCompletionHandler upCompletionHandler, UploadOptions uploadOptions, String str2) {
-        this.nfA = client;
-        this.ngP = configuration;
+        this.ngK = client;
+        this.nhZ = configuration;
         this.f = file;
-        this.ngU = str2;
-        this.nfZ = file.length();
+        this.nif = str2;
+        this.nhj = file.length();
         this.key = str;
-        this.ngS = new StringMap().O("Authorization", "UpToken " + upToken.token);
-        this.ngN = new UpCompletionHandler() { // from class: com.qiniu.android.storage.ResumeUploader.1
+        this.nic = new StringMap().O("Authorization", "UpToken " + upToken.token);
+        this.nhX = new UpCompletionHandler() { // from class: com.qiniu.android.storage.ResumeUploader.1
             @Override // com.qiniu.android.storage.UpCompletionHandler
             public void a(String str3, ResponseInfo responseInfo, JSONObject jSONObject) {
                 if (ResumeUploader.this.file != null) {
@@ -61,16 +61,16 @@ final class ResumeUploader implements Runnable {
                 upCompletionHandler.a(str3, responseInfo, jSONObject);
             }
         };
-        this.ngO = uploadOptions == null ? UploadOptions.dHY() : uploadOptions;
-        this.ngQ = new byte[configuration.chunkSize];
-        this.ngR = new String[(int) (((this.nfZ + ImageUploadStrategy.FILE_SIZE_4M) - 1) / ImageUploadStrategy.FILE_SIZE_4M)];
-        this.ngT = file.lastModified();
-        this.ngW = upToken;
+        this.nhY = uploadOptions == null ? UploadOptions.dIm() : uploadOptions;
+        this.nia = new byte[configuration.chunkSize];
+        this.nib = new String[(int) (((this.nhj + ImageUploadStrategy.FILE_SIZE_4M) - 1) / ImageUploadStrategy.FILE_SIZE_4M)];
+        this.nie = file.lastModified();
+        this.nih = upToken;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean b(ResponseInfo responseInfo, JSONObject jSONObject) {
-        return responseInfo.statusCode == 200 && responseInfo.error == null && (responseInfo.dHO() || ef(jSONObject));
+        return responseInfo.statusCode == 200 && responseInfo.error == null && (responseInfo.dIc() || ef(jSONObject));
     }
 
     private static boolean ef(JSONObject jSONObject) {
@@ -85,18 +85,18 @@ final class ResumeUploader implements Runnable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean c(ResponseInfo responseInfo, JSONObject jSONObject) {
-        return responseInfo.statusCode < 500 && responseInfo.statusCode >= 200 && !responseInfo.dHO() && !ef(jSONObject);
+        return responseInfo.statusCode < 500 && responseInfo.statusCode >= 200 && !responseInfo.dIc() && !ef(jSONObject);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        long dHU = dHU();
+        long dIi = dIi();
         try {
             this.file = new RandomAccessFile(this.f, "r");
-            a(dHU, 0, this.ngP.ngz.d(this.ngW.token, this.ngP.useHttps, null));
+            a(dIi, 0, this.nhZ.nhJ.d(this.nih.token, this.nhZ.useHttps, null));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            this.ngN.a(this.key, ResponseInfo.a(e, this.ngW), null);
+            this.nhX.a(this.key, ResponseInfo.a(e, this.nih), null);
         }
     }
 
@@ -104,11 +104,11 @@ final class ResumeUploader implements Runnable {
         String format = String.format(Locale.ENGLISH, "/mkblk/%d", Integer.valueOf(i));
         try {
             this.file.seek(j);
-            this.file.read(this.ngQ, 0, i2);
-            this.ngV = Crc32.u(this.ngQ, 0, i2);
-            a(String.format("%s%s", str, format), this.ngQ, 0, i2, progressHandler, completionHandler, upCancellationSignal);
+            this.file.read(this.nia, 0, i2);
+            this.nig = Crc32.u(this.nia, 0, i2);
+            a(String.format("%s%s", str, format), this.nia, 0, i2, progressHandler, completionHandler, upCancellationSignal);
         } catch (IOException e) {
-            this.ngN.a(this.key, ResponseInfo.a(e, this.ngW), null);
+            this.nhX.a(this.key, ResponseInfo.a(e, this.nih), null);
         }
     }
 
@@ -116,89 +116,89 @@ final class ResumeUploader implements Runnable {
         String format = String.format(Locale.ENGLISH, "/bput/%s/%d", str2, Integer.valueOf((int) (j % ImageUploadStrategy.FILE_SIZE_4M)));
         try {
             this.file.seek(j);
-            this.file.read(this.ngQ, 0, i);
-            this.ngV = Crc32.u(this.ngQ, 0, i);
-            a(String.format("%s%s", str, format), this.ngQ, 0, i, progressHandler, completionHandler, upCancellationSignal);
+            this.file.read(this.nia, 0, i);
+            this.nig = Crc32.u(this.nia, 0, i);
+            a(String.format("%s%s", str, format), this.nia, 0, i, progressHandler, completionHandler, upCancellationSignal);
         } catch (IOException e) {
-            this.ngN.a(this.key, ResponseInfo.a(e, this.ngW), null);
+            this.nhX.a(this.key, ResponseInfo.a(e, this.nih), null);
         }
     }
 
     private void a(String str, CompletionHandler completionHandler, UpCancellationSignal upCancellationSignal) {
         String str2;
-        String format = String.format(Locale.ENGLISH, "/mimeType/%s/fname/%s", UrlSafeBase64.QZ(this.ngO.mimeType), UrlSafeBase64.QZ(this.f.getName()));
+        String format = String.format(Locale.ENGLISH, "/mimeType/%s/fname/%s", UrlSafeBase64.Ra(this.nhY.mimeType), UrlSafeBase64.Ra(this.f.getName()));
         if (this.key == null) {
             str2 = "";
         } else {
-            str2 = String.format("/key/%s", UrlSafeBase64.QZ(this.key));
+            str2 = String.format("/key/%s", UrlSafeBase64.Ra(this.key));
         }
         String str3 = "";
-        if (this.ngO.params.size() != 0) {
-            String[] strArr = new String[this.ngO.params.size()];
+        if (this.nhY.params.size() != 0) {
+            String[] strArr = new String[this.nhY.params.size()];
             int i = 0;
-            for (Map.Entry<String, String> entry : this.ngO.params.entrySet()) {
-                strArr[i] = String.format(Locale.ENGLISH, "%s/%s", entry.getKey(), UrlSafeBase64.QZ(entry.getValue()));
+            for (Map.Entry<String, String> entry : this.nhY.params.entrySet()) {
+                strArr[i] = String.format(Locale.ENGLISH, "%s/%s", entry.getKey(), UrlSafeBase64.Ra(entry.getValue()));
                 i++;
             }
             str3 = "/" + StringUtils.b(strArr, "/");
         }
-        String format2 = String.format(Locale.ENGLISH, "/mkfile/%d%s%s%s", Long.valueOf(this.nfZ), format, str2, str3);
-        byte[] bytes = StringUtils.b(this.ngR, Constants.ACCEPT_TIME_SEPARATOR_SP).getBytes();
+        String format2 = String.format(Locale.ENGLISH, "/mkfile/%d%s%s%s", Long.valueOf(this.nhj), format, str2, str3);
+        byte[] bytes = StringUtils.b(this.nib, Constants.ACCEPT_TIME_SEPARATOR_SP).getBytes();
         a(String.format("%s%s", str, format2), bytes, 0, bytes.length, (ProgressHandler) null, completionHandler, upCancellationSignal);
     }
 
     private void a(String str, byte[] bArr, int i, int i2, ProgressHandler progressHandler, CompletionHandler completionHandler, UpCancellationSignal upCancellationSignal) {
-        this.nfA.a(str, bArr, i, i2, this.ngS, this.ngW, this.nfZ, progressHandler, completionHandler, upCancellationSignal);
+        this.ngK.a(str, bArr, i, i2, this.nic, this.nih, this.nhj, progressHandler, completionHandler, upCancellationSignal);
     }
 
     private long fZ(long j) {
-        long j2 = this.nfZ - j;
-        return j2 < ((long) this.ngP.chunkSize) ? j2 : this.ngP.chunkSize;
+        long j2 = this.nhj - j;
+        return j2 < ((long) this.nhZ.chunkSize) ? j2 : this.nhZ.chunkSize;
     }
 
     private long ga(long j) {
-        long j2 = this.nfZ - j;
+        long j2 = this.nhj - j;
         return j2 < ImageUploadStrategy.FILE_SIZE_4M ? j2 : ImageUploadStrategy.FILE_SIZE_4M;
     }
 
     private boolean isCancelled() {
-        return this.ngO.nhn.isCancelled();
+        return this.nhY.niy.isCancelled();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final long j, final int i, final String str) {
         if (isCancelled()) {
-            this.ngN.a(this.key, ResponseInfo.b(this.ngW), null);
-        } else if (j == this.nfZ) {
+            this.nhX.a(this.key, ResponseInfo.b(this.nih), null);
+        } else if (j == this.nhj) {
             a(str, new CompletionHandler() { // from class: com.qiniu.android.storage.ResumeUploader.2
                 @Override // com.qiniu.android.http.CompletionHandler
                 public void a(ResponseInfo responseInfo, JSONObject jSONObject) {
                     String d;
-                    if (responseInfo.dHJ() && !AndroidNetwork.dHZ()) {
-                        ResumeUploader.this.ngO.nho.dHT();
-                        if (!AndroidNetwork.dHZ()) {
-                            ResumeUploader.this.ngN.a(ResumeUploader.this.key, responseInfo, jSONObject);
+                    if (responseInfo.dHX() && !AndroidNetwork.dIn()) {
+                        ResumeUploader.this.nhY.niz.dIh();
+                        if (!AndroidNetwork.dIn()) {
+                            ResumeUploader.this.nhX.a(ResumeUploader.this.key, responseInfo, jSONObject);
                             return;
                         }
                     }
-                    if (responseInfo.dHI()) {
-                        ResumeUploader.this.dHV();
-                        ResumeUploader.this.ngO.nhm.b(ResumeUploader.this.key, 1.0d);
-                        ResumeUploader.this.ngN.a(ResumeUploader.this.key, responseInfo, jSONObject);
-                    } else if (!responseInfo.dHM() || i >= ResumeUploader.this.ngP.ngw + 1 || (d = ResumeUploader.this.ngP.ngz.d(ResumeUploader.this.ngW.token, ResumeUploader.this.ngP.useHttps, str)) == null) {
-                        ResumeUploader.this.ngN.a(ResumeUploader.this.key, responseInfo, jSONObject);
+                    if (responseInfo.dHW()) {
+                        ResumeUploader.this.dIj();
+                        ResumeUploader.this.nhY.nix.b(ResumeUploader.this.key, 1.0d);
+                        ResumeUploader.this.nhX.a(ResumeUploader.this.key, responseInfo, jSONObject);
+                    } else if (!responseInfo.dIa() || i >= ResumeUploader.this.nhZ.nhG + 1 || (d = ResumeUploader.this.nhZ.nhJ.d(ResumeUploader.this.nih.token, ResumeUploader.this.nhZ.useHttps, str)) == null) {
+                        ResumeUploader.this.nhX.a(ResumeUploader.this.key, responseInfo, jSONObject);
                     } else {
                         ResumeUploader.this.a(j, i + 1, d);
                     }
                 }
-            }, this.ngO.nhn);
+            }, this.nhY.niy);
         } else {
             final int fZ = (int) fZ(j);
             ProgressHandler progressHandler = new ProgressHandler() { // from class: com.qiniu.android.storage.ResumeUploader.3
                 @Override // com.qiniu.android.http.ProgressHandler
                 public void onProgress(long j2, long j3) {
                     double d = (j + j2) / j3;
-                    ResumeUploader.this.ngO.nhm.b(ResumeUploader.this.key, d <= 0.95d ? d : 0.95d);
+                    ResumeUploader.this.nhY.nix.b(ResumeUploader.this.key, d <= 0.95d ? d : 0.95d);
                 }
             };
             CompletionHandler completionHandler = new CompletionHandler() { // from class: com.qiniu.android.storage.ResumeUploader.4
@@ -206,28 +206,28 @@ final class ResumeUploader implements Runnable {
                 public void a(ResponseInfo responseInfo, JSONObject jSONObject) {
                     String str2;
                     long j2;
-                    if (responseInfo.dHJ() && !AndroidNetwork.dHZ()) {
-                        ResumeUploader.this.ngO.nho.dHT();
-                        if (!AndroidNetwork.dHZ()) {
-                            ResumeUploader.this.ngN.a(ResumeUploader.this.key, responseInfo, jSONObject);
+                    if (responseInfo.dHX() && !AndroidNetwork.dIn()) {
+                        ResumeUploader.this.nhY.niz.dIh();
+                        if (!AndroidNetwork.dIn()) {
+                            ResumeUploader.this.nhX.a(ResumeUploader.this.key, responseInfo, jSONObject);
                             return;
                         }
                     }
                     if (responseInfo.isCancelled()) {
-                        ResumeUploader.this.ngN.a(ResumeUploader.this.key, responseInfo, jSONObject);
+                        ResumeUploader.this.nhX.a(ResumeUploader.this.key, responseInfo, jSONObject);
                     } else if (!ResumeUploader.b(responseInfo, jSONObject)) {
-                        String d = ResumeUploader.this.ngP.ngz.d(ResumeUploader.this.ngW.token, ResumeUploader.this.ngP.useHttps, str);
-                        if (responseInfo.statusCode == 701 && i < ResumeUploader.this.ngP.ngw) {
+                        String d = ResumeUploader.this.nhZ.nhJ.d(ResumeUploader.this.nih.token, ResumeUploader.this.nhZ.useHttps, str);
+                        if (responseInfo.statusCode == 701 && i < ResumeUploader.this.nhZ.nhG) {
                             ResumeUploader.this.a((j / ImageUploadStrategy.FILE_SIZE_4M) * ImageUploadStrategy.FILE_SIZE_4M, i + 1, str);
-                        } else if (d == null || ((!ResumeUploader.c(responseInfo, jSONObject) && !responseInfo.dHM()) || i >= ResumeUploader.this.ngP.ngw)) {
-                            ResumeUploader.this.ngN.a(ResumeUploader.this.key, responseInfo, jSONObject);
+                        } else if (d == null || ((!ResumeUploader.c(responseInfo, jSONObject) && !responseInfo.dIa()) || i >= ResumeUploader.this.nhZ.nhG)) {
+                            ResumeUploader.this.nhX.a(ResumeUploader.this.key, responseInfo, jSONObject);
                         } else {
                             ResumeUploader.this.a(j, i + 1, d);
                         }
                     } else {
                         String str3 = null;
-                        if (jSONObject == null && i < ResumeUploader.this.ngP.ngw) {
-                            ResumeUploader.this.a(j, i + 1, ResumeUploader.this.ngP.ngz.d(ResumeUploader.this.ngW.token, ResumeUploader.this.ngP.useHttps, str));
+                        if (jSONObject == null && i < ResumeUploader.this.nhZ.nhG) {
+                            ResumeUploader.this.a(j, i + 1, ResumeUploader.this.nhZ.nhJ.d(ResumeUploader.this.nih.token, ResumeUploader.this.nhZ.useHttps, str));
                             return;
                         }
                         try {
@@ -239,27 +239,27 @@ final class ResumeUploader implements Runnable {
                             str2 = str3;
                             j2 = 0;
                         }
-                        if ((str2 == null || j2 != ResumeUploader.this.ngV) && i < ResumeUploader.this.ngP.ngw) {
-                            ResumeUploader.this.a(j, i + 1, ResumeUploader.this.ngP.ngz.d(ResumeUploader.this.ngW.token, ResumeUploader.this.ngP.useHttps, str));
+                        if ((str2 == null || j2 != ResumeUploader.this.nig) && i < ResumeUploader.this.nhZ.nhG) {
+                            ResumeUploader.this.a(j, i + 1, ResumeUploader.this.nhZ.nhJ.d(ResumeUploader.this.nih.token, ResumeUploader.this.nhZ.useHttps, str));
                             return;
                         }
-                        ResumeUploader.this.ngR[(int) (j / ImageUploadStrategy.FILE_SIZE_4M)] = str2;
+                        ResumeUploader.this.nib[(int) (j / ImageUploadStrategy.FILE_SIZE_4M)] = str2;
                         ResumeUploader.this.gb(j + fZ);
                         ResumeUploader.this.a(j + fZ, i, str);
                     }
                 }
             };
             if (j % ImageUploadStrategy.FILE_SIZE_4M == 0) {
-                a(str, j, (int) ga(j), fZ, progressHandler, completionHandler, this.ngO.nhn);
+                a(str, j, (int) ga(j), fZ, progressHandler, completionHandler, this.nhY.niy);
             } else {
-                a(str, j, fZ, this.ngR[(int) (j / ImageUploadStrategy.FILE_SIZE_4M)], progressHandler, completionHandler, this.ngO.nhn);
+                a(str, j, fZ, this.nib[(int) (j / ImageUploadStrategy.FILE_SIZE_4M)], progressHandler, completionHandler, this.nhY.niy);
             }
         }
     }
 
-    private long dHU() {
+    private long dIi() {
         byte[] bArr;
-        if (this.ngP.ngs == null || (bArr = this.ngP.ngs.get(this.ngU)) == null) {
+        if (this.nhZ.nhC == null || (bArr = this.nhZ.nhC.get(this.nif)) == null) {
             return 0L;
         }
         try {
@@ -268,11 +268,11 @@ final class ResumeUploader implements Runnable {
             long optLong2 = jSONObject.optLong("modify_time", 0L);
             long optLong3 = jSONObject.optLong(TiebaInitialize.LogFields.SIZE, 0L);
             JSONArray optJSONArray = jSONObject.optJSONArray("contexts");
-            if (optLong == 0 || optLong2 != this.ngT || optLong3 != this.nfZ || optJSONArray == null || optJSONArray.length() == 0) {
+            if (optLong == 0 || optLong2 != this.nie || optLong3 != this.nhj || optJSONArray == null || optJSONArray.length() == 0) {
                 return 0L;
             }
             for (int i = 0; i < optJSONArray.length(); i++) {
-                this.ngR[i] = optJSONArray.optString(i);
+                this.nib[i] = optJSONArray.optString(i);
             }
             return optLong;
         } catch (JSONException e) {
@@ -282,16 +282,16 @@ final class ResumeUploader implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dHV() {
-        if (this.ngP.ngs != null) {
-            this.ngP.ngs.QU(this.ngU);
+    public void dIj() {
+        if (this.nhZ.nhC != null) {
+            this.nhZ.nhC.QV(this.nif);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gb(long j) {
-        if (this.ngP.ngs != null && j != 0) {
-            this.ngP.ngs.q(this.ngU, String.format(Locale.ENGLISH, "{\"size\":%d,\"offset\":%d, \"modify_time\":%d, \"contexts\":[%s]}", Long.valueOf(this.nfZ), Long.valueOf(j), Long.valueOf(this.ngT), StringUtils.X(this.ngR)).getBytes());
+        if (this.nhZ.nhC != null && j != 0) {
+            this.nhZ.nhC.q(this.nif, String.format(Locale.ENGLISH, "{\"size\":%d,\"offset\":%d, \"modify_time\":%d, \"contexts\":[%s]}", Long.valueOf(this.nhj), Long.valueOf(j), Long.valueOf(this.nie), StringUtils.X(this.nib)).getBytes());
         }
     }
 }

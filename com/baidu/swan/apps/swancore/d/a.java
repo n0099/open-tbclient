@@ -36,11 +36,11 @@ public class a {
         if (DEBUG) {
             String md5 = e.toMd5(new File(str2), false);
             if (!TextUtils.isEmpty(md5)) {
-                h.arO().putString(com.baidu.swan.apps.swancore.a.gU(i), md5);
+                h.arO().putString(com.baidu.swan.apps.swancore.a.gW(i), md5);
             }
         }
         if (ProcessUtils.isMainProcess()) {
-            com.baidu.swan.apps.swancore.b.b(hs(i), o(hq(i), pi));
+            com.baidu.swan.apps.swancore.b.b(hu(i), o(hs(i), pi));
         }
         f(pi, i);
         if (DEBUG) {
@@ -77,16 +77,16 @@ public class a {
         return swanCoreVersion;
     }
 
-    public static long hq(int i) {
-        return h.arO().getLong(hr(i), 0L);
+    public static long hs(int i) {
+        return h.arO().getLong(ht(i), 0L);
     }
 
-    private static String hr(int i) {
+    private static String ht(int i) {
         return i == 1 ? "aigames_cur_remote_ver_key" : "aiapps_cur_remote_ver_key";
     }
 
     private static void f(final long j, final int i) {
-        h.arO().putLong(hr(i), j);
+        h.arO().putLong(ht(i), j);
         n.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.swancore.d.a.1
             @Override // java.lang.Runnable
             public void run() {
@@ -101,12 +101,12 @@ public class a {
         }, "cacheSwanCoreInfo");
     }
 
-    private static File hs(int i) {
-        return new File(com.baidu.swan.apps.swancore.b.hc(i), "remote");
+    private static File hu(int i) {
+        return new File(com.baidu.swan.apps.swancore.b.he(i), "remote");
     }
 
     public static File g(long j, int i) {
-        return new File(hs(i), String.valueOf(j));
+        return new File(hu(i), String.valueOf(j));
     }
 
     /* renamed from: com.baidu.swan.apps.swancore.d.a$a  reason: collision with other inner class name */

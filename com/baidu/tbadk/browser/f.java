@@ -155,7 +155,7 @@ public class f {
         }
     }
 
-    public void jV(int i) {
+    public void jX(int i) {
         if (this.mNavigationBar != null && this.aex != null) {
             this.aex.setVisibility(i);
         }
@@ -230,8 +230,8 @@ public class f {
         if (this.dyF == null) {
             com.baidu.tieba.view.a aVar = new com.baidu.tieba.view.a(this.dyn);
             ArrayList arrayList = new ArrayList();
-            a.C0745a c0745a = new a.C0745a(this.dyn.getString(R.string.report_text), aVar);
-            c0745a.a(new a.c() { // from class: com.baidu.tbadk.browser.f.5
+            a.C0746a c0746a = new a.C0746a(this.dyn.getString(R.string.report_text), aVar);
+            c0746a.a(new a.c() { // from class: com.baidu.tbadk.browser.f.5
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
                     if (f.this.dyF != null && f.this.dyn != null) {
@@ -242,7 +242,7 @@ public class f {
                     }
                 }
             });
-            arrayList.add(c0745a);
+            arrayList.add(c0746a);
             aVar.a(new a.b() { // from class: com.baidu.tbadk.browser.f.6
                 @Override // com.baidu.tieba.view.a.b
                 public void onClick() {
@@ -304,7 +304,7 @@ public class f {
             if (shareItem.eeP) {
                 ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.dyn, shareItem, true, (SparseArray<String>) null);
                 shareDialogConfig.mShowMoreForumShare = true;
-                com.baidu.tieba.c.e.bMw().b(shareDialogConfig);
+                com.baidu.tieba.c.e.bMy().b(shareDialogConfig);
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig((Context) this.dyn, shareItem, true, aNI())));
@@ -338,10 +338,10 @@ public class f {
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(this.dyn.getPageContext(), i);
         }
-        SvgManager.aUV().a(this.dyq, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        SvgManager.aUV().a(this.dys, R.drawable.icon_pure_topbar_close44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        SvgManager.aUV().a(this.aex, R.drawable.icon_pure_topbar_more44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        SvgManager.aUV().a(this.dyt, R.drawable.icon_pure_topbar_share44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aUW().a(this.dyq, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aUW().a(this.dys, R.drawable.icon_pure_topbar_close44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aUW().a(this.aex, R.drawable.icon_pure_topbar_more44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aUW().a(this.dyt, R.drawable.icon_pure_topbar_share44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void hideNoDataView() {

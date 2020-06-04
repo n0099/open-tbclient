@@ -15,31 +15,31 @@ import com.baidu.tieba.R;
 public class p extends com.baidu.tieba.frs.h<bj, com.baidu.tieba.card.a.a<com.baidu.tieba.card.v>> implements com.baidu.tieba.a.f, com.baidu.tieba.card.y, com.baidu.tieba.frs.d.d {
     private com.baidu.tieba.card.aa adt;
     private String aeX;
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> hsh;
-    private com.baidu.adp.lib.d.b<TbImageView> hsi;
-    private com.baidu.tieba.frs.d.b hvA;
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> hss;
+    private com.baidu.adp.lib.d.b<TbImageView> hst;
+    private com.baidu.tieba.frs.d.b hvL;
     private TbPageContext mPageContext;
 
     public p(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.hvA = new com.baidu.tieba.frs.d.b();
+        this.hvL = new com.baidu.tieba.frs.d.b();
         this.adt = new com.baidu.tieba.card.aa() { // from class: com.baidu.tieba.frs.entelechy.a.p.1
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.card.data.b bVar, Object obj) {
                 if (bVar instanceof bk) {
-                    if (p.this.hmM != null) {
-                        p.this.hmM.a(view, (View) bVar, (Object) bk.dFe);
+                    if (p.this.hmX != null) {
+                        p.this.hmX.a(view, (View) bVar, (Object) bk.dFe);
                     }
                     bk bkVar = (bk) bVar;
-                    com.baidu.tieba.frs.d.c.caQ().a(p.this.hvA, bkVar, 1);
-                    com.baidu.tieba.frs.d.a.a(bkVar, 1, p.this.mPageId, p.this.hvA, p.this.getTbPageTag());
+                    com.baidu.tieba.frs.d.c.caY().a(p.this.hvL, bkVar, 1);
+                    com.baidu.tieba.frs.d.a.a(bkVar, 1, p.this.mPageId, p.this.hvL, p.this.getTbPageTag());
                 }
             }
         };
-        this.hsh = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.a.p.2
+        this.hss = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.a.p.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bXl */
+            /* renamed from: bXn */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(p.this.mPageContext.getPageActivity());
             }
@@ -65,10 +65,10 @@ public class p extends com.baidu.tieba.frs.h<bj, com.baidu.tieba.card.a.a<com.ba
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.hsi = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.p.3
+        this.hst = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.p.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: aWM */
+            /* renamed from: aWN */
             public TbImageView makeObject() {
                 TbImageView tbImageView = new TbImageView(p.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
@@ -109,7 +109,7 @@ public class p extends com.baidu.tieba.frs.h<bj, com.baidu.tieba.card.a.a<com.ba
     }
 
     @Override // com.baidu.tieba.card.y
-    public void qw(int i) {
+    public void qy(int i) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -119,8 +119,8 @@ public class p extends com.baidu.tieba.frs.h<bj, com.baidu.tieba.card.a.a<com.ba
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.v> b(ViewGroup viewGroup) {
         com.baidu.tieba.card.v vVar = new com.baidu.tieba.card.v(this.mPageContext, viewGroup);
         com.baidu.tieba.card.a.a<com.baidu.tieba.card.v> aVar = new com.baidu.tieba.card.a.a<>(vVar);
-        vVar.setConstrainImagePool(this.hsi);
-        vVar.setConstrainLayoutPool(this.hsh);
+        vVar.setConstrainImagePool(this.hst);
+        vVar.setConstrainLayoutPool(this.hss);
         vVar.c(this.adt);
         return aVar;
     }
@@ -129,24 +129,24 @@ public class p extends com.baidu.tieba.frs.h<bj, com.baidu.tieba.card.a.a<com.ba
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bj bjVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.v> aVar) {
-        if (aVar == null || aVar.bLU() == null) {
+        if (aVar == null || aVar.bLW() == null) {
             return null;
         }
-        if (aVar.bLU() instanceof com.baidu.tieba.a.e) {
-            aVar.bLU().setPage(this.aeX);
+        if (aVar.bLW() instanceof com.baidu.tieba.a.e) {
+            aVar.bLW().setPage(this.aeX);
         }
         super.a(i, view, viewGroup, (ViewGroup) bjVar, (bj) aVar);
-        if (this.hvA != null) {
+        if (this.hvL != null) {
             int i2 = 0;
-            if (this.hmG != null) {
-                i2 = this.hmG.getTopThreadSize();
+            if (this.hmR != null) {
+                i2 = this.hmR.getTopThreadSize();
             }
             bjVar.dEA.dDb = (bjVar.position + 1) - i2;
         }
-        com.baidu.tieba.frs.d.a.a(bjVar.dEA, this.mPageId, this.hvA, getTbPageTag());
-        com.baidu.tieba.frs.d.c.caQ().a(this.hvA, bjVar.dEA);
-        aVar.bLU().c(this.adt);
-        aVar.bLU().a(bjVar.dEA);
+        com.baidu.tieba.frs.d.a.a(bjVar.dEA, this.mPageId, this.hvL, getTbPageTag());
+        com.baidu.tieba.frs.d.c.caY().a(this.hvL, bjVar.dEA);
+        aVar.bLW().c(this.adt);
+        aVar.bLW().a(bjVar.dEA);
         return aVar.getView();
     }
 
@@ -157,6 +157,6 @@ public class p extends com.baidu.tieba.frs.h<bj, com.baidu.tieba.card.a.a<com.ba
 
     @Override // com.baidu.tieba.frs.d.d
     public com.baidu.tieba.frs.d.b getStatisticMetaData() {
-        return this.hvA;
+        return this.hvL;
     }
 }

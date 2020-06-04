@@ -227,7 +227,7 @@ public class SwanAppConfigData {
         return str;
     }
 
-    public List<com.baidu.swan.apps.ae.f.a> gK(int i2) {
+    public List<com.baidu.swan.apps.ae.f.a> gM(int i2) {
         List<f> list;
         List<f> list2;
         if (i2 == 3) {

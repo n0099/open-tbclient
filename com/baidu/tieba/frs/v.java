@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.bd;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class v extends h<bb, a> {
-    private com.baidu.tieba.frs.view.c hqy;
+    private com.baidu.tieba.frs.view.c hqJ;
 
     public v(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
@@ -21,8 +21,8 @@ public class v extends h<bb, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bb */
     public a b(ViewGroup viewGroup) {
-        this.hqy = new com.baidu.tieba.frs.view.c(this.mPageContext, this.mPageId);
-        return new a(this.hqy);
+        this.hqJ = new com.baidu.tieba.frs.view.c(this.mPageContext, this.mPageId);
+        return new a(this.hqJ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public class v extends h<bb, a> {
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bb bbVar, a aVar) {
         super.a(i, view, viewGroup, (ViewGroup) bbVar, (bb) aVar);
-        this.hqy = aVar.hqz;
+        this.hqJ = aVar.hqK;
         ArrayList<bd> aPH = bbVar.aPH();
         if (aPH.size() <= 0) {
             return null;
@@ -50,18 +50,18 @@ public class v extends h<bb, a> {
                 wVar.a(atVar);
             }
         }
-        this.hqy.onChangeSkinType(this.mPageContext, this.mSkinType);
-        aVar.hqz.a(wVar);
+        this.hqJ.onChangeSkinType(this.mPageContext, this.mSkinType);
+        aVar.hqK.a(wVar);
         return aVar.getView();
     }
 
     /* loaded from: classes9.dex */
     public class a extends aa.a {
-        public com.baidu.tieba.frs.view.c hqz;
+        public com.baidu.tieba.frs.view.c hqK;
 
         public a(com.baidu.tieba.frs.view.c cVar) {
             super(cVar.getView());
-            this.hqz = cVar;
+            this.hqK = cVar;
         }
     }
 }

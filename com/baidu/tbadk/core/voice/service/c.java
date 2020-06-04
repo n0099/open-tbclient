@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 public interface c {
-    void aXr();
-
-    void aXv();
+    void aXs();
 
     void aXw();
 
     void aXx();
+
+    void aXy();
 
     int getErrorNo();
 

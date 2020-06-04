@@ -14,46 +14,46 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 /* loaded from: classes3.dex */
 public class c implements a {
     private Activity clq;
-    private CustomMessageListener flM;
-    private PopupWindow.OnDismissListener flN;
-    private d gbn;
+    private CustomMessageListener flX;
+    private PopupWindow.OnDismissListener flY;
+    private d gby;
 
     public c(Activity activity) {
         this.clq = activity;
-        brZ();
+        bsb();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void Cm(String str) {
-        this.gbn = new d(this.clq);
-        this.gbn.setOnDismissListener(this.flN);
-        this.gbn.bsa().setBackgroundColor(AZ(str));
+        this.gby = new d(this.clq);
+        this.gby.setOnDismissListener(this.flY);
+        this.gby.bsc().setBackgroundColor(AZ(str));
         g gVar = new g();
-        gVar.u(this.clq).a(this.gbn).a(this.gbn.bsa().getSchemeCallback());
+        gVar.u(this.clq).a(this.gby).a(this.gby.bsc().getSchemeCallback());
         com.baidu.live.view.web.a[] JF = gVar.JF();
         for (com.baidu.live.view.web.a aVar : JF) {
-            this.gbn.bsa().addJavascriptInterface(aVar, aVar.getName());
+            this.gby.bsc().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.gbn.show(str);
+        this.gby.show(str);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void resume() {
-        if (this.gbn != null && this.gbn.isShowing() && this.gbn.bsa() != null) {
-            this.gbn.bsa().onResume();
+        if (this.gby != null && this.gby.isShowing() && this.gby.bsc() != null) {
+            this.gby.bsc().onResume();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void pause() {
-        if (this.gbn != null && this.gbn.isShowing() && this.gbn.bsa() != null) {
-            this.gbn.bsa().onPause();
+        if (this.gby != null && this.gby.isShowing() && this.gby.bsc() != null) {
+            this.gby.bsc().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.gbn != null) {
-            this.gbn.bsb();
+        if (this.gby != null) {
+            this.gby.bsd();
         }
     }
 
@@ -64,20 +64,20 @@ public class c implements a {
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void release() {
         yw();
-        MessageManager.getInstance().unRegisterListener(this.flM);
+        MessageManager.getInstance().unRegisterListener(this.flX);
     }
 
-    private void brZ() {
-        this.flM = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.n.c.1
+    private void bsb() {
+        this.flX = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.n.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (c.this.gbn != null && c.this.gbn.isShowing()) {
-                    c.this.gbn.dismiss();
+                if (c.this.gby != null && c.this.gby.isShowing()) {
+                    c.this.gby.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.flM);
+        MessageManager.getInstance().registerListener(this.flX);
     }
 
     private int AZ(String str) {

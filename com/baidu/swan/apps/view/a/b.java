@@ -260,7 +260,7 @@ public class b {
     }
 
     private a a(int i, int i2, boolean z, boolean z2, boolean z3) {
-        return a.C0398a.auj().fw(z).fx(true).fv(false).hL(i2).hM(i).fy(z2).fz(z3).auk();
+        return a.C0398a.auj().fw(z).fx(true).fv(false).hN(i2).hO(i).fy(z2).fz(z3).auk();
     }
 
     private int getDefaultStatusBarViewBg() {

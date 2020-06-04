@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs.d;
 /* loaded from: classes9.dex */
 public class b {
-    public boolean hIN = false;
-    public int hIO = 0;
-    public String hIP = null;
-    public int hIQ = -1;
-    public int hIR = -1;
-    public int hIS = -1;
+    public boolean hJA = false;
+    public int hJB = 0;
+    public String hJC = null;
+    public int hJD = -1;
+    public int hJE = -1;
+    public int hJF = -1;
 }

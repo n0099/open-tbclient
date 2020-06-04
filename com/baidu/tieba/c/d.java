@@ -22,7 +22,7 @@ public class d {
     private TbPageContext mPageContext;
     private View mTargetView;
     private Handler mHandler = null;
-    private com.baidu.adp.lib.guide.c gJZ = null;
+    private com.baidu.adp.lib.guide.c gKk = null;
     private int aZi = R.drawable.pic_sign_tip;
     private int aZj = 0;
     private int aZk = 1;
@@ -36,7 +36,7 @@ public class d {
     private Runnable aZv = new Runnable() { // from class: com.baidu.tieba.c.d.1
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.gJZ == null && !StringUtils.isNull(d.this.mMessage)) {
+            if (d.this.gKk == null && !StringUtils.isNull(d.this.mMessage)) {
                 if (!d.this.aZu || d.this.Gv()) {
                     com.baidu.adp.lib.guide.d dVar = new com.baidu.adp.lib.guide.d();
                     dVar.y(d.this.mTargetView).Z(0).ae(true).af(true);
@@ -78,10 +78,10 @@ public class d {
                             return d.this.mYOffset;
                         }
                     });
-                    d.this.gJZ = dVar.ko();
-                    d.this.gJZ.setShouldCheckLocInWindow(false);
-                    d.this.gJZ.setUseDirectOffset(d.this.mUseDirectOffset);
-                    d.this.gJZ.show(d.this.mPageContext.getPageActivity());
+                    d.this.gKk = dVar.ko();
+                    d.this.gKk.setShouldCheckLocInWindow(false);
+                    d.this.gKk.setUseDirectOffset(d.this.mUseDirectOffset);
+                    d.this.gKk.show(d.this.mPageContext.getPageActivity());
                     d.this.aZg = true;
                     d.this.Gt();
                     d.this.mHandler.postDelayed(d.this.aZw, d.this.aZm);
@@ -92,17 +92,17 @@ public class d {
     private Runnable aZw = new Runnable() { // from class: com.baidu.tieba.c.d.2
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.gJZ != null) {
-                d.this.gJZ.dismiss();
+            if (d.this.gKk != null) {
+                d.this.gKk.dismiss();
             }
         }
     };
 
-    public void sv(int i) {
+    public void sx(int i) {
         this.aZs = i;
     }
 
-    public void cF(int i) {
+    public void cH(int i) {
         this.aZr = i;
     }
 
@@ -157,9 +157,9 @@ public class d {
     }
 
     public void Gu() {
-        if (this.gJZ != null) {
-            this.gJZ.dismiss();
-            this.gJZ = null;
+        if (this.gKk != null) {
+            this.gKk.dismiss();
+            this.gKk = null;
         }
         if (this.mHandler != null) {
             this.mHandler.removeCallbacks(this.aZv);
@@ -167,19 +167,19 @@ public class d {
         }
     }
 
-    public void cG(int i) {
+    public void cI(int i) {
         if (i > 0) {
             this.aZi = i;
         }
     }
 
-    public void sw(int i) {
+    public void sy(int i) {
         if (i > 0) {
             this.aZl = i;
         }
     }
 
-    public void cH(int i) {
+    public void cJ(int i) {
         if (i > 0) {
             this.aZm = i;
         }
@@ -191,7 +191,7 @@ public class d {
         }
     }
 
-    public void sx(int i) {
+    public void sz(int i) {
         this.mXOffset = i;
     }
 

@@ -91,14 +91,14 @@ public abstract class fs {
             f357a = Boolean.getBoolean("smack.debugEnabled");
         } catch (Exception e) {
         }
-        fy.m302a();
+        fy.m301a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public fs(XMPushService xMPushService, ft ftVar) {
         this.f360a = ftVar;
         this.f362a = xMPushService;
-        m295b();
+        m294b();
     }
 
     private String a(int i) {
@@ -106,7 +106,7 @@ public abstract class fs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m289a(int i) {
+    private void m288a(int i) {
         synchronized (this.f365a) {
             if (i == 1) {
                 this.f365a.clear();
@@ -124,31 +124,31 @@ public abstract class fs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public long m290a() {
+    public long m289a() {
         return this.f370c;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ft m291a() {
+    public ft m290a() {
         return this.f360a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m292a() {
+    public String m291a() {
         return this.f360a.c();
     }
 
     public void a(int i, int i2, Exception exc) {
         if (i != this.c) {
-            com.xiaomi.channel.commonutils.logger.b.m52a(String.format("update the connection status. %1$s -> %2$s : %3$s ", a(this.c), a(i), com.xiaomi.push.service.at.a(i2)));
+            com.xiaomi.channel.commonutils.logger.b.m51a(String.format("update the connection status. %1$s -> %2$s : %3$s ", a(this.c), a(i), com.xiaomi.push.service.at.a(i2)));
         }
         if (az.b(this.f362a)) {
-            m289a(i);
+            m288a(i);
         }
         if (i == 1) {
             this.f362a.a(10);
             if (this.c != 0) {
-                com.xiaomi.channel.commonutils.logger.b.m52a("try set connected while not connecting.");
+                com.xiaomi.channel.commonutils.logger.b.m51a("try set connected while not connecting.");
             }
             this.c = i;
             for (fv fvVar : this.f364a) {
@@ -156,7 +156,7 @@ public abstract class fs {
             }
         } else if (i == 0) {
             if (this.c != 2) {
-                com.xiaomi.channel.commonutils.logger.b.m52a("try set connecting while not disconnected.");
+                com.xiaomi.channel.commonutils.logger.b.m51a("try set connecting while not disconnected.");
             }
             this.c = i;
             for (fv fvVar2 : this.f364a) {
@@ -197,11 +197,11 @@ public abstract class fs {
 
     public synchronized void a(String str) {
         if (this.c == 0) {
-            com.xiaomi.channel.commonutils.logger.b.m52a("setChallenge hash = " + be.a(str).substring(0, 8));
+            com.xiaomi.channel.commonutils.logger.b.m51a("setChallenge hash = " + be.a(str).substring(0, 8));
             this.f363a = str;
             a(1, 0, null);
         } else {
-            com.xiaomi.channel.commonutils.logger.b.m52a("ignore setChallenge because connection was disconnected");
+            com.xiaomi.channel.commonutils.logger.b.m51a("ignore setChallenge because connection was disconnected");
         }
     }
 
@@ -210,7 +210,7 @@ public abstract class fs {
     public abstract void a(fl[] flVarArr);
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m293a() {
+    public boolean m292a() {
         return false;
     }
 
@@ -223,15 +223,15 @@ public abstract class fs {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public String m294b() {
+    public String m293b() {
         return this.f360a.b();
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    protected void m295b() {
+    protected void m294b() {
         String str;
         Class<?> cls = null;
-        if (this.f360a.m300a() && this.f361a == null) {
+        if (this.f360a.m299a() && this.f361a == null) {
             try {
                 str = System.getProperty("smack.debuggerClass");
             } catch (Throwable th) {
@@ -274,7 +274,7 @@ public abstract class fs {
     public abstract void b(boolean z);
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m296b() {
+    public boolean m295b() {
         return this.c == 0;
     }
 
@@ -283,7 +283,7 @@ public abstract class fs {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m297c() {
+    public boolean m296c() {
         return this.c == 1;
     }
 
@@ -294,7 +294,7 @@ public abstract class fs {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public synchronized boolean m298d() {
+    public synchronized boolean m297d() {
         return System.currentTimeMillis() - this.e < ((long) fy.a());
     }
 

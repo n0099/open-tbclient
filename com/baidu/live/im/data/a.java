@@ -236,7 +236,7 @@ public abstract class a implements IAdapterData {
         return this.barrageType;
     }
 
-    public void ct(int i) {
+    public void cv(int i) {
         this.barrageType = i;
     }
 

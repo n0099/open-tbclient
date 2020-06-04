@@ -39,7 +39,7 @@ public class b implements f {
 
     @Override // com.baidu.swan.apps.u.b.f
     public void f(Activity activity, String str, final com.baidu.g.a.a aVar) {
-        if (!com.baidu.tbadk.pay.c.bfx().isWalletOk()) {
+        if (!com.baidu.tbadk.pay.c.bfy().isWalletOk()) {
             l.showToast(TbadkCoreApplication.getInst(), (int) R.string.plugin_pay_wallet_not_found);
             return;
         }

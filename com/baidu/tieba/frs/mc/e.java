@@ -24,57 +24,57 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class e {
-    private bk hGT;
-    private l hpa;
-    private CustomMessageListener hGU = new CustomMessageListener(CmdConfigCustom.CMD_BUSINESS_NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.frs.mc.e.3
+    private bk hHG;
+    private l hpl;
+    private CustomMessageListener hHH = new CustomMessageListener(CmdConfigCustom.CMD_BUSINESS_NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.frs.mc.e.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.this.i(customResponsedMessage);
         }
     };
-    private CustomMessageListener gWb = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.frs.mc.e.4
+    private CustomMessageListener gWm = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.frs.mc.e.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.this.g(customResponsedMessage);
         }
     };
-    private CustomMessageListener gWc = new CustomMessageListener(CmdConfigCustom.CMD_THREAD_NOT_EXIST_WHEN_ENTER_PB) { // from class: com.baidu.tieba.frs.mc.e.5
+    private CustomMessageListener gWn = new CustomMessageListener(CmdConfigCustom.CMD_THREAD_NOT_EXIST_WHEN_ENTER_PB) { // from class: com.baidu.tieba.frs.mc.e.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.this.Fd(e.this.h(customResponsedMessage));
-            e.this.hpa.bUR().bWm().notifyDataSetChanged();
+            e.this.hpl.bUT().bWo().notifyDataSetChanged();
         }
     };
-    private CustomMessageListener hEY = new CustomMessageListener(CmdConfigCustom.DELETE_AD_FROM_FEED) { // from class: com.baidu.tieba.frs.mc.e.7
+    private CustomMessageListener hFL = new CustomMessageListener(CmdConfigCustom.DELETE_AD_FROM_FEED) { // from class: com.baidu.tieba.frs.mc.e.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && e.this.hpa != null && e.this.hpa.bUM() != null && e.this.hpa.bUM().bZR() != null) {
+            if (customResponsedMessage != null && e.this.hpl != null && e.this.hpl.bUO() != null && e.this.hpl.bUO().bZZ() != null) {
                 String str = (String) customResponsedMessage.getData();
-                e.this.h(str, e.this.hpa.bUM().bZR().getForum().getBannerListData().getAllAdvertList());
-                e.this.i(str, e.this.hpa.bUR().getListView().getData());
-                e.this.i(str, e.this.hpa.bUN().cai().getDataList());
-                e.this.hpa.bUM().Fc(str);
-                if (e.this.hpa.bUR() != null && e.this.hpa.bUR().bWm() != null) {
-                    e.this.hpa.bUR().bWm().notifyDataSetChanged();
+                e.this.h(str, e.this.hpl.bUO().bZZ().getForum().getBannerListData().getAllAdvertList());
+                e.this.i(str, e.this.hpl.bUT().getListView().getData());
+                e.this.i(str, e.this.hpl.bUP().caq().getDataList());
+                e.this.hpl.bUO().Fc(str);
+                if (e.this.hpl.bUT() != null && e.this.hpl.bUT().bWo() != null) {
+                    e.this.hpl.bUT().bWo().notifyDataSetChanged();
                 }
             }
         }
     };
 
     public e(l lVar, BdUniqueId bdUniqueId) {
-        this.hpa = lVar;
-        this.gWb.setTag(bdUniqueId);
-        this.hEY.setTag(bdUniqueId);
-        this.hGU.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.hGU);
-        MessageManager.getInstance().registerListener(this.gWb);
-        MessageManager.getInstance().registerListener(this.hEY);
-        this.gWc.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.gWc);
+        this.hpl = lVar;
+        this.gWm.setTag(bdUniqueId);
+        this.hFL.setTag(bdUniqueId);
+        this.hHH.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.hHH);
+        MessageManager.getInstance().registerListener(this.gWm);
+        MessageManager.getInstance().registerListener(this.hFL);
+        this.gWn.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.gWn);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -87,10 +87,10 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(CustomResponsedMessage<?> customResponsedMessage) {
-        if (this.hpa != null && this.hpa.bUM() != null && this.hpa.bUM().bZR() != null) {
+        if (this.hpl != null && this.hpl.bUO() != null && this.hpl.bUO().bZZ() != null) {
             final String h = h(customResponsedMessage);
-            if (!StringUtils.isNull(h) && this.hpa.bUR() != null && this.hpa.bUR().bWm() != null) {
-                final View childAt = this.hpa.bUR().getListView().getChildAt(a(h, this.hpa.bUR().getListView()));
+            if (!StringUtils.isNull(h) && this.hpl.bUT() != null && this.hpl.bUT().bWo() != null) {
+                final View childAt = this.hpl.bUT().getListView().getChildAt(a(h, this.hpl.bUT().getListView()));
                 if (childAt != null) {
                     a(childAt, new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.mc.e.1
                         @Override // android.view.animation.Animation.AnimationListener
@@ -103,41 +103,41 @@ public class e {
 
                         @Override // android.view.animation.Animation.AnimationListener
                         public void onAnimationEnd(Animation animation) {
-                            if (e.this.hpa != null && e.this.hpa.bUR() != null && e.this.hpa.bUR().getListView() != null && e.this.hpa.bUR().bWm() != null) {
-                                e.this.hpa.bUR().getListView().removeView(childAt);
+                            if (e.this.hpl != null && e.this.hpl.bUT() != null && e.this.hpl.bUT().getListView() != null && e.this.hpl.bUT().bWo() != null) {
+                                e.this.hpl.bUT().getListView().removeView(childAt);
                                 e.this.Fd(h);
-                                e.this.hpa.bUR().bWm().notifyDataSetChanged();
+                                e.this.hpl.bUT().bWo().notifyDataSetChanged();
                             }
                         }
                     });
                 } else {
                     Fd(h);
-                    this.hpa.bUR().bWm().notifyDataSetChanged();
+                    this.hpl.bUT().bWo().notifyDataSetChanged();
                 }
-                caC();
+                caK();
             }
         }
     }
 
-    private void caC() {
-        if (this.hGT != null && this.hGT.dHI) {
+    private void caK() {
+        if (this.hHG != null && this.hHG.dHI) {
             TbPageTag tbPageTag = null;
-            if (this.hpa != null && this.hpa.bUR() != null) {
-                tbPageTag = com.baidu.tbadk.pageInfo.c.dV(this.hpa.bUR().getContext());
+            if (this.hpl != null && this.hpl.bUT() != null) {
+                tbPageTag = com.baidu.tbadk.pageInfo.c.dV(this.hpl.bUT().getContext());
             }
-            com.baidu.tieba.frs.d.a.a(this.hGT, tbPageTag);
+            com.baidu.tieba.frs.d.a.a(this.hHG, tbPageTag);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.hpa != null && this.hpa.bUM() != null && this.hpa.bUM().bZR() != null) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.hpl != null && this.hpl.bUO() != null && this.hpl.bUO().bZZ() != null) {
             JSONObject jSONObject = (JSONObject) customResponsedMessage.getData();
             final String optString = jSONObject.optString("type");
             if (!StringUtils.isNull(optString)) {
                 final String optString2 = jSONObject.optString("tid");
-                if (this.hpa.bUR() != null && this.hpa.bUR().bWm() != null) {
-                    final View childAt = this.hpa.bUR().getListView().getChildAt(a(optString, optString2, this.hpa.bUR().getListView()));
+                if (this.hpl.bUT() != null && this.hpl.bUT().bWo() != null) {
+                    final View childAt = this.hpl.bUT().getListView().getChildAt(a(optString, optString2, this.hpl.bUT().getListView()));
                     if (childAt != null) {
                         a(childAt, new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.mc.e.2
                             @Override // android.view.animation.Animation.AnimationListener
@@ -152,15 +152,15 @@ public class e {
                             public void onAnimationEnd(Animation animation) {
                                 e.this.ef(optString, optString2);
                                 childAt.setVisibility(8);
-                                if (e.this.hpa.bUR() != null && e.this.hpa.bUR().bWm() != null) {
-                                    e.this.hpa.bUR().bWm().notifyDataSetChanged();
+                                if (e.this.hpl.bUT() != null && e.this.hpl.bUT().bWo() != null) {
+                                    e.this.hpl.bUT().bWo().notifyDataSetChanged();
                                 }
                             }
                         });
                         return;
                     }
                     ef(optString, optString2);
-                    this.hpa.bUR().bWm().notifyDataSetChanged();
+                    this.hpl.bUT().bWo().notifyDataSetChanged();
                 }
             }
         }
@@ -168,29 +168,29 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ef(String str, String str2) {
-        ArrayList<o> threadList = this.hpa.bUM().bZR().getThreadList();
+        ArrayList<o> threadList = this.hpl.bUO().bZZ().getThreadList();
         c(str, str2, threadList);
-        c(str, str2, this.hpa.bUR().getListView().getData());
+        c(str, str2, this.hpl.bUT().getListView().getData());
         if (str.equals("ala_frs_stage_live_feed_back_type")) {
-            this.hpa.bUM().Fa(str2);
+            this.hpl.bUO().Fa(str2);
         } else if (str.equals("ala_frs_demo_hell_live_feed_back_type")) {
-            this.hpa.bUM().Fb(str2);
+            this.hpl.bUO().Fb(str2);
         }
         if (threadList != null && threadList.size() < 5) {
-            this.hpa.bqv();
+            this.hpl.bqx();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Fd(String str) {
         if (!StringUtils.isNull(str)) {
-            ArrayList<o> threadList = this.hpa.bUM().bZR().getThreadList();
+            ArrayList<o> threadList = this.hpl.bUO().bZZ().getThreadList();
             g(str, threadList);
-            g(str, this.hpa.bUR().getListView().getData());
-            g(str, this.hpa.bUN().getDataList());
-            this.hpa.bUM().Fb(str);
+            g(str, this.hpl.bUT().getListView().getData());
+            g(str, this.hpl.bUP().getDataList());
+            this.hpl.bUO().Fb(str);
             if (threadList != null && threadList.size() < 5) {
-                this.hpa.bqv();
+                this.hpl.bqx();
             }
         }
     }
@@ -275,7 +275,7 @@ public class e {
             if (item instanceof bj) {
                 bk bkVar = ((bj) item).dEA;
                 if (bkVar.getTid() != null && bkVar.getTid().equals(str)) {
-                    this.hGT = bkVar;
+                    this.hHG = bkVar;
                     i = i2;
                 }
             }
@@ -322,8 +322,8 @@ public class e {
             while (it.hasNext()) {
                 o next = it.next();
                 if (next instanceof com.baidu.tieba.InjectPlugin.a) {
-                    Object bjU = ((com.baidu.tieba.InjectPlugin.a) next).bjU();
-                    if ((bjU instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) bjU).dAu)) {
+                    Object bjW = ((com.baidu.tieba.InjectPlugin.a) next).bjW();
+                    if ((bjW instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) bjW).dAu)) {
                         it.remove();
                     }
                 }

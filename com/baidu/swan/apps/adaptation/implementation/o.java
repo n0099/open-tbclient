@@ -94,8 +94,8 @@ public class o implements ae {
 
     @Override // com.baidu.swan.apps.adaptation.a.ae
     public void a(@NonNull String str, com.baidu.swan.apps.m.b bVar) {
-        String ef = ef(bHF);
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) com.baidu.swan.c.c.a.aFx().postFormRequest().url(ef)).cookieManager(com.baidu.swan.apps.u.a.afo().SM())).addParam("appkey", str).build().executeAsyncOnUIBack(new a(bVar));
+        String eh = eh(bHF);
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) com.baidu.swan.c.c.a.aFx().postFormRequest().url(eh)).cookieManager(com.baidu.swan.apps.u.a.afo().SM())).addParam("appkey", str).build().executeAsyncOnUIBack(new a(bVar));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ae
@@ -122,7 +122,7 @@ public class o implements ae {
                 e.printStackTrace();
             }
         }
-        SwanAppNetworkUtils.a(ef(bHH), jSONObject.toString(), new a(bVar));
+        SwanAppNetworkUtils.a(eh(bHH), jSONObject.toString(), new a(bVar));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ae
@@ -135,10 +135,10 @@ public class o implements ae {
 
     @Override // com.baidu.swan.apps.adaptation.a.ae
     public void a(String str, com.baidu.swan.apps.ac.a.a aVar) {
-        a(ef(bHG), str, aVar);
+        a(eh(bHG), str, aVar);
     }
 
-    private String ef(int i) {
+    private String eh(int i) {
         long seconds;
         StringBuilder sb;
         String str;

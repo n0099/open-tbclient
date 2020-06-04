@@ -15,17 +15,17 @@ import java.util.LinkedList;
 /* loaded from: classes9.dex */
 public class p extends BaseAdapter implements View.OnClickListener {
     private com.baidu.tbadk.img.b emd = new com.baidu.tbadk.img.b();
-    private LinkedList<ImageFileInfo> jJg = null;
-    private a jJh;
+    private LinkedList<ImageFileInfo> jKm = null;
+    private a jKn;
     private Context mContext;
     private int mScreenWidth;
     private int mWidth;
 
     /* loaded from: classes9.dex */
     protected interface a {
-        void Ac(int i);
+        void Ae(int i);
 
-        void Ad(int i);
+        void Af(int i);
     }
 
     public p(Context context) {
@@ -37,19 +37,19 @@ public class p extends BaseAdapter implements View.OnClickListener {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jJg == null) {
+        if (this.jKm == null) {
             return 0;
         }
-        return this.jJg.size();
+        return this.jKm.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.jJg == null) {
+        if (this.jKm == null) {
             return null;
         }
-        if (this.jJg.size() - 1 >= i) {
-            return this.jJg.get(i);
+        if (this.jKm.size() - 1 >= i) {
+            return this.jKm.get(i);
         }
         return 0;
     }
@@ -60,7 +60,7 @@ public class p extends BaseAdapter implements View.OnClickListener {
     }
 
     public void p(LinkedList<ImageFileInfo> linkedList) {
-        this.jJg = linkedList;
+        this.jKm = linkedList;
     }
 
     @Override // android.widget.Adapter
@@ -70,17 +70,17 @@ public class p extends BaseAdapter implements View.OnClickListener {
             bVar = new b();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pb_editor_imgs_item, (ViewGroup) null);
             bVar.dRP = (TbImageView) view.findViewById(R.id.iv_photo_live);
-            bVar.jJj = (LinearLayout) view.findViewById(R.id.layout_del);
-            bVar.jJk = (ImageView) view.findViewById(R.id.delete_photo_live);
+            bVar.jKp = (LinearLayout) view.findViewById(R.id.layout_del);
+            bVar.jKq = (ImageView) view.findViewById(R.id.delete_photo_live);
             bVar.dRP.setOnClickListener(this);
             bVar.dRP.setTagTextSize(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds30));
             bVar.dRP.setDrawBorder(true);
             bVar.dRP.setDrawCorner(false);
             bVar.dRP.setRadius(0);
-            bVar.jJj.setOnClickListener(this);
+            bVar.jKp.setOnClickListener(this);
             bVar.dRP.setGifIconSupport(true);
             bVar.dRP.setLongIconSupport(true);
-            com.baidu.tbadk.core.util.am.setBackgroundResource(bVar.jJk, R.drawable.icon_delete_img);
+            com.baidu.tbadk.core.util.am.setBackgroundResource(bVar.jKq, R.drawable.icon_delete_img);
             ViewGroup.LayoutParams layoutParams = bVar.dRP.getLayoutParams();
             layoutParams.width = this.mWidth;
             layoutParams.height = this.mWidth;
@@ -88,10 +88,10 @@ public class p extends BaseAdapter implements View.OnClickListener {
         } else {
             bVar = (b) view.getTag();
         }
-        if (this.jJg != null && this.jJg.size() - 1 >= i) {
-            a(this.jJg.get(i), bVar, viewGroup);
+        if (this.jKm != null && this.jKm.size() - 1 >= i) {
+            a(this.jKm.get(i), bVar, viewGroup);
             bVar.dRP.setTag(bVar.dRP.getId(), Integer.valueOf(i));
-            bVar.jJj.setTag(Integer.valueOf(i));
+            bVar.jKp.setTag(Integer.valueOf(i));
         }
         return view;
     }
@@ -144,24 +144,24 @@ public class p extends BaseAdapter implements View.OnClickListener {
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.layout_del && (view.getTag() instanceof Integer)) {
-            if (this.jJh != null) {
-                this.jJh.Ac(((Integer) view.getTag()).intValue());
+            if (this.jKn != null) {
+                this.jKn.Ae(((Integer) view.getTag()).intValue());
             }
-        } else if (id == R.id.iv_photo_live && (view.getTag(view.getId()) instanceof Integer) && this.jJh != null) {
-            this.jJh.Ad(((Integer) view.getTag(view.getId())).intValue());
+        } else if (id == R.id.iv_photo_live && (view.getTag(view.getId()) instanceof Integer) && this.jKn != null) {
+            this.jKn.Af(((Integer) view.getTag(view.getId())).intValue());
         }
     }
 
     public void a(a aVar) {
-        this.jJh = aVar;
+        this.jKn = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes9.dex */
     public static class b {
         public TbImageView dRP;
-        public LinearLayout jJj;
-        private ImageView jJk;
+        public LinearLayout jKp;
+        private ImageView jKq;
 
         b() {
         }

@@ -105,7 +105,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_DEL_OFFICIAL_DB, String.valueOf(str6)));
             }
         } else if (methodCall.method.equals("getIsOfficalForumLetterReminderOpen")) {
-            OfficialSettingItemData et = d.cpr().et(TbadkApplication.getCurrentAccount(), (String) methodCall.arguments);
+            OfficialSettingItemData et = d.cpA().et(TbadkApplication.getCurrentAccount(), (String) methodCall.arguments);
             if (et != null) {
                 result.success(Boolean.valueOf(et.isAcceptNotify()));
             } else {
@@ -120,7 +120,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
                     if (!TextUtils.isEmpty(str7)) {
-                        d.cpr().z(TbadkApplication.getCurrentAccount(), String.valueOf(str7), booleanValue);
+                        d.cpA().z(TbadkApplication.getCurrentAccount(), String.valueOf(str7), booleanValue);
                     }
                     return null;
                 }
@@ -130,13 +130,13 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
             if (methodCall.method.equals("postSignProcess")) {
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                 if (currentActivity instanceof TbPageContextSupport) {
-                    f.ban().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
+                    f.bao().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
                 }
             } else if (methodCall.method.equals("redirectTo")) {
                 String str8 = (String) methodCall.argument("url");
                 Activity currentActivity2 = TbadkCoreApplication.getInst().getCurrentActivity();
                 if (!TextUtils.isEmpty(str8) && (currentActivity2 instanceof TbPageContextSupport)) {
-                    ba.aUZ().b(((TbPageContextSupport) currentActivity2).getPageContext(), new String[]{str8});
+                    ba.aVa().b(((TbPageContextSupport) currentActivity2).getPageContext(), new String[]{str8});
                 }
             } else if (methodCall.method.equals("postNotification")) {
                 mNativeListeners.postNotification(methodCall.arguments);
@@ -192,7 +192,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                         if (!aq.isEmpty((String) hashMap5.get("h5_url"))) {
                             Activity currentActivity3 = TbadkCoreApplication.getInst().getCurrentActivity();
                             if (currentActivity3 instanceof TbPageContextSupport) {
-                                ba.aUZ().b(((TbPageContextSupport) currentActivity3).getPageContext(), new String[]{(String) hashMap5.get("h5_url")});
+                                ba.aVa().b(((TbPageContextSupport) currentActivity3).getPageContext(), new String[]{(String) hashMap5.get("h5_url")});
                             }
                         } else {
                             return;
@@ -201,30 +201,30 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                     result.success(true);
                 } else if (methodCall.method.equals("readNewMessage")) {
                     HashMap hashMap6 = new HashMap();
-                    hashMap6.put("bookmarkNum", Integer.valueOf(com.baidu.tieba.p.a.cVL().cVI() ? 1 : 0));
-                    hashMap6.put("fansNum", Integer.valueOf(com.baidu.tieba.p.a.cVL().cVH() ? 1 : 0));
+                    hashMap6.put("bookmarkNum", Integer.valueOf(com.baidu.tieba.p.a.cWb().cVY() ? 1 : 0));
+                    hashMap6.put("fansNum", Integer.valueOf(com.baidu.tieba.p.a.cWb().cVX() ? 1 : 0));
                     result.success(hashMap6);
                 } else if (methodCall.method.equals("clearNewMessage")) {
                     String str13 = (String) methodCall.arguments;
                     if (!StringUtils.isNull(str13)) {
                         if ("bookmarkNum".equals(str13)) {
-                            com.baidu.tieba.p.a.cVL().g(3, false, true);
+                            com.baidu.tieba.p.a.cWb().g(3, false, true);
                         } else if ("fansNum".equals(str13)) {
-                            com.baidu.tieba.p.a.cVL().g(2, false, true);
+                            com.baidu.tieba.p.a.cWb().g(2, false, true);
                         } else if ("giftNum".equals(str13)) {
-                            com.baidu.tieba.p.a.cVL().g(1, false, true);
+                            com.baidu.tieba.p.a.cWb().g(1, false, true);
                         }
                     }
                 } else if (methodCall.method.equals("readVipCenterNewMessage")) {
-                    result.success(Boolean.valueOf(com.baidu.tieba.p.a.cVL().cVJ()));
+                    result.success(Boolean.valueOf(com.baidu.tieba.p.a.cWb().cVZ()));
                 } else if (methodCall.method.equals("showLoginAwardCell")) {
                     result.success(Boolean.valueOf(TbadkCoreApplication.getInst().getActivityPrizeData().isPersonItemSwitch()));
                 } else if (methodCall.method.equals("showRedDotForMyTab")) {
-                    result.success(Boolean.valueOf(com.baidu.tieba.p.a.cVL().cVK()));
+                    result.success(Boolean.valueOf(com.baidu.tieba.p.a.cWb().cWa()));
                 } else if (methodCall.method.equals("getThemeMode")) {
-                    result.success(am.aUP());
+                    result.success(am.aUQ());
                 } else if (methodCall.method.equals("getMyPrivateStat")) {
-                    result.success(Integer.valueOf(e.jZ(((Integer) methodCall.argument("type")).intValue())));
+                    result.success(Integer.valueOf(e.kb(((Integer) methodCall.argument("type")).intValue())));
                 } else if (methodCall.method.equals("setMyPrivateStat")) {
                     e.aC(((Integer) methodCall.argument("type")).intValue(), ((Integer) methodCall.argument("stat")).intValue());
                     result.success((Object) null);

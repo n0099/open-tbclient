@@ -5,46 +5,46 @@ import tbclient.EsportRank;
 public class a {
     private String aJv;
     private String bhP;
-    private String eNu;
-    private String hRw;
-    private String hRx;
-    private String hRy;
+    private String eNF;
+    private String hSj;
+    private String hSk;
+    private String hSl;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.hRw = String.valueOf(esportRank.rank);
+            this.hSj = String.valueOf(esportRank.rank);
             this.aJv = esportRank.text;
-            this.eNu = esportRank.url;
+            this.eNF = esportRank.url;
             if (esportRank.user != null) {
-                this.hRx = esportRank.user.steam_name;
-                this.hRy = esportRank.user.steam_portrait;
+                this.hSk = esportRank.user.steam_name;
+                this.hSl = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String cdf() {
+    public String cdn() {
         return this.mTitle;
     }
 
-    public String cdg() {
-        return this.hRw;
+    public String cdo() {
+        return this.hSj;
     }
 
-    public String cdh() {
+    public String cdp() {
         return this.aJv;
     }
 
-    public String cdi() {
-        return this.hRx;
+    public String cdq() {
+        return this.hSk;
     }
 
-    public String cdj() {
-        return this.hRy;
+    public String cdr() {
+        return this.hSl;
     }
 
-    public String cdk() {
+    public String cds() {
         return this.bhP;
     }
 
@@ -52,11 +52,11 @@ public class a {
         this.bhP = str;
     }
 
-    public String cdl() {
-        return this.eNu;
+    public String cdt() {
+        return this.eNF;
     }
 
     public void Fq(String str) {
-        this.eNu = str;
+        this.eNF = str;
     }
 }

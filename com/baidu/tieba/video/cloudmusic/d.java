@@ -6,30 +6,30 @@ public interface d {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void ET(int i);
+        void EV(int i);
 
         void a(CloudMusicData.MusicTagList.MusicList musicList, int i);
 
-        void bXE();
+        void bXG();
 
         void c(CloudMusicData.MusicTagList musicTagList);
 
-        void cSS();
+        void cTi();
     }
 
     /* loaded from: classes10.dex */
     public interface b {
-        void EQ(int i);
-
-        void ER(int i);
-
         void ES(int i);
+
+        void ET(int i);
+
+        void EU(int i);
 
         void a(a aVar);
 
         void b(CloudMusicData.MusicTagList musicTagList);
 
-        void dhS();
+        void dih();
 
         void uR(boolean z);
 

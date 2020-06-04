@@ -19,7 +19,7 @@ public class bc {
     public com.baidu.tieba.card.data.n aPJ() {
         com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
         ArrayList arrayList = null;
-        nVar.gHS = aPI();
+        nVar.gId = aPI();
         if (this.dDV != null) {
             ArrayList arrayList2 = new ArrayList();
             for (a aVar : this.dDV) {
@@ -29,7 +29,7 @@ public class bc {
             }
             arrayList = arrayList2;
         }
-        nVar.gHT = arrayList;
+        nVar.gIe = arrayList;
         return nVar;
     }
 

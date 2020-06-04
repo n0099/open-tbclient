@@ -24,36 +24,36 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterForum.recommend.view.a {
     private int Vg;
-    private List<f> gTN;
-    private CellForumTestView gTO;
-    private CellForumTestView gTP;
-    private CellForumTestView gTQ;
-    private CellForumTestView gTR;
-    private CellForumTestView gTS;
-    private CellForumTestView gTT;
-    private int gTU;
-    private int gTV;
-    private int gTW;
-    private int gTX;
-    private int gTY;
-    private int gTZ;
-    private int gUa;
-    private Rect[] gUb;
-    private float gUc;
-    private float gUd;
-    private float gUe;
-    private float gUf;
-    private float gUg;
-    private ValueAnimator gUh;
-    private ValueAnimator gUi;
-    private boolean gUj;
-    private boolean gUk;
+    private List<f> gTY;
+    private CellForumTestView gTZ;
+    private float gUA;
+    private int gUB;
+    private CellForumTestView gUa;
+    private CellForumTestView gUb;
+    private CellForumTestView gUc;
+    private CellForumTestView gUd;
+    private CellForumTestView gUe;
+    private int gUf;
+    private int gUg;
+    private int gUh;
+    private int gUi;
+    private int gUj;
+    private int gUk;
     private int gUl;
-    private int gUm;
-    private a gUn;
-    private boolean gUo;
+    private Rect[] gUm;
+    private float gUn;
+    private float gUo;
     private float gUp;
-    private int gUq;
+    private float gUq;
+    private float gUr;
+    private ValueAnimator gUs;
+    private ValueAnimator gUt;
+    private boolean gUu;
+    private boolean gUv;
+    private int gUw;
+    private int gUx;
+    private a gUy;
+    private boolean gUz;
     private float mDistance;
     private int mHeight;
     private float mLastMotionX;
@@ -64,7 +64,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
 
     /* loaded from: classes9.dex */
     public interface a {
-        void bPH();
+        void bPJ();
 
         void ea(long j);
     }
@@ -72,183 +72,183 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
     public ForumTestView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.gUb = new Rect[3];
-        this.gUj = false;
-        this.gUk = false;
-        this.gUo = false;
-        this.gUp = 0.0f;
-        this.gUq = 0;
+        this.gUm = new Rect[3];
+        this.gUu = false;
+        this.gUv = false;
+        this.gUz = false;
+        this.gUA = 0.0f;
+        this.gUB = 0;
         init(context);
     }
 
     public ForumTestView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.gUb = new Rect[3];
-        this.gUj = false;
-        this.gUk = false;
-        this.gUo = false;
-        this.gUp = 0.0f;
-        this.gUq = 0;
+        this.gUm = new Rect[3];
+        this.gUu = false;
+        this.gUv = false;
+        this.gUz = false;
+        this.gUA = 0.0f;
+        this.gUB = 0;
         init(context);
     }
 
     public ForumTestView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.gUb = new Rect[3];
-        this.gUj = false;
-        this.gUk = false;
-        this.gUo = false;
-        this.gUp = 0.0f;
-        this.gUq = 0;
+        this.gUm = new Rect[3];
+        this.gUu = false;
+        this.gUv = false;
+        this.gUz = false;
+        this.gUA = 0.0f;
+        this.gUB = 0;
         init(context);
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.forum_test_layout, (ViewGroup) this, true);
-        this.gTO = (CellForumTestView) findViewById(R.id.forum_test_view_one);
-        this.gTP = (CellForumTestView) findViewById(R.id.forum_test_view_two);
-        this.gTQ = (CellForumTestView) findViewById(R.id.forum_test_view_three);
-        this.gTR = (CellForumTestView) findViewById(R.id.forum_test_view_del);
+        this.gTZ = (CellForumTestView) findViewById(R.id.forum_test_view_one);
+        this.gUa = (CellForumTestView) findViewById(R.id.forum_test_view_two);
+        this.gUb = (CellForumTestView) findViewById(R.id.forum_test_view_three);
+        this.gUc = (CellForumTestView) findViewById(R.id.forum_test_view_del);
         eI(context);
         resetData();
         ViewConfiguration.get(context);
         this.Vg = ViewConfiguration.getMaximumFlingVelocity();
-        this.gTO.setForumTestDelClickListener(this);
-        this.gTP.setForumTestDelClickListener(this);
-        this.gTQ.setForumTestDelClickListener(this);
+        this.gTZ.setForumTestDelClickListener(this);
+        this.gUa.setForumTestDelClickListener(this);
+        this.gUb.setForumTestDelClickListener(this);
         onChangeSkinType();
     }
 
     private void eI(Context context) {
-        this.gTY = l.getDimens(context, R.dimen.tbds44);
-        this.gTZ = l.getDimens(context, R.dimen.tbds30);
-        this.gUa = l.getDimens(context, R.dimen.tbds7);
-        this.gTX = l.getDimens(context, R.dimen.tbds730);
-        this.gTW = this.gTX - (this.gTZ * 2);
+        this.gUj = l.getDimens(context, R.dimen.tbds44);
+        this.gUk = l.getDimens(context, R.dimen.tbds30);
+        this.gUl = l.getDimens(context, R.dimen.tbds7);
+        this.gUi = l.getDimens(context, R.dimen.tbds730);
+        this.gUh = this.gUi - (this.gUk * 2);
         this.mWidth = l.getEquipmentWidth(getContext());
-        this.gTU = (int) (this.mWidth * 0.89f);
-        this.mHeight = this.gTX + this.gTY;
-        this.gTV = ((this.mWidth - this.gTU) - (this.gUa * 2)) / 2;
-        this.gUe = this.gTZ / (this.gTU + this.gUa);
-        this.gUf = this.gTX / this.gTU;
-        this.gUg = this.gTU / (this.gTU + this.gUa);
-        this.gUb[0] = new Rect(this.gTV - this.gTU, this.gTY + this.gTZ, this.gTV, this.gTY + this.gTZ + this.gTW);
-        this.gUb[1] = new Rect(this.gTV + this.gUa, this.gTY, this.gTV + this.gUa + this.gTU, this.gTY + this.gTX);
-        this.gUb[2] = new Rect(this.mWidth - this.gTV, this.gTY + this.gTZ, (this.mWidth - this.gTV) + this.gTU, this.gTY + this.gTZ + this.gTW);
+        this.gUf = (int) (this.mWidth * 0.89f);
+        this.mHeight = this.gUi + this.gUj;
+        this.gUg = ((this.mWidth - this.gUf) - (this.gUl * 2)) / 2;
+        this.gUp = this.gUk / (this.gUf + this.gUl);
+        this.gUq = this.gUi / this.gUf;
+        this.gUr = this.gUf / (this.gUf + this.gUl);
+        this.gUm[0] = new Rect(this.gUg - this.gUf, this.gUj + this.gUk, this.gUg, this.gUj + this.gUk + this.gUh);
+        this.gUm[1] = new Rect(this.gUg + this.gUl, this.gUj, this.gUg + this.gUl + this.gUf, this.gUj + this.gUi);
+        this.gUm[2] = new Rect(this.mWidth - this.gUg, this.gUj + this.gUk, (this.mWidth - this.gUg) + this.gUf, this.gUj + this.gUk + this.gUh);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        this.gUi = ValueAnimator.ofFloat(this.gTU, 0.0f);
-        this.gUi.setDuration(500L);
-        this.gUi.setInterpolator(new DecelerateInterpolator());
-        this.gUi.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.enterForum.recommend.view.ForumTestView.1
+        this.gUt = ValueAnimator.ofFloat(this.gUf, 0.0f);
+        this.gUt.setDuration(500L);
+        this.gUt.setInterpolator(new DecelerateInterpolator());
+        this.gUt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.enterForum.recommend.view.ForumTestView.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (ForumTestView.this.gUl != 1) {
-                    if (ForumTestView.this.gUl == 2 || ForumTestView.this.gUl == 3) {
+                if (ForumTestView.this.gUw != 1) {
+                    if (ForumTestView.this.gUw == 2 || ForumTestView.this.gUw == 3) {
                         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                        float abs = Math.abs(ForumTestView.this.gUe * floatValue);
-                        float abs2 = Math.abs(floatValue) * ForumTestView.this.gUf;
+                        float abs = Math.abs(ForumTestView.this.gUp * floatValue);
+                        float abs2 = Math.abs(floatValue) * ForumTestView.this.gUq;
                         if (Math.abs(floatValue) >= Math.abs(ForumTestView.this.mDistance)) {
-                            ForumTestView.this.gTR.setAlpha(0.0f);
-                            ForumTestView.this.gTR.setVisibility(8);
+                            ForumTestView.this.gUc.setAlpha(0.0f);
+                            ForumTestView.this.gUc.setVisibility(8);
                             ForumTestView.this.mDistance = 0.0f;
-                            ForumTestView.this.d(ForumTestView.this.gTS);
-                            ForumTestView.this.d(ForumTestView.this.gTR);
-                            ForumTestView.this.gTN.remove(ForumTestView.this.gTR.getData());
+                            ForumTestView.this.d(ForumTestView.this.gUd);
+                            ForumTestView.this.d(ForumTestView.this.gUc);
+                            ForumTestView.this.gTY.remove(ForumTestView.this.gUc.getData());
                             ForumTestView.this.mn(true);
-                            ForumTestView.this.gUk = false;
+                            ForumTestView.this.gUv = false;
                         } else {
-                            ForumTestView.this.a(ForumTestView.this.gTS, floatValue, abs);
-                            if ((ForumTestView.this.gTU * 2) / 5 >= ForumTestView.this.gTR.getViewRight() - ForumTestView.this.gTR.getViewLeft()) {
-                                ForumTestView.this.gTR.setAlpha(0.0f);
-                                ForumTestView.this.gTR.setVisibility(8);
+                            ForumTestView.this.a(ForumTestView.this.gUd, floatValue, abs);
+                            if ((ForumTestView.this.gUf * 2) / 5 >= ForumTestView.this.gUc.getViewRight() - ForumTestView.this.gUc.getViewLeft()) {
+                                ForumTestView.this.gUc.setAlpha(0.0f);
+                                ForumTestView.this.gUc.setVisibility(8);
                             } else {
-                                ForumTestView.this.gTR.setViewLeft(ForumTestView.this.gTR.getMoveLeft() + (Math.abs(floatValue) / 2.0f));
-                                ForumTestView.this.gTR.setViewRight(ForumTestView.this.gTR.getMoveRight() - (Math.abs(floatValue) / 2.0f));
-                                ForumTestView.this.gTR.setViewTop(ForumTestView.this.gTR.getMoveTop() + (abs2 / 2.0f));
-                                ForumTestView.this.gTR.setViewBottom(ForumTestView.this.gTR.getMoveBottom() - (abs2 / 2.0f));
-                                ForumTestView.this.gTR.setAlpha(1.0f - (Math.abs(floatValue) / ((ForumTestView.this.gTU * 3) / 5)));
+                                ForumTestView.this.gUc.setViewLeft(ForumTestView.this.gUc.getMoveLeft() + (Math.abs(floatValue) / 2.0f));
+                                ForumTestView.this.gUc.setViewRight(ForumTestView.this.gUc.getMoveRight() - (Math.abs(floatValue) / 2.0f));
+                                ForumTestView.this.gUc.setViewTop(ForumTestView.this.gUc.getMoveTop() + (abs2 / 2.0f));
+                                ForumTestView.this.gUc.setViewBottom(ForumTestView.this.gUc.getMoveBottom() - (abs2 / 2.0f));
+                                ForumTestView.this.gUc.setAlpha(1.0f - (Math.abs(floatValue) / ((ForumTestView.this.gUf * 3) / 5)));
                             }
                         }
                         ForumTestView.this.requestLayout();
                         return;
                     }
                     float floatValue2 = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    float abs3 = Math.abs(ForumTestView.this.gUe * floatValue2);
-                    float abs4 = Math.abs(floatValue2) * ForumTestView.this.gUf;
+                    float abs3 = Math.abs(ForumTestView.this.gUp * floatValue2);
+                    float abs4 = Math.abs(floatValue2) * ForumTestView.this.gUq;
                     if (Math.abs(floatValue2) >= Math.abs(ForumTestView.this.mDistance)) {
-                        ForumTestView.this.gTR.setAlpha(0.0f);
-                        ForumTestView.this.gTR.setVisibility(8);
+                        ForumTestView.this.gUc.setAlpha(0.0f);
+                        ForumTestView.this.gUc.setVisibility(8);
                         ForumTestView.this.mDistance = 0.0f;
-                        ForumTestView.this.d(ForumTestView.this.gTS);
-                        ForumTestView.this.d(ForumTestView.this.gTR);
-                        ForumTestView.this.d(ForumTestView.this.gTT);
-                        ForumTestView.this.gTN.remove(ForumTestView.this.gTR.getData());
-                        if (ForumTestView.this.gTO.getIndex() == 0) {
-                            if (ForumTestView.this.gTO.getDataIndex() > ForumTestView.this.gTT.getDataIndex()) {
-                                ForumTestView.this.gTO.setDataIndex(ForumTestView.this.gTO.getDataIndex() - 1);
-                                ForumTestView.this.c(ForumTestView.this.gTO);
+                        ForumTestView.this.d(ForumTestView.this.gUd);
+                        ForumTestView.this.d(ForumTestView.this.gUc);
+                        ForumTestView.this.d(ForumTestView.this.gUe);
+                        ForumTestView.this.gTY.remove(ForumTestView.this.gUc.getData());
+                        if (ForumTestView.this.gTZ.getIndex() == 0) {
+                            if (ForumTestView.this.gTZ.getDataIndex() > ForumTestView.this.gUe.getDataIndex()) {
+                                ForumTestView.this.gTZ.setDataIndex(ForumTestView.this.gTZ.getDataIndex() - 1);
+                                ForumTestView.this.c(ForumTestView.this.gTZ);
                             }
-                        } else if (ForumTestView.this.gTP.getIndex() == 0) {
-                            if (ForumTestView.this.gTP.getDataIndex() > ForumTestView.this.gTT.getDataIndex()) {
-                                ForumTestView.this.gTP.setDataIndex(ForumTestView.this.gTP.getDataIndex() - 1);
-                                ForumTestView.this.c(ForumTestView.this.gTP);
+                        } else if (ForumTestView.this.gUa.getIndex() == 0) {
+                            if (ForumTestView.this.gUa.getDataIndex() > ForumTestView.this.gUe.getDataIndex()) {
+                                ForumTestView.this.gUa.setDataIndex(ForumTestView.this.gUa.getDataIndex() - 1);
+                                ForumTestView.this.c(ForumTestView.this.gUa);
                             }
-                        } else if (ForumTestView.this.gTQ.getDataIndex() > ForumTestView.this.gTT.getDataIndex()) {
-                            ForumTestView.this.gTQ.setDataIndex(ForumTestView.this.gTQ.getDataIndex() - 1);
-                            ForumTestView.this.c(ForumTestView.this.gTQ);
+                        } else if (ForumTestView.this.gUb.getDataIndex() > ForumTestView.this.gUe.getDataIndex()) {
+                            ForumTestView.this.gUb.setDataIndex(ForumTestView.this.gUb.getDataIndex() - 1);
+                            ForumTestView.this.c(ForumTestView.this.gUb);
                         }
-                        if (ForumTestView.this.gTS.getDataIndex() > ForumTestView.this.gTT.getDataIndex()) {
-                            ForumTestView.this.gTS.setDataIndex(ForumTestView.this.gTS.getDataIndex() - 1);
-                            ForumTestView.this.c(ForumTestView.this.gTS);
+                        if (ForumTestView.this.gUd.getDataIndex() > ForumTestView.this.gUe.getDataIndex()) {
+                            ForumTestView.this.gUd.setDataIndex(ForumTestView.this.gUd.getDataIndex() - 1);
+                            ForumTestView.this.c(ForumTestView.this.gUd);
                         }
-                        ForumTestView.this.gTT.setDataIndex(ForumTestView.this.gTT.getDataIndex() + 1);
-                        ForumTestView.this.c(ForumTestView.this.gTT);
+                        ForumTestView.this.gUe.setDataIndex(ForumTestView.this.gUe.getDataIndex() + 1);
+                        ForumTestView.this.c(ForumTestView.this.gUe);
                         ForumTestView.this.mn(true);
-                        ForumTestView.this.gUk = false;
+                        ForumTestView.this.gUv = false;
                     } else {
-                        ForumTestView.this.a(ForumTestView.this.gTS, floatValue2, abs3);
-                        ForumTestView.this.a(ForumTestView.this.gTT, floatValue2);
-                        if ((ForumTestView.this.gTU * 2) / 5 >= ForumTestView.this.gTR.getViewRight() - ForumTestView.this.gTR.getViewLeft()) {
-                            ForumTestView.this.gTR.setAlpha(0.0f);
-                            ForumTestView.this.gTR.setVisibility(8);
+                        ForumTestView.this.a(ForumTestView.this.gUd, floatValue2, abs3);
+                        ForumTestView.this.a(ForumTestView.this.gUe, floatValue2);
+                        if ((ForumTestView.this.gUf * 2) / 5 >= ForumTestView.this.gUc.getViewRight() - ForumTestView.this.gUc.getViewLeft()) {
+                            ForumTestView.this.gUc.setAlpha(0.0f);
+                            ForumTestView.this.gUc.setVisibility(8);
                         } else {
-                            ForumTestView.this.gTR.setViewLeft(ForumTestView.this.gTR.getMoveLeft() + (Math.abs(floatValue2) / 2.0f));
-                            ForumTestView.this.gTR.setViewRight(ForumTestView.this.gTR.getMoveRight() - (Math.abs(floatValue2) / 2.0f));
-                            ForumTestView.this.gTR.setViewTop(ForumTestView.this.gTR.getMoveTop() + (abs4 / 2.0f));
-                            ForumTestView.this.gTR.setViewBottom(ForumTestView.this.gTR.getMoveBottom() - (abs4 / 2.0f));
-                            ForumTestView.this.gTR.setAlpha(1.0f - (Math.abs(floatValue2) / ((ForumTestView.this.gTU * 3) / 5)));
+                            ForumTestView.this.gUc.setViewLeft(ForumTestView.this.gUc.getMoveLeft() + (Math.abs(floatValue2) / 2.0f));
+                            ForumTestView.this.gUc.setViewRight(ForumTestView.this.gUc.getMoveRight() - (Math.abs(floatValue2) / 2.0f));
+                            ForumTestView.this.gUc.setViewTop(ForumTestView.this.gUc.getMoveTop() + (abs4 / 2.0f));
+                            ForumTestView.this.gUc.setViewBottom(ForumTestView.this.gUc.getMoveBottom() - (abs4 / 2.0f));
+                            ForumTestView.this.gUc.setAlpha(1.0f - (Math.abs(floatValue2) / ((ForumTestView.this.gUf * 3) / 5)));
                         }
                     }
                     ForumTestView.this.requestLayout();
                     return;
                 }
                 float floatValue3 = ((Float) valueAnimator.getAnimatedValue()).floatValue() / 2.0f;
-                float f = ForumTestView.this.gUf * floatValue3;
+                float f = ForumTestView.this.gUq * floatValue3;
                 if (Math.abs(floatValue3) >= Math.abs(ForumTestView.this.mDistance / 2.0f)) {
-                    ForumTestView.this.gTR.setAlpha(0.0f);
-                    ForumTestView.this.gTR.setVisibility(8);
+                    ForumTestView.this.gUc.setAlpha(0.0f);
+                    ForumTestView.this.gUc.setVisibility(8);
                     ForumTestView.this.mDistance = 0.0f;
-                    ForumTestView.this.gTN.remove(ForumTestView.this.gTR.getData());
+                    ForumTestView.this.gTY.remove(ForumTestView.this.gUc.getData());
                     ForumTestView.this.setVisibility(8);
-                    if (ForumTestView.this.gUn != null) {
-                        ForumTestView.this.gUn.ea(-1L);
+                    if (ForumTestView.this.gUy != null) {
+                        ForumTestView.this.gUy.ea(-1L);
                     }
-                    ForumTestView.this.gUk = false;
-                    if (ForumTestView.this.gUn != null && v.isEmpty(ForumTestView.this.gTN)) {
-                        ForumTestView.this.gUn.bPH();
+                    ForumTestView.this.gUv = false;
+                    if (ForumTestView.this.gUy != null && v.isEmpty(ForumTestView.this.gTY)) {
+                        ForumTestView.this.gUy.bPJ();
                     }
                 } else {
-                    ForumTestView.this.gTR.setViewLeft(ForumTestView.this.gTR.getMoveLeft() + floatValue3);
-                    ForumTestView.this.gTR.setViewRight(ForumTestView.this.gTR.getMoveRight() - floatValue3);
-                    ForumTestView.this.gTR.setViewTop(ForumTestView.this.gTR.getMoveTop() + f);
-                    ForumTestView.this.gTR.setViewBottom(ForumTestView.this.gTR.getMoveBottom() - f);
-                    ForumTestView.this.gTR.setAlpha(1.0f - (floatValue3 / ForumTestView.this.mDistance));
+                    ForumTestView.this.gUc.setViewLeft(ForumTestView.this.gUc.getMoveLeft() + floatValue3);
+                    ForumTestView.this.gUc.setViewRight(ForumTestView.this.gUc.getMoveRight() - floatValue3);
+                    ForumTestView.this.gUc.setViewTop(ForumTestView.this.gUc.getMoveTop() + f);
+                    ForumTestView.this.gUc.setViewBottom(ForumTestView.this.gUc.getMoveBottom() - f);
+                    ForumTestView.this.gUc.setAlpha(1.0f - (floatValue3 / ForumTestView.this.mDistance));
                 }
                 ForumTestView.this.requestLayout();
             }
@@ -277,18 +277,18 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
     protected void onMeasure(int i, int i2) {
         if (getVisibility() == 0) {
             int equipmentWidth = l.getEquipmentWidth(getContext());
-            if (equipmentWidth != this.gUq) {
-                this.gUq = equipmentWidth;
+            if (equipmentWidth != this.gUB) {
+                this.gUB = equipmentWidth;
                 eI(getContext());
-                d(this.gTO);
-                d(this.gTP);
-                d(this.gTQ);
-                d(this.gTR);
+                d(this.gTZ);
+                d(this.gUa);
+                d(this.gUb);
+                d(this.gUc);
             }
-            a(this.gTO);
-            a(this.gTP);
-            a(this.gTQ);
-            a(this.gTR);
+            a(this.gTZ);
+            a(this.gUa);
+            a(this.gUb);
+            a(this.gUc);
             super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.mWidth, 1073741824), View.MeasureSpec.makeMeasureSpec(this.mHeight, 1073741824));
             return;
         }
@@ -306,18 +306,18 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (getVisibility() == 0) {
-            this.gTO.layout((int) this.gTO.getViewLeft(), (int) this.gTO.getViewTop(), (int) this.gTO.getViewRight(), (int) this.gTO.getViewBottom());
-            this.gTP.layout((int) this.gTP.getViewLeft(), (int) this.gTP.getViewTop(), (int) this.gTP.getViewRight(), (int) this.gTP.getViewBottom());
-            this.gTQ.layout((int) this.gTQ.getViewLeft(), (int) this.gTQ.getViewTop(), (int) this.gTQ.getViewRight(), (int) this.gTQ.getViewBottom());
-            this.gTR.layout((int) this.gTR.getViewLeft(), (int) this.gTR.getViewTop(), (int) this.gTR.getViewRight(), (int) this.gTR.getViewBottom());
+            this.gTZ.layout((int) this.gTZ.getViewLeft(), (int) this.gTZ.getViewTop(), (int) this.gTZ.getViewRight(), (int) this.gTZ.getViewBottom());
+            this.gUa.layout((int) this.gUa.getViewLeft(), (int) this.gUa.getViewTop(), (int) this.gUa.getViewRight(), (int) this.gUa.getViewBottom());
+            this.gUb.layout((int) this.gUb.getViewLeft(), (int) this.gUb.getViewTop(), (int) this.gUb.getViewRight(), (int) this.gUb.getViewBottom());
+            this.gUc.layout((int) this.gUc.getViewLeft(), (int) this.gUc.getViewTop(), (int) this.gUc.getViewRight(), (int) this.gUc.getViewBottom());
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         getParent().requestDisallowInterceptTouchEvent(true);
-        if (this.gUi == null || !this.gUi.isRunning()) {
-            if (this.gUh == null || !this.gUh.isRunning()) {
+        if (this.gUt == null || !this.gUt.isRunning()) {
+            if (this.gUs == null || !this.gUs.isRunning()) {
                 int action = motionEvent.getAction();
                 acquireVelocityTracker(motionEvent);
                 VelocityTracker velocityTracker = this.mVelocityTracker;
@@ -325,42 +325,42 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
                 float y = motionEvent.getY(0);
                 int i = action & 255;
                 if (i == 0) {
-                    if (this.gUh != null) {
-                        this.gUh.removeAllUpdateListeners();
-                        this.gUh.cancel();
+                    if (this.gUs != null) {
+                        this.gUs.removeAllUpdateListeners();
+                        this.gUs.cancel();
                     }
-                    this.gUm = motionEvent.getPointerId(0);
-                    this.gUc = x;
-                    this.gUd = y;
+                    this.gUx = motionEvent.getPointerId(0);
+                    this.gUn = x;
+                    this.gUo = y;
                     this.mLastMotionX = x;
                 } else if (i == 2) {
-                    float f = this.gUc - x;
-                    float f2 = this.gUd - y;
+                    float f = this.gUn - x;
+                    float f2 = this.gUo - y;
                     if (Math.abs(f) / (Math.abs(f2) + 1.0f) > 1.0f) {
-                        this.gUj = true;
+                        this.gUu = true;
                         this.mDistance = f;
-                    } else if (Math.abs(f2) > 30.0f && !this.gUj) {
+                    } else if (Math.abs(f2) > 30.0f && !this.gUu) {
                         getParent().requestDisallowInterceptTouchEvent(false);
                     }
                     float f3 = this.mLastMotionX - x;
-                    float f4 = this.gUe * f3;
-                    if (this.gUj) {
-                        b(this.gTO, f3, f4);
-                        b(this.gTP, f3, f4);
-                        b(this.gTQ, f3, f4);
+                    float f4 = this.gUp * f3;
+                    if (this.gUu) {
+                        b(this.gTZ, f3, f4);
+                        b(this.gUa, f3, f4);
+                        b(this.gUb, f3, f4);
                         requestLayout();
                     }
                     this.mLastMotionX = x;
                 } else if (i == 1 || i == 3) {
                     velocityTracker.computeCurrentVelocity(1000, this.Vg);
-                    float xVelocity = velocityTracker.getXVelocity(this.gUm);
-                    if (this.gUj || this.mDistance != 0.0f) {
+                    float xVelocity = velocityTracker.getXVelocity(this.gUx);
+                    if (this.gUu || this.mDistance != 0.0f) {
                         ae(xVelocity);
                     }
-                    this.gUj = false;
+                    this.gUu = false;
                     releaseVelocityTracker();
                 }
-                if (this.gUj || this.mDistance != 0.0f || motionEvent.getPointerCount() >= 2) {
+                if (this.gUu || this.mDistance != 0.0f || motionEvent.getPointerCount() >= 2) {
                     return true;
                 }
                 return super.dispatchTouchEvent(motionEvent);
@@ -388,150 +388,150 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
     /* JADX INFO: Access modifiers changed from: private */
     public void b(CellForumTestView cellForumTestView, float f, float f2) {
         if (cellForumTestView != null && cellForumTestView.getVisibility() != 8) {
-            if (this.gTN.size() > 2) {
-                if (cellForumTestView.getViewRight() < this.gUb[0].right - (this.gTU / 2) && f > 0.0f) {
-                    cellForumTestView.setViewLeft((cellForumTestView.getViewRight() - (this.gUb[0].right - (this.gTU / 2))) + this.gUb[2].left + (this.gTU / 2) + this.gUa);
-                    cellForumTestView.setViewRight(cellForumTestView.getViewLeft() + this.gTU);
-                    cellForumTestView.setViewTop(this.gUb[2].top);
-                    cellForumTestView.setViewBottom(this.gUb[2].bottom);
+            if (this.gTY.size() > 2) {
+                if (cellForumTestView.getViewRight() < this.gUm[0].right - (this.gUf / 2) && f > 0.0f) {
+                    cellForumTestView.setViewLeft((cellForumTestView.getViewRight() - (this.gUm[0].right - (this.gUf / 2))) + this.gUm[2].left + (this.gUf / 2) + this.gUl);
+                    cellForumTestView.setViewRight(cellForumTestView.getViewLeft() + this.gUf);
+                    cellForumTestView.setViewTop(this.gUm[2].top);
+                    cellForumTestView.setViewBottom(this.gUm[2].bottom);
                     cellForumTestView.setDataIndex(cellForumTestView.getDataIndex() + 3);
                     c(cellForumTestView);
-                    cellForumTestView.setData(this.gTN.get(cellForumTestView.getDataIndex()));
-                } else if (cellForumTestView.getViewLeft() > this.gUb[2].left + (this.gTU / 2) && f < 0.0f) {
-                    cellForumTestView.setViewRight((cellForumTestView.getViewLeft() - (this.gUb[2].left + (this.gTU / 2))) + ((this.gUb[0].right - (this.gTU / 2)) - this.gUa));
-                    cellForumTestView.setViewLeft(cellForumTestView.getViewRight() - this.gTU);
-                    cellForumTestView.setViewTop(this.gUb[0].top);
-                    cellForumTestView.setViewBottom(this.gUb[0].bottom);
+                    cellForumTestView.setData(this.gTY.get(cellForumTestView.getDataIndex()));
+                } else if (cellForumTestView.getViewLeft() > this.gUm[2].left + (this.gUf / 2) && f < 0.0f) {
+                    cellForumTestView.setViewRight((cellForumTestView.getViewLeft() - (this.gUm[2].left + (this.gUf / 2))) + ((this.gUm[0].right - (this.gUf / 2)) - this.gUl));
+                    cellForumTestView.setViewLeft(cellForumTestView.getViewRight() - this.gUf);
+                    cellForumTestView.setViewTop(this.gUm[0].top);
+                    cellForumTestView.setViewBottom(this.gUm[0].bottom);
                     cellForumTestView.setDataIndex(cellForumTestView.getDataIndex() - 3);
                     c(cellForumTestView);
-                    cellForumTestView.setData(this.gTN.get(cellForumTestView.getDataIndex()));
+                    cellForumTestView.setData(this.gTY.get(cellForumTestView.getDataIndex()));
                 }
             }
             cellForumTestView.setViewLeft(cellForumTestView.getViewLeft() - f);
             cellForumTestView.setViewRight(cellForumTestView.getViewRight() - f);
-            if (cellForumTestView.getViewLeft() <= this.gUb[1].left) {
+            if (cellForumTestView.getViewLeft() <= this.gUm[1].left) {
                 cellForumTestView.setViewTop(cellForumTestView.getViewTop() + f2);
                 cellForumTestView.setViewBottom(cellForumTestView.getViewBottom() - f2);
-                if (cellForumTestView.getViewTop() > this.gUb[0].top) {
-                    cellForumTestView.setViewTop(this.gUb[0].top);
+                if (cellForumTestView.getViewTop() > this.gUm[0].top) {
+                    cellForumTestView.setViewTop(this.gUm[0].top);
                 }
-                if (cellForumTestView.getViewBottom() < this.gUb[0].bottom) {
-                    cellForumTestView.setViewBottom(this.gUb[0].bottom);
+                if (cellForumTestView.getViewBottom() < this.gUm[0].bottom) {
+                    cellForumTestView.setViewBottom(this.gUm[0].bottom);
                 }
-            } else if (cellForumTestView.getViewLeft() <= this.gUb[2].left) {
+            } else if (cellForumTestView.getViewLeft() <= this.gUm[2].left) {
                 cellForumTestView.setViewTop(cellForumTestView.getViewTop() - f2);
                 cellForumTestView.setViewBottom(cellForumTestView.getViewBottom() + f2);
-                if (cellForumTestView.getViewTop() < this.gUb[1].top) {
-                    cellForumTestView.setViewTop(this.gUb[1].top);
+                if (cellForumTestView.getViewTop() < this.gUm[1].top) {
+                    cellForumTestView.setViewTop(this.gUm[1].top);
                 }
-                if (cellForumTestView.getViewBottom() > this.gUb[1].bottom) {
-                    cellForumTestView.setViewBottom(this.gUb[1].bottom);
+                if (cellForumTestView.getViewBottom() > this.gUm[1].bottom) {
+                    cellForumTestView.setViewBottom(this.gUm[1].bottom);
                 }
             }
         }
     }
 
     public void setOnSecectedListener(a aVar) {
-        this.gUn = aVar;
+        this.gUy = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void mn(boolean z) {
-        if (this.gUn != null) {
+        if (this.gUy != null) {
             int i = -1;
-            if (this.gTO.getIndex() == 1 && this.gTO.getData() != null) {
-                this.gUn.ea(this.gTO.getData().testId);
-                i = this.gTO.getDataIndex();
-            } else if (this.gTP.getIndex() == 1 && this.gTP.getData() != null) {
-                this.gUn.ea(this.gTP.getData().testId);
-                i = this.gTP.getDataIndex();
-            } else if (this.gTQ.getIndex() == 1 && this.gTQ.getData() != null) {
-                this.gUn.ea(this.gTQ.getData().testId);
-                i = this.gTQ.getDataIndex();
+            if (this.gTZ.getIndex() == 1 && this.gTZ.getData() != null) {
+                this.gUy.ea(this.gTZ.getData().testId);
+                i = this.gTZ.getDataIndex();
+            } else if (this.gUa.getIndex() == 1 && this.gUa.getData() != null) {
+                this.gUy.ea(this.gUa.getData().testId);
+                i = this.gUa.getDataIndex();
+            } else if (this.gUb.getIndex() == 1 && this.gUb.getData() != null) {
+                this.gUy.ea(this.gUb.getData().testId);
+                i = this.gUb.getDataIndex();
             } else {
-                this.gUn.ea(-1L);
+                this.gUy.ea(-1L);
             }
             if (z) {
-                sZ(i);
+                tb(i);
             }
         }
     }
 
     private void initAnimation() {
-        this.gUh = ValueAnimator.ofFloat(this.gTU, 0.0f);
-        this.gUh.setDuration(200L);
-        this.gUh.setInterpolator(new DecelerateInterpolator());
-        this.gUh.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.enterForum.recommend.view.ForumTestView.2
+        this.gUs = ValueAnimator.ofFloat(this.gUf, 0.0f);
+        this.gUs.setDuration(200L);
+        this.gUs.setInterpolator(new DecelerateInterpolator());
+        this.gUs.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.enterForum.recommend.view.ForumTestView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (Math.abs(floatValue) >= Math.abs(ForumTestView.this.mDistance)) {
-                    boolean z = Math.abs(ForumTestView.this.mDistance) >= ((float) ForumTestView.this.gTU) * 0.2f;
-                    if (ForumTestView.this.gUo) {
+                    boolean z = Math.abs(ForumTestView.this.mDistance) >= ((float) ForumTestView.this.gUf) * 0.2f;
+                    if (ForumTestView.this.gUz) {
                         if (ForumTestView.this.mDistance > 0.0f) {
-                            ForumTestView.this.bPE();
+                            ForumTestView.this.bPG();
                         } else {
-                            ForumTestView.this.bPF();
+                            ForumTestView.this.bPH();
                         }
-                        ForumTestView.this.gUo = false;
+                        ForumTestView.this.gUz = false;
                     }
-                    ForumTestView.this.gUp = 0.0f;
+                    ForumTestView.this.gUA = 0.0f;
                     ForumTestView.this.mDistance = 0.0f;
-                    ForumTestView.this.d(ForumTestView.this.gTO);
-                    ForumTestView.this.d(ForumTestView.this.gTP);
-                    ForumTestView.this.d(ForumTestView.this.gTQ);
+                    ForumTestView.this.d(ForumTestView.this.gTZ);
+                    ForumTestView.this.d(ForumTestView.this.gUa);
+                    ForumTestView.this.d(ForumTestView.this.gUb);
                     ForumTestView.this.requestLayout();
                     ForumTestView.this.mn(z);
                 } else {
-                    if (ForumTestView.this.gUo) {
+                    if (ForumTestView.this.gUz) {
                         if (ForumTestView.this.mDistance > 0.0f) {
-                            if (ForumTestView.this.sX(2) != null && ForumTestView.this.sX(2).getViewLeft() >= l.getEquipmentWidth(ForumTestView.this.getContext())) {
-                                ForumTestView.this.bPE();
-                                ForumTestView.this.gUo = false;
+                            if (ForumTestView.this.sZ(2) != null && ForumTestView.this.sZ(2).getViewLeft() >= l.getEquipmentWidth(ForumTestView.this.getContext())) {
+                                ForumTestView.this.bPG();
+                                ForumTestView.this.gUz = false;
                             }
-                        } else if (ForumTestView.this.sX(0) != null && ForumTestView.this.sX(0).getViewRight() <= 0.0f) {
-                            ForumTestView.this.bPF();
-                            ForumTestView.this.gUo = false;
+                        } else if (ForumTestView.this.sZ(0) != null && ForumTestView.this.sZ(0).getViewRight() <= 0.0f) {
+                            ForumTestView.this.bPH();
+                            ForumTestView.this.gUz = false;
                         }
                     }
-                    float f = ForumTestView.this.gUp - floatValue;
-                    float f2 = ForumTestView.this.gUe * f;
-                    ForumTestView.this.b(ForumTestView.this.gTO, f, f2);
-                    ForumTestView.this.b(ForumTestView.this.gTP, f, f2);
-                    ForumTestView.this.b(ForumTestView.this.gTQ, f, f2);
+                    float f = ForumTestView.this.gUA - floatValue;
+                    float f2 = ForumTestView.this.gUp * f;
+                    ForumTestView.this.b(ForumTestView.this.gTZ, f, f2);
+                    ForumTestView.this.b(ForumTestView.this.gUa, f, f2);
+                    ForumTestView.this.b(ForumTestView.this.gUb, f, f2);
                     ForumTestView.this.requestLayout();
                 }
-                ForumTestView.this.gUp = floatValue;
+                ForumTestView.this.gUA = floatValue;
             }
         });
     }
 
     private void ae(float f) {
-        CellForumTestView sX;
+        CellForumTestView sZ;
         CellForumTestView cellForumTestView;
         CellForumTestView cellForumTestView2;
         float viewRight;
         float f2;
-        this.gUo = false;
-        this.gUp = 0.0f;
+        this.gUz = false;
+        this.gUA = 0.0f;
         initAnimation();
-        if (this.gTN.size() == 2) {
+        if (this.gTY.size() == 2) {
             CellForumTestView cellForumTestView3 = null;
-            if (this.gTO.getVisibility() == 0) {
-                cellForumTestView3 = this.gTO;
+            if (this.gTZ.getVisibility() == 0) {
+                cellForumTestView3 = this.gTZ;
             }
-            if (this.gTP.getVisibility() != 0) {
+            if (this.gUa.getVisibility() != 0) {
                 cellForumTestView = cellForumTestView3;
                 cellForumTestView2 = null;
             } else if (cellForumTestView3 == null) {
-                cellForumTestView = this.gTP;
+                cellForumTestView = this.gUa;
                 cellForumTestView2 = null;
             } else {
                 cellForumTestView = cellForumTestView3;
-                cellForumTestView2 = this.gTP;
+                cellForumTestView2 = this.gUa;
             }
-            if (this.gTQ.getVisibility() == 0) {
-                cellForumTestView2 = this.gTQ;
+            if (this.gUb.getVisibility() == 0) {
+                cellForumTestView2 = this.gUb;
             }
             if (cellForumTestView.getIndex() < cellForumTestView2.getIndex()) {
                 f2 = cellForumTestView.getViewLeft();
@@ -541,61 +541,61 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
                 viewRight = cellForumTestView.getViewRight();
                 f2 = viewLeft;
             }
-            if (!(f2 < ((float) this.gUb[0].left) || viewRight > ((float) this.gUb[2].right)) && Math.abs(this.mDistance) >= this.gTU * 0.2f) {
-                this.gUo = true;
+            if (!(f2 < ((float) this.gUm[0].left) || viewRight > ((float) this.gUm[2].right)) && Math.abs(this.mDistance) >= this.gUf * 0.2f) {
+                this.gUz = true;
             }
-        } else if (this.gTN.size() > 2 && Math.abs(this.mDistance) >= this.gTU * 0.2f) {
-            this.gUo = true;
+        } else if (this.gTY.size() > 2 && Math.abs(this.mDistance) >= this.gUf * 0.2f) {
+            this.gUz = true;
         }
-        if (this.gUo && (sX = sX(1)) != null) {
-            if (this.mDistance >= this.gTU) {
-                this.mDistance -= this.gTU;
-                this.gUo = false;
-                bPF();
-            } else if (this.mDistance > 0.0f && this.mDistance < this.gTU) {
-                this.mDistance = this.gUb[0].right - sX.getViewRight();
-            } else if (this.mDistance > (-this.gTU)) {
-                this.mDistance = this.gUb[2].left - sX.getViewLeft();
+        if (this.gUz && (sZ = sZ(1)) != null) {
+            if (this.mDistance >= this.gUf) {
+                this.mDistance -= this.gUf;
+                this.gUz = false;
+                bPH();
+            } else if (this.mDistance > 0.0f && this.mDistance < this.gUf) {
+                this.mDistance = this.gUm[0].right - sZ.getViewRight();
+            } else if (this.mDistance > (-this.gUf)) {
+                this.mDistance = this.gUm[2].left - sZ.getViewLeft();
             } else {
-                bPE();
-                this.mDistance += this.gTU;
-                this.gUo = false;
+                bPG();
+                this.mDistance += this.gUf;
+                this.gUz = false;
             }
         }
-        this.gUh.setFloatValues(0.0f, this.mDistance);
-        this.gUh.start();
+        this.gUs.setFloatValues(0.0f, this.mDistance);
+        this.gUs.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPE() {
-        this.gTO.setIndex(this.gTO.getIndex() + 1);
-        this.gTP.setIndex(this.gTP.getIndex() + 1);
-        this.gTQ.setIndex(this.gTQ.getIndex() + 1);
-        b(this.gTO);
-        b(this.gTP);
-        b(this.gTQ);
+    public void bPG() {
+        this.gTZ.setIndex(this.gTZ.getIndex() + 1);
+        this.gUa.setIndex(this.gUa.getIndex() + 1);
+        this.gUb.setIndex(this.gUb.getIndex() + 1);
+        b(this.gTZ);
+        b(this.gUa);
+        b(this.gUb);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPF() {
-        this.gTO.setIndex(this.gTO.getIndex() - 1);
-        this.gTP.setIndex(this.gTP.getIndex() - 1);
-        this.gTQ.setIndex(this.gTQ.getIndex() - 1);
-        b(this.gTO);
-        b(this.gTP);
-        b(this.gTQ);
+    public void bPH() {
+        this.gTZ.setIndex(this.gTZ.getIndex() - 1);
+        this.gUa.setIndex(this.gUa.getIndex() - 1);
+        this.gUb.setIndex(this.gUb.getIndex() - 1);
+        b(this.gTZ);
+        b(this.gUa);
+        b(this.gUb);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public CellForumTestView sX(int i) {
-        if (this.gTO.getIndex() == i) {
-            return this.gTO;
+    public CellForumTestView sZ(int i) {
+        if (this.gTZ.getIndex() == i) {
+            return this.gTZ;
         }
-        if (this.gTP.getIndex() == i) {
-            return this.gTP;
+        if (this.gUa.getIndex() == i) {
+            return this.gUa;
         }
-        if (this.gTQ.getIndex() == i) {
-            return this.gTQ;
+        if (this.gUb.getIndex() == i) {
+            return this.gUb;
         }
         return null;
     }
@@ -616,7 +616,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
     /* JADX INFO: Access modifiers changed from: private */
     public void c(CellForumTestView cellForumTestView) {
         if (cellForumTestView != null) {
-            int size = this.gTN.size();
+            int size = this.gTY.size();
             int dataIndex = cellForumTestView.getDataIndex() % size;
             if (dataIndex < 0) {
                 dataIndex = size - Math.abs(dataIndex);
@@ -625,8 +625,8 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
         }
     }
 
-    private int sY(int i) {
-        int size = this.gTN.size();
+    private int ta(int i) {
+        int size = this.gTY.size();
         int i2 = i % size;
         if (i2 < 0) {
             return size - Math.abs(i2);
@@ -637,164 +637,164 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
     /* JADX INFO: Access modifiers changed from: private */
     public void d(CellForumTestView cellForumTestView) {
         if (cellForumTestView != null) {
-            cellForumTestView.setViewLeft(this.gUb[cellForumTestView.getIndex()].left);
-            cellForumTestView.setViewTop(this.gUb[cellForumTestView.getIndex()].top);
-            cellForumTestView.setViewRight(this.gUb[cellForumTestView.getIndex()].right);
-            cellForumTestView.setViewBottom(this.gUb[cellForumTestView.getIndex()].bottom);
+            cellForumTestView.setViewLeft(this.gUm[cellForumTestView.getIndex()].left);
+            cellForumTestView.setViewTop(this.gUm[cellForumTestView.getIndex()].top);
+            cellForumTestView.setViewRight(this.gUm[cellForumTestView.getIndex()].right);
+            cellForumTestView.setViewBottom(this.gUm[cellForumTestView.getIndex()].bottom);
         }
     }
 
     public void setData(List<f> list) {
         int i;
-        if (!v.isEmpty(list) && !this.gUj && this.mDistance == 0.0f) {
-            this.gTN = list;
+        if (!v.isEmpty(list) && !this.gUu && this.mDistance == 0.0f) {
+            this.gTY = list;
             resetData();
             if (v.getCount(list) > 2) {
-                this.gTO.setVisibility(0);
-                this.gTP.setVisibility(0);
-                this.gTQ.setVisibility(0);
-                this.gTO.setData(list.get(0));
-                this.gTP.setData(list.get(1));
-                this.gTQ.setData(list.get(2));
-                this.gTO.setDataIndex(0);
-                this.gTP.setDataIndex(1);
-                this.gTQ.setDataIndex(2);
+                this.gTZ.setVisibility(0);
+                this.gUa.setVisibility(0);
+                this.gUb.setVisibility(0);
+                this.gTZ.setData(list.get(0));
+                this.gUa.setData(list.get(1));
+                this.gUb.setData(list.get(2));
+                this.gTZ.setDataIndex(0);
+                this.gUa.setDataIndex(1);
+                this.gUb.setDataIndex(2);
                 i = 1;
             } else if (v.getCount(list) == 2) {
-                this.gTO.setVisibility(8);
-                this.gTP.setVisibility(0);
-                this.gTQ.setVisibility(0);
-                this.gTP.setDataIndex(1);
-                this.gTQ.setDataIndex(0);
-                this.gTP.setData(list.get(1));
-                this.gTQ.setData(list.get(0));
+                this.gTZ.setVisibility(8);
+                this.gUa.setVisibility(0);
+                this.gUb.setVisibility(0);
+                this.gUa.setDataIndex(1);
+                this.gUb.setDataIndex(0);
+                this.gUa.setData(list.get(1));
+                this.gUb.setData(list.get(0));
                 i = 1;
             } else {
-                this.gTO.setVisibility(8);
-                this.gTP.setVisibility(0);
-                this.gTQ.setVisibility(8);
-                this.gTP.setDataIndex(0);
-                this.gTP.setData(list.get(0));
+                this.gTZ.setVisibility(8);
+                this.gUa.setVisibility(0);
+                this.gUb.setVisibility(8);
+                this.gUa.setDataIndex(0);
+                this.gUa.setData(list.get(0));
                 i = 0;
             }
-            sZ(i);
+            tb(i);
         }
     }
 
     private void resetData() {
-        this.gTO.setIndex(0);
-        this.gTP.setIndex(1);
-        this.gTQ.setIndex(2);
-        this.gTR.setIndex(1);
-        d(this.gTO);
-        d(this.gTP);
-        d(this.gTQ);
-        d(this.gTR);
+        this.gTZ.setIndex(0);
+        this.gUa.setIndex(1);
+        this.gUb.setIndex(2);
+        this.gUc.setIndex(1);
+        d(this.gTZ);
+        d(this.gUa);
+        d(this.gUb);
+        d(this.gUc);
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.view.a
-    public void sW(int i) {
+    public void sY(int i) {
         CellForumTestView cellForumTestView;
-        this.gUk = true;
-        this.gTR.setVisibility(0);
-        this.gTR.setAlpha(1.0f);
-        bPG();
-        if (this.gTO.getIndex() == i && this.gTO.getVisibility() == 0) {
-            cellForumTestView = this.gTO;
-        } else if (this.gTP.getIndex() == i && this.gTP.getVisibility() == 0) {
-            cellForumTestView = this.gTP;
+        this.gUv = true;
+        this.gUc.setVisibility(0);
+        this.gUc.setAlpha(1.0f);
+        bPI();
+        if (this.gTZ.getIndex() == i && this.gTZ.getVisibility() == 0) {
+            cellForumTestView = this.gTZ;
+        } else if (this.gUa.getIndex() == i && this.gUa.getVisibility() == 0) {
+            cellForumTestView = this.gUa;
         } else {
-            cellForumTestView = this.gTQ;
+            cellForumTestView = this.gUb;
         }
-        this.gTR.setData(cellForumTestView.getData());
-        this.gTR.setDataIndex(cellForumTestView.getDataIndex());
-        this.gTT = null;
-        if (this.gTN.size() == 1) {
-            this.gUl = 1;
+        this.gUc.setData(cellForumTestView.getData());
+        this.gUc.setDataIndex(cellForumTestView.getDataIndex());
+        this.gUe = null;
+        if (this.gTY.size() == 1) {
+            this.gUw = 1;
             cellForumTestView.setVisibility(8);
-            this.mDistance = (this.gTU * 3) / 5;
-        } else if (this.gTN.size() == 2) {
-            this.gUl = 2;
+            this.mDistance = (this.gUf * 3) / 5;
+        } else if (this.gTY.size() == 2) {
+            this.gUw = 2;
             cellForumTestView.setVisibility(8);
-            if (this.gTO.getVisibility() == 0) {
-                this.gTS = this.gTO;
-            } else if (this.gTP.getVisibility() == 0) {
-                this.gTS = this.gTP;
+            if (this.gTZ.getVisibility() == 0) {
+                this.gUd = this.gTZ;
+            } else if (this.gUa.getVisibility() == 0) {
+                this.gUd = this.gUa;
             } else {
-                this.gTS = this.gTQ;
+                this.gUd = this.gUb;
             }
-            if (this.gTS.getViewRight() < this.gUb[1].left) {
-                this.mDistance = this.gTU + this.gUa;
-                this.gTS.setIndex(this.gTS.getIndex() + 1);
+            if (this.gUd.getViewRight() < this.gUm[1].left) {
+                this.mDistance = this.gUf + this.gUl;
+                this.gUd.setIndex(this.gUd.getIndex() + 1);
                 cellForumTestView.setIndex(cellForumTestView.getIndex() + 1);
-            } else if (this.gTS.getViewLeft() > this.gUb[1].right) {
-                this.mDistance = (-this.gTU) - this.gUa;
-                this.gTS.setIndex(this.gTS.getIndex() - 1);
+            } else if (this.gUd.getViewLeft() > this.gUm[1].right) {
+                this.mDistance = (-this.gUf) - this.gUl;
+                this.gUd.setIndex(this.gUd.getIndex() - 1);
                 cellForumTestView.setIndex(cellForumTestView.getIndex() - 1);
             }
-            b(this.gTS);
+            b(this.gUd);
             b(cellForumTestView);
-        } else if (this.gTN.size() == 3) {
-            this.gUl = 3;
+        } else if (this.gTY.size() == 3) {
+            this.gUw = 3;
             cellForumTestView.setVisibility(8);
-            if (this.gTO.getIndex() == 2) {
-                this.gTS = this.gTO;
-            } else if (this.gTP.getIndex() == 2) {
-                this.gTS = this.gTP;
+            if (this.gTZ.getIndex() == 2) {
+                this.gUd = this.gTZ;
+            } else if (this.gUa.getIndex() == 2) {
+                this.gUd = this.gUa;
             } else {
-                this.gTS = this.gTQ;
+                this.gUd = this.gUb;
             }
-            this.mDistance = (-this.gTU) - this.gUa;
-            this.gTS.setIndex(this.gTS.getIndex() - 1);
+            this.mDistance = (-this.gUf) - this.gUl;
+            this.gUd.setIndex(this.gUd.getIndex() - 1);
             cellForumTestView.setIndex(cellForumTestView.getIndex() - 1);
-            b(this.gTS);
+            b(this.gUd);
             b(cellForumTestView);
         } else {
-            this.gUl = 4;
-            this.gTT = cellForumTestView;
-            if (this.gTO.getIndex() == 2) {
-                this.gTS = this.gTO;
-            } else if (this.gTP.getIndex() == 2) {
-                this.gTS = this.gTP;
+            this.gUw = 4;
+            this.gUe = cellForumTestView;
+            if (this.gTZ.getIndex() == 2) {
+                this.gUd = this.gTZ;
+            } else if (this.gUa.getIndex() == 2) {
+                this.gUd = this.gUa;
             } else {
-                this.gTS = this.gTQ;
+                this.gUd = this.gUb;
             }
-            this.mDistance = (-this.gTU) - this.gUa;
-            this.gTS.setIndex(this.gTS.getIndex() - 1);
+            this.mDistance = (-this.gUf) - this.gUl;
+            this.gUd.setIndex(this.gUd.getIndex() - 1);
             cellForumTestView.setIndex(cellForumTestView.getIndex() + 1);
-            b(this.gTS);
+            b(this.gUd);
             b(cellForumTestView);
-            this.gTT.setViewLeft(this.gUb[2].right + this.gUa);
-            this.gTT.setViewRight(this.gUb[2].right + this.gUa + this.gTU);
-            this.gTT.setViewTop(this.gUb[2].top);
-            this.gTT.setViewBottom(this.gUb[2].bottom);
-            this.gTT.setMoveLeft(this.gUb[2].right + this.gUa);
-            this.gTT.setMoveRight(this.gUb[2].right + this.gUa + this.gTU);
-            this.gTT.setMoveTop(this.gUb[2].top);
-            this.gTT.setMoveBottom(this.gUb[2].bottom);
-            this.gTT.setData(this.gTN.get(sY(this.gTT.getDataIndex() + 2)));
+            this.gUe.setViewLeft(this.gUm[2].right + this.gUl);
+            this.gUe.setViewRight(this.gUm[2].right + this.gUl + this.gUf);
+            this.gUe.setViewTop(this.gUm[2].top);
+            this.gUe.setViewBottom(this.gUm[2].bottom);
+            this.gUe.setMoveLeft(this.gUm[2].right + this.gUl);
+            this.gUe.setMoveRight(this.gUm[2].right + this.gUl + this.gUf);
+            this.gUe.setMoveTop(this.gUm[2].top);
+            this.gUe.setMoveBottom(this.gUm[2].bottom);
+            this.gUe.setData(this.gTY.get(ta(this.gUe.getDataIndex() + 2)));
         }
-        this.gUi.setFloatValues(0.0f, this.mDistance);
-        this.gUi.start();
+        this.gUt.setFloatValues(0.0f, this.mDistance);
+        this.gUt.start();
     }
 
-    private void bPG() {
-        this.gTO.setMoveLeft(this.gTO.getViewLeft());
-        this.gTO.setMoveTop(this.gTO.getViewTop());
-        this.gTO.setMoveRight(this.gTO.getViewRight());
-        this.gTO.setMoveBottom(this.gTO.getViewBottom());
-        this.gTP.setMoveLeft(this.gTP.getViewLeft());
-        this.gTP.setMoveTop(this.gTP.getViewTop());
-        this.gTP.setMoveRight(this.gTP.getViewRight());
-        this.gTP.setMoveBottom(this.gTP.getViewBottom());
-        this.gTQ.setMoveLeft(this.gTQ.getViewLeft());
-        this.gTQ.setMoveTop(this.gTQ.getViewTop());
-        this.gTQ.setMoveRight(this.gTQ.getViewRight());
-        this.gTQ.setMoveBottom(this.gTQ.getViewBottom());
-        this.gTR.setMoveLeft(this.gTR.getViewLeft());
-        this.gTR.setMoveTop(this.gTR.getViewTop());
-        this.gTR.setMoveRight(this.gTR.getViewRight());
-        this.gTR.setMoveBottom(this.gTR.getViewBottom());
+    private void bPI() {
+        this.gTZ.setMoveLeft(this.gTZ.getViewLeft());
+        this.gTZ.setMoveTop(this.gTZ.getViewTop());
+        this.gTZ.setMoveRight(this.gTZ.getViewRight());
+        this.gTZ.setMoveBottom(this.gTZ.getViewBottom());
+        this.gUa.setMoveLeft(this.gUa.getViewLeft());
+        this.gUa.setMoveTop(this.gUa.getViewTop());
+        this.gUa.setMoveRight(this.gUa.getViewRight());
+        this.gUa.setMoveBottom(this.gUa.getViewBottom());
+        this.gUb.setMoveLeft(this.gUb.getViewLeft());
+        this.gUb.setMoveTop(this.gUb.getViewTop());
+        this.gUb.setMoveRight(this.gUb.getViewRight());
+        this.gUb.setMoveBottom(this.gUb.getViewBottom());
+        this.gUc.setMoveLeft(this.gUc.getViewLeft());
+        this.gUc.setMoveTop(this.gUc.getViewTop());
+        this.gUc.setMoveRight(this.gUc.getViewRight());
+        this.gUc.setMoveBottom(this.gUc.getViewBottom());
     }
 
     public void onChangeSkinType() {
@@ -802,22 +802,22 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             am.setBackgroundColor(this, R.color.cp_bg_line_e);
-            this.gTO.onChangeSkinType();
-            this.gTP.onChangeSkinType();
-            this.gTQ.onChangeSkinType();
+            this.gTZ.onChangeSkinType();
+            this.gUa.onChangeSkinType();
+            this.gUb.onChangeSkinType();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        if (!this.gUj && this.mDistance == 0.0f) {
-            if (this.gUh != null) {
-                this.gUh.removeAllUpdateListeners();
-                this.gUh.cancel();
+        if (!this.gUu && this.mDistance == 0.0f) {
+            if (this.gUs != null) {
+                this.gUs.removeAllUpdateListeners();
+                this.gUs.cancel();
             }
-            if (this.gUi != null) {
-                this.gUi.removeAllUpdateListeners();
-                this.gUi.cancel();
+            if (this.gUt != null) {
+                this.gUt.removeAllUpdateListeners();
+                this.gUt.cancel();
             }
         }
         super.onDetachedFromWindow();
@@ -825,22 +825,22 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
 
     public void setPageId(BdUniqueId bdUniqueId) {
         this.mPageId = bdUniqueId;
-        if (this.gTO != null) {
-            this.gTO.setPageId(bdUniqueId);
+        if (this.gTZ != null) {
+            this.gTZ.setPageId(bdUniqueId);
         }
-        if (this.gTP != null) {
-            this.gTP.setPageId(bdUniqueId);
+        if (this.gUa != null) {
+            this.gUa.setPageId(bdUniqueId);
         }
-        if (this.gTQ != null) {
-            this.gTQ.setPageId(bdUniqueId);
+        if (this.gUb != null) {
+            this.gUb.setPageId(bdUniqueId);
         }
     }
 
-    public void sZ(int i) {
+    public void tb(int i) {
         f fVar;
         an a2;
-        if (this.gTN != null && i >= 0 && i < this.gTN.size() && (fVar = this.gTN.get(i)) != null && (a2 = com.baidu.tieba.s.a.a(false, "a065", "common_exp", i + 1, i + 1, false, (String) null, String.valueOf(fVar.testId), 0)) != null) {
-            com.baidu.tieba.s.c.dct().a(this.mPageId, com.baidu.tieba.s.a.Mo("" + fVar.testId), a2);
+        if (this.gTY != null && i >= 0 && i < this.gTY.size() && (fVar = this.gTY.get(i)) != null && (a2 = com.baidu.tieba.s.a.a(false, "a065", "common_exp", i + 1, i + 1, false, (String) null, String.valueOf(fVar.testId), 0)) != null) {
+            com.baidu.tieba.s.c.dcI().a(this.mPageId, com.baidu.tieba.s.a.Mp("" + fVar.testId), a2);
         }
     }
 }

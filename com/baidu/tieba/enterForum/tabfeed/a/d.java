@@ -39,7 +39,7 @@ public class d extends com.baidu.adp.widget.ListView.a<bj, ag<bk>> {
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, bk bkVar) {
-                s.bLq().jv(true);
+                s.bLs().jv(true);
                 d.this.f(view, bkVar);
             }
         };
@@ -114,7 +114,7 @@ public class d extends com.baidu.adp.widget.ListView.a<bj, ag<bk>> {
         agVar.b((ag<bk>) bjVar.dEA);
         agVar.rM().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         agVar.rM().a(this.adt);
-        s.bLq().e(com.baidu.tieba.enterForum.a.g(bjVar.aOi(), this.mTabName));
+        s.bLs().e(com.baidu.tieba.enterForum.a.g(bjVar.aOi(), this.mTabName));
         v vVar = (v) agVar.rM().rF();
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) vVar.aep.ahI.getLayoutParams();
         layoutParams.width = bjVar.dEB;

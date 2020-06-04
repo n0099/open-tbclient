@@ -25,10 +25,10 @@ public class RtcVideoPlayController {
     }
 
     public RtcVideoPlayer PU() {
-        if (dY(1) == null) {
+        if (ea(1) == null) {
             this.mPlayersMap.put(1, new RtcVideoPlayer(this.mContext.get(), 1));
         }
-        return dY(1);
+        return ea(1);
     }
 
     public int c(RtcConfig rtcConfig) {
@@ -40,7 +40,7 @@ public class RtcVideoPlayController {
         return 0;
     }
 
-    public RtcVideoPlayer dY(int i) {
+    public RtcVideoPlayer ea(int i) {
         if (!this.mPlayersMap.containsKey(Integer.valueOf(i))) {
             return null;
         }

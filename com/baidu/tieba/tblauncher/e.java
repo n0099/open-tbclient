@@ -21,7 +21,7 @@ public class e {
         MessageManager.getInstance().registerStickyMode(2921453);
     }
 
-    public boolean ai(Intent intent) {
+    public boolean aj(Intent intent) {
         return intent.getIntExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION, 0) == 1;
     }
 
@@ -49,11 +49,11 @@ public class e {
                     intent.putExtra("sub_locate_type", stringExtra);
                     i = 1;
                 }
-                if (dVar != null && dVar.bWI() != null) {
-                    dVar.bWI().setCurrentTabByType(i);
-                    FragmentTabHost.b kW = dVar.bWI().kW(i);
-                    if (kW != null && (kW.mContentFragment instanceof g)) {
-                        ((g) kW.mContentFragment).z(intent);
+                if (dVar != null && dVar.bWK() != null) {
+                    dVar.bWK().setCurrentTabByType(i);
+                    FragmentTabHost.b kY = dVar.bWK().kY(i);
+                    if (kY != null && (kY.mContentFragment instanceof g)) {
+                        ((g) kY.mContentFragment).z(intent);
                     }
                 }
             }

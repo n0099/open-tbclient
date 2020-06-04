@@ -64,7 +64,7 @@ public abstract class b {
     private void a(final com.baidu.swan.apps.ae.c.b.b bVar, String str, final com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ae.c.c.a> bVar2) {
         com.baidu.swan.apps.ae.d.a.print("local has not main pkg, download fun page main pkg");
         com.baidu.swan.pms.c.d.c cVar = new com.baidu.swan.pms.c.d.c(str, com.baidu.swan.apps.runtime.d.aoB().Qz());
-        cVar.jg(0);
+        cVar.ji(0);
         cVar.tp(bVar.csI);
         cVar.tt("3");
         com.baidu.swan.pms.c.a(cVar, new com.baidu.swan.apps.core.pms.c.a(str, new a.InterfaceC0340a() { // from class: com.baidu.swan.apps.ae.c.d.b.1
@@ -96,7 +96,7 @@ public abstract class b {
             }
 
             @Override // com.baidu.swan.apps.core.pms.b
-            public void eU(int i2) {
+            public void eW(int i2) {
                 b.this.a(bVar, false, (com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ae.c.c.a>) bVar2);
             }
         }));

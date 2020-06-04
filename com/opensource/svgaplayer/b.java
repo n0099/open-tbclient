@@ -9,25 +9,25 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes.dex */
 public final class b extends Drawable {
-    private boolean ndn;
-    private int ndo;
-    private final com.opensource.svgaplayer.a.b ndp;
-    private final f ndq;
-    private final c ndr;
+    private final com.opensource.svgaplayer.a.b neA;
+    private final f neB;
+    private final c neC;
+    private boolean ney;
+    private int nez;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         q.m(fVar, "videoItem");
         q.m(cVar, "dynamicItem");
-        this.ndq = fVar;
-        this.ndr = cVar;
-        this.ndn = true;
+        this.neB = fVar;
+        this.neC = cVar;
+        this.ney = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.ndp = new com.opensource.svgaplayer.a.b(this.ndq, this.ndr);
+        this.neA = new com.opensource.svgaplayer.a.b(this.neB, this.neC);
     }
 
-    public final f dGz() {
-        return this.ndq;
+    public final f dGN() {
+        return this.neB;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -36,20 +36,20 @@ public final class b extends Drawable {
         q.m(fVar, "videoItem");
     }
 
-    public final void wI(boolean z) {
-        if (this.ndn != z) {
-            this.ndn = z;
+    public final void wK(boolean z) {
+        if (this.ney != z) {
+            this.ney = z;
             invalidateSelf();
         }
     }
 
-    public final int dGy() {
-        return this.ndo;
+    public final int dGM() {
+        return this.nez;
     }
 
-    public final void Js(int i) {
-        if (this.ndo != i) {
-            this.ndo = i;
+    public final void Ju(int i) {
+        if (this.nez != i) {
+            this.nez = i;
             invalidateSelf();
         }
     }
@@ -61,8 +61,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.ndn && canvas != null) {
-            this.ndp.a(canvas, this.ndo, this.scaleType);
+        if (!this.ney && canvas != null) {
+            this.neA.a(canvas, this.nez, this.scaleType);
         }
     }
 

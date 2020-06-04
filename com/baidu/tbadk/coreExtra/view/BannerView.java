@@ -40,9 +40,9 @@ public class BannerView extends RelativeLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void bbm();
-
         void bbn();
+
+        void bbo();
     }
 
     public void setBannerType(String str) {
@@ -78,7 +78,7 @@ public class BannerView extends RelativeLayout {
                     BannerView.this.mIsClose = true;
                     BannerView.this.setVisibility(8);
                     if (BannerView.this.egd != null) {
-                        BannerView.this.egd.bbn();
+                        BannerView.this.egd.bbo();
                         return;
                     }
                     return;
@@ -88,7 +88,7 @@ public class BannerView extends RelativeLayout {
                 }
                 if (BannerView.this.egd == null) {
                     if (!TextUtils.isEmpty(BannerView.this.link)) {
-                        ba.aUZ().b(BannerView.this.dIF, new String[]{BannerView.this.link});
+                        ba.aVa().b(BannerView.this.dIF, new String[]{BannerView.this.link});
                         if (!BannerView.this.link.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL) || !"frs_banner".equals(BannerView.this.type)) {
                             if (BannerView.this.link.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL) && "enterforum_banner".equals(BannerView.this.type)) {
                                 TiebaStatic.eventStat(BannerView.this.dIF.getPageActivity(), "enterforum_banner", "click", 1, "ref_id", TbadkCoreStatisticKey.REF_TYPE_MAINTAB_AD, "ref_type", "603");
@@ -101,7 +101,7 @@ public class BannerView extends RelativeLayout {
                     }
                     return;
                 }
-                BannerView.this.egd.bbm();
+                BannerView.this.egd.bbn();
             }
         };
         init(context);
@@ -169,7 +169,7 @@ public class BannerView extends RelativeLayout {
         this.efZ.setBackgroundColor(i);
     }
 
-    public boolean bbk() {
+    public boolean bbl() {
         return this.egb;
     }
 
@@ -182,7 +182,7 @@ public class BannerView extends RelativeLayout {
         this.egb = false;
     }
 
-    public void bbl() {
+    public void bbm() {
         this.efX.postInvalidate();
     }
 }

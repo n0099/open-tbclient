@@ -6,9 +6,9 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class a<T> implements c<T> {
-    private final kotlin.jvm.a.b<T, Boolean> ntA;
-    private final c<T> nty;
-    private final boolean ntz;
+    private final c<T> nuJ;
+    private final boolean nuK;
+    private final kotlin.jvm.a.b<T, Boolean> nuL;
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlin.sequences.c<? extends T> */
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.jvm.a.b<? super T, java.lang.Boolean> */
@@ -16,18 +16,18 @@ public final class a<T> implements c<T> {
     public a(c<? extends T> cVar, boolean z, kotlin.jvm.a.b<? super T, Boolean> bVar) {
         q.m(cVar, "sequence");
         q.m(bVar, "predicate");
-        this.nty = cVar;
-        this.ntz = z;
-        this.ntA = bVar;
+        this.nuJ = cVar;
+        this.nuK = z;
+        this.nuL = bVar;
     }
 
     @kotlin.h
     /* renamed from: kotlin.sequences.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C0878a implements Iterator<T> {
+    public static final class C0879a implements Iterator<T> {
         private final Iterator<T> iterator;
         private T nextItem;
-        private int ntB = -1;
+        private int nuM = -1;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -35,47 +35,47 @@ public final class a<T> implements c<T> {
         }
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        C0878a() {
-            this.iterator = a.this.nty.iterator();
+        C0879a() {
+            this.iterator = a.this.nuJ.iterator();
         }
 
-        private final void dMf() {
+        private final void dMt() {
             while (this.iterator.hasNext()) {
                 T next = this.iterator.next();
-                if (((Boolean) a.this.ntA.invoke(next)).booleanValue() == a.this.ntz) {
+                if (((Boolean) a.this.nuL.invoke(next)).booleanValue() == a.this.nuK) {
                     this.nextItem = next;
-                    this.ntB = 1;
+                    this.nuM = 1;
                     return;
                 }
             }
-            this.ntB = 0;
+            this.nuM = 0;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.ntB == -1) {
-                dMf();
+            if (this.nuM == -1) {
+                dMt();
             }
-            if (this.ntB == 0) {
+            if (this.nuM == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             this.nextItem = null;
-            this.ntB = -1;
+            this.nuM = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.ntB == -1) {
-                dMf();
+            if (this.nuM == -1) {
+                dMt();
             }
-            return this.ntB == 1;
+            return this.nuM == 1;
         }
     }
 
     @Override // kotlin.sequences.c
     public Iterator<T> iterator() {
-        return new C0878a();
+        return new C0879a();
     }
 }

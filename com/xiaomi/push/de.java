@@ -63,7 +63,7 @@ class de implements Comparable<de> {
         JSONArray jSONArray = new JSONArray();
         Iterator<cu> it = this.f200a.iterator();
         while (it.hasNext()) {
-            jSONArray.put(it.next().m203a());
+            jSONArray.put(it.next().m202a());
         }
         jSONObject.put("ah", jSONArray);
         return jSONObject;

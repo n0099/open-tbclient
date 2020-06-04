@@ -8,24 +8,24 @@ public class b extends g {
     private Object agg;
     private int agt;
     private int currentPage;
-    private List<o> eIk;
-    private List<o> eIl;
-    private List<Object> eIm;
-    private boolean eIn;
-    private boolean eIo;
-    private boolean eIp;
-    private String eIq;
-    private String eIr;
-    private String eIs;
+    private boolean eIA;
+    private String eIB;
+    private String eIC;
+    private String eID;
+    private List<o> eIv;
+    private List<o> eIw;
+    private List<Object> eIx;
+    private boolean eIy;
+    private boolean eIz;
     private String forumId;
     private int pageNum;
 
     public b(com.baidu.tieba.InjectPlugin.a.b bVar, int i) {
         super(bVar, i);
-        this.eIn = false;
-        this.eIo = false;
+        this.eIy = false;
+        this.eIz = false;
         this.currentPage = 0;
-        this.eIp = false;
+        this.eIA = false;
     }
 
     public Object rS() {
@@ -37,46 +37,46 @@ public class b extends g {
     }
 
     public List<o> getThreadList() {
-        return this.eIk;
+        return this.eIv;
     }
 
     public void aY(List<o> list) {
-        this.eIk = list;
+        this.eIv = list;
     }
 
-    public List<Object> bkf() {
-        return this.eIm;
+    public List<Object> bkh() {
+        return this.eIx;
     }
 
     public void aZ(List<Object> list) {
-        this.eIm = list;
+        this.eIx = list;
     }
 
-    public List<o> bkg() {
-        return this.eIl;
+    public List<o> bki() {
+        return this.eIw;
     }
 
     public void ba(List<o> list) {
-        this.eIl = list;
+        this.eIw = list;
     }
 
-    public boolean bkh() {
-        return this.eIn;
+    public boolean bkj() {
+        return this.eIy;
     }
 
     public void iP(boolean z) {
-        this.eIn = z;
+        this.eIy = z;
     }
 
-    public boolean bki() {
-        return this.eIo;
+    public boolean bkk() {
+        return this.eIz;
     }
 
     public void iQ(boolean z) {
-        this.eIo = z;
+        this.eIz = z;
     }
 
-    public int bkj() {
+    public int bkl() {
         return this.currentPage;
     }
 
@@ -92,12 +92,12 @@ public class b extends g {
         this.agt = i;
     }
 
-    public boolean bkk() {
-        return this.eIp;
+    public boolean bkm() {
+        return this.eIA;
     }
 
     public void iR(boolean z) {
-        this.eIp = z;
+        this.eIA = z;
     }
 
     public int getPageNum() {
@@ -116,27 +116,27 @@ public class b extends g {
         this.forumId = str;
     }
 
-    public String bkl() {
-        return this.eIq;
+    public String bkn() {
+        return this.eIB;
     }
 
     public void zg(String str) {
-        this.eIq = str;
+        this.eIB = str;
     }
 
-    public String bkm() {
-        return this.eIr;
+    public String bko() {
+        return this.eIC;
     }
 
     public void zh(String str) {
-        this.eIr = str;
+        this.eIC = str;
     }
 
-    public String bkn() {
-        return this.eIs;
+    public String bkp() {
+        return this.eID;
     }
 
     public void zi(String str) {
-        this.eIs = str;
+        this.eID = str;
     }
 }

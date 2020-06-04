@@ -4,55 +4,55 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes8.dex */
 public final class j {
-    private static int miA = 1000;
-    private static boolean miB = true;
+    private static int mjK = 1000;
+    private static boolean mjL = true;
 
     public static void c(boolean z) {
-        miB = z;
+        mjL = z;
     }
 
     public static void I(String str) {
-        if (miB) {
+        if (mjL) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (miB) {
+        if (mjL) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (miB) {
+        if (mjL) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (miB) {
+        if (mjL) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= miA) {
+            if (str2.length() >= mjK) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, miA));
+                        Log.v(str, str2.substring(0, mjK));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, miA));
+                        Log.d(str, str2.substring(0, mjK));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, miA));
+                        Log.i(str, str2.substring(0, mjK));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, miA));
+                        Log.w(str, str2.substring(0, mjK));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, miA));
+                        Log.e(str, str2.substring(0, mjK));
                         break;
                 }
             } else {

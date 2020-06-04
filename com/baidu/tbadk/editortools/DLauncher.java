@@ -97,7 +97,7 @@ public class DLauncher extends RelativeLayout implements g {
         }
     }
 
-    public void bcV() {
+    public void bcW() {
         this.mText = null;
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
@@ -108,7 +108,7 @@ public class DLauncher extends RelativeLayout implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                bcV();
+                bcW();
             } else if (aVar.data instanceof String) {
                 xW((String) aVar.data);
             }
@@ -133,13 +133,13 @@ public class DLauncher extends RelativeLayout implements g {
         if (this.ekG != null) {
             if (TextUtils.isEmpty(this.ekI.getText())) {
                 if (this.ekG.elJ) {
-                    this.ekI.setBackgroundDrawable(SvgManager.aUV().x(this.ekG.elH, this.ekG.elI, i));
+                    this.ekI.setBackgroundDrawable(SvgManager.aUW().x(this.ekG.elH, this.ekG.elI, i));
                 } else {
                     am.setBackgroundResource(this.ekI, this.ekG.elH, i);
                 }
             } else {
                 if (this.ekG.elJ) {
-                    drawable = SvgManager.aUV().x(this.ekG.elH, this.ekG.elI, i);
+                    drawable = SvgManager.aUW().x(this.ekG.elH, this.ekG.elI, i);
                 } else {
                     drawable = am.getDrawable(i, this.ekG.elH);
                 }

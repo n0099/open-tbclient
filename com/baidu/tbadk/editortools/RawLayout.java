@@ -466,7 +466,7 @@ public class RawLayout extends ViewGroup {
             this.elG = 0;
         }
 
-        public void nh(int i) {
+        public void nj(int i) {
             this.elG = i;
         }
     }
@@ -474,7 +474,7 @@ public class RawLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: bdi */
+    /* renamed from: bdj */
     public LayoutParams generateDefaultLayoutParams() {
         return new LayoutParams(-2, -2, 19, 0);
     }

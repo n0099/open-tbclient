@@ -13,15 +13,15 @@ public class e {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof RnSyncResponseMessage) {
                 RnSyncResponseMessage rnSyncResponseMessage = (RnSyncResponseMessage) httpResponsedMessage;
-                e.this.gMf = rnSyncResponseMessage.getData();
-                if (e.this.gMg != null) {
-                    e.this.gMg.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
+                e.this.gMq = rnSyncResponseMessage.getData();
+                if (e.this.gMr != null) {
+                    e.this.gMr.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
                 }
             }
         }
     };
-    private com.baidu.tieba.easterEgg.a.a gMf;
-    private a gMg;
+    private com.baidu.tieba.easterEgg.a.a gMq;
+    private a gMr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
@@ -42,6 +42,6 @@ public class e {
     }
 
     public void a(a aVar) {
-        this.gMg = aVar;
+        this.gMr = aVar;
     }
 }

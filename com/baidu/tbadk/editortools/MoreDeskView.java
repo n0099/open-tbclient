@@ -47,7 +47,7 @@ public class MoreDeskView extends CommonTabHost {
         super.a(aVar);
         if (aVar != null && aVar.code == 2 && aVar.id != 5) {
             c(aVar);
-            bdh();
+            bdi();
         }
     }
 
@@ -67,7 +67,7 @@ public class MoreDeskView extends CommonTabHost {
         this.elw.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
-    private void bdh() {
+    private void bdi() {
         int i = 0;
         for (int i2 = 0; i2 < this.elw.size(); i2++) {
             i += this.elw.valueAt(i2);

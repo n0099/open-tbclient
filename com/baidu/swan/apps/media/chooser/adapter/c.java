@@ -62,7 +62,7 @@ public class c extends RecyclerView.Adapter<a> {
         return i;
     }
 
-    public MediaModel fM(int i) {
+    public MediaModel fO(int i) {
         if (this.clr == null || i < 0 || i >= this.clr.size()) {
             return null;
         }
@@ -87,8 +87,8 @@ public class c extends RecyclerView.Adapter<a> {
             aVar.cmf.setVisibility(mediaModel.equals(this.cma) ? 0 : 8);
             ImageRequestBuilder ab = ImageRequestBuilder.ab(Uri.fromFile(new File(mediaModel.getPath())));
             ab.c(new d(this.cmb, this.cmb));
-            ab.wo(true);
-            aVar.cmc.setController(com.facebook.drawee.a.a.c.dvf().c(aVar.cmc.getController()).wa(false).bb(ab.dCl()).dvW());
+            ab.wq(true);
+            aVar.cmc.setController(com.facebook.drawee.a.a.c.dvt().c(aVar.cmc.getController()).wc(false).bb(ab.dCz()).dwk());
         }
     }
 

@@ -9,8 +9,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    public C0544a fBN;
-    public b fBO;
+    public C0544a fBY;
+    public b fBZ;
     public int status;
 
     public void parserJson(JSONObject jSONObject) {
@@ -18,13 +18,13 @@ public class a {
             this.status = jSONObject.optInt("status");
             JSONObject optJSONObject = jSONObject.optJSONObject("config");
             if (optJSONObject != null) {
-                this.fBN = new C0544a();
-                this.fBN.cP(optJSONObject);
+                this.fBY = new C0544a();
+                this.fBY.cP(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("rank");
             if (optJSONObject2 != null) {
-                this.fBO = new b();
-                this.fBO.cR(optJSONObject2);
+                this.fBZ = new b();
+                this.fBZ.cR(optJSONObject2);
             }
         }
     }
@@ -32,15 +32,15 @@ public class a {
     /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0544a {
-        public String fBP;
-        public String fBQ;
-        public String fBR;
-        public String fBS;
-        public String fBT;
-        public long fBU;
-        public long fBV;
-        public long fBW;
-        public List<C0545a> fBX;
+        public String fCa;
+        public String fCb;
+        public String fCc;
+        public String fCd;
+        public String fCe;
+        public long fCf;
+        public long fCg;
+        public long fCh;
+        public List<C0545a> fCi;
         public long startTime;
         public String username;
 
@@ -59,36 +59,36 @@ public class a {
         public void cP(JSONObject jSONObject) {
             JSONArray optJSONArray = jSONObject.optJSONArray(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.fBX = new ArrayList();
+                this.fCi = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     C0545a c0545a = new C0545a();
                     c0545a.cQ(optJSONArray.optJSONObject(i));
-                    this.fBX.add(c0545a);
+                    this.fCi.add(c0545a);
                 }
             }
             if (!jSONObject.isNull("portrait")) {
-                this.fBP = jSONObject.optString("portrait");
+                this.fCa = jSONObject.optString("portrait");
             }
             if (!jSONObject.isNull("user_name")) {
                 this.username = jSONObject.optString("user_name");
             }
             if (!jSONObject.isNull("guard_seat_user")) {
-                this.fBT = jSONObject.optString("guard_seat_user");
+                this.fCe = jSONObject.optString("guard_seat_user");
             }
-            this.fBQ = jSONObject.optString("frame_pic");
-            this.fBR = jSONObject.optString("time_text");
-            this.fBS = jSONObject.optString("rule_url");
+            this.fCb = jSONObject.optString("frame_pic");
+            this.fCc = jSONObject.optString("time_text");
+            this.fCd = jSONObject.optString("rule_url");
             this.startTime = jSONObject.optLong("start_time");
-            this.fBU = jSONObject.optLong("count_down");
-            this.fBV = jSONObject.optLong("effect_time");
-            this.fBW = jSONObject.optLong("polling_time");
+            this.fCf = jSONObject.optLong("count_down");
+            this.fCg = jSONObject.optLong("effect_time");
+            this.fCh = jSONObject.optLong("polling_time");
         }
     }
 
     /* loaded from: classes3.dex */
     public static class b {
-        public C0546a fBY;
-        public List<C0547b> fBZ;
+        public C0546a fCj;
+        public List<C0547b> fCk;
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
@@ -122,17 +122,17 @@ public class a {
             if (jSONObject != null) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("list");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    this.fBZ = new ArrayList();
+                    this.fCk = new ArrayList();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         C0547b c0547b = new C0547b();
                         c0547b.cT(optJSONArray.optJSONObject(i));
-                        this.fBZ.add(c0547b);
+                        this.fCk.add(c0547b);
                     }
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject != null) {
-                    this.fBY = new C0546a();
-                    this.fBY.cS(optJSONObject);
+                    this.fCj = new C0546a();
+                    this.fCj.cS(optJSONObject);
                 }
             }
         }

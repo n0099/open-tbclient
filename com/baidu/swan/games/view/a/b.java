@@ -12,7 +12,7 @@ public class b {
         aVar.mValue = str2;
         if (e.aoF() != null && e.aoF().QJ() != null) {
             b.a QJ = e.aoF().QJ();
-            aVar.mFrom = h.gS(QJ.getAppFrameType());
+            aVar.mFrom = h.gU(QJ.getAppFrameType());
             aVar.mAppId = QJ.getAppId();
             aVar.mSource = QJ.agK();
         }
@@ -25,7 +25,7 @@ public class b {
         aVar.mValue = str2;
         if (e.aoF() != null && e.aoF().QJ() != null) {
             b.a QJ = e.aoF().QJ();
-            aVar.mFrom = h.gS(QJ.getAppFrameType());
+            aVar.mFrom = h.gU(QJ.getAppFrameType());
             aVar.mAppId = QJ.getAppId();
             aVar.mSource = QJ.agK();
         }
@@ -39,7 +39,7 @@ public class b {
         aVar.mValue = "show";
         if (e.aoF() != null && e.aoF().QJ() != null) {
             b.a QJ = e.aoF().QJ();
-            aVar.mFrom = h.gS(QJ.getAppFrameType());
+            aVar.mFrom = h.gU(QJ.getAppFrameType());
             aVar.mAppId = QJ.getAppId();
             aVar.mSource = QJ.agK();
         }

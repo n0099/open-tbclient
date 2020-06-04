@@ -7,7 +7,7 @@ import java.util.List;
 public interface c {
     void a(String str, ErrorData errorData);
 
-    void b(ErrorData errorData);
-
     void c(String str, List<String> list, List<o> list2);
+
+    void e(ErrorData errorData);
 }

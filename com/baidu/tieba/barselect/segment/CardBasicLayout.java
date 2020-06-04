@@ -11,8 +11,8 @@ import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class CardBasicLayout extends LinearLayout {
-    protected d gAn;
-    protected f gwA;
+    protected d gAy;
+    protected f gwL;
     public int status;
 
     public CardBasicLayout(Context context) {
@@ -25,29 +25,29 @@ public class CardBasicLayout extends LinearLayout {
     }
 
     public void setData(int i, f fVar) {
-        e bKo;
-        this.gwA = fVar;
-        if (this.gwA != null && this.gwA.bKo() != null && (bKo = this.gwA.bKo()) != null) {
-            int status = bKo.getStatus();
-            if (status == com.baidu.tieba.barselect.a.d.gAG) {
-                if (i == VoteCandidateCard.gAT) {
-                    this.status = a.gAE;
-                    this.gAn = this.gwA.bKn();
+        e bKq;
+        this.gwL = fVar;
+        if (this.gwL != null && this.gwL.bKq() != null && (bKq = this.gwL.bKq()) != null) {
+            int status = bKq.getStatus();
+            if (status == com.baidu.tieba.barselect.a.d.gAR) {
+                if (i == VoteCandidateCard.gBe) {
+                    this.status = a.gAP;
+                    this.gAy = this.gwL.bKp();
                     return;
                 }
-                this.status = a.gAB;
-                List<d> bKm = this.gwA.bKm();
-                if (bKm != null && bKm.size() > i) {
-                    this.gAn = bKm.get(i);
+                this.status = a.gAM;
+                List<d> bKo = this.gwL.bKo();
+                if (bKo != null && bKo.size() > i) {
+                    this.gAy = bKo.get(i);
                 }
-            } else if (status == com.baidu.tieba.barselect.a.d.gAH) {
-                if (i == VoteCandidateCard.gAT) {
-                    this.status = a.gAD;
-                    List<d> bKm2 = this.gwA.bKm();
-                    if (bKm2 != null && bKm2.size() > 0) {
-                        for (d dVar : bKm2) {
+            } else if (status == com.baidu.tieba.barselect.a.d.gAS) {
+                if (i == VoteCandidateCard.gBe) {
+                    this.status = a.gAO;
+                    List<d> bKo2 = this.gwL.bKo();
+                    if (bKo2 != null && bKo2.size() > 0) {
+                        for (d dVar : bKo2) {
                             if (dVar.getRank() == 1) {
-                                this.gAn = dVar;
+                                this.gAy = dVar;
                                 return;
                             }
                         }
@@ -55,12 +55,12 @@ public class CardBasicLayout extends LinearLayout {
                     }
                     return;
                 }
-                this.status = a.gAC;
-                List<d> bKm3 = this.gwA.bKm();
-                if (bKm3 != null && bKm3.size() > i) {
-                    this.gAn = bKm3.get(i);
-                    if (this.gAn.getRank() == 1 && i == 0) {
-                        this.status = a.gAD;
+                this.status = a.gAN;
+                List<d> bKo3 = this.gwL.bKo();
+                if (bKo3 != null && bKo3.size() > i) {
+                    this.gAy = bKo3.get(i);
+                    if (this.gAy.getRank() == 1 && i == 0) {
+                        this.status = a.gAO;
                     }
                 }
             }

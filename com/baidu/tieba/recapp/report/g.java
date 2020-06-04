@@ -13,23 +13,23 @@ public class g {
             return null;
         }
         c cVar = new c();
-        cVar.Cq(i);
-        cVar.Lw(advertAppInfo.price);
-        cVar.Lu(advertAppInfo.extensionInfo);
+        cVar.Cs(i);
+        cVar.Lx(advertAppInfo.price);
+        cVar.Lv(advertAppInfo.extensionInfo);
         if ("PB_BANNER".equals(advertAppInfo.page)) {
-            cVar.Cr(-1);
+            cVar.Ct(-1);
             cVar.setPageNumber(-1);
         } else if ("NEWINDEX".equals(advertAppInfo.page)) {
-            cVar.Cr(advertAppInfo.dAy);
+            cVar.Ct(advertAppInfo.dAy);
             cVar.setPageNumber(i2);
         } else {
-            cVar.Cr(com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, 0));
+            cVar.Ct(com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, 0));
             cVar.setPageNumber(i2);
         }
-        cVar.Lz(advertAppInfo.dAG);
-        cVar.LA(advertAppInfo.dAH);
-        cVar.LB(advertAppInfo.dAI);
-        cVar.LC(advertAppInfo.page);
+        cVar.LA(advertAppInfo.dAG);
+        cVar.LB(advertAppInfo.dAH);
+        cVar.LC(advertAppInfo.dAI);
+        cVar.LD(advertAppInfo.page);
         return cVar;
     }
 
@@ -38,20 +38,20 @@ public class g {
             return null;
         }
         c cVar = new c();
-        cVar.Cq(i);
-        cVar.Lu(advertAppInfo.extensionInfo);
+        cVar.Cs(i);
+        cVar.Lv(advertAppInfo.extensionInfo);
         if ("PB_BANNER".equals(advertAppInfo.page)) {
-            cVar.Cr(-1);
+            cVar.Ct(-1);
             cVar.setPageNumber(-1);
         } else if ("NEWINDEX".equals(advertAppInfo.page)) {
-            cVar.Cr(advertAppInfo.dAy);
+            cVar.Ct(advertAppInfo.dAy);
             cVar.setPageNumber(i2);
         } else {
-            cVar.Cr(com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, 0));
+            cVar.Ct(com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, 0));
             cVar.setPageNumber(i2);
         }
-        cVar.LD(str);
-        cVar.LC(advertAppInfo.page);
+        cVar.LE(str);
+        cVar.LD(advertAppInfo.page);
         return cVar;
     }
 
@@ -67,20 +67,20 @@ public class g {
             return null;
         }
         c cVar = new c();
-        cVar.Cq(i);
-        cVar.Lw(advertAppInfo.price);
-        cVar.Lu(advertAppInfo.extensionInfo);
+        cVar.Cs(i);
+        cVar.Lx(advertAppInfo.price);
+        cVar.Lv(advertAppInfo.extensionInfo);
         if ("PB_BANNER".equals(advertAppInfo.page)) {
-            cVar.Cr(-1);
+            cVar.Ct(-1);
             cVar.setPageNumber(-1);
         } else {
-            cVar.Cr(advertAppInfo.dAy);
+            cVar.Ct(advertAppInfo.dAy);
             cVar.setPageNumber(i2);
         }
-        cVar.Lz(advertAppInfo.dAG);
-        cVar.LA(advertAppInfo.dAH);
-        cVar.LB(advertAppInfo.dAI);
-        cVar.LC(advertAppInfo.page);
+        cVar.LA(advertAppInfo.dAG);
+        cVar.LB(advertAppInfo.dAH);
+        cVar.LC(advertAppInfo.dAI);
+        cVar.LD(advertAppInfo.page);
         return cVar;
     }
 
@@ -90,70 +90,70 @@ public class g {
         }
         c cVar = new c();
         cVar.setDownloadStaticsData(downloadStaticsData);
-        cVar.Cq(i);
+        cVar.Cs(i);
         cVar.setPageNumber(i2);
         return cVar;
     }
 
     public static c ab(int i, int i2, int i3) {
         c cVar = new c();
-        cVar.Cq(i);
-        cVar.Cr(i2);
+        cVar.Cs(i);
+        cVar.Ct(i2);
         cVar.setPageNumber(i3);
         return cVar;
     }
 
     public static c c(n nVar, int i) {
-        if (nVar == null || nVar.ddi() == null) {
+        if (nVar == null || nVar.ddx() == null) {
             return null;
         }
-        AppData ddi = nVar.ddi();
+        AppData ddx = nVar.ddx();
         c cVar = new c();
-        cVar.Lu(ddi.ext_info);
-        if (nVar.lkG) {
-            cVar.Cr(-1);
+        cVar.Lv(ddx.ext_info);
+        if (nVar.llP) {
+            cVar.Ct(-1);
             cVar.setPageNumber(-1);
         } else {
-            cVar.Cr(com.baidu.adp.lib.f.b.toInt(ddi.pos_name, 0));
+            cVar.Ct(com.baidu.adp.lib.f.b.toInt(ddx.pos_name, 0));
             cVar.setPageNumber(nVar.pageNumber);
         }
-        cVar.Cq(i);
-        cVar.Lw(ddi.price);
-        cVar.Lz(nVar.dAG);
-        cVar.LA(nVar.dAH);
-        cVar.LB(nVar.forumId);
-        cVar.LC(nVar.ddl());
+        cVar.Cs(i);
+        cVar.Lx(ddx.price);
+        cVar.LA(nVar.dAG);
+        cVar.LB(nVar.dAH);
+        cVar.LC(nVar.forumId);
+        cVar.LD(nVar.ddA());
         return cVar;
     }
 
     public static c a(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4, int i5, int i6) {
         c c = c(advertAppInfo, i, i2);
-        c.Cs(i3);
-        c.Ct(i5);
-        c.Cu(i4);
+        c.Cu(i3);
+        c.Cv(i5);
+        c.Cw(i4);
         if (i6 != -1 && i == 32) {
-            c.Cw(i6);
+            c.Cy(i6);
         }
-        c.LC(advertAppInfo.page);
+        c.LD(advertAppInfo.page);
         if (i == 2) {
-            c.Ly("video");
+            c.Lz("video");
         }
         return c;
     }
 
     public static c a(com.baidu.afd.d dVar, int i, int i2, int i3, int i4, int i5, int i6) {
         c a = a(dVar, i, i2);
-        a.Cs(i3);
-        a.Ct(i5);
-        a.Cu(i4);
+        a.Cu(i3);
+        a.Cv(i5);
+        a.Cw(i4);
         if (i6 != -1 && i == 32) {
-            a.Cw(i6);
+            a.Cy(i6);
         }
         if (dVar != null) {
-            a.LC(dVar.pu().page);
+            a.LD(dVar.pu().page);
         }
         if (i == 2) {
-            a.Ly("video");
+            a.Lz("video");
         }
         return a;
     }
@@ -164,23 +164,23 @@ public class g {
 
     public static c c(String str, int i, String str2, String str3) {
         c cVar = new c();
-        cVar.Cq(i);
-        cVar.Lv(str2);
-        cVar.LC("HOMEPAGE");
-        cVar.Lu(str);
-        cVar.LD(str3);
+        cVar.Cs(i);
+        cVar.Lw(str2);
+        cVar.LD("HOMEPAGE");
+        cVar.Lv(str);
+        cVar.LE(str3);
         return cVar;
     }
 
     public static c a(AdvertAppInfo advertAppInfo, int i, int i2, int i3) {
         c c = c(advertAppInfo, i, i2);
-        c.Cs(i3);
+        c.Cu(i3);
         return c;
     }
 
     public static c b(AdvertAppInfo advertAppInfo, int i, int i2, int i3) {
         c d = d(advertAppInfo, i, i2);
-        d.Cs(i3);
+        d.Cu(i3);
         return d;
     }
 
@@ -189,52 +189,52 @@ public class g {
             return null;
         }
         c a = a(dVar, 5, dVar.getPageNum());
-        a.Cs(parseError.errorCode);
+        a.Cu(parseError.errorCode);
         return a;
     }
 
     public static c o(@NonNull com.baidu.afd.videopaster.b.a aVar) {
         c cVar = new c();
-        cVar.Cq(aVar.Ya);
-        cVar.Cr(aVar.Yc);
-        cVar.LC(aVar.Yb);
-        cVar.Lu(aVar.extraParam);
+        cVar.Cs(aVar.Ya);
+        cVar.Ct(aVar.Yc);
+        cVar.LD(aVar.Yb);
+        cVar.Lv(aVar.extraParam);
         return cVar;
     }
 
     public static c p(@NonNull com.baidu.afd.videopaster.b.a aVar) {
         c cVar = new c();
-        cVar.Cq(aVar.Ya);
-        cVar.Cr(aVar.Yc);
-        cVar.LC(aVar.Yb);
-        cVar.Lu(aVar.extraParam);
-        cVar.Cs(aVar.XP);
+        cVar.Cs(aVar.Ya);
+        cVar.Ct(aVar.Yc);
+        cVar.LD(aVar.Yb);
+        cVar.Lv(aVar.extraParam);
+        cVar.Cu(aVar.XP);
         if (!TextUtils.isEmpty(aVar.tplName)) {
-            cVar.Lx(aVar.tplName);
+            cVar.Ly(aVar.tplName);
         }
-        cVar.Cu(aVar.XQ);
+        cVar.Cw(aVar.XQ);
         return cVar;
     }
 
     public static c q(@NonNull com.baidu.afd.videopaster.b.a aVar) {
         c cVar = new c();
-        cVar.Cq(aVar.Ya);
-        cVar.Cr(aVar.Yc);
-        cVar.LC(aVar.Yb);
-        cVar.Lu(aVar.extraParam);
-        cVar.Cs(0);
-        cVar.Ct(aVar.Yf);
-        cVar.Cu(aVar.Ye);
-        cVar.Cv(aVar.startPosition);
+        cVar.Cs(aVar.Ya);
+        cVar.Ct(aVar.Yc);
+        cVar.LD(aVar.Yb);
+        cVar.Lv(aVar.extraParam);
+        cVar.Cu(0);
+        cVar.Cv(aVar.Yf);
+        cVar.Cw(aVar.Ye);
+        cVar.Cx(aVar.startPosition);
         return cVar;
     }
 
     public static c r(@NonNull com.baidu.afd.videopaster.b.a aVar) {
         c cVar = new c();
-        cVar.Cq(aVar.Ya);
-        cVar.Cr(aVar.Yc);
-        cVar.LC(aVar.Yb);
-        cVar.Lu(aVar.extraParam);
+        cVar.Cs(aVar.Ya);
+        cVar.Ct(aVar.Yc);
+        cVar.LD(aVar.Yb);
+        cVar.Lv(aVar.extraParam);
         return cVar;
     }
 }

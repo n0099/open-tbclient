@@ -33,7 +33,7 @@ public class x {
         this.dMX = new com.baidu.tbadk.core.util.a.a();
         this.dMY = z.aUE().a(this.dMX);
         this.dMZ = null;
-        this.dMX.aVa().aVe().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+        this.dMX.aVb().aVf().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
         com.baidu.adp.lib.network.a.a.setCuid(TbadkCoreApplication.getInst().getCuid());
         com.baidu.adp.lib.network.a.a.bK(TbadkCoreApplication.getInst().getCuidGalaxy2());
         com.baidu.adp.lib.network.a.a.bL(TbadkCoreApplication.getInst().getCuidGalaxy3());
@@ -50,15 +50,15 @@ public class x {
 
     public x(String str) {
         initNetWork();
-        this.dMX.aVa().aVe().mUrl = str;
+        this.dMX.aVb().aVf().mUrl = str;
     }
 
     public void setUrl(String str) {
-        this.dMX.aVa().aVe().mUrl = str;
+        this.dMX.aVb().aVf().mUrl = str;
     }
 
     public void aj(boolean z) {
-        this.dMX.aVa().KA = z;
+        this.dMX.aVb().KA = z;
     }
 
     public void setPostData(ArrayList<BasicNameValuePair> arrayList) {
@@ -114,23 +114,23 @@ public class x {
     }
 
     public boolean isNetSuccess() {
-        return this.dMX.aVb().isNetSuccess();
+        return this.dMX.aVc().isNetSuccess();
     }
 
     public int getServerErrorCode() {
-        return this.dMX.aVb().mServerErrorCode;
+        return this.dMX.aVc().mServerErrorCode;
     }
 
     public int getNetErrorCode() {
-        return this.dMX.aVb().mNetErrorCode;
+        return this.dMX.aVc().mNetErrorCode;
     }
 
     public String aUB() {
-        return this.dMX.aVb().mException;
+        return this.dMX.aVc().mException;
     }
 
     public String getErrorString() {
-        return this.dMX.aVb().mErrorString;
+        return this.dMX.aVc().mErrorString;
     }
 
     public void cancelNetConnect() {
@@ -170,25 +170,25 @@ public class x {
             } else {
                 this.dMZ.cancelNetConnect();
             }
-            this.dMZ.aUA().aVa().mIsNeedAddCommenParam = false;
-            this.dMZ.aUA().aVa().mIsUseCurrentBDUSS = false;
-            this.dMZ.aUA().aVa().mNeedBackgroundLogin = false;
+            this.dMZ.aUA().aVb().mIsNeedAddCommenParam = false;
+            this.dMZ.aUA().aVb().mIsUseCurrentBDUSS = false;
+            this.dMZ.aUA().aVb().mNeedBackgroundLogin = false;
             this.dMZ.addPostData("un", str);
             this.dMZ.addPostData("passwd", str2);
             this.dMZ.addPostData("isphone", "0");
             this.dMZ.addPostData(SharedPrefConfig.CHANNEL_ID, TbadkCoreApplication.getInst().getPushChannelId());
             this.dMZ.addPostData("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
-            this.dMZ.aUA().aVa().aVe().mRequestGzip = true;
+            this.dMZ.aUA().aVb().aVf().mRequestGzip = true;
             postNetData = this.dMZ.postNetData();
         } catch (Exception e) {
             BdLog.detailException(e);
         }
-        if (this.dMZ.aUA().aVb().isRequestSuccess() && postNetData != null) {
+        if (this.dMZ.aUA().aVc().isRequestSuccess() && postNetData != null) {
             com.baidu.tbadk.core.data.ag agVar = new com.baidu.tbadk.core.data.ag();
             agVar.parserJson(postNetData);
             String userId = agVar.getUser().getUserId();
             if (userId == null || userId.length() <= 0) {
-                this.dMX.aVb().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.neterror);
+                this.dMX.aVc().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.neterror);
                 return null;
             }
             AccountData accountData = new AccountData();
@@ -231,8 +231,8 @@ public class x {
     }
 
     public byte[] getNetData() {
-        if (!this.dMX.aVa().mIsFromCDN) {
-            this.dMX.aVa().b(this.dMY);
+        if (!this.dMX.aVb().mIsFromCDN) {
+            this.dMX.aVb().b(this.dMY);
         }
         return this.dMY.getNetData();
     }
@@ -251,38 +251,38 @@ public class x {
         }
         stringBuffer.append("tiebaclient!!!");
         this.dMY.addPostData("sign", com.baidu.adp.lib.util.s.toMd5(stringBuffer.toString()));
-        if (this.dMX.aVa().dNa) {
+        if (this.dMX.aVb().dNa) {
             this.dMY.addPostData("sig", StringU.zk(stringBuffer.toString()));
         }
     }
 
     private String process(int i) {
         String postMultiNetData;
-        this.dMX.aVa().dNa = this.dNa && EncSigNewSwitch.isOn();
+        this.dMX.aVb().dNa = this.dNa && EncSigNewSwitch.isOn();
         switch (i) {
             case 1:
-                if (aUA().aVa().mIsNeedAddCommenParam) {
-                    this.dMX.aVa().b(this.dMY);
+                if (aUA().aVb().mIsNeedAddCommenParam) {
+                    this.dMX.aVb().b(this.dMY);
                 }
                 addStatisticsDataParam();
                 postMultiNetData = this.dMY.getNetString();
                 break;
             case 2:
-                if (aUA().aVa().mIsUseCurrentBDUSS) {
-                    aUA().aVa().a(this.dMY);
+                if (aUA().aVb().mIsUseCurrentBDUSS) {
+                    aUA().aVb().a(this.dMY);
                 }
-                if (aUA().aVa().mIsNeedAddCommenParam) {
-                    this.dMX.aVa().b(this.dMY);
+                if (aUA().aVb().mIsNeedAddCommenParam) {
+                    this.dMX.aVb().b(this.dMY);
                 }
                 addStatisticsDataParam();
                 postMultiNetData = this.dMY.postNetData();
                 break;
             case 3:
-                if (aUA().aVa().mIsUseCurrentBDUSS) {
-                    aUA().aVa().a(this.dMY);
+                if (aUA().aVb().mIsUseCurrentBDUSS) {
+                    aUA().aVb().a(this.dMY);
                 }
-                if (aUA().aVa().mIsNeedAddCommenParam) {
-                    this.dMX.aVa().b(this.dMY);
+                if (aUA().aVb().mIsNeedAddCommenParam) {
+                    this.dMX.aVb().b(this.dMY);
                 }
                 addSign();
                 postMultiNetData = this.dMY.postMultiNetData();
@@ -290,14 +290,14 @@ public class x {
             default:
                 return null;
         }
-        if (!this.dMX.aVb().isNetSuccess()) {
+        if (!this.dMX.aVc().isNetSuccess()) {
             aa.a(this.dNb);
             aa.addErrorNumsAndGet(this.mErrorNums);
             return postMultiNetData;
-        } else if (!this.dMX.aVb().isRequestSuccess()) {
-            if (this.dMX.aVb().mServerErrorCode == 1 && this.dMX.aVa().mNeedBackgroundLogin) {
-                String str = this.dMX.aVb().mErrorString;
-                this.dMX.aVb().mErrorString = "";
+        } else if (!this.dMX.aVc().isRequestSuccess()) {
+            if (this.dMX.aVc().mServerErrorCode == 1 && this.dMX.aVb().mNeedBackgroundLogin) {
+                String str = this.dMX.aVc().mErrorString;
+                this.dMX.aVc().mErrorString = "";
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj == null) {
                     currentAccountObj = com.baidu.tbadk.core.a.b.aNU();
@@ -316,13 +316,13 @@ public class x {
                 f(currentAccountObj);
                 if (w == null) {
                     if (this.dMZ != null) {
-                        this.dMX.aVb().mErrorString = this.dMZ.getErrorString();
+                        this.dMX.aVc().mErrorString = this.dMZ.getErrorString();
                         return null;
                     }
-                    this.dMX.aVb().mErrorString = str;
+                    this.dMX.aVc().mErrorString = str;
                     return postMultiNetData;
                 }
-                postMultiNetData = kX(i);
+                postMultiNetData = kZ(i);
             }
             com.baidu.tieba.j.a.b(this);
             return postMultiNetData;
@@ -332,13 +332,13 @@ public class x {
     }
 
     private void f(AccountData accountData) {
-        com.baidu.tbadk.coreExtra.a.c aXz;
-        if (!TextUtils.isEmpty(accountData.getID()) && (aXz = com.baidu.tbadk.coreExtra.a.a.aXz()) != null) {
-            aXz.f(accountData);
+        com.baidu.tbadk.coreExtra.a.c aXA;
+        if (!TextUtils.isEmpty(accountData.getID()) && (aXA = com.baidu.tbadk.coreExtra.a.a.aXA()) != null) {
+            aXA.f(accountData);
         }
     }
 
-    private String kX(int i) {
+    private String kZ(int i) {
         String postMultiNetData;
         modSessionData();
         switch (i) {
@@ -354,13 +354,13 @@ public class x {
             default:
                 return null;
         }
-        if (this.dMX.aVb().isNetSuccess()) {
-            switch (this.dMX.aVb().mServerErrorCode) {
+        if (this.dMX.aVc().isNetSuccess()) {
+            switch (this.dMX.aVc().mServerErrorCode) {
                 case 1:
                 case 2:
                 case 5:
                     aUC();
-                    this.dMX.aVb().mErrorString = "";
+                    this.dMX.aVc().mErrorString = "";
                     return null;
                 case 3:
                 case 4:
@@ -421,7 +421,7 @@ public class x {
     }
 
     public boolean downloadFile(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        aUA().aVa().a(this.dMY);
+        aUA().aVb().a(this.dMY);
         return this.dMY.downloadFile(str, handler, i, i2, i3, z);
     }
 }

@@ -253,7 +253,7 @@ public final class k extends m {
         });
         com.baidu.swan.pms.c.d.c cVar = new com.baidu.swan.pms.c.d.c(getAppId(), apf.getAppFrameType());
         cVar.tt("3");
-        cVar.jh(this.bXH == null ? 0 : this.bXH.versionCode);
+        cVar.jj(this.bXH == null ? 0 : this.bXH.versionCode);
         cVar.bO(this.bXH == null ? 0L : this.bXH.appSign);
         String delAllParamsFromUrl = ah.delAllParamsFromUrl(apf.getPage());
         if (!TextUtils.isEmpty(delAllParamsFromUrl)) {
@@ -402,7 +402,7 @@ public final class k extends m {
         eVar.agQ().putString("aiapp_extra_preset_pkg", z3 ? "1" : "0");
         eVar.agQ().putString("aiapp_extra_pkg_downloading", z2 ? "1" : "0");
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-        fVar.mFrom = com.baidu.swan.apps.statistic.h.gS(eVar.getAppFrameType());
+        fVar.mFrom = com.baidu.swan.apps.statistic.h.gU(eVar.getAppFrameType());
         fVar.d(eVar);
         fVar.mType = Config.LAUNCH;
         fVar.cGz = z ? "1" : "0";
@@ -453,7 +453,7 @@ public final class k extends m {
             context.startActivity(intent);
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
             com.baidu.swan.apps.v.b.b apf = apf();
-            fVar.mFrom = com.baidu.swan.apps.statistic.h.gS(apf.getAppFrameType());
+            fVar.mFrom = com.baidu.swan.apps.statistic.h.gU(apf.getAppFrameType());
             fVar.mType = Config.LAUNCH;
             fVar.mValue = "success";
             fVar.c(apf);
@@ -478,7 +478,7 @@ public final class k extends m {
         return 0;
     }
 
-    private com.baidu.swan.apps.an.a gJ(int i) {
+    private com.baidu.swan.apps.an.a gL(int i) {
         com.baidu.swan.apps.an.a aVar = new com.baidu.swan.apps.an.a();
         switch (i) {
             case 1:
@@ -515,7 +515,7 @@ public final class k extends m {
             Log.d("SwanPkgMaintainer", "SwanCoreVersion target string version: " + aoJ.agV() + " targetSwanVersion: " + pi + " ,curSwanVersion: " + j);
         }
         if (pi > j) {
-            com.baidu.swan.apps.swancore.b.gY(aoJ.getAppFrameType());
+            com.baidu.swan.apps.swancore.b.ha(aoJ.getAppFrameType());
         }
         aoJ.br("extra_data_uid_key", com.baidu.swan.apps.u.a.aeW().bb(getContext()));
         com.baidu.swan.apps.performance.g.mp("startup").bD("launch_type", String.valueOf(com.baidu.swan.apps.ap.a.asV()));
@@ -549,18 +549,18 @@ public final class k extends m {
         }
         int m = m(this.bXH);
         if (m == 1 || m == 2) {
-            com.baidu.swan.apps.an.a gJ = gJ(m);
-            com.baidu.swan.apps.an.e.asQ().g(gJ);
-            e(gJ);
-            com.baidu.swan.apps.performance.g.a(gJ);
+            com.baidu.swan.apps.an.a gL = gL(m);
+            com.baidu.swan.apps.an.e.asQ().g(gL);
+            e(gL);
+            com.baidu.swan.apps.performance.g.a(gL);
             return false;
         }
         aps();
         if (m != 0) {
-            com.baidu.swan.apps.an.a gJ2 = gJ(m);
-            com.baidu.swan.apps.an.e.asQ().g(gJ2);
+            com.baidu.swan.apps.an.a gL2 = gL(m);
+            com.baidu.swan.apps.an.e.asQ().g(gL2);
             apq();
-            com.baidu.swan.apps.performance.g.a(gJ2);
+            com.baidu.swan.apps.performance.g.a(gL2);
             return false;
         }
         return true;
@@ -581,7 +581,7 @@ public final class k extends m {
         int appFrameType = apf.getAppFrameType();
         com.baidu.swan.apps.v.a.a.a(com.baidu.swan.apps.u.a.aeR(), aVar, appFrameType, getAppId(), true);
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-        fVar.mFrom = com.baidu.swan.apps.statistic.h.gS(appFrameType);
+        fVar.mFrom = com.baidu.swan.apps.statistic.h.gU(appFrameType);
         fVar.mType = Config.LAUNCH;
         fVar.mValue = "fail";
         fVar.v("errcode", String.valueOf(aVar.asM()));
@@ -591,7 +591,7 @@ public final class k extends m {
         fVar.bu(com.baidu.swan.apps.statistic.h.ox(apf.agM()));
         com.baidu.swan.apps.statistic.h.onEvent(fVar);
         if (!aVar.asN()) {
-            com.baidu.swan.apps.statistic.h.b(new com.baidu.swan.apps.statistic.a.d().oC(com.baidu.swan.apps.statistic.h.gS(appFrameType)).f(aVar).oD(getAppId()).oE(apf.agK()));
+            com.baidu.swan.apps.statistic.h.b(new com.baidu.swan.apps.statistic.a.d().oC(com.baidu.swan.apps.statistic.h.gU(appFrameType)).f(aVar).oD(getAppId()).oE(apf.agK()));
             aVar.asO();
         }
     }
@@ -606,7 +606,7 @@ public final class k extends m {
         if (!z || this.bXH.appCategory != 1) {
             i = 0;
         }
-        aoJ.fB(i);
+        aoJ.fD(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

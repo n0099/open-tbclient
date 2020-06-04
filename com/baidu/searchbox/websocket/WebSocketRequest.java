@@ -82,7 +82,7 @@ public final class WebSocketRequest {
         this(r0);
         String url = builder.getUrl();
         if (url == null) {
-            q.dLM();
+            q.dMa();
         }
         this.method = builder.getMethod();
         this.headers = builder.getHeaders();

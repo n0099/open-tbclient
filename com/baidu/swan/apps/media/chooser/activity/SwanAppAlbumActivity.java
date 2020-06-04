@@ -156,7 +156,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
         this.ckF.setData(this.ckS.get(0).cmz);
         this.ckF.a(new e() { // from class: com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumActivity.3
             @Override // com.baidu.swan.apps.media.chooser.c.e
-            public void fH(int i) {
+            public void fJ(int i) {
                 SwanAppAlbumActivity.this.aiC();
             }
         });

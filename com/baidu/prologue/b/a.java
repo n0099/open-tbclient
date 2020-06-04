@@ -10,7 +10,6 @@ import android.view.SurfaceView;
 import android.view.ViewGroup;
 import com.baidu.prologue.a.c.g;
 import java.io.FileInputStream;
-import java.io.IOException;
 /* loaded from: classes6.dex */
 public class a {
     private b bAs;
@@ -25,7 +24,7 @@ public class a {
     /* renamed from: com.baidu.prologue.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public interface InterfaceC0248a {
-        void dR(int i);
+        void dT(int i);
     }
 
     public a(@NonNull Context context) {
@@ -36,7 +35,9 @@ public class a {
         this.bBo.getHolder().addCallback(new SurfaceHolder.Callback() { // from class: com.baidu.prologue.b.a.1
             @Override // android.view.SurfaceHolder.Callback
             public void surfaceCreated(SurfaceHolder surfaceHolder) {
-                a.this.mMediaPlayer.setDisplay(surfaceHolder);
+                if (a.this.mMediaPlayer != null) {
+                    a.this.mMediaPlayer.setDisplay(surfaceHolder);
+                }
             }
 
             @Override // android.view.SurfaceHolder.Callback
@@ -72,8 +73,12 @@ public class a {
             @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
             @SuppressLint({"NewApi"})
             public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
-                a.this.mMediaPlayer.setVideoScalingMode(2);
-                a.this.bAs.N(i, i2);
+                try {
+                    a.this.mMediaPlayer.setVideoScalingMode(2);
+                    a.this.bAs.N(i, i2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
         this.mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.prologue.b.a.5
@@ -130,7 +135,7 @@ public class a {
                 if (z && !str.equals(cVar.bBr)) {
                     boolean equals = str.equals("");
                     if (this.bBf != null) {
-                        this.bBf.dR(equals ? 1 : 2);
+                        this.bBf.dT(equals ? 1 : 2);
                         return;
                     }
                     return;
@@ -142,10 +147,10 @@ public class a {
                 this.mMediaPlayer.setVideoScalingMode(2);
             }
             this.mCurrentState = 2;
-        } catch (IOException e) {
+        } catch (Exception e) {
             this.mCurrentState = -1;
             if (this.bBf != null) {
-                this.bBf.dR(3);
+                this.bBf.dT(3);
             }
             e.printStackTrace();
         }

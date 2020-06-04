@@ -171,7 +171,7 @@ public class ForumEnterLayout extends RelativeLayout {
                 this.agU.setVisibility(0);
                 this.agU.setTextSize(0, l.getDimens(getContext(), R.dimen.tbds34));
                 this.agU.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, getArrowRight(), (Drawable) null);
-                this.agU.setTextColor(am.ld(R.color.cp_cont_j));
+                this.agU.setTextColor(am.lf(R.color.cp_cont_j));
                 this.agU.setText(aOi.aSC());
                 this.agU.setOnClickListener(this.mOnClickListener);
             } else {
@@ -192,7 +192,7 @@ public class ForumEnterLayout extends RelativeLayout {
 
     private Drawable getArrowRight() {
         if (this.agV == null || this.agV.mutate() == null) {
-            this.agV = SvgManager.aUV().a(R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.agV = SvgManager.aUW().a(R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
         return this.agV;
     }

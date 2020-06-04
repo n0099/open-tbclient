@@ -26,8 +26,8 @@ public class a extends Dialog implements View.OnClickListener {
     private TextView bih;
     private TextView bii;
     private AnimatorSet bij;
-    private TbImageView fAo;
-    private InterfaceC0540a fAp;
+    private InterfaceC0540a fAA;
+    private TbImageView fAz;
     private TextView mTitleTextView;
 
     /* renamed from: com.baidu.tieba.ala.guardclub.view.a$a  reason: collision with other inner class name */
@@ -44,12 +44,12 @@ public class a extends Dialog implements View.OnClickListener {
     }
 
     public void a(InterfaceC0540a interfaceC0540a) {
-        this.fAp = interfaceC0540a;
+        this.fAA = interfaceC0540a;
     }
 
     public void aE(int i, String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.fAo.startLoad(str, 10, false);
+            this.fAz.startLoad(str, 10, false);
         }
         switch (i) {
             case 0:
@@ -73,11 +73,11 @@ public class a extends Dialog implements View.OnClickListener {
     public void onClick(View view) {
         if (view == this.bGw || view == this.bif) {
             dismiss();
-        } else if (this.fAp != null) {
+        } else if (this.fAA != null) {
             if (view == this.bih) {
-                this.fAp.onConfirm();
+                this.fAA.onConfirm();
             } else if (view == this.bii) {
-                this.fAp.onCancel();
+                this.fAA.onCancel();
             }
         }
     }
@@ -112,13 +112,13 @@ public class a extends Dialog implements View.OnClickListener {
         setContentView(a.h.live_guard_club_attenuat);
         this.bGw = findViewById(a.g.layout_root);
         this.bif = (ImageView) findViewById(a.g.iv_close);
-        this.fAo = (TbImageView) findViewById(a.g.iv_flag);
+        this.fAz = (TbImageView) findViewById(a.g.iv_flag);
         this.mTitleTextView = (TextView) findViewById(a.g.tv_title);
         this.aTU = (TextView) findViewById(a.g.tv_content);
         this.bii = (TextView) findViewById(a.g.tv_cancel);
         this.bih = (TextView) findViewById(a.g.tv_confirm);
-        this.fAo.setDefaultBgResource(a.d.sdk_transparent);
-        this.fAo.setDefaultErrorResource(a.f.sdk_shape_transparent);
+        this.fAz.setDefaultBgResource(a.d.sdk_transparent);
+        this.fAz.setDefaultErrorResource(a.f.sdk_shape_transparent);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
         gradientDrawable.setColor(0);
@@ -143,8 +143,8 @@ public class a extends Dialog implements View.OnClickListener {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.guardclub.view.a.1
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (a.this.fAo != null) {
-                    a.this.fAo.stopLoad();
+                if (a.this.fAz != null) {
+                    a.this.fAz.stopLoad();
                 }
                 if (a.this.bij != null) {
                     a.this.bij.cancel();

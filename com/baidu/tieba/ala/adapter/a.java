@@ -17,7 +17,7 @@ import com.baidu.live.u.a;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.ala.data.a> eWg;
+    private ArrayList<com.baidu.tieba.ala.data.a> eWr;
     private Context mContext;
 
     public a(Context context) {
@@ -25,26 +25,26 @@ public class a extends BaseAdapter {
     }
 
     public void setData(ArrayList<com.baidu.tieba.ala.data.a> arrayList) {
-        if (this.eWg == null) {
-            this.eWg = new ArrayList<>();
+        if (this.eWr == null) {
+            this.eWr = new ArrayList<>();
         } else {
-            this.eWg.clear();
+            this.eWr.clear();
         }
-        this.eWg.addAll(arrayList);
+        this.eWr.addAll(arrayList);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.eWg);
+        return ListUtils.getCount(this.eWr);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.eWg == null || i < 0 || i >= this.eWg.size()) {
+        if (this.eWr == null || i < 0 || i >= this.eWr.size()) {
             return null;
         }
-        return this.eWg.get(i);
+        return this.eWr.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -73,52 +73,52 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.ala.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     protected class C0519a {
-        private LinearLayout eWh;
-        private HeadImageView eWi;
-        private TextView eWj;
-        private RelativeLayout eWk;
-        private TextView eWl;
-        private ImageView eWm;
-        private TextView eWn;
-        private LinearLayout eWo;
-        private HeadImageView eWp;
-        private TextView eWq;
+        private HeadImageView eWA;
+        private TextView eWB;
+        private LinearLayout eWs;
+        private HeadImageView eWt;
+        private TextView eWu;
+        private RelativeLayout eWv;
+        private TextView eWw;
+        private ImageView eWx;
+        private TextView eWy;
+        private LinearLayout eWz;
 
         public C0519a(View view) {
-            this.eWh = (LinearLayout) view.findViewById(a.g.item_challenge_history_left);
-            this.eWi = (HeadImageView) view.findViewById(a.g.img_challenge_history_left);
-            this.eWj = (TextView) view.findViewById(a.g.text_challenge_history_left);
-            this.eWk = (RelativeLayout) view.findViewById(a.g.challenge_center_layout);
-            this.eWl = (TextView) view.findViewById(a.g.pk_history_anchor_score);
-            this.eWm = (ImageView) view.findViewById(a.g.pk_history_icon);
-            this.eWn = (TextView) view.findViewById(a.g.pk_history_rival_score);
-            this.eWo = (LinearLayout) view.findViewById(a.g.item_challenge_history_right);
-            this.eWp = (HeadImageView) view.findViewById(a.g.img_challenge_history_right);
-            this.eWq = (TextView) view.findViewById(a.g.text_challenge_history_right);
-            this.eWi.setIsRound(true);
-            this.eWi.setAutoChangeStyle(false);
-            this.eWp.setIsRound(true);
-            this.eWp.setAutoChangeStyle(false);
+            this.eWs = (LinearLayout) view.findViewById(a.g.item_challenge_history_left);
+            this.eWt = (HeadImageView) view.findViewById(a.g.img_challenge_history_left);
+            this.eWu = (TextView) view.findViewById(a.g.text_challenge_history_left);
+            this.eWv = (RelativeLayout) view.findViewById(a.g.challenge_center_layout);
+            this.eWw = (TextView) view.findViewById(a.g.pk_history_anchor_score);
+            this.eWx = (ImageView) view.findViewById(a.g.pk_history_icon);
+            this.eWy = (TextView) view.findViewById(a.g.pk_history_rival_score);
+            this.eWz = (LinearLayout) view.findViewById(a.g.item_challenge_history_right);
+            this.eWA = (HeadImageView) view.findViewById(a.g.img_challenge_history_right);
+            this.eWB = (TextView) view.findViewById(a.g.text_challenge_history_right);
+            this.eWt.setIsRound(true);
+            this.eWt.setAutoChangeStyle(false);
+            this.eWA.setIsRound(true);
+            this.eWA.setAutoChangeStyle(false);
         }
 
         public void a(com.baidu.tieba.ala.data.a aVar) {
             if (aVar != null) {
-                this.eWi.startLoad(aVar.frM.portrait, 12, false);
-                String name_show = aVar.frM.getName_show();
+                this.eWt.startLoad(aVar.frX.portrait, 12, false);
+                String name_show = aVar.frX.getName_show();
                 if (TextHelper.getTextLengthWithEmoji(name_show) > 8) {
                     name_show = TextHelper.subStringWithEmoji(name_show, 8) + StringHelper.STRING_MORE;
                 }
-                this.eWj.setText(name_show);
-                this.eWp.startLoad(aVar.frN.portrait, 12, false);
-                String name_show2 = aVar.frN.getName_show();
+                this.eWu.setText(name_show);
+                this.eWA.startLoad(aVar.frY.portrait, 12, false);
+                String name_show2 = aVar.frY.getName_show();
                 if (TextHelper.getTextLengthWithEmoji(name_show2) > 8) {
                     name_show2 = TextHelper.subStringWithEmoji(name_show2, 8) + StringHelper.STRING_MORE;
                 }
-                this.eWq.setText(name_show2);
-                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(aVar.frL.frR);
-                String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(aVar.frL.frS);
-                this.eWl.setText(numberUniformFormatExtra);
-                this.eWn.setText(numberUniformFormatExtra2);
+                this.eWB.setText(name_show2);
+                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(aVar.frW.fsc);
+                String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(aVar.frW.fsd);
+                this.eWw.setText(numberUniformFormatExtra);
+                this.eWy.setText(numberUniformFormatExtra2);
             }
         }
     }

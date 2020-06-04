@@ -36,18 +36,18 @@ public class a {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
         relativeLayout.addView(this.egO, layoutParams);
+        bbr();
         bbq();
-        bbp();
     }
 
-    private void bbp() {
+    private void bbq() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.egS);
         this.egM = new ImageViewerBottomLayout(this.mContext);
         this.egO.addView(this.egM, layoutParams);
         this.egM.setExpandButtonListener(this.egQ);
     }
 
-    private void bbq() {
+    private void bbr() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         this.egN = new FloorImageTextViewNew(this.mContext);
         this.egO.addView(this.egN, layoutParams);
@@ -94,7 +94,7 @@ public class a {
         return bf(this.egO);
     }
 
-    public boolean bbr() {
+    public boolean bbs() {
         return this.egP;
     }
 

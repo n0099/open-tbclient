@@ -10,19 +10,19 @@ public class a {
     private static BroadcastReceiver euk;
     private static BroadcastReceiver eul;
 
-    public static Service bgc() {
+    public static Service bgd() {
         return euj;
     }
 
-    public static ContentProvider bfZ() {
+    public static ContentProvider bga() {
         return eub;
     }
 
-    public static BroadcastReceiver bgd() {
+    public static BroadcastReceiver bge() {
         return euk;
     }
 
-    public static BroadcastReceiver bge() {
+    public static BroadcastReceiver bgf() {
         return eul;
     }
 }

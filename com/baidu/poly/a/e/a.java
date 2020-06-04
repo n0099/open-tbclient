@@ -152,7 +152,7 @@ public final class a implements Closeable {
             this.written = dVar.buS ? null : new boolean[a.this.buG];
         }
 
-        public OutputStream dG(int i) {
+        public OutputStream dI(int i) {
             OutputStream outputStream;
             FileOutputStream fileOutputStream;
             if (i >= 0 && i < a.this.buG) {
@@ -161,13 +161,13 @@ public final class a implements Closeable {
                         if (!this.buN.buS) {
                             this.written[i] = true;
                         }
-                        File dI = this.buN.dI(i);
+                        File dK = this.buN.dK(i);
                         try {
-                            fileOutputStream = new FileOutputStream(dI);
+                            fileOutputStream = new FileOutputStream(dK);
                         } catch (FileNotFoundException e) {
                             a.this.buA.mkdirs();
                             try {
-                                fileOutputStream = new FileOutputStream(dI);
+                                fileOutputStream = new FileOutputStream(dK);
                             } catch (FileNotFoundException e2) {
                                 outputStream = a.buz;
                             }
@@ -226,11 +226,11 @@ public final class a implements Closeable {
             throw null;
         }
 
-        public File dH(int i) {
+        public File dJ(int i) {
             return new File(a.this.buA, this.key + "." + i);
         }
 
-        public File dI(int i) {
+        public File dK(int i) {
             return new File(a.this.buA, this.key + "." + i + ".tmp");
         }
 
@@ -257,7 +257,7 @@ public final class a implements Closeable {
             }
         }
 
-        public InputStream dJ(int i) {
+        public InputStream dL(int i) {
             return this.buV[i];
         }
 
@@ -320,8 +320,8 @@ public final class a implements Closeable {
             if (next.buT != null) {
                 next.buT = null;
                 for (int i = 0; i < this.buG; i++) {
-                    c(next.dH(i));
-                    c(next.dI(i));
+                    c(next.dJ(i));
+                    c(next.dK(i));
                 }
                 it.remove();
             } else {
@@ -465,7 +465,7 @@ public final class a implements Closeable {
                 InputStream[] inputStreamArr = new InputStream[this.buG];
                 for (int i = 0; i < this.buG; i++) {
                     try {
-                        inputStreamArr[i] = new FileInputStream(dVar.dH(i));
+                        inputStreamArr[i] = new FileInputStream(dVar.dJ(i));
                     } catch (FileNotFoundException e2) {
                         for (int i2 = 0; i2 < this.buG && inputStreamArr[i2] != null; i2++) {
                             com.baidu.poly.a.e.c.a(inputStreamArr[i2]);
@@ -493,12 +493,12 @@ public final class a implements Closeable {
                 z = false;
             } else {
                 for (int i = 0; i < this.buG; i++) {
-                    File dH = dVar.dH(i);
-                    if (!dH.exists() || dH.delete()) {
+                    File dJ = dVar.dJ(i);
+                    if (!dJ.exists() || dJ.delete()) {
                         this.size -= dVar.buR[i];
                         dVar.buR[i] = 0;
                     } else {
-                        throw new IOException("failed to delete " + dH);
+                        throw new IOException("failed to delete " + dJ);
                     }
                 }
                 this.buJ++;
@@ -521,7 +521,7 @@ public final class a implements Closeable {
                 if (z && !dVar.buS) {
                     for (int i = 0; i < this.buG; i++) {
                         if (cVar.written[i]) {
-                            if (!dVar.dI(i).exists()) {
+                            if (!dVar.dK(i).exists()) {
                                 cVar.abort();
                                 break;
                             }
@@ -532,14 +532,14 @@ public final class a implements Closeable {
                     }
                 }
                 for (int i2 = 0; i2 < this.buG; i2++) {
-                    File dI = dVar.dI(i2);
+                    File dK = dVar.dK(i2);
                     if (!z) {
-                        c(dI);
-                    } else if (dI.exists()) {
-                        File dH = dVar.dH(i2);
-                        dI.renameTo(dH);
+                        c(dK);
+                    } else if (dK.exists()) {
+                        File dJ = dVar.dJ(i2);
+                        dK.renameTo(dJ);
                         long j = dVar.buR[i2];
-                        long length = dH.length();
+                        long length = dJ.length();
                         dVar.buR[i2] = length;
                         this.size = (this.size - j) + length;
                     }

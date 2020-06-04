@@ -10,56 +10,56 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static a fgL;
-    private List<an> eMK;
+    private static a fgW;
+    private List<an> eMV;
 
-    public static a brq() {
-        if (fgL == null) {
+    public static a brs() {
+        if (fgW == null) {
             synchronized (a.class) {
-                if (fgL == null) {
-                    fgL = new a();
+                if (fgW == null) {
+                    fgW = new a();
                 }
             }
         }
-        return fgL;
+        return fgW;
     }
 
     public void e(an anVar) {
         if (anVar != null) {
-            if (this.eMK == null) {
-                this.eMK = new ArrayList();
+            if (this.eMV == null) {
+                this.eMV = new ArrayList();
             }
-            if (this.eMK != null) {
-                this.eMK.add(anVar);
+            if (this.eMV != null) {
+                this.eMV.add(anVar);
             }
         }
     }
 
     public void AX(String str) {
         if (str != null) {
-            if (this.eMK == null) {
-                this.eMK = new ArrayList();
+            if (this.eMV == null) {
+                this.eMV = new ArrayList();
             }
-            if (this.eMK != null) {
-                this.eMK.add(new an(str));
+            if (this.eMV != null) {
+                this.eMV.add(new an(str));
             }
         }
     }
 
-    public void bpr() {
-        if (v.getCount(this.eMK) != 0) {
-            for (an anVar : this.eMK) {
+    public void bpt() {
+        if (v.getCount(this.eMV) != 0) {
+            for (an anVar : this.eMV) {
                 if (anVar != null) {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.eMK.clear();
+            this.eMV.clear();
         }
     }
 
     public void jv(boolean z) {
-        if (v.getCount(this.eMK) != 0) {
-            for (an anVar : this.eMK) {
+        if (v.getCount(this.eMV) != 0) {
+            for (an anVar : this.eMV) {
                 if (anVar != null) {
                     int i = 0;
                     if (z) {
@@ -71,7 +71,7 @@ public class a {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.eMK.clear();
+            this.eMV.clear();
         }
     }
 

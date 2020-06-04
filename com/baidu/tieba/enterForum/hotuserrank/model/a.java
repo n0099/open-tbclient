@@ -14,8 +14,8 @@ import com.baidu.tieba.enterForum.hotuserrank.a.c;
 /* loaded from: classes9.dex */
 public class a {
     private BdUniqueId afZ;
-    private InterfaceC0602a gRr;
-    private c gSs;
+    private InterfaceC0602a gRC;
+    private c gSD;
     private int mPageNum = 1;
     private com.baidu.adp.framework.listener.a dve = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HOT_USER_RANK, 309652) { // from class: com.baidu.tieba.enterForum.hotuserrank.model.a.1
         @Override // com.baidu.adp.framework.listener.a
@@ -29,29 +29,29 @@ public class a {
                         cVar = ((HotUserRankSocketResMsg) responsedMessage).getPageData();
                     }
                     if (responsedMessage.getError() == 0) {
-                        if (a.this.mPageNum == 1 && (cVar == null || v.isEmpty(cVar.gSp))) {
-                            if (a.this.gRr != null) {
-                                a.this.gRr.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                        if (a.this.mPageNum == 1 && (cVar == null || v.isEmpty(cVar.gSA))) {
+                            if (a.this.gRC != null) {
+                                a.this.gRC.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                             }
                         } else if (cVar != null) {
-                            a.this.gSs.gSo = cVar.gSo;
-                            a.this.gSs.gSp.addAll(cVar.gSp);
-                            a.this.gSs.gSq = cVar.gSq;
-                            a.this.gSs.fBS = cVar.fBS;
-                            a.this.gSs.gSr = cVar.gSr;
-                            a.this.gSs.gSg = cVar.gSg;
-                            if (v.isEmpty(cVar.gSp)) {
-                                a.this.gSs.hasMore = false;
+                            a.this.gSD.gSz = cVar.gSz;
+                            a.this.gSD.gSA.addAll(cVar.gSA);
+                            a.this.gSD.gSB = cVar.gSB;
+                            a.this.gSD.fCd = cVar.fCd;
+                            a.this.gSD.gSC = cVar.gSC;
+                            a.this.gSD.gSr = cVar.gSr;
+                            if (v.isEmpty(cVar.gSA)) {
+                                a.this.gSD.hasMore = false;
                             } else {
-                                a.this.gSs.hasMore = cVar.hasMore;
+                                a.this.gSD.hasMore = cVar.hasMore;
                                 a.e(a.this);
                             }
-                            if (a.this.gRr != null) {
-                                a.this.gRr.a(cVar);
+                            if (a.this.gRC != null) {
+                                a.this.gRC.a(cVar);
                             }
                         }
-                    } else if (a.this.gRr != null) {
-                        a.this.gRr.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                    } else if (a.this.gRC != null) {
+                        a.this.gRC.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
@@ -78,7 +78,7 @@ public class a {
         MessageManager.getInstance().registerListener(this.dve);
         aTl();
         aTm();
-        this.gSs = new c();
+        this.gSD = new c();
     }
 
     public void DM(String str) {
@@ -100,15 +100,15 @@ public class a {
     }
 
     public c getPageData() {
-        return this.gSs;
+        return this.gSD;
     }
 
-    public int bPk() {
+    public int bPm() {
         return this.mPageNum;
     }
 
     public boolean hasMore() {
-        return this.gSs.hasMore;
+        return this.gSD.hasMore;
     }
 
     private void aTl() {
@@ -133,6 +133,6 @@ public class a {
     }
 
     public void a(InterfaceC0602a interfaceC0602a) {
-        this.gRr = interfaceC0602a;
+        this.gRC = interfaceC0602a;
     }
 }

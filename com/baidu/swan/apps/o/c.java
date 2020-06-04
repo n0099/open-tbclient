@@ -56,14 +56,14 @@ public class c {
 
     private void G(@NonNull Activity activity) {
         dR(false);
-        fm(bP(activity));
+        fo(bP(activity));
     }
 
     private void dR(boolean z) {
         this.mEditor.putBoolean("new_first_in", z).apply();
     }
 
-    private void fm(int i) {
+    private void fo(int i) {
         if (DEBUG) {
             Log.e("SwanAppGuideDialogManager", "versionCode " + i);
         }
@@ -91,7 +91,7 @@ public class c {
                 SimpleDraweeView simpleDraweeView = (SimpleDraweeView) cVar.findViewById(a.f.aiapps_guide_image);
                 simpleDraweeView.setVisibility(0);
                 cVar.findViewById(a.f.aiapps_split_line).setVisibility(0);
-                simpleDraweeView.setController(com.facebook.drawee.a.a.c.dvf().wa(true).PU(str).dvW());
+                simpleDraweeView.setController(com.facebook.drawee.a.a.c.dvt().wc(true).PV(str).dwk());
             }
             TextView textView = (TextView) cVar.findViewById(a.f.aiapps_bottom_button);
             textView.setOnTouchListener(new d());
@@ -123,7 +123,7 @@ public class c {
     public void B(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
             e eVar = new e();
-            eVar.mPage = h.gS(com.baidu.swan.apps.runtime.d.aoB().Qz());
+            eVar.mPage = h.gU(com.baidu.swan.apps.runtime.d.aoB().Qz());
             eVar.mType = str3;
             if (TextUtils.equals(str2, "source_back")) {
                 eVar.mValue = "back";

@@ -30,14 +30,14 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes10.dex */
 public class i extends com.baidu.tieba.frs.h<j, k> {
     private LikeModel dYI;
-    private int ggN;
-    private int hjF;
+    private int ggY;
+    private int hjQ;
     private View.OnClickListener mClickListener;
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.ggN = 0;
-        this.hjF = 0;
+        this.ggY = 0;
+        this.hjQ = 0;
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.i.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -71,7 +71,7 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
     /* renamed from: aX */
     public k b(ViewGroup viewGroup) {
         if (this.dYI == null) {
-            brx();
+            brz();
         }
         return new k(LayoutInflater.from(this.mContext).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.mClickListener);
     }
@@ -81,75 +81,75 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, j jVar, k kVar) {
         super.a(i, view, viewGroup, (ViewGroup) jVar, (j) kVar);
-        if (jVar != null && jVar.bTy() != null) {
+        if (jVar != null && jVar.bTA() != null) {
             int parseColor = Color.parseColor("#56cfa1");
             int color = am.getColor(R.color.cp_cont_d);
-            u bTy = jVar.bTy();
+            u bTA = jVar.bTA();
             if (TbadkCoreApplication.isLogin()) {
-                if (bTy.isLike() == 1) {
-                    kVar.hjJ.setVisibility(8);
-                    kVar.hjK.setVisibility(0);
-                    kVar.hjK.setText(R.string.mydegree);
-                    am.setImageResource(kVar.hiH, BitmapHelper.getSmallGradeResourceIdNew(bTy.daK()));
-                    if (StringUtils.isNull(bTy.getLevelName())) {
-                        kVar.hiI.setVisibility(8);
+                if (bTA.isLike() == 1) {
+                    kVar.hjU.setVisibility(8);
+                    kVar.hjV.setVisibility(0);
+                    kVar.hjV.setText(R.string.mydegree);
+                    am.setImageResource(kVar.hiS, BitmapHelper.getSmallGradeResourceIdNew(bTA.dba()));
+                    if (StringUtils.isNull(bTA.getLevelName())) {
+                        kVar.hiT.setVisibility(8);
                     } else {
-                        kVar.hiI.setText(bTy.getLevelName());
-                        kVar.hiI.setVisibility(0);
+                        kVar.hiT.setText(bTA.getLevelName());
+                        kVar.hiT.setVisibility(0);
                     }
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                    SpannableString spannableString = new SpannableString(bTy.getCurScore() + "");
+                    SpannableString spannableString = new SpannableString(bTA.getCurScore() + "");
                     spannableString.setSpan(new ForegroundColorSpan(parseColor), 0, spannableString.length(), 17);
-                    SpannableString spannableString2 = new SpannableString("/" + bTy.getLevelupScore());
+                    SpannableString spannableString2 = new SpannableString("/" + bTA.getLevelupScore());
                     spannableString2.setSpan(new ForegroundColorSpan(color), 0, spannableString2.length(), 17);
                     spannableStringBuilder.append((CharSequence) spannableString);
                     spannableStringBuilder.append((CharSequence) spannableString2);
-                    kVar.hjM.setText(spannableStringBuilder);
-                    kVar.hjM.setVisibility(0);
-                    kVar.hjQ.setVisibility(0);
-                    kVar.hjR.setVisibility(0);
+                    kVar.hjX.setText(spannableStringBuilder);
+                    kVar.hjX.setVisibility(0);
+                    kVar.hkb.setVisibility(0);
+                    kVar.hkc.setVisibility(0);
                 } else {
-                    kVar.hjJ.setVisibility(0);
-                    kVar.hjK.setVisibility(8);
-                    kVar.hiH.setVisibility(8);
-                    kVar.hiI.setVisibility(8);
-                    kVar.hjM.setVisibility(8);
-                    kVar.hjQ.setVisibility(8);
-                    kVar.hjR.setVisibility(8);
+                    kVar.hjU.setVisibility(0);
+                    kVar.hjV.setVisibility(8);
+                    kVar.hiS.setVisibility(8);
+                    kVar.hiT.setVisibility(8);
+                    kVar.hjX.setVisibility(8);
+                    kVar.hkb.setVisibility(8);
+                    kVar.hkc.setVisibility(8);
                 }
             } else {
-                kVar.hjJ.setVisibility(8);
-                kVar.hjK.setVisibility(8);
-                kVar.hiH.setVisibility(8);
-                kVar.hiI.setVisibility(8);
-                kVar.hjM.setVisibility(8);
-                kVar.hjQ.setVisibility(8);
-                kVar.hjR.setVisibility(8);
+                kVar.hjU.setVisibility(8);
+                kVar.hjV.setVisibility(8);
+                kVar.hiS.setVisibility(8);
+                kVar.hiT.setVisibility(8);
+                kVar.hjX.setVisibility(8);
+                kVar.hkb.setVisibility(8);
+                kVar.hkc.setVisibility(8);
             }
-            kVar.hjJ.setTag(Integer.valueOf(i));
-            kVar.hiI.setTag(Integer.valueOf(i));
-            kVar.hiI.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-            am.setBackgroundColor(kVar.hjN, R.color.cp_bg_line_d);
+            kVar.hjU.setTag(Integer.valueOf(i));
+            kVar.hiT.setTag(Integer.valueOf(i));
+            kVar.hiT.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+            am.setBackgroundColor(kVar.hjY, R.color.cp_bg_line_d);
             am.setBackgroundColor(kVar.mDivider, R.color.cp_bg_line_c);
-            am.setBackgroundColor(kVar.hjO, R.color.cp_bg_line_c);
-            am.setBackgroundResource(kVar.hjJ, R.drawable.frs_btn_like);
-            am.setViewTextColor(kVar.hjJ, R.color.white_alpha100, 1);
-            am.setViewTextColor(kVar.hjK, R.color.cp_cont_b, 1);
-            am.setViewTextColor(kVar.hiI, R.color.cp_cont_d, 1);
-            am.setViewTextColor(kVar.hjP, R.color.cp_cont_b, 1);
-            am.setBackgroundResource(kVar.hjQ, R.drawable.forum_member_exp_progress);
-            am.setBackgroundColor(kVar.hjR, R.color.cp_bg_line_c);
-            if (this.ggN != bTy.daK() || this.hjF != bTy.getCurScore()) {
-                this.ggN = bTy.daK();
-                this.hjF = bTy.getCurScore();
-                kVar.hjQ.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, tv(this.ggN)));
+            am.setBackgroundColor(kVar.hjZ, R.color.cp_bg_line_c);
+            am.setBackgroundResource(kVar.hjU, R.drawable.frs_btn_like);
+            am.setViewTextColor(kVar.hjU, R.color.white_alpha100, 1);
+            am.setViewTextColor(kVar.hjV, R.color.cp_cont_b, 1);
+            am.setViewTextColor(kVar.hiT, R.color.cp_cont_d, 1);
+            am.setViewTextColor(kVar.hka, R.color.cp_cont_b, 1);
+            am.setBackgroundResource(kVar.hkb, R.drawable.forum_member_exp_progress);
+            am.setBackgroundColor(kVar.hkc, R.color.cp_bg_line_c);
+            if (this.ggY != bTA.dba() || this.hjQ != bTA.getCurScore()) {
+                this.ggY = bTA.dba();
+                this.hjQ = bTA.getCurScore();
+                kVar.hkb.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, tx(this.ggY)));
                 float f = 0.0f;
-                this.hjF = bTy.getCurScore();
-                if (this.hjF > bTy.getLevelupScore()) {
-                    this.hjF = bTy.getLevelupScore();
+                this.hjQ = bTA.getCurScore();
+                if (this.hjQ > bTA.getLevelupScore()) {
+                    this.hjQ = bTA.getLevelupScore();
                 }
-                if (bTy.getLevelupScore() != 0) {
-                    f = this.hjF / bTy.getLevelupScore();
+                if (bTA.getLevelupScore() != 0) {
+                    f = this.hjQ / bTA.getLevelupScore();
                 }
                 if (f > 0.999f) {
                     f = 1.0f;
@@ -157,13 +157,13 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
                 ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, f, 1.0f, 1.0f);
                 scaleAnimation.setFillAfter(true);
                 scaleAnimation.setDuration(1000L);
-                com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) this.mPageContext.getPageActivity(), kVar.hjQ, scaleAnimation, null);
+                com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) this.mPageContext.getPageActivity(), kVar.hkb, scaleAnimation, null);
             }
         }
         return view;
     }
 
-    private void brx() {
+    private void brz() {
         if (this.mPageContext != null) {
             this.dYI = new LikeModel(this.mPageContext);
             this.dYI.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.forumMember.member.i.2
@@ -186,7 +186,7 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
         }
     }
 
-    private int[] tv(int i) {
+    private int[] tx(int i) {
         if (i <= 3) {
             return new int[]{-8331843, -10499102};
         }

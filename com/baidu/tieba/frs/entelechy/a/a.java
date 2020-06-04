@@ -26,42 +26,42 @@ import java.util.ArrayList;
 public class a extends com.baidu.tieba.frs.h<bk, com.baidu.card.ag<bk>> implements com.baidu.tieba.a.f, com.baidu.tieba.card.y, com.baidu.tieba.frs.d.d {
     private com.baidu.tieba.card.aa<bk> adt;
     private String aeX;
-    private NEGFeedBackView.a fGB;
-    private int hvw;
+    private NEGFeedBackView.a fGM;
+    private int hvH;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.hvw = 3;
+        this.hvH = 3;
         this.adt = new com.baidu.tieba.card.aa<bk>() { // from class: com.baidu.tieba.frs.entelechy.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, bk bkVar) {
-                com.baidu.tieba.card.s.bLq().jv(true);
-                com.baidu.tieba.a.d.blZ().de("page_recommend", "show_");
+                com.baidu.tieba.card.s.bLs().jv(true);
+                com.baidu.tieba.a.d.bmb().de("page_recommend", "show_");
                 if (view != null && bkVar != null && !StringUtils.isNull(bkVar.getTid())) {
                     if (view.getId() == R.id.thread_card_root) {
-                        com.baidu.tieba.frs.d.c.caQ().a(com.baidu.tieba.frs.d.d.hvA, bkVar, 13);
+                        com.baidu.tieba.frs.d.c.caY().a(com.baidu.tieba.frs.d.d.hvL, bkVar, 13);
                     }
                     if (view.getId() == R.id.user_name || view.getId() == R.id.user_avatar) {
-                        com.baidu.tieba.frs.d.a.a(bkVar, 2, a.this.mPageId, com.baidu.tieba.frs.d.d.hvA, a.this.getTbPageTag());
+                        com.baidu.tieba.frs.d.a.a(bkVar, 2, a.this.mPageId, com.baidu.tieba.frs.d.d.hvL, a.this.getTbPageTag());
                     } else if (view instanceof ThreadGodReplyLayout) {
-                        com.baidu.tieba.frs.d.a.a(bkVar, 15, a.this.mPageId, com.baidu.tieba.frs.d.d.hvA, a.this.getTbPageTag());
+                        com.baidu.tieba.frs.d.a.a(bkVar, 15, a.this.mPageId, com.baidu.tieba.frs.d.d.hvL, a.this.getTbPageTag());
                     } else if (view.getId() == R.id.thread_info_commont_container) {
-                        com.baidu.tieba.frs.d.a.a(bkVar, 5, a.this.mPageId, com.baidu.tieba.frs.d.d.hvA, a.this.getTbPageTag());
+                        com.baidu.tieba.frs.d.a.a(bkVar, 5, a.this.mPageId, com.baidu.tieba.frs.d.d.hvL, a.this.getTbPageTag());
                     } else if (view.getId() == R.id.share_num_container) {
-                        com.baidu.tieba.frs.d.a.a(bkVar, 14, a.this.mPageId, com.baidu.tieba.frs.d.d.hvA, a.this.getTbPageTag());
+                        com.baidu.tieba.frs.d.a.a(bkVar, 14, a.this.mPageId, com.baidu.tieba.frs.d.d.hvL, a.this.getTbPageTag());
                     } else if (view.getId() == R.id.img_agree) {
-                        com.baidu.tieba.frs.d.a.a(bkVar, 12, a.this.mPageId, com.baidu.tieba.frs.d.d.hvA, a.this.getTbPageTag());
+                        com.baidu.tieba.frs.d.a.a(bkVar, 12, a.this.mPageId, com.baidu.tieba.frs.d.d.hvL, a.this.getTbPageTag());
                     } else if (view.getId() == R.id.img_disagree) {
-                        com.baidu.tieba.frs.d.a.a(bkVar, 13, a.this.mPageId, com.baidu.tieba.frs.d.d.hvA, a.this.getTbPageTag());
+                        com.baidu.tieba.frs.d.a.a(bkVar, 13, a.this.mPageId, com.baidu.tieba.frs.d.d.hvL, a.this.getTbPageTag());
                     } else {
-                        com.baidu.tieba.frs.d.a.a(bkVar, 1, a.this.mPageId, com.baidu.tieba.frs.d.d.hvA, a.this.getTbPageTag());
+                        com.baidu.tieba.frs.d.a.a(bkVar, 1, a.this.mPageId, com.baidu.tieba.frs.d.d.hvL, a.this.getTbPageTag());
                     }
                 }
             }
         };
-        this.fGB = new NEGFeedBackView.a() { // from class: com.baidu.tieba.frs.entelechy.a.a.2
+        this.fGM = new NEGFeedBackView.a() { // from class: com.baidu.tieba.frs.entelechy.a.a.2
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void b(ak akVar) {
                 TiebaStatic.log(new an("c11973").dh("fid", akVar.getFid()).dh("tid", akVar.getTid()).dh("uid", TbadkCoreApplication.getCurrentAccount()));
@@ -111,7 +111,7 @@ public class a extends com.baidu.tieba.frs.h<bk, com.baidu.card.ag<bk>> implemen
         aVar.rK().be(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds35));
         aVar.rK().bf(com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds17));
         aVar.rK().setBackgroundResource(R.drawable.addresslist_item_bg);
-        com.baidu.card.ae a = aVar.a(true, viewGroup, this.gSQ);
+        com.baidu.card.ae a = aVar.a(true, viewGroup, this.gTb);
         a.setSourceForPb(3);
         com.baidu.card.ag<bk> agVar = new com.baidu.card.ag<>(a);
         agVar.setPageId(this.mPageId);
@@ -132,11 +132,11 @@ public class a extends com.baidu.tieba.frs.h<bk, com.baidu.card.ag<bk>> implemen
         if (bkVar == null || agVar == null || agVar.getView() == null) {
             return null;
         }
-        com.baidu.tieba.frs.d.c.caQ().a(hvA, bkVar);
+        com.baidu.tieba.frs.d.c.caY().a(hvL, bkVar);
         agVar.rM().setPage(this.aeX);
         agVar.rM().setPosition(i);
-        if (this.hvw == 1) {
-            agVar.aH(true).a(this.fGB);
+        if (this.hvH == 1) {
+            agVar.aH(true).a(this.fGM);
         }
         agVar.a(true, bkVar.aOp() ? Align.ALIGN_RIGHT_TOP : Align.ALIGN_RIGHT_BOTTOM);
         agVar.b((com.baidu.card.ag<bk>) bkVar);
@@ -169,12 +169,12 @@ public class a extends com.baidu.tieba.frs.h<bk, com.baidu.card.ag<bk>> implemen
     }
 
     @Override // com.baidu.tieba.card.y
-    public void qw(int i) {
-        this.hvw = i;
+    public void qy(int i) {
+        this.hvH = i;
     }
 
     @Override // com.baidu.tieba.frs.d.d
     public com.baidu.tieba.frs.d.b getStatisticMetaData() {
-        return hvA;
+        return hvL;
     }
 }

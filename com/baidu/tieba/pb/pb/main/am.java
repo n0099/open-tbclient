@@ -8,17 +8,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.an;
 /* loaded from: classes9.dex */
 public class am extends m<com.baidu.tbadk.core.data.as, an> {
-    private com.baidu.tieba.pb.data.e jHu;
-    private an.a jPW;
+    private com.baidu.tieba.pb.data.e jIA;
+    private an.a jRc;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public am(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
-        this.jPW = new an.a() { // from class: com.baidu.tieba.pb.pb.main.am.1
+        this.jRc = new an.a() { // from class: com.baidu.tieba.pb.pb.main.am.1
             @Override // com.baidu.tieba.pb.pb.main.an.a
             public void a(com.baidu.tbadk.core.data.as asVar) {
                 if (asVar != null) {
-                    com.baidu.tieba.pb.c.a.a(am.this.jHu, asVar, asVar.locate, 6);
+                    com.baidu.tieba.pb.c.a.a(am.this.jIA, asVar, asVar.locate, 6);
                 }
             }
         };
@@ -29,7 +29,7 @@ public class am extends m<com.baidu.tbadk.core.data.as, an> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bY */
     public an b(ViewGroup viewGroup) {
-        return new an(this.jGF.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.jPW);
+        return new an(this.jHL.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.jRc);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,13 +39,13 @@ public class am extends m<com.baidu.tbadk.core.data.as, an> {
         super.a(i, view, viewGroup, (ViewGroup) asVar, (com.baidu.tbadk.core.data.as) anVar);
         if (asVar != null) {
             asVar.locate = i + 1;
-            com.baidu.tieba.pb.c.a.a(this.jGF.getUniqueId(), this.jHu, asVar, asVar.locate, 6);
+            com.baidu.tieba.pb.c.a.a(this.jHL.getUniqueId(), this.jIA, asVar, asVar.locate, 6);
             anVar.b(asVar);
         }
         return view;
     }
 
     public void setData(com.baidu.tieba.pb.data.e eVar) {
-        this.jHu = eVar;
+        this.jIA = eVar;
     }
 }

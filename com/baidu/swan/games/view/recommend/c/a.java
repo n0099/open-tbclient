@@ -17,7 +17,7 @@ public class a extends RecyclerView.Adapter<d> implements View.OnClickListener {
     /* renamed from: com.baidu.swan.games.view.recommend.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0443a {
-        void iF(int i);
+        void iH(int i);
     }
 
     public a(@NonNull Context context) {
@@ -59,7 +59,7 @@ public class a extends RecyclerView.Adapter<d> implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.deA != null && view != null && (view.getTag() instanceof Integer)) {
-            this.deA.iF(((Integer) view.getTag()).intValue());
+            this.deA.iH(((Integer) view.getTag()).intValue());
         }
     }
 

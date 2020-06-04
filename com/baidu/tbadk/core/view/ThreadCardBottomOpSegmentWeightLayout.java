@@ -39,14 +39,14 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void aWB() {
+    public void aWC() {
         this.dVU.setVisibilityListener(this.dVO);
         this.dVU.he(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ho(boolean z) {
-        if (aWD()) {
+        if (aWE()) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dVU.getLayoutParams();
             float f = z ? 1.0f : 2.0f;
             layoutParams.width = 0;
@@ -57,11 +57,11 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         }
     }
 
-    private boolean aWD() {
-        boolean aVR = this.dVU.aVR();
+    private boolean aWE() {
+        boolean aVS = this.dVU.aVS();
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dVU.getLayoutParams();
         int i = layoutParams.width;
-        if (layoutParams.weight != (aVR ? 1.0f : 2.0f) || i != 0) {
+        if (layoutParams.weight != (aVS ? 1.0f : 2.0f) || i != 0) {
             return true;
         }
         return false;

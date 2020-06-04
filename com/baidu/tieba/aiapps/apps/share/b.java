@@ -20,25 +20,25 @@ public class b extends ActivityDelegation {
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onAttachedToWindow() {
-        boD();
+        boF();
         aA(getAgent(), this.mParams.getString("options"));
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onSelfFinish() {
-        boE();
+        boG();
     }
 
-    private void boD() {
+    private void boF() {
     }
 
-    private void boE() {
+    private void boG() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void jc(boolean z) {
         this.mResult.putBoolean("share_result", z);
-        boE();
+        boG();
         finish();
     }
 

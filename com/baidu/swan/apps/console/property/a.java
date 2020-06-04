@@ -44,7 +44,7 @@ public class a {
         this.bRK.sendEmptyMessage(100);
     }
 
-    public void eB(int i) {
+    public void eD(int i) {
         if (i >= 1000) {
             this.bRJ = i;
         }

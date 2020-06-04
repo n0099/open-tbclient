@@ -17,7 +17,7 @@ public class q {
         this.name = str;
     }
 
-    public EmotionGroupType aYc() {
+    public EmotionGroupType aYd() {
         return this.ebl;
     }
 
@@ -25,7 +25,7 @@ public class q {
         this.ebl = emotionGroupType;
     }
 
-    public String aYd() {
+    public String aYe() {
         return this.pname;
     }
 

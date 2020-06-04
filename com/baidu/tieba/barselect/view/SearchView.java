@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class SearchView extends LinearLayout {
-    private ImageView fwy;
-    private View gAN;
-    private TextView gAO;
-    private TextView gAP;
-    private View gAQ;
-    private TextView gAR;
+    private ImageView fwJ;
+    private View gAY;
+    private TextView gAZ;
+    private TextView gBa;
+    private View gBb;
+    private TextView gBc;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -43,32 +43,32 @@ public class SearchView extends LinearLayout {
     }
 
     private void rV() {
-        this.gAN = findViewById(R.id.search_view_title_container);
-        this.gAO = (TextView) findViewById(R.id.search_view_title);
-        this.gAP = (TextView) findViewById(R.id.search_view_rank);
-        this.gAQ = findViewById(R.id.search_container);
-        this.fwy = (ImageView) findViewById(R.id.search_bar_icon);
-        this.gAR = (TextView) findViewById(R.id.search_text);
+        this.gAY = findViewById(R.id.search_view_title_container);
+        this.gAZ = (TextView) findViewById(R.id.search_view_title);
+        this.gBa = (TextView) findViewById(R.id.search_view_rank);
+        this.gBb = findViewById(R.id.search_container);
+        this.fwJ = (ImageView) findViewById(R.id.search_bar_icon);
+        this.gBc = (TextView) findViewById(R.id.search_text);
     }
 
     public void setRank(int i) {
-        this.gAN.setVisibility(0);
-        this.gAP.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.bar_manager_search_num), Integer.valueOf(i)));
+        this.gAY.setVisibility(0);
+        this.gBa.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.bar_manager_search_num), Integer.valueOf(i)));
     }
 
-    public void qi(int i) {
-        am.c(this.gAQ, l.getDimens(getContext(), R.dimen.tbds100), (int) R.color.cp_bg_line_c, (int) R.color.cp_bg_line_c, i);
-        SvgManager.aUV().a(this.fwy, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
-        am.setViewTextColor(this.gAO, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.gAP, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.gAR, R.color.cp_cont_d, 1, i);
+    public void qk(int i) {
+        am.c(this.gBb, l.getDimens(getContext(), R.dimen.tbds100), (int) R.color.cp_bg_line_c, (int) R.color.cp_bg_line_c, i);
+        SvgManager.aUW().a(this.fwJ, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+        am.setViewTextColor(this.gAZ, R.color.cp_cont_b, 1, i);
+        am.setViewTextColor(this.gBa, R.color.cp_cont_b, 1, i);
+        am.setViewTextColor(this.gBc, R.color.cp_cont_d, 1, i);
         am.setBackgroundColor(this, R.color.cp_bg_line_d, i);
     }
 
     public void t(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.gAQ.setOnClickListener(this.mOnClickListener);
+            this.gBb.setOnClickListener(this.mOnClickListener);
         }
     }
 }

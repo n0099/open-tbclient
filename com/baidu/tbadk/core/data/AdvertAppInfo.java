@@ -437,6 +437,7 @@ public class AdvertAppInfo extends bk {
                 case 6:
                     return dAo;
                 case 7:
+                case 14:
                     return dAp;
                 case 12:
                     return dAr;

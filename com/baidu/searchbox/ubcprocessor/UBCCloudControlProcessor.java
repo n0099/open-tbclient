@@ -43,11 +43,11 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                     }
                 }
             });
-            String drW = vVar.drW();
-            if (!TextUtils.isEmpty(drW)) {
-                sharedPrefsWrapper().putString(UBC_CLOUDCONFIG_VERSION, drW);
+            String dsk = vVar.dsk();
+            if (!TextUtils.isEmpty(dsk)) {
+                sharedPrefsWrapper().putString(UBC_CLOUDCONFIG_VERSION, dsk);
             }
-            ((APerfConfigManager) c.a(APerfConfigManager.SERVICE_REFERENCE)).registerConfig(vVar.drY(), z);
+            ((APerfConfigManager) c.a(APerfConfigManager.SERVICE_REFERENCE)).registerConfig(vVar.dsm(), z);
             List<UBCCloudConfigObserver> list = new UBCCloudConfigObservers().mObservers.getList();
             if (list != null && !list.isEmpty()) {
                 String jSONObject = serviceData.toString();

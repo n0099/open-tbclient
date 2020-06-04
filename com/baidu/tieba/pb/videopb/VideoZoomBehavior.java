@@ -14,8 +14,8 @@ import android.view.ViewGroup;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes9.dex */
 public class VideoZoomBehavior extends AppBarLayout.Behavior {
-    private e jGQ;
-    private VideoContainerLayout kcc;
+    private e jHW;
+    private VideoContainerLayout kdi;
 
     public VideoZoomBehavior() {
     }
@@ -27,8 +27,8 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.AppBarLayout.Behavior, android.support.design.widget.CoordinatorLayout.Behavior
     public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull View view, @NonNull View view2, int i, int i2) {
-        this.kcc = cg(appBarLayout);
-        return (this.kcc == null || (i & 2) == 0) ? false : true;
+        this.kdi = cg(appBarLayout);
+        return (this.kdi == null || (i & 2) == 0) ? false : true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.AppBarLayout.Behavior, android.support.design.widget.ViewOffsetBehavior, android.support.design.widget.CoordinatorLayout.Behavior
     public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i) {
-        this.kcc = cg(appBarLayout);
+        this.kdi = cg(appBarLayout);
         return super.onLayoutChild(coordinatorLayout, appBarLayout, i);
     }
 
@@ -49,25 +49,25 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
     public boolean setTopAndBottomOffset(int i) {
         ViewGroup.LayoutParams layoutParams;
         boolean topAndBottomOffset = super.setTopAndBottomOffset(i);
-        if (topAndBottomOffset && this.kcc != null && (layoutParams = this.kcc.getLayoutParams()) != null) {
-            int maxHeight = this.kcc.getMaxHeight() + i;
+        if (topAndBottomOffset && this.kdi != null && (layoutParams = this.kdi.getLayoutParams()) != null) {
+            int maxHeight = this.kdi.getMaxHeight() + i;
             if (layoutParams.height != maxHeight) {
                 layoutParams.height = maxHeight;
-                this.kcc.setLayoutParams(layoutParams);
+                this.kdi.setLayoutParams(layoutParams);
             }
-            if (this.jGQ == null && (this.kcc.getContext() instanceof PbActivity)) {
-                this.jGQ = (e) y.b((PbActivity) this.kcc.getContext()).l(e.class);
+            if (this.jHW == null && (this.kdi.getContext() instanceof PbActivity)) {
+                this.jHW = (e) y.b((PbActivity) this.kdi.getContext()).l(e.class);
             }
-            if (this.jGQ != null) {
+            if (this.jHW != null) {
                 if (i > -5) {
-                    p<Boolean> cLj = this.jGQ.cLj();
-                    if (cLj == null || cLj.getValue() == null || !cLj.getValue().booleanValue()) {
-                        this.jGQ.sD(true);
+                    p<Boolean> cLz = this.jHW.cLz();
+                    if (cLz == null || cLz.getValue() == null || !cLz.getValue().booleanValue()) {
+                        this.jHW.sD(true);
                     }
                 } else {
-                    p<Boolean> cLj2 = this.jGQ.cLj();
-                    if (cLj2 == null || cLj2.getValue() == null || cLj2.getValue().booleanValue()) {
-                        this.jGQ.sD(false);
+                    p<Boolean> cLz2 = this.jHW.cLz();
+                    if (cLz2 == null || cLz2.getValue() == null || cLz2.getValue().booleanValue()) {
+                        this.jHW.sD(false);
                     }
                 }
             }

@@ -3,64 +3,64 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes7.dex */
 class h {
-    static h nAU = new h();
-    static h nAV;
-    static h nAW;
-    boolean nAL = true;
-    boolean nAM = true;
-    boolean nAN = false;
-    boolean nAO = false;
-    boolean nAP = false;
-    boolean nAQ = true;
-    boolean nAR = true;
-    boolean nAS = true;
-    int nAT;
+    static h nCe = new h();
+    static h nCf;
+    static h nCg;
+    boolean nBV = true;
+    boolean nBW = true;
+    boolean nBX = false;
+    boolean nBY = false;
+    boolean nBZ = false;
+    boolean nCa = true;
+    boolean nCb = true;
+    boolean nCc = true;
+    int nCd;
 
     h() {
     }
 
     static {
-        nAU.nAL = true;
-        nAU.nAM = false;
-        nAU.nAN = false;
-        nAU.nAO = false;
-        nAU.nAP = true;
-        nAU.nAQ = false;
-        nAU.nAR = false;
-        nAU.nAT = 0;
-        nAV = new h();
-        nAV.nAL = true;
-        nAV.nAM = true;
-        nAV.nAN = false;
-        nAV.nAO = false;
-        nAV.nAP = false;
-        nAU.nAT = 1;
-        nAW = new h();
-        nAW.nAL = false;
-        nAW.nAM = true;
-        nAW.nAN = false;
-        nAW.nAO = true;
-        nAW.nAP = false;
-        nAW.nAS = false;
-        nAW.nAT = 2;
+        nCe.nBV = true;
+        nCe.nBW = false;
+        nCe.nBX = false;
+        nCe.nBY = false;
+        nCe.nBZ = true;
+        nCe.nCa = false;
+        nCe.nCb = false;
+        nCe.nCd = 0;
+        nCf = new h();
+        nCf.nBV = true;
+        nCf.nBW = true;
+        nCf.nBX = false;
+        nCf.nBY = false;
+        nCf.nBZ = false;
+        nCe.nCd = 1;
+        nCg = new h();
+        nCg.nBV = false;
+        nCg.nBW = true;
+        nCg.nBX = false;
+        nCg.nBY = true;
+        nCg.nBZ = false;
+        nCg.nCc = false;
+        nCg.nCd = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String RN(String str) {
+    public String RO(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String Kf(int i) {
-        if (this.nAO) {
+    public String Kh(int i) {
+        if (this.nBY) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String RO(String str) {
+    String RP(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return RO(str).replace('$', '.');
+            return RP(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
     public String N(Class cls) {
-        return b(cls, cls.getName(), this.nAL);
+        return b(cls, cls.getName(), this.nBV);
     }
 
     public String k(Class cls, String str) {
-        return b(cls, str, this.nAP);
+        return b(cls, str, this.nBZ);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.nAM) {
+            if (!this.nBW) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.nAN && clsArr != null && clsArr.length != 0) {
+        if (this.nBX && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

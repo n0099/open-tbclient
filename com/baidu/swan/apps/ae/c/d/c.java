@@ -37,7 +37,7 @@ public class c extends a {
             }
 
             @Override // com.baidu.swan.apps.b.a.b
-            public void ei(int i) {
+            public void ek(int i) {
                 com.baidu.swan.apps.ae.d.a.print("obtain address failure, errCode = " + i);
                 bVar2.K(aVar2);
             }

@@ -5,7 +5,7 @@ public abstract class b<T, F> implements m {
 
     public abstract void a(d dVar, T t, float f, float f2, boolean z);
 
-    public abstract master.flame.danmaku.danmaku.model.android.b dMY();
+    public abstract master.flame.danmaku.danmaku.model.android.b dNm();
 
     public abstract T rS();
 

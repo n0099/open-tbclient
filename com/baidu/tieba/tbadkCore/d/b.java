@@ -4,9 +4,9 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.j;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a lmm;
-    private final int lmn = 10;
-    private final int lmo = 3000;
+    private com.baidu.adp.lib.stats.a lnw;
+    private final int lnx = 10;
+    private final int lny = 3000;
     public String mLogType = null;
     public boolean mIsJson = false;
 
@@ -17,45 +17,45 @@ public class b {
     public void aU(String str, boolean z) {
         this.mLogType = str;
         this.mIsJson = z;
-        this.lmm = new com.baidu.adp.lib.stats.a("dbg");
+        this.lnw = new com.baidu.adp.lib.stats.a("dbg");
         c.C(str, getNetType(), z);
     }
 
     public void start() {
-        this.lmm.startTimer();
+        this.lnw.startTimer();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e ddP;
-        if (this.lmm != null && (ddP = ddP()) != null) {
+        e dee;
+        if (this.lnw != null && (dee = dee()) != null) {
             if (z) {
-                if (ddP.lmt != null) {
-                    ddP.lmt.num++;
+                if (dee.lnD != null) {
+                    dee.lnD.num++;
                     if (z2) {
-                        ddP.lmt.lmq += j2;
-                        ddP.lmt.size += j;
+                        dee.lnD.lnA += j2;
+                        dee.lnD.size += j;
                     } else {
-                        ddP.lmt.lmr++;
+                        dee.lnD.lnB++;
                     }
                 } else {
                     return;
                 }
-            } else if (ddP.lmu != null) {
-                ddP.lmu.num++;
+            } else if (dee.lnE != null) {
+                dee.lnE.num++;
                 if (z2) {
-                    ddP.lmu.lmq += j3;
-                    ddP.lmu.size += j;
+                    dee.lnE.lnA += j3;
+                    dee.lnE.size += j;
                     j2 = j3;
                 } else {
-                    ddP.lmu.lmr++;
+                    dee.lnE.lnB++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.lmm = null;
+            this.lnw = null;
             if (z2) {
-                c.a(ddP, 10);
+                c.a(dee, 10);
             }
             if (this.mLogType == "frsStat") {
                 if (!z2 || j2 > 3000) {
@@ -74,19 +74,19 @@ public class b {
     }
 
     public void destory() {
-        e ddP;
-        if (this.lmm != null && (ddP = ddP()) != null && ddP.lmv != null) {
-            long timeCost = this.lmm.getTimeCost();
+        e dee;
+        if (this.lnw != null && (dee = dee()) != null && dee.lnF != null) {
+            long timeCost = this.lnw.getTimeCost();
             if (timeCost > 3000) {
-                d dVar = ddP.lmv;
-                dVar.lmq = timeCost + dVar.lmq;
-                ddP.lmv.num++;
-                c.a(ddP, 10);
+                d dVar = dee.lnF;
+                dVar.lnA = timeCost + dVar.lnA;
+                dee.lnF.num++;
+                c.a(dee, 10);
             }
         }
     }
 
-    private e ddP() {
+    private e dee() {
         return c.D(this.mLogType, getNetType(), this.mIsJson);
     }
 

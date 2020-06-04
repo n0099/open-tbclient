@@ -4,50 +4,50 @@ import master.flame.danmaku.danmaku.model.a.c;
 /* loaded from: classes5.dex */
 class a<T extends c<T>> implements b<T> {
     private final boolean mInfinite;
-    private final d<T> nyN;
-    private final int nyO;
-    private T nyP;
-    private int nyQ;
+    private int nAa;
+    private final d<T> nzX;
+    private final int nzY;
+    private T nzZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(d<T> dVar, int i) {
         if (i <= 0) {
             throw new IllegalArgumentException("The pool limit must be > 0");
         }
-        this.nyN = dVar;
-        this.nyO = i;
+        this.nzX = dVar;
+        this.nzY = i;
         this.mInfinite = false;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
-    public T dNZ() {
-        T dNY;
-        if (this.nyP != null) {
-            T t = this.nyP;
-            this.nyP = (T) t.dNV();
-            this.nyQ--;
-            dNY = t;
+    public T dOn() {
+        T dOm;
+        if (this.nzZ != null) {
+            T t = this.nzZ;
+            this.nzZ = (T) t.dOj();
+            this.nAa--;
+            dOm = t;
         } else {
-            dNY = this.nyN.dNY();
+            dOm = this.nzX.dOm();
         }
-        if (dNY != null) {
-            dNY.bN(null);
-            dNY.xa(false);
-            this.nyN.b(dNY);
+        if (dOm != null) {
+            dOm.bN(null);
+            dOm.xc(false);
+            this.nzX.b(dOm);
         }
-        return dNY;
+        return dOm;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
     public void c(T t) {
-        if (!t.dNT()) {
-            if (this.mInfinite || this.nyQ < this.nyO) {
-                this.nyQ++;
-                t.bN(this.nyP);
-                t.xa(true);
-                this.nyP = t;
+        if (!t.dOh()) {
+            if (this.mInfinite || this.nAa < this.nzY) {
+                this.nAa++;
+                t.bN(this.nzZ);
+                t.xc(true);
+                this.nzZ = t;
             }
-            this.nyN.a(t);
+            this.nzX.a(t);
         }
     }
 }

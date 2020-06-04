@@ -59,7 +59,7 @@ public class a extends c implements e.a {
                 if (DEBUG) {
                     Log.d("SwanAppFrame", "onRelaunch launchPage : " + ko);
                 }
-                com.baidu.swan.apps.statistic.g.gR(2);
+                com.baidu.swan.apps.statistic.g.gT(2);
                 if (!TextUtils.isEmpty(ko)) {
                     if (parseString.optString("_naScene", "").equals("message")) {
                         com.baidu.swan.apps.scheme.actions.k.a.I("backtohome", "message", ko);
@@ -273,7 +273,7 @@ public class a extends c implements e.a {
             public void Yv() {
                 if (a.this.bQd != null) {
                     a.this.bQd.moveTaskToBack(true);
-                    an.atY().hI(1);
+                    an.atY().hK(1);
                 }
             }
         };
@@ -376,7 +376,7 @@ public class a extends c implements e.a {
             if (DEBUG) {
                 Log.d("SwanAppFrame", "updateInvalidSwanCore start.");
             }
-            QJ.b(com.baidu.swan.apps.swancore.b.ha(0));
+            QJ.b(com.baidu.swan.apps.swancore.b.hc(0));
             if (DEBUG) {
                 Log.d("SwanAppFrame", "updateInvalidSwanCore end. new swan core: " + QJ.abG());
             }
@@ -405,8 +405,8 @@ public class a extends c implements e.a {
         SwanCoreVersion abG2 = QJ.abG();
         ExtensionCore abH = com.baidu.swan.apps.core.turbo.d.abl().abH();
         ExtensionCore abH2 = QJ.abH();
-        boolean z2 = abG != null && abG2 != null && abG.swanCoreVersion < abG2.swanCoreVersion && com.baidu.swan.apps.v.b.a.fx(QJ.agX());
-        if (abH != null && abH2 != null && abH.extensionCoreVersionCode < abH2.extensionCoreVersionCode && com.baidu.swan.apps.v.b.a.fy(QJ.agX())) {
+        boolean z2 = abG != null && abG2 != null && abG.swanCoreVersion < abG2.swanCoreVersion && com.baidu.swan.apps.v.b.a.fz(QJ.agX());
+        if (abH != null && abH2 != null && abH.extensionCoreVersionCode < abH2.extensionCoreVersionCode && com.baidu.swan.apps.v.b.a.fA(QJ.agX())) {
             z = true;
         }
         if (z2 || z) {

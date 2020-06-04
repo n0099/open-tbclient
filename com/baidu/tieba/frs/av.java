@@ -5,6 +5,6 @@ public class av extends as {
     public String errMsg;
     public boolean isLocal = true;
     public boolean hasMore = true;
-    public boolean hro = true;
-    public boolean hrp = true;
+    public boolean hrz = true;
+    public boolean hrA = true;
 }

@@ -16,8 +16,8 @@ import java.util.Iterator;
 public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
     private String aWr;
     private String ayw;
-    private ArrayList<com.baidu.live.h.b> fBJ = new ArrayList<>();
-    private ArrayList<com.baidu.tieba.ala.guardthrone.b.b> fBK = new ArrayList<>();
+    private ArrayList<com.baidu.live.h.b> fBU = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.ala.guardthrone.b.b> fBV = new ArrayList<>();
     private boolean mIsHost;
     private String mLiveId;
     private int mTabId;
@@ -30,17 +30,17 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
         this.ayw = str3;
         this.mTabId = i;
         this.mIsHost = z;
-        bvm();
+        bvo();
     }
 
-    private void bvm() {
+    private void bvo() {
         com.baidu.tieba.ala.guardthrone.b.b bVar = new com.baidu.tieba.ala.guardthrone.b.b();
         com.baidu.tieba.ala.guardthrone.a.a aVar = new com.baidu.tieba.ala.guardthrone.a.a();
         aVar.a(this.mTbPageContext, this.mLiveId, this.aWr, this.ayw, this.mTabId, this.mIsHost);
-        this.fBJ.add(aVar);
+        this.fBU.add(aVar);
         bVar.tabName = this.mTbPageContext.getString(a.i.guard_throne_title);
-        bVar.fCa = "guard_throne";
-        this.fBK.add(bVar);
+        bVar.fCl = "guard_throne";
+        this.fBV.add(bVar);
         com.baidu.live.h.b bVar2 = null;
         c cVar = new c();
         cVar.mTbPageContext = this.mTbPageContext;
@@ -54,29 +54,29 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
             bVar2 = (com.baidu.live.h.b) runTask.getData();
         }
         if (bVar2 != null) {
-            this.fBJ.add(bVar2);
+            this.fBU.add(bVar2);
             com.baidu.tieba.ala.guardthrone.b.b bVar3 = new com.baidu.tieba.ala.guardthrone.b.b();
             bVar3.tabName = this.mTbPageContext.getString(a.i.noble_title);
-            bVar3.fCa = "noble";
-            this.fBK.add(bVar3);
+            bVar3.fCl = "noble";
+            this.fBV.add(bVar3);
         }
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.fBJ != null) {
-            return this.fBJ.size();
+        if (this.fBU != null) {
+            return this.fBU.size();
         }
         return 0;
     }
 
     public ArrayList<com.baidu.live.h.b> getDataList() {
-        return this.fBJ;
+        return this.fBU;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        com.baidu.live.h.b bVar = (com.baidu.live.h.b) ListUtils.getItem(this.fBJ, i);
+        com.baidu.live.h.b bVar = (com.baidu.live.h.b) ListUtils.getItem(this.fBU, i);
         if (bVar != null && bVar.getView() != null) {
             View view = bVar.getView();
             if (view.getParent() != null) {
@@ -93,10 +93,10 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
         return (obj instanceof com.baidu.live.h.b) && ((com.baidu.live.h.b) obj).getView() == view;
     }
 
-    public void pp(int i) {
-        if (i >= 0 && i < this.fBK.size()) {
-            for (int i2 = 0; i2 < this.fBJ.size(); i2++) {
-                com.baidu.live.h.b bVar = this.fBJ.get(i2);
+    public void pr(int i) {
+        if (i >= 0 && i < this.fBV.size()) {
+            for (int i2 = 0; i2 < this.fBU.size(); i2++) {
+                com.baidu.live.h.b bVar = this.fBU.get(i2);
                 if (i2 == i) {
                     bVar.bB(true);
                 } else {
@@ -107,8 +107,8 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        if (!ListUtils.isEmpty(this.fBJ)) {
-            Iterator<com.baidu.live.h.b> it = this.fBJ.iterator();
+        if (!ListUtils.isEmpty(this.fBU)) {
+            Iterator<com.baidu.live.h.b> it = this.fBU.iterator();
             while (it.hasNext()) {
                 it.next().onConfigurationChanged(configuration);
             }
@@ -116,8 +116,8 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
     }
 
     public void onDestroy() {
-        if (!ListUtils.isEmpty(this.fBJ)) {
-            Iterator<com.baidu.live.h.b> it = this.fBJ.iterator();
+        if (!ListUtils.isEmpty(this.fBU)) {
+            Iterator<com.baidu.live.h.b> it = this.fBU.iterator();
             while (it.hasNext()) {
                 it.next().onDestroy();
             }

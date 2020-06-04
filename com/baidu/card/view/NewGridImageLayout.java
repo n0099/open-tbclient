@@ -109,8 +109,8 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
         });
         this.ahQ = new com.baidu.tbadk.widget.richText.a();
         int i = l.getScreenDimensions(this.mContext)[0];
-        this.ahQ.eDe = i - l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds88);
-        this.ahQ.eDf = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        this.ahQ.eDp = i - l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds88);
+        this.ahQ.eDq = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
         this.ahN.setLayoutStrategy(this.ahQ);
         this.ahP = new LinkedList<>();
         this.ahN.setOnImageClickListener(new TbRichTextView.i() { // from class: com.baidu.card.view.NewGridImageLayout.3
@@ -218,11 +218,11 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
             VoiceData.VoiceModel voiceModel = aQL.get(0);
             this.ahm.setVoiceModel(voiceModel);
             this.ahm.setTag(voiceModel);
-            this.ahm.crm();
+            this.ahm.crv();
             if (voiceModel != null) {
-                this.ahm.yi(voiceModel.voice_status.intValue());
+                this.ahm.yk(voiceModel.voice_status.intValue());
             }
-            this.ahm.deL();
+            this.ahm.dfa();
             this.ahp = true;
         }
     }

@@ -11,17 +11,17 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.utils.q;
 /* loaded from: classes3.dex */
 public class b extends BdBaseModel {
-    private a gjr;
-    private HttpMessageListener gjs = new HttpMessageListener(1021120) { // from class: com.baidu.tieba.ala.f.b.1
+    private a gjC;
+    private HttpMessageListener gjD = new HttpMessageListener(1021120) { // from class: com.baidu.tieba.ala.f.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaSdkGetGiftListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.gjr != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaSdkGetGiftListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.gjC != null) {
                 AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage = (AlaSdkGetGiftListHttpResponseMessage) httpResponsedMessage;
                 if (alaSdkGetGiftListHttpResponseMessage.getError() != 0 || !alaSdkGetGiftListHttpResponseMessage.isSuccess()) {
-                    b.this.gjr.onFail(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString());
+                    b.this.gjC.onFail(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString());
                 } else {
-                    b.this.gjr.c(alaSdkGetGiftListHttpResponseMessage);
+                    b.this.gjC.c(alaSdkGetGiftListHttpResponseMessage);
                 }
             }
         }
@@ -45,9 +45,9 @@ public class b extends BdBaseModel {
 
     public b(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.gjr = aVar;
+        this.gjC = aVar;
         xb();
-        registerListener(this.gjs);
+        registerListener(this.gjD);
     }
 
     public void request() {
@@ -66,7 +66,7 @@ public class b extends BdBaseModel {
 
     public void onDestroy() {
         cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.gjs);
+        MessageManager.getInstance().unRegisterListener(this.gjD);
         MessageManager.getInstance().unRegisterTask(1021120);
     }
 }

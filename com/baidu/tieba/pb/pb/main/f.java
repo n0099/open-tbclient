@@ -7,33 +7,33 @@ import com.baidu.tbadk.core.data.bk;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class f extends aw {
-    private TextView jGO;
+    private TextView jHU;
 
     public f(BaseFragmentActivity baseFragmentActivity, View view) {
         super(baseFragmentActivity, view);
-        this.jGO = null;
+        this.jHU = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.aw
     protected void a(e eVar) {
-        this.jGO = (TextView) this.mRootView.findViewById(R.id.icon_push);
-        this.jGO.setVisibility(8);
+        this.jHU = (TextView) this.mRootView.findViewById(R.id.icon_push);
+        this.jHU.setVisibility(8);
     }
 
     public void rj(boolean z) {
-        if (this.jGO != null) {
+        if (this.jHU != null) {
             if (z) {
-                this.jGO.setText(R.string.push);
-                com.baidu.tbadk.core.util.am.setViewTextColor(this.jGO, (int) R.drawable.push_text_selector);
-                com.baidu.tbadk.core.util.am.setBackgroundResource(this.jGO, R.drawable.push_bg_selector);
-                this.jGO.setClickable(true);
+                this.jHU.setText(R.string.push);
+                com.baidu.tbadk.core.util.am.setViewTextColor(this.jHU, (int) R.drawable.push_text_selector);
+                com.baidu.tbadk.core.util.am.setBackgroundResource(this.jHU, R.drawable.push_bg_selector);
+                this.jHU.setClickable(true);
             } else {
-                this.jGO.setText(R.string.already_push);
-                com.baidu.tbadk.core.util.am.setBackgroundResource(this.jGO, R.drawable.label_bg_gray80);
-                com.baidu.tbadk.core.util.am.setViewTextColor(this.jGO, (int) R.color.cp_cont_d);
-                this.jGO.setClickable(false);
+                this.jHU.setText(R.string.already_push);
+                com.baidu.tbadk.core.util.am.setBackgroundResource(this.jHU, R.drawable.label_bg_gray80);
+                com.baidu.tbadk.core.util.am.setViewTextColor(this.jHU, (int) R.color.cp_cont_d);
+                this.jHU.setClickable(false);
             }
-            this.jGO.setVisibility(0);
+            this.jHU.setVisibility(0);
         }
     }
 
@@ -48,7 +48,7 @@ public class f extends aw {
         }
     }
 
-    public TextView cDI() {
-        return this.jGO;
+    public TextView cDY() {
+        return this.jHU;
     }
 }

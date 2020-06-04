@@ -37,8 +37,8 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        if (!g.a(this.nmU, cVar, this.mapper)) {
-            this.nmU.subscribe(a(cVar, this.mapper, this.prefetch, this.errorMode));
+        if (!g.a(this.noe, cVar, this.mapper)) {
+            this.noe.subscribe(a(cVar, this.mapper, this.prefetch, this.errorMode));
         }
     }
 

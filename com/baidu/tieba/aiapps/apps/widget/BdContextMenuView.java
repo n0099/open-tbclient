@@ -22,7 +22,7 @@ import java.util.List;
 /* loaded from: classes12.dex */
 public class BdContextMenuView extends FrameLayout implements a.b {
     private static final boolean DEBUG = b.DEBUG;
-    private a eTu;
+    private a eTF;
     private Context mContext;
     public boolean mLayoutInCenter;
     private ListView mListView;
@@ -62,7 +62,7 @@ public class BdContextMenuView extends FrameLayout implements a.b {
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.aiapps.apps.widget.BdContextMenuView.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                BdContextMenuView.this.eTu.onItemClicked(i);
+                BdContextMenuView.this.eTF.onItemClicked(i);
             }
         });
     }
@@ -73,7 +73,7 @@ public class BdContextMenuView extends FrameLayout implements a.b {
 
     /* loaded from: classes12.dex */
     private class a extends BaseAdapter {
-        final /* synthetic */ BdContextMenuView eTv;
+        final /* synthetic */ BdContextMenuView eTG;
         private Context mContext;
         private List<com.baidu.swan.apps.res.widget.a.b> mDataList;
 
@@ -134,7 +134,7 @@ public class BdContextMenuView extends FrameLayout implements a.b {
                 layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(R.dimen.aiapps_context_menu_item_icon_left_margin));
                 c0516a.mListName.setLayoutParams(layoutParams);
             }
-            if (this.eTv.mLayoutInCenter) {
+            if (this.eTG.mLayoutInCenter) {
                 ((LinearLayout) view2).setGravity(17);
                 layoutParams.width = -2;
                 if (bVar.getIcon() != null) {

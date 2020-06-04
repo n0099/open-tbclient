@@ -346,7 +346,7 @@ public class b extends com.baidu.helios.channels.a {
         c cVar;
         Cursor cursor;
         if (Build.VERSION.SDK_INT < 29) {
-            return a.g.bu(-101);
+            return a.g.bw(-101);
         }
         Context context = this.apB.applicationContext;
         try {
@@ -355,7 +355,7 @@ public class b extends com.baidu.helios.channels.a {
             packageInfo = null;
         }
         if (packageInfo == null) {
-            return a.g.bu(-1);
+            return a.g.bw(-1);
         }
         if (fVar.apG) {
             c cVar2 = new c(str);
@@ -371,7 +371,7 @@ public class b extends com.baidu.helios.channels.a {
             cVar = null;
         }
         if (!(context.checkPermission("android.permission.READ_EXTERNAL_STORAGE", Process.myPid(), Process.myUid()) == 0)) {
-            return a.g.bu(-100);
+            return a.g.bw(-100);
         }
         ContentResolver contentResolver = context.getContentResolver();
         ?? includePending = MediaStore.setIncludePending(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -420,7 +420,7 @@ public class b extends com.baidu.helios.channels.a {
                 if (fVar.apG && cVar != null) {
                     cVar.tX();
                 }
-                return a.g.bu(-2);
+                return a.g.bw(-2);
             } catch (Throwable th) {
                 th = th;
                 com.baidu.helios.common.b.a.c.b((Cursor) includePending);

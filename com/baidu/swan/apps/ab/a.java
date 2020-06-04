@@ -125,7 +125,7 @@ public class a implements l {
 
     @Override // com.baidu.swan.ubc.l
     public String afW() {
-        return com.baidu.swan.apps.swancore.b.gZ(Qz());
+        return com.baidu.swan.apps.swancore.b.hb(Qz());
     }
 
     @Override // com.baidu.swan.ubc.l

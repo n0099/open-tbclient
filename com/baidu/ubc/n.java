@@ -14,13 +14,13 @@ class n {
     private String mId;
     private int mOption;
     private long mTime;
-    private String mhd;
+    private String mip;
 
     public n(String str, String str2, int i) {
         this.mContent = "";
         this.dqb = false;
         this.YO = "";
-        this.mhd = "0";
+        this.mip = "0";
         this.mId = str;
         this.dpX = str;
         this.dpY = -1;
@@ -35,7 +35,7 @@ class n {
         this.mContent = "";
         this.dqb = false;
         this.YO = "";
-        this.mhd = "0";
+        this.mip = "0";
         this.mId = str;
         this.dpX = str;
         this.dpY = -1;
@@ -50,7 +50,7 @@ class n {
         this.mContent = "";
         this.dqb = false;
         this.YO = "";
-        this.mhd = "0";
+        this.mip = "0";
         this.mId = str2;
         this.dpX = str;
         this.dpY = i;
@@ -65,7 +65,7 @@ class n {
         this.mContent = "";
         this.dqb = false;
         this.YO = "";
-        this.mhd = "0";
+        this.mip = "0";
         this.mId = str2;
         this.dpX = str;
         this.dpY = i;
@@ -137,16 +137,16 @@ class n {
     }
 
     public void aIx() {
-        if (this.mId != null && this.mId.equals(this.dpX) && g.drP().tF(this.mId)) {
+        if (this.mId != null && this.mId.equals(this.dpX) && g.dsd().tF(this.mId)) {
             this.dqa = UBC.getUBCContext().akR();
         }
     }
 
-    public void Ph(String str) {
-        this.mhd = str;
+    public void Pi(String str) {
+        this.mip = str;
     }
 
-    public String drT() {
-        return this.mhd;
+    public String dsh() {
+        return this.mip;
     }
 }

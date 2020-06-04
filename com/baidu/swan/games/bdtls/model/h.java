@@ -115,7 +115,7 @@ public final class h {
         return this.cUX;
     }
 
-    public final void ik(int i) {
+    public final void im(int i) {
         this.cUX = i;
     }
 

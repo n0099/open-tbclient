@@ -216,8 +216,8 @@ public class i extends com.baidu.swan.apps.core.d.b implements a.InterfaceC0377a
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mValue = "close";
         a(fVar);
-        ((SwanAppActivity) this.mActivity).ec(1);
-        an.atY().hI(2);
+        ((SwanAppActivity) this.mActivity).ee(1);
+        an.atY().hK(2);
     }
 
     private void Zo() {
@@ -434,7 +434,7 @@ public class i extends com.baidu.swan.apps.core.d.b implements a.InterfaceC0377a
         }
         TC();
         if (com.baidu.swan.apps.runtime.e.aoG() != null) {
-            this.bVb.iP(com.baidu.swan.apps.runtime.e.aoG().aoJ().getOrientation());
+            this.bVb.iR(com.baidu.swan.apps.runtime.e.aoG().aoJ().getOrientation());
         }
         this.bVb.n(com.baidu.swan.apps.u.a.afm().getNightModeSwitcherState(), Yp());
     }
@@ -468,7 +468,7 @@ public class i extends com.baidu.swan.apps.core.d.b implements a.InterfaceC0377a
             }
             if (this.bVb == null) {
                 this.bVb = new com.baidu.swan.menu.h(aHv, this.mMenu, 0, com.baidu.swan.apps.u.a.aeV(), new com.baidu.swan.apps.view.c.b());
-                this.bVb.iO(com.baidu.swan.apps.aq.d.ath());
+                this.bVb.iQ(com.baidu.swan.apps.aq.d.ath());
                 this.bWx.b(this.bVb);
                 com.baidu.swan.games.q.a ahJ = com.baidu.swan.apps.w.f.ahV().ahJ();
                 if (ahJ != null) {

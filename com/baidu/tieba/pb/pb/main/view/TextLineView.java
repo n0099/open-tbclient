@@ -15,10 +15,10 @@ public class TextLineView extends TextView {
     private int aNV;
     private int aNW;
     private int aPl;
-    private int jXP;
-    private int jXQ;
-    private int jXR;
-    private int jXS;
+    private int jYV;
+    private int jYW;
+    private int jYX;
+    private int jYY;
     private int mHeight;
     private int mMargin;
     private Paint mPaint;
@@ -32,14 +32,14 @@ public class TextLineView extends TextView {
     public TextLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.TextLineView);
-        this.jXP = obtainStyledAttributes.getDimensionPixelSize(0, 0);
-        this.jXQ = obtainStyledAttributes.getDimensionPixelSize(4, 0);
-        this.jXR = obtainStyledAttributes.getDimensionPixelSize(5, 0);
+        this.jYV = obtainStyledAttributes.getDimensionPixelSize(0, 0);
+        this.jYW = obtainStyledAttributes.getDimensionPixelSize(4, 0);
+        this.jYX = obtainStyledAttributes.getDimensionPixelSize(5, 0);
         this.aNV = obtainStyledAttributes.getColor(2, am.getColor(R.color.cp_cont_b));
         this.aNW = obtainStyledAttributes.getColor(3, am.getColor(R.color.cp_cont_j));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.jXQ + this.jXP + this.jXR);
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.jYW + this.jYV + this.jYX);
         setTextColor(this.aNV);
-        this.jXS = l.getDimens(context, R.dimen.ds56);
+        this.jYY = l.getDimens(context, R.dimen.ds56);
         this.mRectF = new RectF();
         this.aPl = l.getDimens(getContext(), R.dimen.ds4);
         obtainStyledAttributes.recycle();
@@ -48,11 +48,11 @@ public class TextLineView extends TextView {
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        cJf();
+        cJv();
         if (this.mRectF == null) {
             this.mRectF = new RectF();
         }
-        this.mRectF.set(this.mMargin + 0, (this.mHeight - this.jXR) - this.jXP, this.mWidth - this.mMargin, this.mHeight - this.jXR);
+        this.mRectF.set(this.mMargin + 0, (this.mHeight - this.jYX) - this.jYV, this.mWidth - this.mMargin, this.mHeight - this.jYX);
         canvas.drawRoundRect(this.mRectF, this.aPl, this.aPl, this.mPaint);
     }
 
@@ -67,7 +67,7 @@ public class TextLineView extends TextView {
         invalidate();
     }
 
-    private void cJf() {
+    private void cJv() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }
@@ -88,7 +88,7 @@ public class TextLineView extends TextView {
         } else {
             setTextColor(this.aNW);
         }
-        cJf();
+        cJv();
         invalidate();
     }
 
@@ -97,6 +97,6 @@ public class TextLineView extends TextView {
         super.onSizeChanged(i, i2, i3, i4);
         this.mWidth = i;
         this.mHeight = i2;
-        this.mMargin = (this.mWidth - this.jXS) / 2;
+        this.mMargin = (this.mWidth - this.jYY) / 2;
     }
 }

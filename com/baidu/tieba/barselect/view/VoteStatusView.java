@@ -13,15 +13,15 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.a.d;
 /* loaded from: classes8.dex */
 public class VoteStatusView extends View {
-    private Path gBA;
-    private Path gBB;
-    private Path gBC;
-    private Path gBD;
-    private boolean gBv;
-    public int gBw;
-    public int gBx;
-    public int gBy;
-    private Path gBz;
+    private boolean gBG;
+    public int gBH;
+    public int gBI;
+    public int gBJ;
+    private Path gBK;
+    private Path gBL;
+    private Path gBM;
+    private Path gBN;
+    private Path gBO;
     private Paint mPaint;
     private Shader mShader;
     private int status;
@@ -33,23 +33,23 @@ public class VoteStatusView extends View {
     public VoteStatusView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.status = -1;
-        this.gBv = true;
+        this.gBG = true;
         initUI();
     }
 
     private void initUI() {
-        this.gBy = am.getColor(R.color.cp_bg_line_c);
-        this.gBw = am.getColor(R.color.cp_link_tip_b);
-        this.gBx = am.getColor(R.color.cp_link_tip_a);
+        this.gBJ = am.getColor(R.color.cp_bg_line_c);
+        this.gBH = am.getColor(R.color.cp_link_tip_b);
+        this.gBI = am.getColor(R.color.cp_link_tip_a);
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(this.gBy);
-        this.gBz = new Path();
-        this.gBA = new Path();
-        this.gBB = new Path();
-        this.gBC = new Path();
-        this.gBD = new Path();
+        this.mPaint.setColor(this.gBJ);
+        this.gBK = new Path();
+        this.gBL = new Path();
+        this.gBM = new Path();
+        this.gBN = new Path();
+        this.gBO = new Path();
     }
 
     public void setStatus(int i) {
@@ -62,38 +62,38 @@ public class VoteStatusView extends View {
         int height = (canvas.getHeight() - getPaddingBottom()) - getPaddingTop();
         int width = (canvas.getWidth() - getPaddingLeft()) - getPaddingRight();
         int i = height * 6 >= width ? width / 6 : height;
-        this.gBz.addCircle(i / 2, i / 2, i / 2, Path.Direction.CW);
-        this.gBA.addCircle(width / 2, i / 2, i / 2, Path.Direction.CW);
-        this.gBB.addCircle(width - (i / 2), i / 2, i / 2, Path.Direction.CW);
-        this.gBC.addRect(i / 2, (i * 9) / 26, width / 2, (i * 17) / 26, Path.Direction.CW);
-        this.gBD.addRect(width / 2, (i * 9) / 26, width - (i / 2), (i * 17) / 26, Path.Direction.CW);
-        this.mPaint.setColor(this.gBy);
+        this.gBK.addCircle(i / 2, i / 2, i / 2, Path.Direction.CW);
+        this.gBL.addCircle(width / 2, i / 2, i / 2, Path.Direction.CW);
+        this.gBM.addCircle(width - (i / 2), i / 2, i / 2, Path.Direction.CW);
+        this.gBN.addRect(i / 2, (i * 9) / 26, width / 2, (i * 17) / 26, Path.Direction.CW);
+        this.gBO.addRect(width / 2, (i * 9) / 26, width - (i / 2), (i * 17) / 26, Path.Direction.CW);
+        this.mPaint.setColor(this.gBJ);
         this.mPaint.setShader(null);
-        if (this.mShader == null || this.gBv) {
-            this.mShader = new LinearGradient(i / 2, 0.0f, width - (i / 2), 0.0f, this.gBw, this.gBx, Shader.TileMode.CLAMP);
-            this.gBv = false;
+        if (this.mShader == null || this.gBG) {
+            this.mShader = new LinearGradient(i / 2, 0.0f, width - (i / 2), 0.0f, this.gBH, this.gBI, Shader.TileMode.CLAMP);
+            this.gBG = false;
         }
-        if (this.status == d.gAH) {
+        if (this.status == d.gAS) {
             this.mPaint.setShader(this.mShader);
         }
-        canvas.drawPath(this.gBD, this.mPaint);
-        canvas.drawPath(this.gBB, this.mPaint);
-        if (this.status == d.gAG) {
+        canvas.drawPath(this.gBO, this.mPaint);
+        canvas.drawPath(this.gBM, this.mPaint);
+        if (this.status == d.gAR) {
             this.mPaint.setShader(this.mShader);
         }
-        canvas.drawPath(this.gBC, this.mPaint);
-        canvas.drawPath(this.gBA, this.mPaint);
-        if (this.status == d.gAF) {
+        canvas.drawPath(this.gBN, this.mPaint);
+        canvas.drawPath(this.gBL, this.mPaint);
+        if (this.status == d.gAQ) {
             this.mPaint.setShader(this.mShader);
         }
-        canvas.drawPath(this.gBz, this.mPaint);
+        canvas.drawPath(this.gBK, this.mPaint);
     }
 
-    public void qi(int i) {
-        this.gBw = am.getColor(i, R.color.cp_link_tip_b);
-        this.gBx = am.getColor(i, R.color.cp_link_tip_a);
-        this.gBy = am.getColor(i, R.color.cp_bg_line_c);
-        this.gBv = true;
+    public void qk(int i) {
+        this.gBH = am.getColor(i, R.color.cp_link_tip_b);
+        this.gBI = am.getColor(i, R.color.cp_link_tip_a);
+        this.gBJ = am.getColor(i, R.color.cp_bg_line_c);
+        this.gBG = true;
         invalidate();
     }
 }

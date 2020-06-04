@@ -234,7 +234,7 @@ public class ArBridge {
 
     public void notifyFrameUpdated() {
         if (this.mGameRecorder != null) {
-            this.mGameRecorder.dy(getScreenTextureId());
+            this.mGameRecorder.dA(getScreenTextureId());
         }
     }
 

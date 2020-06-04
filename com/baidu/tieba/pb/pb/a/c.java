@@ -31,7 +31,7 @@ public class c extends m<PostData, a> {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_load_more_item, viewGroup, false);
         inflate.findViewById(R.id.tv_pb_reply_more).setOnClickListener(this.aZt);
         a aVar = new a(inflate);
-        aVar.bbl();
+        aVar.bbm();
         return aVar;
     }
 
@@ -45,29 +45,29 @@ public class c extends m<PostData, a> {
 
     /* loaded from: classes9.dex */
     public static class a extends aa.a {
-        private TextView jFX;
+        private TextView jHd;
 
         public a(View view) {
             super(view);
-            this.jFX = (TextView) view.findViewById(R.id.tv_pb_reply_more);
+            this.jHd = (TextView) view.findViewById(R.id.tv_pb_reply_more);
         }
 
         public void setData(PostData postData) {
             if (postData != null) {
-                if (postData.lll) {
+                if (postData.lmu) {
                     Drawable drawable = am.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    this.jFX.setCompoundDrawables(null, null, drawable, null);
+                    this.jHd.setCompoundDrawables(null, null, drawable, null);
                     return;
                 }
                 Drawable drawable2 = am.getDrawable(R.drawable.icon_emotion_smallarrow_down);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                this.jFX.setCompoundDrawables(null, null, drawable2, null);
+                this.jHd.setCompoundDrawables(null, null, drawable2, null);
             }
         }
 
-        public void bbl() {
-            am.setViewTextColor(this.jFX, (int) R.color.cp_cont_d);
+        public void bbm() {
+            am.setViewTextColor(this.jHd, (int) R.color.cp_cont_d);
         }
     }
 }

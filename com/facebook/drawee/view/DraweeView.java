@@ -16,49 +16,49 @@ import com.facebook.drawee.view.a;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
-    private static boolean mrr = false;
-    private b<DH> mqU;
-    private final a.C0781a mrn;
-    private float mro;
-    private boolean mrp;
-    private boolean mrq;
+    private static boolean msC = false;
+    private boolean msA;
+    private boolean msB;
+    private b<DH> mse;
+    private final a.C0782a msy;
+    private float msz;
 
     public static void setGlobalLegacyVisibilityHandlingEnabled(boolean z) {
-        mrr = z;
+        msC = z;
     }
 
     public DraweeView(Context context) {
         super(context);
-        this.mrn = new a.C0781a();
-        this.mro = 0.0f;
-        this.mrp = false;
-        this.mrq = false;
+        this.msy = new a.C0782a();
+        this.msz = 0.0f;
+        this.msA = false;
+        this.msB = false;
         init(context);
     }
 
     public DraweeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mrn = new a.C0781a();
-        this.mro = 0.0f;
-        this.mrp = false;
-        this.mrq = false;
+        this.msy = new a.C0782a();
+        this.msz = 0.0f;
+        this.msA = false;
+        this.msB = false;
         init(context);
     }
 
     public DraweeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mrn = new a.C0781a();
-        this.mro = 0.0f;
-        this.mrp = false;
-        this.mrq = false;
+        this.msy = new a.C0782a();
+        this.msz = 0.0f;
+        this.msA = false;
+        this.msB = false;
         init(context);
     }
 
     private void init(Context context) {
         boolean z = true;
-        if (!this.mrp) {
-            this.mrp = true;
-            this.mqU = b.a(null, context);
+        if (!this.msA) {
+            this.msA = true;
+            this.mse = b.a(null, context);
             if (Build.VERSION.SDK_INT >= 21) {
                 ColorStateList imageTintList = getImageTintList();
                 if (imageTintList != null) {
@@ -67,81 +67,81 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
                     return;
                 }
             }
-            this.mrq = (!mrr || context.getApplicationInfo().targetSdkVersion < 24) ? false : false;
+            this.msB = (!msC || context.getApplicationInfo().targetSdkVersion < 24) ? false : false;
         }
     }
 
     public void setHierarchy(DH dh) {
-        this.mqU.setHierarchy(dh);
-        super.setImageDrawable(this.mqU.getTopLevelDrawable());
+        this.mse.setHierarchy(dh);
+        super.setImageDrawable(this.mse.getTopLevelDrawable());
     }
 
     public DH getHierarchy() {
-        return this.mqU.getHierarchy();
+        return this.mse.getHierarchy();
     }
 
     @Nullable
     public Drawable getTopLevelDrawable() {
-        return this.mqU.getTopLevelDrawable();
+        return this.mse.getTopLevelDrawable();
     }
 
     public void setController(@Nullable com.facebook.drawee.d.a aVar) {
-        this.mqU.setController(aVar);
-        super.setImageDrawable(this.mqU.getTopLevelDrawable());
+        this.mse.setController(aVar);
+        super.setImageDrawable(this.mse.getTopLevelDrawable());
     }
 
     @Nullable
     public com.facebook.drawee.d.a getController() {
-        return this.mqU.getController();
+        return this.mse.getController();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        dwZ();
+        dxn();
         onAttach();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        dwZ();
+        dxn();
         onDetach();
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        dwZ();
+        dxn();
         onDetach();
     }
 
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
         super.onFinishTemporaryDetach();
-        dwZ();
+        dxn();
         onAttach();
     }
 
     protected void onAttach() {
-        dwX();
+        dxl();
     }
 
     protected void onDetach() {
-        dwY();
+        dxm();
     }
 
-    protected void dwX() {
-        this.mqU.onAttach();
+    protected void dxl() {
+        this.mse.onAttach();
     }
 
-    protected void dwY() {
-        this.mqU.onDetach();
+    protected void dxm() {
+        this.mse.onDetach();
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.mqU.onTouchEvent(motionEvent)) {
+        if (this.mse.onTouchEvent(motionEvent)) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
@@ -151,7 +151,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Deprecated
     public void setImageDrawable(Drawable drawable) {
         init(getContext());
-        this.mqU.setController(null);
+        this.mse.setController(null);
         super.setImageDrawable(drawable);
     }
 
@@ -159,7 +159,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Deprecated
     public void setImageBitmap(Bitmap bitmap) {
         init(getContext());
-        this.mqU.setController(null);
+        this.mse.setController(null);
         super.setImageBitmap(bitmap);
     }
 
@@ -167,7 +167,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Deprecated
     public void setImageResource(int i) {
         init(getContext());
-        this.mqU.setController(null);
+        this.mse.setController(null);
         super.setImageResource(i);
     }
 
@@ -175,48 +175,48 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Deprecated
     public void setImageURI(Uri uri) {
         init(getContext());
-        this.mqU.setController(null);
+        this.mse.setController(null);
         super.setImageURI(uri);
     }
 
     public void setAspectRatio(float f) {
-        if (f != this.mro) {
-            this.mro = f;
+        if (f != this.msz) {
+            this.msz = f;
             requestLayout();
         }
     }
 
     public float getAspectRatio() {
-        return this.mro;
+        return this.msz;
     }
 
     public void setLegacyVisibilityHandlingEnabled(boolean z) {
-        this.mrq = z;
+        this.msB = z;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onMeasure(int i, int i2) {
-        this.mrn.width = i;
-        this.mrn.height = i2;
-        a.a(this.mrn, this.mro, getLayoutParams(), getPaddingLeft() + getPaddingRight(), getPaddingTop() + getPaddingBottom());
-        super.onMeasure(this.mrn.width, this.mrn.height);
+        this.msy.width = i;
+        this.msy.height = i2;
+        a.a(this.msy, this.msz, getLayoutParams(), getPaddingLeft() + getPaddingRight(), getPaddingTop() + getPaddingBottom());
+        super.onMeasure(this.msy.width, this.msy.height);
     }
 
     @Override // android.view.View
     protected void onVisibilityChanged(View view, int i) {
         super.onVisibilityChanged(view, i);
-        dwZ();
+        dxn();
     }
 
-    private void dwZ() {
+    private void dxn() {
         Drawable drawable;
-        if (this.mrq && (drawable = getDrawable()) != null) {
+        if (this.msB && (drawable = getDrawable()) != null) {
             drawable.setVisible(getVisibility() == 0, false);
         }
     }
 
     @Override // android.view.View
     public String toString() {
-        return f.aN(this).F("holder", this.mqU != null ? this.mqU.toString() : "<no holder set>").toString();
+        return f.aN(this).F("holder", this.mse != null ? this.mse.toString() : "<no holder set>").toString();
     }
 }

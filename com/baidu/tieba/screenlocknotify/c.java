@@ -14,7 +14,7 @@ import java.util.List;
 public class c extends BaseAdapter {
     private Context mContext;
     private boolean mHasMore = true;
-    private List<d> kSw = new ArrayList();
+    private List<d> kTF = new ArrayList();
 
     public c(Context context) {
         this.mContext = context;
@@ -22,20 +22,20 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.kSw != null) {
-            return this.kSw.size();
+        if (this.kTF != null) {
+            return this.kTF.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: CG */
+    /* renamed from: CI */
     public d getItem(int i) {
-        if (this.kSw == null || i >= this.kSw.size()) {
+        if (this.kTF == null || i >= this.kTF.size()) {
             return null;
         }
-        return this.kSw.get(i);
+        return this.kTF.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,7 +45,7 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return a(this.kSw.get(i), view, viewGroup);
+        return a(this.kTF.get(i), view, viewGroup);
     }
 
     public View a(d dVar, View view, ViewGroup viewGroup) {
@@ -62,17 +62,17 @@ public class c extends BaseAdapter {
         if (dVar == null) {
             return inflate;
         }
-        cZ.kSx.setText(dVar.title);
-        cZ.kSy.setText(dVar.content);
-        cZ.kSz.setDefaultErrorResource(R.drawable.screen_notify_default_bg);
-        cZ.kSz.setDefaultResource(R.drawable.screen_notify_default_bg);
-        cZ.kSz.a(dVar.pic, 10, 0, 0, false);
+        cZ.kTG.setText(dVar.title);
+        cZ.kTH.setText(dVar.content);
+        cZ.kTI.setDefaultErrorResource(R.drawable.screen_notify_default_bg);
+        cZ.kTI.setDefaultResource(R.drawable.screen_notify_default_bg);
+        cZ.kTI.a(dVar.pic, 10, 0, 0, false);
         return inflate;
     }
 
-    public void ex(List<d> list) {
+    public void ez(List<d> list) {
         if (list != null && list.size() != 0) {
-            this.kSw.addAll(list);
+            this.kTF.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -80,9 +80,9 @@ public class c extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public class a {
-        TextView kSx;
-        TextView kSy;
-        TbImageView kSz;
+        TextView kTG;
+        TextView kTH;
+        TbImageView kTI;
         View mLine;
 
         private a() {
@@ -91,10 +91,10 @@ public class c extends BaseAdapter {
 
     private a cZ(View view) {
         a aVar = new a();
-        aVar.kSx = (TextView) view.findViewById(R.id.push_msg_title);
-        aVar.kSy = (TextView) view.findViewById(R.id.push_msg_content);
-        aVar.kSz = (TbImageView) view.findViewById(R.id.push_msg_pic);
-        aVar.kSz.setAutoChangeStyle(false);
+        aVar.kTG = (TextView) view.findViewById(R.id.push_msg_title);
+        aVar.kTH = (TextView) view.findViewById(R.id.push_msg_content);
+        aVar.kTI = (TbImageView) view.findViewById(R.id.push_msg_pic);
+        aVar.kTI.setAutoChangeStyle(false);
         aVar.mLine = view.findViewById(R.id.line);
         return aVar;
     }

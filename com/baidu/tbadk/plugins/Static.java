@@ -30,7 +30,7 @@ public class Static {
                 }
             }
         });
-        bgb();
+        bgc();
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.UEXCEPTION_MESSAGE) { // from class: com.baidu.tbadk.plugins.Static.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -82,7 +82,7 @@ public class Static {
         });
     }
 
-    private static void bgb() {
+    private static void bgc() {
         MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.b.b(0) { // from class: com.baidu.tbadk.plugins.Static.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.b.f

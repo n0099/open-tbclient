@@ -9,17 +9,17 @@ import java.util.List;
 import java.util.TimeZone;
 /* loaded from: classes10.dex */
 public class b extends BdAsyncTask<Void, Void, List<d>> {
-    private static long lEC = BdKVCache.MILLS_1Hour;
+    private static long lFL = BdKVCache.MILLS_1Hour;
     private Context context;
-    private a lEJ;
+    private a lFS;
     private int maxHeight;
     private int maxWidth;
-    private SimpleDateFormat lEE = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat lED = new SimpleDateFormat("HH:mm:ss");
+    private SimpleDateFormat lFN = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat lFM = new SimpleDateFormat("HH:mm:ss");
 
     /* loaded from: classes10.dex */
     public interface a {
-        void eM(List<d> list);
+        void eO(List<d> list);
     }
 
     public b(Context context) {
@@ -27,12 +27,12 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
         this.maxHeight = context.getResources().getDimensionPixelSize(R.dimen.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.lEE.setTimeZone(timeZone);
-        this.lED.setTimeZone(timeZone);
+        this.lFN.setTimeZone(timeZone);
+        this.lFM.setTimeZone(timeZone);
     }
 
     public void b(a aVar) {
-        this.lEJ = aVar;
+        this.lFS = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,7 +43,7 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
         List<d> fu = e.fu(this.context);
         e.c("/sdcard", fu, false);
         e.c("/sdcard/DCIM", fu, true);
-        e.eO(fu);
+        e.eQ(fu);
         return fu;
     }
 
@@ -53,8 +53,8 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     /* renamed from: r */
     public void onPostExecute(List<d> list) {
         super.onPostExecute(list);
-        if (this.lEJ != null) {
-            this.lEJ.eM(list);
+        if (this.lFS != null) {
+            this.lFS.eO(list);
         }
     }
 }

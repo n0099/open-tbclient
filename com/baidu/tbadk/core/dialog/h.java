@@ -185,7 +185,7 @@ public class h implements View.OnClickListener {
     private void uz(String str) {
         TbPageContext<?> n;
         if (!aq.isEmpty(str) && (n = n(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
-            ba.aUZ().b(n, new String[]{str});
+            ba.aVa().b(n, new String[]{str});
         }
     }
 

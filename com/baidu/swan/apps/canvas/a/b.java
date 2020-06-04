@@ -16,8 +16,8 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject ep(int i) {
-        return super.ep(i);
+    public /* bridge */ /* synthetic */ JSONObject er(int i) {
+        return super.er(i);
     }
 
     public b(j jVar) {
@@ -29,7 +29,7 @@ public class b extends a {
         com.baidu.swan.apps.canvas.b.b d = d(unitedSchemeEntity);
         if (d == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "draw model is null");
-            unitedSchemeEntity.result = ep(201);
+            unitedSchemeEntity.result = er(201);
             return false;
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -40,7 +40,7 @@ public class b extends a {
         final String optString = optParamsAsJo.optString("cb");
         if (TextUtils.isEmpty(d.bPF)) {
             com.baidu.swan.apps.component.e.a.aS("SwanAppAction", "canvasId is empty ");
-            unitedSchemeEntity.result = ep(201);
+            unitedSchemeEntity.result = er(201);
             return false;
         }
         if (TextUtils.isEmpty(d.bPG)) {

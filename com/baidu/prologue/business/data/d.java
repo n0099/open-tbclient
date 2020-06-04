@@ -87,8 +87,10 @@ public class d {
                                         d.c(gB, aI);
                                     }
                                 });
-                            } finally {
-                                gB.delete();
+                            } catch (Exception e) {
+                                if (com.baidu.prologue.a.b.a.bzx.get().ND()) {
+                                    Log.e("SourceManager", e.toString());
+                                }
                             }
                         }
                     }, "download splash resource");
@@ -154,7 +156,7 @@ public class d {
         com.baidu.prologue.a.c.e.n(Od());
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [311=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [313=4] */
     public static boolean a(List<e> list, File file) {
         FileWriter fileWriter;
         FileWriter fileWriter2 = null;
@@ -290,7 +292,7 @@ public class d {
         return hashMap;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [412=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [414=4] */
     /* JADX WARN: Removed duplicated region for block: B:40:0x0048 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -379,7 +381,7 @@ public class d {
                             if (d.DEBUG) {
                                 Log.d("SourceManager", "SourceManager scheduleDownloadSplashSource() dataItem == null");
                             }
-                        } else if (h.dQ(eVar.preloadType)) {
+                        } else if (h.dS(eVar.preloadType)) {
                             d.c(eVar);
                         } else {
                             arrayList.add(eVar);
@@ -441,7 +443,7 @@ public class d {
             if (TextUtils.equals(intent.getAction(), "android.net.conn.CONNECTIVITY_CHANGE")) {
                 ArrayList arrayList = new ArrayList();
                 for (e eVar : this.mNeedDownloadList) {
-                    if (h.dQ(eVar.preloadType)) {
+                    if (h.dS(eVar.preloadType)) {
                         Log.d("SourceManager", "onReceive: " + eVar);
                         d.c(eVar);
                     } else {

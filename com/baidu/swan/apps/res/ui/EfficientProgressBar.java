@@ -26,7 +26,7 @@ public class EfficientProgressBar extends View {
 
     public EfficientProgressBar(Context context) {
         super(context);
-        this.cvv = gf(66);
+        this.cvv = gh(66);
         this.cvw = -1L;
         this.cvx = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
@@ -36,7 +36,7 @@ public class EfficientProgressBar extends View {
 
     public EfficientProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cvv = gf(66);
+        this.cvv = gh(66);
         this.cvw = -1L;
         this.cvx = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
@@ -46,7 +46,7 @@ public class EfficientProgressBar extends View {
 
     public EfficientProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cvv = gf(66);
+        this.cvv = gh(66);
         this.cvw = -1L;
         this.cvx = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
@@ -62,8 +62,8 @@ public class EfficientProgressBar extends View {
     }
 
     public void setProgress(int i, boolean z) {
-        if (i != 100 || gg(this.cvt) != 100) {
-            this.cvt = gf(i);
+        if (i != 100 || gi(this.cvt) != 100) {
+            this.cvt = gh(i);
             if (i == 100) {
                 if (this.cvy == null) {
                     eJ(z);
@@ -181,14 +181,14 @@ public class EfficientProgressBar extends View {
     }
 
     private int bm(long j) {
-        return (int) ((gf(66) / 1500.0f) * ((float) j));
+        return (int) ((gh(66) / 1500.0f) * ((float) j));
     }
 
-    private int gf(int i) {
+    private int gh(int i) {
         return i * 100;
     }
 
-    private int gg(int i) {
+    private int gi(int i) {
         return i / 100;
     }
 }

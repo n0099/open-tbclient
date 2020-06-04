@@ -347,7 +347,7 @@ public class a {
         return this.mRootView;
     }
 
-    public void bL(int i) {
+    public void bN(int i) {
         if (i == 2 && UtilHelper.getRealScreenOrientation(this.mContext) == 1) {
             Resources resources = this.mContext.getResources();
             this.aNa = (int) (resources.getDimensionPixelOffset(a.e.sdk_ds6) + (BdUtilHelper.getEquipmentHeight(this.mContext) * 0.33f) + resources.getDimensionPixelSize(a.e.sdk_tbds27) + resources.getDimensionPixelSize(a.e.sdk_tbds130) + resources.getDimensionPixelOffset(a.e.sdk_ds80) + resources.getDimensionPixelOffset(a.e.sdk_ds20));

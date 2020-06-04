@@ -9,17 +9,17 @@ import java.lang.reflect.Method;
 import java.util.Properties;
 /* loaded from: classes5.dex */
 public class f {
-    private static SoftReference<Properties> nNy;
+    private static SoftReference<Properties> nOI;
 
     public static String get(@NonNull String str) {
-        Object obj = dRM().get(str);
+        Object obj = dSa().get(str);
         if (obj == null) {
-            obj = Su(str);
+            obj = Sv(str);
         }
         return obj == null ? "" : String.valueOf(obj);
     }
 
-    private static String Su(String str) {
+    private static String Sv(String str) {
         try {
             Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
             declaredMethod.setAccessible(true);
@@ -30,12 +30,12 @@ public class f {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [56=4] */
-    private static synchronized Properties dRM() {
+    private static synchronized Properties dSa() {
         Properties properties;
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2 = null;
         synchronized (f.class) {
-            properties = nNy != null ? nNy.get() : null;
+            properties = nOI != null ? nOI.get() : null;
             if (properties == null) {
                 properties = new Properties();
                 try {
@@ -50,7 +50,7 @@ public class f {
                     tv.chushou.a.a.d.a.b(fileInputStream);
                 } catch (Exception e2) {
                     tv.chushou.a.a.d.a.b(fileInputStream);
-                    nNy = new SoftReference<>(properties);
+                    nOI = new SoftReference<>(properties);
                     return properties;
                 } catch (Throwable th2) {
                     th = th2;
@@ -58,7 +58,7 @@ public class f {
                     tv.chushou.a.a.d.a.b(fileInputStream2);
                     throw th;
                 }
-                nNy = new SoftReference<>(properties);
+                nOI = new SoftReference<>(properties);
             }
         }
         return properties;

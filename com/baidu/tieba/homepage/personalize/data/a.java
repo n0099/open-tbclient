@@ -6,10 +6,10 @@ import tbclient.App;
 public class a extends com.baidu.tieba.card.data.d {
     public void b(App app) {
         if (app != null) {
-            if (this.gGV == null) {
-                this.gGV = new AdvertAppInfo();
+            if (this.gHg == null) {
+                this.gHg = new AdvertAppInfo();
             }
-            this.gGV.a(app);
+            this.gHg.a(app);
         }
     }
 }

@@ -96,11 +96,11 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         this.dJL.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
     }
 
-    public T kQ(int i) {
+    public T kS(int i) {
         if (this.dJN == null) {
             return null;
         }
-        return this.dJN.kQ(i);
+        return this.dJN.kS(i);
     }
 
     public void setData(List<T> list) {
@@ -230,7 +230,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         public void onPageScrolled(int i, float f, int i2) {
             if (CoverFlowView.this.dJL != null && CoverFlowView.this.dJN != null) {
                 if (CoverFlowView.this.dJN.getCount() == 1 && i == 0 && CoverFlowView.this.dJT != null) {
-                    CoverFlowView.this.dJT.a(1, CoverFlowView.this.dJN.kQ(i));
+                    CoverFlowView.this.dJT.a(1, CoverFlowView.this.dJN.kS(i));
                 }
                 if (CoverFlowView.this.dJL.getVisibility() == 0 && !CoverFlowView.this.dJQ) {
                     int count = CoverFlowView.this.dJN.getCount();
@@ -256,7 +256,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
                         CoverFlowView.this.setIndicatorSelected(i);
                     }
                     if (CoverFlowView.this.dJT != null) {
-                        CoverFlowView.this.dJT.a(i, CoverFlowView.this.dJN.kQ(i));
+                        CoverFlowView.this.dJT.a(i, CoverFlowView.this.dJN.kS(i));
                     }
                 }
             }
@@ -315,9 +315,9 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue;
-            com.baidu.tbadk.core.flow.a.a kQ;
-            if (CoverFlowView.this.dJT != null && (view.getTag() instanceof Integer) && (kQ = CoverFlowView.this.dJN.kQ((intValue = ((Integer) view.getTag()).intValue()))) != null) {
-                CoverFlowView.this.dJT.am(intValue, kQ.aOK());
+            com.baidu.tbadk.core.flow.a.a kS;
+            if (CoverFlowView.this.dJT != null && (view.getTag() instanceof Integer) && (kS = CoverFlowView.this.dJN.kS((intValue = ((Integer) view.getTag()).intValue()))) != null) {
+                CoverFlowView.this.dJT.am(intValue, kS.aOK());
             }
         }
     }

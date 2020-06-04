@@ -67,7 +67,7 @@ public class a extends HttpMessage {
         return this.barrageType;
     }
 
-    public void ct(int i) {
+    public void cv(int i) {
         this.barrageType = i;
     }
 

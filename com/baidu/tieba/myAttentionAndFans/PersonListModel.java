@@ -28,14 +28,14 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public static final int TYPE_EACH = 1;
     private boolean aQG;
     public CustomMessageListener customListener;
-    private int fET;
-    private int fEV;
-    private int fEW;
-    private String fEX;
+    private int fFe;
+    private int fFg;
+    private int fFh;
+    private String fFi;
     public HttpMessageListener httpListener;
-    private a jsS;
-    private PersonListActivity jta;
-    private com.baidu.tbadk.coreExtra.model.a jtb;
+    private a jtY;
+    private PersonListActivity jug;
+    private com.baidu.tbadk.coreExtra.model.a juh;
     private String mId;
     private int mSex;
     public static final BdUniqueId MYFOLLOW = BdUniqueId.gen();
@@ -51,8 +51,8 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
 
     public PersonListModel(PersonListActivity personListActivity, a aVar) {
         super(personListActivity.getPageContext());
-        this.fET = 0;
-        this.fEV = 0;
+        this.fFe = 0;
+        this.fFg = 0;
         this.httpListener = new HttpMessageListener(1002004) { // from class: com.baidu.tieba.myAttentionAndFans.PersonListModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -63,13 +63,13 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                         int statusCode = httpResponsedMessage.getStatusCode();
                         int error = httpResponsedMessage.getError();
                         if (statusCode != 200 || error != 0) {
-                            if (PersonListModel.this.jsS != null) {
+                            if (PersonListModel.this.jtY != null) {
                                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                                    errorString = PersonListModel.this.jta.getResources().getString(R.string.neterror);
+                                    errorString = PersonListModel.this.jug.getResources().getString(R.string.neterror);
                                 } else {
                                     errorString = httpResponsedMessage.getErrorString();
                                 }
-                                PersonListModel.this.jsS.ar(errorString, false);
+                                PersonListModel.this.jtY.ar(errorString, false);
                                 return;
                             }
                             return;
@@ -77,14 +77,14 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                         av data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
                         if (data != null) {
                             if (!StringUtils.isNull(data.dDE)) {
-                                PersonListModel.this.fEX = data.dDE;
-                                PersonListModel.this.fEW = data.type;
+                                PersonListModel.this.fFi = data.dDE;
+                                PersonListModel.this.fFh = data.type;
                             }
-                            data.type = PersonListModel.this.fEW;
-                            data.dDE = PersonListModel.this.fEX;
+                            data.type = PersonListModel.this.fFh;
+                            data.dDE = PersonListModel.this.fFi;
                         }
-                        if (PersonListModel.this.jsS != null) {
-                            PersonListModel.this.jsS.e(data, false);
+                        if (PersonListModel.this.jtY != null) {
+                            PersonListModel.this.jtY.e(data, false);
                         }
                     }
                 }
@@ -97,38 +97,38 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
                     av data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
                     if (data2 == null) {
-                        if (PersonListModel.this.jsS != null) {
-                            PersonListModel.this.jsS.ar("", true);
+                        if (PersonListModel.this.jtY != null) {
+                            PersonListModel.this.jtY.ar("", true);
                             return;
                         }
                         return;
                     }
                     if (!StringUtils.isNull(data2.dDE)) {
-                        PersonListModel.this.fEX = data2.dDE;
-                        PersonListModel.this.fEW = data2.type;
+                        PersonListModel.this.fFi = data2.dDE;
+                        PersonListModel.this.fFh = data2.type;
                     }
-                    data2.type = PersonListModel.this.fEW;
-                    data2.dDE = PersonListModel.this.fEX;
-                    if (PersonListModel.this.jsS != null) {
-                        PersonListModel.this.jsS.e(data2, true);
+                    data2.type = PersonListModel.this.fFh;
+                    data2.dDE = PersonListModel.this.fFi;
+                    if (PersonListModel.this.jtY != null) {
+                        PersonListModel.this.jtY.e(data2, true);
                     }
                 }
             }
         };
-        this.jta = personListActivity;
-        this.jtb = new com.baidu.tbadk.coreExtra.model.a(this.jta.getPageContext());
-        this.jtb.setLoadDataCallBack(this.mLoadDataCallBack);
+        this.jug = personListActivity;
+        this.juh = new com.baidu.tbadk.coreExtra.model.a(this.jug.getPageContext());
+        this.juh.setLoadDataCallBack(this.mLoadDataCallBack);
         this.aQG = true;
         this.mId = null;
-        this.jsS = aVar;
+        this.jtY = aVar;
     }
 
     public int getPage() {
-        return this.fET;
+        return this.fFe;
     }
 
     public void setPage(int i) {
-        this.fET = i;
+        this.fFe = i;
     }
 
     public void setId(String str) {
@@ -151,11 +151,11 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         this.aQG = z;
     }
 
-    public boolean bvY() {
+    public boolean bwa() {
         return this.aQG;
     }
 
-    public void bqt() {
+    public void bqv() {
         String str;
         MessageManager messageManager = MessageManager.getInstance();
         if (this.aQG) {
@@ -169,17 +169,17 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         registerListener(this.httpListener);
     }
 
-    public void pB(int i) {
-        this.fEV = i;
-        this.fET = 0;
-        bvZ();
+    public void pD(int i) {
+        this.fFg = i;
+        this.fFe = 0;
+        bwb();
     }
 
     public int getLoadType() {
-        return this.fEV;
+        return this.fFg;
     }
 
-    public void bvZ() {
+    public void bwb() {
         HttpMessage httpMessage = new HttpMessage(1002004);
         HashMap hashMap = new HashMap();
         if (this.aQG) {
@@ -191,12 +191,12 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             httpMessage.addParam("uid", this.mId);
         }
         hashMap.put("id", String.valueOf(this.mId));
-        if (this.fET != 0) {
-            this.fET++;
-            httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, String.valueOf(this.fET));
+        if (this.fFe != 0) {
+            this.fFe++;
+            httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, String.valueOf(this.fFe));
         }
-        httpMessage.addParam("tab", this.fEV);
-        hashMap.put("page", String.valueOf(this.fET));
+        httpMessage.addParam("tab", this.fFg);
+        hashMap.put("page", String.valueOf(this.fFe));
         hashMap.put("pageid", String.valueOf(getUniqueId().getId()));
         httpMessage.setExtra(hashMap);
         sendMessage(httpMessage);
@@ -217,7 +217,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         return false;
     }
 
-    public void IF(String str) {
+    public void IG(String str) {
         new b(str).execute(new Void[0]);
     }
 

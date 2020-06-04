@@ -38,7 +38,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: rD */
+    /* renamed from: rF */
     public e getItem(int i) {
         if (this.clk == null) {
             return null;
@@ -57,13 +57,13 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_my_assis_wish_list_item_view, (ViewGroup) null);
             C0576a c0576a2 = new C0576a();
-            c0576a2.giI = (TbImageView) view.findViewById(a.g.gift_thumbnail);
-            c0576a2.giI.setDefaultBgResource(a.f.icon_live_gift_default);
-            c0576a2.giI.setDefaultErrorResource(a.f.icon_live_gift_default);
-            c0576a2.giI.setAutoChangeStyle(false);
-            c0576a2.giK = (TextView) view.findViewById(a.g.wish_name);
-            c0576a2.giJ = (TextView) view.findViewById(a.g.wish_count);
-            c0576a2.giL = (ImageView) view.findViewById(a.g.wish_icon_cheng);
+            c0576a2.giT = (TbImageView) view.findViewById(a.g.gift_thumbnail);
+            c0576a2.giT.setDefaultBgResource(a.f.icon_live_gift_default);
+            c0576a2.giT.setDefaultErrorResource(a.f.icon_live_gift_default);
+            c0576a2.giT.setAutoChangeStyle(false);
+            c0576a2.giV = (TextView) view.findViewById(a.g.wish_name);
+            c0576a2.giU = (TextView) view.findViewById(a.g.wish_count);
+            c0576a2.giW = (ImageView) view.findViewById(a.g.wish_icon_cheng);
             view.setTag(c0576a2);
             c0576a = c0576a2;
         } else {
@@ -71,18 +71,18 @@ public class a extends BaseAdapter {
         }
         e item = getItem(i);
         if (item != null) {
-            c0576a.giI.startLoad(item.fsk, 10, false);
-            c0576a.giK.setText(item.mGiftName);
-            if (!TextUtils.isEmpty(item.fsv) && JavaTypesHelper.toInt(item.fsv, 0) <= 0) {
-                c0576a.giL.setVisibility(8);
-                c0576a.giJ.setText(this.mContext.getString(a.i.ala_my_not_assist));
-                c0576a.giJ.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize40));
-                c0576a.giJ.setTextColor(this.mContext.getResources().getColor(a.d.sdk_white_alpha60));
+            c0576a.giT.startLoad(item.fsv, 10, false);
+            c0576a.giV.setText(item.mGiftName);
+            if (!TextUtils.isEmpty(item.fsG) && JavaTypesHelper.toInt(item.fsG, 0) <= 0) {
+                c0576a.giW.setVisibility(8);
+                c0576a.giU.setText(this.mContext.getString(a.i.ala_my_not_assist));
+                c0576a.giU.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize40));
+                c0576a.giU.setTextColor(this.mContext.getResources().getColor(a.d.sdk_white_alpha60));
             } else {
-                c0576a.giL.setVisibility(0);
-                c0576a.giJ.setText(String.format("%s", item.fsv));
-                c0576a.giJ.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize48));
-                c0576a.giJ.setTextColor(Color.parseColor("#C4586A"));
+                c0576a.giW.setVisibility(0);
+                c0576a.giU.setText(String.format("%s", item.fsG));
+                c0576a.giU.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize48));
+                c0576a.giU.setTextColor(Color.parseColor("#C4586A"));
             }
         }
         return view;
@@ -91,10 +91,10 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.ala.livewishlist.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     private static class C0576a {
-        public TbImageView giI;
-        public TextView giJ;
-        public TextView giK;
-        public ImageView giL;
+        public TbImageView giT;
+        public TextView giU;
+        public TextView giV;
+        public ImageView giW;
 
         private C0576a() {
         }

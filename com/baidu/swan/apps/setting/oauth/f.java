@@ -66,7 +66,7 @@ public class f implements i {
         this.cEH.eR(true);
         this.cEH.ao(aqC());
         this.cEH.a(new com.baidu.swan.apps.view.c.a());
-        this.cEH.gA(a.e.aiapps_action_sheet_bg);
+        this.cEH.gC(a.e.aiapps_action_sheet_bg);
         this.cEH.eW(false);
         this.cEH.aol();
         this.cEH.eS(false);

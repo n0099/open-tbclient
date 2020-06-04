@@ -49,7 +49,7 @@ public class b extends aa {
             }
             d.ask().a(optString2, new d.a() { // from class: com.baidu.swan.apps.am.b.b.1
                 @Override // com.baidu.swan.apps.am.b.d.a
-                public void ht(int i) {
+                public void hv(int i) {
                     b.this.a(i, callbackHandler, unitedSchemeEntity, optString);
                 }
             });

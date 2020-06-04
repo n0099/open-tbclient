@@ -14,100 +14,100 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class i {
-    private String iTi;
-    private int iTj;
-    private int iTk;
-    private int iTl;
-    private long iTh = 0;
-    private HashMap<String, Boolean> iTg = new HashMap<>();
+    private String iTV;
+    private int iTW;
+    private int iTX;
+    private int iTY;
+    private long iTU = 0;
+    private HashMap<String, Boolean> iTT = new HashMap<>();
 
-    public void yx(int i) {
-        this.iTk = i;
+    public void yz(int i) {
+        this.iTX = i;
     }
 
-    public int cse() {
-        return this.iTk;
+    public int csn() {
+        return this.iTX;
     }
 
-    public void yy(int i) {
-        this.iTl = i;
+    public void yA(int i) {
+        this.iTY = i;
     }
 
-    public int csf() {
-        return this.iTl;
+    public int cso() {
+        return this.iTY;
     }
 
     public void b(Bundle bundle, Intent intent) {
         if (bundle != null) {
-            this.iTi = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.iTV = bundle.getString(ImageViewerConfig.PV_TYPE);
         } else if (intent != null) {
-            this.iTi = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+            this.iTV = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
             int intExtra = intent.getIntExtra("index", -1);
-            this.iTj = intExtra;
-            this.iTk = intExtra;
-            this.iTl = intExtra;
+            this.iTW = intExtra;
+            this.iTX = intExtra;
+            this.iTY = intExtra;
         }
     }
 
     public void ax(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString(ImageViewerConfig.PV_TYPE, this.iTi);
+            bundle.putString(ImageViewerConfig.PV_TYPE, this.iTV);
         }
     }
 
     public void e(List<String> list, int i, int i2) {
-        synchronized (this.iTg) {
-            if (System.nanoTime() - this.iTh > 300000000 && list != null && i < list.size()) {
-                this.iTg.put(list.get(i), true);
+        synchronized (this.iTT) {
+            if (System.nanoTime() - this.iTU > 300000000 && list != null && i < list.size()) {
+                this.iTT.put(list.get(i), true);
             }
-            this.iTh = System.nanoTime();
-            if (list != null && i2 < list.size() && this.iTg.get(list.get(i2)) == null) {
-                this.iTg.put(list.get(i2), false);
+            this.iTU = System.nanoTime();
+            if (list != null && i2 < list.size() && this.iTT.get(list.get(i2)) == null) {
+                this.iTT.put(list.get(i2), false);
             }
         }
-        if (this.iTg.size() >= 100) {
-            csg();
+        if (this.iTT.size() >= 100) {
+            csp();
         }
     }
 
-    public void csg() {
-        if (this.iTg != null) {
-            synchronized (this.iTg) {
-                if (this.iTg.size() > 0) {
+    public void csp() {
+        if (this.iTT != null) {
+            synchronized (this.iTT) {
+                if (this.iTT.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.iTg.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.iTT.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.getInst().sendImagePv(i, this.iTg.size(), this.iTi, this.iTj + 1, this.iTk + 1);
-                    this.iTg.clear();
+                    TbadkCoreApplication.getInst().sendImagePv(i, this.iTT.size(), this.iTV, this.iTW + 1, this.iTX + 1);
+                    this.iTT.clear();
                 }
             }
         }
     }
 
     public void bg(int i, String str) {
-        if (i == 1 && System.nanoTime() - this.iTh > 300000000) {
-            this.iTg.put(str, true);
+        if (i == 1 && System.nanoTime() - this.iTU > 300000000) {
+            this.iTT.put(str, true);
         }
     }
 
     public void a(int i, String str, String str2, String str3, String str4, String str5) {
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
-        if (this.iTl == this.iTk) {
-            sb.append(this.iTl + 1);
-            if (this.iTk == i - 1) {
+        if (this.iTY == this.iTX) {
+            sb.append(this.iTY + 1);
+            if (this.iTX == i - 1) {
                 sb2.append(1);
             } else {
                 sb2.append(0);
             }
         } else {
-            for (int i2 = this.iTl; i2 <= this.iTk; i2++) {
-                if (i2 == this.iTk) {
+            for (int i2 = this.iTY; i2 <= this.iTX; i2++) {
+                if (i2 == this.iTX) {
                     sb.append(i2 + 1);
-                    if (this.iTk == i - 1) {
+                    if (this.iTX == i - 1) {
                         sb2.append(1);
                     } else {
                         sb2.append(0);
@@ -134,9 +134,9 @@ public class i {
         anVar.ag("pic_count", i);
         anVar.dh("obj_floors", sb.toString());
         anVar.dh("obj_isads", sb2.toString());
-        int i3 = (this.iTk - this.iTl) + 1;
+        int i3 = (this.iTX - this.iTY) + 1;
         if (i3 == 1) {
-            if (this.iTk == i - 1) {
+            if (this.iTX == i - 1) {
                 anVar.dh("obj_id", str);
             } else {
                 anVar.dh("obj_id", "");
@@ -147,7 +147,7 @@ public class i {
             for (int i4 = 0; i4 < i3 - 1; i4++) {
                 sb3.append("|");
             }
-            if (this.iTk == i - 1) {
+            if (this.iTX == i - 1) {
                 sb3.append(str);
             }
             anVar.dh("obj_ids", str);

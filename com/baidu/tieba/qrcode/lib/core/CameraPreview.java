@@ -10,36 +10,36 @@ import android.view.View;
 /* loaded from: classes10.dex */
 public class CameraPreview extends TextureView implements TextureView.SurfaceTextureListener {
     private static final String TAG = CameraPreview.class.getSimpleName();
-    private b kGA;
-    private Runnable kGB;
-    Camera.AutoFocusCallback kGC;
-    private boolean kGz;
+    private boolean kHH;
+    private b kHI;
+    private Runnable kHJ;
+    Camera.AutoFocusCallback kHK;
     private Camera mCamera;
     private boolean mSurfaceCreated;
     private SurfaceTexture mSurfaceTexture;
 
     public CameraPreview(Context context) {
         super(context);
-        this.kGz = false;
+        this.kHH = false;
         this.mSurfaceCreated = false;
-        this.kGB = new Runnable() { // from class: com.baidu.tieba.qrcode.lib.core.CameraPreview.1
+        this.kHJ = new Runnable() { // from class: com.baidu.tieba.qrcode.lib.core.CameraPreview.1
             @Override // java.lang.Runnable
             public void run() {
-                if (CameraPreview.this.mCamera != null && CameraPreview.this.kGz && CameraPreview.this.mSurfaceCreated) {
+                if (CameraPreview.this.mCamera != null && CameraPreview.this.kHH && CameraPreview.this.mSurfaceCreated) {
                     try {
-                        CameraPreview.this.mCamera.autoFocus(CameraPreview.this.kGC);
+                        CameraPreview.this.mCamera.autoFocus(CameraPreview.this.kHK);
                     } catch (Exception e) {
                     }
                 }
             }
         };
-        this.kGC = new Camera.AutoFocusCallback() { // from class: com.baidu.tieba.qrcode.lib.core.CameraPreview.2
+        this.kHK = new Camera.AutoFocusCallback() { // from class: com.baidu.tieba.qrcode.lib.core.CameraPreview.2
             @Override // android.hardware.Camera.AutoFocusCallback
             public void onAutoFocus(boolean z, Camera camera) {
                 if (z) {
-                    CameraPreview.this.postDelayed(CameraPreview.this.kGB, 2000L);
+                    CameraPreview.this.postDelayed(CameraPreview.this.kHJ, 2000L);
                 } else {
-                    CameraPreview.this.postDelayed(CameraPreview.this.kGB, 500L);
+                    CameraPreview.this.postDelayed(CameraPreview.this.kHJ, 500L);
                 }
             }
         };
@@ -49,36 +49,36 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public void setCamera(Camera camera) {
         this.mCamera = camera;
         if (this.mCamera != null) {
-            this.kGA = new b(getContext());
-            this.kGA.b(this.mCamera);
-            if (this.kGz) {
+            this.kHI = new b(getContext());
+            this.kHI.b(this.mCamera);
+            if (this.kHH) {
                 requestLayout();
             } else {
-                bDU();
+                bDW();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bDU() {
+    public void bDW() {
         if (this.mSurfaceTexture != null && this.mCamera != null) {
             try {
-                this.kGz = true;
+                this.kHH = true;
                 this.mCamera.setPreviewTexture(this.mSurfaceTexture);
-                this.kGA.d(this.mCamera);
+                this.kHI.d(this.mCamera);
                 this.mCamera.startPreview();
-                this.mCamera.autoFocus(this.kGC);
+                this.mCamera.autoFocus(this.kHK);
             } catch (Exception e) {
                 Log.e(TAG, e.toString(), e);
             }
         }
     }
 
-    public void cTx() {
+    public void cTN() {
         if (this.mCamera != null) {
             try {
-                removeCallbacks(this.kGB);
-                this.kGz = false;
+                removeCallbacks(this.kHJ);
+                this.kHH = false;
                 this.mCamera.cancelAutoFocus();
                 this.mCamera.setOneShotPreviewCallback(null);
                 this.mCamera.stopPreview();
@@ -92,10 +92,10 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public void onMeasure(int i, int i2) {
         int defaultSize = getDefaultSize(getSuggestedMinimumWidth(), i);
         int defaultSize2 = getDefaultSize(getSuggestedMinimumHeight(), i2);
-        if (this.kGA != null && this.kGA.cTv() != null) {
-            Point cTv = this.kGA.cTv();
-            int i3 = cTv.x;
-            int i4 = cTv.y;
+        if (this.kHI != null && this.kHI.cTL() != null) {
+            Point cTL = this.kHI.cTL();
+            int i3 = cTL.x;
+            int i4 = cTL.y;
             if ((defaultSize * 1.0f) / defaultSize2 < (i3 * 1.0f) / i4) {
                 defaultSize = (int) ((defaultSize2 / ((i4 * 1.0f) / i3)) + 0.5f);
             } else {
@@ -109,17 +109,17 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
         this.mSurfaceCreated = true;
         this.mSurfaceTexture = surfaceTexture;
-        bDU();
+        bDW();
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
         if (surfaceTexture != null) {
-            cTx();
+            cTN();
             post(new Runnable() { // from class: com.baidu.tieba.qrcode.lib.core.CameraPreview.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    CameraPreview.this.bDU();
+                    CameraPreview.this.bDW();
                 }
             });
         }
@@ -128,7 +128,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     @Override // android.view.TextureView.SurfaceTextureListener
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
         this.mSurfaceCreated = false;
-        cTx();
+        cTN();
         return true;
     }
 

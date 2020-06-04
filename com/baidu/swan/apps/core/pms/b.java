@@ -3,5 +3,5 @@ package com.baidu.swan.apps.core.pms;
 public interface b {
     void ZM();
 
-    void eU(int i);
+    void eW(int i);
 }

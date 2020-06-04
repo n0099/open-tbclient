@@ -29,7 +29,7 @@ public class a {
         this.cGE = "";
         if (e.aoG() != null) {
             b.a aoJ = e.aoG().aoJ();
-            this.mFrom = h.gS(aoJ.getAppFrameType());
+            this.mFrom = h.gU(aoJ.getAppFrameType());
             this.mAppId = aoJ.getAppId();
             this.mSource = aoJ.agK();
             this.cGz = aoJ.agQ().getString("aiapp_extra_need_download", "");

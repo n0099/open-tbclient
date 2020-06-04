@@ -40,7 +40,7 @@ public abstract class c<T extends o, V extends BdBaseViewPagerAdapter.a> {
         this.dZu = aVar;
     }
 
-    public a<T, V> aXg() {
+    public a<T, V> aXh() {
         return this.dZu;
     }
 }

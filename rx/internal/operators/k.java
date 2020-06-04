@@ -30,7 +30,7 @@ public final class k<T> implements d.b<T, T> {
                 try {
                     jVar.onError(th);
                 } finally {
-                    dPF();
+                    dPT();
                 }
             }
 
@@ -39,11 +39,11 @@ public final class k<T> implements d.b<T, T> {
                 try {
                     jVar.onCompleted();
                 } finally {
-                    dPF();
+                    dPT();
                 }
             }
 
-            void dPF() {
+            void dPT() {
                 try {
                     k.this.action.call();
                 } catch (Throwable th) {

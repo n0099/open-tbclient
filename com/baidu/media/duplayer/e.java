@@ -127,11 +127,11 @@ public class e {
     }
 
     public String c(int i) {
-        d dA = dA(i);
-        if (dA == null) {
+        d dC = dC(i);
+        if (dC == null) {
             return null;
         }
-        return b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dA.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dA.b() + ".zip";
+        return b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dC.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dC.b() + ".zip";
     }
 
     public void d() {
@@ -164,11 +164,11 @@ public class e {
         return (i & 28) == i;
     }
 
-    public d dA(int i) {
+    public d dC(int i) {
         return LibsInfoDef.getAllGroupMap().get(Integer.valueOf(i));
     }
 
-    public boolean dB(int i) {
+    public boolean dD(int i) {
         return (i & 896) == i;
     }
 

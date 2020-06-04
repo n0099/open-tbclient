@@ -13,7 +13,7 @@ import android.support.annotation.Nullable;
 /* loaded from: classes5.dex */
 public final class i {
     @Nullable
-    public static Uri Qw(@Nullable String str) {
+    public static Uri Qx(@Nullable String str) {
         if (str != null) {
             return Uri.parse(str);
         }

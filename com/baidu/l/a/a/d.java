@@ -5,11 +5,11 @@ import android.content.Context;
 public abstract class d implements c {
     protected Context mCtx;
     protected int mStatusCode = -200;
-    protected boolean miG;
-    protected String miI;
-    protected String miJ;
-    protected String miK;
-    protected boolean mjj;
+    protected boolean mjQ;
+    protected String mjS;
+    protected String mjT;
+    protected String mjU;
+    protected boolean mkt;
 
     public d(Context context) {
         if (context != null) {
@@ -18,28 +18,28 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.l.a.a.c
-    public boolean dsP() {
-        return this.miG;
+    public boolean dtd() {
+        return this.mjQ;
     }
 
     @Override // com.baidu.l.a.a.c
     public boolean isSupport() {
-        return this.mjj;
+        return this.mkt;
     }
 
     @Override // com.baidu.l.a.a.c
     public String getOAID() {
-        return this.miI;
+        return this.mjS;
     }
 
     @Override // com.baidu.l.a.a.c
     public String getAAID() {
-        return this.miJ;
+        return this.mjT;
     }
 
     @Override // com.baidu.l.a.a.c
     public String getVAID() {
-        return this.miK;
+        return this.mjU;
     }
 
     @Override // com.baidu.l.a.a.c
@@ -48,32 +48,32 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.l.a.a.c
-    public void vR(boolean z) {
-        this.miG = z;
+    public void vT(boolean z) {
+        this.mjQ = z;
     }
 
     @Override // com.baidu.l.a.a.c
-    public void vS(boolean z) {
-        this.mjj = z;
-    }
-
-    @Override // com.baidu.l.a.a.c
-    public void PB(String str) {
-        this.miI = str;
+    public void vU(boolean z) {
+        this.mkt = z;
     }
 
     @Override // com.baidu.l.a.a.c
     public void PC(String str) {
-        this.miJ = str;
+        this.mjS = str;
     }
 
     @Override // com.baidu.l.a.a.c
     public void PD(String str) {
-        this.miK = str;
+        this.mjT = str;
     }
 
     @Override // com.baidu.l.a.a.c
-    public void GE(int i) {
+    public void PE(String str) {
+        this.mjU = str;
+    }
+
+    @Override // com.baidu.l.a.a.c
+    public void GG(int i) {
         this.mStatusCode = i;
     }
 }

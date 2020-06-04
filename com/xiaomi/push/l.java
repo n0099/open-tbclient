@@ -17,7 +17,7 @@ public class l {
         boolean z = false;
         synchronized (l.class) {
             if (a == 0) {
-                if (!TextUtils.isEmpty(m496a("ro.miui.ui.version.code")) || !TextUtils.isEmpty(m496a("ro.miui.ui.version.name"))) {
+                if (!TextUtils.isEmpty(m495a("ro.miui.ui.version.code")) || !TextUtils.isEmpty(m495a("ro.miui.ui.version.name"))) {
                     z = true;
                 }
                 a = z ? 1 : 2;
@@ -34,17 +34,17 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m495a() {
+    public static synchronized String m494a() {
         String str;
         synchronized (l.class) {
             int a2 = t.a();
-            str = (!m498a() || a2 <= 0) ? "" : a2 < 2 ? "alpha" : a2 < 3 ? "development" : "stable";
+            str = (!m497a() || a2 <= 0) ? "" : a2 < 2 ? "alpha" : a2 < 3 ? "development" : "stable";
         }
         return str;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m496a(String str) {
+    public static String m495a(String str) {
         String str2;
         try {
             try {
@@ -60,7 +60,7 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static void m497a() {
+    private static void m496a() {
         if (f784a != null) {
             return;
         }
@@ -111,7 +111,7 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m498a() {
+    public static synchronized boolean m497a() {
         boolean z;
         synchronized (l.class) {
             z = a() == 1;
@@ -120,7 +120,7 @@ public class l {
     }
 
     private static o b(String str) {
-        m497a();
+        m496a();
         return f784a.get(str.toUpperCase());
     }
 
@@ -154,18 +154,18 @@ public class l {
             a2 = s.a("persist.sys.country", "");
         }
         if (!TextUtils.isEmpty(a2)) {
-            com.xiaomi.channel.commonutils.logger.b.m52a("get region from system, region = " + a2);
+            com.xiaomi.channel.commonutils.logger.b.m51a("get region from system, region = " + a2);
         }
         if (TextUtils.isEmpty(a2)) {
             String country = Locale.getDefault().getCountry();
-            com.xiaomi.channel.commonutils.logger.b.m52a("locale.default.country = " + country);
+            com.xiaomi.channel.commonutils.logger.b.m51a("locale.default.country = " + country);
             return country;
         }
         return a2;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static synchronized boolean m499b() {
+    public static synchronized boolean m498b() {
         boolean z;
         synchronized (l.class) {
             z = a() == 2;

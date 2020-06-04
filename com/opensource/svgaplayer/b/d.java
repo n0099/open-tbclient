@@ -6,146 +6,146 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes.dex */
 public final class d {
-    private float nfc;
-    private float nfd;
-    private boolean nfg;
-    private float nfe = 1.0f;
-    private float nff = 1.0f;
-    private float gyy = 1.0f;
+    private float ngm;
+    private float ngn;
+    private boolean ngq;
+    private float ngo = 1.0f;
+    private float ngp = 1.0f;
+    private float gyJ = 1.0f;
 
-    public final float dHy() {
-        return this.nfc;
+    public final float dHM() {
+        return this.ngm;
     }
 
-    public final float dHz() {
-        return this.nfd;
+    public final float dHN() {
+        return this.ngn;
     }
 
-    public final float dHA() {
-        return this.nfe;
+    public final float dHO() {
+        return this.ngo;
     }
 
-    public final float dHB() {
-        return this.nff;
+    public final float dHP() {
+        return this.ngp;
     }
 
-    public final boolean dHC() {
-        return this.nfg;
+    public final boolean dHQ() {
+        return this.ngq;
     }
 
-    private final void dHD() {
-        this.nfc = 0.0f;
-        this.nfd = 0.0f;
-        this.nfe = 1.0f;
-        this.nff = 1.0f;
-        this.gyy = 1.0f;
-        this.nfg = false;
+    private final void dHR() {
+        this.ngm = 0.0f;
+        this.ngn = 0.0f;
+        this.ngo = 1.0f;
+        this.ngp = 1.0f;
+        this.gyJ = 1.0f;
+        this.ngq = false;
     }
 
     public final void a(float f, float f2, float f3, float f4, ImageView.ScaleType scaleType) {
         q.m(scaleType, "scaleType");
         if (f != 0.0f && f2 != 0.0f && f3 != 0.0f && f4 != 0.0f) {
-            dHD();
+            dHR();
             float f5 = (f - f3) / 2.0f;
             float f6 = (f2 - f4) / 2.0f;
             float f7 = f3 / f4;
             float f8 = f / f2;
             float f9 = f2 / f4;
             float f10 = f / f3;
-            switch (e.neX[scaleType.ordinal()]) {
+            switch (e.ngh[scaleType.ordinal()]) {
                 case 1:
-                    this.nfc = f5;
-                    this.nfd = f6;
+                    this.ngm = f5;
+                    this.ngn = f6;
                     return;
                 case 2:
                     if (f7 > f8) {
-                        this.gyy = f9;
-                        this.nfg = false;
-                        this.nfe = f9;
-                        this.nff = f9;
-                        this.nfc = (f - (f3 * f9)) / 2.0f;
+                        this.gyJ = f9;
+                        this.ngq = false;
+                        this.ngo = f9;
+                        this.ngp = f9;
+                        this.ngm = (f - (f3 * f9)) / 2.0f;
                         return;
                     }
-                    this.gyy = f10;
-                    this.nfg = true;
-                    this.nfe = f10;
-                    this.nff = f10;
-                    this.nfd = (f2 - (f4 * f10)) / 2.0f;
+                    this.gyJ = f10;
+                    this.ngq = true;
+                    this.ngo = f10;
+                    this.ngp = f10;
+                    this.ngn = (f2 - (f4 * f10)) / 2.0f;
                     return;
                 case 3:
                     if (f3 < f && f4 < f2) {
-                        this.nfc = f5;
-                        this.nfd = f6;
+                        this.ngm = f5;
+                        this.ngn = f6;
                         return;
                     } else if (f7 > f8) {
-                        this.gyy = f10;
-                        this.nfg = true;
-                        this.nfe = f10;
-                        this.nff = f10;
-                        this.nfd = (f2 - (f4 * f10)) / 2.0f;
+                        this.gyJ = f10;
+                        this.ngq = true;
+                        this.ngo = f10;
+                        this.ngp = f10;
+                        this.ngn = (f2 - (f4 * f10)) / 2.0f;
                         return;
                     } else {
-                        this.gyy = f9;
-                        this.nfg = false;
-                        this.nfe = f9;
-                        this.nff = f9;
-                        this.nfc = (f - (f3 * f9)) / 2.0f;
+                        this.gyJ = f9;
+                        this.ngq = false;
+                        this.ngo = f9;
+                        this.ngp = f9;
+                        this.ngm = (f - (f3 * f9)) / 2.0f;
                         return;
                     }
                 case 4:
                     if (f7 > f8) {
-                        this.gyy = f10;
-                        this.nfg = true;
-                        this.nfe = f10;
-                        this.nff = f10;
-                        this.nfd = (f2 - (f4 * f10)) / 2.0f;
+                        this.gyJ = f10;
+                        this.ngq = true;
+                        this.ngo = f10;
+                        this.ngp = f10;
+                        this.ngn = (f2 - (f4 * f10)) / 2.0f;
                         return;
                     }
-                    this.gyy = f9;
-                    this.nfg = false;
-                    this.nfe = f9;
-                    this.nff = f9;
-                    this.nfc = (f - (f3 * f9)) / 2.0f;
+                    this.gyJ = f9;
+                    this.ngq = false;
+                    this.ngo = f9;
+                    this.ngp = f9;
+                    this.ngm = (f - (f3 * f9)) / 2.0f;
                     return;
                 case 5:
                     if (f7 > f8) {
-                        this.gyy = f10;
-                        this.nfg = true;
-                        this.nfe = f10;
-                        this.nff = f10;
+                        this.gyJ = f10;
+                        this.ngq = true;
+                        this.ngo = f10;
+                        this.ngp = f10;
                         return;
                     }
-                    this.gyy = f9;
-                    this.nfg = false;
-                    this.nfe = f9;
-                    this.nff = f9;
+                    this.gyJ = f9;
+                    this.ngq = false;
+                    this.ngo = f9;
+                    this.ngp = f9;
                     return;
                 case 6:
                     if (f7 > f8) {
-                        this.gyy = f10;
-                        this.nfg = true;
-                        this.nfe = f10;
-                        this.nff = f10;
-                        this.nfd = f2 - (f4 * f10);
+                        this.gyJ = f10;
+                        this.ngq = true;
+                        this.ngo = f10;
+                        this.ngp = f10;
+                        this.ngn = f2 - (f4 * f10);
                         return;
                     }
-                    this.gyy = f9;
-                    this.nfg = false;
-                    this.nfe = f9;
-                    this.nff = f9;
-                    this.nfc = f - (f3 * f9);
+                    this.gyJ = f9;
+                    this.ngq = false;
+                    this.ngo = f9;
+                    this.ngp = f9;
+                    this.ngm = f - (f3 * f9);
                     return;
                 case 7:
-                    this.gyy = Math.max(f10, f9);
-                    this.nfg = f10 > f9;
-                    this.nfe = f10;
-                    this.nff = f9;
+                    this.gyJ = Math.max(f10, f9);
+                    this.ngq = f10 > f9;
+                    this.ngo = f10;
+                    this.ngp = f9;
                     return;
                 default:
-                    this.gyy = f10;
-                    this.nfg = true;
-                    this.nfe = f10;
-                    this.nff = f10;
+                    this.gyJ = f10;
+                    this.ngq = true;
+                    this.ngo = f10;
+                    this.ngp = f10;
                     return;
             }
         }

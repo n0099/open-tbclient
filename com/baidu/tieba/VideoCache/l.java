@@ -4,18 +4,18 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes9.dex */
 public class l {
-    private static l eMr;
+    private static l eMC;
     private ExecutorService bFJ = Executors.newFixedThreadPool(10);
 
-    public static l blI() {
-        if (eMr == null) {
+    public static l blK() {
+        if (eMC == null) {
             synchronized (l.class) {
-                if (eMr == null) {
-                    eMr = new l();
+                if (eMC == null) {
+                    eMC = new l();
                 }
             }
         }
-        return eMr;
+        return eMC;
     }
 
     public void s(Runnable runnable) {
@@ -28,7 +28,7 @@ public class l {
         if (this.bFJ != null) {
             this.bFJ.shutdown();
             this.bFJ = null;
-            eMr = null;
+            eMC = null;
         }
     }
 }

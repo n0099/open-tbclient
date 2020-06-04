@@ -109,7 +109,7 @@ public class a {
         }
     }
 
-    public static int dV(int i) {
+    public static int dX(int i) {
         int[] iArr = new int[1];
         GLES30.glGenTextures(1, iArr, 0);
         checkGlError("glGenTextures");
@@ -125,6 +125,6 @@ public class a {
     }
 
     public static int PP() {
-        return dV(36197);
+        return dX(36197);
     }
 }

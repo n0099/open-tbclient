@@ -11,42 +11,42 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
-    private FrsADFragment hrL;
-    private BdTypeRecyclerView hrM;
-    private d hrN;
-    private o hrO;
+    private FrsADFragment hrW;
+    private BdTypeRecyclerView hrX;
+    private d hrY;
+    private o hrZ;
 
     public a(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.hrL = frsADFragment;
-        this.hrM = bdTypeRecyclerView;
+        this.hrW = frsADFragment;
+        this.hrX = bdTypeRecyclerView;
         CY();
     }
 
     private void CY() {
-        this.hrN = new d(this.hrL.getPageContext(), c.hsb, this.hrL.getUniqueId());
-        this.hrO = new o(this.hrL.getPageContext(), p.hqd);
-        this.aSj.add(this.hrN);
-        this.aSj.add(this.hrO);
-        bXd();
-        this.hrM.addAdapters(this.aSj);
+        this.hrY = new d(this.hrW.getPageContext(), c.hsm, this.hrW.getUniqueId());
+        this.hrZ = new o(this.hrW.getPageContext(), p.hqo);
+        this.aSj.add(this.hrY);
+        this.aSj.add(this.hrZ);
+        bXf();
+        this.hrX.addAdapters(this.aSj);
     }
 
     public void setData(ArrayList<com.baidu.adp.widget.ListView.o> arrayList) {
-        this.hrM.setData(arrayList);
+        this.hrX.setData(arrayList);
     }
 
-    private void bXd() {
-        if (!v.isEmpty(this.aSj) && this.hrL != null) {
+    private void bXf() {
+        if (!v.isEmpty(this.aSj) && this.hrW != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.aSj) {
                 if (aVar instanceof h) {
-                    ((h) aVar).a(this.hrL.getTbPageTag());
+                    ((h) aVar).a(this.hrW.getTbPageTag());
                 }
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        this.hrM.getAdapter().notifyDataSetChanged();
+        this.hrX.getAdapter().notifyDataSetChanged();
     }
 
     public void onDestory() {

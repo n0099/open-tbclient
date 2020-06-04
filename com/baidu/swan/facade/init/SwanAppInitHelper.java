@@ -56,7 +56,7 @@ public class SwanAppInitHelper {
     }
 
     private static void initSwanAppModule(Application application) {
-        if (!c.dvi()) {
+        if (!c.dvw()) {
             c.initialize(application);
         }
         initWebView(application);
@@ -70,12 +70,12 @@ public class SwanAppInitHelper {
     }
 
     private static void asyncUpdateSwanAppCore() {
-        final boolean jj = com.baidu.swan.pms.e.a.jj(0);
-        if (jj) {
+        final boolean jl = com.baidu.swan.pms.e.a.jl(0);
+        if (jl) {
             com.baidu.swan.apps.aq.n.postOnIO(new Runnable() { // from class: com.baidu.swan.facade.init.SwanAppInitHelper.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (jj) {
+                    if (jl) {
                         com.baidu.swan.pms.c.a(new g(0), new i(null), new com.baidu.swan.games.k.b.a(null));
                     }
                 }

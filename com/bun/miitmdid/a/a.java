@@ -9,16 +9,16 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 /* loaded from: classes6.dex */
 public class a implements b {
-    public C0770a mjm = new C0770a();
+    public C0771a mkw = new C0771a();
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0770a {
-        public com.bun.miitmdid.a.a.a mjn;
-        public com.bun.miitmdid.a.a.b mjo;
-        public c mjp;
+    public class C0771a {
+        public com.bun.miitmdid.a.a.a mkx;
+        public com.bun.miitmdid.a.a.b mky;
+        public c mkz;
 
-        public C0770a() {
+        public C0771a() {
         }
     }
 
@@ -30,9 +30,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_HUAWEI) != null) {
-            aVar.mjm.mjn = new com.bun.miitmdid.a.a.a();
+            aVar.mkw.mkx = new com.bun.miitmdid.a.a.a();
         }
-        return aVar.mjm.mjn != null;
+        return aVar.mkw.mkx != null;
     }
 
     private static boolean b(a aVar, JSONObject jSONObject) {
@@ -40,9 +40,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_XIAOMI) != null) {
-            aVar.mjm.mjp = new c();
+            aVar.mkw.mkz = new c();
         }
-        return aVar.mjm.mjp != null;
+        return aVar.mkw.mkz != null;
     }
 
     private static boolean c(a aVar, JSONObject jSONObject) {
@@ -53,9 +53,9 @@ public class a implements b {
         com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
         if (optJSONObject != null) {
             bVar.a = optJSONObject.optString("appid");
-            aVar.mjm.mjo = bVar;
+            aVar.mkw.mky = bVar;
         }
-        return aVar.mjm.mjo != null;
+        return aVar.mkw.mky != null;
     }
 
     public static a fP(Context context) {
@@ -82,6 +82,6 @@ public class a implements b {
 
     @Override // com.bun.miitmdid.a.b
     public String a() {
-        return (this.mjm == null || this.mjm.mjo == null || this.mjm.mjo.a == null) ? "" : this.mjm.mjo.a;
+        return (this.mkw == null || this.mkw.mky == null || this.mkw.mky.a == null) ? "" : this.mkw.mky.a;
     }
 }

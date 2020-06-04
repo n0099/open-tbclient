@@ -33,7 +33,7 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
         this.dJG = onClickListener;
     }
 
-    public T kQ(int i) {
+    public T kS(int i) {
         if (this.dataList == null || this.dataList.isEmpty() || i < 0 || i >= this.dataList.size()) {
             return null;
         }

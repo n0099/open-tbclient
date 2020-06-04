@@ -55,14 +55,14 @@ public class g extends com.baidu.swan.apps.api.a.d {
                         aob.setVisibility(8);
                         com.baidu.swan.apps.res.widget.a.aod();
                         com.baidu.swan.apps.res.widget.a.setImmersive(true);
-                        g.em(8);
+                        g.eo(8);
                         break;
                     case 90:
                         actionBar.setVisibility(8);
                         aob.setVisibility(8);
                         com.baidu.swan.apps.res.widget.a.aod();
                         com.baidu.swan.apps.res.widget.a.setImmersive(true);
-                        g.em(0);
+                        g.eo(0);
                         break;
                     default:
                         com.baidu.swan.apps.res.widget.a.aoc();
@@ -71,7 +71,7 @@ public class g extends com.baidu.swan.apps.api.a.d {
                         g.Uu();
                         break;
                 }
-                h.Uv().eo(i);
+                h.Uv().eq(i);
                 g.this.a(str, new com.baidu.swan.apps.api.c.b(0));
             }
         });
@@ -93,7 +93,7 @@ public class g extends com.baidu.swan.apps.api.a.d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void em(int i) {
+    public static void eo(int i) {
         SwanAppActivity ahF = com.baidu.swan.apps.w.f.ahV().ahF();
         ahF.setRequestedOrientation(i);
         ahF.getWindow().setFlags(1024, 1024);

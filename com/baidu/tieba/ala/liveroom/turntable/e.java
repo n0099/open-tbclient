@@ -17,49 +17,49 @@ import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes3.dex */
 public class e {
     private Activity clq;
-    private CustomMessageListener flM;
-    private d.a geX;
-    private d geZ;
+    private CustomMessageListener flX;
+    private d.a gfi;
+    private d gfk;
 
     public e(Activity activity) {
         this.clq = activity;
-        brZ();
+        bsb();
     }
 
     public void a(String str, long j, long j2, long j3) {
-        this.geZ = new d(this.clq);
-        this.geZ.a(this.geX);
-        this.geZ.bsa().setBackgroundColor(AZ(str));
+        this.gfk = new d(this.clq);
+        this.gfk.a(this.gfi);
+        this.gfk.bsc().setBackgroundColor(AZ(str));
         g gVar = new g();
-        gVar.u(this.clq).a(this.geZ).a(this.geZ.bsa().getSchemeCallback());
+        gVar.u(this.clq).a(this.gfk).a(this.gfk.bsc().getSchemeCallback());
         com.baidu.live.view.web.a[] JF = gVar.JF();
         for (com.baidu.live.view.web.a aVar : JF) {
-            this.geZ.bsa().addJavascriptInterface(aVar, aVar.getName());
+            this.gfk.bsc().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.geZ.show(b(str, j, j2, j3));
+        this.gfk.show(b(str, j, j2, j3));
     }
 
     public void resume() {
-        if (this.geZ != null && this.geZ.isShowing() && this.geZ.bsa() != null) {
-            this.geZ.bsa().onResume();
+        if (this.gfk != null && this.gfk.isShowing() && this.gfk.bsc() != null) {
+            this.gfk.bsc().onResume();
         }
     }
 
     public void pause() {
-        if (this.geZ != null && this.geZ.isShowing() && this.geZ.bsa() != null) {
-            this.geZ.bsa().onPause();
+        if (this.gfk != null && this.gfk.isShowing() && this.gfk.bsc() != null) {
+            this.gfk.bsc().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.geZ != null) {
-            this.geZ.bsb();
+        if (this.gfk != null) {
+            this.gfk.bsd();
         }
     }
 
-    public void cs(int i) {
-        if (this.geZ != null && this.geZ.isShowing()) {
-            this.geZ.cs(i);
+    public void cu(int i) {
+        if (this.gfk != null && this.gfk.isShowing()) {
+            this.gfk.cu(i);
         }
     }
 
@@ -69,20 +69,20 @@ public class e {
 
     public void release() {
         yw();
-        MessageManager.getInstance().unRegisterListener(this.flM);
+        MessageManager.getInstance().unRegisterListener(this.flX);
     }
 
-    private void brZ() {
-        this.flM = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
+    private void bsb() {
+        this.flX = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (e.this.geZ != null && e.this.geZ.isShowing()) {
-                    e.this.geZ.dismiss();
+                if (e.this.gfk != null && e.this.gfk.isShowing()) {
+                    e.this.gfk.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.flM);
+        MessageManager.getInstance().registerListener(this.flX);
     }
 
     private int AZ(String str) {
@@ -127,10 +127,10 @@ public class e {
     }
 
     public void a(d.a aVar) {
-        this.geX = aVar;
+        this.gfi = aVar;
     }
 
-    public d.a bGs() {
-        return this.geX;
+    public d.a bGu() {
+        return this.gfi;
     }
 }

@@ -7,7 +7,7 @@ public class j {
     private final int cRg;
     private final TbPageContext<?> dIF;
 
-    public TbPageContext<?> aXW() {
+    public TbPageContext<?> aXX() {
         return this.dIF;
     }
 

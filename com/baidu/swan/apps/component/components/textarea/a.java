@@ -100,19 +100,19 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
     public com.baidu.swan.apps.component.d.b a(@NonNull b bVar, @NonNull b bVar2) {
         com.baidu.swan.apps.component.d.b a = super.a(bVar, bVar2);
         if (!TextUtils.equals(bVar.hint, bVar2.hint)) {
-            a.ew(14);
+            a.ey(14);
         }
         if (bVar.bQA != bVar2.bQA) {
-            a.ew(14);
+            a.ey(14);
         }
         if (!TextUtils.equals(bVar.bQB, bVar2.bQB)) {
-            a.ew(14);
+            a.ey(14);
         }
         if (!TextUtils.equals(bVar.bQC, bVar2.bQC)) {
-            a.ew(14);
+            a.ey(14);
         }
         if (bVar.bQJ != bVar2.bQJ) {
-            a.ew(15);
+            a.ey(15);
         }
         return a;
     }
@@ -122,7 +122,7 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
     @Override // com.baidu.swan.apps.component.a.a.a
     public void a(@NonNull final SwanEditText swanEditText, @NonNull final b bVar, @NonNull com.baidu.swan.apps.component.d.b bVar2) {
         super.a((a) swanEditText, (SwanEditText) bVar, bVar2);
-        if (bVar2.ex(14)) {
+        if (bVar2.ez(14)) {
             f(swanEditText, bVar);
         }
         boolean z = !Vn();
@@ -147,7 +147,7 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
                 com.baidu.swan.apps.component.e.a.aS("Component-TextArea", "activity is null, set textarea attr failed");
             }
         });
-        if (bVar2.ex(15)) {
+        if (bVar2.ez(15)) {
             g(swanEditText, bVar);
         }
         if (z) {
@@ -428,7 +428,7 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
         switch (c) {
             case 0:
                 this.bQv = swanEditText.getLineCount();
-                ((b) Vj()).er(swanEditText.getHeight());
+                ((b) Vj()).et(swanEditText.getHeight());
                 break;
             case 1:
                 ((b) Vj()).iD(swanEditText.getText().toString());

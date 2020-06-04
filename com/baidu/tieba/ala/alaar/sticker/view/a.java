@@ -14,52 +14,52 @@ import com.baidu.tieba.ala.alaar.sticker.view.c;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.live.view.tabhost.a {
-    private d eXA;
-    private int eXB;
-    private c.a eXC;
-    private CommonEmptyView eXD;
-    private BdGridView eXz;
+    private BdGridView eXK;
+    private d eXL;
+    private int eXM;
+    private c.a eXN;
+    private CommonEmptyView eXO;
     private Context mContext;
     private View mRootView;
 
     public a(Context context, int i, c.a aVar) {
         this.mContext = context;
-        this.eXB = i;
-        this.eXC = aVar;
+        this.eXM = i;
+        this.eXN = aVar;
         initView();
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.ala_live_sticker_panel_item_view, (ViewGroup) null);
-        this.eXz = (BdGridView) this.mRootView.findViewById(a.g.ala_live_sticker_gridview);
-        if (this.eXB == 1) {
-            this.eXz.setNumColumns(2);
-        } else if (this.eXB == 2) {
-            this.eXz.setNumColumns(3);
-        } else if (this.eXB == 3) {
-            this.eXz.setNumColumns(5);
+        this.eXK = (BdGridView) this.mRootView.findViewById(a.g.ala_live_sticker_gridview);
+        if (this.eXM == 1) {
+            this.eXK.setNumColumns(2);
+        } else if (this.eXM == 2) {
+            this.eXK.setNumColumns(3);
+        } else if (this.eXM == 3) {
+            this.eXK.setNumColumns(5);
         }
-        this.eXA = new d(this.mContext, this.eXB, this.eXC);
-        this.eXz.setAdapter((ListAdapter) this.eXA);
-        this.eXz.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.a.1
+        this.eXL = new d(this.mContext, this.eXM, this.eXN);
+        this.eXK.setAdapter((ListAdapter) this.eXL);
+        this.eXK.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.a.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             }
         });
-        this.eXD = (CommonEmptyView) this.mRootView.findViewById(a.g.errorView);
-        this.eXD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.a.2
+        this.eXO = (CommonEmptyView) this.mRootView.findViewById(a.g.errorView);
+        this.eXO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.baidu.tieba.ala.alaar.sticker.a.f.bpP();
+                com.baidu.tieba.ala.alaar.sticker.a.f.bpR();
             }
         });
     }
 
     public void setDatas(List<FuFaceItem> list) {
-        if (this.eXA != null) {
-            this.eXA.setDatas(list);
+        if (this.eXL != null) {
+            this.eXL.setDatas(list);
         }
-        this.eXz.setEmptyView(this.eXD);
+        this.eXK.setEmptyView(this.eXO);
     }
 
     @Override // com.baidu.live.view.tabhost.a
@@ -70,13 +70,13 @@ public class a implements com.baidu.live.view.tabhost.a {
     @Override // com.baidu.live.view.tabhost.a
     public String getTitle() {
         String string = this.mContext.getString(a.i.live_sticker_pic);
-        if (this.eXB == 2) {
+        if (this.eXM == 2) {
             return this.mContext.getString(a.i.live_sticker_pic);
         }
-        if (this.eXB == 1) {
+        if (this.eXM == 1) {
             return this.mContext.getString(a.i.live_sticker_text);
         }
-        if (this.eXB == 3) {
+        if (this.eXM == 3) {
             return this.mContext.getString(a.i.live_sticker_ar);
         }
         return string;

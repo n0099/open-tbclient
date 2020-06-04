@@ -24,7 +24,7 @@ public class j {
         }
     }
 
-    public static j aVr() {
+    public static j aVs() {
         if (dPG == null) {
             dPG = new j();
         }
@@ -39,7 +39,7 @@ public class j {
         if (this.dPH.size() > 5) {
             this.dPH.poll();
         }
-        if (aVs()) {
+        if (aVt()) {
             int i2 = 0;
             for (a aVar2 : this.dPH) {
                 i2 = j > 0 ? (int) ((aVar2.dPL / aVar2.dPM) + i2) : i2;
@@ -48,7 +48,7 @@ public class j {
         }
     }
 
-    public boolean aVs() {
+    public boolean aVt() {
         return this.dPH.size() == 5;
     }
 
@@ -56,7 +56,7 @@ public class j {
         if (!com.baidu.adp.lib.util.j.is4GNet()) {
             return null;
         }
-        if (aVs() && this.dPK < 20.0f) {
+        if (aVt() && this.dPK < 20.0f) {
             if (this.dPI == null) {
                 this.dPI = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
             }

@@ -17,7 +17,7 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class AutoBannerView extends RelativeLayout {
     private com.baidu.tbadk.h.c efQ;
-    private CoverFlowView<com.baidu.tieba.personCenter.c.a> hfa;
+    private CoverFlowView<com.baidu.tieba.personCenter.c.a> hfl;
     private List<com.baidu.tieba.personCenter.c.a> mData;
 
     public AutoBannerView(Context context) {
@@ -30,13 +30,13 @@ public class AutoBannerView extends RelativeLayout {
 
     public AutoBannerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hfa = null;
+        this.hfl = null;
         this.mData = null;
         initUI();
     }
 
     private void initUI() {
-        this.hfa = new CoverFlowView<>(getContext());
+        this.hfl = new CoverFlowView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.personCenter.view.AutoBannerView.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public com.baidu.tbadk.core.flow.a.e aTo() {
@@ -60,55 +60,55 @@ public class AutoBannerView extends RelativeLayout {
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public com.baidu.tbadk.core.flow.a.c aTn() {
                 com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
-                cVar.kR(R.drawable.icon_banner_gray_n);
-                cVar.kS(R.drawable.icon_banner_s);
+                cVar.kT(R.drawable.icon_banner_gray_n);
+                cVar.kU(R.drawable.icon_banner_s);
                 cVar.setGravity(81);
-                cVar.kT(R.dimen.tbds26);
+                cVar.kV(R.dimen.tbds26);
                 cVar.setSpacing(R.dimen.tbds10);
                 return cVar;
             }
         };
-        this.hfa.setIndicatorNoOffet(false);
-        this.hfa.setDisableParentEvent(false);
-        this.hfa.setCoverFlowFactory(bVar);
-        this.hfa.setIndicatorVisible(0);
-        this.hfa.setIsAutoPlayDragging(false);
-        addView(this.hfa);
+        this.hfl.setIndicatorNoOffet(false);
+        this.hfl.setDisableParentEvent(false);
+        this.hfl.setCoverFlowFactory(bVar);
+        this.hfl.setIndicatorVisible(0);
+        this.hfl.setIsAutoPlayDragging(false);
+        addView(this.hfl);
     }
 
     public CoverFlowView getCoverFlowView() {
-        return this.hfa;
+        return this.hfl;
     }
 
     public boolean checkIndex(int i) {
         return i > 0 && i <= v.getCount(this.mData);
     }
 
-    public void Kd(String str) {
+    public void Ke(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                ba.aUZ().b((TbPageContext) i.G(getContext()), new String[]{str});
+                ba.aVa().b((TbPageContext) i.G(getContext()), new String[]{str});
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void aXf() {
-        if (this.hfa != null) {
-            this.hfa.aTr();
+    public void aXg() {
+        if (this.hfl != null) {
+            this.hfl.aTr();
         }
     }
 
     public void setIndicatorVisible(int i) {
-        if (this.hfa != null) {
-            this.hfa.setIndicatorVisible(i);
+        if (this.hfl != null) {
+            this.hfl.setIndicatorVisible(i);
         }
     }
 
-    public void ef(List<com.baidu.tieba.personCenter.c.a> list) {
+    public void eh(List<com.baidu.tieba.personCenter.c.a> list) {
         this.mData = list;
-        this.hfa.setData(list);
+        this.hfl.setData(list);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.h.c cVar) {
@@ -116,14 +116,14 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.hfa != null) {
-            this.hfa.onChangeSkinType();
+        if (this.hfl != null) {
+            this.hfl.onChangeSkinType();
         }
     }
 
     public void setMarqueenTime(long j) {
-        if (this.hfa != null) {
-            this.hfa.setMarqueenTime(j);
+        if (this.hfl != null) {
+            this.hfl.setMarqueenTime(j);
         }
     }
 

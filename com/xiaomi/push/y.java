@@ -80,7 +80,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m587a(File file) {
+    public static void m586a(File file) {
         if (!file.isDirectory()) {
             if (file.exists()) {
                 file.delete();
@@ -89,7 +89,7 @@ public class y {
             return;
         }
         for (File file2 : file.listFiles()) {
-            m587a(file2);
+            m586a(file2);
         }
         file.delete();
     }
@@ -117,7 +117,7 @@ public class y {
         } catch (IOException e4) {
             zipOutputStream2 = zipOutputStream;
             e = e4;
-            com.xiaomi.channel.commonutils.logger.b.m52a("zip file failure + " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m51a("zip file failure + " + e.getMessage());
             a(zipOutputStream2);
         } catch (Throwable th2) {
             zipOutputStream2 = zipOutputStream;
@@ -221,7 +221,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m588a(File file) {
+    public static boolean m587a(File file) {
         try {
             if (file.isDirectory()) {
                 return false;

@@ -28,7 +28,7 @@ public class e {
 
     /* loaded from: classes11.dex */
     public interface b {
-        void dr(int i);
+        void dt(int i);
 
         void onFailed();
 
@@ -80,7 +80,7 @@ public class e {
                     if (aVar == null) {
                         aVar = new com.baidu.swan.apps.an.a().bw(5L).bx(20L).pt("小程序loadbundle出错，loadinfo为空或者页面配置空 ");
                     }
-                    h.b(new com.baidu.swan.apps.statistic.a.d().oC(h.gS(com.baidu.swan.apps.v.b.b.this != null ? com.baidu.swan.apps.v.b.b.this.getAppFrameType() : 0)).f(aVar).oF("appjson_config_invalid").a(com.baidu.swan.apps.v.b.b.this));
+                    h.b(new com.baidu.swan.apps.statistic.a.d().oC(h.gU(com.baidu.swan.apps.v.b.b.this != null ? com.baidu.swan.apps.v.b.b.this.getAppFrameType() : 0)).f(aVar).oF("appjson_config_invalid").a(com.baidu.swan.apps.v.b.b.this));
                 }
                 bVar2.a(0, a2);
             }
@@ -206,7 +206,7 @@ public class e {
         }
         long currentTimeMillis2 = System.currentTimeMillis();
         if (DEBUG) {
-            com.baidu.swan.apps.r.a.a.fw((int) (currentTimeMillis2 - currentTimeMillis));
+            com.baidu.swan.apps.r.a.a.fy((int) (currentTimeMillis2 - currentTimeMillis));
         }
         if (!unzipFile) {
             com.baidu.swan.apps.an.a pt2 = new com.baidu.swan.apps.an.a().bw(5L).bx(7L).pt("小程序bundle解压失败! PkgType=" + i);
@@ -272,7 +272,7 @@ public class e {
                     }
                 } else {
                     com.baidu.swan.apps.process.messaging.client.a.amQ().a(8, new SwanAppDeleteInfo(bVar.getAppId(), 1));
-                    h.b(new com.baidu.swan.apps.statistic.a.d().oC(h.gS(bVar.getAppFrameType())).f(new com.baidu.swan.apps.an.a().bw(5L).bx(31L).pt("小程序zip和bundle不存在，兜底重置")).a(bVar));
+                    h.b(new com.baidu.swan.apps.statistic.a.d().oC(h.gU(bVar.getAppFrameType())).f(new com.baidu.swan.apps.an.a().bw(5L).bx(31L).pt("小程序zip和bundle不存在，兜底重置")).a(bVar));
                     if (e.DEBUG) {
                         Log.w("SwanAppBundleHelper", "20050004：reset aiapps");
                         return null;

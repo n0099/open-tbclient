@@ -6,16 +6,16 @@ public class h extends g {
     public boolean isSuccess;
     public String resourceFromType;
 
-    public void bfD() {
+    public void bfE() {
         o oVar;
-        if (m.bfI().bfJ() && (oVar = (o) m.bfI().nC(this.mSubType)) != null) {
+        if (m.bfJ().bfK() && (oVar = (o) m.bfJ().nE(this.mSubType)) != null) {
             oVar.a(this, "head");
         }
     }
 
-    public void bfE() {
+    public void bfF() {
         o oVar;
-        if (m.bfI().bfJ() && (oVar = (o) m.bfI().nC(this.mSubType)) != null) {
+        if (m.bfJ().bfK() && (oVar = (o) m.bfJ().nE(this.mSubType)) != null) {
             oVar.a(this, "img");
         }
     }

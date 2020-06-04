@@ -122,7 +122,7 @@ public class a {
 
     private static void a(Request.a aVar, com.baidu.prologue.a.b.a aVar2) {
         aVar.aL("ver", aVar2.Nu());
-        aVar.aL("sv", "1.0");
+        aVar.aL("sv", "1.0.2");
         aVar.aL("uid", aVar2.NC());
         aVar.aL("bdid", aVar2.NA());
         aVar.aL("cuid", aVar2.Nw());

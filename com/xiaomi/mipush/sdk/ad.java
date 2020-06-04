@@ -5,14 +5,14 @@ import com.xiaomi.push.hq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public class ad implements Runnable {
-    final /* synthetic */ MiTinyDataClient.a.C0859a a;
+    final /* synthetic */ MiTinyDataClient.a.C0860a a;
 
     /* renamed from: a  reason: collision with other field name */
     final /* synthetic */ hq f38a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(MiTinyDataClient.a.C0859a c0859a, hq hqVar) {
-        this.a = c0859a;
+    public ad(MiTinyDataClient.a.C0860a c0860a, hq hqVar) {
+        this.a = c0860a;
         this.f38a = hqVar;
     }
 

@@ -81,13 +81,13 @@ public class MainMenuView extends BaseMenuView {
         this.diY = list;
         this.dja = z;
         if (z && list.size() > 1) {
-            iL(i);
+            iN(i);
         } else {
-            iM(i);
+            iO(i);
         }
     }
 
-    private void iL(int i) {
+    private void iN(int i) {
         this.mDivider.setVisibility(0);
         this.diW.setVisibility(0);
         if (this.diV == null) {
@@ -102,7 +102,7 @@ public class MainMenuView extends BaseMenuView {
         this.diX.b(this.diY.subList(1, 2), this.dja, i);
     }
 
-    private void iM(int i) {
+    private void iO(int i) {
         this.mDivider.setVisibility(8);
         this.diW.setVisibility(8);
         if (this.diV == null) {

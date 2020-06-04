@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.bk;
 /* loaded from: classes8.dex */
 public class e extends k {
-    public static final BdUniqueId gGW = BdUniqueId.gen();
+    public static final BdUniqueId gHh = BdUniqueId.gen();
 
     public e(bk bkVar) {
         this.dEA = bkVar;
@@ -12,7 +12,7 @@ public class e extends k {
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return gGW;
+        return gHh;
     }
 
     public static boolean ac(bk bkVar) {

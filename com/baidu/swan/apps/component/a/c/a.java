@@ -40,7 +40,7 @@ public abstract class a<V extends TextView, M extends b> extends com.baidu.swan.
     public com.baidu.swan.apps.component.d.b a(@NonNull M m, @NonNull M m2) {
         com.baidu.swan.apps.component.d.b a = super.a(m, m2);
         if (!TextUtils.equals(m.text, m2.text)) {
-            a.ew(6);
+            a.ey(6);
         }
         return a;
     }
@@ -48,10 +48,10 @@ public abstract class a<V extends TextView, M extends b> extends com.baidu.swan.
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(@NonNull V v, @NonNull M m, @NonNull com.baidu.swan.apps.component.d.b bVar) {
         super.a((a<V, M>) v, (V) m, bVar);
-        if (bVar.ex(6)) {
+        if (bVar.ez(6)) {
             a((a<V, M>) v, (V) m);
         }
-        if (bVar.ex(4)) {
+        if (bVar.ez(4)) {
             b((a<V, M>) v, (V) m);
         }
     }

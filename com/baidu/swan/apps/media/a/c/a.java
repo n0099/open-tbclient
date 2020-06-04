@@ -150,7 +150,7 @@ public class a {
                     public Boolean call(String str2) {
                         return Boolean.valueOf(a.this.ajs());
                     }
-                }).c(rx.a.b.a.dPv()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.media.a.c.a.2
+                }).c(rx.a.b.a.dPJ()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.media.a.c.a.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // rx.functions.b
                     /* renamed from: e */

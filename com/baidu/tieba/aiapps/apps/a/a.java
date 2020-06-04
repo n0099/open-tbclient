@@ -38,7 +38,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public class a {
-    private b eSf;
+    private b eSq;
     private List<com.baidu.swan.apps.a.c> mListeners;
     public static final String TAG = a.class.getSimpleName();
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
@@ -50,11 +50,11 @@ public class a {
     /* renamed from: com.baidu.tieba.aiapps.apps.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes12.dex */
     private static class C0512a {
-        private static final a eSk = new a();
+        private static final a eSv = new a();
     }
 
-    public static a bnX() {
-        return C0512a.eSk;
+    public static a bnZ() {
+        return C0512a.eSv;
     }
 
     public void init(Context context) {
@@ -64,16 +64,16 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void en(Context context) {
-        if (this.eSf == null) {
-            this.eSf = new b();
-            this.eSf.aOX = h.arO().getString("bd_box_avatar_url", "");
-            this.eSf.bduss = h.arO().getString("bd_box_bduss", "");
-            this.eSf.eSn = h.arO().getString("bd_box_ptoken", "");
-            this.eSf.uid = h.arO().getString("bd_box_uid", "");
-            this.eSf.openBduss = h.arO().getString("bd_box_open_bduss", "");
-            this.eSf.eSl = h.arO().getString("bd_box_union_id", "");
-            this.eSf.eSm = ah.stringToMap(h.arO().getString("bd_box_stoken", ""));
-            this.eSf.displayName = h.arO().getString("bd_box_display_name", "");
+        if (this.eSq == null) {
+            this.eSq = new b();
+            this.eSq.aOX = h.arO().getString("bd_box_avatar_url", "");
+            this.eSq.bduss = h.arO().getString("bd_box_bduss", "");
+            this.eSq.eSy = h.arO().getString("bd_box_ptoken", "");
+            this.eSq.uid = h.arO().getString("bd_box_uid", "");
+            this.eSq.openBduss = h.arO().getString("bd_box_open_bduss", "");
+            this.eSq.eSw = h.arO().getString("bd_box_union_id", "");
+            this.eSq.eSx = ah.stringToMap(h.arO().getString("bd_box_stoken", ""));
+            this.eSq.displayName = h.arO().getString("bd_box_display_name", "");
         }
     }
 
@@ -103,19 +103,19 @@ public class a {
         if (getUserInfoResult != null) {
             try {
                 h.arO().putString("host_account_info_string", getUserInfoResult.toString());
-                if (this.eSf == null) {
-                    this.eSf = new b();
+                if (this.eSq == null) {
+                    this.eSq = new b();
                 }
-                this.eSf.bduss = SapiAccountManager.getInstance().getSession().bduss;
-                this.eSf.eSn = SapiAccountManager.getInstance().getSession().getPtoken();
-                this.eSf.displayName = getUserInfoResult.displayname;
-                this.eSf.uid = getUserInfoResult.uid;
-                this.eSf.aOX = getUserInfoResult.portraitHttps;
-                h.arO().putString("bd_box_display_name", this.eSf.displayName);
-                h.arO().putString("bd_box_uid", this.eSf.uid);
-                h.arO().putString("bd_box_avatar_url", this.eSf.aOX);
-                h.arO().putString("bd_box_bduss", this.eSf.bduss);
-                h.arO().putString("bd_box_ptoken", this.eSf.eSn);
+                this.eSq.bduss = SapiAccountManager.getInstance().getSession().bduss;
+                this.eSq.eSy = SapiAccountManager.getInstance().getSession().getPtoken();
+                this.eSq.displayName = getUserInfoResult.displayname;
+                this.eSq.uid = getUserInfoResult.uid;
+                this.eSq.aOX = getUserInfoResult.portraitHttps;
+                h.arO().putString("bd_box_display_name", this.eSq.displayName);
+                h.arO().putString("bd_box_uid", this.eSq.uid);
+                h.arO().putString("bd_box_avatar_url", this.eSq.aOX);
+                h.arO().putString("bd_box_bduss", this.eSq.bduss);
+                h.arO().putString("bd_box_ptoken", this.eSq.eSy);
                 SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback() { // from class: com.baidu.tieba.aiapps.apps.a.a.5
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.sapi2.callback.LoginStatusAware
@@ -126,7 +126,7 @@ public class a {
                     @Override // com.baidu.sapi2.callback.SapiCallback
                     public void onSuccess(GetUserInfoResult getUserInfoResult2) {
                         if (getUserInfoResult2 != null) {
-                            a.this.eSf.aOX = getUserInfoResult2.portraitHttps;
+                            a.this.eSq.aOX = getUserInfoResult2.portraitHttps;
                         }
                         a.this.jb(true);
                     }
@@ -144,7 +144,7 @@ public class a {
                     @Override // com.baidu.sapi2.callback.SapiCallback
                     public void onFinish() {
                     }
-                }, this.eSf.bduss);
+                }, this.eSq.bduss);
                 return;
             } catch (Exception e) {
                 if (DEBUG) {
@@ -159,8 +159,8 @@ public class a {
 
     public void a(Context context, Bundle bundle, final com.baidu.swan.apps.a.a aVar) {
         int i;
-        if (this.eSf == null) {
-            this.eSf = new b();
+        if (this.eSq == null) {
+            this.eSq = new b();
         }
         LoginActivityConfig loginActivityConfig = new LoginActivityConfig(context, true, -1);
         loginActivityConfig.getIntent().putExtra("close", true);
@@ -188,16 +188,16 @@ public class a {
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.baidu.sapi2.callback.SapiCallback
                             public void onSuccess(GetUserInfoResult getUserInfoResult) {
-                                a.this.eSf.bduss = SapiAccountManager.getInstance().getSession().bduss;
-                                a.this.eSf.eSn = SapiAccountManager.getInstance().getSession().getPtoken();
-                                a.this.eSf.displayName = getUserInfoResult.displayname;
-                                a.this.eSf.uid = getUserInfoResult.uid;
-                                a.this.eSf.aOX = getUserInfoResult.portraitHttps;
-                                h.arO().putString("bd_box_display_name", a.this.eSf.displayName);
-                                h.arO().putString("bd_box_uid", a.this.eSf.uid);
-                                h.arO().putString("bd_box_avatar_url", a.this.eSf.aOX);
-                                h.arO().putString("bd_box_bduss", a.this.eSf.bduss);
-                                h.arO().putString("bd_box_ptoken", a.this.eSf.eSn);
+                                a.this.eSq.bduss = SapiAccountManager.getInstance().getSession().bduss;
+                                a.this.eSq.eSy = SapiAccountManager.getInstance().getSession().getPtoken();
+                                a.this.eSq.displayName = getUserInfoResult.displayname;
+                                a.this.eSq.uid = getUserInfoResult.uid;
+                                a.this.eSq.aOX = getUserInfoResult.portraitHttps;
+                                h.arO().putString("bd_box_display_name", a.this.eSq.displayName);
+                                h.arO().putString("bd_box_uid", a.this.eSq.uid);
+                                h.arO().putString("bd_box_avatar_url", a.this.eSq.aOX);
+                                h.arO().putString("bd_box_bduss", a.this.eSq.bduss);
+                                h.arO().putString("bd_box_ptoken", a.this.eSq.eSy);
                                 aVar.onResult(0);
                                 a.this.jb(true);
                             }
@@ -223,7 +223,7 @@ public class a {
         });
     }
 
-    public void bnY() {
+    public void boa() {
         try {
             SapiAccountManager.getInstance().getConfignation();
         } catch (Exception e) {
@@ -241,16 +241,16 @@ public class a {
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.sapi2.callback.SapiCallback
                     public void onSuccess(GetUserInfoResult getUserInfoResult) {
-                        a.this.eSf.bduss = SapiAccountManager.getInstance().getSession().bduss;
-                        a.this.eSf.eSn = SapiAccountManager.getInstance().getSession().getPtoken();
-                        a.this.eSf.displayName = getUserInfoResult.displayname;
-                        a.this.eSf.uid = getUserInfoResult.uid;
-                        a.this.eSf.aOX = getUserInfoResult.portraitHttps;
-                        h.arO().putString("bd_box_display_name", a.this.eSf.displayName);
-                        h.arO().putString("bd_box_uid", a.this.eSf.uid);
-                        h.arO().putString("bd_box_avatar_url", a.this.eSf.aOX);
-                        h.arO().putString("bd_box_bduss", a.this.eSf.bduss);
-                        h.arO().putString("bd_box_ptoken", a.this.eSf.eSn);
+                        a.this.eSq.bduss = SapiAccountManager.getInstance().getSession().bduss;
+                        a.this.eSq.eSy = SapiAccountManager.getInstance().getSession().getPtoken();
+                        a.this.eSq.displayName = getUserInfoResult.displayname;
+                        a.this.eSq.uid = getUserInfoResult.uid;
+                        a.this.eSq.aOX = getUserInfoResult.portraitHttps;
+                        h.arO().putString("bd_box_display_name", a.this.eSq.displayName);
+                        h.arO().putString("bd_box_uid", a.this.eSq.uid);
+                        h.arO().putString("bd_box_avatar_url", a.this.eSq.aOX);
+                        h.arO().putString("bd_box_bduss", a.this.eSq.bduss);
+                        h.arO().putString("bd_box_ptoken", a.this.eSq.eSy);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -272,60 +272,60 @@ public class a {
     }
 
     public String getBduss() {
-        if (this.eSf == null) {
+        if (this.eSq == null) {
             if (DEBUG) {
                 throw new NullPointerException("AccountInfo is null");
             }
             return "";
         }
-        if (TextUtils.isEmpty(this.eSf.bduss)) {
-            bnY();
+        if (TextUtils.isEmpty(this.eSq.bduss)) {
+            boa();
         }
-        return this.eSf.bduss;
+        return this.eSq.bduss;
     }
 
     public String getUid() {
-        if (this.eSf == null) {
+        if (this.eSq == null) {
             if (DEBUG) {
                 throw new NullPointerException("AccountInfo is null");
             }
             return "";
         }
-        if (TextUtils.isEmpty(this.eSf.uid)) {
-            bnY();
+        if (TextUtils.isEmpty(this.eSq.uid)) {
+            boa();
         }
-        return this.eSf.uid;
+        return this.eSq.uid;
     }
 
-    public String bnZ() {
-        if (this.eSf == null) {
+    public String bob() {
+        if (this.eSq == null) {
             if (DEBUG) {
                 throw new NullPointerException("AccountInfo is null");
             }
             return "";
         }
-        if (TextUtils.isEmpty(this.eSf.aOX)) {
-            bnY();
+        if (TextUtils.isEmpty(this.eSq.aOX)) {
+            boa();
         }
-        return this.eSf.aOX;
+        return this.eSq.aOX;
     }
 
     public String getDisplayName() {
-        if (this.eSf == null) {
+        if (this.eSq == null) {
             if (DEBUG) {
                 throw new NullPointerException("AccountInfo is null");
             }
             return "";
         }
-        if (TextUtils.isEmpty(this.eSf.displayName)) {
-            bnY();
+        if (TextUtils.isEmpty(this.eSq.displayName)) {
+            boa();
         }
-        return this.eSf.displayName;
+        return this.eSq.displayName;
     }
 
     public boolean isLogin() {
-        if (this.eSf != null && TextUtils.isEmpty(this.eSf.bduss)) {
-            bnY();
+        if (this.eSq != null && TextUtils.isEmpty(this.eSq.bduss)) {
+            boa();
         }
         return SapiAccountManager.getInstance().isLogin();
     }
@@ -333,7 +333,7 @@ public class a {
     public void c(com.baidu.swan.apps.a.a aVar) {
         SapiAccountManager.getInstance().logout();
         jb(false);
-        this.eSf = new b();
+        this.eSq = new b();
         h.arO().putString("bd_box_display_name", "");
         h.arO().putString("bd_box_uid", "");
         h.arO().putString("bd_box_avatar_url", "");
@@ -401,7 +401,7 @@ public class a {
     }
 
     public void b(String str, ArrayList<String> arrayList, final b.a aVar) {
-        if (this.eSf == null) {
+        if (this.eSq == null) {
             if (DEBUG) {
                 throw new NullPointerException("AccountInfo is null");
             }
@@ -415,24 +415,24 @@ public class a {
             @Override // com.baidu.sapi2.callback.SapiCallback
             /* renamed from: c */
             public void onSuccess(OpenBdussResult openBdussResult) {
-                a.this.eSf.openBduss = openBdussResult.openBduss;
-                a.this.eSf.eSl = openBdussResult.unionid;
-                a.this.eSf.eSm = openBdussResult.tplStokenMap;
-                h.arO().putString("bd_box_open_bduss", a.this.eSf.openBduss);
-                h.arO().putString("bd_box_union_id", a.this.eSf.eSl);
-                h.arO().putString("bd_box_stoken", ah.mapToString(a.this.eSf.eSm));
+                a.this.eSq.openBduss = openBdussResult.openBduss;
+                a.this.eSq.eSw = openBdussResult.unionid;
+                a.this.eSq.eSx = openBdussResult.tplStokenMap;
+                h.arO().putString("bd_box_open_bduss", a.this.eSq.openBduss);
+                h.arO().putString("bd_box_union_id", a.this.eSq.eSw);
+                h.arO().putString("bd_box_stoken", ah.mapToString(a.this.eSq.eSx));
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("openbduss", a.this.eSf.openBduss);
-                    jSONObject.put(SocialOperation.GAME_UNION_ID, a.this.eSf.eSl);
+                    jSONObject.put("openbduss", a.this.eSq.openBduss);
+                    jSONObject.put(SocialOperation.GAME_UNION_ID, a.this.eSq.eSw);
                     JSONObject jSONObject2 = new JSONObject();
-                    for (String str2 : a.this.eSf.eSm.keySet()) {
-                        jSONObject2.put(str2, a.this.eSf.eSm.get(str2));
+                    for (String str2 : a.this.eSq.eSx.keySet()) {
+                        jSONObject2.put(str2, a.this.eSq.eSx.get(str2));
                     }
                     jSONObject.put("stokenmap", jSONObject2);
-                    jSONObject.put("uid", a.this.eSf.uid);
-                    jSONObject.put("bduss", a.this.eSf.bduss);
-                    jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, a.this.eSf.displayName);
+                    jSONObject.put("uid", a.this.eSq.uid);
+                    jSONObject.put("bduss", a.this.eSq.bduss);
+                    jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, a.this.eSq.displayName);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

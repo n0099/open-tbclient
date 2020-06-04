@@ -103,11 +103,11 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
         return this.btq;
     }
 
-    public void dC(int i) {
+    public void dE(int i) {
         this.btq = i;
     }
 
-    public void dD(int i) {
+    public void dF(int i) {
         this.btp = i;
     }
 
@@ -198,9 +198,9 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
                 mvcNetMessage.setNeedCache(isNeedCache());
                 mvcNetMessage.setResponseDataClass(getResponseDataClass());
                 mvcNetMessage.setTag(this.unique_id);
-                HashMap<String, String> beP = this.btn.beP();
-                if (beP != null) {
-                    for (Map.Entry<String, String> entry : beP.entrySet()) {
+                HashMap<String, String> beQ = this.btn.beQ();
+                if (beQ != null) {
+                    for (Map.Entry<String, String> entry : beQ.entrySet()) {
                         mvcNetMessage.getHttpMessage().addHeader(entry.getKey(), entry.getValue());
                     }
                 }
@@ -245,15 +245,15 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
                 Mv();
                 MvcHttpMessage mvcHttpMessage = new MvcHttpMessage(this.btn, Mt());
                 mvcHttpMessage.setResponseDataClass(getResponseDataClass());
-                HashMap<String, Object> beO = this.btn.beO();
-                if (beO != null) {
-                    for (Map.Entry<String, Object> entry2 : beO.entrySet()) {
+                HashMap<String, Object> beP = this.btn.beP();
+                if (beP != null) {
+                    for (Map.Entry<String, Object> entry2 : beP.entrySet()) {
                         mvcHttpMessage.addParam(entry2.getKey(), entry2.getValue());
                     }
                 }
-                HashMap<String, String> beP2 = this.btn.beP();
-                if (beP2 != null) {
-                    for (Map.Entry<String, String> entry3 : beP2.entrySet()) {
+                HashMap<String, String> beQ2 = this.btn.beQ();
+                if (beQ2 != null) {
+                    for (Map.Entry<String, String> entry3 : beQ2.entrySet()) {
                         mvcHttpMessage.addHeader(entry3.getKey(), entry3.getValue());
                     }
                 }

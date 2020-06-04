@@ -6,7 +6,7 @@ public class l {
     private long ejZ;
     private String imgUrl;
 
-    public long bcB() {
+    public long bcC() {
         return this.ejZ;
     }
 

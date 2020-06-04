@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class a {
     private boolean eav = false;
 
-    public boolean aXE() {
+    public boolean aXF() {
         return this.eav;
     }
 
@@ -28,7 +28,7 @@ public class a {
         }
     }
 
-    public void aXF() {
+    public void aXG() {
         try {
             String string = com.baidu.tbadk.core.sharedPref.b.aTX().getString("praise_abtest_switch_json", null);
             if (!TextUtils.isEmpty(string)) {

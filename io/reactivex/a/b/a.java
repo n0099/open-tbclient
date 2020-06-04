@@ -6,24 +6,24 @@ import io.reactivex.v;
 import java.util.concurrent.Callable;
 /* loaded from: classes6.dex */
 public final class a {
-    private static final v nmr = io.reactivex.a.a.a.d(new Callable<v>() { // from class: io.reactivex.a.b.a.1
+    private static final v nnB = io.reactivex.a.a.a.d(new Callable<v>() { // from class: io.reactivex.a.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: dKz */
+        /* renamed from: dKN */
         public v call() throws Exception {
-            return C0865a.nms;
+            return C0866a.nnC;
         }
     });
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: io.reactivex.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0865a {
-        static final v nms = new b(new Handler(Looper.getMainLooper()));
+    public static final class C0866a {
+        static final v nnC = new b(new Handler(Looper.getMainLooper()));
     }
 
-    public static v dKy() {
-        return io.reactivex.a.a.a.e(nmr);
+    public static v dKM() {
+        return io.reactivex.a.a.a.e(nnB);
     }
 
     public static v a(Looper looper) {

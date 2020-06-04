@@ -36,7 +36,7 @@ public class a {
     }
 
     private h ZG() {
-        return new h.a().io(1).rx("master").azJ();
+        return new h.a().iq(1).rx("master").azJ();
     }
 
     public void a(b bVar) {
@@ -71,7 +71,7 @@ public class a {
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
         @Nullable
         public V8EngineConfiguration.CodeCacheSetting ZH() {
-            if (com.baidu.swan.apps.u.a.aeU().ee(0)) {
+            if (com.baidu.swan.apps.u.a.aeU().eg(0)) {
                 if (a.DEBUG) {
                     Log.d("SwanAppV8Master", "pathList item: " + this.mBasePath);
                 }

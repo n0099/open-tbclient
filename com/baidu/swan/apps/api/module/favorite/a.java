@@ -75,7 +75,7 @@ public class a {
         if (eVar.aoY()) {
             TX();
             if (this.bKh != null) {
-                this.bKh.iw(0);
+                this.bKh.iy(0);
             }
         }
         a(activity, eVar, guideType);
@@ -213,7 +213,7 @@ public class a {
             if (this.bKh != null) {
                 this.bKh.a(new b.a() { // from class: com.baidu.swan.apps.api.module.favorite.a.5
                     @Override // com.baidu.swan.games.view.b.a
-                    public void ek(int i) {
+                    public void em(int i) {
                         if (i == 1) {
                             a.this.HR();
                         }

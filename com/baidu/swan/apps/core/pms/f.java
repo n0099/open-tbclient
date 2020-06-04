@@ -73,7 +73,7 @@ public abstract class f extends j {
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: d */
         public void N(com.baidu.swan.pms.model.f fVar) {
-            com.baidu.swan.apps.v.c.a.lk(f.this.ZY()).ahk().fE(1);
+            com.baidu.swan.apps.v.c.a.lk(f.this.ZY()).ahk().fG(1);
             super.N(fVar);
             if (f.DEBUG) {
                 Log.i("SwanAppPkgDownloadCallback", f.this.getClassName() + ": main onDownloadStart");
@@ -84,7 +84,7 @@ public abstract class f extends j {
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: e */
         public void O(com.baidu.swan.pms.model.f fVar) {
-            com.baidu.swan.apps.v.c.a.lk(f.this.ZY()).ahk().fE(1);
+            com.baidu.swan.apps.v.c.a.lk(f.this.ZY()).ahk().fG(1);
             super.O(fVar);
             if (f.DEBUG) {
                 Log.i("SwanAppPkgDownloadCallback", f.this.getClassName() + ": main onDownloading");
@@ -112,7 +112,7 @@ public abstract class f extends j {
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: f */
         public void L(com.baidu.swan.pms.model.f fVar) {
-            com.baidu.swan.apps.v.c.a.lk(f.this.ZY()).ahk().fE(1);
+            com.baidu.swan.apps.v.c.a.lk(f.this.ZY()).ahk().fG(1);
             super.L(fVar);
             f.this.bXI.add(new UbcFlowEvent("na_pms_end_download"));
             com.baidu.swan.apps.an.a a = f.this.a(fVar);
@@ -143,7 +143,7 @@ public abstract class f extends j {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         public com.baidu.swan.pms.model.a a(com.baidu.swan.pms.model.f fVar, BufferedSource bufferedSource, File file, long j) throws IOException {
-            com.baidu.swan.apps.v.c.a.lk(f.this.ZY()).ll(fVar.toString()).fE(1);
+            com.baidu.swan.apps.v.c.a.lk(f.this.ZY()).ll(fVar.toString()).fG(1);
             com.baidu.swan.apps.aq.e.b<i.a> bVar = new com.baidu.swan.apps.aq.e.b<i.a>() { // from class: com.baidu.swan.apps.core.pms.f.1.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.aq.e.b
@@ -562,7 +562,7 @@ public abstract class f extends j {
 
     protected com.baidu.swan.apps.an.a a(com.baidu.swan.pms.model.f fVar) {
         com.baidu.swan.apps.v.c.a lk = com.baidu.swan.apps.v.c.a.lk(ZY());
-        lk.ahk().fE(1);
+        lk.ahk().fG(1);
         long currentTimeMillis = System.currentTimeMillis();
         com.baidu.swan.apps.an.a b = com.baidu.swan.apps.core.pms.f.a.b(fVar);
         lk.ll("CostRenameZip: " + (System.currentTimeMillis() - currentTimeMillis));
@@ -602,7 +602,7 @@ public abstract class f extends j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eV(int i) {
+    public void eX(int i) {
         if (i == 1013) {
             com.baidu.swan.pms.database.a.aFV().Z(this.mAppId, i);
         } else {
@@ -703,7 +703,7 @@ public abstract class f extends j {
         com.baidu.swan.apps.runtime.e aoG = com.baidu.swan.apps.runtime.e.aoG();
         if (aoG != null && aoG.Qz() == 0) {
             com.baidu.swan.apps.an.a pr = new com.baidu.swan.apps.an.a().bw(10L).bx(2912L).pr("pms download too slow");
-            com.baidu.swan.apps.statistic.a.d oD = new com.baidu.swan.apps.statistic.a.d().f(pr).a(aoG.QJ()).oC(com.baidu.swan.apps.statistic.h.gS(aoG.Qz())).oD(this.mAppId);
+            com.baidu.swan.apps.statistic.a.d oD = new com.baidu.swan.apps.statistic.a.d().f(pr).a(aoG.QJ()).oC(com.baidu.swan.apps.statistic.h.gU(aoG.Qz())).oD(this.mAppId);
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("downloadTime", j);

@@ -35,7 +35,7 @@ public class a extends c<HomePageRecommendFragment> {
     }
 
     private void d() {
-        com.kascend.chushou.c.c.dDV().a(new b() { // from class: com.kascend.chushou.view.homepage.a.1
+        com.kascend.chushou.c.c.dEj().a(new b() { // from class: com.kascend.chushou.view.homepage.a.1
             @Override // com.kascend.chushou.c.b
             public void a() {
                 if (a.this.b()) {
@@ -75,7 +75,7 @@ public class a extends c<HomePageRecommendFragment> {
     }
 
     private void e() {
-        com.kascend.chushou.c.c.dDV().b(new b() { // from class: com.kascend.chushou.view.homepage.a.2
+        com.kascend.chushou.c.c.dEj().b(new b() { // from class: com.kascend.chushou.view.homepage.a.2
             @Override // com.kascend.chushou.c.b
             public void a() {
                 if (a.this.b()) {

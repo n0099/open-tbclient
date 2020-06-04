@@ -17,11 +17,11 @@ public class b {
     private boolean dQo = false;
     private boolean dQp = false;
 
-    public static b aVw() {
+    public static b aVx() {
         return new b();
     }
 
-    public b li(@ColorRes int i) {
+    public b lk(@ColorRes int i) {
         int color = com.baidu.tbadk.core.util.e.c.a.getColor(i);
         this.dQl = color;
         if (!this.dQm) {
@@ -39,20 +39,20 @@ public class b {
         return this;
     }
 
-    public b lj(@ColorRes int i) {
+    public b ll(@ColorRes int i) {
         this.dQj = com.baidu.tbadk.core.util.e.c.a.getColor(i);
         this.dQn = true;
         return this;
     }
 
-    public b lk(int i) {
+    public b lm(int i) {
         this.dQg = i;
         return this;
     }
 
     public void a(TextView textView) {
         if (textView != null) {
-            aVx();
+            aVy();
             if (2 == this.dQg) {
                 textView.setHintTextColor(this.dQf);
             } else {
@@ -61,12 +61,12 @@ public class b {
         }
     }
 
-    public ColorStateList aVx() {
-        this.dQf = aVy();
+    public ColorStateList aVy() {
+        this.dQf = aVz();
         return this.dQf;
     }
 
-    private ColorStateList aVy() {
+    private ColorStateList aVz() {
         int[] iArr = new int[5];
         iArr[0] = this.dQm ? this.dQh : this.dQl;
         iArr[1] = this.dQn ? this.dQj : this.dQl;

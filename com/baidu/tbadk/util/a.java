@@ -9,7 +9,7 @@ public class a {
     private com.baidu.tbadk.coreExtra.data.a eeb;
     private ABTestExtraData eec;
 
-    public static a bgh() {
+    public static a bgi() {
         if (euH == null) {
             synchronized (a.class) {
                 if (euH == null) {
@@ -26,19 +26,19 @@ public class a {
 
     private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
         boolean z = false;
-        z = (aVar == null || this.eeb == null || aVar.aXE() != this.eeb.aXE()) ? true : true;
+        z = (aVar == null || this.eeb == null || aVar.aXF() != this.eeb.aXF()) ? true : true;
         this.eeb = aVar;
         if (z) {
             yN("zan_or_cai_smallflow");
         }
     }
 
-    public boolean aXE() {
+    public boolean aXF() {
         if (this.eeb == null) {
             this.eeb = new com.baidu.tbadk.coreExtra.data.a();
-            this.eeb.aXF();
+            this.eeb.aXG();
         }
-        return this.eeb.aXE();
+        return this.eeb.aXF();
     }
 
     private void yN(String str) {
@@ -49,7 +49,7 @@ public class a {
         this.eec = aBTestExtraData;
     }
 
-    public String bgi() {
+    public String bgj() {
         if (this.eec == null) {
             this.eec = new ABTestExtraData();
             this.eec.parserABTestExtraFormSharedPref();

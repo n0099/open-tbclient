@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.y;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.frs.h<com.baidu.tieba.tbadkCore.g, com.baidu.tieba.ala.livecard.a.b> implements y {
-    private com.baidu.tieba.ala.livecard.b.a fFR;
+    private com.baidu.tieba.ala.livecard.b.a fGc;
     private String mForumName;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -23,9 +23,9 @@ public class a extends com.baidu.tieba.frs.h<com.baidu.tieba.tbadkCore.g, com.ba
         if (this.mPageContext == null) {
             return null;
         }
-        this.fFR = new com.baidu.tieba.ala.livecard.b.a(this.mPageContext);
-        this.fFR.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.b(this.fFR);
+        this.fGc = new com.baidu.tieba.ala.livecard.b.a(this.mPageContext);
+        this.fGc.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.b(this.fGc);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,12 +34,12 @@ public class a extends com.baidu.tieba.frs.h<com.baidu.tieba.tbadkCore.g, com.ba
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.g gVar, com.baidu.tieba.ala.livecard.a.b bVar) {
         super.a(i, view, viewGroup, (ViewGroup) gVar, (com.baidu.tieba.tbadkCore.g) bVar);
         if (gVar != null) {
-            int topThreadSize = this.hmG != null ? this.hmG.getTopThreadSize() : 0;
-            if (gVar.liy != null && gVar.liy.get(0) != null) {
-                gVar.liy.get(0).dDb = (i + 1) - topThreadSize;
+            int topThreadSize = this.hmR != null ? this.hmR.getTopThreadSize() : 0;
+            if (gVar.ljH != null && gVar.ljH.get(0) != null) {
+                gVar.ljH.get(0).dDb = (i + 1) - topThreadSize;
             }
-            bVar.fGk.setForumName(this.mForumName);
-            bVar.fGk.a(gVar);
+            bVar.fGv.setForumName(this.mForumName);
+            bVar.fGv.a(gVar);
         }
         return view;
     }
@@ -50,6 +50,6 @@ public class a extends com.baidu.tieba.frs.h<com.baidu.tieba.tbadkCore.g, com.ba
     }
 
     @Override // com.baidu.tieba.card.y
-    public void qw(int i) {
+    public void qy(int i) {
     }
 }

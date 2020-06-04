@@ -86,11 +86,11 @@ public class r extends d implements n<bk>, o {
             public void onClick(View view) {
                 if (r.this.aec != null && r.this.aee != null && r.this.aed != null && !r.this.aee.aSl()) {
                     if (!r.this.aee.aSk()) {
-                        if (com.baidu.tieba.frs.a.bTX().al(r.this.aee)) {
+                        if (com.baidu.tieba.frs.a.bTZ().al(r.this.aee)) {
                             r.this.aee.gS(true);
                         }
                     } else {
-                        com.baidu.tieba.frs.a.bTX().am(r.this.aee);
+                        com.baidu.tieba.frs.a.bTZ().am(r.this.aee);
                         r.this.aee.gS(false);
                     }
                     r.this.rD();
@@ -131,7 +131,7 @@ public class r extends d implements n<bk>, o {
     /* renamed from: a */
     public void D(bk bkVar) {
         this.aee = bkVar;
-        if (com.baidu.tieba.frs.a.bTX().bTY()) {
+        if (com.baidu.tieba.frs.a.bTZ().bUa()) {
             this.mRootView.setVisibility(0);
             this.adB.b(new a.C0097a(4, false));
             rD();

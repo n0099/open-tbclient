@@ -18,34 +18,34 @@ import com.baidu.tieba.square.model.ForumSquareModel;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> implements c {
-    private ForumSquareModel lds;
-    private a ldt;
-    private b ldu;
-    private String ldv = "";
+    private ForumSquareModel leC;
+    private a leD;
+    private b leE;
+    private String leF = "";
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         V(getIntent());
-        this.lds = new ForumSquareModel(this, this);
-        this.ldt = new a(this);
-        this.ldu = new b(this, this.ldt);
-        this.ldu.dbD();
-        bZS();
+        this.leC = new ForumSquareModel(this, this);
+        this.leD = new a(this);
+        this.leE = new b(this, this.leD);
+        this.leE.dbS();
+        caa();
     }
 
-    private void bZS() {
-        this.ldt.dbx();
-        this.lds.Mi(this.ldv);
+    private void caa() {
+        this.leD.dbM();
+        this.leC.Mj(this.leF);
     }
 
     private void V(Intent intent) {
         Uri uri;
         if (intent != null) {
-            this.ldv = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
-            if (TextUtils.isEmpty(this.ldv) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
-                this.ldv = uri.getQueryParameter("tab_name");
+            this.leF = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
+            if (TextUtils.isEmpty(this.leF) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+                this.leF = uri.getQueryParameter("tab_name");
             }
         }
     }
@@ -53,113 +53,113 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.ldt != null) {
-            this.ldt.changeSkinType(i);
+        if (this.leD != null) {
+            this.leD.changeSkinType(i);
         }
     }
 
     @Override // com.baidu.tieba.square.c
     public void c(String str, List<String> list, List<o> list2) {
         boolean z = true;
-        if (this.lds != null && this.ldt != null) {
-            if (TextUtils.isEmpty(str) || str.equals(this.ldv)) {
-                String dbu = this.ldt.dbu();
-                if (TextUtils.isEmpty(str) || str.equals(dbu)) {
+        if (this.leC != null && this.leD != null) {
+            if (TextUtils.isEmpty(str) || str.equals(this.leF)) {
+                String dbJ = this.leD.dbJ();
+                if (TextUtils.isEmpty(str) || str.equals(dbJ)) {
                     z = false;
                 }
             }
-            this.ldv = str;
-            this.ldt.dby();
-            this.ldt.b(str, list, z);
-            this.ldt.q(list2, this.lds.r(list2, 300));
+            this.leF = str;
+            this.leD.dbN();
+            this.leD.b(str, list, z);
+            this.leD.q(list2, this.leC.r(list2, 300));
             r(str, list2);
         }
     }
 
     @Override // com.baidu.tieba.square.c
     public void a(String str, ErrorData errorData) {
-        if (this.ldt != null && this.lds != null) {
-            this.ldt.dby();
-            com.baidu.tieba.square.data.c Mh = this.lds.Mh(str);
-            if (Mh == null || (Mh.hasMore && v.isEmpty(Mh.getDataList()))) {
-                this.ldt.brM();
-                this.ldt.dbv();
+        if (this.leD != null && this.leC != null) {
+            this.leD.dbN();
+            com.baidu.tieba.square.data.c Mi = this.leC.Mi(str);
+            if (Mi == null || (Mi.hasMore && v.isEmpty(Mi.getDataList()))) {
+                this.leD.brO();
+                this.leD.dbK();
                 return;
             }
-            this.ldt.ey(Mh.getDataList());
-            r(str, Mh.getDataList());
+            this.leD.eA(Mi.getDataList());
+            r(str, Mi.getDataList());
         }
     }
 
     private void r(String str, List<o> list) {
-        if (this.ldt != null && this.lds != null) {
+        if (this.leD != null && this.leC != null) {
             if (v.isEmpty(list)) {
-                this.ldt.brM();
+                this.leD.brO();
             } else if (v.getCount(list) < 10) {
-                this.ldt.dbB();
+                this.leD.dbQ();
             } else {
-                this.ldt.uj(this.lds.Mj(str));
+                this.leD.uj(this.leC.Mk(str));
             }
         }
     }
 
     @Override // com.baidu.tieba.square.c
-    public void b(ErrorData errorData) {
-        if (this.ldt != null) {
-            this.ldt.dbw();
+    public void e(ErrorData errorData) {
+        if (this.leD != null) {
+            this.leD.dbL();
         }
     }
 
-    public void buV() {
+    public void buX() {
         String className = getClassName();
-        if (this.lds != null && this.ldt != null) {
-            boolean isLoading = this.lds.isLoading();
-            boolean uj = this.ldt.uj(this.lds.Mj(className));
+        if (this.leC != null && this.leD != null) {
+            boolean isLoading = this.leC.isLoading();
+            boolean uj = this.leD.uj(this.leC.Mk(className));
             if (!isLoading && uj) {
-                this.lds.Mi(className);
+                this.leC.Mj(className);
             }
         }
     }
 
-    public void dbr() {
-        if (this.ldt != null) {
-            this.ldt.dbx();
+    public void dbH() {
+        if (this.leD != null) {
+            this.leD.dbM();
         }
-        if (this.lds != null) {
-            this.lds.Mi(getClassName());
-        }
-    }
-
-    public void Me(String str) {
-        Mf(this.ldv);
-        this.ldv = str;
-        if (this.lds != null && this.ldt != null) {
-            com.baidu.tieba.square.data.c Mh = this.lds.Mh(str);
-            if (Mh == null || (Mh.hasMore && v.isEmpty(Mh.getDataList()))) {
-                this.ldt.dbz();
-                r(str, null);
-                this.lds.Mi(str);
-                this.ldt.scrollToPositionWithOffset(0, 0);
-                return;
-            }
-            this.ldt.dby();
-            r(str, Mh.getDataList());
-            this.ldt.ey(Mh.getDataList());
-            this.ldt.scrollToPositionWithOffset(Mh.ldS, Mh.dSG);
+        if (this.leC != null) {
+            this.leC.Mj(getClassName());
         }
     }
 
     public void Mf(String str) {
-        com.baidu.tieba.square.data.c Mh;
-        Pair<Integer, Integer> dbt;
-        if (this.ldt != null && this.lds != null && !TextUtils.isEmpty(str) && (Mh = this.lds.Mh(str)) != null && (dbt = this.ldt.dbt()) != null) {
-            Mh.ldS = ((Integer) dbt.first).intValue();
-            Mh.dSG = ((Integer) dbt.second).intValue();
+        Mg(this.leF);
+        this.leF = str;
+        if (this.leC != null && this.leD != null) {
+            com.baidu.tieba.square.data.c Mi = this.leC.Mi(str);
+            if (Mi == null || (Mi.hasMore && v.isEmpty(Mi.getDataList()))) {
+                this.leD.dbO();
+                r(str, null);
+                this.leC.Mj(str);
+                this.leD.scrollToPositionWithOffset(0, 0);
+                return;
+            }
+            this.leD.dbN();
+            r(str, Mi.getDataList());
+            this.leD.eA(Mi.getDataList());
+            this.leD.scrollToPositionWithOffset(Mi.lfc, Mi.dSG);
+        }
+    }
+
+    public void Mg(String str) {
+        com.baidu.tieba.square.data.c Mi;
+        Pair<Integer, Integer> dbI;
+        if (this.leD != null && this.leC != null && !TextUtils.isEmpty(str) && (Mi = this.leC.Mi(str)) != null && (dbI = this.leD.dbI()) != null) {
+            Mi.lfc = ((Integer) dbI.first).intValue();
+            Mi.dSG = ((Integer) dbI.second).intValue();
         }
     }
 
     public String getClassName() {
-        return this.ldv;
+        return this.leF;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

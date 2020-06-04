@@ -22,8 +22,8 @@ public abstract class ed extends ai.a {
     }
 
     public static void a(Context context, hu huVar) {
-        dp m230a = dq.a().m230a();
-        String a = m230a == null ? "" : m230a.a();
+        dp m229a = dq.a().m229a();
+        String a = m229a == null ? "" : m229a.a();
         if (TextUtils.isEmpty(a) || TextUtils.isEmpty(huVar.a())) {
             return;
         }
@@ -47,7 +47,7 @@ public abstract class ed extends ai.a {
         synchronized (dv.a) {
             try {
                 File file = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                y.m588a(file);
+                y.m587a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -134,17 +134,17 @@ public abstract class ed extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract ho mo164a();
+    public abstract ho mo163a();
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract String mo164a();
+    public abstract String mo163a();
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public boolean mo164a() {
-        return du.a(this.f230a, String.valueOf(mo164a()), this.a);
+    public boolean mo163a() {
+        return du.a(this.f230a, String.valueOf(mo163a()), this.a);
     }
 
     protected boolean b() {
@@ -153,23 +153,23 @@ public abstract class ed extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        if (mo164a()) {
-            com.xiaomi.channel.commonutils.logger.b.m52a("DC run job mutual: " + mo164a());
+        if (mo163a()) {
+            com.xiaomi.channel.commonutils.logger.b.m51a("DC run job mutual: " + mo163a());
             return;
         }
-        dp m230a = dq.a().m230a();
-        String a = m230a == null ? "" : m230a.a();
+        dp m229a = dq.a().m229a();
+        String a = m229a == null ? "" : m229a.a();
         if (TextUtils.isEmpty(a) || !b()) {
             return;
         }
-        String mo164a = mo164a();
-        if (TextUtils.isEmpty(mo164a)) {
+        String mo163a = mo163a();
+        if (TextUtils.isEmpty(mo163a)) {
             return;
         }
         hu huVar = new hu();
-        huVar.a(mo164a);
+        huVar.a(mo163a);
         huVar.a(System.currentTimeMillis());
-        huVar.a(mo164a());
+        huVar.a(mo163a());
         a(this.f230a, huVar, a);
     }
 }

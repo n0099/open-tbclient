@@ -8,7 +8,7 @@ public class a extends com.baidu.live.tieba.pb.interactionpopupwindow.a<d, AlaCh
         if (this.bca instanceof d) {
             ((d) this.bca).a(this);
         }
-        df(80);
+        dh(80);
         ca(true);
     }
 

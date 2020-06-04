@@ -30,7 +30,7 @@ public class r extends com.baidu.tieba.frs.h<s, t> {
                 }
                 Object tag = view.getTag(R.id.private_apply_tip);
                 if (tag != null && !tag.toString().equals("")) {
-                    ba.aUZ().b((TbPageContext) com.baidu.adp.base.i.G(r.this.mContext), new String[]{tag.toString()});
+                    ba.aVa().b((TbPageContext) com.baidu.adp.base.i.G(r.this.mContext), new String[]{tag.toString()});
                 }
             }
         };
@@ -57,52 +57,52 @@ public class r extends com.baidu.tieba.frs.h<s, t> {
             } else {
                 if (tVar.mSkinType != this.mSkinType) {
                     am.setBackgroundColor(tVar.mLineView, R.color.cp_bg_line_c);
-                    am.setViewTextColor(tVar.hkq, R.color.cp_cont_d, 1);
-                    am.setViewTextColor(tVar.hkp, R.color.cp_cont_b, 1);
-                    am.setBackgroundResource(tVar.hkr, R.drawable.frs_member_manito_bg);
+                    am.setViewTextColor(tVar.hkB, R.color.cp_cont_d, 1);
+                    am.setViewTextColor(tVar.hkA, R.color.cp_cont_b, 1);
+                    am.setBackgroundResource(tVar.hkC, R.drawable.frs_member_manito_bg);
                 }
-                int bTC = sVar.bTC();
+                int bTE = sVar.bTE();
                 String string2 = this.mContext.getResources().getString(R.string.tbtitle_quota_is_full);
-                if (bTC == -1) {
-                    int bTA = sVar.bTA();
-                    String numberUniformFormat = aq.numberUniformFormat(bTA);
-                    if (bTA > 0) {
+                if (bTE == -1) {
+                    int bTC = sVar.bTC();
+                    String numberUniformFormat = aq.numberUniformFormat(bTC);
+                    if (bTC > 0) {
                         string = String.format(this.mContext.getResources().getString(R.string.tbtitle_apply_assist_left_num_tip), numberUniformFormat);
-                        tVar.hkr.setOnClickListener(this.mClickListener);
-                        tVar.hkq.setText(string);
-                        tVar.hkr.setTag(R.id.private_apply_tip, sVar.bTB());
-                        tVar.hkr.setEnabled(z);
-                        tVar.hkr.setClickable(z);
-                        tVar.hkq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                        tVar.hkC.setOnClickListener(this.mClickListener);
+                        tVar.hkB.setText(string);
+                        tVar.hkC.setTag(R.id.private_apply_tip, sVar.bTD());
+                        tVar.hkC.setEnabled(z);
+                        tVar.hkC.setClickable(z);
+                        tVar.hkB.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                         tVar.mSkinType = this.mSkinType;
                     }
                     z = false;
                     string = string2;
-                    tVar.hkr.setOnClickListener(this.mClickListener);
-                    tVar.hkq.setText(string);
-                    tVar.hkr.setTag(R.id.private_apply_tip, sVar.bTB());
-                    tVar.hkr.setEnabled(z);
-                    tVar.hkr.setClickable(z);
-                    tVar.hkq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                    tVar.hkC.setOnClickListener(this.mClickListener);
+                    tVar.hkB.setText(string);
+                    tVar.hkC.setTag(R.id.private_apply_tip, sVar.bTD());
+                    tVar.hkC.setEnabled(z);
+                    tVar.hkC.setClickable(z);
+                    tVar.hkB.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                     tVar.mSkinType = this.mSkinType;
                 } else {
-                    if (bTC == 0) {
+                    if (bTE == 0) {
                         string = this.mContext.getResources().getString(R.string.tbtitle_is_assist);
-                    } else if (bTC == 1) {
+                    } else if (bTE == 1) {
                         string = this.mContext.getResources().getString(R.string.tbtitle_assist_applying);
                     } else {
-                        if (bTC == 2) {
+                        if (bTE == 2) {
                             string = this.mContext.getResources().getString(R.string.tbtitle_assist_apply_failed);
                         }
                         z = false;
                         string = string2;
                     }
-                    tVar.hkr.setOnClickListener(this.mClickListener);
-                    tVar.hkq.setText(string);
-                    tVar.hkr.setTag(R.id.private_apply_tip, sVar.bTB());
-                    tVar.hkr.setEnabled(z);
-                    tVar.hkr.setClickable(z);
-                    tVar.hkq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                    tVar.hkC.setOnClickListener(this.mClickListener);
+                    tVar.hkB.setText(string);
+                    tVar.hkC.setTag(R.id.private_apply_tip, sVar.bTD());
+                    tVar.hkC.setEnabled(z);
+                    tVar.hkC.setClickable(z);
+                    tVar.hkB.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                     tVar.mSkinType = this.mSkinType;
                 }
             }
@@ -122,9 +122,9 @@ public class r extends com.baidu.tieba.frs.h<s, t> {
         if (this.eap == null) {
             this.eap = new com.baidu.tbadk.coreExtra.view.b(activity);
         }
-        this.eap.bbw();
+        this.eap.bbx();
         this.eap.setAccountData(accountData);
-        this.eap.mO(1);
+        this.eap.mQ(1);
     }
 
     public void onDestroy() {

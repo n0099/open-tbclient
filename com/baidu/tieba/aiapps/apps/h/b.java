@@ -30,7 +30,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public class b extends aa {
-    public static String eSV = "com.baidu.tieba://";
+    public static String eTg = "com.baidu.tieba://";
     private String mCallback;
 
     public b(j jVar) {
@@ -153,7 +153,7 @@ public class b extends aa {
             if (TextUtils.isEmpty(str2)) {
                 str2 = str6 + str4;
             }
-            String str7 = eSV;
+            String str7 = eTg;
             if (TextUtils.isEmpty(str2)) {
                 if (!TextUtils.isEmpty(str)) {
                     str7 = str7 + str;

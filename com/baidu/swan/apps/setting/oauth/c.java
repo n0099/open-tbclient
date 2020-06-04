@@ -219,9 +219,9 @@ public final class c {
 
     public static void a(int i, CallbackHandler callbackHandler, String str) {
         if (!TextUtils.isEmpty(str)) {
-            String gM = gM(i);
-            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i, gM).toString());
-            com.baidu.swan.apps.console.c.w("OAuthUtils", "authorize failed : " + gM);
+            String gO = gO(i);
+            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i, gO).toString());
+            com.baidu.swan.apps.console.c.w("OAuthUtils", "authorize failed : " + gO);
         }
     }
 
@@ -239,9 +239,9 @@ public final class c {
             return;
         }
         int errorCode = hVar.getErrorCode();
-        String gM = gM(errorCode);
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(errorCode, gM));
-        com.baidu.swan.apps.console.c.w("OAuthUtils", "authorize failed : " + gM);
+        String gO = gO(errorCode);
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(errorCode, gO));
+        com.baidu.swan.apps.console.c.w("OAuthUtils", "authorize failed : " + gO);
     }
 
     public static void a(com.baidu.swan.apps.setting.b.a aVar, CallbackHandler callbackHandler, String str) {
@@ -261,7 +261,7 @@ public final class c {
         }
     }
 
-    public static String gM(int i) {
+    public static String gO(int i) {
         String str;
         switch (i) {
             case 10001:

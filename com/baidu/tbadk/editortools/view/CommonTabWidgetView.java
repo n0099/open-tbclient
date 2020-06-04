@@ -20,7 +20,7 @@ public class CommonTabWidgetView extends LinearLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void np(int i);
+        void nr(int i);
     }
 
     public CommonTabWidgetView(Context context, AttributeSet attributeSet) {

@@ -20,7 +20,7 @@ class c {
             return;
         }
         com.baidu.swan.apps.statistic.a.e eVar2 = new com.baidu.swan.apps.statistic.a.e();
-        eVar2.mFrom = h.gS(eVar.aoJ().getAppFrameType());
+        eVar2.mFrom = h.gU(eVar.aoJ().getAppFrameType());
         eVar2.mAppId = eVar.getAppId();
         eVar2.mSource = eVar.aoJ().agK();
         eVar2.mType = "startup";

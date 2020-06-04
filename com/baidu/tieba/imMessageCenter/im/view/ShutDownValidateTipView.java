@@ -16,10 +16,10 @@ import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class ShutDownValidateTipView extends FrameLayout {
     private boolean dWj;
-    private TextView iOl;
-    private ImageView iOm;
-    private TextView iOn;
-    private TextView iOo;
+    private TextView iOY;
+    private ImageView iOZ;
+    private TextView iPa;
+    private TextView iPb;
     private ArrayList<a> networkChangeListeners;
 
     /* loaded from: classes9.dex */
@@ -47,15 +47,15 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void init(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.iOm = (ImageView) findViewById(R.id.no_network_icon);
-        this.iOn = (TextView) findViewById(R.id.no_network_guide1);
-        this.iOo = (TextView) findViewById(R.id.no_network_guide2);
-        this.iOl = (TextView) findViewById(R.id.no_network_showmore);
+        this.iOZ = (ImageView) findViewById(R.id.no_network_icon);
+        this.iPa = (TextView) findViewById(R.id.no_network_guide1);
+        this.iPb = (TextView) findViewById(R.id.no_network_guide2);
+        this.iOY = (TextView) findViewById(R.id.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.iOl != null) {
-            this.iOl.setOnClickListener(onClickListener);
+        if (this.iOY != null) {
+            this.iOY.setOnClickListener(onClickListener);
         }
     }
 
@@ -122,16 +122,16 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        am.setImageResource(this.iOm, R.drawable.icon_error);
+        am.setImageResource(this.iOZ, R.drawable.icon_error);
         am.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
         if (i == 1 || i == 4) {
-            this.iOn.setTextColor(-10523526);
-            this.iOo.setTextColor(-8682095);
-            this.iOl.setTextColor(-10523526);
+            this.iPa.setTextColor(-10523526);
+            this.iPb.setTextColor(-8682095);
+            this.iOY.setTextColor(-10523526);
             return;
         }
-        this.iOn.setTextColor(-14277082);
-        this.iOo.setTextColor(-5065030);
-        this.iOl.setTextColor(-14277082);
+        this.iPa.setTextColor(-14277082);
+        this.iPb.setTextColor(-5065030);
+        this.iOY.setTextColor(-14277082);
     }
 }

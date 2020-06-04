@@ -4,6 +4,6 @@ import android.app.Activity;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 /* loaded from: classes8.dex */
 public class a {
-    public Activity jAm;
-    public BaseResp jAn;
+    public Activity jBs;
+    public BaseResp jBt;
 }

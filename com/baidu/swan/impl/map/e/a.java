@@ -99,7 +99,7 @@ public class a extends c {
         return arrayList;
     }
 
-    public boolean iJ(int i) {
+    public boolean iL(int i) {
         if (this.dip.getAllStep() != null && this.dip.getAllStep().get(i) != null && DEBUG) {
             Log.i("baidumapsdk", "DrivingRouteOverlay onRouteNodeClick");
             return false;
@@ -111,7 +111,7 @@ public class a extends c {
     public final boolean onMarkerClick(Marker marker) {
         for (Overlay overlay : this.div) {
             if ((overlay instanceof Marker) && overlay.equals(marker) && marker.getExtraInfo() != null) {
-                iJ(marker.getExtraInfo().getInt("index"));
+                iL(marker.getExtraInfo().getInt("index"));
             }
         }
         return true;

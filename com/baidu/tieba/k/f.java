@@ -1,13 +1,13 @@
 package com.baidu.tieba.k;
 /* loaded from: classes.dex */
 public interface f {
-    void Iq(String str);
-
     void Ir(String str);
 
-    boolean Is(String str);
+    void Is(String str);
 
     boolean It(String str);
+
+    boolean Iu(String str);
 
     void e(String str, int i, int i2, String str2);
 

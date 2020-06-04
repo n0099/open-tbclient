@@ -37,7 +37,7 @@ public class a extends com.baidu.swan.apps.w.b {
         if (this.cil != null && this.cil.QJ() != null) {
             b.a QJ = this.cil.QJ();
             f fVar = new f();
-            fVar.mFrom = h.gS(1);
+            fVar.mFrom = h.gU(1);
             fVar.mAppId = QJ.getAppId();
             fVar.mSource = QJ.agK();
             fVar.mType = "show";

@@ -47,7 +47,7 @@ public class cj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m199a() {
+    public String m198a() {
         return this.f163a;
     }
 

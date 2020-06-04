@@ -124,7 +124,7 @@ public abstract class b extends Fragment implements SlideInterceptor {
         } else {
             lq = com.baidu.swan.apps.w.f.ahV().lq(this.bUY.getPage());
         }
-        eH(lq.cBc);
+        eJ(lq.cBc);
         this.bVa.setTitle(lq.cBd);
         this.bVh = new a(new Runnable() { // from class: com.baidu.swan.apps.core.d.b.1
             @Override // java.lang.Runnable
@@ -134,7 +134,7 @@ public abstract class b extends Fragment implements SlideInterceptor {
         });
         this.bVa.findViewById(a.f.titlebar_center_zone);
         if (!(this instanceof SwanAppAdLandingFragment)) {
-            eI(SwanAppConfigData.dT(lq.cBe));
+            eK(SwanAppConfigData.dT(lq.cBe));
         }
         this.bVc = lq.cBe;
     }
@@ -229,8 +229,8 @@ public abstract class b extends Fragment implements SlideInterceptor {
             com.baidu.swan.apps.w.g.aie().ed(false);
             this.mActivity.moveTaskToBack(true);
             XZ();
-            ((SwanAppActivity) this.mActivity).ec(1);
-            an.atY().hI(2);
+            ((SwanAppActivity) this.mActivity).ee(1);
+            an.atY().hK(2);
         }
     }
 
@@ -245,7 +245,7 @@ public abstract class b extends Fragment implements SlideInterceptor {
         a(fVar);
     }
 
-    public boolean eH(int i) {
+    public boolean eJ(int i) {
         return t(i, false);
     }
 
@@ -315,16 +315,16 @@ public abstract class b extends Fragment implements SlideInterceptor {
     }
 
     public void dB(boolean z) {
-        b eK;
+        b eM;
         e QH = com.baidu.swan.apps.w.f.ahV().QH();
         if (QH != null) {
             if (z) {
-                eK = QH.YP();
+                eM = QH.YP();
             } else {
-                eK = QH.eK(QH.YS() - 1);
+                eM = QH.eM(QH.YS() - 1);
             }
-            if (eK != null) {
-                dA(eK.Ty());
+            if (eM != null) {
+                dA(eM.Ty());
             }
         }
     }
@@ -514,7 +514,7 @@ public abstract class b extends Fragment implements SlideInterceptor {
         if (QH == null || QH.YS() == 1) {
             if (this.mActivity != null) {
                 this.mActivity.moveTaskToBack(true);
-                an.atY().hI(1);
+                an.atY().hK(1);
                 return;
             }
             return;
@@ -536,12 +536,12 @@ public abstract class b extends Fragment implements SlideInterceptor {
     private void b(boolean z, float f) {
         e QH = QH();
         if (QH != null && QH.YS() >= 2) {
-            b eK = QH.eK(QH.YS() - 2);
-            a(f, eK);
+            b eM = QH.eM(QH.YS() - 2);
+            a(f, eM);
             if (z) {
-                QH.YT().h(eK);
+                QH.YT().h(eM);
             } else {
-                QH.YT().i(eK);
+                QH.YT().i(eM);
             }
         }
     }
@@ -561,7 +561,7 @@ public abstract class b extends Fragment implements SlideInterceptor {
         }
     }
 
-    public boolean eI(int i) {
+    public boolean eK(int i) {
         return d(i, "", false);
     }
 
@@ -646,7 +646,7 @@ public abstract class b extends Fragment implements SlideInterceptor {
         if (this.bVf != null) {
             this.mStatusBarColor = i;
             if (this.bVg == 1) {
-                z2 = com.baidu.swan.apps.aq.g.hG(i);
+                z2 = com.baidu.swan.apps.aq.g.hI(i);
             } else if (this.bVg != -16777216) {
                 z2 = false;
             }

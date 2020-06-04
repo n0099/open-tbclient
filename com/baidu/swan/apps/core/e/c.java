@@ -93,16 +93,16 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.b {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        /* renamed from: eO */
-        public a eR(int i) {
-            super.eR(i);
+        /* renamed from: eQ */
+        public a eT(int i) {
+            super.eT(i);
             return this;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        /* renamed from: eP */
-        public a eQ(int i) {
+        /* renamed from: eR */
+        public a eS(int i) {
             this.mMessageId = i;
             return this;
         }

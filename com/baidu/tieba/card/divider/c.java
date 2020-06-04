@@ -9,22 +9,22 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class c extends com.baidu.tieba.card.b<b> {
-    private View eLg;
-    private int gIw;
-    private int gIx;
+    private View eLr;
+    private int gIH;
+    private int gII;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gIw = R.color.cp_bg_line_c;
-        this.gIx = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
+        this.gIH = R.color.cp_bg_line_c;
+        this.gII = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
         getView().setOnClickListener(this);
-        this.eLg = getView().findViewById(R.id.card_divider);
+        this.eLr = getView().findViewById(R.id.card_divider);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundColor(this.eLg, this.gIw);
+            am.setBackgroundColor(this.eLr, this.gIH);
         }
         this.mSkinType = i;
     }
@@ -38,19 +38,19 @@ public class c extends com.baidu.tieba.card.b<b> {
     @Override // com.baidu.tieba.card.b
     public void a(b bVar) {
         if (bVar != null) {
-            this.eLg.setVisibility(0);
-            this.gIw = bVar.gIw;
-            this.gIx = bVar.gIx;
-            bLT();
+            this.eLr.setVisibility(0);
+            this.gIH = bVar.gIH;
+            this.gII = bVar.gII;
+            bLV();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void bLT() {
-        ViewGroup.LayoutParams layoutParams = this.eLg.getLayoutParams();
-        if (layoutParams != null && layoutParams.height != this.gIx) {
-            layoutParams.height = this.gIx;
-            this.eLg.setLayoutParams(layoutParams);
+    private void bLV() {
+        ViewGroup.LayoutParams layoutParams = this.eLr.getLayoutParams();
+        if (layoutParams != null && layoutParams.height != this.gII) {
+            layoutParams.height = this.gII;
+            this.eLr.setLayoutParams(layoutParams);
         }
     }
 

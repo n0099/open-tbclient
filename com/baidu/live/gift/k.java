@@ -241,9 +241,9 @@ public class k implements w {
     }
 
     @Override // com.baidu.live.gift.w
-    public void bL(int i) {
+    public void bN(int i) {
         if (this.aFe != null) {
-            this.aFe.bL(i);
+            this.aFe.bN(i);
         }
     }
 

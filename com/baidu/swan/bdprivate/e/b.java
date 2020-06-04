@@ -18,12 +18,12 @@ public class b implements com.baidu.swan.apps.u.b.b {
                 @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
                 public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                     if (delegateResult.mResult == null) {
-                        bVar.ei(0);
+                        bVar.ek(0);
                         return;
                     }
                     String string = delegateResult.mResult.getString("invoiceInfo");
                     if (TextUtils.isEmpty(string)) {
-                        bVar.ei(0);
+                        bVar.ek(0);
                     } else {
                         bVar.ab(t.parseString(string));
                     }

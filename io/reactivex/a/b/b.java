@@ -23,13 +23,13 @@ public final class b extends v {
         if (timeUnit == null) {
             throw new NullPointerException("unit == null");
         }
-        RunnableC0866b runnableC0866b = new RunnableC0866b(this.handler, io.reactivex.e.a.M(runnable));
-        this.handler.postDelayed(runnableC0866b, timeUnit.toMillis(j));
-        return runnableC0866b;
+        RunnableC0867b runnableC0867b = new RunnableC0867b(this.handler, io.reactivex.e.a.M(runnable));
+        this.handler.postDelayed(runnableC0867b, timeUnit.toMillis(j));
+        return runnableC0867b;
     }
 
     @Override // io.reactivex.v
-    public v.c dKx() {
+    public v.c dKL() {
         return new a(this.handler);
     }
 
@@ -51,17 +51,17 @@ public final class b extends v {
                 throw new NullPointerException("unit == null");
             }
             if (this.disposed) {
-                return c.dKA();
+                return c.dKO();
             }
-            RunnableC0866b runnableC0866b = new RunnableC0866b(this.handler, io.reactivex.e.a.M(runnable));
-            Message obtain = Message.obtain(this.handler, runnableC0866b);
+            RunnableC0867b runnableC0867b = new RunnableC0867b(this.handler, io.reactivex.e.a.M(runnable));
+            Message obtain = Message.obtain(this.handler, runnableC0867b);
             obtain.obj = this;
             this.handler.sendMessageDelayed(obtain, timeUnit.toMillis(j));
             if (this.disposed) {
-                this.handler.removeCallbacks(runnableC0866b);
-                return c.dKA();
+                this.handler.removeCallbacks(runnableC0867b);
+                return c.dKO();
             }
-            return runnableC0866b;
+            return runnableC0867b;
         }
 
         @Override // io.reactivex.disposables.b
@@ -78,20 +78,20 @@ public final class b extends v {
 
     /* renamed from: io.reactivex.a.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static final class RunnableC0866b implements io.reactivex.disposables.b, Runnable {
+    private static final class RunnableC0867b implements io.reactivex.disposables.b, Runnable {
         private volatile boolean disposed;
         private final Handler handler;
-        private final Runnable nmt;
+        private final Runnable nnD;
 
-        RunnableC0866b(Handler handler, Runnable runnable) {
+        RunnableC0867b(Handler handler, Runnable runnable) {
             this.handler = handler;
-            this.nmt = runnable;
+            this.nnD = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.nmt.run();
+                this.nnD.run();
             } catch (Throwable th) {
                 io.reactivex.e.a.onError(th);
             }

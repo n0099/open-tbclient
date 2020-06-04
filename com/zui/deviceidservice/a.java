@@ -9,14 +9,14 @@ public interface a extends IInterface {
 
     /* renamed from: com.zui.deviceidservice.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static abstract class AbstractBinderC0863a extends Binder implements a {
+    public static abstract class AbstractBinderC0864a extends Binder implements a {
 
         /* renamed from: com.zui.deviceidservice.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        private static class C0864a implements a {
+        private static class C0865a implements a {
             private IBinder a;
 
-            C0864a(IBinder iBinder) {
+            C0865a(IBinder iBinder) {
                 this.a = iBinder;
             }
 
@@ -103,7 +103,7 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC0863a() {
+        public AbstractBinderC0864a() {
             attachInterface(this, "com.zui.deviceidservice.IDeviceidInterface");
         }
 
@@ -112,7 +112,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.zui.deviceidservice.IDeviceidInterface");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0864a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0865a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.Binder

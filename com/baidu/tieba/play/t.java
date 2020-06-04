@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.io.File;
 /* loaded from: classes.dex */
 public class t {
-    public static final String eMg = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-    public static final String eMh = eMg + "/.tieba_video_cache";
-    public static final String HV = eMh + "/v2";
-    public static final String eMi = HV + "/";
-    public static final String eMj = HV + "/files";
-    public static final String eMk = eMj + "/";
+    public static final String eMr = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+    public static final String eMs = eMr + "/.tieba_video_cache";
+    public static final String HV = eMs + "/v2";
+    public static final String eMt = HV + "/";
+    public static final String eMu = HV + "/files";
+    public static final String eMv = eMu + "/";
 
     private static long zy(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(eMk + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(eMv + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -38,7 +38,7 @@ public class t {
         return substring;
     }
 
-    public static long Kz(String str) {
+    public static long KA(String str) {
         try {
             String zz = zz(str);
             if (StringUtils.isNULL(zz)) {

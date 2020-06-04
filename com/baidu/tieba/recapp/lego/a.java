@@ -30,23 +30,23 @@ import org.json.JSONObject;
 /* loaded from: classes13.dex */
 class a extends e {
     @Override // com.baidu.tieba.lego.card.e
-    protected void ctf() {
-        iYp.put(17, iYp.size() + 1);
-        iYp.put(26, iYp.size() + 1);
-        iYp.put(27, iYp.size() + 1);
-        iYp.put(31, iYp.size() + 1);
-        iYp.put(32, iYp.size() + 1);
-        iYp.put(33, iYp.size() + 1);
-        iYp.put(34, iYp.size() + 1);
-        iYp.put(99, iYp.size() + 1);
-        iYq.put(17, BdUniqueId.gen());
-        iYq.put(26, BdUniqueId.gen());
-        iYq.put(27, BdUniqueId.gen());
-        iYq.put(31, BdUniqueId.gen());
-        iYq.put(32, BdUniqueId.gen());
-        iYq.put(33, BdUniqueId.gen());
-        iYq.put(34, BdUniqueId.gen());
-        iYq.put(99, BdUniqueId.gen());
+    protected void cto() {
+        iZc.put(17, iZc.size() + 1);
+        iZc.put(26, iZc.size() + 1);
+        iZc.put(27, iZc.size() + 1);
+        iZc.put(31, iZc.size() + 1);
+        iZc.put(32, iZc.size() + 1);
+        iZc.put(33, iZc.size() + 1);
+        iZc.put(34, iZc.size() + 1);
+        iZc.put(99, iZc.size() + 1);
+        iZd.put(17, BdUniqueId.gen());
+        iZd.put(26, BdUniqueId.gen());
+        iZd.put(27, BdUniqueId.gen());
+        iZd.put(31, BdUniqueId.gen());
+        iZd.put(32, BdUniqueId.gen());
+        iZd.put(33, BdUniqueId.gen());
+        iZd.put(34, BdUniqueId.gen());
+        iZd.put(99, BdUniqueId.gen());
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -132,6 +132,7 @@ class a extends e {
                     case 6:
                         return new AdCardMultiPicView(tbPageContext);
                     case 7:
+                    case 14:
                         return new AdCardVideoView(tbPageContext);
                     case 12:
                         return new AdCardSmallPicVideoView(tbPageContext);

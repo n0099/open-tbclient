@@ -96,7 +96,7 @@ public class b extends ReplacementSpan {
         }
     }
 
-    public void lH(int i) {
+    public void lJ(int i) {
         this.dSm = i;
     }
 

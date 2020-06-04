@@ -5,64 +5,64 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class t {
-    private final k<com.facebook.imagepipeline.g.e> myW;
-    private final ak mzd;
-    private long mze = 0;
-    private int mzf;
+    private final k<com.facebook.imagepipeline.g.e> mAg;
+    private final ak mAn;
+    private long mAo = 0;
+    private int mAp;
     @Nullable
-    private com.facebook.imagepipeline.common.a mzg;
+    private com.facebook.imagepipeline.common.a mAq;
 
     public t(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.myW = kVar;
-        this.mzd = akVar;
+        this.mAg = kVar;
+        this.mAn = akVar;
     }
 
-    public k<com.facebook.imagepipeline.g.e> dBu() {
-        return this.myW;
+    public k<com.facebook.imagepipeline.g.e> dBI() {
+        return this.mAg;
     }
 
-    public ak dBv() {
-        return this.mzd;
+    public ak dBJ() {
+        return this.mAn;
     }
 
     public String getId() {
-        return this.mzd.getId();
+        return this.mAn.getId();
     }
 
-    public am dBj() {
-        return this.mzd.dBj();
+    public am dBx() {
+        return this.mAn.dBx();
     }
 
     public Uri getUri() {
-        return this.mzd.dBi().dCa();
+        return this.mAn.dBw().dCo();
     }
 
-    public long dBw() {
-        return this.mze;
+    public long dBK() {
+        return this.mAo;
     }
 
     public void fQ(long j) {
-        this.mze = j;
+        this.mAo = j;
     }
 
-    public int dBx() {
-        return this.mzf;
+    public int dBL() {
+        return this.mAp;
     }
 
-    public void If(int i) {
-        this.mzf = i;
+    public void Ih(int i) {
+        this.mAp = i;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a dBy() {
-        return this.mzg;
+    public com.facebook.imagepipeline.common.a dBM() {
+        return this.mAq;
     }
 
     public void c(com.facebook.imagepipeline.common.a aVar) {
-        this.mzg = aVar;
+        this.mAq = aVar;
     }
 
-    public Map<String, String> dBz() {
-        return this.mzd.dBi().dBz();
+    public Map<String, String> dBN() {
+        return this.mAn.dBw().dBN();
     }
 }

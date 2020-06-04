@@ -26,8 +26,8 @@ public class AlaStickerTabHost extends RelativeLayout implements ViewPager.OnPag
     private CustomViewPager aty;
     private final int bjx;
     private AlaViewPagerAdapter bjy;
-    private a eYu;
-    private b eYv;
+    private a eYF;
+    private b eYG;
     private float mCurrentPositionOffset;
     private int mCurrentTabIndex;
     private int mDividerColor;
@@ -183,8 +183,8 @@ public class AlaStickerTabHost extends RelativeLayout implements ViewPager.OnPag
             this.mCurrentPositionOffset = f;
             updateTabStyles();
             invalidate();
-            if (this.eYu != null) {
-                this.eYu.a(this.mCurrentTabIndex, (com.baidu.live.view.tabhost.a) ListUtils.getItem(this.atK, this.mCurrentTabIndex));
+            if (this.eYF != null) {
+                this.eYF.a(this.mCurrentTabIndex, (com.baidu.live.view.tabhost.a) ListUtils.getItem(this.atK, this.mCurrentTabIndex));
             }
         }
     }
@@ -195,12 +195,12 @@ public class AlaStickerTabHost extends RelativeLayout implements ViewPager.OnPag
             this.mCurrentTabIndex = i;
             updateTabStyles();
             invalidate();
-            if (this.eYu != null) {
-                this.eYu.a(this.mCurrentTabIndex, (com.baidu.live.view.tabhost.a) ListUtils.getItem(this.atK, this.mCurrentTabIndex));
+            if (this.eYF != null) {
+                this.eYF.a(this.mCurrentTabIndex, (com.baidu.live.view.tabhost.a) ListUtils.getItem(this.atK, this.mCurrentTabIndex));
             }
         }
-        if (this.eYv != null) {
-            this.eYv.onPageSelected(i);
+        if (this.eYG != null) {
+            this.eYG.onPageSelected(i);
         }
     }
 
@@ -213,10 +213,10 @@ public class AlaStickerTabHost extends RelativeLayout implements ViewPager.OnPag
     }
 
     public void setOnPageChangeListener(a aVar) {
-        this.eYu = aVar;
+        this.eYF = aVar;
     }
 
     public void setPageSelectedListener(b bVar) {
-        this.eYv = bVar;
+        this.eYG = bVar;
     }
 }

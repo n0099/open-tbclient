@@ -9,12 +9,12 @@ import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes9.dex */
 public class a extends PopupWindow {
     private TbPageContext dIF;
-    private InterfaceC0626a iaK;
+    private InterfaceC0626a ibx;
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public interface InterfaceC0626a {
-        void cfn();
+        void cfw();
     }
 
     public a(TbPageContext tbPageContext, View view, int i, int i2) {
@@ -44,18 +44,18 @@ public class a extends PopupWindow {
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        if (this.iaK != null) {
-            this.iaK.cfn();
+        if (this.ibx != null) {
+            this.ibx.cfw();
         } else {
             super.dismiss();
         }
     }
 
-    public void bsb() {
+    public void bsd() {
         super.dismiss();
     }
 
     public void a(InterfaceC0626a interfaceC0626a) {
-        this.iaK = interfaceC0626a;
+        this.ibx = interfaceC0626a;
     }
 }

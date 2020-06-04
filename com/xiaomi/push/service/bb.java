@@ -57,7 +57,7 @@ public class bb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private synchronized void m555a(Intent intent) {
+    private synchronized void m554a(Intent intent) {
         if (this.f881b) {
             Message a2 = a(intent);
             if (this.f879a.size() >= 50) {
@@ -98,12 +98,12 @@ public class bb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m556a(Intent intent) {
+    public boolean m555a(Intent intent) {
         try {
-            if (com.xiaomi.push.l.m498a() || Build.VERSION.SDK_INT < 26) {
+            if (com.xiaomi.push.l.m497a() || Build.VERSION.SDK_INT < 26) {
                 this.f877a.startService(intent);
             } else {
-                m555a(intent);
+                m554a(intent);
             }
             return true;
         } catch (Exception e) {

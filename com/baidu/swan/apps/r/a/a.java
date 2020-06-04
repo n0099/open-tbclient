@@ -308,7 +308,7 @@ public class a {
         return bVar;
     }
 
-    public static void fw(int i) {
+    public static void fy(int i) {
         File file = new File(ad.getStorageList().get(0).mPath, "/decryptLog.csv");
         try {
             if (!file.exists()) {

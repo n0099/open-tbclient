@@ -23,7 +23,7 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        blB();
+        blD();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0144, code lost:
@@ -66,7 +66,7 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void blB() {
+    private synchronized void blD() {
         File file;
         long zt;
         File[] fileArr;
@@ -76,12 +76,12 @@ public class g implements Runnable {
         long j2;
         j.D(TAG, "merge ...");
         String zz = m.zz(this.mVideoUrl);
-        if (zz != null && !zz.isEmpty() && ((file = new File(i.eMk + zz + "/completed")) == null || !file.exists())) {
-            File file2 = new File(i.eMk + zz + "/completed.temp");
+        if (zz != null && !zz.isEmpty() && ((file = new File(i.eMv + zz + "/completed")) == null || !file.exists())) {
+            File file2 = new File(i.eMv + zz + "/completed.temp");
             if (file2 != null && file2.exists()) {
                 file2.delete();
             }
-            File file3 = new File(i.eMk + zz + "/segments");
+            File file3 = new File(i.eMv + zz + "/segments");
             if (file3 != null && file3.exists()) {
                 zt = zt(zz);
                 File[] listFiles = file3.listFiles();
@@ -249,7 +249,7 @@ public class g implements Runnable {
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
-        File file = new File(i.eMk + str + "/content_length");
+        File file = new File(i.eMv + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

@@ -28,7 +28,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public g.a b(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
         g.a aVar = new g.a(activity);
-        aVar.nq(str).aoj().a(new com.baidu.swan.apps.view.c.a()).eT(z).gv(a.c.swan_games_antiaddiction_positive).eR(true);
+        aVar.nq(str).aoj().a(new com.baidu.swan.apps.view.c.a()).eT(z).gx(a.c.swan_games_antiaddiction_positive).eR(true);
         aVar.a(str2, onClickListener);
         return aVar;
     }

@@ -26,9 +26,9 @@ public class UserIconBox extends LinearLayout {
 
     /* loaded from: classes.dex */
     public interface b<T extends View> {
-        T aWN();
+        T aWO();
 
-        com.baidu.adp.lib.d.b<TbImageView> aWO();
+        com.baidu.adp.lib.d.b<TbImageView> aWP();
     }
 
     public void setAutoChangedStyle(boolean z) {
@@ -57,8 +57,8 @@ public class UserIconBox extends LinearLayout {
         setGravity(16);
         if (this.mContext instanceof b) {
             b bVar = (b) this.mContext;
-            this.dXO = bVar.aWO();
-            if (bVar.aWN() == null || this.dXP == null) {
+            this.dXO = bVar.aWP();
+            if (bVar.aWO() == null || this.dXP == null) {
             }
         }
         setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.core.view.UserIconBox.1
@@ -95,7 +95,7 @@ public class UserIconBox extends LinearLayout {
         this.dXR = i4;
         this.dXS = z;
         this.mIconWidth = i2;
-        if (!mc(min)) {
+        if (!me(min)) {
             setVisibility(8);
         } else if (min > 0) {
             setVisibility(0);
@@ -129,7 +129,7 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    private boolean mc(int i) {
+    private boolean me(int i) {
         if (i <= 0) {
             return false;
         }
@@ -202,7 +202,7 @@ public class UserIconBox extends LinearLayout {
         return new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tbadk.core.view.UserIconBox.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: aWM */
+            /* renamed from: aWN */
             public TbImageView makeObject() {
                 return new TbImageView(context);
             }

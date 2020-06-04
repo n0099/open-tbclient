@@ -11,8 +11,8 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes10.dex */
 public class a {
     private boolean boH;
-    private c mAW;
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
+    private c mCh;
     private MediaCodec mEncoder;
     private int mTrackIndex;
 
@@ -30,7 +30,7 @@ public class a {
         this.mEncoder.start();
         this.mTrackIndex = -1;
         this.boH = false;
-        this.mAW = cVar;
+        this.mCh = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,7 +65,7 @@ public class a {
         }
     }
 
-    public void dCn() throws Exception {
+    public void dCB() throws Exception {
         ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
         while (true) {
             int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
@@ -78,12 +78,12 @@ public class a {
                     }
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                     Log.d("AudioEncoder", "encoder output format changed: " + outputFormat);
-                    this.mTrackIndex = this.mAW.c(outputFormat);
-                    if (!this.mAW.start()) {
-                        synchronized (this.mAW) {
-                            while (!this.mAW.isStarted()) {
+                    this.mTrackIndex = this.mCh.c(outputFormat);
+                    if (!this.mCh.start()) {
+                        synchronized (this.mCh) {
+                            while (!this.mCh.isStarted()) {
                                 try {
-                                    this.mAW.wait(100L);
+                                    this.mCh.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
@@ -107,7 +107,7 @@ public class a {
                         }
                         byteBuffer.position(this.mBufferInfo.offset);
                         byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                        this.mAW.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                        this.mCh.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
@@ -127,9 +127,9 @@ public class a {
                 this.mEncoder.release();
                 this.mEncoder = null;
             }
-            if (this.mAW != null) {
-                this.mAW.stop();
-                this.mAW = null;
+            if (this.mCh != null) {
+                this.mCh.stop();
+                this.mCh = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

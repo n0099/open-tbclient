@@ -17,11 +17,11 @@ import java.net.URLEncoder;
 /* loaded from: classes9.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private static e eMy;
+    private static e eMJ;
     private Context mContext;
     private Handler mHandler;
-    private long eMz = 0;
-    private boolean eJZ = false;
+    private long eMK = 0;
+    private boolean eKk = false;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.VideoCacheClient.e.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -35,10 +35,10 @@ public class e {
                 }
             } else if (message.what == 3) {
                 d.D(e.TAG, "got MSG_CHECK");
-                e.this.blQ();
+                e.this.blS();
                 e.this.mHandler.sendMessageDelayed(e.this.mHandler.obtainMessage(3), 5000L);
             } else if (message.what == 4) {
-                e.this.blR();
+                e.this.blT();
             } else if (message.what == 5 && (message.obj instanceof String)) {
                 int i = message.arg1;
                 e.this.ar((String) message.obj, i);
@@ -49,27 +49,27 @@ public class e {
     private ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.baidu.tieba.VideoCacheClient.e.2
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            e.this.eJZ = true;
-            com.baidu.adp.lib.f.e.ld().removeCallbacks(e.this.eKh);
+            e.this.eKk = true;
+            com.baidu.adp.lib.f.e.ld().removeCallbacks(e.this.eKs);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            File file = new File(c.eMl);
+            File file = new File(c.eMw);
             if (file.exists()) {
                 file.delete();
             }
-            b.blN().blP();
-            e.this.eJZ = false;
-            com.baidu.adp.lib.f.e.ld().postDelayed(e.this.eKh, 1000L);
+            b.blP().blR();
+            e.this.eKk = false;
+            com.baidu.adp.lib.f.e.ld().postDelayed(e.this.eKs, 1000L);
         }
     };
-    private Runnable eKh = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
+    private Runnable eKs = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
         @Override // java.lang.Runnable
         public void run() {
-            if (!e.this.eJZ) {
-                e.this.bkV();
-                com.baidu.adp.lib.f.e.ld().postDelayed(e.this.eKh, 1000L);
+            if (!e.this.eKk) {
+                e.this.bkX();
+                com.baidu.adp.lib.f.e.ld().postDelayed(e.this.eKs, 1000L);
             }
         }
     };
@@ -85,14 +85,14 @@ public class e {
     }
 
     public static e eh(Context context) {
-        if (eMy == null) {
+        if (eMJ == null) {
             synchronized (e.class) {
-                if (eMy == null) {
-                    eMy = new e(context);
+                if (eMJ == null) {
+                    eMJ = new e(context);
                 }
             }
         }
-        return eMy;
+        return eMJ;
     }
 
     public void aq(String str, int i) {
@@ -116,7 +116,7 @@ public class e {
 
     private void ds(String str, String str2) {
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("http://127.0.0.1:" + b.blN().getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str + str2)).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("http://127.0.0.1:" + b.blP().getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str + str2)).openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             inputStream.read();
             inputStream.close();
@@ -142,11 +142,11 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void blQ() {
+    public void blS() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.eMz >= 86400000) {
+        if (currentTimeMillis - this.eMK >= 86400000) {
             ds("", "delete_expired_files");
-            this.eMz = currentTimeMillis;
+            this.eMK = currentTimeMillis;
         }
     }
 
@@ -155,11 +155,11 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void blR() {
+    public void blT() {
         ds("", "clear_cache");
     }
 
-    public void bkV() {
+    public void bkX() {
         try {
             this.mContext.bindService(new Intent(this.mContext, VideoCacheService.class), this.mServiceConnection, 1);
         } catch (Exception e) {

@@ -122,7 +122,7 @@ public class g extends f {
 
     private void a(String str, JSONObject jSONObject, com.baidu.swan.apps.an.a aVar) {
         if (this.bYh != null && aVar != null) {
-            com.baidu.swan.apps.statistic.a.d oD = new com.baidu.swan.apps.statistic.a.d().f(aVar).a(this.bYh.QJ()).oC(com.baidu.swan.apps.statistic.h.gS(this.bYh.Qz())).oD(this.mAppId);
+            com.baidu.swan.apps.statistic.a.d oD = new com.baidu.swan.apps.statistic.a.d().f(aVar).a(this.bYh.QJ()).oC(com.baidu.swan.apps.statistic.h.gU(this.bYh.Qz())).oD(this.mAppId);
             JSONObject jSONObject2 = new JSONObject();
             if (jSONObject != null) {
                 try {
@@ -198,20 +198,20 @@ public class g extends f {
             }
             com.baidu.swan.apps.v.b.b aad = aad();
             if (this.bXF != null && this.bXF.category == 0) {
-                aad.b(com.baidu.swan.apps.swancore.b.hb(0));
-                aad.fD(1);
+                aad.b(com.baidu.swan.apps.swancore.b.hd(0));
+                aad.fF(1);
             }
             if (this.bXF != null && this.bXF.category == 1) {
-                aad.b(com.baidu.swan.apps.swancore.b.hb(1));
-                aad.fD(1);
+                aad.b(com.baidu.swan.apps.swancore.b.hd(1));
+                aad.fF(1);
             }
             if (this.bXG != null && this.bXG.category == 0) {
-                aad.c(com.baidu.swan.apps.extcore.b.fe(0));
-                aad.fD(2);
+                aad.c(com.baidu.swan.apps.extcore.b.fg(0));
+                aad.fF(2);
             }
             if (this.bXG != null && this.bXG.category == 1) {
-                aad.c(com.baidu.swan.apps.extcore.b.fe(1));
-                aad.fD(2);
+                aad.c(com.baidu.swan.apps.extcore.b.fg(1));
+                aad.fF(2);
             }
             if (this.bXK != null) {
                 aad.eb(this.bXK.dlI);
@@ -262,7 +262,7 @@ public class g extends f {
     private void a(com.baidu.swan.apps.v.b.b bVar, com.baidu.swan.apps.an.a aVar) {
         if (bVar != null) {
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-            fVar.mFrom = com.baidu.swan.apps.statistic.h.gS(bVar.getAppFrameType());
+            fVar.mFrom = com.baidu.swan.apps.statistic.h.gU(bVar.getAppFrameType());
             fVar.mAppId = bVar.getAppId();
             fVar.mSource = bVar.agK();
             fVar.mType = Config.LAUNCH;

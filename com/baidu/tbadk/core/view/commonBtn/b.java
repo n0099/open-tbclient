@@ -13,12 +13,12 @@ public class b extends a {
         this.dYp = R.color.cp_link_tip_a;
     }
 
-    public void mi(@ColorRes int i) {
+    public void mk(@ColorRes int i) {
         this.dYp = i;
         this.dYn = R.color.cp_cont_a;
         this.dYy = true;
         if (this.dYA != null) {
-            this.dYA.aWW();
+            this.dYA.aWX();
         }
     }
 
@@ -34,7 +34,7 @@ public class b extends a {
             this.dYn = am.getColor(R.color.cp_cont_a);
         }
         int color = this.dYy ? am.getColor(this.dYp) : this.dYp;
-        int[] iArr = {com.baidu.tieba.tbadkCore.c.DI(color), color};
+        int[] iArr = {com.baidu.tieba.tbadkCore.c.DK(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();
             gradientDrawable.setOrientation(this.dYz);

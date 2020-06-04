@@ -7,51 +7,51 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes13.dex */
 public class a {
-    private static a mnP = null;
-    private final Runnable mnR = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a mpa = null;
+    private final Runnable mpc = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.dvA();
-            for (InterfaceC0778a interfaceC0778a : a.this.mnQ) {
-                interfaceC0778a.release();
+            a.dvO();
+            for (InterfaceC0779a interfaceC0779a : a.this.mpb) {
+                interfaceC0779a.release();
             }
-            a.this.mnQ.clear();
+            a.this.mpb.clear();
         }
     };
-    private final Set<InterfaceC0778a> mnQ = new HashSet();
+    private final Set<InterfaceC0779a> mpb = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    public interface InterfaceC0778a {
+    public interface InterfaceC0779a {
         void release();
     }
 
-    public static synchronized a dvz() {
+    public static synchronized a dvN() {
         a aVar;
         synchronized (a.class) {
-            if (mnP == null) {
-                mnP = new a();
+            if (mpa == null) {
+                mpa = new a();
             }
-            aVar = mnP;
+            aVar = mpa;
         }
         return aVar;
     }
 
-    public void a(InterfaceC0778a interfaceC0778a) {
-        dvA();
-        if (this.mnQ.add(interfaceC0778a) && this.mnQ.size() == 1) {
-            this.mUiHandler.post(this.mnR);
+    public void a(InterfaceC0779a interfaceC0779a) {
+        dvO();
+        if (this.mpb.add(interfaceC0779a) && this.mpb.size() == 1) {
+            this.mUiHandler.post(this.mpc);
         }
     }
 
-    public void b(InterfaceC0778a interfaceC0778a) {
-        dvA();
-        this.mnQ.remove(interfaceC0778a);
+    public void b(InterfaceC0779a interfaceC0779a) {
+        dvO();
+        this.mpb.remove(interfaceC0779a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void dvA() {
+    public static void dvO() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

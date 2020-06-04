@@ -33,7 +33,7 @@ public class i {
         return this.djB;
     }
 
-    public void iS(int i) {
+    public void iU(int i) {
         this.djB = i;
     }
 
@@ -49,7 +49,7 @@ public class i {
         return this.mId;
     }
 
-    public void iT(int i) {
+    public void iV(int i) {
         this.djx = i;
     }
 

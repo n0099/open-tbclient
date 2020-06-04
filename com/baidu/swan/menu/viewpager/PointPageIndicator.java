@@ -57,7 +57,7 @@ public class PointPageIndicator extends View {
     private void init(Context context) {
     }
 
-    public PointPageIndicator iW(int i) {
+    public PointPageIndicator iY(int i) {
         if (this.dkh != i) {
             this.dkh = i;
             invalidate();
@@ -65,12 +65,12 @@ public class PointPageIndicator extends View {
         return this;
     }
 
-    public PointPageIndicator iX(int i) {
+    public PointPageIndicator iZ(int i) {
         this.dkg = i;
         return this;
     }
 
-    public PointPageIndicator iY(int i) {
+    public PointPageIndicator ja(int i) {
         this.mPosition = i;
         invalidate();
         return this;

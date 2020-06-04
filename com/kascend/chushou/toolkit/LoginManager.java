@@ -54,7 +54,7 @@ public class LoginManager {
     }
 
     public void baiduLogin(String str) {
-        com.kascend.chushou.c.c.dDV().e(str, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.toolkit.LoginManager.1
+        com.kascend.chushou.c.c.dEj().e(str, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.toolkit.LoginManager.1
             @Override // com.kascend.chushou.c.b
             public void a() {
                 RxExecutor.postDelayed(null, EventThread.MAIN_THREAD, 30L, TimeUnit.MILLISECONDS, new Runnable() { // from class: com.kascend.chushou.toolkit.LoginManager.1.1
@@ -68,7 +68,7 @@ public class LoginManager {
             @Override // com.kascend.chushou.c.b
             public void a(String str2, JSONObject jSONObject) {
                 LoginManager.this.showProcessDialog(false);
-                g.Kz(a.i.cs_baidu_login_success);
+                g.KB(a.i.cs_baidu_login_success);
                 ParserRet dF = com.kascend.chushou.c.g.dF(jSONObject);
                 if (dF.mRc == 0 && dF.mData != null) {
                     LoginManager.this.userLoginIn((MyUserInfo) dF.mData);
@@ -81,13 +81,13 @@ public class LoginManager {
             public void a(int i, String str2) {
                 LoginManager.this.showProcessDialog(false);
                 LoginManager.this.userLogout();
-                g.Kz(a.i.cs_baidu_login_failed);
+                g.KB(a.i.cs_baidu_login_failed);
             }
         });
     }
 
     public void openLogin(String str, String str2, String str3, final SimpleCallback simpleCallback) {
-        com.kascend.chushou.c.c.dDV().a(str, str2, str3, new JsonCallbackWrapper() { // from class: com.kascend.chushou.toolkit.LoginManager.2
+        com.kascend.chushou.c.c.dEj().a(str, str2, str3, new JsonCallbackWrapper() { // from class: com.kascend.chushou.toolkit.LoginManager.2
             @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
             public void callStart() {
             }
@@ -117,7 +117,7 @@ public class LoginManager {
     }
 
     public void autoLogin(final SimpleCallback simpleCallback) {
-        com.kascend.chushou.c.c.dDV().a(new JsonCallbackWrapper() { // from class: com.kascend.chushou.toolkit.LoginManager.3
+        com.kascend.chushou.c.c.dEj().a(new JsonCallbackWrapper() { // from class: com.kascend.chushou.toolkit.LoginManager.3
             @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
             public void callStart() {
                 if (simpleCallback != null) {
@@ -153,7 +153,7 @@ public class LoginManager {
             simpleCallback.onStart();
         }
         if (islogined()) {
-            com.kascend.chushou.c.c.dDV().b(new JsonCallbackWrapper() { // from class: com.kascend.chushou.toolkit.LoginManager.4
+            com.kascend.chushou.c.c.dEj().b(new JsonCallbackWrapper() { // from class: com.kascend.chushou.toolkit.LoginManager.4
                 @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
                 public void callStart() {
                 }
@@ -184,27 +184,27 @@ public class LoginManager {
 
     public void userLogout() {
         this.mUserInfo = null;
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dRm().S(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dRA().S(tv.chushou.basis.d.a.a.a.class);
         if (aVar != null) {
             aVar.remove("token");
         }
-        com.kascend.chushou.d.h.dDZ().h();
-        com.kascend.chushou.d.h.dDZ().e("");
-        com.kascend.chushou.d.h.dDZ().d(false);
-        com.kascend.chushou.d.h.dDZ().c(false);
+        com.kascend.chushou.d.h.dEn().h();
+        com.kascend.chushou.d.h.dEn().e("");
+        com.kascend.chushou.d.h.dEn().d(false);
+        com.kascend.chushou.d.h.dEn().c(false);
         tv.chushou.zues.a.a.post(new i(1, true));
-        tv.chushou.basis.d.b.dRl().d(TAG, "userLogout");
+        tv.chushou.basis.d.b.dRz().d(TAG, "userLogout");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void userLoginIn(MyUserInfo myUserInfo) {
         this.mUserInfo = myUserInfo;
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dRm().S(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dRA().S(tv.chushou.basis.d.a.a.a.class);
         if (aVar != null) {
             aVar.putString("token", myUserInfo.mToken);
         }
-        com.kascend.chushou.d.h.dDZ().a(myUserInfo);
-        com.kascend.chushou.d.h.dDZ().e(myUserInfo.mToken);
+        com.kascend.chushou.d.h.dEn().a(myUserInfo);
+        com.kascend.chushou.d.h.dEn().e(myUserInfo.mToken);
         tv.chushou.zues.a.a.post(new i(0, true));
     }
 

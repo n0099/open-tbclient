@@ -202,7 +202,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int dO(int i) {
+    private int dQ(int i) {
         int i2 = (-8815129) & i;
         if (this.bzn) {
             i2 |= 32768;
@@ -377,9 +377,9 @@ public class c {
                 layoutParams.windowAnimations = No;
                 z = true;
             }
-            int dO = dO(layoutParams.flags);
-            if (dO != layoutParams.flags) {
-                layoutParams.flags = dO;
+            int dQ = dQ(layoutParams.flags);
+            if (dQ != layoutParams.flags) {
+                layoutParams.flags = dQ;
             } else {
                 z2 = z;
             }
@@ -484,7 +484,7 @@ public class c {
         } else {
             layoutParams.format = -3;
         }
-        layoutParams.flags = dO(layoutParams.flags);
+        layoutParams.flags = dQ(layoutParams.flags);
         layoutParams.type = this.bzl;
         layoutParams.token = iBinder;
         layoutParams.softInputMode = this.byN;

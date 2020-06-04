@@ -9,34 +9,34 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class b {
     private List<com.baidu.adp.widget.ListView.a> aSj;
-    private t gSQ;
-    private c igj;
-    private a ihH;
+    private t gTb;
+    private c igW;
+    private a iiu;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, t tVar) {
         this.mPageContext = tbPageContext;
-        this.gSQ = tVar;
+        this.gTb = tVar;
         CY();
-        this.gSQ.addAdapters(this.aSj);
+        this.gTb.addAdapters(this.aSj);
     }
 
     private void CY() {
         this.aSj = new ArrayList();
-        this.ihH = new a(this.mPageContext);
-        this.igj = new c(this.mPageContext);
-        this.aSj.add(this.ihH);
-        this.aSj.add(this.igj);
+        this.iiu = new a(this.mPageContext);
+        this.igW = new c(this.mPageContext);
+        this.aSj.add(this.iiu);
+        this.aSj.add(this.igW);
     }
 
     public void notifyDataSetChanged() {
-        if (this.gSQ != null) {
-            this.gSQ.getListAdapter().notifyDataSetChanged();
+        if (this.gTb != null) {
+            this.gTb.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<o> list) {
-        this.gSQ.setData(list);
+        this.gTb.setData(list);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {

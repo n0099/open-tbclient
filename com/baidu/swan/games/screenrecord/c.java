@@ -31,7 +31,7 @@ public class c extends EventTargetImpl implements com.baidu.mario.a.c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void it(int i) {
+    public void iv(int i) {
         this.dbQ = i;
     }
 

@@ -6,36 +6,36 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes.dex */
 public class PercentSizeView extends View {
-    private float kCB;
-    private float kCC;
+    private float kDJ;
+    private float kDK;
 
     public PercentSizeView(Context context) {
         super(context);
-        this.kCB = 1.0f;
-        this.kCC = 1.0f;
+        this.kDJ = 1.0f;
+        this.kDK = 1.0f;
     }
 
     public PercentSizeView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kCB = 1.0f;
-        this.kCC = 1.0f;
+        this.kDJ = 1.0f;
+        this.kDK = 1.0f;
     }
 
     public PercentSizeView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kCB = 1.0f;
-        this.kCC = 1.0f;
+        this.kDJ = 1.0f;
+        this.kDK = 1.0f;
     }
 
     public void setHeightPercent(float f) {
         if (f > 0.0f) {
-            this.kCB = f;
+            this.kDJ = f;
         }
     }
 
     public void setWidthPercent(float f) {
         if (f > 0.0f) {
-            this.kCC = f;
+            this.kDK = f;
         }
     }
 
@@ -47,12 +47,12 @@ public class PercentSizeView extends View {
         if (View.MeasureSpec.getMode(i) == 1073741824) {
             measuredWidth = View.MeasureSpec.getSize(i);
         } else {
-            measuredWidth = (int) (getMeasuredWidth() * this.kCC);
+            measuredWidth = (int) (getMeasuredWidth() * this.kDK);
         }
         if (View.MeasureSpec.getMode(i2) == 1073741824) {
             measuredHeight = View.MeasureSpec.getSize(i2);
         } else {
-            measuredHeight = (int) (getMeasuredHeight() * this.kCB);
+            measuredHeight = (int) (getMeasuredHeight() * this.kDJ);
         }
         setMeasuredDimension(measuredWidth, measuredHeight);
     }

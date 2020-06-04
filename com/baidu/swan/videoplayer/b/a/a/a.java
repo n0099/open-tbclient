@@ -105,7 +105,7 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
                     break;
             }
             a.this.onStateChange(i);
-            a.this.cfX.ft(i);
+            a.this.cfX.fv(i);
             if (i == 904) {
                 a.this.aJD();
                 return false;
@@ -390,14 +390,14 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
-    public void fv(int i) {
+    public void fx(int i) {
         if (DEBUG) {
             Log.d("SwanInlineCyberWidget", "setMaxCache (ignore) : " + i);
         }
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
-    public void fu(int i) {
+    public void fw(int i) {
         if (DEBUG) {
             Log.d("SwanInlineCyberWidget", "setMinCache (ignore) : " + i);
         }
@@ -605,16 +605,16 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onStateChange(int i) {
-        int jC = com.baidu.swan.videoplayer.media.a.a.a.jC(i);
+        int jE = com.baidu.swan.videoplayer.media.a.a.a.jE(i);
         if (DEBUG) {
-            Log.d("【CyberCallback】", "CyberPlayer" + hashCode() + " - send onStateChange(what " + i + ", statusCode " + jC + ")");
+            Log.d("【CyberCallback】", "CyberPlayer" + hashCode() + " - send onStateChange(what " + i + ", statusCode " + jE + ")");
         }
-        if (jC != 100) {
-            if (jC == 2101 && this.cfX != null) {
+        if (jE != 100) {
+            if (jE == 2101 && this.cfX != null) {
                 this.cfX.onStateChange(2102);
             }
             if (this.cfX != null) {
-                this.cfX.onStateChange(jC);
+                this.cfX.onStateChange(jE);
             }
         }
     }

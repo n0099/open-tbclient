@@ -15,7 +15,7 @@ import tbclient.GameForumGuideTab.GameForumSubTab;
 import tbclient.ThreadInfo;
 /* loaded from: classes9.dex */
 public class a {
-    public static List<e> cr(List<GameForumSubTab> list) {
+    public static List<e> cs(List<GameForumSubTab> list) {
         if (v.isEmpty(list)) {
             return null;
         }
@@ -34,7 +34,7 @@ public class a {
         return arrayList;
     }
 
-    public static List<o> cs(List<ThreadInfo> list) {
+    public static List<o> ct(List<ThreadInfo> list) {
         if (v.isEmpty(list)) {
             return null;
         }

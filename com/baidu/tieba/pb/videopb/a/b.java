@@ -39,7 +39,7 @@ public class b extends com.baidu.adp.widget.ListView.a<q, com.baidu.tieba.pb.vid
         if (qVar != null) {
             aVar.setData(qVar.dEA);
         }
-        aVar.aWq();
+        aVar.aWr();
         return view;
     }
 }

@@ -26,29 +26,29 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class b {
     private TbPageContext dIF;
-    private RelativeLayout eUq;
-    private ImageView fEL;
-    private RelativeLayout feY;
-    private com.baidu.tieba.homepage.gamevideo.a.b iaA;
-    private com.baidu.tieba.homepage.gamevideo.view.a iaD;
-    private TextView iaE;
-    private a iaF;
-    private TranslateAnimation iaG;
-    private TranslateAnimation iaH;
-    private GameVideoGridView iaz;
+    private RelativeLayout eUB;
+    private ImageView fEW;
+    private RelativeLayout ffj;
+    private GameVideoGridView ibm;
+    private com.baidu.tieba.homepage.gamevideo.a.b ibn;
+    private com.baidu.tieba.homepage.gamevideo.view.a ibq;
+    private TextView ibr;
+    private a ibs;
+    private TranslateAnimation ibt;
+    private TranslateAnimation ibu;
     private BdUniqueId mBdUniqueId;
     private View mRootView;
-    private boolean iaI = false;
-    private Animation.AnimationListener iaJ = new Animation.AnimationListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.1
+    private boolean ibv = false;
+    private Animation.AnimationListener ibw = new Animation.AnimationListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.1
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationStart(Animation animation) {
-            b.this.iaI = true;
+            b.this.ibv = true;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            b.this.iaI = false;
-            b.this.cfm();
+            b.this.ibv = false;
+            b.this.cfv();
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -58,15 +58,15 @@ public class b {
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.2
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (b.this.iaA != null && i < b.this.iaA.getCount() && b.this.iaA.getItem(i) != null && (b.this.iaA.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
-                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) b.this.iaA.getItem(i);
+            if (b.this.ibn != null && i < b.this.ibn.getCount() && b.this.ibn.getItem(i) != null && (b.this.ibn.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
+                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) b.this.ibn.getItem(i);
                 if (aVar.enable == 1) {
-                    if (b.this.iaF != null) {
-                        b.this.iaF.b(aVar);
+                    if (b.this.ibs != null) {
+                        b.this.ibs.b(aVar);
                     }
                     com.baidu.tbadk.core.sharedPref.b.aTX().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
                     com.baidu.tbadk.core.sharedPref.b.aTX().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
-                    b.this.cfm();
+                    b.this.cfv();
                     TiebaStatic.log(new an("c13489").ag("obj_type", aVar.sub_class_id));
                 }
             }
@@ -75,21 +75,21 @@ public class b {
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.cfl();
+            b.this.cfu();
         }
     };
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.4
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            if (b.this.iaF != null) {
-                b.this.iaF.cfp();
+            if (b.this.ibs != null) {
+                b.this.ibs.cfy();
             }
         }
     };
-    private a.InterfaceC0626a iaK = new a.InterfaceC0626a() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.5
+    private a.InterfaceC0626a ibx = new a.InterfaceC0626a() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.5
         @Override // com.baidu.tieba.homepage.gamevideo.view.a.InterfaceC0626a
-        public void cfn() {
-            b.this.cfk();
+        public void cfw() {
+            b.this.cft();
         }
     };
 
@@ -97,9 +97,9 @@ public class b {
     public interface a {
         void b(com.baidu.tieba.homepage.gamevideo.c.a aVar);
 
-        void cfo();
+        void cfx();
 
-        void cfp();
+        void cfy();
     }
 
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -110,121 +110,121 @@ public class b {
 
     private void init() {
         this.mRootView = LayoutInflater.from(this.dIF.getPageActivity()).inflate(R.layout.game_video_choose_halfscreen_layout, (ViewGroup) null);
-        this.feY = (RelativeLayout) this.mRootView.findViewById(R.id.id_game_video_choose_half_wrapper);
-        this.eUq = (RelativeLayout) this.mRootView.findViewById(R.id.id_game_video_choose_half_empty_wrapper);
-        this.fEL = (ImageView) this.mRootView.findViewById(R.id.id_game_video_choose_half_empty_img);
-        this.iaE = (TextView) this.mRootView.findViewById(R.id.id_game_video_choose_half_empty_txt);
-        this.iaz = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_half_gridview);
-        this.iaz.setMaxHeight(l.getEquipmentWidth(this.dIF.getPageActivity()));
-        this.iaz.setNumColumns(4);
-        this.iaz.setEmptyView(this.eUq);
-        this.iaA = new com.baidu.tieba.homepage.gamevideo.a.b(this.dIF, 102, this.mBdUniqueId);
-        this.iaz.setAdapter((ListAdapter) this.iaA);
-        this.iaz.setOnItemClickListener(this.mOnItemClickListener);
+        this.ffj = (RelativeLayout) this.mRootView.findViewById(R.id.id_game_video_choose_half_wrapper);
+        this.eUB = (RelativeLayout) this.mRootView.findViewById(R.id.id_game_video_choose_half_empty_wrapper);
+        this.fEW = (ImageView) this.mRootView.findViewById(R.id.id_game_video_choose_half_empty_img);
+        this.ibr = (TextView) this.mRootView.findViewById(R.id.id_game_video_choose_half_empty_txt);
+        this.ibm = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_half_gridview);
+        this.ibm.setMaxHeight(l.getEquipmentWidth(this.dIF.getPageActivity()));
+        this.ibm.setNumColumns(4);
+        this.ibm.setEmptyView(this.eUB);
+        this.ibn = new com.baidu.tieba.homepage.gamevideo.a.b(this.dIF, 102, this.mBdUniqueId);
+        this.ibm.setAdapter((ListAdapter) this.ibn);
+        this.ibm.setOnItemClickListener(this.mOnItemClickListener);
         this.mRootView.setOnClickListener(this.mOnClickListener);
-        cfj();
+        cfs();
         onChangeSkinType();
     }
 
-    private void cfj() {
-        this.iaG = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
-        this.iaG.setDuration(300L);
-        this.iaG.setFillAfter(true);
-        this.iaG.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.iaH = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
-        this.iaH.setDuration(200L);
-        this.iaH.setFillAfter(true);
-        this.iaH.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.iaH.setAnimationListener(this.iaJ);
+    private void cfs() {
+        this.ibt = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
+        this.ibt.setDuration(300L);
+        this.ibt.setFillAfter(true);
+        this.ibt.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.ibu = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
+        this.ibu.setDuration(200L);
+        this.ibu.setFillAfter(true);
+        this.ibu.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.ibu.setAnimationListener(this.ibw);
     }
 
-    public void wx(int i) {
-        if (this.iaA != null) {
-            this.iaA.wx(i);
+    public void wz(int i) {
+        if (this.ibn != null) {
+            this.ibn.wz(i);
         }
     }
 
     public void onChangeSkinType() {
-        if (this.feY != null) {
-            am.setBackgroundResource(this.feY, R.color.cp_bg_line_d);
+        if (this.ffj != null) {
+            am.setBackgroundResource(this.ffj, R.color.cp_bg_line_d);
         }
-        if (this.iaE != null) {
-            am.setViewTextColor(this.iaE, (int) R.color.cp_cont_d);
+        if (this.ibr != null) {
+            am.setViewTextColor(this.ibr, (int) R.color.cp_cont_d);
         }
-        if (this.fEL != null) {
-            am.setImageResource(this.fEL, R.drawable.new_pic_emotion_08);
+        if (this.fEW != null) {
+            am.setImageResource(this.fEW, R.drawable.new_pic_emotion_08);
         }
     }
 
     public void setData(List<com.baidu.tieba.homepage.gamevideo.c.a> list) {
-        this.iaA.setData(list);
+        this.ibn.setData(list);
     }
 
     public void cg(View view) {
         if (view != null) {
-            this.iaA.notifyDataSetChanged();
-            if (this.iaD == null) {
-                this.iaD = new com.baidu.tieba.homepage.gamevideo.view.a(this.dIF, this.mRootView, -1, -1);
-                this.iaD.setBackgroundDrawable(new ColorDrawable(this.dIF.getResources().getColor(R.color.black_alpha66)));
-                this.iaD.setAnimationStyle(0);
-                this.iaD.a(this.iaK);
-                this.iaD.setFocusable(true);
-                this.iaD.setOnDismissListener(this.mOnDismissListener);
+            this.ibn.notifyDataSetChanged();
+            if (this.ibq == null) {
+                this.ibq = new com.baidu.tieba.homepage.gamevideo.view.a(this.dIF, this.mRootView, -1, -1);
+                this.ibq.setBackgroundDrawable(new ColorDrawable(this.dIF.getResources().getColor(R.color.black_alpha66)));
+                this.ibq.setAnimationStyle(0);
+                this.ibq.a(this.ibx);
+                this.ibq.setFocusable(true);
+                this.ibq.setOnDismissListener(this.mOnDismissListener);
             }
-            if (this.iaD.isShowing()) {
-                this.iaD.dismiss();
+            if (this.ibq.isShowing()) {
+                this.ibq.dismiss();
             }
-            this.iaD.showAsDropDown(view, 0, 0);
-            this.iaz.cfw();
-            if (this.feY != null && this.iaG != null) {
-                this.feY.startAnimation(this.iaG);
+            this.ibq.showAsDropDown(view, 0, 0);
+            this.ibm.cfF();
+            if (this.ffj != null && this.ibt != null) {
+                this.ffj.startAnimation(this.ibt);
             }
-            if (this.iaF != null) {
-                this.iaF.cfo();
+            if (this.ibs != null) {
+                this.ibs.cfx();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfk() {
-        if (this.iaH != null && this.feY != null && !this.iaI) {
-            this.feY.startAnimation(this.iaH);
+    public void cft() {
+        if (this.ibu != null && this.ffj != null && !this.ibv) {
+            this.ffj.startAnimation(this.ibu);
         }
     }
 
-    public void cfl() {
-        if (this.iaD != null) {
-            this.iaD.dismiss();
+    public void cfu() {
+        if (this.ibq != null) {
+            this.ibq.dismiss();
         }
     }
 
-    public void cfm() {
-        if (this.iaD != null) {
-            this.iaD.bsb();
+    public void cfv() {
+        if (this.ibq != null) {
+            this.ibq.bsd();
         }
     }
 
     public boolean isShowing() {
-        if (this.iaD != null) {
-            return this.iaD.isShowing();
+        if (this.ibq != null) {
+            return this.ibq.isShowing();
         }
         return false;
     }
 
     public void a(a aVar) {
-        this.iaF = aVar;
+        this.ibs = aVar;
     }
 
     public void onDestroy() {
-        cfm();
-        if (this.iaG != null) {
-            this.iaG.cancel();
+        cfv();
+        if (this.ibt != null) {
+            this.ibt.cancel();
         }
-        if (this.iaH != null) {
-            this.iaH.cancel();
+        if (this.ibu != null) {
+            this.ibu.cancel();
         }
-        if (this.iaz != null) {
-            this.iaz.onDestroy();
+        if (this.ibm != null) {
+            this.ibm.onDestroy();
         }
     }
 }

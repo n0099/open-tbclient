@@ -20,7 +20,7 @@ public class e extends com.baidu.tieba.homepage.a<com.baidu.tieba.card.data.e, a
     private com.baidu.tieba.card.aa<com.baidu.tieba.card.data.e> adt;
     private String aeX;
     private com.baidu.adp.widget.ListView.t aib;
-    private NEGFeedBackView.a eJz;
+    private NEGFeedBackView.a eJK;
     public BdUniqueId epM;
     private TbPageContext<?> mPageContext;
 
@@ -29,13 +29,13 @@ public class e extends com.baidu.tieba.homepage.a<com.baidu.tieba.card.data.e, a
         int i = 0;
         int id = view.getId();
         if (id == R.id.thread_card_root) {
-            TiebaStatic.log(eVar.bLM());
+            TiebaStatic.log(eVar.bLO());
         } else if (id == R.id.user_avatar || id == R.id.user_name) {
             i = 2;
         } else if (id == R.id.cover_img || id == R.id.bottom_mask) {
         }
         if (i != 0) {
-            com.baidu.tieba.homepage.personalize.c.a.a(eVar.dEA, this.epM, eVar.bLz(), i);
+            com.baidu.tieba.homepage.personalize.c.a.a(eVar.dEA, this.epM, eVar.bLB(), i);
         }
     }
 
@@ -46,8 +46,8 @@ public class e extends com.baidu.tieba.homepage.a<com.baidu.tieba.card.data.e, a
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.e eVar) {
-                com.baidu.tieba.card.s.bLq().jv(true);
-                com.baidu.tieba.a.d.blZ().de("page_recommend", "show_");
+                com.baidu.tieba.card.s.bLs().jv(true);
+                com.baidu.tieba.a.d.bmb().de("page_recommend", "show_");
                 if (view != null && eVar != null && eVar.aOi() != null && !StringUtils.isNull(eVar.aOi().getTid())) {
                     e.this.a(view, eVar);
                 }
@@ -99,15 +99,15 @@ public class e extends com.baidu.tieba.homepage.a<com.baidu.tieba.card.data.e, a
         if (eVar == null || agVar == null || agVar.getView() == null) {
             return null;
         }
-        eVar.sr(eVar.position + 1);
+        eVar.st(eVar.position + 1);
         agVar.rM().setPosition(i);
         agVar.rM().setPage(this.aeX);
-        agVar.aH(true).a(this.eJz);
-        agVar.a(eVar.aOs(), this.hWm);
+        agVar.aH(true).a(this.eJK);
+        agVar.a(eVar.aOs(), this.hWZ);
         agVar.b((ag<com.baidu.tieba.card.data.e>) eVar);
         agVar.rM().a(this.adt);
         agVar.rM().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.s.bLq().e(eVar.bLL());
+        com.baidu.tieba.card.s.bLs().e(eVar.bLN());
         return agVar.getView();
     }
 
@@ -117,7 +117,7 @@ public class e extends com.baidu.tieba.homepage.a<com.baidu.tieba.card.data.e, a
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.eJz = aVar;
+        this.eJK = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

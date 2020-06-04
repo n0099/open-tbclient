@@ -32,7 +32,7 @@ import java.util.ArrayList;
 public class g extends com.baidu.adp.widget.ListView.a<bj, ag<bk>> {
     private aa<bj> adt;
     private t aib;
-    private NEGFeedBackView.a eJz;
+    private NEGFeedBackView.a eJK;
     public BdUniqueId epM;
     private TbPageContext<?> mPageContext;
     private String mTabName;
@@ -51,12 +51,12 @@ public class g extends com.baidu.adp.widget.ListView.a<bj, ag<bk>> {
             @Override // com.baidu.tieba.card.aa
             public void a(View view, bj bjVar) {
                 if (bjVar != null) {
-                    s.bLq().jv(true);
+                    s.bLs().jv(true);
                     g.this.f(view, bjVar.dEA);
                 }
             }
         };
-        this.eJz = new NEGFeedBackView.a() { // from class: com.baidu.tieba.enterForum.tabfeed.a.g.2
+        this.eJK = new NEGFeedBackView.a() { // from class: com.baidu.tieba.enterForum.tabfeed.a.g.2
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void b(ak akVar) {
                 TiebaStatic.log(com.baidu.tieba.enterForum.a.a(akVar, g.this.mTabName));
@@ -154,7 +154,7 @@ public class g extends com.baidu.adp.widget.ListView.a<bj, ag<bk>> {
                 }
             });
         }
-        agVar.aH(false).a(this.eJz);
+        agVar.aH(false).a(this.eJK);
         agVar.b((ag) bjVar);
         agVar.rM().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         agVar.rM().a(this.adt);

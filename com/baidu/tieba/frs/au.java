@@ -23,7 +23,7 @@ class au implements ai {
 
     @Override // com.baidu.tieba.frs.ai
     public com.baidu.adp.widget.ListView.a<? extends bk, ? extends aa.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        if (bdUniqueId == com.baidu.tieba.tbadkCore.v.ljE) {
+        if (bdUniqueId == com.baidu.tieba.tbadkCore.v.lkN) {
             return new com.baidu.tieba.frs.entelechy.a.f(tbPageContext, bdUniqueId, z);
         }
         if (bdUniqueId == bk.dGz) {

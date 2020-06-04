@@ -81,7 +81,7 @@ public class j implements AbsListView.OnScrollListener, d.a {
             if (mediaFileInfo != null && j.this.bdi != null) {
                 if (mediaFileInfo instanceof ImageFileInfo) {
                     j.this.bdi.d((ImageFileInfo) mediaFileInfo);
-                    j.this.bdw.di(1);
+                    j.this.bdw.dk(1);
                 } else if (mediaFileInfo instanceof VideoFileInfo) {
                     Log.d("onClick", "VideoFileInfo");
                 }

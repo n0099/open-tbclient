@@ -236,9 +236,9 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
     }
 
     private void d(com.baidu.tbadk.editortools.a aVar) {
-        if (aVar != null && aVar.data != null && (aVar.data instanceof q) && ((q) aVar.data).aYc() != EmotionGroupType.BIG_EMOTION && ((q) aVar.data).aYc() != EmotionGroupType.USER_COLLECT) {
+        if (aVar != null && aVar.data != null && (aVar.data instanceof q) && ((q) aVar.data).aYd() != EmotionGroupType.BIG_EMOTION && ((q) aVar.data).aYd() != EmotionGroupType.USER_COLLECT) {
             q qVar = (q) aVar.data;
-            if (qVar.aYc() == EmotionGroupType.NET_SUG) {
+            if (qVar.aYd() == EmotionGroupType.NET_SUG) {
                 a(qVar);
             } else {
                 b(qVar);
@@ -258,7 +258,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
     }
 
     private void b(q qVar) {
-        if (!this.emu || qVar.aYc() == EmotionGroupType.LOCAL) {
+        if (!this.emu || qVar.aYd() == EmotionGroupType.LOCAL) {
             String obj = this.emY.getText().toString();
             if (this.emv && com.baidu.tieba.face.a.DQ(obj) >= 10 && getContext() != null) {
                 com.baidu.tbadk.core.util.e.aUf().showToast(R.string.too_many_face);
@@ -340,7 +340,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
                 case 3:
                     if (this.emY.getSelectionStart() > 0) {
                         String substring = this.emY.getText().toString().substring(0, this.emY.getSelectionStart());
-                        Matcher matcher = com.baidu.tieba.face.a.gZq.matcher(substring);
+                        Matcher matcher = com.baidu.tieba.face.a.gZB.matcher(substring);
                         if (matcher.find()) {
                             this.emY.getText().delete(this.emY.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.emY.getSelectionStart());
                             break;
@@ -514,7 +514,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
                     }
                     break;
             }
-            nn(this.mType);
+            np(this.mType);
         }
     }
 
@@ -522,7 +522,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
         this.mType = i;
     }
 
-    public void nn(int i) {
+    public void np(int i) {
         if (i == ALL) {
             if (this.flags[0] || this.flags[1] || this.flags[2] || this.flags[3] || this.flags[4]) {
                 this.bjq.setEnabled(true);

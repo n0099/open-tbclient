@@ -32,7 +32,7 @@ public class b {
                     if (e.aoF() != null && e.aoF().QJ() != null) {
                         b.a QJ = e.aoF().QJ();
                         aVar.mSource = QJ.agK();
-                        aVar.mFrom = h.gS(QJ.getAppFrameType());
+                        aVar.mFrom = h.gU(QJ.getAppFrameType());
                     }
                     aVar.errMsg = str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2;
                     aVar.dcv = d.aBL() ? 20 : 10;

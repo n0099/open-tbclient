@@ -41,17 +41,17 @@ public class x extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aVn() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.core.util.c.a
     public boolean aVo() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int aVp() {
+    public boolean aVp() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.core.util.c.a
+    public int aVq() {
         return this.procType;
     }
 

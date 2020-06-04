@@ -10,8 +10,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.i> {
     private ImageView bxI;
-    private TextView hXQ;
-    private String kvs;
+    private TextView hYD;
+    private String kwy;
     private View mRootView;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -22,7 +22,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
     private void init(View view) {
         this.mRootView = view.findViewById(R.id.card_null_polymeric_rootview);
         this.bxI = (ImageView) view.findViewById(R.id.card_null_polymeric_icon);
-        this.hXQ = (TextView) view.findViewById(R.id.card_null_polymeric_txt);
+        this.hYD = (TextView) view.findViewById(R.id.card_null_polymeric_txt);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -30,7 +30,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         if (this.mSkinType != i) {
             am.setBackgroundResource(this.mRootView, R.color.cp_bg_line_d);
             am.setImageResource(this.bxI, R.drawable.new_pic_emotion_07);
-            am.setViewTextColor(this.hXQ, R.color.cp_cont_c, 1);
+            am.setViewTextColor(this.hYD, R.color.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }
@@ -51,8 +51,8 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        if (StringUtils.isNull(this.kvs)) {
-            TextView textView = this.hXQ;
+        if (StringUtils.isNull(this.kwy)) {
+            TextView textView = this.hYD;
             String string2 = this.mContext.getString(R.string.person_polymeric_null_data);
             Object[] objArr = new Object[1];
             if (iVar.isHost) {
@@ -66,7 +66,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
             textView.setText(String.format(string2, objArr));
             return;
         }
-        this.hXQ.setText(this.kvs);
+        this.hYD.setText(this.kwy);
     }
 
     @Override // android.view.View.OnClickListener

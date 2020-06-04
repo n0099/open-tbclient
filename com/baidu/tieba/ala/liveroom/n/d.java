@@ -22,9 +22,9 @@ import com.baidu.live.view.web.CommonWebLayout;
 public class d extends f implements com.baidu.live.view.web.f {
     private CommonWebLayout bjK;
     private View bjL;
-    private RoundRectRelativeLayout flP;
-    private float flQ;
-    private int flR;
+    private RoundRectRelativeLayout fma;
+    private float fmb;
+    private int fmc;
     private Context mContext;
 
     public d(Context context) {
@@ -33,54 +33,54 @@ public class d extends f implements com.baidu.live.view.web.f {
         init();
     }
 
-    public CommonWebLayout bsa() {
+    public CommonWebLayout bsc() {
         return this.bjK;
     }
 
     public void show(String str) {
         View findViewById;
-        int bse;
-        int bsf;
+        int bsg;
+        int bsh;
         if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && (findViewById = ((Activity) this.mContext).getWindow().getDecorView().findViewById(16908290)) != null) {
             switch (UtilHelper.getRealScreenOrientation(this.mContext)) {
                 case 1:
-                    this.flR = 80;
-                    bse = bsc();
-                    bsf = bsd();
-                    this.flP.setCornerRadius(this.flQ, this.flQ, 0.0f, 0.0f);
+                    this.fmc = 80;
+                    bsg = bse();
+                    bsh = bsf();
+                    this.fma.setCornerRadius(this.fmb, this.fmb, 0.0f, 0.0f);
                     break;
                 case 2:
-                    this.flR = 5;
-                    bse = bse();
-                    bsf = bsf();
-                    this.flP.setCornerRadius(this.flQ, 0.0f, 0.0f, this.flQ);
+                    this.fmc = 5;
+                    bsg = bsg();
+                    bsh = bsh();
+                    this.fma.setCornerRadius(this.fmb, 0.0f, 0.0f, this.fmb);
                     break;
                 default:
-                    this.flR = 80;
-                    bse = bsc();
-                    bsf = bsd();
-                    this.flP.setCornerRadius(this.flQ, this.flQ, 0.0f, 0.0f);
+                    this.fmc = 80;
+                    bsg = bse();
+                    bsh = bsf();
+                    this.fma.setCornerRadius(this.fmb, this.fmb, 0.0f, 0.0f);
                     break;
             }
-            setWidth(bse);
-            setHeight(bsf);
+            setWidth(bsg);
+            setHeight(bsh);
             showAtLocation(findViewById, 85, 0, 0);
             if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-                V(this.flP);
+                V(this.fma);
             }
             DX();
             this.bjK.loadUrl(str);
         }
     }
 
-    public void bsb() {
+    public void bsd() {
         super.dismiss();
     }
 
     @Override // com.baidu.live.view.f, android.widget.PopupWindow
     public void dismiss() {
-        if (!bsg()) {
-            bsb();
+        if (!bsi()) {
+            bsd();
         }
     }
 
@@ -101,11 +101,11 @@ public class d extends f implements com.baidu.live.view.web.f {
     }
 
     private void initView() {
-        this.flQ = this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds26);
-        this.flP = new RoundRectRelativeLayout(this.mContext);
-        u(this.flP);
-        W(this.flP);
-        setContentView(this.flP);
+        this.fmb = this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds26);
+        this.fma = new RoundRectRelativeLayout(this.mContext);
+        u(this.fma);
+        W(this.fma);
+        setContentView(this.fma);
     }
 
     private void u(ViewGroup viewGroup) {
@@ -121,8 +121,8 @@ public class d extends f implements com.baidu.live.view.web.f {
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public void dr(int i) {
-                super.dr(i);
+            public void dt(int i) {
+                super.dt(i);
                 if (i == 100 && d.this.bjL != null) {
                     d.this.bjL.setVisibility(8);
                 }
@@ -155,26 +155,26 @@ public class d extends f implements com.baidu.live.view.web.f {
         this.bjL.setVisibility(8);
     }
 
-    private int bsc() {
+    private int bse() {
         return ScreenHelper.getRealScreenWidth(this.mContext);
     }
 
-    private int bsd() {
-        return (bsc() * 470) / 375;
-    }
-
-    private int bse() {
-        return (bsf() * 375) / 470;
-    }
-
     private int bsf() {
+        return (bse() * 470) / 375;
+    }
+
+    private int bsg() {
+        return (bsh() * 375) / 470;
+    }
+
+    private int bsh() {
         return ScreenHelper.getRealScreenHeight(this.mContext);
     }
 
     private void DX() {
         if (getContentView() != null) {
             TranslateAnimation translateAnimation = null;
-            switch (this.flR) {
+            switch (this.fmc) {
                 case 5:
                     translateAnimation = new TranslateAnimation(1, 1.0f, 1, 0.0f, 1, 0.0f, 1, 0.0f);
                     break;
@@ -190,12 +190,12 @@ public class d extends f implements com.baidu.live.view.web.f {
         }
     }
 
-    private boolean bsg() {
+    private boolean bsi() {
         if (getContentView() == null) {
             return false;
         }
         TranslateAnimation translateAnimation = null;
-        switch (this.flR) {
+        switch (this.fmc) {
             case 5:
                 translateAnimation = new TranslateAnimation(1, 0.0f, 1, 1.0f, 1, 0.0f, 1, 0.0f);
                 break;
@@ -213,7 +213,7 @@ public class d extends f implements com.baidu.live.view.web.f {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    d.this.bsb();
+                    d.this.bsd();
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -227,7 +227,7 @@ public class d extends f implements com.baidu.live.view.web.f {
     }
 
     @Override // com.baidu.live.view.web.f
-    public void dt(int i) {
+    public void dv(int i) {
         dismiss();
     }
 

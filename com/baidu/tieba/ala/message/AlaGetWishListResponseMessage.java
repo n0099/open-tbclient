@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaGetWishListResponseMessage extends JsonHttpResponsedMessage {
     private ArrayList<c> dJp;
-    private long gjl;
+    private long gjw;
     private String mTips;
 
     public AlaGetWishListResponseMessage(int i) {
@@ -24,7 +24,7 @@ public class AlaGetWishListResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONArray optJSONArray = optJSONObject.optJSONArray("list");
             this.mTips = optJSONObject.optString(TableDefine.MessageColumns.COLUME_TIPS);
-            this.gjl = optJSONObject.optLong("sys_time");
+            this.gjw = optJSONObject.optLong("sys_time");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     c cVar = new c();
@@ -44,6 +44,6 @@ public class AlaGetWishListResponseMessage extends JsonHttpResponsedMessage {
     }
 
     public long getSysTime() {
-        return this.gjl;
+        return this.gjw;
     }
 }

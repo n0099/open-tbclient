@@ -11,26 +11,26 @@ import java.util.List;
 public class c {
     private List<com.baidu.live.liveroom.d.d> ati = new LinkedList();
     private AlaLiveRoomPanelTabHost atl;
-    private BdUniqueId fpc;
+    private BdUniqueId fpn;
     private TbPageContext mPageContext;
     private String mUserId;
 
     public c(TbPageContext tbPageContext, String str, BdUniqueId bdUniqueId) {
-        this.fpc = null;
+        this.fpn = null;
         this.mPageContext = tbPageContext;
         this.mUserId = str;
-        this.fpc = bdUniqueId;
+        this.fpn = bdUniqueId;
         initView();
     }
 
     private void initView() {
         this.atl = new AlaLiveRoomPanelTabHost(this.mPageContext.getPageActivity());
-        btl();
+        btn();
     }
 
-    private void btl() {
-        this.ati.add(new d(this.mPageContext, 0, this.mUserId, this.fpc));
-        this.ati.add(new d(this.mPageContext, 1, this.mUserId, this.fpc));
+    private void btn() {
+        this.ati.add(new d(this.mPageContext, 0, this.mUserId, this.fpn));
+        this.ati.add(new d(this.mPageContext, 1, this.mUserId, this.fpn));
         this.atl.setData(this.ati);
     }
 
@@ -42,7 +42,7 @@ public class c {
         }
     }
 
-    public void rG(int i) {
+    public void rI(int i) {
         if (this.ati != null && this.atl != null) {
             int i2 = 0;
             while (true) {

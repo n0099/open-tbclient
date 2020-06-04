@@ -25,7 +25,7 @@ class aj {
             try {
                 applicationInfo = context.getPackageManager().getApplicationInfo(str, 0);
             } catch (PackageManager.NameNotFoundException e) {
-                com.xiaomi.channel.commonutils.logger.b.m52a("not found app info " + str);
+                com.xiaomi.channel.commonutils.logger.b.m51a("not found app info " + str);
             }
         }
         if (applicationInfo != null) {
@@ -81,7 +81,7 @@ class aj {
                         break;
                     }
                 } catch (Exception e) {
-                    com.xiaomi.channel.commonutils.logger.b.m52a("not found xm browser:" + e);
+                    com.xiaomi.channel.commonutils.logger.b.m51a("not found xm browser:" + e);
                 }
             }
             int i2 = i + 1;

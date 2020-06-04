@@ -94,11 +94,11 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void bP(int i) {
+    public void bR(int i) {
         this.aGQ = i;
     }
 
-    public void bQ(int i) {
+    public void bS(int i) {
         this.mSelectedPosition = i;
     }
 
@@ -110,7 +110,7 @@ public class a extends BaseAdapter {
         this.aGS = z;
     }
 
-    public void bR(int i) {
+    public void bT(int i) {
         this.aGU = i;
         float dimensionPixelOffset = (i * 1.0f) / this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds192);
         this.aGV = (int) (this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds100) * dimensionPixelOffset);
@@ -171,7 +171,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: bS */
+    /* renamed from: bU */
     public g getItem(int i) {
         if (i < 0 || i >= getCount()) {
             return null;

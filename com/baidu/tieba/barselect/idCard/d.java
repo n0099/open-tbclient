@@ -20,24 +20,24 @@ public interface d {
 
     void a(e eVar);
 
-    Rect bKB();
+    Rect bKD();
 
-    void bKC();
+    void bKE();
 
-    void bKr();
+    void bKt();
 
     @ICameraControl.FlashMode
-    int bKs();
+    int bKu();
 
-    View bKt();
+    View bKv();
 
     void pause();
 
     void resume();
 
-    void se(@ICameraControl.FlashMode int i);
-
     void setDisplayOrientation(int i);
+
+    void sg(@ICameraControl.FlashMode int i);
 
     void start();
 

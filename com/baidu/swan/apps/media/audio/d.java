@@ -337,7 +337,7 @@ public class d {
         if (e.aoF() != null && e.aoF().QJ() != null && ckj != null) {
             b.a QJ = e.aoF().QJ();
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-            fVar.mFrom = h.gS(QJ.getAppFrameType());
+            fVar.mFrom = h.gU(QJ.getAppFrameType());
             fVar.mAppId = QJ.getAppId();
             fVar.mSource = QJ.agK();
             fVar.v("appid", QJ.getAppId());

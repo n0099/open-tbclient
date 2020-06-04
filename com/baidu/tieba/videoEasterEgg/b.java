@@ -1,9 +1,9 @@
 package com.baidu.tieba.videoEasterEgg;
 /* loaded from: classes9.dex */
 public interface b {
-    void NW(String str);
-
     void NX(String str);
+
+    void NY(String str);
 
     void abh();
 

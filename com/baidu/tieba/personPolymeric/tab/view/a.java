@@ -27,43 +27,43 @@ import java.util.List;
 public class a {
     private BdTypeRecyclerView Vw;
     private TbPageContext dIF;
-    private PbListView fbY;
-    private PersonCenterTabBaseFragment kuA;
-    private n kuz;
+    private PbListView fcj;
+    private n kvF;
+    private PersonCenterTabBaseFragment kvG;
     private NoDataView mNoDataView;
     private View mRootView;
 
     public a(TbPageContext tbPageContext, View view, PersonCenterTabBaseFragment personCenterTabBaseFragment) {
         this.dIF = tbPageContext;
         this.mRootView = view;
-        this.kuA = personCenterTabBaseFragment;
+        this.kvG = personCenterTabBaseFragment;
         initUI();
     }
 
     private void initUI() {
         this.Vw = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.new_person_center_common_lv);
         this.Vw.setLayoutManager(new LinearLayoutManager(this.Vw.getContext()));
-        this.fbY = new PbListView(this.dIF.getPageActivity());
-        this.fbY.createView();
-        this.fbY.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.fbY.setHeight(l.getDimens(this.dIF.getPageActivity(), R.dimen.tbds182));
-        this.fbY.setLineGone();
-        this.fbY.setTextSize(R.dimen.tbfontsize33);
-        this.fbY.setTextColor(am.getColor(R.color.cp_cont_j));
-        this.fbY.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.kuz = new n(this.dIF, this.Vw, this.kuA.getUniqueId());
-        this.kuz.setIsHost(this.kuA.isHost());
-        this.kuz.Bp(32);
+        this.fcj = new PbListView(this.dIF.getPageActivity());
+        this.fcj.createView();
+        this.fcj.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.fcj.setHeight(l.getDimens(this.dIF.getPageActivity(), R.dimen.tbds182));
+        this.fcj.setLineGone();
+        this.fcj.setTextSize(R.dimen.tbfontsize33);
+        this.fcj.setTextColor(am.getColor(R.color.cp_cont_j));
+        this.fcj.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.kvF = new n(this.dIF, this.Vw, this.kvG.getUniqueId());
+        this.kvF.setIsHost(this.kvG.isHost());
+        this.kvF.Br(32);
         int i = 0;
-        if (this.kuA.isHost()) {
-            if (this.kuA instanceof PersonCenterDynamicTabFragment) {
+        if (this.kvG.isHost()) {
+            if (this.kvG instanceof PersonCenterDynamicTabFragment) {
                 i = 4;
-            } else if (this.kuA instanceof PersonCenterThreadTabFragment) {
+            } else if (this.kvG instanceof PersonCenterThreadTabFragment) {
                 i = 6;
             }
         }
-        this.kuz.Bq(i);
-        this.kuz.setTabType(this.kuA.getTabType());
+        this.kvF.Bs(i);
+        this.kvF.setTabType(this.kvG.getTabType());
     }
 
     public void addHeaderView(View view) {
@@ -78,25 +78,25 @@ public class a {
         this.Vw.setOnSrollToBottomListener(null);
     }
 
-    public void en(List<o> list) {
+    public void ep(List<o> list) {
         if (v.isEmpty(list)) {
-            brM();
+            brO();
             if (this.Vw.getHeaderViewsCount() == 0) {
-                xA(R.string.person_center_listempty_txt);
+                xC(R.string.person_center_listempty_txt);
             }
         } else if (this.mNoDataView != null && this.mNoDataView.getParent() != null) {
             this.Vw.removeHeaderView(this.mNoDataView);
         }
         this.Vw.setData(list);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921435, Integer.valueOf(this.kuA.getTabType())));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921435, Integer.valueOf(this.kvG.getTabType())));
     }
 
-    private void xA(int i) {
+    private void xC(int i) {
         String string;
-        if (this.kuA.getTabType() == 1) {
-            string = this.kuA.getResources().getString(R.string.person_center_listempty_dynamic_txt);
+        if (this.kvG.getTabType() == 1) {
+            string = this.kvG.getResources().getString(R.string.person_center_listempty_dynamic_txt);
         } else {
-            string = this.kuA.getResources().getString(R.string.person_center_listempty_thread_txt);
+            string = this.kvG.getResources().getString(R.string.person_center_listempty_thread_txt);
         }
         if (this.mNoDataView == null) {
             this.mNoDataView = NoDataViewFactory.a(this.dIF.getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds180)), NoDataViewFactory.d.dj(null, string), null);
@@ -110,51 +110,51 @@ public class a {
 
     public void onChangeSkinType(int i) {
         am.setBackgroundResource(this.mRootView, R.color.cp_bg_line_d);
-        if (this.kuz != null) {
-            this.kuz.notifyDataSetChanged();
+        if (this.kvF != null) {
+            this.kvF.notifyDataSetChanged();
         }
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(this.dIF, i);
         }
-        if (this.fbY != null) {
-            this.fbY.setTextColor(am.getColor(R.color.cp_cont_j));
-            this.fbY.changeSkin(i);
+        if (this.fcj != null) {
+            this.fcj.setTextColor(am.getColor(R.color.cp_cont_j));
+            this.fcj.changeSkin(i);
         }
     }
 
-    public n cPJ() {
-        return this.kuz;
+    public n cPZ() {
+        return this.kvF;
     }
 
     public View getRootView() {
         return this.mRootView;
     }
 
-    public void brK() {
-        this.Vw.setNextPage(this.fbY);
-        this.fbY.showEmptyView(0);
-        this.fbY.startLoadData();
-    }
-
-    public void brL() {
-        this.Vw.setNextPage(this.fbY);
-        this.fbY.showEmptyView(0);
-        this.fbY.endLoadData();
-        this.fbY.setText(this.dIF.getString(R.string.list_no_more));
-    }
-
     public void brM() {
+        this.Vw.setNextPage(this.fcj);
+        this.fcj.showEmptyView(0);
+        this.fcj.startLoadData();
+    }
+
+    public void brN() {
+        this.Vw.setNextPage(this.fcj);
+        this.fcj.showEmptyView(0);
+        this.fcj.endLoadData();
+        this.fcj.setText(this.dIF.getString(R.string.list_no_more));
+    }
+
+    public void brO() {
         this.Vw.setNextPage(null);
     }
 
-    public void bUy() {
+    public void bUA() {
         this.Vw.smoothScrollToPosition(0);
     }
 
-    public void Bx(int i) {
-        this.Vw.setNextPage(this.fbY);
-        this.fbY.showEmptyView(0);
-        this.fbY.endLoadData();
-        this.fbY.setText(this.dIF.getString(i));
+    public void Bz(int i) {
+        this.Vw.setNextPage(this.fcj);
+        this.fcj.showEmptyView(0);
+        this.fcj.endLoadData();
+        this.fcj.setText(this.dIF.getString(i));
     }
 }

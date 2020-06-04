@@ -77,7 +77,7 @@ public final class a {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_app_v8_code_cache", "ab");
         }
 
-        private static boolean eF(int i) {
+        private static boolean eH(int i) {
             switch (i) {
                 case 0:
                     return XD();
@@ -116,7 +116,7 @@ public final class a {
             return bUo == 1;
         }
 
-        public static boolean ee(int i) {
+        public static boolean eg(int i) {
             if (DEBUG) {
                 String XC = XC();
                 char c = 65535;
@@ -146,10 +146,10 @@ public final class a {
                     case 1:
                         return false;
                     case 2:
-                        return eF(i);
+                        return eH(i);
                 }
             }
-            return eF(i);
+            return eH(i);
         }
 
         public static C0332a XF() {

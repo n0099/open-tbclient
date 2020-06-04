@@ -118,9 +118,9 @@ public class c extends com.baidu.adp.framework.b.d {
             httpMessage.addParam("from", from);
         }
         httpMessage.addParam("net_type", String.valueOf(j.netType()));
-        String bgI = x.bgI();
-        if (!TextUtils.isEmpty(bgI)) {
-            httpMessage.addParam("oaid", bgI);
+        String bgJ = x.bgJ();
+        if (!TextUtils.isEmpty(bgJ)) {
+            httpMessage.addParam("oaid", bgJ);
         }
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
@@ -134,8 +134,8 @@ public class c extends com.baidu.adp.framework.b.d {
     }
 
     private void c(HttpMessage httpMessage) {
-        if (com.baidu.tbadk.coreExtra.b.a.aXA().aXB()) {
-            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.aXA().aXC()));
+        if (com.baidu.tbadk.coreExtra.b.a.aXB().aXC()) {
+            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.aXB().aXD()));
         }
         if (TbSingleton.getInstance().isVisitPreviewServer()) {
             httpMessage.addCookie("pub_env", TbSingleton.getInstance().getPubEnvValue());

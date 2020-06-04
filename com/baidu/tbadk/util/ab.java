@@ -9,14 +9,14 @@ public class ab {
         mThreadId = str;
     }
 
-    public static String bgN() {
+    public static String bgO() {
         if (StringUtils.isNull(mThreadId)) {
             return null;
         }
         return mThreadId;
     }
 
-    public static void bgO() {
+    public static void bgP() {
         if (mThreadId != null) {
             mThreadId = null;
         }

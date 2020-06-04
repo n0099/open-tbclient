@@ -32,8 +32,8 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         }
 
         @Override // com.baidu.swan.apps.v.b.b, com.baidu.swan.apps.v.b.e
-        public /* synthetic */ e fA(int i) {
-            return super.fA(i);
+        public /* synthetic */ e fC(int i) {
+            return super.fC(i);
         }
 
         @Override // com.baidu.swan.apps.v.b.b, com.baidu.swan.apps.v.b.e
@@ -413,12 +413,12 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.v.b.e
-    /* renamed from: fz */
-    public SelfT fA(int i) {
+    /* renamed from: fB */
+    public SelfT fC(int i) {
         PMSAppInfo aha = aha();
         if (aha != null) {
             aha.setOrientation(i);
-            return (SelfT) super.fA(i);
+            return (SelfT) super.fC(i);
         }
         return (SelfT) agG();
     }

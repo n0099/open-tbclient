@@ -5,7 +5,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.tbadk.coreExtra.data.ab;
+import com.baidu.tbadk.coreExtra.data.ac;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
@@ -18,8 +18,8 @@ public class a {
             }
         }
     };
-    private long lLQ;
-    private ab lLR;
+    private long lMY;
+    private ac lMZ;
     private long mEndTime;
     private long mInterval;
     private long mStartTime;
@@ -30,11 +30,11 @@ public class a {
 
     private void init() {
         Tt();
-        this.lLQ = com.baidu.tbadk.core.sharedPref.b.aTX().getLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, 0L);
+        this.lMY = com.baidu.tbadk.core.sharedPref.b.aTX().getLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, 0L);
         MessageManager.getInstance().registerListener(this.dzd);
     }
 
-    public boolean dlI() {
+    public boolean dlX() {
         if (this.mStartTime == 0 || this.mEndTime == 0 || this.mInterval == 0) {
             return false;
         }
@@ -47,22 +47,22 @@ public class a {
     }
 
     private boolean q(Date date) {
-        return date != null && date.getTime() - this.lLQ >= this.mInterval;
+        return date != null && date.getTime() - this.lMY >= this.mInterval;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Tt() {
-        if (this.lLR == null) {
-            this.lLR = new ab();
+        if (this.lMZ == null) {
+            this.lMZ = new ac();
         }
-        this.lLR.parseJson(com.baidu.tbadk.core.sharedPref.b.aTX().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, ""));
-        this.mStartTime = this.lLR.aYo();
-        this.mEndTime = this.lLR.aYp();
-        this.mInterval = this.lLR.aYq();
+        this.lMZ.parseJson(com.baidu.tbadk.core.sharedPref.b.aTX().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, ""));
+        this.mStartTime = this.lMZ.aYp();
+        this.mEndTime = this.lMZ.aYq();
+        this.mInterval = this.lMZ.aYr();
     }
 
     public void fv(long j) {
-        this.lLQ = j;
+        this.lMY = j;
         com.baidu.tbadk.core.sharedPref.b.aTX().putLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, j);
     }
 }

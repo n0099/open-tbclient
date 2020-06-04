@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class f {
     private bk ahg;
     private com.baidu.tbadk.coreExtra.model.a dNL;
-    private i gKj;
+    private i gKu;
     private TbPageContext mPageContext;
 
     public f(TbPageContext tbPageContext) {
@@ -27,7 +27,7 @@ public class f {
     }
 
     public void showDialog() {
-        if (this.gKj == null) {
+        if (this.gKu == null) {
             k kVar = new k(this.mPageContext.getPageActivity());
             kVar.setTitleText(this.mPageContext.getString(R.string.confirm_unlike));
             ArrayList arrayList = new ArrayList();
@@ -46,26 +46,26 @@ public class f {
                             return;
                         }
                     }
-                    com.baidu.adp.lib.f.g.b(f.this.gKj, f.this.mPageContext);
+                    com.baidu.adp.lib.f.g.b(f.this.gKu, f.this.mPageContext);
                 }
             });
             arrayList.add(gVar);
             kVar.a(new k.a() { // from class: com.baidu.tieba.c.f.2
                 @Override // com.baidu.tbadk.core.dialog.k.a
                 public void onClick() {
-                    if (f.this.gKj != null) {
-                        com.baidu.adp.lib.f.g.b(f.this.gKj, f.this.mPageContext);
+                    if (f.this.gKu != null) {
+                        com.baidu.adp.lib.f.g.b(f.this.gKu, f.this.mPageContext);
                     }
                 }
             });
             kVar.aD(arrayList);
-            this.gKj = new i(this.mPageContext, kVar);
-            this.gKj.N(0.7f);
+            this.gKu = new i(this.mPageContext, kVar);
+            this.gKu.N(0.7f);
         }
-        com.baidu.adp.lib.f.g.a(this.gKj, this.mPageContext);
+        com.baidu.adp.lib.f.g.a(this.gKu, this.mPageContext);
     }
 
     public void yy() {
-        com.baidu.adp.lib.f.g.b(this.gKj, this.mPageContext);
+        com.baidu.adp.lib.f.g.b(this.gKu, this.mPageContext);
     }
 }

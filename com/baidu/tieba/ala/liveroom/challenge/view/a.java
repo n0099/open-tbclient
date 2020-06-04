@@ -10,8 +10,8 @@ import com.baidu.live.challenge.e;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a implements e {
-    private TextView fQj;
-    private boolean fQk;
+    private TextView fQu;
+    private boolean fQv;
     private Context mContext;
     private int mCount = 0;
     private PopupWindow mPopupWindow;
@@ -20,7 +20,7 @@ public class a implements e {
     public a(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.ala_challenge_bubble_view_layout, (ViewGroup) null);
-        this.fQj = (TextView) this.mRootView.findViewById(a.g.ala_challenger_count);
+        this.fQu = (TextView) this.mRootView.findViewById(a.g.ala_challenger_count);
     }
 
     @Override // com.baidu.live.challenge.e
@@ -34,17 +34,17 @@ public class a implements e {
             if (!this.mPopupWindow.isShowing() && this.mCount > 0) {
                 this.mRootView.measure(0, 0);
                 this.mPopupWindow.showAsDropDown(view, (-(this.mRootView.getMeasuredWidth() - view.getMeasuredWidth())) / 2, -(this.mRootView.getMeasuredHeight() + view.getMeasuredHeight() + this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds4)));
-                this.fQk = true;
+                this.fQv = true;
             }
             if (this.mCount > 0) {
-                this.fQj.setText(this.mContext.getString(a.i.ala_challenge_count_bubble_tip, Integer.valueOf(this.mCount)));
+                this.fQu.setText(this.mContext.getString(a.i.ala_challenge_count_bubble_tip, Integer.valueOf(this.mCount)));
             }
         }
     }
 
     @Override // com.baidu.live.challenge.e
     public boolean vp() {
-        return this.fQk;
+        return this.fQv;
     }
 
     @Override // com.baidu.live.challenge.e
@@ -56,11 +56,11 @@ public class a implements e {
 
     @Override // com.baidu.live.challenge.e
     public void aT(boolean z) {
-        this.fQk = z;
+        this.fQv = z;
     }
 
     @Override // com.baidu.live.challenge.e
-    public void bD(int i) {
+    public void bF(int i) {
         this.mCount = i;
         if (i <= 0) {
             if (this.mPopupWindow != null && this.mPopupWindow.isShowing()) {
@@ -69,7 +69,7 @@ public class a implements e {
             }
             return;
         }
-        this.fQj.setText(this.mContext.getString(a.i.ala_challenge_count_bubble_tip, Integer.valueOf(i)));
+        this.fQu.setText(this.mContext.getString(a.i.ala_challenge_count_bubble_tip, Integer.valueOf(i)));
     }
 
     @Override // com.baidu.live.challenge.e

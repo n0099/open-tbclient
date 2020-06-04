@@ -3,56 +3,56 @@ package com.baidu.tieba.tbadkCore.data;
 import android.util.SparseIntArray;
 /* loaded from: classes.dex */
 public class f {
-    public static final int[] lkh = {3, 8, 13};
-    public static final int[] lki = {2, 12};
-    public static final int[] lkj = {20};
-    public static final int[] lkk = {3, 13, 23};
-    private SparseIntArray lkl = new SparseIntArray();
-    private String lkm;
-    private final int[] lkn;
+    public static final int[] llq = {3, 8, 13};
+    public static final int[] llr = {2, 12};
+    public static final int[] lls = {20};
+    public static final int[] llt = {3, 13, 23};
+    private SparseIntArray llu = new SparseIntArray();
+    private String llv;
+    private final int[] llw;
 
     public f(String str, int[] iArr) {
-        this.lkn = iArr;
-        this.lkm = str;
+        this.llw = iArr;
+        this.llv = str;
     }
 
-    public void DO(int i) {
+    public void DQ(int i) {
         int[] iArr;
         if (i < 0) {
             i = 0;
         }
-        if (this.lkl != null) {
-            this.lkl.clear();
-            if (this.lkn != null) {
-                for (int i2 : this.lkn) {
+        if (this.llu != null) {
+            this.llu.clear();
+            if (this.llw != null) {
+                for (int i2 : this.llw) {
                     if (i2 >= 0) {
-                        this.lkl.append(i2 + i, i2);
+                        this.llu.append(i2 + i, i2);
                     }
                 }
             }
         }
     }
 
-    public void dda() {
-        DO(0);
+    public void ddp() {
+        DQ(0);
     }
 
     public void cU(int i, int i2) {
-        if (i >= 0 && i2 >= 0 && this.lkl != null) {
-            this.lkl.append(i2, i);
+        if (i >= 0 && i2 >= 0 && this.llu != null) {
+            this.llu.append(i2, i);
         }
     }
 
-    public int DP(int i) {
-        if (i >= 0 && this.lkl != null) {
-            return this.lkl.get(i, -1);
+    public int DR(int i) {
+        if (i >= 0 && this.llu != null) {
+            return this.llu.get(i, -1);
         }
         return -1;
     }
 
-    public void DQ(int i) {
-        if (this.lkl != null) {
-            this.lkl.delete(i);
+    public void DS(int i) {
+        if (this.llu != null) {
+            this.llu.delete(i);
         }
     }
 }

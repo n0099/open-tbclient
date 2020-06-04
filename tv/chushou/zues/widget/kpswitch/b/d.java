@@ -12,13 +12,13 @@ import android.view.inputmethod.InputMethodManager;
 import tv.chushou.zues.b;
 /* loaded from: classes5.dex */
 public class d {
-    private static int nQx = 0;
-    private static int nQy = 0;
-    private static int nQz = 0;
+    private static int nRH = 0;
+    private static int nRI = 0;
+    private static int nRJ = 0;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void wA(boolean z);
+        void wC(boolean z);
     }
 
     public static void dD(View view) {
@@ -50,16 +50,16 @@ public class d {
         if (i < 0) {
             return false;
         }
-        nQx = i;
+        nRH = i;
         tv.chushou.zues.utils.e.m("KeyBordUtil", "%s%s", "save keyboard:", Integer.valueOf(i));
         return b.G(context, i);
     }
 
     public static int gI(Context context) {
-        if (nQx == 0) {
-            nQx = b.H(context, d(context.getResources()));
+        if (nRH == 0) {
+            nRH = b.H(context, d(context.getResources()));
         }
-        return nQx;
+        return nRH;
     }
 
     public static int gJ(Context context) {
@@ -67,17 +67,17 @@ public class d {
     }
 
     public static int c(Resources resources) {
-        if (nQy == 0) {
-            nQy = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_max_height);
+        if (nRI == 0) {
+            nRI = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_max_height);
         }
-        return nQy;
+        return nRI;
     }
 
     public static int d(Resources resources) {
-        if (nQz == 0) {
-            nQz = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_min_height);
+        if (nRJ == 0) {
+            nRJ = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_min_height);
         }
-        return nQz;
+        return nRJ;
     }
 
     public static c a(Activity activity, tv.chushou.zues.widget.kpswitch.b bVar, a aVar, boolean z) {
@@ -95,6 +95,6 @@ public class d {
         } else {
             viewGroup.getViewTreeObserver().removeGlobalOnLayoutListener(onGlobalLayoutListener);
         }
-        tv.chushou.zues.widget.kpswitch.b.a.nQi = null;
+        tv.chushou.zues.widget.kpswitch.b.a.nRs = null;
     }
 }

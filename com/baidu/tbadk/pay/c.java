@@ -19,7 +19,7 @@ public class c {
     private c() {
     }
 
-    public static synchronized c bfx() {
+    public static synchronized c bfy() {
         c cVar;
         synchronized (c.class) {
             if (erE == null) {
@@ -46,7 +46,7 @@ public class c {
 
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            ba.aUZ().b(tbPageContext, new String[]{str});
+            ba.aVa().b(tbPageContext, new String[]{str});
         }
     }
 

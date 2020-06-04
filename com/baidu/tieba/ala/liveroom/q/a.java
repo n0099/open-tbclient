@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.q;
 /* loaded from: classes3.dex */
 public class a {
-    public String eNu;
+    public String eNF;
     public long mUserId;
 
     public a() {
@@ -9,7 +9,7 @@ public class a {
 
     public a(long j, String str) {
         this.mUserId = j;
-        this.eNu = str;
+        this.eNF = str;
     }
 
     public long getUserId() {
@@ -17,6 +17,6 @@ public class a {
     }
 
     public String vX() {
-        return this.eNu;
+        return this.eNF;
     }
 }

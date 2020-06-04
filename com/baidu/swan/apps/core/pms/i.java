@@ -43,10 +43,10 @@ public class i extends k {
         }
         com.baidu.swan.e.d.deleteFile(dVar.filePath);
         if (c.isOk()) {
-            long hq = com.baidu.swan.apps.swancore.d.a.hq(0);
-            if (hq > 0) {
-                SwanJSVersionUpdateEvent.sendEvent(hq);
-                SwanAppMessengerService.sendMessageWithDataToAllClient(114, hq);
+            long hs = com.baidu.swan.apps.swancore.d.a.hs(0);
+            if (hs > 0) {
+                SwanJSVersionUpdateEvent.sendEvent(hs);
+                SwanAppMessengerService.sendMessageWithDataToAllClient(114, hs);
             }
             return null;
         }
@@ -74,7 +74,7 @@ public class i extends k {
                 if (DEBUG) {
                     Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: 命中 extension js 热应用实验");
                 }
-                long acS = com.baidu.swan.apps.extcore.b.fd(0).acG().acS();
+                long acS = com.baidu.swan.apps.extcore.b.ff(0).acG().acS();
                 if (acS > 0) {
                     if (DEBUG) {
                         Log.d("SwanAppUpdateCore", "发送extension core更新事件");

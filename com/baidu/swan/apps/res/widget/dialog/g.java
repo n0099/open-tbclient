@@ -77,8 +77,8 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
 
         public a aoj() {
             if (ag.isScreenLand()) {
-                gt(this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_dialog_landscape_default_width));
-                gq(this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_dialog_landscape_content_default_height));
+                gv(this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_dialog_landscape_default_width));
+                gs(this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_dialog_landscape_content_default_height));
             }
             return this;
         }
@@ -87,7 +87,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             return new g(context, a.i.NoTitleDialog);
         }
 
-        public a eR(int i) {
+        public a eT(int i) {
             this.cyL.mTitle.setText(this.mContext.getText(i));
             return this;
         }
@@ -106,7 +106,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             return this;
         }
 
-        public a eQ(int i) {
+        public a eS(int i) {
             if (this.cyL.mMessageContent.getVisibility() != 0) {
                 this.cyL.mMessageContent.setVisibility(0);
             }
@@ -149,7 +149,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             this.cyL.mBtnPanelLayout.setLayoutParams(layoutParams);
         }
 
-        public a gq(int i) {
+        public a gs(int i) {
             this.cyL.setMessageMaxHeight(i);
             return this;
         }
@@ -260,19 +260,19 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             return this;
         }
 
-        public a gr(int i) {
+        public a gt(int i) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, i);
             layoutParams.addRule(2, a.f.btn_panel);
             this.cyL.mDivider2.setLayoutParams(layoutParams);
             return this;
         }
 
-        public void gs(int i) {
+        public void gu(int i) {
             this.cyL.mDialogLayout.getLayoutParams().height = i;
             this.cyL.mDialogLayout.requestLayout();
         }
 
-        public void gt(int i) {
+        public void gv(int i) {
             this.cyL.mDialogLayout.getLayoutParams().width = i;
             this.cyL.mDialogLayout.requestLayout();
         }
@@ -300,7 +300,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             return this;
         }
 
-        public a gu(int i) {
+        public a gw(int i) {
             this.cyL.mIcon.setImageResource(i);
             return this;
         }
@@ -447,46 +447,14 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             return this;
         }
 
-        public a gv(int i) {
-            return gw(getAlertDialogResources().getColor(i));
+        public a gx(int i) {
+            return gy(getAlertDialogResources().getColor(i));
         }
 
         public a P(String str, int i) {
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    gw(Color.parseColor(str));
-                } catch (IllegalArgumentException e) {
-                    if (g.DEBUG) {
-                        e.printStackTrace();
-                    }
-                }
-                return this;
-            }
-            if (i > 0) {
-                gv(i);
-            }
-            return this;
-        }
-
-        public a gw(int i) {
-            this.cyL.mPositiveBtnTextColor = i;
-            this.cyL.mPositiveButton.setTextColor(i);
-            return this;
-        }
-
-        public a gx(int i) {
-            return gz(this.mContext.getResources().getColor(i));
-        }
-
-        public a gy(int i) {
-            this.cyL.cyN = i;
-            return this;
-        }
-
-        public a Q(String str, int i) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    gz(Color.parseColor(str));
+                    gy(Color.parseColor(str));
                 } catch (IllegalArgumentException e) {
                     if (g.DEBUG) {
                         e.printStackTrace();
@@ -500,7 +468,39 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             return this;
         }
 
+        public a gy(int i) {
+            this.cyL.mPositiveBtnTextColor = i;
+            this.cyL.mPositiveButton.setTextColor(i);
+            return this;
+        }
+
         public a gz(int i) {
+            return gB(this.mContext.getResources().getColor(i));
+        }
+
+        public a gA(int i) {
+            this.cyL.cyN = i;
+            return this;
+        }
+
+        public a Q(String str, int i) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    gB(Color.parseColor(str));
+                } catch (IllegalArgumentException e) {
+                    if (g.DEBUG) {
+                        e.printStackTrace();
+                    }
+                }
+                return this;
+            }
+            if (i > 0) {
+                gz(i);
+            }
+            return this;
+        }
+
+        public a gB(int i) {
             this.cyL.mNegativeBtnTextColor = i;
             return this;
         }
@@ -514,13 +514,13 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             return this;
         }
 
-        public a gA(int i) {
+        public a gC(int i) {
             this.cyL.cyS = i;
             this.cyL.mDialogLayout.setBackgroundResource(i);
             return this;
         }
 
-        public a gB(int i) {
+        public a gD(int i) {
             this.cyL.cyT = i;
             return this;
         }

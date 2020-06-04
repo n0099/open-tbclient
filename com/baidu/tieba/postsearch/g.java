@@ -6,89 +6,89 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class g {
-    private PostSearchActivity kEx;
-    private a kFn;
-    private c kFo;
-    private f kFp;
+    private PostSearchActivity kFF;
+    private a kGv;
+    private c kGw;
+    private f kGx;
     private View mRootView;
 
     public g(PostSearchActivity postSearchActivity) {
-        this.kEx = postSearchActivity;
+        this.kFF = postSearchActivity;
     }
 
     public void initView() {
-        this.kEx.setContentView(R.layout.post_search_activity);
-        this.mRootView = this.kEx.findViewById(R.id.search_rootview);
-        this.kFn = new a(this.kEx, this.mRootView);
-        this.kFo = new c(this.kEx, this.mRootView);
-        this.kFp = new f(this.kEx, this.mRootView);
+        this.kFF.setContentView(R.layout.post_search_activity);
+        this.mRootView = this.kFF.findViewById(R.id.search_rootview);
+        this.kGv = new a(this.kFF, this.mRootView);
+        this.kGw = new c(this.kFF, this.mRootView);
+        this.kGx = new f(this.kFF, this.mRootView);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        if (this.kFp != null) {
-            this.kFp.setOnPageChangeListener(onPageChangeListener);
+        if (this.kGx != null) {
+            this.kGx.setOnPageChangeListener(onPageChangeListener);
         }
     }
 
     public void aR(ArrayList<String> arrayList) {
-        this.kFp.setVisibility(false);
-        this.kFo.aR(arrayList);
+        this.kGx.setVisibility(false);
+        this.kGw.aR(arrayList);
     }
 
-    public void BX(int i) {
-        this.kFn.cde();
+    public void BZ(int i) {
+        this.kGv.cdm();
         hideSoftKeyPad();
-        this.kFn.cSz();
-        this.kFp.setVisibility(true);
-        this.kFp.BX(i);
+        this.kGv.cSP();
+        this.kGx.setVisibility(true);
+        this.kGx.BZ(i);
     }
 
-    public void KJ(String str) {
-        this.kFn.KJ(str);
+    public void KK(String str) {
+        this.kGv.KK(str);
     }
 
     public void a(int i, b bVar, boolean z) {
-        this.kFp.a(i, bVar, z);
+        this.kGx.a(i, bVar, z);
     }
 
-    public boolean cSD() {
-        return this.kFo.cSL();
+    public boolean cST() {
+        return this.kGw.cTb();
     }
 
     public void showLoadingView() {
-        this.kFo.showLoadingView();
+        this.kGw.showLoadingView();
     }
 
     public void hideLoadingView() {
-        this.kFo.hideLoadingView();
+        this.kGw.hideLoadingView();
     }
 
-    public void cSK() {
-        this.kFo.cSK();
+    public void cTa() {
+        this.kGw.cTa();
     }
 
     public void hideSoftKeyPad() {
-        this.kFn.hideSoftKeyPad();
+        this.kGv.hideSoftKeyPad();
     }
 
-    public void cSW() {
-        this.kFo.cSJ();
+    public void cTm() {
+        this.kGw.cSZ();
     }
 
     public int getCurrentTabType() {
-        return this.kFp.getCurrentTabType();
+        return this.kGx.getCurrentTabType();
     }
 
     public void onChangeSkinType(int i) {
-        this.kFn.onChangeSkinType(i);
-        this.kFo.onChangeSkinType(i);
-        this.kFp.onChangeSkinType(i);
-        com.baidu.tbadk.q.a.a(this.kEx.getPageContext(), this.mRootView);
+        this.kGv.onChangeSkinType(i);
+        this.kGw.onChangeSkinType(i);
+        this.kGx.onChangeSkinType(i);
+        com.baidu.tbadk.q.a.a(this.kFF.getPageContext(), this.mRootView);
     }
 
     public void onDestroy() {
-        if (this.kFn != null) {
-            this.kFn.onDestroy();
+        if (this.kGv != null) {
+            this.kGv.onDestroy();
         }
     }
 }

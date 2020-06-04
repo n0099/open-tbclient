@@ -176,7 +176,7 @@ public class a {
 
     public static a ML() {
         if (bug == null) {
-            dF(1);
+            dH(1);
         }
         return bug;
     }
@@ -190,7 +190,7 @@ public class a {
         return new com.baidu.poly.a.a.c();
     }
 
-    public static void dF(int i) {
+    public static void dH(int i) {
         if (bug == null) {
             synchronized (a.class) {
                 if (bug == null) {

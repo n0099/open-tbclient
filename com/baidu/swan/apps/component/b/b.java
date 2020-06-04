@@ -113,8 +113,8 @@ public abstract class b implements com.baidu.swan.apps.component.b.a.a {
         JSONObject optJSONObject = jSONObject.optJSONObject("position");
         if (optJSONObject != null) {
             this.bPJ = new com.baidu.swan.apps.model.a.a.a();
-            this.bPJ.fU(ag.B(getFloat(optJSONObject, "left", 0.0f)));
-            this.bPJ.fV(ag.B(getFloat(optJSONObject, VerticalTranslateLayout.TOP, 0.0f)));
+            this.bPJ.fW(ag.B(getFloat(optJSONObject, "left", 0.0f)));
+            this.bPJ.fX(ag.B(getFloat(optJSONObject, VerticalTranslateLayout.TOP, 0.0f)));
             this.bPJ.setWidth(ag.B(getFloat(optJSONObject, "width", 0.0f)));
             this.bPJ.setHeight(ag.B(getFloat(optJSONObject, "height", 0.0f)));
         }

@@ -9,7 +9,7 @@ public class a {
     private float aZB;
     private float aZC;
     private float aZz;
-    private InterfaceC0607a gLT;
+    private InterfaceC0607a gMe;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.f.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -17,16 +17,16 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.gLT.B(i, i2);
+                    a.this.gMe.B(i, i2);
                     return true;
                 case 1:
-                    a.this.gLT.C(i, i2);
+                    a.this.gMe.C(i, i2);
                     return true;
                 case 2:
-                    a.this.gLT.bK(i, i2);
+                    a.this.gMe.bK(i, i2);
                     return true;
                 case 3:
-                    a.this.gLT.D(i, i2);
+                    a.this.gMe.D(i, i2);
                     return true;
                 default:
                     return false;
@@ -48,7 +48,7 @@ public class a {
     }
 
     public void a(InterfaceC0607a interfaceC0607a) {
-        this.gLT = interfaceC0607a;
+        this.gMe = interfaceC0607a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
@@ -61,7 +61,7 @@ public class a {
                 return true;
             case 1:
             case 3:
-                if (this.gLT != null) {
+                if (this.gMe != null) {
                     int i = (int) (this.aZz - this.aZB);
                     int i2 = (int) (this.aZA - this.aZC);
                     if (Math.abs(i) >= Math.abs(i2)) {
@@ -84,7 +84,7 @@ public class a {
                 }
                 int i3 = (int) (rawY - this.aZA);
                 int i4 = (int) (rawY - this.aZC);
-                if (this.gLT != null) {
+                if (this.gMe != null) {
                     if (i3 > 0) {
                         z(i4, i3);
                     } else {

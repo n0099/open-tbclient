@@ -13,29 +13,29 @@ import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
     private ArrayList<ALaCharmData> dJp = new ArrayList<>();
-    private View.OnClickListener fpn;
-    private View.OnClickListener fpo;
-    private View.OnClickListener fpp;
-    private int fpq;
+    private View.OnClickListener fpA;
+    private View.OnClickListener fpB;
+    private int fpC;
+    private View.OnClickListener fpz;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public a(TbPageContext tbPageContext, int i) {
-        this.fpq = 1;
+        this.fpC = 1;
         this.mPageContext = tbPageContext;
-        this.fpq = i;
+        this.fpC = i;
     }
 
     public void l(View.OnClickListener onClickListener) {
-        this.fpn = onClickListener;
+        this.fpz = onClickListener;
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.fpp = onClickListener;
+        this.fpB = onClickListener;
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.fpo = onClickListener;
+        this.fpA = onClickListener;
     }
 
     public void setData(ArrayList<ALaCharmData> arrayList) {
@@ -63,7 +63,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pX */
+    /* renamed from: pZ */
     public ALaCharmData getItem(int i) {
         if (this.dJp == null) {
             return null;
@@ -81,17 +81,17 @@ public class a extends BaseAdapter {
         d dVar;
         View inflate;
         if (view == null) {
-            if (this.fpq == 1) {
+            if (this.fpC == 1) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
-            } else if (this.fpq == 2) {
+            } else if (this.fpC == 2) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_game_live_list_layout, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
             }
-            d dVar2 = new d(inflate, this.fpq);
-            dVar2.o(this.fpp);
-            dVar2.l(this.fpn);
-            dVar2.p(this.fpo);
+            d dVar2 = new d(inflate, this.fpC);
+            dVar2.o(this.fpB);
+            dVar2.l(this.fpz);
+            dVar2.p(this.fpA);
             inflate.setTag(dVar2);
             view = inflate;
             dVar = dVar2;

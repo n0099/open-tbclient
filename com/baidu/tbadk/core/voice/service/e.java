@@ -14,7 +14,7 @@ public class e extends MediaPlayer implements c {
     private e() {
     }
 
-    public static e aXy() {
+    public static e aXz() {
         if (eam == null) {
             synchronized (eal) {
                 if (eam == null) {
@@ -64,13 +64,13 @@ public class e extends MediaPlayer implements c {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void aXv() {
+    public void aXw() {
         start();
         this.eao = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void aXr() {
+    public void aXs() {
         if (!this.eao) {
             stop();
             this.eao = true;
@@ -79,12 +79,12 @@ public class e extends MediaPlayer implements c {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void aXw() {
+    public void aXx() {
         pause();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void aXx() {
+    public void aXy() {
         reset();
         this.ean = false;
         this.eao = true;
@@ -103,10 +103,10 @@ public class e extends MediaPlayer implements c {
 
     @Override // com.baidu.tbadk.core.voice.service.c
     public void seek(int i) {
-        mz(i);
+        mB(i);
     }
 
-    public void mz(int i) {
+    public void mB(int i) {
         try {
             seekTo(i);
         } catch (Exception e) {

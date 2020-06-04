@@ -265,7 +265,7 @@ public class a extends com.baidu.helios.channels.a {
             packageInfo = null;
         }
         if (packageInfo == null) {
-            return a.g.bu(-1);
+            return a.g.bw(-1);
         }
         if (fVar.apG) {
             bVar = new b(str);
@@ -289,9 +289,9 @@ public class a extends com.baidu.helios.channels.a {
                 }
                 return a.g.dZ(c0137a.b());
             }
-            return a.g.bu(-2);
+            return a.g.bw(-2);
         }
-        return a.g.bu(-100);
+        return a.g.bw(-100);
     }
 
     @Override // com.baidu.helios.channels.a

@@ -19,9 +19,9 @@ import java.util.List;
 public class d extends aa.a {
     public int agt;
     public TextView dyo;
-    public View kkg;
-    public HTypeListView kkh;
-    public e kki;
+    public View klm;
+    public HTypeListView kln;
+    public e klo;
     public TbPageContext mPageContext;
     public View rootView;
 
@@ -30,19 +30,19 @@ public class d extends aa.a {
         this.agt = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.kkg = view.findViewById(R.id.divider_view_under_photo_album);
+        this.klm = view.findViewById(R.id.divider_view_under_photo_album);
         this.dyo = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.kkh = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.kki = new e(this.mPageContext, this.kkh);
+        this.kln = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.klo = new e(this.mPageContext, this.kln);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.kki.setDatas(ec(fVar.getPhotoAlbum()));
+            this.klo.setDatas(ee(fVar.getPhotoAlbum()));
         }
     }
 
-    private List<o> ec(List<o> list) {
+    private List<o> ee(List<o> list) {
         if (v.getCount(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
             com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds32), l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds120));
@@ -53,13 +53,13 @@ public class d extends aa.a {
         return list;
     }
 
-    public void cMY() {
+    public void cNo() {
         if (this.agt != TbadkCoreApplication.getInst().getSkinType()) {
             this.agt = TbadkCoreApplication.getInst().getSkinType();
             am.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-            am.setBackgroundColor(this.kkg, R.color.cp_bg_line_c);
+            am.setBackgroundColor(this.klm, R.color.cp_bg_line_c);
             am.setViewTextColor(this.dyo, R.color.cp_cont_d, 1);
-            this.kki.notifyDataSetChanged();
+            this.klo.notifyDataSetChanged();
         }
     }
 }

@@ -56,21 +56,21 @@ public class b extends BaseAdapter {
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_guard_throne_rank_item_layout, (ViewGroup) null);
             aVar = new a();
-            aVar.fBE = (TextView) view.findViewById(a.g.tv_rank_label);
-            aVar.fBF = (HeadImageView) view.findViewById(a.g.avatar_rank);
-            aVar.fBG = (TextView) view.findViewById(a.g.tv_rank_name);
-            aVar.fBH = (TextView) view.findViewById(a.g.tv_rank_score);
-            a(aVar.fBF);
+            aVar.fBP = (TextView) view.findViewById(a.g.tv_rank_label);
+            aVar.fBQ = (HeadImageView) view.findViewById(a.g.avatar_rank);
+            aVar.fBR = (TextView) view.findViewById(a.g.tv_rank_name);
+            aVar.fBS = (TextView) view.findViewById(a.g.tv_rank_score);
+            a(aVar.fBQ);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         a.b.C0547b c0547b = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
         if (c0547b != null) {
-            aVar.fBE.setText(c0547b.rank);
-            aVar.fBF.startLoad(c0547b.portrait, 12, false);
-            aVar.fBG.setText(c0547b.nickname);
-            aVar.fBH.setText(this.mContext.getResources().getString(a.i.score_value, com.baidu.tieba.ala.guardthrone.e.a.BW(c0547b.score)));
+            aVar.fBP.setText(c0547b.rank);
+            aVar.fBQ.startLoad(c0547b.portrait, 12, false);
+            aVar.fBR.setText(c0547b.nickname);
+            aVar.fBS.setText(this.mContext.getResources().getString(a.i.score_value, com.baidu.tieba.ala.guardthrone.e.a.BW(c0547b.score)));
         }
         return view;
     }
@@ -85,10 +85,10 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private class a {
-        public TextView fBE;
-        public HeadImageView fBF;
-        public TextView fBG;
-        public TextView fBH;
+        public TextView fBP;
+        public HeadImageView fBQ;
+        public TextView fBR;
+        public TextView fBS;
 
         private a() {
         }

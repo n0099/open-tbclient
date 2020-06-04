@@ -93,7 +93,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: jn */
+            /* renamed from: jp */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }

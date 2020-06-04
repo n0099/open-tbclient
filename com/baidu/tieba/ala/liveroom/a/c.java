@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.liveroom.a;
 public interface c {
     void aA(String str, int i);
 
-    void cs(int i);
+    void cu(int i);
 
     void g(long j, String str);
 

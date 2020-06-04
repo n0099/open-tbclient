@@ -56,7 +56,7 @@ public class c extends a {
     private boolean dRa = false;
     private boolean dRb = false;
 
-    public static c aVz() {
+    public static c aVA() {
         return new c();
     }
 
@@ -83,20 +83,20 @@ public class c extends a {
         return this;
     }
 
-    public c ll(@DrawableRes int i) {
+    public c ln(@DrawableRes int i) {
         return f(com.baidu.tbadk.core.util.e.c.a.getDrawable(i));
     }
 
-    public c lm(@DrawableRes int i) {
+    public c lo(@DrawableRes int i) {
         return g(com.baidu.tbadk.core.util.e.c.a.getDrawable(i));
     }
 
-    public c ln(int i) {
+    public c lp(int i) {
         this.dQI = i;
         return this;
     }
 
-    public c lo(@ColorRes int i) {
+    public c lq(@ColorRes int i) {
         int color = com.baidu.tbadk.core.util.e.c.a.getColor(i);
         this.dQK = color;
         this.dQz = true;
@@ -134,7 +134,7 @@ public class c extends a {
         return this;
     }
 
-    public c lp(@ColorRes int i) {
+    public c lr(@ColorRes int i) {
         int color = TbadkCoreApplication.getInst().getApp().getResources().getColor(i);
         this.dQK = color;
         this.dQz = true;
@@ -153,14 +153,14 @@ public class c extends a {
         return this;
     }
 
-    public c lq(@ColorRes int i) {
+    public c ls(@ColorRes int i) {
         this.dQM = com.baidu.tbadk.core.util.e.c.a.getColor(i);
         this.dQV = true;
         this.dQz = true;
         return this;
     }
 
-    public c lr(@ColorRes int i) {
+    public c lt(@ColorRes int i) {
         int color = com.baidu.tbadk.core.util.e.c.a.getColor(i);
         this.dQP = color;
         this.dQA = true;
@@ -179,12 +179,12 @@ public class c extends a {
         return this;
     }
 
-    public c ls(int i) {
+    public c lu(int i) {
         this.mCornerRadius = i;
         return this;
     }
 
-    public c lt(int i) {
+    public c lv(int i) {
         this.dQJ = i;
         return this;
     }
@@ -264,18 +264,18 @@ public class c extends a {
         return this;
     }
 
-    public c lu(int i) {
+    public c lw(int i) {
         this.mType = i;
         return this;
     }
 
-    public c lv(@IntRange(from = 0, to = 255) int i) {
+    public c lx(@IntRange(from = 0, to = 255) int i) {
         this.mAlpha = i;
         this.dQe = true;
         return this;
     }
 
-    private GradientDrawable.Orientation aVA() {
+    private GradientDrawable.Orientation aVB() {
         GradientDrawable.Orientation orientation = GradientDrawable.Orientation.TOP_BOTTOM;
         String str = this.dQy;
         char c = 65535;
@@ -354,7 +354,7 @@ public class c extends a {
     private GradientDrawable r(int i, int i2, int i3, int i4) {
         GradientDrawable gradientDrawable;
         if (this.dQC && this.dQv != null && this.dQv.length > 1) {
-            gradientDrawable = new GradientDrawable(aVA(), this.dQv);
+            gradientDrawable = new GradientDrawable(aVB(), this.dQv);
             gradientDrawable.setGradientType(this.dQx);
             switch (this.dQx) {
                 case 1:
@@ -390,7 +390,7 @@ public class c extends a {
 
     public void aR(View view) {
         if (view != null) {
-            aVB();
+            aVC();
             if (this.mType == 2) {
                 if (view instanceof ImageView) {
                     ((ImageView) view).setImageDrawable(this.dQq);
@@ -401,40 +401,40 @@ public class c extends a {
         }
     }
 
-    public StateListDrawable aVB() {
-        this.dQq = aVC();
+    public StateListDrawable aVC() {
+        this.dQq = aVD();
         return this.dQq;
     }
 
-    public StateListDrawable aVC() {
+    public StateListDrawable aVD() {
         StateListDrawable stateListDrawable = new StateListDrawable();
-        Drawable aVD = aVD();
-        if (aVD != null) {
-            stateListDrawable.addState(new int[]{-16842910}, aVD);
-        }
         Drawable aVE = aVE();
         if (aVE != null) {
-            stateListDrawable.addState(new int[]{16842919}, aVE);
+            stateListDrawable.addState(new int[]{-16842910}, aVE);
         }
         Drawable aVF = aVF();
         if (aVF != null) {
-            stateListDrawable.addState(new int[]{16842913}, aVF);
+            stateListDrawable.addState(new int[]{16842919}, aVF);
         }
         Drawable aVG = aVG();
         if (aVG != null) {
-            stateListDrawable.addState(new int[]{16842908}, aVG);
+            stateListDrawable.addState(new int[]{16842913}, aVG);
         }
         Drawable aVH = aVH();
-        if (aVH == null) {
-            aVH = new ColorDrawable(0);
-        }
         if (aVH != null) {
-            stateListDrawable.addState(new int[0], aVH);
+            stateListDrawable.addState(new int[]{16842908}, aVH);
+        }
+        Drawable aVI = aVI();
+        if (aVI == null) {
+            aVI = new ColorDrawable(0);
+        }
+        if (aVI != null) {
+            stateListDrawable.addState(new int[0], aVI);
         }
         return stateListDrawable;
     }
 
-    public Drawable aVD() {
+    public Drawable aVE() {
         Drawable drawable = this.dPW;
         if (this.dQa) {
             drawable = this.dPW;
@@ -445,7 +445,7 @@ public class c extends a {
         return drawable;
     }
 
-    public Drawable aVE() {
+    public Drawable aVF() {
         Drawable drawable = this.dPZ;
         if (this.dQb) {
             return this.dPZ;
@@ -456,7 +456,7 @@ public class c extends a {
         return drawable;
     }
 
-    public Drawable aVF() {
+    public Drawable aVG() {
         Drawable drawable = this.dPX;
         if (this.dQc) {
             return this.dPX;
@@ -467,7 +467,7 @@ public class c extends a {
         return drawable;
     }
 
-    public Drawable aVG() {
+    public Drawable aVH() {
         Drawable drawable = this.dPY;
         if (this.dQd) {
             return this.dPY;
@@ -478,7 +478,7 @@ public class c extends a {
         return drawable;
     }
 
-    public Drawable aVH() {
+    public Drawable aVI() {
         Drawable drawable = this.dkc;
         if (this.dkc == null) {
             return r(this.dQI, this.dQK, this.dQP, this.dQs);

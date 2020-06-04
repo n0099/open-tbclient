@@ -9,17 +9,17 @@ import java.util.List;
 @RequiresApi(api = 23)
 /* loaded from: classes6.dex */
 class d implements PermissionActivity.a, h, i {
-    private static final com.yanzhenjie.permission.a.a nkV = new com.yanzhenjie.permission.a.b();
+    private static final com.yanzhenjie.permission.a.a nmf = new com.yanzhenjie.permission.a.b();
     private String[] acn;
-    private com.yanzhenjie.permission.b.b nkW;
-    private a nkX;
-    private a nkY;
-    private g nkZ;
-    private String[] nla;
+    private com.yanzhenjie.permission.b.b nmg;
+    private a nmh;
+    private a nmi;
+    private g nmj;
+    private String[] nmk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(com.yanzhenjie.permission.b.b bVar) {
-        this.nkW = bVar;
+        this.nmg = bVar;
     }
 
     @Override // com.yanzhenjie.permission.h
@@ -32,78 +32,78 @@ class d implements PermissionActivity.a, h, i {
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h a(g gVar) {
-        this.nkZ = gVar;
+        this.nmj = gVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h a(a aVar) {
-        this.nkX = aVar;
+        this.nmh = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h b(a aVar) {
-        this.nkY = aVar;
+        this.nmi = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     public void start() {
-        List<String> a = a(nkV, this.nkW, this.acn);
-        this.nla = (String[]) a.toArray(new String[a.size()]);
-        if (this.nla.length > 0) {
-            List<String> b = b(this.nkW, this.nla);
-            if (b.size() > 0 && this.nkZ != null) {
-                this.nkZ.showRationale(this.nkW.getContext(), b, this);
+        List<String> a = a(nmf, this.nmg, this.acn);
+        this.nmk = (String[]) a.toArray(new String[a.size()]);
+        if (this.nmk.length > 0) {
+            List<String> b = b(this.nmg, this.nmk);
+            if (b.size() > 0 && this.nmj != null) {
+                this.nmj.showRationale(this.nmg.getContext(), b, this);
                 return;
             } else {
                 execute();
                 return;
             }
         }
-        dJP();
+        dKd();
     }
 
     @Override // com.yanzhenjie.permission.i
     @RequiresApi(api = 23)
     public void execute() {
-        PermissionActivity.a(this.nkW.getContext(), this.nla, this);
+        PermissionActivity.a(this.nmg.getContext(), this.nmk, this);
     }
 
     @Override // com.yanzhenjie.permission.i
     public void cancel() {
-        Z(this.nla);
+        Z(this.nmk);
     }
 
     @Override // com.yanzhenjie.permission.PermissionActivity.a
     public void Z(@NonNull String[] strArr) {
-        List<String> a = a(nkV, this.nkW, strArr);
+        List<String> a = a(nmf, this.nmg, strArr);
         if (a.isEmpty()) {
-            dJP();
+            dKd();
         } else {
-            fn(a);
+            fp(a);
         }
     }
 
-    private void dJP() {
-        if (this.nkX != null) {
+    private void dKd() {
+        if (this.nmh != null) {
             List<String> asList = Arrays.asList(this.acn);
             try {
-                this.nkX.onAction(asList);
+                this.nmh.onAction(asList);
             } catch (Exception e) {
-                if (this.nkY != null) {
-                    this.nkY.onAction(asList);
+                if (this.nmi != null) {
+                    this.nmi.onAction(asList);
                 }
             }
         }
     }
 
-    private void fn(@NonNull List<String> list) {
-        if (this.nkY != null) {
-            this.nkY.onAction(list);
+    private void fp(@NonNull List<String> list) {
+        if (this.nmi != null) {
+            this.nmi.onAction(list);
         }
     }
 
@@ -120,7 +120,7 @@ class d implements PermissionActivity.a, h, i {
     private static List<String> b(@NonNull com.yanzhenjie.permission.b.b bVar, @NonNull String... strArr) {
         ArrayList arrayList = new ArrayList(1);
         for (String str : strArr) {
-            if (bVar.Ri(str)) {
+            if (bVar.Rj(str)) {
                 arrayList.add(str);
             }
         }

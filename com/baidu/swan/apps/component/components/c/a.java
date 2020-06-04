@@ -8,7 +8,7 @@ import com.baidu.swan.apps.component.d.b;
 public final class a extends com.baidu.swan.apps.component.b.a<CameraPreview, com.baidu.swan.apps.camera.d.a> {
     public a(@NonNull Context context, @NonNull com.baidu.swan.apps.camera.d.a aVar) {
         super(context, aVar);
-        es(2);
+        eu(2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

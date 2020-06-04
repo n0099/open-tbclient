@@ -112,7 +112,7 @@ public class a {
                     @Override // com.baidu.swan.games.j.a.InterfaceC0428a
                     public void onReady() {
                         if (a.DEBUG) {
-                            com.baidu.swan.apps.res.widget.b.d.k(AppRuntime.getAppContext(), a.h.aiapps_game_preload_core_runtime_end).gG(1).showToast();
+                            com.baidu.swan.apps.res.widget.b.d.k(AppRuntime.getAppContext(), a.h.aiapps_game_preload_core_runtime_end).gI(1).showToast();
                         }
                     }
                 });
@@ -251,7 +251,7 @@ public class a {
             if (DEBUG) {
                 Log.w("SwanGameCoreRuntime", "updateExtensionCoreIfNeeded: ExtensionCore is invalid");
             }
-            a(com.baidu.swan.apps.extcore.b.fe(1));
+            a(com.baidu.swan.apps.extcore.b.fg(1));
         }
     }
 
@@ -370,7 +370,7 @@ public class a {
                         Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_package_error, 1).show();
                     }
                 });
-                return com.baidu.swan.apps.swancore.b.ha(1);
+                return com.baidu.swan.apps.swancore.b.hc(1);
             }
             SwanCoreVersion swanCoreVersion = new SwanCoreVersion();
             swanCoreVersion.swanCorePath = this.bXk;
@@ -382,7 +382,7 @@ public class a {
             swanCoreVersion2.swanCoreType = 2;
             return swanCoreVersion2;
         } else {
-            return com.baidu.swan.apps.swancore.b.ha(1);
+            return com.baidu.swan.apps.swancore.b.hc(1);
         }
     }
 }

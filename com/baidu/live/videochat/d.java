@@ -180,13 +180,13 @@ public class d {
         this.bfI = new com.baidu.live.videochat.a.a(activity);
         this.bfI.a(new com.baidu.live.o.b() { // from class: com.baidu.live.videochat.d.1
             @Override // com.baidu.live.o.b
-            public void bE(int i) {
+            public void bG(int i) {
             }
         });
         this.bfJ = new com.baidu.live.videochat.a.b(activity);
         this.bfJ.a(new com.baidu.live.o.b() { // from class: com.baidu.live.videochat.d.2
             @Override // com.baidu.live.o.b
-            public void bE(int i) {
+            public void bG(int i) {
             }
         });
         this.bfK = new f(activity, this.aWV);

@@ -9,8 +9,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaGetTargetListResponseMessage extends JsonHttpResponsedMessage {
-    private b fNE;
-    private List<d> fNF;
+    private b fNP;
+    private List<d> fNQ;
 
     public AlaGetTargetListResponseMessage() {
         super(1021105);
@@ -23,29 +23,29 @@ public class AlaGetTargetListResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("page");
             if (optJSONObject2 != null) {
-                this.fNE = new b();
-                this.fNE.parseJson(optJSONObject2);
+                this.fNP = new b();
+                this.fNP.parseJson(optJSONObject2);
             }
             JSONArray optJSONArray = optJSONObject.optJSONArray("user_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.fNF = new ArrayList();
+                this.fNQ = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject3 != null) {
                         d dVar = new d();
                         dVar.parseJson(optJSONObject3);
-                        this.fNF.add(dVar);
+                        this.fNQ.add(dVar);
                     }
                 }
             }
         }
     }
 
-    public b bzR() {
-        return this.fNE;
+    public b bzT() {
+        return this.fNP;
     }
 
-    public List<d> bzS() {
-        return this.fNF;
+    public List<d> bzU() {
+        return this.fNQ;
     }
 }

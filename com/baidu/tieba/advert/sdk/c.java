@@ -23,7 +23,7 @@ import com.baidu.tieba.R;
 import tbclient.AppPosInfo;
 /* loaded from: classes10.dex */
 public class c {
-    private CustomMessageTask eRs = new CustomMessageTask(2156676, new CustomMessageTask.CustomRunnable<d>() { // from class: com.baidu.tieba.advert.sdk.c.1
+    private CustomMessageTask eRD = new CustomMessageTask(2156676, new CustomMessageTask.CustomRunnable<d>() { // from class: com.baidu.tieba.advert.sdk.c.1
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<d> customMessage) {
             if (customMessage != null) {
@@ -34,12 +34,12 @@ public class c {
     });
 
     public c() {
-        bnz();
+        bnB();
     }
 
     public void Fv() {
-        this.eRs.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(this.eRs);
+        this.eRD.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(this.eRD);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -123,7 +123,7 @@ public class c {
         }
     }
 
-    private void bnz() {
+    private void bnB() {
         com.baidu.prologue.a.b.a.bzx.set(new a(TbadkCoreApplication.getInst()));
     }
 
@@ -162,14 +162,14 @@ public class c {
         @Override // com.baidu.prologue.a.b.a
         @NonNull
         public String userAgent() {
-            String bgV = ah.bgV();
-            if (TextUtils.isEmpty(bgV)) {
-                bgV = "bdtb for Android " + TbConfig.getVersion();
+            String bgW = ah.bgW();
+            if (TextUtils.isEmpty(bgW)) {
+                bgW = "bdtb for Android " + TbConfig.getVersion();
             }
             if (BdLog.isDebugMode()) {
-                BdLog.e("userAgent=" + bgV);
+                BdLog.e("userAgent=" + bgW);
             }
-            return bgV;
+            return bgW;
         }
 
         @Override // com.baidu.prologue.a.b.a
@@ -263,21 +263,21 @@ public class c {
 
         @Override // com.baidu.prologue.a.b.a
         public String NH() {
-            AppPosInfo cVc = com.baidu.tieba.recapp.d.a.cUZ().cVc();
-            if (cVc != null) {
-                return cVc.coordinate_type;
+            AppPosInfo cVs = com.baidu.tieba.recapp.d.a.cVp().cVs();
+            if (cVs != null) {
+                return cVs.coordinate_type;
             }
             return null;
         }
 
         @Override // com.baidu.prologue.a.b.a
         public String[] NI() {
-            AppPosInfo cVc;
-            if (com.baidu.tieba.recapp.d.a.cUZ() != null && (cVc = com.baidu.tieba.recapp.d.a.cUZ().cVc()) != null) {
+            AppPosInfo cVs;
+            if (com.baidu.tieba.recapp.d.a.cVp() != null && (cVs = com.baidu.tieba.recapp.d.a.cVp().cVs()) != null) {
                 if (BdLog.isDebugMode()) {
-                    BdLog.e("" + cVc.longitude + "|" + cVc.latitude);
+                    BdLog.e("" + cVs.longitude + "|" + cVs.latitude);
                 }
-                return new String[]{cVc.longitude, cVc.latitude};
+                return new String[]{cVs.longitude, cVs.latitude};
             }
             if (BdLog.isDebugMode()) {
                 BdLog.e("0, 0");
@@ -321,7 +321,7 @@ public class c {
 
         @Override // com.baidu.prologue.a.b.a
         public String NO() {
-            return x.bgI();
+            return x.bgJ();
         }
 
         @Override // com.baidu.prologue.a.b.a

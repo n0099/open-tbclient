@@ -37,7 +37,7 @@ public class a {
             return this;
         }
 
-        public C0232a dE(int i) {
+        public C0232a dG(int i) {
             this.btP = i;
             return this;
         }
@@ -72,7 +72,7 @@ public class a {
         if (c0232a != null && c0232a.btN != null) {
             if (c0232a.context != null) {
                 this.btN = c0232a.btN;
-                com.baidu.poly.a.b.a.dF(c0232a.btP);
+                com.baidu.poly.a.b.a.dH(c0232a.btP);
                 com.baidu.poly.a.c.b.a(com.baidu.poly.a.c.a.aG(c0232a.context.getApplicationContext()));
                 g.b(c0232a.context.getApplicationContext());
                 d.bvX = c0232a.debug;

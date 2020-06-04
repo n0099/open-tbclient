@@ -16,7 +16,7 @@ public class d extends f {
         this.mSource = "NA";
     }
 
-    public d gT(int i) {
+    public d gV(int i) {
         this.mType = String.valueOf(i);
         return this;
     }
@@ -92,9 +92,9 @@ public class d extends f {
         try {
             if (this.cGt != null) {
                 if (this.crK) {
-                    String hH = aj.hH(crI);
-                    if (!TextUtils.isEmpty(hH)) {
-                        this.cGt.put("stacktrace", hH);
+                    String hJ = aj.hJ(crI);
+                    if (!TextUtils.isEmpty(hJ)) {
+                        this.cGt.put("stacktrace", hJ);
                     }
                 }
                 this.cGu.put("info", this.cGt);

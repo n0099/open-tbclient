@@ -26,7 +26,7 @@ public class e {
         return hashMap;
     }
 
-    public static boolean ds(int i) {
+    public static boolean du(int i) {
         return 1.0d - ((((0.299d * ((double) Color.red(i))) + (0.587d * ((double) Color.green(i)))) + (0.114d * ((double) Color.blue(i)))) / 255.0d) >= 0.5d;
     }
 }

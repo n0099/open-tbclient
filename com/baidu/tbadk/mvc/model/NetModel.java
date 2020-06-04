@@ -152,9 +152,9 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
                 mvcNetMessage.setNeedCache(isNeedCache());
                 mvcNetMessage.setResponseDataClass(getResponseDataClass());
                 mvcNetMessage.setTag(this.unique_id);
-                HashMap<String, String> beP = this.btn.beP();
-                if (beP != null) {
-                    for (Map.Entry<String, String> entry : beP.entrySet()) {
+                HashMap<String, String> beQ = this.btn.beQ();
+                if (beQ != null) {
+                    for (Map.Entry<String, String> entry : beQ.entrySet()) {
                         mvcNetMessage.getHttpMessage().addHeader(entry.getKey(), entry.getValue());
                     }
                 }
@@ -194,15 +194,15 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
                 Mv();
                 MvcHttpMessage mvcHttpMessage = new MvcHttpMessage(this.btn, Mt());
                 mvcHttpMessage.setResponseDataClass(getResponseDataClass());
-                HashMap<String, Object> beO = this.btn.beO();
-                if (beO != null) {
-                    for (Map.Entry<String, Object> entry2 : beO.entrySet()) {
+                HashMap<String, Object> beP = this.btn.beP();
+                if (beP != null) {
+                    for (Map.Entry<String, Object> entry2 : beP.entrySet()) {
                         mvcHttpMessage.addParam(entry2.getKey(), entry2.getValue());
                     }
                 }
-                HashMap<String, String> beP2 = this.btn.beP();
-                if (beP2 != null) {
-                    for (Map.Entry<String, String> entry3 : beP2.entrySet()) {
+                HashMap<String, String> beQ2 = this.btn.beQ();
+                if (beQ2 != null) {
+                    for (Map.Entry<String, String> entry3 : beQ2.entrySet()) {
                         mvcHttpMessage.addHeader(entry3.getKey(), entry3.getValue());
                     }
                 }
@@ -482,7 +482,7 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
         public D doInBackground(Object... objArr) {
             ((NetModel) this.eqL).isLoading = true;
             x xVar = new x(TbConfig.SERVER_ADDRESS + this.eqL.Mm());
-            for (Map.Entry<String, Object> entry : this.eqL.btn.beO().entrySet()) {
+            for (Map.Entry<String, Object> entry : this.eqL.btn.beP().entrySet()) {
                 xVar.addPostData(entry.getKey(), String.valueOf(entry.getValue()));
             }
             String postNetData = xVar.postNetData();
@@ -496,15 +496,15 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
                 }
             }
             publishProgress(v);
-            if (this.eqL.isNeedCache() && this.btg != null && this.btg.aVb() != null && this.btg.aVb().isRequestSuccess() && v != null && (this.eqL.btn instanceof com.baidu.tbadk.mvc.b.e)) {
+            if (this.eqL.isNeedCache() && this.btg != null && this.btg.aVc() != null && this.btg.aVc().isRequestSuccess() && v != null && (this.eqL.btn instanceof com.baidu.tbadk.mvc.b.e)) {
                 com.baidu.tbadk.mvc.b.e eVar = (com.baidu.tbadk.mvc.b.e) this.eqL.btn;
                 String cacheKey = eVar.getCacheKey();
-                String beL = eVar.beL();
+                String beM = eVar.beM();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey == null || TextUtils.isEmpty(beL) || v == null) {
+                if (cacheKey == null || TextUtils.isEmpty(beM) || v == null) {
                     return v;
                 }
-                com.baidu.adp.lib.cache.l<String> da = com.baidu.tbadk.core.c.a.aSS().da(beL, currentAccount);
+                com.baidu.adp.lib.cache.l<String> da = com.baidu.tbadk.core.c.a.aSS().da(beM, currentAccount);
                 if (da == null) {
                     return v;
                 }
@@ -528,12 +528,12 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
                 MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(this.eqL.Mt());
                 mvcJsonHttpResponsedMessage.setData(dArr[0]);
                 mvcJsonHttpResponsedMessage.setOrginalMessage(mvcHttpMessage);
-                if (this.btg != null && this.btg.aVb() != null) {
-                    mvcJsonHttpResponsedMessage.setStatusCode(this.btg.aVb().mNetErrorCode, this.btg.aVb().mErrorString);
-                    mvcJsonHttpResponsedMessage.setError(this.btg.aVb().mServerErrorCode);
-                    mvcJsonHttpResponsedMessage.setErrorString(this.btg.aVb().mErrorString);
-                    if (this.btg.aVb().mException != null) {
-                        BdLog.e(this.btg.aVb().mException);
+                if (this.btg != null && this.btg.aVc() != null) {
+                    mvcJsonHttpResponsedMessage.setStatusCode(this.btg.aVc().mNetErrorCode, this.btg.aVc().mErrorString);
+                    mvcJsonHttpResponsedMessage.setError(this.btg.aVc().mServerErrorCode);
+                    mvcJsonHttpResponsedMessage.setErrorString(this.btg.aVc().mErrorString);
+                    if (this.btg.aVc().mException != null) {
+                        BdLog.e(this.btg.aVc().mException);
                     }
                 }
                 this.eqL.Mo();

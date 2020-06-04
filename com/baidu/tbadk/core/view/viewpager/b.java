@@ -41,7 +41,7 @@ public class b {
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        b.this.aXd();
+                        b.this.aXe();
                         return false;
                     default:
                         return false;
@@ -57,7 +57,7 @@ public class b {
                     b.this.bGq.onPageScrollStateChanged(i);
                 }
                 if (i == 1) {
-                    b.this.aXf();
+                    b.this.aXg();
                 } else if (i == 0 && (count = b.this.dZl.getCount()) >= 2) {
                     int currentItem = b.this.mViewPager.getCurrentItem();
                     int i2 = count - 2;
@@ -66,7 +66,7 @@ public class b {
                     } else if (currentItem > i2) {
                         b.this.mViewPager.setCurrentItem(1, false);
                     }
-                    b.this.aXe();
+                    b.this.aXf();
                 }
             }
 
@@ -79,12 +79,12 @@ public class b {
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                if (b.this.dZm != null && b.this.dZm.ms(i) == i) {
+                if (b.this.dZm != null && b.this.dZm.mu(i) == i) {
                     if (b.this.dZi != null) {
-                        b.this.dZi.setPosition(b.this.dZm.mt(i));
+                        b.this.dZi.setPosition(b.this.dZm.mv(i));
                     }
                     if (b.this.bGq != null) {
-                        b.this.bGq.onPageSelected(b.this.dZm.mt(i));
+                        b.this.bGq.onPageSelected(b.this.dZm.mv(i));
                     }
                 }
             }
@@ -103,7 +103,7 @@ public class b {
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        b.this.aXd();
+                        b.this.aXe();
                         return false;
                     default:
                         return false;
@@ -119,7 +119,7 @@ public class b {
                     b.this.bGq.onPageScrollStateChanged(i2);
                 }
                 if (i2 == 1) {
-                    b.this.aXf();
+                    b.this.aXg();
                 } else if (i2 == 0 && (count = b.this.dZl.getCount()) >= 2) {
                     int currentItem = b.this.mViewPager.getCurrentItem();
                     int i22 = count - 2;
@@ -128,7 +128,7 @@ public class b {
                     } else if (currentItem > i22) {
                         b.this.mViewPager.setCurrentItem(1, false);
                     }
-                    b.this.aXe();
+                    b.this.aXf();
                 }
             }
 
@@ -141,12 +141,12 @@ public class b {
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i2) {
-                if (b.this.dZm != null && b.this.dZm.ms(i2) == i2) {
+                if (b.this.dZm != null && b.this.dZm.mu(i2) == i2) {
                     if (b.this.dZi != null) {
-                        b.this.dZi.setPosition(b.this.dZm.mt(i2));
+                        b.this.dZi.setPosition(b.this.dZm.mv(i2));
                     }
                     if (b.this.bGq != null) {
-                        b.this.bGq.onPageSelected(b.this.dZm.mt(i2));
+                        b.this.bGq.onPageSelected(b.this.dZm.mv(i2));
                     }
                 }
             }
@@ -172,7 +172,7 @@ public class b {
     public void setMaxScrollCountLimit(int i) {
         this.dZp = i;
         if (this.dZm != null) {
-            this.dZm.mu(i);
+            this.dZm.mw(i);
         }
     }
 
@@ -194,13 +194,13 @@ public class b {
         if (v.getCount(list) != 0) {
             this.dZq = list;
             this.dZm = new d(this.dZq, this.dZn, this.dZp);
-            this.dZm.mv(2);
-            this.dZm.mw(1);
-            this.dZl.setDatas(this.dZm.aXk());
+            this.dZm.mx(2);
+            this.dZm.my(1);
+            this.dZl.setDatas(this.dZm.aXl());
             this.dZl.notifyDataSetChanged();
-            this.mViewPager.setCurrentItem(this.dZm.aXj(), false);
-            if (this.dZm.aXi() > 0) {
-                if (this.dZm.aXi() > this.dZp) {
+            this.mViewPager.setCurrentItem(this.dZm.aXk(), false);
+            if (this.dZm.aXj() > 0) {
+                if (this.dZm.aXj() > this.dZp) {
                     if (this.dZh != null) {
                         this.dZh.setVisibility(0);
                         this.dZh.setOnClickListener(null);
@@ -213,35 +213,35 @@ public class b {
                     if (this.dZi != null && this.dZi.getVisibility() == 0 && this.dZi.getCount() != this.dZp) {
                         this.dZi.setCount(this.dZp);
                     }
-                    aXe();
+                    aXf();
                 }
-                if (this.dZm.aXi() >= 2 && this.dZm.aXi() <= this.dZp) {
+                if (this.dZm.aXj() >= 2 && this.dZm.aXj() <= this.dZp) {
                     if (this.dZh != null) {
                         this.dZh.setVisibility(8);
                     }
                     if (this.dZi != null) {
                         this.dZi.setVisibility(0);
-                        if (this.dZi.getCount() != this.dZm.aXi()) {
-                            this.dZi.setCount(this.dZm.aXi());
+                        if (this.dZi.getCount() != this.dZm.aXj()) {
+                            this.dZi.setCount(this.dZm.aXj());
                         }
                     }
-                    aXe();
+                    aXf();
                 }
-                if (this.dZm.aXi() < 2) {
+                if (this.dZm.aXj() < 2) {
                     if (this.dZh != null) {
                         this.dZh.setVisibility(8);
                     }
                     if (this.dZi != null) {
                         this.dZi.setVisibility(8);
                     }
-                    aXf();
+                    aXg();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXd() {
+    public void aXe() {
         int count;
         if (this.mViewPager != null && this.dZl != null) {
             h E = i.E(this.mContext);
@@ -266,7 +266,7 @@ public class b {
         this.dZr = j;
     }
 
-    public void aXe() {
+    public void aXf() {
         if (this.dZo) {
             this.mHandler.removeMessages(1);
             this.mHandler.sendEmptyMessageDelayed(1, this.dZr);
@@ -275,7 +275,7 @@ public class b {
         this.mHandler.removeMessages(1);
     }
 
-    public void aXf() {
+    public void aXg() {
         this.mHandler.removeMessages(1);
     }
 }

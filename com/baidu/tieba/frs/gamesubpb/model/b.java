@@ -6,13 +6,13 @@ import com.baidu.ar.gesture.GestureAR;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class b implements o {
-    public static final BdUniqueId hCW = BdUniqueId.gen();
+    public static final BdUniqueId hDJ = BdUniqueId.gen();
     public String content;
     public String createTime;
     public String forumId;
-    public String hCX;
-    public int hCY;
-    public boolean hCZ;
+    public String hDK;
+    public int hDL;
+    public boolean hDM;
     public String id;
     public String portrait;
     public String score;
@@ -26,10 +26,10 @@ public class b implements o {
             this.forumId = jSONObject.optString("forum_id");
             this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
             this.createTime = jSONObject.optString("create_time");
-            this.hCX = jSONObject.optString("time_passed");
+            this.hDK = jSONObject.optString("time_passed");
             this.content = jSONObject.optString("content");
-            this.hCY = jSONObject.optInt("zan_num");
-            this.hCZ = jSONObject.optInt("is_zan", 0) == 1;
+            this.hDL = jSONObject.optInt("zan_num");
+            this.hDM = jSONObject.optInt("is_zan", 0) == 1;
             this.userName = jSONObject.optString("user_name");
             this.portrait = jSONObject.optString("portrait");
         }
@@ -37,6 +37,6 @@ public class b implements o {
 
     @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return hCW;
+        return hDJ;
     }
 }

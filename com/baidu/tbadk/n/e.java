@@ -7,13 +7,13 @@ import com.baidu.mobstat.Config;
 public class e extends o {
     @Override // com.baidu.tbadk.n.o
     public void a(i iVar) {
-        if (m.bfI().bfJ()) {
+        if (m.bfJ().bfK()) {
             com.baidu.adp.lib.stats.a kY = kY();
             kY.append("action", "time_t");
             a(kY, iVar);
             kY.append("ishttp", iVar.esk ? "1" : "0");
             kY.append("issuccess", iVar.isSuccess ? "1" : "0");
-            kY.append("nettype", m.bfI().getNetType());
+            kY.append("nettype", m.bfJ().getNetType());
             kY.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(iVar.erY));
             kY.append("wt", String.valueOf(iVar.esh));
             kY.append("qt", String.valueOf(iVar.erZ));
@@ -44,7 +44,7 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.n.o
     public void a(h hVar, String str) {
-        if (hVar != null && str != null && m.bfI().bfJ()) {
+        if (hVar != null && str != null && m.bfJ().bfK()) {
             com.baidu.adp.lib.stats.a kY = kY();
             kY.append("action", "resource_t");
             kY.append("actype", str);
@@ -64,7 +64,7 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.n.o
     public void a(i iVar, boolean z) {
-        if (m.bfI().bfJ()) {
+        if (m.bfJ().bfK()) {
             if (!z || iVar.esp > 0) {
                 if (z || iVar.esq > 0) {
                     com.baidu.adp.lib.stats.a kY = kY();
@@ -77,7 +77,7 @@ public class e extends o {
                     }
                     kY.append("ishttp", iVar.esk ? "1" : "0");
                     kY.append("issuccess", iVar.isSuccess ? "1" : "0");
-                    kY.append("nettype", m.bfI().getNetType());
+                    kY.append("nettype", m.bfJ().getNetType());
                     kY.append("qt", String.valueOf(iVar.erZ));
                     kY.append("connt", String.valueOf(iVar.esa));
                     kY.append("rwt", String.valueOf(iVar.esb));
@@ -103,7 +103,7 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.n.o
     public void a(i iVar, int i) {
-        if (m.bfI().bfJ() && iVar.esr > 0) {
+        if (m.bfJ().bfK() && iVar.esr > 0) {
             com.baidu.adp.lib.stats.a kY = kY();
             kY.append("action", "time_t");
             a(kY, iVar);

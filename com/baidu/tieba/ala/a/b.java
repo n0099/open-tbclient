@@ -5,68 +5,68 @@ import com.baidu.tbadk.download.DownloadData;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class b extends g implements j {
-    private d fmt;
-    private String fmu;
+    private d fmE;
+    private String fmF;
     private float cMz = 0.0f;
     private boolean mIsLoading = false;
 
     public b(String str) {
-        this.fmu = str;
-        bsj();
+        this.fmF = str;
+        bsl();
     }
 
-    private void bsj() {
-        this.fmt = c.Ba(this.fmu);
+    private void bsl() {
+        this.fmE = c.Ba(this.fmF);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aKn() {
-        if (bsz() != null) {
-            bsz().b(this);
+        if (bsB() != null) {
+            bsB().b(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bsk() {
-        if (bsz() != null) {
-            bsz().a(this);
+    public void bsm() {
+        if (bsB() != null) {
+            bsB().a(this);
         }
     }
 
     @Override // com.baidu.tieba.ala.a.j
     public boolean isReady() {
-        if (this.fmt == null) {
+        if (this.fmE == null) {
             return false;
         }
-        return this.fmt.isLoaded();
+        return this.fmE.isLoaded();
     }
 
     @Override // com.baidu.tieba.ala.a.j
     public void load() {
-        if (bsz() != null) {
-            bsz().a(this, getProgress());
+        if (bsB() != null) {
+            bsB().a(this, getProgress());
         }
-        bsl();
+        bsn();
     }
 
-    public void bsl() {
-        if (this.fmt == null) {
+    public void bsn() {
+        if (this.fmE == null) {
             aKn();
         } else if (!this.mIsLoading) {
             this.mIsLoading = true;
-            if (!this.fmt.isLoaded()) {
-                bsm();
+            if (!this.fmE.isLoaded()) {
+                bso();
             } else {
-                bsk();
+                bsm();
             }
         }
     }
 
-    private void bsm() {
+    private void bso() {
         DownloadData downloadData = new DownloadData();
         downloadData.setType(20);
-        downloadData.setUrl(this.fmt.mUrl);
-        downloadData.setPath(this.fmt.getLoadingFile());
+        downloadData.setUrl(this.fmE.mUrl);
+        downloadData.setPath(this.fmE.getLoadingFile());
         downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.ala.a.b.1
             @Override // com.baidu.tbadk.download.c
             public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -79,8 +79,8 @@ public class b extends g implements j {
                     return;
                 }
                 b.this.cMz = downloadData2.getProcess();
-                if (b.this.bsz() != null) {
-                    b.this.bsz().a(b.this, b.this.getProgress());
+                if (b.this.bsB() != null) {
+                    b.this.bsB().a(b.this, b.this.getProgress());
                 }
             }
 
@@ -97,10 +97,10 @@ public class b extends g implements j {
             @Override // com.baidu.tbadk.download.c
             public void onFileDownloadSucceed(DownloadData downloadData2) {
                 if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                    if (!b.this.fmt.onResLoaded(downloadData2.getPath())) {
+                    if (!b.this.fmE.onResLoaded(downloadData2.getPath())) {
                         b.this.aKn();
                     } else {
-                        b.this.bsk();
+                        b.this.bsm();
                     }
                 }
             }
@@ -114,11 +114,11 @@ public class b extends g implements j {
                 b.this.aKn();
             }
         });
-        com.baidu.tbadk.download.d.bcT().f(downloadData);
+        com.baidu.tbadk.download.d.bcU().f(downloadData);
     }
 
     @Override // com.baidu.tieba.ala.a.j
-    public g bsn() {
+    public g bsp() {
         return this;
     }
 

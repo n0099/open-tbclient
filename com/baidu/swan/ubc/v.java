@@ -45,7 +45,7 @@ class v {
         }
     }
 
-    public boolean jA(int i) {
+    public boolean jC(int i) {
         return this.cuT.toString().getBytes().length >= i;
     }
 

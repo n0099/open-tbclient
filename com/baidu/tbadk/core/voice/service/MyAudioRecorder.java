@@ -49,7 +49,7 @@ public class MyAudioRecorder implements d {
                 while (true) {
                     myAudioRecorder = new MyAudioRecorder(true, 1, dZY[i], 2, 2);
                     int i2 = i - 1;
-                    if (!(myAudioRecorder.aXu() != State.INITIALIZING) || !(i2 >= 0)) {
+                    if (!(myAudioRecorder.aXv() != State.INITIALIZING) || !(i2 >= 0)) {
                         break;
                     }
                     i = i2;
@@ -61,7 +61,7 @@ public class MyAudioRecorder implements d {
         return myAudioRecorder;
     }
 
-    public State aXu() {
+    public State aXv() {
         return this.ead;
     }
 
@@ -257,13 +257,13 @@ public class MyAudioRecorder implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean aXq() {
+    public boolean aXr() {
         synchronized (mLock) {
             if (this.writeThread == null || !this.writeThread.isAlive()) {
                 this.writeThread = new Thread(new Runnable() { // from class: com.baidu.tbadk.core.voice.service.MyAudioRecorder.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        MyAudioRecorder.this.aXp();
+                        MyAudioRecorder.this.aXq();
                     }
                 });
                 this.writeThread.start();
@@ -273,21 +273,21 @@ public class MyAudioRecorder implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public void aXr() {
+    public void aXs() {
         this.ead = State.STOPPED;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean aXs() {
+    public boolean aXt() {
         return this.ead == State.RECORDING;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXp() {
+    public void aXq() {
         if (eaa != null) {
             try {
                 start();
-                while (aXs()) {
+                while (aXt()) {
                     eaa.read(this.buffer, 0, this.buffer.length);
                     try {
                         System.out.println(this.buffer);

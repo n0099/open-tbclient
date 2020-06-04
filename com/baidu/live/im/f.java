@@ -810,7 +810,7 @@ public class f {
                     aVar2.e(aVar3);
                     aVar2.setContent(content);
                     aVar2.setMsgType(aVar.DM());
-                    aVar2.ct(aVar.DF());
+                    aVar2.cv(aVar.DF());
                     aVar2.fr(aVar.DG());
                     aVar2.a(aVar.DH());
                     aVar2.k(aVar.DI());

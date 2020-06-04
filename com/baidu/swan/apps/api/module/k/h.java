@@ -57,7 +57,7 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void eo(int i) {
+    public void eq(int i) {
         this.avY = i;
     }
 

@@ -53,7 +53,7 @@ public class PushMessageHandler extends BaseService {
         try {
             context.startService(intent);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m52a(e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m51a(e.getMessage());
         }
     }
 
@@ -189,7 +189,7 @@ public class PushMessageHandler extends BaseService {
                 com.xiaomi.channel.commonutils.logger.b.c("PushMessageHandler.onHandleIntent " + hqVar.d());
                 MiTinyDataClient.upload(context, hqVar);
             } else if (1 == PushMessageHelper.getPushMode(context)) {
-                if (m69b()) {
+                if (m68b()) {
                     com.xiaomi.channel.commonutils.logger.b.d("receive a message before application calling initialize");
                     return;
                 }
@@ -243,7 +243,7 @@ public class PushMessageHandler extends BaseService {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m69b() {
+    public static boolean m68b() {
         return b.isEmpty();
     }
 
@@ -256,7 +256,7 @@ public class PushMessageHandler extends BaseService {
 
     @Override // com.xiaomi.mipush.sdk.BaseService
     /* renamed from: a  reason: collision with other method in class */
-    protected boolean mo70a() {
+    protected boolean mo69a() {
         return (f36a == null || f36a.getQueue() == null || f36a.getQueue().size() <= 0) ? false : true;
     }
 

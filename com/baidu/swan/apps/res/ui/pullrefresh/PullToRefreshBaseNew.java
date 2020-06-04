@@ -422,11 +422,11 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         boolean isPullRefreshing = isPullRefreshing();
         boolean anT = anT();
         if ((isPullRefreshing || anT) && abs <= this.cwY) {
-            gm(0);
+            gp(0);
         } else if (isPullRefreshing || anT) {
-            gm(-this.cwY);
+            gp(-this.cwY);
         } else {
-            gm(0);
+            gp(0);
         }
     }
 
@@ -434,11 +434,11 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         int abs = Math.abs(getScrollYValue());
         boolean isPullLoading = isPullLoading();
         if (isPullLoading && abs <= this.cwZ) {
-            gm(0);
+            gp(0);
         } else if (isPullLoading) {
-            gm(this.cwZ);
+            gp(this.cwZ);
         } else {
-            gm(0);
+            gp(0);
         }
     }
 
@@ -534,7 +534,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         return getScrollY();
     }
 
-    private void gm(int i) {
+    private void gp(int i) {
         c(i, getSmoothScrollDuration(), 0L);
     }
 

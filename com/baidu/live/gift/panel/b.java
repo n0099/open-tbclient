@@ -219,16 +219,16 @@ public class b {
                 return null;
             }
         };
-        c cl = c.cl(0);
-        cl.setPageContext(this.mContext);
-        cl.a(aVar);
-        cl.b(this.aMx);
-        cl.a(this.aMw);
-        c cl2 = c.cl(1);
-        cl2.setPageContext(this.mContext);
-        cl2.a(aVar);
-        cl2.b(this.aMx);
-        cl2.a(this.aMw);
+        c cn = c.cn(0);
+        cn.setPageContext(this.mContext);
+        cn.a(aVar);
+        cn.b(this.aMx);
+        cn.a(this.aMw);
+        c cn2 = c.cn(1);
+        cn2.setPageContext(this.mContext);
+        cn2.a(aVar);
+        cn2.b(this.aMx);
+        cn2.a(this.aMw);
         switch (this.aMz) {
             case 1:
                 i = 0;
@@ -241,7 +241,7 @@ public class b {
                 break;
         }
         if (this.aMy != null) {
-            this.aMy.a(i, cl, cl2);
+            this.aMy.a(i, cn, cn2);
         }
     }
 

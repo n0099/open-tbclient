@@ -14,7 +14,7 @@ public final class a {
         b<T> a;
         q.m(dVar, "context");
         q.m(bVar, "continuation");
-        c cVar = (c) dVar.a(c.nsw);
+        c cVar = (c) dVar.a(c.ntG);
         return (cVar == null || (a = cVar.a(bVar)) == null) ? bVar : a;
     }
 }

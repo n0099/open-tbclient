@@ -21,12 +21,12 @@ public class c {
     }
 
     public static void a(@NonNull b bVar, @NonNull com.baidu.swan.apps.model.a.a.a aVar) {
-        bVar.hS(aVar.getLeft());
-        bVar.hT(aVar.getTop());
+        bVar.hU(aVar.getLeft());
+        bVar.hV(aVar.getTop());
         if (aVar.isFixed()) {
-            bVar.hQ(1);
+            bVar.hS(1);
         } else {
-            bVar.hR(1);
+            bVar.hT(1);
         }
     }
 }

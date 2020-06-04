@@ -11,21 +11,21 @@ import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
 /* loaded from: classes6.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> nEf = new AtomicReference<>();
-    private final g nKn;
-    private final g nKo;
-    private final g nKp;
+    private static final AtomicReference<Schedulers> nFp = new AtomicReference<>();
+    private final g nLx;
+    private final g nLy;
+    private final g nLz;
 
-    private static Schedulers dQE() {
+    private static Schedulers dQS() {
         Schedulers schedulers;
         while (true) {
-            schedulers = nEf.get();
+            schedulers = nFp.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (nEf.compareAndSet(null, schedulers)) {
+                if (nFp.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.dQG();
+                schedulers.dQU();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g dQv = f.dQq().dQv();
-        g dQz = dQv.dQz();
-        if (dQz != null) {
-            this.nKn = dQz;
+        rx.c.g dQJ = f.dQE().dQJ();
+        g dQN = dQJ.dQN();
+        if (dQN != null) {
+            this.nLx = dQN;
         } else {
-            this.nKn = rx.c.g.dQw();
+            this.nLx = rx.c.g.dQK();
         }
-        g dQA = dQv.dQA();
-        if (dQA != null) {
-            this.nKo = dQA;
+        g dQO = dQJ.dQO();
+        if (dQO != null) {
+            this.nLy = dQO;
         } else {
-            this.nKo = rx.c.g.dQx();
+            this.nLy = rx.c.g.dQL();
         }
-        g dQB = dQv.dQB();
-        if (dQB != null) {
-            this.nKp = dQB;
+        g dQP = dQJ.dQP();
+        if (dQP != null) {
+            this.nLz = dQP;
         } else {
-            this.nKp = rx.c.g.dQy();
+            this.nLz = rx.c.g.dQM();
         }
     }
 
     public static g immediate() {
-        return e.nIu;
+        return e.nJE;
     }
 
     public static g trampoline() {
-        return j.nIS;
+        return j.nKc;
     }
 
     public static g newThread() {
-        return c.k(dQE().nKp);
+        return c.k(dQS().nLz);
     }
 
     public static g computation() {
-        return c.i(dQE().nKn);
+        return c.i(dQS().nLx);
     }
 
     public static g io() {
-        return c.j(dQE().nKo);
+        return c.j(dQS().nLy);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = nEf.getAndSet(null);
+        Schedulers andSet = nFp.getAndSet(null);
         if (andSet != null) {
-            andSet.dQG();
+            andSet.dQU();
         }
     }
 
     public static void start() {
-        Schedulers dQE = dQE();
-        dQE.dQF();
-        synchronized (dQE) {
-            d.nIs.start();
+        Schedulers dQS = dQS();
+        dQS.dQT();
+        synchronized (dQS) {
+            d.nJC.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers dQE = dQE();
-        dQE.dQG();
-        synchronized (dQE) {
-            d.nIs.shutdown();
+        Schedulers dQS = dQS();
+        dQS.dQU();
+        synchronized (dQS) {
+            d.nJC.shutdown();
         }
     }
 
-    synchronized void dQF() {
-        if (this.nKn instanceof h) {
-            ((h) this.nKn).start();
+    synchronized void dQT() {
+        if (this.nLx instanceof h) {
+            ((h) this.nLx).start();
         }
-        if (this.nKo instanceof h) {
-            ((h) this.nKo).start();
+        if (this.nLy instanceof h) {
+            ((h) this.nLy).start();
         }
-        if (this.nKp instanceof h) {
-            ((h) this.nKp).start();
+        if (this.nLz instanceof h) {
+            ((h) this.nLz).start();
         }
     }
 
-    synchronized void dQG() {
-        if (this.nKn instanceof h) {
-            ((h) this.nKn).shutdown();
+    synchronized void dQU() {
+        if (this.nLx instanceof h) {
+            ((h) this.nLx).shutdown();
         }
-        if (this.nKo instanceof h) {
-            ((h) this.nKo).shutdown();
+        if (this.nLy instanceof h) {
+            ((h) this.nLy).shutdown();
         }
-        if (this.nKp instanceof h) {
-            ((h) this.nKp).shutdown();
+        if (this.nLz instanceof h) {
+            ((h) this.nLz).shutdown();
         }
     }
 }

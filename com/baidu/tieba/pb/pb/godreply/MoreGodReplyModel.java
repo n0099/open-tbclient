@@ -14,25 +14,25 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class MoreGodReplyModel extends BdBaseModel<e> {
     private boolean isLoading;
-    private PbModel jGo;
-    private int jGp;
-    private int jGq;
-    private ae.a jGr;
-    private final ae.a jGs;
+    private PbModel jHu;
+    private int jHv;
+    private int jHw;
+    private ae.a jHx;
+    private final ae.a jHy;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public MoreGodReplyModel(e eVar, PbModel pbModel) {
         super(eVar);
         this.isLoading = false;
-        this.jGp = -1;
-        this.jGq = -1;
-        this.jGs = new ae.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
+        this.jHv = -1;
+        this.jHw = -1;
+        this.jHy = new ae.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
             @Override // com.baidu.tieba.pb.pb.main.ae.a
             public void aN(List<PostData> list) {
-                p cCw;
+                p cCM;
                 MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.jGo != null && MoreGodReplyModel.this.jGo.getPbData() != null && (cCw = MoreGodReplyModel.this.jGo.getPbData().cCw()) != null) {
-                    List<PostData> list2 = cCw.jFy;
+                if (MoreGodReplyModel.this.jHu != null && MoreGodReplyModel.this.jHu.getPbData() != null && (cCM = MoreGodReplyModel.this.jHu.getPbData().cCM()) != null) {
+                    List<PostData> list2 = cCM.jGE;
                     int size = list2.size();
                     if (!v.isEmpty(list)) {
                         for (PostData postData : list) {
@@ -41,29 +41,29 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
                             }
                         }
                     }
-                    MoreGodReplyModel.this.jGo.b(MoreGodReplyModel.this.jGo.getPbData(), size);
+                    MoreGodReplyModel.this.jHu.b(MoreGodReplyModel.this.jHu.getPbData(), size);
                 }
-                if (MoreGodReplyModel.this.jGp > 0) {
-                    MoreGodReplyModel.this.jGq = MoreGodReplyModel.this.jGp;
+                if (MoreGodReplyModel.this.jHv > 0) {
+                    MoreGodReplyModel.this.jHw = MoreGodReplyModel.this.jHv;
                 }
-                if (MoreGodReplyModel.this.jGr != null) {
-                    MoreGodReplyModel.this.jGr.aN(list);
+                if (MoreGodReplyModel.this.jHx != null) {
+                    MoreGodReplyModel.this.jHx.aN(list);
                 }
             }
 
             @Override // com.baidu.tieba.pb.pb.main.ae.a
             public void m(int i, String str, String str2) {
                 MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.jGr != null) {
-                    MoreGodReplyModel.this.jGr.m(i, str, str2);
+                if (MoreGodReplyModel.this.jHx != null) {
+                    MoreGodReplyModel.this.jHx.m(i, str, str2);
                 }
             }
         };
         if (pbModel != null) {
-            this.jGo = pbModel;
-            ae cFX = pbModel.cFX();
-            if (cFX != null) {
-                cFX.b(this.jGs);
+            this.jHu = pbModel;
+            ae cGn = pbModel.cGn();
+            if (cGn != null) {
+                cGn.b(this.jHy);
             }
         }
     }
@@ -85,25 +85,25 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return false;
     }
 
-    public boolean cDx() {
-        p cCw;
-        com.baidu.tieba.pb.data.e pbData = this.jGo.getPbData();
-        if (pbData == null || (cCw = pbData.cCw()) == null) {
+    public boolean cDN() {
+        p cCM;
+        com.baidu.tieba.pb.data.e pbData = this.jHu.getPbData();
+        if (pbData == null || (cCM = pbData.cCM()) == null) {
             return false;
         }
-        if (this.jGq < 0) {
-            this.jGq = cCw.getCount();
+        if (this.jHw < 0) {
+            this.jHw = cCM.getCount();
         }
-        List<Long> list = cCw.jFz;
+        List<Long> list = cCM.jGF;
         int size = list.size();
-        int i = this.jGq;
-        if (size <= i || cCw.jFy.size() >= 100) {
+        int i = this.jHw;
+        if (size <= i || cCM.jGE.size() >= 100) {
             return false;
         }
         int min = Math.min(100, Math.min(i + 20, size));
-        this.jGp = min;
+        this.jHv = min;
         this.isLoading = true;
-        this.jGo.cFX().dX(list.subList(i, min));
+        this.jHu.cGn().dZ(list.subList(i, min));
         Log.d("more_god_reply", "load from " + i + " to " + min);
         return true;
     }
@@ -112,25 +112,25 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return this.isLoading;
     }
 
-    public PbModel cDy() {
-        return this.jGo;
+    public PbModel cDO() {
+        return this.jHu;
     }
 
-    public List<o> cDz() {
+    public List<o> cDP() {
         com.baidu.tieba.pb.data.e pbData;
-        if (this.jGo == null || (pbData = this.jGo.getPbData()) == null || pbData.cCw() == null || v.isEmpty(pbData.cCw().jFy)) {
+        if (this.jHu == null || (pbData = this.jHu.getPbData()) == null || pbData.cCM() == null || v.isEmpty(pbData.cCM().jGE)) {
             return null;
         }
-        p cCw = pbData.cCw();
+        p cCM = pbData.cCM();
         ArrayList arrayList = new ArrayList();
-        List<PostData> list = cCw.jFy;
+        List<PostData> list = cCM.jGE;
         int size = list.size();
         int i = 0;
         while (i < size) {
             PostData postData = list.get(i);
             if (postData != null) {
                 arrayList.add(postData);
-                postData.llu = i < size + (-1);
+                postData.lmD = i < size + (-1);
             }
             i++;
         }
@@ -149,19 +149,19 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
     }
 
     public void a(ae.a aVar) {
-        this.jGr = aVar;
+        this.jHx = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean anV() {
         com.baidu.tieba.pb.data.e pbData;
-        p cCw;
-        if (this.jGo == null || (pbData = this.jGo.getPbData()) == null || (cCw = pbData.cCw()) == null) {
+        p cCM;
+        if (this.jHu == null || (pbData = this.jHu.getPbData()) == null || (cCM = pbData.cCM()) == null) {
             return false;
         }
-        if (this.jGq < 0) {
-            this.jGq = cCw.getCount();
+        if (this.jHw < 0) {
+            this.jHw = cCM.getCount();
         }
-        return cCw.jFz.size() > this.jGq && cCw.jFy.size() < 100;
+        return cCM.jGF.size() > this.jHw && cCM.jGE.size() < 100;
     }
 }

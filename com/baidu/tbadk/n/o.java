@@ -6,12 +6,12 @@ import com.baidu.mobstat.Config;
 /* loaded from: classes.dex */
 public class o extends l {
     public void a(i iVar) {
-        if (m.bfI().bfJ()) {
+        if (m.bfJ().bfK()) {
             com.baidu.adp.lib.stats.a kY = kY();
             kY.append("action", "time");
             kY.append("ishttp", iVar.esk ? "1" : "0");
             kY.append("issuccess", iVar.isSuccess ? "1" : "0");
-            kY.append("nettype", m.bfI().getNetType());
+            kY.append("nettype", m.bfJ().getNetType());
             kY.append("wt", String.valueOf(iVar.esh));
             kY.append("qt", String.valueOf(iVar.erZ));
             kY.append("connt", String.valueOf(iVar.esa));
@@ -58,7 +58,7 @@ public class o extends l {
     }
 
     public void a(h hVar, String str) {
-        if (hVar != null && str != null && m.bfI().bfJ()) {
+        if (hVar != null && str != null && m.bfJ().bfK()) {
             com.baidu.adp.lib.stats.a kY = kY();
             kY.append("action", "resource");
             kY.append("actype", str);
@@ -71,20 +71,20 @@ public class o extends l {
     }
 
     public void a(b bVar) {
-        if (bVar != null && m.bfI().bfJ()) {
+        if (bVar != null && m.bfJ().bfK()) {
             com.baidu.adp.lib.stats.a kY = kY();
             kY.append("action", "fluency");
             kY.append("fps", String.valueOf(bVar.getFps()));
             BdStatisticsManager.getInstance().performance(this.subType, kY);
             com.baidu.adp.lib.stats.a kY2 = kY();
             kY2.append("action", "mem");
-            kY2.append("memp", String.valueOf(m.bfI().bfK()));
+            kY2.append("memp", String.valueOf(m.bfJ().bfL()));
             BdStatisticsManager.getInstance().performance(this.subType, kY2);
         }
     }
 
     public void a(i iVar, boolean z) {
-        if (m.bfI().bfJ()) {
+        if (m.bfJ().bfK()) {
             if (!z || iVar.esp > 0) {
                 if (z || iVar.esq > 0) {
                     com.baidu.adp.lib.stats.a kY = kY();
@@ -96,7 +96,7 @@ public class o extends l {
                     }
                     kY.append("ishttp", iVar.esk ? "1" : "0");
                     kY.append("issuccess", iVar.isSuccess ? "1" : "0");
-                    kY.append("nettype", m.bfI().getNetType());
+                    kY.append("nettype", m.bfJ().getNetType());
                     kY.append("qt", String.valueOf(iVar.erZ));
                     kY.append("connt", String.valueOf(iVar.esa));
                     kY.append("rwt", String.valueOf(iVar.esb));
@@ -121,7 +121,7 @@ public class o extends l {
     }
 
     public void a(i iVar, int i) {
-        if (m.bfI().bfJ() && iVar.esr > 0) {
+        if (m.bfJ().bfK() && iVar.esr > 0) {
             com.baidu.adp.lib.stats.a kY = kY();
             kY.append("action", "time");
             kY.append("pct", String.valueOf(iVar.esr));

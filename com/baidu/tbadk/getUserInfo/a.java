@@ -6,7 +6,7 @@ import tbclient.GetUserInfo.DataRes;
 public class a {
     private UserData eom;
 
-    public UserData bel() {
+    public UserData bem() {
         return this.eom;
     }
 

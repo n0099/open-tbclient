@@ -14,12 +14,12 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes9.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
     protected boolean isSucc;
-    protected ArrayList<FeedData> iPv = new ArrayList<>();
+    protected ArrayList<FeedData> iQi = new ArrayList<>();
     protected ao page = new ao();
-    protected h iPw = new h();
+    protected h iQj = new h();
 
-    public ArrayList<FeedData> crb() {
-        return this.iPv;
+    public ArrayList<FeedData> crk() {
+        return this.iQi;
     }
 
     public ao getPage() {
@@ -35,13 +35,13 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.iPv.add(feedData);
+                    this.iQi.add(feedData);
                     if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.getCount(feedData.getPraiseList()) == 0) {
-                        this.iPv.remove(feedData);
+                        this.iQi.remove(feedData);
                     }
                 }
             }
-            this.iPw.parserJson(jSONObject.optJSONObject("message"));
+            this.iQj.parserJson(jSONObject.optJSONObject("message"));
             this.page.parserJson(jSONObject.optJSONObject("page"));
             this.isSucc = true;
         } catch (Exception e) {
@@ -60,9 +60,9 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.iPv.add(feedData);
+                        this.iQi.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.getCount(feedData.getPraiseList()) == 0) {
-                            this.iPv.remove(feedData);
+                            this.iQi.remove(feedData);
                         }
                     }
                 }

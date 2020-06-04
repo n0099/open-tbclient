@@ -53,9 +53,9 @@ public class AlaDynamicGiftLayout extends RelativeLayout implements com.baidu.li
 
             @Override // com.baidu.live.gift.dynamicGift.AlaDynamicGiftLayout.a
             public void onFrameUpdate(int i) {
-                AlaDynamicGiftLayout.this.ci(i);
+                AlaDynamicGiftLayout.this.ck(i);
                 if (AlaDynamicGiftLayout.this.aKx != null) {
-                    AlaDynamicGiftLayout.this.aKx.bN(i);
+                    AlaDynamicGiftLayout.this.aKx.bP(i);
                 }
             }
 
@@ -84,9 +84,9 @@ public class AlaDynamicGiftLayout extends RelativeLayout implements com.baidu.li
 
             @Override // com.baidu.live.gift.dynamicGift.AlaDynamicGiftLayout.a
             public void onFrameUpdate(int i) {
-                AlaDynamicGiftLayout.this.ci(i);
+                AlaDynamicGiftLayout.this.ck(i);
                 if (AlaDynamicGiftLayout.this.aKx != null) {
-                    AlaDynamicGiftLayout.this.aKx.bN(i);
+                    AlaDynamicGiftLayout.this.aKx.bP(i);
                 }
             }
 
@@ -115,9 +115,9 @@ public class AlaDynamicGiftLayout extends RelativeLayout implements com.baidu.li
 
             @Override // com.baidu.live.gift.dynamicGift.AlaDynamicGiftLayout.a
             public void onFrameUpdate(int i2) {
-                AlaDynamicGiftLayout.this.ci(i2);
+                AlaDynamicGiftLayout.this.ck(i2);
                 if (AlaDynamicGiftLayout.this.aKx != null) {
-                    AlaDynamicGiftLayout.this.aKx.bN(i2);
+                    AlaDynamicGiftLayout.this.aKx.bP(i2);
                 }
             }
 
@@ -195,7 +195,7 @@ public class AlaDynamicGiftLayout extends RelativeLayout implements com.baidu.li
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ci(int i) {
+    public void ck(int i) {
         if (this.aKy != null && this.aJK) {
             if (i == ((int) (this.mFrameCount * 0.07f))) {
                 this.aKy.yA();

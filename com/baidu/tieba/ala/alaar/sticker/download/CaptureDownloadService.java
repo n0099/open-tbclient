@@ -158,12 +158,12 @@ public class CaptureDownloadService extends Service {
     }
 
     private void download(int i, d dVar, String str) {
-        this.mDownloadManager.a(new c.a().AE(dVar.getUrl()).bpD(), str, new a(i, dVar, getApplicationContext()));
+        this.mDownloadManager.a(new c.a().AE(dVar.getUrl()).bpF(), str, new a(i, dVar, getApplicationContext()));
     }
 
     /* loaded from: classes3.dex */
     public static class a extends com.baidu.tieba.ala.alaar.sticker.download.a.a {
-        private d eWF;
+        private d eWQ;
         private int mLastProgress;
         private long mLastTime;
         private LocalBroadcastManager mLocalBroadcastManager;
@@ -171,7 +171,7 @@ public class CaptureDownloadService extends Service {
 
         public a(int i, d dVar, Context context) {
             this.mPosition = i;
-            this.eWF = dVar;
+            this.eWQ = dVar;
             this.mLocalBroadcastManager = LocalBroadcastManager.getInstance(context);
         }
 
@@ -180,41 +180,41 @@ public class CaptureDownloadService extends Service {
             if (this.mLastTime == 0) {
                 this.mLastTime = System.currentTimeMillis();
             }
-            this.eWF.setStatus(3);
-            this.eWF.setProgress(i);
-            this.eWF.setDownloadPerSize(com.baidu.tieba.ala.alaar.sticker.b.b.getDownloadPerSize(j, j2));
+            this.eWQ.setStatus(3);
+            this.eWQ.setProgress(i);
+            this.eWQ.setDownloadPerSize(com.baidu.tieba.ala.alaar.sticker.b.b.getDownloadPerSize(j, j2));
             if (checkSendBroadLimit(i)) {
-                a(this.eWF);
+                a(this.eWQ);
             }
         }
 
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void onCompleted(String str) {
-            this.eWF.setStatus(6);
-            this.eWF.setProgress(100);
-            this.eWF.setSavePath(str);
-            a(this.eWF);
+            this.eWQ.setStatus(6);
+            this.eWQ.setProgress(100);
+            this.eWQ.setSavePath(str);
+            a(this.eWQ);
         }
 
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void onDownloadPaused() {
-            this.eWF.setStatus(4);
-            a(this.eWF);
+            this.eWQ.setStatus(4);
+            a(this.eWQ);
         }
 
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void onDownloadCanceled() {
-            this.eWF.setStatus(0);
-            this.eWF.setProgress(0);
-            this.eWF.setDownloadPerSize("");
-            a(this.eWF);
+            this.eWQ.setStatus(0);
+            this.eWQ.setProgress(0);
+            this.eWQ.setDownloadPerSize("");
+            a(this.eWQ);
         }
 
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void a(DownloadException downloadException) {
             downloadException.printStackTrace();
-            this.eWF.setStatus(5);
-            a(this.eWF);
+            this.eWQ.setStatus(5);
+            a(this.eWQ);
         }
 
         private void a(d dVar) {
@@ -239,7 +239,7 @@ public class CaptureDownloadService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.mDownloadManager = b.bpC();
+        this.mDownloadManager = b.bpE();
     }
 
     @Override // android.app.Service

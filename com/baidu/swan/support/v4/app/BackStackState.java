@@ -19,7 +19,7 @@ public final class BackStackState implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: jm */
+        /* renamed from: jo */
         public BackStackState[] newArray(int i) {
             return new BackStackState[i];
         }

@@ -100,7 +100,7 @@ public class SwitchButton extends CompoundButton {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: dP */
+            /* renamed from: dR */
             public a[] newArray(int i) {
                 return new a[i];
             }
@@ -281,7 +281,7 @@ public class SwitchButton extends CompoundButton {
             this.bwt = 3309506;
         }
         if (!this.bwL && this.bwn == null) {
-            this.bwn = com.baidu.poly.widget.b.dM(this.bwt);
+            this.bwn = com.baidu.poly.widget.b.dO(this.bwt);
             this.bwy = this.bwn.getDefaultColor();
         }
         this.bwu = j(f5);
@@ -290,7 +290,7 @@ public class SwitchButton extends CompoundButton {
         this.bwm = colorStateList2;
         this.bwM = this.bwl != null;
         if (!this.bwM && this.bwm == null) {
-            this.bwm = com.baidu.poly.widget.b.dN(this.bwt);
+            this.bwm = com.baidu.poly.widget.b.dP(this.bwt);
             this.bwz = this.bwm.getDefaultColor();
             this.bwA = this.bwm.getColorForState(bwi, this.bwz);
         }
@@ -306,7 +306,7 @@ public class SwitchButton extends CompoundButton {
         }
     }
 
-    private int dK(int i) {
+    private int dM(int i) {
         int i2;
         int size = View.MeasureSpec.getSize(i);
         int mode = View.MeasureSpec.getMode(i);
@@ -748,7 +748,7 @@ public class SwitchButton extends CompoundButton {
         } else {
             this.bxd = Math.max(height, height2);
         }
-        setMeasuredDimension(dK(i), i(i2));
+        setMeasuredDimension(dM(i), i(i2));
     }
 
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
@@ -999,8 +999,8 @@ public class SwitchButton extends CompoundButton {
 
     public void setTintColor(int i) {
         this.bwt = i;
-        this.bwn = com.baidu.poly.widget.b.dM(this.bwt);
-        this.bwm = com.baidu.poly.widget.b.dN(this.bwt);
+        this.bwn = com.baidu.poly.widget.b.dO(this.bwt);
+        this.bwm = com.baidu.poly.widget.b.dP(this.bwt);
         this.bwM = false;
         this.bwL = false;
         refreshDrawableState();

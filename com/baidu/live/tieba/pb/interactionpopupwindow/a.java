@@ -108,7 +108,7 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
         return false;
     }
 
-    public a df(int i) {
+    public a dh(int i) {
         this.mDialogGravity = i;
         return this;
     }

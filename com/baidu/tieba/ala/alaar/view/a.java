@@ -15,12 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ViewGroup eZL;
-    private InterfaceC0522a eZM;
+    private ViewGroup eZW;
+    private InterfaceC0522a eZX;
     public List<d> asJ = new ArrayList();
-    private int eYl = -1;
-    private int eYm = -1;
-    private int eZN = 0;
+    private int eYw = -1;
+    private int eYx = -1;
+    private int eZY = 0;
 
     /* renamed from: com.baidu.tieba.ala.alaar.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -29,11 +29,11 @@ public class a extends BaseAdapter {
     }
 
     public a(ViewGroup viewGroup) {
-        this.eZL = viewGroup;
+        this.eZW = viewGroup;
     }
 
     public void a(InterfaceC0522a interfaceC0522a) {
-        this.eZM = interfaceC0522a;
+        this.eZX = interfaceC0522a;
     }
 
     @Override // android.widget.Adapter
@@ -46,7 +46,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pv */
+    /* renamed from: px */
     public d getItem(int i) {
         return (d) ListUtils.getItem(this.asJ, i);
     }
@@ -72,7 +72,7 @@ public class a extends BaseAdapter {
     public View getView(final int i, View view, ViewGroup viewGroup) {
         final c cVar;
         if (view == null) {
-            view = LayoutInflater.from(this.eZL.getContext()).inflate(a.h.filter_ar_item_layout, (ViewGroup) null);
+            view = LayoutInflater.from(this.eZW.getContext()).inflate(a.h.filter_ar_item_layout, (ViewGroup) null);
             cVar = new c(view);
             view.setTag(cVar);
         } else {
@@ -90,14 +90,14 @@ public class a extends BaseAdapter {
         });
         if (cVar != null) {
             cVar.b(getItem(i));
-            if (this.eYl == i) {
-                cVar.bqg();
+            if (this.eYw == i) {
+                cVar.bqi();
             } else {
-                cVar.bqf();
+                cVar.bqh();
             }
         }
-        if (i == 0 && this.eZN != 0) {
-            view.setPadding(this.eZN, 0, 0, 0);
+        if (i == 0 && this.eZY != 0) {
+            view.setPadding(this.eZY, 0, 0, 0);
         } else {
             view.setPadding(0, 0, 0, 0);
         }
@@ -107,12 +107,12 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(d dVar, int i, c cVar, int[] iArr) {
         if (dVar != null) {
-            this.eYm = i;
+            this.eYx = i;
             if (e.AH(dVar.uX())) {
-                if (this.eZM != null) {
-                    this.eZM.b(i, iArr);
+                if (this.eZX != null) {
+                    this.eZX.b(i, iArr);
                 }
-                this.eYl = i;
+                this.eYw = i;
                 notifyDataSetChanged();
             } else if (TextUtils.isEmpty(dVar.uX()) || !e.cz(dVar.uX())) {
                 a(dVar, cVar, i, iArr);
@@ -122,7 +122,7 @@ public class a extends BaseAdapter {
 
     private void a(d dVar, final c cVar, final int i, final int[] iArr) {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            BdUtilHelper.showToast(this.eZL.getContext(), a.i.sdk_network_not_available);
+            BdUtilHelper.showToast(this.eZW.getContext(), a.i.sdk_network_not_available);
         } else if (dVar != null && !TextUtils.isEmpty(dVar.uX())) {
             e.a(dVar.uX(), new e.a() { // from class: com.baidu.tieba.ala.alaar.view.a.2
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.e.a
@@ -138,14 +138,14 @@ public class a extends BaseAdapter {
 
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.e.a
                 public void onCompleted(String str) {
-                    if (a.this.eYm != i) {
+                    if (a.this.eYx != i) {
                         a.this.notifyDataSetChanged();
                         return;
                     }
-                    a.this.eYl = i;
+                    a.this.eYw = i;
                     a.this.notifyDataSetChanged();
-                    if (a.this.eZM != null) {
-                        a.this.eZM.b(i, iArr);
+                    if (a.this.eZX != null) {
+                        a.this.eZX.b(i, iArr);
                     }
                 }
 
@@ -165,7 +165,7 @@ public class a extends BaseAdapter {
             while (true) {
                 int i3 = i;
                 if (i3 < this.asJ.size()) {
-                    if (this.eZL.getContext().getString(a.i.beauty_yuantu).equals(this.asJ.get(i3).getName())) {
+                    if (this.eZW.getContext().getString(a.i.beauty_yuantu).equals(this.asJ.get(i3).getName())) {
                         com.baidu.minivideo.arface.b.LQ();
                         AG = com.baidu.minivideo.arface.c.LT();
                         i2 = i3;
@@ -175,19 +175,19 @@ public class a extends BaseAdapter {
                     if (!str.equals(AG)) {
                         i = i3 + 1;
                     } else {
-                        this.eYl = i3;
+                        this.eYw = i3;
                         notifyDataSetChanged();
-                        if (this.eZM != null) {
-                            this.eZM.b(i3, null);
+                        if (this.eZX != null) {
+                            this.eZX.b(i3, null);
                             return;
                         }
                         return;
                     }
                 } else if (i2 >= 0) {
-                    this.eYl = i2;
+                    this.eYw = i2;
                     notifyDataSetChanged();
-                    if (this.eZM != null) {
-                        this.eZM.b(i2, null);
+                    if (this.eZX != null) {
+                        this.eZX.b(i2, null);
                         return;
                     }
                     return;
@@ -198,7 +198,7 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void pw(int i) {
-        this.eZN = i;
+    public void py(int i) {
+        this.eZY = i;
     }
 }

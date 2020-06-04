@@ -1,17 +1,17 @@
 package com.baidu.l.a.a;
 /* loaded from: classes6.dex */
 public interface c {
-    void GE(int i);
-
-    void PB(String str);
+    void GG(int i);
 
     void PC(String str);
 
     void PD(String str);
 
-    boolean dsP();
+    void PE(String str);
 
-    c dsZ();
+    boolean dtd();
+
+    c dtn();
 
     String getAAID();
 
@@ -23,7 +23,7 @@ public interface c {
 
     boolean isSupport();
 
-    void vR(boolean z);
+    void vT(boolean z);
 
-    void vS(boolean z);
+    void vU(boolean z);
 }

@@ -21,7 +21,7 @@ public class d extends Dialog implements View.OnClickListener {
     private ImageView bif;
     private TextView bih;
     private TextView bii;
-    private a fVH;
+    private a fVS;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -36,16 +36,16 @@ public class d extends Dialog implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.fVH = aVar;
+        this.fVS = aVar;
     }
 
     public void show(String str) {
-        bCj();
+        bCl();
         this.aFL.startLoad(str, 25, false, false);
         show();
     }
 
-    public String bCg() {
+    public String bCi() {
         return this.bih.getText().toString();
     }
 
@@ -53,11 +53,11 @@ public class d extends Dialog implements View.OnClickListener {
     public void onClick(View view) {
         if (view == this.bGw || view == this.bif) {
             dismiss();
-        } else if (this.fVH != null) {
+        } else if (this.fVS != null) {
             if (view == this.bih) {
-                this.fVH.onConfirm();
+                this.fVS.onConfirm();
             } else if (view == this.bii) {
-                this.fVH.onCancel();
+                this.fVS.onCancel();
             }
         }
     }
@@ -75,11 +75,11 @@ public class d extends Dialog implements View.OnClickListener {
             window.setGravity(17);
             window.setBackgroundDrawableResource(17170445);
             window.getDecorView().setPadding(0, 0, 0, 0);
-            bCh();
+            bCj();
         }
     }
 
-    public void bCh() {
+    public void bCj() {
         WindowManager windowManager = (WindowManager) getContext().getSystemService("window");
         if (windowManager != null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -124,7 +124,7 @@ public class d extends Dialog implements View.OnClickListener {
         this.bif.setOnClickListener(this);
     }
 
-    private void bCj() {
+    private void bCl() {
         if (this.aFL != null) {
             this.aFL.stopLoad();
         }

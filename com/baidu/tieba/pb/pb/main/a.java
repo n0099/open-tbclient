@@ -19,7 +19,7 @@ public class a {
     public boolean a(PbModel pbModel) {
         String str;
         int i = 2;
-        if (this.dIF.getPageActivity() == null || this.dIF.getPageActivity().getIntent() == null || !this.dIF.getPageActivity().getIntent().hasExtra(IntentConfig.KEY_URI) || pbModel == null || pbModel.jHO == null) {
+        if (this.dIF.getPageActivity() == null || this.dIF.getPageActivity().getIntent() == null || !this.dIF.getPageActivity().getIntent().hasExtra(IntentConfig.KEY_URI) || pbModel == null || pbModel.jIU == null) {
             return false;
         }
         String string = com.baidu.tbadk.core.sharedPref.b.aTX().getString("key_pb_back_sid1", "");
@@ -29,24 +29,24 @@ public class a {
         } else {
             str = (TextUtils.isEmpty(string2) || com.baidu.tbadk.a.c.aMf().uE(string2) == null) ? null : "2";
         }
-        if (str == null && pbModel.jHO.jEP != null) {
-            str = pbModel.jHO.jEP;
+        if (str == null && pbModel.jIU.jFV != null) {
+            str = pbModel.jIU.jFV;
         }
         if (str != null) {
             if (str.equals("1")) {
                 MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.dIF.getPageActivity()).createNormalCfg(2);
                 createNormalCfg.setSubTab(1, null);
                 this.dIF.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg));
-                a(pbModel.jHO, 1);
+                a(pbModel.jIU, 1);
                 return true;
             } else if (str.equals("2")) {
                 MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.dIF.getPageActivity()).createNormalCfg(1);
-                createNormalCfg2.setSubTab(0, pbModel.jHO.jEQ);
+                createNormalCfg2.setSubTab(0, pbModel.jIU.jFW);
                 this.dIF.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg2));
-                if (!"游戏".equals(pbModel.jHO.jEQ)) {
-                    i = "数码".equals(pbModel.jHO.jEQ) ? 3 : 0;
+                if (!"游戏".equals(pbModel.jIU.jFW)) {
+                    i = "数码".equals(pbModel.jIU.jFW) ? 3 : 0;
                 }
-                a(pbModel.jHO, i);
+                a(pbModel.jIU, i);
                 return true;
             } else {
                 return false;

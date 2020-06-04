@@ -9,13 +9,13 @@ import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class c extends f {
-    private static int mfQ = 16384;
+    private static int mha = 16384;
     private final ByteBuffer mBuffer;
-    private final d mfJ;
-    private final g mfL;
-    private final long mfR;
-    private long mfS;
-    private final UploadDataProvider mfg = new a();
+    private final d mgT;
+    private final g mgV;
+    private final UploadDataProvider mgq = new a();
+    private final long mhb;
+    private long mhc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(d dVar, long j, g gVar) {
@@ -25,21 +25,21 @@ public final class c extends f {
         if (j < 0) {
             throw new IllegalArgumentException("Content length must be larger than 0 for non-chunked upload.");
         }
-        this.mfR = j;
-        this.mBuffer = ByteBuffer.allocate((int) Math.min(this.mfR, mfQ));
-        this.mfJ = dVar;
-        this.mfL = gVar;
-        this.mfS = 0L;
+        this.mhb = j;
+        this.mBuffer = ByteBuffer.allocate((int) Math.min(this.mhb, mha));
+        this.mgT = dVar;
+        this.mgV = gVar;
+        this.mhc = 0L;
     }
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
         checkNotClosed();
-        Gu(1);
-        drw();
+        Gw(1);
+        drK();
         this.mBuffer.put((byte) i);
-        this.mfS++;
-        dry();
+        this.mhc++;
+        drM();
     }
 
     @Override // java.io.OutputStream
@@ -48,60 +48,60 @@ public final class c extends f {
         if (bArr.length - i < i2 || i < 0 || i2 < 0) {
             throw new IndexOutOfBoundsException();
         }
-        Gu(i2);
+        Gw(i2);
         int i3 = i2;
         while (i3 > 0) {
-            drw();
+            drK();
             int min = Math.min(i3, this.mBuffer.remaining());
             this.mBuffer.put(bArr, (i + i2) - i3, min);
             i3 -= min;
         }
-        this.mfS += i2;
-        dry();
+        this.mhc += i2;
+        drM();
     }
 
-    private void drw() throws IOException {
+    private void drK() throws IOException {
         if (!this.mBuffer.hasRemaining()) {
-            drx();
+            drL();
         }
     }
 
-    private void dry() throws IOException {
-        if (this.mfS == this.mfR) {
-            drx();
+    private void drM() throws IOException {
+        if (this.mhc == this.mhb) {
+            drL();
         }
     }
 
-    private void drx() throws IOException {
+    private void drL() throws IOException {
         checkNotClosed();
         this.mBuffer.flip();
-        this.mfL.drL();
-        drJ();
+        this.mgV.drZ();
+        drX();
     }
 
-    private void Gu(int i) throws ProtocolException {
-        if (this.mfS + i > this.mfR) {
-            throw new ProtocolException("expected " + (this.mfR - this.mfS) + " bytes but received " + i);
+    private void Gw(int i) throws ProtocolException {
+        if (this.mhc + i > this.mhb) {
+            throw new ProtocolException("expected " + (this.mhb - this.mhc) + " bytes but received " + i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void drt() throws IOException {
+    public void drH() throws IOException {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void dru() throws IOException {
-        if (this.mfS < this.mfR) {
+    public void drI() throws IOException {
+        if (this.mhc < this.mhb) {
             throw new ProtocolException("Content received is less than Content-Length.");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public UploadDataProvider drv() {
-        return this.mfg;
+    public UploadDataProvider drJ() {
+        return this.mgq;
     }
 
     /* loaded from: classes.dex */
@@ -111,7 +111,7 @@ public final class c extends f {
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
         public long getLength() {
-            return c.this.mfR;
+            return c.this.mhb;
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
@@ -119,15 +119,15 @@ public final class c extends f {
             if (byteBuffer.remaining() >= c.this.mBuffer.remaining()) {
                 byteBuffer.put(c.this.mBuffer);
                 c.this.mBuffer.clear();
-                uploadDataSink.vF(false);
-                c.this.mfL.quit();
+                uploadDataSink.vH(false);
+                c.this.mgV.quit();
                 return;
             }
             int limit = c.this.mBuffer.limit();
             c.this.mBuffer.limit(c.this.mBuffer.position() + byteBuffer.remaining());
             byteBuffer.put(c.this.mBuffer);
             c.this.mBuffer.limit(limit);
-            uploadDataSink.vF(false);
+            uploadDataSink.vH(false);
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider

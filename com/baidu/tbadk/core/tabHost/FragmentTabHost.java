@@ -434,14 +434,14 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         }
     }
 
-    public b kV(int i) {
+    public b kX(int i) {
         if (i < 0 || i >= this.mTabSpecs.size()) {
             return null;
         }
         return this.mTabSpecs.get(i);
     }
 
-    public b kW(int i) {
+    public b kY(int i) {
         for (b bVar : this.mTabSpecs) {
             if (i == bVar.mType) {
                 return bVar;

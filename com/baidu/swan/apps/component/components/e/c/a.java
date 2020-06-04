@@ -16,7 +16,7 @@ public final class a extends com.baidu.swan.apps.component.a.c.a<TextView, b> {
 
     public a(@NonNull Context context, @NonNull b bVar) {
         super(context, bVar);
-        es(4);
+        eu(4);
         this.bPV = new SwanAppComponentContainerView(context);
         this.mTextView = new TextView(context);
     }
@@ -37,10 +37,10 @@ public final class a extends com.baidu.swan.apps.component.a.c.a<TextView, b> {
     public com.baidu.swan.apps.component.d.b a(@NonNull b bVar, @NonNull b bVar2) {
         com.baidu.swan.apps.component.d.b a = super.a(bVar, bVar2);
         if (!TextUtils.equals(bVar.bQc, bVar2.bQc) && (TextUtils.equals(bVar.bQc, "scroll") || TextUtils.equals(bVar2.bQc, "scroll"))) {
-            a.ew(7);
+            a.ey(7);
         }
         if (!TextUtils.equals(bVar.bQc, bVar2.bQc) || (TextUtils.equals(bVar2.bQc, "scroll") && bVar.bQb != bVar2.bQb)) {
-            a.ew(8);
+            a.ey(8);
         }
         return a;
     }

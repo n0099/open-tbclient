@@ -19,7 +19,7 @@ import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes3.dex */
 public class c {
     public static final void a(TbPageContext tbPageContext, String str, String str2) {
-        ba.aUZ().b(tbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + ETAG.ITEM_SEPARATOR + "livetype" + ETAG.EQUAL + str2});
+        ba.aVa().b(tbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + ETAG.ITEM_SEPARATOR + "livetype" + ETAG.EQUAL + str2});
     }
 
     public static void a(Context context, SdkLiveInfoData sdkLiveInfoData) {

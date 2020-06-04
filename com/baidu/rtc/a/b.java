@@ -79,7 +79,7 @@ public class b {
     }
 
     public RtcVideoPlayController.RtcVideoPlayer PT() {
-        return this.bEj.dY(1) == null ? this.bEj.PU() : this.bEj.dY(1);
+        return this.bEj.ea(1) == null ? this.bEj.PU() : this.bEj.ea(1);
     }
 
     public void switchCamera() {

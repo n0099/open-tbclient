@@ -22,8 +22,8 @@ public class a {
             com.baidu.swan.apps.ae.d.a.print("parse app.json is null");
             return null;
         }
-        List<com.baidu.swan.apps.ae.f.a> gK = swanAppConfigData.gK(3);
-        if (gK == null || gK.isEmpty()) {
+        List<com.baidu.swan.apps.ae.f.a> gM = swanAppConfigData.gM(3);
+        if (gM == null || gM.isEmpty()) {
             b.bH("dynamicLibPath", null);
             b.bH("dynamicLibConfig", null);
             com.baidu.swan.apps.ae.d.a.print("this swan app not apply on someone dynamic lib");
@@ -31,7 +31,7 @@ public class a {
         }
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
-        for (com.baidu.swan.apps.ae.f.a aVar : gK) {
+        for (com.baidu.swan.apps.ae.f.a aVar : gM) {
             if (aVar != null && aVar.isValid()) {
                 String str2 = aVar.Rm;
                 long d = d(e.kC(str2), str2);

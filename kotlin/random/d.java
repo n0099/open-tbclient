@@ -6,14 +6,14 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public abstract class d {
-    public static final b nsZ = new b(null);
-    private static final d nsX = kotlin.internal.b.nsG.dLI();
-    public static final a nsY = a.nta;
+    public static final b nuj = new b(null);
+    private static final d nuh = kotlin.internal.b.ntQ.dLW();
+    public static final a nui = a.nuk;
 
-    public abstract int JR(int i);
+    public abstract int JT(int i);
 
     public int nextInt() {
-        return JR(32);
+        return JT(32);
     }
 
     public int nextInt(int i) {
@@ -27,7 +27,7 @@ public abstract class d {
         int i4 = i2 - i;
         if (i4 > 0 || i4 == Integer.MIN_VALUE) {
             if (((-i4) & i4) == i4) {
-                i3 = JR(c.JS(i4));
+                i3 = JT(c.JU(i4));
             } else {
                 do {
                     nextInt = nextInt() >>> 1;
@@ -49,15 +49,15 @@ public abstract class d {
     }
 
     public boolean nextBoolean() {
-        return JR(1) != 0;
+        return JT(1) != 0;
     }
 
     public double nextDouble() {
-        return c.dJ(JR(26), JR(27));
+        return c.dJ(JT(26), JT(27));
     }
 
     public float nextFloat() {
-        return JR(24) / 16777216;
+        return JT(24) / 16777216;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:13:0x0054  */
@@ -87,9 +87,9 @@ public abstract class d {
                         i += 4;
                     }
                     int i5 = i2 - i;
-                    int JR = JR(i5 * 8);
+                    int JT = JT(i5 * 8);
                     for (int i6 = 0; i6 < i5; i6++) {
-                        bArr[i + i6] = (byte) (JR >>> (i6 * 8));
+                        bArr[i + i6] = (byte) (JT >>> (i6 * 8));
                     }
                     return bArr;
                 }
@@ -117,69 +117,69 @@ public abstract class d {
         }
 
         @Override // kotlin.random.d
-        public int JR(int i) {
-            return d.nsX.JR(i);
+        public int JT(int i) {
+            return d.nuh.JT(i);
         }
 
         @Override // kotlin.random.d
         public int nextInt() {
-            return d.nsX.nextInt();
+            return d.nuh.nextInt();
         }
 
         @Override // kotlin.random.d
         public int nextInt(int i) {
-            return d.nsX.nextInt(i);
+            return d.nuh.nextInt(i);
         }
 
         @Override // kotlin.random.d
         public int dK(int i, int i2) {
-            return d.nsX.dK(i, i2);
+            return d.nuh.dK(i, i2);
         }
 
         @Override // kotlin.random.d
         public long nextLong() {
-            return d.nsX.nextLong();
+            return d.nuh.nextLong();
         }
 
         @Override // kotlin.random.d
         public boolean nextBoolean() {
-            return d.nsX.nextBoolean();
+            return d.nuh.nextBoolean();
         }
 
         @Override // kotlin.random.d
         public double nextDouble() {
-            return d.nsX.nextDouble();
+            return d.nuh.nextDouble();
         }
 
         @Override // kotlin.random.d
         public float nextFloat() {
-            return d.nsX.nextFloat();
+            return d.nuh.nextFloat();
         }
 
         @Override // kotlin.random.d
         public byte[] aw(byte[] bArr) {
             q.m(bArr, com.baidu.fsg.base.statistics.b.j);
-            return d.nsX.aw(bArr);
+            return d.nuh.aw(bArr);
         }
 
         @Override // kotlin.random.d
         public byte[] v(byte[] bArr, int i, int i2) {
             q.m(bArr, com.baidu.fsg.base.statistics.b.j);
-            return d.nsX.v(bArr, i, i2);
+            return d.nuh.v(bArr, i, i2);
         }
     }
 
     @h
     /* loaded from: classes7.dex */
     public static final class a extends d {
-        public static final a nta = new a();
+        public static final a nuk = new a();
 
         private a() {
         }
 
         @Override // kotlin.random.d
-        public int JR(int i) {
-            return d.nsZ.JR(i);
+        public int JT(int i) {
+            return d.nuj.JT(i);
         }
     }
 }

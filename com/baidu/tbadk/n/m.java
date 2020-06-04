@@ -14,7 +14,7 @@ public class m {
     private long esG = 86400;
     private long esE = com.baidu.tbadk.core.sharedPref.b.aTX().getLong(esF, 0);
 
-    public static m bfI() {
+    public static m bfJ() {
         if (esI == null) {
             synchronized (m.class) {
                 if (esI == null) {
@@ -30,7 +30,7 @@ public class m {
         this.esH = this.esG;
     }
 
-    public boolean bfJ() {
+    public boolean bfK() {
         if (!this.isSmallFlow || (System.currentTimeMillis() - this.esE) / 1000 <= this.esH) {
             return this.isSmallFlow;
         }
@@ -50,7 +50,7 @@ public class m {
         }
         this.isSmallFlow = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            n.bfN().bfO();
+            n.bfO().bfP();
         }
     }
 
@@ -73,7 +73,7 @@ public class m {
         return "2G";
     }
 
-    public static String nB(int i) {
+    public static String nD(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -86,7 +86,7 @@ public class m {
         return "WIFI";
     }
 
-    public long bfK() {
+    public long bfL() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / 1048576;
@@ -96,8 +96,8 @@ public class m {
         }
     }
 
-    public l nC(int i) {
-        if (bfJ()) {
+    public l nE(int i) {
+        if (bfK()) {
             switch (i) {
                 case 1000:
                     o oVar = new o();

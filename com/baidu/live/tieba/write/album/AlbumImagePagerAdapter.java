@@ -44,11 +44,11 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         viewGroup.removeView((View) obj);
     }
 
-    public ImageFileInfo dj(int i) {
+    public ImageFileInfo dl(int i) {
         return (ImageFileInfo) ListUtils.getItem(this.mList, i);
     }
 
-    public boolean dk(int i) {
+    public boolean dm(int i) {
         if (this.bdI.get(Integer.valueOf(i)) == null) {
             return false;
         }
@@ -65,9 +65,9 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         tbImageView.setDefaultErrorResource(0);
         tbImageView.setGifIconSupport(false);
         tbImageView.setLongIconSupport(false);
-        ImageFileInfo dj = dj(i);
-        if (dj != null) {
-            tbImageView.startLoad(dj.getFilePath(), 35, false, false);
+        ImageFileInfo dl = dl(i);
+        if (dl != null) {
+            tbImageView.startLoad(dl.getFilePath(), 35, false, false);
             this.bdI.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);

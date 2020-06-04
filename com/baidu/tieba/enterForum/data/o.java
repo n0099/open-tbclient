@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.util.aq;
 import tbclient.FrsTabInfo;
 /* loaded from: classes9.dex */
 public class o {
-    private int gOY;
+    private int gPj;
     private String tabCode;
     private String tabName;
 
@@ -12,15 +12,15 @@ public class o {
         if (frsTabInfo != null) {
             this.tabCode = frsTabInfo.tab_code;
             this.tabName = frsTabInfo.tab_name;
-            this.gOY = frsTabInfo.tab_version.intValue();
+            this.gPj = frsTabInfo.tab_version.intValue();
         }
     }
 
-    public int bOr() {
-        return this.gOY;
+    public int bOt() {
+        return this.gPj;
     }
 
-    public String bOs() {
+    public String bOu() {
         return this.tabCode;
     }
 

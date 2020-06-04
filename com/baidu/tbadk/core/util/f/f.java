@@ -88,7 +88,7 @@ public class f {
                 g.log("start load  " + this.mVideoUrl + " des file " + this.dRk);
                 HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.mVideoUrl).openConnection();
                 try {
-                    httpURLConnection2.setRequestProperty(Headers.RANGE, "bytes=0-" + e.aVJ().getSize());
+                    httpURLConnection2.setRequestProperty(Headers.RANGE, "bytes=0-" + e.aVK().getSize());
                     int timeOutAuto = com.baidu.adp.framework.d.b.jJ().jK().getTimeOutAuto();
                     if (timeOutAuto == 0) {
                         timeOutAuto = 5000;

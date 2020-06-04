@@ -26,8 +26,8 @@ public class c extends Dialog {
     private TextView aFN;
     private View bGw;
     private View cwp;
-    private a fVE;
-    private String fVF;
+    private a fVP;
+    private String fVQ;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -40,18 +40,18 @@ public class c extends Dialog {
     }
 
     public void a(a aVar) {
-        this.fVE = aVar;
+        this.fVP = aVar;
     }
 
     public void show(String str) {
-        bCj();
+        bCl();
         this.aFL.startLoad(str, 25, false, false);
         DX();
         show();
     }
 
-    public String bCg() {
-        return this.fVF;
+    public String bCi() {
+        return this.fVQ;
     }
 
     private void init() {
@@ -63,10 +63,10 @@ public class c extends Dialog {
     private void EF() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
-        bCh();
+        bCj();
     }
 
-    public void bCh() {
+    public void bCj() {
         show();
         Window window = getWindow();
         if (window != null) {
@@ -133,16 +133,16 @@ public class c extends Dialog {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.k.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.fVE != null) {
-                    c.this.fVE.onConfirm();
+                if (c.this.fVP != null) {
+                    c.this.fVP.onConfirm();
                 }
             }
         });
-        this.fVF = textView.getText().toString();
-        bCi();
+        this.fVQ = textView.getText().toString();
+        bCk();
     }
 
-    private void bCi() {
+    private void bCk() {
         ap apVar;
         if (com.baidu.live.v.a.Ge().aWF != null && (apVar = com.baidu.live.v.a.Ge().aWF.ayj) != null && !TextUtils.isEmpty(apVar.aAl)) {
             this.aFN.setText(apVar.aAl);
@@ -153,7 +153,7 @@ public class c extends Dialog {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.k.c.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                c.this.bCj();
+                c.this.bCl();
             }
         });
     }
@@ -166,7 +166,7 @@ public class c extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bCj() {
+    public void bCl() {
         if (this.aFL != null) {
             this.aFL.stopLoad();
         }

@@ -362,17 +362,17 @@ public class b implements com.baidu.swan.apps.ac.a.a {
                 if (!TextUtils.isEmpty(this.mResult)) {
                     jSONObject.put("payResult", Base64.encodeToString(this.mResult.getBytes("UTF-8"), 2));
                 }
-                this.ciI.handleSchemeDispatchCallback(this.bMu, UnitedSchemeUtility.wrapCallbackParams(jSONObject, this.mStatusCode, ga(this.mStatusCode)).toString());
+                this.ciI.handleSchemeDispatchCallback(this.bMu, UnitedSchemeUtility.wrapCallbackParams(jSONObject, this.mStatusCode, gc(this.mStatusCode)).toString());
                 return;
             }
-            this.ciI.handleSchemeDispatchCallback(this.bMu, UnitedSchemeUtility.wrapCallbackParamsWithBase64(this.mResult, this.mStatusCode, ga(this.mStatusCode)).toString());
+            this.ciI.handleSchemeDispatchCallback(this.bMu, UnitedSchemeUtility.wrapCallbackParamsWithBase64(this.mResult, this.mStatusCode, gc(this.mStatusCode)).toString());
         } catch (UnsupportedEncodingException | JSONException e) {
             e.printStackTrace();
-            this.ciI.handleSchemeDispatchCallback(this.bMu, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, this.mStatusCode, ga(this.mStatusCode)).toString());
+            this.ciI.handleSchemeDispatchCallback(this.bMu, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, this.mStatusCode, gc(this.mStatusCode)).toString());
         }
     }
 
-    private static String ga(int i) {
+    private static String gc(int i) {
         switch (i) {
             case 0:
                 return "支付成功";

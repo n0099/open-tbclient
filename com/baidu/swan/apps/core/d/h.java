@@ -296,8 +296,8 @@ public class h extends b {
     @Override // com.baidu.swan.apps.core.d.b
     public void ae(View view) {
         super.ae(view);
-        eH(-1);
-        eI(ViewCompat.MEASURED_STATE_MASK);
+        eJ(-1);
+        eK(ViewCompat.MEASURED_STATE_MASK);
         this.bVa.setTitle(this.bWk == null ? "" : this.bWk);
         this.bVa.setRightZoneVisibility(false);
         dC(true);

@@ -25,8 +25,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.coreExtra.data.NewGodData;
-import com.baidu.tbadk.coreExtra.data.w;
 import com.baidu.tbadk.coreExtra.data.x;
+import com.baidu.tbadk.coreExtra.data.y;
 import com.baidu.tbadk.switchs.PbPreloadSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.cyberPlayer.a;
@@ -52,6 +52,7 @@ public final class TbSingleton {
     private boolean mIsShowPersonCenterLiteGame;
     private MercatorModel.MercatorData mMercatorData;
     private String mMissionEntranceIcon;
+    private String mMissionEntranceObjSource;
     private String mMissionEntranceUrl;
     private NewGodData mNewGodData;
     private NewUserRedPackageData mNewUserRedPackageData;
@@ -60,7 +61,7 @@ public final class TbSingleton {
     private String mProfileGameCenterKey;
     private String mPubEnvValue;
     private String mSampleId;
-    private x mSharePanelConfData;
+    private y mSharePanelConfData;
     private String mSharePanelText;
     private boolean mShowHomeFloatRefreshButton;
     private boolean mShowShoubaiDynamicGuide;
@@ -83,7 +84,7 @@ public final class TbSingleton {
     private boolean hasShowPermDlg = false;
     private boolean isNewUser = false;
     private boolean mHasAgreeToPlay = false;
-    private w mShakeData = null;
+    private x mShakeData = null;
     private String invokeSource = "";
     private boolean mFrsRootViewLoadingShow = false;
     private boolean mFrsContentViewLoadingShow = false;
@@ -126,6 +127,7 @@ public final class TbSingleton {
         setHomePageStyleAbTest(b.aTX().getInt("index_activity_abtest_switch_json", 0));
         setMissionEntranceIcon(b.aTX().getString("index_activity_abtest_icon_url", ""));
         setMissionEntranceUrl(b.aTX().getString("index_activity_abtest_url", ""));
+        setMissionEntranceObjSource(b.aTX().getString("index_activity_abtest_obj_source", ""));
         setShowPersonCenterLiteGame(b.aTX().getBoolean("person_center_show_lite_game", true));
         setIsPbFold(b.aTX().getBoolean("pb_fold_small_flow_json", false));
         setVideoEnterMiddlePage(b.aTX().getInt("key_video_play_type", VIDEO_ENTER_TYPE_JUMP_VIDEO_MIDDLE_PAGE));
@@ -475,11 +477,11 @@ public final class TbSingleton {
         return this.mAnimFpsSyncThreshold;
     }
 
-    public void setShakeData(w wVar) {
-        this.mShakeData = wVar;
+    public void setShakeData(x xVar) {
+        this.mShakeData = xVar;
     }
 
-    public w getShakeData() {
+    public x getShakeData() {
         return this.mShakeData;
     }
 
@@ -533,6 +535,14 @@ public final class TbSingleton {
 
     public void setMissionEntranceIcon(String str) {
         this.mMissionEntranceIcon = str;
+    }
+
+    public String getMissionEntranceObjSource() {
+        return this.mMissionEntranceObjSource;
+    }
+
+    public void setMissionEntranceObjSource(String str) {
+        this.mMissionEntranceObjSource = str;
     }
 
     public int getHomePageStyleAbTest() {
@@ -689,11 +699,11 @@ public final class TbSingleton {
         return this.mShowVivoBadge;
     }
 
-    public void setSharePanelConfData(x xVar) {
-        this.mSharePanelConfData = xVar;
+    public void setSharePanelConfData(y yVar) {
+        this.mSharePanelConfData = yVar;
     }
 
-    public x getSharePanelConfData() {
+    public y getSharePanelConfData() {
         return this.mSharePanelConfData;
     }
 

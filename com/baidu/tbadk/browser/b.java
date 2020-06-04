@@ -349,7 +349,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
     private void uz(String str) {
         TbPageContext<?> n;
         if (!aq.isEmpty(str) && (n = n(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
-            ba.aUZ().b(n, new String[]{str});
+            ba.aVa().b(n, new String[]{str});
         }
     }
 
@@ -604,7 +604,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
                     shareItem.eeP = true;
                     ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null);
                     shareDialogConfig.mShowMoreForumShare = true;
-                    com.baidu.tieba.c.e.bMw().b(shareDialogConfig);
+                    com.baidu.tieba.c.e.bMy().b(shareDialogConfig);
                     return "";
                 }
                 if (optInt == 0) {
@@ -691,7 +691,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
     public void aNp() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("skin", am.aUP());
+            jSONObject.put("skin", am.aUQ());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -825,8 +825,8 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
                 JSONObject jSONObject = new JSONObject(str);
                 String optString = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
                 String optString2 = jSONObject.optString("schema");
-                List<String> aXR = com.baidu.tbadk.coreExtra.data.f.aXR();
-                if (e(aXR, optString2)) {
+                List<String> aXS = com.baidu.tbadk.coreExtra.data.f.aXS();
+                if (e(aXS, optString2)) {
                     Intent intent = new Intent();
                     intent.setData(Uri.parse(optString2));
                     try {
@@ -840,7 +840,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
                 }
                 if (!z2) {
                     try {
-                        if (e(aXR, optString) && (launchIntentForPackage = this.mContext.getPackageManager().getLaunchIntentForPackage(optString)) != null) {
+                        if (e(aXS, optString) && (launchIntentForPackage = this.mContext.getPackageManager().getLaunchIntentForPackage(optString)) != null) {
                             this.mContext.startActivity(launchIntentForPackage);
                             z2 = true;
                         }
@@ -920,7 +920,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
                 }
                 DownloadData downloadData = new DownloadData(wg, wg, optString, null);
                 downloadData.setPath(wh);
-                com.baidu.tbadk.download.d.bcT().f(downloadData);
+                com.baidu.tbadk.download.d.bcU().f(downloadData);
                 jSONObject.put("resultCode", 1);
             } catch (JSONException e) {
                 BdLog.e(e);
@@ -1143,16 +1143,16 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
 
     private String aNw() {
         JSONObject jSONObject;
-        String bap;
+        String baq;
         int i = 0;
         try {
-            bap = com.baidu.tbadk.coreExtra.messageCenter.f.ban().bap();
+            baq = com.baidu.tbadk.coreExtra.messageCenter.f.bao().baq();
         } catch (Exception e) {
             BdLog.e(e);
         }
         try {
-            if (!TextUtils.isEmpty(bap)) {
-                jSONObject = new JSONObject(bap);
+            if (!TextUtils.isEmpty(baq)) {
+                jSONObject = new JSONObject(baq);
                 i = 1;
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", i);

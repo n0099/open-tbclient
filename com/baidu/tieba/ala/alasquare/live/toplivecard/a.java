@@ -14,18 +14,18 @@ import com.baidu.tieba.ala.alasquare.live.b.c;
 /* loaded from: classes3.dex */
 public class a {
     private TbPageContext<?> dIF;
-    private b fbG;
-    private c fbH;
-    private final int fbF = 1000;
+    private b fbR;
+    private c fbS;
+    private final int fbQ = 1000;
     private boolean mIsBackground = false;
     private CustomMessageListener RZ = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            a.this.bqB();
+            a.this.bqD();
         }
     };
-    private Runnable fbI = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.2
+    private Runnable fbT = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.2
         @Override // java.lang.Runnable
         public void run() {
             a.this.startPlay();
@@ -35,27 +35,27 @@ public class a {
     public a(TbPageContext<?> tbPageContext) {
         this.dIF = null;
         this.dIF = tbPageContext;
-        this.fbG = new b(this.dIF);
+        this.fbR = new b(this.dIF);
         MessageManager.getInstance().registerListener(this.RZ);
     }
 
     public View getView() {
-        return this.fbG.getView();
+        return this.fbR.getView();
     }
 
     public void onChangeSkinType() {
-        this.fbG.onChangeSkinType();
+        this.fbR.onChangeSkinType();
     }
 
     public void a(c cVar) {
         if (cVar != null && cVar.ahg != null) {
-            this.fbH = cVar;
-            if (this.fbG != null) {
-                this.fbG.a(this.fbH);
+            this.fbS = cVar;
+            if (this.fbR != null) {
+                this.fbR.a(this.fbS);
                 an anVar = new an("c12644");
-                if (cVar.faY == 0) {
+                if (cVar.fbj == 0) {
                     anVar.ag("obj_type", 1);
-                } else if (cVar.faY == 1) {
+                } else if (cVar.fbj == 1) {
                     anVar.ag("obj_type", 2);
                 }
                 anVar.dh("tid", cVar.ahg.getTid());
@@ -64,29 +64,29 @@ public class a {
         }
     }
 
-    public void bqB() {
+    public void bqD() {
         if (!this.mIsBackground) {
-            if (ag.nI(1)) {
-                e.ld().removeCallbacks(this.fbI);
-                e.ld().postDelayed(this.fbI, 1000L);
-            } else if (this.fbG != null) {
-                this.fbG.bqE();
+            if (ag.nK(1)) {
+                e.ld().removeCallbacks(this.fbT);
+                e.ld().postDelayed(this.fbT, 1000L);
+            } else if (this.fbR != null) {
+                this.fbR.bqG();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startPlay() {
-        if (this.fbH != null && this.fbH.ahg != null && this.fbH.ahg.aQS() != null && this.fbG != null) {
-            this.fbG.AW(this.fbH.ahg.aQS().hls_url);
+        if (this.fbS != null && this.fbS.ahg != null && this.fbS.ahg.aQS() != null && this.fbR != null) {
+            this.fbR.AW(this.fbS.ahg.aQS().hls_url);
         }
     }
 
     public void stopPlay() {
-        if (this.fbG != null) {
-            this.fbG.bqE();
+        if (this.fbR != null) {
+            this.fbR.bqG();
         }
-        e.ld().removeCallbacks(this.fbI);
+        e.ld().removeCallbacks(this.fbT);
     }
 
     public void jj(boolean z) {
@@ -95,13 +95,13 @@ public class a {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.RZ);
-        e.ld().removeCallbacks(this.fbI);
-        if (this.fbG != null) {
-            this.fbG.onDestroy();
+        e.ld().removeCallbacks(this.fbT);
+        if (this.fbR != null) {
+            this.fbR.onDestroy();
         }
     }
 
-    public c bqC() {
-        return this.fbH;
+    public c bqE() {
+        return this.fbS;
     }
 }

@@ -143,7 +143,7 @@ public class c extends b {
     public void a(Call call, Response response) throws IOException {
         Headers headers = response.headers();
         if (headers != null && TextUtils.equals(headers.get("Bdtls"), "recovery")) {
-            com.baidu.swan.games.bdtls.e.axN().axO().il(0);
+            com.baidu.swan.games.bdtls.e.axN().axO().in(0);
             if (com.baidu.swan.games.bdtls.e.axN().axO().ayP()) {
                 com.baidu.swan.games.bdtls.e.axN().axO().ayN();
                 fJ(true);
@@ -180,7 +180,7 @@ public class c extends b {
     }
 
     @Override // com.baidu.swan.games.bdtls.b.b
-    public void im(int i) {
+    public void io(int i) {
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BdtlsRequestApi", "onRequestError=" + i);
         }

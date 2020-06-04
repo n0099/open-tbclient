@@ -93,7 +93,7 @@ public class d {
             final File azg = azg();
             new com.baidu.swan.apps.k.a().a(cVar, azg.getAbsolutePath(), new e.b() { // from class: com.baidu.swan.games.c.d.1
                 @Override // com.baidu.swan.apps.r.e.b
-                public void dr(int i) {
+                public void dt(int i) {
                 }
 
                 @Override // com.baidu.swan.apps.r.e.b
@@ -184,6 +184,6 @@ public class d {
     }
 
     public void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener) {
-        new g.a(activity).eR(a.h.aiapps_debug_switch_title).eQ(a.h.aiapps_sconsole_load_error).a(new com.baidu.swan.apps.view.c.a()).eT(false).c(a.h.aiapps_ok, onClickListener).aon();
+        new g.a(activity).eT(a.h.aiapps_debug_switch_title).eS(a.h.aiapps_sconsole_load_error).a(new com.baidu.swan.apps.view.c.a()).eT(false).c(a.h.aiapps_ok, onClickListener).aon();
     }
 }

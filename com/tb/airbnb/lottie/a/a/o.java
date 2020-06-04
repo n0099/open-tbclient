@@ -11,35 +11,35 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 /* loaded from: classes6.dex */
-public class o implements d, i, j, l, a.InterfaceC0844a {
+public class o implements d, i, j, l, a.InterfaceC0845a {
     private final com.tb.airbnb.lottie.f lottieDrawable;
     private final String name;
-    private final com.tb.airbnb.lottie.a.b.a<Float, Float> niP;
-    private final com.tb.airbnb.lottie.a.b.a<Float, Float> niQ;
-    private final com.tb.airbnb.lottie.a.b.o niR;
-    private c niS;
-    private final com.tb.airbnb.lottie.model.layer.a nis;
+    private final com.tb.airbnb.lottie.model.layer.a njC;
+    private final com.tb.airbnb.lottie.a.b.a<Float, Float> njZ;
+    private final com.tb.airbnb.lottie.a.b.a<Float, Float> nka;
+    private final com.tb.airbnb.lottie.a.b.o nkb;
+    private c nkc;
     private final Matrix matrix = new Matrix();
     private final Path path = new Path();
 
     public o(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.g gVar) {
         this.lottieDrawable = fVar;
-        this.nis = aVar;
+        this.njC = aVar;
         this.name = gVar.getName();
-        this.niP = gVar.dJl().dII();
-        aVar.a(this.niP);
-        this.niP.b(this);
-        this.niQ = gVar.dJm().dII();
-        aVar.a(this.niQ);
-        this.niQ.b(this);
-        this.niR = gVar.dJn().dIR();
-        this.niR.a(aVar);
-        this.niR.a(this);
+        this.njZ = gVar.dJz().dIW();
+        aVar.a(this.njZ);
+        this.njZ.b(this);
+        this.nka = gVar.dJA().dIW();
+        aVar.a(this.nka);
+        this.nka.b(this);
+        this.nkb = gVar.dJB().dJf();
+        this.nkb.a(aVar);
+        this.nkb.a(this);
     }
 
     @Override // com.tb.airbnb.lottie.a.a.i
     public void a(ListIterator<b> listIterator) {
-        if (this.niS == null) {
+        if (this.nkc == null) {
             while (listIterator.hasPrevious() && listIterator.previous() != this) {
             }
             ArrayList arrayList = new ArrayList();
@@ -48,7 +48,7 @@ public class o implements d, i, j, l, a.InterfaceC0844a {
                 listIterator.remove();
             }
             Collections.reverse(arrayList);
-            this.niS = new c(this.lottieDrawable, this.nis, "Repeater", arrayList, null);
+            this.nkc = new c(this.lottieDrawable, this.njC, "Repeater", arrayList, null);
         }
     }
 
@@ -59,17 +59,17 @@ public class o implements d, i, j, l, a.InterfaceC0844a {
 
     @Override // com.tb.airbnb.lottie.a.a.b
     public void b(List<b> list, List<b> list2) {
-        this.niS.b(list, list2);
+        this.nkc.b(list, list2);
     }
 
     @Override // com.tb.airbnb.lottie.a.a.l
     public Path hd() {
-        Path hd = this.niS.hd();
+        Path hd = this.nkc.hd();
         this.path.reset();
-        float floatValue = this.niP.getValue().floatValue();
-        float floatValue2 = this.niQ.getValue().floatValue();
+        float floatValue = this.njZ.getValue().floatValue();
+        float floatValue2 = this.nka.getValue().floatValue();
         for (int i = ((int) floatValue) - 1; i >= 0; i--) {
-            this.matrix.set(this.niR.g(i + floatValue2));
+            this.matrix.set(this.nkb.g(i + floatValue2));
             this.path.addPath(hd, this.matrix);
         }
         return this.path;
@@ -77,23 +77,23 @@ public class o implements d, i, j, l, a.InterfaceC0844a {
 
     @Override // com.tb.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
-        float floatValue = this.niP.getValue().floatValue();
-        float floatValue2 = this.niQ.getValue().floatValue();
-        float floatValue3 = this.niR.dIE().getValue().floatValue() / 100.0f;
-        float floatValue4 = this.niR.dIF().getValue().floatValue() / 100.0f;
+        float floatValue = this.njZ.getValue().floatValue();
+        float floatValue2 = this.nka.getValue().floatValue();
+        float floatValue3 = this.nkb.dIS().getValue().floatValue() / 100.0f;
+        float floatValue4 = this.nkb.dIT().getValue().floatValue() / 100.0f;
         for (int i2 = ((int) floatValue) - 1; i2 >= 0; i2--) {
             this.matrix.set(matrix);
-            this.matrix.preConcat(this.niR.g(i2 + floatValue2));
-            this.niS.a(canvas, this.matrix, (int) (i * com.tb.airbnb.lottie.d.e.lerp(floatValue3, floatValue4, i2 / floatValue)));
+            this.matrix.preConcat(this.nkb.g(i2 + floatValue2));
+            this.nkc.a(canvas, this.matrix, (int) (i * com.tb.airbnb.lottie.d.e.lerp(floatValue3, floatValue4, i2 / floatValue)));
         }
     }
 
     @Override // com.tb.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
-        this.niS.a(rectF, matrix);
+        this.nkc.a(rectF, matrix);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0844a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0845a
     public void ha() {
         this.lottieDrawable.invalidateSelf();
     }
@@ -105,11 +105,11 @@ public class o implements d, i, j, l, a.InterfaceC0844a {
 
     @Override // com.tb.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
-        if (!this.niR.b(t, cVar)) {
+        if (!this.nkb.b(t, cVar)) {
             if (t == com.tb.airbnb.lottie.j.AH) {
-                this.niP.a(cVar);
+                this.njZ.a(cVar);
             } else if (t == com.tb.airbnb.lottie.j.AI) {
-                this.niQ.a(cVar);
+                this.nka.a(cVar);
             }
         }
     }

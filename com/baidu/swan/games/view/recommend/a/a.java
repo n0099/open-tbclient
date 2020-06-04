@@ -34,7 +34,7 @@ public class a implements b {
 
         void aDi();
 
-        void iB(int i);
+        void iD(int i);
     }
 
     public a(@NonNull Context context, @NonNull d dVar) {
@@ -101,8 +101,8 @@ public class a implements b {
 
     private com.baidu.swan.apps.model.a.a.a aDg() {
         com.baidu.swan.apps.model.a.a.a aVar = new com.baidu.swan.apps.model.a.a.a();
-        aVar.fU(com.baidu.swan.games.utils.d.B(this.dem.left) - this.dek);
-        aVar.fV(com.baidu.swan.games.utils.d.B(this.dem.f1008top) - this.dek);
+        aVar.fW(com.baidu.swan.games.utils.d.B(this.dem.left) - this.dek);
+        aVar.fX(com.baidu.swan.games.utils.d.B(this.dem.f1008top) - this.dek);
         aVar.setWidth(-2);
         aVar.setHeight(-2);
         return aVar;

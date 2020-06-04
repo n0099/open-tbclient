@@ -39,14 +39,14 @@ public class b implements com.baidu.tbadk.coreExtra.share.c {
                 str = shareItem.eeR;
             }
             shareEntity.setLinkUrl(str);
-            shareEntity.LQ(shareItem.localFile);
+            shareEntity.LR(shareItem.localFile);
             shareEntity.setLocation(shareItem.location);
-            shareEntity.Dc(i);
-            shareEntity.ae(shareItem.bbb());
-            shareEntity.De(shareItem.shareType);
+            shareEntity.De(i);
+            shareEntity.ae(shareItem.bbc());
+            shareEntity.Dg(shareItem.shareType);
             shareEntity.setTid(shareItem.tid);
-            shareEntity.LR(shareItem.fName);
-            shareEntity.Dd(shareItem.typeShareToSmallApp);
+            shareEntity.LS(shareItem.fName);
+            shareEntity.Df(shareItem.typeShareToSmallApp);
             shareEntity.topic = shareItem.topic;
             if (i == 6 && !StringUtils.isNull(shareItem.efc)) {
                 shareEntity.topic = shareItem.efb + shareItem.efc;

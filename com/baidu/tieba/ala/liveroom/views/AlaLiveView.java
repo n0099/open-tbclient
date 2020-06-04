@@ -14,16 +14,16 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 /* loaded from: classes3.dex */
 public class AlaLiveView extends RelativeLayout implements com.baidu.live.liveroom.g.a {
     private boolean aUD;
-    private int ggQ;
-    private boolean ggR;
-    private boolean ggS;
-    private boolean ggT;
-    public boolean ggU;
-    public boolean ggV;
-    private com.baidu.live.liveroom.g.c ggW;
-    private com.baidu.live.liveroom.g.b ggX;
-    private com.baidu.live.liveroom.g.d ggY;
-    private int ggZ;
+    private int ghb;
+    private boolean ghc;
+    private boolean ghd;
+    private boolean ghe;
+    public boolean ghf;
+    public boolean ghg;
+    private com.baidu.live.liveroom.g.c ghh;
+    private com.baidu.live.liveroom.g.b ghi;
+    private com.baidu.live.liveroom.g.d ghj;
+    private int ghk;
     private int mActivePointerId;
     private float mDownX;
     private float mDownY;
@@ -44,10 +44,10 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         this.mIsSilding = false;
         this.mIsScrolling = false;
         this.mActivePointerId = -1;
-        this.ggR = true;
-        this.ggS = true;
-        this.ggT = false;
-        this.ggU = true;
+        this.ghc = true;
+        this.ghd = true;
+        this.ghe = false;
+        this.ghf = true;
         this.aUD = false;
         init(context);
     }
@@ -57,10 +57,10 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         this.mIsSilding = false;
         this.mIsScrolling = false;
         this.mActivePointerId = -1;
-        this.ggR = true;
-        this.ggS = true;
-        this.ggT = false;
-        this.ggU = true;
+        this.ghc = true;
+        this.ghd = true;
+        this.ghe = false;
+        this.ghf = true;
         this.aUD = false;
         init(context);
     }
@@ -70,10 +70,10 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         this.mIsSilding = false;
         this.mIsScrolling = false;
         this.mActivePointerId = -1;
-        this.ggR = true;
-        this.ggS = true;
-        this.ggT = false;
-        this.ggU = true;
+        this.ghc = true;
+        this.ghd = true;
+        this.ghe = false;
+        this.ghf = true;
         this.aUD = false;
         init(context);
     }
@@ -84,7 +84,7 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
         this.mMoveDistance = (int) (context.getResources().getDisplayMetrics().density * 24.0f);
         this.mFlingDistance = BdUtilHelper.getEquipmentWidth(context) / 4;
-        this.ggQ = Math.max(ViewConfiguration.get(getContext()).getScaledTouchSlop() * 2, 50);
+        this.ghb = Math.max(ViewConfiguration.get(getContext()).getScaledTouchSlop() * 2, 50);
     }
 
     public ViewGroup getView() {
@@ -92,13 +92,13 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
     }
 
     public void setSwipeClearEnable(boolean z) {
-        this.ggS = z;
+        this.ghd = z;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.ggZ = (int) motionEvent.getX();
+            this.ghk = (int) motionEvent.getX();
             completeScroll();
             int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
             this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
@@ -112,7 +112,7 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
             D(motionEvent);
             return super.onInterceptTouchEvent(motionEvent);
         } else if (motionEvent.getAction() == 2) {
-            return Math.abs(((int) motionEvent.getX()) - this.ggZ) > this.ggQ;
+            return Math.abs(((int) motionEvent.getX()) - this.ghk) > this.ghb;
         } else {
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -127,30 +127,30 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
     }
 
     private boolean C(MotionEvent motionEvent) {
-        if (this.ggX == null) {
+        if (this.ghi == null) {
             return false;
         }
-        return this.ggX.dispatchTouchEvent(motionEvent);
+        return this.ghi.dispatchTouchEvent(motionEvent);
     }
 
     private boolean D(MotionEvent motionEvent) {
-        if (this.ggY == null) {
+        if (this.ghj == null) {
             return false;
         }
-        return this.ggY.onTouchEvent(motionEvent);
+        return this.ghj.onTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.ggU ? E(motionEvent) : super.onTouchEvent(motionEvent);
+        return this.ghf ? E(motionEvent) : super.onTouchEvent(motionEvent);
     }
 
     public boolean E(MotionEvent motionEvent) {
         if (D(motionEvent)) {
             return true;
         }
-        if (!this.ggS || this.mIsScrolling) {
-            if (this.ggT) {
+        if (!this.ghd || this.mIsScrolling) {
+            if (this.ghe) {
                 return true;
             }
             return super.onTouchEvent(motionEvent);
@@ -325,18 +325,18 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         return (int) (MotionEventCompat.getY(motionEvent, pointerIndex) - this.mDownY);
     }
 
-    public void bGT() {
-        if (!this.ggR) {
-            bGV();
+    public void bGV() {
+        if (!this.ghc) {
+            bGX();
         }
     }
 
-    public void bGU() {
+    public void bGW() {
         if (this.mScroller != null) {
             this.mScroller.forceFinished(true);
         }
         this.mScroller = null;
-        this.ggV = true;
+        this.ghg = true;
     }
 
     private void endDrag() {
@@ -346,47 +346,47 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
     }
 
     private void scrollRight() {
-        if (this.ggW != null) {
-            this.ggW.Fi();
+        if (this.ghh != null) {
+            this.ghh.Fi();
         }
-        this.ggR = false;
+        this.ghc = false;
         this.mIsScrolling = true;
         int scrollX = getScrollX() - getWidth();
         if (this.mScroller != null) {
             this.mScroller.startScroll(getScrollX(), 0, scrollX - 1, 0);
         }
-        if (this.ggW != null) {
-            this.ggW.bT(this.ggR);
+        if (this.ghh != null) {
+            this.ghh.bT(this.ghc);
         }
         BdUtilHelper.hideSoftKeyPad(getContext(), getRootView());
         postInvalidate();
     }
 
-    public void bGV() {
-        rC(1);
+    public void bGX() {
+        rE(1);
     }
 
     public void scrollOrigin() {
-        rC(250);
+        rE(250);
     }
 
-    public void rC(int i) {
-        if (this.ggW != null) {
-            this.ggW.Fi();
+    public void rE(int i) {
+        if (this.ghh != null) {
+            this.ghh.Fi();
         }
-        this.ggR = true;
+        this.ghc = true;
         this.mIsScrolling = true;
         int scrollX = getScrollX();
         if (this.mScroller != null) {
             this.mScroller.startScroll(getScrollX(), 0, -scrollX, 0, i);
         }
-        if (this.ggW != null) {
-            this.ggW.bT(this.ggR);
+        if (this.ghh != null) {
+            this.ghh.bT(this.ghc);
         }
         postInvalidate();
     }
 
-    public void cs(int i) {
+    public void cu(int i) {
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
@@ -416,23 +416,23 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         }
     }
 
-    public boolean bGW() {
-        return this.ggR;
+    public boolean bGY() {
+        return this.ghc;
     }
 
     public void setOnLiveViewScrollListener(com.baidu.live.liveroom.g.c cVar) {
-        this.ggW = cVar;
+        this.ghh = cVar;
     }
 
     public void setLiveViewOnDispatchTouchEventListener(com.baidu.live.liveroom.g.b bVar) {
-        this.ggX = bVar;
+        this.ghi = bVar;
     }
 
     public void setLiveViewOnTouchEventListener(com.baidu.live.liveroom.g.d dVar) {
-        this.ggY = dVar;
+        this.ghj = dVar;
     }
 
     public void setIsForceHandledTouch(boolean z) {
-        this.ggT = z;
+        this.ghe = z;
     }
 }

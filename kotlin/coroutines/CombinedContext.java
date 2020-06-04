@@ -29,17 +29,17 @@ public final class CombinedContext implements Serializable, c {
     }
 
     @Override // kotlin.coroutines.c
-    public <E extends c.b> E get(c.InterfaceC0877c<E> interfaceC0877c) {
-        q.m(interfaceC0877c, "key");
+    public <E extends c.b> E get(c.InterfaceC0878c<E> interfaceC0878c) {
+        q.m(interfaceC0878c, "key");
         CombinedContext combinedContext = this;
         while (true) {
-            E e = (E) combinedContext.element.get(interfaceC0877c);
+            E e = (E) combinedContext.element.get(interfaceC0878c);
             if (e == null) {
                 c cVar = combinedContext.left;
                 if (cVar instanceof CombinedContext) {
                     combinedContext = (CombinedContext) cVar;
                 } else {
-                    return (E) cVar.get(interfaceC0877c);
+                    return (E) cVar.get(interfaceC0878c);
                 }
             } else {
                 return e;
@@ -54,12 +54,12 @@ public final class CombinedContext implements Serializable, c {
     }
 
     @Override // kotlin.coroutines.c
-    public c minusKey(c.InterfaceC0877c<?> interfaceC0877c) {
-        q.m(interfaceC0877c, "key");
-        if (this.element.get(interfaceC0877c) != null) {
+    public c minusKey(c.InterfaceC0878c<?> interfaceC0878c) {
+        q.m(interfaceC0878c, "key");
+        if (this.element.get(interfaceC0878c) != null) {
             return this.left;
         }
-        c minusKey = this.left.minusKey(interfaceC0877c);
+        c minusKey = this.left.minusKey(interfaceC0878c);
         return minusKey == this.left ? this : minusKey == EmptyCoroutineContext.INSTANCE ? this.element : new CombinedContext(minusKey, this.element);
     }
 
@@ -81,7 +81,7 @@ public final class CombinedContext implements Serializable, c {
     }
 
     private final boolean contains(c.b bVar) {
-        return q.l(get(bVar.dLE()), bVar);
+        return q.l(get(bVar.dLS()), bVar);
     }
 
     private final boolean containsAll(CombinedContext combinedContext) {
@@ -115,7 +115,7 @@ public final class CombinedContext implements Serializable, c {
         c[] cVarArr = new c[size];
         Ref.IntRef intRef = new Ref.IntRef();
         intRef.element = 0;
-        fold(l.nse, new CombinedContext$writeReplace$1(cVarArr, intRef));
+        fold(l.nto, new CombinedContext$writeReplace$1(cVarArr, intRef));
         if (intRef.element == size) {
             return new Serialized(cVarArr);
         }

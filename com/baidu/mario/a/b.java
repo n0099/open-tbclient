@@ -110,7 +110,7 @@ public class b {
         }
     }
 
-    public void dy(int i) {
+    public void dA(int i) {
         if (this.bmR != null) {
             if (this.mTextureId != i) {
                 com.baidu.mario.gldraw2d.d.d dVar = new com.baidu.mario.gldraw2d.d.d();

@@ -8,19 +8,19 @@ public class a {
     private d dOx = new d();
     private HashMap<String, String> dOy = new HashMap<>();
 
-    public b aVa() {
+    public b aVb() {
         return this.dOv;
     }
 
-    public c aVb() {
+    public c aVc() {
         return this.dOw;
     }
 
-    public d aVc() {
+    public d aVd() {
         return this.dOx;
     }
 
-    public HashMap<String, String> aVd() {
+    public HashMap<String, String> aVe() {
         return this.dOy;
     }
 }

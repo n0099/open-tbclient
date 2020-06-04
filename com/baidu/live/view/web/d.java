@@ -57,7 +57,7 @@ public class d {
             if (d.this.bjK.canGoBack()) {
                 d.this.bjK.goBack();
             } else {
-                d.this.bjJ.dt(-1);
+                d.this.bjJ.dv(-1);
             }
         }
     };
@@ -92,13 +92,13 @@ public class d {
             public void onClick(View view) {
                 if (d.this.bjO == ResultCode.h5UploadDone.code) {
                     if (d.this.bjJ != null) {
-                        d.this.bjJ.dt(d.this.bjO);
+                        d.this.bjJ.dv(d.this.bjO);
                         d.this.bjO = -1;
                     }
                 } else if (d.this.bjK.canGoBack()) {
                     d.this.bjK.goBack();
                 } else {
-                    d.this.bjJ.dt(-1);
+                    d.this.bjJ.dv(-1);
                 }
             }
         });
@@ -112,7 +112,7 @@ public class d {
             this.mUrl = intent.getStringExtra("tag_url");
             if (TextUtils.isEmpty(this.mUrl)) {
                 Toast.makeText(this.mContext, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR, 0).show();
-                this.bjJ.dt(-1);
+                this.bjJ.dv(-1);
             }
             this.mTitle = intent.getStringExtra("tag_url");
             this.bjP = aC(this.mUrl, "background");
@@ -141,8 +141,8 @@ public class d {
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public void dr(int i) {
-                super.dr(i);
+            public void dt(int i) {
+                super.dt(i);
                 if (i == 100 && d.this.bjL != null) {
                     d.this.bjL.setVisibility(8);
                 }
@@ -235,14 +235,14 @@ public class d {
 
     public void onResume() {
         if (this.bjP != 0) {
-            UtilHelper.changeStatusBarIconAndTextColor(e.ds(this.bjP), this.bjI.getActivity());
+            UtilHelper.changeStatusBarIconAndTextColor(e.du(this.bjP), this.bjI.getActivity());
         }
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (this.bjO == ResultCode.h5UploadDone.code) {
             if (this.bjJ != null) {
-                this.bjJ.dt(this.bjO);
+                this.bjJ.dv(this.bjO);
                 this.bjO = -1;
                 return true;
             }

@@ -20,13 +20,13 @@ import java.util.regex.Pattern;
 public class l {
     private String c;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern lkC = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern llL = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String lkA = null;
-    private SpannableStringBuilder lkB = null;
-    private boolean lkz = false;
+    private String llJ = null;
+    private SpannableStringBuilder llK = null;
+    private boolean llI = false;
 
     public static boolean cV(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
@@ -44,20 +44,20 @@ public class l {
         return this.text;
     }
 
-    public String ddd() {
+    public String dds() {
         return this.c;
     }
 
-    public SpannableStringBuilder dde() {
-        return this.lkB;
+    public SpannableStringBuilder ddt() {
+        return this.llK;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.lkB == null) {
-            this.lkB = new SpannableStringBuilder();
+        if (this.llK == null) {
+            this.llK = new SpannableStringBuilder();
         }
-        this.lkB.append((CharSequence) spannableString);
-        return this.lkB;
+        this.llK.append((CharSequence) spannableString);
+        return this.llK;
     }
 
     public SpannableString fn(Context context) {
@@ -83,7 +83,7 @@ public class l {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = l.lkC.matcher(l.this.link);
+                        Matcher matcher2 = l.llL.matcher(l.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();

@@ -49,9 +49,9 @@ public class c extends a {
                     e3.printStackTrace();
                 }
             }
-            String is = is(1);
+            String iu = iu(1);
             final com.baidu.swan.games.r.a.c cVar = new com.baidu.swan.games.r.a.c();
-            c(is, jSONObject.toString(), new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.games.r.c.1
+            c(iu, jSONObject.toString(), new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.games.r.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: a */
@@ -313,7 +313,7 @@ public class c extends a {
                 com.baidu.swan.games.r.a.b[] a = a(e, rq, cVar);
                 b(rq);
                 if (a != null) {
-                    c(is(4), a(a).toString(), new ResponseCallback<com.baidu.swan.games.r.a.c>() { // from class: com.baidu.swan.games.r.c.4
+                    c(iu(4), a(a).toString(), new ResponseCallback<com.baidu.swan.games.r.a.c>() { // from class: com.baidu.swan.games.r.c.4
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.searchbox.http.callback.ResponseCallback
                         /* renamed from: d */
@@ -564,10 +564,10 @@ public class c extends a {
                 e.printStackTrace();
             }
         }
-        c(is(i), jSONObject.toString(), responseCallback);
+        c(iu(i), jSONObject.toString(), responseCallback);
     }
 
-    private String is(int i) {
+    private String iu(int i) {
         String RT;
         switch (i) {
             case 1:

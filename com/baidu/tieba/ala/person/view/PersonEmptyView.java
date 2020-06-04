@@ -11,9 +11,9 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class PersonEmptyView extends LinearLayout {
-    private ImageView fpC;
-    private TextView fpD;
-    private TextView fpE;
+    private ImageView fpN;
+    private TextView fpO;
+    private TextView fpP;
 
     public PersonEmptyView(Context context) {
         super(context);
@@ -33,33 +33,33 @@ public class PersonEmptyView extends LinearLayout {
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.ala_person_empty_view, this);
-        this.fpC = (ImageView) findViewById(a.g.empty_image);
+        this.fpN = (ImageView) findViewById(a.g.empty_image);
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
-            ViewGroup.LayoutParams layoutParams = this.fpC.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.fpN.getLayoutParams();
             layoutParams.height = (int) getContext().getResources().getDimension(a.e.sdk_ds250);
             layoutParams.width = (int) getContext().getResources().getDimension(a.e.sdk_ds334);
-            this.fpC.setPadding(0, (int) getContext().getResources().getDimension(a.e.sdk_ds64), 0, 0);
-            this.fpC.setLayoutParams(layoutParams);
+            this.fpN.setPadding(0, (int) getContext().getResources().getDimension(a.e.sdk_ds64), 0, 0);
+            this.fpN.setLayoutParams(layoutParams);
         }
-        this.fpD = (TextView) findViewById(a.g.empty_text);
-        this.fpE = (TextView) findViewById(a.g.empty_sub_text);
+        this.fpO = (TextView) findViewById(a.g.empty_text);
+        this.fpP = (TextView) findViewById(a.g.empty_sub_text);
     }
 
     public void setParams(int i, int i2, int i3) {
         if (i != -1) {
-            this.fpC.setImageResource(i);
+            this.fpN.setImageResource(i);
         } else {
-            this.fpC.setVisibility(8);
+            this.fpN.setVisibility(8);
         }
         if (i2 != -1) {
-            this.fpD.setText(i2);
+            this.fpO.setText(i2);
         } else {
-            this.fpD.setVisibility(8);
+            this.fpO.setVisibility(8);
         }
         if (i3 != -1) {
-            this.fpE.setText(i3);
+            this.fpP.setText(i3);
         } else {
-            this.fpE.setVisibility(8);
+            this.fpP.setVisibility(8);
         }
     }
 }

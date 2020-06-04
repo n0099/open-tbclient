@@ -8,15 +8,15 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c implements CookieManager {
-    private static String lTr;
-    private boolean lOz;
-    private boolean lTs;
+    private static String lUC;
+    private boolean lPH;
+    private boolean lUD;
 
     public c(boolean z, boolean z2) {
-        this.lOz = true;
-        this.lTs = false;
-        this.lOz = z;
-        this.lTs = z2;
+        this.lPH = true;
+        this.lUD = false;
+        this.lPH = z;
+        this.lUD = z2;
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -24,7 +24,7 @@ public class c implements CookieManager {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.lTs || !Oo(str2);
+        return this.lUD || !Op(str2);
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -41,7 +41,7 @@ public class c implements CookieManager {
                 for (String str2 : list) {
                     cookieManager.setCookie(str, str2);
                 }
-                if (this.lOz && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
+                if (this.lPH && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
                     cookieSyncManager.sync();
                 }
             } catch (Exception e) {
@@ -52,18 +52,18 @@ public class c implements CookieManager {
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
-        return lTr;
+        return lUC;
     }
 
     public static void bJ(String str) {
-        lTr = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
+        lUC = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
     }
 
-    public static void dnc() {
-        lTr = "";
+    public static void dnt() {
+        lUC = "";
     }
 
-    public static boolean Oo(String str) {
+    public static boolean Op(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

@@ -15,13 +15,13 @@ public class a {
     private static Runnable bta = new Runnable() { // from class: com.baidu.tbadk.plugin.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.bfS();
+            a.bfT();
         }
     };
     private static boolean etC = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void bfR() {
+    public static final void bfS() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             e.ld().removeCallbacks(bta);
             e.ld().postDelayed(bta, 120000L);
@@ -34,7 +34,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void bfS() {
+    public static final void bfT() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             etC = false;
             e.ld().removeCallbacks(bta);
@@ -50,14 +50,14 @@ public class a {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    a.bfR();
+                    a.bfS();
                 }
             });
             MessageManager.getInstance().registerListener(new CustomMessageListener(MessageConfig.PLUGIN_ALL_INSTALL) { // from class: com.baidu.tbadk.plugin.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    a.bfS();
+                    a.bfT();
                 }
             });
         }

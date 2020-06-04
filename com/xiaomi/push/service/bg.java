@@ -74,7 +74,7 @@ public final class bg implements af {
 
     @Override // com.xiaomi.push.service.af
     /* renamed from: a  reason: collision with other method in class */
-    public void mo564a() {
+    public void mo563a() {
         if (this.f891a) {
             return;
         }

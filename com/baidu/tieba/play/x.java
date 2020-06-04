@@ -8,14 +8,14 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class x {
-    private static x kAi = null;
-    private LinkedHashMap<String, Integer> kAj = new LinkedHashMap<>(150, 0.75f, true);
+    private static x kBo = null;
+    private LinkedHashMap<String, Integer> kBp = new LinkedHashMap<>(150, 0.75f, true);
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.play.x.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                x.this.kAj.clear();
+                x.this.kBp.clear();
             }
         }
     };
@@ -24,31 +24,31 @@ public class x {
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
 
-    public static x cRo() {
-        if (kAi == null) {
+    public static x cRE() {
+        if (kBo == null) {
             synchronized (x.class) {
-                if (kAi == null) {
-                    kAi = new x();
+                if (kBo == null) {
+                    kBo = new x();
                 }
             }
         }
-        return kAi;
+        return kBo;
     }
 
     public void bw(String str, int i) {
-        if (i != 0 || !this.kAj.containsKey(str)) {
-            this.kAj.put(str, Integer.valueOf(i));
+        if (i != 0 || !this.kBp.containsKey(str)) {
+            this.kBp.put(str, Integer.valueOf(i));
         }
     }
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.kAj.remove(str);
+            this.kBp.remove(str);
         }
     }
 
-    public int KA(String str) {
-        Integer num = this.kAj.get(str);
+    public int KB(String str) {
+        Integer num = this.kBp.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -56,6 +56,6 @@ public class x {
     }
 
     public void clear() {
-        this.kAj.clear();
+        this.kBp.clear();
     }
 }

@@ -14,7 +14,7 @@ public class b {
     public interface a {
         void TY();
 
-        void ek(int i);
+        void em(int i);
     }
 
     public synchronized void a(a aVar) {
@@ -23,10 +23,10 @@ public class b {
         }
     }
 
-    public synchronized void iw(int i) {
+    public synchronized void iy(int i) {
         Iterator<a> it = this.ddk.iterator();
         while (it.hasNext()) {
-            it.next().ek(i);
+            it.next().em(i);
         }
     }
 

@@ -140,7 +140,7 @@ public final class j extends d {
                     z = !TextUtils.isEmpty(w(new String[0]));
                     j2 = System.currentTimeMillis();
                     if (z) {
-                        com.baidu.swan.apps.statistic.g.gR(3);
+                        com.baidu.swan.apps.statistic.g.gT(3);
                     }
                     nE = true;
                     this.bLN = new e(this, string);

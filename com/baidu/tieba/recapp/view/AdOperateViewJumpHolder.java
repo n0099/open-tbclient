@@ -17,9 +17,9 @@ import java.util.HashMap;
 public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
     private static final String TAG = AdOperateViewJumpHolder.class.getSimpleName();
     private TextView aTU;
-    private TextView kPK;
-    private ImageView kPL;
-    private Button kPP;
+    private TextView kQT;
+    private ImageView kQU;
+    private Button kQY;
     private View mRootView;
     private TextView mTitleTextView;
 
@@ -32,10 +32,10 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
     private void init() {
         this.mTitleTextView = (TextView) this.mRootView.findViewById(R.id.ad_operate_title);
         this.aTU = (TextView) this.mRootView.findViewById(R.id.ad_operate_content);
-        this.kPK = (TextView) this.mRootView.findViewById(R.id.ad_operate_tag_name);
-        this.kPL = (ImageView) this.mRootView.findViewById(R.id.ad_operate_divider);
-        this.kPP = (Button) this.mRootView.findViewById(R.id.ad_operate_action);
-        if (this.kPJ == 2) {
+        this.kQT = (TextView) this.mRootView.findViewById(R.id.ad_operate_tag_name);
+        this.kQU = (ImageView) this.mRootView.findViewById(R.id.ad_operate_divider);
+        this.kQY = (Button) this.mRootView.findViewById(R.id.ad_operate_action);
+        if (this.kQS == 2) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdOperateViewJumpHolder.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -46,15 +46,15 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
                             str = adPost.getAdvertAppInfo().dAu;
                         }
                         int b = r.b(AdOperateViewJumpHolder.this.mPageContext, adPost.adData.scheme, str);
-                        if (AdOperateViewJumpHolder.this.iZo != null) {
+                        if (AdOperateViewJumpHolder.this.jab != null) {
                             HashMap<String, Object> hashMap = new HashMap<>();
                             hashMap.put("da_area", "adarea");
-                            AdOperateViewJumpHolder.this.iZo.d(b, hashMap);
+                            AdOperateViewJumpHolder.this.jab.d(b, hashMap);
                         }
                     }
                 }
             });
-            this.kPP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdOperateViewJumpHolder.2
+            this.kQY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdOperateViewJumpHolder.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     AdPost adPost = (AdPost) AdOperateViewJumpHolder.this.getTag();
@@ -73,10 +73,10 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_e);
         am.setViewTextColor(this.mTitleTextView, R.color.cp_cont_j, 1);
         am.setViewTextColor(this.aTU, R.color.cp_cont_j, 1);
-        am.setViewTextColor(this.kPK, R.color.cp_cont_f, 1);
-        am.setViewTextColor(this.kPP, R.color.cp_link_tip_a, 3);
-        am.setImageResource(this.kPL, R.drawable.ad_divider);
-        am.setBackgroundResource(this.kPP, R.drawable.feed_ad_progress_button_bg);
+        am.setViewTextColor(this.kQT, R.color.cp_cont_f, 1);
+        am.setViewTextColor(this.kQY, R.color.cp_link_tip_a, 3);
+        am.setImageResource(this.kQU, R.drawable.ad_divider);
+        am.setBackgroundResource(this.kQY, R.drawable.feed_ad_progress_button_bg);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -86,24 +86,24 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
         if (adPost != null && isOperateValid(adPost.adData)) {
             PostAdBaseData.a aVar = adPost.adData;
             this.mTitleTextView.setText(aVar.XH);
-            if (StringUtils.isNull(aVar.kKW)) {
+            if (StringUtils.isNull(aVar.kMf)) {
                 this.aTU.setVisibility(8);
             } else {
                 this.aTU.setVisibility(0);
-                this.aTU.setText(aVar.kKW);
+                this.aTU.setText(aVar.kMf);
             }
-            this.kPK.setText(StringUtils.isNull(aVar.tagName) ? getResources().getString(R.string.advert_label) : aVar.tagName);
+            this.kQT.setText(StringUtils.isNull(aVar.tagName) ? getResources().getString(R.string.advert_label) : aVar.tagName);
             if (StringUtils.isNull(aVar.buttonText)) {
-                if (this.kPJ == 2) {
-                    this.kPP.setText(getResources().getString(R.string.check_immediately));
-                } else if (this.kPJ == 1) {
-                    this.kPP.setText(getResources().getString(R.string.download));
+                if (this.kQS == 2) {
+                    this.kQY.setText(getResources().getString(R.string.check_immediately));
+                } else if (this.kQS == 1) {
+                    this.kQY.setText(getResources().getString(R.string.download));
                 } else {
-                    this.kPP.setText(getResources().getString(R.string.check_immediately));
-                    Log.e(TAG, "invalid operate type: " + this.kPJ);
+                    this.kQY.setText(getResources().getString(R.string.check_immediately));
+                    Log.e(TAG, "invalid operate type: " + this.kQS);
                 }
             } else {
-                this.kPP.setText(aVar.buttonText);
+                this.kQY.setText(aVar.buttonText);
             }
             onChangeSkinType();
         }
@@ -121,15 +121,15 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
             }
             int b = r.b(this.mPageContext, bVar.scheme, str);
             if (b == 1 || b == 2) {
-                if (this.iZo != null) {
+                if (this.jab != null) {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("da_area", "adarea");
-                    this.iZo.d(b, hashMap);
+                    this.jab.d(b, hashMap);
                 }
-            } else if (this.iZo != null) {
+            } else if (this.jab != null) {
                 HashMap<String, Object> hashMap2 = new HashMap<>();
                 hashMap2.put("da_area", "adarea");
-                this.iZo.a(bVar.anr, bVar.ans, hashMap2);
+                this.jab.a(bVar.anr, bVar.ans, hashMap2);
             }
         }
     }

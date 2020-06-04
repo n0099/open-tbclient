@@ -18,15 +18,15 @@ public class b {
         this.eqw = aVar2;
     }
 
-    public int beR() {
+    public int beS() {
         return this.eqs;
     }
 
-    public com.baidu.tbadk.mvc.b.a beS() {
+    public com.baidu.tbadk.mvc.b.a beT() {
         return this.equ;
     }
 
-    public com.baidu.tbadk.mvc.d.b beT() {
+    public com.baidu.tbadk.mvc.d.b beU() {
         return this.eqv;
     }
 
@@ -42,7 +42,7 @@ public class b {
         this.extra = obj;
     }
 
-    public boolean beU() {
+    public boolean beV() {
         return this.eqt;
     }
 

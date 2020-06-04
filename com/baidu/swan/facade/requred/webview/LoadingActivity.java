@@ -30,7 +30,7 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.aq.
         setContentView(a.d.activity_loading);
         initViews();
         registerListener();
-        hX(cPt);
+        hZ(cPt);
         avN();
     }
 
@@ -38,7 +38,7 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.aq.
         int safeGetIntExtra;
         Intent intent = getIntent();
         if (intent != null && (safeGetIntExtra = s.safeGetIntExtra(intent, "current", 0)) == 100) {
-            hX(safeGetIntExtra);
+            hZ(safeGetIntExtra);
             aj.c(new Runnable() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -62,7 +62,7 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.aq.
         });
     }
 
-    void hX(int i) {
+    void hZ(int i) {
         if (this.cPq != null && this.cMw != null && i > 0) {
             this.cPq.setProgress(i);
             this.cMw.setText(String.valueOf(i));
@@ -98,7 +98,7 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.aq.
                 public void run() {
                     int i = (int) ((j / j2) * 100.0d);
                     int unused = LoadingActivity.cPt = i;
-                    LoadingActivity.this.hX(i);
+                    LoadingActivity.this.hZ(i);
                 }
             });
         }

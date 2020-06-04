@@ -28,8 +28,8 @@ public class b implements Runnable {
     private com.baidu.swan.apps.media.chooser.c.d cmC;
     private String cmn;
     private String cmp;
-    private HandlerC0515b eTo;
-    private a eTp;
+    private a eTA;
+    private HandlerC0515b eTz;
     private Context mContext;
 
     public b(Context context, Bundle bundle, com.baidu.swan.apps.media.chooser.c.d dVar) {
@@ -39,14 +39,14 @@ public class b implements Runnable {
         this.ckw = s.c(bundle, "compressed", false);
         this.cmp = s.safeGetString(bundle, "swanTmpPath");
         this.cmC = dVar;
-        this.eTo = new HandlerC0515b(context);
+        this.eTz = new HandlerC0515b(context);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        boM();
-        if (this.eTo != null) {
-            this.eTo.sendEmptyMessage(1);
+        boO();
+        if (this.eTz != null) {
+            this.eTz.sendEmptyMessage(1);
         }
         if (this.ckw) {
             Iterator<MediaModel> it = this.clr.iterator();
@@ -77,13 +77,13 @@ public class b implements Runnable {
                 }
             }
         }
-        if (this.eTo != null) {
-            this.eTo.sendEmptyMessage(2);
+        if (this.eTz != null) {
+            this.eTz.sendEmptyMessage(2);
         }
         if (this.cmC != null) {
             this.cmC.a(true, null, this.clr);
         }
-        boN();
+        boP();
     }
 
     private void i(MediaModel mediaModel) {
@@ -128,10 +128,10 @@ public class b implements Runnable {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes12.dex */
     public class a extends com.baidu.swan.apps.w.a {
-        private HandlerC0515b eTo;
+        private HandlerC0515b eTz;
 
         public a(HandlerC0515b handlerC0515b) {
-            this.eTo = handlerC0515b;
+            this.eTz = handlerC0515b;
         }
 
         @Override // com.baidu.swan.apps.w.a, android.app.Application.ActivityLifecycleCallbacks
@@ -139,29 +139,29 @@ public class b implements Runnable {
             if (!(activity instanceof SwanAppActivity) && !(activity instanceof SwanAppAlbumActivity) && !(activity instanceof SwanAppAlbumPreviewActivity)) {
                 return;
             }
-            if (this.eTo.eTr != null && this.eTo.eTr.isShowing()) {
-                this.eTo.eTr.cancel();
-                this.eTo.eTr = null;
+            if (this.eTz.eTC != null && this.eTz.eTC.isShowing()) {
+                this.eTz.eTC.cancel();
+                this.eTz.eTC = null;
             }
-            if (this.eTo != null) {
-                this.eTo.removeMessages(1);
-                this.eTo.removeMessages(2);
-                this.eTo = null;
+            if (this.eTz != null) {
+                this.eTz.removeMessages(1);
+                this.eTz.removeMessages(2);
+                this.eTz = null;
             }
-            b.this.boN();
+            b.this.boP();
         }
     }
 
-    private void boM() {
-        this.eTp = new a(this.eTo);
-        com.baidu.swan.apps.u.a.aeR().registerActivityLifecycleCallbacks(this.eTp);
+    private void boO() {
+        this.eTA = new a(this.eTz);
+        com.baidu.swan.apps.u.a.aeR().registerActivityLifecycleCallbacks(this.eTA);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void boN() {
-        if (this.eTp != null) {
-            com.baidu.swan.apps.u.a.aeR().unregisterActivityLifecycleCallbacks(this.eTp);
-            this.eTp = null;
+    public void boP() {
+        if (this.eTA != null) {
+            com.baidu.swan.apps.u.a.aeR().unregisterActivityLifecycleCallbacks(this.eTA);
+            this.eTA = null;
         }
     }
 
@@ -169,7 +169,7 @@ public class b implements Runnable {
     /* renamed from: com.baidu.tieba.aiapps.apps.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes12.dex */
     public static class HandlerC0515b extends Handler {
-        private Dialog eTr;
+        private Dialog eTC;
         private WeakReference<Context> mReference;
 
         private HandlerC0515b(Context context) {
@@ -182,21 +182,21 @@ public class b implements Runnable {
                 case 1:
                     Context context = this.mReference.get();
                     if ((context instanceof Activity) && !((Activity) context).isFinishing()) {
-                        this.eTr = new Dialog(this.mReference.get(), R.style.SwanAppCompressDialog);
-                        this.eTr.setContentView(R.layout.swanapp_progress_dialog);
-                        this.eTr.findViewById(R.id.layer_night).setVisibility(com.baidu.swan.apps.u.a.afm().getNightModeSwitcherState() ? 0 : 8);
-                        this.eTr.setCancelable(false);
-                        this.eTr.show();
+                        this.eTC = new Dialog(this.mReference.get(), R.style.SwanAppCompressDialog);
+                        this.eTC.setContentView(R.layout.swanapp_progress_dialog);
+                        this.eTC.findViewById(R.id.layer_night).setVisibility(com.baidu.swan.apps.u.a.afm().getNightModeSwitcherState() ? 0 : 8);
+                        this.eTC.setCancelable(false);
+                        this.eTC.show();
                         return;
                     }
                     return;
                 case 2:
-                    if (this.eTr != null && this.eTr.isShowing()) {
+                    if (this.eTC != null && this.eTC.isShowing()) {
                         Context context2 = this.mReference.get();
                         if ((context2 instanceof Activity) && !((Activity) context2).isFinishing()) {
-                            this.eTr.cancel();
+                            this.eTC.cancel();
                         }
-                        this.eTr = null;
+                        this.eTC = null;
                         return;
                     }
                     return;

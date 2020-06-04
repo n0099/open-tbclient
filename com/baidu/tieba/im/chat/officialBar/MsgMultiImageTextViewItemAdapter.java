@@ -27,15 +27,15 @@ public class MsgMultiImageTextViewItemAdapter extends com.baidu.tieba.im.chat.e<
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgMultiImageTextView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgMultiImageTextView cjB = aVar.cjB();
-        cjB.setOnItemViewLongClickListener(this.isE);
-        cjB.setPosition(i);
-        cjB.ew(this.eVS);
-        cjB.ev(chatMessage.getCacheData().getLastMsgTime());
-        cjB.a(this.mPageContext, chatMessage, viewGroup);
+        MsgMultiImageTextView cjK = aVar.cjK();
+        cjK.setOnItemViewLongClickListener(this.itr);
+        cjK.setPosition(i);
+        cjK.ew(this.eWd);
+        cjK.ev(chatMessage.getCacheData().getLastMsgTime());
+        cjK.a(this.mPageContext, chatMessage, viewGroup);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
-        com.baidu.tieba.im.b.a.cpu().a(chatMessage, this.mPageContext.getPageActivity());
+        com.baidu.tieba.im.b.a.cpD().a(chatMessage, this.mPageContext.getPageActivity());
         return view;
     }
 

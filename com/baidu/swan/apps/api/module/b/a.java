@@ -44,7 +44,7 @@ public class a extends d {
                         }
 
                         @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-                        public void ej(int i) {
+                        public void el(int i) {
                             c.e("Api-LoadSubPackage", "preload subPackage failed");
                             a.this.a(str2, new com.baidu.swan.apps.api.c.b(202, "No SubPackage"));
                         }

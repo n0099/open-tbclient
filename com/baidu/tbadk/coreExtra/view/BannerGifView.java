@@ -36,7 +36,7 @@ public class BannerGifView extends RelativeLayout {
             @Override // com.baidu.tbadk.h.d
             public boolean onClickEvent(View view) {
                 if (BannerGifView.this.efR == null || !BannerGifView.this.efR.onClickEvent(view)) {
-                    BannerGifView.this.bbj();
+                    BannerGifView.this.bbk();
                 }
                 return true;
             }
@@ -88,7 +88,7 @@ public class BannerGifView extends RelativeLayout {
 
     public void setNeedNightMask(boolean z) {
         this.efP = z;
-        mN(TbadkCoreApplication.getInst().getSkinType());
+        mP(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setCloseVisibility(boolean z) {
@@ -105,10 +105,10 @@ public class BannerGifView extends RelativeLayout {
 
     public void onChangeSkinType(int i) {
         am.setBackgroundColor(this.mMaskView, R.color.black_alpha30, i);
-        mN(i);
+        mP(i);
     }
 
-    private void mN(int i) {
+    private void mP(int i) {
         boolean z = true;
         int i2 = 0;
         if (i != 1 && i != 4) {
@@ -118,10 +118,10 @@ public class BannerGifView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bbj() {
+    public void bbk() {
         try {
             if (!TextUtils.isEmpty(this.dBY)) {
-                ba.aUZ().b((TbPageContext) i.G(getContext()), new String[]{this.dBY});
+                ba.aVa().b((TbPageContext) i.G(getContext()), new String[]{this.dBY});
             }
         } catch (Exception e) {
             e.printStackTrace();

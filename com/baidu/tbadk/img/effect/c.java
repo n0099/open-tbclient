@@ -11,7 +11,7 @@ public class c {
     private static c epx = new c();
     private final HashMap<String, Class<? extends b>> imageActions = new HashMap<>();
 
-    public static c bev() {
+    public static c bew() {
         return epx;
     }
 

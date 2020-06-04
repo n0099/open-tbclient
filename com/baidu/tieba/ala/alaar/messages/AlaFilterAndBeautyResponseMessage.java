@@ -7,37 +7,37 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaFilterAndBeautyResponseMessage extends JsonHttpResponsedMessage {
-    private String eWv;
-    private AlaFilterAndBeautyData eWw;
+    private String eWG;
+    private AlaFilterAndBeautyData eWH;
 
     public AlaFilterAndBeautyResponseMessage() {
         super(1021163);
     }
 
-    public AlaFilterAndBeautyData bpz() {
-        return this.eWw;
+    public AlaFilterAndBeautyData bpB() {
+        return this.eWH;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject == null || hasError()) {
-            if (StringUtils.isNullObject(this.eWv)) {
-                this.eWv = c.uN().getString("sp_ar_filter_and_beauty_result", "");
+            if (StringUtils.isNullObject(this.eWG)) {
+                this.eWG = c.uN().getString("sp_ar_filter_and_beauty_result", "");
             }
-            jSONObject = new JSONObject(this.eWv);
+            jSONObject = new JSONObject(this.eWG);
         } else {
-            this.eWv = jSONObject.toString();
-            c.uN().putString("sp_ar_filter_and_beauty_result", this.eWv);
+            this.eWG = jSONObject.toString();
+            c.uN().putString("sp_ar_filter_and_beauty_result", this.eWG);
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null) {
-            this.eWw = new AlaFilterAndBeautyData();
-            this.eWw.parse(optJSONObject);
+            this.eWH = new AlaFilterAndBeautyData();
+            this.eWH.parse(optJSONObject);
         }
     }
 
-    public AlaFilterAndBeautyData pr(int i) {
+    public AlaFilterAndBeautyData pt(int i) {
         if (i == c.uN().getInt("sp_ar_filter_and_beauty_version", -1)) {
             try {
                 decodeLogicInBackGround(1021163, null);
@@ -47,6 +47,6 @@ public class AlaFilterAndBeautyResponseMessage extends JsonHttpResponsedMessage 
         } else {
             c.uN().putString("sp_ar_filter_and_beauty_result", "");
         }
-        return this.eWw;
+        return this.eWH;
     }
 }

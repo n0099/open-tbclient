@@ -18,9 +18,9 @@ import org.json.JSONObject;
 public class b {
     private static boolean j = false;
     private Context b;
-    private AsyncTask mjs;
+    private AsyncTask mkC;
     private String a = null;
-    private a mjr = null;
+    private a mkB = null;
     private Object d = null;
     private Map<String, String> e = new HashMap();
     private Map<String, String> f = new HashMap();
@@ -35,14 +35,14 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bun.miitmdid.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0771b {
+    public class C0772b {
         private String b;
         private int c;
-        private Exception mjv;
+        private Exception mkF;
 
-        public C0771b(String str, Exception exc, int i) {
+        public C0772b(String str, Exception exc, int i) {
             this.b = str;
-            this.mjv = exc;
+            this.mkF = exc;
             this.c = i;
         }
     }
@@ -89,7 +89,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0771b dtc() {
+    public C0772b dtq() {
         try {
             String b = b();
             if (j) {
@@ -113,7 +113,7 @@ public class b {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {
                     bufferedReader.close();
-                    return new C0771b(sb.toString(), null, responseCode);
+                    return new C0772b(sb.toString(), null, responseCode);
                 }
                 sb.append(readLine);
             }
@@ -121,12 +121,12 @@ public class b {
             if (j) {
                 e.printStackTrace();
             }
-            return new C0771b(null, e, -1);
+            return new C0772b(null, e, -1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0771b dtd() {
+    public C0772b dtr() {
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(b()).openConnection();
             a(httpURLConnection);
@@ -173,7 +173,7 @@ public class b {
                     bufferedReader.close();
                     String sb4 = sb3.toString();
                     b("\nPOST RESPONSE : " + sb4);
-                    return new C0771b(sb4, null, responseCode);
+                    return new C0772b(sb4, null, responseCode);
                 }
                 sb3.append(readLine);
             }
@@ -181,7 +181,7 @@ public class b {
             if (j) {
                 e.printStackTrace();
             }
-            return new C0771b(null, e, -1);
+            return new C0772b(null, e, -1);
         }
     }
 
@@ -189,14 +189,14 @@ public class b {
         return new b(context);
     }
 
-    public b PE(@NonNull String str) {
+    public b PF(@NonNull String str) {
         this.a = str;
         this.h = "POST";
         return this;
     }
 
     public b a(a aVar) {
-        this.mjr = aVar;
+        this.mkB = aVar;
         return this;
     }
 
@@ -206,30 +206,30 @@ public class b {
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.bun.miitmdid.b.b$1] */
-    public b dtb() {
-        this.mjs = new AsyncTask<Void, Void, C0771b>() { // from class: com.bun.miitmdid.b.b.1
-            b mjt;
+    public b dtp() {
+        this.mkC = new AsyncTask<Void, Void, C0772b>() { // from class: com.bun.miitmdid.b.b.1
+            b mkD;
 
             {
-                this.mjt = b.this;
+                this.mkD = b.this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             /* renamed from: a */
-            public void onPostExecute(C0771b c0771b) {
-                super.onPostExecute(c0771b);
-                if (b.this.mjr != null) {
-                    if (c0771b == null) {
-                        b.this.mjr.a(new Exception("Unknown Error"), -1, null);
-                    } else if (c0771b.mjv != null) {
-                        b.this.mjr.a(c0771b.mjv, -1, null);
+            public void onPostExecute(C0772b c0772b) {
+                super.onPostExecute(c0772b);
+                if (b.this.mkB != null) {
+                    if (c0772b == null) {
+                        b.this.mkB.a(new Exception("Unknown Error"), -1, null);
+                    } else if (c0772b.mkF != null) {
+                        b.this.mkB.a(c0772b.mkF, -1, null);
                     } else {
                         try {
-                            b.this.mjr.a(null, c0771b.c, c0771b.b);
+                            b.this.mkB.a(null, c0772b.c, c0772b.b);
                         } catch (Exception e) {
-                            b.this.mjr.a(e, -1, null);
+                            b.this.mkB.a(e, -1, null);
                         }
                     }
                 }
@@ -239,8 +239,8 @@ public class b {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             /* renamed from: q */
-            public C0771b doInBackground(Void... voidArr) {
-                return this.mjt.h.equalsIgnoreCase("GET") ? b.this.dtc() : b.this.dtd();
+            public C0772b doInBackground(Void... voidArr) {
+                return this.mkD.h.equalsIgnoreCase("GET") ? b.this.dtq() : b.this.dtr();
             }
         }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         return this;

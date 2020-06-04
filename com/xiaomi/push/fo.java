@@ -33,11 +33,11 @@ public class fo {
                 return gr.a(this.a, fsVar);
             }
             if (name.equals("presence")) {
-                return gr.m321a(this.a);
+                return gr.m320a(this.a);
             }
             if (!this.a.getName().equals("stream")) {
                 if (this.a.getName().equals(BdStatsConstant.StatsType.ERROR)) {
-                    throw new gd(gr.m322a(this.a));
+                    throw new gd(gr.m321a(this.a));
                 }
                 if (this.a.getName().equals("warning")) {
                     this.a.next();

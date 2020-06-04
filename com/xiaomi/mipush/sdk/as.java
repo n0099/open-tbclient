@@ -31,7 +31,7 @@ public class as extends ContentObserver {
             context2.getContentResolver().unregisterContentObserver(this);
             context3 = this.a.f49a;
             if (az.b(context3)) {
-                this.a.m89c();
+                this.a.m88c();
             }
         }
     }

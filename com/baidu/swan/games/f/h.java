@@ -23,7 +23,7 @@ public final class h {
     public static class a {
         private h cWH = new h();
 
-        public a io(int i) {
+        public a iq(int i) {
             this.cWH.mType = i;
             return this;
         }

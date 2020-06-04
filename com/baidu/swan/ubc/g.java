@@ -30,7 +30,7 @@ class g {
         this.dpM = str;
     }
 
-    public void ju(int i) {
+    public void jw(int i) {
         this.mRate = i;
     }
 
@@ -38,11 +38,11 @@ class g {
         this.mCategory = str;
     }
 
-    public void jv(int i) {
+    public void jx(int i) {
         this.dpS = i;
     }
 
-    public void jw(int i) {
+    public void jy(int i) {
         this.dpT = i;
     }
 

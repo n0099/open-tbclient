@@ -60,7 +60,7 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         if (this.dXs != null) {
             if (!com.baidu.tieba.aiapps.a.b(this.dXs.id, this.dXs.link, "1191003900000000", this.dXs.is_game)) {
                 if (!aq.isEmpty(this.dXs.h5_url)) {
-                    ba.aUZ().b(S(getContext()), new String[]{this.dXs.h5_url});
+                    ba.aVa().b(S(getContext()), new String[]{this.dXs.h5_url});
                 } else {
                     return;
                 }

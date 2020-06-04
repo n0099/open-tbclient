@@ -115,7 +115,7 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
             };
             this.bQf.a(new b.a() { // from class: com.baidu.swan.apps.component.components.f.a.2
                 @Override // com.baidu.swan.apps.q.a.b.a
-                public void eu(int i2) {
+                public void ew(int i2) {
                     if (a.DEBUG) {
                         Log.d("Component-Input", "numeric keyboard onKeyboardShow");
                     }

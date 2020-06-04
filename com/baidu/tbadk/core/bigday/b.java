@@ -195,7 +195,7 @@ public class b {
         return null;
     }
 
-    public com.baidu.tbadk.core.bigday.a ka(int i) {
+    public com.baidu.tbadk.core.bigday.a kc(int i) {
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         if (i == 1) {
             if (this.dzr == null && this.dzt.get(i, 0L).longValue() != 0 && this.dzt.get(i, 0L).longValue() < currentTimeMillis) {

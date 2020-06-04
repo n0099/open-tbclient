@@ -12,58 +12,58 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes.dex */
 public class a {
-    private final f ndq;
-    private final d nep;
+    private final f neB;
+    private final d nfA;
 
     public a(f fVar) {
         q.m(fVar, "videoItem");
-        this.ndq = fVar;
-        this.nep = new d();
+        this.neB = fVar;
+        this.nfA = new d();
     }
 
-    public final f dGz() {
-        return this.ndq;
+    public final f dGN() {
+        return this.neB;
     }
 
-    public final d dGV() {
-        return this.nep;
+    public final d dHj() {
+        return this.nfA;
     }
 
     @h
     /* renamed from: com.opensource.svgaplayer.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public final class C0837a {
+    public final class C0838a {
         private final String imageKey;
-        private final g neq;
-        final /* synthetic */ a ner;
+        private final g nfB;
+        final /* synthetic */ a nfC;
 
-        public C0837a(a aVar, String str, g gVar) {
+        public C0838a(a aVar, String str, g gVar) {
             q.m(gVar, "frameEntity");
-            this.ner = aVar;
+            this.nfC = aVar;
             this.imageKey = str;
-            this.neq = gVar;
+            this.nfB = gVar;
         }
 
-        public final String dGW() {
+        public final String dHk() {
             return this.imageKey;
         }
 
-        public final g dGX() {
-            return this.neq;
+        public final g dHl() {
+            return this.nfB;
         }
     }
 
-    public final List<C0837a> Jt(int i) {
-        C0837a c0837a;
+    public final List<C0838a> Jv(int i) {
+        C0838a c0838a;
         ArrayList arrayList = new ArrayList();
-        for (com.opensource.svgaplayer.entities.f fVar : this.ndq.dGQ()) {
-            if (i < 0 || i >= fVar.dHu().size()) {
-                c0837a = null;
+        for (com.opensource.svgaplayer.entities.f fVar : this.neB.dHe()) {
+            if (i < 0 || i >= fVar.dHI().size()) {
+                c0838a = null;
             } else {
-                c0837a = fVar.dHu().get(i).dHv() <= 0.0d ? null : new C0837a(this, fVar.dGW(), fVar.dHu().get(i));
+                c0838a = fVar.dHI().get(i).dHJ() <= 0.0d ? null : new C0838a(this, fVar.dHk(), fVar.dHI().get(i));
             }
-            if (c0837a != null) {
-                arrayList.add(c0837a);
+            if (c0838a != null) {
+                arrayList.add(c0838a);
             }
         }
         return arrayList;
@@ -72,6 +72,6 @@ public class a {
     public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
         q.m(canvas, "canvas");
         q.m(scaleType, "scaleType");
-        this.nep.a(canvas.getWidth(), canvas.getHeight(), (float) this.ndq.dGO().getWidth(), (float) this.ndq.dGO().getHeight(), scaleType);
+        this.nfA.a(canvas.getWidth(), canvas.getHeight(), (float) this.neB.dHc().getWidth(), (float) this.neB.dHc().getHeight(), scaleType);
     }
 }

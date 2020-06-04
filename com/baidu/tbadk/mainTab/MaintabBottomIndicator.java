@@ -88,7 +88,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         this.epR = this.epQ.findViewById(R.id.container_common_item);
         this.epS = (TBLottieAnimationView) this.epQ.findViewById(R.id.view_bottom_icon);
         this.epS.setSpeed(1.1f);
-        this.epS.big();
+        this.epS.bii();
         this.mTextView = (TextView) this.epQ.findViewById(R.id.view_bottom_text);
         this.epT = (TBLottieAnimationView) this.epQ.findViewById(R.id.animation_view);
         this.epT.setFirstLoadInternal(true);
@@ -199,7 +199,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         return this.epT;
     }
 
-    public void beB() {
+    public void beC() {
         if (this.epT != null && this.epT.getVisibility() == 0) {
             ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.5f, 1.0f, 0.5f, 1, 0.5f, 1, 0.5f);
             scaleAnimation.setDuration(300L);
@@ -210,23 +210,23 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         }
     }
 
-    private void beC() {
+    private void beD() {
         if (System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.aTX().getLong("key_lottie_show_expired_time", 0L)) {
             com.baidu.tbadk.core.sharedPref.b.aTX().putInt("key_lottie_show_count", 0);
         }
     }
 
-    private void beD() {
+    private void beE() {
         com.baidu.tbadk.core.sharedPref.b.aTX().putInt("key_lottie_show_count", com.baidu.tbadk.core.sharedPref.b.aTX().getInt("key_lottie_show_count", 0) + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void beE() {
+    public void beF() {
         int i = com.baidu.tbadk.core.sharedPref.b.aTX().getInt("key_lottie_show_count", 0);
         com.baidu.tbadk.core.sharedPref.b.aTX().putLong("key_lottie_show_expired_time", System.currentTimeMillis() + 86400000);
         this.epT.setFrame(this.epT.getFrame());
         if (i >= 3) {
-            beB();
+            beC();
         }
     }
 
@@ -240,11 +240,11 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         if (this.epT != null) {
             String string = com.baidu.tbadk.core.sharedPref.b.aTX().getString("sync_send_maintab_my_tab_lottie_url", "");
             if (!aq.isEmpty(string) || !z) {
-                beC();
+                beD();
                 if (az.u(com.baidu.tbadk.core.sharedPref.b.aTX().getLong("sync_send_maintab_my_tab_lottie_start_time", 0L), com.baidu.tbadk.core.sharedPref.b.aTX().getLong("sync_send_maintab_my_tab_lottie_end_time", 0L)) && com.baidu.tbadk.core.sharedPref.b.aTX().getInt("key_lottie_show_count", 0) < 3) {
                     this.epT.playAnimation();
                     this.epT.setAnimationUrl(string);
-                    beD();
+                    beE();
                     TiebaStatic.log(new an("c13248").dh("uid", TbadkCoreApplication.getCurrentAccount()));
                     this.epT.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.mainTab.MaintabBottomIndicator.1
                         @Override // android.animation.Animator.AnimatorListener
@@ -255,7 +255,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
 
                         @Override // android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
-                            MaintabBottomIndicator.this.beE();
+                            MaintabBottomIndicator.this.beF();
                         }
 
                         @Override // android.animation.Animator.AnimatorListener
@@ -277,21 +277,21 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         am.a(this.epS, this.animationResId);
     }
 
-    public void beF() {
+    public void beG() {
         am.a(this.epS, (int) R.raw.icon_refresh1);
         setText(R.string.refresh);
         this.epS.loop(false);
         playAnimation();
     }
 
-    public void beG() {
+    public void beH() {
         am.a(this.epS, (int) R.raw.icon_refresh2);
         setText(R.string.refresh);
         this.epS.loop(true);
         playAnimation();
     }
 
-    public void beH() {
+    public void beI() {
         am.a(this.epS, (int) R.raw.icon_refresh3);
         setText(R.string.home_recommend);
         this.epS.loop(false);
@@ -355,7 +355,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                     } else {
                         this.epS.setAlpha(1.0f);
                     }
-                    beI();
+                    beJ();
                 } catch (Exception e) {
                 }
             }
@@ -388,12 +388,12 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         return this.mTextView;
     }
 
-    private void beI() {
+    private void beJ() {
         if (this.epW && TbadkCoreApplication.getInst().getHomeBarShowType() == 1 && this.epX) {
             if (this.epY == 1) {
                 ig(this.epX);
             } else if (this.epY == 2) {
-                beF();
+                beG();
             }
         }
     }

@@ -8,13 +8,13 @@ import java.util.LinkedHashMap;
 public final class l {
     private static String aD;
     private static String aE;
-    private final LinkedHashMap<String, Long> mhY = new LinkedHashMap<>();
+    private final LinkedHashMap<String, Long> mjk = new LinkedHashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void Pn(String str) {
+    public final void Po(String str) {
         if (!TextUtils.isEmpty(str)) {
-            synchronized (this.mhY) {
-                this.mhY.put(str, Long.valueOf(System.currentTimeMillis()));
+            synchronized (this.mjk) {
+                this.mjk.put(str, Long.valueOf(System.currentTimeMillis()));
                 aD = str;
                 aE = String.valueOf(System.currentTimeMillis());
             }
@@ -22,20 +22,20 @@ public final class l {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void Po(String str) {
+    public final void Pp(String str) {
         d dVar;
         if (!TextUtils.isEmpty(str)) {
             final com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-            synchronized (this.mhY) {
-                Long remove = this.mhY.remove(str);
+            synchronized (this.mjk) {
+                Long remove = this.mjk.remove(str);
                 if (remove != null) {
                     try {
                         lVar.setStartTime(String.valueOf(remove));
                         lVar.t(str);
                         lVar.z(String.valueOf(System.currentTimeMillis()));
-                        dVar = d.a.mhN;
-                        lVar.setPath(dVar.dsr());
-                        lVar.x(m.dsA().I());
+                        dVar = d.a.miZ;
+                        lVar.setPath(dVar.dsF());
+                        lVar.x(m.dsO().I());
                     } catch (Exception e) {
                         com.baidu.ubs.analytics.d.j.G(e.toString());
                         com.baidu.ubs.analytics.d.b.I(e.toString());

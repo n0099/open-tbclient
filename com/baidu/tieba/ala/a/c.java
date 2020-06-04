@@ -8,7 +8,7 @@ import java.io.File;
 @TargetApi(14)
 /* loaded from: classes3.dex */
 public class c {
-    private static File bso() {
+    private static File bsq() {
         File file = new File(BdBaseApplication.getInst().getFilesDir(), "duar");
         if (!file.exists()) {
             file.mkdirs();
@@ -16,7 +16,7 @@ public class c {
         return file;
     }
 
-    private static File bsp() {
+    private static File bsr() {
         File file = new File(Environment.getExternalStorageState().equals("mounted") ? BdBaseApplication.getInst().getExternalFilesDir(null) : null, "duar");
         if (!file.exists()) {
             file.mkdirs();
@@ -24,16 +24,16 @@ public class c {
         return file;
     }
 
-    public static File bsq() {
-        File file = new File(bso(), "ar-solibs");
+    public static File bss() {
+        File file = new File(bsq(), "ar-solibs");
         if (!file.exists()) {
             file.mkdirs();
         }
         return file;
     }
 
-    public static File bsr() {
-        File file = new File(bsp(), "ar-resource");
+    public static File bst() {
+        File file = new File(bsr(), "ar-resource");
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -49,10 +49,10 @@ public class c {
         if (Ba == null) {
             return false;
         }
-        if (com.baidu.tieba.ala.a.a.a.f.j(context, Ba.bss())) {
+        if (com.baidu.tieba.ala.a.a.a.f.j(context, Ba.bsu())) {
             return true;
         }
-        com.baidu.tieba.ala.a.a.a.f.i(context, Ba.bss());
-        return com.baidu.tieba.ala.a.a.a.f.j(context, Ba.bss());
+        com.baidu.tieba.ala.a.a.a.f.i(context, Ba.bsu());
+        return com.baidu.tieba.ala.a.a.a.f.j(context, Ba.bsu());
     }
 }

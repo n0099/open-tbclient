@@ -19,16 +19,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public class d implements i {
-    i.a eTf;
-    private CustomMessageListener eTg = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
+    i.a eTq;
+    private CustomMessageListener eTr = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (d.this.eTf != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (d.this.eTq != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    d.this.eTf.agk();
+                    d.this.eTq.agk();
                 } else {
-                    d.this.eTf.agl();
+                    d.this.eTq.agl();
                 }
             }
         }
@@ -36,13 +36,13 @@ public class d implements i {
 
     public d() {
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.eTg);
+        MessageManager.getInstance().registerListener(this.eTr);
     }
 
     @Override // com.baidu.swan.apps.u.b.i
     public void a(Context context, JSONObject jSONObject, final i.a aVar) {
         if (context instanceof Activity) {
-            this.eTf = aVar;
+            this.eTq = aVar;
             Bundle bundle = new Bundle();
             try {
                 String optString = jSONObject.optString("shareUrl");

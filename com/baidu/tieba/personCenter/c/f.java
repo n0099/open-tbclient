@@ -33,72 +33,72 @@ import tbclient.User;
 import tbclient.UserMap;
 /* loaded from: classes9.dex */
 public class f implements com.baidu.tieba.person.b {
-    private ArrayList<o> fBK = new ArrayList<>();
-    public PersonMoreData kky;
-    private Duxiaoman klg;
-    private List<BannerImage> klh;
-    private PersonUserGodInfo kli;
-    private d klj;
-    public com.baidu.tieba.person.data.d klk;
-    public g kll;
-    public g klm;
-    public g kln;
-    public g klo;
-    public h klp;
-    public m klq;
-    public j klr;
+    private ArrayList<o> fBV = new ArrayList<>();
+    public PersonMoreData klE;
+    private Duxiaoman kmm;
+    private List<BannerImage> kmn;
+    private PersonUserGodInfo kmo;
+    private d kmp;
+    public com.baidu.tieba.person.data.d kmq;
+    public g kmr;
+    public g kms;
+    public g kmt;
+    public g kmu;
+    public h kmv;
+    public m kmw;
+    public j kmx;
     private com.baidu.tieba.i.a mLiveGoodsWindowData;
     private UserData mUserData;
 
-    public ArrayList<o> cNj() {
-        return this.fBK;
+    public ArrayList<o> cNz() {
+        return this.fBV;
     }
 
-    private void cNk() {
-        if (this.klj != null) {
-            this.fBK.add(this.klj);
+    private void cNA() {
+        if (this.kmp != null) {
+            this.fBV.add(this.kmp);
         } else if (this.mUserData != null) {
-            this.klj = new d();
-            this.klj.kla = this.mUserData.getFansNum();
-            this.klj.klb = this.mUserData.getConcern_num();
-            this.klj.klc = this.mUserData.getLike_bars();
-            this.klj.threadNum = this.mUserData.getThreadNum();
-            this.klj.userData = this.mUserData;
-            this.fBK.add(this.klj);
+            this.kmp = new d();
+            this.kmp.kmg = this.mUserData.getFansNum();
+            this.kmp.kmh = this.mUserData.getConcern_num();
+            this.kmp.kmi = this.mUserData.getLike_bars();
+            this.kmp.threadNum = this.mUserData.getThreadNum();
+            this.kmp.userData = this.mUserData;
+            this.fBV.add(this.kmp);
         }
     }
 
-    private void cNl() {
-        if (this.klq != null) {
-            this.fBK.add(this.klq);
+    private void cNB() {
+        if (this.kmw != null) {
+            this.fBV.add(this.kmw);
             return;
         }
-        this.klq = new m();
-        if (!v.isEmpty(this.klh)) {
+        this.kmw = new m();
+        if (!v.isEmpty(this.kmn)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.klh.size()) {
+                if (i2 >= this.kmn.size()) {
                     break;
                 }
                 a aVar = new a();
-                aVar.a(this.klh.get(i2));
-                if (!aq.isEmpty(aVar.cNi())) {
-                    this.klq.klh.add(aVar);
+                aVar.a(this.kmn.get(i2));
+                if (!aq.isEmpty(aVar.cNy())) {
+                    this.kmw.kmn.add(aVar);
                 }
                 i = i2 + 1;
             }
-            if (this.klq.klh.size() > 0) {
-                this.fBK.add(this.klq);
+            if (this.kmw.kmn.size() > 0) {
+                this.fBV.add(this.kmw);
             }
         }
     }
 
-    private void ed(List<SmartApp> list) {
+    private void ef(List<SmartApp> list) {
         if (!v.isEmpty(list)) {
-            if (this.klr == null) {
-                this.klr = new j();
-                this.fBK.add(this.klr);
+            if (this.kmx == null) {
+                this.kmx = new j();
+                this.fBV.add(this.kmx);
             }
             ArrayList arrayList = new ArrayList();
             if (list != null) {
@@ -108,125 +108,125 @@ public class f implements com.baidu.tieba.person.b {
                     }
                 }
             }
-            this.klr.setData(arrayList);
+            this.kmx.setData(arrayList);
         }
     }
 
-    private void cNm() {
-        if (this.kll == null) {
-            this.kll = X(R.drawable.icon_mask_wo_list_collect24_svg, R.string.my_mark, 16);
-            this.kll.klt = true;
-            this.kll.klw = new i();
+    private void cNC() {
+        if (this.kmr == null) {
+            this.kmr = X(R.drawable.icon_mask_wo_list_collect24_svg, R.string.my_mark, 16);
+            this.kmr.kmz = true;
+            this.kmr.kmC = new i();
         }
-        this.fBK.add(this.kll);
+        this.fBV.add(this.kmr);
         g X = X(R.drawable.icon_mask_wo_list_history24_svg, R.string.my_history, 17);
-        X.klt = true;
-        X.klv = true;
-        this.fBK.add(X);
+        X.kmz = true;
+        X.kmB = true;
+        this.fBV.add(X);
         g X2 = X(R.drawable.icon_mask_wo_list_group24_svg, R.string.my_groups, 22);
-        X2.klv = true;
-        X2.klt = true;
-        if (this.mLiveGoodsWindowData != null && this.mLiveGoodsWindowData.cdQ() && !TextUtils.isEmpty(this.mLiveGoodsWindowData.goods_url)) {
+        X2.kmB = true;
+        X2.kmz = true;
+        if (this.mLiveGoodsWindowData != null && this.mLiveGoodsWindowData.cdY() && !TextUtils.isEmpty(this.mLiveGoodsWindowData.goods_url)) {
             g X3 = X(R.drawable.icon_mask_wo_list_shop24_svg, R.string.person_my_store_title, 46);
-            X3.klt = true;
+            X3.kmz = true;
             X3.auL = this.mLiveGoodsWindowData.goods_url;
-            this.fBK.add(X3);
+            this.fBV.add(X3);
         }
         g X4 = X(R.drawable.icon_mask_wo_list_youqianhua24_svg, R.string.borrow_cash, 37);
-        X4.klt = true;
-        X4.klw = new i();
+        X4.kmz = true;
+        X4.kmC = new i();
         if (!com.baidu.tbadk.core.sharedPref.b.aTX().getBoolean(SharedPrefConfig.KEY_HAS_BORROW_CASH_CLICKED, false)) {
-            X4.klw.isShowRedTip = true;
+            X4.kmC.isShowRedTip = true;
         }
-        X4.klw.klE = true;
-        this.fBK.add(X4);
+        X4.kmC.kmK = true;
+        this.fBV.add(X4);
         if (TbSingleton.getInstance().isShowPersonCenterLiteGame()) {
             g X5 = X(R.drawable.icon_mask_wo_list_game24_svg, R.string.lite_game_center, 44);
-            X5.klt = true;
-            X5.auL = "tiebaclient://swan/f3TuxsL47kihWbLdWMiymiYwChMr52Rd/pages/index/index_baiduboxapp=%7B%22from%22%3A%221191000700000000%22%2C%22ext%22%3A%7B%7D%7D";
-            this.fBK.add(X5);
+            X5.kmz = true;
+            X5.auL = "tiebaclient://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/index/index?_baiduboxapp=%7B%22from%22%3A%223000000000000000%22%2C%22ext%22%3A%7B%7D%7D";
+            this.fBV.add(X5);
         }
         if (com.baidu.tbadk.core.sharedPref.b.aTX().getInt("baidu_financial_display", 1) == 1) {
             g X6 = X(R.drawable.icon_mask_wo_list_duxiaoman24_svg, R.string.baidu_financial, 41);
-            X6.klt = true;
+            X6.kmz = true;
             if (!com.baidu.tbadk.core.sharedPref.b.aTX().getBoolean("key_baidu_financial_has_clicked", false)) {
-                X6.klw = new i();
-                X6.klw.isShowRedTip = true;
+                X6.kmC = new i();
+                X6.kmC.isShowRedTip = true;
             }
-            this.fBK.add(X6);
+            this.fBV.add(X6);
         }
-        if (this.klg != null && this.klg.is_end.intValue() != 1) {
+        if (this.kmm != null && this.kmm.is_end.intValue() != 1) {
             g X7 = X(R.drawable.icon_mask_wo_list_sign24_svg, R.string.person_center_sign_packet, 45);
-            X7.klt = true;
+            X7.kmz = true;
             X7.auL = "https://tieba.baidu.com/mo/q/duxiaoman/index?noshare=1";
-            int intValue = this.klg.total_cash.intValue();
+            int intValue = this.kmm.total_cash.intValue();
             if (intValue > 0) {
                 i iVar = new i();
                 iVar.text = TbadkCoreApplication.getInst().getString(R.string.sign_cash_num, new Object[]{String.format("%.2f", Double.valueOf(intValue / 100.0d))});
                 iVar.linkUrl = "https://tieba.baidu.com/mo/q/duxiaoman/index?noshare=1";
-                X7.klw = iVar;
+                X7.kmC = iVar;
             }
-            this.fBK.add(X7);
+            this.fBV.add(X7);
         }
         if (MissionEntranceSwitch.isOn()) {
             g X8 = X(R.drawable.icon_mask_wo_list_task24_svg, R.string.person_task_center_entrance, 43);
-            X8.klt = true;
-            this.fBK.add(X8);
+            X8.kmz = true;
+            this.fBV.add(X8);
         }
         g X9 = X(R.drawable.icon_mask_wo_list_member24_svg, R.string.member_center, 12);
-        X9.klt = true;
-        this.fBK.add(X9);
-        this.klm = X(R.drawable.icon_mask_wo_list_gift24_svg, R.string.my_gift, 10);
-        this.klm.klw = new i();
-        this.klm.klt = true;
-        this.klm.klw.text = aq.formatNumForTdouDisPlay(this.mUserData.getTDouNum());
-        this.klm.klw.klB = TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon_huobi_tdou);
-        this.fBK.add(this.klm);
+        X9.kmz = true;
+        this.fBV.add(X9);
+        this.kms = X(R.drawable.icon_mask_wo_list_gift24_svg, R.string.my_gift, 10);
+        this.kms.kmC = new i();
+        this.kms.kmz = true;
+        this.kms.kmC.text = aq.formatNumForTdouDisPlay(this.mUserData.getTDouNum());
+        this.kms.kmC.kmH = TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon_huobi_tdou);
+        this.fBV.add(this.kms);
         g X10 = X(R.drawable.icon_mask_wo_list_cardbag24_svg, R.string.card_box, 18);
-        X10.klt = true;
-        this.fBK.add(X10);
+        X10.kmz = true;
+        this.fBV.add(X10);
         g X11 = X(R.drawable.icon_mask_wo_list_diamond24_svg, R.string.blue_diamond, 11);
-        X11.klt = true;
+        X11.kmz = true;
         if (this.mUserData.membershipInfo != null) {
             X11.auL = this.mUserData.membershipInfo.mLink;
         }
-        this.fBK.add(X11);
+        this.fBV.add(X11);
         boolean isPersonItemSwitch = TbadkCoreApplication.getInst().getActivityPrizeData().isPersonItemSwitch();
         String personItemText = TbadkCoreApplication.getInst().getActivityPrizeData().getPersonItemText();
         if (isPersonItemSwitch && !StringUtils.isNull(personItemText)) {
-            this.kln = i(R.drawable.icon_mine_list_logingift, personItemText, 38);
-            this.kln.klv = true;
-            this.kln.klw = new i();
-            this.fBK.add(this.kln);
+            this.kmt = i(R.drawable.icon_mine_list_logingift, personItemText, 38);
+            this.kmt.kmB = true;
+            this.kmt.kmC = new i();
+            this.fBV.add(this.kmt);
             TiebaStatic.log(new an("c12597"));
         } else {
-            X11.klv = true;
+            X11.kmB = true;
         }
         g X12 = X(R.drawable.icon_mask_wo_list_topic24_svg, R.string.hot_topic, 30);
-        X12.klt = true;
-        this.fBK.add(X12);
+        X12.kmz = true;
+        this.fBV.add(X12);
         if (MessageManager.getInstance().findTask(2921431) != null) {
             g X13 = X(R.drawable.icon_mask_wo_list_live24_svg, R.string.ala_live, 25);
-            X13.klt = true;
-            X13.klv = true;
-            this.fBK.add(X13);
+            X13.kmz = true;
+            X13.kmB = true;
+            this.fBV.add(X13);
         }
-        this.klo = X(R.drawable.icon_mask_wo_list_serve24_svg, R.string.person_service_centre, 31);
-        this.klo.klv = true;
-        this.klo.klt = true;
-        this.fBK.add(this.klo);
+        this.kmu = X(R.drawable.icon_mask_wo_list_serve24_svg, R.string.person_service_centre, 31);
+        this.kmu.kmB = true;
+        this.kmu.kmz = true;
+        this.fBV.add(this.kmu);
         g X14 = X(R.drawable.icon_mask_wo_list_exempt24_svg, R.string.baidu_singkil, 39);
-        X14.klt = true;
-        this.fBK.add(X14);
-        if (this.kky == null) {
-            this.kky = new PersonMoreData();
+        X14.kmz = true;
+        this.fBV.add(X14);
+        if (this.klE == null) {
+            this.klE = new PersonMoreData();
         }
         g X15 = X(R.drawable.icon_pure_wo_list_more24_svg, R.string.person_center_more, 33);
-        X15.klt = true;
-        X15.klu = true;
-        X15.klx = OrmObject.bundleWithObject(this.kky);
-        X15.klw = new i();
-        List<PersonMoreItemData> list = this.kky.mUrlMaps;
+        X15.kmz = true;
+        X15.kmA = true;
+        X15.kmD = OrmObject.bundleWithObject(this.klE);
+        X15.kmC = new i();
+        List<PersonMoreItemData> list = this.klE.mUrlMaps;
         if (list != null) {
             StringBuilder sb = new StringBuilder();
             for (PersonMoreItemData personMoreItemData : list) {
@@ -238,10 +238,10 @@ public class f implements com.baidu.tieba.person.b {
                 sb.deleteCharAt(sb.length() - 1);
             }
             if (!TextUtils.isEmpty(sb.toString())) {
-                X15.klw.klA = getString(R.string.person_center_more_desc, sb.toString());
+                X15.kmC.kmG = getString(R.string.person_center_more_desc, sb.toString());
             }
         }
-        this.fBK.add(X15);
+        this.fBV.add(X15);
     }
 
     private String getString(@StringRes int i, Object... objArr) {
@@ -250,7 +250,7 @@ public class f implements com.baidu.tieba.person.b {
 
     private g X(int i, int i2, int i3) {
         g gVar = new g();
-        gVar.kls = i;
+        gVar.kmy = i;
         gVar.title = TbadkCoreApplication.getInst().getString(i2);
         gVar.type = i3;
         if (this.mUserData != null) {
@@ -261,7 +261,7 @@ public class f implements com.baidu.tieba.person.b {
 
     private g i(int i, String str, int i2) {
         g gVar = new g();
-        gVar.kls = i;
+        gVar.kmy = i;
         gVar.title = str;
         gVar.type = i2;
         if (this.mUserData != null) {
@@ -279,54 +279,54 @@ public class f implements com.baidu.tieba.person.b {
     }
 
     public void sQ(boolean z) {
-        if (this.kll != null) {
-            if (this.kll.klw == null) {
-                this.kll.klw = new i();
+        if (this.kmr != null) {
+            if (this.kmr.kmC == null) {
+                this.kmr.kmC = new i();
             }
-            this.kll.klw.isShowRedTip = z;
+            this.kmr.kmC.isShowRedTip = z;
         }
     }
 
     public void sR(boolean z) {
-        if (this.klo != null) {
-            if (this.klo.klw == null) {
-                this.klo.klw = new i();
+        if (this.kmu != null) {
+            if (this.kmu.kmC == null) {
+                this.kmu.kmC = new i();
             }
-            this.klo.klw.isShowRedTip = z;
+            this.kmu.kmC.isShowRedTip = z;
         }
     }
 
     public void sS(boolean z) {
-        if (this.kln != null) {
-            if (this.kln.klw == null) {
-                this.kln.klw = new i();
+        if (this.kmt != null) {
+            if (this.kmt.kmC == null) {
+                this.kmt.kmC = new i();
             }
-            this.kln.klw.isShowRedTip = z;
+            this.kmt.kmC.isShowRedTip = z;
         }
     }
 
     public void sT(boolean z) {
-        if (this.klj != null) {
-            this.klj.kld = z;
+        if (this.kmp != null) {
+            this.kmp.kmj = z;
         }
     }
 
     @Override // com.baidu.tieba.person.b
     public void a(ProfileResIdl profileResIdl) {
         if (profileResIdl != null && profileResIdl.data != null) {
-            this.klp = new h();
-            this.klh = profileResIdl.data.banner;
-            this.klg = profileResIdl.data.duxiaoman;
+            this.kmv = new h();
+            this.kmn = profileResIdl.data.banner;
+            this.kmm = profileResIdl.data.duxiaoman;
             a(profileResIdl.data.user, profileResIdl.data.user_god_info);
             b(profileResIdl.data.tbbookrack);
             b(profileResIdl.data.uc_card);
-            ee(profileResIdl.data.url_map);
-            this.fBK.add(this.klp);
-            cNk();
-            ed(profileResIdl.data.recom_swan_list);
-            cNl();
-            cNm();
-            com.baidu.tieba.p.a.cVL().tO(true);
+            eg(profileResIdl.data.url_map);
+            this.fBV.add(this.kmv);
+            cNA();
+            ef(profileResIdl.data.recom_swan_list);
+            cNB();
+            cNC();
+            com.baidu.tieba.p.a.cWb().tO(true);
         }
     }
 
@@ -337,12 +337,12 @@ public class f implements com.baidu.tieba.person.b {
                 this.mUserData = new UserData();
             }
             this.mUserData.parserProtobuf(personalResIdl.data.user);
-            this.klp = new h();
-            this.klp.userData = this.mUserData;
-            this.fBK.add(this.klp);
-            cNk();
-            cNm();
-            com.baidu.tieba.p.a.cVL().tO(true);
+            this.kmv = new h();
+            this.kmv.userData = this.mUserData;
+            this.fBV.add(this.kmv);
+            cNA();
+            cNC();
+            com.baidu.tieba.p.a.cWb().tO(true);
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 TbadkCoreApplication.getCurrentAccountObj().setSex(this.mUserData.getSex());
             }
@@ -354,21 +354,21 @@ public class f implements com.baidu.tieba.person.b {
             this.mUserData = new UserData();
         }
         this.mUserData.parserProtobuf(user);
-        if (this.kli == null && userGodInfo != null) {
-            this.kli = new PersonUserGodInfo();
+        if (this.kmo == null && userGodInfo != null) {
+            this.kmo = new PersonUserGodInfo();
         }
         if (userGodInfo != null && (userGodInfo.god_type.intValue() == 2 || userGodInfo.god_type.intValue() == 1)) {
             this.mUserData.setIsBigV(true);
-            this.kli.parserProtobuf(userGodInfo);
+            this.kmo.parserProtobuf(userGodInfo);
         }
-        this.klp.userData = this.mUserData;
+        this.kmv.userData = this.mUserData;
     }
 
     private void b(TbBookrack tbBookrack) {
         if (tbBookrack != null) {
             com.baidu.tieba.person.data.a aVar = new com.baidu.tieba.person.data.a();
             aVar.a(tbBookrack);
-            this.klk = new com.baidu.tieba.person.data.d(true, aVar);
+            this.kmq = new com.baidu.tieba.person.data.d(true, aVar);
         }
     }
 
@@ -376,9 +376,9 @@ public class f implements com.baidu.tieba.person.b {
         new com.baidu.tieba.person.g().a(ucCard);
     }
 
-    private void ee(List<UserMap> list) {
+    private void eg(List<UserMap> list) {
         if (!v.isEmpty(list)) {
-            this.kky = new PersonMoreData();
+            this.klE = new PersonMoreData();
             for (UserMap userMap : list) {
                 if (userMap != null && !StringUtils.isNull(userMap.name) && !StringUtils.isNull(userMap.url)) {
                     String replaceAll = userMap.url.replaceAll("amp;", "");
@@ -386,7 +386,7 @@ public class f implements com.baidu.tieba.person.b {
                     personMoreItemData.mId = userMap.id.intValue();
                     personMoreItemData.mName = userMap.name;
                     personMoreItemData.mUrl = replaceAll;
-                    this.kky.mUrlMaps.add(personMoreItemData);
+                    this.klE.mUrlMaps.add(personMoreItemData);
                 }
             }
         }

@@ -97,9 +97,9 @@ public class EditorDesk extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void na(int i) {
-        if (ne(i)) {
-            if (bcZ()) {
+    public void nc(int i) {
+        if (ng(i)) {
+            if (bda()) {
                 this.ekZ = true;
             } else {
                 this.ekZ = false;
@@ -126,7 +126,7 @@ public class EditorDesk extends FrameLayout {
             }
             if (!this.ekZ && (getContext() instanceof Activity)) {
                 if (this.elb != null) {
-                    this.elb.bdd();
+                    this.elb.bde();
                 } else {
                     com.baidu.adp.lib.util.l.hideSoftKeyPad(getContext(), ((Activity) getContext()).getCurrentFocus());
                 }
@@ -136,7 +136,7 @@ public class EditorDesk extends FrameLayout {
         }
     }
 
-    private boolean ne(int i) {
+    private boolean ng(int i) {
         Iterator<m> it = this.ekX.iterator();
         while (it.hasNext()) {
             if (it.next().getToolId() == i) {
@@ -146,7 +146,7 @@ public class EditorDesk extends FrameLayout {
         return false;
     }
 
-    public g nc(int i) {
+    public g ne(int i) {
         Iterator<g> it = this.ekW.iterator();
         while (it.hasNext()) {
             g next = it.next();
@@ -174,11 +174,11 @@ public class EditorDesk extends FrameLayout {
         }
     }
 
-    public boolean bcY() {
-        return getVisibility() == 0 && bcZ();
+    public boolean bcZ() {
+        return getVisibility() == 0 && bda();
     }
 
-    private boolean bcZ() {
+    private boolean bda() {
         Iterator<m> it = this.ekX.iterator();
         while (it.hasNext()) {
             if (((View) it.next()).getVisibility() == 0) {

@@ -26,11 +26,11 @@ public class ag {
         }
     }
 
-    public static boolean bgS() {
+    public static boolean bgT() {
         return evC;
     }
 
-    public static boolean nI(int i) {
+    public static boolean nK(int i) {
         boolean z = false;
         switch (i) {
             case 2:
@@ -57,10 +57,10 @@ public class ag {
     }
 
     public static boolean ar(int i, String str) {
-        return nI(i);
+        return nK(i);
     }
 
-    public static boolean bgT() {
+    public static boolean bgU() {
         if (!com.baidu.adp.lib.util.j.isWifiNet() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
             return com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
         }

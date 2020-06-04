@@ -20,7 +20,7 @@ public interface c {
 
     void a(String str, String str2, String str3, boolean z, String str4, String str5);
 
-    void bsZ();
+    void btb();
 
     void release();
 }

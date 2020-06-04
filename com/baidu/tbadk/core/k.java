@@ -72,12 +72,12 @@ public class k {
         }
     }
 
-    public void jY(int i) {
+    public void ka(int i) {
         if (this.mViewImageQuality != i) {
             this.mViewImageQuality = i;
             com.baidu.tbadk.core.sharedPref.b.aTX().putInt(SharedPrefConfig.PREFS_VIEW_IMAGE_QUALITY, i);
-            ar.aUW().updateFrsShowBigImage();
-            ar.aUW().updateUrlQuality();
+            ar.aUX().updateFrsShowBigImage();
+            ar.aUX().updateUrlQuality();
         }
     }
 

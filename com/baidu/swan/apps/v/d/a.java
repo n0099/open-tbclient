@@ -58,7 +58,7 @@ public class a {
             }
             c cVar = new c(string, i);
             if (bundle.containsKey("pms_update_expect_pkg_ver")) {
-                cVar.jg(bundle.getInt("pms_update_expect_pkg_ver"));
+                cVar.ji(bundle.getInt("pms_update_expect_pkg_ver"));
             }
             if (DEBUG) {
                 Log.i("SwanAppLaunchUtils", String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i), Integer.valueOf(cVar.aGQ())));

@@ -6,22 +6,22 @@ import kotlin.collections.ab;
 /* loaded from: classes7.dex */
 final class e extends ab {
     private int index;
-    private final float[] nsM;
+    private final float[] ntW;
 
     public e(float[] fArr) {
         q.m(fArr, com.baidu.fsg.base.statistics.b.j);
-        this.nsM = fArr;
+        this.ntW = fArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.nsM.length;
+        return this.index < this.ntW.length;
     }
 
     @Override // kotlin.collections.ab
     public float nextFloat() {
         try {
-            float[] fArr = this.nsM;
+            float[] fArr = this.ntW;
             int i = this.index;
             this.index = i + 1;
             return fArr[i];

@@ -21,8 +21,8 @@ public class u {
     private String level_name;
     private int levelup_score;
     private BlockPopInfoData mBlockPopInfoData;
-    private List<FeedForumData> ljD = new ArrayList();
-    private int ljC = 0;
+    private List<FeedForumData> lkM = new ArrayList();
+    private int lkL = 0;
     private int like_num = 0;
     private int user_level = 0;
 
@@ -41,11 +41,11 @@ public class u {
         this.fid = str;
     }
 
-    public int daK() {
+    public int dba() {
         return this.user_level;
     }
 
-    public void Dy(int i) {
+    public void DA(int i) {
         if (i >= 0) {
             this.user_level = i;
         }
@@ -66,7 +66,7 @@ public class u {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.ljC = jSONObject.optInt("is_black", 0);
+                this.lkL = jSONObject.optInt("is_black", 0);
                 this.like_num = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLike(jSONObject.optInt("is_like", 0));
@@ -110,7 +110,7 @@ public class u {
                     feedForumData.setReason(jSONObject.optString(TiebaInitialize.LogFields.REASON));
                     feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
                     feedForumData.setPos(jSONObject.optInt("pos", 0));
-                    this.ljD.add(feedForumData);
+                    this.lkM.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -154,8 +154,8 @@ public class u {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> dcG() {
-        return this.ljD;
+    public List<FeedForumData> dcV() {
+        return this.lkM;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {
@@ -166,7 +166,7 @@ public class u {
         this.mBlockPopInfoData = blockPopInfoData;
     }
 
-    public String dcP() {
+    public String dde() {
         return this.blockUrl;
     }
 

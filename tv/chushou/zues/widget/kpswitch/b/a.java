@@ -5,23 +5,23 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes5.dex */
 public class a {
-    public static View nQi = null;
+    public static View nRs = null;
 
     /* renamed from: tv.chushou.zues.widget.kpswitch.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0924a {
-        void wz(boolean z);
+    public interface InterfaceC0925a {
+        void wB(boolean z);
     }
 
-    public static void a(final View view, final View view2, final View view3, final InterfaceC0924a interfaceC0924a) {
+    public static void a(final View view, final View view2, final View view3, final InterfaceC0925a interfaceC0925a) {
         Activity activity = (Activity) view.getContext();
         if (view2 != null) {
             view2.setOnClickListener(new View.OnClickListener() { // from class: tv.chushou.zues.widget.kpswitch.b.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view4) {
                     boolean a = a.a(view2, view, view3);
-                    if (interfaceC0924a != null) {
-                        interfaceC0924a.wz(a);
+                    if (interfaceC0925a != null) {
+                        interfaceC0925a.wB(a);
                     }
                 }
             });
@@ -59,7 +59,7 @@ public class a {
         boolean z = true;
         boolean z2 = view2.getVisibility() != 0;
         if (!z2) {
-            if (nQi == null || nQi == view) {
+            if (nRs == null || nRs == view) {
                 d(view2, view3);
                 z = z2;
             }
@@ -67,7 +67,7 @@ public class a {
             dC(view2);
             z = z2;
         }
-        nQi = view;
+        nRs = view;
         return z;
     }
 

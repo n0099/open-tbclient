@@ -14,8 +14,8 @@ public final class d {
         }
         dH(1, b.v());
         int c = c(baseContinuationImpl);
-        int i = c < 0 ? -1 : b.dLH()[c];
-        String d = f.nsC.d(baseContinuationImpl);
+        int i = c < 0 ? -1 : b.dLV()[c];
+        String d = f.ntM.d(baseContinuationImpl);
         return new StackTraceElement(d == null ? b.c() : d + '/' + b.c(), b.m(), b.f(), i);
     }
 

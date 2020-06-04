@@ -33,7 +33,7 @@ public class ap extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         if (bVar.US() == 0) {
-            bVar.eq(canvas.save());
+            bVar.es(canvas.save());
         }
         Matrix matrix = new Matrix();
         matrix.setValues(new float[]{this.bOC, this.bOE, this.bOG, this.bOD, this.bOF, this.bOH, 0.0f, 0.0f, 1.0f});

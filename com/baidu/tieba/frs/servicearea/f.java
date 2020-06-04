@@ -62,14 +62,14 @@ public class f implements b {
     public void setData(y yVar) {
         if (yVar != null && !v.isEmpty(yVar.dataList)) {
             this.mRootView.removeAllViews();
-            if (yVar.ljO == 2) {
+            if (yVar.lkX == 2) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams.leftMargin = l.getDimens(this.mContext, R.dimen.tbds44);
                 this.mRootView.addView(eJ(this.mContext), layoutParams);
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams2.leftMargin = l.getDimens(this.mContext, R.dimen.tbds104);
                 this.mRootView.addView(eJ(this.mContext), layoutParams2);
-            } else if (yVar.ljO == 3) {
+            } else if (yVar.lkX == 3) {
                 int equipmentWidth = l.getEquipmentWidth(this.mContext) / 3;
                 for (int i = 0; i < 3; i++) {
                     this.mRootView.addView(eJ(this.mContext), new LinearLayout.LayoutParams(equipmentWidth, -2));
@@ -81,7 +81,7 @@ public class f implements b {
                     ((TbImageView) this.mRootView.getChildAt(i2).findViewById(R.id.service_img)).startLoad(zVar.imageUrl, 10, false);
                     ((TextView) this.mRootView.getChildAt(i2).findViewById(R.id.service_name)).setText(aq.cutChineseAndEnglishWithSuffix(zVar.name, 8, ""));
                     final View findViewById = this.mRootView.getChildAt(i2).findViewById(R.id.service_red_dot);
-                    findViewById.setVisibility(zVar.gQh ? 0 : 8);
+                    findViewById.setVisibility(zVar.gQs ? 0 : 8);
                     this.mRootView.getChildAt(i2).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.servicearea.f.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {

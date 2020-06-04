@@ -7,65 +7,72 @@ import java.io.IOException;
 import java.security.MessageDigest;
 /* loaded from: classes6.dex */
 public class g {
-    /* JADX WARN: Removed duplicated region for block: B:40:0x004c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [54=4] */
     public static String o(File file) {
-        FileInputStream fileInputStream;
+        Exception exc;
         int read;
         if (!file.exists()) {
             return "";
         }
+        FileInputStream fileInputStream = null;
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.reset();
-            byte[] bArr = new byte[BdStatsConstant.MAX_WRITE_LOG_SIZE];
-            fileInputStream = new FileInputStream(file);
-            do {
-                try {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                byte[] bArr = new byte[BdStatsConstant.MAX_WRITE_LOG_SIZE];
+                FileInputStream fileInputStream2 = new FileInputStream(file);
+                do {
                     try {
-                        read = fileInputStream.read(bArr, 0, bArr.length);
+                        read = fileInputStream2.read(bArr, 0, bArr.length);
                         if (read < 0) {
                             break;
                         }
                         messageDigest.update(bArr, 0, read);
                     } catch (Exception e) {
-                        e = e;
-                        throw new RuntimeException(e);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        fileInputStream = fileInputStream2;
+                        exc = e;
+                        if (com.baidu.prologue.a.b.a.bzx.get().ND()) {
+                            throw new RuntimeException(exc);
                         }
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                                return "";
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                                return "";
+                            }
+                        }
+                        return "";
+                    } catch (Throwable th) {
+                        th = th;
+                        fileInputStream = fileInputStream2;
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                        throw th;
                     }
-                    throw th;
+                } while (read > 0);
+                String B = B(messageDigest.digest());
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                        return B;
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                        return B;
+                    }
                 }
-            } while (read > 0);
-            String B = B(messageDigest.digest());
-            if (fileInputStream == null) {
                 return B;
+            } catch (Throwable th2) {
+                th = th2;
             }
-            try {
-                fileInputStream.close();
-                return B;
-            } catch (IOException e3) {
-                e3.printStackTrace();
-                return B;
-            }
-        } catch (Exception e4) {
-            e = e4;
-            fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            fileInputStream = null;
-            if (fileInputStream != null) {
-            }
-            throw th;
+        } catch (Exception e5) {
+            exc = e5;
         }
     }
 

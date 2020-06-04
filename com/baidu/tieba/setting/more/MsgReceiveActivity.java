@@ -10,48 +10,48 @@ import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel;
 import java.util.ArrayList;
 /* loaded from: classes13.dex */
 public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> implements BdSwitchView.a {
-    private f kWE;
-    private MsgRemindModel kWF;
-    private OfficialAccountPushModel kWG;
-    private MsgRemindModel.a kWH = new MsgRemindModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.1
+    private f kXN;
+    private MsgRemindModel kXO;
+    private OfficialAccountPushModel kXP;
+    private MsgRemindModel.a kXQ = new MsgRemindModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.1
         @Override // com.baidu.tieba.setting.model.MsgRemindModel.a
         public void h(int i, boolean z, boolean z2) {
             if (i == 8) {
                 if (!z) {
                     if (z2) {
-                        MsgReceiveActivity.this.kWE.cYd().turnOffNoCallback();
-                        MsgReceiveActivity.this.kWE.tU(false);
-                        MsgReceiveActivity.this.kWE.tT(false);
+                        MsgReceiveActivity.this.kXN.cYt().turnOffNoCallback();
+                        MsgReceiveActivity.this.kXN.tU(false);
+                        MsgReceiveActivity.this.kXN.tT(false);
                         return;
                     }
-                    MsgReceiveActivity.this.kWE.cYd().turnOnNoCallback();
-                    MsgReceiveActivity.this.kWE.tU(true);
-                    MsgReceiveActivity.this.kWE.tT(true);
+                    MsgReceiveActivity.this.kXN.cYt().turnOnNoCallback();
+                    MsgReceiveActivity.this.kXN.tU(true);
+                    MsgReceiveActivity.this.kXN.tT(true);
                 }
             } else if (i == 9) {
                 if (!z) {
                     if (z2) {
-                        MsgReceiveActivity.this.kWE.cYe().turnOffNoCallback();
+                        MsgReceiveActivity.this.kXN.cYu().turnOffNoCallback();
                     } else {
-                        MsgReceiveActivity.this.kWE.cYe().turnOnNoCallback();
+                        MsgReceiveActivity.this.kXN.cYu().turnOnNoCallback();
                     }
                 }
             } else if (i == 7) {
                 if (z) {
-                    com.baidu.tbadk.coreExtra.messageCenter.d.aZS().hH(z2);
+                    com.baidu.tbadk.coreExtra.messageCenter.d.aZT().hH(z2);
                 } else if (z2) {
-                    MsgReceiveActivity.this.kWE.cYf().turnOffNoCallback();
+                    MsgReceiveActivity.this.kXN.cYv().turnOffNoCallback();
                 } else {
-                    MsgReceiveActivity.this.kWE.cYf().turnOnNoCallback();
+                    MsgReceiveActivity.this.kXN.cYv().turnOnNoCallback();
                 }
             }
         }
     };
-    private OfficialAccountPushModel.a kWI = new OfficialAccountPushModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.2
+    private OfficialAccountPushModel.a kXR = new OfficialAccountPushModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.2
         @Override // com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel.a
         public void a(ArrayList<OfficialAccountPushInfo> arrayList, int i, String str) {
-            if (i == OfficialAccountPushModel.NET_SUCCESS && MsgReceiveActivity.this.kWE != null) {
-                MsgReceiveActivity.this.kWE.aS(arrayList);
+            if (i == OfficialAccountPushModel.NET_SUCCESS && MsgReceiveActivity.this.kXN != null) {
+                MsgReceiveActivity.this.kXN.aS(arrayList);
             }
         }
     };
@@ -60,39 +60,39 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.kWE = new f(this);
-        this.kWE.init();
-        this.kWF = new MsgRemindModel(this);
+        this.kXN = new f(this);
+        this.kXN.init();
+        this.kXO = new MsgRemindModel(this);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.kWE.cnS()) {
+        if (view == this.kXN.cob()) {
             finish();
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.kWE.cYd()) {
+        if (view == this.kXN.cYt()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.kWF.a(8, true, this.kWH);
-                this.kWE.tU(true);
-                this.kWE.tT(true);
+                this.kXO.a(8, true, this.kXQ);
+                this.kXN.tU(true);
+                this.kXN.tT(true);
                 return;
             }
-            this.kWF.a(8, false, this.kWH);
-            this.kWE.tU(false);
-            this.kWE.tT(false);
-        } else if (view == this.kWE.cYe()) {
+            this.kXO.a(8, false, this.kXQ);
+            this.kXN.tU(false);
+            this.kXN.tT(false);
+        } else if (view == this.kXN.cYu()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.kWF.a(9, true, this.kWH);
+                this.kXO.a(9, true, this.kXQ);
             } else {
-                this.kWF.a(9, false, this.kWH);
+                this.kXO.a(9, false, this.kXQ);
             }
-        } else if (view == this.kWE.cYf()) {
-            this.kWF.a(7, switchState == BdSwitchView.SwitchState.OFF, this.kWH);
+        } else if (view == this.kXN.cYv()) {
+            this.kXO.a(7, switchState == BdSwitchView.SwitchState.OFF, this.kXQ);
         }
     }
 
@@ -100,25 +100,25 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.kWE.onChangeSkinType(i);
+        this.kXN.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.kWG == null) {
-            this.kWG = new OfficialAccountPushModel(this.kWI);
+        if (this.kXP == null) {
+            this.kXP = new OfficialAccountPushModel(this.kXR);
         }
-        this.kWG.cZg();
+        this.kXP.cZw();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.kWG != null) {
-            this.kWG.onDestroy();
+        if (this.kXP != null) {
+            this.kXP.onDestroy();
         }
     }
 }

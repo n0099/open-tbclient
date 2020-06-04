@@ -89,7 +89,7 @@ public class SyncLoginService extends BdBaseService {
                 this.bth.addPostData("scr_w", String.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
                 this.bth.addPostData("scr_h", String.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
                 this.bth.addPostData("scr_dip", String.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst().getApp())));
-                if (d.aZS().aZV() > 0) {
+                if (d.aZT().aZW() > 0) {
                     this.bth.addPostData("_msg_status", "0");
                 } else {
                     this.bth.addPostData("_msg_status", "1");
@@ -111,7 +111,7 @@ public class SyncLoginService extends BdBaseService {
                 this.bth.addPostData("signmd5", as.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.bth.addPostData("md5", g.getTiebaApkMd5());
                 String postNetData = this.bth.postNetData();
-                if (this.bth.aUA().aVb().isRequestSuccess()) {
+                if (this.bth.aUA().aVc().isRequestSuccess()) {
                     cVar = new c();
                     try {
                         cVar.parserJson(postNetData);

@@ -13,13 +13,13 @@ public interface a extends MediaController.MediaPlayerControl {
 
     void b(TbVideoViewSet.a aVar);
 
-    void cQI();
+    void cQY();
 
-    void cQJ();
+    void cQZ();
 
-    boolean cQK();
+    boolean cRa();
 
-    void cQN();
+    void cRd();
 
     void e(long j, long j2, long j3);
 
@@ -28,6 +28,8 @@ public interface a extends MediaController.MediaPlayerControl {
     String getOriginUrl();
 
     ViewParent getParent();
+
+    int getPcdnState();
 
     View getView();
 
@@ -48,7 +50,7 @@ public interface a extends MediaController.MediaPlayerControl {
 
     void setOnPreparedListener(g.f fVar);
 
-    void setOnSeekCompleteListener(g.InterfaceC0704g interfaceC0704g);
+    void setOnSeekCompleteListener(g.InterfaceC0705g interfaceC0705g);
 
     void setOnSurfaceDestroyedListener(QuickVideoView.b bVar);
 

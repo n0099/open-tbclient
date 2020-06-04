@@ -62,22 +62,22 @@ public class a implements com.baidu.swan.pms.b {
 
     @Override // com.baidu.swan.pms.b
     public String afW() {
-        return com.baidu.swan.apps.swancore.b.gZ(0);
+        return com.baidu.swan.apps.swancore.b.hb(0);
     }
 
     @Override // com.baidu.swan.pms.b
     public String afX() {
-        return com.baidu.swan.apps.extcore.b.ff(0);
+        return com.baidu.swan.apps.extcore.b.fh(0);
     }
 
     @Override // com.baidu.swan.pms.b
     public String afY() {
-        return com.baidu.swan.apps.swancore.b.gZ(1);
+        return com.baidu.swan.apps.swancore.b.hb(1);
     }
 
     @Override // com.baidu.swan.pms.b
     public String afZ() {
-        return com.baidu.swan.apps.extcore.b.ff(1);
+        return com.baidu.swan.apps.extcore.b.fh(1);
     }
 
     @Override // com.baidu.swan.pms.b

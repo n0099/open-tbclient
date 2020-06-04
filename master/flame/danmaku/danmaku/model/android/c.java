@@ -8,54 +8,54 @@ import master.flame.danmaku.danmaku.model.p;
 import master.flame.danmaku.danmaku.model.q;
 /* loaded from: classes5.dex */
 public class c {
-    public master.flame.danmaku.danmaku.model.g nyq;
-    public master.flame.danmaku.danmaku.model.g nyr;
-    public master.flame.danmaku.danmaku.model.g nys;
-    public m nyu;
-    private DanmakuContext nyv;
-    public int nyl = 0;
-    public int nym = 0;
-    private float nyn = 1.0f;
-    public long nyo = 10000;
-    public long nyp = 4000;
-    public l nyt = new d();
+    public master.flame.danmaku.danmaku.model.g nzA;
+    public master.flame.danmaku.danmaku.model.g nzB;
+    public master.flame.danmaku.danmaku.model.g nzC;
+    public m nzE;
+    private DanmakuContext nzF;
+    public int nzv = 0;
+    public int nzw = 0;
+    private float nzx = 1.0f;
+    public long nzy = 10000;
+    public long nzz = 4000;
+    public l nzD = new d();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c dNO() {
+    public static c dOc() {
         return new c();
     }
 
     protected c() {
     }
 
-    public void dNP() {
-        this.nyu = null;
-        this.nym = 0;
-        this.nyl = 0;
-        this.nyt.clear();
-        this.nyq = null;
-        this.nyr = null;
-        this.nys = null;
-        this.nyp = 4000L;
+    public void dOd() {
+        this.nzE = null;
+        this.nzw = 0;
+        this.nzv = 0;
+        this.nzD.clear();
+        this.nzA = null;
+        this.nzB = null;
+        this.nzC = null;
+        this.nzz = 4000L;
     }
 
     public void b(DanmakuContext danmakuContext) {
-        this.nyv = danmakuContext;
-        this.nyu = danmakuContext.dNI();
+        this.nzF = danmakuContext;
+        this.nzE = danmakuContext.dNW();
         a(1, danmakuContext);
     }
 
-    public master.flame.danmaku.danmaku.model.d JX(int i) {
-        return a(i, this.nyv);
+    public master.flame.danmaku.danmaku.model.d JZ(int i) {
+        return a(i, this.nzF);
     }
 
     public master.flame.danmaku.danmaku.model.d a(int i, DanmakuContext danmakuContext) {
         if (danmakuContext == null) {
             return null;
         }
-        this.nyv = danmakuContext;
-        this.nyu = danmakuContext.dNI();
-        return a(i, this.nyu.getWidth(), this.nyu.getHeight(), this.nyn, danmakuContext.nxT);
+        this.nzF = danmakuContext;
+        this.nzE = danmakuContext.dNW();
+        return a(i, this.nzE.getWidth(), this.nzE.getHeight(), this.nzx, danmakuContext.nzd);
     }
 
     public master.flame.danmaku.danmaku.model.d a(int i, int i2, int i3, float f, float f2) {
@@ -65,20 +65,20 @@ public class c {
     public master.flame.danmaku.danmaku.model.d a(int i, float f, float f2, float f3, float f4) {
         float f5;
         float f6 = 1.0f;
-        int i2 = this.nyl;
-        int i3 = this.nym;
+        int i2 = this.nzv;
+        int i3 = this.nzw;
         boolean j = j(f, f2, f3);
-        if (this.nyq == null) {
-            this.nyq = new master.flame.danmaku.danmaku.model.g(this.nyo);
-            this.nyq.aL(f4);
+        if (this.nzA == null) {
+            this.nzA = new master.flame.danmaku.danmaku.model.g(this.nzy);
+            this.nzA.aL(f4);
         } else if (j) {
-            this.nyq.setValue(this.nyo);
+            this.nzA.setValue(this.nzy);
         }
-        if (this.nyr == null) {
-            this.nyr = new master.flame.danmaku.danmaku.model.g(10000L);
+        if (this.nzB == null) {
+            this.nzB = new master.flame.danmaku.danmaku.model.g(10000L);
         }
         if (j && f > 0.0f) {
-            dNQ();
+            dOe();
             if (i2 <= 0 || i3 <= 0) {
                 f5 = 1.0f;
             } else {
@@ -91,52 +91,52 @@ public class c {
         }
         switch (i) {
             case 1:
-                return new p(this.nyq);
+                return new p(this.nzA);
             case 2:
             case 3:
             default:
                 return null;
             case 4:
-                return new master.flame.danmaku.danmaku.model.h(this.nyr);
+                return new master.flame.danmaku.danmaku.model.h(this.nzB);
             case 5:
-                return new master.flame.danmaku.danmaku.model.i(this.nyr);
+                return new master.flame.danmaku.danmaku.model.i(this.nzB);
             case 6:
-                return new o(this.nyq);
+                return new o(this.nzA);
             case 7:
                 q qVar = new q();
-                this.nyt.k(qVar);
+                this.nzD.k(qVar);
                 return qVar;
         }
     }
 
     public boolean j(float f, float f2, float f3) {
-        if (this.nyl == ((int) f) && this.nym == ((int) f2) && this.nyn == f3) {
+        if (this.nzv == ((int) f) && this.nzw == ((int) f2) && this.nzx == f3) {
             return false;
         }
-        this.nyo = 10000.0f * ((f3 * f) / 682.0f);
-        this.nyo = Math.min(9000L, this.nyo);
-        this.nyo = Math.max(4000L, this.nyo);
-        this.nyl = (int) f;
-        this.nym = (int) f2;
-        this.nyn = f3;
+        this.nzy = 10000.0f * ((f3 * f) / 682.0f);
+        this.nzy = Math.min(9000L, this.nzy);
+        this.nzy = Math.max(4000L, this.nzy);
+        this.nzv = (int) f;
+        this.nzw = (int) f2;
+        this.nzx = f3;
         return true;
     }
 
     private void A(final float f, final float f2) {
-        this.nyt.a(new l.c<master.flame.danmaku.danmaku.model.d>() { // from class: master.flame.danmaku.danmaku.model.android.c.1
+        this.nzD.a(new l.c<master.flame.danmaku.danmaku.model.d>() { // from class: master.flame.danmaku.danmaku.model.android.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // master.flame.danmaku.danmaku.model.l.b
             /* renamed from: e */
             public int bL(master.flame.danmaku.danmaku.model.d dVar) {
                 q qVar = (q) dVar;
-                c.this.a(qVar, qVar.nwP, qVar.nwQ, qVar.jNe, qVar.jNf, qVar.nwR, qVar.nwS, f, f2);
-                q.a[] aVarArr = qVar.nwZ;
+                c.this.a(qVar, qVar.nxZ, qVar.nya, qVar.jOk, qVar.jOl, qVar.nyb, qVar.nyc, f, f2);
+                q.a[] aVarArr = qVar.nyj;
                 if (aVarArr != null && aVarArr.length > 0) {
                     int length = aVarArr.length;
                     float[][] fArr = (float[][]) Array.newInstance(Float.TYPE, length + 1, 2);
                     for (int i = 0; i < length; i++) {
-                        fArr[i] = aVarArr[i].dNE();
-                        fArr[i + 1] = aVarArr[i].dNF();
+                        fArr[i] = aVarArr[i].dNS();
+                        fArr[i + 1] = aVarArr[i].dNT();
                     }
                     c.a(qVar, fArr, f, f2);
                 }
@@ -145,14 +145,14 @@ public class c {
         });
     }
 
-    public void dNQ() {
-        long j = this.nyq == null ? 0L : this.nyq.value;
-        long j2 = this.nyr == null ? 0L : this.nyr.value;
-        long j3 = this.nys != null ? this.nys.value : 0L;
-        this.nyp = Math.max(j, j2);
-        this.nyp = Math.max(this.nyp, j3);
-        this.nyp = Math.max(10000L, this.nyp);
-        this.nyp = Math.max(this.nyo, this.nyp);
+    public void dOe() {
+        long j = this.nzA == null ? 0L : this.nzA.value;
+        long j2 = this.nzB == null ? 0L : this.nzB.value;
+        long j3 = this.nzC != null ? this.nzC.value : 0L;
+        this.nzz = Math.max(j, j2);
+        this.nzz = Math.max(this.nzz, j3);
+        this.nzz = Math.max(10000L, this.nzz);
+        this.nzz = Math.max(this.nzy, this.nzz);
     }
 
     public void a(master.flame.danmaku.danmaku.model.d dVar, float f, float f2, float f3, float f4, long j, long j2, float f5, float f6) {
@@ -175,9 +175,9 @@ public class c {
     }
 
     private void u(master.flame.danmaku.danmaku.model.d dVar) {
-        if (this.nys == null || (dVar.nwi != null && dVar.nwi.value > this.nys.value)) {
-            this.nys = dVar.nwi;
-            dNQ();
+        if (this.nzC == null || (dVar.nxs != null && dVar.nxs.value > this.nzC.value)) {
+            this.nzC = dVar.nxs;
+            dOe();
         }
     }
 }

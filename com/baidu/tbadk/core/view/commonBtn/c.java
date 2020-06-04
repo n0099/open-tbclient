@@ -14,41 +14,41 @@ public class c extends a {
         this.dYB = true;
     }
 
-    public void mi(@ColorRes int i) {
+    public void mk(@ColorRes int i) {
         this.dYn = i;
         this.dYB = true;
         this.dYy = true;
         if (this.dYA != null) {
-            this.dYA.aWW();
+            this.dYA.aWX();
         }
     }
 
-    public void mj(@ColorRes int i) {
+    public void ml(@ColorRes int i) {
         this.dYn = i;
         this.dYp = R.color.cp_btn_a;
         this.dYB = false;
         this.dYy = true;
         if (this.dYA != null) {
-            this.dYA.aWW();
+            this.dYA.aWX();
         }
     }
 
-    public void aWZ() {
+    public void aXa() {
         this.dYn = R.color.cp_cont_a;
         this.dYp = R.color.cp_btn_j;
         this.dYB = false;
         this.dYy = true;
         if (this.dYA != null) {
-            this.dYA.aWW();
+            this.dYA.aWX();
         }
     }
 
-    public void mk(@ColorRes int i) {
+    public void mm(@ColorRes int i) {
         this.dYn = i;
         this.dYp = R.color.cp_btn_c;
         this.dYB = false;
         if (this.dYA != null) {
-            this.dYA.aWW();
+            this.dYA.aWX();
         }
     }
 
@@ -57,7 +57,7 @@ public class c extends a {
         this.dYn = i2;
         this.dYB = false;
         if (this.dYA != null) {
-            this.dYA.aWW();
+            this.dYA.aWX();
         }
     }
 

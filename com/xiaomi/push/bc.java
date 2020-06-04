@@ -47,7 +47,7 @@ public class bc {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m160a(String str) {
+    public static byte[] m159a(String str) {
         return a(str.toCharArray());
     }
 
@@ -169,6 +169,6 @@ public class bc {
     }
 
     public static String b(String str) {
-        return new String(m160a(str));
+        return new String(m159a(str));
     }
 }

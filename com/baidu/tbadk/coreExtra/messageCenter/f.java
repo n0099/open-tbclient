@@ -10,10 +10,10 @@ import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes.dex */
 public class f {
     private static f edH;
-    private a edI = bao();
+    private a edI = bap();
     private String edJ;
 
-    public static f ban() {
+    public static f bao() {
         if (edH == null) {
             synchronized (f.class) {
                 if (edH == null) {
@@ -24,7 +24,7 @@ public class f {
         return edH;
     }
 
-    private a bao() {
+    private a bap() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2156675, a.class);
         if (runTask != null) {
             return (a) runTask.getData();
@@ -95,7 +95,7 @@ public class f {
         this.edJ = str;
     }
 
-    public String bap() {
+    public String baq() {
         return this.edJ;
     }
 }

@@ -45,7 +45,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a {
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.bGH.eb(i)) {
+        if (!this.bGH.ed(i)) {
             super.setVisibility(i);
         }
     }

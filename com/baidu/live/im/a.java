@@ -59,7 +59,7 @@ public class a extends com.baidu.live.im.data.a {
         setUserId(jSONObject.optInt(TbEnum.SystemMessage.KEY_USER_ID));
         l(jSONObject.optJSONArray("toUid"));
         setContent(jSONObject.optString("content"));
-        ct(jSONObject.optInt("barrageType"));
+        cv(jSONObject.optInt("barrageType"));
         fr(jSONObject.optString("barrageId"));
         String optString = jSONObject.optString("barrageCard");
         if (!TextUtils.isEmpty(optString)) {

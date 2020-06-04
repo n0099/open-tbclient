@@ -8,9 +8,9 @@ import android.widget.RelativeLayout;
 public class ExpandViewRelativeLayout extends RelativeLayout {
     private float Vr;
     private float bez;
-    private a lBb;
-    private boolean lBc;
-    private boolean lBd;
+    private a lCk;
+    private boolean lCl;
+    private boolean lCm;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -20,11 +20,11 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
 
         boolean d(float f, float f2, int i);
 
-        void did();
+        void dis();
     }
 
     public void setScrollCallBack(a aVar) {
-        this.lBb = aVar;
+        this.lCk = aVar;
     }
 
     public ExpandViewRelativeLayout(Context context) {
@@ -43,7 +43,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     }
 
     private void init(Context context) {
-        this.lBd = true;
+        this.lCm = true;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -52,8 +52,8 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
             case 0:
                 this.bez = motionEvent.getY();
                 this.Vr = motionEvent.getY();
-                if (this.lBb != null) {
-                    this.lBb.av(motionEvent.getY());
+                if (this.lCk != null) {
+                    this.lCk.av(motionEvent.getY());
                     break;
                 }
                 break;
@@ -65,16 +65,16 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.lBb != null) {
-                    this.lBc = this.lBb.d(0.0f, motionEvent.getY(), 0);
-                    return this.lBc;
+                if (this.lCk != null) {
+                    this.lCl = this.lCk.d(0.0f, motionEvent.getY(), 0);
+                    return this.lCl;
                 }
                 break;
             case 2:
-                if (this.lBb != null) {
+                if (this.lCk != null) {
                     this.bez = motionEvent.getY();
-                    this.lBc = this.lBb.d(motionEvent.getY() - this.bez, motionEvent.getY(), motionEvent.getY() - this.Vr > 0.0f ? 1 : 2);
-                    return this.lBc;
+                    this.lCl = this.lCk.d(motionEvent.getY() - this.bez, motionEvent.getY(), motionEvent.getY() - this.Vr > 0.0f ? 1 : 2);
+                    return this.lCl;
                 }
                 break;
         }
@@ -83,7 +83,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.lBd) {
+        if (this.lCm) {
             super.onLayout(z, i, i2, i3, i4);
         }
     }
@@ -92,17 +92,17 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 1:
-                this.lBc = false;
-                if (this.lBb != null) {
-                    this.lBb.did();
+                this.lCl = false;
+                if (this.lCk != null) {
+                    this.lCk.dis();
                     break;
                 }
                 break;
             case 2:
                 float y = motionEvent.getY() - this.bez;
                 int i = motionEvent.getY() - this.Vr > 0.0f ? 1 : 2;
-                if (this.lBc && this.lBb != null) {
-                    this.lBb.c(motionEvent.getY(), y, i);
+                if (this.lCl && this.lCk != null) {
+                    this.lCk.c(motionEvent.getY(), y, i);
                     return true;
                 }
                 break;
@@ -111,7 +111,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     }
 
     public void setIsCanLayout(boolean z) {
-        this.lBd = z;
+        this.lCm = z;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent

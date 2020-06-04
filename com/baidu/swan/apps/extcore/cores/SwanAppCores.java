@@ -17,7 +17,7 @@ public class SwanAppCores extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fg */
+        /* renamed from: fi */
         public SwanAppCores[] newArray(int i) {
             return new SwanAppCores[i];
         }

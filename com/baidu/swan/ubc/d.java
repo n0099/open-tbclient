@@ -118,7 +118,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void jr(int i) {
+    public void jt(int i) {
         if (i * 60000 >= this.dpG) {
             this.dpG = i * 60000;
         }
@@ -130,7 +130,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void js(int i) {
+    public void ju(int i) {
         if (i >= this.dpH) {
             this.dpH = i;
             u.aIQ().putInt("ubc_data_expire_time", i);
@@ -143,7 +143,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void jt(int i) {
+    public void jv(int i) {
         if (i >= this.dpI) {
             this.dpI = i;
             u.aIQ().putInt("ubc_database_limit", i);

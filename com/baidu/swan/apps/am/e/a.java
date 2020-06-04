@@ -180,7 +180,7 @@ public class a {
         }
     }
 
-    public static String hu(int i) {
+    public static String hw(int i) {
         switch (i) {
             case -1:
                 return "no-contact";

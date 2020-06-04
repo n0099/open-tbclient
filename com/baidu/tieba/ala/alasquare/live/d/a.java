@@ -34,14 +34,14 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private BdTypeListView faQ;
-    private NoNetworkView fbX;
-    private PbListView fbY;
-    private b fbZ;
-    private i fca = new i() { // from class: com.baidu.tieba.ala.alasquare.live.d.a.1
+    private BdTypeListView fbb;
+    private NoNetworkView fci;
+    private PbListView fcj;
+    private b fck;
+    private i fcl = new i() { // from class: com.baidu.tieba.ala.alasquare.live.d.a.1
         @Override // com.baidu.tieba.ala.alasquare.subtablist.c.i
         public void a(int i, String str, bk bkVar) {
-            TiebaStatic.log(com.baidu.tieba.ala.alasquare.c.a.brq().a(a.this.isSmallFollow, "c12118", i, str, bkVar));
+            TiebaStatic.log(com.baidu.tieba.ala.alasquare.c.a.brs().a(a.this.isSmallFollow, "c12118", i, str, bkVar));
             a.this.a(a.this.mPageContext, bkVar, str);
         }
 
@@ -59,24 +59,24 @@ public class a {
         this.mPageContext = tbPageContext;
         this.mRootView = new LinearLayout(tbPageContext.getPageActivity());
         this.mRootView.setOrientation(1);
-        this.fbX = new NoNetworkView(tbPageContext.getPageActivity());
+        this.fci = new NoNetworkView(tbPageContext.getPageActivity());
         if (j.isNetWorkAvailable()) {
-            this.fbX.setVisibility(8);
+            this.fci.setVisibility(8);
         }
-        this.mRootView.addView(this.fbX);
+        this.mRootView.addView(this.fci);
         this.mContentView = new FrameLayout(tbPageContext.getPageActivity());
         this.mRootView.addView(this.mContentView, new RelativeLayout.LayoutParams(-1, -1));
         this.mRootView.setPadding(0, 0, 0, 0);
-        this.faQ = new BdTypeListView(this.mPageContext.getPageActivity());
-        this.faQ.setDivider(null);
-        this.mContentView.addView(this.faQ, new FrameLayout.LayoutParams(-1, -1));
+        this.fbb = new BdTypeListView(this.mPageContext.getPageActivity());
+        this.fbb.setDivider(null);
+        this.mContentView.addView(this.fbb, new FrameLayout.LayoutParams(-1, -1));
         this.mPullView = new g(this.mPageContext);
         this.mPullView.setTag(bdUniqueId);
-        this.faQ.setPullRefresh(this.mPullView);
-        this.fbY = new PbListView(tbPageContext.getPageActivity());
-        this.fbY.createView();
-        this.fbZ = new b(tbPageContext, this.faQ);
-        this.fbZ.a(this.fca);
+        this.fbb.setPullRefresh(this.mPullView);
+        this.fcj = new PbListView(tbPageContext.getPageActivity());
+        this.fcj.createView();
+        this.fck = new b(tbPageContext, this.fbb);
+        this.fck.a(this.fcl);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -100,7 +100,7 @@ public class a {
         return this.mRootView;
     }
 
-    public FrameLayout bqI() {
+    public FrameLayout bqK() {
         return this.mContentView;
     }
 
@@ -109,69 +109,69 @@ public class a {
             list = new LinkedList<>();
         }
         this.isSmallFollow = i;
-        this.fbZ.setDatas(list);
-        this.fbZ.px(i);
+        this.fck.setDatas(list);
+        this.fck.pz(i);
         if (z) {
-            bqK();
+            bqM();
         } else {
-            bqJ();
+            bqL();
         }
     }
 
     public void completePullRefresh() {
-        this.faQ.completePullRefresh();
+        this.fbb.completePullRefresh();
     }
 
     public void setListPullRefreshListener(f.c cVar) {
         this.mPullView.setListPullRefreshListener(cVar);
     }
 
-    public void bqJ() {
-        if (this.fbY != null) {
-            if (this.fbY.getView().getParent() == null) {
-                this.faQ.setNextPage(this.fbY);
+    public void bqL() {
+        if (this.fcj != null) {
+            if (this.fcj.getView().getParent() == null) {
+                this.fbb.setNextPage(this.fcj);
             }
-            this.fbY.setText(this.mPageContext.getResources().getString(R.string.list_no_more));
-            this.fbY.endLoadData();
+            this.fcj.setText(this.mPageContext.getResources().getString(R.string.list_no_more));
+            this.fcj.endLoadData();
         }
     }
 
-    public void bqK() {
-        if (this.fbY != null) {
-            if (this.fbY.getView().getParent() == null) {
-                this.faQ.setNextPage(this.fbY);
+    public void bqM() {
+        if (this.fcj != null) {
+            if (this.fcj.getView().getParent() == null) {
+                this.fbb.setNextPage(this.fcj);
             }
-            this.fbY.showLoadingViewWithoutEmptyView();
-            this.fbY.startLoadData();
+            this.fcj.showLoadingViewWithoutEmptyView();
+            this.fcj.startLoadData();
         }
     }
 
     public void setOnSrollToBottomListener(BdListView.e eVar) {
-        this.faQ.setOnSrollToBottomListener(eVar);
+        this.fbb.setOnSrollToBottomListener(eVar);
     }
 
     public void a(BdListView.d dVar, int i) {
-        this.faQ.setOnScrollStopDelayedListener(dVar, i);
+        this.fbb.setOnScrollStopDelayedListener(dVar, i);
     }
 
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.faQ.setOnScrollListener(onScrollListener);
+        this.fbb.setOnScrollListener(onScrollListener);
     }
 
     public void onChangeSkinType(int i) {
-        this.fbY.setContainerBackgroundColorResId(R.color.cp_bg_line_c);
-        this.fbY.changeSkin(i);
+        this.fcj.setContainerBackgroundColorResId(R.color.cp_bg_line_c);
+        this.fcj.changeSkin(i);
         this.mPullView.changeSkin(i);
-        this.fbZ.notifyDataSetChanged();
+        this.fck.notifyDataSetChanged();
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        this.fbX.onChangeSkinType(this.mPageContext, i);
+        this.fci.onChangeSkinType(this.mPageContext, i);
     }
 
-    public BdTypeListView bqL() {
-        return this.faQ;
+    public BdTypeListView bqN() {
+        return this.fbb;
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.fbZ.a(iAlaSquareTabController);
+        this.fck.a(iAlaSquareTabController);
     }
 }

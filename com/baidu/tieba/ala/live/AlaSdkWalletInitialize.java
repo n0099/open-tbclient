@@ -15,10 +15,10 @@ public class AlaSdkWalletInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PayWalletActivityConfig.class, AlaSdkWalletActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PayWalletActivityOpaqueConfig.class, AlaSdkWalletOpaqueActivity.class);
-        bvB();
+        bvD();
     }
 
-    private static void bvB() {
+    private static void bvD() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913197, new CustomMessageTask.CustomRunnable<PayChannelData>() { // from class: com.baidu.tieba.ala.live.AlaSdkWalletInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<IChannelPayController> run(CustomMessage<PayChannelData> customMessage) {

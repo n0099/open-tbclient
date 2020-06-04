@@ -33,7 +33,7 @@ public class a extends aa {
                 } else {
                     com.baidu.swan.games.l.a.b(optString, new e.b() { // from class: com.baidu.swan.games.h.a.a.1
                         @Override // com.baidu.swan.apps.r.e.b
-                        public void dr(int i) {
+                        public void dt(int i) {
                         }
 
                         @Override // com.baidu.swan.apps.r.e.b

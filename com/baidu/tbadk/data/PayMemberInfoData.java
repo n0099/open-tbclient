@@ -32,7 +32,7 @@ public class PayMemberInfoData extends OrmObject {
         }
     }
 
-    public int bcu() {
+    public int bcv() {
         return this.props_id;
     }
 
@@ -44,7 +44,7 @@ public class PayMemberInfoData extends OrmObject {
         return this.url;
     }
 
-    public String bcv() {
+    public String bcw() {
         return this.expire_remind;
     }
 

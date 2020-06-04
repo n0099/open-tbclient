@@ -44,7 +44,7 @@ public class ap implements ar {
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
                 ap.this.f108a = b.a(iBinder);
-                ap.this.f109b = b.m134a(iBinder);
+                ap.this.f109b = b.m133a(iBinder);
                 ap.this.b();
                 ap.this.f104a = 2;
                 synchronized (ap.this.f107a) {
@@ -97,7 +97,7 @@ public class ap implements ar {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        static boolean m134a(IBinder iBinder) {
+        static boolean m133a(IBinder iBinder) {
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
@@ -145,7 +145,7 @@ public class ap implements ar {
         }
         synchronized (this.f107a) {
             try {
-                com.xiaomi.channel.commonutils.logger.b.m52a("huawei's " + str + " wait...");
+                com.xiaomi.channel.commonutils.logger.b.m51a("huawei's " + str + " wait...");
                 this.f107a.wait(3000L);
             } catch (Exception e) {
             }
@@ -153,7 +153,7 @@ public class ap implements ar {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m132a(Context context) {
+    public static boolean m131a(Context context) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo("com.huawei.hwid", 128);
             boolean z = (packageInfo.applicationInfo.flags & 1) != 0;
@@ -188,7 +188,7 @@ public class ap implements ar {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b  reason: collision with other method in class */
-    public String mo133b() {
+    public String mo132b() {
         a("getOAID");
         return this.f108a;
     }

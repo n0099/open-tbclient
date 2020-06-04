@@ -16,14 +16,14 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes13.dex */
 public class StatFsHelper {
-    private static StatFsHelper mlU;
-    private static final long mlV = TimeUnit.MINUTES.toMillis(2);
-    private volatile File mlX;
-    private volatile File mlZ;
+    private static StatFsHelper mne;
+    private static final long mnf = TimeUnit.MINUTES.toMillis(2);
+    private volatile File mnh;
+    private volatile File mnj;
     @GuardedBy("lock")
-    private long mma;
-    private volatile StatFs mlW = null;
-    private volatile StatFs mlY = null;
+    private long mnk;
+    private volatile StatFs mng = null;
+    private volatile StatFs mni = null;
     private volatile boolean mInitialized = false;
     private final Lock lock = new ReentrantLock();
 
@@ -33,13 +33,13 @@ public class StatFsHelper {
         EXTERNAL
     }
 
-    public static synchronized StatFsHelper duH() {
+    public static synchronized StatFsHelper duV() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
-            if (mlU == null) {
-                mlU = new StatFsHelper();
+            if (mne == null) {
+                mne = new StatFsHelper();
             }
-            statFsHelper = mlU;
+            statFsHelper = mne;
         }
         return statFsHelper;
     }
@@ -52,9 +52,9 @@ public class StatFsHelper {
             this.lock.lock();
             try {
                 if (!this.mInitialized) {
-                    this.mlX = Environment.getDataDirectory();
-                    this.mlZ = Environment.getExternalStorageDirectory();
-                    duJ();
+                    this.mnh = Environment.getDataDirectory();
+                    this.mnj = Environment.getExternalStorageDirectory();
+                    duX();
                     this.mInitialized = true;
                 }
             } finally {
@@ -74,8 +74,8 @@ public class StatFsHelper {
         long blockSize;
         long availableBlocks;
         ensureInitialized();
-        duI();
-        StatFs statFs = storageType == StorageType.INTERNAL ? this.mlW : this.mlY;
+        duW();
+        StatFs statFs = storageType == StorageType.INTERNAL ? this.mng : this.mni;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 blockSize = statFs.getBlockSizeLong();
@@ -89,11 +89,11 @@ public class StatFsHelper {
         return 0L;
     }
 
-    private void duI() {
+    private void duW() {
         if (this.lock.tryLock()) {
             try {
-                if (SystemClock.uptimeMillis() - this.mma > mlV) {
-                    duJ();
+                if (SystemClock.uptimeMillis() - this.mnk > mnf) {
+                    duX();
                 }
             } finally {
                 this.lock.unlock();
@@ -102,10 +102,10 @@ public class StatFsHelper {
     }
 
     @GuardedBy("lock")
-    private void duJ() {
-        this.mlW = a(this.mlW, this.mlX);
-        this.mlY = a(this.mlY, this.mlZ);
-        this.mma = SystemClock.uptimeMillis();
+    private void duX() {
+        this.mng = a(this.mng, this.mnh);
+        this.mni = a(this.mni, this.mnj);
+        this.mnk = SystemClock.uptimeMillis();
     }
 
     private StatFs a(@Nullable StatFs statFs, @Nullable File file) {
@@ -114,7 +114,7 @@ public class StatFsHelper {
         }
         try {
             if (statFs == null) {
-                statFs = PS(file.getAbsolutePath());
+                statFs = PT(file.getAbsolutePath());
             } else {
                 statFs.restat(file.getAbsolutePath());
             }
@@ -126,7 +126,7 @@ public class StatFsHelper {
         }
     }
 
-    protected static StatFs PS(String str) {
+    protected static StatFs PT(String str) {
         return new StatFs(str);
     }
 }

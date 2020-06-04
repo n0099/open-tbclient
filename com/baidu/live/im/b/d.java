@@ -226,9 +226,9 @@ public class d implements com.baidu.live.view.input.c {
     }
 
     @Override // com.baidu.live.view.input.c
-    public void cs(int i) {
+    public void cu(int i) {
         if (this.aTn != null && this.aTn.isShowing()) {
-            this.aTn.cs(i);
+            this.aTn.cu(i);
         }
     }
 

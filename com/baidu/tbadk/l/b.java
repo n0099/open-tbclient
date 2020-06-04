@@ -30,11 +30,11 @@ public class b {
         return this.ern;
     }
 
-    public ArrayList<String> bfn() {
+    public ArrayList<String> bfo() {
         return this.ero;
     }
 
-    public ArrayList<String> bfo() {
+    public ArrayList<String> bfp() {
         return c.d(this.ero, this.ern);
     }
 }

@@ -115,7 +115,7 @@ public class ALAImEnterView extends LinearLayout {
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    ALAImEnterView.this.cu(customMessage.getData().intValue());
+                    ALAImEnterView.this.cw(customMessage.getData().intValue());
                     return null;
                 }
                 return null;
@@ -130,7 +130,7 @@ public class ALAImEnterView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cu(int i) {
+    public void cw(int i) {
         if (i == 0) {
             DW();
         } else if (i == 1) {

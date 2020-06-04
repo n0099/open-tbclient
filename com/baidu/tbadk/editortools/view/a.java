@@ -55,7 +55,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         }
     }
 
-    public b beb() {
+    public b bec() {
         return this.enN;
     }
 
@@ -63,7 +63,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         this.enN = bVar;
     }
 
-    public InterfaceC0489a bec() {
+    public InterfaceC0489a bed() {
         return this.enO;
     }
 
@@ -83,7 +83,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         return this.row;
     }
 
-    public void no(int i) {
+    public void nq(int i) {
         this.row = i;
     }
 
@@ -111,11 +111,11 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         return this.mPaddingRight;
     }
 
-    public int bed() {
+    public int bee() {
         return this.enQ;
     }
 
-    public CommonTabHost.a bee() {
+    public CommonTabHost.a bef() {
         return this.enP;
     }
 
@@ -123,7 +123,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         this.enI = bVar;
     }
 
-    public CommonTabContentView.b bef() {
+    public CommonTabContentView.b beg() {
         return this.enI;
     }
 }

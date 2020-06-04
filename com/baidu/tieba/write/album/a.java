@@ -8,41 +8,41 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
     private Fragment[] aMI;
     private String bdD;
     private String bdE;
-    private AlbumActivity lRt;
-    private String[] lRu;
-    private ImageListFragment lRv;
-    private AlbumImageBrowseFragment lRw;
+    private AlbumActivity lSE;
+    private String[] lSF;
+    private ImageListFragment lSG;
+    private AlbumImageBrowseFragment lSH;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
         this.bdD = "tag_image";
         this.bdE = "tag_b_image";
-        this.lRt = albumActivity;
+        this.lSE = albumActivity;
     }
 
     public void Hp() {
         this.aMI = new Fragment[2];
-        this.lRu = new String[2];
-        this.lRv = new ImageListFragment();
-        this.aMI[0] = this.lRv;
-        this.lRu[0] = this.bdD;
-        this.lRw = new AlbumImageBrowseFragment();
-        this.aMI[1] = this.lRw;
-        this.lRu[1] = this.bdE;
+        this.lSF = new String[2];
+        this.lSG = new ImageListFragment();
+        this.aMI[0] = this.lSG;
+        this.lSF[0] = this.bdD;
+        this.lSH = new AlbumImageBrowseFragment();
+        this.aMI[1] = this.lSH;
+        this.lSF[1] = this.bdE;
     }
 
-    public Fragment Fy(int i) {
+    public Fragment FA(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
         return this.aMI[i];
     }
 
-    public String Fz(int i) {
+    public String FB(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.lRu[i];
+        return this.lSF[i];
     }
 
     public void onChangeSkinType(int i) {
@@ -60,89 +60,89 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView dmH() {
-        if (this.lRv == null) {
+    public TbCameraView dmX() {
+        if (this.lSG == null) {
             return null;
         }
-        return this.lRv.dmH();
+        return this.lSG.dmX();
     }
 
     public void stopCamera() {
-        TbCameraView dmH = dmH();
-        if (dmH != null) {
-            dmH.stopCamera();
-            dmH.setVisibility(4);
+        TbCameraView dmX = dmX();
+        if (dmX != null) {
+            dmX.stopCamera();
+            dmX.setVisibility(4);
         }
     }
 
     public void PI() {
-        TbCameraView dmH = dmH();
-        if (dmH != null) {
-            dmH.setVisibility(0);
-            dmH.vs(false);
+        TbCameraView dmX = dmX();
+        if (dmX != null) {
+            dmX.setVisibility(0);
+            dmX.vu(false);
         }
-        if (this.lRv != null && this.lRv.dmM() != null) {
-            this.lRv.dmM().HN();
+        if (this.lSG != null && this.lSG.dnc() != null) {
+            this.lSG.dnc().HN();
         }
     }
 
     public View Hq() {
-        if (this.lRv == null) {
+        if (this.lSG == null) {
             return null;
         }
-        return this.lRv.HI();
+        return this.lSG.HI();
     }
 
     public View Hr() {
-        if (this.lRv == null) {
+        if (this.lSG == null) {
             return null;
         }
-        return this.lRv.HM();
+        return this.lSG.HM();
     }
 
     public View Hs() {
-        if (this.lRw == null) {
+        if (this.lSH == null) {
             return null;
         }
-        return this.lRw.HI();
+        return this.lSH.HI();
     }
 
     public View Ht() {
-        if (this.lRw == null) {
+        if (this.lSH == null) {
             return null;
         }
-        return this.lRw.HJ();
+        return this.lSH.HJ();
     }
 
     public View Hu() {
-        if (this.lRw == null) {
+        if (this.lSH == null) {
             return null;
         }
-        return this.lRw.Hu();
+        return this.lSH.Hu();
     }
 
     public View Hv() {
-        if (this.lRv == null) {
+        if (this.lSG == null) {
             return null;
         }
-        return this.lRv.Hu();
+        return this.lSG.Hu();
     }
 
     public void onDestroy() {
     }
 
     public void ci(boolean z) {
-        if (this.lRw != null) {
-            this.lRw.ci(z);
+        if (this.lSH != null) {
+            this.lSH.ci(z);
         }
-        if (this.lRv != null) {
-            this.lRv.ci(z);
+        if (this.lSG != null) {
+            this.lSG.ci(z);
         }
     }
 
     public void a(i iVar) {
-        if (this.lRv != null) {
-            this.lRv.a(iVar);
+        if (this.lSG != null) {
+            this.lSG.a(iVar);
         }
     }
 }

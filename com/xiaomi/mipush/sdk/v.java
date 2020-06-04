@@ -45,12 +45,12 @@ public class v implements Thread.UncaughtExceptionHandler {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m117a() {
+    private void m116a() {
         com.xiaomi.push.ai.a(this.f82a).a(new w(this));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m119a(Throwable th) {
+    private void m118a(Throwable th) {
         String b = b(th);
         if (TextUtils.isEmpty(b)) {
             return;
@@ -60,13 +60,13 @@ public class v implements Thread.UncaughtExceptionHandler {
             return;
         }
         s.a(this.f82a).a(b, a2);
-        if (m120a()) {
-            m117a();
+        if (m119a()) {
+            m116a();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m120a() {
+    private boolean m119a() {
         this.f83a = this.f82a.getSharedPreferences("mipush_extra", 4);
         if (az.e(this.f82a)) {
             if (com.xiaomi.push.service.ak.a(this.f82a).a(hr.Crash4GUploadSwitch.a(), true)) {
@@ -113,7 +113,7 @@ public class v implements Thread.UncaughtExceptionHandler {
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
-        m119a(th);
+        m118a(th);
         synchronized (a) {
             try {
                 a.wait(3000L);

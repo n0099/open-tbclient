@@ -29,7 +29,7 @@ public class c {
         if (dU == null) {
             return null;
         }
-        return dU.bfr();
+        return dU.bfs();
     }
 
     public static TbPageTag dW(Context context) {
@@ -56,11 +56,11 @@ public class c {
     }
 
     public static an a(an anVar, b bVar) {
-        return (bVar == null || anVar == null) ? anVar : a(anVar, bVar.getPrePageTag(), bVar.bfr());
+        return (bVar == null || anVar == null) ? anVar : a(anVar, bVar.getPrePageTag(), bVar.bfs());
     }
 
     public static an b(an anVar, b bVar) {
-        return (bVar == null || anVar == null) ? anVar : b(anVar, bVar.getPrePageTag(), bVar.bfr());
+        return (bVar == null || anVar == null) ? anVar : b(anVar, bVar.getPrePageTag(), bVar.bfs());
     }
 
     public static an a(an anVar, TbPageTag tbPageTag, TbPageTag tbPageTag2) {

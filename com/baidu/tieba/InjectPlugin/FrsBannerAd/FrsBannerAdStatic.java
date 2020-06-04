@@ -32,15 +32,15 @@ public class FrsBannerAdStatic {
             TbPageContext pageContext;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.InjectPlugin.b.a) && (pageContext = (aVar = (com.baidu.tieba.InjectPlugin.b.a) customResponsedMessage.getData()).getPageContext()) != null && (pageContext.getPageActivity() instanceof b)) {
                 b bVar = (b) pageContext.getPageActivity();
-                com.baidu.tieba.InjectPlugin.a.a oM = bVar.oM(2);
-                if (oM == null) {
-                    d oN = e.bka().oN(2);
-                    if (oN != null) {
-                        oM = oN.bjZ();
-                        bVar.a(2, oM);
-                        oM.init(new c(pageContext));
-                        if (oM instanceof com.baidu.tieba.InjectPlugin.FrsBannerAd.a) {
-                            ((com.baidu.tieba.InjectPlugin.FrsBannerAd.a) oM).a(new a.InterfaceC0501a() { // from class: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic.a.1
+                com.baidu.tieba.InjectPlugin.a.a oO = bVar.oO(2);
+                if (oO == null) {
+                    d oP = e.bkc().oP(2);
+                    if (oP != null) {
+                        oO = oP.bkb();
+                        bVar.a(2, oO);
+                        oO.init(new c(pageContext));
+                        if (oO instanceof com.baidu.tieba.InjectPlugin.FrsBannerAd.a) {
+                            ((com.baidu.tieba.InjectPlugin.FrsBannerAd.a) oO).a(new a.InterfaceC0501a() { // from class: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic.a.1
                                 @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a.InterfaceC0501a
                                 public void a(c cVar, View view) {
                                     b a = h.a(cVar);
@@ -70,21 +70,21 @@ public class FrsBannerAdStatic {
                         return;
                     }
                 }
-                com.baidu.tieba.InjectPlugin.a.a aVar2 = oM;
+                com.baidu.tieba.InjectPlugin.a.a aVar2 = oO;
                 if (aVar2 instanceof com.baidu.tieba.InjectPlugin.FrsBannerAd.a) {
                     com.baidu.tieba.InjectPlugin.FrsBannerAd.a aVar3 = (com.baidu.tieba.InjectPlugin.FrsBannerAd.a) aVar2;
-                    if (aVar.bkc() == 1) {
+                    if (aVar.bke() == 1) {
                         aVar3.setParams(aVar.getParams());
-                        aVar3.setData(aVar.bke());
-                        aVar3.bjT();
-                    } else if (aVar.bkc() == 2) {
+                        aVar3.setData(aVar.bkg());
+                        aVar3.bjV();
+                    } else if (aVar.bke() == 2) {
                         aVar3.setBannerMaskColor(aVar.getMaskColor());
-                    } else if (aVar.bkc() == 3) {
-                        q bkd = aVar.bkd();
-                        if (bkd != null && aVar3.getView() != null) {
-                            bkd.removeHeaderView(aVar3.getView());
+                    } else if (aVar.bke() == 3) {
+                        q bkf = aVar.bkf();
+                        if (bkf != null && aVar3.getView() != null) {
+                            bkf.removeHeaderView(aVar3.getView());
                         }
-                    } else if (aVar.bkc() == 4) {
+                    } else if (aVar.bke() == 4) {
                         aVar3.changeSkinType(aVar.getSkinType());
                     }
                 }

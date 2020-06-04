@@ -48,17 +48,17 @@ public class d extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            int fq = fq(optInt);
-            ((SwanAppWebViewManager) jO).eD(fq);
+            int fs = fs(optInt);
+            ((SwanAppWebViewManager) jO).eF(fs);
             if (DEBUG) {
-                Log.d("setFullscreenOrientationSync", "orientation set to : " + fq);
+                Log.d("setFullscreenOrientationSync", "orientation set to : " + fs);
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
             return true;
         }
     }
 
-    private int fq(int i) {
+    private int fs(int i) {
         switch (i) {
             case -90:
                 return 8;

@@ -8,12 +8,12 @@ public class b {
     private int mFlags = 0;
 
     @NonNull
-    public b hQ(int i) {
+    public b hS(int i) {
         this.mFlags |= i;
         return this;
     }
 
-    public void hR(int i) {
+    public void hT(int i) {
         this.mFlags &= i ^ (-1);
     }
 
@@ -25,7 +25,7 @@ public class b {
         return this.cNn;
     }
 
-    public void hS(int i) {
+    public void hU(int i) {
         this.cNn = i;
     }
 
@@ -33,7 +33,7 @@ public class b {
         return this.cNo;
     }
 
-    public void hT(int i) {
+    public void hV(int i) {
         this.cNo = i;
     }
 }

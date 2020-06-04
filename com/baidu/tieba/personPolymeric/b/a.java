@@ -3,11 +3,11 @@ package com.baidu.tieba.personPolymeric.b;
 import com.baidu.tieba.personPolymeric.view.p;
 /* loaded from: classes11.dex */
 public interface a {
-    void Ko(String str);
-
     void Kp(String str);
 
-    void cOJ();
+    void Kq(String str);
 
-    p cOK();
+    void cOZ();
+
+    p cPa();
 }

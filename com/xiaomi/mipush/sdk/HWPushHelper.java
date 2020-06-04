@@ -14,7 +14,7 @@ public class HWPushHelper {
     }
 
     public static boolean hasNetwork(Context context) {
-        return h.m112a(context);
+        return h.m111a(context);
     }
 
     public static boolean isHmsTokenSynced(Context context) {

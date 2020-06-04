@@ -13,10 +13,10 @@ public class PushThreadActivityStatic {
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PushThreadActivityConfig.class, PushThreadActivity.class);
-        cMg();
+        cMw();
     }
 
-    private static void cMg() {
+    private static void cMw() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001806, a.bF(Config.PB_PUSH_THREAD_ADDRESS, CmdConfigSocket.CMD_PUSH_THREAD));
         tbHttpMessageTask.setResponsedClass(PbPushHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);

@@ -45,7 +45,7 @@ public final class a {
     /* renamed from: com.baidu.swan.apps.aj.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0287a {
-        void gP(int i);
+        void gR(int i);
     }
 
     public static void a(Context context, com.baidu.swan.apps.v.b.b bVar) {
@@ -57,7 +57,7 @@ public final class a {
         String iconUrl = bVar.getIconUrl();
         if (!TextUtils.isEmpty(iconUrl) && (uri = aj.getUri(iconUrl)) != null) {
             o(bVar);
-            final c.a aVar = (c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().kW(bVar.getAppId())).kZ(bVar.agK())).ld(bVar.agS())).lb(bVar.getPage())).lc(bVar.agR())).dZ(bVar.isDebug())).le(bVar.agV())).fB(bVar.getAppFrameType())).fA(bVar.getOrientation())).la(c.e(bVar.getAppId(), bVar.agK(), bVar.getAppFrameType()));
+            final c.a aVar = (c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().kW(bVar.getAppId())).kZ(bVar.agK())).ld(bVar.agS())).lb(bVar.getPage())).lc(bVar.agR())).dZ(bVar.isDebug())).le(bVar.agV())).fD(bVar.getAppFrameType())).fC(bVar.getOrientation())).la(c.e(bVar.getAppId(), bVar.agK(), bVar.getAppFrameType()));
             if (q.i(uri)) {
                 a(context, bVar, aVar, q.b(uri, context));
                 b(context, bVar, interfaceC0287a);
@@ -107,7 +107,7 @@ public final class a {
         g.a aVar = new g.a(context);
         aVar.a(new com.baidu.swan.apps.view.c.a());
         g ZF = aVar.ZF();
-        aVar.eR(a.h.aiapps_add_shortcut_note_dialog_title).a(a(context, ZF)).aok().e(a.h.aiapps_add_shortcut_note_dialog_button, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.aj.a.2
+        aVar.eT(a.h.aiapps_add_shortcut_note_dialog_title).a(a(context, ZF)).aok().e(a.h.aiapps_add_shortcut_note_dialog_button, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.aj.a.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
             }
@@ -169,12 +169,12 @@ public final class a {
     public static void b(final Context context, final com.baidu.swan.apps.v.b.b bVar, final InterfaceC0287a interfaceC0287a) {
         if (interfaceC0287a != null) {
             if (context == null) {
-                interfaceC0287a.gP(-1);
+                interfaceC0287a.gR(-1);
             } else {
                 n.a(new Runnable() { // from class: com.baidu.swan.apps.aj.a.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        InterfaceC0287a.this.gP(a.p(context, bVar.abT(), bVar.getAppId()));
+                        InterfaceC0287a.this.gR(a.p(context, bVar.abT(), bVar.getAppId()));
                     }
                 }, "SwanAppShortcutHelper", 1000L, TimeUnit.MILLISECONDS);
             }

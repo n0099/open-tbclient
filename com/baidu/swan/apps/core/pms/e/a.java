@@ -48,7 +48,7 @@ public class a extends j {
             if (a.DEBUG) {
                 Log.e("SwanAppSubPkgDownload", "onDownloadError:" + aVar.toString());
             }
-            a.this.eY(3);
+            a.this.fa(3);
             com.baidu.swan.apps.core.pms.c.ZN().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.an.a().bw(12L).bx(aVar.errorNo).pr("分包下载失败").pt(aVar.toString()));
         }
 
@@ -76,13 +76,13 @@ public class a extends j {
     @Override // com.baidu.swan.pms.a.g
     public void b(com.baidu.swan.pms.model.a aVar) {
         super.b(aVar);
-        eY(1);
+        fa(1);
     }
 
     @Override // com.baidu.swan.pms.a.g
     public void ZL() {
         super.ZL();
-        eY(2);
+        fa(2);
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -96,7 +96,7 @@ public class a extends j {
             if (DEBUG) {
                 Log.e("SwanAppSubPkgDownload", "onDownloadFinish: 签名校验失败");
             }
-            eY(4);
+            fa(4);
             com.baidu.swan.apps.core.pms.c.ZN().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.an.a().bw(12L).bx(2300L).pr("分包签名校验"));
         } else if (com.baidu.swan.apps.core.pms.f.b.f(new File(gVar.filePath), new File(this.bYD, gVar.pkgName))) {
             if (DEBUG) {
@@ -110,7 +110,7 @@ public class a extends j {
             if (DEBUG) {
                 Log.e("SwanAppSubPkgDownload", "onDownloadFinish: 解压失败");
             }
-            eY(5);
+            fa(5);
             com.baidu.swan.apps.core.pms.c.ZN().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.an.a().bw(12L).bx(2320L).pr("分包解压失败"));
         }
     }
@@ -125,15 +125,15 @@ public class a extends j {
 
             @Override // com.baidu.swan.apps.core.pms.c.b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.an.a aVar) {
-                a.this.eY(0);
+                a.this.fa(0);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eY(int i) {
+    public void fa(int i) {
         if (this.bYC != null) {
-            this.bYC.eU(i);
+            this.bYC.eW(i);
         }
     }
 

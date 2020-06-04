@@ -55,33 +55,33 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
             this.extraData = new PostAdBaseData.a.c();
             JSONObject optJSONObject3 = optJSONObject2.optJSONObject("ad_download");
             if (optJSONObject3 != null) {
-                this.extraData.kKX = new PostAdBaseData.a.C0714a();
-                this.extraData.kKX.packageName = optJSONObject3.optString("pkgname");
-                this.extraData.kKX.downloadUrl = optJSONObject3.optString("download_url");
+                this.extraData.kMg = new PostAdBaseData.a.C0715a();
+                this.extraData.kMg.packageName = optJSONObject3.optString("pkgname");
+                this.extraData.kMg.downloadUrl = optJSONObject3.optString("download_url");
             }
         }
     }
 
     public boolean isDownload() {
-        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.kKX == null) ? false : true;
+        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.kMg == null) ? false : true;
     }
 
     public String apkDownloadUrl() {
-        if (this.extraData == null || this.extraData.kKX == null) {
+        if (this.extraData == null || this.extraData.kMg == null) {
             return null;
         }
-        return this.extraData.kKX.downloadUrl;
+        return this.extraData.kMg.downloadUrl;
     }
 
     public String apkDownloadPackage() {
-        if (this.extraData == null || this.extraData.kKX == null) {
+        if (this.extraData == null || this.extraData.kMg == null) {
             return null;
         }
-        return this.extraData.kKX.packageName;
+        return this.extraData.kMg.packageName;
     }
 
     public AdvertAppInfo toAppData() {
-        if (this.extraData == null || this.extraData.kKX == null) {
+        if (this.extraData == null || this.extraData.kMg == null) {
             return null;
         }
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();

@@ -23,9 +23,9 @@ public class b {
             this.bgh = new LivePlayer(this.mActivity);
             this.bgh.setIPlayerCallBack(new com.baidu.live.o.b() { // from class: com.baidu.live.videochat.a.b.1
                 @Override // com.baidu.live.o.b
-                public void bE(int i) {
+                public void bG(int i) {
                     if (b.this.bgi != null) {
-                        b.this.bgi.bE(i);
+                        b.this.bgi.bG(i);
                     }
                 }
             });

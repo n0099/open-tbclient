@@ -63,7 +63,7 @@ public class a extends aa {
         final JSONObject jSONObject = new JSONObject();
         com.baidu.swan.apps.r.e.b(str, new e.b() { // from class: com.baidu.swan.apps.extcore.c.a.a.2
             @Override // com.baidu.swan.apps.r.e.b
-            public void dr(int i) {
+            public void dt(int i) {
             }
 
             @Override // com.baidu.swan.apps.r.e.b

@@ -444,7 +444,7 @@ public final class a extends com.baidu.swan.apps.process.messaging.b {
             Bundle bundle;
             com.baidu.g.a.a aVar;
             if (message != null && (bundle = (Bundle) message.obj) != null && (aVar = com.baidu.swan.apps.ac.a.akW().cqN) != null) {
-                aVar.onPayResult(com.baidu.swan.apps.ac.a.fZ(bundle.getInt("_wxapi_baseresp_errcode")), bundle.getString("_wxapi_baseresp_errstr"));
+                aVar.onPayResult(com.baidu.swan.apps.ac.a.gb(bundle.getInt("_wxapi_baseresp_errcode")), bundle.getString("_wxapi_baseresp_errstr"));
             }
         }
 
@@ -514,7 +514,7 @@ public final class a extends com.baidu.swan.apps.process.messaging.b {
                         if (a.DEBUG) {
                             Log.d("AppLaunchMessenger", "handleAppOnLaunch swan app updated.");
                         }
-                        f.ahV().fG(aoG2.Qz());
+                        f.ahV().fI(aoG2.Qz());
                         com.baidu.swan.apps.core.turbo.d.abl().abp();
                         if (a.DEBUG) {
                             Log.d("AppLaunchMessenger", "handleAppOnLaunch msg end");

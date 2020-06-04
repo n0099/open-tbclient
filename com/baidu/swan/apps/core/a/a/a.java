@@ -21,12 +21,12 @@ public final class a {
 
         void Xz();
 
-        void eE(int i);
+        void eG(int i);
     }
 
     public static void a(@NonNull List<b.a> list, @NonNull String str, @NonNull com.baidu.swan.apps.core.pms.a aVar) {
         if (!jc(h.arO().getString("predownload_network_switch", "1"))) {
-            aVar.eT(6);
+            aVar.eV(6);
             return;
         }
         List<b.a> f = com.baidu.swan.apps.core.pms.d.a.f(list);
@@ -50,11 +50,11 @@ public final class a {
             }
         } else if (!jc(h.arO().getString("predownload_network_switch", "1"))) {
             if (interfaceC0331a != null) {
-                interfaceC0331a.eE(6);
+                interfaceC0331a.eG(6);
             }
         } else if (!com.baidu.swan.apps.core.pms.d.a.jx(str)) {
             if (interfaceC0331a != null) {
-                interfaceC0331a.eE(2);
+                interfaceC0331a.eG(2);
             }
         } else {
             com.baidu.swan.pms.c.d.c cVar = new com.baidu.swan.pms.c.d.c(str, TextUtils.equals("swangame", str3) ? 1 : 0);

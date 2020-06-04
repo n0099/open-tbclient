@@ -6,35 +6,35 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes13.dex */
 public class BrowseSettingActivity extends BaseActivity {
-    private c kVy = null;
+    private c kWH = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.kVy = new c(this);
+        this.kWH = new c(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.kVy.onChangeSkinType(i);
+        this.kWH.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.kVy.cXo()) {
-            this.kVy.cXs();
+        if (view == this.kWH.cXE()) {
+            this.kWH.cXI();
             TiebaStatic.log("c10649");
         }
-        if (view == this.kVy.cXp()) {
-            this.kVy.cXt();
+        if (view == this.kWH.cXF()) {
+            this.kWH.cXJ();
             TiebaStatic.log("c10653");
-        } else if (view == this.kVy.cXq()) {
-            this.kVy.cXu();
-        } else if (view == this.kVy.cXr()) {
-            this.kVy.cXv();
+        } else if (view == this.kWH.cXG()) {
+            this.kWH.cXK();
+        } else if (view == this.kWH.cXH()) {
+            this.kWH.cXL();
         }
     }
 }

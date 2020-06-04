@@ -104,7 +104,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
-    public void bey() {
+    public void bez() {
     }
 
     public void setAnimationResId(int i) {

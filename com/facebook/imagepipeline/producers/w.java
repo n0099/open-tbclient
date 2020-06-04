@@ -26,22 +26,22 @@ public class w extends z {
     protected com.facebook.imagepipeline.g.e g(ImageRequest imageRequest) throws IOException {
         com.facebook.imagepipeline.g.e X;
         InputStream createInputStream;
-        Uri dCa = imageRequest.dCa();
-        if (!com.facebook.common.util.d.J(dCa)) {
-            return (!com.facebook.common.util.d.K(dCa) || (X = X(dCa)) == null) ? f(this.mContentResolver.openInputStream(dCa), -1) : X;
+        Uri dCo = imageRequest.dCo();
+        if (!com.facebook.common.util.d.J(dCo)) {
+            return (!com.facebook.common.util.d.K(dCo) || (X = X(dCo)) == null) ? f(this.mContentResolver.openInputStream(dCo), -1) : X;
         }
-        if (dCa.toString().endsWith("/photo")) {
-            createInputStream = this.mContentResolver.openInputStream(dCa);
-        } else if (dCa.toString().endsWith("/display_photo")) {
+        if (dCo.toString().endsWith("/photo")) {
+            createInputStream = this.mContentResolver.openInputStream(dCo);
+        } else if (dCo.toString().endsWith("/display_photo")) {
             try {
-                createInputStream = this.mContentResolver.openAssetFileDescriptor(dCa, "r").createInputStream();
+                createInputStream = this.mContentResolver.openAssetFileDescriptor(dCo, "r").createInputStream();
             } catch (IOException e) {
-                throw new IOException("Contact photo does not exist: " + dCa);
+                throw new IOException("Contact photo does not exist: " + dCo);
             }
         } else {
-            createInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, dCa);
+            createInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, dCo);
             if (createInputStream == null) {
-                throw new IOException("Contact photo does not exist: " + dCa);
+                throw new IOException("Contact photo does not exist: " + dCo);
             }
         }
         return f(createInputStream, -1);
@@ -57,7 +57,7 @@ public class w extends z {
                     query.moveToFirst();
                     String string = query.getString(query.getColumnIndex("_data"));
                     if (string != null) {
-                        eVar = f(new FileInputStream(string), Qe(string));
+                        eVar = f(new FileInputStream(string), Qf(string));
                     }
                 }
             } finally {
@@ -67,7 +67,7 @@ public class w extends z {
         return eVar;
     }
 
-    private static int Qe(String str) {
+    private static int Qf(String str) {
         if (str == null) {
             return -1;
         }
@@ -75,7 +75,7 @@ public class w extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String dBs() {
+    protected String dBG() {
         return "LocalContentUriFetchProducer";
     }
 }

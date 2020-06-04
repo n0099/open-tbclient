@@ -28,7 +28,7 @@ import com.baidu.tieba.card.s;
 public class a extends com.baidu.adp.widget.ListView.a<bk, ag<bk>> {
     private aa<bk> adt;
     private t aib;
-    private NEGFeedBackView.a eJz;
+    private NEGFeedBackView.a eJK;
     public BdUniqueId epM;
     private TbPageContext<?> mPageContext;
     private String mTabName;
@@ -58,8 +58,8 @@ public class a extends com.baidu.adp.widget.ListView.a<bk, ag<bk>> {
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, bk bkVar) {
-                s.bLq().jv(true);
-                com.baidu.tieba.a.d.blZ().de("page_recommend", "show_");
+                s.bLs().jv(true);
+                com.baidu.tieba.a.d.bmb().de("page_recommend", "show_");
                 if (view != null && bkVar != null && bkVar.aOi() != null && !StringUtils.isNull(bkVar.aOi().getTid())) {
                     a.this.f(view, bkVar);
                 }
@@ -116,12 +116,12 @@ public class a extends com.baidu.adp.widget.ListView.a<bk, ag<bk>> {
         }
         bkVar.dDb = getPositionByType(i) + 1;
         agVar.rM().setPosition(i);
-        agVar.aH(true).a(this.eJz);
+        agVar.aH(true).a(this.eJK);
         agVar.a(true, Align.ALIGN_RIGHT_BOTTOM);
         agVar.b((ag<bk>) bkVar);
         agVar.rM().a(this.adt);
         agVar.rM().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        s.bLq().e(com.baidu.tieba.enterForum.a.g(bkVar, this.mTabName));
+        s.bLs().e(com.baidu.tieba.enterForum.a.g(bkVar, this.mTabName));
         return agVar.getView();
     }
 

@@ -9,9 +9,9 @@ public class d {
         return a.bIY;
     }
 
-    public void ei(int i) {
+    public void ek(int i) {
         if (this.bIX != null) {
-            this.bIX.ei(i);
+            this.bIX.ek(i);
             this.bIX = null;
         }
     }

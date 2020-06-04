@@ -73,22 +73,22 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
             this.bdt.addView(this.bdj.Hx().getView(), layoutParams);
             this.bdu.addView(this.bdj.Hw().getView(), layoutParams);
-            di(0);
+            dk(0);
         }
     }
 
     public void showTip(View view) {
         if (this.bds == null && view != null) {
             this.bds = new com.baidu.live.tieba.c.a(getPageContext(), view);
-            this.bds.cG(a.f.sdk_ph_bg_tip_blue_up_left);
+            this.bds.cI(a.f.sdk_ph_bg_tip_blue_up_left);
             this.bds.c(new View.OnClickListener() { // from class: com.baidu.live.tieba.write.album.AlbumActivity.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     AlbumActivity.this.bds.Gu();
                 }
             });
-            this.bds.cF(16);
-            this.bds.cH(5000);
+            this.bds.cH(16);
+            this.bds.cJ(5000);
         }
         if (this.bds != null) {
             String sharedPrefKeyWithAccount = SharedPrefHelper.getSharedPrefKeyWithAccount(SharedPrefConfig.KEY_SHOW_TAKE_PHOTO_TIP);
@@ -271,23 +271,23 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
             }
             Hl();
         } else if (view == this.bdj.Hs()) {
-            di(0);
+            dk(0);
         } else if (view == this.bdj.Hu()) {
-            dg(2);
+            di(2);
         } else if (view == this.bdj.Hv()) {
-            dg(1);
+            di(1);
         }
     }
 
-    private void dg(int i) {
+    private void di(int i) {
         if (this.bdj != null && this.bdi != null) {
             this.bdi.setOriginalImg(!this.bdi.isOriginalImg());
             Hg();
-            dh(i);
+            dj(i);
         }
     }
 
-    private void dh(int i) {
+    private void dj(int i) {
         if (this.bdi != null && this.bdi.isOriginalImg() && !StringUtils.isNull(this.from, true) && !StringUtils.isNull(this.forumId, true)) {
             TiebaInitialize.log(new StatisticItem("c10349").param("fid", this.forumId).param("obj_type", this.from).param("obj_locate", i));
         }
@@ -312,7 +312,7 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void di(int i) {
+    public void dk(int i) {
         if (!this.bdk) {
             this.aIx = i;
             if (i == 0) {
@@ -396,7 +396,7 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
                 Hl();
                 return true;
             } else if (this.aIx == 1) {
-                di(0);
+                dk(0);
                 return true;
             } else {
                 return true;

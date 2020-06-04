@@ -146,7 +146,7 @@ public abstract class b implements d {
                         if (z) {
                             b.this.cil.overridePendingTransition(0, a.C0281a.aiapps_slide_out_to_right_zadjustment_top);
                         }
-                        com.baidu.swan.apps.aq.a.asW().hF(taskId);
+                        com.baidu.swan.apps.aq.a.asW().hH(taskId);
                     }
                 }
             });
@@ -472,7 +472,7 @@ public abstract class b implements d {
     }
 
     @Override // com.baidu.swan.apps.w.e.b
-    public void fF(int i) {
+    public void fH(int i) {
         aht();
         com.baidu.swan.apps.aq.a.asW().k(this.cil);
         exit(false);

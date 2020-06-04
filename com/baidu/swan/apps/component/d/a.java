@@ -27,7 +27,7 @@ public class a {
             }
             i = 500;
         }
-        this.bQT = new int[ev(i - 1) + 1];
+        this.bQT = new int[ex(i - 1) + 1];
         int length = this.bQT.length;
         if (z) {
             for (int i2 = 0; i2 < length; i2++) {
@@ -54,8 +54,8 @@ public class a {
             return;
         }
         int[] iArr = this.bQT;
-        int ev = ev(i);
-        iArr[ev] = iArr[ev] | (1 << i);
+        int ex = ex(i);
+        iArr[ex] = iArr[ex] | (1 << i);
     }
 
     public boolean get(@IntRange(from = 0) int i) {
@@ -75,10 +75,10 @@ public class a {
             }
             return false;
         }
-        return (this.bQT[ev(i)] & (1 << i)) != 0;
+        return (this.bQT[ex(i)] & (1 << i)) != 0;
     }
 
-    private int ev(int i) {
+    private int ex(int i) {
         return i >> bQS;
     }
 }

@@ -79,7 +79,7 @@ public class a extends Dialog {
         }
     }
 
-    public void cs(int i) {
+    public void cu(int i) {
         ViewGroup.LayoutParams layoutParams;
         Window window = getWindow();
         if (window != null) {
@@ -160,7 +160,7 @@ public class a extends Dialog {
             }
 
             @Override // com.baidu.live.im.view.barrage.ImBarrageOptionListView.a
-            public void bV(int i) {
+            public void bX(int i) {
                 a.this.bL(false);
             }
 

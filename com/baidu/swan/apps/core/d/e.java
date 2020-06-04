@@ -49,7 +49,7 @@ public final class e {
     }
 
     public com.baidu.swan.apps.core.d.b YP() {
-        return eK(this.bVJ.size() - 1);
+        return eM(this.bVJ.size() - 1);
     }
 
     public <T extends com.baidu.swan.apps.core.d.b> T q(Class<T> cls) {
@@ -72,7 +72,7 @@ public final class e {
         return null;
     }
 
-    public com.baidu.swan.apps.core.d.b eK(int i) {
+    public com.baidu.swan.apps.core.d.b eM(int i) {
         if (this.bVJ.isEmpty() || i < 0 || i >= this.bVJ.size()) {
             return null;
         }
@@ -184,7 +184,7 @@ public final class e {
             });
         }
 
-        public b eL(int i) {
+        public b eN(int i) {
             int size = e.this.bVJ.size();
             if (!e.this.bVJ.isEmpty() && i >= 0 && i < size) {
                 this.bVQ.a((com.baidu.swan.apps.core.d.b) e.this.bVJ.remove(i));
@@ -193,10 +193,10 @@ public final class e {
         }
 
         public b YX() {
-            return eM(1);
+            return eO(1);
         }
 
-        public b eM(int i) {
+        public b eO(int i) {
             if (!e.this.bVJ.isEmpty()) {
                 ArrayList arrayList = (ArrayList) e.this.bVJ.clone();
                 int size = arrayList.size();
@@ -251,7 +251,7 @@ public final class e {
                     }
                 }
             }
-            return eM(e.this.bVJ.size());
+            return eO(e.this.bVJ.size());
         }
 
         public b b(com.baidu.swan.apps.model.b bVar) {

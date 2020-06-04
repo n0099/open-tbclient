@@ -31,12 +31,12 @@ public class d {
     }
 
     ap.b a(fl flVar) {
-        Collection<ap.b> m543a = ap.a().m543a(Integer.toString(flVar.a()));
-        if (m543a.isEmpty()) {
+        Collection<ap.b> m542a = ap.a().m542a(Integer.toString(flVar.a()));
+        if (m542a.isEmpty()) {
             return null;
         }
-        Iterator<ap.b> it = m543a.iterator();
-        if (m543a.size() == 1) {
+        Iterator<ap.b> it = m542a.iterator();
+        if (m542a.size() == 1) {
             return it.next();
         }
         String g = flVar.g();
@@ -54,12 +54,12 @@ public class d {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     ap.b a(gj gjVar) {
-        Collection<ap.b> m543a = ap.a().m543a(gjVar.k());
-        if (m543a.isEmpty()) {
+        Collection<ap.b> m542a = ap.a().m542a(gjVar.k());
+        if (m542a.isEmpty()) {
             return null;
         }
-        Iterator<ap.b> it = m543a.iterator();
-        if (m543a.size() == 1) {
+        Iterator<ap.b> it = m542a.iterator();
+        if (m542a.size() == 1) {
             return it.next();
         }
         String m = gjVar.m();
@@ -104,7 +104,7 @@ public class d {
             bVar.f852a.send(Message.obtain(null, 17, intent));
         } catch (RemoteException e) {
             bVar.f852a = null;
-            com.xiaomi.channel.commonutils.logger.b.m52a("peer may died: " + bVar.f861b.substring(bVar.f861b.lastIndexOf(64)));
+            com.xiaomi.channel.commonutils.logger.b.m51a("peer may died: " + bVar.f861b.substring(bVar.f861b.lastIndexOf(64)));
         }
     }
 
@@ -157,7 +157,7 @@ public class d {
             intent.setAction("com.xiaomi.push.new_msg");
             intent.setPackage(str2);
             intent.putExtra("ext_chid", str);
-            intent.putExtra("ext_raw_packet", flVar.m283a(a.h));
+            intent.putExtra("ext_raw_packet", flVar.m282a(a.h));
             intent.putExtra(at.C, a.i);
             intent.putExtra(at.v, a.h);
             if (a.f852a != null) {
@@ -166,7 +166,7 @@ public class d {
                     return;
                 } catch (RemoteException e) {
                     a.f852a = null;
-                    com.xiaomi.channel.commonutils.logger.b.m52a("peer may died: " + a.f861b.substring(a.f861b.lastIndexOf(64)));
+                    com.xiaomi.channel.commonutils.logger.b.m51a("peer may died: " + a.f861b.substring(a.f861b.lastIndexOf(64)));
                 }
             }
             if ("com.xiaomi.xmsf".equals(str2)) {

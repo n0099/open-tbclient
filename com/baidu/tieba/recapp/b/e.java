@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.data.bk;
 import com.baidu.tieba.recapp.m;
 /* loaded from: classes13.dex */
 public class e extends com.baidu.tieba.frs.h<bk, f> implements com.baidu.tieba.recapp.l {
-    private m eHY;
+    private m eIj;
 
     public e(m mVar, BdUniqueId bdUniqueId) {
         super(mVar.getTbPageContext(), bdUniqueId);
-        this.eHY = mVar;
+        this.eIj = mVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

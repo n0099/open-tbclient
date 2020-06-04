@@ -34,8 +34,8 @@ public class d extends a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("swan_sdk_version", com.baidu.swan.apps.c.getVersion());
-            jSONObject.put("swan_core_version", com.baidu.swan.apps.swancore.b.gZ(0));
-            jSONObject.put("game_core_version", com.baidu.swan.apps.swancore.b.gZ(1));
+            jSONObject.put("swan_core_version", com.baidu.swan.apps.swancore.b.hb(0));
+            jSONObject.put("game_core_version", com.baidu.swan.apps.swancore.b.hb(1));
             jSONObject.put("uid", com.baidu.swan.apps.u.a.aeW().bc(AppRuntime.getAppContext()));
             jSONObject.put("puid", com.baidu.swan.apps.u.a.aeW().bb(AppRuntime.getAppContext()));
             jSONObject.put(j.c, com.baidu.swan.apps.h.c.sB());

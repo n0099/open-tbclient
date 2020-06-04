@@ -94,15 +94,15 @@ public class a {
         }
         b bVar = new b();
         bVar.setActivityId(cursor.getInt(cursor.getColumnIndex("activityid")));
-        bVar.jK(cursor.getInt(cursor.getColumnIndex("missionid")));
+        bVar.jM(cursor.getInt(cursor.getColumnIndex("missionid")));
         bVar.um(cursor.getString(cursor.getColumnIndex("activitysource")));
-        bVar.jL(cursor.getInt(cursor.getColumnIndex("calltype")));
-        bVar.jM(cursor.getInt(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE)));
+        bVar.jN(cursor.getInt(cursor.getColumnIndex("calltype")));
+        bVar.jO(cursor.getInt(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE)));
         bVar.un(cursor.getString(cursor.getColumnIndex("browsetimepage")));
         bVar.bT(cursor.getLong(cursor.getColumnIndex("browsetime")));
         bVar.setThreadNum(cursor.getInt(cursor.getColumnIndex("threadnum")));
-        bVar.jN(cursor.getInt(cursor.getColumnIndex("forumnum")));
-        bVar.jO(cursor.getInt(cursor.getColumnIndex("cleartype")));
+        bVar.jP(cursor.getInt(cursor.getColumnIndex("forumnum")));
+        bVar.jQ(cursor.getInt(cursor.getColumnIndex("cleartype")));
         bVar.bU(cursor.getLong(cursor.getColumnIndex("cleartime")));
         bVar.bV(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
         bVar.setTid(cursor.getLong(cursor.getColumnIndex("tid")));
@@ -110,8 +110,8 @@ public class a {
         bVar.uo(cursor.getString(cursor.getColumnIndex("threadtext")));
         bVar.up(cursor.getString(cursor.getColumnIndex("threadimg")));
         bVar.bW(cursor.getInt(cursor.getColumnIndex("threadforum")));
-        bVar.jP(cursor.getInt(cursor.getColumnIndex("totalLimit")));
-        bVar.jQ(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));
+        bVar.jR(cursor.getInt(cursor.getColumnIndex("totalLimit")));
+        bVar.jS(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));
         bVar.ai(bVar.getTaskType(), cursor.getString(cursor.getColumnIndex("executingMissionList")));
         bVar.setToken(cursor.getString(cursor.getColumnIndex("token")));
         return bVar;

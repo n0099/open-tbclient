@@ -594,7 +594,7 @@ public class ValueAnimator extends Animator {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.nineoldandroids.animation.Animator
     public ValueAnimator clone() {
-        ValueAnimator valueAnimator = (ValueAnimator) super.m45clone();
+        ValueAnimator valueAnimator = (ValueAnimator) super.m44clone();
         if (this.mUpdateListeners != null) {
             ArrayList<AnimatorUpdateListener> arrayList = this.mUpdateListeners;
             valueAnimator.mUpdateListeners = new ArrayList<>();
@@ -615,9 +615,9 @@ public class ValueAnimator extends Animator {
             valueAnimator.mValues = new PropertyValuesHolder[length];
             valueAnimator.mValuesMap = new HashMap<>(length);
             for (int i2 = 0; i2 < length; i2++) {
-                PropertyValuesHolder m49clone = propertyValuesHolderArr[i2].m49clone();
-                valueAnimator.mValues[i2] = m49clone;
-                valueAnimator.mValuesMap.put(m49clone.getPropertyName(), m49clone);
+                PropertyValuesHolder m48clone = propertyValuesHolderArr[i2].m48clone();
+                valueAnimator.mValues[i2] = m48clone;
+                valueAnimator.mValuesMap.put(m48clone.getPropertyName(), m48clone);
             }
         }
         return valueAnimator;

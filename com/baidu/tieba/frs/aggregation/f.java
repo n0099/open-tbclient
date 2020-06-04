@@ -14,25 +14,25 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class f implements a {
     private TbPageContext dIF;
-    private BdTypeListView faQ;
-    private e htm;
-    private boolean htn;
+    private BdTypeListView fbb;
+    private e htx;
+    private boolean hty;
     private List<o> mDatas = new ArrayList();
     private final List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
-    private int hto = -1;
+    private int htz = -1;
 
     public f(TbPageContext tbPageContext, BdTypeListView bdTypeListView, boolean z) {
-        this.htn = false;
+        this.hty = false;
         this.dIF = tbPageContext;
-        this.faQ = bdTypeListView;
-        this.htn = z;
+        this.fbb = bdTypeListView;
+        this.hty = z;
         CY();
     }
 
     private void CY() {
-        this.htm = new e(this.dIF, this, this.htn);
-        this.aSj.add(this.htm);
-        this.faQ.addAdapters(this.aSj);
+        this.htx = new e(this.dIF, this, this.hty);
+        this.aSj.add(this.htx);
+        this.fbb.addAdapters(this.aSj);
     }
 
     public void setData(List<g> list, boolean z) {
@@ -41,9 +41,9 @@ public class f implements a {
                 this.mDatas.clear();
             }
             this.mDatas.addAll(list);
-            this.faQ.setData(this.mDatas);
-            if (z && list.size() > 0 && this.htn && j.isWifiNet()) {
-                bXC();
+            this.fbb.setData(this.mDatas);
+            if (z && list.size() > 0 && this.hty && j.isWifiNet()) {
+                bXE();
                 list.get(0).autoPlay = true;
             }
         }
@@ -60,8 +60,8 @@ public class f implements a {
                     break;
                 }
                 o next = it.next();
-                if (next != null && (next instanceof g) && ((g) next).htt != null && str.equals(((g) next).htt.userId)) {
-                    ((g) next).htt.hasFocus = z;
+                if (next != null && (next instanceof g) && ((g) next).htE != null && str.equals(((g) next).htE.userId)) {
+                    ((g) next).htE.hasFocus = z;
                     z2 = true;
                 }
                 z3 = z2;
@@ -73,66 +73,66 @@ public class f implements a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.faQ != null && this.faQ.getAdapter() != null && (this.faQ.getAdapter() instanceof BaseAdapter)) {
-            this.faQ.getAdapter().notifyDataSetChanged();
+        if (this.fbb != null && this.fbb.getAdapter() != null && (this.fbb.getAdapter() instanceof BaseAdapter)) {
+            this.fbb.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.htm.onDestroy();
+        this.htx.onDestroy();
     }
 
     public boolean pB() {
-        return this.htm.pB();
+        return this.htx.pB();
     }
 
     public void pz() {
-        this.htm.pz();
+        this.htx.pz();
     }
 
     public void pA() {
-        this.htm.pA();
+        this.htx.pA();
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        this.htm.onConfigurationChanged(configuration);
+        this.htx.onConfigurationChanged(configuration);
     }
 
-    public boolean uk(int i) {
-        return this.htm.uk(i);
+    public boolean um(int i) {
+        return this.htx.um(i);
     }
 
     @Override // com.baidu.tieba.frs.aggregation.a
-    public void uj(int i) {
-        this.hto = i;
-        if (!v.isEmpty(this.mDatas) && this.faQ != null) {
+    public void ul(int i) {
+        this.htz = i;
+        if (!v.isEmpty(this.mDatas) && this.fbb != null) {
             for (o oVar : this.mDatas) {
                 if (oVar instanceof g) {
                     ((g) oVar).autoPlay = false;
                 }
             }
             if (j.isWifiNet()) {
-                if (this.hto < this.mDatas.size() - 1) {
+                if (this.htz < this.mDatas.size() - 1) {
                     List<o> list = this.mDatas;
-                    int i2 = this.hto + 1;
-                    this.hto = i2;
+                    int i2 = this.htz + 1;
+                    this.htz = i2;
                     if (list.get(i2) instanceof g) {
-                        ((g) this.mDatas.get(this.hto)).autoPlay = true;
-                        this.faQ.smoothScrollToPositionFromTop(this.faQ.getHeaderViewsCount() + i + 1, 0);
+                        ((g) this.mDatas.get(this.htz)).autoPlay = true;
+                        this.fbb.smoothScrollToPositionFromTop(this.fbb.getHeaderViewsCount() + i + 1, 0);
                         notifyDataSetChanged();
                     }
-                } else if (this.hto == this.mDatas.size() - 1 && (this.mDatas.get(this.hto) instanceof g)) {
-                    ((g) this.mDatas.get(this.hto)).autoPlay = false;
+                } else if (this.htz == this.mDatas.size() - 1 && (this.mDatas.get(this.htz) instanceof g)) {
+                    ((g) this.mDatas.get(this.htz)).autoPlay = false;
                 }
             }
         }
     }
 
-    public int bXA() {
-        return this.hto;
+    public int bXC() {
+        return this.htz;
     }
 
-    public void bXB() {
+    public void bXD() {
         if (!v.isEmpty(this.mDatas)) {
             Iterator<o> it = this.mDatas.iterator();
             while (it.hasNext()) {
@@ -143,12 +143,12 @@ public class f implements a {
 
     @Override // com.baidu.tieba.frs.aggregation.a
     public void cancel() {
-        bXC();
+        bXE();
     }
 
-    private void bXC() {
-        bXB();
-        this.hto = 0;
+    private void bXE() {
+        bXD();
+        this.htz = 0;
         pz();
     }
 }

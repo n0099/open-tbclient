@@ -26,11 +26,11 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes11.dex */
 public class a {
-    private String kZN;
-    private b kZO;
-    private b kZP;
-    private b kZQ;
-    private DialogInterface.OnKeyListener kZR;
+    private String laX;
+    private b laY;
+    private b laZ;
+    private b lba;
+    private DialogInterface.OnKeyListener lbb;
     protected final Activity mActivity;
     private DialogInterface.OnCancelListener mCancelListenr;
     private View mContentView;
@@ -42,8 +42,8 @@ public class a {
     private String mTitle;
     private int mDialogGravity = -1;
     private int mIconResId = -1;
-    private int kZL = R.drawable.btn_blue_bg;
-    private int kZM = R.color.cp_cont_g;
+    private int laV = R.drawable.btn_blue_bg;
+    private int laW = R.color.cp_cont_g;
     private boolean mDialogCreated = false;
     private boolean cancelableFlag = true;
 
@@ -52,27 +52,27 @@ public class a {
         void a(a aVar);
     }
 
-    public a Dp(int i) {
+    public a Dr(int i) {
         this.mIconResId = i;
         return this;
     }
 
-    public a Dq(int i) {
-        this.kZL = i;
+    public a Ds(int i) {
+        this.laV = i;
         return this;
     }
 
-    public a Dr(int i) {
-        this.kZM = i;
+    public a Dt(int i) {
+        this.laW = i;
         return this;
     }
 
     public a a(DialogInterface.OnKeyListener onKeyListener) {
-        this.kZR = onKeyListener;
+        this.lbb = onKeyListener;
         return this;
     }
 
-    public a Ds(int i) {
+    public a Du(int i) {
         if (this.mActivity != null) {
             this.mMessage = this.mActivity.getResources().getString(i);
         }
@@ -82,7 +82,7 @@ public class a {
     public a a(int i, b bVar) {
         if (this.mActivity != null) {
             this.mPositiveButtonTip = this.mActivity.getResources().getString(i);
-            this.kZO = bVar;
+            this.laY = bVar;
         }
         return this;
     }
@@ -90,7 +90,7 @@ public class a {
     public a b(int i, b bVar) {
         if (this.mActivity != null) {
             this.mNegativeButtonTip = this.mActivity.getResources().getString(i);
-            this.kZP = bVar;
+            this.laZ = bVar;
         }
         return this;
     }
@@ -117,8 +117,8 @@ public class a {
             ImageView imageView = (ImageView) this.mRootView.findViewById(R.id.bdalert_icon);
             TextView textView2 = (TextView) this.mRootView.findViewById(R.id.message);
             Button button = (Button) this.mRootView.findViewById(R.id.yes);
-            am.setBackgroundResource(button, this.kZL);
-            am.setViewTextColor(button, this.kZM, 3);
+            am.setBackgroundResource(button, this.laV);
+            am.setViewTextColor(button, this.laW, 3);
             Button button2 = (Button) this.mRootView.findViewById(R.id.no);
             Button button3 = (Button) this.mRootView.findViewById(R.id.cancel);
             if (!TextUtils.isEmpty(this.mTitle)) {
@@ -143,8 +143,8 @@ public class a {
                 z = false;
             } else {
                 button.setText(this.mPositiveButtonTip);
-                if (this.kZO != null) {
-                    button.setOnClickListener(new View$OnClickListenerC0720a(this, this.kZO));
+                if (this.laY != null) {
+                    button.setOnClickListener(new View$OnClickListenerC0721a(this, this.laY));
                 }
                 z = true;
             }
@@ -152,17 +152,17 @@ public class a {
                 z2 = false;
             } else {
                 button2.setText(this.mNegativeButtonTip);
-                if (this.kZP != null) {
-                    button2.setOnClickListener(new View$OnClickListenerC0720a(this, this.kZP));
+                if (this.laZ != null) {
+                    button2.setOnClickListener(new View$OnClickListenerC0721a(this, this.laZ));
                 }
                 z2 = true;
             }
-            if (TextUtils.isEmpty(this.kZN)) {
+            if (TextUtils.isEmpty(this.laX)) {
                 z3 = false;
             } else {
-                button3.setText(this.kZN);
-                if (this.kZQ != null) {
-                    button3.setOnClickListener(new View$OnClickListenerC0720a(this, this.kZQ));
+                button3.setText(this.laX);
+                if (this.lba != null) {
+                    button3.setOnClickListener(new View$OnClickListenerC0721a(this, this.lba));
                 }
                 z3 = true;
             }
@@ -242,8 +242,8 @@ public class a {
             if (this.mCancelListenr != null) {
                 this.mDialog.setOnCancelListener(this.mCancelListenr);
             }
-            if (this.kZR != null) {
-                this.mDialog.setOnKeyListener(this.kZR);
+            if (this.lbb != null) {
+                this.mDialog.setOnKeyListener(this.lbb);
             }
             if (z) {
                 g.showDialog(this.mDialog, this.mActivity);
@@ -279,7 +279,7 @@ public class a {
         return this;
     }
 
-    public a cZG() {
+    public a cZW() {
         return uc(true);
     }
 
@@ -291,19 +291,19 @@ public class a {
 
     /* renamed from: com.baidu.tieba.sharewrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private class View$OnClickListenerC0720a implements View.OnClickListener {
-        private final a kZT;
-        private final b kZU;
+    private class View$OnClickListenerC0721a implements View.OnClickListener {
+        private final a lbd;
+        private final b lbe;
 
-        public View$OnClickListenerC0720a(a aVar, b bVar) {
-            this.kZT = aVar;
-            this.kZU = bVar;
+        public View$OnClickListenerC0721a(a aVar, b bVar) {
+            this.lbd = aVar;
+            this.lbe = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.kZU != null) {
-                this.kZU.a(this.kZT);
+            if (this.lbe != null) {
+                this.lbe.a(this.lbd);
             }
         }
     }

@@ -9,18 +9,18 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
-    private BdTypeListView faQ;
-    private com.baidu.tieba.personCenter.a.c kkv;
+    private BdTypeListView fbb;
+    private com.baidu.tieba.personCenter.a.c klB;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView, aa<g> aaVar) {
-        this.faQ = bdTypeListView;
-        this.kkv = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.kly);
-        this.kkv.c(aaVar);
-        this.aSj.add(this.kkv);
-        this.faQ.addAdapters(this.aSj);
+        this.fbb = bdTypeListView;
+        this.klB = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.kmE);
+        this.klB.c(aaVar);
+        this.aSj.add(this.klB);
+        this.fbb.addAdapters(this.aSj);
     }
 
     public void notifyDataSetChanged() {
-        this.kkv.notifyDataSetChanged();
+        this.klB.notifyDataSetChanged();
     }
 }

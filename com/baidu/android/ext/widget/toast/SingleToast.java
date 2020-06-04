@@ -79,7 +79,7 @@ final class SingleToast {
                     ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.toast_animation);
                     int i3 = SingleToast.mSystemToast.getDuration() == 1 ? SingleToast.SYSTEMTOAST_LONGDURATION : 2000;
                     UniversalToast.OnDismissListener unused2 = SingleToast.onDismissListener = null;
-                    d.b(i3, TimeUnit.MILLISECONDS).d(Schedulers.io()).c(a.dPv()).c(new b<Long>() { // from class: com.baidu.android.ext.widget.toast.SingleToast.1.1
+                    d.b(i3, TimeUnit.MILLISECONDS).d(Schedulers.io()).c(a.dPJ()).c(new b<Long>() { // from class: com.baidu.android.ext.widget.toast.SingleToast.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.b
                         public void call(Long l) {
@@ -251,7 +251,7 @@ final class SingleToast {
                     });
                     int i3 = SingleToast.mSystemToast.getDuration() == 1 ? SingleToast.SYSTEMTOAST_LONGDURATION : 2000;
                     UniversalToast.OnDismissListener unused2 = SingleToast.onDismissListener = null;
-                    d.b(i3, TimeUnit.MILLISECONDS).d(Schedulers.io()).c(a.dPv()).c(new b<Long>() { // from class: com.baidu.android.ext.widget.toast.SingleToast.5.2
+                    d.b(i3, TimeUnit.MILLISECONDS).d(Schedulers.io()).c(a.dPJ()).c(new b<Long>() { // from class: com.baidu.android.ext.widget.toast.SingleToast.5.2
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.b
                         public void call(Long l) {
@@ -354,7 +354,7 @@ final class SingleToast {
         final LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.left_icon_clickable_toast_view, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(R.drawable.clickable_toast_view_bg));
         linearLayout.setClickable(true);
-        ((SimpleDraweeView) linearLayout.findViewById(R.id.gif_toast_left_icon)).setController(c.dvf().wa(true).Q(uri).dvW());
+        ((SimpleDraweeView) linearLayout.findViewById(R.id.gif_toast_left_icon)).setController(c.dvt().wc(true).Q(uri).dwk());
         if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.gif_toast_info_view)) != null) {
             textView.setTextColor(resources.getColor(R.color.white_text));
             textView.setText(charSequence);
@@ -612,7 +612,7 @@ final class SingleToast {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().wf(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().wh(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);

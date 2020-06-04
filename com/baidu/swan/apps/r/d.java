@@ -20,7 +20,7 @@ public class d extends g.a {
     protected boolean a(Pipe.SourceChannel sourceChannel, Bundle bundle) {
         com.baidu.swan.apps.an.a pt;
         com.baidu.swan.apps.v.c.a lk = com.baidu.swan.apps.v.c.a.lk(bundle.getString("launch_id"));
-        lk.ahk().ln("SignChecker").fE(1);
+        lk.ahk().ln("SignChecker").fG(1);
         long currentTimeMillis = System.currentTimeMillis();
         try {
             pt = com.baidu.swan.apps.core.pms.f.a.a(sourceChannel, this.cgm, this.cgn);

@@ -13,8 +13,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class a {
     private com.baidu.tbadk.core.dialog.a Zw;
-    private TbImageView hgq;
-    private TextView kua;
+    private TbImageView hgB;
+    private TextView kvg;
     private View mRootView;
     private TbPageContext mTbPageContext;
     private TextView mTip;
@@ -27,19 +27,19 @@ public class a {
             }
         }
     };
-    private boolean ktZ = com.baidu.tbadk.core.sharedPref.b.aTX().getBoolean("key_person_dynamic_tab_guide_has_shown", false);
+    private boolean kvf = com.baidu.tbadk.core.sharedPref.b.aTX().getBoolean("key_person_dynamic_tab_guide_has_shown", false);
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
     }
 
-    public void cPF() {
-        if (!this.ktZ) {
-            this.ktZ = true;
+    public void cPV() {
+        if (!this.kvf) {
+            this.kvf = true;
             com.baidu.tbadk.core.sharedPref.b.aTX().putBoolean("key_person_dynamic_tab_guide_has_shown", true);
             initView();
             this.Zw = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
-            this.Zw.kG(1);
+            this.Zw.kI(1);
             this.Zw.gW(true);
             this.Zw.gX(false);
             this.Zw.aP(this.mRootView);
@@ -49,16 +49,16 @@ public class a {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(R.layout.person_center_dynamic_tab_guide, (ViewGroup) null);
-        this.hgq = (TbImageView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_img);
-        j(this.hgq);
-        this.hgq.setAutoChangeStyle(true);
-        this.hgq.setRadius(l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds24));
-        this.hgq.setConrers(3);
-        this.hgq.setIsBitmapPic(true);
+        this.hgB = (TbImageView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_img);
+        j(this.hgB);
+        this.hgB.setAutoChangeStyle(true);
+        this.hgB.setRadius(l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds24));
+        this.hgB.setConrers(3);
+        this.hgB.setIsBitmapPic(true);
         this.mTip = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_tip);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_title);
-        this.kua = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_close);
-        this.kua.setOnClickListener(this.mOnClickListener);
+        this.kvg = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_close);
+        this.kvg.setOnClickListener(this.mOnClickListener);
         onChangeSkinType();
     }
 
@@ -72,14 +72,14 @@ public class a {
         }
     }
 
-    public boolean cPG() {
-        return this.ktZ;
+    public boolean cPW() {
+        return this.kvf;
     }
 
     private void onChangeSkinType() {
-        am.setImageResource(this.hgq, R.drawable.pic_person_center_dynamic_guide);
+        am.setImageResource(this.hgB, R.drawable.pic_person_center_dynamic_guide);
         am.setViewTextColor(this.mTip, (int) R.color.cp_cont_j);
         am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.kua, (int) R.color.cp_link_tip_a);
+        am.setViewTextColor(this.kvg, (int) R.color.cp_link_tip_a);
     }
 }

@@ -9,13 +9,13 @@ import com.google.gson.Gson;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class a extends d {
-    private com.baidu.tieba.easterEgg.d gMk;
-    private HashMap<String, String> gMl;
-    private Gson gMm;
+    private com.baidu.tieba.easterEgg.d gMv;
+    private HashMap<String, String> gMw;
+    private Gson gMx;
 
     public a(int i) {
         super(i);
-        this.gMm = new Gson();
+        this.gMx = new Gson();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,18 +24,18 @@ public class a extends d {
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String json;
         String DC = DC(httpMessageTask.getUrl());
-        if (DC != null && this.gMk != null) {
+        if (DC != null && this.gMv != null) {
             if (httpMessage.getExtra() instanceof NetMessage) {
                 NetMessage netMessage = (NetMessage) httpMessage.getExtra();
                 if (netMessage.getSocketMessage() == null) {
                     json = "";
                 } else {
-                    json = this.gMm.toJson(netMessage.getSocketMessage().getData());
+                    json = this.gMx.toJson(netMessage.getSocketMessage().getData());
                 }
             } else {
-                json = this.gMm.toJson(httpMessage.getParams());
+                json = this.gMx.toJson(httpMessage.getParams());
             }
-            this.gMk.an(httpMessageTask.getUrl(), this.gMm.toJson(DC), this.gMm.toJson(json));
+            this.gMv.an(httpMessageTask.getUrl(), this.gMx.toJson(DC), this.gMx.toJson(json));
         }
         return httpMessage;
     }
@@ -45,17 +45,17 @@ public class a extends d {
             str = str.split("[?]")[0];
         }
         String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-        if (this.gMl != null) {
-            return this.gMl.get(replace);
+        if (this.gMw != null) {
+            return this.gMw.get(replace);
         }
         return null;
     }
 
     public void H(HashMap<String, String> hashMap) {
-        this.gMl = hashMap;
+        this.gMw = hashMap;
     }
 
     public void a(com.baidu.tieba.easterEgg.d dVar) {
-        this.gMk = dVar;
+        this.gMv = dVar;
     }
 }

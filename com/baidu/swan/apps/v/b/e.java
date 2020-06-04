@@ -135,7 +135,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.v.b.
         return -1;
     }
 
-    public SelfT fA(int i) {
+    public SelfT fC(int i) {
         return (SelfT) M("appFrameOrientation", i);
     }
 
@@ -278,7 +278,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.v.b.
         return getInt("appFrameType");
     }
 
-    public SelfT fB(int i) {
+    public SelfT fD(int i) {
         return (SelfT) M("appFrameType", i);
     }
 
@@ -294,12 +294,12 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.v.b.
         return getInt("launchFlags", 0);
     }
 
-    public SelfT fC(int i) {
+    public SelfT fE(int i) {
         return (SelfT) M("launchFlags", i);
     }
 
-    public SelfT fD(int i) {
-        return fC(agX() | i);
+    public SelfT fF(int i) {
+        return fE(agX() | i);
     }
 
     public long agE() {

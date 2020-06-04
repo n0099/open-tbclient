@@ -76,7 +76,7 @@ public class j extends aa {
             jSONObject.put("width", i2);
             jSONObject.put("height", i3);
             jSONObject.put("path", str2);
-            jSONObject.put("orientation", gL(i));
+            jSONObject.put("orientation", gN(i));
             jSONObject.put("type", str4);
         } catch (JSONException e) {
             com.baidu.swan.apps.console.c.e("getImageInfo", "getImgInfo failed by json exception");
@@ -88,7 +88,7 @@ public class j extends aa {
         return jSONObject;
     }
 
-    private String gL(int i) {
+    private String gN(int i) {
         switch (i) {
             case 0:
             case 1:

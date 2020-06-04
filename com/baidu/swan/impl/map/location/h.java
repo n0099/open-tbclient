@@ -49,7 +49,7 @@ public class h {
                 super.onAnimationEnd(animator);
                 animator.removeAllListeners();
                 if (!z) {
-                    h.this.iH(i);
+                    h.this.iJ(i);
                 }
                 if (h.this.dhw != null) {
                     h.this.dhw.fX(z);
@@ -57,12 +57,12 @@ public class h {
             }
         });
         if (z) {
-            iH(i);
+            iJ(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iH(int i) {
+    public void iJ(int i) {
         ViewGroup.LayoutParams layoutParams = this.mListContainer.getLayoutParams();
         layoutParams.height = this.mListContainer.getHeight() - (i * 2);
         this.mListContainer.setLayoutParams(layoutParams);

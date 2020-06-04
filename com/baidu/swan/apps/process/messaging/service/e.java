@@ -126,7 +126,7 @@ public final class e {
         }
     }
 
-    public synchronized c ge(int i) {
+    public synchronized c gg(int i) {
         return a(SwanAppProcessInfo.indexOf(i));
     }
 

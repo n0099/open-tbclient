@@ -10,11 +10,11 @@ public interface a {
 
     /* renamed from: master.flame.danmaku.danmaku.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0883a {
+    public interface InterfaceC0884a {
         void i(d dVar);
     }
 
-    void a(InterfaceC0883a interfaceC0883a);
+    void a(InterfaceC0884a interfaceC0884a);
 
     void a(k kVar);
 
@@ -22,118 +22,118 @@ public interface a {
 
     void clear();
 
-    void dOe();
+    void dOs();
 
     void release();
 
-    void xb(boolean z);
+    void xd(boolean z);
 
-    void xc(boolean z);
+    void xe(boolean z);
 
     /* loaded from: classes5.dex */
     public static class b {
         public long beginTime;
         public long endTime;
-        public long fsD;
-        public boolean nyZ;
-        public int nza;
-        public int nzb;
-        public d nzc;
-        public int nzd;
-        public int nze;
-        public int nzf;
-        public int nzg;
-        public int nzh;
-        public int nzi;
-        public int nzj;
-        public long nzk;
-        public boolean nzl;
-        public long nzm;
-        public long nzn;
-        private boolean nzp;
-        public f nvc = new f();
-        private l nzo = new master.flame.danmaku.danmaku.model.android.d(4);
+        public long fsO;
+        public boolean nAj;
+        public int nAk;
+        public int nAl;
+        public d nAm;
+        public int nAn;
+        public int nAo;
+        public int nAp;
+        public int nAq;
+        public int nAr;
+        public int nAs;
+        public int nAt;
+        public long nAu;
+        public boolean nAv;
+        public long nAw;
+        public long nAx;
+        private boolean nAz;
+        public f nwm = new f();
+        private l nAy = new master.flame.danmaku.danmaku.model.android.d(4);
 
-        public int JY(int i) {
-            this.nzi += i;
-            return this.nzi;
+        public int Ka(int i) {
+            this.nAs += i;
+            return this.nAs;
         }
 
         public int dS(int i, int i2) {
             switch (i) {
                 case 1:
-                    this.nzd += i2;
-                    return this.nzd;
+                    this.nAn += i2;
+                    return this.nAn;
                 case 2:
                 case 3:
                 default:
                     return 0;
                 case 4:
-                    this.nzg += i2;
-                    return this.nzg;
+                    this.nAq += i2;
+                    return this.nAq;
                 case 5:
-                    this.nzf += i2;
-                    return this.nzf;
+                    this.nAp += i2;
+                    return this.nAp;
                 case 6:
-                    this.nze += i2;
-                    return this.nze;
+                    this.nAo += i2;
+                    return this.nAo;
                 case 7:
-                    this.nzh += i2;
-                    return this.nzh;
+                    this.nAr += i2;
+                    return this.nAr;
             }
         }
 
         public void reset() {
-            this.nzj = this.nzi;
-            this.nzi = 0;
-            this.nzh = 0;
-            this.nzg = 0;
-            this.nzf = 0;
-            this.nze = 0;
-            this.nzd = 0;
-            this.nzk = 0L;
+            this.nAt = this.nAs;
+            this.nAs = 0;
+            this.nAr = 0;
+            this.nAq = 0;
+            this.nAp = 0;
+            this.nAo = 0;
+            this.nAn = 0;
+            this.nAu = 0L;
             this.endTime = 0L;
             this.beginTime = 0L;
-            this.fsD = 0L;
-            this.nzl = false;
+            this.fsO = 0L;
+            this.nAv = false;
             synchronized (this) {
-                this.nzo.clear();
+                this.nAy.clear();
             }
         }
 
         public void b(b bVar) {
             if (bVar != null) {
-                this.nzj = bVar.nzj;
-                this.nzd = bVar.nzd;
-                this.nze = bVar.nze;
-                this.nzf = bVar.nzf;
-                this.nzg = bVar.nzg;
-                this.nzh = bVar.nzh;
-                this.nzi = bVar.nzi;
-                this.nzk = bVar.nzk;
+                this.nAt = bVar.nAt;
+                this.nAn = bVar.nAn;
+                this.nAo = bVar.nAo;
+                this.nAp = bVar.nAp;
+                this.nAq = bVar.nAq;
+                this.nAr = bVar.nAr;
+                this.nAs = bVar.nAs;
+                this.nAu = bVar.nAu;
                 this.beginTime = bVar.beginTime;
                 this.endTime = bVar.endTime;
-                this.nzl = bVar.nzl;
-                this.fsD = bVar.fsD;
-                this.nzm = bVar.nzm;
-                this.nzn = bVar.nzn;
+                this.nAv = bVar.nAv;
+                this.fsO = bVar.fsO;
+                this.nAw = bVar.nAw;
+                this.nAx = bVar.nAx;
             }
         }
 
         public void v(d dVar) {
-            if (!this.nzp) {
-                this.nzo.k(dVar);
+            if (!this.nAz) {
+                this.nAy.k(dVar);
             }
         }
 
-        public l dOf() {
+        public l dOt() {
             l lVar;
-            this.nzp = true;
+            this.nAz = true;
             synchronized (this) {
-                lVar = this.nzo;
-                this.nzo = new master.flame.danmaku.danmaku.model.android.d(4);
+                lVar = this.nAy;
+                this.nAy = new master.flame.danmaku.danmaku.model.android.d(4);
             }
-            this.nzp = false;
+            this.nAz = false;
             return lVar;
         }
     }

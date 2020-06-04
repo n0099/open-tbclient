@@ -46,9 +46,9 @@ public class a extends k {
             if (DEBUG) {
                 Log.d("SwanGameUpdateCoreCallback", "小游戏GameCore解压成功");
             }
-            long hq = com.baidu.swan.apps.swancore.d.a.hq(1);
-            if (hq > 0) {
-                SwanAppMessengerService.sendMessageWithDataToAllClient(117, hq);
+            long hs = com.baidu.swan.apps.swancore.d.a.hs(1);
+            if (hs > 0) {
+                SwanAppMessengerService.sendMessageWithDataToAllClient(117, hs);
             }
             return null;
         }

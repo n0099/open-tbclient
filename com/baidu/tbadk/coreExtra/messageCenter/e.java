@@ -119,7 +119,7 @@ public class e implements a {
     @Override // com.baidu.tbadk.coreExtra.messageCenter.a
     public void a(final TbPageContext tbPageContext, final ViewGroup viewGroup) {
         final Activity pageActivity;
-        if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null && g.isActivityCanShowDialogOrPopupWindow(pageActivity) && !d.aZS().isSignAlertOn() && com.baidu.tbadk.core.sharedPref.b.aTX().getInt("sign_time_set_dialog", 0) <= 0) {
+        if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null && g.isActivityCanShowDialogOrPopupWindow(pageActivity) && !d.aZT().isSignAlertOn() && com.baidu.tbadk.core.sharedPref.b.aTX().getInt("sign_time_set_dialog", 0) <= 0) {
             a(tbPageContext, new com.baidu.tbadk.widget.timepicker.a.d.e() { // from class: com.baidu.tbadk.coreExtra.messageCenter.e.1
                 @Override // com.baidu.tbadk.widget.timepicker.a.d.e
                 public void a(Date date, View view) {
@@ -137,7 +137,7 @@ public class e implements a {
                             return;
                         }
                         e.this.setSignAlertOn(true);
-                        d.aZS().setSignAlertTime(date.getHours(), date.getMinutes());
+                        d.aZT().setSignAlertTime(date.getHours(), date.getMinutes());
                         e.this.a(pageActivity, viewGroup);
                     }
                 }
@@ -153,8 +153,8 @@ public class e implements a {
             return null;
         }
         Calendar calendar = Calendar.getInstance();
-        int signAlertHours = d.aZS().getSignAlertHours();
-        int signAlertMins = d.aZS().getSignAlertMins();
+        int signAlertHours = d.aZT().getSignAlertHours();
+        int signAlertMins = d.aZT().getSignAlertMins();
         if (signAlertHours > 0 && signAlertMins > 0) {
             calendar.set(calendar.get(1), calendar.get(2), calendar.get(5), signAlertHours, signAlertMins);
         } else {
@@ -190,7 +190,7 @@ public class e implements a {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         if (e.this.edD != null) {
-                            e.this.edD.bjx();
+                            e.this.edD.bjz();
                             e.this.edD.dismiss();
                         }
                         an anVar = new an("c13250");
@@ -210,7 +210,7 @@ public class e implements a {
                     }
                 });
             }
-        }).ov(18).a(new boolean[]{false, false, false, true, true, false}).b("年", "月", "日", "时", "分", "秒").ac(2.0f).g(0, 0, 0, 0, 0, 0).iL(false).ow(am.getColor(R.color.cp_bg_line_c)).oy(am.getColor(R.color.cp_cont_b)).oz(am.getColor(R.color.cp_cont_d)).ox(am.getColor(R.color.black_alpha30)).ou(am.getColor(R.color.cp_bg_line_k)).bjp();
+        }).ox(18).a(new boolean[]{false, false, false, true, true, false}).b("年", "月", "日", "时", "分", "秒").ac(2.0f).g(0, 0, 0, 0, 0, 0).iL(false).oy(am.getColor(R.color.cp_bg_line_c)).oA(am.getColor(R.color.cp_cont_b)).oB(am.getColor(R.color.cp_cont_d)).oz(am.getColor(R.color.black_alpha30)).ow(am.getColor(R.color.cp_bg_line_k)).bjr();
         this.edD.show();
         an anVar = new an("c13249");
         anVar.dh("uid", TbadkCoreApplication.getCurrentAccount());

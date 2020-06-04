@@ -92,7 +92,7 @@ public class c extends a {
         am.setViewTextColor(this.aND, R.color.cp_cont_j, 1, skinType);
         am.setBackgroundColor(this.attachedView, R.color.cp_bg_line_d);
         if (this.epB != null) {
-            this.epB.aWq();
+            this.epB.aWr();
         }
     }
 
@@ -100,7 +100,7 @@ public class c extends a {
         return this.attachedView;
     }
 
-    public void ns(int i) {
+    public void nu(int i) {
         if (this.epD <= 0) {
             this.epD = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
         }
@@ -109,7 +109,7 @@ public class c extends a {
                 this.epz.post(new Runnable() { // from class: com.baidu.tbadk.k.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.ns(-1);
+                        c.this.nu(-1);
                     }
                 });
             }

@@ -8,21 +8,21 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static a hoX;
-    private FrsLinkHashMap<String, Long> hoY;
+    private static a hpi;
+    private FrsLinkHashMap<String, Long> hpj;
 
     private a() {
     }
 
-    public static a bVF() {
-        if (hoX == null) {
+    public static a bVH() {
+        if (hpi == null) {
             synchronized (a.class) {
-                if (hoX == null) {
-                    hoX = new a();
+                if (hpi == null) {
+                    hpi = new a();
                 }
             }
         }
-        return hoX;
+        return hpi;
     }
 
     private void B(String str, long j) {
@@ -36,7 +36,7 @@ public class a {
                 if (da != null) {
                     String str2 = da.get("hot_topic_key");
                     if (!StringUtils.isNull(str2) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str2, FrsHotTopicListData.class)) != null) {
-                        a.this.hoY = frsHotTopicListData.mSceneMap;
+                        a.this.hpj = frsHotTopicListData.mSceneMap;
                     }
                 }
                 return null;
@@ -48,14 +48,14 @@ public class a {
 
     public boolean C(String str, long j) {
         boolean z;
-        if (this.hoY == null) {
-            this.hoY = new FrsLinkHashMap<>();
+        if (this.hpj == null) {
+            this.hpj = new FrsLinkHashMap<>();
             B(str, j);
         }
-        if (StringUtils.isNull(str) || this.hoY.isEmpty()) {
+        if (StringUtils.isNull(str) || this.hpj.isEmpty()) {
             return false;
         }
-        Iterator<Map.Entry<String, Long>> it = this.hoY.entrySet().iterator();
+        Iterator<Map.Entry<String, Long>> it = this.hpj.entrySet().iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -67,15 +67,15 @@ public class a {
                 break;
             }
         }
-        if (z && this.hoY.get(str).longValue() == j) {
+        if (z && this.hpj.get(str).longValue() == j) {
             return false;
         }
-        this.hoY.put(str, Long.valueOf(j));
-        bVG();
+        this.hpj.put(str, Long.valueOf(j));
+        bVI();
         return true;
     }
 
-    private void bVG() {
+    private void bVI() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.frs.FrsHotTopic.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -84,7 +84,7 @@ public class a {
                 l<String> da = com.baidu.tbadk.core.c.a.aSS().da("tb.frs_hottopic", "");
                 if (da != null) {
                     FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
-                    frsHotTopicListData.mSceneMap = a.this.hoY;
+                    frsHotTopicListData.mSceneMap = a.this.hpj;
                     String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
                     if (!StringUtils.isNull(jsonStrWithObject)) {
                         da.setForever("hot_topic_key", jsonStrWithObject);

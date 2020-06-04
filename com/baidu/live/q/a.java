@@ -8,7 +8,7 @@ public interface a {
 
     void b(ViewGroup.LayoutParams layoutParams);
 
-    void cs(int i);
+    void cu(int i);
 
     boolean m(q qVar);
 

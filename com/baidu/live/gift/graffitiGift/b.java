@@ -79,7 +79,7 @@ public class b {
             this.aMd = i + 1;
             PointF pointF = list.get(i);
             TbImageView tbImageView = new TbImageView(this.aMc.getContext());
-            tbImageView.startLoad(ck(this.aMd - 1), 10, false);
+            tbImageView.startLoad(cm(this.aMd - 1), 10, false);
             tbImageView.setDefaultBgResource(a.d.sdk_transparent);
             tbImageView.setIsNight(false);
             tbImageView.setAutoChangeStyle(false);
@@ -100,7 +100,7 @@ public class b {
         this.mHandler.postDelayed(this.aMh, 2000L);
     }
 
-    private String ck(int i) {
+    private String cm(int i) {
         if (Aq()) {
             if (this.aMa != null && this.aMa.aFw != null) {
                 int i2 = 0;
@@ -195,7 +195,7 @@ public class b {
             tbImageView.setIsNight(false);
             tbImageView.setAutoChangeStyle(false);
             tbImageView.setDefaultBgResource(a.d.sdk_transparent);
-            tbImageView.startLoad(ck(i), 10, false);
+            tbImageView.startLoad(cm(i), 10, false);
             ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(tbImageView, ofKeyframe);
             ofPropertyValuesHolder.setRepeatMode(1);
             ofPropertyValuesHolder.setRepeatCount(-1);

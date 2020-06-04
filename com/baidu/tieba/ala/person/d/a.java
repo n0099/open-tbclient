@@ -21,7 +21,7 @@ public class a {
         personUserData.user_info.user_nickname = bVar.name_show;
         personUserData.user_info.description = bVar.intro;
         personUserData.user_info.portrait = bVar.portrait;
-        personUserData.relation_info.follow_status = bVar.fEB;
+        personUserData.relation_info.follow_status = bVar.fEM;
         return personUserData;
     }
 

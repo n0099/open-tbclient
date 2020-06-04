@@ -8,31 +8,31 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class m extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c> {
-    private k ffg;
-    private k ffh;
-    private k ffi;
+    private k ffr;
+    private k ffs;
+    private k fft;
     ViewGroup rootView;
 
     public m(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.ffg = new k(tbPageContext);
-        this.ffh = new k(tbPageContext);
-        this.ffi = new k(tbPageContext);
+        this.ffr = new k(tbPageContext);
+        this.ffs = new k(tbPageContext);
+        this.fft = new k(tbPageContext);
         this.rootView = (ViewGroup) getView();
         new View(getContext());
         this.rootView.setPadding(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
-        this.rootView.addView(this.ffg.getView());
-        this.rootView.addView(this.ffh.getView());
-        this.rootView.addView(this.ffi.getView());
+        this.rootView.addView(this.ffr.getView());
+        this.rootView.addView(this.ffs.getView());
+        this.rootView.addView(this.fft.getView());
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         am.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-        this.ffg.onChangeSkinType(tbPageContext, i);
-        this.ffh.onChangeSkinType(tbPageContext, i);
-        this.ffi.onChangeSkinType(tbPageContext, i);
+        this.ffr.onChangeSkinType(tbPageContext, i);
+        this.ffs.onChangeSkinType(tbPageContext, i);
+        this.fft.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -44,9 +44,9 @@ public class m extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c cVar) {
         if (cVar != null) {
-            this.ffg.b(cVar.fcN);
-            this.ffh.b(cVar.fea);
-            this.ffi.b(cVar.fcO);
+            this.ffr.b(cVar.fcY);
+            this.ffs.b(cVar.fel);
+            this.fft.b(cVar.fcZ);
         }
     }
 
@@ -55,8 +55,8 @@ public class m extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     }
 
     public void a(o oVar) {
-        this.ffg.a(oVar);
-        this.ffh.a(oVar);
-        this.ffi.a(oVar);
+        this.ffr.a(oVar);
+        this.ffs.a(oVar);
+        this.fft.a(oVar);
     }
 }

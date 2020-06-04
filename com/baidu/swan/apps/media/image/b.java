@@ -48,7 +48,7 @@ public final class b {
         this.tile = true;
     }
 
-    public static b fQ(int i) {
+    public static b fS(int i) {
         return new b(i);
     }
 

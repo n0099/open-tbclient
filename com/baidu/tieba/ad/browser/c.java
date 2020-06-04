@@ -50,9 +50,9 @@ public class c {
     private View.OnClickListener dyx;
     private View dyy;
     private MorePopupWindow dyz;
-    private AdBaseWebViewActivity eNU;
-    private int eNV;
-    private int eNW;
+    private AdBaseWebViewActivity eOf;
+    private int eOg;
+    private int eOh;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     protected View mRoot = null;
@@ -60,43 +60,43 @@ public class c {
     private boolean dyD = true;
 
     public c(AdBaseWebViewActivity adBaseWebViewActivity) {
-        this.eNU = adBaseWebViewActivity;
+        this.eOf = adBaseWebViewActivity;
         initUI();
     }
 
     private void initUI() {
-        this.eNU.setContentView(R.layout.base_webview_activity);
-        this.mRoot = this.eNU.findViewById(R.id.root_view);
-        this.mNavigationBar = (NavigationBar) this.eNU.findViewById(R.id.view_navigation_bar);
+        this.eOf.setContentView(R.layout.base_webview_activity);
+        this.mRoot = this.eOf.findViewById(R.id.root_view);
+        this.mNavigationBar = (NavigationBar) this.eOf.findViewById(R.id.view_navigation_bar);
         vl("");
-        this.dyu = (LinearLayout) this.eNU.findViewById(R.id.webview_container);
+        this.dyu = (LinearLayout) this.eOf.findViewById(R.id.webview_container);
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dyu.getLayoutParams();
         layoutParams.addRule(3, R.id.view_navigation_bar);
         this.dyu.setLayoutParams(layoutParams);
-        this.dyv = (TextView) this.eNU.findViewById(R.id.webview_crash_tip);
-        this.mProgressBar = (ProgressBar) this.eNU.findViewById(R.id.webview_progress);
+        this.dyv = (TextView) this.eOf.findViewById(R.id.webview_crash_tip);
+        this.mProgressBar = (ProgressBar) this.eOf.findViewById(R.id.webview_progress);
         this.dyp = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.widget_nb_item_back, new View.OnClickListener() { // from class: com.baidu.tieba.ad.browser.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.eNU != null && !c.this.eNU.webViewGoBack()) {
-                    c.this.eNU.finish();
+                if (c.this.eOf != null && !c.this.eOf.webViewGoBack()) {
+                    c.this.eOf.finish();
                 }
             }
         });
         this.dyq = (ImageView) this.dyp.findViewById(R.id.widget_navi_back_button);
-        this.dyq.setContentDescription(this.eNU.getResources().getString(R.string.back));
+        this.dyq.setContentDescription(this.eOf.getResources().getString(R.string.back));
         this.dyr = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.widget_nb_item_finish, new View.OnClickListener() { // from class: com.baidu.tieba.ad.browser.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.eNU != null) {
-                    c.this.eNU.finish();
+                if (c.this.eOf != null) {
+                    c.this.eOf.finish();
                 }
             }
         });
         this.dys = (ImageView) this.dyr.findViewById(R.id.widget_navi_back_button);
-        this.dys.setContentDescription(this.eNU.getResources().getString(R.string.close));
+        this.dys.setContentDescription(this.eOf.getResources().getString(R.string.close));
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.dys.getLayoutParams();
-        layoutParams2.leftMargin = l.getDimens(this.eNU.getPageContext().getPageActivity(), R.dimen.ds4);
+        layoutParams2.leftMargin = l.getDimens(this.eOf.getPageContext().getPageActivity(), R.dimen.ds4);
         this.dys.setLayoutParams(layoutParams2);
         this.dyy = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_more, new View.OnClickListener() { // from class: com.baidu.tieba.ad.browser.c.3
             @Override // android.view.View.OnClickListener
@@ -105,8 +105,8 @@ public class c {
             }
         });
         this.aex = (ImageView) this.dyy.findViewById(R.id.widget_navi_more_button);
-        View inflate = LayoutInflater.from(this.eNU.getPageContext().getPageActivity()).inflate(R.layout.tb_webview_pop_more, (ViewGroup) null);
-        this.dyz = new MorePopupWindow(this.eNU.getPageContext().getPageActivity(), inflate, this.mNavigationBar, this.eNU.getPageContext().getResources().getDrawable(R.drawable.bg_pull_down_right_n), new KeyEventDealContainerView.a() { // from class: com.baidu.tieba.ad.browser.c.4
+        View inflate = LayoutInflater.from(this.eOf.getPageContext().getPageActivity()).inflate(R.layout.tb_webview_pop_more, (ViewGroup) null);
+        this.dyz = new MorePopupWindow(this.eOf.getPageContext().getPageActivity(), inflate, this.mNavigationBar, this.eOf.getPageContext().getResources().getDrawable(R.drawable.bg_pull_down_right_n), new KeyEventDealContainerView.a() { // from class: com.baidu.tieba.ad.browser.c.4
             @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
             public void aNK() {
                 c.this.aDZ();
@@ -117,26 +117,26 @@ public class c {
             }
         });
         this.dyA = inflate.findViewById(R.id.webview_more_pop_item_share_friend_layout);
-        this.dyA.setOnClickListener(this.eNU);
-        if (com.baidu.tbadk.coreExtra.share.f.dM(this.eNU.getPageContext().getPageActivity())) {
+        this.dyA.setOnClickListener(this.eOf);
+        if (com.baidu.tbadk.coreExtra.share.f.dM(this.eOf.getPageContext().getPageActivity())) {
             this.dyA.setVisibility(0);
         } else {
             this.dyA.setVisibility(8);
         }
         this.dyz.refresh();
         this.dyC = inflate.findViewById(R.id.webview_more_pop_item_open_browser_layout);
-        this.dyC.setOnClickListener(this.eNU);
+        this.dyC.setOnClickListener(this.eOf);
         this.dyB = inflate.findViewById(R.id.webview_more_pop_item_copy_link_layout);
-        this.dyB.setOnClickListener(this.eNU);
-        bmv();
+        this.dyB.setOnClickListener(this.eOf);
+        bmx();
     }
 
-    private void bmv() {
+    private void bmx() {
         int statusBarHeight = UtilHelper.getStatusBarHeight();
-        int dimens = l.getDimens(this.eNU.getPageContext().getPageActivity(), R.dimen.ds98);
-        int i = l.getScreenSize(this.eNU.getPageContext().getPageActivity()).heightPixels;
-        this.eNV = (i - statusBarHeight) - dimens;
-        this.eNW = i - statusBarHeight;
+        int dimens = l.getDimens(this.eOf.getPageContext().getPageActivity(), R.dimen.ds98);
+        int i = l.getScreenSize(this.eOf.getPageContext().getPageActivity()).heightPixels;
+        this.eOg = (i - statusBarHeight) - dimens;
+        this.eOh = i - statusBarHeight;
     }
 
     public boolean aND() {
@@ -145,7 +145,7 @@ public class c {
 
     public boolean aNF() {
         try {
-            this.dyu.addView(this.eNU.createWebView());
+            this.dyu.addView(this.eOf.createWebView());
             this.dyv.setVisibility(8);
             if (!this.dyD) {
                 this.mNavigationBar.setStatusBarVisibility(8);
@@ -160,11 +160,11 @@ public class c {
 
     public void setNavBarVisibility(boolean z) {
         if (z) {
-            this.dyu.getLayoutParams().height = this.eNV;
+            this.dyu.getLayoutParams().height = this.eOg;
             this.mNavigationBar.setVisibility(0);
             return;
         }
-        this.dyu.getLayoutParams().height = this.eNW;
+        this.dyu.getLayoutParams().height = this.eOh;
         this.mNavigationBar.setVisibility(8);
     }
 
@@ -194,7 +194,7 @@ public class c {
     }
 
     public void aEa() {
-        g.dismissPopupWindow(this.dyz, this.eNU.getPageContext().getPageActivity());
+        g.dismissPopupWindow(this.dyz, this.eOf.getPageContext().getPageActivity());
     }
 
     public void showProgressBar() {
@@ -212,19 +212,19 @@ public class c {
     public void vl(String str) {
         this.dyo = this.mNavigationBar.setCenterTextTitle(str);
         if (this.dyq != null && this.dyq.getVisibility() == 0 && this.dys != null && this.dys.getVisibility() == 0) {
-            this.dyo.setMaxWidth(l.getDimens(this.eNU.getPageContext().getPageActivity(), R.dimen.ds152) * 2);
+            this.dyo.setMaxWidth(l.getDimens(this.eOf.getPageContext().getPageActivity(), R.dimen.ds152) * 2);
         }
         am.setNavbarTitleColor(this.dyo, R.color.cp_cont_b, R.color.s_navbar_title_color);
     }
 
     public void a(ShareItem shareItem) {
         if (shareItem != null) {
-            TiebaStatic.eventStat(this.eNU.getPageContext().getPageActivity(), TbConfig.TMP_SHARE_DIR_NAME, "click", 1, new Object[0]);
+            TiebaStatic.eventStat(this.eOf.getPageContext().getPageActivity(), TbConfig.TMP_SHARE_DIR_NAME, "click", 1, new Object[0]);
             an anVar = new an(TbadkCoreStatisticKey.WEBVIEW_SHARE);
             anVar.dh(TiebaInitialize.Params.OBJ_URL, shareItem.linkUrl);
             anVar.ag("obj_type", 0);
             TiebaStatic.log(anVar);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig((Context) this.eNU.getPageContext().getPageActivity(), shareItem, true, aNI())));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig((Context) this.eOf.getPageContext().getPageActivity(), shareItem, true, aNI())));
         }
     }
 
@@ -244,13 +244,13 @@ public class c {
 
     public void onChangeSkinType(int i) {
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.eNU.getPageContext(), i);
+            this.mNavigationBar.onChangeSkinType(this.eOf.getPageContext(), i);
         }
         if (this.dyz != null) {
-            this.dyz.onChangeSkinType(this.eNU, i, am.getDrawable(R.drawable.bg_pull_down_right_n));
+            this.dyz.onChangeSkinType(this.eOf, i, am.getDrawable(R.drawable.bg_pull_down_right_n));
         }
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.eNU.getPageContext(), i);
+            this.mNoDataView.onChangeSkinType(this.eOf.getPageContext(), i);
         }
         am.setNavbarIconSrc(this.dyq, R.drawable.selector_web_topbar_return_black, R.drawable.selector_web_topbar_return_white, i);
         am.setNavbarIconSrc(this.dys, R.drawable.selector_web_topbar_close_black, R.drawable.selector_web_topbar_close_white, i);
@@ -266,9 +266,9 @@ public class c {
 
     public void showNoDataView() {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.eNU.getPageContext().getPageActivity(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.WEBVIEW, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)), NoDataViewFactory.d.dj(null, this.eNU.getPageContext().getString(R.string.url_not_found)), NoDataViewFactory.b.a(new NoDataViewFactory.a(this.eNU.getResources().getString(R.string.refresh), this.dyx)));
+            this.mNoDataView = NoDataViewFactory.a(this.eOf.getPageContext().getPageActivity(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.WEBVIEW, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)), NoDataViewFactory.d.dj(null, this.eOf.getPageContext().getString(R.string.url_not_found)), NoDataViewFactory.b.a(new NoDataViewFactory.a(this.eOf.getResources().getString(R.string.refresh), this.dyx)));
         }
-        this.mNoDataView.onChangeSkinType(this.eNU.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.mNoDataView.onChangeSkinType(this.eOf.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.dyu.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
@@ -285,7 +285,7 @@ public class c {
             this.mNavigationBar.release();
         }
         if (this.dyz != null) {
-            g.dismissPopupWindow(this.dyz, this.eNU.getPageContext().getPageActivity());
+            g.dismissPopupWindow(this.dyz, this.eOf.getPageContext().getPageActivity());
         }
     }
 
@@ -300,7 +300,7 @@ public class c {
         am.setBackgroundResource(this.dys, R.drawable.frs_star_navigation_bg);
         am.setBackgroundResource(this.aex, R.drawable.frs_star_navigation_bg);
         vl("");
-        this.eNU.getWindow().setFlags(1024, 1024);
+        this.eOf.getWindow().setFlags(1024, 1024);
     }
 
     public void aNJ() {
@@ -311,7 +311,7 @@ public class c {
         this.dys.setBackgroundDrawable(null);
         this.aex.setBackgroundDrawable(null);
         this.mNavigationBar.showBottomLine(true);
-        this.eNU.getWindow().clearFlags(1024);
+        this.eOf.getWindow().clearFlags(1024);
     }
 
     public void gI(boolean z) {

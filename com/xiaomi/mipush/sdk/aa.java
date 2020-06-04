@@ -20,7 +20,7 @@ final class aa implements Runnable {
         try {
             this.a.startService(this.f37a);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m52a(e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m51a(e.getMessage());
         }
     }
 }

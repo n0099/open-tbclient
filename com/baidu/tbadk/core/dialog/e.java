@@ -45,7 +45,7 @@ public class e {
         return this;
     }
 
-    public e kK(int i) {
+    public e kM(int i) {
         return vQ(this.dIF.getResources().getString(i));
     }
 

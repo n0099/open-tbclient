@@ -9,37 +9,37 @@ import java.util.List;
 public class a {
     private AntiData eaU;
     private String forumId;
-    private final ArrayList<bk> hlY;
-    private boolean hlZ;
-    private b hma;
-    private boolean hmb;
+    private final ArrayList<bk> hmj;
+    private boolean hmk;
+    private b hml;
+    private boolean hmm;
 
     /* loaded from: classes.dex */
     public interface b {
         void M(boolean z, boolean z2);
 
-        void bUd();
+        void bUf();
 
-        void tD(int i);
+        void tF(int i);
     }
 
     private a() {
-        this.hlZ = false;
-        this.hlY = new ArrayList<>();
+        this.hmk = false;
+        this.hmj = new ArrayList<>();
     }
 
-    public static a bTX() {
-        return C0611a.hmc;
+    public static a bTZ() {
+        return C0611a.hmn;
     }
 
-    public boolean bTY() {
-        return this.hlZ;
+    public boolean bUa() {
+        return this.hmk;
     }
 
     public void L(boolean z, boolean z2) {
-        this.hlZ = z;
-        if (this.hma != null) {
-            this.hma.M(this.hlZ, z2);
+        this.hmk = z;
+        if (this.hml != null) {
+            this.hml.M(this.hmk, z2);
         }
     }
 
@@ -47,42 +47,42 @@ public class a {
         if (bkVar == null) {
             return false;
         }
-        if (this.hlY.size() > 29) {
-            if (this.hma != null) {
-                this.hma.bUd();
+        if (this.hmj.size() > 29) {
+            if (this.hml != null) {
+                this.hml.bUf();
                 return false;
             }
             return false;
         }
-        this.hlY.add(bkVar);
-        if (this.hma != null) {
-            this.hma.tD(this.hlY.size());
+        this.hmj.add(bkVar);
+        if (this.hml != null) {
+            this.hml.tF(this.hmj.size());
         }
         return true;
     }
 
-    public List<bk> bTZ() {
-        return this.hlY;
+    public List<bk> bUb() {
+        return this.hmj;
     }
 
     public void am(bk bkVar) {
-        this.hlY.remove(bkVar);
-        if (this.hma != null) {
-            this.hma.tD(this.hlY.size());
+        this.hmj.remove(bkVar);
+        if (this.hml != null) {
+            this.hml.tF(this.hmj.size());
         }
     }
 
     public void clearData() {
-        Iterator<bk> it = this.hlY.iterator();
+        Iterator<bk> it = this.hmj.iterator();
         while (it.hasNext()) {
             bk next = it.next();
             if (next != null) {
                 next.gS(false);
             }
         }
-        this.hlY.clear();
-        if (this.hma != null) {
-            this.hma.tD(0);
+        this.hmj.clear();
+        if (this.hml != null) {
+            this.hml.tF(0);
         }
     }
 
@@ -92,17 +92,17 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.hma = bVar;
+        this.hml = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0611a {
-        private static a hmc = new a();
+        private static a hmn = new a();
     }
 
-    public AntiData bUa() {
+    public AntiData bUc() {
         return this.eaU;
     }
 
@@ -119,12 +119,12 @@ public class a {
     }
 
     public void mG(boolean z) {
-        this.hmb = z;
+        this.hmm = z;
     }
 
     public void cl(List<String> list) {
-        if (!com.baidu.tbadk.core.util.v.isEmpty(list) && !com.baidu.tbadk.core.util.v.isEmpty(this.hlY)) {
-            Iterator<bk> it = this.hlY.iterator();
+        if (!com.baidu.tbadk.core.util.v.isEmpty(list) && !com.baidu.tbadk.core.util.v.isEmpty(this.hmj)) {
+            Iterator<bk> it = this.hmj.iterator();
             while (it.hasNext()) {
                 bk next = it.next();
                 int i = 0;
@@ -140,13 +140,13 @@ public class a {
                     }
                 }
             }
-            if (this.hma != null) {
-                this.hma.tD(this.hlY.size());
+            if (this.hml != null) {
+                this.hml.tF(this.hmj.size());
             }
         }
     }
 
-    public boolean bUb() {
-        return this.eaU != null && this.eaU.isMultiDeleteEnable() && this.hmb;
+    public boolean bUd() {
+        return this.eaU != null && this.eaU.isMultiDeleteEnable() && this.hmm;
     }
 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /* loaded from: classes10.dex */
 public abstract class b extends BaseAdapter {
     protected ArrayList<UserData> dJp = null;
-    boolean fED = false;
+    boolean fEO = false;
     private boolean mHasMore = false;
 
     public abstract void a(av avVar);
@@ -18,10 +18,10 @@ public abstract class b extends BaseAdapter {
         this.dJp.clear();
     }
 
-    public void bvW() {
-        this.fED = false;
+    public void bvY() {
+        this.fEO = false;
         if (this.dJp != null && this.dJp.size() == 0) {
-            this.fED = true;
+            this.fEO = true;
         }
     }
 

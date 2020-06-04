@@ -221,7 +221,7 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
         HashMap hashMap4 = new HashMap();
         HashMap hashMap5 = new HashMap();
         HashMap hashMap6 = new HashMap();
-        hashMap2.put("financeURL", b.aTX().getString("cash_pay", null));
+        hashMap2.put("financeURL", b.aTX().getString("baidu_finance", null));
         hashMap2.put("personalCellText", TbadkCoreApplication.getInst().getActivityPrizeData().getPersonItemText());
         hashMap2.put("loginAwardUrl", TbadkCoreApplication.getInst().getActivityPrizeData().getH5Url());
         hashMap2.put("auditPackageSwitch", Integer.valueOf(b.aTX().getBoolean("person_center_show_lite_game", true) ? 1 : 0));
@@ -284,9 +284,9 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
     /* JADX INFO: Access modifiers changed from: private */
     public static HashMap<String, Object> readThemeData() {
         HashMap<String, Object> hashMap = new HashMap<>();
-        String aUP = am.aUP();
+        String aUQ = am.aUQ();
         HashMap hashMap2 = new HashMap();
-        hashMap.put("mode", aUP);
+        hashMap.put("mode", aUQ);
         hashMap.put("colors", hashMap2);
         HashMap hashMap3 = new HashMap();
         HashMap hashMap4 = new HashMap();

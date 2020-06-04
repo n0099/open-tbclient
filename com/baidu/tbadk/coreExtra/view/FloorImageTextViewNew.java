@@ -43,7 +43,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
     private void e(Pair<Integer, Integer> pair) {
         if (pair != null) {
             if (((Integer) pair.second).intValue() > 5) {
-                if (bbo()) {
+                if (bbp()) {
                     this.egs = egp + TOP + BOTTOM;
                 } else {
                     this.egs = ego + TOP + BOTTOM;
@@ -51,11 +51,11 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
             } else {
                 this.egs = -2;
             }
-            mL(this.egs);
+            mN(this.egs);
         }
     }
 
-    private boolean bbo() {
+    private boolean bbp() {
         float equipmentDensity = l.getEquipmentDensity(getContext());
         int equipmentHeight = l.getEquipmentHeight(getContext());
         int equipmentWidth = l.getEquipmentWidth(getContext());
@@ -83,7 +83,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 jSONArray2 = jSONArray;
                 if (imageUrlData == null && jSONArray2 != null && jSONArray2.length() > 0) {
                     setVisibility(0);
-                    com.baidu.tieba.view.c.dlQ().setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                    com.baidu.tieba.view.c.dmf().setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                     TbRichText a = TbRichTextView.a(getContext(), jSONArray2, false);
                     e(xy(a.toString()));
                     this.egq.setText(a);

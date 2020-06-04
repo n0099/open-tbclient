@@ -15,7 +15,7 @@ public interface i extends j.c, j.k {
 
     void b(boolean z, boolean z2, boolean z3);
 
-    void bE(int i);
+    void bG(int i);
 
     boolean isActive();
 

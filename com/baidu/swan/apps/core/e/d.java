@@ -51,9 +51,9 @@ public class d extends com.baidu.swan.apps.res.widget.dialog.b {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        /* renamed from: eS */
-        public a eR(int i) {
-            super.eR(i);
+        /* renamed from: eU */
+        public a eT(int i) {
+            super.eT(i);
             return this;
         }
 

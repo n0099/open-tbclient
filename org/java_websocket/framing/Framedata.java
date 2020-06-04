@@ -16,13 +16,13 @@ public interface Framedata {
 
     boolean WK();
 
-    ByteBuffer dOS();
+    ByteBuffer dPg();
 
-    boolean dOT();
+    boolean dPh();
 
-    boolean dOU();
+    boolean dPi();
 
-    boolean dOV();
+    boolean dPj();
 
-    Opcode dOW();
+    Opcode dPk();
 }

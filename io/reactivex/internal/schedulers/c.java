@@ -9,17 +9,17 @@ import java.util.concurrent.atomic.AtomicReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
 public final class c implements io.reactivex.disposables.b, Callable<Void> {
-    static final FutureTask<Void> npT = new FutureTask<>(Functions.nmz, null);
+    static final FutureTask<Void> nrd = new FutureTask<>(Functions.nnJ, null);
     final Runnable bhi;
-    final ExecutorService npS;
+    final ExecutorService nrc;
     Thread runner;
-    final AtomicReference<Future<?>> npR = new AtomicReference<>();
-    final AtomicReference<Future<?>> npQ = new AtomicReference<>();
+    final AtomicReference<Future<?>> nrb = new AtomicReference<>();
+    final AtomicReference<Future<?>> nra = new AtomicReference<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(Runnable runnable, ExecutorService executorService) {
         this.bhi = runnable;
-        this.npS = executorService;
+        this.nrc = executorService;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ public final class c implements io.reactivex.disposables.b, Callable<Void> {
         try {
             this.runner = Thread.currentThread();
             this.bhi.run();
-            b(this.npS.submit(this));
+            b(this.nrc.submit(this));
             return null;
         } finally {
             this.runner = null;
@@ -37,39 +37,39 @@ public final class c implements io.reactivex.disposables.b, Callable<Void> {
 
     @Override // io.reactivex.disposables.b
     public void dispose() {
-        Future<?> andSet = this.npR.getAndSet(npT);
-        if (andSet != null && andSet != npT) {
+        Future<?> andSet = this.nrb.getAndSet(nrd);
+        if (andSet != null && andSet != nrd) {
             andSet.cancel(this.runner != Thread.currentThread());
         }
-        Future<?> andSet2 = this.npQ.getAndSet(npT);
-        if (andSet2 != null && andSet2 != npT) {
+        Future<?> andSet2 = this.nra.getAndSet(nrd);
+        if (andSet2 != null && andSet2 != nrd) {
             andSet2.cancel(this.runner != Thread.currentThread());
         }
     }
 
     @Override // io.reactivex.disposables.b
     public boolean isDisposed() {
-        return this.npR.get() == npT;
+        return this.nrb.get() == nrd;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Future<?> future) {
         Future<?> future2;
         do {
-            future2 = this.npR.get();
-            if (future2 == npT) {
+            future2 = this.nrb.get();
+            if (future2 == nrd) {
                 future.cancel(this.runner != Thread.currentThread());
             }
-        } while (!this.npR.compareAndSet(future2, future));
+        } while (!this.nrb.compareAndSet(future2, future));
     }
 
     void b(Future<?> future) {
         Future<?> future2;
         do {
-            future2 = this.npQ.get();
-            if (future2 == npT) {
+            future2 = this.nra.get();
+            if (future2 == nrd) {
                 future.cancel(this.runner != Thread.currentThread());
             }
-        } while (!this.npQ.compareAndSet(future2, future));
+        } while (!this.nra.compareAndSet(future2, future));
     }
 }

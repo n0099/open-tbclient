@@ -13,7 +13,7 @@ import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 /* loaded from: classes9.dex */
 public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topictab.b.a, ag<com.baidu.tieba.homepage.topic.topictab.b.a>> implements com.baidu.tieba.a.f {
     private String aeX;
-    private NEGFeedBackView.a eJz;
+    private NEGFeedBackView.a eJK;
     public BdUniqueId epM;
     private TbPageContext<?> mPageContext;
 
@@ -53,7 +53,7 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         }
         TiebaStatic.log(new an("c13448").s("topic_id", aVar.topicId));
         agVar.rM().setPage(this.aeX);
-        agVar.aH(false).a(this.eJz);
+        agVar.aH(false).a(this.eJK);
         agVar.b((ag<com.baidu.tieba.homepage.topic.topictab.b.a>) aVar);
         agVar.rM().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return agVar.getView();
@@ -65,6 +65,6 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.eJz = aVar;
+        this.eJK = aVar;
     }
 }

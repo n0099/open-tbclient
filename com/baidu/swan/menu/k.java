@@ -21,7 +21,7 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static List<i> iU(int i) {
+    public static List<i> iW(int i) {
         ArrayList arrayList = new ArrayList();
         switch (i) {
             case 0:
@@ -63,7 +63,7 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static i iV(int i) {
+    public static i iX(int i) {
         return i.f(djV.get(i));
     }
 }

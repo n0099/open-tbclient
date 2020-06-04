@@ -65,7 +65,7 @@ public class d {
             }
             if (!TextUtils.isEmpty(str)) {
                 byte[] f = AES.f(str, jVar.ayV());
-                ayK.ik(f.length);
+                ayK.im(f.length);
                 ayK.setContent(f);
             }
             return com.baidu.swan.games.bdtls.a.b.a(ayK);
@@ -130,8 +130,7 @@ public class d {
         return iVar;
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public static byte[] m27if(int i) {
+    public static byte[] ih(int i) {
         return new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)};
     }
 

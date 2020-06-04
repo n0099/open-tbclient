@@ -6,31 +6,31 @@ import com.tb.airbnb.lottie.model.a.m;
 /* loaded from: classes6.dex */
 public class f implements b {
     private final String name;
-    private final com.tb.airbnb.lottie.model.a.f njF;
-    private final com.tb.airbnb.lottie.model.a.b njY;
-    private final m<PointF, PointF> njz;
+    private final m<PointF, PointF> nkJ;
+    private final com.tb.airbnb.lottie.model.a.f nkP;
+    private final com.tb.airbnb.lottie.model.a.b nli;
 
     public f(String str, m<PointF, PointF> mVar, com.tb.airbnb.lottie.model.a.f fVar, com.tb.airbnb.lottie.model.a.b bVar) {
         this.name = str;
-        this.njz = mVar;
-        this.njF = fVar;
-        this.njY = bVar;
+        this.nkJ = mVar;
+        this.nkP = fVar;
+        this.nli = bVar;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dJk() {
-        return this.njY;
+    public com.tb.airbnb.lottie.model.a.b dJy() {
+        return this.nli;
     }
 
-    public com.tb.airbnb.lottie.model.a.f dIS() {
-        return this.njF;
+    public com.tb.airbnb.lottie.model.a.f dJg() {
+        return this.nkP;
     }
 
-    public m<PointF, PointF> dIL() {
-        return this.njz;
+    public m<PointF, PointF> dIZ() {
+        return this.nkJ;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -39,6 +39,6 @@ public class f implements b {
     }
 
     public String toString() {
-        return "RectangleShape{position=" + this.njz + ", size=" + this.njF + '}';
+        return "RectangleShape{position=" + this.nkJ + ", size=" + this.nkP + '}';
     }
 }

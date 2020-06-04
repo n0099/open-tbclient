@@ -26,7 +26,7 @@ public class e extends f {
             Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: onFetchError: " + aVar.toString());
         }
         F("checkForUpdate", false);
-        eV(aVar.errorNo);
+        eX(aVar.errorNo);
         if (com.baidu.swan.apps.core.pms.d.a.c(aVar)) {
             com.baidu.swan.apps.core.pms.d.a.jy(this.mAppId);
         }

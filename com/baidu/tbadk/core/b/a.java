@@ -14,7 +14,7 @@ public class a {
     private Runnable dzK = new Runnable() { // from class: com.baidu.tbadk.core.b.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.this.kb(0);
+            a.this.kd(0);
         }
     };
 
@@ -29,7 +29,7 @@ public class a {
         return dzJ;
     }
 
-    public void kb(int i) {
+    public void kd(int i) {
         try {
             Bundle bundle = new Bundle();
             bundle.putString("package", "com.baidu.tieba");
@@ -47,7 +47,7 @@ public class a {
 
     public void aOh() {
         if (aOg()) {
-            kb(1);
+            kd(1);
             e.ld().postDelayed(this.dzK, 500L);
         }
     }

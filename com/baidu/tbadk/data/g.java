@@ -13,15 +13,15 @@ public class g {
         this.activityId = i;
     }
 
-    public int bcx() {
+    public int bcy() {
         return this.ejW;
     }
 
-    public void mX(int i) {
+    public void mZ(int i) {
         this.ejW = i;
     }
 
-    public String bcy() {
+    public String bcz() {
         return this.activityNum;
     }
 

@@ -6,7 +6,7 @@ import com.baidu.live.data.q;
 public interface a {
     void a(q qVar);
 
-    void cr(int i);
+    void ct(int i);
 
     View getView();
 

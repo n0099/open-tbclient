@@ -32,7 +32,7 @@ public class b {
             jSONObject.putOpt("webSocketDebuggerUrl", bSt);
             jSONObject.putOpt("id", this.mId);
             jSONObject.putOpt("devtoolsFrontendUrl", this.bSu);
-            jSONObject.putOpt("swanJsVersion", com.baidu.swan.apps.swancore.b.gZ(0));
+            jSONObject.putOpt("swanJsVersion", com.baidu.swan.apps.swancore.b.hb(0));
             jSONObject.putOpt("appVersion", aj.getVersionName());
             jSONObject2.putOpt("attached", Boolean.valueOf(this.mAttached));
             jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.bSv));

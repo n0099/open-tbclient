@@ -16,7 +16,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.i.goG);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.i.goR);
         this.mPageContext = tbPageContext;
     }
 
@@ -32,23 +32,23 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final com.baidu.tieba.ala.personcenter.c.i iVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.bLU() == null) {
+        if (aVar.bLW() == null) {
             return null;
         }
         TiebaStatic.log("c13133");
-        a(iVar, aVar.bLU());
-        aVar.bLU().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.f.1
+        a(iVar, aVar.bLW());
+        aVar.bLW().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 f.this.a(iVar);
             }
         });
-        return aVar.bLU().getView();
+        return aVar.bLW().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.i iVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
         if (iVar.getPersonCenterData() != null) {
-            aVar.rO(8);
+            aVar.rQ(8);
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_my_fans_family));
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -58,7 +58,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     public void a(com.baidu.tieba.ala.personcenter.c.i iVar) {
         if (iVar != null && iVar.getPersonCenterData() != null) {
             TiebaStatic.log("c13134");
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaFansFamilyActivityConfig(this.mContext, iVar.getPersonCenterData().bIn().user_id, true, AlaFansFamilyActivityConfig.FROM_PERSON_CENTER)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaFansFamilyActivityConfig(this.mContext, iVar.getPersonCenterData().bIp().user_id, true, AlaFansFamilyActivityConfig.FROM_PERSON_CENTER)));
         }
     }
 }

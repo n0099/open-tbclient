@@ -52,10 +52,10 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
         this.egT = (TextView) findViewById(R.id.unfold_text);
         this.egU = (ImageView) findViewById(R.id.unfold_icon);
         this.egV.setVisibility(8);
-        SvgManager.aUV().a(this.egU, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+        SvgManager.aUW().a(this.egU, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
         this.egW = (LinearLayout) findViewById(R.id.image_viewer_comment_and_agree);
         this.dVW = (ImageView) findViewById(R.id.comment_icon);
-        SvgManager.aUV().a(this.dVW, R.drawable.icon_pure_imageviewer_comment24_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+        SvgManager.aUW().a(this.dVW, R.drawable.icon_pure_imageviewer_comment24_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
         this.dVV = (TextView) findViewById(R.id.comment_num);
         this.dVV.setText("0");
         this.dVU = (AgreeView) findViewById(R.id.agree_and_disagreeview);
@@ -112,12 +112,12 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
     public void hK(boolean z) {
         if (z) {
             this.egT.setText(getContext().getString(R.string.expand));
-            SvgManager.aUV().a(this.egU, R.drawable.icon_pure_fold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+            SvgManager.aUW().a(this.egU, R.drawable.icon_pure_fold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
             this.egW.setVisibility(8);
             return;
         }
         this.egT.setText(getContext().getString(R.string.fold));
-        SvgManager.aUV().a(this.egU, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+        SvgManager.aUW().a(this.egU, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
         this.egW.setVisibility(0);
     }
 
@@ -139,11 +139,11 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                 TiebaStatic.log(anVar);
             }
             TiebaStatic.log(new an("c12942").dh("obj_type", "2").dh("obj_locate", "12"));
-            bbi();
+            bbj();
         } else if (view == this.egV) {
             if (this.egT.getText().toString().equals(getContext().getString(R.string.expand))) {
                 this.egT.setText(getContext().getString(R.string.fold));
-                SvgManager.aUV().a(this.egU, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+                SvgManager.aUW().a(this.egU, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
                 if (this.egQ != null) {
                     this.egQ.a(this, true);
                     return;
@@ -151,7 +151,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                 return;
             }
             this.egT.setText(getContext().getString(R.string.expand));
-            SvgManager.aUV().a(this.egU, R.drawable.icon_pure_fold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+            SvgManager.aUW().a(this.egU, R.drawable.icon_pure_fold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
             if (this.egQ != null) {
                 this.egQ.a(this, false);
             }
@@ -164,7 +164,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
         return true;
     }
 
-    private void bbi() {
+    private void bbj() {
         if (this.efD != null) {
             PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.efD.threadId), String.valueOf(this.efD.postId), this.efD.mIsSeeHost, this.efD.mIsReserver, null);
             createHistoryCfg.setJumpToCommentArea(true);

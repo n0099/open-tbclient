@@ -13,38 +13,38 @@ import tbclient.FrsTabInfo;
 import tbclient.SimpleForum;
 /* loaded from: classes2.dex */
 public class b implements com.baidu.tieba.c.a {
-    private a.InterfaceC0596a gQD;
-    private com.baidu.tieba.write.transmit.model.a lPX;
-    private List<SimpleForum> lPY;
-    private boolean lPZ;
+    private a.InterfaceC0596a gQO;
+    private com.baidu.tieba.write.transmit.model.a lRi;
+    private List<SimpleForum> lRj;
+    private boolean lRk;
     private int mPrivateThread;
-    private ArrayList<TransmitForumData> eVf = new ArrayList<>();
-    private a.InterfaceC0754a lQa = new a.InterfaceC0754a() { // from class: com.baidu.tieba.write.b.1
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0754a
+    private ArrayList<TransmitForumData> eVq = new ArrayList<>();
+    private a.InterfaceC0755a lRl = new a.InterfaceC0755a() { // from class: com.baidu.tieba.write.b.1
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0755a
         public void onError() {
-            b.this.dmf();
+            b.this.dmu();
         }
 
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0754a
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0755a
         public void g(List<SimpleForum> list, int i) {
-            b.this.lPY = list;
+            b.this.lRj = list;
             b.this.mPrivateThread = i;
-            b.this.bMA();
+            b.this.bMC();
         }
     };
 
     public b() {
         BdUniqueId gen = BdUniqueId.gen();
-        this.lPX = new com.baidu.tieba.write.transmit.model.a(gen);
-        this.lPX.a(this.lQa);
-        this.lPX.setRequestId(gen);
+        this.lRi = new com.baidu.tieba.write.transmit.model.a(gen);
+        this.lRi.a(this.lRl);
+        this.lRi.setRequestId(gen);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bMA() {
-        this.eVf.clear();
-        if (v.getCount(this.lPY) > 0) {
-            for (SimpleForum simpleForum : this.lPY) {
+    public void bMC() {
+        this.eVq.clear();
+        if (v.getCount(this.lRj) > 0) {
+            for (SimpleForum simpleForum : this.lRj) {
                 if (simpleForum != null && simpleForum.id != null && simpleForum.id.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
                     TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
                     transmitForumData.tabItemDatas = new ArrayList<>();
@@ -53,37 +53,37 @@ public class b implements com.baidu.tieba.c.a {
                             transmitForumData.tabItemDatas.add(new FrsTabItemData(frsTabInfo));
                         }
                     }
-                    this.eVf.add(transmitForumData);
+                    this.eVq.add(transmitForumData);
                 }
             }
         }
-        if (this.gQD != null) {
-            this.gQD.a(this.eVf, true, 2, this.mPrivateThread);
+        if (this.gQO != null) {
+            this.gQO.a(this.eVq, true, 2, this.mPrivateThread);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dmf() {
-        if (!this.lPZ) {
-            if (this.gQD != null) {
-                this.gQD.a(null, false, 2, 0);
+    public void dmu() {
+        if (!this.lRk) {
+            if (this.gQO != null) {
+                this.gQO.a(null, false, 2, 0);
             }
-            this.lPZ = true;
+            this.lRk = true;
         }
     }
 
     @Override // com.baidu.tieba.c.a
-    public void bMo() {
-        if (this.gQD != null && this.lPX != null) {
-            this.lPZ = false;
-            this.lPX.setThreadTitle(null);
-            this.lPX.setThreadContent(null);
-            this.lPX.loadData();
+    public void bMq() {
+        if (this.gQO != null && this.lRi != null) {
+            this.lRk = false;
+            this.lRi.setThreadTitle(null);
+            this.lRi.setThreadContent(null);
+            this.lRi.loadData();
         }
     }
 
     @Override // com.baidu.tieba.c.a
     public void a(a.InterfaceC0596a interfaceC0596a) {
-        this.gQD = interfaceC0596a;
+        this.gQO = interfaceC0596a;
     }
 }

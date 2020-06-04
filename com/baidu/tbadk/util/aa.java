@@ -6,11 +6,11 @@ public class aa {
     private z evv;
     private View.OnTouchListener evw;
 
-    public z bgL() {
+    public z bgM() {
         return this.evv;
     }
 
-    public View.OnTouchListener bgM() {
+    public View.OnTouchListener bgN() {
         return this.evw;
     }
 }

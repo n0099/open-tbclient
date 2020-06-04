@@ -18,10 +18,10 @@ import com.tb.airbnb.lottie.LottieAnimationView;
 /* loaded from: classes3.dex */
 public class GuardClubRankHeaderAvatarItemView extends FrameLayout {
     private HeadImageView aFL;
-    private TbImageView fAV;
-    private LottieAnimationView fAW;
-    private AnimatorSet fAX;
-    private boolean fAY;
+    private TbImageView fBg;
+    private LottieAnimationView fBh;
+    private AnimatorSet fBi;
+    private boolean fBj;
 
     public GuardClubRankHeaderAvatarItemView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -32,33 +32,33 @@ public class GuardClubRankHeaderAvatarItemView extends FrameLayout {
         if (this.aFL != null) {
             this.aFL.startLoad(str, 12, false);
         }
-        if (this.fAV != null) {
-            this.fAV.startLoad(str2, 10, false);
+        if (this.fBg != null) {
+            this.fBg.startLoad(str2, 10, false);
         }
-        this.fAY = z;
+        this.fBj = z;
         if (z) {
-            this.fAW.setVisibility(0);
-            bvc();
+            this.fBh.setVisibility(0);
+            bve();
             return;
         }
-        bvd();
-        this.fAW.setVisibility(8);
+        bvf();
+        this.fBh.setVisibility(8);
     }
 
-    public void bvc() {
-        if (this.fAY) {
-            bve();
-            this.fAW.playAnimation();
-            this.fAX.start();
+    public void bve() {
+        if (this.fBj) {
+            bvg();
+            this.fBh.playAnimation();
+            this.fBi.start();
         }
     }
 
-    public void bvd() {
-        if (this.fAW != null) {
-            this.fAW.cancelAnimation();
+    public void bvf() {
+        if (this.fBh != null) {
+            this.fBh.cancelAnimation();
         }
-        if (this.fAX != null) {
-            this.fAX.cancel();
+        if (this.fBi != null) {
+            this.fBi.cancel();
         }
     }
 
@@ -66,38 +66,38 @@ public class GuardClubRankHeaderAvatarItemView extends FrameLayout {
         if (this.aFL != null) {
             this.aFL.stopLoad();
         }
-        if (this.fAV != null) {
-            this.fAV.stopLoad();
+        if (this.fBg != null) {
+            this.fBg.stopLoad();
         }
-        bvd();
+        bvf();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.h.live_guard_club_widget_avatar_item, (ViewGroup) this, true);
         this.aFL = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.fAV = (TbImageView) findViewById(a.g.iv_level);
-        this.fAW = (LottieAnimationView) findViewById(a.g.lottie_live);
+        this.fBg = (TbImageView) findViewById(a.g.iv_level);
+        this.fBh = (LottieAnimationView) findViewById(a.g.lottie_live);
         this.aFL.setIsRound(true);
         this.aFL.setAutoChangeStyle(false);
         this.aFL.setDrawBorder(false);
         this.aFL.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.aFL.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.fAV.setDefaultBgResource(a.d.sdk_transparent);
-        this.fAV.setDefaultErrorResource(a.f.sdk_shape_transparent);
+        this.fBg.setDefaultBgResource(a.d.sdk_transparent);
+        this.fBg.setDefaultErrorResource(a.f.sdk_shape_transparent);
     }
 
-    private void bve() {
-        this.fAW.setAnimation("live_anim_guard_join.json");
-        this.fAW.loop(true);
+    private void bvg() {
+        this.fBh.setAnimation("live_anim_guard_join.json");
+        this.fBh.loop(true);
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aFL, "scaleX", 0.92f, 1.0f, 0.92f);
         ofFloat.setRepeatCount(-1);
         ofFloat.setRepeatMode(2);
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.aFL, "scaleY", 0.92f, 1.0f, 0.92f);
         ofFloat2.setRepeatCount(-1);
         ofFloat2.setRepeatMode(2);
-        this.fAX = new AnimatorSet();
-        this.fAX.setDuration(1000L);
-        this.fAX.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.fAX.play(ofFloat).with(ofFloat2);
+        this.fBi = new AnimatorSet();
+        this.fBi.setDuration(1000L);
+        this.fBi.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.fBi.play(ofFloat).with(ofFloat2);
     }
 }

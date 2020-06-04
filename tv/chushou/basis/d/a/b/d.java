@@ -5,11 +5,11 @@ import java.util.Map;
 public interface d extends tv.chushou.basis.d.a {
     String atR();
 
-    String dRc();
+    String dRq();
 
-    String dRd();
+    String dRr();
 
-    Map<String, String> dRe();
+    Map<String, String> dRs();
 
     String getIdentifier();
 }

@@ -11,33 +11,33 @@ public class e {
     private String forumGameLabel;
     private String forumId;
     private String forumName;
-    private List<FrsTabInfo> hmt;
-    private final List<com.baidu.tbadk.mainTab.b> hmu = new LinkedList();
+    private List<FrsTabInfo> hmE;
+    private final List<com.baidu.tbadk.mainTab.b> hmF = new LinkedList();
     private Context mContext;
     private String mFrom;
 
     public e(Context context, List<FrsTabInfo> list) {
-        this.hmt = list;
+        this.hmE = list;
         this.mContext = context;
     }
 
-    public List<FrsTabInfo> bUv() {
-        return this.hmt;
+    public List<FrsTabInfo> bUx() {
+        return this.hmE;
     }
 
     public void b(com.baidu.tbadk.mainTab.b bVar) {
         if (bVar != null && bVar.getFragmentTabStructure() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.hmu) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.hmF) {
                 if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().type == bVar.getFragmentTabStructure().type) {
                     return;
                 }
             }
-            this.hmu.add(bVar);
+            this.hmF.add(bVar);
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> bUw() {
-        return this.hmu;
+    public List<com.baidu.tbadk.mainTab.b> bUy() {
+        return this.hmF;
     }
 
     public void setForumName(String str) {

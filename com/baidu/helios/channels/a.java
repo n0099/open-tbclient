@@ -100,7 +100,7 @@ public abstract class a {
             this.exception = exc;
         }
 
-        public static e bt(int i) {
+        public static e bv(int i) {
             return new e(-1, i, null);
         }
 
@@ -113,7 +113,7 @@ public abstract class a {
         }
 
         public static e tZ() {
-            return bt(0);
+            return bv(0);
         }
     }
 
@@ -134,7 +134,7 @@ public abstract class a {
             this.exception = exc;
         }
 
-        public static g bu(int i) {
+        public static g bw(int i) {
             return new g(i, null, null);
         }
 

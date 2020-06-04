@@ -72,8 +72,8 @@ public class o extends RecyclerView.Adapter<a> {
     }
 
     private void a(MetaData metaData, a aVar) {
-        aVar.hXK.setData(metaData, true);
-        aVar.hXK.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.o.1
+        aVar.hYx.setData(metaData, true);
+        aVar.hYx.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.o.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 an anVar = new an("c13566");
@@ -84,7 +84,7 @@ public class o extends RecyclerView.Adapter<a> {
     }
 
     private void b(final MetaData metaData, a aVar) {
-        aVar.hXL.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.homepage.concern.a.o.2
+        aVar.hYy.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.homepage.concern.a.o.2
             @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
             public void bO(View view) {
                 if (metaData != null) {
@@ -149,7 +149,7 @@ public class o extends RecyclerView.Adapter<a> {
                     str = "";
                 }
             }
-            aVar.hXJ.setText(str);
+            aVar.hYw.setText(str);
         }
     }
 
@@ -161,42 +161,42 @@ public class o extends RecyclerView.Adapter<a> {
     public class a extends RecyclerView.ViewHolder {
         public com.baidu.tbadk.core.view.userLike.c agS;
         public TextView dXU;
-        public TextView hXJ;
-        public HeadPendantClickableView hXK;
-        public DynamicUserLikeButton hXL;
-        private boolean hXM;
+        public TextView hYw;
+        public HeadPendantClickableView hYx;
+        public DynamicUserLikeButton hYy;
+        private boolean hYz;
         public LinearLayout mContainer;
 
         public a(View view) {
             super(view);
-            this.hXM = false;
+            this.hYz = false;
             this.mContainer = (LinearLayout) view.findViewById(R.id.concern_container);
-            this.hXK = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
-            this.hXK.getHeadView().setIsRound(true);
-            this.hXK.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.hXK.getHeadView().setDefaultResource(17170445);
-            this.hXK.getHeadView().setDefaultErrorResource(R.drawable.icon_default_avatar100);
-            this.hXK.getHeadView().setPlaceHolder(2);
-            this.hXK.getHeadView().setBorderWidth(com.baidu.adp.lib.util.l.getDimens(o.this.mContext, R.dimen.tbds1));
-            this.hXK.getHeadView().setBorderColor(am.getColor(R.color.cp_border_a));
+            this.hYx = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
+            this.hYx.getHeadView().setIsRound(true);
+            this.hYx.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.hYx.getHeadView().setDefaultResource(17170445);
+            this.hYx.getHeadView().setDefaultErrorResource(R.drawable.icon_default_avatar100);
+            this.hYx.getHeadView().setPlaceHolder(2);
+            this.hYx.getHeadView().setBorderWidth(com.baidu.adp.lib.util.l.getDimens(o.this.mContext, R.dimen.tbds1));
+            this.hYx.getHeadView().setBorderColor(am.getColor(R.color.cp_border_a));
             this.dXU = (TextView) view.findViewById(R.id.concern_user_name);
-            this.hXJ = (TextView) view.findViewById(R.id.concern_user_desc);
-            this.hXL = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
-            this.agS = new com.baidu.tbadk.core.view.userLike.c(o.this.mPageContext, this.hXL);
+            this.hYw = (TextView) view.findViewById(R.id.concern_user_desc);
+            this.hYy = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
+            this.agS = new com.baidu.tbadk.core.view.userLike.c(o.this.mPageContext, this.hYy);
         }
 
         public void onChangeSkinType(int i) {
-            if (!this.hXM) {
+            if (!this.hYz) {
                 am.setViewTextColor(this.dXU, (int) R.color.cp_cont_b);
             } else {
                 am.setViewTextColor(this.dXU, (int) R.color.cp_cont_h);
             }
-            am.setViewTextColor(this.hXJ, (int) R.color.cp_cont_d);
-            this.hXL.onChangeSkinType(i);
+            am.setViewTextColor(this.hYw, (int) R.color.cp_cont_d);
+            this.hYy.onChangeSkinType(i);
         }
 
         public void od(boolean z) {
-            this.hXM = z;
+            this.hYz = z;
         }
     }
 

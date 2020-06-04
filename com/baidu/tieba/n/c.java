@@ -5,7 +5,7 @@ import com.baidu.tieba.VideoPlatformStatic;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public interface c {
-    JSONObject cRR();
+    JSONObject cSh();
 
     /* loaded from: classes10.dex */
     public static abstract class a implements c {
@@ -17,7 +17,7 @@ public interface c {
         }
 
         @Override // com.baidu.tieba.n.c
-        public JSONObject cRR() {
+        public JSONObject cSh() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.state);
@@ -42,7 +42,7 @@ public interface c {
         }
 
         @Override // com.baidu.tieba.n.c
-        public JSONObject cRR() {
+        public JSONObject cSh() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.state);

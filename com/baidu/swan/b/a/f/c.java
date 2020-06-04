@@ -23,7 +23,7 @@ public class c {
                 bVar.packageName = str;
                 if (e.aoG() != null) {
                     b.a aoJ = e.aoG().aoJ();
-                    bVar.mFrom = h.gS(aoJ.getAppFrameType());
+                    bVar.mFrom = h.gU(aoJ.getAppFrameType());
                     bVar.mAppId = aoJ.getAppId();
                     bVar.mSource = aoJ.agK();
                 }

@@ -83,9 +83,9 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                     if (androidNameFromIos.endsWith("_svg")) {
                         String svgColor = ResNameTransform.getSvgColor(androidNameFromIos);
                         if (svgColor != null) {
-                            a = SvgManager.aUV().a(identifier, getResIdBySkin(str2, resources.getIdentifier(svgColor, "color", BdBaseApplication.getInst().getPackageName())), SvgManager.SvgResourceStateType.NORMAL, false);
+                            a = SvgManager.aUW().a(identifier, getResIdBySkin(str2, resources.getIdentifier(svgColor, "color", BdBaseApplication.getInst().getPackageName())), SvgManager.SvgResourceStateType.NORMAL, false);
                         } else {
-                            a = SvgManager.aUV().a(identifier, null);
+                            a = SvgManager.aUW().a(identifier, null);
                         }
                         int i3 = 1;
                         if (a != null) {
@@ -214,7 +214,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
     }
 
     private boolean shouldMonitorPerformance(int i) {
-        return m.bfI().bfJ() && i % 100 == 0;
+        return m.bfJ().bfK() && i % 100 == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

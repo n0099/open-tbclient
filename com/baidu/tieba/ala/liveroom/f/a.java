@@ -17,8 +17,8 @@ import com.baidu.tieba.ala.liveroom.f.b;
 /* loaded from: classes3.dex */
 public class a implements f, b.a {
     private CustomMessageListener aMA;
-    private b fSA;
-    private d fSB;
+    private b fSL;
+    private d fSM;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
@@ -27,39 +27,39 @@ public class a implements f, b.a {
     }
 
     public void Cm(String str) {
-        this.fSA = new b(this.mPageContext.getPageActivity());
-        this.fSA.a(this);
-        this.fSA.b(this);
-        this.fSA.bsa().setBackgroundColor(AZ(str));
-        this.fSA.show(str);
+        this.fSL = new b(this.mPageContext.getPageActivity());
+        this.fSL.a(this);
+        this.fSL.b(this);
+        this.fSL.bsc().setBackgroundColor(AZ(str));
+        this.fSL.show(str);
     }
 
     public void resume() {
-        if (this.fSA != null && this.fSA.isShowing() && this.fSA.bsa() != null) {
-            this.fSA.bsa().onResume();
-            this.fSA.bsa().reload();
+        if (this.fSL != null && this.fSL.isShowing() && this.fSL.bsc() != null) {
+            this.fSL.bsc().onResume();
+            this.fSL.bsc().reload();
         }
     }
 
     public void pause() {
-        if (this.fSA != null && this.fSA.isShowing() && this.fSA.bsa() != null) {
-            this.fSA.bsa().onPause();
+        if (this.fSL != null && this.fSL.isShowing() && this.fSL.bsc() != null) {
+            this.fSL.bsc().onPause();
         }
     }
 
     public void release() {
-        bAS();
+        bAU();
         MessageManager.getInstance().unRegisterListener(this.aMA);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.f.b.a
     public boolean a(String str, final JsResult jsResult) {
-        this.fSB = new d(this.mPageContext.getPageActivity());
-        this.fSB.setCancelable(false);
-        this.fSB.setCanceledOnTouchOutside(false);
-        this.fSB.cu(false);
-        this.fSB.o(this.mPageContext.getString(a.i.sdk_live_disclaimer), str, this.mPageContext.getString(a.i.sdk_live_iknow), this.mPageContext.getString(a.i.sdk_live_cancel));
-        this.fSB.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
+        this.fSM = new d(this.mPageContext.getPageActivity());
+        this.fSM.setCancelable(false);
+        this.fSM.setCanceledOnTouchOutside(false);
+        this.fSM.cu(false);
+        this.fSM.o(this.mPageContext.getString(a.i.sdk_live_disclaimer), str, this.mPageContext.getString(a.i.sdk_live_iknow), this.mPageContext.getString(a.i.sdk_live_cancel));
+        this.fSM.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
             @Override // com.baidu.live.view.d.a
             public void Jq() {
                 if (jsResult != null) {
@@ -74,7 +74,7 @@ public class a implements f, b.a {
                 }
             }
         });
-        this.fSB.show();
+        this.fSM.show();
         return true;
     }
 
@@ -84,7 +84,7 @@ public class a implements f, b.a {
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.this.bAS();
+                    a.this.bAU();
                 }
             }
         };
@@ -109,17 +109,17 @@ public class a implements f, b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bAS() {
-        if (this.fSA != null) {
-            this.fSA.dismiss();
+    public void bAU() {
+        if (this.fSL != null) {
+            this.fSL.dismiss();
         }
-        if (this.fSB != null) {
-            this.fSB.release();
+        if (this.fSM != null) {
+            this.fSM.release();
         }
     }
 
     @Override // com.baidu.live.view.web.f
-    public void dt(int i) {
-        bAS();
+    public void dv(int i) {
+        bAU();
     }
 }

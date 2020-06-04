@@ -9,45 +9,45 @@ import java.util.List;
 public class g {
     private final List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
     private com.baidu.adp.base.e dJb;
-    private BdTypeListView faQ;
-    private f fup;
-    private c fuq;
-    private a fur;
-    private b fus;
+    private BdTypeListView fbb;
+    private f fuA;
+    private c fuB;
+    private a fuC;
+    private b fuD;
 
     public g(com.baidu.adp.base.e eVar, BdTypeListView bdTypeListView, boolean z) {
         this.dJb = eVar;
-        this.faQ = bdTypeListView;
+        this.fbb = bdTypeListView;
         jS(z);
     }
 
     private void jS(boolean z) {
         if (z) {
-            this.fuq = new c((TbPageContext) this.dJb, com.baidu.tieba.ala.gamelist.b.a.fki);
-            this.aSj.add(this.fuq);
+            this.fuB = new c((TbPageContext) this.dJb, com.baidu.tieba.ala.gamelist.b.a.fkt);
+            this.aSj.add(this.fuB);
         } else {
-            this.fup = new f((TbPageContext) this.dJb, com.baidu.tieba.ala.gamelist.b.a.fki);
-            this.aSj.add(this.fup);
+            this.fuA = new f((TbPageContext) this.dJb, com.baidu.tieba.ala.gamelist.b.a.fkt);
+            this.aSj.add(this.fuA);
         }
-        this.fur = new a((TbPageContext) this.dJb, com.baidu.tieba.ala.frsgamelive.b.a.fuu);
-        this.fus = new b((TbPageContext) this.dJb, com.baidu.tieba.ala.frsgamelive.b.b.fuv);
-        this.aSj.add(this.fur);
-        this.aSj.add(this.fus);
-        this.faQ.addAdapters(this.aSj);
+        this.fuC = new a((TbPageContext) this.dJb, com.baidu.tieba.ala.frsgamelive.b.a.fuF);
+        this.fuD = new b((TbPageContext) this.dJb, com.baidu.tieba.ala.frsgamelive.b.b.fuG);
+        this.aSj.add(this.fuC);
+        this.aSj.add(this.fuD);
+        this.fbb.addAdapters(this.aSj);
     }
 
     public void setDatas(List<o> list) {
-        if (this.faQ != null) {
-            this.faQ.setData(list);
+        if (this.fbb != null) {
+            this.fbb.setData(list);
         }
     }
 
     public void b(com.baidu.tieba.ala.d dVar) {
-        if (this.fup != null) {
-            this.fup.a(dVar);
+        if (this.fuA != null) {
+            this.fuA.a(dVar);
         }
-        if (this.fuq != null) {
-            this.fuq.a(dVar);
+        if (this.fuB != null) {
+            this.fuB.a(dVar);
         }
     }
 }

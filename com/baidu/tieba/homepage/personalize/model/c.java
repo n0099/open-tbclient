@@ -4,7 +4,7 @@ import com.baidu.adp.widget.ListView.o;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class c {
-    public List<o> eIk;
-    public int ifm = 0;
-    public int ifn = 0;
+    public List<o> eIv;
+    public int ifZ = 0;
+    public int iga = 0;
 }

@@ -103,21 +103,21 @@ public class f implements a.InterfaceC0021a {
     }
 
     public f(com.baidu.adp.lib.network.http.e eVar) {
-        aVf();
+        aVg();
         this.dOI = eVar;
         this.mContext = TbadkCoreApplication.getInst().getApp();
     }
 
-    public static void aVf() {
+    public static void aVg() {
         synchronized (f.class) {
             if (!dOE) {
                 dOE = true;
-                aVg();
+                aVh();
             }
         }
     }
 
-    public static synchronized void aVg() {
+    public static synchronized void aVh() {
         synchronized (f.class) {
             try {
                 Cursor query = TbadkCoreApplication.getInst().getApp().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
@@ -1394,7 +1394,7 @@ public class f implements a.InterfaceC0021a {
         return this.mIsGif;
     }
 
-    public boolean aVh() {
+    public boolean aVi() {
         return this.dOO;
     }
 

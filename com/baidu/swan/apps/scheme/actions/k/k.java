@@ -82,7 +82,7 @@ public class k extends aa {
             }
 
             @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-            public void ej(int i) {
+            public void el(int i) {
                 ahV.QK();
                 if (k.DEBUG) {
                     com.baidu.swan.apps.res.widget.b.d.a(context, context.getString(a.h.aiapps_open_pages_failed) + i).showToast();

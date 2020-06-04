@@ -118,11 +118,11 @@ public class BDEmotionBagLayout extends LinearLayout {
     private void Qr() {
         int size = this.bGf.size();
         for (int i = 0; i < size; i++) {
-            this.bGf.get(i).setAdapter((ListAdapter) new a(getContext(), ea(i)));
+            this.bGf.get(i).setAdapter((ListAdapter) new a(getContext(), ec(i)));
         }
     }
 
-    private List<String> ea(int i) {
+    private List<String> ec(int i) {
         int i2 = i * 20;
         int min = Math.min(20 + i2, this.mEmotionList.size());
         ArrayList arrayList = new ArrayList();

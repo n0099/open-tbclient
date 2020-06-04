@@ -7,36 +7,36 @@ import java.util.concurrent.Executor;
 /* loaded from: classes12.dex */
 public abstract class z implements aj<com.facebook.imagepipeline.g.e> {
     private final Executor mExecutor;
-    private final com.facebook.common.memory.g mtR;
+    private final com.facebook.common.memory.g mvb;
 
-    protected abstract String dBs();
+    protected abstract String dBG();
 
     protected abstract com.facebook.imagepipeline.g.e g(ImageRequest imageRequest) throws IOException;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public z(Executor executor, com.facebook.common.memory.g gVar) {
         this.mExecutor = executor;
-        this.mtR = gVar;
+        this.mvb = gVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        final am dBj = akVar.dBj();
+        final am dBx = akVar.dBx();
         final String id = akVar.getId();
-        final ImageRequest dBi = akVar.dBi();
-        final aq<com.facebook.imagepipeline.g.e> aqVar = new aq<com.facebook.imagepipeline.g.e>(kVar, dBj, dBs(), id) { // from class: com.facebook.imagepipeline.producers.z.1
+        final ImageRequest dBw = akVar.dBw();
+        final aq<com.facebook.imagepipeline.g.e> aqVar = new aq<com.facebook.imagepipeline.g.e>(kVar, dBx, dBG(), id) { // from class: com.facebook.imagepipeline.producers.z.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.common.b.h
-            /* renamed from: dBH */
+            /* renamed from: dBV */
             public com.facebook.imagepipeline.g.e getResult() throws Exception {
-                com.facebook.imagepipeline.g.e g = z.this.g(dBi);
+                com.facebook.imagepipeline.g.e g = z.this.g(dBw);
                 if (g == null) {
-                    dBj.F(id, z.this.dBs(), false);
+                    dBx.F(id, z.this.dBG(), false);
                     return null;
                 }
-                g.dAn();
-                dBj.F(id, z.this.dBs(), true);
+                g.dAB();
+                dBx.F(id, z.this.dBG(), true);
                 return g;
             }
 
@@ -50,7 +50,7 @@ public abstract class z implements aj<com.facebook.imagepipeline.g.e> {
         };
         akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.z.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dxA() {
+            public void dxO() {
                 aqVar.cancel();
             }
         });
@@ -62,9 +62,9 @@ public abstract class z implements aj<com.facebook.imagepipeline.g.e> {
         com.facebook.common.references.a aVar = null;
         try {
             if (i <= 0) {
-                aVar = com.facebook.common.references.a.e(this.mtR.q(inputStream));
+                aVar = com.facebook.common.references.a.e(this.mvb.q(inputStream));
             } else {
-                aVar = com.facebook.common.references.a.e(this.mtR.c(inputStream, i));
+                aVar = com.facebook.common.references.a.e(this.mvb.c(inputStream, i));
             }
             return new com.facebook.imagepipeline.g.e(aVar);
         } finally {

@@ -66,7 +66,7 @@ public class c {
                 }
                 this.dpu.put("ubc_last_upload_time_level_" + keyAt, 0L);
             }
-            this.dpw.jr(i);
+            this.dpw.jt(i);
         }
     }
 
@@ -271,7 +271,7 @@ public class c {
                 for (int i3 = 0; i3 < this.dpt.size(); i3++) {
                     int keyAt2 = this.dpt.keyAt(i3);
                     if (keyAt2 != 0 && !hashSet.contains(Integer.valueOf(keyAt2))) {
-                        if (vVar.jA(com.baidu.fsg.base.statistics.b.c)) {
+                        if (vVar.jC(com.baidu.fsg.base.statistics.b.c)) {
                             break;
                         }
                         this.dpm.a(this.dpt.valueAt(i3), vVar);
@@ -408,8 +408,8 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(q qVar) {
         this.dpw.ar(qVar.aIK());
-        this.dpw.js(qVar.aIJ() * 86400000);
-        this.dpw.jt(qVar.aII());
+        this.dpw.ju(qVar.aIJ() * 86400000);
+        this.dpw.jv(qVar.aII());
         u.aIQ().putString("ubc_version_md5", qVar.getSign());
         this.dpm.aq(qVar.aIK());
         qVar.aIK().clear();
@@ -430,7 +430,7 @@ public class c {
             }
             this.dpu.put("ubc_last_upload_time_level_" + keyAt, 0L);
         }
-        this.dpw.jr(i);
+        this.dpw.jt(i);
     }
 
     @SuppressLint({"MissingPermission"})

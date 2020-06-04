@@ -18,13 +18,13 @@ import tv.chushou.zues.widget.adapterview.d;
 import tv.chushou.zues.widget.adapterview.e;
 import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 /* loaded from: classes5.dex */
-public abstract class a<T> extends RecyclerView.Adapter<View$OnLongClickListenerC0920a> {
+public abstract class a<T> extends RecyclerView.Adapter<View$OnLongClickListenerC0921a> {
     private List<T> data;
-    private d nNS;
-    private e nNT;
-    private int naE;
+    private d nPc;
+    private e nPd;
+    private int nbO;
 
-    public abstract void a(View$OnLongClickListenerC0920a view$OnLongClickListenerC0920a, T t);
+    public abstract void a(View$OnLongClickListenerC0921a view$OnLongClickListenerC0921a, T t);
 
     public a(@LayoutRes int i, d dVar) {
         this(null, i, dVar);
@@ -36,8 +36,8 @@ public abstract class a<T> extends RecyclerView.Adapter<View$OnLongClickListener
         } else {
             this.data = list;
         }
-        this.naE = i;
-        this.nNS = dVar;
+        this.nbO = i;
+        this.nPc = dVar;
     }
 
     public a(List<T> list, @LayoutRes int i, d dVar, e eVar) {
@@ -46,12 +46,12 @@ public abstract class a<T> extends RecyclerView.Adapter<View$OnLongClickListener
         } else {
             this.data = list;
         }
-        this.naE = i;
-        this.nNS = dVar;
-        this.nNT = eVar;
+        this.nbO = i;
+        this.nPc = dVar;
+        this.nPd = eVar;
     }
 
-    public void fx(List<T> list) {
+    public void fz(List<T> list) {
         this.data.clear();
         if (list != null) {
             this.data.addAll(list);
@@ -61,28 +61,28 @@ public abstract class a<T> extends RecyclerView.Adapter<View$OnLongClickListener
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: E */
-    public View$OnLongClickListenerC0920a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new View$OnLongClickListenerC0920a(LayoutInflater.from(viewGroup.getContext()).inflate(Jk(i), viewGroup, false), this.nNS, this.nNT);
+    /* renamed from: F */
+    public View$OnLongClickListenerC0921a onCreateViewHolder(ViewGroup viewGroup, int i) {
+        return new View$OnLongClickListenerC0921a(LayoutInflater.from(viewGroup.getContext()).inflate(Jm(i), viewGroup, false), this.nPc, this.nPd);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int Jk(int i) {
-        return this.naE;
+    public int Jm(int i) {
+        return this.nbO;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
-    public void onBindViewHolder(View$OnLongClickListenerC0920a view$OnLongClickListenerC0920a, int i) {
-        a(view$OnLongClickListenerC0920a, (View$OnLongClickListenerC0920a) this.data.get(i), i);
+    public void onBindViewHolder(View$OnLongClickListenerC0921a view$OnLongClickListenerC0921a, int i) {
+        a(view$OnLongClickListenerC0921a, (View$OnLongClickListenerC0921a) this.data.get(i), i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
-    public void onBindViewHolder(@NonNull View$OnLongClickListenerC0920a view$OnLongClickListenerC0920a, int i, @NonNull List<Object> list) {
-        onBindViewHolder(view$OnLongClickListenerC0920a, i);
+    public void onBindViewHolder(@NonNull View$OnLongClickListenerC0921a view$OnLongClickListenerC0921a, int i, @NonNull List<Object> list) {
+        onBindViewHolder(view$OnLongClickListenerC0921a, i);
     }
 
     public T getItem(int i) {
@@ -92,8 +92,8 @@ public abstract class a<T> extends RecyclerView.Adapter<View$OnLongClickListener
         return this.data.get(i);
     }
 
-    public void a(View$OnLongClickListenerC0920a view$OnLongClickListenerC0920a, T t, int i) {
-        a(view$OnLongClickListenerC0920a, (View$OnLongClickListenerC0920a) t);
+    public void a(View$OnLongClickListenerC0921a view$OnLongClickListenerC0921a, T t, int i) {
+        a(view$OnLongClickListenerC0921a, (View$OnLongClickListenerC0921a) t);
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -106,81 +106,81 @@ public abstract class a<T> extends RecyclerView.Adapter<View$OnLongClickListener
 
     /* renamed from: tv.chushou.zues.widget.adapterview.recyclerview.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class View$OnLongClickListenerC0920a extends RecyclerView.ViewHolder implements View.OnLongClickListener {
+    public static class View$OnLongClickListenerC0921a extends RecyclerView.ViewHolder implements View.OnLongClickListener {
         private final View.OnClickListener mOnClickListener;
-        private d nNS;
-        private e nNT;
-        private SparseArray<View> naO;
+        private d nPc;
+        private e nPd;
+        private SparseArray<View> nbY;
 
-        public View$OnLongClickListenerC0920a(View view, d dVar, e eVar) {
+        public View$OnLongClickListenerC0921a(View view, d dVar, e eVar) {
             super(view);
             this.mOnClickListener = new tv.chushou.zues.a() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.a.a.a.1
                 @Override // tv.chushou.zues.a
                 public void dr(View view2) {
-                    if (View$OnLongClickListenerC0920a.this.nNS != null) {
-                        View$OnLongClickListenerC0920a.this.nNS.B(view2, View$OnLongClickListenerC0920a.this.getLayoutPosition());
+                    if (View$OnLongClickListenerC0921a.this.nPc != null) {
+                        View$OnLongClickListenerC0921a.this.nPc.B(view2, View$OnLongClickListenerC0921a.this.getLayoutPosition());
                     }
                 }
             };
-            this.nNS = dVar;
-            this.nNT = eVar;
-            this.naO = new SparseArray<>();
+            this.nPc = dVar;
+            this.nPd = eVar;
+            this.nbY = new SparseArray<>();
             view.setOnClickListener(this.mOnClickListener);
             view.setOnLongClickListener(this);
         }
 
-        public <V extends View> V KB(int i) {
-            V v = (V) this.naO.get(i);
+        public <V extends View> V KD(int i) {
+            V v = (V) this.nbY.get(i);
             if (v == null) {
                 V v2 = (V) this.itemView.findViewById(i);
-                this.naO.put(i, v2);
+                this.nbY.put(i, v2);
                 return v2;
             }
             return v;
         }
 
-        public View$OnLongClickListenerC0920a a(int i, CharSequence charSequence) {
-            TextView textView = (TextView) KB(i);
+        public View$OnLongClickListenerC0921a a(int i, CharSequence charSequence) {
+            TextView textView = (TextView) KD(i);
             if (textView != null) {
                 textView.setText(charSequence);
             }
             return this;
         }
 
-        public View$OnLongClickListenerC0920a dW(int i, @ColorInt int i2) {
-            TextView textView = (TextView) KB(i);
+        public View$OnLongClickListenerC0921a dW(int i, @ColorInt int i2) {
+            TextView textView = (TextView) KD(i);
             if (textView != null) {
                 textView.setTextColor(i2);
             }
             return this;
         }
 
-        public View$OnLongClickListenerC0920a a(int i, ColorStateList colorStateList) {
-            TextView textView = (TextView) KB(i);
+        public View$OnLongClickListenerC0921a a(int i, ColorStateList colorStateList) {
+            TextView textView = (TextView) KD(i);
             if (textView != null) {
                 textView.setTextColor(colorStateList);
             }
             return this;
         }
 
-        public View$OnLongClickListenerC0920a dX(int i, @DrawableRes int i2) {
-            ImageView imageView = (ImageView) KB(i);
+        public View$OnLongClickListenerC0921a dX(int i, @DrawableRes int i2) {
+            ImageView imageView = (ImageView) KD(i);
             if (imageView != null) {
                 imageView.setImageResource(i2);
             }
             return this;
         }
 
-        public View$OnLongClickListenerC0920a a(int i, String str, int i2, int i3, int i4) {
-            FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) KB(i);
+        public View$OnLongClickListenerC0921a a(int i, String str, int i2, int i3, int i4) {
+            FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) KD(i);
             if (frescoThumbnailView != null) {
                 frescoThumbnailView.i(str, i2, i3, i4);
             }
             return this;
         }
 
-        public View$OnLongClickListenerC0920a a(int i, String str, int i2, int i3, int i4, int i5, boolean z, boolean z2) {
-            FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) KB(i);
+        public View$OnLongClickListenerC0921a a(int i, String str, int i2, int i3, int i4, int i5, boolean z, boolean z2) {
+            FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) KD(i);
             if (frescoThumbnailView != null) {
                 frescoThumbnailView.setGray(z);
                 frescoThumbnailView.setAnim(z2);
@@ -189,21 +189,21 @@ public abstract class a<T> extends RecyclerView.Adapter<View$OnLongClickListener
             return this;
         }
 
-        public View$OnLongClickListenerC0920a a(boolean z, int... iArr) {
+        public View$OnLongClickListenerC0921a a(boolean z, int... iArr) {
             for (int i : iArr) {
-                View KB = KB(i);
-                if (KB != null) {
-                    KB.setVisibility(z ? 0 : 8);
+                View KD = KD(i);
+                if (KD != null) {
+                    KD.setVisibility(z ? 0 : 8);
                 }
             }
             return this;
         }
 
-        public View$OnLongClickListenerC0920a t(int... iArr) {
+        public View$OnLongClickListenerC0921a t(int... iArr) {
             for (int i : iArr) {
-                View KB = KB(i);
-                if (KB != null) {
-                    KB.setOnClickListener(this.mOnClickListener);
+                View KD = KD(i);
+                if (KD != null) {
+                    KD.setOnClickListener(this.mOnClickListener);
                 }
             }
             return this;
@@ -211,8 +211,8 @@ public abstract class a<T> extends RecyclerView.Adapter<View$OnLongClickListener
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
-            if (this.nNT != null) {
-                this.nNT.C(view, getLayoutPosition());
+            if (this.nPd != null) {
+                this.nPd.C(view, getLayoutPosition());
                 return false;
             }
             return false;

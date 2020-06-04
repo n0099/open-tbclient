@@ -134,7 +134,7 @@ public class e {
                                                 if (a.DEBUG) {
                                                     Log.d("BDTLS", "doHandShake serverHello");
                                                 }
-                                                e.this.cUG.il(1);
+                                                e.this.cUG.in(1);
                                                 f.ri("serverHello");
                                                 while (true) {
                                                     com.baidu.swan.games.bdtls.model.f fVar = (com.baidu.swan.games.bdtls.model.f) e.this.cUH.poll();
@@ -200,7 +200,7 @@ public class e {
 
     private void a(int i, com.baidu.swan.games.bdtls.b.b bVar) {
         if (bVar != null) {
-            bVar.im(i);
+            bVar.io(i);
         }
     }
 
@@ -210,7 +210,7 @@ public class e {
             Log.d("BDTLS", "onHandshakeError");
         }
         int i = TextUtils.equals(str, "down grade") ? 2 : -1;
-        this.cUG.il(i);
+        this.cUG.in(i);
         while (true) {
             com.baidu.swan.games.bdtls.model.f poll = this.cUH.poll();
             if (poll != null) {

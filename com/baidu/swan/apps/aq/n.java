@@ -56,15 +56,15 @@ public final class n {
         if (cJR == null) {
             synchronized (n.class) {
                 if (cJR == null) {
-                    cJR = new b(PublishSubject.dQJ());
-                    cJR.dPm().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.aq.n.4
+                    cJR = new b(PublishSubject.dQX());
+                    cJR.dPA().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.aq.n.4
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.f
                         /* renamed from: b */
                         public rx.d<?> call(Pair<Runnable, String> pair) {
-                            return rx.h.bS(pair).e(Schedulers.io()).e(n.cJU).dPp();
+                            return rx.h.bS(pair).e(Schedulers.io()).e(n.cJU).dPD();
                         }
-                    }).dPo().dPd();
+                    }).dPC().dPr();
                 }
             }
         }
@@ -75,15 +75,15 @@ public final class n {
         if (cJS == null) {
             synchronized (n.class) {
                 if (cJS == null) {
-                    cJS = new b(PublishSubject.dQJ());
-                    cJS.dPm().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.aq.n.5
+                    cJS = new b(PublishSubject.dQX());
+                    cJS.dPA().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.aq.n.5
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.f
                         /* renamed from: b */
                         public rx.d<?> call(Pair<Runnable, String> pair) {
-                            return rx.h.bS(pair).e(Schedulers.computation()).e(n.cJU).dPp();
+                            return rx.h.bS(pair).e(Schedulers.computation()).e(n.cJU).dPD();
                         }
-                    }).dPo().dPd();
+                    }).dPC().dPr();
                 }
             }
         }
@@ -94,8 +94,8 @@ public final class n {
         if (cJT == null) {
             synchronized (n.class) {
                 if (cJT == null) {
-                    cJT = new b(PublishSubject.dQJ());
-                    cJT.dPm().c(Schedulers.io()).b(cJU).dPo().dPd();
+                    cJT = new b(PublishSubject.dQX());
+                    cJT.dPA().c(Schedulers.io()).b(cJU).dPC().dPr();
                 }
             }
         }
@@ -130,7 +130,7 @@ public final class n {
                     Log.wtf(n.TAG, "delay task [" + str + "] fail!", th);
                 }
             }
-        }).dPd();
+        }).dPr();
     }
 
     public static rx.k b(@NonNull Runnable runnable, @NonNull final String str, @NonNull long j, @NonNull TimeUnit timeUnit) {
@@ -149,7 +149,7 @@ public final class n {
                     Log.wtf(n.TAG, "delay task [" + str + "] fail!", th);
                 }
             }
-        }).dPd();
+        }).dPr();
     }
 
     public static String getStandardThreadName(String str) {
@@ -201,6 +201,6 @@ public final class n {
                     Log.wtf(n.TAG, "delay task fail", th);
                 }
             }
-        }).dPd();
+        }).dPr();
     }
 }

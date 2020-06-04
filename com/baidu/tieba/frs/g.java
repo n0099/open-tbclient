@@ -7,7 +7,7 @@ import com.baidu.tieba.tbadkCore.FrsViewData;
 public class g {
     private static UserData mUserData;
 
-    public static UserData bUB() {
+    public static UserData bUD() {
         return mUserData;
     }
 
@@ -51,12 +51,12 @@ public class g {
         }
     }
 
-    public static boolean bUC() {
-        UserData bUB = bUB();
-        if (bUB == null) {
+    public static boolean bUE() {
+        UserData bUD = bUD();
+        if (bUD == null) {
             return false;
         }
-        switch (bUB.getIs_manager()) {
+        switch (bUD.getIs_manager()) {
             case 1:
                 return true;
             default:
@@ -64,8 +64,8 @@ public class g {
         }
     }
 
-    public static boolean bUD() {
-        UserData bUB = bUB();
-        return bUB != null && bUB.getIs_manager() == 3;
+    public static boolean bUF() {
+        UserData bUD = bUD();
+        return bUD != null && bUD.getIs_manager() == 3;
     }
 }

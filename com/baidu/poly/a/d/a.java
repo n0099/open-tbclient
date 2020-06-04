@@ -30,7 +30,7 @@ public class a {
             try {
                 a.c gw = this.buu.gw(com.baidu.poly.a.f.b.g(str));
                 if (gw != null) {
-                    if (d.a(str, gw.dG(0))) {
+                    if (d.a(str, gw.dI(0))) {
                         gw.commit();
                     } else {
                         gw.abort();
@@ -49,7 +49,7 @@ public class a {
         }
         a.e gv = this.buu.gv(com.baidu.poly.a.f.b.g(str));
         if (gv != null) {
-            FileInputStream fileInputStream = (FileInputStream) gv.dJ(0);
+            FileInputStream fileInputStream = (FileInputStream) gv.dL(0);
             if (i > 0 && i2 > 0) {
                 return com.baidu.poly.a.f.a.a(fileInputStream.getFD(), i, i2);
             }

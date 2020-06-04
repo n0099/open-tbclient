@@ -15,16 +15,16 @@ import com.facebook.drawee.view.SimpleDraweeView;
 @TargetApi(17)
 /* loaded from: classes3.dex */
 public class f implements h {
-    private SimpleDraweeView fmG;
-    private View fmH;
-    private g fmI;
-    private Runnable fmJ;
+    private SimpleDraweeView fmR;
+    private View fmS;
+    private g fmT;
+    private Runnable fmU;
     private Context mContext;
     private Dialog mDialog;
     private TextView mTitle;
-    private Runnable fmE = null;
-    private h fmF = null;
-    private boolean fmK = false;
+    private Runnable fmP = null;
+    private h fmQ = null;
+    private boolean fmV = false;
     private String mName = "直播";
     private DialogInterface.OnDismissListener mOnDismissListener = null;
 
@@ -33,8 +33,8 @@ public class f implements h {
     }
 
     public f(Context context, @NonNull g gVar) {
-        this.fmI = null;
-        this.fmI = gVar;
+        this.fmT = null;
+        this.fmT = gVar;
         ex(context);
     }
 
@@ -42,34 +42,34 @@ public class f implements h {
         this.mContext = context;
         this.mDialog = new Dialog(this.mContext, i.d.SoLoaderDialogStyle);
         this.mDialog.setContentView(i.b.dialog_soloader);
-        this.fmG = (SimpleDraweeView) this.mDialog.findViewById(i.a.soloader_loading_anim);
-        this.fmG.setController(com.facebook.drawee.a.a.c.dvf().PU("https://pic.rmb.bdstatic.com/qmpic_InRooc_1563447539.webp").wa(true).dvW());
+        this.fmR = (SimpleDraweeView) this.mDialog.findViewById(i.a.soloader_loading_anim);
+        this.fmR.setController(com.facebook.drawee.a.a.c.dvt().PV("https://pic.rmb.bdstatic.com/qmpic_InRooc_1563447539.webp").wc(true).dwk());
         this.mTitle = (TextView) this.mDialog.findViewById(i.a.soloader_title);
-        this.fmH = this.mDialog.findViewById(i.a.soloader_hide);
+        this.fmS = this.mDialog.findViewById(i.a.soloader_hide);
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.a.f.1
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                f.this.fmI.detach();
-                if (f.this.fmF != null) {
-                    f.this.fmI.a(f.this.fmF);
+                f.this.fmT.detach();
+                if (f.this.fmQ != null) {
+                    f.this.fmT.a(f.this.fmQ);
                 }
-                if (!f.this.fmK && f.this.fmJ != null) {
-                    f.this.fmJ.run();
+                if (!f.this.fmV && f.this.fmU != null) {
+                    f.this.fmU.run();
                 }
-                f.this.jD(f.this.fmK);
+                f.this.jD(f.this.fmV);
                 if (f.this.mOnDismissListener != null) {
                     f.this.mOnDismissListener.onDismiss(dialogInterface);
                 }
             }
         });
-        this.fmH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.a.f.2
+        this.fmS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.a.f.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 f.this.dismiss();
-                f.this.bsx();
+                f.this.bsz();
             }
         });
-        bsy();
+        bsA();
     }
 
     protected void jD(boolean z) {
@@ -81,21 +81,21 @@ public class f implements h {
         return this;
     }
 
-    protected void bsx() {
+    protected void bsz() {
     }
 
     public f t(Runnable runnable) {
-        this.fmE = runnable;
+        this.fmP = runnable;
         return this;
     }
 
     public f u(Runnable runnable) {
-        this.fmJ = runnable;
+        this.fmU = runnable;
         return this;
     }
 
-    public f bsy() {
-        this.mTitle.setText(String.format("%s加载%s%%…", this.mName, Integer.valueOf((int) (this.fmI.getProgress() * 100.0f))));
+    public f bsA() {
+        this.mTitle.setText(String.format("%s加载%s%%…", this.mName, Integer.valueOf((int) (this.fmT.getProgress() * 100.0f))));
         return this;
     }
 
@@ -106,7 +106,7 @@ public class f implements h {
                 return;
             }
         }
-        this.fmI.a(this);
+        this.fmT.a(this);
         this.mDialog.show();
     }
 
@@ -127,21 +127,21 @@ public class f implements h {
     }
 
     private void complete() {
-        this.fmK = true;
+        this.fmV = true;
         dismiss();
-        if (this.fmE != null) {
-            this.fmE.run();
+        if (this.fmP != null) {
+            this.fmP.run();
         }
-        if (this.fmF != null) {
-            this.fmF.a(this.fmI);
+        if (this.fmQ != null) {
+            this.fmQ.a(this.fmT);
         }
     }
 
     private void axD() {
         dismiss();
         Toast.makeText(this.mContext, i.c.soloader_failed, 0).show();
-        if (this.fmF != null) {
-            this.fmF.b(this.fmI);
+        if (this.fmQ != null) {
+            this.fmQ.b(this.fmT);
         }
     }
 
@@ -161,9 +161,9 @@ public class f implements h {
     }
 
     public void Ha() {
-        Animatable dvL;
-        if (this.fmG != null && this.fmG.getController() != null && (dvL = this.fmG.getController().dvL()) != null && dvL.isRunning()) {
-            dvL.stop();
+        Animatable dvZ;
+        if (this.fmR != null && this.fmR.getController() != null && (dvZ = this.fmR.getController().dvZ()) != null && dvZ.isRunning()) {
+            dvZ.stop();
         }
     }
 }

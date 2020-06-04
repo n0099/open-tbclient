@@ -117,7 +117,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
                     }
 
                     @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-                    public void ej(int i) {
+                    public void el(int i) {
                         com.baidu.swan.apps.console.c.e("Api-NavigateTo", "check pages failed");
                         com.baidu.swan.apps.statistic.h.i(false, aoF.QJ().agK());
                         ahV.QK();

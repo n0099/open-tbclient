@@ -158,18 +158,18 @@ public class a implements b.a {
                 if (this.btf.bta != null) {
                     e.ld().removeCallbacks(this.btf.bta);
                 }
-                if (this.btg != null && this.btg.aVb() != null && !this.bti && this.btf.bsW != null) {
+                if (this.btg != null && this.btg.aVc() != null && !this.bti && this.btf.bsW != null) {
                     HashMap<String, String> hashMap = new HashMap<>();
                     hashMap.put("server", this.btf.Mm());
                     hashMap.put("api", this.btf.Mm());
-                    hashMap.put("state", this.btg.aVc().dOA.exception);
-                    if (this.btg.aVd() != null && this.btf.Mq() > 0 && this.btg.aVd().containsKey("startTime")) {
-                        long j = com.baidu.adp.lib.f.b.toLong(this.btg.aVd().get("startTime"), 0L) - this.btf.Mq();
+                    hashMap.put("state", this.btg.aVd().dOA.exception);
+                    if (this.btg.aVe() != null && this.btf.Mq() > 0 && this.btg.aVe().containsKey("startTime")) {
+                        long j = com.baidu.adp.lib.f.b.toLong(this.btg.aVe().get("startTime"), 0L) - this.btf.Mq();
                         if (j > 0) {
-                            this.btg.aVd().put("queneTime", String.valueOf(j));
+                            this.btg.aVe().put("queneTime", String.valueOf(j));
                         }
                     }
-                    this.btf.bsW.a(hashMap, this.btg.aVd(), this.btg.aVb().mServerErrorCode, this.btg.aVb().mErrorString, strArr[0], this.btf.identifier);
+                    this.btf.bsW.a(hashMap, this.btg.aVe(), this.btg.aVc().mServerErrorCode, this.btg.aVc().mErrorString, strArr[0], this.btf.identifier);
                 }
                 this.btf.Mo();
             }

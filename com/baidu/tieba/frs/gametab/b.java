@@ -13,7 +13,7 @@ import com.baidu.tieba.f.a;
 /* loaded from: classes.dex */
 public class b {
     private boolean evu = false;
-    private a.InterfaceC0607a gLT = new a.InterfaceC0607a() { // from class: com.baidu.tieba.frs.gametab.b.1
+    private a.InterfaceC0607a gMe = new a.InterfaceC0607a() { // from class: com.baidu.tieba.frs.gametab.b.1
         @Override // com.baidu.tieba.f.a.InterfaceC0607a
         public void B(int i, int i2) {
             if (ad(i2)) {
@@ -40,8 +40,8 @@ public class b {
             return Math.abs(f) >= 10.0f;
         }
     };
-    private boolean hDK;
-    private com.baidu.tieba.f.b hrk;
+    private boolean hEx;
+    private com.baidu.tieba.f.b hrv;
     private Context mContext;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
@@ -49,10 +49,10 @@ public class b {
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.hDK = z;
-        if (this.hDK) {
-            this.hrk = new com.baidu.tieba.f.b(context);
-            this.hrk.a(this.gLT);
+        this.hEx = z;
+        if (this.hEx) {
+            this.hrv = new com.baidu.tieba.f.b(context);
+            this.hrv.a(this.gMe);
         }
     }
 
@@ -69,15 +69,15 @@ public class b {
             case 2:
                 this.mVelocityTracker.computeCurrentVelocity(1000);
                 if (Math.abs(this.mVelocityTracker.getXVelocity()) > Math.abs(this.mVelocityTracker.getYVelocity())) {
-                    this.hDK = false;
+                    this.hEx = false;
                     break;
                 } else {
-                    this.hDK = true;
+                    this.hEx = true;
                     break;
                 }
         }
-        if (this.hDK && this.hrk != null) {
-            this.hrk.onTouchEvent(motionEvent);
+        if (this.hEx && this.hrv != null) {
+            this.hrv.onTouchEvent(motionEvent);
         }
     }
 
@@ -92,7 +92,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void nf(boolean z) {
         this.evu = z;
-        if (this.hDK) {
+        if (this.hEx) {
             D(!this.evu, true);
         }
     }

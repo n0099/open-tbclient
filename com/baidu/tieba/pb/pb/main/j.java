@@ -4,17 +4,17 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 /* loaded from: classes9.dex */
 public class j {
-    private static j jIh;
-    private com.baidu.adp.lib.cache.l<byte[]> jIi = null;
-    private com.baidu.adp.lib.cache.l<byte[]> jIj = null;
+    private static j jJn;
+    private com.baidu.adp.lib.cache.l<byte[]> jJo = null;
+    private com.baidu.adp.lib.cache.l<byte[]> jJp = null;
 
-    public static synchronized j cEc() {
+    public static synchronized j cEs() {
         j jVar;
         synchronized (j.class) {
-            if (jIh == null) {
-                jIh = new j();
+            if (jJn == null) {
+                jJn = new j();
             }
-            jVar = jIh;
+            jVar = jJn;
         }
         return jVar;
     }
@@ -24,34 +24,34 @@ public class j {
     }
 
     private void aHS() {
-        if (this.jIi == null) {
-            this.jIi = com.baidu.tbadk.core.c.a.aSS().vL("tb.pb_mark");
+        if (this.jJo == null) {
+            this.jJo = com.baidu.tbadk.core.c.a.aSS().vL("tb.pb_mark");
         }
-        if (this.jIj == null) {
-            this.jIj = com.baidu.tbadk.core.c.a.aSS().vL("tb.pb_normal");
+        if (this.jJp == null) {
+            this.jJp = com.baidu.tbadk.core.c.a.aSS().vL("tb.pb_normal");
         }
     }
 
     public void aK(String str, boolean z) {
         if (z) {
-            if (this.jIi != null && str != null) {
-                this.jIi.asyncSet(str, new byte[0], 0L);
+            if (this.jJo != null && str != null) {
+                this.jJo.asyncSet(str, new byte[0], 0L);
             }
-        } else if (this.jIj != null && str != null) {
-            this.jIj.asyncSet(str, new byte[0], 0L);
+        } else if (this.jJp != null && str != null) {
+            this.jJp.asyncSet(str, new byte[0], 0L);
         }
     }
 
     public byte[] aL(String str, boolean z) {
         l.b<byte[]> bt;
         if (z) {
-            if (this.jIi != null && str != null) {
-                bt = this.jIi.bt(str);
+            if (this.jJo != null && str != null) {
+                bt = this.jJo.bt(str);
             }
             bt = null;
         } else {
-            if (this.jIj != null && str != null) {
-                bt = this.jIj.bt(str);
+            if (this.jJp != null && str != null) {
+                bt = this.jJp.bt(str);
             }
             bt = null;
         }
@@ -65,9 +65,9 @@ public class j {
         if (str != null) {
             aHS();
             if (z) {
-                this.jIi.set(str, bArr, 604800000L);
+                this.jJo.set(str, bArr, 604800000L);
             } else {
-                this.jIj.set(str, bArr, 86400000L);
+                this.jJp.set(str, bArr, 86400000L);
             }
         }
     }
@@ -75,7 +75,7 @@ public class j {
     public void n(String str, byte[] bArr) {
         if (bArr != null && str != null) {
             aHS();
-            this.jIi.set(str, bArr, BdKVCache.MILLS_30Days);
+            this.jJo.set(str, bArr, BdKVCache.MILLS_30Days);
         }
     }
 }

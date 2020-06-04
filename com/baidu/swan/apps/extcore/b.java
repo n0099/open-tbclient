@@ -9,24 +9,24 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static com.baidu.swan.apps.extcore.b.b fd(int i) {
+    public static com.baidu.swan.apps.extcore.b.b ff(int i) {
         return i == 1 ? c.acD() : a.acA();
     }
 
     public static void a(int i, @Nullable com.baidu.swan.apps.aq.e.b<Exception> bVar) {
-        fd(i).f(bVar);
+        ff(i).f(bVar);
     }
 
     public static <T extends com.baidu.swan.apps.extcore.model.a> Exception a(int i, T t) {
-        return fd(i).a(t);
+        return ff(i).a(t);
     }
 
-    public static ExtensionCore fe(int i) {
-        return fd(i).abH();
+    public static ExtensionCore fg(int i) {
+        return ff(i).abH();
     }
 
-    public static String ff(int i) {
-        ExtensionCore abH = fd(i).abH();
+    public static String fh(int i) {
+        ExtensionCore abH = ff(i).abH();
         if (abH != null) {
             String str = abH.extensionCoreVersionName;
             return TextUtils.isEmpty(str) ? "" : str;

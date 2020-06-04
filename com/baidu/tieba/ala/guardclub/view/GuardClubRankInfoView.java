@@ -15,14 +15,14 @@ import com.baidu.live.u.a;
 public class GuardClubRankInfoView extends RelativeLayout {
     private HeadImageView aFL;
     private TextView aTU;
-    private TextView fBa;
-    private TextView fBn;
-    private TextView fBo;
-    private a fBp;
+    private a fBA;
+    private TextView fBl;
+    private TextView fBy;
+    private TextView fBz;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void buW();
+        void buY();
     }
 
     public GuardClubRankInfoView(Context context, AttributeSet attributeSet) {
@@ -31,19 +31,19 @@ public class GuardClubRankInfoView extends RelativeLayout {
     }
 
     public void setCallback(a aVar) {
-        this.fBp = aVar;
+        this.fBA = aVar;
     }
 
     public void setData(String str, String str2, String str3, String str4, boolean z) {
-        this.fBn.setText(str);
+        this.fBy.setText(str);
         this.aFL.startLoad(str2, 12, false, false);
-        this.fBa.setText(str3);
+        this.fBl.setText(str3);
         this.aTU.setText(str4);
-        this.fBo.setVisibility(z ? 0 : 4);
+        this.fBz.setVisibility(z ? 0 : 4);
         if (fI(str)) {
-            this.fBn.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize40));
+            this.fBy.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize40));
         } else {
-            this.fBn.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize20));
+            this.fBy.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize20));
         }
     }
 
@@ -71,19 +71,19 @@ public class GuardClubRankInfoView extends RelativeLayout {
         setBackgroundColor(Color.parseColor("#FF201443"));
         setPadding(getResources().getDimensionPixelOffset(a.e.sdk_ds20), 0, 0, 0);
         LayoutInflater.from(getContext()).inflate(a.h.live_guard_club_rank_info, (ViewGroup) this, true);
-        this.fBn = (TextView) findViewById(a.g.tv_rank);
+        this.fBy = (TextView) findViewById(a.g.tv_rank);
         this.aFL = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.fBa = (TextView) findViewById(a.g.tv_name);
+        this.fBl = (TextView) findViewById(a.g.tv_name);
         this.aTU = (TextView) findViewById(a.g.tv_content);
-        this.fBo = (TextView) findViewById(a.g.tv_hit);
+        this.fBz = (TextView) findViewById(a.g.tv_hit);
         this.aFL.setIsRound(true);
         this.aFL.setAutoChangeStyle(false);
         this.aFL.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.fBo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankInfoView.1
+        this.fBz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankInfoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (GuardClubRankInfoView.this.fBp != null) {
-                    GuardClubRankInfoView.this.fBp.buW();
+                if (GuardClubRankInfoView.this.fBA != null) {
+                    GuardClubRankInfoView.this.fBA.buY();
                 }
             }
         });

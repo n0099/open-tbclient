@@ -16,7 +16,7 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     private int mSkinType;
 
     public a(com.baidu.adp.base.e eVar) {
-        super(eVar.getPageActivity(), b.hjs, eVar.getUniqueId());
+        super(eVar.getPageActivity(), b.hjD, eVar.getUniqueId());
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -59,12 +59,12 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
             am.setBackgroundResource(cVar.bej, R.drawable.frs_member_manito_bg);
             am.setBackgroundColor(cVar.mLineView, R.color.cp_bg_line_c);
             am.setViewTextColor(cVar.mTitleView, R.color.cp_cont_b, 1);
-            am.setImageResource(cVar.gsi, R.drawable.icon_arrow12_gray66_right);
+            am.setImageResource(cVar.gst, R.drawable.icon_arrow12_gray66_right);
         }
     }
 
     private void a(c cVar, b bVar) {
-        cVar.mTitleView.setText(bVar.hjt);
+        cVar.mTitleView.setText(bVar.hjE);
         cVar.bej.setTag(bVar.mUrl);
         cVar.bej.setOnClickListener(this.mClickListener);
     }

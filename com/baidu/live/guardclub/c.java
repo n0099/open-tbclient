@@ -12,7 +12,7 @@ public class c extends HttpMessage {
         super(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
     }
 
-    public void cm(int i) {
+    public void co(int i) {
         this.aOO = i;
     }
 

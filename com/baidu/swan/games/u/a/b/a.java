@@ -12,7 +12,7 @@ public class a {
             if (z) {
                 this.dce.as(4, 1);
             } else {
-                this.dce.iN(4);
+                this.dce.iP(4);
             }
         }
     }

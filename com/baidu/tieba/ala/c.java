@@ -7,39 +7,39 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private static c eVM;
-    private List<an> eMK;
+    private static c eVX;
+    private List<an> eMV;
 
-    public static c bpq() {
-        if (eVM == null) {
+    public static c bps() {
+        if (eVX == null) {
             synchronized (c.class) {
-                if (eVM == null) {
-                    eVM = new c();
+                if (eVX == null) {
+                    eVX = new c();
                 }
             }
         }
-        return eVM;
+        return eVX;
     }
 
     public void e(an anVar) {
         if (anVar != null) {
-            if (this.eMK == null) {
-                this.eMK = new ArrayList();
+            if (this.eMV == null) {
+                this.eMV = new ArrayList();
             }
-            if (this.eMK != null) {
-                this.eMK.add(anVar);
+            if (this.eMV != null) {
+                this.eMV.add(anVar);
             }
         }
     }
 
-    public void bpr() {
-        if (v.getCount(this.eMK) != 0) {
-            for (an anVar : this.eMK) {
+    public void bpt() {
+        if (v.getCount(this.eMV) != 0) {
+            for (an anVar : this.eMV) {
                 if (anVar != null) {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.eMK.clear();
+            this.eMV.clear();
         }
     }
 }

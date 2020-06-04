@@ -31,8 +31,8 @@ public class c extends b {
     @Override // com.baidu.swan.apps.core.d.b
     public void ae(View view) {
         super.ae(view);
-        eH(-1);
-        eI(ViewCompat.MEASURED_STATE_MASK);
+        eJ(-1);
+        eK(ViewCompat.MEASURED_STATE_MASK);
         dC(true);
         setRightZoneVisibility(false);
         String abT = this.bHf == null ? "" : this.bHf.abT();

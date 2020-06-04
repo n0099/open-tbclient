@@ -18,7 +18,7 @@ public class a {
         }
     }
 
-    public static boolean yH(int i) {
+    public static boolean yJ(int i) {
         if (i == Integer.MAX_VALUE) {
             return true;
         }

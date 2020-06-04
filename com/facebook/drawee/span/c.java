@@ -12,17 +12,17 @@ import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class c extends CharacterStyle implements UpdateAppearance {
     private int[] colors = {-17920, -6748254};
-    public int mre = 90;
-    private int mrf = 8;
-    private Shader mrg = null;
+    public int msp = 90;
+    private int msq = 8;
+    private Shader msr = null;
     private Matrix matrix = new Matrix();
-    private float mrh = 0.0f;
+    private float mss = 0.0f;
 
     /* loaded from: classes5.dex */
     public static class a {
         private int[] mColors;
-        private int mre;
-        private int mrf;
+        private int msp;
+        private int msq;
 
         public a aZ(ArrayList<String> arrayList) {
             if (arrayList != null && arrayList.size() > 0) {
@@ -34,7 +34,7 @@ public class c extends CharacterStyle implements UpdateAppearance {
                         break;
                     }
                     try {
-                        this.mColors[i2] = Color.parseColor(PZ(arrayList.get(i2)));
+                        this.mColors[i2] = Color.parseColor(Qa(arrayList.get(i2)));
                     } catch (Exception e) {
                     }
                     i = i2 + 1;
@@ -43,48 +43,48 @@ public class c extends CharacterStyle implements UpdateAppearance {
             return this;
         }
 
-        public a Hk(int i) {
-            this.mrf = i;
+        public a Hm(int i) {
+            this.msq = i;
             return this;
         }
 
-        private String PZ(String str) {
+        private String Qa(String str) {
             if (str.indexOf("#") == -1) {
                 return null;
             }
             return str.replace("#", "#FF");
         }
 
-        public c dwS() {
+        public c dxg() {
             c cVar = new c();
             if (this.mColors != null) {
                 cVar.colors = this.mColors;
             }
-            if (this.mre != 0) {
-                cVar.mre = this.mre;
+            if (this.msp != 0) {
+                cVar.msp = this.msp;
             }
-            if (this.mrf != 0) {
-                cVar.mrf = this.mrf;
+            if (this.msq != 0) {
+                cVar.msq = this.msq;
             }
             return cVar;
         }
     }
 
     public void aG(float f) {
-        this.mrh = f;
+        this.mss = f;
     }
 
     @Override // android.text.style.CharacterStyle
     public void updateDrawState(TextPaint textPaint) {
         textPaint.setStyle(Paint.Style.FILL);
-        float textSize = textPaint.getTextSize() * this.mrf;
-        if (this.mrg == null) {
-            this.mrg = new LinearGradient(0.0f, 0.0f, 0.0f, textSize, this.colors, (float[]) null, Shader.TileMode.MIRROR);
+        float textSize = textPaint.getTextSize() * this.msq;
+        if (this.msr == null) {
+            this.msr = new LinearGradient(0.0f, 0.0f, 0.0f, textSize, this.colors, (float[]) null, Shader.TileMode.MIRROR);
         }
         this.matrix.reset();
-        this.matrix.setRotate(this.mre);
-        this.matrix.postTranslate(this.mrh * textSize, 0.0f);
-        this.mrg.setLocalMatrix(this.matrix);
-        textPaint.setShader(this.mrg);
+        this.matrix.setRotate(this.msp);
+        this.matrix.postTranslate(this.mss * textSize, 0.0f);
+        this.msr.setLocalMatrix(this.matrix);
+        textPaint.setShader(this.msr);
     }
 }

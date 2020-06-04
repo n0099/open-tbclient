@@ -38,7 +38,7 @@ public class e extends com.baidu.adp.widget.ListView.a<bj, ag<bk>> {
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, bk bkVar) {
-                s.bLq().jv(true);
+                s.bLs().jv(true);
                 e.this.f(view, bkVar);
             }
         };
@@ -113,7 +113,7 @@ public class e extends com.baidu.adp.widget.ListView.a<bj, ag<bk>> {
         agVar.b((ag<bk>) bjVar.dEA);
         agVar.rM().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         agVar.rM().a(this.adt);
-        s.bLq().e(com.baidu.tieba.enterForum.a.g(bjVar.aOi(), this.mTabName));
+        s.bLs().e(com.baidu.tieba.enterForum.a.g(bjVar.aOi(), this.mTabName));
         return agVar.getView();
     }
 }

@@ -40,7 +40,7 @@ public final class Regex implements Serializable {
         this(r0);
         kotlin.jvm.internal.q.m(str, "pattern");
         kotlin.jvm.internal.q.m(regexOption, "option");
-        Pattern compile = Pattern.compile(str, Companion.JU(regexOption.getValue()));
+        Pattern compile = Pattern.compile(str, Companion.JW(regexOption.getValue()));
         kotlin.jvm.internal.q.l((Object) compile, "Pattern.compile(pattern,…nicodeCase(option.value))");
     }
 
@@ -55,7 +55,7 @@ public final class Regex implements Serializable {
         kotlin.jvm.internal.q.m(set, "options");
         a aVar = Companion;
         j = k.j(set);
-        Pattern compile = Pattern.compile(str, aVar.JU(j));
+        Pattern compile = Pattern.compile(str, aVar.JW(j));
         kotlin.jvm.internal.q.l((Object) compile, "Pattern.compile(pattern,…odeCase(options.toInt()))");
     }
 
@@ -147,12 +147,12 @@ public final class Regex implements Serializable {
         StringBuilder sb = new StringBuilder(length);
         do {
             if (find$default == null) {
-                kotlin.jvm.internal.q.dLM();
+                kotlin.jvm.internal.q.dMa();
             }
-            sb.append(charSequence, i, find$default.dMh().dLY().intValue());
+            sb.append(charSequence, i, find$default.dMv().dMm().intValue());
             sb.append(bVar.invoke(find$default));
-            i = find$default.dMh().dLZ().intValue() + 1;
-            find$default = find$default.dMi();
+            i = find$default.dMv().dMn().intValue() + 1;
+            find$default = find$default.dMw();
             if (i >= length) {
                 break;
             }
@@ -270,7 +270,7 @@ public final class Regex implements Serializable {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public final int JU(int i) {
+        public final int JW(int i) {
             return (i & 2) != 0 ? i | 64 : i;
         }
     }

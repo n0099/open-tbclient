@@ -200,7 +200,7 @@ public class a {
                 }
                 activity2.finish();
             }
-        }).dE(btF).aF(activity.getApplicationContext()).cR(false).MJ();
+        }).dG(btF).aF(activity.getApplicationContext()).cR(false).MJ();
         return btD;
     }
 

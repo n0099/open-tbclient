@@ -96,7 +96,7 @@ public class c extends aa {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(202));
                 } else {
                     if (this.bSi != null) {
-                        this.bSi.eB(optParamsAsJo.optInt("duration"));
+                        this.bSi.eD(optParamsAsJo.optInt("duration"));
                     }
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 }

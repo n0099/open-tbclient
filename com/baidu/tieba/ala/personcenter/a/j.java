@@ -12,7 +12,7 @@ public class j extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.card.a
 
     /* JADX INFO: Access modifiers changed from: protected */
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), m.goK);
+        super(tbPageContext.getPageActivity(), m.goV);
         this.mPageContext = tbPageContext;
     }
 
@@ -28,21 +28,21 @@ public class j extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, m mVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.c> aVar) {
-        if (aVar.bLU() == null) {
+        if (aVar.bLW() == null) {
             return null;
         }
-        a(mVar, aVar.bLU());
-        return aVar.bLU().getView();
+        a(mVar, aVar.bLW());
+        return aVar.bLW().getView();
     }
 
     private void a(m mVar, com.baidu.tieba.ala.personcenter.e.c cVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = mVar.getPersonCenterData();
-        if (personCenterData == null || personCenterData.bIm() == null || TextUtils.isEmpty(personCenterData.bIm().bIl())) {
+        if (personCenterData == null || personCenterData.bIo() == null || TextUtils.isEmpty(personCenterData.bIo().bIn())) {
             cVar.setVisibility(8);
             notifyDataSetChanged();
             return;
         }
-        cVar.Dd(personCenterData.bIm().bIl());
+        cVar.Dd(personCenterData.bIo().bIn());
         cVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         notifyDataSetChanged();
     }

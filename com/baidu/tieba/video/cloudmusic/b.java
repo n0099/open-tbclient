@@ -5,41 +5,41 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.video.cloudmusic.model.CloudMusicModel;
 /* loaded from: classes10.dex */
 public class b implements c.a {
-    private final CloudMusicModel lAA;
-    private final c.b lAB;
+    private final CloudMusicModel lBJ;
+    private final c.b lBK;
 
     public b(CloudMusicModel cloudMusicModel, c.b bVar) {
-        this.lAA = cloudMusicModel;
-        this.lAB = bVar;
+        this.lBJ = cloudMusicModel;
+        this.lBK = bVar;
         bVar.a(this);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void dhV() {
-        this.lAB.uQ(true);
-        this.lAA.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
+    public void dik() {
+        this.lBK.uQ(true);
+        this.lBJ.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: b */
             public void aI(CloudMusicData cloudMusicData) {
-                b.this.lAB.uQ(false);
+                b.this.lBK.uQ(false);
                 if (cloudMusicData != null) {
-                    b.this.lAB.uR(false);
+                    b.this.lBK.uR(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        b.this.lAB.uR(true);
+                        b.this.lBK.uR(true);
                         return;
                     } else {
-                        b.this.lAB.a(cloudMusicData);
+                        b.this.lBK.a(cloudMusicData);
                         return;
                     }
                 }
-                b.this.lAB.uR(true);
+                b.this.lBK.uR(true);
             }
         });
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void bXE() {
-        this.lAA.cancelLoadData();
+    public void bXG() {
+        this.lBJ.cancelLoadData();
     }
 }

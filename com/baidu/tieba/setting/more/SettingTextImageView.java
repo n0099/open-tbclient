@@ -18,41 +18,41 @@ import com.baidu.tieba.R;
 public class SettingTextImageView extends FrameLayout {
     private LinearLayout ehT;
     private ImageView ehX;
-    private HeadImageView kXF;
+    private HeadImageView kYO;
     private Context mContext;
     private TextView textView;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        bbA();
+        bbB();
         e(attributeSet);
-        mU(TbadkCoreApplication.getInst().getSkinType());
+        mW(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextImageView(Context context) {
         super(context);
         this.mContext = context;
-        bbA();
-        mU(TbadkCoreApplication.getInst().getSkinType());
+        bbB();
+        mW(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void mU(int i) {
-        setBackgroundDrawable(am.lc(R.color.cp_bg_line_e));
+    public void mW(int i) {
+        setBackgroundDrawable(am.le(R.color.cp_bg_line_e));
         am.setViewTextColor(this.textView, R.color.cp_cont_b, 1);
-        SvgManager.aUV().a(this.ehX, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        this.kXF.invalidate();
+        SvgManager.aUW().a(this.ehX, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        this.kYO.invalidate();
     }
 
-    public void cYY() {
-        if (this.kXF != null) {
-            this.kXF.setVisibility(8);
+    public void cZo() {
+        if (this.kYO != null) {
+            this.kYO.setVisibility(8);
         }
     }
 
-    public void cYZ() {
-        if (this.kXF != null) {
-            this.kXF.setVisibility(0);
+    public void cZp() {
+        if (this.kYO != null) {
+            this.kYO.setVisibility(0);
         }
     }
 
@@ -62,20 +62,20 @@ public class SettingTextImageView extends FrameLayout {
 
     public void setIcon(String str, boolean z) {
         if (z) {
-            this.kXF.startLoad(str, 26, false);
+            this.kYO.startLoad(str, 26, false);
         } else {
-            this.kXF.startLoad(str, 12, false);
+            this.kYO.startLoad(str, 12, false);
         }
     }
 
     public void recycle() {
     }
 
-    private void bbA() {
+    private void bbB() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
         this.ehT = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.kXF = (HeadImageView) findViewById(R.id.icon);
+        this.kYO = (HeadImageView) findViewById(R.id.icon);
         this.ehX = (ImageView) findViewById(R.id.arrow);
     }
 

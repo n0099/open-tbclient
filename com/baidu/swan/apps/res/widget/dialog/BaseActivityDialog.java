@@ -343,7 +343,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             this.mDialogClass = cls;
         }
 
-        public a gn(int i) {
+        public a gq(int i) {
             return nm(this.mContext.getString(i));
         }
 
@@ -352,7 +352,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             return this;
         }
 
-        public a gp(int i) {
+        public a gr(int i) {
             return nn(this.mContext.getString(i));
         }
 

@@ -192,7 +192,7 @@ public class CommonWebLayout extends FrameLayout {
             public void onProgressChanged(WebView webView, int i) {
                 super.onProgressChanged(webView, i);
                 if (CommonWebLayout.this.bjV != null) {
-                    CommonWebLayout.this.bjV.dr(i);
+                    CommonWebLayout.this.bjV.dt(i);
                 }
             }
 

@@ -67,7 +67,7 @@ public class a extends UnitedSchemeBaseInterceptor {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             com.baidu.swan.apps.an.a pt = new com.baidu.swan.apps.an.a().bw(1L).bx(1L).pt("appId is empty");
             e.asQ().g(pt);
-            h.b(new d().oC(h.gS(1)).f(pt).bS(SuspensionBallEntity.KEY_SCHEME, uri.toString()));
+            h.b(new d().oC(h.gU(1)).f(pt).bS(SuspensionBallEntity.KEY_SCHEME, uri.toString()));
             return true;
         }
         String b = b(j, uri);
@@ -78,7 +78,7 @@ public class a extends UnitedSchemeBaseInterceptor {
         if (DEBUG) {
             Log.d("SwanGameLaunchAction", "query: " + l);
         }
-        c.a aVar = (c.a) ((c.a) ((c.a) ((c.a) new c.a().kW(j)).la(uri.toString())).fB(1)).dY(false);
+        c.a aVar = (c.a) ((c.a) ((c.a) ((c.a) new c.a().kW(j)).la(uri.toString())).fD(1)).dY(false);
         if (!TextUtils.isEmpty(b)) {
             aVar.lb(b + "?" + l);
         }
@@ -172,7 +172,7 @@ public class a extends UnitedSchemeBaseInterceptor {
         if (applicationContext != null) {
             com.baidu.swan.games.l.a.a(cVar2, new e.b() { // from class: com.baidu.swan.games.o.a.1
                 @Override // com.baidu.swan.apps.r.e.b
-                public void dr(int i) {
+                public void dt(int i) {
                 }
 
                 @Override // com.baidu.swan.apps.r.e.b
@@ -195,7 +195,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                             public void a(int i, com.baidu.swan.apps.r.a aVar) {
                                 a.b bVar = (a.b) aVar;
                                 if (i == 0 && bVar != null && bVar.cZy != null) {
-                                    cVar.fA(bVar.cZy.dbn);
+                                    cVar.fC(bVar.cZy.dbn);
                                     Intent a = c.a(applicationContext, cVar);
                                     a.setAction("com.baidu.searchbox.action.aiapps.LAUNCH");
                                     a.setFlags(268435456);
@@ -239,7 +239,7 @@ public class a extends UnitedSchemeBaseInterceptor {
         agt.c(cVar.abH());
         agt.le(cVar.agV());
         agt.kR("0");
-        agt.fB(cVar.getAppFrameType());
+        agt.fD(cVar.getAppFrameType());
         return agt;
     }
 }
