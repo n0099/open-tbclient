@@ -17,7 +17,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b hm(String str) {
+    public com.baidu.swan.apps.api.c.b hu(String str) {
         if (DEBUG) {
             Log.d("Api-Modal", "start show modal");
         }
@@ -41,7 +41,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
                 @Override // java.lang.Runnable
                 public void run() {
                     g.a aVar = new g.a(b.this.getContext());
-                    aVar.e(jSONObject.optString("title")).nq(jSONObject.optString("content")).a(new com.baidu.swan.apps.view.c.a()).eT(false);
+                    aVar.e(jSONObject.optString("title")).ny(jSONObject.optString("content")).a(new com.baidu.swan.apps.view.c.a()).eY(false);
                     if (jSONObject.optBoolean("showCancel", true)) {
                         aVar.Q(jSONObject.optString("cancelColor"), a.c.aiapps_modal_cancel_color);
                         String optString2 = jSONObject.optString("cancelText");
@@ -80,7 +80,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
                             }
                         }
                     });
-                    aVar.aon();
+                    aVar.apu();
                 }
             });
             return new com.baidu.swan.apps.api.c.b(0);

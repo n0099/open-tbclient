@@ -3,7 +3,7 @@ package com.baidu.live.gift;
 import android.view.View;
 /* loaded from: classes3.dex */
 public interface w {
-    void bN(int i);
+    void bT(int i);
 
     void bb(boolean z);
 
@@ -11,11 +11,11 @@ public interface w {
 
     void onDestroy();
 
-    View xY();
+    void yA();
 
-    View xZ();
+    void yB();
 
-    void ya();
+    View yy();
 
-    void yb();
+    View yz();
 }

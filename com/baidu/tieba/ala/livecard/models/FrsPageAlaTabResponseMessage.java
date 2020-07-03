@@ -1,11 +1,11 @@
 package com.baidu.tieba.ala.livecard.models;
 
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bu;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.frs.av;
+import com.baidu.tieba.frs.bb;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,9 +14,9 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public int alaLiveCount;
     public int errCode;
     public String errMsg;
-    public ArrayList<o> mAltList;
-    public ArrayList<o> mThreadList;
-    public av pageInfo;
+    public ArrayList<q> mAltList;
+    public ArrayList<q> mThreadList;
+    public bb pageInfo;
 
     public FrsPageAlaTabResponseMessage(int i) {
         super(i);
@@ -31,7 +31,7 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
             this.errMsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
             this.alaLiveCount = jSONObject.optInt("ala_live_count");
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
-            this.pageInfo = new av();
+            this.pageInfo = new bb();
             this.pageInfo.hasMore = optJSONObject.optInt("has_more") == 1;
             this.pageInfo.pn = optJSONObject.optInt(Config.PACKAGE_NAME);
             if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
@@ -44,10 +44,10 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 this.mThreadList = new ArrayList<>();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    bk bkVar = new bk();
-                    bkVar.vA("frs_live_play");
-                    bkVar.parserJson(jSONObject2);
-                    this.mThreadList.add(bkVar);
+                    bu buVar = new bu();
+                    buVar.vQ("frs_live_play");
+                    buVar.parserJson(jSONObject2);
+                    this.mThreadList.add(buVar);
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("alt_list");
@@ -55,10 +55,10 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 this.mAltList = new ArrayList<>();
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     JSONObject jSONObject3 = optJSONArray2.getJSONObject(i3);
-                    bk bkVar2 = new bk();
-                    bkVar2.vA("frs_live_play");
-                    bkVar2.parserJson(jSONObject3);
-                    this.mAltList.add(bkVar2);
+                    bu buVar2 = new bu();
+                    buVar2.vQ("frs_live_play");
+                    buVar2.parserJson(jSONObject3);
+                    this.mAltList.add(buVar2);
                 }
             }
         }

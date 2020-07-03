@@ -13,7 +13,7 @@ import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -221,12 +221,12 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
         HashMap hashMap4 = new HashMap();
         HashMap hashMap5 = new HashMap();
         HashMap hashMap6 = new HashMap();
-        hashMap2.put("financeURL", b.aTX().getString("baidu_finance", null));
+        hashMap2.put("financeURL", b.aVP().getString("baidu_finance", null));
         hashMap2.put("personalCellText", TbadkCoreApplication.getInst().getActivityPrizeData().getPersonItemText());
         hashMap2.put("loginAwardUrl", TbadkCoreApplication.getInst().getActivityPrizeData().getH5Url());
-        hashMap2.put("auditPackageSwitch", Integer.valueOf(b.aTX().getBoolean("person_center_show_lite_game", true) ? 1 : 0));
+        hashMap2.put("auditPackageSwitch", Integer.valueOf(b.aVP().getBoolean("person_center_show_lite_game", true) ? 1 : 0));
         hashMap2.put("isLiteMode", "0");
-        hashMap2.put("isShowBaiduFinanceEntrance", "" + b.aTX().getInt("baidu_financial_display", 1));
+        hashMap2.put("isShowBaiduFinanceEntrance", "" + b.aVP().getInt("baidu_financial_display", 1));
         hashMap.put("syncData", hashMap2);
         hashMap.put("configInfo", hashMap3);
         hashMap.put("appConfig", hashMap4);
@@ -284,9 +284,9 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
     /* JADX INFO: Access modifiers changed from: private */
     public static HashMap<String, Object> readThemeData() {
         HashMap<String, Object> hashMap = new HashMap<>();
-        String aUQ = am.aUQ();
+        String aWK = an.aWK();
         HashMap hashMap2 = new HashMap();
-        hashMap.put("mode", aUQ);
+        hashMap.put("mode", aWK);
         hashMap.put("colors", hashMap2);
         HashMap hashMap3 = new HashMap();
         HashMap hashMap4 = new HashMap();

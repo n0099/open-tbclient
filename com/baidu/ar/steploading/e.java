@@ -20,19 +20,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 class e extends com.baidu.ar.d.a<String, String> {
-    private IHttpRequest bK;
-    private WeakReference<Context> uw;
-    private ARCaseBundleInfo vG;
-    private a vI;
+    private IHttpRequest bX;
+    private WeakReference<Context> uW;
+    private ARCaseBundleInfo wg;
+    private a wi;
 
     public e(Context context, ARCaseBundleInfo aRCaseBundleInfo, a aVar) {
-        this.uw = new WeakReference<>(context);
-        this.vG = aRCaseBundleInfo;
-        this.vI = aVar;
+        this.uW = new WeakReference<>(context);
+        this.wg = aRCaseBundleInfo;
+        this.wi = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String aG(String str) {
+    public String aH(String str) {
         JSONObject jSONObject = new JSONObject(str);
         if (jSONObject.getInt("errorNum") != 0) {
             throw new Exception(jSONObject.optString(TiebaInitialize.LogFields.ERROR_MESSAGE, "query res failed"));
@@ -47,7 +47,7 @@ class e extends com.baidu.ar.d.a<String, String> {
     private JSONObject d(Context context, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            m.f(jSONObject);
+            m.g(jSONObject);
             m.b(context, jSONObject);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -59,25 +59,25 @@ class e extends com.baidu.ar.d.a<String, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.ar.d.a
     public void a(String str, final ICallbackWith<String> iCallbackWith, final IError iError) {
-        Context context = this.uw.get();
+        Context context = this.uW.get();
         if (context == null) {
             return;
         }
-        String str2 = this.vG.arKey;
-        f aF = this.vI.aF(str);
-        if (aF == null) {
+        String str2 = this.wg.arKey;
+        f aG = this.wi.aG(str);
+        if (aG == null) {
             iError.onError(1, "资源不存在", null);
-        } else if (TextUtils.isEmpty(aF.vU)) {
+        } else if (TextUtils.isEmpty(aG.wu)) {
             iError.onError(1, "资源id不存在", null);
-        } else if (RecentlyVisitedForumModel.LOCAL_ACCOUNT.equals(aF.vU)) {
+        } else if (RecentlyVisitedForumModel.LOCAL_ACCOUNT.equals(aG.wu)) {
             iCallbackWith.run(RecentlyVisitedForumModel.LOCAL_ACCOUNT);
-        } else if (TextUtils.isEmpty(aF.vV)) {
+        } else if (TextUtils.isEmpty(aG.wv)) {
             iError.onError(1, "编码不正确", null);
         } else {
             StatisticApi.onEvent(StatisticConstants.LOAD_START_QUERY);
-            String fo = q.fo();
-            this.bK = HttpFactory.newRequest();
-            this.bK.setUrl(fo).setMethod("POST").addQueryField("id", aF.vU).setBody(d(context, str2)).enqueue(new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.steploading.e.1
+            String fE = q.fE();
+            this.bX = HttpFactory.newRequest();
+            this.bX.setUrl(fE).setMethod("POST").addQueryField("id", aG.wu).setBody(d(context, str2)).enqueue(new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.steploading.e.1
                 @Override // com.baidu.ar.ihttp.a
                 public void a(HttpException httpException) {
                     StatisticApi.onEvent(StatisticConstants.LOAD_QUERY_FAILURE);
@@ -93,9 +93,9 @@ class e extends com.baidu.ar.d.a<String, String> {
                     String str3 = null;
                     if (iHttpResponse.isSuccess()) {
                         try {
-                            String aG = e.this.aG(iHttpResponse.getContent());
+                            String aH = e.this.aH(iHttpResponse.getContent());
                             if (iCallbackWith != null) {
-                                iCallbackWith.run(aG);
+                                iCallbackWith.run(aH);
                             }
                             i = 0;
                             jSONException = null;
@@ -127,10 +127,10 @@ class e extends com.baidu.ar.d.a<String, String> {
     }
 
     @Override // com.baidu.ar.d.a
-    protected void dO() {
-        if (this.bK != null) {
-            this.bK.cancel();
-            this.bK = null;
+    protected void ee() {
+        if (this.bX != null) {
+            this.bX.cancel();
+            this.bX = null;
         }
     }
 }

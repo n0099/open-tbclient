@@ -8,15 +8,15 @@ import java.util.concurrent.ScheduledFuture;
 public class e implements Closeable {
     private boolean closed;
     private final Object lock;
-    private final List<d> yU;
-    private ScheduledFuture<?> yV;
-    private boolean yW;
+    private final List<d> zu;
+    private ScheduledFuture<?> zv;
+    private boolean zw;
 
-    public boolean gp() {
+    public boolean gF() {
         boolean z;
         synchronized (this.lock) {
-            gq();
-            z = this.yW;
+            gG();
+            z = this.zw;
         }
         return z;
     }
@@ -25,11 +25,11 @@ public class e implements Closeable {
     public void close() {
         synchronized (this.lock) {
             if (!this.closed) {
-                gr();
-                for (d dVar : this.yU) {
+                gH();
+                for (d dVar : this.zu) {
                     dVar.close();
                 }
-                this.yU.clear();
+                this.zu.clear();
                 this.closed = true;
             }
         }
@@ -38,25 +38,25 @@ public class e implements Closeable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(d dVar) {
         synchronized (this.lock) {
-            gq();
-            this.yU.remove(dVar);
+            gG();
+            this.zu.remove(dVar);
         }
     }
 
     public String toString() {
-        return String.format(Locale.US, "%s@%s[cancellationRequested=%s]", getClass().getName(), Integer.toHexString(hashCode()), Boolean.toString(gp()));
+        return String.format(Locale.US, "%s@%s[cancellationRequested=%s]", getClass().getName(), Integer.toHexString(hashCode()), Boolean.toString(gF()));
     }
 
-    private void gq() {
+    private void gG() {
         if (this.closed) {
             throw new IllegalStateException("Object already closed");
         }
     }
 
-    private void gr() {
-        if (this.yV != null) {
-            this.yV.cancel(true);
-            this.yV = null;
+    private void gH() {
+        if (this.zv != null) {
+            this.zv.cancel(true);
+            this.zv = null;
         }
     }
 }

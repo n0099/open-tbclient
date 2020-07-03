@@ -1,8 +1,10 @@
 package com.baidu.tieba.frs;
-
-import java.util.List;
 /* loaded from: classes.dex */
 public class ay {
-    public int hrh;
-    public List<ax> hri;
+    public Object ext;
+    public String forumId;
+    public String forumName;
+    public boolean hEp = false;
+    public int pn;
+    public String stType;
 }

@@ -1,16 +1,14 @@
 package com.baidu.live.liveroom.a;
-
-import com.baidu.live.data.AlaLiveInfoData;
-import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public interface b {
-    void bO(boolean z);
+public class b {
+    public d aYz;
 
-    void bP(boolean z);
+    public static b Fs() {
+        return a.aYA;
+    }
 
-    void bQ(boolean z);
-
-    void e(boolean z, boolean z2);
-
-    void j(ArrayList<AlaLiveInfoData> arrayList);
+    /* loaded from: classes3.dex */
+    private static class a {
+        private static final b aYA = new b();
+    }
 }

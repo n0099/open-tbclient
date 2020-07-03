@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d implements c {
-    private List<a<?, ?>> rU = new ArrayList();
+    private List<a<?, ?>> st = new ArrayList();
 
     public d(a aVar) {
         d(aVar);
@@ -17,17 +17,17 @@ public class d implements c {
 
     @Override // com.baidu.ar.callback.ICancellable
     public void cancel() {
-        for (a<?, ?> aVar : this.rU) {
+        for (a<?, ?> aVar : this.st) {
             aVar.cancel();
         }
     }
 
     @Override // com.baidu.ar.d.c
     public c d(a<?, ?> aVar) {
-        if (!this.rU.isEmpty()) {
-            this.rU.get(this.rU.size() - 1).a(aVar);
+        if (!this.st.isEmpty()) {
+            this.st.get(this.st.size() - 1).a(aVar);
         }
-        this.rU.add(aVar);
+        this.st.add(aVar);
         return this;
     }
 }

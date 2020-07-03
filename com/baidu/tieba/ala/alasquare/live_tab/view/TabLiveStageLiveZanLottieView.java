@@ -5,31 +5,31 @@ import android.util.AttributeSet;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 /* loaded from: classes3.dex */
 public class TabLiveStageLiveZanLottieView extends TBLottieAnimationView {
-    private boolean fgV;
+    private boolean fsj;
 
     public TabLiveStageLiveZanLottieView(Context context) {
         super(context);
-        this.fgV = false;
+        this.fsj = false;
     }
 
     public TabLiveStageLiveZanLottieView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fgV = false;
+        this.fsj = false;
     }
 
     public TabLiveStageLiveZanLottieView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fgV = false;
+        this.fsj = false;
     }
 
     public void setForbidAutoUpdateState(boolean z) {
-        this.fgV = z;
+        this.fsj = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.airbnb.lottie.LottieAnimationView, android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
-        if (!this.fgV) {
+        if (!this.fsj) {
             super.onAttachedToWindow();
         }
     }
@@ -37,7 +37,7 @@ public class TabLiveStageLiveZanLottieView extends TBLottieAnimationView {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.airbnb.lottie.LottieAnimationView, android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
-        if (!this.fgV) {
+        if (!this.fsj) {
             super.onDetachedFromWindow();
         }
     }

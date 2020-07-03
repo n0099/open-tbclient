@@ -7,72 +7,72 @@ import com.baidu.swan.games.t.a.a;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a dcG;
-    private com.baidu.swan.games.t.a.a dcH;
+    private static volatile a dhs;
+    private com.baidu.swan.games.t.a.a dht;
 
     private a() {
     }
 
-    public static a aBW() {
-        if (dcG == null) {
+    public static a aDc() {
+        if (dhs == null) {
             synchronized (a.class) {
-                if (dcG == null) {
-                    dcG = new a();
+                if (dhs == null) {
+                    dhs = new a();
                 }
             }
         }
-        return dcG;
+        return dhs;
     }
 
     public void c(com.baidu.swan.games.t.a.a aVar) {
-        this.dcH = aVar;
+        this.dht = aVar;
     }
 
-    public boolean sA(String str) {
+    public boolean sI(String str) {
         String X = X(str, 1);
         if (TextUtils.isEmpty(X)) {
             return false;
         }
-        if (this.dcH != null && this.dcH.dbs != null && this.dcH.dbs.dbA != null && this.dcH.dbs.dbA.containsKey(X)) {
+        if (this.dht != null && this.dht.dgf != null && this.dht.dgf.dgn != null && this.dht.dgf.dgn.containsKey(X)) {
             if (DEBUG) {
                 Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
             }
-            return this.dcH.dbs.dbA.get(X).booleanValue();
+            return this.dht.dgf.dgn.get(X).booleanValue();
         }
         if (DEBUG) {
             Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
         }
-        String aoH = e.aoH();
-        if (e.aoF() != null) {
-            String version = e.aoF().getVersion();
-            if (TextUtils.isEmpty(aoH) || TextUtils.isEmpty(version)) {
+        String apO = e.apO();
+        if (e.apM() != null) {
+            String version = e.apM().getVersion();
+            if (TextUtils.isEmpty(apO) || TextUtils.isEmpty(version)) {
                 return false;
             }
-            boolean V = com.baidu.swan.pms.database.a.aFV().V(aoH, version, X);
-            if (V) {
-                P(X, true);
-                return V;
+            boolean W = com.baidu.swan.pms.database.a.aHb().W(apO, version, X);
+            if (W) {
+                R(X, true);
+                return W;
             }
-            return V;
+            return W;
         }
         return false;
     }
 
-    public void P(String str, boolean z) {
-        if (!TextUtils.isEmpty(str) && this.dcH != null && this.dcH.dbs != null && this.dcH.dbs.dbA != null) {
+    public void R(String str, boolean z) {
+        if (!TextUtils.isEmpty(str) && this.dht != null && this.dht.dgf != null && this.dht.dgf.dgn != null) {
             if (DEBUG) {
                 Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
             }
-            this.dcH.dbs.dbA.put(str, Boolean.valueOf(z));
+            this.dht.dgf.dgn.put(str, Boolean.valueOf(z));
         }
     }
 
-    public String ny(String str) {
+    public String nG(String str) {
         String X = X(str, 1);
-        if (TextUtils.isEmpty(X) || this.dcH == null || this.dcH.dbt == null || this.dcH.dbt.dbB == null) {
+        if (TextUtils.isEmpty(X) || this.dht == null || this.dht.dgg == null || this.dht.dgg.dgo == null) {
             return null;
         }
-        return this.dcH.dbt.dbB.get(X);
+        return this.dht.dgg.dgo.get(X);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x002d  */
@@ -83,22 +83,22 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (this.dcH == null || this.dcH.dbs == null || this.dcH.dbs.dbz == null) {
+        if (this.dht == null || this.dht.dgf == null || this.dht.dgf.dgm == null) {
             return null;
         }
-        for (a.C0440a c0440a : this.dcH.dbs.dbz) {
-            if (TextUtils.equals(c0440a.name, str) || TextUtils.equals(c0440a.dbx, str)) {
+        for (a.C0446a c0446a : this.dht.dgf.dgm) {
+            if (TextUtils.equals(c0446a.name, str) || TextUtils.equals(c0446a.dgk, str)) {
                 switch (i) {
                     case 0:
-                        return c0440a.name;
+                        return c0446a.name;
                     case 1:
-                        return c0440a.dbx;
+                        return c0446a.dgk;
                     case 2:
-                        return c0440a.path;
+                        return c0446a.path;
                     case 3:
-                        return c0440a.dby;
+                        return c0446a.dgl;
                     default:
-                        return c0440a.dbx;
+                        return c0446a.dgk;
                 }
             }
             while (r2.hasNext()) {

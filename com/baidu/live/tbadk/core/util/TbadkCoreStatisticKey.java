@@ -1,4 +1,5 @@
 package com.baidu.live.tbadk.core.util;
+@Deprecated
 /* loaded from: classes3.dex */
 public class TbadkCoreStatisticKey {
     public static final String ALA_FOLLOW_LIVE_LIVE_ITEM_CLICK = "c12677";

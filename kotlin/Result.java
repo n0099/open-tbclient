@@ -10,22 +10,22 @@ public final class Result<T> implements Serializable {
     private final Object value;
 
     /* renamed from: box-impl  reason: not valid java name */
-    public static final /* synthetic */ Result m588boximpl(Object obj) {
+    public static final /* synthetic */ Result m585boximpl(Object obj) {
         return new Result(obj);
     }
 
     /* renamed from: equals-impl  reason: not valid java name */
-    public static boolean m590equalsimpl(Object obj, Object obj2) {
-        return (obj2 instanceof Result) && q.l(obj, ((Result) obj2).m598unboximpl());
+    public static boolean m587equalsimpl(Object obj, Object obj2) {
+        return (obj2 instanceof Result) && q.l(obj, ((Result) obj2).m595unboximpl());
     }
 
     /* renamed from: equals-impl0  reason: not valid java name */
-    public static final boolean m591equalsimpl0(Object obj, Object obj2) {
+    public static final boolean m588equalsimpl0(Object obj, Object obj2) {
         throw null;
     }
 
     /* renamed from: hashCode-impl  reason: not valid java name */
-    public static int m594hashCodeimpl(Object obj) {
+    public static int m591hashCodeimpl(Object obj) {
         if (obj != null) {
             return obj.hashCode();
         }
@@ -36,19 +36,19 @@ public final class Result<T> implements Serializable {
     }
 
     public boolean equals(Object obj) {
-        return m590equalsimpl(this.value, obj);
+        return m587equalsimpl(this.value, obj);
     }
 
     public int hashCode() {
-        return m594hashCodeimpl(this.value);
+        return m591hashCodeimpl(this.value);
     }
 
     public String toString() {
-        return m597toStringimpl(this.value);
+        return m594toStringimpl(this.value);
     }
 
     /* renamed from: unbox-impl  reason: not valid java name */
-    public final /* synthetic */ Object m598unboximpl() {
+    public final /* synthetic */ Object m595unboximpl() {
         return this.value;
     }
 
@@ -59,32 +59,32 @@ public final class Result<T> implements Serializable {
     }
 
     /* renamed from: constructor-impl  reason: not valid java name */
-    public static Object m589constructorimpl(Object obj) {
+    public static Object m586constructorimpl(Object obj) {
         return obj;
     }
 
     /* renamed from: isSuccess-impl  reason: not valid java name */
-    public static final boolean m596isSuccessimpl(Object obj) {
+    public static final boolean m593isSuccessimpl(Object obj) {
         return !(obj instanceof Failure);
     }
 
     /* renamed from: isFailure-impl  reason: not valid java name */
-    public static final boolean m595isFailureimpl(Object obj) {
+    public static final boolean m592isFailureimpl(Object obj) {
         return obj instanceof Failure;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     /* renamed from: getOrNull-impl  reason: not valid java name */
-    private static final T m593getOrNullimpl(Object obj) {
-        if (m595isFailureimpl(obj)) {
+    private static final T m590getOrNullimpl(Object obj) {
+        if (m592isFailureimpl(obj)) {
             return null;
         }
         return obj;
     }
 
     /* renamed from: exceptionOrNull-impl  reason: not valid java name */
-    public static final Throwable m592exceptionOrNullimpl(Object obj) {
+    public static final Throwable m589exceptionOrNullimpl(Object obj) {
         if (obj instanceof Failure) {
             return ((Failure) obj).exception;
         }
@@ -92,7 +92,7 @@ public final class Result<T> implements Serializable {
     }
 
     /* renamed from: toString-impl  reason: not valid java name */
-    public static String m597toStringimpl(Object obj) {
+    public static String m594toStringimpl(Object obj) {
         return obj instanceof Failure ? obj.toString() : "Success(" + obj + ')';
     }
 

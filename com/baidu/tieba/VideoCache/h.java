@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes9.dex */
 public class h {
-    private String dxm;
-    private String eMl;
-    private boolean eMm;
-    private long eMn = -1;
-    private long eMo = -1;
-    private long eMp = 0;
-    private long eMq = 0;
+    private String dCs;
+    private String eWx;
+    private boolean eWy;
+    private long eWz = -1;
+    private long eWA = -1;
+    private long eWB = 0;
+    private long eWC = 0;
 
-    public String blE() {
-        return this.eMl;
+    public String bod() {
+        return this.eWx;
     }
 
-    public void zu(String str) {
-        this.eMl = str;
+    public void zN(String str) {
+        this.eWx = str;
     }
 
     public String getOriginUrl() {
-        return this.dxm;
+        return this.dCs;
     }
 
-    public void zv(String str) {
-        this.dxm = str;
+    public void zO(String str) {
+        this.dCs = str;
     }
 
-    public boolean blF() {
-        return this.eMm;
+    public boolean boe() {
+        return this.eWy;
     }
 
-    public void iX(boolean z) {
-        this.eMm = z;
+    public void jj(boolean z) {
+        this.eWy = z;
     }
 
-    public long blG() {
-        return this.eMn;
-    }
-
-    public void cW(long j) {
-        this.eMn = j;
-    }
-
-    public long blH() {
-        return this.eMo;
-    }
-
-    public void cX(long j) {
-        this.eMo = j;
-    }
-
-    public long getTotalLength() {
-        return this.eMp;
-    }
-
-    public void setTotalLength(long j) {
-        this.eMp = j;
+    public long bof() {
+        return this.eWz;
     }
 
     public void cY(long j) {
-        this.eMq = j;
+        this.eWz = j;
     }
 
-    public long blI() {
-        return this.eMq;
+    public long bog() {
+        return this.eWA;
+    }
+
+    public void cZ(long j) {
+        this.eWA = j;
+    }
+
+    public long getTotalLength() {
+        return this.eWB;
+    }
+
+    public void setTotalLength(long j) {
+        this.eWB = j;
+    }
+
+    public void da(long j) {
+        this.eWC = j;
+    }
+
+    public long boh() {
+        return this.eWC;
     }
 }

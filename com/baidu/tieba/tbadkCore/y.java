@@ -4,5 +4,5 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class y {
     public List<z> dataList;
-    public int lkX;
+    public int lER;
 }

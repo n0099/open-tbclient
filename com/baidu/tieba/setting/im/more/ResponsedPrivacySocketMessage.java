@@ -27,28 +27,28 @@ public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
         }
         if (getPrivateInfoResIdl.data != null) {
             if (getPrivateInfoResIdl.data.like != null) {
-                this.privacyData.CN(getPrivateInfoResIdl.data.like.intValue());
+                this.privacyData.DP(getPrivateInfoResIdl.data.like.intValue());
             }
             if (getPrivateInfoResIdl.data.group != null) {
-                this.privacyData.CP(getPrivateInfoResIdl.data.group.intValue());
+                this.privacyData.DR(getPrivateInfoResIdl.data.group.intValue());
             }
             if (getPrivateInfoResIdl.data.post != null) {
-                this.privacyData.CM(getPrivateInfoResIdl.data.post.intValue());
+                this.privacyData.DO(getPrivateInfoResIdl.data.post.intValue());
             }
             if (getPrivateInfoResIdl.data.location != null) {
-                this.privacyData.CQ(getPrivateInfoResIdl.data.location.intValue());
+                this.privacyData.DS(getPrivateInfoResIdl.data.location.intValue());
             }
             if (getPrivateInfoResIdl.data.user != null) {
                 this.privacyData.b(getPrivateInfoResIdl.data.user);
             }
             if (getPrivateInfoResIdl.data.live != null) {
-                this.privacyData.CO(getPrivateInfoResIdl.data.live.intValue());
+                this.privacyData.DQ(getPrivateInfoResIdl.data.live.intValue());
             }
             if (getPrivateInfoResIdl.data.forum_num != null) {
-                this.privacyData.CR(getPrivateInfoResIdl.data.forum_num.intValue());
+                this.privacyData.DT(getPrivateInfoResIdl.data.forum_num.intValue());
             }
             if (getPrivateInfoResIdl.data.reply != null) {
-                this.privacyData.CS(getPrivateInfoResIdl.data.reply.intValue());
+                this.privacyData.DU(getPrivateInfoResIdl.data.reply.intValue());
             }
         }
     }

@@ -9,15 +9,15 @@ public interface d {
 
     int[] b(float f, float f2);
 
-    void fG();
+    void fW();
 
-    void fH();
+    void fX();
 
-    void fI();
+    void fY();
 
-    void fJ();
+    void fZ();
 
-    void q(float[] fArr);
+    void r(float[] fArr);
 
     void release();
 }

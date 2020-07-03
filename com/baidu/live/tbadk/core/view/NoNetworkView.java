@@ -14,10 +14,10 @@ import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.coreextra.NoNetworkMoreActivity;
-import com.baidu.live.u.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */

@@ -4,22 +4,22 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 public class d extends b implements p {
-    public String evm = "";
+    public String eEs = "";
     public int mPn = 0;
     public String mPageType = "";
-    public AdvertAppInfo gHg = null;
+    public AdvertAppInfo gUg = null;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        if (this.gHg != null && this.gHg.getType() == AdvertAppInfo.dAd) {
-            return AdvertAppInfo.dAj;
+        if (this.gUg != null && this.gUg.getType() == AdvertAppInfo.dGu) {
+            return AdvertAppInfo.dGA;
         }
-        if (this.gHg != null && this.gHg.legoCard != null) {
-            BdUniqueId bdUniqueId = AdvertAppInfo.dAm;
-            switch (this.gHg.legoCard.getGoodsStyle()) {
+        if (this.gUg != null && this.gUg.legoCard != null) {
+            BdUniqueId bdUniqueId = AdvertAppInfo.dGD;
+            switch (this.gUg.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
-                    return AdvertAppInfo.dAn;
+                    return AdvertAppInfo.dGE;
                 case 3:
                 case 4:
                 case 5:
@@ -29,14 +29,14 @@ public class d extends b implements p {
                 default:
                     return bdUniqueId;
                 case 6:
-                    return AdvertAppInfo.dAo;
+                    return AdvertAppInfo.dGF;
                 case 7:
                 case 14:
-                    return AdvertAppInfo.dAp;
+                    return AdvertAppInfo.dGG;
                 case 12:
-                    return AdvertAppInfo.dAr;
+                    return AdvertAppInfo.dGI;
                 case 13:
-                    return AdvertAppInfo.dAq;
+                    return AdvertAppInfo.dGH;
             }
         }
         return null;
@@ -44,23 +44,23 @@ public class d extends b implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        return com.baidu.adp.lib.f.b.toInt(this.gHg != null ? this.gHg.adPosition : "-1", -1);
+        return com.baidu.adp.lib.f.b.toInt(this.gUg != null ? this.gUg.adPosition : "-1", -1);
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean bLI() {
+    public boolean bOS() {
         return false;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void lW(boolean z) {
+    public void mf(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void lX(boolean z) {
+    public void mg(boolean z) {
     }
 
-    public AdvertAppInfo bLJ() {
-        return this.gHg;
+    public AdvertAppInfo bOT() {
+        return this.gUg;
     }
 }

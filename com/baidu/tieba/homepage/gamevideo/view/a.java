@@ -5,21 +5,21 @@ import android.os.Build;
 import android.view.View;
 import android.widget.PopupWindow;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.bd;
 /* loaded from: classes9.dex */
 public class a extends PopupWindow {
-    private TbPageContext dIF;
-    private InterfaceC0626a ibx;
+    private TbPageContext dPv;
+    private InterfaceC0635a ipU;
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0626a {
-        void cfw();
+    public interface InterfaceC0635a {
+        void ciS();
     }
 
     public a(TbPageContext tbPageContext, View view, int i, int i2) {
         super(view, i, i2);
-        this.dIF = tbPageContext;
+        this.dPv = tbPageContext;
     }
 
     @Override // android.widget.PopupWindow
@@ -27,7 +27,7 @@ public class a extends PopupWindow {
         if (Build.VERSION.SDK_INT >= 24) {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
-            setHeight(bb.getScreenFullSize(this.dIF.getPageActivity())[1] - rect.bottom);
+            setHeight(bd.getScreenFullSize(this.dPv.getPageActivity())[1] - rect.bottom);
         }
         super.showAsDropDown(view);
     }
@@ -37,25 +37,25 @@ public class a extends PopupWindow {
         if (Build.VERSION.SDK_INT >= 24) {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
-            setHeight(bb.getScreenFullSize(this.dIF.getPageActivity())[1] - rect.bottom);
+            setHeight(bd.getScreenFullSize(this.dPv.getPageActivity())[1] - rect.bottom);
         }
         super.showAsDropDown(view, i, i2);
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        if (this.ibx != null) {
-            this.ibx.cfw();
+        if (this.ipU != null) {
+            this.ipU.ciS();
         } else {
             super.dismiss();
         }
     }
 
-    public void bsd() {
+    public void buY() {
         super.dismiss();
     }
 
-    public void a(InterfaceC0626a interfaceC0626a) {
-        this.ibx = interfaceC0626a;
+    public void a(InterfaceC0635a interfaceC0635a) {
+        this.ipU = interfaceC0635a;
     }
 }

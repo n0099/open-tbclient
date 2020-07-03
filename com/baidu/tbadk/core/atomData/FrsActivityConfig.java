@@ -4,7 +4,24 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.f.b;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.bu;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tbadk.util.ab;
+import com.baidu.tieba.frs.f.g;
+import com.baidu.tieba.frs.mc.FrsNetModel;
+import com.baidu.tieba.recapp.q;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static final String ALA_IS_ONLIVING = "ala_is_living";
@@ -53,10 +70,14 @@ public class FrsActivityConfig extends IntentConfig {
     public static final int READ_CHAT = 1;
     public static final int READ_REPLYORAT = 0;
     public static final String YUELAOU_LOCATE = "yuelaou_locate";
+    private BdUniqueId mPageId;
 
     public FrsActivityConfig(Context context) {
         super(context);
-        getIntent().putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+        Intent intent = getIntent();
+        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+        this.mPageId = BdUniqueId.gen();
+        intent.putExtra(FRS_PAGE_ID, this.mPageId);
     }
 
     public FrsActivityConfig createNormalCfg(String str, String str2) {
@@ -130,5 +151,85 @@ public class FrsActivityConfig extends IntentConfig {
 
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public void preJump() {
+        AccountData currentAccountObj;
+        int FI;
+        Intent intent = getIntent();
+        String stringExtra = intent.getStringExtra("name");
+        String stringExtra2 = intent.getStringExtra("from");
+        Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
+        if (uri != null) {
+            stringExtra = uri.getQueryParameter("name");
+            stringExtra2 = uri.getQueryParameter("from");
+            if (StringUtils.isNull(stringExtra)) {
+                stringExtra = uri.getQueryParameter("kw");
+            }
+        }
+        int intExtra = intent.getIntExtra(FRS_CALL_FROM, 0);
+        long longExtra = intent.getLongExtra(FRS_HOT_THREAD_ID, 0L);
+        String stringExtra3 = intent.getStringExtra("yuelaou_locate");
+        if (TextUtils.isEmpty(stringExtra3)) {
+            stringExtra3 = "";
+        }
+        FrsRequestData frsRequestData = new FrsRequestData();
+        if (FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD.equals(stringExtra2)) {
+            FI = 3;
+        } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
+            FI = 6;
+        } else {
+            String str = "";
+            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
+                str = currentAccountObj.getID() + Constants.WAVE_SEPARATOR;
+            }
+            FI = g.FI("1~" + str + stringExtra);
+        }
+        frsRequestData.setSortType(g.vV(FI));
+        if (FI == 5) {
+            frsRequestData.setIsGood(1);
+        } else {
+            frsRequestData.setIsGood(0);
+        }
+        frsRequestData.fw("forum_name", k.getUrlEncode(stringExtra));
+        frsRequestData.fw("client_type", "2");
+        frsRequestData.setPn(1);
+        frsRequestData.setCallFrom(intExtra);
+        g.a(FI, frsRequestData);
+        frsRequestData.MU("2");
+        frsRequestData.setObjSource("-2");
+        frsRequestData.setKw(stringExtra);
+        frsRequestData.setWithGroup(1);
+        frsRequestData.setCid(0);
+        frsRequestData.setScrW(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
+        frsRequestData.setScrH(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
+        frsRequestData.setScrDip(l.getEquipmentDensity(TbadkCoreApplication.getInst()));
+        frsRequestData.setqType(as.aWR().aWS() ? 2 : 1);
+        if (uri != null) {
+            frsRequestData.setSchemeUrl(uri.toString());
+        }
+        frsRequestData.setLastId(null);
+        frsRequestData.setYuelaouLocate(stringExtra3);
+        frsRequestData.setLastClickTid(b.toLong(ab.bjb(), 0L));
+        frsRequestData.setStType(stringExtra2);
+        frsRequestData.ER(1);
+        frsRequestData.setNeedCache(true);
+        frsRequestData.setUpdateType(3);
+        frsRequestData.fu(longExtra);
+        g.a(FI, frsRequestData);
+        frsRequestData.setLoadType(1);
+        if (bu.dLW.get() && q.cYS().cYM() != null) {
+            int aS = q.cYS().cYM().aS(stringExtra, false);
+            int aT = q.cYS().cYM().aT(stringExtra, false);
+            if (frsRequestData.getLoadType() == 1) {
+                aS++;
+            } else if (frsRequestData.getLoadType() == 2) {
+                aT++;
+            }
+            frsRequestData.setRefreshCount(aS);
+            frsRequestData.setLoadCount(aT);
+        }
+        FrsNetModel frsNetModel = new FrsNetModel(null, frsRequestData);
+        frsNetModel.setUniqueId(this.mPageId);
+        frsNetModel.a((NetModel.b) frsNetModel);
+        TbadkCoreApplication.getInst().getFrsModeArray().put(this.mPageId.getId(), frsNetModel);
+        frsNetModel.loadData();
     }
 }

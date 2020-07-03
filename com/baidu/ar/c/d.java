@@ -1,7 +1,6 @@
 package com.baidu.ar.c;
 
 import android.os.Handler;
-import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import java.util.ArrayList;
@@ -10,19 +9,18 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d {
-    private e K;
-    private List<k> O;
-    private HandlerThread li;
-    private Handler lj;
-    private ArrayList<c> ll = new ArrayList<>();
-    private HashMap<String, Boolean> lm = new HashMap<>();
-    private HashMap<String, Boolean> ln = new HashMap<>();
-    private long lo = 0;
-    private int lk = 180;
+    private e J;
+    private List<k> N;
+    private Looper lF;
+    private Handler lG;
+    private ArrayList<c> lI = new ArrayList<>();
+    private HashMap<String, Boolean> lJ = new HashMap<>();
+    private HashMap<String, Boolean> lK = new HashMap<>();
+    private long lL = 0;
+    private int lH = 180;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
-    public class a extends Handler {
+    class a extends Handler {
         public a(Looper looper) {
             super(looper);
         }
@@ -40,7 +38,7 @@ public class d {
                     d.this.f((l) message.obj);
                     return;
                 case 1004:
-                    d.this.cq();
+                    d.this.T();
                     return;
                 default:
                     return;
@@ -48,12 +46,23 @@ public class d {
         }
     }
 
+    public d(Looper looper) {
+        this.lF = looper;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void T() {
+        cH();
+        this.lG.removeCallbacksAndMessages(null);
+        this.lG = null;
+    }
+
     private void a(c cVar) {
         boolean z;
-        if (cVar == null || this.ll == null || this.ll.size() == 0 || this.O == null || this.O.size() == 0 || this.K == null) {
+        if (cVar == null || this.lI == null || this.lI.size() == 0 || this.N == null || this.N.size() == 0 || this.J == null) {
             return;
         }
-        Iterator<k> it = this.O.iterator();
+        Iterator<k> it = this.N.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = true;
@@ -63,50 +72,34 @@ public class d {
                 break;
             }
         }
-        if (!z || cVar.getTimestamp() == this.lo) {
+        if (!z || cVar.getTimestamp() == this.lL) {
             return;
         }
-        this.K.a(cVar);
-        this.lo = cVar.getTimestamp();
-        this.ll.subList(0, this.ll.indexOf(cVar)).clear();
+        this.J.a(cVar);
+        this.lL = cVar.getTimestamp();
+        this.lI.subList(0, this.lI.indexOf(cVar)).clear();
     }
 
-    private void cp() {
-        this.li = new HandlerThread("DetectResultSync");
-        this.li.start();
-        this.lj = new a(this.li.getLooper());
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cq() {
-        cr();
-        if (this.li != null) {
-            this.li.quit();
-            this.li = null;
+    private void cH() {
+        if (this.N != null) {
+            this.N.clear();
         }
-        this.lj = null;
-    }
-
-    private void cr() {
-        if (this.O != null) {
-            this.O.clear();
+        if (this.lI != null) {
+            this.lI.clear();
         }
-        if (this.ll != null) {
-            this.ll.clear();
+        if (this.lJ != null) {
+            this.lJ.clear();
         }
-        if (this.lm != null) {
-            this.lm.clear();
-        }
-        if (this.ln != null) {
-            this.ln.clear();
+        if (this.lK != null) {
+            this.lK.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(l lVar) {
         boolean z = false;
-        this.lm.put(lVar.cl(), Boolean.valueOf(lVar.isSuccess()));
-        Iterator<k> it = this.O.iterator();
+        this.lJ.put(lVar.cD(), Boolean.valueOf(lVar.isSuccess()));
+        Iterator<k> it = this.N.iterator();
         boolean z2 = true;
         while (true) {
             if (!it.hasNext()) {
@@ -114,19 +107,22 @@ public class d {
                 break;
             }
             k next = it.next();
-            if (this.lm.get(next.getName()) == null) {
+            if (this.lJ.get(next.getName()) == null) {
                 break;
             }
-            z2 = !this.lm.get(next.getName()).booleanValue() ? false : z2;
+            z2 = !this.lJ.get(next.getName()).booleanValue() ? false : z2;
         }
-        if (z) {
-            this.K.a(new l("DetectorGroup", z2));
+        if (this.J != null) {
+            this.J.a(lVar);
+            if (z) {
+                this.J.a(new l("DetectorGroup", z2));
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(b bVar) {
-        if (this.ll == null || this.lm == null || this.lm.isEmpty()) {
+        if (this.lI == null || this.lJ == null || this.lJ.isEmpty()) {
             return;
         }
         c g = g(bVar);
@@ -139,8 +135,8 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public void f(l lVar) {
         boolean z = false;
-        this.ln.put(lVar.cl(), Boolean.valueOf(lVar.isSuccess()));
-        Iterator<k> it = this.O.iterator();
+        this.lK.put(lVar.cD(), Boolean.valueOf(lVar.isSuccess()));
+        Iterator<k> it = this.N.iterator();
         boolean z2 = true;
         while (true) {
             if (!it.hasNext()) {
@@ -148,21 +144,22 @@ public class d {
                 break;
             }
             k next = it.next();
-            if (this.ln.get(next.getName()) == null) {
+            if (this.lK.get(next.getName()) == null) {
                 break;
             }
-            z2 = !this.ln.get(next.getName()).booleanValue() ? false : z2;
+            z2 = !this.lK.get(next.getName()).booleanValue() ? false : z2;
         }
-        if (z) {
-            if (this.K != null) {
-                this.K.b(new l("DetectorGroup", z2));
+        if (this.J != null) {
+            this.J.b(lVar);
+            if (z) {
+                this.J.b(new l("DetectorGroup", z2));
+                cH();
             }
-            cr();
         }
     }
 
     private c g(b bVar) {
-        Iterator<c> it = this.ll.iterator();
+        Iterator<c> it = this.lI.iterator();
         while (it.hasNext()) {
             c next = it.next();
             if (next.getTimestamp() == bVar.getTimestamp()) {
@@ -174,54 +171,57 @@ public class d {
     }
 
     private c h(b bVar) {
-        if (this.ll.size() >= this.lk) {
+        if (this.lI.size() >= this.lH) {
             com.baidu.ar.f.b.b("DetectResultSync", "add2NewDetectResultGroup detectResult list for sync is fulllll!!!");
             return null;
         }
         c cVar = new c();
         cVar.setTimestamp(bVar.getTimestamp());
         cVar.c(bVar);
-        this.ll.add(cVar);
+        this.lI.add(cVar);
         return cVar;
     }
 
     public void a(List<k> list, e eVar) {
-        this.O = list;
-        this.K = eVar;
-        cp();
+        this.N = list;
+        this.J = eVar;
+        if (this.lG != null || this.lF == null) {
+            return;
+        }
+        this.lG = new a(this.lF);
     }
 
     public synchronized void c(l lVar) {
-        com.baidu.ar.f.b.c("DetectResultSync", "DetectorGroup onDetectorSetup result = " + lVar.cl());
-        if (this.lj != null) {
-            this.lj.sendMessage(this.lj.obtainMessage(1001, lVar));
+        com.baidu.ar.f.b.c("DetectResultSync", "DetectorGroup onDetectorSetup result = " + lVar.cD());
+        if (this.lG != null) {
+            this.lG.sendMessage(this.lG.obtainMessage(1001, lVar));
         }
     }
 
     public synchronized void d(b bVar) {
-        if (this.lj != null) {
-            this.lj.sendMessage(this.lj.obtainMessage(1002, bVar));
+        if (this.lG != null) {
+            this.lG.sendMessage(this.lG.obtainMessage(1002, bVar));
         }
     }
 
     public synchronized void d(l lVar) {
-        com.baidu.ar.f.b.c("DetectResultSync", "DetectorGroup onDetectorRelease result = " + lVar.cl());
-        if (this.lj != null) {
-            this.lj.sendMessage(this.lj.obtainMessage(1003, lVar));
+        com.baidu.ar.f.b.c("DetectResultSync", "DetectorGroup onDetectorRelease result = " + lVar.cD());
+        if (this.lG != null) {
+            this.lG.sendMessage(this.lG.obtainMessage(1003, lVar));
         }
     }
 
     public synchronized boolean e(b bVar) {
         boolean z;
-        if (this.ll.size() != 0) {
-            z = this.ll.get(0).getTimestamp() >= bVar.getTimestamp();
+        if (this.lI.size() != 0) {
+            z = this.lI.get(0).getTimestamp() >= bVar.getTimestamp();
         }
         return z;
     }
 
     public void release() {
-        if (this.lj != null) {
-            this.lj.sendMessage(this.lj.obtainMessage(1004));
+        if (this.lG != null) {
+            this.lG.sendMessage(this.lG.obtainMessage(1004));
         }
     }
 }

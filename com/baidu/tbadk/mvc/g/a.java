@@ -6,16 +6,16 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.b;
+import com.baidu.adp.widget.ListView.c;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.r;
 /* loaded from: classes.dex */
-public class a extends b implements r {
-    private TbPageContextSupport erk;
-    private View erl;
+public class a extends c implements r {
+    private TbPageContextSupport eAc;
+    private View eAd;
     private int mHeight;
     private View.OnClickListener mOnClickListener;
     private ViewGroup mParentView;
@@ -25,13 +25,13 @@ public class a extends b implements r {
     private int padding;
 
     public a(TbPageContextSupport tbPageContextSupport) {
-        this.erk = null;
+        this.eAc = null;
         this.mTextView = null;
         this.mProgressBar = null;
         this.mOnClickListener = null;
         this.mRoot = null;
-        this.erk = tbPageContextSupport;
-        this.padding = this.erk.getPageContext().getResources().getDimensionPixelSize(R.dimen.ds16);
+        this.eAc = tbPageContextSupport;
+        this.padding = this.eAc.getPageContext().getResources().getDimensionPixelSize(R.dimen.ds16);
     }
 
     public a(TbPageContextSupport tbPageContextSupport, ViewGroup viewGroup) {
@@ -39,12 +39,12 @@ public class a extends b implements r {
         this.mParentView = viewGroup;
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
+    @Override // com.baidu.adp.widget.ListView.c
     public View createView() {
         if (this.mParentView == null) {
-            this.mRoot = LayoutInflater.from(this.erk.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+            this.mRoot = LayoutInflater.from(this.eAc.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         } else {
-            this.mRoot = LayoutInflater.from(this.erk.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.mParentView, false);
+            this.mRoot = LayoutInflater.from(this.eAc.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.mParentView, false);
         }
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
         if (this.mHeight != 0) {
@@ -53,42 +53,42 @@ public class a extends b implements r {
             this.mRoot.setLayoutParams(layoutParams);
         }
         this.mTextView = (TextView) this.mRoot.findViewById(R.id.pb_more_text);
-        this.erl = this.mRoot.findViewById(R.id.pb_more_view);
-        this.erl.setVisibility(8);
+        this.eAd = this.mRoot.findViewById(R.id.pb_more_view);
+        this.eAd.setVisibility(8);
         this.mProgressBar = (ProgressBar) this.mRoot.findViewById(R.id.progress);
-        b(this.erk.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        this.erl.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        b(this.eAc.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.eAd.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.mRoot;
     }
 
     @Override // com.baidu.tieba.tbadkCore.r
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        this.erk.getPageContext().getLayoutMode().onModeChanged(this.erl);
+        this.eAc.getPageContext().getLayoutMode().onModeChanged(this.eAd);
         return true;
     }
 
     public void hide() {
-        this.erl.setVisibility(8);
+        this.eAd.setVisibility(8);
         this.mRoot.setPadding(0, 0, 0, 0);
     }
 
     public void display() {
-        this.erl.setVisibility(0);
+        this.eAd.setVisibility(0);
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
     }
 
-    public void nz(int i) {
+    public void nU(int i) {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(i);
-        this.erl.setVisibility(0);
+        this.eAd.setVisibility(0);
     }
 
-    public void nA(int i) {
+    public void nV(int i) {
         this.mProgressBar.setVisibility(8);
         this.mTextView.setText(i);
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
+    @Override // com.baidu.adp.widget.ListView.c
     public void onClick() {
         if (this.mOnClickListener != null) {
             this.mOnClickListener.onClick(this.mRoot);

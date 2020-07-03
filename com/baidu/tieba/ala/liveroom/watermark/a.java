@@ -4,43 +4,43 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a {
-    private AlaLiveRoomWatermarkView gir;
+    private AlaLiveRoomWatermarkView gvd;
     private TbPageContext mTbPageContext;
 
-    public void bHw() {
-        if (this.gir != null && this.gir.getParent() != null) {
-            ((ViewGroup) this.gir.getParent()).removeView(this.gir);
+    public void bKA() {
+        if (this.gvd != null && this.gvd.getParent() != null) {
+            ((ViewGroup) this.gvd.getParent()).removeView(this.gvd);
         }
     }
 
     public void setTimeTextMode(boolean z) {
-        if (this.gir != null) {
-            this.gir.setTimeTextMode(z);
+        if (this.gvd != null) {
+            this.gvd.setTimeTextMode(z);
         }
     }
 
-    public int bHx() {
+    public int bKB() {
         int i = 0;
-        if (this.gir == null || this.gir.getLayoutParams() == null) {
+        if (this.gvd == null || this.gvd.getLayoutParams() == null) {
             return 0;
         }
-        if (this.gir.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-            i = ((FrameLayout.LayoutParams) this.gir.getLayoutParams()).topMargin;
-        } else if (this.gir.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-            i = ((RelativeLayout.LayoutParams) this.gir.getLayoutParams()).topMargin;
-        } else if (this.gir.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            i = ((LinearLayout.LayoutParams) this.gir.getLayoutParams()).topMargin;
+        if (this.gvd.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+            i = ((FrameLayout.LayoutParams) this.gvd.getLayoutParams()).topMargin;
+        } else if (this.gvd.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            i = ((RelativeLayout.LayoutParams) this.gvd.getLayoutParams()).topMargin;
+        } else if (this.gvd.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            i = ((LinearLayout.LayoutParams) this.gvd.getLayoutParams()).topMargin;
         }
         return i + this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(a.e.sdk_ds30);
     }
 
     public void setVisibility(int i) {
-        if (this.gir != null) {
-            this.gir.setVisibility(i);
+        if (this.gvd != null) {
+            this.gvd.setVisibility(i);
         }
     }
 }

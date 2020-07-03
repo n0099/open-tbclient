@@ -5,8 +5,8 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.u.a;
 import java.lang.reflect.Field;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
@@ -17,7 +17,7 @@ public class a {
         }
     }
 
-    public static boolean p(CharSequence charSequence) {
+    public static boolean t(CharSequence charSequence) {
         return Pattern.compile("[^一-龥]").matcher(charSequence).find();
     }
 
@@ -29,7 +29,7 @@ public class a {
                     return "";
                 }
                 while (i < i2) {
-                    if (!a.p(charSequence) || charSequence.toString().contains("·") || charSequence.toString().contains("•")) {
+                    if (!a.t(charSequence) || charSequence.toString().contains("·") || charSequence.toString().contains("•")) {
                         i++;
                     } else {
                         return "";

@@ -1,9 +1,9 @@
 package com.baidu.tieba.ala.alasquare.b;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.aa;
+import com.baidu.adp.widget.ListView.ad;
 /* loaded from: classes3.dex */
-public class a extends aa.a {
+public class a extends ad.a {
     public View mView;
 
     public a(View view) {

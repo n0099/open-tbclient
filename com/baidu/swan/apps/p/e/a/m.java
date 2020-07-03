@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class m extends com.baidu.swan.apps.p.a<com.baidu.swan.apps.p.e.b.a> {
     @Override // com.baidu.swan.apps.p.a
     @NonNull
-    public String aek() {
+    public String afq() {
         return "setDataSource";
     }
 

@@ -12,7 +12,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.R;
@@ -26,29 +26,29 @@ import com.baidu.tieba.recapp.r;
 import com.baidu.tieba.recapp.widget.ApkDownloadView;
 /* loaded from: classes13.dex */
 public class a extends e {
-    private TextView dXU;
-    private DownloadCacheKey eOp;
-    private com.baidu.tieba.ad.download.a.d eOq;
-    private HeadImageView hUH;
-    private com.baidu.tieba.lego.card.c jac;
-    private CustomMessageListener kMR;
-    private ApkDownloadView kNC;
-    private String kPy;
-    private TextView kQp;
-    private boolean kQq;
-    protected boolean kQr;
+    private TextView dEL;
+    private DownloadCacheKey eYA;
+    private com.baidu.tieba.ad.download.a.d eYB;
+    private HeadImageView ijb;
+    private com.baidu.tieba.lego.card.c jrm;
+    private CustomMessageListener lgK;
+    private ApkDownloadView lhv;
+    private String ljr;
+    private TextView lki;
+    private boolean lkj;
+    protected boolean lkk;
 
     public a(View view, String str) {
         super(view, str);
-        this.eOq = null;
-        this.kQq = false;
-        this.kMR = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_DOWNLOAD_MSG) { // from class: com.baidu.tieba.recapp.e.a.4
+        this.eYB = null;
+        this.lkj = false;
+        this.lgK = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_DOWNLOAD_MSG) { // from class: com.baidu.tieba.recapp.e.a.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 DownloadData downloadData;
-                if (customResponsedMessage != null && (downloadData = (DownloadData) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(a.this.kPy) && a.this.kPy.equals(downloadData.getId())) {
-                    a.this.kNC.t(downloadData);
+                if (customResponsedMessage != null && (downloadData = (DownloadData) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(a.this.ljr) && a.this.ljr.equals(downloadData.getId())) {
+                    a.this.lhv.t(downloadData);
                 }
             }
         };
@@ -56,62 +56,62 @@ public class a extends e {
     }
 
     private void init() {
-        this.hUH = (HeadImageView) Cz(R.id.user_portrait);
-        this.hUH.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        this.hUH.setDefaultResource(R.drawable.icon_default_avatar100);
-        this.hUH.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.hUH.setIsRound(true);
-        this.dXU = (TextView) Cz(R.id.user_name);
-        this.kQp = (TextView) Cz(R.id.action);
-        this.kNC = (ApkDownloadView) Cz(R.id.download_view);
-        MessageManager.getInstance().registerListener(this.kMR);
+        this.ijb = (HeadImageView) DB(R.id.user_portrait);
+        this.ijb.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        this.ijb.setDefaultResource(R.drawable.icon_default_avatar100);
+        this.ijb.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.ijb.setIsRound(true);
+        this.dEL = (TextView) DB(R.id.user_name);
+        this.lki = (TextView) DB(R.id.action);
+        this.lhv = (ApkDownloadView) DB(R.id.download_view);
+        MessageManager.getInstance().registerListener(this.lgK);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void a(AdCard.f fVar) {
         int i;
         super.a(fVar);
-        this.hUH.startLoad(fVar.kLY, 10, false);
-        this.dXU.setText(fVar.userName);
-        this.kQp.setText(fVar.buttonText);
-        this.kNC.setTextColor(am.getColor(R.color.cp_btn_a));
-        if (this.kQB instanceof AdCard) {
-            this.kQq = ((AdCard) this.kQB).directDownload;
+        this.ijb.startLoad(fVar.lfS, 10, false);
+        this.dEL.setText(fVar.userName);
+        this.lki.setText(fVar.buttonText);
+        this.lhv.setTextColor(an.getColor(R.color.cp_btn_a));
+        if (this.lku instanceof AdCard) {
+            this.lkj = ((AdCard) this.lku).directDownload;
         }
-        if (this.kQA != null) {
-            View$OnClickListenerC0714a view$OnClickListenerC0714a = new View$OnClickListenerC0714a(this.kQA);
-            this.mRootView.setOnClickListener(view$OnClickListenerC0714a);
-            if (cVE()) {
-                this.kNC.setOnClickInterceptListener(new b.a() { // from class: com.baidu.tieba.recapp.e.a.1
+        if (this.lkt != null) {
+            View$OnClickListenerC0730a view$OnClickListenerC0730a = new View$OnClickListenerC0730a(this.lkt);
+            this.mRootView.setOnClickListener(view$OnClickListenerC0730a);
+            if (cZU()) {
+                this.lhv.setOnClickInterceptListener(new b.a() { // from class: com.baidu.tieba.recapp.e.a.1
                     @Override // com.baidu.tieba.ad.download.mvp.b.a
-                    public void br(View view) {
+                    public void bu(View view) {
                     }
                 });
             } else {
-                this.kNC.setOnClickListener(view$OnClickListenerC0714a);
+                this.lhv.setOnClickListener(view$OnClickListenerC0730a);
             }
             try {
-                i = TextUtils.isEmpty(this.kQA.adPosition) ? 0 : Integer.valueOf(this.kQA.adPosition).intValue();
+                i = TextUtils.isEmpty(this.lkt.adPosition) ? 0 : Integer.valueOf(this.lkt.adPosition).intValue();
             } catch (NumberFormatException e) {
                 i = 0;
             }
-            this.kPy = this.kQA.dAx;
-            DownloadData c = c(this.kQA, i);
+            this.ljr = this.lkt.dGO;
+            DownloadData c = c(this.lkt, i);
             o(c);
-            this.kNC.setData(c);
+            this.lhv.setData(c);
         }
-        if (!cVE()) {
-            this.kNC.x(this.dIF.getUniqueId());
+        if (!cZU()) {
+            this.lhv.x(this.dPv.getUniqueId());
         }
-        this.kMR.setTag(this.dIF.getUniqueId());
-        cVF();
+        this.lgK.setTag(this.dPv.getUniqueId());
+        cZV();
         onChangeSkinType();
     }
 
     private void o(DownloadData downloadData) {
-        if (cVE()) {
-            if (this.kNC != null) {
-                downloadData.setStatus(this.kNC.getDownloadStatus());
+        if (cZU()) {
+            if (this.lhv != null) {
+                downloadData.setStatus(this.lhv.getDownloadStatus());
                 return;
             }
             return;
@@ -120,50 +120,50 @@ public class a extends e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cVE() {
-        return !this.kQq || this.kQr;
+    public boolean cZU() {
+        return !this.lkj || this.lkk;
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void onChangeSkinType() {
         super.onChangeSkinType();
-        am.setViewTextColor(this.dXU, R.color.cp_cont_a, 1);
-        am.setViewTextColor(this.kQp, R.color.cp_mask_c_alpha83, 1);
-        am.setBackgroundColor(this.kQp, R.color.cp_link_tip_a, 1);
-        this.kNC.setTextColorInitSkin(R.color.cp_cont_a);
-        this.kNC.setBackgroundSkin(R.drawable.tail_frame_action_btn_bg);
-        this.kNC.crv();
+        an.setViewTextColor(this.dEL, R.color.cp_cont_a, 1);
+        an.setViewTextColor(this.lki, R.color.cp_mask_c_alpha83, 1);
+        an.setBackgroundColor(this.lki, R.color.cp_link_tip_a, 1);
+        this.lhv.setTextColorInitSkin(R.color.cp_cont_a);
+        this.lhv.setBackgroundSkin(R.drawable.tail_frame_action_btn_bg);
+        this.lhv.aYi();
     }
 
-    public void tI(boolean z) {
-        this.kQr = z;
+    public void tX(boolean z) {
+        this.lkk = z;
     }
 
     /* renamed from: com.baidu.tieba.recapp.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    private class View$OnClickListenerC0714a implements View.OnClickListener {
-        private AdvertAppInfo kPB;
+    private class View$OnClickListenerC0730a implements View.OnClickListener {
+        private AdvertAppInfo lju;
 
-        public View$OnClickListenerC0714a(AdvertAppInfo advertAppInfo) {
-            this.kPB = advertAppInfo;
+        public View$OnClickListenerC0730a(AdvertAppInfo advertAppInfo) {
+            this.lju = advertAppInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!j.isNetworkAvailableForImmediately()) {
-                a.this.dIF.showToast(R.string.neterror);
+                a.this.dPv.showToast(R.string.neterror);
                 return;
             }
-            boolean z = view == a.this.kNC;
-            if (a.this.cVE()) {
-                a.this.kNC.performClick();
-            } else if (this.kPB != null) {
-                int i = com.baidu.adp.lib.f.b.toInt(this.kPB.adPosition, -1);
-                int status = ApkDownloadView.getStatus(a.this.c(this.kPB, i));
+            boolean z = view == a.this.lhv;
+            if (a.this.cZU()) {
+                a.this.lhv.performClick();
+            } else if (this.lju != null) {
+                int i = com.baidu.adp.lib.f.b.toInt(this.lju.adPosition, -1);
+                int status = ApkDownloadView.getStatus(a.this.c(this.lju, i));
                 if ((6 != status && 7 != status) || !j.isNetWorkAvailable() || j.isWifiNet()) {
-                    a.this.a(this.kPB, i, a.this.kNC, z);
+                    a.this.a(this.lju, i, a.this.lhv, z);
                 } else {
-                    a.this.showDownloadAppDialog(this.kPB, i, true, this.kPB.dAD != null ? this.kPB.dAD.dAP : "");
+                    a.this.showDownloadAppDialog(this.lju, i, true, this.lju.dGU != null ? this.lju.dGU.dHg : "");
                 }
             }
         }
@@ -171,30 +171,30 @@ public class a extends e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public DownloadData c(AdvertAppInfo advertAppInfo, int i) {
-        DownloadData downloadData = new DownloadData(advertAppInfo.dAx);
+        DownloadData downloadData = new DownloadData(advertAppInfo.dGO);
         downloadData.setUrl(advertAppInfo.apkUrl);
-        downloadData.setName(advertAppInfo.dAv);
+        downloadData.setName(advertAppInfo.dGM);
         downloadData.setPosition(i);
-        downloadData.setNotifyId(com.baidu.adp.lib.f.b.toInt(advertAppInfo.dAu, 0));
+        downloadData.setNotifyId(com.baidu.adp.lib.f.b.toInt(advertAppInfo.dGL, 0));
         return downloadData;
     }
 
     public void showDownloadAppDialog(final AdvertAppInfo advertAppInfo, final int i, boolean z, String str) {
         if (advertAppInfo != null) {
             if (!j.isNetworkAvailableForImmediately()) {
-                l.showToast(this.dIF.getPageActivity(), (int) R.string.neterror);
-            } else if (advertAppInfo.aOz()) {
+                l.showToast(this.dPv.getPageActivity(), (int) R.string.neterror);
+            } else if (advertAppInfo.aQj()) {
                 if (TextUtils.isEmpty(str)) {
-                    str = this.dIF.getString(R.string.frs_network_tips);
+                    str = this.dPv.getString(R.string.frs_network_tips);
                 }
-                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.dIF.getPageActivity());
-                aVar.vO(str);
+                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.dPv.getPageActivity());
+                aVar.we(str);
                 aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.recapp.e.a.2
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         a.this.d(advertAppInfo, i);
-                        if (a.this.kNC != null) {
-                            a.this.kNC.q(a.this.c(advertAppInfo, i));
+                        if (a.this.lhv != null) {
+                            a.this.lhv.q(a.this.c(advertAppInfo, i));
                         }
                         aVar2.dismiss();
                     }
@@ -205,7 +205,7 @@ public class a extends e {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(this.dIF).aST();
+                aVar.b(this.dPv).aUN();
             }
         }
     }
@@ -226,7 +226,7 @@ public class a extends e {
                 default:
                     return;
                 case 3:
-                    h.aN(this.dIF.getPageActivity(), advertAppInfo.dAx);
+                    h.aN(this.dPv.getPageActivity(), advertAppInfo.dGO);
                     return;
                 case 6:
                 case 7:
@@ -239,59 +239,59 @@ public class a extends e {
 
     protected void d(AdvertAppInfo advertAppInfo, int i) {
         if (advertAppInfo != null) {
-            if (!r.ap(this.dIF.getPageActivity())) {
-                l.showToast(this.dIF.getPageActivity(), (int) R.string.write_external_storage_permission_denied_fun_disable);
-            } else if (this.jac != null) {
-                this.jac.b(advertAppInfo, i);
+            if (!r.aq(this.dPv.getPageActivity())) {
+                l.showToast(this.dPv.getPageActivity(), (int) R.string.write_external_storage_permission_denied_fun_disable);
+            } else if (this.jrm != null) {
+                this.jrm.b(advertAppInfo, i);
             }
         }
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void setDownloadAppCallback(com.baidu.tieba.lego.card.c cVar) {
-        this.jac = cVar;
+        this.jrm = cVar;
     }
 
-    private void cVF() {
-        if (cVE() && this.kQA != null) {
-            String str = this.kQA.dAu;
-            DownloadCacheKey zX = !TextUtils.isEmpty(str) ? com.baidu.tieba.ad.download.d.bmF().zX(str) : null;
-            if (zX == null) {
-                zX = DownloadCacheKey.create(str, this.kQA.apkUrl, this.kQA.dAx);
-                com.baidu.tieba.ad.download.d.bmF().a(zX, null);
+    private void cZV() {
+        if (cZU() && this.lkt != null) {
+            String str = this.lkt.dGL;
+            DownloadCacheKey Aq = !TextUtils.isEmpty(str) ? com.baidu.tieba.ad.download.d.bpf().Aq(str) : null;
+            if (Aq == null) {
+                Aq = DownloadCacheKey.create(str, this.lkt.apkUrl, this.lkt.dGO);
+                com.baidu.tieba.ad.download.d.bpf().a(Aq, null);
             }
-            i(zX);
+            i(Aq);
         }
     }
 
     private void i(DownloadCacheKey downloadCacheKey) {
         if (downloadCacheKey != null) {
-            this.eOp = downloadCacheKey;
-            cVG();
-            AdDownloadData d = com.baidu.tieba.ad.download.d.bmF().d(downloadCacheKey);
+            this.eYA = downloadCacheKey;
+            cZW();
+            AdDownloadData d = com.baidu.tieba.ad.download.d.bpf().d(downloadCacheKey);
             if (d != null) {
-                this.kNC.a(d.getCurrentState());
+                this.lhv.a(d.getCurrentState());
             } else {
-                this.kNC.a(DownloadStatus.STATUS_NONE);
+                this.lhv.a(DownloadStatus.STATUS_NONE);
             }
-            com.baidu.tieba.ad.browser.newstyle.view.a aVar = new com.baidu.tieba.ad.browser.newstyle.view.a(this.kNC, d, this.kQA != null ? this.kQA.page : "");
-            this.eOq = new com.baidu.tieba.ad.download.a.b(aVar);
+            com.baidu.tieba.ad.browser.newstyle.view.a aVar = new com.baidu.tieba.ad.browser.newstyle.view.a(this.lhv, d, this.lkt != null ? this.lkt.page : "");
+            this.eYB = new com.baidu.tieba.ad.download.a.b(aVar);
             if (d.extra().getPercent() > 0) {
                 aVar.b((com.baidu.tieba.ad.browser.newstyle.view.a) d);
             }
-            bmz();
+            boY();
         }
     }
 
-    public void bmz() {
-        if (this.eOp != null && this.eOq != null) {
-            com.baidu.tieba.ad.download.d.bmF().a(this.eOp, this.eOq);
+    public void boY() {
+        if (this.eYA != null && this.eYB != null) {
+            com.baidu.tieba.ad.download.d.bpf().a(this.eYA, this.eYB);
         }
     }
 
-    public void cVG() {
-        if (this.eOp != null && this.eOq != null) {
-            com.baidu.tieba.ad.download.d.bmF().b(this.eOp, this.eOq);
+    public void cZW() {
+        if (this.eYA != null && this.eYB != null) {
+            com.baidu.tieba.ad.download.d.bpf().b(this.eYA, this.eYB);
         }
     }
 }

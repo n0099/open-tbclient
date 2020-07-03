@@ -13,10 +13,10 @@ public class fb {
     private static volatile fb a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f310a;
+    private Context f316a;
 
     private fb(Context context) {
-        this.f310a = context;
+        this.f316a = context;
     }
 
     public static fb a(Context context) {
@@ -32,9 +32,9 @@ public class fb {
 
     private void a(com.xiaomi.clientreport.data.a aVar) {
         if (aVar instanceof PerfClientReport) {
-            ClientReportClient.reportPerf(this.f310a, (PerfClientReport) aVar);
+            ClientReportClient.reportPerf(this.f316a, (PerfClientReport) aVar);
         } else if (aVar instanceof EventClientReport) {
-            ClientReportClient.reportEvent(this.f310a, (EventClientReport) aVar);
+            ClientReportClient.reportEvent(this.f316a, (EventClientReport) aVar);
         }
     }
 
@@ -42,7 +42,7 @@ public class fb {
         if (i < 0 || j2 < 0 || j <= 0) {
             return;
         }
-        PerfClientReport a2 = fa.a(this.f310a, i, j, j2);
+        PerfClientReport a2 = fa.a(this.f316a, i, j, j2);
         a2.setAppPackageName(str);
         a2.setSdkVersion("3_7_5");
         a(a2);
@@ -52,21 +52,21 @@ public class fb {
         if (intent == null) {
             return;
         }
-        a(str, fa.m268a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), i, System.currentTimeMillis(), str2);
+        a(str, fa.m265a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), i, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, Intent intent, String str2) {
         if (intent == null) {
             return;
         }
-        a(str, fa.m268a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), ARPMessageType.MSG_TYPE_RES_REQUEST, System.currentTimeMillis(), str2);
+        a(str, fa.m265a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), ARPMessageType.MSG_TYPE_RES_REQUEST, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, String str2, String str3, int i, long j, String str4) {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return;
         }
-        EventClientReport a2 = fa.a(this.f310a, str2, str3, i, j, str4);
+        EventClientReport a2 = fa.a(this.f316a, str2, str3, i, j, str4);
         a2.setAppPackageName(str);
         a2.setSdkVersion("3_7_5");
         a(a2);

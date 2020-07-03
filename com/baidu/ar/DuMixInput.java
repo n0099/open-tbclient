@@ -3,50 +3,50 @@ package com.baidu.ar;
 import android.graphics.SurfaceTexture;
 /* loaded from: classes3.dex */
 public class DuMixInput {
+    private int R;
     private int S;
     private int T;
-    private int U;
-    private SurfaceTexture aR;
-    private boolean aS;
+    private SurfaceTexture bd;
+    private boolean be;
     private boolean mFrontCamera;
 
     public DuMixInput() {
+        this.R = 0;
         this.S = 0;
-        this.T = 0;
-        this.aS = true;
+        this.be = true;
         this.mFrontCamera = true;
-        this.U = 90;
+        this.T = 90;
     }
 
     public DuMixInput(SurfaceTexture surfaceTexture, int i, int i2) {
+        this.R = 0;
         this.S = 0;
-        this.T = 0;
-        this.aS = true;
+        this.be = true;
         this.mFrontCamera = true;
-        this.U = 90;
-        this.aR = surfaceTexture;
-        this.S = i;
-        this.T = i2;
+        this.T = 90;
+        this.bd = surfaceTexture;
+        this.R = i;
+        this.S = i2;
     }
 
     public int getInputDegree() {
-        return this.U;
-    }
-
-    public int getInputHeight() {
         return this.T;
     }
 
-    public SurfaceTexture getInputSurface() {
-        return this.aR;
-    }
-
-    public int getInputWidth() {
+    public int getInputHeight() {
         return this.S;
     }
 
+    public SurfaceTexture getInputSurface() {
+        return this.bd;
+    }
+
+    public int getInputWidth() {
+        return this.R;
+    }
+
     public boolean isCameraInput() {
-        return this.aS;
+        return this.be;
     }
 
     public boolean isFrontCamera() {
@@ -54,7 +54,7 @@ public class DuMixInput {
     }
 
     public void setCameraInput(boolean z) {
-        this.aS = z;
+        this.be = z;
     }
 
     public void setFrontCamera(boolean z) {
@@ -62,18 +62,18 @@ public class DuMixInput {
     }
 
     public void setInputDegree(int i) {
-        this.U = i;
-    }
-
-    public void setInputHeight(int i) {
         this.T = i;
     }
 
+    public void setInputHeight(int i) {
+        this.S = i;
+    }
+
     public void setInputSurface(SurfaceTexture surfaceTexture) {
-        this.aR = surfaceTexture;
+        this.bd = surfaceTexture;
     }
 
     public void setInputWidth(int i) {
-        this.S = i;
+        this.R = i;
     }
 }

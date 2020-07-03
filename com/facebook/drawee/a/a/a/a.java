@@ -5,27 +5,27 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class a implements b {
-    private final List<b> moz;
+    private final List<b> mKy;
 
     public a(b... bVarArr) {
-        this.moz = new ArrayList(bVarArr.length);
-        Collections.addAll(this.moz, bVarArr);
+        this.mKy = new ArrayList(bVarArr.length);
+        Collections.addAll(this.mKy, bVarArr);
     }
 
     public synchronized void a(b bVar) {
-        this.moz.add(bVar);
+        this.mKy.add(bVar);
     }
 
     public synchronized void b(b bVar) {
-        this.moz.remove(bVar);
+        this.mKy.remove(bVar);
     }
 
     @Override // com.facebook.drawee.a.a.a.b
     public synchronized void g(String str, int i, boolean z) {
-        int size = this.moz.size();
+        int size = this.mKy.size();
         for (int i2 = 0; i2 < size; i2++) {
             try {
-                this.moz.get(i2).g(str, i, z);
+                this.mKy.get(i2).g(str, i, z);
             } catch (Exception e) {
                 com.facebook.common.c.a.e("ForwardingImageOriginListener", "InternalListener exception in onImageLoaded", e);
             }

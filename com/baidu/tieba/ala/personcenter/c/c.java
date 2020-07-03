@@ -11,17 +11,17 @@ import org.json.JSONObject;
 public class c {
     private boolean isHost = false;
     private AlaUserInfoData user_info = new AlaUserInfoData();
-    private h goH = new h();
-    private p goI = new p();
-    private final a goL = new a();
-    private List<AlaLiveInfoData> goJ = new ArrayList();
-    private List<o> goK = new ArrayList();
+    private h gBw = new h();
+    private p gBx = new p();
+    private final a gBA = new a();
+    private List<AlaLiveInfoData> gBy = new ArrayList();
+    private List<o> gBz = new ArrayList();
 
-    public a bIo() {
-        return this.goL;
+    public a bLt() {
+        return this.gBA;
     }
 
-    public AlaUserInfoData bIp() {
+    public AlaUserInfoData bLu() {
         return this.user_info;
     }
 
@@ -45,17 +45,17 @@ public class c {
                 for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
                     o oVar = new o();
                     oVar.parseJson(optJSONArray.getJSONObject(i));
-                    this.goK.add(oVar);
+                    this.gBz.add(oVar);
                 }
                 JSONArray optJSONArray2 = jSONObject2.optJSONArray("live_list");
                 for (int i2 = 0; optJSONArray2 != null && optJSONArray2.length() < i2; i2++) {
                     AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
                     alaLiveInfoData.parserJson(optJSONArray2.getJSONObject(i2));
-                    this.goJ.add(alaLiveInfoData);
+                    this.gBy.add(alaLiveInfoData);
                 }
-                this.goH.parserJson(jSONObject2.optJSONObject("media"));
-                this.goI.parserJson(jSONObject2.optJSONObject("privacy_set"));
-                this.goL.parserJson(jSONObject2.optJSONObject("authority_info"));
+                this.gBw.parserJson(jSONObject2.optJSONObject("media"));
+                this.gBx.parserJson(jSONObject2.optJSONObject("privacy_set"));
+                this.gBA.parserJson(jSONObject2.optJSONObject("authority_info"));
             } catch (Exception e) {
                 e.printStackTrace();
             }

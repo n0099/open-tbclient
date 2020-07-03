@@ -6,196 +6,197 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.an;
-import com.baidu.tieba.frs.s;
+import com.baidu.tieba.frs.ab;
+import com.baidu.tieba.frs.as;
+import com.baidu.tieba.frs.u;
 import com.baidu.tieba.frs.vc.FrsTabViewController;
-import com.baidu.tieba.frs.y;
 import java.util.HashMap;
 /* loaded from: classes9.dex */
 public class j extends com.baidu.tieba.frs.mc.j {
-    private boolean hMX;
-    private HashMap<Integer, y> hMY;
-    private final CustomMessageListener hMZ;
-    private final CustomMessageListener hNa;
-    private final CustomMessageListener hNb;
-    private final CustomMessageListener hNc;
-    private an hNd;
-    private com.baidu.tieba.frs.smartsort.a hnN;
+    private com.baidu.tieba.frs.smartsort.a hAg;
+    private boolean iaj;
+    private HashMap<Integer, ab> iak;
+    private final CustomMessageListener ial;
+    private final CustomMessageListener iam;
+    private final CustomMessageListener ian;
+    private final CustomMessageListener iao;
+    private as iap;
 
     public j(FrsFragment frsFragment) {
         super(frsFragment);
-        this.hMX = false;
-        this.hMZ = new CustomMessageListener(CmdConfigCustom.CMD_REFRESH) { // from class: com.baidu.tieba.frs.vc.j.1
+        this.iaj = false;
+        this.ial = new CustomMessageListener(CmdConfigCustom.CMD_REFRESH) { // from class: com.baidu.tieba.frs.vc.j.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && j.this.hnt != null) {
-                    j.this.hnt.startPullRefresh();
+                if (customResponsedMessage != null && j.this.hzK != null) {
+                    j.this.hzK.startPullRefresh();
                 }
             }
         };
-        this.hNa = new CustomMessageListener(2921448) { // from class: com.baidu.tieba.frs.vc.j.2
+        this.iam = new CustomMessageListener(2921448) { // from class: com.baidu.tieba.frs.vc.j.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof y)) {
-                    j.this.hnt.bqX();
-                    y yVar = (y) customResponsedMessage.getData();
-                    if (yVar.hqS != null) {
-                        j.this.a(yVar.tabId, yVar.hqS);
-                    } else if (yVar.tabId == 1) {
-                        j.this.a(yVar.tabId, j.this.hNd);
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ab)) {
+                    j.this.hzK.btU();
+                    ab abVar = (ab) customResponsedMessage.getData();
+                    if (abVar.hDF != null) {
+                        j.this.a(abVar.tabId, abVar.hDF);
+                    } else if (abVar.tabId == 1) {
+                        j.this.a(abVar.tabId, j.this.iap);
                     } else {
-                        j.this.a(yVar.tabId, (an) null);
+                        j.this.a(abVar.tabId, (as) null);
                     }
-                    j.this.vA(yVar.tabId);
+                    j.this.wf(abVar.tabId);
                 }
             }
         };
-        this.hNb = new CustomMessageListener(9205410) { // from class: com.baidu.tieba.frs.vc.j.3
+        this.ian = new CustomMessageListener(9205410) { // from class: com.baidu.tieba.frs.vc.j.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof y)) {
-                    y yVar = (y) customResponsedMessage.getData();
-                    j.this.N(yVar.tabId, yVar.dVd);
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ab)) {
+                    ab abVar = (ab) customResponsedMessage.getData();
+                    j.this.Q(abVar.tabId, abVar.ecu);
                 }
             }
         };
-        this.hNc = new CustomMessageListener(2921449) { // from class: com.baidu.tieba.frs.vc.j.4
+        this.iao = new CustomMessageListener(2921449) { // from class: com.baidu.tieba.frs.vc.j.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof s)) {
-                    s sVar = (s) customResponsedMessage.getData();
-                    j.this.O(sVar.tabId, sVar.eIz);
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof u)) {
+                    u uVar = (u) customResponsedMessage.getData();
+                    j.this.R(uVar.tabId, uVar.eSL);
                 }
             }
         };
-        this.hNd = new an() { // from class: com.baidu.tieba.frs.vc.j.5
-            @Override // com.baidu.tieba.frs.an
-            public void aWp() {
-                j.this.hMX = true;
-                if (j.this.hnt != null && j.this.hId != null && j.this.hnK != null && j.this.hGQ != null && j.this.hGQ.isAdded()) {
-                    if (j.this.hnt != null && j.this.hnt.bVS() != null) {
-                        j.this.hnt.bVS().cfI();
+        this.iap = new as() { // from class: com.baidu.tieba.frs.vc.j.5
+            @Override // com.baidu.tieba.frs.as
+            public void aYg() {
+                j.this.iaj = true;
+                if (j.this.hzK != null && j.this.hVp != null && j.this.hAd != null && j.this.hUd != null && j.this.hUd.isAdded()) {
+                    if (j.this.hzK != null && j.this.hzK.bZa() != null) {
+                        j.this.hzK.bZa().cje();
                     }
-                    j.this.hGQ.mM(false);
-                    com.baidu.adp.lib.f.e.ld().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.j.5.1
+                    j.this.hUd.mX(false);
+                    com.baidu.adp.lib.f.e.lt().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.j.5.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (j.this.hnt.bVJ() != null && j.this.hId != null && j.this.hnt.bVJ().getVisibility() != 0) {
-                                j.this.hId.bgK();
+                            if (j.this.hzK.bYR() != null && j.this.hVp != null && j.this.hzK.bYR().getVisibility() != 0) {
+                                j.this.hVp.biX();
                             }
                         }
                     }, 110L);
-                    j.this.hnt.K(1, true);
+                    j.this.hzK.M(1, true);
                     if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                        j.this.hGQ.refresh();
-                        j.this.hGQ.mM(true);
+                        j.this.hUd.refresh();
+                        j.this.hUd.mX(true);
                     } else {
-                        j.this.hGQ.bUW();
+                        j.this.hUd.bYc();
                     }
-                    TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11749").dh("fid", j.this.hGQ.getFid()).dh("obj_locate", "1"));
+                    TiebaStatic.log(new ao("c11749").dk("fid", j.this.hUd.getFid()).dk("obj_locate", "1"));
                 }
             }
 
-            @Override // com.baidu.tieba.frs.an
-            public void aWq() {
-                if (j.this.hGQ != null && j.this.hGQ.isAdded()) {
-                    if (j.this.hMX && j.this.hGQ.bUR() != null) {
-                        j.this.hGQ.bUR().ccx();
-                        j.this.hMX = false;
+            @Override // com.baidu.tieba.frs.as
+            public void aYh() {
+                if (j.this.hUd != null && j.this.hUd.isAdded()) {
+                    if (j.this.iaj && j.this.hUd.bXX() != null) {
+                        j.this.hUd.bXX().cfQ();
+                        j.this.iaj = false;
                     }
-                    if (j.this.hnN != null && j.this.hGQ.bUT() != null && j.this.hGQ.bUT().bVU() != null && !j.this.hGQ.bUT().bVU().cbM()) {
-                        j.this.hnN.caU();
+                    if (j.this.hAg != null && j.this.hUd.bXZ() != null && j.this.hUd.bXZ().bZc() != null && !j.this.hUd.bXZ().bZc().cfe()) {
+                        j.this.hAg.cem();
                     }
-                    if (j.this.hnt != null && j.this.hId != null && j.this.hnK != null && j.this.hnN != null) {
-                        j.this.hnt.bVS().a(0, 0, true, true);
-                        j.this.hGQ.bVh();
-                        j.this.hGQ.mM(true);
+                    if (j.this.hzK != null && j.this.hVp != null && j.this.hAd != null && j.this.hAg != null) {
+                        j.this.hzK.bZa().a(0, 0, true, true);
+                        j.this.hUd.bYo();
+                        j.this.hUd.mX(true);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN));
-                        if (j.this.hGQ.bUT() != null) {
-                            j.this.hGQ.bUT().K(1, false);
+                        if (j.this.hUd.bXZ() != null) {
+                            j.this.hUd.bXZ().M(1, false);
                         }
-                        if (!TbadkCoreApplication.isLogin() || j.this.hGQ.aWO().getVisibility() != 0 || v.isEmpty(j.this.hGQ.bVu().getThreadList())) {
+                        if (!TbadkCoreApplication.isLogin() || j.this.hUd.aYH().getVisibility() != 0 || w.isEmpty(j.this.hUd.bYB().getThreadList())) {
                         }
                     }
                 }
             }
         };
-        this.hnN = frsFragment.bUN();
-        this.hMY = new HashMap<>();
-        this.hnt.tY(1);
-        frsFragment.registerListener(this.hMZ);
-        frsFragment.registerListener(this.hNa);
-        frsFragment.registerListener(this.hNb);
-        frsFragment.registerListener(this.hNc);
+        this.hAg = frsFragment.bXT();
+        this.iak = new HashMap<>();
+        this.hzK.uD(1);
+        frsFragment.registerListener(this.ial);
+        frsFragment.registerListener(this.iam);
+        frsFragment.registerListener(this.ian);
+        frsFragment.registerListener(this.iao);
     }
 
-    public void ccj() {
-        if (this.hnt != null) {
-            if ((this.hIc instanceof FrsTabViewController) && ((FrsTabViewController) this.hIc).ccw() != null && (((FrsTabViewController) this.hIc).ccw().fragment instanceof an)) {
-                FrsTabViewController.b ccw = ((FrsTabViewController) this.hIc).ccw();
-                a(ccw.tabId, (an) ccw.fragment);
-                vA(ccw.tabId);
+    public void cfB() {
+        if (this.hzK != null) {
+            if ((this.hVo instanceof FrsTabViewController) && ((FrsTabViewController) this.hVo).cfP() != null && (((FrsTabViewController) this.hVo).cfP().fragment instanceof as)) {
+                FrsTabViewController.b cfP = ((FrsTabViewController) this.hVo).cfP();
+                a(cfP.tabId, (as) cfP.fragment);
+                wf(cfP.tabId);
                 return;
             }
-            this.hnt.a(this.hNd);
+            this.hzK.a(this.iap);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vA(int i) {
-        y yVar;
-        if (this.hnt != null && (yVar = this.hMY.get(Integer.valueOf(i))) != null) {
-            this.hnt.tY(i);
-            this.hnt.a(yVar.hqS);
-            this.hnt.mV(yVar.dVd);
-            if (yVar.hqS == null) {
-                this.hnt.mV(false);
+    public void wf(int i) {
+        ab abVar;
+        if (this.hzK != null && (abVar = this.iak.get(Integer.valueOf(i))) != null) {
+            this.hzK.uD(i);
+            this.hzK.a(abVar.hDF);
+            this.hzK.ng(abVar.ecu);
+            if (abVar.hDF == null) {
+                this.hzK.ng(false);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, an anVar) {
-        y yVar = this.hMY.get(Integer.valueOf(i));
-        if (yVar == null) {
-            y yVar2 = new y();
-            yVar2.tabId = i;
-            yVar2.hqS = anVar;
-            this.hMY.put(Integer.valueOf(i), yVar2);
+    public void a(int i, as asVar) {
+        ab abVar = this.iak.get(Integer.valueOf(i));
+        if (abVar == null) {
+            ab abVar2 = new ab();
+            abVar2.tabId = i;
+            abVar2.hDF = asVar;
+            this.iak.put(Integer.valueOf(i), abVar2);
         } else {
-            yVar.hqS = anVar;
+            abVar.hDF = asVar;
         }
-        if (this.hnt != null) {
-            this.hnt.a(anVar);
+        if (this.hzK != null) {
+            this.hzK.a(asVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void N(int i, boolean z) {
-        y yVar = this.hMY.get(Integer.valueOf(i));
-        if (yVar == null) {
-            y yVar2 = new y();
-            yVar2.tabId = i;
-            yVar2.dVd = z;
-            this.hMY.put(Integer.valueOf(i), yVar2);
+    public void Q(int i, boolean z) {
+        ab abVar = this.iak.get(Integer.valueOf(i));
+        if (abVar == null) {
+            ab abVar2 = new ab();
+            abVar2.tabId = i;
+            abVar2.ecu = z;
+            this.iak.put(Integer.valueOf(i), abVar2);
         } else {
-            yVar.dVd = z;
+            abVar.ecu = z;
         }
-        if (this.hnt != null) {
-            this.hnt.mV(z);
+        if (this.hzK != null) {
+            this.hzK.ng(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void O(int i, boolean z) {
-        if (this.hnt != null) {
-            this.hnt.K(i, z);
+    public void R(int i, boolean z) {
+        if (this.hzK != null) {
+            this.hzK.M(i, z);
         }
     }
 }

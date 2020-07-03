@@ -10,28 +10,28 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public final class c {
-    private final Message ctK;
-    private final Set<SwanAppProcessInfo> ctL;
-    private final Set<String> ctM;
-    private boolean ctN;
-    private long ctO;
-    private boolean ctz;
+    private boolean cyA;
+    private long cyB;
+    private boolean cym;
+    private final Message cyx;
+    private final Set<SwanAppProcessInfo> cyy;
+    private final Set<String> cyz;
 
     @NonNull
-    public Message amK() {
-        if (this.ctK.obj == null) {
+    public Message anQ() {
+        if (this.cyx.obj == null) {
             Q(new Bundle());
         }
-        return this.ctK;
+        return this.cyx;
     }
 
     public c(Message message) {
-        this.ctL = new HashSet();
-        this.ctM = new HashSet();
-        this.ctz = false;
-        this.ctN = false;
-        this.ctO = 0L;
-        this.ctK = message == null ? Message.obtain() : message;
+        this.cyy = new HashSet();
+        this.cyz = new HashSet();
+        this.cym = false;
+        this.cyA = false;
+        this.cyB = 0L;
+        this.cyx = message == null ? Message.obtain() : message;
     }
 
     public c(int i, Object obj) {
@@ -46,13 +46,13 @@ public final class c {
         this(Message.obtain());
     }
 
-    public c eH(boolean z) {
-        this.ctN = z;
+    public c eM(boolean z) {
+        this.cyA = z;
         return this;
     }
 
     public boolean isSticky() {
-        return this.ctN;
+        return this.cyA;
     }
 
     private boolean a(int[] iArr, int i) {
@@ -69,14 +69,14 @@ public final class c {
 
     public c a(SwanAppProcessInfo... swanAppProcessInfoArr) {
         if (swanAppProcessInfoArr != null) {
-            this.ctL.addAll(Arrays.asList(swanAppProcessInfoArr));
+            this.cyy.addAll(Arrays.asList(swanAppProcessInfoArr));
         }
         return this;
     }
 
-    public c u(String... strArr) {
+    public c t(String... strArr) {
         if (strArr != null) {
-            this.ctM.addAll(Arrays.asList(strArr));
+            this.cyz.addAll(Arrays.asList(strArr));
         }
         return this;
     }
@@ -92,7 +92,7 @@ public final class c {
         return this;
     }
 
-    public c amL() {
+    public c anR() {
         SwanAppProcessInfo[] indices;
         for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
             if (swanAppProcessInfo.isSwanAppProcess()) {
@@ -112,25 +112,25 @@ public final class c {
         return this;
     }
 
-    public c eI(boolean z) {
-        this.ctz = z;
+    public c eN(boolean z) {
+        this.cym = z;
         return this;
     }
 
-    public Set<SwanAppProcessInfo> amM() {
-        return new HashSet(this.ctL);
+    public Set<SwanAppProcessInfo> anS() {
+        return new HashSet(this.cyy);
     }
 
-    public Set<String> amN() {
-        return new HashSet(this.ctM);
+    public Set<String> anT() {
+        return new HashSet(this.cyz);
     }
 
-    public boolean amO() {
-        return this.ctz;
+    public boolean anU() {
+        return this.cym;
     }
 
     public c Q(Object obj) {
-        this.ctK.obj = obj;
+        this.cyx.obj = obj;
         return this;
     }
 
@@ -138,14 +138,14 @@ public final class c {
         if (j < 0) {
             j = 0;
         }
-        this.ctO = j;
+        this.cyB = j;
         return this;
     }
 
-    public long amP() {
-        if (this.ctO < 0) {
+    public long anV() {
+        if (this.cyB < 0) {
             return 0L;
         }
-        return this.ctO;
+        return this.cyB;
     }
 }

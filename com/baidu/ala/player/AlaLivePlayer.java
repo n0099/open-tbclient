@@ -17,6 +17,7 @@ import com.baidu.ala.helper.AlaLiveDebugInfo;
 import com.baidu.ala.helper.AlaLiveStatConfig;
 import com.baidu.ala.helper.AlaLiveStreamCmdInfo;
 import com.baidu.ala.helper.AlaLiveUtilHelper;
+import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.ndk.AlaNDKPlayerAdapter;
 import com.baidu.ala.player.AlaVideoPlayer;
 import com.baidu.live.adp.base.BdPageContext;
@@ -32,7 +33,6 @@ import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.coremedia.iso.boxes.PerformerBox;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -638,9 +638,9 @@ public class AlaLivePlayer extends LinearLayout {
         if (this.mNDKAdapter.getNativeObject() != 0) {
             for (Map.Entry<Integer, AlaVideoPlayer2> entry : this.mPlayersMap.entrySet()) {
                 if (entry.getValue() != null) {
-                    this.mNDKAdapter.sendNativeStatAppData(entry.getKey().intValue(), PerformerBox.TYPE, str, 0);
-                    this.mNDKAdapter.sendNativeStatAppData(entry.getKey().intValue(), "kStatFirstFrame", str2, 0);
-                    this.mNDKAdapter.sendNativeStatAppData(entry.getKey().intValue(), "kStatDelayOff", str3, 0);
+                    this.mNDKAdapter.sendNativeStatAppData(entry.getKey().intValue(), "perf", str, 0);
+                    this.mNDKAdapter.sendNativeStatAppData(entry.getKey().intValue(), StreamConfig.STAT_FIRST_FRAME, str2, 0);
+                    this.mNDKAdapter.sendNativeStatAppData(entry.getKey().intValue(), StreamConfig.STAT_DELAY_OFF, str3, 0);
                 }
             }
         }
@@ -648,7 +648,7 @@ public class AlaLivePlayer extends LinearLayout {
 
     public void setRoomInfo(int i, String str) {
         if (this.mNDKAdapter.getNativeObject() != 0) {
-            this.mNDKAdapter.sendNativeStatAppData(i, "roomInfo", str, 0);
+            this.mNDKAdapter.sendNativeStatAppData(i, StreamConfig.STAT_ROOM_INFO, str, 0);
         }
     }
 

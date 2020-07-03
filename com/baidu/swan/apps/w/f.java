@@ -23,146 +23,146 @@ import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes11.dex */
 public final class f implements e.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static AtomicLong ciB = new AtomicLong(0);
-    private static volatile f ciC;
-    private d ciD = new a();
+    private static AtomicLong cnp = new AtomicLong(0);
+    private static volatile f cnq;
+    private d cnr = new a();
 
     private f() {
     }
 
-    public static f ahV() {
-        if (ciC == null) {
+    public static f ajb() {
+        if (cnq == null) {
             synchronized (f.class) {
-                if (ciC == null) {
-                    ciC = new f();
+                if (cnq == null) {
+                    cnq = new f();
                 }
             }
         }
-        return ciC;
+        return cnq;
     }
 
-    boolean ahW() {
-        return (this.ciD == null || (this.ciD instanceof a)) ? false : true;
+    boolean ajc() {
+        return (this.cnr == null || (this.cnr instanceof a)) ? false : true;
     }
 
-    public boolean ahX() {
-        return ahW() && this.ciD.ahF() != null;
-    }
-
-    public void bS(Context context) {
-        this.ciD.bS(context);
+    public boolean ajd() {
+        return ajc() && this.cnr.aiL() != null;
     }
 
     public void bT(Context context) {
-        this.ciD.bT(context);
+        this.cnr.bT(context);
     }
 
-    public void SQ() {
-        this.ciD.SQ();
+    public void bU(Context context) {
+        this.cnr.bU(context);
     }
 
-    public void SR() {
-        this.ciD.SR();
+    public void TW() {
+        this.cnr.TW();
+    }
+
+    public void TX() {
+        this.cnr.TX();
     }
 
     public void exit() {
-        this.ciD.exit();
+        this.cnr.exit();
     }
 
     public void a(int i, @NonNull String[] strArr, c.a aVar) {
-        this.ciD.a(i, strArr, aVar);
+        this.cnr.a(i, strArr, aVar);
     }
 
-    public void ahv() {
-        this.ciD.ahv();
+    public void aiB() {
+        this.cnr.aiB();
     }
 
-    public void ahw() {
-        this.ciD.ahw();
+    public void aiC() {
+        this.cnr.aiC();
     }
 
     public static synchronized void release() {
         synchronized (f.class) {
-            if (ciC != null) {
-                if (ciC.ciD != null) {
-                    ciC.ciD.doRelease();
+            if (cnq != null) {
+                if (cnq.cnr != null) {
+                    cnq.cnr.doRelease();
                 }
-                ciC = null;
+                cnq = null;
             }
         }
     }
 
     @Nullable
-    public com.baidu.swan.apps.runtime.e Zc() {
-        return this.ciD.Zc();
+    public com.baidu.swan.apps.runtime.e aai() {
+        return this.cnr.aai();
     }
 
     public void a(com.baidu.swan.apps.v.b.b bVar, com.baidu.swan.apps.r.b bVar2) {
-        this.ciD.a(bVar, bVar2);
+        this.cnr.a(bVar, bVar2);
     }
 
     public void b(com.baidu.swan.apps.v.b.b bVar, com.baidu.swan.apps.r.b bVar2) {
-        this.ciD.b(bVar, bVar2);
+        this.cnr.b(bVar, bVar2);
     }
 
     @DebugTrace
-    public com.baidu.swan.apps.adaptation.b.a ahy() {
-        return this.ciD.ahy();
+    public com.baidu.swan.apps.adaptation.b.a aiE() {
+        return this.cnr.aiE();
     }
 
     public FullScreenFloatView I(Activity activity) {
-        return this.ciD.I(activity);
+        return this.cnr.I(activity);
     }
 
     public SwanAppPropertyWindow J(Activity activity) {
-        return this.ciD.J(activity);
+        return this.cnr.J(activity);
     }
 
-    public boolean ahz() {
-        return this.ciD.ahz();
+    public boolean aiF() {
+        return this.cnr.aiF();
     }
 
     public void u(Intent intent) {
-        this.ciD.u(intent);
+        this.cnr.u(intent);
     }
 
-    public void Sh() {
+    public void Tn() {
         if (DEBUG) {
             Log.d("SwanAppController", "preloadLibraries start.");
         }
-        com.baidu.swan.apps.u.a.afq().Sh();
+        com.baidu.swan.apps.u.a.agw().Tn();
         if (DEBUG) {
             Log.e("SwanAppController", "start preload monitor & executor");
         }
-        n.atu();
+        n.auA();
         n.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.w.f.1
             @Override // java.lang.Runnable
             public void run() {
             }
         }, "computation");
-        com.baidu.swan.apps.api.module.l.d.bp(AppRuntime.getAppContext());
+        com.baidu.swan.apps.api.module.l.d.bq(AppRuntime.getAppContext());
         if (DEBUG) {
             Log.d("SwanAppController", "preloadLibraries end.");
         }
     }
 
     public void h(SwanAppActivity swanAppActivity) {
-        if (swanAppActivity != null && !ahW()) {
-            fI(swanAppActivity.Qz());
+        if (swanAppActivity != null && !ajc()) {
+            fT(swanAppActivity.RF());
         }
-        if (ahW()) {
-            this.ciD.h(swanAppActivity);
+        if (ajc()) {
+            this.cnr.h(swanAppActivity);
         }
     }
 
-    public void fI(int i) {
-        if (!ahW()) {
+    public void fT(int i) {
+        if (!ajc()) {
             switch (i) {
                 case 0:
-                    this.ciD = new c();
+                    this.cnr = new c();
                     return;
                 case 1:
-                    this.ciD = new com.baidu.swan.games.p.a();
+                    this.cnr = new com.baidu.swan.games.p.a();
                     return;
                 default:
                     return;
@@ -170,135 +170,135 @@ public final class f implements e.b {
         }
     }
 
-    public SwanCoreVersion ahx() {
-        return this.ciD.ahx();
+    public SwanCoreVersion aiD() {
+        return this.cnr.aiD();
     }
 
-    public SwanAppConfigData ahA() {
-        return this.ciD.ahA();
+    public SwanAppConfigData aiG() {
+        return this.cnr.aiG();
     }
 
     @NonNull
-    public com.baidu.swan.apps.runtime.config.c lq(String str) {
-        return this.ciD.lq(str);
+    public com.baidu.swan.apps.runtime.config.c ly(String str) {
+        return this.cnr.ly(str);
     }
 
-    public com.baidu.swan.apps.runtime.config.c lr(String str) {
-        return this.ciD.lr(str);
+    public com.baidu.swan.apps.runtime.config.c lz(String str) {
+        return this.cnr.lz(str);
     }
 
-    public com.baidu.swan.apps.storage.b.c ahB() {
-        return this.ciD.ahB();
+    public com.baidu.swan.apps.storage.b.c aiH() {
+        return this.cnr.aiH();
     }
 
-    public String ahC() {
-        return this.ciD.ahC();
+    public String aiI() {
+        return this.cnr.aiI();
     }
 
-    public String ahD() {
-        return this.ciD.ahD();
+    public String aiJ() {
+        return this.cnr.aiJ();
     }
 
-    public String ahE() {
-        return this.ciD.ahE();
+    public String aiK() {
+        return this.cnr.aiK();
     }
 
     @Nullable
-    public com.baidu.swan.apps.core.d.e QH() {
-        SwanAppActivity aoz;
-        com.baidu.swan.apps.runtime.e aoG = com.baidu.swan.apps.runtime.e.aoG();
-        if (aoG == null || (aoz = aoG.aoz()) == null) {
+    public com.baidu.swan.apps.core.d.e RN() {
+        SwanAppActivity apG;
+        com.baidu.swan.apps.runtime.e apN = com.baidu.swan.apps.runtime.e.apN();
+        if (apN == null || (apG = apN.apG()) == null) {
             return null;
         }
-        return aoz.QH();
+        return apG.RN();
     }
 
-    public SwanAppActivity ahF() {
-        return this.ciD.ahF();
+    public SwanAppActivity aiL() {
+        return this.cnr.aiL();
     }
 
-    public com.baidu.swan.games.view.d ahY() {
-        return this.ciD.Zr();
+    public com.baidu.swan.games.view.d aje() {
+        return this.cnr.aax();
     }
 
-    public com.baidu.swan.games.view.d ahZ() {
-        return this.ciD.Zs();
+    public com.baidu.swan.games.view.d ajf() {
+        return this.cnr.aay();
     }
 
-    public com.baidu.swan.apps.adaptation.b.e jO(String str) {
-        return this.ciD.jO(str);
+    public com.baidu.swan.apps.adaptation.b.e jW(String str) {
+        return this.cnr.jW(str);
     }
 
-    public AbsoluteLayout ls(String str) {
-        return this.ciD.ls(str);
+    public AbsoluteLayout lA(String str) {
+        return this.cnr.lA(str);
     }
 
     public void a(com.baidu.swan.apps.event.a.d dVar, boolean z) {
-        this.ciD.a(dVar, z);
+        this.cnr.a(dVar, z);
     }
 
     public void a(com.baidu.swan.apps.event.a.a aVar) {
-        this.ciD.a(aVar);
+        this.cnr.a(aVar);
     }
 
     public void a(String str, com.baidu.swan.apps.event.a.a aVar) {
-        this.ciD.a(str, aVar);
+        this.cnr.a(str, aVar);
     }
 
-    public com.baidu.swan.apps.core.d.d YQ() {
-        return this.ciD.YQ();
+    public com.baidu.swan.apps.core.d.d ZW() {
+        return this.cnr.ZW();
     }
 
-    public String aia() {
-        return aj.atU().getPage();
+    public String ajg() {
+        return aj.ava().getPage();
     }
 
-    public String YB() {
-        return this.ciD.YB();
+    public String ZH() {
+        return this.cnr.ZH();
     }
 
-    public com.baidu.swan.apps.adaptation.b.d ahG() {
-        return this.ciD.ahG();
-    }
-
-    @NonNull
-    public Pair<Integer, Integer> ahH() {
-        return this.ciD.ahH();
+    public com.baidu.swan.apps.adaptation.b.d aiM() {
+        return this.cnr.aiM();
     }
 
     @NonNull
-    public Pair<Integer, Integer> ahI() {
-        return this.ciD.ahI();
+    public Pair<Integer, Integer> aiN() {
+        return this.cnr.aiN();
+    }
+
+    @NonNull
+    public Pair<Integer, Integer> aiO() {
+        return this.cnr.aiO();
     }
 
     @Override // com.baidu.swan.apps.w.e.b
-    public void fH(int i) {
-        this.ciD.fH(i);
+    public void fS(int i) {
+        this.cnr.fS(i);
     }
 
     public void showLoadingView() {
-        this.ciD.showLoadingView();
+        this.cnr.showLoadingView();
     }
 
-    public void QK() {
-        this.ciD.QK();
+    public void RQ() {
+        this.cnr.RQ();
     }
 
-    public long aib() {
-        return ciB.get();
+    public long ajh() {
+        return cnp.get();
     }
 
-    public void aic() {
-        long incrementAndGet = ciB.incrementAndGet();
+    public void aji() {
+        long incrementAndGet = cnp.incrementAndGet();
         if (DEBUG) {
             Log.i("SwanAppController", "incrementBgThreadAliveCount: " + incrementAndGet);
         }
     }
 
-    public void aid() {
-        long decrementAndGet = ciB.decrementAndGet();
+    public void ajj() {
+        long decrementAndGet = cnp.decrementAndGet();
         if (decrementAndGet <= 0) {
-            ciC.ciD.ahu();
+            cnq.cnr.aiA();
         }
         if (DEBUG) {
             Log.i("SwanAppController", "decrementBgThreadAliveCount: " + decrementAndGet);
@@ -312,17 +312,17 @@ public final class f implements e.b {
         }
 
         @Override // com.baidu.swan.apps.w.b
-        protected void aht() {
-            super.aht();
+        protected void aiz() {
+            super.aiz();
         }
 
         @Override // com.baidu.swan.apps.w.d
-        public boolean ahL() {
-            return this.cin;
+        public boolean aiR() {
+            return this.cnb;
         }
     }
 
-    public com.baidu.swan.games.q.a ahJ() {
-        return this.ciD.ahJ();
+    public com.baidu.swan.games.q.a aiP() {
+        return this.cnr.aiP();
     }
 }

@@ -13,20 +13,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    private static Map<String, Integer> bJ = new HashMap();
+    private static Map<String, Integer> bW = new HashMap();
 
-    public static int Q() {
-        if (bJ.size() <= 0) {
+    public static int ae() {
+        if (bW.size() <= 0) {
             p("{\n  \"high\": [\n    \"kirin990\",\n    \"Qualcomm Technologies, Inc SDM855\",\n    \"Qualcomm Technologies, Inc SM8150\",\n    \"kirin980\",\n    \"Qualcomm Technologies, Inc SDM845\",\n    \"kirin970\",\n    \"Qualcomm Technologies, Inc SDM730\",\n    \"Qualcomm Technologies, Inc MSM8998\",\n    \"hi3660\",\n    \"Qualcomm Technologies, Inc SDM712\",\n    \"kirin960\",\n    \"Qualcomm Technologies, Inc SDM710\",\n    \"Qualcomm Technologies, Inc SDM675\",\n    \"MT6799\",\n    \"MT6785\",\n    \"MT6779\",\n    \"Qualcomm Technologies, Inc SDM670\",\n    \"Qualcomm Technologies, Inc MSM8996\",\n    \"MT6775\",\n    \"MT6771V/C\",\n    \"Qualcomm Technologies, Inc SDM665\",\n    \"Hisilicon Kirin 955\",\n    \"Qualcomm Technologies, Inc SDM660\"\n  ],\n  \"medium\": [\n    \"sailfish\",\n    \"Qualcomm Technologies, Inc SDM636\",\n    \"hi3650\",\n    \"Qualcomm Technologies, Inc MSM8994\",\n    \"MT6797\",\n    \"MT6758\",\n    \"MT6763\",\n    \"MT6762\",\n    \"MT6757\",\n    \"MT6795\",\n    \"MT6755\",\n    \"Qualcomm Technologies, Inc MSM8976SG\",\n    \"Qualcomm Technologies, Inc MSM8976\",\n    \"Qualcomm Technologies, Inc MSM8965\",\n    \"Qualcomm Technologies, Inc MSM8956\",\n    \"Qualcomm Technologies, Inc MSM8992\",\n    \"hi3635\",\n    \"Qualcomm Technologies, Inc 626\",\n    \"Qualcomm Technologies, Inc MSM8953\"\n  ],\n  \"low\": [\n    \"Qualcomm Technologies, Inc MSM8940\",\n    \"Qualcomm Technologies, Inc MSM8974\",\n    \"hi3630\"\n  ],\n  \"blackList\": []\n}");
         }
-        String str = R().get("Hardware");
-        if (TextUtils.isEmpty(str) || !bJ.containsKey(str)) {
+        String str = af().get("Hardware");
+        if (TextUtils.isEmpty(str) || !bW.containsKey(str)) {
             return 0;
         }
-        return bJ.get(str).intValue();
+        return bW.get(str).intValue();
     }
 
-    private static Map<String, String> R() {
+    private static Map<String, String> af() {
         try {
             HashMap hashMap = new HashMap();
             BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/cpuinfo"));
@@ -66,19 +66,19 @@ public class c {
             JSONObject jSONObject = new JSONObject(str);
             JSONArray jSONArray = jSONObject.getJSONArray("high");
             for (int i = 0; i < jSONArray.length(); i++) {
-                bJ.put(jSONArray.get(i).toString(), 2);
+                bW.put(jSONArray.get(i).toString(), 2);
             }
             JSONArray jSONArray2 = jSONObject.getJSONArray("medium");
             for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                bJ.put(jSONArray2.get(i2).toString(), 1);
+                bW.put(jSONArray2.get(i2).toString(), 1);
             }
             JSONArray jSONArray3 = jSONObject.getJSONArray(Config.EXCEPTION_MEMORY_LOW);
             for (int i3 = 0; i3 < jSONArray3.length(); i3++) {
-                bJ.put(jSONArray3.get(i3).toString(), 0);
+                bW.put(jSONArray3.get(i3).toString(), 0);
             }
             JSONArray jSONArray4 = jSONObject.getJSONArray("blackList");
             for (int i4 = 0; i4 < jSONArray4.length(); i4++) {
-                bJ.put(jSONArray4.get(i4).toString(), -1);
+                bW.put(jSONArray4.get(i4).toString(), -1);
             }
         } catch (JSONException e) {
             e.printStackTrace();

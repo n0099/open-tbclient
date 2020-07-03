@@ -6,7 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e {
-    public static JSONObject aGZ() {
+    public static JSONObject aIf() {
         return a(Node.values());
     }
 
@@ -20,9 +20,9 @@ public class e {
             for (Node node : nodeArr) {
                 if (node != null && (provider = Node.getProvider(node)) != null) {
                     if (node.isDataArray()) {
-                        jSONObject.put(node.getName(), provider.aGX());
+                        jSONObject.put(node.getName(), provider.aId());
                     } else {
-                        jSONObject.put(node.getName(), provider.aGY());
+                        jSONObject.put(node.getName(), provider.aIe());
                     }
                 }
             }

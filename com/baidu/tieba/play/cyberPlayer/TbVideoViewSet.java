@@ -6,22 +6,22 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.play.s;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class TbVideoViewSet {
-    private static TbVideoViewSet kCa = null;
-    private LRULinkedHashMap<String, com.baidu.tieba.play.a.a> kBZ = new LRULinkedHashMap<>();
-    private boolean kCb;
+    private static TbVideoViewSet kVW = null;
+    private LRULinkedHashMap<String, com.baidu.tieba.play.a.a> kVV = new LRULinkedHashMap<>();
+    private boolean kVX;
 
     /* loaded from: classes.dex */
     public interface a {
-        void cRK();
+        void cWb();
 
-        void cRL();
+        void cWc();
     }
 
     private TbVideoViewSet() {
@@ -30,39 +30,39 @@ public class TbVideoViewSet {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    TbVideoViewSet.this.azQ();
+                    TbVideoViewSet.this.aAW();
                 }
             }
         });
     }
 
-    public static TbVideoViewSet cRJ() {
-        if (kCa == null) {
+    public static TbVideoViewSet cWa() {
+        if (kVW == null) {
             synchronized (TbVideoViewSet.class) {
-                if (kCa == null) {
-                    kCa = new TbVideoViewSet();
+                if (kVW == null) {
+                    kVW = new TbVideoViewSet();
                 }
             }
         }
-        return kCa;
+        return kVW;
     }
 
-    public com.baidu.tieba.play.a.a KC(String str) {
-        if (aq.isEmpty(str) || !this.kBZ.containsKey(str)) {
+    public com.baidu.tieba.play.a.a Ld(String str) {
+        if (ar.isEmpty(str) || !this.kVV.containsKey(str)) {
             return null;
         }
-        return this.kBZ.get(str);
+        return this.kVV.get(str);
     }
 
     public void a(com.baidu.tieba.play.a.a aVar, String str) {
         String str2;
-        if (this.kBZ.containsKey(str) && aVar != this.kBZ.get(str)) {
-            com.baidu.tieba.play.a.a aVar2 = this.kBZ.get(str);
+        if (this.kVV.containsKey(str) && aVar != this.kVV.get(str)) {
+            com.baidu.tieba.play.a.a aVar2 = this.kVV.get(str);
             if (aVar2 != null && aVar2.isPlaying()) {
                 aVar2.stopPlayback();
             }
-        } else if (this.kBZ.containsValue(aVar)) {
-            Iterator it = this.kBZ.entrySet().iterator();
+        } else if (this.kVV.containsValue(aVar)) {
+            Iterator it = this.kVV.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     str2 = null;
@@ -74,34 +74,34 @@ public class TbVideoViewSet {
                     break;
                 }
             }
-            if (!this.kCb && !aq.isEmpty(str2)) {
-                this.kBZ.remove(str2);
+            if (!this.kVX && !ar.isEmpty(str2)) {
+                this.kVV.remove(str2);
             }
         }
-        this.kBZ.put(str, aVar);
+        this.kVV.put(str, aVar);
     }
 
-    public void KD(String str) {
+    public void Le(String str) {
         com.baidu.tieba.play.a.a aVar;
-        if (!this.kCb && this.kBZ.containsKey(str) && (aVar = (com.baidu.tieba.play.a.a) this.kBZ.remove(str)) != null) {
+        if (!this.kVX && this.kVV.containsKey(str) && (aVar = (com.baidu.tieba.play.a.a) this.kVV.remove(str)) != null) {
             aVar.stopPlayback();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azQ() {
-        Iterator it = this.kBZ.entrySet().iterator();
+    public void aAW() {
+        Iterator it = this.kVV.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
             if (entry != null) {
-                if (!aq.isEmpty((String) entry.getKey())) {
+                if (!ar.isEmpty((String) entry.getKey())) {
                     s.ar(TbadkCoreApplication.getInst().getContext(), (String) entry.getKey());
                 }
                 com.baidu.tieba.play.a.a aVar = (com.baidu.tieba.play.a.a) entry.getValue();
                 if (aVar != null) {
-                    this.kCb = true;
+                    this.kVX = true;
                     aVar.stopPlayback();
-                    this.kCb = false;
+                    this.kVX = false;
                 }
                 it.remove();
             }
@@ -123,10 +123,10 @@ public class TbVideoViewSet {
             com.baidu.tieba.play.a.a value;
             boolean z = size() > 3;
             if (z && (value = entry.getValue()) != null) {
-                TbVideoViewSet.this.kCb = true;
-                value.cRd();
+                TbVideoViewSet.this.kVX = true;
+                value.cVu();
                 value.stopPlayback();
-                TbVideoViewSet.this.kCb = false;
+                TbVideoViewSet.this.kVX = false;
             }
             return z;
         }

@@ -7,12 +7,12 @@ import com.baidu.adp.framework.listener.a;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.R;
 import com.baidu.tieba.square.ForumSquareActivity;
 import com.baidu.tieba.square.c;
@@ -27,24 +27,24 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes9.dex */
 public class ForumSquareModel extends BdBaseModel {
-    private CustomMessageListener dYM;
-    private a dve;
+    private a dzN;
+    private CustomMessageListener egO;
     private boolean isLoading;
-    private c lhc;
-    private final HashMap<String, com.baidu.tieba.square.data.c> lhd;
-    private final List<String> lhe;
+    private c lAZ;
+    private final HashMap<String, com.baidu.tieba.square.data.c> lBa;
+    private final List<String> lBb;
     private CustomMessageListener mLikeForumListener;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n(long j, boolean z) {
-        for (Map.Entry<String, com.baidu.tieba.square.data.c> entry : this.lhd.entrySet()) {
+        for (Map.Entry<String, com.baidu.tieba.square.data.c> entry : this.lBa.entrySet()) {
             com.baidu.tieba.square.data.c value = entry.getValue();
-            if (value != null && !v.isEmpty(value.getDataList())) {
-                for (o oVar : value.getDataList()) {
-                    if (oVar instanceof b) {
-                        b bVar = (b) oVar;
+            if (value != null && !w.isEmpty(value.getDataList())) {
+                for (q qVar : value.getDataList()) {
+                    if (qVar instanceof b) {
+                        b bVar = (b) qVar;
                         if (bVar.forumId == j) {
-                            bVar.dEi = z;
+                            bVar.dKM = z;
                         }
                     }
                 }
@@ -56,23 +56,23 @@ public class ForumSquareModel extends BdBaseModel {
     public void b(d dVar) {
         String str = dVar.className;
         if (TextUtils.isEmpty(str)) {
-            str = (String) v.getItem(this.lhe, 0);
+            str = (String) w.getItem(this.lBb, 0);
             dVar.className = str;
         }
         String str2 = str;
-        com.baidu.tieba.square.data.c cVar = this.lhd.get(str2);
+        com.baidu.tieba.square.data.c cVar = this.lBa.get(str2);
         if (cVar == null) {
             cVar = new com.baidu.tieba.square.data.c();
-            this.lhd.put(str2, cVar);
+            this.lBa.put(str2, cVar);
         }
         cVar.a(dVar);
-        if (this.lhc != null) {
-            this.lhc.c(str2, this.lhe, cVar.getDataList());
+        if (this.lAZ != null) {
+            this.lAZ.c(str2, this.lBb, cVar.getDataList());
         }
     }
 
-    public int r(List<o> list, int i) {
-        int count = v.getCount(list);
+    public int s(List<q> list, int i) {
+        int count = w.getCount(list);
         if (count <= i) {
             return 0;
         }
@@ -82,16 +82,16 @@ public class ForumSquareModel extends BdBaseModel {
         if (i2 <= 20 || i3 >= count - 20) {
             return 0;
         }
-        v.removeSubList(list, i2, i3);
+        w.removeSubList(list, i2, i3);
         return max;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(d dVar) {
-        if (v.isEmpty(this.lhe) && dVar != null && !v.isEmpty(dVar.lfd)) {
-            for (String str : dVar.lfd) {
-                if (!TextUtils.isEmpty(str) && !this.lhe.contains(str)) {
-                    this.lhe.add(str);
+        if (w.isEmpty(this.lBb) && dVar != null && !w.isEmpty(dVar.lza)) {
+            for (String str : dVar.lza) {
+                if (!TextUtils.isEmpty(str) && !this.lBb.contains(str)) {
+                    this.lBb.add(str);
                 }
             }
         }
@@ -100,8 +100,8 @@ public class ForumSquareModel extends BdBaseModel {
     public ForumSquareModel(ForumSquareActivity forumSquareActivity, c cVar) {
         super(forumSquareActivity.getPageContext());
         this.isLoading = false;
-        this.lhd = new HashMap<>();
-        this.lhe = new ArrayList();
+        this.lBa = new HashMap<>();
+        this.lBb = new ArrayList();
         this.mLikeForumListener = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_LIKE_FORUM) { // from class: com.baidu.tieba.square.model.ForumSquareModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -114,7 +114,7 @@ public class ForumSquareModel extends BdBaseModel {
                 }
             }
         };
-        this.dYM = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM) { // from class: com.baidu.tieba.square.model.ForumSquareModel.2
+        this.egO = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM) { // from class: com.baidu.tieba.square.model.ForumSquareModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -126,7 +126,7 @@ public class ForumSquareModel extends BdBaseModel {
                 }
             }
         };
-        this.dve = new a(CmdConfigHttp.CMD_FORUM_SQUARE, 309653) { // from class: com.baidu.tieba.square.model.ForumSquareModel.3
+        this.dzN = new a(CmdConfigHttp.CMD_FORUM_SQUARE, 309653) { // from class: com.baidu.tieba.square.model.ForumSquareModel.3
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 String str;
@@ -151,13 +151,13 @@ public class ForumSquareModel extends BdBaseModel {
                     Object extra = responsedMessage.getOrginalMessage().getExtra();
                     String str2 = extra instanceof ForumSquareRequestMessage ? ((ForumSquareRequestMessage) extra).className : null;
                     ForumSquareModel.this.c(data);
-                    if (v.isEmpty(ForumSquareModel.this.lhe)) {
-                        if (ForumSquareModel.this.lhc != null) {
-                            ForumSquareModel.this.lhc.e(errorData);
+                    if (w.isEmpty(ForumSquareModel.this.lBb)) {
+                        if (ForumSquareModel.this.lAZ != null) {
+                            ForumSquareModel.this.lAZ.e(errorData);
                         }
                     } else if (ForumSquareModel.this.mErrorCode != 0 || data == null) {
-                        if (ForumSquareModel.this.lhc != null) {
-                            ForumSquareModel.this.lhc.a(str2, errorData);
+                        if (ForumSquareModel.this.lAZ != null) {
+                            ForumSquareModel.this.lAZ.a(str2, errorData);
                         }
                     } else {
                         ForumSquareModel.this.b(data);
@@ -165,32 +165,32 @@ public class ForumSquareModel extends BdBaseModel {
                 }
             }
         };
-        this.lhc = cVar;
-        this.dve.getHttpMessageListener().setSelfListener(true);
-        this.dve.getSocketMessageListener().setSelfListener(true);
-        registerListener(this.dve);
+        this.lAZ = cVar;
+        this.dzN.getHttpMessageListener().setSelfListener(true);
+        this.dzN.getSocketMessageListener().setSelfListener(true);
+        registerListener(this.dzN);
         registerListener(this.mLikeForumListener);
-        registerListener(this.dYM);
+        registerListener(this.egO);
     }
 
-    public com.baidu.tieba.square.data.c Mi(String str) {
+    public com.baidu.tieba.square.data.c MK(String str) {
         if (str == null) {
             return null;
         }
-        return this.lhd.get(str);
+        return this.lBa.get(str);
     }
 
-    public void Mj(String str) {
+    public void ML(String str) {
         com.baidu.tieba.square.data.c cVar;
         ForumSquareRequestMessage forumSquareRequestMessage = new ForumSquareRequestMessage();
         forumSquareRequestMessage.className = str;
         if (TextUtils.isEmpty(str)) {
             cVar = new com.baidu.tieba.square.data.c();
         } else {
-            cVar = this.lhd.get(str);
+            cVar = this.lBa.get(str);
             if (cVar == null) {
                 cVar = new com.baidu.tieba.square.data.c();
-                this.lhd.put(str, cVar);
+                this.lBa.put(str, cVar);
             }
         }
         forumSquareRequestMessage.pn = cVar.pn + 1;
@@ -202,11 +202,11 @@ public class ForumSquareModel extends BdBaseModel {
         return this.isLoading;
     }
 
-    public boolean Mk(String str) {
+    public boolean MM(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        com.baidu.tieba.square.data.c cVar = this.lhd.get(str);
+        com.baidu.tieba.square.data.c cVar = this.lBa.get(str);
         return cVar != null ? cVar.hasMore : false;
     }
 

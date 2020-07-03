@@ -8,7 +8,7 @@ import com.baidu.ala.AlaConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bu;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.livecard.adapters.a;
@@ -19,8 +19,8 @@ import com.baidu.tieba.ala.livecard.adapters.f;
 import com.baidu.tieba.ala.livecard.adapters.g;
 import com.baidu.tieba.ala.livecard.adapters.h;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
-import com.baidu.tieba.frs.ad;
-import com.baidu.tieba.frs.ae;
+import com.baidu.tieba.frs.ag;
+import com.baidu.tieba.frs.ah;
 /* loaded from: classes3.dex */
 public class Static {
     static {
@@ -32,11 +32,11 @@ public class Static {
                     if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                         AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                         CustomMessage customMessage = (CustomMessage) customResponsedMessage.getOrginalMessage();
-                        absDelegateAdapterList.add(new c(null, bk.dEX, null));
-                        absDelegateAdapterList.add(new h(null, bk.dEW, null));
-                        absDelegateAdapterList.add(new g(null, bk.dEY, null));
-                        absDelegateAdapterList.add(new a(null, com.baidu.tieba.tbadkCore.g.ljG, null));
-                        absDelegateAdapterList.add(new e(null, com.baidu.tieba.tbadkCore.h.ljJ, null));
+                        absDelegateAdapterList.add(new c(null, bu.dLJ, null));
+                        absDelegateAdapterList.add(new h(null, bu.dLI, null));
+                        absDelegateAdapterList.add(new g(null, bu.dLK, null));
+                        absDelegateAdapterList.add(new a(null, com.baidu.tieba.tbadkCore.g.lDB, null));
+                        absDelegateAdapterList.add(new e(null, com.baidu.tieba.tbadkCore.h.lDE, null));
                     }
                 }
             });
@@ -46,10 +46,10 @@ public class Static {
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003022 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                         AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                        absDelegateAdapterList.add(new c(null, bk.dEX, null));
-                        absDelegateAdapterList.add(new f(null, bk.dEW, null));
-                        absDelegateAdapterList.add(new d(null, bk.dEY, null));
-                        absDelegateAdapterList.add(new f(null, com.baidu.tieba.tbadkCore.h.ljJ, null));
+                        absDelegateAdapterList.add(new c(null, bu.dLJ, null));
+                        absDelegateAdapterList.add(new f(null, bu.dLI, null));
+                        absDelegateAdapterList.add(new d(null, bu.dLK, null));
+                        absDelegateAdapterList.add(new f(null, com.baidu.tieba.tbadkCore.h.lDE, null));
                     }
                 }
             });
@@ -57,15 +57,15 @@ public class Static {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof ad)) {
-                        ad adVar = (ad) customResponsedMessage.getData();
+                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof ag)) {
+                        ag agVar = (ag) customResponsedMessage.getData();
                         com.baidu.tieba.ala.livecard.models.a aVar = new com.baidu.tieba.ala.livecard.models.a();
-                        aVar.setTag(adVar.epM);
-                        adVar.a(49, aVar);
+                        aVar.setTag(agVar.eyE);
+                        agVar.a(49, aVar);
                     }
                 }
             });
-            ae.bWO().uh(49);
+            ah.bZY().uM(49);
         }
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003390, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_FRS_NEGATIVE_URL);

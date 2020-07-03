@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 public interface c<INFO> {
     void a(String str, @Nullable INFO info, @Nullable Animatable animatable);
 
-    void eV(String str);
+    void fb(String str);
 
     void g(String str, Object obj);
 

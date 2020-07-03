@@ -3,14 +3,14 @@ package com.baidu.ala.data;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.j;
+import com.baidu.tbadk.core.data.m;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class AlaLiveUserInfoData extends j implements Serializable {
+public class AlaLiveUserInfoData extends m implements Serializable {
     public static final int ALA_AUTHENT_STATUS_FAILED = 3;
     public static final int ALA_AUTHENT_STATUS_NOT = 0;
     public static final int ALA_AUTHENT_STATUS_NOW = 1;
@@ -60,7 +60,7 @@ public class AlaLiveUserInfoData extends j implements Serializable {
     public int verifyType;
     public int verifyVideoStatus;
 
-    @Override // com.baidu.tbadk.core.data.j
+    @Override // com.baidu.tbadk.core.data.m
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.userId = jSONObject.optLong("user_id");

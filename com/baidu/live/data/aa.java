@@ -3,39 +3,30 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class aa {
-    public int ayK;
-    public String ayL;
-    public int ayM;
-    public int ayN;
-    public ac ayO;
-    public int ayP;
-    public String ayQ;
-    public int status;
+    private int aAY;
+    private int aAZ;
+    private int aBa;
 
     public void parseJson(JSONObject jSONObject) {
-        this.ayK = jSONObject.optInt("taskid");
-        this.ayL = jSONObject.optString("taskname");
-        this.status = jSONObject.optInt("status");
-        this.ayM = jSONObject.optInt("cur_step");
-        this.ayN = jSONObject.optInt("total_step");
-        JSONObject optJSONObject = jSONObject.optJSONObject("param");
-        if (optJSONObject != null) {
-            this.ayO = new ac();
-            this.ayO.parseJson(optJSONObject);
+        if (jSONObject != null) {
+            this.aAY = jSONObject.optInt("category_select_switch", 0);
+            this.aAZ = jSONObject.optInt("im_audience_watch_switch", 0);
+            this.aBa = jSONObject.optInt("im_audience_watch_time", 60);
         }
-        this.ayP = jSONObject.optInt("award_num");
-        this.ayQ = jSONObject.optString("taskdetail");
     }
 
-    public boolean wj() {
-        return this.ayK == 1;
+    public static boolean wE() {
+        return (com.baidu.live.v.a.Hm().aZp == null || com.baidu.live.v.a.Hm().aZp.aAW == null || com.baidu.live.v.a.Hm().aZp.aAW.aAY != 1) ? false : true;
     }
 
-    public boolean wk() {
-        return this.ayK == 6;
+    public static boolean wF() {
+        return (com.baidu.live.v.a.Hm().aZp == null || com.baidu.live.v.a.Hm().aZp.aAW == null || com.baidu.live.v.a.Hm().aZp.aAW.aAZ != 1) ? false : true;
     }
 
-    public boolean wl() {
-        return this.status == 2;
+    public static int wG() {
+        if (com.baidu.live.v.a.Hm().aZp == null || com.baidu.live.v.a.Hm().aZp.aAW == null) {
+            return 0;
+        }
+        return com.baidu.live.v.a.Hm().aZp.aAW.aBa;
     }
 }

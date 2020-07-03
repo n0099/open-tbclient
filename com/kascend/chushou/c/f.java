@@ -54,7 +54,7 @@ public class f {
                 try {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("data");
                     JSONArray optJSONArray = jSONObject2.optJSONArray("roomTabs");
-                    if (!h.Z(optJSONArray)) {
+                    if (!h.aa(optJSONArray)) {
                         for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
                             if (optJSONObject != null) {
@@ -71,7 +71,7 @@ public class f {
                     }
                     JSONObject optJSONObject2 = jSONObject2.optJSONObject("shareInfo");
                     if (optJSONObject2 != null) {
-                        fullRoomInfo.mRoominfo.mShareInfo = a.dG(optJSONObject2);
+                        fullRoomInfo.mRoominfo.mShareInfo = a.dQ(optJSONObject2);
                     }
                     JSONObject optJSONObject3 = jSONObject2.optJSONObject("user");
                     if (optJSONObject3 != null) {
@@ -184,7 +184,7 @@ public class f {
                     }
                     JSONObject optJSONObject7 = jSONObject2.optJSONObject("currentLiveRoom");
                     if (optJSONObject7 != null) {
-                        fullRoomInfo.cycleLiveRoomInfo = e.dN(optJSONObject7);
+                        fullRoomInfo.cycleLiveRoomInfo = e.dX(optJSONObject7);
                     }
                     tv.chushou.zues.utils.e.i("Parser_Room", "parser sucess");
                     fullRoomInfo2 = fullRoomInfo;
@@ -232,9 +232,9 @@ public class f {
                     if (optJSONArray2 != null) {
                         int length2 = optJSONArray2.length();
                         for (int i2 = 0; i2 < length2; i2++) {
-                            GeneralGift dW = dW(optJSONArray2.optJSONObject(i2));
-                            if (dW != null) {
-                                generalTabGift.mGeneralGifts.add(dW);
+                            GeneralGift eg = eg(optJSONArray2.optJSONObject(i2));
+                            if (eg != null) {
+                                generalTabGift.mGeneralGifts.add(eg);
                             }
                         }
                     }
@@ -254,18 +254,18 @@ public class f {
             arrayList = new ArrayList();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                GeneralGift dW = dW(optJSONArray.optJSONObject(i));
-                if (dW != null) {
-                    dW.mGroupName = str;
-                    dW.mGroup = 127;
-                    arrayList.add(dW);
+                GeneralGift eg = eg(optJSONArray.optJSONObject(i));
+                if (eg != null) {
+                    eg.mGroupName = str;
+                    eg.mGroup = 127;
+                    arrayList.add(eg);
                 }
             }
         }
         return arrayList;
     }
 
-    public static ParserRet dJ(JSONObject jSONObject) {
+    public static ParserRet dT(JSONObject jSONObject) {
         ArrayList arrayList = null;
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         String str = "";
@@ -276,9 +276,9 @@ public class f {
                 arrayList = new ArrayList();
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
-                    GeneralGift dW = dW(optJSONArray.optJSONObject(i));
-                    if (dW != null) {
-                        arrayList.add(dW);
+                    GeneralGift eg = eg(optJSONArray.optJSONObject(i));
+                    if (eg != null) {
+                        arrayList.add(eg);
                     }
                 }
             }
@@ -289,7 +289,7 @@ public class f {
         return parserRet;
     }
 
-    public static ParserRet dK(JSONObject jSONObject) {
+    public static ParserRet dU(JSONObject jSONObject) {
         EmojiGiftDetail emojiGiftDetail = null;
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null) {
@@ -301,7 +301,7 @@ public class f {
             emojiGiftDetail.liveType = optJSONObject.optString("liveType");
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("generalGift");
             if (optJSONObject2 != null) {
-                emojiGiftDetail.generalGift = dW(optJSONObject2);
+                emojiGiftDetail.generalGift = eg(optJSONObject2);
             }
         }
         ParserRet parserRet = new ParserRet();
@@ -309,7 +309,7 @@ public class f {
         return parserRet;
     }
 
-    public static GeneralGift dW(JSONObject jSONObject) {
+    public static GeneralGift eg(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -320,8 +320,8 @@ public class f {
         generalGift.mDesc = jSONObject.optString("desc");
         generalGift.mIcon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
         generalGift.mCornerImage = jSONObject.optString("cornerIcon");
-        generalGift.mPoint = h.bU(jSONObject.optString(Config.EVENT_HEAT_POINT), -1);
-        generalGift.mCount = h.bU(jSONObject.optString("count"), -1);
+        generalGift.mPoint = h.bT(jSONObject.optString(Config.EVENT_HEAT_POINT), -1);
+        generalGift.mCount = h.bT(jSONObject.optString("count"), -1);
         generalGift.mActionType = h.parseInt(jSONObject.optString("actionType"));
         generalGift.mExpiredTimeDesc = jSONObject.optString("expiredTimeDesc");
         generalGift.mGroup = jSONObject.optInt(TbEnum.ParamKey.GROUP);
@@ -339,11 +339,11 @@ public class f {
         if (optJSONObject != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("landscape");
             if (optJSONObject2 != null) {
-                generalGift.mLandscape = dX(optJSONObject2);
+                generalGift.mLandscape = eh(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("portrait");
             if (optJSONObject3 != null) {
-                generalGift.mPortrait = dX(optJSONObject3);
+                generalGift.mPortrait = eh(optJSONObject3);
             }
             generalGift.mUrl = optJSONObject.optString("url", "");
             generalGift.mGiftDetailWidth = optJSONObject.optInt("giftDetailWidth", 0);
@@ -353,7 +353,7 @@ public class f {
         return generalGift;
     }
 
-    private static H5Positon dX(JSONObject jSONObject) {
+    private static H5Positon eh(JSONObject jSONObject) {
         H5Positon h5Positon = new H5Positon();
         h5Positon.mWidth = jSONObject.optInt("width", 0);
         h5Positon.mHeight = jSONObject.optInt("height", 0);

@@ -13,31 +13,31 @@ public final class y extends bg.a {
     final /* synthetic */ XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ k f935a;
+    final /* synthetic */ k f941a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y(String str, long j, XMPushService xMPushService, k kVar) {
         super(str, j);
         this.a = xMPushService;
-        this.f935a = kVar;
+        this.f941a = kVar;
     }
 
     @Override // com.xiaomi.push.service.bg.a
     void a(bg bgVar) {
         com.xiaomi.push.au a = com.xiaomi.push.au.a(this.a);
         String a2 = bgVar.a("MSAID", "msaid");
-        String str = a.a() + a.mo132b() + a.c() + a.d();
+        String str = a.a() + a.mo129b() + a.c() + a.d();
         if (TextUtils.isEmpty(str) || TextUtils.equals(a2, str)) {
             return;
         }
         bgVar.a("MSAID", "msaid", str);
         il ilVar = new il();
-        ilVar.b(this.f935a.d);
-        ilVar.c(hw.ClientInfoUpdate.f475a);
+        ilVar.b(this.f941a.d);
+        ilVar.c(hw.ClientInfoUpdate.f481a);
         ilVar.a(an.a());
         ilVar.a(new HashMap());
-        a.a(ilVar.m430a());
-        this.a.a(this.a.getPackageName(), iw.a(w.a(this.a.getPackageName(), this.f935a.d, ilVar, hm.Notification)), true);
+        a.a(ilVar.m427a());
+        this.a.a(this.a.getPackageName(), iw.a(w.a(this.a.getPackageName(), this.f941a.d, ilVar, hm.Notification)), true);
     }
 }

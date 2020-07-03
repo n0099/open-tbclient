@@ -15,10 +15,10 @@ class j extends XMPushService.i {
     final /* synthetic */ i a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f912a;
+    final /* synthetic */ String f918a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ List f913a;
+    final /* synthetic */ List f919a;
     final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,8 +26,8 @@ class j extends XMPushService.i {
     public j(i iVar, int i, String str, List list, String str2) {
         super(i);
         this.a = iVar;
-        this.f912a = str;
-        this.f913a = list;
+        this.f918a = str;
+        this.f919a = list;
         this.b = str2;
     }
 
@@ -40,8 +40,8 @@ class j extends XMPushService.i {
     public void a() {
         String a;
         XMPushService xMPushService;
-        a = this.a.a(this.f912a);
-        ArrayList<il> a2 = bi.a(this.f913a, this.f912a, a, 32768);
+        a = this.a.a(this.f918a);
+        ArrayList<il> a2 = bi.a(this.f919a, this.f918a, a, 32768);
         if (a2 == null) {
             com.xiaomi.channel.commonutils.logger.b.d("TinyData LongConnUploader.upload Get a null XmPushActionNotification list when TinyDataHelper.pack() in XMPushService.");
             return;
@@ -50,18 +50,18 @@ class j extends XMPushService.i {
         while (it.hasNext()) {
             il next = it.next();
             next.a("uploadWay", "longXMPushService");
-            ii a3 = w.a(this.f912a, a, next, hm.Notification);
-            if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f912a, this.b)) {
-                if (a3.m415a() == null) {
+            ii a3 = w.a(this.f918a, a, next, hm.Notification);
+            if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f918a, this.b)) {
+                if (a3.m412a() == null) {
                     hz hzVar = new hz();
                     hzVar.a("-1");
                     a3.a(hzVar);
                 }
-                a3.m415a().b("ext_traffic_source_pkg", this.b);
+                a3.m412a().b("ext_traffic_source_pkg", this.b);
             }
             byte[] a4 = iw.a(a3);
             xMPushService = this.a.a;
-            xMPushService.a(this.f912a, a4, true);
+            xMPushService.a(this.f918a, a4, true);
         }
     }
 }

@@ -122,7 +122,7 @@ public final class ah {
         return str;
     }
 
-    public static String pM(String str) {
+    public static String pU(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith(File.separator)) {
                 str = str.substring(1);
@@ -135,8 +135,8 @@ public final class ah {
         return str;
     }
 
-    public static String pN(String str) {
-        return pM(delAllParamsFromUrl(str));
+    public static String pV(String str) {
+        return pU(delAllParamsFromUrl(str));
     }
 
     public static String getParams(String str) {

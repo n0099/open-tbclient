@@ -70,9 +70,9 @@ public class ARConfig {
         Object[] objArr = new Object[2];
         long currentTimeMillis = System.currentTimeMillis();
         if (isOpen()) {
-            objArr[0] = j.aM(DuMixARConfig.getAipAppId() + AR_SDK_SALT_FIGURE + currentTimeMillis);
+            objArr[0] = j.aN(DuMixARConfig.getAipAppId() + AR_SDK_SALT_FIGURE + currentTimeMillis);
         } else {
-            objArr[0] = j.aM(DuMixARConfig.getAipAppId() + DuMixARConfig.getAPIKey() + AR_SDK_SALT_FIGURE + currentTimeMillis);
+            objArr[0] = j.aN(DuMixARConfig.getAipAppId() + DuMixARConfig.getAPIKey() + AR_SDK_SALT_FIGURE + currentTimeMillis);
         }
         objArr[1] = Long.valueOf(currentTimeMillis);
         return objArr;

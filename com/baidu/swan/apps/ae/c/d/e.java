@@ -12,21 +12,21 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e extends a {
     @Override // com.baidu.swan.apps.ae.c.d.b
-    com.baidu.swan.apps.api.c.b aN(JSONObject jSONObject) {
+    com.baidu.swan.apps.api.c.b aU(JSONObject jSONObject) {
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.swan.apps.ae.c.d.b
-    public String alX() {
+    public String and() {
         return "snsapi_userinfo";
     }
 
     @Override // com.baidu.swan.apps.ae.c.d.a
     void a(SwanAppActivity swanAppActivity, String str, com.baidu.swan.apps.ae.c.b.b bVar, final com.baidu.swan.apps.setting.b.a aVar, final com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ae.c.c.a> bVar2) {
-        final com.baidu.swan.apps.ae.c.c.a aVar2 = new com.baidu.swan.apps.ae.c.c.a(bVar.bPF);
-        aVar2.bPG = bVar.bPG;
-        if (aVar == null || aVar.cFu.asM() != 0) {
+        final com.baidu.swan.apps.ae.c.c.a aVar2 = new com.baidu.swan.apps.ae.c.c.a(bVar.bUt);
+        aVar2.bUu = bVar.bUu;
+        if (aVar == null || aVar.cKe.atS() != 0) {
             com.baidu.swan.apps.ae.d.a.print("open data result failure");
             bVar2.K(aVar2);
             return;
@@ -34,8 +34,8 @@ public class e extends a {
         com.baidu.swan.apps.ae.d.a.print("obtain user info detail, get login code");
         b.a aVar3 = new b.a(bVar.pageParams);
         Bundle bundle = new Bundle();
-        bundle.putString("__plugin__", bVar.csG);
-        com.baidu.swan.apps.runtime.d.aoB().aox().aoR().a(swanAppActivity, aVar3, bundle, new com.baidu.swan.apps.aq.e.b<h<e.c>>() { // from class: com.baidu.swan.apps.ae.c.d.e.1
+        bundle.putString("__plugin__", bVar.cxu);
+        com.baidu.swan.apps.runtime.d.apI().apE().apY().a(swanAppActivity, aVar3, bundle, new com.baidu.swan.apps.aq.e.b<h<e.c>>() { // from class: com.baidu.swan.apps.ae.c.d.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.aq.e.b
             /* renamed from: a */
@@ -45,7 +45,7 @@ public class e extends a {
                     bVar2.K(aVar2);
                     return;
                 }
-                JSONObject jSONObject = aVar.cEG;
+                JSONObject jSONObject = aVar.cJq;
                 if (jSONObject != null) {
                     try {
                         jSONObject.put("code", hVar.mData.code);
@@ -55,7 +55,7 @@ public class e extends a {
                             com.baidu.swan.apps.ae.d.a.print(Log.getStackTraceString(e));
                         }
                     }
-                    aVar2.csM = jSONObject.toString();
+                    aVar2.cxA = jSONObject.toString();
                 }
                 bVar2.K(aVar2);
             }

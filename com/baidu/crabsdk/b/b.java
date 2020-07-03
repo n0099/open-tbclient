@@ -20,7 +20,7 @@ public final class b implements Application.ActivityLifecycleCallbacks {
     public final void onActivityPaused(Activity activity) {
         boolean z;
         com.baidu.crabsdk.c.a.v("##onActivityPaused " + activity.getClass().getName());
-        z = a.akL;
+        z = a.amg;
         if (z) {
             n.onPause(activity);
         }
@@ -29,7 +29,7 @@ public final class b implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
         com.baidu.crabsdk.c.a.v("##onActivityResumed " + activity.getClass().getName());
-        boolean unused = a.akL = true;
+        boolean unused = a.amg = true;
         n.onResume(activity);
     }
 

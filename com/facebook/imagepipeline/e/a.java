@@ -10,18 +10,18 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes12.dex */
 public abstract class a<T> extends AbstractDataSource<T> {
-    private final com.facebook.imagepipeline.h.c mwD;
-    private final ap mye;
+    private final com.facebook.imagepipeline.h.c mSE;
+    private final ap mUl;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(aj<T> ajVar, ap apVar, com.facebook.imagepipeline.h.c cVar) {
-        this.mye = apVar;
-        this.mwD = cVar;
-        this.mwD.a(apVar.dBw(), this.mye.dwa(), this.mye.getId(), this.mye.dBz());
-        ajVar.c(dAg(), apVar);
+        this.mUl = apVar;
+        this.mSE = cVar;
+        this.mSE.a(apVar.dFY(), this.mUl.dAD(), this.mUl.getId(), this.mUl.dGb());
+        ajVar.c(dEI(), apVar);
     }
 
-    private k<T> dAg() {
+    private k<T> dEI() {
         return new com.facebook.imagepipeline.producers.b<T>() { // from class: com.facebook.imagepipeline.e.a.1
             @Override // com.facebook.imagepipeline.producers.b
             protected void g(@Nullable T t, int i) {
@@ -34,45 +34,45 @@ public abstract class a<T> extends AbstractDataSource<T> {
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void dAh() {
-                a.this.dAh();
+            protected void dEJ() {
+                a.this.dEJ();
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void aH(float f) {
-                a.this.ay(f);
+            protected void aN(float f) {
+                a.this.aE(f);
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void g(@Nullable T t, int i) {
-        boolean If = com.facebook.imagepipeline.producers.b.If(i);
-        if (super.b(t, If) && If) {
-            this.mwD.a(this.mye.dBw(), this.mye.getId(), this.mye.dBz());
+        boolean Jm = com.facebook.imagepipeline.producers.b.Jm(i);
+        if (super.b(t, Jm) && Jm) {
+            this.mSE.a(this.mUl.dFY(), this.mUl.getId(), this.mUl.dGb());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void F(Throwable th) {
         if (super.z(th)) {
-            this.mwD.a(this.mye.dBw(), this.mye.getId(), th, this.mye.dBz());
+            this.mSE.a(this.mUl.dFY(), this.mUl.getId(), th, this.mUl.dGb());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void dAh() {
+    public synchronized void dEJ() {
         g.checkState(isClosed());
     }
 
     @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-    public boolean Zg() {
-        if (!super.Zg()) {
+    public boolean aam() {
+        if (!super.aam()) {
             return false;
         }
         if (!super.isFinished()) {
-            this.mwD.PY(this.mye.getId());
-            this.mye.cancel();
+            this.mSE.QK(this.mUl.getId());
+            this.mUl.cancel();
         }
         return true;
     }

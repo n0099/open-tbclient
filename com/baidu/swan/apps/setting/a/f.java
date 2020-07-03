@@ -38,18 +38,18 @@ public class f extends aa {
             com.baidu.swan.games.v.c.g(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity").toString());
             return false;
         } else {
-            final String mO = com.baidu.swan.apps.ae.g.b.mO(optParamsAsJo.optString("__plugin__", null));
-            com.baidu.swan.apps.a.b aoS = eVar.aoS();
-            final boolean bi = com.baidu.swan.apps.setting.oauth.c.bi(optParamsAsJo);
-            if (aoS.isLogin(context) || !bi) {
-                a(bi, callbackHandler, optString, (Activity) context, mO, "snsapi_userinfo");
+            final String mW = com.baidu.swan.apps.ae.g.b.mW(optParamsAsJo.optString("__plugin__", null));
+            com.baidu.swan.apps.a.b apZ = eVar.apZ();
+            final boolean bp = com.baidu.swan.apps.setting.oauth.c.bp(optParamsAsJo);
+            if (apZ.isLogin(context) || !bp) {
+                a(bp, callbackHandler, optString, (Activity) context, mW, "snsapi_userinfo");
             } else {
-                aoS.a((Activity) context, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.a.f.1
+                apZ.a((Activity) context, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.a.f.1
                     @Override // com.baidu.swan.apps.a.a
                     public void onResult(int i) {
                         switch (i) {
                             case 0:
-                                f.this.a(bi, callbackHandler, optString, (Activity) context, mO, "snsapi_userinfo");
+                                f.this.a(bp, callbackHandler, optString, (Activity) context, mW, "snsapi_userinfo");
                                 return;
                             default:
                                 callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
@@ -71,10 +71,10 @@ public class f extends aa {
             /* renamed from: a */
             public void H(com.baidu.swan.apps.setting.b.a aVar) {
                 com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback:: " + aVar.toString());
-                if (!aVar.aqQ()) {
+                if (!aVar.arW()) {
                     com.baidu.swan.apps.setting.oauth.c.a(aVar, callbackHandler, str);
                 } else {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(aVar.cEG, 0).toString());
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(aVar.cJq, 0).toString());
                 }
             }
         });

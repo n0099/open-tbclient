@@ -3,25 +3,25 @@ package com.baidu.swan.apps.aa.a;
 import com.baidu.swan.apps.adaptation.b.f;
 /* loaded from: classes11.dex */
 public class e extends c {
-    final boolean cpJ;
-    final f cpK;
+    final boolean cuy;
+    final f cuz;
 
     public e(f fVar, boolean z) {
         super(6);
-        this.cpJ = z;
-        this.cpK = fVar;
+        this.cuy = z;
+        this.cuz = fVar;
     }
 
     @Override // com.baidu.swan.apps.aa.a.c
-    public String aks() {
-        com.baidu.swan.apps.scheme.actions.m.d Tl;
-        if (this.cpK == null || (Tl = this.cpK.Tl()) == null) {
+    public String aly() {
+        com.baidu.swan.apps.scheme.actions.m.d Ur;
+        if (this.cuz == null || (Ur = this.cuz.Ur()) == null) {
             return null;
         }
-        return Tl.bPG;
+        return Ur.bUu;
     }
 
     public boolean isAdd() {
-        return this.cpJ;
+        return this.cuy;
     }
 }

@@ -7,32 +7,32 @@ import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mapapi.search.route.RoutePlanSearch;
 /* loaded from: classes12.dex */
 public class a {
-    private static a dix;
-    private RoutePlanSearch diw;
+    private static a dng;
+    private RoutePlanSearch dnf;
 
-    public static a aEI() {
-        if (dix == null) {
+    public static a aFO() {
+        if (dng == null) {
             synchronized (a.class) {
-                if (dix == null) {
-                    dix = new a();
+                if (dng == null) {
+                    dng = new a();
                 }
             }
         }
-        return dix;
+        return dng;
     }
 
     public void a(LatLng latLng, LatLng latLng2, OnGetRoutePlanResultListener onGetRoutePlanResultListener) {
         if (latLng != null && latLng2 != null && onGetRoutePlanResultListener != null) {
-            this.diw = RoutePlanSearch.newInstance();
-            this.diw.setOnGetRoutePlanResultListener(onGetRoutePlanResultListener);
+            this.dnf = RoutePlanSearch.newInstance();
+            this.dnf.setOnGetRoutePlanResultListener(onGetRoutePlanResultListener);
             PlanNode withLocation = PlanNode.withLocation(latLng);
-            this.diw.drivingSearch(new DrivingRoutePlanOption().from(withLocation).to(PlanNode.withLocation(latLng2)));
+            this.dnf.drivingSearch(new DrivingRoutePlanOption().from(withLocation).to(PlanNode.withLocation(latLng2)));
         }
     }
 
-    public void aEJ() {
-        if (this.diw != null) {
-            this.diw.destroy();
+    public void aFP() {
+        if (this.dnf != null) {
+            this.dnf.destroy();
         }
     }
 }

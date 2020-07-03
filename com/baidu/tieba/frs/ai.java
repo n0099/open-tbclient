@@ -1,18 +1,23 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.aa;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bj;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import android.support.v4.util.LongSparseArray;
+import java.util.LinkedList;
 /* loaded from: classes9.dex */
-public interface ai {
-    com.baidu.adp.widget.ListView.a<? extends bk, ? extends aa.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z);
+public class ai {
+    private static final ai hEb = new ai();
+    private LongSparseArray<LinkedList<String>> hEa = new LongSparseArray<>();
 
-    com.baidu.adp.widget.ListView.a<? extends bj, ? extends aa.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z);
+    private ai() {
+    }
 
-    h<ICardInfo, ? extends aa.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
+    public static ai cad() {
+        return hEb;
+    }
 
-    com.baidu.adp.widget.ListView.a<? extends bk, ? extends aa.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
+    public void ei(long j) {
+        LinkedList<String> linkedList = this.hEa.get(j);
+        if (linkedList != null) {
+            linkedList.clear();
+        }
+    }
 }

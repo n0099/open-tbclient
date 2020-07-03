@@ -25,6 +25,10 @@ public class ARNetKey2BeautyType {
         sKeyMap.put("middleCount", BeautyType.middleCount);
         sKeyMap.put("downCount", BeautyType.downCount);
         sKeyMap.put("cheekbone", BeautyType.cheekboneWidth);
+        sKeyMap.put("faceWidth", BeautyType.faceWidth);
+        sKeyMap.put("noseLength", BeautyType.noseLength);
+        sKeyMap.put("upCount", BeautyType.upCount);
+        sKeyMap.put("eyeDistance", BeautyType.eyeDistance);
     }
 
     public static BeautyType getBeautyType(String str) {

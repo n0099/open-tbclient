@@ -1,11 +1,11 @@
 package master.flame.danmaku.danmaku.model.a;
 /* loaded from: classes5.dex */
 public interface c<T> {
-    void bN(T t);
+    void bO(T t);
 
-    boolean dOh();
+    boolean dSN();
 
-    T dOj();
+    T dSP();
 
-    void xc(boolean z);
+    void xx(boolean z);
 }

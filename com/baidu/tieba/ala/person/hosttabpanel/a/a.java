@@ -7,41 +7,41 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private List<AbsDelegateAdapter> aSj = new ArrayList();
-    private BdTypeListView aSl;
-    private b gkV;
-    private c gkW;
-    private e gkX;
-    private f gkY;
-    private d gkZ;
+    private List<AbsDelegateAdapter> aUP = new ArrayList();
+    private BdTypeListView aUR;
+    private b gxJ;
+    private c gxK;
+    private e gxL;
+    private f gxM;
+    private d gxN;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.aSl = bdTypeListView;
-        CY();
+        this.aUR = bdTypeListView;
+        Dz();
     }
 
-    private void CY() {
-        this.gkV = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.glc);
-        this.gkW = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.glf);
-        this.gkX = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.glh);
-        this.gkY = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.gli);
-        this.gkZ = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.glg);
-        this.aSj.add(this.gkV);
-        this.aSj.add(this.gkW);
-        this.aSj.add(this.gkX);
-        this.aSj.add(this.gkY);
-        this.aSj.add(this.gkZ);
-        this.aSl.addAdapters(this.aSj);
+    private void Dz() {
+        this.gxJ = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.gxQ);
+        this.gxK = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.gxT);
+        this.gxL = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.gxV);
+        this.gxM = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.gxW);
+        this.gxN = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.gxU);
+        this.aUP.add(this.gxJ);
+        this.aUP.add(this.gxK);
+        this.aUP.add(this.gxL);
+        this.aUP.add(this.gxM);
+        this.aUP.add(this.gxN);
+        this.aUR.addAdapters(this.aUP);
     }
 
     public void onDestroy() {
-        if (this.gkV != null) {
-            this.gkV.onDestroy();
+        if (this.gxJ != null) {
+            this.gxJ.onDestroy();
         }
-        if (this.gkW != null) {
-            this.gkW.onDestroy();
+        if (this.gxK != null) {
+            this.gxK.onDestroy();
         }
     }
 }

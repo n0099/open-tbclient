@@ -12,42 +12,42 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.m;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes9.dex */
 public class f {
-    private TbPageContext dIF;
-    private View.OnClickListener eRh = new View.OnClickListener() { // from class: com.baidu.tieba.pb.video.f.1
+    private TbPageContext dPv;
+    private View.OnClickListener fbs = new View.OnClickListener() { // from class: com.baidu.tieba.pb.video.f.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == f.this.kbV || view == f.this.kbW || view == f.this.kbZ) {
-                f.this.cO(view);
+            if (view == f.this.kvI || view == f.this.kvJ || view == f.this.kvM) {
+                f.this.cP(view);
             }
         }
     };
-    private View jaz;
-    private HeadImageView kbV;
-    private TextView kbW;
-    private RelativeLayout kbX;
-    private TextView kbY;
-    private ImageView kbZ;
-    private PbVideoFullUserInfoLikeButton kca;
-    private e kcb;
-    private View.OnClickListener kcc;
-    private LinearLayout kcd;
+    private View jrJ;
+    private HeadImageView kvI;
+    private TextView kvJ;
+    private RelativeLayout kvK;
+    private TextView kvL;
+    private ImageView kvM;
+    private PbVideoFullUserInfoLikeButton kvN;
+    private e kvO;
+    private View.OnClickListener kvP;
+    private LinearLayout kvQ;
 
     public f(TbPageContext tbPageContext, FrameLayout frameLayout) {
-        this.dIF = tbPageContext;
-        this.jaz = w(tbPageContext);
+        this.dPv = tbPageContext;
+        this.jrJ = z(tbPageContext);
         initView();
-        frameLayout.addView(this.jaz);
+        frameLayout.addView(this.jrJ);
     }
 
-    private View w(TbPageContext<?> tbPageContext) {
+    private View z(TbPageContext<?> tbPageContext) {
         if (tbPageContext == null) {
             return null;
         }
@@ -55,80 +55,80 @@ public class f {
     }
 
     private void initView() {
-        this.kbX = (RelativeLayout) this.jaz.findViewById(R.id.pbVideoFullUserInfoPanel);
-        this.kbV = (HeadImageView) this.jaz.findViewById(R.id.pbVideoFullPhoto);
-        this.kbV.setOnClickListener(this.eRh);
-        this.kcd = (LinearLayout) this.jaz.findViewById(R.id.pbVideoFullNameLayout);
-        am.setBackgroundResource(this.kcd, R.drawable.video_author_bg);
-        this.kbW = (TextView) this.jaz.findViewById(R.id.pbVideoFullUserName);
-        this.kbW.setOnClickListener(this.eRh);
-        this.kbY = (TextView) this.jaz.findViewById(R.id.pbVideoFullAttention);
-        this.kbY.setOnClickListener(this.eRh);
-        this.kbZ = (ImageView) this.jaz.findViewById(R.id.pbVideoFullChannelIcon);
-        this.kca = (PbVideoFullUserInfoLikeButton) this.jaz.findViewById(R.id.pbVideoFullLikeButton);
-        this.kca.setTextSize(0, l.getDimens(this.dIF.getPageActivity(), R.dimen.tbds30));
-        this.kcb = new e(this.dIF, this.kca);
-        this.kbV.setRadius(l.getDimens(this.dIF.getPageActivity(), R.dimen.ds40));
+        this.kvK = (RelativeLayout) this.jrJ.findViewById(R.id.pbVideoFullUserInfoPanel);
+        this.kvI = (HeadImageView) this.jrJ.findViewById(R.id.pbVideoFullPhoto);
+        this.kvI.setOnClickListener(this.fbs);
+        this.kvQ = (LinearLayout) this.jrJ.findViewById(R.id.pbVideoFullNameLayout);
+        an.setBackgroundResource(this.kvQ, R.drawable.video_author_bg);
+        this.kvJ = (TextView) this.jrJ.findViewById(R.id.pbVideoFullUserName);
+        this.kvJ.setOnClickListener(this.fbs);
+        this.kvL = (TextView) this.jrJ.findViewById(R.id.pbVideoFullAttention);
+        this.kvL.setOnClickListener(this.fbs);
+        this.kvM = (ImageView) this.jrJ.findViewById(R.id.pbVideoFullChannelIcon);
+        this.kvN = (PbVideoFullUserInfoLikeButton) this.jrJ.findViewById(R.id.pbVideoFullLikeButton);
+        this.kvN.setTextSize(0, l.getDimens(this.dPv.getPageActivity(), R.dimen.tbds30));
+        this.kvO = new e(this.dPv, this.kvN);
+        this.kvI.setRadius(l.getDimens(this.dPv.getPageActivity(), R.dimen.ds40));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cO(View view) {
-        if (this.kcc != null) {
-            this.kcc.onClick(view);
+    public void cP(View view) {
+        if (this.kvP != null) {
+            this.kvP.onClick(view);
         }
     }
 
-    public void a(PostData postData, bk bkVar, m mVar) {
-        this.kca.setVisibility(0);
-        this.kbY.setVisibility(8);
+    public void a(PostData postData, bu buVar, m mVar) {
+        this.kvN.setVisibility(0);
+        this.kvL.setVisibility(8);
         v(postData);
-        if (aK(bkVar)) {
-            this.kbY.setVisibility(8);
-            this.kca.setVisibility(8);
+        if (aL(buVar)) {
+            this.kvL.setVisibility(8);
+            this.kvN.setVisibility(8);
         }
     }
 
-    private boolean aK(bk bkVar) {
-        if (bkVar == null || bkVar.aQx() == null || bkVar.aQx().getUserId() == null) {
+    private boolean aL(bu buVar) {
+        if (buVar == null || buVar.aSp() == null || buVar.aSp().getUserId() == null) {
             return false;
         }
-        return TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), bkVar.aQx().getUserId());
+        return TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), buVar.aSp().getUserId());
     }
 
     private void v(PostData postData) {
-        this.kbZ.setVisibility(8);
-        this.kbV.setUserId(postData.aQx().getUserId());
-        this.kbV.setUserName(postData.aQx().getUserName());
-        this.kbV.setIsBigV(postData.aQx().isBigV());
-        this.kbW.setText(postData.aQx().getName_show());
-        this.kbW.setTag(postData.aQx().getUserId());
-        this.kbV.startLoad(postData.aQx().getAvater(), 28, false);
-        this.kcb.a(postData.aQx());
+        this.kvM.setVisibility(8);
+        this.kvI.setUserId(postData.aSp().getUserId());
+        this.kvI.setUserName(postData.aSp().getUserName());
+        this.kvI.setIsBigV(postData.aSp().isBigV());
+        this.kvJ.setText(postData.aSp().getName_show());
+        this.kvJ.setTag(postData.aSp().getUserId());
+        this.kvI.startLoad(postData.aSp().getAvater(), 28, false);
+        this.kvO.a(postData.aSp());
     }
 
-    public void an(float f) {
-        this.kbX.setAlpha(f);
+    public void as(float f) {
+        this.kvK.setAlpha(f);
     }
 
-    public View cKy() {
-        return this.kbX;
+    public View cOP() {
+        return this.kvK;
     }
 
     public void onChangeSkin(int i) {
-        if (this.kca != null) {
-            this.kca.onChangeSkinType(i);
+        if (this.kvN != null) {
+            this.kvN.onChangeSkinType(i);
         }
-        am.setViewTextColor(this.kbY, (int) R.color.cp_cont_a);
-        if (this.kbW != null) {
-            am.setViewTextColor(this.kbW, (int) R.color.cp_cont_a);
+        an.setViewTextColor(this.kvL, (int) R.color.cp_cont_a);
+        if (this.kvJ != null) {
+            an.setViewTextColor(this.kvJ, (int) R.color.cp_cont_a);
         }
-        if (this.kbZ != null) {
-            am.setBackgroundResource(this.kbZ, R.drawable.icon_weiba);
+        if (this.kvM != null) {
+            an.setBackgroundResource(this.kvM, R.drawable.icon_weiba);
         }
     }
 
-    public void S(View.OnClickListener onClickListener) {
-        this.kcc = onClickListener;
+    public void T(View.OnClickListener onClickListener) {
+        this.kvP = onClickListener;
     }
 
     public void onDestroy() {

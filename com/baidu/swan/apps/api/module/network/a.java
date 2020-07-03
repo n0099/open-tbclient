@@ -16,7 +16,7 @@ public class a extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b Ui() {
+    public com.baidu.swan.apps.api.c.b Vo() {
         String networkClass = SwanAppNetworkUtils.getNetworkClass();
         if (TextUtils.isEmpty(networkClass)) {
             networkClass = "unknown";
@@ -38,16 +38,16 @@ public class a extends d {
         }
     }
 
-    public com.baidu.swan.apps.api.c.b hH(String str) {
-        final e aoF = e.aoF();
-        if (aoF == null) {
+    public com.baidu.swan.apps.api.c.b hP(String str) {
+        final e apM = e.apM();
+        if (apM == null) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Network", "swan app is null");
             }
             return new com.baidu.swan.apps.api.c.b(202, "swan app is null");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aP = com.baidu.swan.apps.api.d.b.aP("Api-Network", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aP.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aR = com.baidu.swan.apps.api.d.b.aR("Api-Network", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aR.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Network", "parse fail");
@@ -55,7 +55,7 @@ public class a extends d {
             }
             return bVar;
         }
-        final String optString = ((JSONObject) aP.second).optString("cb");
+        final String optString = ((JSONObject) aR.second).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Network", "callback is null");
@@ -65,7 +65,7 @@ public class a extends d {
         com.baidu.swan.apps.runtime.d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.api.module.network.a.1
             @Override // java.lang.Runnable
             public void run() {
-                aoF.aoT().b(a.this.TS().TQ(), optString);
+                apM.aqa().b(a.this.UY().UW(), optString);
             }
         });
         return new com.baidu.swan.apps.api.c.b(0);

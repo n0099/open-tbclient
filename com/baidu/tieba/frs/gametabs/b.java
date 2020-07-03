@@ -12,10 +12,10 @@ import com.baidu.adp.lib.f.g;
 /* loaded from: classes9.dex */
 public class b extends WebChromeClient {
     private com.baidu.tieba.tbadkCore.e.c callback;
-    private com.baidu.adp.base.e dJb;
+    private com.baidu.adp.base.e dPR;
 
     public b(com.baidu.adp.base.e eVar) {
-        this.dJb = eVar;
+        this.dPR = eVar;
     }
 
     public void setOnJsPromptCallback(com.baidu.tieba.tbadkCore.e.c cVar) {
@@ -30,14 +30,14 @@ public class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public View getVideoLoadingProgressView() {
-        FrameLayout frameLayout = new FrameLayout(this.dJb.getPageActivity());
+        FrameLayout frameLayout = new FrameLayout(this.dPR.getPageActivity());
         frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         return frameLayout;
     }
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.dJb == null || !g.a(this.dJb)) {
+        if (this.dPR == null || !g.a(this.dPR)) {
             return true;
         }
         return super.onJsAlert(webView, str, str2, jsResult);
@@ -45,7 +45,7 @@ public class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.dJb == null || !g.a(this.dJb)) {
+        if (this.dPR == null || !g.a(this.dPR)) {
             return true;
         }
         return super.onJsBeforeUnload(webView, str, str2, jsResult);
@@ -53,7 +53,7 @@ public class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.dJb == null || !g.a(this.dJb)) {
+        if (this.dPR == null || !g.a(this.dPR)) {
             return true;
         }
         return super.onJsConfirm(webView, str, str2, jsResult);
@@ -61,7 +61,7 @@ public class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if ((this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) && this.dJb != null && g.a(this.dJb)) {
+        if ((this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) && this.dPR != null && g.a(this.dPR)) {
             return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
         }
         return true;

@@ -17,8 +17,8 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.ala.data.TabData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
@@ -60,7 +60,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         this.mIndicatorWidth = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds64);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
-        this.mSelectorColor = am.getColor(R.color.cp_cont_b);
+        this.mSelectorColor = an.getColor(R.color.cp_cont_b);
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
@@ -97,7 +97,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         this.mIndicatorWidth = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds64);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
-        this.mSelectorColor = am.getColor(R.color.cp_cont_b);
+        this.mSelectorColor = an.getColor(R.color.cp_cont_b);
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
@@ -134,7 +134,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         this.mIndicatorWidth = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds64);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
-        this.mSelectorColor = am.getColor(R.color.cp_cont_b);
+        this.mSelectorColor = an.getColor(R.color.cp_cont_b);
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
@@ -180,7 +180,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
     public void setData(List<TabData> list) {
         this.mTabDataList.clear();
-        if (!v.isEmpty(list)) {
+        if (!w.isEmpty(list)) {
             this.mTabDataList.addAll(list);
         }
         setupTabItems();
@@ -275,7 +275,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public void setCurrentIndex(int i, boolean z) {
         if (z) {
             int[] iArr = new int[2];
-            ((View) v.getItem(this.mTabItemView, i)).getLocationOnScreen(iArr);
+            ((View) w.getItem(this.mTabItemView, i)).getLocationOnScreen(iArr);
             int equipmentWidth = l.getEquipmentWidth(getContext()) - iArr[0];
             final int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.ds160);
             if (iArr[0] < 0) {
@@ -303,9 +303,9 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     private void setTabStatus(TextView textView, boolean z) {
         if (textView != null) {
             if (z) {
-                am.setViewTextColor(textView, (int) R.color.cp_cont_b);
+                an.setViewTextColor(textView, (int) R.color.cp_cont_b);
             } else {
-                am.setViewTextColor(textView, (int) R.color.cp_cont_j);
+                an.setViewTextColor(textView, (int) R.color.cp_cont_j);
             }
         }
     }
@@ -392,7 +392,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            TabData tabData = (TabData) v.getItem(ScrollHorizontalTabView.this.mTabDataList, i);
+            TabData tabData = (TabData) w.getItem(ScrollHorizontalTabView.this.mTabDataList, i);
             if (ScrollHorizontalTabView.this.mScrollTabPageListener == null || ScrollHorizontalTabView.this.mScrollTabPageListener.onPrePageSelect(i, tabData)) {
                 if (ScrollHorizontalTabView.this.mScrollTabPageListener != null) {
                     ScrollHorizontalTabView.this.mScrollTabPageListener.onPageSelected(i, tabData);
@@ -411,7 +411,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     }
 
     public void onChangeSkinType(int i) {
-        this.mSelectorColor = am.getColor(R.color.cp_cont_b);
+        this.mSelectorColor = an.getColor(R.color.cp_cont_b);
         updateTabStyles();
         invalidate();
     }

@@ -3,25 +3,25 @@ package com.baidu.tieba.frs.entelechy.a;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.aa;
+import com.baidu.adp.widget.ListView.ad;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
-public class g extends com.baidu.tieba.frs.h<bk, a> {
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> hss;
-    private com.baidu.adp.lib.d.b<TbImageView> hst;
+public class g extends com.baidu.tieba.frs.j<bu, a> {
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> hFi;
+    private com.baidu.adp.lib.d.b<TbImageView> hFj;
 
     public g(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.hss = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.a.g.1
+        this.hFi = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bXn */
+            /* renamed from: cay */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(g.this.mPageContext.getPageActivity());
             }
@@ -47,14 +47,14 @@ public class g extends com.baidu.tieba.frs.h<bk, a> {
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.hst = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.g.2
+        this.hFj = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: aWN */
+            /* renamed from: aYG */
             public TbImageView makeObject() {
                 TbImageView tbImageView = new TbImageView(g.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
-                tbImageView.setBorderColor(am.getColor(R.color.common_color_10043));
+                tbImageView.setBorderColor(an.getColor(R.color.common_color_10043));
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
                 return tbImageView;
             }
@@ -88,37 +88,37 @@ public class g extends com.baidu.tieba.frs.h<bk, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bd */
+    /* renamed from: bh */
     public a b(ViewGroup viewGroup) {
         com.baidu.tieba.frs.entelechy.view.d dVar = new com.baidu.tieba.frs.entelechy.view.d(this.mPageContext, this.mPageId);
         dVar.o(this.mPageContext.getUniqueId());
-        dVar.setConstrainLayoutPool(this.hss);
-        dVar.setConstrainImagePool(this.hst);
+        dVar.setConstrainLayoutPool(this.hFi);
+        dVar.setConstrainImagePool(this.hFj);
         dVar.setSingleImageRatio(0.5625d);
         return new a(dVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bk bkVar, a aVar) {
-        super.a(i, view, viewGroup, (ViewGroup) bkVar, (bk) aVar);
-        aVar.hwd.onChangeSkinType(this.mPageContext, this.mSkinType);
-        aVar.hwd.a(bkVar);
-        if (bkVar != null) {
-            bkVar.aRK();
+    @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, bu buVar, a aVar) {
+        super.a(i, view, viewGroup, (ViewGroup) buVar, (bu) aVar);
+        aVar.hIW.onChangeSkinType(this.mPageContext, this.mSkinType);
+        aVar.hIW.a(buVar);
+        if (buVar != null) {
+            buVar.aTB();
         }
         return aVar.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes9.dex */
-    public static class a extends aa.a {
-        com.baidu.tieba.frs.entelechy.view.d hwd;
+    public static class a extends ad.a {
+        com.baidu.tieba.frs.entelechy.view.d hIW;
 
         public a(com.baidu.tieba.frs.entelechy.view.d dVar) {
             super(dVar.getView());
-            this.hwd = dVar;
+            this.hIW = dVar;
         }
     }
 }

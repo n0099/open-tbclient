@@ -6,49 +6,49 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 class c<T> implements com.baidu.helios.c<T> {
     private volatile boolean a = false;
-    private final CountDownLatch aqe = new CountDownLatch(1);
-    private b<T> aqf = null;
-    private a aqg = null;
+    private final CountDownLatch arw = new CountDownLatch(1);
+    private b<T> arx = null;
+    private a ary = null;
 
     /* loaded from: classes6.dex */
     public static class a {
-        public boolean aqh;
-        public Throwable aqi;
-        public Bundle aqj;
+        public Throwable arA;
+        public Bundle arB;
+        public boolean arz;
         public int errorCode;
     }
 
     /* loaded from: classes6.dex */
     public static class b<T> {
-        public Bundle aqj;
+        public Bundle arB;
         public T result;
     }
 
     @Override // com.baidu.helios.c
     public void a(int i, Throwable th, Bundle bundle) {
-        this.aqg = new a();
-        this.aqg.errorCode = i;
-        this.aqg.aqi = th;
-        this.aqg.aqj = bundle;
+        this.ary = new a();
+        this.ary.errorCode = i;
+        this.ary.arA = th;
+        this.ary.arB = bundle;
         this.a = false;
-        this.aqe.countDown();
+        this.arw.countDown();
     }
 
     @Override // com.baidu.helios.c
     public void a(T t, Bundle bundle) {
-        this.aqf = new b<>();
-        this.aqf.result = t;
-        this.aqf.aqj = bundle;
+        this.arx = new b<>();
+        this.arx.result = t;
+        this.arx.arB = bundle;
         this.a = true;
-        this.aqe.countDown();
+        this.arw.countDown();
     }
 
     public boolean a(int i) {
         try {
-            this.aqe.await(i, TimeUnit.MILLISECONDS);
-            if (this.aqg == null) {
-                this.aqg = new a();
-                this.aqg.aqh = true;
+            this.arw.await(i, TimeUnit.MILLISECONDS);
+            if (this.ary == null) {
+                this.ary = new a();
+                this.ary.arz = true;
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -56,11 +56,11 @@ class c<T> implements com.baidu.helios.c<T> {
         return this.a;
     }
 
-    public b<T> ui() {
-        return this.aqf;
+    public b<T> uA() {
+        return this.arx;
     }
 
-    public a uj() {
-        return this.aqg;
+    public a uB() {
+        return this.ary;
     }
 }

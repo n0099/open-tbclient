@@ -4,42 +4,42 @@ import com.baidu.ar.face.algo.FaceAlgoData;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class b {
-    private long nA;
-    private long nB;
-    private boolean nC;
-    private ByteBuffer nD;
-    private long nE;
-    private FaceAlgoData nz;
+    private long ld;
+    private FaceAlgoData nX;
+    private long nY;
+    private boolean nZ;
+    private ByteBuffer oa;
+    private long ob;
     private long timestamp;
 
     public b(FaceAlgoData faceAlgoData, long j, long j2, long j3, ByteBuffer byteBuffer, boolean z, long j4) {
-        this.nz = faceAlgoData;
-        this.nA = j;
+        this.nX = faceAlgoData;
+        this.ld = j;
         this.timestamp = j2;
-        this.nB = j3;
-        this.nD = byteBuffer;
-        this.nC = z;
-        this.nE = j4;
+        this.nY = j3;
+        this.oa = byteBuffer;
+        this.nZ = z;
+        this.ob = j4;
     }
 
-    public ByteBuffer cM() {
-        return this.nD;
+    public ByteBuffer db() {
+        return this.oa;
     }
 
-    public FaceAlgoData cN() {
-        return this.nz;
+    public FaceAlgoData dc() {
+        return this.nX;
     }
 
-    public long cO() {
-        return this.nB;
+    public long dd() {
+        return this.nY;
     }
 
-    public long cP() {
-        return this.nE;
+    public long de() {
+        return this.ob;
     }
 
     public long getHandle() {
-        return this.nA;
+        return this.ld;
     }
 
     public long getTimestamp() {
@@ -47,6 +47,6 @@ public class b {
     }
 
     public boolean isFrontCamera() {
-        return this.nC;
+        return this.nZ;
     }
 }

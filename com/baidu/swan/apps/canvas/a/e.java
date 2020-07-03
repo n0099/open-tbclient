@@ -20,8 +20,8 @@ public class e extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject er(int i) {
-        return super.er(i);
+    public /* bridge */ /* synthetic */ JSONObject eC(int i) {
+        return super.eC(i);
     }
 
     public e(j jVar) {
@@ -33,7 +33,7 @@ public class e extends a {
         int i;
         int i2;
         Rect rect;
-        unitedSchemeEntity.result = er(201);
+        unitedSchemeEntity.result = eC(201);
         com.baidu.swan.apps.canvas.b.d d = d(unitedSchemeEntity);
         if (d == null) {
             return false;
@@ -41,18 +41,18 @@ public class e extends a {
         if (d.mText == null || d.mText.length() <= 0) {
             i = 0;
         } else {
-            if (d.bOp && d.mItalic) {
+            if (d.bTd && d.mItalic) {
                 i2 = 3;
-            } else if (d.bOp) {
+            } else if (d.bTd) {
                 i2 = 1;
             } else {
                 i2 = d.mItalic ? 2 : 0;
             }
             TextPaint textPaint = new TextPaint();
-            textPaint.setTypeface(Typeface.create(d.bOn, i2));
-            textPaint.setTextSize(d.bOo);
+            textPaint.setTypeface(Typeface.create(d.bTb, i2));
+            textPaint.setTextSize(d.bTc);
             textPaint.getTextBounds(d.mText, 0, d.mText.length(), new Rect());
-            i = ag.D(rect.width());
+            i = ag.F(rect.width());
         }
         JSONObject jSONObject = new JSONObject();
         try {

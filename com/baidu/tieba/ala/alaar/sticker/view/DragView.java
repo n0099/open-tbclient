@@ -7,12 +7,12 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class DragView extends FrameLayout {
-    private DragTextView eZb;
-    private TbImageView eZc;
+    private DragTextView fjY;
+    private TbImageView fjZ;
 
     public DragView(Context context) {
         super(context);
@@ -31,8 +31,8 @@ public class DragView extends FrameLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(a.h.drag_layout, this);
-        this.eZb = (DragTextView) inflate.findViewById(a.g.drag_tv);
-        this.eZc = (TbImageView) inflate.findViewById(a.g.drag_bg);
+        this.fjY = (DragTextView) inflate.findViewById(a.g.drag_tv);
+        this.fjZ = (TbImageView) inflate.findViewById(a.g.drag_bg);
     }
 
     @Override // android.view.View

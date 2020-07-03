@@ -6,7 +6,7 @@ import java.nio.charset.Charset;
 interface k {
     void a(Charset charset);
 
-    InputStream[] dj();
+    InputStream[] dz();
 
     String getContentType();
 

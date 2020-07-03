@@ -5,7 +5,7 @@ import kotlin.h;
 @h
 /* loaded from: classes7.dex */
 public class b {
-    public static final Object dLU() {
-        return kotlin.coroutines.intrinsics.a.dLU();
+    public static final Object dQA() {
+        return kotlin.coroutines.intrinsics.a.dQA();
     }
 }

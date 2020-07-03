@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import com.baidu.live.adp.lib.safe.SafeHandler;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
-import com.baidu.live.u.a;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
 public class KeyboardAdjust {

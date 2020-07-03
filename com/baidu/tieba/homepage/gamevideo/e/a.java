@@ -11,85 +11,85 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bu;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.card.data.c;
 import com.baidu.tieba.card.data.l;
 import com.baidu.tieba.card.m;
-import com.baidu.tieba.frs.i;
+import com.baidu.tieba.frs.k;
 /* loaded from: classes9.dex */
 public class a {
     public static void a(AbsThreadDataSupport absThreadDataSupport, Context context, int i, boolean z, Rect rect) {
-        if (absThreadDataSupport != null && absThreadDataSupport.aOi() != null && context != null) {
-            bk aOi = absThreadDataSupport.aOi();
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(aOi, null, ImageViewerConfig.FROM_GAME_VIDEO, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
-            createFromThreadCfg.setForumId(String.valueOf(aOi.getFid()));
+        if (absThreadDataSupport != null && absThreadDataSupport.aPS() != null && context != null) {
+            bu aPS = absThreadDataSupport.aPS();
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(aPS, null, ImageViewerConfig.FROM_GAME_VIDEO, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
+            createFromThreadCfg.setForumId(String.valueOf(aPS.getFid()));
             createFromThreadCfg.setFrom(PbActivityConfig.KEY_FROM_GAME_VIDEO);
-            createFromThreadCfg.setForumName(aOi.aQC());
+            createFromThreadCfg.setForumName(aPS.aSt());
             createFromThreadCfg.setStartFrom(i);
             createFromThreadCfg.setVideoOriginArea(rect);
-            if (absThreadDataSupport.aOl() != null) {
-                createFromThreadCfg.addLocateParam(absThreadDataSupport.aOl());
+            if (absThreadDataSupport.aPV() != null) {
+                createFromThreadCfg.addLocateParam(absThreadDataSupport.aPV());
             }
-            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && u(aOi)) {
+            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && u(aPS)) {
                 createFromThreadCfg.setNeedPreLoad(true);
-                i.an(aOi);
+                k.an(aPS);
             }
             createFromThreadCfg.setVideo_source(ImageViewerConfig.FROM_GAME_VIDEO);
             createFromThreadCfg.setJumpGodReply(z);
-            m.Dn(aOi.getTid());
+            m.DO(aPS.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
 
-    private static boolean u(bk bkVar) {
-        if (bkVar == null || bkVar.isShareThread) {
+    private static boolean u(bu buVar) {
+        if (buVar == null || buVar.isShareThread) {
             return false;
         }
-        int i = bkVar.threadType;
+        int i = buVar.threadType;
         if (i == 0 || i == 11 || i == 40) {
             return true;
         }
-        return bkVar.aSx();
+        return buVar.aQZ();
     }
 
     public static void a(c cVar, int i) {
-        an ay;
-        if (cVar != null && cVar.aOi() != null && (ay = cVar.ay("c13496", true)) != null) {
-            ay.ag("obj_type", i);
-            TiebaStatic.log(ay);
+        ao aA;
+        if (cVar != null && cVar.aPS() != null && (aA = cVar.aA("c13496", true)) != null) {
+            aA.ag("obj_type", i);
+            TiebaStatic.log(aA);
         }
     }
 
     public static void b(c cVar, int i) {
-        an ay;
-        if (cVar != null && cVar.aOi() != null && l.ac(cVar.dEA) && (ay = cVar.ay("c13494", true)) != null) {
-            ay.ag("obj_type", i);
-            TiebaStatic.log(ay);
+        ao aA;
+        if (cVar != null && cVar.aPS() != null && l.ad(cVar.dLi) && (aA = cVar.aA("c13494", true)) != null) {
+            aA.ag("obj_type", i);
+            TiebaStatic.log(aA);
         }
     }
 
     public static void c(c cVar, int i) {
-        an ay;
-        if (cVar != null && l.ac(cVar.dEA) && (ay = cVar.ay("c13495", true)) != null) {
-            ay.ag("obj_type", i);
-            TiebaStatic.log(ay);
+        ao aA;
+        if (cVar != null && l.ad(cVar.dLi) && (aA = cVar.aA("c13495", true)) != null) {
+            aA.ag("obj_type", i);
+            TiebaStatic.log(aA);
         }
     }
 
     public static void d(c cVar, int i) {
-        an ay;
-        if (cVar != null && (ay = cVar.ay("c13488", true)) != null) {
-            if (cVar.aOi() != null) {
-                bk aOi = cVar.aOi();
-                ay.ag("obj_name", aOi.aSb() != null && (aOi.aSb().ddL() != null || aOi.aSb().biA() != null) ? 1 : 0);
-                if (aOi.aQx() != null) {
-                    ay.ag(TiebaInitialize.Params.AB_TYPE, aOi.aQx().hadConcerned() ? 1 : 0);
+        ao aA;
+        if (cVar != null && (aA = cVar.aA("c13488", true)) != null) {
+            if (cVar.aPS() != null) {
+                bu aPS = cVar.aPS();
+                aA.ag("obj_name", aPS.aTS() != null && (aPS.aTS().dia() != null || aPS.aTS().bkW() != null) ? 1 : 0);
+                if (aPS.aSp() != null) {
+                    aA.ag(TiebaInitialize.Params.AB_TYPE, aPS.aSp().hadConcerned() ? 1 : 0);
                 }
             }
-            ay.ag("obj_type", i);
-            TiebaStatic.log(ay);
+            aA.ag("obj_type", i);
+            TiebaStatic.log(aA);
         }
     }
 }

@@ -7,18 +7,18 @@ public interface h {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void dMW();
+        void dRC();
 
-        void dMX();
+        void dRD();
 
-        void dMY();
+        void dRE();
 
         void h(master.flame.danmaku.danmaku.model.d dVar);
 
         void i(master.flame.danmaku.danmaku.model.d dVar);
     }
 
-    void JX(int i);
+    void Le(int i);
 
     a.b a(master.flame.danmaku.danmaku.model.b bVar);
 
@@ -26,17 +26,17 @@ public interface h {
 
     void a(master.flame.danmaku.danmaku.model.d dVar);
 
-    void dNb();
+    void dRH();
 
-    void dNc();
+    void dRI();
 
-    void dNd();
+    void dRJ();
 
-    l gl(long j);
+    l gq(long j);
 
-    void gm(long j);
+    void gr(long j);
 
-    void h(long j, long j2, long j3);
+    void k(long j, long j2, long j3);
 
     void prepare();
 
@@ -46,5 +46,5 @@ public interface h {
 
     void start();
 
-    void wT(boolean z);
+    void xo(boolean z);
 }

@@ -1,23 +1,23 @@
 package com.baidu.tieba.frs.game.strategy.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.o;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.tbadk.core.data.bu;
 /* loaded from: classes9.dex */
-public class b extends com.baidu.tieba.card.data.b implements o {
-    public static final BdUniqueId hzY = BdUniqueId.gen();
-    private bk dEA;
+public class b extends com.baidu.tieba.card.data.b implements q {
+    public static final BdUniqueId hNg = BdUniqueId.gen();
+    private bu dLi;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hzY;
+        return hNg;
     }
 
-    public bk aOi() {
-        return this.dEA;
+    public bu aPS() {
+        return this.dLi;
     }
 
-    public void setThreadData(bk bkVar) {
-        this.dEA = bkVar;
+    public void setThreadData(bu buVar) {
+        this.dLi = buVar;
     }
 }

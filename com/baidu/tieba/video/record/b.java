@@ -4,10 +4,10 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 /* loaded from: classes10.dex */
 class b {
-    private float lGV;
-    private int lGW;
-    private i lGX;
     private Camera mCamera;
+    private float maM;
+    private int maN;
+    private i maO;
     private int mode = 0;
 
     public b(Camera camera) {
@@ -15,11 +15,11 @@ class b {
     }
 
     public void setRecordController(i iVar) {
-        this.lGX = iVar;
+        this.maO = iVar;
     }
 
     public boolean handleTouchEvent(MotionEvent motionEvent) {
-        if (this.lGX == null || !this.lGX.aXt()) {
+        if (this.maO == null || !this.maO.aZz()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float spacing = spacing(motionEvent);
-                        int i = (int) ((spacing - this.lGV) / 10.0f);
+                        int i = (int) ((spacing - this.maM) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.lGW;
+                            int i2 = i + this.maN;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.lGV = spacing;
+                            this.maM = spacing;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.lGV = spacing(motionEvent);
+                    this.maM = spacing(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.lGW = i;
+                this.maN = i;
             }
         }
     }

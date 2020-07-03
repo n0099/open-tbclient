@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.k.a;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
@@ -92,14 +92,14 @@ public class AlaNetRefreshView extends a {
 
     public void onChangeSkinType() {
         if (this.mNetFailTipView != null) {
-            am.setViewTextColor(this.mNetFailTipView, (int) R.color.cp_cont_f);
+            an.setViewTextColor(this.mNetFailTipView, (int) R.color.cp_cont_f);
         }
         if (this.mNetRefreshContainer != null) {
-            am.setBackgroundResource(this.mNetRefreshContainer, R.color.cp_bg_line_d);
+            an.setBackgroundResource(this.mNetRefreshContainer, R.color.cp_bg_line_d);
         }
         if (this.mNetRefreshBtn != null) {
-            am.setViewTextColor(this.mNetRefreshBtn, (int) R.color.cp_cont_f);
-            am.setBackgroundResource(this.mNetRefreshBtn, R.drawable.ala_net_refresh_btn_bg);
+            an.setViewTextColor(this.mNetRefreshBtn, (int) R.color.cp_cont_f);
+            an.setBackgroundResource(this.mNetRefreshBtn, R.drawable.ala_net_refresh_btn_bg);
         }
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
         if (this.mNetRefreshImg != null) {

@@ -10,58 +10,58 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class StatisticApiImpl implements g, l.a {
-    private d uy;
-    private HandlerThread vf;
-    private c vg;
-    private Thread vh;
-    private h vi;
-    private volatile k vj;
+    private d uY;
+    private HandlerThread vF;
+    private c vG;
+    private Thread vH;
+    private h vI;
+    private volatile k vJ;
 
     public StatisticApiImpl(Context context, HandlerThread handlerThread) {
-        this.uy = new d(context, "ar_stats_local.json", 100, 40);
+        this.uY = new d(context, "ar_stats_local.json", 100, 40);
         d dVar = new d(context, "ar_stats_pfm_local.json", 200, 0);
-        this.vj = new k(dVar, 20, 200);
-        a(handlerThread, new b(context, this.uy, q.vk, r.eN(), this.vj));
+        this.vJ = new k(dVar, 20, 200);
+        a(handlerThread, new b(context, this.uY, q.vK, r.fd(), this.vJ));
         a(context, dVar);
-        this.vg.a(1, null);
-        n(context);
+        this.vG.a(1, null);
+        p(context);
     }
 
     private void a(Context context, d dVar) {
-        this.vi = new h(context, this.uy, new i[]{new i(this.uy, 10, new j(), true), new m(dVar, 20, new n(), false)});
-        this.vh = new Thread(this.vi, "StatsLogSendThd");
-        this.vh.start();
+        this.vI = new h(context, this.uY, new i[]{new i(this.uY, 10, new j(), true), new m(dVar, 20, new n(), false)});
+        this.vH = new Thread(this.vI, "StatsLogSendThd");
+        this.vH.start();
     }
 
     private void a(HandlerThread handlerThread, b bVar) {
         if (handlerThread == null) {
-            this.vf = new HandlerThread("StatsEventThd", 10);
-            this.vf.start();
+            this.vF = new HandlerThread("StatsEventThd", 10);
+            this.vF.start();
         } else {
-            this.vf = handlerThread;
-            if (this.vf.getState() == Thread.State.NEW) {
-                this.vf.start();
+            this.vF = handlerThread;
+            if (this.vF.getState() == Thread.State.NEW) {
+                this.vF.start();
             }
         }
-        this.vg = new c(this.vf.getLooper(), bVar);
+        this.vG = new c(this.vF.getLooper(), bVar);
     }
 
-    private void n(Context context) {
+    private void p(Context context) {
         new l(this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "");
     }
 
     public void doRelease() {
         synchronized (this) {
-            if (this.vf != null) {
-                this.vf.quitSafely();
+            if (this.vF != null) {
+                this.vF.quitSafely();
             }
-            if (this.vi != null) {
-                this.vi.shutdown();
+            if (this.vI != null) {
+                this.vI.shutdown();
             }
-            if (this.vh != null) {
-                synchronized (this.uy) {
-                    if (this.uy.isEmpty()) {
-                        this.vh.interrupt();
+            if (this.vH != null) {
+                synchronized (this.uY) {
+                    if (this.uY.isEmpty()) {
+                        this.vH.interrupt();
                     }
                 }
             }
@@ -71,106 +71,106 @@ public final class StatisticApiImpl implements g, l.a {
 
     @Override // com.baidu.ar.statistic.g
     public boolean isAllowPerformanceEvent(String str) {
-        return this.vj.aB(str);
+        return this.vJ.aC(str);
     }
 
     @Override // com.baidu.ar.statistic.g
     public void onEvent(String str, String str2) {
-        a ar = a.ar(str);
-        ar.c("event_param", str2);
-        this.vg.a(2, ar);
+        a as = a.as(str);
+        as.c("event_param", str2);
+        this.vG.a(2, as);
     }
 
     @Override // com.baidu.ar.statistic.g
     public void onEvent(String str, Map<String, String> map) {
-        a ar = a.ar(str);
-        ar.a(map);
-        this.vg.a(2, ar);
+        a as = a.as(str);
+        as.a(map);
+        this.vG.a(2, as);
     }
 
     @Override // com.baidu.ar.statistic.g
     public void onEventDebounce(String str, long j, String str2) {
-        a ar = a.ar(str);
-        ar.c("_db_period", Long.valueOf(j));
-        ar.c("event_param", str2);
-        this.vg.a(6, ar);
+        a as = a.as(str);
+        as.c("_db_period", Long.valueOf(j));
+        as.c("event_param", str2);
+        this.vG.a(6, as);
     }
 
     @Override // com.baidu.ar.statistic.g
     public void onEventDebounce(String str, long j, Map<String, String> map) {
-        a ar = a.ar(str);
-        ar.a(map);
-        ar.c("_db_period", Long.valueOf(j));
-        this.vg.a(6, ar);
+        a as = a.as(str);
+        as.a(map);
+        as.c("_db_period", Long.valueOf(j));
+        this.vG.a(6, as);
     }
 
     @Override // com.baidu.ar.statistic.g
     public void onEventEnd(String str) {
-        this.vg.a(5, a.ar(str));
+        this.vG.a(5, a.as(str));
     }
 
     @Override // com.baidu.ar.statistic.g
     public void onEventStart(String str) {
-        this.vg.a(4, a.ar(str));
+        this.vG.a(4, a.as(str));
     }
 
     @Override // com.baidu.ar.statistic.g
     public void onEventStatus(String str, String str2, boolean z) {
-        a ar = a.ar(str);
-        ar.c("__stt", z ? "1" : "0");
-        ar.c("__falseev", str2);
-        this.vg.a(3, ar);
+        a as = a.as(str);
+        as.c("__stt", z ? "1" : "0");
+        as.c("__falseev", str2);
+        this.vG.a(3, as);
     }
 
     @Override // com.baidu.ar.statistic.g
     public void onPerformance(String str, Map<String, String> map) {
-        synchronized (this.vj) {
-            if (this.vj.aB(str)) {
-                a ar = a.ar(str);
-                ar.a(map);
-                this.vg.a(20, ar);
+        synchronized (this.vJ) {
+            if (this.vJ.aC(str)) {
+                a as = a.as(str);
+                as.a(map);
+                this.vG.a(20, as);
             }
         }
     }
 
     @Override // com.baidu.ar.statistic.g
     public void onPerformance(String str, JSONObject jSONObject) {
-        synchronized (this.vj) {
-            if (this.vj.aB(str)) {
-                a ar = a.ar(str);
-                ar.c("data", jSONObject);
-                this.vg.a(20, ar);
+        synchronized (this.vJ) {
+            if (this.vJ.aC(str)) {
+                a as = a.as(str);
+                as.c("data", jSONObject);
+                this.vG.a(20, as);
             }
         }
     }
 
     @Override // com.baidu.ar.statistic.l.a
     public void onPerformanceRequestFinished(List<String> list) {
-        this.vg.a(21, list);
+        this.vG.a(21, list);
     }
 
     @Override // com.baidu.ar.statistic.g
     public void pause() {
-        this.vg.a(97, Long.valueOf(System.currentTimeMillis()));
+        this.vG.a(97, Long.valueOf(System.currentTimeMillis()));
     }
 
     @Override // com.baidu.ar.statistic.g
     public void release() {
-        this.vg.a(99, this);
+        this.vG.a(99, this);
     }
 
     @Override // com.baidu.ar.statistic.g
     public void resume() {
-        this.vg.a(98, Long.valueOf(System.currentTimeMillis()));
+        this.vG.a(98, Long.valueOf(System.currentTimeMillis()));
     }
 
     @Override // com.baidu.ar.statistic.g
     public void setPubParam(String str, String str2) {
-        this.vg.setPubParam(str, str2);
+        this.vG.setPubParam(str, str2);
     }
 
     @Override // com.baidu.ar.statistic.g
     public void setPubParams(Map<String, String> map) {
-        this.vg.setPubParams(map);
+        this.vG.setPubParams(map);
     }
 }

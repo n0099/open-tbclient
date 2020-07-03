@@ -3,19 +3,19 @@ package org.java_websocket.d;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes7.dex */
 public class b implements a {
-    private final String nEC;
+    private final String oan;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.nEC = str;
+        this.oan = str;
     }
 
     @Override // org.java_websocket.d.a
-    public boolean RY(String str) {
+    public boolean SK(String str) {
         for (String str2 : str.replaceAll(" ", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (this.nEC.equals(str2)) {
+            if (this.oan.equals(str2)) {
                 return true;
             }
         }
@@ -23,18 +23,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String dPn() {
-        return this.nEC;
+    public String dTT() {
+        return this.oan;
     }
 
     @Override // org.java_websocket.d.a
-    public a dPo() {
-        return new b(dPn());
+    public a dTU() {
+        return new b(dTT());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return dPn();
+        return dTT();
     }
 
     public boolean equals(Object obj) {
@@ -44,10 +44,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.nEC.equals(((b) obj).nEC);
+        return this.oan.equals(((b) obj).oan);
     }
 
     public int hashCode() {
-        return this.nEC.hashCode();
+        return this.oan.hashCode();
     }
 }

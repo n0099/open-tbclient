@@ -6,15 +6,15 @@ public class d implements Closeable {
     private Runnable action;
     private boolean closed;
     private final Object lock;
-    private e yT;
+    private e zt;
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this.lock) {
             if (!this.closed) {
                 this.closed = true;
-                this.yT.a(this);
-                this.yT = null;
+                this.zt.a(this);
+                this.zt = null;
                 this.action = null;
             }
         }

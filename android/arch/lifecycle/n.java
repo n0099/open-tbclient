@@ -35,12 +35,12 @@ public abstract class n<T> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: android.arch.lifecycle.q<T> */
     /* JADX WARN: Multi-variable type inference failed */
     private void considerNotify(n<T>.c cVar) {
-        if (cVar.yq) {
-            if (!cVar.fU()) {
-                cVar.X(false);
-            } else if (cVar.yr < this.mVersion) {
-                cVar.yr = this.mVersion;
-                cVar.yp.onChanged(this.mData);
+        if (cVar.yQ) {
+            if (!cVar.gl()) {
+                cVar.Y(false);
+            } else if (cVar.yR < this.mVersion) {
+                cVar.yR = this.mVersion;
+                cVar.yP.onChanged(this.mData);
             }
         }
     }
@@ -58,9 +58,9 @@ public abstract class n<T> {
                 considerNotify(cVar);
                 cVar = null;
             } else {
-                android.arch.a.b.b<q<T>, n<T>.c>.d fM = this.mObservers.fM();
-                while (fM.hasNext()) {
-                    considerNotify((c) fM.next().getValue());
+                android.arch.a.b.b<q<T>, n<T>.c>.d gd = this.mObservers.gd();
+                while (gd.hasNext()) {
+                    considerNotify((c) gd.next().getValue());
                     if (this.mDispatchInvalidated) {
                         break;
                     }
@@ -72,7 +72,7 @@ public abstract class n<T> {
 
     @MainThread
     public void observe(@NonNull j jVar, @NonNull q<T> qVar) {
-        if (jVar.getLifecycle().fQ() != Lifecycle.State.DESTROYED) {
+        if (jVar.getLifecycle().gh() != Lifecycle.State.DESTROYED) {
             b bVar = new b(jVar, qVar);
             n<T>.c c2 = this.mObservers.c(qVar, bVar);
             if (c2 != null && !c2.i(jVar)) {
@@ -92,7 +92,7 @@ public abstract class n<T> {
             throw new IllegalArgumentException("Cannot add the same observer with different lifecycles");
         }
         if (c2 == null) {
-            aVar.X(true);
+            aVar.Y(true);
         }
     }
 
@@ -101,8 +101,8 @@ public abstract class n<T> {
         assertMainThread("removeObserver");
         n<T>.c remove = this.mObservers.remove(qVar);
         if (remove != null) {
-            remove.fV();
-            remove.X(false);
+            remove.gm();
+            remove.Y(false);
         }
     }
 
@@ -126,7 +126,7 @@ public abstract class n<T> {
             this.mPendingData = t;
         }
         if (z) {
-            android.arch.a.a.a.fL().f(this.mPostValueRunnable);
+            android.arch.a.a.a.gb().f(this.mPostValueRunnable);
         }
     }
 
@@ -169,71 +169,71 @@ public abstract class n<T> {
     /* loaded from: classes6.dex */
     class b extends n<T>.c implements h {
         @NonNull
-        final j yo;
+        final j yO;
 
         b(@NonNull j jVar, q<T> qVar) {
             super(qVar);
-            this.yo = jVar;
+            this.yO = jVar;
         }
 
         @Override // android.arch.lifecycle.n.c
-        boolean fU() {
-            return this.yo.getLifecycle().fQ().isAtLeast(Lifecycle.State.STARTED);
+        boolean gl() {
+            return this.yO.getLifecycle().gh().isAtLeast(Lifecycle.State.STARTED);
         }
 
         @Override // android.arch.lifecycle.h
         public void a(j jVar, Lifecycle.Event event) {
-            if (this.yo.getLifecycle().fQ() == Lifecycle.State.DESTROYED) {
-                n.this.removeObserver(this.yp);
+            if (this.yO.getLifecycle().gh() == Lifecycle.State.DESTROYED) {
+                n.this.removeObserver(this.yP);
             } else {
-                X(fU());
+                Y(gl());
             }
         }
 
         @Override // android.arch.lifecycle.n.c
         boolean i(j jVar) {
-            return this.yo == jVar;
+            return this.yO == jVar;
         }
 
         @Override // android.arch.lifecycle.n.c
-        void fV() {
-            this.yo.getLifecycle().b(this);
+        void gm() {
+            this.yO.getLifecycle().b(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public abstract class c {
-        final q<T> yp;
-        boolean yq;
-        int yr = -1;
+        final q<T> yP;
+        boolean yQ;
+        int yR = -1;
 
-        abstract boolean fU();
+        abstract boolean gl();
 
         c(q<T> qVar) {
-            this.yp = qVar;
+            this.yP = qVar;
         }
 
         boolean i(j jVar) {
             return false;
         }
 
-        void fV() {
+        void gm() {
         }
 
-        void X(boolean z) {
-            if (z != this.yq) {
-                this.yq = z;
+        void Y(boolean z) {
+            if (z != this.yQ) {
+                this.yQ = z;
                 boolean z2 = n.this.mActiveCount == 0;
                 n nVar = n.this;
-                nVar.mActiveCount = (this.yq ? 1 : -1) + nVar.mActiveCount;
-                if (z2 && this.yq) {
+                nVar.mActiveCount = (this.yQ ? 1 : -1) + nVar.mActiveCount;
+                if (z2 && this.yQ) {
                     n.this.onActive();
                 }
-                if (n.this.mActiveCount == 0 && !this.yq) {
+                if (n.this.mActiveCount == 0 && !this.yQ) {
                     n.this.onInactive();
                 }
-                if (this.yq) {
+                if (this.yQ) {
                     n.this.dispatchingValue(this);
                 }
             }
@@ -247,13 +247,13 @@ public abstract class n<T> {
         }
 
         @Override // android.arch.lifecycle.n.c
-        boolean fU() {
+        boolean gl() {
             return true;
         }
     }
 
     private static void assertMainThread(String str) {
-        if (!android.arch.a.a.a.fL().isMainThread()) {
+        if (!android.arch.a.a.a.gb().isMainThread()) {
             throw new IllegalStateException("Cannot invoke " + str + " on a background thread");
         }
     }

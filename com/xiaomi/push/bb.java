@@ -10,17 +10,17 @@ public class bb {
         private static final bb a = new bb();
 
         /* renamed from: a  reason: collision with other field name */
-        public int f120a;
+        public int f126a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Object f121a;
+        public Object f127a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f122a;
+        public String f128a;
 
         a(int i, Object obj) {
-            this.f120a = i;
-            this.f121a = obj;
+            this.f126a = i;
+            this.f127a = obj;
         }
     }
 
@@ -29,19 +29,19 @@ public class bb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m156a() {
+    private void m153a() {
         if (this.a.size() > 100) {
             this.a.removeFirst();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m157a() {
+    public synchronized int m154a() {
         return this.a.size();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m158a() {
+    public synchronized LinkedList<a> m155a() {
         LinkedList<a> linkedList;
         linkedList = this.a;
         this.a = new LinkedList<>();
@@ -50,6 +50,6 @@ public class bb {
 
     public synchronized void a(Object obj) {
         this.a.add(new a(0, obj));
-        m156a();
+        m153a();
     }
 }

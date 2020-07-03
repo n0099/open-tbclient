@@ -5,20 +5,20 @@ import android.util.AttributeSet;
 import com.baidu.tieba.view.AlaPlayAnimationView;
 /* loaded from: classes3.dex */
 public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
-    private boolean fbP;
+    private boolean fmZ;
 
     public NoActiveStopAlaPlayAnimationView(Context context) {
         super(context);
-        this.fbP = false;
+        this.fmZ = false;
     }
 
     public NoActiveStopAlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fbP = false;
+        this.fmZ = false;
     }
 
     public void setFromSpecialForum(boolean z) {
-        this.fbP = z;
+        this.fmZ = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -31,7 +31,7 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
     @Override // com.baidu.tieba.view.AlaPlayAnimationView, android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (!this.fbP) {
+        if (!this.fmZ) {
             startPlayAnimation();
         }
     }

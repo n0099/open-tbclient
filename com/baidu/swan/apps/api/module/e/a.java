@@ -17,16 +17,16 @@ public class a extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b hl(String str) {
+    public com.baidu.swan.apps.api.c.b ht(String str) {
         if (DEBUG) {
             Log.d("Api-LoadingView", "start show loading");
         }
-        if (TU()) {
+        if (Va()) {
             com.baidu.swan.apps.console.c.e("Api-LoadingView", "Api-LoadingView does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.c.b(1001, "Api-LoadingView does not supported when app is invisible.");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aP = com.baidu.swan.apps.api.d.b.aP("Api-LoadingView", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aP.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aR = com.baidu.swan.apps.api.d.b.aR("Api-LoadingView", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aR.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-LoadingView", "parse fail");
@@ -34,7 +34,7 @@ public class a extends com.baidu.swan.apps.api.a.d {
             }
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) aP.second;
+        JSONObject jSONObject = (JSONObject) aR.second;
         com.baidu.swan.apps.console.c.i("Api-LoadingView", "handleShowLoading : joParams = \n" + jSONObject);
         String optString = jSONObject.optString("title");
         if (TextUtils.isEmpty(optString)) {
@@ -51,28 +51,28 @@ public class a extends com.baidu.swan.apps.api.a.d {
             }
             return new com.baidu.swan.apps.api.c.b(1001, "context not support");
         }
-        com.baidu.swan.apps.core.d.e QH = ((SwanAppActivity) context).QH();
-        if (QH == null) {
+        com.baidu.swan.apps.core.d.e RN = ((SwanAppActivity) context).RN();
+        if (RN == null) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-LoadingView", "none fragment");
             }
             return new com.baidu.swan.apps.api.c.b(1001, "none fragment");
         }
-        com.baidu.swan.apps.core.d.b YP = QH.YP();
-        if (!(YP instanceof a.InterfaceC0377a)) {
+        com.baidu.swan.apps.core.d.b ZV = RN.ZV();
+        if (!(ZV instanceof a.InterfaceC0383a)) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-LoadingView", "fragment not support");
             }
             return new com.baidu.swan.apps.api.c.b(1001, "fragment not support");
         }
-        com.baidu.swan.apps.res.widget.floatlayer.a QC = ((a.InterfaceC0377a) YP).QC();
-        if (QC == null) {
+        com.baidu.swan.apps.res.widget.floatlayer.a RI = ((a.InterfaceC0383a) ZV).RI();
+        if (RI == null) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-LoadingView", "can't get floatLayer");
             }
             return new com.baidu.swan.apps.api.c.b(1001, "can't get floatLayer");
         }
-        a(QC, context, optString, optBoolean);
+        a(RI, context, optString, optBoolean);
         com.baidu.swan.apps.console.c.i("Api-LoadingView", "show loading success");
         return new com.baidu.swan.apps.api.c.b(0);
     }
@@ -97,7 +97,7 @@ public class a extends com.baidu.swan.apps.api.a.d {
         });
     }
 
-    public com.baidu.swan.apps.api.c.b Uc() {
+    public com.baidu.swan.apps.api.c.b Vi() {
         Context context = getContext();
         if (!(context instanceof SwanAppActivity)) {
             if (DEBUG) {
@@ -105,20 +105,20 @@ public class a extends com.baidu.swan.apps.api.a.d {
             }
             return new com.baidu.swan.apps.api.c.b(1001, "context not support");
         }
-        com.baidu.swan.apps.core.d.e QH = ((SwanAppActivity) context).QH();
-        if (QH == null) {
+        com.baidu.swan.apps.core.d.e RN = ((SwanAppActivity) context).RN();
+        if (RN == null) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-LoadingView", "none fragmentManger");
             }
             return new com.baidu.swan.apps.api.c.b(1001, "none fragmentManger");
         }
-        final com.baidu.swan.apps.core.d.b YP = QH.YP();
-        if (!(YP instanceof a.InterfaceC0377a)) {
+        final com.baidu.swan.apps.core.d.b ZV = RN.ZV();
+        if (!(ZV instanceof a.InterfaceC0383a)) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-LoadingView", "fragment not support");
             }
             return new com.baidu.swan.apps.api.c.b(1001, "fragment not support");
-        } else if (YP.getContext() == null) {
+        } else if (ZV.getContext() == null) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-LoadingView", "fragment has detached");
             }
@@ -127,9 +127,9 @@ public class a extends com.baidu.swan.apps.api.a.d {
             aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.apps.res.widget.floatlayer.a QC = ((a.InterfaceC0377a) YP).QC();
-                    if (QC != null && (QC.getView() instanceof LoadingView)) {
-                        QC.reset();
+                    com.baidu.swan.apps.res.widget.floatlayer.a RI = ((a.InterfaceC0383a) ZV).RI();
+                    if (RI != null && (RI.getView() instanceof LoadingView)) {
+                        RI.reset();
                     }
                 }
             });

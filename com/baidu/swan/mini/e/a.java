@@ -10,19 +10,19 @@ import org.json.JSONObject;
 public class a {
     @NonNull
     public static String b(@NonNull String str, com.baidu.swan.mini.b.a aVar) {
-        String ta = b.ta(aVar.aFr().getAppId());
-        return "window.___NA_SWAN_MINI___.___swan_mini_master_loaded___('" + str + "', '" + ta + "', '" + b.ta(aVar.aFr().getBundleId()) + "');";
+        String ti = b.ti(aVar.aGx().getAppId());
+        return "window.___NA_SWAN_MINI___.___swan_mini_master_loaded___('" + str + "', '" + ti + "', '" + b.ti(aVar.aGx().getBundleId()) + "');";
     }
 
     @NonNull
     public static String u(@NonNull String str, @NonNull String str2, boolean z) {
-        return "var event = new Object(); event.type = 'AppReady';event.isShowing = " + z + ";event.appPackagePath = '" + b.ta(str) + "';event.appConfig = '{}'; event.appCodeInfoStr = '" + b.ta(str2) + "'; _naSwan.dispatchEvent(event);";
+        return "var event = new Object(); event.type = 'AppReady';event.isShowing = " + z + ";event.appPackagePath = '" + b.ti(str) + "';event.appConfig = '{}'; event.appCodeInfoStr = '" + b.ti(str2) + "'; _naSwan.dispatchEvent(event);";
     }
 
     @NonNull
     public static String a(String str, @NonNull String str2, @NonNull com.baidu.swan.mini.b.a aVar) {
-        String ta = b.ta(aVar.aFr().getAppId());
-        return "window.___NA_SWAN_MINI___.___swan_mini_slave_app_loaded___('" + ta + "', '" + b.ta(aVar.aFr().getBundleId()) + "', " + str2 + ", '" + str + "');";
+        String ti = b.ti(aVar.aGx().getAppId());
+        return "window.___NA_SWAN_MINI___.___swan_mini_slave_app_loaded___('" + ti + "', '" + b.ti(aVar.aGx().getBundleId()) + "', " + str2 + ", '" + str + "');";
     }
 
     @NonNull

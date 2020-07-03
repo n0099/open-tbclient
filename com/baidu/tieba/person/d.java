@@ -1,24 +1,24 @@
 package com.baidu.tieba.person;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes.dex */
-public class d implements o {
-    public static final BdUniqueId kkD = BdUniqueId.gen();
+public class d implements q {
+    public static final BdUniqueId kEp = BdUniqueId.gen();
     public int backgroundId;
-    public int khF;
-    public int khG;
+    public int kBs;
+    public int kBt;
 
     public d() {
     }
 
     public d(int i, int i2) {
-        this.khF = i;
-        this.khG = i2;
+        this.kBs = i;
+        this.kBt = i2;
     }
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return kkD;
+        return kEp;
     }
 }

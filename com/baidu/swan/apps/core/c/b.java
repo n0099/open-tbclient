@@ -7,25 +7,25 @@ import java.util.HashMap;
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void XI() {
-        e jO = f.ahV().jO(f.ahV().YB());
-        if (jO != null) {
+    public static void YO() {
+        e jW = f.ajb().jW(f.ajb().ZH());
+        if (jW != null) {
             com.baidu.swan.apps.console.c.i("ConsoleMessageHelper", "send full San request");
-            jO.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
+            jW.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
         }
     }
 
-    public static void je(String str) {
-        aX("sanFullData2Console", str);
+    public static void jm(String str) {
+        aZ("sanFullData2Console", str);
     }
 
-    public static void jf(String str) {
-        aX("sanIncData2Console", str);
+    public static void jn(String str) {
+        aZ("sanIncData2Console", str);
     }
 
-    private static void aX(String str, String str2) {
+    private static void aZ(String str, String str2) {
         HashMap hashMap = new HashMap(1);
         hashMap.put("data", str2);
-        f.ahV().a(f.ahV().ahy().Tj(), new com.baidu.swan.apps.event.a.b(str, hashMap));
+        f.ajb().a(f.ajb().aiE().Up(), new com.baidu.swan.apps.event.a.b(str, hashMap));
     }
 }

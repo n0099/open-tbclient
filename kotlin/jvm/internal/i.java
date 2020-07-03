@@ -8,7 +8,7 @@ import kotlin.collections.z;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class i {
-    public static final kotlin.collections.m av(byte[] bArr) {
+    public static final kotlin.collections.m ax(byte[] bArr) {
         q.m(bArr, com.baidu.fsg.base.statistics.b.j);
         return new b(bArr);
     }
@@ -33,7 +33,7 @@ public final class i {
         return new j(jArr);
     }
 
-    public static final ab A(float[] fArr) {
+    public static final ab B(float[] fArr) {
         q.m(fArr, com.baidu.fsg.base.statistics.b.j);
         return new e(fArr);
     }

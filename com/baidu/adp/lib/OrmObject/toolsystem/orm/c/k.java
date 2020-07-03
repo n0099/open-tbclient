@@ -8,25 +8,25 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class k implements h {
-    private JSONObject IL;
+    private JSONObject Jp;
 
     public k(JSONObject jSONObject) {
-        this.IL = jSONObject;
+        this.Jp = jSONObject;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
         Class<?> fieldClass = cVar.getFieldClass();
-        Type[] jW = cVar.jW();
+        Type[] km = cVar.km();
         if (com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(fieldClass, Map.class)) {
-            Map<String, Object> d = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.a.d(cVar, this.IL.length());
+            Map<String, Object> d = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.a.d(cVar, this.Jp.length());
             if (d != null) {
-                Iterator<String> keys = this.IL.keys();
+                Iterator<String> keys = this.Jp.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
                     if (next instanceof String) {
                         String str = next;
-                        Object g = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.u(this.IL.opt(str)).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(jW[1]));
+                        Object g = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.u(this.Jp.opt(str)).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(km[1]));
                         if (g != null) {
                             d.put(str, g);
                         }
@@ -35,15 +35,15 @@ public class k implements h {
             }
             return d;
         } else if (fieldClass == SparseArray.class) {
-            SparseArray sparseArray = new SparseArray(this.IL.length());
-            Iterator<String> keys2 = this.IL.keys();
+            SparseArray sparseArray = new SparseArray(this.Jp.length());
+            Iterator<String> keys2 = this.Jp.keys();
             while (keys2.hasNext()) {
                 String next2 = keys2.next();
                 if (next2 instanceof String) {
                     String str2 = next2;
                     try {
                         int parseInt = Integer.parseInt(str2);
-                        Object g2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.u(this.IL.opt(String.valueOf(str2))).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(jW[0]));
+                        Object g2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.u(this.Jp.opt(String.valueOf(str2))).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(km[0]));
                         if (g2 != null) {
                             sparseArray.put(parseInt, g2);
                         }
@@ -54,7 +54,7 @@ public class k implements h {
             }
             return sparseArray;
         } else if (com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(fieldClass, com.baidu.adp.lib.OrmObject.toolsystem.orm.object.a.class)) {
-            return OrmObject.objectWithJson(this.IL, fieldClass);
+            return OrmObject.objectWithJson(this.Jp, fieldClass);
         } else {
             return null;
         }

@@ -13,15 +13,13 @@ public interface a extends MediaController.MediaPlayerControl {
 
     void b(TbVideoViewSet.a aVar);
 
-    void cQY();
+    void cVp();
 
-    void cQZ();
+    void cVq();
 
-    boolean cRa();
+    boolean cVr();
 
-    void cRd();
-
-    void e(long j, long j2, long j3);
+    void cVu();
 
     int getCurrentPositionSync();
 
@@ -32,6 +30,8 @@ public interface a extends MediaController.MediaPlayerControl {
     int getPcdnState();
 
     View getView();
+
+    void h(long j, long j2, long j3);
 
     @Override // com.baidu.tieba.play.a.a
     boolean isPlaying();
@@ -50,7 +50,7 @@ public interface a extends MediaController.MediaPlayerControl {
 
     void setOnPreparedListener(g.f fVar);
 
-    void setOnSeekCompleteListener(g.InterfaceC0705g interfaceC0705g);
+    void setOnSeekCompleteListener(g.InterfaceC0721g interfaceC0721g);
 
     void setOnSurfaceDestroyedListener(QuickVideoView.b bVar);
 

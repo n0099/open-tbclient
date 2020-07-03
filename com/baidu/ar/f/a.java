@@ -3,7 +3,7 @@ package com.baidu.ar.f;
 public final class a {
     public static String mPackageName = null;
 
-    public static String aH(String str) {
+    public static String aI(String str) {
         return str + "/face_metadata.json";
     }
 

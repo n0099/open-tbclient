@@ -1,22 +1,13 @@
 package com.baidu.live.challenge;
-
-import android.view.ViewGroup;
-import com.baidu.live.challenge.j;
 /* loaded from: classes3.dex */
-public interface k extends j.a, j.c, j.d, j.f, j.g, j.h, j.i, j.InterfaceC0157j {
-    void a(j jVar);
+public interface k {
+    void a(a aVar);
 
-    void a(l lVar);
+    void wc();
 
-    void b(ViewGroup viewGroup, boolean z);
+    void wd();
 
-    void bF(int i);
+    void we();
 
-    void eo(String str);
-
-    boolean isActive();
-
-    boolean onBackKeyDown();
-
-    void removeView();
+    void wf();
 }

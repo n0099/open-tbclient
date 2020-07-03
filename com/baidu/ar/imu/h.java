@@ -7,36 +7,36 @@ import java.util.Observer;
 /* loaded from: classes3.dex */
 public class h implements Observer {
     private static final String TAG = h.class.getSimpleName();
-    private static final float[] qK = {-1.0f, 0.0f, 0.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f};
-    private static final float[] qL = {0.0f, 0.0f, -1.0f, 0.0f};
-    private float qI;
-    private j qM;
-    private g qN;
-    private float[] qO = new float[16];
-    private float qP = -1.0f;
-    private float qQ = 10000.0f;
-    private float[] qR = new float[16];
-    private boolean qS = true;
-    private boolean qT = false;
-    private float[] qU = new float[4];
-    private float[] qV = new float[16];
-    private i qt;
+    private static final float[] rj = {-1.0f, 0.0f, 0.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f};
+    private static final float[] rk = {0.0f, 0.0f, -1.0f, 0.0f};
+    private i qS;
+    private float rh;
+    private j rl;
+    private g rm;
+    private float[] rn = new float[16];
+    private float ro = -1.0f;
+    private float rp = 10000.0f;
+    private float[] rq = new float[16];
+    private boolean rr = true;
+    private boolean rs = false;
+    private float[] rt = new float[4];
+    private float[] ru = new float[16];
 
     public h() {
-        Matrix.setIdentityM(this.qR, 0);
+        Matrix.setIdentityM(this.rq, 0);
     }
 
     private j a(b bVar, SensorManager sensorManager) {
         j kVar;
         if (bVar != b.RELATIVE) {
-            kVar = this.qt.dC() ? new k(sensorManager) : new d(sensorManager);
-        } else if (this.qt.dz()) {
+            kVar = this.qS.dS() ? new k(sensorManager) : new d(sensorManager);
+        } else if (this.qS.dP()) {
             kVar = new e(sensorManager);
-            if (!this.qS) {
-                kVar.rj = true;
-                kVar.rk.matrix = this.qR;
+            if (!this.rr) {
+                kVar.rI = true;
+                kVar.rJ.matrix = this.rq;
             }
-            this.qS = false;
+            this.rr = false;
         } else {
             kVar = new a(sensorManager);
         }
@@ -44,33 +44,33 @@ public class h implements Observer {
         return kVar;
     }
 
-    private void dw() {
-        if (this.qM != null) {
-            this.qM.release();
-            this.qM = null;
+    private void dM() {
+        if (this.rl != null) {
+            this.rl.release();
+            this.rl = null;
         }
     }
 
-    private void h(float[] fArr) {
-        Matrix.invertM(this.qO, 0, fArr, 0);
-        Matrix.multiplyMM(this.qV, 0, qK, 0, this.qO, 0);
-        this.qP = j(this.qV);
-        if (this.qP > 0.0f) {
-            this.qQ = (float) (600.0d + Math.pow(1.13d, this.qP));
-            if (this.qQ > 15000.0f) {
-                this.qQ = 15000.0f;
+    private void i(float[] fArr) {
+        Matrix.invertM(this.rn, 0, fArr, 0);
+        Matrix.multiplyMM(this.ru, 0, rj, 0, this.rn, 0);
+        this.ro = k(this.ru);
+        if (this.ro > 0.0f) {
+            this.rp = (float) (600.0d + Math.pow(1.13d, this.ro));
+            if (this.rp > 15000.0f) {
+                this.rp = 15000.0f;
             }
         }
-        Matrix.multiplyMV(this.qU, 0, this.qV, 0, new float[]{0.0f, 0.0f, -this.qQ, 1.0f}, 0);
-        this.qV[12] = -this.qU[0];
-        this.qV[13] = -this.qU[1];
-        this.qV[14] = -this.qU[2];
-        Matrix.invertM(this.qO, 0, this.qV, 0);
-        this.qI = i(this.qU);
-        Matrix.rotateM(this.qO, 0, this.qI, 0.0f, 0.0f, 1.0f);
+        Matrix.multiplyMV(this.rt, 0, this.ru, 0, new float[]{0.0f, 0.0f, -this.rp, 1.0f}, 0);
+        this.ru[12] = -this.rt[0];
+        this.ru[13] = -this.rt[1];
+        this.ru[14] = -this.rt[2];
+        Matrix.invertM(this.rn, 0, this.ru, 0);
+        this.rh = j(this.rt);
+        Matrix.rotateM(this.rn, 0, this.rh, 0.0f, 0.0f, 1.0f);
     }
 
-    private float i(float[] fArr) {
+    private float j(float[] fArr) {
         float f = -fArr[0];
         float f2 = -fArr[1];
         if (f2 != 0.0f || f >= 0.0f) {
@@ -93,12 +93,12 @@ public class h implements Observer {
         return 0.0f;
     }
 
-    private float j(float[] fArr) {
-        Matrix.multiplyMV(this.qU, 0, fArr, 0, qL, 0);
-        if (this.qU[2] > 0.0f) {
+    private float k(float[] fArr) {
+        Matrix.multiplyMV(this.rt, 0, fArr, 0, rk, 0);
+        if (this.rt[2] > 0.0f) {
             return -1.0f;
         }
-        return 90.0f - ((float) ((Math.atan(Math.abs(this.qU[2]) / ((float) Math.sqrt((this.qU[0] * this.qU[0]) + (this.qU[1] * this.qU[1])))) / 3.141592653589793d) * 180.0d));
+        return 90.0f - ((float) ((Math.atan(Math.abs(this.rt[2]) / ((float) Math.sqrt((this.rt[0] * this.rt[0]) + (this.rt[1] * this.rt[1])))) / 3.141592653589793d) * 180.0d));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -106,17 +106,17 @@ public class h implements Observer {
         if (iVar == null) {
             return false;
         }
-        this.qt = iVar;
-        this.qN = gVar;
-        if (this.qt.dx() == b.RELATIVE && !this.qt.dz()) {
-            this.qS = true;
+        this.qS = iVar;
+        this.rm = gVar;
+        if (this.qS.dN() == b.RELATIVE && !this.qS.dP()) {
+            this.rr = true;
         }
         try {
-            if (this.qM == null) {
-                this.qM = a(this.qt.dx(), sensorManager);
+            if (this.rl == null) {
+                this.rl = a(this.qS.dN(), sensorManager);
             }
-            if (this.qM.dD()) {
-                this.qM.start();
+            if (this.rl.dT()) {
+                this.rl.start();
                 return true;
             }
             return false;
@@ -128,14 +128,14 @@ public class h implements Observer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void stop() {
-        if (this.qM != null && this.qt != null && this.qt.dx() == b.RELATIVE && !this.qT && this.qt.dz()) {
-            this.qR = this.qM.rk.matrix;
-            this.qT = true;
+        if (this.rl != null && this.qS != null && this.qS.dN() == b.RELATIVE && !this.rs && this.qS.dP()) {
+            this.rq = this.rl.rJ.matrix;
+            this.rs = true;
         }
         try {
-            dw();
-            this.qN = null;
-            this.qt = null;
+            dM();
+            this.rm = null;
+            this.qS = null;
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -144,24 +144,24 @@ public class h implements Observer {
     @Override // java.util.Observer
     public void update(Observable observable, Object obj) {
         try {
-            if (this.qt == null || this.qN == null) {
+            if (this.qS == null || this.rm == null) {
                 return;
             }
-            float[] fArr = this.qM.dE().matrix;
-            if (this.qt.dB() || this.qt.dA()) {
-                h(fArr);
+            float[] fArr = this.rl.dU().matrix;
+            if (this.qS.dR() || this.qS.dQ()) {
+                i(fArr);
             }
-            float[] dF = this.qM.dF();
+            float[] dV = this.rl.dV();
             f fVar = new f();
-            if (this.qt.dA()) {
-                fVar.setMatrix(this.qO);
+            if (this.qS.dQ()) {
+                fVar.setMatrix(this.rn);
             } else {
                 fVar.setMatrix(fArr);
             }
-            fVar.d(this.qI);
-            fVar.C(this.qt.dy());
-            fVar.g(dF);
-            this.qN.onImuUpdate(fVar);
+            fVar.f(this.rh);
+            fVar.I(this.qS.dO());
+            fVar.h(dV);
+            this.rm.onImuUpdate(fVar);
         } catch (Throwable th) {
             th.printStackTrace();
         }

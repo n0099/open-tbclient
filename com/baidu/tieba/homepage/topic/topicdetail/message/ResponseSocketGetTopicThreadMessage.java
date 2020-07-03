@@ -1,8 +1,8 @@
 package com.baidu.tieba.homepage.topic.topicdetail.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.widget.ListView.o;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.homepage.topic.topicdetail.b.c;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -12,14 +12,14 @@ import tbclient.NewTopicThread.TopicThread;
 /* loaded from: classes9.dex */
 public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage {
     private boolean hasMore;
-    private List<o> mDataList;
+    private List<q> mDataList;
 
     public ResponseSocketGetTopicThreadMessage() {
         super(309631);
         this.hasMore = false;
     }
 
-    public List<o> getDataList() {
+    public List<q> getDataList() {
         return this.mDataList;
     }
 
@@ -34,7 +34,7 @@ public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage 
         if (newTopicThreadResIdl != null) {
             setError(newTopicThreadResIdl.error.errorno.intValue());
             setErrorString(newTopicThreadResIdl.error.usermsg);
-            if (getError() == 0 && newTopicThreadResIdl.data != null && !v.isEmpty(newTopicThreadResIdl.data.thread_list)) {
+            if (getError() == 0 && newTopicThreadResIdl.data != null && !w.isEmpty(newTopicThreadResIdl.data.thread_list)) {
                 if (newTopicThreadResIdl.data.has_more.intValue() == 1) {
                     this.hasMore = true;
                 }

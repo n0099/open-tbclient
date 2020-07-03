@@ -10,6 +10,8 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.ThemeCardInUserData;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.coreExtra.data.BazhuGradeData;
 import com.baidu.tbadk.coreExtra.data.NewGodData;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -48,6 +50,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private GodUserData godUserData = new GodUserData();
     private UserTbVipInfoData bigVData = new UserTbVipInfoData();
     private NewGodData mNewGodData = new NewGodData();
+    private BazhuGradeData mBazhuGrade = new BazhuGradeData();
     private String userId = null;
     private int type = 0;
     private int level_id = 0;
@@ -73,7 +76,6 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private ThemeCardInUserData themeCard = new ThemeCardInUserData();
     private String sealPrefix = null;
     private int left_call_num = 0;
-    private boolean isBigGie = false;
     private BaijiahaoInfo baijiahaoInfo = null;
 
     public BaijiahaoInfo getBaijiahaoInfo() {
@@ -283,10 +285,6 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.bawu_type;
     }
 
-    public boolean getIs_biggie() {
-        return this.isBigGie;
-    }
-
     public int getIsMyFriend() {
         return this.is_myfriend;
     }
@@ -479,7 +477,6 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 this.virtualUserUrl = user.spring_virtual_user.url;
             }
             this.left_call_num = user.left_call_num.intValue();
-            this.isBigGie = user.is_videobiggie.intValue() == 1;
             this.baijiahaoInfo = user.baijiahao_info;
             this.canModifyAvatar = user.can_modify_avatar.intValue() == 0;
             this.cantModifyAvatarDesc = user.modify_avatar_desc;
@@ -488,6 +485,9 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             this.isMask = user.is_mask.intValue() == 1;
             if (user.new_god_data != null) {
                 this.mNewGodData.parserProtobuf(user.new_god_data);
+            }
+            if (user.bazhu_grade != null) {
+                this.mBazhuGrade.parserProtobuf(user.bazhu_grade);
             }
         }
     }
@@ -587,7 +587,6 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                     }
                 }
                 this.left_call_num = jSONObject.optInt("left_call_num", 0);
-                this.isBigGie = jSONObject.optInt("is_videobiggie", 0) == 1;
                 JSONObject optJSONObject5 = jSONObject.optJSONObject("baijiahao_info");
                 if (optJSONObject5 != null) {
                     BaijiahaoInfo.Builder builder = new BaijiahaoInfo.Builder();
@@ -599,12 +598,16 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                     builder.auth_desc = optJSONObject5.optString("auth_desc");
                     this.baijiahaoInfo = builder.build(false);
                 }
-                this.canModifyAvatar = jSONObject.optInt("can_modify_avatar") == 0;
-                this.cantModifyAvatarDesc = jSONObject.getString("modify_avatar_desc");
                 JSONObject optJSONObject6 = jSONObject.optJSONObject("new_god_data");
                 if (optJSONObject6 != null) {
                     this.mNewGodData.parserJson(optJSONObject6);
                 }
+                JSONObject optJSONObject7 = jSONObject.optJSONObject("bazhu_grade");
+                if (optJSONObject7 != null) {
+                    this.mBazhuGrade.parserJson(optJSONObject7);
+                }
+                this.canModifyAvatar = jSONObject.optInt("can_modify_avatar") == 0;
+                this.cantModifyAvatarDesc = jSONObject.getString("modify_avatar_desc");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -677,5 +680,17 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
 
     public boolean isNewGod() {
         return this.mNewGodData != null && this.mNewGodData.isNewGod();
+    }
+
+    public BazhuGradeData getBazhuGradeData() {
+        return this.mBazhuGrade;
+    }
+
+    public void setBazhuGradeData(BazhuGradeData bazhuGradeData) {
+        this.mBazhuGrade = bazhuGradeData;
+    }
+
+    public boolean showBazhuGrade() {
+        return ((this.baijiahaoInfo != null && (this.baijiahaoInfo.auth_id.intValue() != 0 || !ar.isEmpty(this.baijiahaoInfo.auth_desc))) || this.mBazhuGrade == null || ar.isEmpty(this.mBazhuGrade.getDesc())) ? false : true;
     }
 }

@@ -19,32 +19,32 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes9.dex */
 public class ChatAggregationFragment extends BaseFragment implements NoNetworkView.a, com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter iPu;
-    private e iPx;
+    private e jgA;
+    private ViewEventCenter jgx;
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (ChatAggregationFragment.this.iPx != null) {
-                    ChatAggregationFragment.this.iPx.pK(true);
+                if (ChatAggregationFragment.this.jgA != null) {
+                    ChatAggregationFragment.this.jgA.pU(true);
                 }
                 MentionActivityConfig.newJumpIn = true;
-                if (ChatAggregationFragment.this.iPx != null) {
-                    ChatAggregationFragment.this.iPx.cbI();
-                    ChatAggregationFragment.this.iPx.Z(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
+                if (ChatAggregationFragment.this.jgA != null) {
+                    ChatAggregationFragment.this.jgA.cfa();
+                    ChatAggregationFragment.this.jgA.aa(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
                 }
             }
         }
     };
-    private CustomMessageListener iPv = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.2
+    private CustomMessageListener jgy = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (ChatAggregationFragment.this.iPx != null) {
-                    ChatAggregationFragment.this.iPx.onNewIntent(intent);
+                if (ChatAggregationFragment.this.jgA != null) {
+                    ChatAggregationFragment.this.jgA.onNewIntent(intent);
                 }
             }
         }
@@ -52,26 +52,26 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.iPx = new e(this);
+        this.jgA = new e(this);
         if (bundle != null) {
-            this.iPx.ap(bundle);
+            this.jgA.aq(bundle);
         } else {
-            this.iPx.ap(null);
+            this.jgA.aq(null);
         }
-        View btW = this.iPx.btW();
-        this.iPx.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        bfn().addEventDelegate(this);
+        View bwR = this.jgA.bwR();
+        this.jgA.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        bhs().addEventDelegate(this);
         registerListener(this.mAccountChangedListener);
-        registerListener(this.iPv);
-        return btW;
+        registerListener(this.jgy);
+        return bwR;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         if (getActivity() != null && Z(getActivity().getIntent())) {
-            this.iPx.onNewIntent(getActivity().getIntent());
+            this.jgA.onNewIntent(getActivity().getIntent());
         } else {
-            this.iPx.cbI();
+            this.jgA.cfa();
         }
         super.onViewCreated(view, bundle);
     }
@@ -81,7 +81,7 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean beR() {
+    public boolean bgW() {
         return false;
     }
 
@@ -90,17 +90,17 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
         return bVar == null;
     }
 
-    public ViewEventCenter bfn() {
-        if (this.iPu == null) {
-            this.iPu = new ViewEventCenter();
+    public ViewEventCenter bhs() {
+        if (this.jgx == null) {
+            this.jgx = new ViewEventCenter();
         }
-        return this.iPu;
+        return this.jgx;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.iPx != null) {
-            this.iPx.b(getPageContext(), i);
+        if (this.jgA != null) {
+            this.jgA.b(getPageContext(), i);
         }
     }
 
@@ -141,16 +141,16 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
     public void onDestroy() {
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mAccountChangedListener);
-        MessageManager.getInstance().unRegisterListener(this.iPv);
-        if (this.iPx != null) {
-            this.iPx.bZX();
+        MessageManager.getInstance().unRegisterListener(this.jgy);
+        if (this.jgA != null) {
+            this.jgA.cdl();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
     public void onNetworkChange(boolean z) {
-        if (this.iPx != null) {
-            this.iPx.pI(z);
+        if (this.jgA != null) {
+            this.jgA.pS(z);
         }
     }
 }

@@ -5,12 +5,12 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 /* loaded from: classes3.dex */
 public class DuMixOutput {
-    private Object aV;
-    private boolean aW = false;
-    private c aX = c.CENTER_CROP;
-    private b aY = b.ROTATE_0;
-    private a aZ = a.NO_MIRRIOR;
-    private int ba = 0;
+    private Object bh;
+    private boolean bi = false;
+    private c bj = c.CENTER_CROP;
+    private b bk = b.ROTATE_0;
+    private a bl = a.NO_MIRRIOR;
+    private int bm = 0;
     private int mOutputHeight;
     private int mOutputWidth;
 
@@ -40,29 +40,29 @@ public class DuMixOutput {
     }
 
     public DuMixOutput(SurfaceTexture surfaceTexture, int i, int i2) {
-        this.aV = surfaceTexture;
+        this.bh = surfaceTexture;
         this.mOutputWidth = i;
         this.mOutputHeight = i2;
     }
 
     public DuMixOutput(Surface surface, int i, int i2) {
-        this.aV = surface;
+        this.bh = surface;
         this.mOutputWidth = i;
         this.mOutputHeight = i2;
     }
 
     public DuMixOutput(SurfaceHolder surfaceHolder, int i, int i2) {
-        this.aV = surfaceHolder;
+        this.bh = surfaceHolder;
         this.mOutputWidth = i;
         this.mOutputHeight = i2;
     }
 
     public a getMirriorType() {
-        return this.aZ;
+        return this.bl;
     }
 
     public int getOutputFPS() {
-        return this.ba;
+        return this.bm;
     }
 
     public int getOutputHeight() {
@@ -70,7 +70,7 @@ public class DuMixOutput {
     }
 
     public Object getOutputSurface() {
-        return this.aV;
+        return this.bh;
     }
 
     public int getOutputWidth() {
@@ -78,27 +78,27 @@ public class DuMixOutput {
     }
 
     public b getRotationType() {
-        return this.aY;
+        return this.bk;
     }
 
     public c getScaleType() {
-        return this.aX;
+        return this.bj;
     }
 
     public boolean isNeedDetach() {
-        return this.aW;
+        return this.bi;
     }
 
     public void setMirriorType(a aVar) {
-        this.aZ = aVar;
+        this.bl = aVar;
     }
 
     public void setNeedDetach(boolean z) {
-        this.aW = z;
+        this.bi = z;
     }
 
     public void setOutputFPS(int i) {
-        this.ba = i;
+        this.bm = i;
     }
 
     public void setOutputHeight(int i) {
@@ -106,15 +106,15 @@ public class DuMixOutput {
     }
 
     public void setOutputSurface(SurfaceTexture surfaceTexture) {
-        this.aV = surfaceTexture;
+        this.bh = surfaceTexture;
     }
 
     public void setOutputSurface(Surface surface) {
-        this.aV = surface;
+        this.bh = surface;
     }
 
     public void setOutputSurface(SurfaceHolder surfaceHolder) {
-        this.aV = surfaceHolder;
+        this.bh = surfaceHolder;
     }
 
     public void setOutputWidth(int i) {
@@ -122,10 +122,10 @@ public class DuMixOutput {
     }
 
     public void setRotationType(b bVar) {
-        this.aY = bVar;
+        this.bk = bVar;
     }
 
     public void setScaleType(c cVar) {
-        this.aX = cVar;
+        this.bj = cVar;
     }
 }

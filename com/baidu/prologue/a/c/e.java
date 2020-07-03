@@ -14,7 +14,7 @@ public final class e {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void NR();
+        void OX();
     }
 
     public static void c(InputStream inputStream, File file) throws IOException {
@@ -34,13 +34,13 @@ public final class e {
     }
 
     public static void a(final File file, String str, final a aVar) {
-        new Request.a(com.baidu.prologue.a.b.b.getAppContext(), str).ON().OM().a(new com.baidu.prologue.service.network.l() { // from class: com.baidu.prologue.a.c.e.1
+        new Request.a(com.baidu.prologue.a.b.b.getAppContext(), str).PT().PS().a(new com.baidu.prologue.service.network.l() { // from class: com.baidu.prologue.a.c.e.1
             @Override // com.baidu.prologue.service.network.l
             public void a(long j, InputStream inputStream) {
                 try {
                     e.c(inputStream, file);
                     if (aVar != null) {
-                        aVar.NR();
+                        aVar.OX();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -75,7 +75,7 @@ public final class e {
                 i = i3;
             }
             if (!file.delete()) {
-                f.bzz.e("FileUtil", "delete dir " + file.getAbsolutePath() + " failed.");
+                f.bEn.e("FileUtil", "delete dir " + file.getAbsolutePath() + " failed.");
             }
         }
         return i;

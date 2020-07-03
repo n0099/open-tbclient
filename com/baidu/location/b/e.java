@@ -41,7 +41,7 @@ public class e {
     private static String F = "";
     private LocationManager c = null;
     private c e = null;
-    private C0191e f = null;
+    private C0197e f = null;
     private b j = null;
     private boolean k = false;
     private d l = null;
@@ -275,14 +275,14 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.b.e$e  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0191e implements LocationListener {
+    public class C0197e implements LocationListener {
         private long b;
 
-        private C0191e() {
+        private C0197e() {
             this.b = 0L;
         }
 
-        /* synthetic */ C0191e(e eVar, f fVar) {
+        /* synthetic */ C0197e(e eVar, f fVar) {
             this();
         }
 
@@ -566,7 +566,7 @@ public class e {
                         this.c.addNmeaListener(this.l);
                     }
                 }
-                this.f = new C0191e(this, null);
+                this.f = new C0197e(this, null);
                 this.c.requestLocationUpdates("passive", 9000L, 0.0f, this.f);
             } catch (Exception e) {
             }

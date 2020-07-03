@@ -6,24 +6,24 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class d {
-    private final b mup;
-    private final int muq;
+    private final b mQo;
+    private final int mQp;
     @Nullable
-    private com.facebook.common.references.a<Bitmap> mur;
+    private com.facebook.common.references.a<Bitmap> mQq;
     @Nullable
-    private List<com.facebook.common.references.a<Bitmap>> mus;
+    private List<com.facebook.common.references.a<Bitmap>> mQr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(e eVar) {
-        this.mup = (b) g.checkNotNull(eVar.dxG());
-        this.muq = eVar.dxI();
-        this.mur = eVar.dxH();
-        this.mus = eVar.dxJ();
+        this.mQo = (b) g.checkNotNull(eVar.dCi());
+        this.mQp = eVar.dCk();
+        this.mQq = eVar.dCj();
+        this.mQr = eVar.dCl();
     }
 
     private d(b bVar) {
-        this.mup = (b) g.checkNotNull(bVar);
-        this.muq = 0;
+        this.mQo = (b) g.checkNotNull(bVar);
+        this.mQp = 0;
     }
 
     public static d a(b bVar) {
@@ -34,14 +34,14 @@ public class d {
         return new e(bVar);
     }
 
-    public b dxG() {
-        return this.mup;
+    public b dCi() {
+        return this.mQo;
     }
 
     public synchronized void dispose() {
-        com.facebook.common.references.a.c(this.mur);
-        this.mur = null;
-        com.facebook.common.references.a.b(this.mus);
-        this.mus = null;
+        com.facebook.common.references.a.c(this.mQq);
+        this.mQq = null;
+        com.facebook.common.references.a.b(this.mQr);
+        this.mQr = null;
     }
 }

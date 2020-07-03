@@ -3,6 +3,7 @@ package com.baidu.ar;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
@@ -10,10 +11,12 @@ import com.baidu.ala.dumixar.utils.LuaMessageHelper;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.auth.j;
 import com.baidu.ar.bean.ARConfig;
+import com.baidu.ar.bean.CaseModel;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.f.l;
 import com.baidu.ar.libloader.a;
 import com.baidu.ar.libloader.d;
+import com.baidu.ar.recorder.MovieRecorder;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
 import java.io.File;
@@ -24,166 +27,75 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class e {
-    static volatile boolean ag = false;
-    static volatile boolean ah = false;
-    private DuMixInput aa;
-    private DuMixOutput ab;
-    protected DuMixCallback ac;
-    private List<Integer> ad;
-    private com.baidu.ar.lua.c ae;
-    private com.baidu.ar.b af;
-    private a al;
-    private String am;
-    private String an;
-    private a ap;
-    private b aw;
-    private DefaultParams c;
-    private com.baidu.ar.lua.b e;
-    private com.baidu.ar.arrender.c f;
+    private com.baidu.ar.filter.a A;
+    private DuMixInput W;
+    private DuMixOutput aa;
+    protected DuMixCallback ab;
+    private List<Integer> ac;
+    private com.baidu.ar.lua.c ad;
+    private b ae;
+    private CaseModel ai;
+    private String aj;
+    private String ak;
+    private CaseModel am;
+    private a at;
+    private DefaultParams d;
+    private com.baidu.ar.lua.b f;
+    private com.baidu.ar.arrender.c g;
     private Context mContext;
-    private com.baidu.ar.filter.a w;
-    private boolean ai = false;
-    private boolean aj = false;
-    private boolean ak = false;
-    private volatile boolean ao = false;
+    private boolean af = false;
+    private boolean ag = false;
+    private boolean ah = false;
+    private volatile boolean al = false;
+    private boolean an = false;
+    private boolean ao = true;
+    private boolean ap = false;
     private boolean aq = false;
-    private boolean ar = true;
-    private boolean as = false;
-    private boolean at = false;
-    private boolean au = false;
-    private boolean av = true;
+    private boolean ar = false;
+    private boolean as = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
-    public class a {
-        ARType aA;
-        String aB;
-        String aC;
-
-        public a(ARType aRType, String str, String str2) {
-            this.aA = aRType;
-            this.aB = str;
-            this.aC = str2;
-        }
-
-        public boolean equals(Object obj) {
-            if (obj == null) {
-                return false;
-            }
-            if (super.equals(obj)) {
-                return true;
-            }
-            if (obj instanceof a) {
-                return (!TextUtils.isEmpty(this.aB) && this.aB.equals(((a) obj).aB)) || (TextUtils.isEmpty(this.aB) && !TextUtils.isEmpty(this.aC) && this.aC.equals(((a) obj).aC));
-            }
-            return false;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public class b extends Handler {
-        public b(Looper looper) {
+    public class a extends Handler {
+        public a(Looper looper) {
             super(looper);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
-                case 1001:
-                    com.baidu.ar.f.b.c("ControllerHelper", "MainThreadHandler MSG_CREATE_CASE");
-                    a aVar = (a) message.obj;
-                    e.this.c(aVar.aA, aVar.aB, aVar.aC);
+                case 4001:
+                    com.baidu.ar.f.b.c("ControllerHelper", "CaseHandler MSG_CREATE_CASE");
+                    CaseModel caseModel = (CaseModel) message.obj;
+                    e.this.c(caseModel.mCaseType, caseModel.mCasePath, caseModel.mCaseId);
                     return;
-                case 1002:
-                    com.baidu.ar.f.b.c("ControllerHelper", "MainThreadHandler MSG_DESTROY_CASE");
-                    e.this.F();
-                    if (e.this.w != null) {
-                        e.this.w.bc();
-                        return;
-                    }
-                    return;
-                case 1003:
-                    com.baidu.ar.f.b.c("ControllerHelper", "MainThreadHandler MSG_ON_FILTER_CREATE");
-                    e.this.ai = true;
-                    if (e.this.w != null && !e.this.at) {
-                        e.this.w.df();
-                    }
+                case MovieRecorder.ERROR_CODE_ON_STOP /* 4002 */:
+                    com.baidu.ar.f.b.c("ControllerHelper", "CaseHandler MSG_DESTROY_CASE");
                     e.this.I();
                     return;
-                case 1004:
-                    com.baidu.ar.f.b.c("ControllerHelper", "MainThreadHandler MSG_ON_FILTER_CHANGED");
-                    if (e.this.w != null) {
-                        e.this.w.d((List) ((HashMap) message.obj).get("filter_name_list"));
-                        return;
-                    }
+                case 4003:
+                    com.baidu.ar.f.b.c("ControllerHelper", "CaseHandler MSG_ON_FILTER_CREATE");
+                    e.this.J();
                     return;
-                case 1005:
-                    com.baidu.ar.f.b.c("ControllerHelper", "MainThreadHandler MSG_ON_ENGINE_CREATE");
-                    e.ag = false;
-                    if (e.this.af != null) {
-                        e.this.af.e();
-                    }
-                    if (e.this.f != null) {
-                        e.this.f.q(true);
-                    }
-                    e.this.aj = true;
-                    e.this.I();
+                case 4004:
+                    com.baidu.ar.f.b.c("ControllerHelper", "CaseHandler MSG_ON_FILTER_CHANGE");
+                    e.this.c((List) ((HashMap) message.obj).get("filter_name_list"));
                     return;
-                case 1006:
-                    com.baidu.ar.f.b.c("ControllerHelper", "MainThreadHandler MSG_ON_ENGINE_DESTROY");
-                    e.ah = false;
-                    if (e.this.ac != null) {
-                        e.this.ac.onRelease();
-                        e.this.ac = null;
-                        return;
-                    }
+                case 4005:
+                    com.baidu.ar.f.b.c("ControllerHelper", "CaseHandler MSG_ON_ENGINE_CREATE");
+                    e.this.K();
                     return;
-                case 1007:
-                    com.baidu.ar.f.b.c("ControllerHelper", "MainThreadHandler MSG_ON_CASE_CREATE");
-                    e.this.aq = true;
-                    e.this.at = false;
-                    if (e.this.af != null) {
-                        e.this.af.onCaseCreate(e.this.am + File.separator + "ar");
-                    }
-                    if ((e.this.as || e.this.au) && e.this.aw != null) {
-                        e.this.aw.removeMessages(1002);
-                        e.this.aw.sendMessage(e.this.aw.obtainMessage(1002));
-                    } else {
-                        e.this.ar = true;
-                    }
-                    if (e.this.ac != null) {
-                        e.this.ac.onCaseCreate(true, e.this.am, e.this.an);
-                        return;
-                    }
+                case 4006:
+                    com.baidu.ar.f.b.c("ControllerHelper", "CaseHandler MSG_ON_ENGINE_DESTROY");
+                    e.this.L();
                     return;
-                case 1008:
-                    com.baidu.ar.f.b.c("ControllerHelper", "MainThreadHandler MSG_ON_CASE_DESTROY");
-                    e.this.aq = false;
-                    e.this.G();
-                    if (e.this.af != null) {
-                        e.this.af.onCaseDestroy();
-                    }
-                    if (!e.this.as || e.this.ap == null || e.this.aw == null) {
-                        e.this.ar = true;
-                        e.this.am = null;
-                        e.this.an = null;
-                        if (e.this.w != null) {
-                            e.this.w.ae(e.this.am);
-                        }
-                    } else {
-                        e.this.at = true;
-                        a aVar2 = new a(e.this.ap.aA, e.this.ap.aB, e.this.ap.aC);
-                        e.this.aw.removeMessages(1001);
-                        e.this.aw.sendMessageDelayed(e.this.aw.obtainMessage(1001, aVar2), 100L);
-                    }
-                    e.this.ap = null;
-                    e.this.as = false;
-                    e.this.au = false;
-                    if (e.this.ac != null) {
-                        e.this.ac.onCaseDestroy();
-                        return;
-                    }
+                case 4007:
+                    com.baidu.ar.f.b.c("ControllerHelper", "CaseHandler MSG_ON_CASE_CREATE");
+                    e.this.M();
+                    return;
+                case 4008:
+                    com.baidu.ar.f.b.c("ControllerHelper", "CaseHandler MSG_ON_CASE_DESTROY");
+                    e.this.N();
                     return;
                 default:
                     return;
@@ -192,53 +104,53 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(Context context, DefaultParams defaultParams) {
+    public e(Context context, DefaultParams defaultParams, HandlerThread handlerThread) {
         this.mContext = context;
-        this.c = defaultParams;
-        this.aw = new b(context.getMainLooper());
+        this.d = defaultParams;
+        this.at = new a(handlerThread.getLooper());
     }
 
-    private void A() {
-        this.ad = Arrays.asList(12, 50, 6, 7, 8, 9);
-        this.ae = new com.baidu.ar.lua.c() { // from class: com.baidu.ar.e.3
+    private void B() {
+        this.ac = Arrays.asList(12, 50, 6, 7, 8, 9);
+        this.ad = new com.baidu.ar.lua.c() { // from class: com.baidu.ar.e.3
             @Override // com.baidu.ar.lua.c
             public void a(int i, int i2, HashMap<String, Object> hashMap) {
                 com.baidu.ar.f.b.c("ControllerHelper", "onEngineMessage msgType = " + i + " && msgId = " + i2);
                 switch (i) {
                     case 6:
-                        if (e.this.aw != null) {
-                            e.this.aw.sendMessage(e.this.aw.obtainMessage(1005));
+                        if (e.this.at != null) {
+                            e.this.at.sendMessage(e.this.at.obtainMessage(4005));
                             return;
                         }
                         return;
                     case 7:
-                        if (e.this.aw != null) {
-                            e.this.aw.sendMessage(e.this.aw.obtainMessage(1006));
+                        if (e.this.at != null) {
+                            e.this.at.sendMessage(e.this.at.obtainMessage(4006));
                             return;
                         }
                         return;
                     case 8:
-                        e.this.f.bd();
-                        if (e.this.aw != null) {
-                            e.this.aw.sendMessage(e.this.aw.obtainMessage(1007));
+                        e.this.g.br();
+                        if (e.this.at != null) {
+                            e.this.at.sendMessage(e.this.at.obtainMessage(4007));
                             return;
                         }
                         return;
                     case 9:
-                        if (e.this.aw != null) {
-                            e.this.aw.sendMessage(e.this.aw.obtainMessage(1008));
+                        if (e.this.at != null) {
+                            e.this.at.sendMessage(e.this.at.obtainMessage(4008));
                             return;
                         }
                         return;
                     case 12:
-                        if (e.this.aw != null) {
-                            e.this.aw.sendMessage(e.this.aw.obtainMessage(1003));
+                        if (e.this.at != null) {
+                            e.this.at.sendMessage(e.this.at.obtainMessage(4003));
                             return;
                         }
                         return;
                     case 50:
-                        if (e.this.aw != null) {
-                            e.this.aw.sendMessage(e.this.aw.obtainMessage(1004, hashMap));
+                        if (e.this.at != null) {
+                            e.this.at.sendMessage(e.this.at.obtainMessage(4004, hashMap));
                             return;
                         }
                         return;
@@ -249,55 +161,144 @@ public class e {
 
             @Override // com.baidu.ar.lua.c
             public List<Integer> n() {
-                return e.this.ad;
+                return e.this.ac;
             }
         };
-        if (this.e != null) {
-            this.e.c(this.ae);
+        if (this.f != null) {
+            this.f.c(this.ad);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void E() {
-        Bitmap createTipBitmap;
-        if (this.f == null || this.ab == null || (createTipBitmap = com.baidu.ar.auth.a.createTipBitmap(this.mContext)) == null) {
-            return;
-        }
-        float outputWidth = ((this.ab.getOutputWidth() * createTipBitmap.getHeight()) * 0.78125f) / (this.ab.getOutputHeight() * createTipBitmap.getWidth());
-        this.f.a(createTipBitmap, (1.0f - 0.78125f) / 2.0f, (0.25f - outputWidth) / 2.0f, 0.78125f, outputWidth);
+    private void C() {
+        com.baidu.ar.libloader.b.a(this.mContext, new a.b() { // from class: com.baidu.ar.e.4
+            @Override // com.baidu.ar.libloader.a.b
+            public void onSuccess() {
+            }
+        });
+    }
+
+    private void D() {
+        com.baidu.ar.auth.a.loadAuthInfo(this.mContext);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void F() {
-        G();
-        if (this.f != null) {
-            this.f.F();
+        Bitmap createTipBitmap;
+        if (this.g == null || this.aa == null || (createTipBitmap = com.baidu.ar.auth.a.createTipBitmap(this.mContext)) == null || this.g == null || this.aa == null) {
+            return;
         }
-        StatisticApi.onEventEnd(StatisticConstants.EVENT_CASE_END);
+        float outputWidth = ((this.aa.getOutputWidth() * createTipBitmap.getHeight()) * 0.78125f) / (this.aa.getOutputHeight() * createTipBitmap.getWidth());
+        this.g.a(createTipBitmap, (1.0f - 0.78125f) / 2.0f, (0.25f - outputWidth) / 2.0f, 0.78125f, outputWidth);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void G() {
-        if (this.af != null) {
-            if (this.as && this.ap != null && H()) {
-                this.af.g();
-            } else {
-                this.af.f();
-            }
+    private void G() {
+        if (this.ae == null) {
+            return;
+        }
+        if (this.ap && this.am != null && H()) {
+            this.ae.g();
+        } else {
+            this.ae.f();
         }
     }
 
     private boolean H() {
-        return (this.ap.aA == null || this.ap.aA == ARType.FACE) ? false : true;
+        return (this.am.mCaseType == null || this.am.mCaseType == ARType.FACE) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void I() {
-        if (!this.ai || !this.aj || this.ak || this.ac == null) {
+        G();
+        if (this.g != null) {
+            this.g.bv();
+        }
+        StatisticApi.onEventEnd(StatisticConstants.EVENT_CASE_END);
+        if (this.A != null) {
+            this.A.bq();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void J() {
+        this.af = true;
+        if (this.A != null && !this.aq) {
+            this.A.dv();
+        }
+        O();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void K() {
+        if (this.ae != null) {
+            this.ae.e();
+        }
+        if (this.g != null) {
+            this.g.p(true);
+        }
+        this.ag = true;
+        O();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void L() {
+        if (this.ab != null) {
+            this.ab.onRelease();
+            this.ab = null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void M() {
+        this.an = true;
+        this.aq = false;
+        if (this.ae != null) {
+            this.ae.onCaseCreate(this.aj + File.separator + "ar");
+        }
+        if ((this.ap || this.ar) && this.at != null) {
+            this.at.removeMessages(MovieRecorder.ERROR_CODE_ON_STOP);
+            this.at.sendMessage(this.at.obtainMessage(MovieRecorder.ERROR_CODE_ON_STOP));
+        } else {
+            this.ao = true;
+        }
+        if (this.ab != null) {
+            this.ab.onCaseCreate(true, this.aj, this.ak);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void N() {
+        this.an = false;
+        G();
+        if (this.ae != null) {
+            this.ae.onCaseDestroy();
+        }
+        if (!this.ap || this.am == null || this.at == null) {
+            this.ao = true;
+            this.aj = null;
+            this.ak = null;
+            if (this.A != null) {
+                this.A.af(this.aj);
+            }
+        } else {
+            this.aq = true;
+            CaseModel caseModel = new CaseModel(this.am.mCaseType, this.am.mCasePath, this.am.mCaseId);
+            this.at.removeMessages(4001);
+            this.at.sendMessageDelayed(this.at.obtainMessage(4001, caseModel), 100L);
+        }
+        this.am = null;
+        this.ap = false;
+        this.ar = false;
+        if (this.ab != null) {
+            this.ab.onCaseDestroy();
+        }
+    }
+
+    private void O() {
+        if (!this.af || !this.ag || this.ah || this.ab == null) {
             return;
         }
-        this.ak = true;
-        this.ac.onSetup(true, this.aa, this.ab);
+        this.ah = true;
+        this.ab.onSetup(true, this.W, this.aa);
     }
 
     private void a(String str, String str2, String str3) {
@@ -306,73 +307,80 @@ public class e {
         HashMap hashMap2 = new HashMap();
         hashMap2.put(str2, str3);
         hashMap.put("event_data", hashMap2);
-        if (this.e != null) {
-            this.e.b(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
+        if (this.f != null) {
+            this.f.b(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(ARType aRType, String str, String str2) {
-        com.baidu.ar.f.b.c("ControllerHelper", "executeLoadCase arType = " + aRType + " && casePath = " + str + "&& mLoadCaseEnable = " + this.ar + " && mCaseSwitched = " + this.as);
+        com.baidu.ar.f.b.c("ControllerHelper", "executeLoadCase arType = " + aRType + " && casePath = " + str + "&& mLoadCaseEnable = " + this.ao + " && mCaseSwitched = " + this.ap);
         if (!ARType.ON_DEVICE_IR.equals(aRType) && !ARType.CLOUD_IR.equals(aRType) && TextUtils.isEmpty(str)) {
             com.baidu.ar.f.b.b("ControllerHelper", "casePath is empty!!!");
-            if (this.ac != null) {
-                this.ac.onCaseCreate(false, str, str2);
+            if (this.ab != null) {
+                this.ab.onCaseCreate(false, str, str2);
             }
-        } else if (this.ao) {
+        } else if (this.al) {
             com.baidu.ar.f.b.b("ControllerHelper", "auth rejected");
         } else {
-            a aVar = new a(aRType, str + File.separator + "ar", str2);
-            if (this.ar) {
-                this.ar = false;
-                com.baidu.ar.f.b.c("ControllerHelper", "executeLoadCase mCaseLoaded = " + this.aq);
-                if (this.aq) {
-                    this.ap = aVar;
-                    this.as = true;
-                    this.aw.sendMessage(this.aw.obtainMessage(1002));
+            CaseModel caseModel = new CaseModel(aRType, str + File.separator + "ar", str2);
+            if (this.ao) {
+                this.ao = false;
+                com.baidu.ar.f.b.c("ControllerHelper", "executeLoadCase mCaseLoaded = " + this.an);
+                if (this.an) {
+                    this.am = caseModel;
+                    this.ap = true;
+                    this.at.sendMessage(this.at.obtainMessage(MovieRecorder.ERROR_CODE_ON_STOP));
                 } else {
-                    this.aw.sendMessage(this.aw.obtainMessage(1001, aVar));
+                    this.at.sendMessage(this.at.obtainMessage(4001, caseModel));
                 }
             } else {
-                this.ap = aVar;
-                this.as = true;
+                this.am = caseModel;
+                this.ap = true;
             }
-            this.au = false;
+            this.ar = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(ARType aRType, String str, String str2) {
-        if (this.ao) {
-            com.baidu.ar.f.b.b("ControllerHelper", "createCase ignored; auth rejected");
+        if (this.al) {
+            com.baidu.ar.f.b.b("ControllerHelper", "handleCreateCase ignored; auth rejected");
             return;
         }
         if (aRType != null) {
             ARConfig.setARType(aRType.getTypeValue());
         }
         ARConfig.setARKey(str2);
-        if (this.av) {
-            this.av = false;
+        if (this.as) {
+            this.as = false;
             StatisticApi.onEvent(StatisticConstants.EVENT_CASE_FIRST);
         }
         StatisticApi.onEventStart(StatisticConstants.EVENT_CASE_START);
-        if (this.f != null && !TextUtils.isEmpty(str)) {
-            this.am = str.substring(0, str.lastIndexOf(File.separator + "ar"));
-            this.an = str2;
-            if (this.w != null) {
-                this.w.ae(this.am);
+        if (this.g != null && !TextUtils.isEmpty(str)) {
+            this.aj = str.substring(0, str.lastIndexOf(File.separator + "ar"));
+            this.ak = str2;
+            if (this.A != null) {
+                this.A.af(this.aj);
             }
-            if (this.c.isUseInputSizeInEngine() || aRType == ARType.FACE || aRType == ARType.VPAS) {
-                this.f.r(false);
+            if (this.d.isUseInputSizeInEngine() || aRType == ARType.FACE || aRType == ARType.VPAS) {
+                this.g.q(false);
             } else {
-                this.f.r(true);
+                this.g.q(true);
             }
-            this.f.I(str);
+            this.g.I(str);
         }
-        if (aRType == null || this.af == null) {
+        if (aRType == null || this.ae == null) {
             return;
         }
-        this.af.a(aRType, str);
+        this.ae.a(aRType);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(List<String> list) {
+        if (this.A != null) {
+            this.A.f(list);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -389,36 +397,31 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void B() {
-        com.baidu.ar.libloader.b.a(this.mContext, new a.b() { // from class: com.baidu.ar.e.4
-            @Override // com.baidu.ar.libloader.a.b
-            public void onSuccess() {
-            }
-        });
+    public void A() {
+        if (this.at != null) {
+            this.at.removeCallbacksAndMessages(null);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void C() {
-        com.baidu.ar.auth.a.loadAuthInfo(this.mContext);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void D() {
+    public void E() {
         com.baidu.ar.auth.a.doAuth(this.mContext, new j() { // from class: com.baidu.ar.e.7
-            private boolean az = false;
+            private boolean aw = false;
 
             @Override // com.baidu.ar.auth.j
             public void onError(String str, int i) {
                 com.baidu.ar.f.b.b("ControllerHelper", String.format("auth fail feature: %d msg: %s", Integer.valueOf(i), str));
                 if (i == 0) {
-                    e.this.ao = true;
-                    e.this.F();
+                    e.this.al = true;
+                    if (e.this.at != null) {
+                        e.this.at.sendMessage(e.this.at.obtainMessage(MovieRecorder.ERROR_CODE_ON_STOP));
+                    }
                 }
-                if (this.az || !com.baidu.ar.auth.a.isShowAuthTip()) {
+                if (this.aw || !com.baidu.ar.auth.a.isShowAuthTip()) {
                     return;
                 }
-                this.az = true;
-                e.this.E();
+                this.aw = true;
+                e.this.F();
             }
 
             @Override // com.baidu.ar.auth.j
@@ -440,8 +443,8 @@ public class e {
             dVar.a(new d.a() { // from class: com.baidu.ar.e.2
                 @Override // com.baidu.ar.libloader.d.a
                 public void a(String str, String str2) {
-                    if (e.this.ac != null) {
-                        e.this.ac.onError(DuMixErrorType.LibraryError, str2, str);
+                    if (e.this.ab != null) {
+                        e.this.ab.onError(DuMixErrorType.LibraryError, str2, str);
                     }
                 }
             });
@@ -457,8 +460,8 @@ public class e {
                 @Override // com.baidu.ar.callback.ICallbackWith
                 /* renamed from: k */
                 public void run(String str) {
-                    if (e.this.ac != null) {
-                        e.this.ac.onError(DuMixErrorType.AbilitySchemeFetchFail, str, null);
+                    if (e.this.ab != null) {
+                        e.this.ab.onError(DuMixErrorType.AbilitySchemeFetchFail, str, null);
                     }
                 }
             });
@@ -467,11 +470,11 @@ public class e {
                 @Override // com.baidu.ar.callback.ICallbackWith
                 /* renamed from: b */
                 public void run(JSONObject jSONObject) {
-                    if (e.this.f != null) {
+                    if (e.this.g != null) {
                         if (jSONObject != null) {
-                            e.this.f.a(jSONObject);
+                            e.this.g.a(jSONObject);
                         } else if (bVar != null) {
-                            e.this.f.setLocalDeviceGrade(bVar.Q());
+                            e.this.g.setLocalDeviceGrade(bVar.ae());
                         }
                     }
                 }
@@ -480,30 +483,26 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(com.baidu.ar.arrender.c cVar, com.baidu.ar.b bVar, com.baidu.ar.filter.a aVar, com.baidu.ar.lua.b bVar2) {
-        this.f = cVar;
-        this.af = bVar;
-        this.w = aVar;
-        this.e = bVar2;
+    public void a(com.baidu.ar.arrender.c cVar, b bVar, com.baidu.ar.filter.a aVar, com.baidu.ar.lua.b bVar2) {
+        this.g = cVar;
+        this.ae = bVar;
+        this.A = aVar;
+        this.f = bVar2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void clearCase() {
-        if (ag || ah) {
-            com.baidu.ar.f.b.b("ControllerHelper", "clearCase DuMix has not setup!!!!!!");
-            return;
-        }
-        com.baidu.ar.f.b.c("ControllerHelper", "clearCase mLoadCaseEnable = " + this.ar + " && mCaseLoaded = " + this.aq);
-        if (this.ar && this.aq) {
-            this.ar = false;
-            if (this.aw != null) {
-                this.aw.sendMessage(this.aw.obtainMessage(1002));
+        com.baidu.ar.f.b.c("ControllerHelper", "clearCase mLoadCaseEnable = " + this.ao + " && mCaseLoaded = " + this.an);
+        if (this.ao && this.an) {
+            this.ao = false;
+            if (this.at != null) {
+                this.at.sendMessage(this.at.obtainMessage(MovieRecorder.ERROR_CODE_ON_STOP));
             }
         } else {
-            this.ap = null;
-            this.au = true;
+            this.am = null;
+            this.ar = true;
         }
-        this.al = null;
+        this.ai = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -518,61 +517,49 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void loadCase(ARType aRType, String str, String str2) {
-        if (this.ao) {
+        if (this.al) {
             com.baidu.ar.f.b.b("ControllerHelper", "auth rejected");
-        } else if (this.aw == null || ag || ah) {
-            com.baidu.ar.f.b.b("ControllerHelper", "loadCase DuMix has not setup!!!!!!");
-            if (this.ac != null) {
-                this.ac.onCaseCreate(false, str, str2);
-            }
-        } else {
-            a aVar = new a(aRType, str, str2);
-            if (this.al == null || !aVar.equals(this.al)) {
-                this.al = aVar;
-                com.baidu.ar.libloader.b.a(aRType, str, str2, new a.InterfaceC0084a() { // from class: com.baidu.ar.e.1
-                    @Override // com.baidu.ar.libloader.a.InterfaceC0084a
-                    public void a(ARType aRType2, String str3, String str4) {
-                        e.this.b(aRType2, str3, str4);
-                    }
-                });
-                return;
-            }
-            com.baidu.ar.f.b.c("ControllerHelper", "loadCase() case has loaded!!!");
-            if (this.ac != null) {
-                this.ac.onCaseCreate(true, str, str2);
-            }
+            return;
+        }
+        CaseModel caseModel = new CaseModel(aRType, str, str2);
+        if (this.ai == null || !caseModel.equals(this.ai)) {
+            this.ai = caseModel;
+            com.baidu.ar.libloader.b.a(aRType, str, str2, new a.InterfaceC0085a() { // from class: com.baidu.ar.e.1
+                @Override // com.baidu.ar.libloader.a.InterfaceC0085a
+                public void a(ARType aRType2, String str3, String str4) {
+                    e.this.b(aRType2, str3, str4);
+                }
+            });
+            return;
+        }
+        com.baidu.ar.f.b.c("ControllerHelper", "loadCase() case has loaded!!!");
+        if (this.ab != null) {
+            this.ab.onCaseCreate(true, str, str2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void release() {
-        this.f = null;
-        this.af = null;
-        this.w = null;
-        this.aa = null;
-        this.ab = null;
-        this.mContext = null;
-        this.c = null;
-        this.ad = null;
+        this.g = null;
         this.ae = null;
-        this.e = null;
-        ah = false;
-        ag = false;
-        this.aw = null;
+        this.A = null;
+        this.W = null;
+        this.aa = null;
+        this.mContext = null;
+        this.d = null;
+        this.ac = null;
+        this.ad = null;
+        this.f = null;
+        this.at = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setup(DuMixInput duMixInput, DuMixOutput duMixOutput, DuMixCallback duMixCallback) {
-        this.aa = duMixInput;
-        this.ab = duMixOutput;
-        this.ac = duMixCallback;
-        A();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void v() {
-        if (this.aw != null) {
-            this.aw.removeCallbacksAndMessages(null);
-        }
+        this.W = duMixInput;
+        this.aa = duMixOutput;
+        this.ab = duMixCallback;
+        B();
+        D();
+        C();
     }
 }

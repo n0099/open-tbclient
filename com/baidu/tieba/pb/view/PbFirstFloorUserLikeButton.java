@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
-    protected String dYD;
-    protected String dYE;
-    private com.baidu.tbadk.core.view.commonBtn.c kgD;
-    private com.baidu.tbadk.core.view.commonBtn.c kgE;
-    public View.OnClickListener kgF;
+    protected String egF;
+    protected String egG;
+    private com.baidu.tbadk.core.view.commonBtn.c kAq;
+    private com.baidu.tbadk.core.view.commonBtn.c kAr;
+    public View.OnClickListener kAs;
 
     public PbFirstFloorUserLikeButton(Context context) {
         super(context);
@@ -31,21 +31,21 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     private void init() {
-        this.dYD = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.dYE = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.egF = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.egG = TbadkCoreApplication.getInst().getString(R.string.attention);
         setTextSize(R.dimen.tbds36);
-        setText(this.dYE);
-        this.kgD = new com.baidu.tbadk.core.view.commonBtn.c();
-        this.kgD.mk(R.color.cp_link_tip_a);
-        this.kgD.k(R.drawable.ic_icon_pure_add12_svg, 0, true);
-        this.kgD.mh(l.getDimens(getContext(), R.dimen.tbds36));
-        this.kgE = new com.baidu.tbadk.core.view.commonBtn.c();
-        this.kgE.mm(R.color.cp_cont_d);
-        setConfig(this.kgD);
+        setText(this.egG);
+        this.kAq = new com.baidu.tbadk.core.view.commonBtn.c();
+        this.kAq.mC(R.color.cp_link_tip_a);
+        this.kAq.k(R.drawable.ic_icon_pure_add12_svg, 0, true);
+        this.kAq.my(l.getDimens(getContext(), R.dimen.tbds36));
+        this.kAr = new com.baidu.tbadk.core.view.commonBtn.c();
+        this.kAr.mE(R.color.cp_cont_d);
+        setConfig(this.kAq);
     }
 
     public void setFollowIconSize(int i) {
-        this.kgD.mh(i);
+        this.kAq.my(i);
     }
 
     @Override // android.view.View
@@ -53,19 +53,19 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
         super.setVisibility(i);
     }
 
-    public void hr(boolean z) {
-        if (!(this.dYe instanceof Boolean) || ((Boolean) this.dYe).booleanValue() != z) {
-            this.dYe = Boolean.valueOf(z);
+    public void hA(boolean z) {
+        if (!(this.ege instanceof Boolean) || ((Boolean) this.ege).booleanValue() != z) {
+            this.ege = Boolean.valueOf(z);
             if (z) {
                 setVisibility(8);
                 setClickable(false);
-                setText(this.dYD);
-                setConfig(this.kgE);
+                setText(this.egF);
+                setConfig(this.kAr);
             } else {
                 setVisibility(0);
                 setClickable(true);
-                setText(this.dYE);
-                setConfig(this.kgD);
+                setText(this.egG);
+                setConfig(this.kAq);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -73,22 +73,22 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void r(boolean z, int i) {
-        hr(z);
+        hA(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void a(boolean z, int i, boolean z2) {
-        hr(z);
+        hA(z);
         setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void mq(int i) {
+    public void mK(int i) {
     }
 
     public void bc(View view) {
-        if (this.kgF != null) {
-            this.kgF.onClick(view);
+        if (this.kAs != null) {
+            this.kAs.onClick(view);
         }
     }
 
@@ -98,6 +98,6 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     public void onChangeSkinType(int i) {
-        aWr();
+        aYj();
     }
 }

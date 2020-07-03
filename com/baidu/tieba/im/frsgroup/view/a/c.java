@@ -4,16 +4,16 @@ import android.view.View;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.f;
-import com.baidu.tieba.frs.ao;
-import com.baidu.tieba.frs.as;
-import com.baidu.tieba.frs.av;
-import com.baidu.tieba.frs.k;
-import com.baidu.tieba.frs.p;
+import com.baidu.tieba.frs.at;
+import com.baidu.tieba.frs.ay;
+import com.baidu.tieba.frs.bb;
+import com.baidu.tieba.frs.m;
+import com.baidu.tieba.frs.r;
 import com.baidu.tieba.im.frsgroup.d;
 import com.baidu.tieba.im.frsgroup.h;
 import java.util.ArrayList;
@@ -21,164 +21,164 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class c implements BdListView.e, NoNetworkView.a, f.c {
-    private String evm;
-    private av hjL;
-    private b iCE;
-    private String iCH;
-    private ao iCI;
+    private String eEs;
+    private bb hvT;
+    private b iTI;
+    private String iTL;
+    private at iTM;
     private int mPageType;
     private final BdUniqueId pageId = BdUniqueId.gen();
-    private List<o> hjG = new ArrayList();
-    private boolean iCG = true;
-    private View.OnClickListener iCJ = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.view.a.c.1
+    private List<q> hvO = new ArrayList();
+    private boolean iTK = true;
+    private View.OnClickListener iTN = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.view.a.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.iCG = true;
-            c.this.bTy();
+            c.this.iTK = true;
+            c.this.bWu();
         }
     };
-    private ao iCK = new ao() { // from class: com.baidu.tieba.im.frsgroup.view.a.c.2
-        @Override // com.baidu.tieba.frs.ao
-        public void a(int i, int i2, av avVar, ArrayList<o> arrayList) {
-            if (avVar == null) {
-                c.this.iCE.completePullRefresh();
-                c.this.iCE.hideLoadingView();
+    private at iTO = new at() { // from class: com.baidu.tieba.im.frsgroup.view.a.c.2
+        @Override // com.baidu.tieba.frs.at
+        public void a(int i, int i2, bb bbVar, ArrayList<q> arrayList) {
+            if (bbVar == null) {
+                c.this.iTI.completePullRefresh();
+                c.this.iTI.hideLoadingView();
                 return;
             }
-            c.this.hjL = avVar;
-            if ((c.this.hjL.pn == 0 || c.this.hjL.pn == 1) && c.this.hjL.hasMore && !c.this.hjL.isLocal) {
-                c.this.bqx();
+            c.this.hvT = bbVar;
+            if ((c.this.hvT.pn == 0 || c.this.hvT.pn == 1) && c.this.hvT.hasMore && !c.this.hvT.isLocal) {
+                c.this.btu();
                 return;
             }
             if (arrayList != null) {
-                Iterator<o> it = arrayList.iterator();
+                Iterator<q> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    o next = it.next();
-                    if ((next instanceof k) || (next instanceof p)) {
+                    q next = it.next();
+                    if ((next instanceof m) || (next instanceof r)) {
                         it.remove();
                     }
                 }
             }
-            if (c.this.iCI != null) {
-                c.this.iCI.a(i, i2, avVar, arrayList);
+            if (c.this.iTM != null) {
+                c.this.iTM.a(i, i2, bbVar, arrayList);
             }
-            if (v.isEmpty(arrayList)) {
-                if (c.this.iCG) {
-                    c.this.iCE.hideLoadingView();
-                    c.this.iCE.a(c.this.hjL.errMsg, c.this.iCJ);
+            if (w.isEmpty(arrayList)) {
+                if (c.this.iTK) {
+                    c.this.iTI.hideLoadingView();
+                    c.this.iTI.a(c.this.hvT.errMsg, c.this.iTN);
                 } else {
-                    c.this.iCE.completePullRefresh();
-                    c.this.iCE.cdW();
+                    c.this.iTI.completePullRefresh();
+                    c.this.iTI.cht();
                 }
             } else {
-                c.this.hjG = arrayList;
-                c.this.iCE.cI(c.this.hjG);
-                if (v.getCount(c.this.hjG) != 1 || !(v.getItem(c.this.hjG, 0) instanceof h)) {
-                    if (c.this.hjL.hasMore) {
-                        c.this.iCE.cdV();
+                c.this.hvO = arrayList;
+                c.this.iTI.cS(c.this.hvO);
+                if (w.getCount(c.this.hvO) != 1 || !(w.getItem(c.this.hvO, 0) instanceof h)) {
+                    if (c.this.hvT.hasMore) {
+                        c.this.iTI.chs();
                     } else {
-                        c.this.iCE.cdX();
+                        c.this.iTI.chu();
                     }
                 } else {
-                    c.this.iCE.cmW();
+                    c.this.iTI.cqL();
                 }
-                if (c.this.iCG) {
-                    c.this.iCE.hideLoadingView();
+                if (c.this.iTK) {
+                    c.this.iTI.hideLoadingView();
                 } else {
-                    c.this.iCE.completePullRefresh();
+                    c.this.iTI.completePullRefresh();
                 }
             }
-            c.this.iCG = false;
+            c.this.iTK = false;
         }
     };
-    private d iCF = new d();
+    private d iTJ = new d();
 
     public c(TbPageContext<?> tbPageContext) {
-        this.iCE = new b(tbPageContext, this);
-        this.iCF.setTag(this.pageId);
-        this.iCF.init();
-        this.iCF.a(this.iCK);
+        this.iTI = new b(tbPageContext, this);
+        this.iTJ.setTag(this.pageId);
+        this.iTJ.init();
+        this.iTJ.a(this.iTO);
     }
 
-    public void dk(List<com.baidu.adp.widget.ListView.a> list) {
-        if (this.iCE != null) {
-            this.iCE.dj(list);
+    public void dy(List<com.baidu.adp.widget.ListView.a> list) {
+        if (this.iTI != null) {
+            this.iTI.dx(list);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
     public void onNetworkChange(boolean z) {
-        if (this.iCE != null) {
-            this.iCE.pk(z);
+        if (this.iTI != null) {
+            this.iTI.pu(z);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        cmY();
+        cqN();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         if (!j.isNetWorkAvailable()) {
-            this.iCE.cdW();
+            this.iTI.cht();
         }
-        if (this.hjL != null) {
-            if (!this.hjL.hasMore) {
-                this.iCE.cdX();
+        if (this.hvT != null) {
+            if (!this.hvT.hasMore) {
+                this.iTI.chu();
             } else {
-                bqx();
+                btu();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bqx() {
-        if (this.hjL != null) {
-            as asVar = new as();
-            asVar.forumName = this.iCH;
-            asVar.forumId = this.evm;
-            this.hjL.pn++;
-            asVar.pn = this.hjL.pn;
-            this.iCF.a(4, this.mPageType, asVar);
+    public void btu() {
+        if (this.hvT != null) {
+            ay ayVar = new ay();
+            ayVar.forumName = this.iTL;
+            ayVar.forumId = this.eEs;
+            this.hvT.pn++;
+            ayVar.pn = this.hvT.pn;
+            this.iTJ.a(4, this.mPageType, ayVar);
         }
     }
 
-    private void cmY() {
-        as asVar = new as();
-        asVar.forumName = this.iCH;
-        asVar.forumId = this.evm;
-        asVar.pn = -1;
-        this.iCF.a(4, this.mPageType, asVar);
+    private void cqN() {
+        ay ayVar = new ay();
+        ayVar.forumName = this.iTL;
+        ayVar.forumId = this.eEs;
+        ayVar.pn = -1;
+        this.iTJ.a(4, this.mPageType, ayVar);
     }
 
     public void j(int i, String str, String str2) {
         this.mPageType = i;
-        this.evm = str;
-        this.iCH = str2;
+        this.eEs = str;
+        this.iTL = str2;
     }
 
-    public void bTy() {
-        if (this.iCG) {
-            this.iCE.bqQ();
-            this.iCE.showLoadingView();
-            cmY();
+    public void bWu() {
+        if (this.iTK) {
+            this.iTI.btN();
+            this.iTI.showLoadingView();
+            cqN();
         }
     }
 
     public View getView() {
-        return this.iCE.getRootView();
+        return this.iTI.getRootView();
     }
 
     public void onChangeSkinType(int i) {
-        this.iCE.onChangeSkinType(i);
+        this.iTI.onChangeSkinType(i);
     }
 
     public void onDestroy() {
-        this.iCF.bwk();
+        this.iTJ.bzf();
     }
 
-    public void b(ao aoVar) {
-        this.iCI = aoVar;
+    public void b(at atVar) {
+        this.iTM = atVar;
     }
 }

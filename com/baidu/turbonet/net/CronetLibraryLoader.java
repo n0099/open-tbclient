@@ -13,11 +13,11 @@ import java.util.List;
 /* loaded from: classes.dex */
 class CronetLibraryLoader {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final Object mdv;
-    private static final HandlerThread mdw;
-    private static volatile boolean mdx;
-    private static boolean mdy;
-    private static List<Runnable> mdz;
+    private static final Object mzk;
+    private static final HandlerThread mzl;
+    private static volatile boolean mzm;
+    private static boolean mzn;
+    private static List<Runnable> mzo;
 
     private static native void nativeCronetInitOnInitThread();
 
@@ -29,19 +29,19 @@ class CronetLibraryLoader {
 
     static {
         $assertionsDisabled = !CronetLibraryLoader.class.desiredAssertionStatus();
-        mdv = new Object();
-        mdw = new HandlerThread("TurboNetInit");
-        mdx = false;
-        mdy = false;
-        mdz = new ArrayList();
+        mzk = new Object();
+        mzl = new HandlerThread("TurboNetInit");
+        mzm = false;
+        mzn = false;
+        mzo = new ArrayList();
     }
 
     CronetLibraryLoader() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long dqs() {
-        if (mdy) {
+    public static long duX() {
+        if (mzn) {
             return nativeGetTurboNetHandler();
         }
         return 0L;
@@ -49,57 +49,57 @@ class CronetLibraryLoader {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(final Context context, TurbonetEngine.Builder builder) {
-        synchronized (mdv) {
-            if (!mdx) {
-                mdx = true;
-                ContextUtils.fB(context.getApplicationContext());
-                builder.drk();
-                ContextUtils.dqd();
+        synchronized (mzk) {
+            if (!mzm) {
+                mzm = true;
+                ContextUtils.fC(context.getApplicationContext());
+                builder.dvP();
+                ContextUtils.duI();
                 com.baidu.turbonet.base.a.g("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
-                ContextUtils.fB(context.getApplicationContext());
-                if (!mdw.isAlive()) {
-                    mdw.start();
+                ContextUtils.fC(context.getApplicationContext());
+                if (!mzl.isAlive()) {
+                    mzl.start();
                 }
                 D(new Runnable() { // from class: com.baidu.turbonet.net.CronetLibraryLoader.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        CronetLibraryLoader.fE(context);
+                        CronetLibraryLoader.fF(context);
                     }
                 });
             }
         }
     }
 
-    private static boolean dqt() {
-        return mdw.getLooper() == Looper.myLooper();
+    private static boolean duY() {
+        return mzl.getLooper() == Looper.myLooper();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void fE(Context context) {
-        if (!$assertionsDisabled && !mdx) {
+    public static void fF(Context context) {
+        if (!$assertionsDisabled && !mzm) {
             throw new AssertionError();
         }
-        if (!$assertionsDisabled && !dqt()) {
+        if (!$assertionsDisabled && !duY()) {
             throw new AssertionError();
         }
-        if (!mdy) {
+        if (!mzn) {
             NetworkChangeNotifier.init(context);
-            NetworkChangeNotifier.dqP();
+            NetworkChangeNotifier.dvu();
             nativeCronetInitOnInitThread();
-            for (Runnable runnable : mdz) {
+            for (Runnable runnable : mzo) {
                 runnable.run();
             }
-            mdz.clear();
-            mdy = true;
+            mzo.clear();
+            mzn = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void D(Runnable runnable) {
-        if (dqt()) {
+        if (duY()) {
             runnable.run();
         } else {
-            new Handler(mdw.getLooper()).post(runnable);
+            new Handler(mzl.getLooper()).post(runnable);
         }
     }
 }

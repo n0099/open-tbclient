@@ -12,7 +12,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static Boolean bYm = null;
+    private static Boolean cdb = null;
 
     public b(j jVar) {
         super(jVar);
@@ -21,7 +21,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
     @Override // com.baidu.swan.apps.core.pms.b.a, com.baidu.swan.pms.c.f
     public void a(String str, Map<String, String> map, Map<String, String> map2, f.a aVar) {
         log("buildGetRequest");
-        if (aai()) {
+        if (abo()) {
             a("pms_http_with_ipc_action_build_get_request", str, map, map2, null, aVar);
         } else {
             super.a(str, map, map2, aVar);
@@ -31,34 +31,34 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
     @Override // com.baidu.swan.apps.core.pms.b.a, com.baidu.swan.pms.c.f
     public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, f.a aVar) {
         log("buildJsonPostRequest");
-        if (aai()) {
+        if (abo()) {
             a("pms_http_with_ipc_action_build_json_post_request", str, map, map2, jSONObject, aVar);
         } else {
             super.a(str, map, map2, jSONObject, aVar);
         }
     }
 
-    boolean aai() {
-        if (bYm == null) {
-            bYm = Boolean.valueOf(com.baidu.swan.apps.u.a.aeU().getSwitch("swan_pms_proxy", false));
+    boolean abo() {
+        if (cdb == null) {
+            cdb = Boolean.valueOf(com.baidu.swan.apps.u.a.aga().getSwitch("swan_pms_proxy", false));
         }
-        log("shouldIpcProxy: " + bYm);
-        return bYm.booleanValue();
+        log("shouldIpcProxy: " + cdb);
+        return cdb.booleanValue();
     }
 
     private void a(@NonNull String str, String str2, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, f.a aVar) {
         log("ipcHttp");
         String jSONObject2 = jSONObject == null ? "" : jSONObject.toString();
         final a aVar2 = new a(aVar);
-        com.baidu.swan.apps.process.b.b bs = com.baidu.swan.apps.process.b.c.mU("pms_http_with_ipc").bs("pms_http_with_ipc_key_action", str);
+        com.baidu.swan.apps.process.b.b bu = com.baidu.swan.apps.process.b.c.nc("pms_http_with_ipc").bu("pms_http_with_ipc_key_action", str);
         if (TextUtils.isEmpty(str2)) {
             str2 = "";
         }
-        com.baidu.swan.apps.process.b.b bs2 = bs.bs("pms_http_with_ipc_key_url", str2);
+        com.baidu.swan.apps.process.b.b bu2 = bu.bu("pms_http_with_ipc_key_url", str2);
         if (TextUtils.isEmpty(jSONObject2)) {
             jSONObject2 = "";
         }
-        com.baidu.swan.apps.process.b.b l = bs2.bs("pms_http_with_ipc_keyjson_body", jSONObject2).e("pms_http_with_ipc_key_url_param_map", p(map)).e("pms_http_with_ipc_key_header_param_map", p(map2)).eG(true).m(aVar2).l(new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.process.b.b>() { // from class: com.baidu.swan.apps.core.pms.b.b.1
+        com.baidu.swan.apps.process.b.b l = bu2.bu("pms_http_with_ipc_keyjson_body", jSONObject2).e("pms_http_with_ipc_key_url_param_map", p(map)).e("pms_http_with_ipc_key_header_param_map", p(map2)).eL(true).m(aVar2).l(new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.process.b.b>() { // from class: com.baidu.swan.apps.core.pms.b.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.aq.e.b
             /* renamed from: a */
@@ -67,19 +67,19 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
             }
         });
         D("ipcHttp", "session=" + l);
-        l.bi(bYt);
+        l.bi(cdi);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class a implements com.baidu.swan.apps.aq.e.b<i.a>, f.a {
-        final f.a bYp;
-        final boolean bYq;
+        final f.a cde;
+        final boolean cdf;
         boolean finished = false;
 
         public a(f.a aVar) {
-            this.bYp = aVar;
-            this.bYq = aVar != null;
+            this.cde = aVar;
+            this.cdf = aVar != null;
             b.this.D("IpcHttpCallbackWrapper", "wrappedCallback=" + aVar);
         }
 
@@ -146,7 +146,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
             synchronized (this) {
                 b.this.D("IpcHttpCallbackWrapper#onStatRecord", "url=" + str + " statRecord=" + jSONObject);
                 if (valid()) {
-                    this.bYp.b(str, str2, jSONObject);
+                    this.cde.b(str, str2, jSONObject);
                 }
             }
         }
@@ -157,7 +157,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
                 b.this.D("IpcHttpCallbackWrapper#onSuccess", "statusCode=" + i + " response=" + str);
                 if (valid()) {
                     finish();
-                    this.bYp.onSuccess(str, i);
+                    this.cde.onSuccess(str, i);
                 }
             }
         }
@@ -168,7 +168,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
                 b.this.D("IpcHttpCallbackWrapper#onCallback", "exception=" + exc);
                 if (valid()) {
                     finish();
-                    f.a aVar = this.bYp;
+                    f.a aVar = this.cde;
                     if (exc == null) {
                         exc = new Exception("onFail");
                     }
@@ -183,7 +183,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
 
         synchronized boolean valid() {
             boolean z;
-            if (this.bYq) {
+            if (this.cdf) {
                 z = this.finished ? false : true;
             }
             return z;

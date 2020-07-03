@@ -1,11 +1,11 @@
 package com.baidu.tieba.ala.charm;
 
 import android.content.Context;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class g {
-    public static String pY(int i) {
+    public static String qx(int i) {
         if (i == 2) {
             return SdkStaticKeys.CHARM_TYPE_WEEK;
         }
@@ -18,7 +18,7 @@ public class g {
         return SdkStaticKeys.CHARM_TYPE_DAY;
     }
 
-    public static String v(Context context, int i) {
+    public static String w(Context context, int i) {
         if (context == null) {
             return "";
         }

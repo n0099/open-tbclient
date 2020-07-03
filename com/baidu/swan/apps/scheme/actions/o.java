@@ -39,7 +39,7 @@ public class o extends aa {
         }
         final String optString2 = b.optString("open", "");
         c(eVar, optString2);
-        eVar.aoR().d("scope_open_app", new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
+        eVar.apY().d("scope_open_app", new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.aq.e.b
             /* renamed from: c */
@@ -63,7 +63,7 @@ public class o extends aa {
 
     private void c(@NonNull com.baidu.swan.apps.runtime.e eVar, @NonNull String str) {
         com.baidu.swan.apps.statistic.a.e eVar2 = new com.baidu.swan.apps.statistic.a.e();
-        eVar2.mSource = eVar.QJ().agK();
+        eVar2.mSource = eVar.RP().ahQ();
         eVar2.v("appkey", eVar.getAppId());
         eVar2.v(Config.ROM, "Android");
         try {
@@ -79,21 +79,21 @@ public class o extends aa {
         if (eVar == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.swan.apps.runtime.e.aoF() == null && com.baidu.swan.apps.runtime.e.aoF().QJ() == null) {
+        if (com.baidu.swan.apps.runtime.e.apM() == null && com.baidu.swan.apps.runtime.e.apM().RP() == null) {
             return false;
         }
-        String agK = com.baidu.swan.apps.runtime.e.aoF().QJ().agK();
-        if (TextUtils.isEmpty(agK)) {
-            agK = "NA";
+        String ahQ = com.baidu.swan.apps.runtime.e.apM().RP().ahQ();
+        if (TextUtils.isEmpty(ahQ)) {
+            ahQ = "NA";
         }
-        JSONObject jSONObject = eVar.cEy;
+        JSONObject jSONObject = eVar.cJi;
         if (jSONObject == null || jSONObject.keys() == null) {
             return false;
         }
         JSONArray optJSONArray = jSONObject.optJSONArray(FaceBaseDTO.KEY_BUSINESS_SCENE);
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         for (int i = 0; i < length; i++) {
-            if (agK.equals(optJSONArray.optString(i))) {
+            if (ahQ.equals(optJSONArray.optString(i))) {
                 return true;
             }
         }
@@ -109,7 +109,7 @@ public class o extends aa {
             int optInt = optJSONObject.optInt("launch_count", -1);
             int optInt2 = optJSONObject.optInt("daily_duration", -1);
             if (optInt >= 0 || optInt2 >= 0) {
-                return ai.atI() >= optInt || ai.atJ() >= ((long) (optInt2 * 60000));
+                return ai.auO() >= optInt || ai.auP() >= ((long) (optInt2 * 60000));
             }
             return false;
         }

@@ -7,18 +7,18 @@ import java.io.InputStream;
 final class a {
     int bitOffset;
     private InputStream input;
-    private boolean nCk;
-    long nCl;
-    private int nCm;
-    private final byte[] nCh = new byte[4160];
-    private final int[] nCi = new int[AlaLiveRtcConfig.NativeErroCode.ERROR_PROTOCAL_SESSION_ID];
-    private final h nCj = new h();
-    private int nCn = 0;
+    private boolean nXV;
+    long nXW;
+    private int nXX;
+    private final byte[] nXS = new byte[4160];
+    private final int[] nXT = new int[AlaLiveRtcConfig.NativeErroCode.ERROR_PROTOCAL_SESSION_ID];
+    private final h nXU = new h();
+    private int nXY = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Code restructure failed: missing block: B:16:0x003b, code lost:
-        r5.nCk = true;
-        r5.nCn = r0;
+        r5.nXV = true;
+        r5.nXY = r0;
      */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0040, code lost:
         r0 = r0 + 3;
@@ -27,23 +27,23 @@ final class a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void a(a aVar) {
-        if (aVar.nCm > 1015) {
-            if (aVar.nCk) {
+        if (aVar.nXX > 1015) {
+            if (aVar.nXV) {
                 if (g(aVar) < -2) {
                     throw new BrotliRuntimeException("No more input");
                 }
                 return;
             }
-            int i = aVar.nCm << 2;
+            int i = aVar.nXX << 2;
             int i2 = 4096 - i;
-            System.arraycopy(aVar.nCh, i, aVar.nCh, 0, i2);
-            aVar.nCm = 0;
+            System.arraycopy(aVar.nXS, i, aVar.nXS, 0, i2);
+            aVar.nXX = 0;
             while (true) {
                 if (i2 >= 4096) {
                     break;
                 }
                 try {
-                    int read = aVar.input.read(aVar.nCh, i2, 4096 - i2);
+                    int read = aVar.input.read(aVar.nXS, i2, 4096 - i2);
                     if (read <= 0) {
                         break;
                     }
@@ -52,18 +52,18 @@ final class a {
                     throw new BrotliRuntimeException("Failed to read input", e);
                 }
             }
-            h.a(aVar.nCj, i2 >> 2);
+            h.a(aVar.nXU, i2 >> 2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(a aVar, boolean z) {
-        if (aVar.nCk) {
-            int i = ((aVar.nCm << 2) + ((aVar.bitOffset + 7) >> 3)) - 8;
-            if (i > aVar.nCn) {
+        if (aVar.nXV) {
+            int i = ((aVar.nXX << 2) + ((aVar.bitOffset + 7) >> 3)) - 8;
+            if (i > aVar.nXY) {
                 throw new BrotliRuntimeException("Read after end");
             }
-            if (z && i != aVar.nCn) {
+            if (z && i != aVar.nXY) {
                 throw new BrotliRuntimeException("Unused bytes after end");
             }
         }
@@ -73,9 +73,9 @@ final class a {
     public static void b(a aVar) {
         int i;
         if (aVar.bitOffset >= 32) {
-            int[] iArr = aVar.nCi;
-            aVar.nCm = aVar.nCm + 1;
-            aVar.nCl = (iArr[i] << 32) | (aVar.nCl >>> 32);
+            int[] iArr = aVar.nXT;
+            aVar.nXX = aVar.nXX + 1;
+            aVar.nXW = (iArr[i] << 32) | (aVar.nXW >>> 32);
             aVar.bitOffset -= 32;
         }
     }
@@ -83,7 +83,7 @@ final class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int a(a aVar, int i) {
         b(aVar);
-        int i2 = ((int) (aVar.nCl >>> aVar.bitOffset)) & ((1 << i) - 1);
+        int i2 = ((int) (aVar.nXW >>> aVar.bitOffset)) & ((1 << i) - 1);
         aVar.bitOffset += i;
         return i2;
     }
@@ -93,12 +93,12 @@ final class a {
         if (aVar.input != null) {
             throw new IllegalStateException("Bit reader already has associated input stream");
         }
-        h.a(aVar.nCj, aVar.nCh, aVar.nCi);
+        h.a(aVar.nXU, aVar.nXS, aVar.nXT);
         aVar.input = inputStream;
-        aVar.nCl = 0L;
+        aVar.nXW = 0L;
         aVar.bitOffset = 64;
-        aVar.nCm = 1024;
-        aVar.nCk = false;
+        aVar.nXX = 1024;
+        aVar.nXV = false;
         c(aVar);
     }
 
@@ -135,10 +135,10 @@ final class a {
 
     static int g(a aVar) {
         int i = 1024;
-        if (aVar.nCk) {
-            i = (aVar.nCn + 3) >> 2;
+        if (aVar.nXV) {
+            i = (aVar.nXY + 3) >> 2;
         }
-        return i - aVar.nCm;
+        return i - aVar.nXX;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -149,7 +149,7 @@ final class a {
             throw new BrotliRuntimeException("Unaligned copyBytes");
         }
         while (aVar.bitOffset != 64 && i2 != 0) {
-            bArr[i] = (byte) (aVar.nCl >>> aVar.bitOffset);
+            bArr[i] = (byte) (aVar.nXW >>> aVar.bitOffset);
             aVar.bitOffset += 8;
             i2--;
             i++;
@@ -157,10 +157,10 @@ final class a {
         if (i2 != 0) {
             int min = Math.min(g(aVar), i2 >> 2);
             if (min > 0) {
-                System.arraycopy(aVar.nCh, aVar.nCm << 2, bArr, i, min << 2);
+                System.arraycopy(aVar.nXS, aVar.nXX << 2, bArr, i, min << 2);
                 i4 = i + (min << 2);
                 i3 = i2 - (min << 2);
-                aVar.nCm = min + aVar.nCm;
+                aVar.nXX = min + aVar.nXX;
             } else {
                 i3 = i2;
                 i4 = i;
@@ -169,7 +169,7 @@ final class a {
                 if (g(aVar) > 0) {
                     b(aVar);
                     while (i3 != 0) {
-                        bArr[i4] = (byte) (aVar.nCl >>> aVar.bitOffset);
+                        bArr[i4] = (byte) (aVar.nXW >>> aVar.bitOffset);
                         aVar.bitOffset += 8;
                         i3--;
                         i4++;

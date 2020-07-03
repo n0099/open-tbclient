@@ -11,7 +11,7 @@ public class f {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    private static String K(int i, String str) {
+    private static String M(int i, String str) {
         switch (i) {
             case 1:
             case 2:
@@ -42,8 +42,8 @@ public class f {
 
     private static NetworkInfo getActiveNetworkInfo() {
         ConnectivityManager connectivityManager;
-        Context Nj = g.Nj();
-        if (Nj != null && (connectivityManager = (ConnectivityManager) Nj.getSystemService("connectivity")) != null) {
+        Context Os = g.Os();
+        if (Os != null && (connectivityManager = (ConnectivityManager) Os.getSystemService("connectivity")) != null) {
             return connectivityManager.getActiveNetworkInfo();
         }
         return null;
@@ -54,6 +54,6 @@ public class f {
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
             return "0";
         }
-        return activeNetworkInfo.getType() == 1 ? "4" : activeNetworkInfo.getType() == 0 ? K(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName()) : "unknown";
+        return activeNetworkInfo.getType() == 1 ? "4" : activeNetworkInfo.getType() == 0 ? M(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName()) : "unknown";
     }
 }

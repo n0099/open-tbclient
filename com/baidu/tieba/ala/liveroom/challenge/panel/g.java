@@ -1,130 +1,132 @@
 package com.baidu.tieba.ala.liveroom.challenge.panel;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.content.Context;
-import android.text.Html;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.live.tbadk.core.util.ListUtils;
-import com.baidu.live.tbadk.core.view.HeadImageView;
-import com.baidu.live.u.a;
-import com.baidu.tieba.ala.liveroom.challenge.panel.h;
-import java.util.ArrayList;
-import java.util.List;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
+import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
-public class g extends BaseAdapter {
-    private List<com.baidu.live.challenge.d> fPb = new ArrayList();
-    private h.a fPc;
-    private Context mContext;
+public abstract class g {
+    private final int gaJ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds589);
+    protected m gaK;
+    protected Context mContext;
+    protected View mRootView;
 
-    public g(Context context) {
+    protected abstract View createView();
+
+    public g(Context context, m mVar) {
         this.mContext = context;
-    }
-
-    public void setDatas(List<com.baidu.live.challenge.d> list) {
-        if (list != null && !ListUtils.isEmpty(list)) {
-            this.fPb.clear();
-            this.fPb.addAll(list);
-            notifyDataSetChanged();
-        }
-    }
-
-    public void bJ(List<com.baidu.live.challenge.d> list) {
-        if (list != null && !ListUtils.isEmpty(list)) {
-            this.fPb.addAll(list);
-            notifyDataSetChanged();
-        }
-    }
-
-    public void bAs() {
-        if (!ListUtils.isEmpty(this.fPb)) {
-            this.fPb.clear();
-            notifyDataSetChanged();
-        }
-    }
-
-    public void a(h.a aVar) {
-        this.fPc = aVar;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return this.fPb.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return this.fPb.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    public void e(com.baidu.live.challenge.d dVar) {
-        if (dVar != null) {
-            for (com.baidu.live.challenge.d dVar2 : this.fPb) {
-                if (dVar.equals(dVar2)) {
-                    dVar2.aum = dVar.aum;
-                }
+        this.gaK = mVar;
+        if (this.mContext != null) {
+            this.mRootView = createView();
+            if (this.mRootView != null) {
+                this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.g.1
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                    }
+                });
+                this.mRootView.setBackgroundResource(a.f.ala_challenge_panel_bg);
             }
-            notifyDataSetChanged();
         }
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        a aVar;
-        if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(a.h.ala_challenge_user_item_view_layout, (ViewGroup) null);
-            aVar = new a();
-            aVar.fPf = (HeadImageView) view.findViewById(a.g.ala_challenge_user_header);
-            aVar.fPf.setIsRound(true);
-            aVar.fPf.setAutoChangeStyle(false);
-            aVar.dXU = (TextView) view.findViewById(a.g.ala_challenge_user_name);
-            aVar.fPg = (TextView) view.findViewById(a.g.ala_challenge_user_status);
-            aVar.fpb = (TextView) view.findViewById(a.g.ala_challenge_user_charm);
-            view.setTag(aVar);
-        } else {
-            aVar = (a) view.getTag();
-        }
-        final com.baidu.live.challenge.d dVar = this.fPb.get(i);
-        aVar.fPf.startLoad(dVar.avatar, 12, false);
-        aVar.dXU.setText(Html.fromHtml(dVar.userName));
-        aVar.fpb.setText(this.mContext.getString(a.i.sdk_charm_name, String.valueOf(dVar.charmCount)));
-        if (dVar.aum) {
-            aVar.fPg.setEnabled(true);
-            aVar.fPg.setBackgroundResource(a.f.sdk_red_border_bg);
-            aVar.fPg.setText(this.mContext.getString(a.i.ala_challenge_invite));
-            aVar.fPg.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_i));
-        } else {
-            aVar.fPg.setBackgroundDrawable(null);
-            aVar.fPg.setText(this.mContext.getString(a.i.ala_live_challenging));
-            aVar.fPg.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_i_alpha50));
-        }
-        aVar.fPg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.g.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (dVar.aum && g.this.fPc != null) {
-                    g.this.fPc.g(dVar);
-                    view2.setEnabled(false);
-                }
+    /* JADX INFO: Access modifiers changed from: protected */
+    public int bCY() {
+        return this.gaJ;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void b(FrameLayout frameLayout, int i) {
+        if (frameLayout != null && this.mRootView != null) {
+            if (this.mRootView.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
             }
-        });
-        return view;
+            if (this.mRootView.getLayoutParams() == null) {
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, bCY());
+                layoutParams.gravity = 80;
+                frameLayout.addView(this.mRootView, layoutParams);
+            } else {
+                frameLayout.addView(this.mRootView);
+            }
+            if (i <= 0) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0176a.sdk_push_up_in);
+                loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.g.2
+                    @Override // android.view.animation.Animation.AnimationListener
+                    public void onAnimationStart(Animation animation) {
+                    }
+
+                    @Override // android.view.animation.Animation.AnimationListener
+                    public void onAnimationEnd(Animation animation) {
+                        g.this.Eb();
+                    }
+
+                    @Override // android.view.animation.Animation.AnimationListener
+                    public void onAnimationRepeat(Animation animation) {
+                    }
+                });
+                this.mRootView.startAnimation(loadAnimation);
+            } else if (i != bCY()) {
+                ValueAnimator ofInt = ValueAnimator.ofInt(i, bCY());
+                ofInt.setDuration(300L);
+                ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.g.3
+                    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+                    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                        if (valueAnimator != null) {
+                            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) g.this.mRootView.getLayoutParams();
+                            layoutParams2.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                            g.this.mRootView.setLayoutParams(layoutParams2);
+                        }
+                    }
+                });
+                ofInt.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.g.4
+                    @Override // android.animation.Animator.AnimatorListener
+                    public void onAnimationStart(Animator animator) {
+                    }
+
+                    @Override // android.animation.Animator.AnimatorListener
+                    public void onAnimationEnd(Animator animator) {
+                        g.this.Eb();
+                    }
+
+                    @Override // android.animation.Animator.AnimatorListener
+                    public void onAnimationCancel(Animator animator) {
+                    }
+
+                    @Override // android.animation.Animator.AnimatorListener
+                    public void onAnimationRepeat(Animator animator) {
+                    }
+                });
+                ofInt.start();
+            } else {
+                Eb();
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
-    private static class a {
-        public TextView dXU;
-        public HeadImageView fPf;
-        public TextView fPg;
-        public TextView fpb;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void Eb() {
+    }
 
-        private a() {
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void bDp() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void hide() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean onBackKeyDown() {
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void b(Animation animation) {
+        this.mRootView.startAnimation(animation);
     }
 }

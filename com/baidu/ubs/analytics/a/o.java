@@ -6,21 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 final class o {
-    private SQLiteDatabase miL = f.dsA().dsB();
+    private SQLiteDatabase mEE = f.dxf().dxg();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(n nVar) {
-        this.miL.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
+        this.mEE.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(n nVar) {
-        this.miL.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
+        this.mEE.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<n> dsz() {
-        Cursor rawQuery = this.miL.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
+    public final List<n> dxe() {
+        Cursor rawQuery = this.mEE.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             n nVar = new n();
@@ -36,12 +36,12 @@ final class o {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void B(String str) {
-        this.miL.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
+        this.mEE.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final boolean Ps(String str) {
-        Cursor rawQuery = this.miL.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
+    public final boolean Qe(String str) {
+        Cursor rawQuery = this.mEE.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
         int count = rawQuery.getCount();
         rawQuery.close();
         return count > 0;

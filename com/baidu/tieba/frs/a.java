@@ -1,152 +1,175 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.bk;
+import android.util.SparseArray;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class a {
-    private AntiData eaU;
-    private String forumId;
-    private final ArrayList<bk> hmj;
-    private boolean hmk;
-    private b hml;
-    private boolean hmm;
-
-    /* loaded from: classes.dex */
-    public interface b {
-        void M(boolean z, boolean z2);
-
-        void bUf();
-
-        void tF(int i);
-    }
+    private final List<bu> hyq;
+    private boolean hyr;
+    private int hys;
+    private List<FrsTabInfo> hyt;
+    private SparseArray<FrsTabInfo> hyu;
+    private aw hyv;
+    private String mForumId;
 
     private a() {
-        this.hmk = false;
-        this.hmj = new ArrayList<>();
+        this.hys = -1;
+        this.hyq = new ArrayList();
     }
 
-    public static a bTZ() {
-        return C0611a.hmn;
+    public static a bWV() {
+        return C0619a.hyw;
     }
 
-    public boolean bUa() {
-        return this.hmk;
+    public boolean bWW() {
+        return this.hyr;
     }
 
-    public void L(boolean z, boolean z2) {
-        this.hmk = z;
-        if (this.hml != null) {
-            this.hml.M(this.hmk, z2);
+    public void setForumId(String str) {
+        this.mForumId = str;
+    }
+
+    public String getForumId() {
+        return this.mForumId;
+    }
+
+    public void ug(int i) {
+        this.hys = i;
+    }
+
+    public int bWX() {
+        return this.hys;
+    }
+
+    public void cu(List<FrsTabInfo> list) {
+        this.hyt = new ArrayList(list);
+        this.hyu = new SparseArray<>();
+        for (FrsTabInfo frsTabInfo : this.hyt) {
+            if (frsTabInfo != null) {
+                this.hyu.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
+            }
         }
     }
 
-    public boolean al(bk bkVar) {
-        if (bkVar == null) {
+    public List<FrsTabInfo> bWY() {
+        return this.hyt;
+    }
+
+    public List<bu> bWZ() {
+        return this.hyq;
+    }
+
+    public boolean uh(int i) {
+        return this.hyu.get(i) != null && this.hyu.get(i).is_general_tab.intValue() == 1;
+    }
+
+    public void a(aw awVar) {
+        this.hyv = awVar;
+    }
+
+    public void M(boolean z, boolean z2) {
+        this.hyr = z;
+        if (this.hyv != null) {
+            this.hyv.d(this.hyr, z2, 2);
+        }
+    }
+
+    public boolean al(bu buVar) {
+        if (buVar == null) {
             return false;
         }
-        if (this.hmj.size() > 29) {
-            if (this.hml != null) {
-                this.hml.bUf();
+        if (this.hyq.size() > 29) {
+            if (this.hyv != null) {
+                this.hyv.up(2);
                 return false;
             }
             return false;
         }
-        this.hmj.add(bkVar);
-        if (this.hml != null) {
-            this.hml.tF(this.hmj.size());
+        this.hyq.add(buVar);
+        if (this.hyv != null) {
+            this.hyv.bT(this.hyq.size(), 2);
         }
         return true;
     }
 
-    public List<bk> bUb() {
-        return this.hmj;
+    public void am(bu buVar) {
+        this.hyq.remove(buVar);
+        if (this.hyv != null) {
+            this.hyv.bT(this.hyq.size(), 2);
+        }
     }
 
-    public void am(bk bkVar) {
-        this.hmj.remove(bkVar);
-        if (this.hml != null) {
-            this.hml.tF(this.hmj.size());
+    public void bS(int i, int i2) {
+        try {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_MOVE_AREA);
+            JSONArray jSONArray = new JSONArray();
+            for (bu buVar : bWV().bWZ()) {
+                if (buVar != null) {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("thread_id", buVar.getId());
+                    jSONObject.put("from_tab_id", buVar.getTabId());
+                    jSONObject.put("to_tab_id", i2);
+                    jSONArray.put(jSONObject);
+                }
+            }
+            httpMessage.addParam("threads", jSONArray.toString());
+            httpMessage.addParam("forum_id", bWV().getForumId());
+            MessageManager.getInstance().sendMessage(httpMessage);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void bXa() {
+        if (!com.baidu.tbadk.core.util.w.isEmpty(this.hyq)) {
+            this.hyq.clear();
+            if (this.hyv != null) {
+                this.hyv.bT(this.hyq.size(), 2);
+            }
         }
     }
 
     public void clearData() {
-        Iterator<bk> it = this.hmj.iterator();
-        while (it.hasNext()) {
-            bk next = it.next();
-            if (next != null) {
-                next.gS(false);
+        for (bu buVar : this.hyq) {
+            if (buVar != null) {
+                buVar.hb(false);
             }
         }
-        this.hmj.clear();
-        if (this.hml != null) {
-            this.hml.tF(0);
+        this.hyq.clear();
+        if (this.hyv != null) {
+            this.hyv.bT(0, 2);
         }
     }
 
     public void reset() {
-        L(false, false);
+        M(false, false);
         clearData();
     }
 
-    public void a(b bVar) {
-        this.hml = bVar;
+    public void destory() {
+        this.mForumId = null;
+        this.hys = -1;
+        if (this.hyt != null) {
+            this.hyt.clear();
+        }
+        if (this.hyu != null) {
+            this.hyu.clear();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0611a {
-        private static a hmn = new a();
-    }
-
-    public AntiData bUc() {
-        return this.eaU;
-    }
-
-    public void b(AntiData antiData) {
-        this.eaU = antiData;
-    }
-
-    public String getForumId() {
-        return this.forumId;
-    }
-
-    public void setForumId(String str) {
-        this.forumId = str;
-    }
-
-    public void mG(boolean z) {
-        this.hmm = z;
-    }
-
-    public void cl(List<String> list) {
-        if (!com.baidu.tbadk.core.util.v.isEmpty(list) && !com.baidu.tbadk.core.util.v.isEmpty(this.hmj)) {
-            Iterator<bk> it = this.hmj.iterator();
-            while (it.hasNext()) {
-                bk next = it.next();
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 >= list.size()) {
-                        break;
-                    } else if (!com.baidu.tbadk.core.util.aq.equals(list.get(i2), next.getId())) {
-                        i = i2 + 1;
-                    } else {
-                        it.remove();
-                        break;
-                    }
-                }
-            }
-            if (this.hml != null) {
-                this.hml.tF(this.hmj.size());
-            }
-        }
-    }
-
-    public boolean bUd() {
-        return this.eaU != null && this.eaU.isMultiDeleteEnable() && this.hmm;
+    public static class C0619a {
+        private static a hyw = new a();
     }
 }

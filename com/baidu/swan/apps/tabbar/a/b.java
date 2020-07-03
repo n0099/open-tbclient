@@ -19,17 +19,17 @@ public class b extends a {
             com.baidu.swan.apps.console.c.e("closeTabBar", "paramsJson is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (Ue()) {
+        } else if (Vk()) {
             com.baidu.swan.apps.console.c.e("CloseTabBarAction", "fail not TabBar page");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
             return false;
         } else {
-            com.baidu.swan.apps.tabbar.b.a Ud = Ud();
-            if (Ud == null) {
+            com.baidu.swan.apps.tabbar.b.a Vj = Vj();
+            if (Vj == null) {
                 com.baidu.swan.apps.console.c.e("CloseTabBarAction", "tabBarViewController is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!Ud.fp(optParamsAsJo.optBoolean("animation"))) {
+            } else if (!Vj.fu(optParamsAsJo.optBoolean("animation"))) {
                 com.baidu.swan.apps.console.c.e("closeTabBar", "close tab bar fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;

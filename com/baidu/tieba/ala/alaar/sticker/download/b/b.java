@@ -3,79 +3,79 @@ package com.baidu.tieba.ala.alaar.sticker.download.b;
 import com.baidu.tieba.ala.alaar.sticker.download.exception.DownloadException;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.tieba.ala.alaar.sticker.download.a.b {
-    private com.baidu.tieba.ala.alaar.sticker.download.a.d eWT;
-    private com.baidu.tieba.ala.alaar.sticker.download.a.c eWX = new com.baidu.tieba.ala.alaar.sticker.download.a.c();
+    private com.baidu.tieba.ala.alaar.sticker.download.a.d fho;
+    private com.baidu.tieba.ala.alaar.sticker.download.a.c fhs = new com.baidu.tieba.ala.alaar.sticker.download.a.c();
 
     public b(com.baidu.tieba.ala.alaar.sticker.download.a.d dVar, com.baidu.tieba.ala.alaar.sticker.download.a.a aVar) {
-        this.eWT = dVar;
-        this.eWX.a(aVar);
+        this.fho = dVar;
+        this.fhs.a(aVar);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onStarted() {
-        this.eWX.setStatus(101);
-        this.eWX.bpG().onStarted();
+        this.fhs.setStatus(101);
+        this.fhs.bsp().onStarted();
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onConnecting() {
-        this.eWX.setStatus(102);
-        this.eWT.a(this.eWX);
+        this.fhs.setStatus(102);
+        this.fho.a(this.fhs);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onConnected(long j, long j2, boolean z) {
-        this.eWX.setTime(j);
-        this.eWX.setAcceptRanges(z);
-        this.eWX.setStatus(103);
-        this.eWT.a(this.eWX);
+        this.fhs.setTime(j);
+        this.fhs.setAcceptRanges(z);
+        this.fhs.setStatus(103);
+        this.fho.a(this.fhs);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void b(DownloadException downloadException) {
-        this.eWX.d(downloadException);
-        this.eWX.setStatus(108);
-        this.eWT.a(this.eWX);
+        this.fhs.d(downloadException);
+        this.fhs.setStatus(108);
+        this.fho.a(this.fhs);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onConnectCanceled() {
-        this.eWX.setStatus(107);
-        this.eWT.a(this.eWX);
+        this.fhs.setStatus(107);
+        this.fho.a(this.fhs);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onDownloadProgress(long j, long j2, int i) {
-        this.eWX.setFinished(j);
-        this.eWX.setLength(j2);
-        this.eWX.setPercent(i);
-        this.eWX.setStatus(104);
-        this.eWT.a(this.eWX);
+        this.fhs.setFinished(j);
+        this.fhs.setLength(j2);
+        this.fhs.setPercent(i);
+        this.fhs.setStatus(104);
+        this.fho.a(this.fhs);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onDownloadCompleted(String str) {
-        this.eWX.setStatus(105);
-        this.eWX.setSavedPath(str);
-        this.eWT.a(this.eWX);
+        this.fhs.setStatus(105);
+        this.fhs.setSavedPath(str);
+        this.fho.a(this.fhs);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onDownloadPaused() {
-        this.eWX.setStatus(106);
-        this.eWT.a(this.eWX);
+        this.fhs.setStatus(106);
+        this.fho.a(this.fhs);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onDownloadCanceled() {
-        this.eWX.setStatus(107);
-        this.eWT.a(this.eWX);
+        this.fhs.setStatus(107);
+        this.fho.a(this.fhs);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void c(DownloadException downloadException) {
-        this.eWX.d(downloadException);
-        this.eWX.setStatus(108);
-        this.eWT.a(this.eWX);
+        this.fhs.d(downloadException);
+        this.fhs.setStatus(108);
+        this.fho.a(this.fhs);
     }
 }

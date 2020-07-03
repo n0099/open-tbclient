@@ -35,7 +35,7 @@ public class a extends aa {
 
     /* renamed from: com.baidu.swan.apps.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0353a {
+    public interface InterfaceC0359a {
         void d(@Nullable String str, @Nullable List<d> list);
     }
 
@@ -166,8 +166,8 @@ public class a extends aa {
     /* JADX INFO: Access modifiers changed from: private */
     @AnyThread
     public void a(final Context context, final CallbackHandler callbackHandler, final e eVar, final String str, final String str2, final String str3, final HashMap<String, Boolean> hashMap, final boolean z) {
-        com.baidu.swan.apps.u.a.afu().a(str2, hashMap.keySet(), new InterfaceC0353a() { // from class: com.baidu.swan.apps.m.a.3
-            @Override // com.baidu.swan.apps.m.a.InterfaceC0353a
+        com.baidu.swan.apps.u.a.agA().a(str2, hashMap.keySet(), new InterfaceC0359a() { // from class: com.baidu.swan.apps.m.a.3
+            @Override // com.baidu.swan.apps.m.a.InterfaceC0359a
             public void d(@Nullable final String str4, final List<d> list) {
                 if (!TextUtils.isEmpty(str4) && list != null && list.size() > 0) {
                     n.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.m.a.3.1
@@ -175,14 +175,14 @@ public class a extends aa {
                         public void run() {
                             ContentResolver contentResolver = context.getContentResolver();
                             for (d dVar : list) {
-                                String str5 = dVar.ceg;
+                                String str5 = dVar.ciU;
                                 Boolean bool = (Boolean) hashMap.get(str5);
                                 if (bool != null && !bool.booleanValue()) {
                                     ContentValues contentValues = new ContentValues();
                                     contentValues.put("appKey", str2);
                                     contentValues.put("templateId", str5);
                                     contentValues.put("result", (Integer) 0);
-                                    contentValues.put("title", dVar.ceh);
+                                    contentValues.put("title", dVar.ciV);
                                     contentValues.put(TableDefine.MessageColumns.COLUME_TIPS, str4);
                                     contentResolver.insert(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues);
                                 }
@@ -215,23 +215,23 @@ public class a extends aa {
                 if (z2 && list2.size() == 0) {
                     return false;
                 }
-                n.atu().execute(new Runnable() { // from class: com.baidu.swan.apps.m.a.4.1
+                n.auA().execute(new Runnable() { // from class: com.baidu.swan.apps.m.a.4.1
                     @Override // java.lang.Runnable
                     public void run() {
                         ContentResolver contentResolver = context.getContentResolver();
                         for (d dVar : list2) {
                             ContentValues contentValues = new ContentValues();
-                            contentValues.put("title", dVar.ceh);
+                            contentValues.put("title", dVar.ciV);
                             contentValues.put(TableDefine.MessageColumns.COLUME_TIPS, str4);
                             contentValues.put("result", Integer.valueOf(z2 ? 1 : -1));
-                            contentResolver.update(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues, "appKey=? and templateId=?", new String[]{str2, dVar.ceg});
+                            contentResolver.update(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues, "appKey=? and templateId=?", new String[]{str2, dVar.ciU});
                         }
                     }
                 });
                 if (z2) {
                     ArrayList arrayList = new ArrayList();
                     for (d dVar : list2) {
-                        arrayList.add(dVar.ceg);
+                        arrayList.add(dVar.ciU);
                     }
                     a.this.a(callbackHandler, str2, arrayList, str3, z, str);
                     str5 = "permit_click";
@@ -252,9 +252,9 @@ public class a extends aa {
     }
 
     private void a(@NonNull final CallbackHandler callbackHandler, @NonNull String str, @NonNull final String str2) {
-        com.baidu.swan.apps.u.a.afu().a(str, new com.baidu.swan.apps.m.b() { // from class: com.baidu.swan.apps.m.a.6
+        com.baidu.swan.apps.u.a.agA().a(str, new com.baidu.swan.apps.m.b() { // from class: com.baidu.swan.apps.m.a.6
             @Override // com.baidu.swan.apps.ag.a
-            public void aa(JSONObject jSONObject) {
+            public void ah(JSONObject jSONObject) {
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
             }
 
@@ -267,9 +267,9 @@ public class a extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull final CallbackHandler callbackHandler, @NonNull String str, @NonNull List<String> list, @Nullable String str2, boolean z, @NonNull final String str3) {
-        com.baidu.swan.apps.u.a.afu().a(str, list, str2, z, new com.baidu.swan.apps.m.b() { // from class: com.baidu.swan.apps.m.a.7
+        com.baidu.swan.apps.u.a.agA().a(str, list, str2, z, new com.baidu.swan.apps.m.b() { // from class: com.baidu.swan.apps.m.a.7
             @Override // com.baidu.swan.apps.ag.a
-            public void aa(JSONObject jSONObject) {
+            public void ah(JSONObject jSONObject) {
                 callbackHandler.handleSchemeDispatchCallback(str3, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
             }
 
@@ -289,19 +289,19 @@ public class a extends aa {
             eVar2.mValue = String.valueOf(list2.size());
         }
         eVar2.v("appkey", eVar.getAppId());
-        eVar2.v("tpl", ad(list));
-        eVar2.v("selected_tpl", ad(list2));
+        eVar2.v("tpl", ah(list));
+        eVar2.v("selected_tpl", ah(list2));
         if (DEBUG) {
             Log.d("GetFormIdAction", "event: " + eVar2.toJSONObject());
         }
         h.a("1311", eVar2);
     }
 
-    private JSONArray ad(List<d> list) {
+    private JSONArray ah(List<d> list) {
         JSONArray jSONArray = new JSONArray();
         if (list != null && list.size() > 0) {
             for (d dVar : list) {
-                jSONArray.put(dVar.ceh);
+                jSONArray.put(dVar.ciV);
             }
         }
         return jSONArray;

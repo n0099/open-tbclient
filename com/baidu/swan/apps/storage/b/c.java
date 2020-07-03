@@ -3,30 +3,30 @@ package com.baidu.swan.apps.storage.b;
 import android.support.annotation.NonNull;
 /* loaded from: classes11.dex */
 public interface c {
-    boolean U(String str, boolean z);
+    boolean W(String str, boolean z);
 
-    String arI();
+    String asP();
 
-    String arJ();
+    String asQ();
 
     @NonNull
-    d arK();
+    d asR();
 
-    boolean oJ(String str);
+    boolean oR(String str);
 
-    boolean oK(String str);
+    boolean oS(String str);
 
-    String oP(String str);
+    String oX(String str);
 
-    String oY(String str);
+    String pg(String str);
 
-    String oZ(String str);
+    String ph(String str);
 
-    String pa(String str);
+    String pi(String str);
 
-    String pb(String str);
+    String pj(String str);
 
-    String pc(String str);
+    String pk(String str);
 
-    String pd(String str);
+    String pl(String str);
 }

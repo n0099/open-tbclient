@@ -12,11 +12,11 @@ public final class Crc32 {
         return crc32.getValue();
     }
 
-    public static long ar(byte[] bArr) {
+    public static long at(byte[] bArr) {
         return u(bArr, 0, bArr.length);
     }
 
-    public static long am(File file) throws IOException {
+    public static long an(File file) throws IOException {
         FileInputStream fileInputStream = new FileInputStream(file);
         byte[] bArr = new byte[65536];
         CRC32 crc32 = new CRC32();

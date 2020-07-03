@@ -6,7 +6,7 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public final class b extends kotlin.random.a {
-    private final a nug = new a();
+    private final a nPT = new a();
 
     @h
     /* loaded from: classes7.dex */
@@ -17,15 +17,15 @@ public final class b extends kotlin.random.a {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // java.lang.ThreadLocal
-        /* renamed from: dMf */
+        /* renamed from: dQL */
         public Random initialValue() {
             return new Random();
         }
     }
 
     @Override // kotlin.random.a
-    public Random dMe() {
-        Random random = this.nug.get();
+    public Random dQK() {
+        Random random = this.nPT.get();
         q.l((Object) random, "implStorage.get()");
         return random;
     }

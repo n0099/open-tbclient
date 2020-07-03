@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.bk;
-/* loaded from: classes9.dex */
+import com.baidu.tbadk.core.view.NavigationBar;
+/* loaded from: classes8.dex */
 public interface ar {
-    void ao(bk bkVar);
+    NavigationBar bwV();
 }

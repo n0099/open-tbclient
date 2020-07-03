@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.frs.FrsTabItemData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListView.o {
+public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListView.q {
     public static final int TYPE_RECOMMEND = 1;
     public static final int TYPE_SELF_SELECT = 0;
     public String avatar;
@@ -27,7 +27,7 @@ public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListV
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: kD */
+        /* renamed from: kR */
         public TransmitForumData[] newArray(int i) {
             return new TransmitForumData[i];
         }
@@ -46,7 +46,7 @@ public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListV
         this.avatar = str2;
     }
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
         return ID_TRANSMIT_SELECT_DATA;
     }

@@ -16,8 +16,8 @@ public class d extends c.b {
     }
 
     @Override // com.baidu.tieba.n.c.b, com.baidu.tieba.n.c
-    public JSONObject cSh() {
-        JSONObject cSh = super.cSh();
+    public JSONObject cWx() {
+        JSONObject cWx = super.cWx();
         try {
             JSONObject jSONObject = new JSONObject();
             if (this.code != -4399) {
@@ -26,10 +26,10 @@ public class d extends c.b {
             if (!StringUtils.isNull(this.msg)) {
                 jSONObject.put("msg", this.msg);
             }
-            cSh.put("ext", jSONObject);
+            cWx.put("ext", jSONObject);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return cSh;
+        return cWx;
     }
 }

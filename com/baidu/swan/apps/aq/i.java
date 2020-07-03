@@ -8,23 +8,23 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public final class i {
-    private static final Set<Integer> cJO = new HashSet();
-    private static final Set<Integer> cJP = new HashSet();
-    private static final Set<Integer> cJQ = new HashSet();
+    private static final Set<Integer> cOy = new HashSet();
+    private static final Set<Integer> cOz = new HashSet();
+    private static final Set<Integer> cOA = new HashSet();
 
     static {
-        cJO.add(2);
-        cJO.add(3);
-        cJO.add(4);
-        cJO.add(5);
-        cJO.add(6);
-        cJP.add(7);
-        cJP.add(1);
-        cJQ.addAll(cJO);
-        cJQ.addAll(cJP);
+        cOy.add(2);
+        cOy.add(3);
+        cOy.add(4);
+        cOy.add(5);
+        cOy.add(6);
+        cOz.add(7);
+        cOz.add(1);
+        cOA.addAll(cOy);
+        cOA.addAll(cOz);
     }
 
-    public static Date atq() {
+    public static Date auw() {
         return new Date();
     }
 
@@ -44,7 +44,7 @@ public final class i {
         }
     }
 
-    public static Date bZ(String str, String str2) {
+    public static Date cb(String str, String str2) {
         if (str == null) {
             return null;
         }

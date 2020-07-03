@@ -10,15 +10,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class CardFrsGameRecommendGameItemView extends LinearLayout {
-    private TbImageView gDh;
-    private TextView gDi;
-    private TextView gDj;
+    private TbImageView gPX;
+    private TextView gPY;
+    private TextView gPZ;
     private String mForumId;
     public int mSkinType;
 
@@ -42,18 +42,18 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_frs_game_recommend_game_view_item, (ViewGroup) this, true);
-        this.gDh = (TbImageView) findViewById(R.id.card_frs_game_recommend_game_pic);
-        this.gDh.setAutoChangeStyle(true);
-        this.gDh.setDefaultResource(17170445);
-        this.gDh.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        this.gDh.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.gDh.setDrawerType(1);
-        this.gDh.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds26));
-        this.gDh.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.gDh.setBorderColor(am.getColor(R.color.common_color_10043));
-        this.gDh.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds2));
-        this.gDi = (TextView) findViewById(R.id.card_frs_game_recommend_game_name);
-        this.gDj = (TextView) findViewById(R.id.card_frs_game_recommend_game_dec);
+        this.gPX = (TbImageView) findViewById(R.id.card_frs_game_recommend_game_pic);
+        this.gPX.setAutoChangeStyle(true);
+        this.gPX.setDefaultResource(17170445);
+        this.gPX.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        this.gPX.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.gPX.setDrawerType(1);
+        this.gPX.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds26));
+        this.gPX.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.gPX.setBorderColor(an.getColor(R.color.common_color_10043));
+        this.gPX.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds2));
+        this.gPY = (TextView) findViewById(R.id.card_frs_game_recommend_game_name);
+        this.gPZ = (TextView) findViewById(R.id.card_frs_game_recommend_game_dec);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -62,7 +62,7 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
-                    TiebaStatic.log(new an("c13047").ag("obj_locate", 10).dh("fid", CardFrsGameRecommendGameItemView.this.mForumId));
+                    TiebaStatic.log(new ao("c13047").ag("obj_locate", 10).dk("fid", CardFrsGameRecommendGameItemView.this.mForumId));
                     com.baidu.tbadk.browser.a.startWebActivity(CardFrsGameRecommendGameItemView.this.getContext(), (String) view.getTag());
                 }
             }
@@ -74,22 +74,22 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
     }
 
     public TbImageView getGamePicView() {
-        return this.gDh;
+        return this.gPX;
     }
 
     public TextView getGameNameView() {
-        return this.gDi;
+        return this.gPY;
     }
 
     public TextView getGameDscView() {
-        return this.gDj;
+        return this.gPZ;
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            am.setViewTextColor(this.gDi, R.color.cp_cont_f, 1);
-            am.setViewTextColor(this.gDj, R.color.cp_cont_d, 1);
+            an.setViewTextColor(this.gPY, R.color.cp_cont_f, 1);
+            an.setViewTextColor(this.gPZ, R.color.cp_cont_d, 1);
         }
     }
 }

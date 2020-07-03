@@ -9,10 +9,10 @@ public class d {
     public String groupId;
     public String groupName;
     public boolean isAcceptNotify;
-    public String kTK = "";
-    public long kTL;
-    public boolean ktj;
+    public boolean kNg;
     public long lastTime;
+    public String lnD = "";
+    public long lnE;
     public long msgId;
     public int msgType;
     public String nameShow;

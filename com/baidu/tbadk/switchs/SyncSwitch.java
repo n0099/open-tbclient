@@ -73,7 +73,6 @@ public class SyncSwitch {
         SwitchManager.getInstance().registerSwitch(RedirectInterceptionSwitch.class);
         SwitchManager.getInstance().registerSwitch(SwanAppPreLoadEnableSwitch.class);
         SwitchManager.getInstance().registerSwitch(YunPushOppoproxyEnableSwitch.class);
-        SwitchManager.getInstance().registerSwitch(MissionEntranceSwitch.class);
         SwitchManager.getInstance().registerSwitch(BarDetailForDirSwitch.class);
         SwitchManager.getInstance().registerSwitch(CustomPlayerSwitch.class);
         SwitchManager.getInstance().registerSwitch(DnsProxySwitch.class);

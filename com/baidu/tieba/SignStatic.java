@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.message.SignMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.signall.SignAllForumActivity;
 import com.baidu.tieba.signall.SignAllForumAdvertActivity;
 import com.baidu.tieba.supplementSign.SupplementSignActivity;
@@ -39,11 +39,11 @@ public class SignStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SupplementSignActivityConfig.class, SupplementSignActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        blj();
-        Fv();
+        bnI();
+        xp();
     }
 
-    private static void Fv() {
+    private static void xp() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SIGN_MODEL_TASK, new CustomMessageTask.CustomRunnable<ForumData>() { // from class: com.baidu.tieba.SignStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ForumData> customMessage) {
@@ -62,26 +62,26 @@ public class SignStatic {
                 SignMessage signMessage = new SignMessage();
                 try {
                     TiebaStatic.eventStat(TbadkCoreApplication.getInst().getContext(), "sign_do_time", System.currentTimeMillis() + "");
-                    x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
-                    xVar.addPostData("kw", name);
-                    xVar.addPostData("fid", id);
+                    y yVar = new y(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
+                    yVar.addPostData("kw", name);
+                    yVar.addPostData("fid", id);
                     if (!TextUtils.isEmpty(data.getFromPage())) {
-                        xVar.addPostData("sign_from", data.getFromPage());
+                        yVar.addPostData("sign_from", data.getFromPage());
                     }
-                    SignStatic.a(xVar);
-                    xVar.aUA().aVb().mIsNeedTbs = true;
-                    xVar.ha(true);
-                    String postNetData = xVar.postNetData();
-                    if (xVar.isNetSuccess()) {
-                        if (xVar.aUA().aVc().isRequestSuccess()) {
+                    SignStatic.a(yVar);
+                    yVar.aWu().aWV().mIsNeedTbs = true;
+                    yVar.hj(true);
+                    String postNetData = yVar.postNetData();
+                    if (yVar.isNetSuccess()) {
+                        if (yVar.aWu().aWW().isRequestSuccess()) {
                             signData = new SignData();
                             signData.parserJson(postNetData);
                             signData.forumId = id;
                             signData.forumName = name;
-                        } else if (!aq.isEmpty(postNetData)) {
+                        } else if (!ar.isEmpty(postNetData)) {
                             JSONObject jSONObject = new JSONObject(postNetData);
-                            signMessage.parserJson(xVar, jSONObject);
-                            if (AntiHelper.Ec(xVar.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
+                            signMessage.parserJson(yVar, jSONObject);
+                            if (AntiHelper.Fe(yVar.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
                                 signData = new SignData();
                                 signData.parserJson(postNetData);
                                 signData.is_signed = 1;
@@ -93,7 +93,7 @@ public class SignStatic {
                                 signData = null;
                             }
                         } else {
-                            signMessage.parserJson(xVar, null);
+                            signMessage.parserJson(yVar, null);
                             signData = null;
                         }
                         signMessage.signData = signData;
@@ -108,22 +108,22 @@ public class SignStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static void a(x xVar) {
+    public static void a(y yVar) {
         Address address;
         String locationLng = TbadkCoreApplication.getInst().getLocationLng();
         String locationLat = TbadkCoreApplication.getInst().getLocationLat();
-        if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (address = com.baidu.adp.lib.c.a.kq().getAddress(false)) != null) {
+        if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (address = com.baidu.adp.lib.c.a.kG().getAddress(false)) != null) {
             locationLng = String.valueOf(address.getLongitude());
             locationLat = String.valueOf(address.getLatitude());
         }
         if (!TextUtils.isEmpty(locationLat) && !TextUtils.isEmpty(locationLng)) {
-            xVar.addPostData("location", locationLng + Constants.ACCEPT_TIME_SEPARATOR_SP + locationLat);
+            yVar.addPostData("location", locationLng + Constants.ACCEPT_TIME_SEPARATOR_SP + locationLat);
         }
     }
 
-    private static void blj() {
-        ba.aVa().a(new ba.a() { // from class: com.baidu.tieba.SignStatic.2
-            @Override // com.baidu.tbadk.core.util.ba.a
+    private static void bnI() {
+        bc.aWU().a(new bc.a() { // from class: com.baidu.tieba.SignStatic.2
+            @Override // com.baidu.tbadk.core.util.bc.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
                     return 3;

@@ -1,51 +1,51 @@
 package com.baidu.tbadk.n;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.tbadk.core.util.r;
+import com.baidu.tbadk.core.util.s;
 /* loaded from: classes.dex */
 public class k extends l {
-    public static void b(r rVar, r rVar2, r rVar3, r rVar4, r rVar5, int i) {
-        if (m.bfJ().bfK()) {
-            com.baidu.adp.lib.stats.a kY = kY();
-            kY.append("action", "dlStat");
-            kY.append("c_dnum", String.valueOf(rVar.num));
-            kY.append("c_dfnum", String.valueOf(rVar.failnum));
-            kY.append("c_spnum", String.valueOf(rVar.slownum));
-            kY.append("c_costt", String.valueOf(rVar.time));
-            kY.append("c_dlsize", String.valueOf(rVar.downloadSize));
-            kY.append("p_dnum", String.valueOf(rVar2.num));
-            kY.append("p_dfnum", String.valueOf(rVar2.failnum));
-            kY.append("p_spnum", String.valueOf(rVar2.slownum));
-            kY.append("p_costt", String.valueOf(rVar2.time));
-            kY.append("p_dlsize", String.valueOf(rVar2.downloadSize));
-            kY.append("t_dnum", String.valueOf(rVar3.num));
-            kY.append("t_dfnum", String.valueOf(rVar3.failnum));
-            kY.append("t_spnum", String.valueOf(rVar3.slownum));
-            kY.append("t_costt", String.valueOf(rVar3.time));
-            kY.append("t_dlsize", String.valueOf(rVar3.downloadSize));
-            kY.append("d_dnum", String.valueOf(rVar4.num));
-            kY.append("d_dfnum", String.valueOf(rVar4.failnum));
-            kY.append("d_spnum", String.valueOf(rVar4.slownum));
-            kY.append("d_costt", String.valueOf(rVar4.time));
-            kY.append("d_dlsize", String.valueOf(rVar4.downloadSize));
-            kY.append("op_dnum", String.valueOf(rVar5.num));
-            kY.append("op_dfnum", String.valueOf(rVar5.failnum));
-            kY.append("op_spnum", String.valueOf(rVar5.slownum));
-            kY.append("op_costt", String.valueOf(rVar5.time));
-            kY.append("op_dlsize", String.valueOf(rVar5.downloadSize));
-            kY.append("nettype", m.nD(i));
-            BdStatisticsManager.getInstance().performance("image", kY);
+    public static void b(s sVar, s sVar2, s sVar3, s sVar4, s sVar5, int i) {
+        if (m.bhP().bhQ()) {
+            com.baidu.adp.lib.stats.a lo = lo();
+            lo.append("action", "dlStat");
+            lo.append("c_dnum", String.valueOf(sVar.num));
+            lo.append("c_dfnum", String.valueOf(sVar.failnum));
+            lo.append("c_spnum", String.valueOf(sVar.slownum));
+            lo.append("c_costt", String.valueOf(sVar.time));
+            lo.append("c_dlsize", String.valueOf(sVar.downloadSize));
+            lo.append("p_dnum", String.valueOf(sVar2.num));
+            lo.append("p_dfnum", String.valueOf(sVar2.failnum));
+            lo.append("p_spnum", String.valueOf(sVar2.slownum));
+            lo.append("p_costt", String.valueOf(sVar2.time));
+            lo.append("p_dlsize", String.valueOf(sVar2.downloadSize));
+            lo.append("t_dnum", String.valueOf(sVar3.num));
+            lo.append("t_dfnum", String.valueOf(sVar3.failnum));
+            lo.append("t_spnum", String.valueOf(sVar3.slownum));
+            lo.append("t_costt", String.valueOf(sVar3.time));
+            lo.append("t_dlsize", String.valueOf(sVar3.downloadSize));
+            lo.append("d_dnum", String.valueOf(sVar4.num));
+            lo.append("d_dfnum", String.valueOf(sVar4.failnum));
+            lo.append("d_spnum", String.valueOf(sVar4.slownum));
+            lo.append("d_costt", String.valueOf(sVar4.time));
+            lo.append("d_dlsize", String.valueOf(sVar4.downloadSize));
+            lo.append("op_dnum", String.valueOf(sVar5.num));
+            lo.append("op_dfnum", String.valueOf(sVar5.failnum));
+            lo.append("op_spnum", String.valueOf(sVar5.slownum));
+            lo.append("op_costt", String.valueOf(sVar5.time));
+            lo.append("op_dlsize", String.valueOf(sVar5.downloadSize));
+            lo.append("nettype", m.nY(i));
+            BdStatisticsManager.getInstance().performance("image", lo);
         }
     }
 
     public static void b(int i, int i2, long j) {
-        if (m.bfJ().bfK()) {
-            com.baidu.adp.lib.stats.a kY = kY();
-            kY.append("action", "dcStat");
-            kY.append("dcnum", String.valueOf(i));
-            kY.append("dcfnum", String.valueOf(i2));
-            kY.append("dcstime", String.valueOf(j));
-            BdStatisticsManager.getInstance().performance("image", kY);
+        if (m.bhP().bhQ()) {
+            com.baidu.adp.lib.stats.a lo = lo();
+            lo.append("action", "dcStat");
+            lo.append("dcnum", String.valueOf(i));
+            lo.append("dcfnum", String.valueOf(i2));
+            lo.append("dcstime", String.valueOf(j));
+            BdStatisticsManager.getInstance().performance("image", lo);
         }
     }
 }

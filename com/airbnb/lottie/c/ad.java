@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class ad implements aj<com.airbnb.lottie.model.content.h> {
-    public static final ad FB = new ad();
+    public static final ad Gc = new ad();
 
     private ad() {
     }

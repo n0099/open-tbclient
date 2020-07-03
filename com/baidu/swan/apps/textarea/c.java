@@ -8,23 +8,23 @@ import android.view.ViewTreeObserver;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a cIL;
-    private static volatile c cIM;
-    private int cIJ;
-    private String cIK;
+    private static a cNv;
+    private static volatile c cNw;
+    private int cNt;
+    private String cNu;
     private ViewTreeObserver.OnGlobalLayoutListener mOnGlobalLayoutListener;
-    private int cIG = 0;
-    private int cah = 200;
+    private int cNq = 0;
+    private int ceX = 200;
 
-    public static c asE() {
-        if (cIM == null) {
+    public static c atK() {
+        if (cNw == null) {
             synchronized (c.class) {
-                if (cIM == null) {
-                    cIM = new c();
+                if (cNw == null) {
+                    cNw = new c();
                 }
             }
         }
-        return cIM;
+        return cNw;
     }
 
     private void at(final View view) {
@@ -32,31 +32,31 @@ public class c {
             this.mOnGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.apps.textarea.c.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
-                    if (c.cIL != null) {
-                        c.cIL.iF(c.this.cIK);
+                    if (c.cNv != null) {
+                        c.cNv.iN(c.this.cNu);
                     }
                     Rect rect = new Rect();
                     view.getWindowVisibleDisplayFrame(rect);
                     int height = rect.height();
-                    if (c.this.cIJ == c.this.cIG) {
-                        c.this.cIJ = height;
-                    } else if (c.this.cIJ != height) {
-                        if (c.this.cIJ - height > c.this.cah) {
-                            if (c.cIL != null) {
-                                c.cIL.I(c.this.cIK, c.this.cIJ - height);
+                    if (c.this.cNt == c.this.cNq) {
+                        c.this.cNt = height;
+                    } else if (c.this.cNt != height) {
+                        if (c.this.cNt - height > c.this.ceX) {
+                            if (c.cNv != null) {
+                                c.cNv.I(c.this.cNu, c.this.cNt - height);
                                 if (c.DEBUG) {
-                                    Log.d("SoftKeyboardHelper", "onKeyBoardShow: mRootViewVisibleHeight " + c.this.cIJ + " visibleHeight " + height);
+                                    Log.d("SoftKeyboardHelper", "onKeyBoardShow: mRootViewVisibleHeight " + c.this.cNt + " visibleHeight " + height);
                                 }
                             }
-                            c.this.cIJ = height;
-                        } else if (height - c.this.cIJ > c.this.cah) {
-                            if (c.cIL != null) {
-                                c.cIL.J(c.this.cIK, height - c.this.cIJ);
+                            c.this.cNt = height;
+                        } else if (height - c.this.cNt > c.this.ceX) {
+                            if (c.cNv != null) {
+                                c.cNv.J(c.this.cNu, height - c.this.cNt);
                             }
                             if (c.DEBUG) {
-                                Log.d("SoftKeyboardHelper", "onKeyBoardHide: mRootViewVisibleHeight " + c.this.cIJ + " visibleHeight " + height);
+                                Log.d("SoftKeyboardHelper", "onKeyBoardHide: mRootViewVisibleHeight " + c.this.cNt + " visibleHeight " + height);
                             }
-                            c.this.cIJ = height;
+                            c.this.cNt = height;
                         }
                     }
                 }
@@ -67,20 +67,20 @@ public class c {
 
     public void a(View view, String str, a aVar) {
         at(view);
-        this.cIK = str;
-        cIL = aVar;
-        this.cIJ = 0;
+        this.cNu = str;
+        cNv = aVar;
+        this.cNt = 0;
     }
 
     public void au(@NonNull View view) {
         view.getViewTreeObserver().removeOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
-        this.cIK = "";
-        cIL = null;
-        this.cIJ = 0;
+        this.cNu = "";
+        cNv = null;
+        this.cNt = 0;
     }
 
     public static void release() {
-        cIL = null;
-        cIM = null;
+        cNv = null;
+        cNw = null;
     }
 }

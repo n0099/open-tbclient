@@ -3,81 +3,83 @@ package com.baidu.ar.child;
 import android.text.TextUtils;
 import com.baidu.ala.dumixar.utils.LuaMessageHelper;
 import com.baidu.ar.arrender.j;
-import com.baidu.ar.c;
+import com.baidu.ar.c.k;
 import com.baidu.ar.c.l;
 import com.baidu.ar.child.a;
 import com.baidu.ar.child.a.d;
 import com.baidu.ar.child.a.e;
-import com.baidu.ar.databasic.AlgoHandleAdapter;
+import com.baidu.ar.child.b.b;
 import com.baidu.ar.databasic.AlgoHandleController;
 import com.baidu.ar.lua.LuaMsgListener;
+import com.baidu.ar.statistic.StatisticApi;
+import com.baidu.ar.statistic.StatisticConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.TreeMap;
 /* loaded from: classes3.dex */
-public class ChildAR extends c implements LuaMsgListener {
-    private a kj;
-    private com.baidu.ar.child.a.b kl;
-    private boolean ko;
-    private String bx = null;
-    private int kk = 10;
-    private TreeMap<Long, com.baidu.ar.child.a.a> km = new TreeMap<>();
-    private TreeMap<Long, com.baidu.ar.child.a.c> kn = new TreeMap<>();
-    private AlgoHandleController bU = null;
+public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
+    private a kB;
+    private com.baidu.ar.child.a.b kC;
+    private com.baidu.ar.child.b.b kD;
+    private boolean kE;
+    private e kF;
+    private String bJ = null;
+    private AlgoHandleController ch = null;
+    private com.baidu.ar.c.e kG = new com.baidu.ar.c.e() { // from class: com.baidu.ar.child.ChildAR.1
+        @Override // com.baidu.ar.c.e
+        public void a(com.baidu.ar.c.b bVar) {
+            if (ChildAR.this.kB == null || ChildAR.this.kE) {
+                if (ChildAR.this.ch != null) {
+                    ChildAR.this.ch.destroyHandle(bVar.cF());
+                    return;
+                }
+                return;
+            }
+            if (ChildAR.this.ch.getHandleType(bVar.cF()) == 10) {
+                long createHandle = ChildAR.this.ch.createHandle();
+                ChildAR.this.kF = new e();
+                if (ChildAR.this.kB != null) {
+                    ChildAR.this.kF.f(ChildAR.this.kB.l(bVar.cF()));
+                    ChildAR.this.kF.e(ChildAR.this.kB.k(bVar.cF()));
+                    ChildAR.this.kF.i(createHandle);
+                }
+            }
+            if (ChildAR.this.ch != null && !ChildAR.this.kE) {
+                ChildAR.this.ch.destroyHandle(bVar.cF());
+            }
+            ChildAR.this.cq();
+        }
 
-    private void a(String str, final float f) {
-        final e eVar = new e();
-        eVar.s(str);
-        a(eVar, new com.baidu.ar.c.e() { // from class: com.baidu.ar.child.ChildAR.4
+        @Override // com.baidu.ar.c.e
+        public void a(l lVar) {
+        }
+
+        @Override // com.baidu.ar.c.e
+        public void b(l lVar) {
+        }
+    };
+
+    private void a(final float f, final d dVar) {
+        a(dVar, new com.baidu.ar.c.e() { // from class: com.baidu.ar.child.ChildAR.3
             @Override // com.baidu.ar.c.e
             public void a(com.baidu.ar.c.b bVar) {
-                com.baidu.ar.child.a.c cVar;
-                com.baidu.ar.child.a.a aVar;
-                if (bVar != null && (bVar instanceof d)) {
-                    d dVar = (d) bVar;
-                    if (ChildAR.this.kn.size() <= 0 || dVar == null || dVar.cf() == null) {
+                if (bVar != null && (bVar instanceof com.baidu.ar.child.a.c)) {
+                    com.baidu.ar.child.a.c cVar = (com.baidu.ar.child.a.c) bVar;
+                    if (cVar == null || cVar.cx() == null) {
                         return;
                     }
-                    if (ChildAR.this.kn.containsKey(Long.valueOf(dVar.getTimestamp()))) {
-                        ChildAR.this.kn.remove(Long.valueOf(dVar.getTimestamp()));
-                        cVar = (com.baidu.ar.child.a.c) ChildAR.this.kn.get(Long.valueOf(dVar.getTimestamp()));
-                    } else {
-                        long longValue = ((Long) ChildAR.this.kn.lastKey()).longValue();
-                        ChildAR.this.kn.remove(Long.valueOf(longValue));
-                        cVar = (com.baidu.ar.child.a.c) ChildAR.this.kn.get(Long.valueOf(longValue));
-                    }
-                    if (ChildAR.this.km.containsKey(Long.valueOf(dVar.getTimestamp()))) {
-                        aVar = (com.baidu.ar.child.a.a) ChildAR.this.km.get(Long.valueOf(dVar.getTimestamp()));
-                        ChildAR.this.km.remove(Long.valueOf(dVar.getTimestamp()));
-                    } else {
-                        long longValue2 = ((Long) ChildAR.this.km.lastKey()).longValue();
-                        aVar = (com.baidu.ar.child.a.a) ChildAR.this.km.get(Long.valueOf(longValue2));
-                        ChildAR.this.km.remove(Long.valueOf(longValue2));
-                    }
-                    if (cVar != null && aVar != null && aVar.cf() != null) {
-                        long createHandle = AlgoHandleAdapter.createHandle();
-                        ChildAR.this.kj.n(createHandle);
-                        ChildAR.this.kj.a(createHandle, dVar.cf(), dVar.cf().length, 720, 1280, f);
-                        j r = ChildAR.this.r();
-                        if (r != null && createHandle > 0 && ChildAR.this.bU != null) {
-                            if (ChildAR.this.ko) {
-                                return;
-                            }
-                            ChildAR.this.bU.sendHandleToRenderer(createHandle, r, "ability_face_child");
+                    long createHandle = ChildAR.this.ch.createHandle();
+                    ChildAR.this.kB.m(createHandle);
+                    ChildAR.this.kB.a(createHandle, cVar.cx(), ChildAR.this.S, ChildAR.this.R, f);
+                    j r = ChildAR.this.r();
+                    if (r != null && createHandle > 0 && ChildAR.this.ch != null) {
+                        if (ChildAR.this.kE) {
+                            return;
                         }
-                        ChildAR.this.kj.n(cVar.bv());
-                        b bVar2 = new b(aVar, f);
-                        bVar2.a(cVar);
-                        ChildAR.this.kj.a(bVar2);
+                        ChildAR.this.ch.sendHandleToRenderer(createHandle, r, "ability_face_child");
                     }
                 }
-                new Thread(new Runnable() { // from class: com.baidu.ar.child.ChildAR.4.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        ChildAR.this.a(eVar);
-                    }
-                }).start();
+                ChildAR.this.b(dVar);
             }
 
             @Override // com.baidu.ar.c.e
@@ -90,25 +92,74 @@ public class ChildAR extends c implements LuaMsgListener {
         });
     }
 
-    private void bZ() {
-        if (this.kn.size() <= 0) {
-            return;
-        }
-        for (Long l : this.kn.keySet()) {
-            com.baidu.ar.child.a.c cVar = this.kn.get(l);
-            if (cVar != null && cVar.bv() > 0 && this.bU != null) {
-                this.bU.destroyHandle(cVar.bv());
-                cVar.i(0L);
-            }
-        }
-        this.kn.clear();
+    private void a(String str, float f) {
+        d dVar = new d();
+        dVar.s(str);
+        cp();
+        c(f);
+        a(f, dVar);
     }
 
-    private void ca() {
-        if (this.km.size() <= 0) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(byte[] bArr, long j) {
+        j r;
+        if (this.kB == null || this.kE || j <= 0) {
             return;
         }
-        this.km.clear();
+        this.kB.a(j, bArr);
+        if (TextUtils.isEmpty(this.bJ) || (r = r()) == null || j <= 0 || this.ch == null) {
+            return;
+        }
+        this.ch.sendHandleToRenderer(j, r, "ability_face_child");
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(final k kVar) {
+        if (kVar == null) {
+            return;
+        }
+        new Thread(new Runnable() { // from class: com.baidu.ar.child.ChildAR.5
+            @Override // java.lang.Runnable
+            public void run() {
+                ChildAR.this.a(kVar);
+            }
+        }).start();
+    }
+
+    private void c(final float f) {
+        this.kC = new com.baidu.ar.child.a.b();
+        a(this.kC, new com.baidu.ar.c.e() { // from class: com.baidu.ar.child.ChildAR.4
+            @Override // com.baidu.ar.c.e
+            public void a(com.baidu.ar.c.b bVar) {
+                if (ChildAR.this.kE || ChildAR.this.kB == null || ChildAR.this.kF == null || !(bVar instanceof com.baidu.ar.child.a.a)) {
+                    return;
+                }
+                ChildAR.this.kB.m(ChildAR.this.kF.cz());
+                b bVar2 = new b((com.baidu.ar.child.a.a) bVar, f);
+                bVar2.a(ChildAR.this.kF);
+                ChildAR.this.kB.a(bVar2);
+                ChildAR.this.b(ChildAR.this.kC);
+            }
+
+            @Override // com.baidu.ar.c.e
+            public void a(l lVar) {
+            }
+
+            @Override // com.baidu.ar.c.e
+            public void b(l lVar) {
+            }
+        });
+    }
+
+    private void cp() {
+        a("FaceDetector", this.kG, (HashMap<String, Object>) null);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void cq() {
+        if (this.kG != null) {
+            a("FaceDetector", this.kG);
+        }
     }
 
     private void j(HashMap<String, Object> hashMap) {
@@ -131,10 +182,10 @@ public class ChildAR extends c implements LuaMsgListener {
     @Override // com.baidu.ar.c
     public void a(long j) {
         super.a(j);
-        if (j <= 0 || AlgoHandleAdapter.getHandleType(j) != 20 || this.bU == null) {
+        if (j <= 0 || this.ch == null || this.ch.getHandleType(j) != 20) {
             return;
         }
-        this.bU.destroyHandle(j);
+        this.ch.destroyHandle(j);
     }
 
     @Override // com.baidu.ar.c
@@ -151,7 +202,7 @@ public class ChildAR extends c implements LuaMsgListener {
 
     @Override // com.baidu.ar.lua.LuaMsgListener
     public void onLuaMessage(HashMap<String, Object> hashMap) {
-        if (this.ko || hashMap == null || hashMap.keySet().size() < 1) {
+        if (this.kE || hashMap == null || hashMap.keySet().size() < 1) {
             return;
         }
         j(hashMap);
@@ -165,23 +216,23 @@ public class ChildAR extends c implements LuaMsgListener {
     @Override // com.baidu.ar.c
     public void release() {
         super.release();
-        this.ko = !this.ko;
-        bZ();
-        ca();
-        if (this.kl != null) {
-            a(this.kl);
-            this.kl = null;
+        this.kE = !this.kE;
+        if (this.kC != null) {
+            this.kC = null;
         }
-        if (this.bU != null) {
-            this.bU.release();
-            this.bU = null;
+        if (this.ch != null) {
+            this.ch.release();
+            this.ch = null;
         }
-        if (this.kj == null || this.ko) {
-            return;
+        if (this.kB != null && !this.kE) {
+            this.kB.a((a.InterfaceC0081a) null);
+            this.kB.cr();
+            this.kB = null;
         }
-        this.kj.a((a.InterfaceC0080a) null);
-        this.kj.cb();
-        this.kj = null;
+        j r = r();
+        if (r != null) {
+            r.r(20);
+        }
     }
 
     @Override // com.baidu.ar.c
@@ -191,82 +242,34 @@ public class ChildAR extends c implements LuaMsgListener {
 
     @Override // com.baidu.ar.c
     public void setup(HashMap<String, Object> hashMap) {
-        if (this.bU == null) {
-            this.bU = new AlgoHandleController();
+        if (this.ch == null) {
+            this.ch = new AlgoHandleController();
         }
-        this.bx = (String) hashMap.get("ability_name");
-        this.kj = new a();
-        this.kj.a(new a.InterfaceC0080a() { // from class: com.baidu.ar.child.ChildAR.1
-            @Override // com.baidu.ar.child.a.InterfaceC0080a
-            public void k(long j) {
-                j r;
-                if (TextUtils.isEmpty(ChildAR.this.bx) || j <= 0 || (r = ChildAR.this.r()) == null || j <= 0 || ChildAR.this.bU == null || ChildAR.this.ko) {
+        this.bJ = (String) hashMap.get("ability_name");
+        this.kB = new a(this.R, this.S);
+        this.kD = new com.baidu.ar.child.b.b();
+        this.kB.a(new a.InterfaceC0081a() { // from class: com.baidu.ar.child.ChildAR.2
+            @Override // com.baidu.ar.child.a.InterfaceC0081a
+            public void a(final long j, byte[] bArr, int i) {
+                if (bArr == null || bArr.length <= 0) {
                     return;
                 }
-                ChildAR.this.bU.sendHandleToRenderer(j, r, "ability_face_child");
-            }
-        });
-        a("FaceDetector", new com.baidu.ar.c.e() { // from class: com.baidu.ar.child.ChildAR.2
-            @Override // com.baidu.ar.c.e
-            public void a(com.baidu.ar.c.b bVar) {
-                if (ChildAR.this.ko) {
-                    return;
-                }
-                if (ChildAR.this.kj == null) {
-                    if (ChildAR.this.bU != null) {
-                        ChildAR.this.bU.destroyHandle(bVar.cn());
-                        return;
+                ChildAR.this.kD.a(bArr, i, new b.a() { // from class: com.baidu.ar.child.ChildAR.2.1
+                    @Override // com.baidu.ar.child.b.b.a
+                    public void e(byte[] bArr2) {
+                        if (bArr2 == null) {
+                            return;
+                        }
+                        StatisticApi.onEvent(StatisticConstants.EVENT_FACE2CHILD_CASEUSE);
+                        ChildAR.this.a(bArr2, j);
                     }
-                    return;
-                }
-                if (AlgoHandleAdapter.getHandleType(bVar.cn()) == 10) {
-                    if (ChildAR.this.kn.size() >= ChildAR.this.kk) {
-                        ChildAR.this.bU.destroyHandle(((com.baidu.ar.child.a.c) ChildAR.this.kn.get(ChildAR.this.kn.firstKey())).bv());
-                        ChildAR.this.kn.remove(ChildAR.this.kn.firstKey());
-                    }
-                    long createHandle = AlgoHandleAdapter.createHandle();
-                    com.baidu.ar.child.a.c cVar = new com.baidu.ar.child.a.c();
-                    if (ChildAR.this.kj != null) {
-                        cVar.d(ChildAR.this.kj.m(bVar.cn()));
-                        cVar.e(ChildAR.this.kj.l(bVar.cn()));
-                        cVar.i(createHandle);
-                        ChildAR.this.kn.put(Long.valueOf(bVar.getTimestamp()), cVar);
-                    }
-                }
-                if (ChildAR.this.bU != null) {
-                    ChildAR.this.bU.destroyHandle(bVar.cn());
-                }
-            }
-
-            @Override // com.baidu.ar.c.e
-            public void a(l lVar) {
-            }
-
-            @Override // com.baidu.ar.c.e
-            public void b(l lVar) {
-            }
-        }, null);
-        this.kl = new com.baidu.ar.child.a.b();
-        a(this.kl, new com.baidu.ar.c.e() { // from class: com.baidu.ar.child.ChildAR.3
-            @Override // com.baidu.ar.c.e
-            public void a(com.baidu.ar.c.b bVar) {
-                if (!ChildAR.this.ko && (bVar instanceof com.baidu.ar.child.a.a)) {
-                    com.baidu.ar.child.a.a aVar = (com.baidu.ar.child.a.a) bVar;
-                    if (ChildAR.this.km.size() >= ChildAR.this.kk) {
-                        ChildAR.this.km.remove(ChildAR.this.km.firstKey());
-                    }
-                    ChildAR.this.km.put(Long.valueOf(bVar.getTimestamp()), aVar);
-                }
-            }
-
-            @Override // com.baidu.ar.c.e
-            public void a(l lVar) {
-            }
-
-            @Override // com.baidu.ar.c.e
-            public void b(l lVar) {
+                });
             }
         });
         a((LuaMsgListener) this);
+        j r = r();
+        if (r != null) {
+            r.a(20, false);
+        }
     }
 }

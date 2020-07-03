@@ -17,30 +17,30 @@ import org.apache.http.protocol.HTTP;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class h implements e {
-    private OkHttpClient bBB;
-    private final OkHttpClient bBC;
-    private final OkHttpClient bBD;
+    private OkHttpClient bGp;
+    private final OkHttpClient bGq;
+    private final OkHttpClient bGr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Context context) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        f fVar = f.bzx.get();
+        f fVar = f.bEl.get();
         if (fVar != null) {
             builder.cookieJar(fVar.cookieJar());
         }
         builder.sslSocketFactory(k.getSSLSocketFactory());
         builder.hostnameVerifier(k.getHostnameVerifier());
-        this.bBD = builder.build();
+        this.bGr = builder.build();
         builder.readTimeout(d.READ_TIME_OUT, TimeUnit.MILLISECONDS);
-        builder.writeTimeout(d.bBA, TimeUnit.MILLISECONDS);
+        builder.writeTimeout(d.bGo, TimeUnit.MILLISECONDS);
         builder.connectTimeout(d.CONNECT_TIME_OUT, TimeUnit.MILLISECONDS);
-        this.bBC = builder.build();
+        this.bGq = builder.build();
     }
 
     @Override // com.baidu.prologue.service.network.e
     public void a(Request request, l lVar) {
         try {
-            cX(request.bBK);
+            dc(request.bGy);
             a(a(request), lVar);
         } catch (IllegalArgumentException e) {
             if (com.baidu.prologue.a.a.a.GLOBAL_DEBUG) {
@@ -50,11 +50,11 @@ public class h implements e {
         }
     }
 
-    private void cX(boolean z) {
+    private void dc(boolean z) {
         if (z) {
-            this.bBB = this.bBC;
+            this.bGp = this.bGq;
         } else {
-            this.bBB = this.bBD;
+            this.bGp = this.bGr;
         }
     }
 
@@ -73,9 +73,9 @@ public class h implements e {
         if (!Arrays.asList("GET", "POST").contains(request.method)) {
             throw new IllegalArgumentException("Invalid request method " + request.method);
         }
-        if ("POST".equals(request.method) && request.bBG != null) {
+        if ("POST".equals(request.method) && request.bGu != null) {
             FormBody.Builder builder2 = new FormBody.Builder();
-            for (Map.Entry<String, String> entry2 : request.bBG.entrySet()) {
+            for (Map.Entry<String, String> entry2 : request.bGu.entrySet()) {
                 String value = entry2.getValue();
                 if (value == null) {
                     value = "";
@@ -89,7 +89,7 @@ public class h implements e {
 
     private void a(okhttp3.Request request, final l lVar) {
         try {
-            this.bBB.newCall(request).enqueue(new Callback() { // from class: com.baidu.prologue.service.network.h.1
+            this.bGp.newCall(request).enqueue(new Callback() { // from class: com.baidu.prologue.service.network.h.1
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
                     lVar.o(iOException);

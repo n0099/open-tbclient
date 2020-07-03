@@ -7,13 +7,13 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends BaseData {
     public String appId;
-    public String fFD;
-    public String fFE;
-    public int fFF;
-    public int fFG;
-    public String fFH;
-    public String fFI;
-    public String fFJ;
+    public String fQM;
+    public String fQN;
+    public int fQO;
+    public int fQP;
+    public String fQQ;
+    public String fQR;
+    public String fQS;
     public int fansCount;
     public int followCount;
     public int followStatus;
@@ -27,8 +27,8 @@ public class a extends BaseData {
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
-        this.fFD = jSONObject.optString("benefit_userid");
-        this.fFE = jSONObject.optString("pay_userid");
+        this.fQM = jSONObject.optString("benefit_userid");
+        this.fQN = jSONObject.optString("pay_userid");
         this.userName = jSONObject.optString("user_name");
         this.nickName = jSONObject.optString("user_nickname");
         this.userStatus = jSONObject.optInt("user_status");
@@ -37,16 +37,16 @@ public class a extends BaseData {
         if (StringUtils.isNull(this.portrait)) {
             this.portrait = jSONObject.optString("portrait");
         }
-        this.fFF = jSONObject.optInt("enter_live");
-        this.fFG = jSONObject.optInt("ancher_live");
-        this.fFH = jSONObject.optString("level_exp");
-        this.fFI = jSONObject.optString("charm_count");
+        this.fQO = jSONObject.optInt("enter_live");
+        this.fQP = jSONObject.optInt("ancher_live");
+        this.fQQ = jSONObject.optString("level_exp");
+        this.fQR = jSONObject.optString("charm_count");
         this.isOfficial = jSONObject.optInt("is_official");
         this.levelId = jSONObject.optInt("level_id");
         this.followStatus = jSONObject.optInt("follow_status");
         this.followCount = jSONObject.optInt("follow_count");
         this.fansCount = jSONObject.optInt("fans_count");
-        this.fFJ = jSONObject.optString("total_price");
+        this.fQS = jSONObject.optString("total_price");
         this.appId = jSONObject.optString("third_app_id");
     }
 

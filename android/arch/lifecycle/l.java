@@ -5,5 +5,5 @@ import android.support.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface l extends j {
     @NonNull
-    k fT();
+    k gk();
 }

@@ -11,6 +11,6 @@ public class a {
         SDKInitializer.setHttpsEnable(true);
     }
 
-    public static void aDA() {
+    public static void aEG() {
     }
 }

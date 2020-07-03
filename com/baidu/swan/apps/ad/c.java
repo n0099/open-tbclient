@@ -14,8 +14,8 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private SparseArray<a> csq = new SparseArray<>();
-    private Set<String> csr = new HashSet();
+    private SparseArray<a> cxe = new SparseArray<>();
+    private Set<String> cxf = new HashSet();
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -25,8 +25,8 @@ public final class c {
     @TargetApi(23)
     public void a(Activity activity, int i, @NonNull String[] strArr, a aVar) {
         if (aVar != null) {
-            if (!t(strArr)) {
-                this.csq.put(i, aVar);
+            if (!s(strArr)) {
+                this.cxe.put(i, aVar);
                 activity.requestPermissions(strArr, i);
                 if (DEBUG) {
                     Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i + " permissions: " + Arrays.toString(strArr));
@@ -38,12 +38,12 @@ public final class c {
         }
     }
 
-    private boolean t(@NonNull String[] strArr) {
+    private boolean s(@NonNull String[] strArr) {
         if (strArr.length <= 0) {
             return true;
         }
         for (String str : strArr) {
-            if (!TextUtils.isEmpty(str) && this.csr.contains(str)) {
+            if (!TextUtils.isEmpty(str) && this.cxf.contains(str)) {
                 return true;
             }
         }
@@ -54,12 +54,12 @@ public final class c {
         if (Build.VERSION.SDK_INT >= 23) {
             a(activity, strArr, iArr);
         }
-        a aVar = this.csq.get(i);
+        a aVar = this.cxe.get(i);
         if (aVar != null) {
             if (strArr.length > 0 && iArr.length > 0) {
                 aVar.onRequestPermissionsResult(i, strArr, iArr);
             }
-            this.csq.remove(i);
+            this.cxe.remove(i);
         }
         if (DEBUG) {
             Log.d("SwanAppPermission", "onRequestPermissionsResult requestCode: " + i + " permissions: " + Arrays.toString(strArr));
@@ -75,7 +75,7 @@ public final class c {
                 int i2 = iArr[i];
                 String str = strArr[i];
                 if (!TextUtils.isEmpty(str) && i2 == -1 && !activity.shouldShowRequestPermissionRationale(str)) {
-                    this.csr.add(str);
+                    this.cxf.add(str);
                 }
             }
         }

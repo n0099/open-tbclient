@@ -3,5 +3,5 @@ package com.baidu.swan.apps.adaptation.a;
 public interface ah {
     String getHostName();
 
-    String sz();
+    String sU();
 }

@@ -9,83 +9,83 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.switchs.VCacheSwitch;
 /* loaded from: classes.dex */
 public class s {
-    private static i kAN = null;
-    private static boolean kAO = true;
-    private static boolean kAP = true;
+    private static i kUK = null;
+    private static boolean kUL = true;
+    private static boolean kUM = true;
 
-    private static i cRv() {
-        if (kAN == null) {
-            kAO = com.baidu.tbadk.core.sharedPref.b.aTX().getBoolean(SharedPrefConfig.PREFS_SAVE_PALED_VIDEO, true);
+    private static i cVM() {
+        if (kUK == null) {
+            kUL = com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean(SharedPrefConfig.PREFS_SAVE_PALED_VIDEO, true);
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, i.class);
             if (runTask != null) {
-                kAN = (i) runTask.getData();
+                kUK = (i) runTask.getData();
             }
         }
-        return kAN;
+        return kUK;
     }
 
-    public static String aP(String str, boolean z) {
+    public static String aR(String str, boolean z) {
         if (z) {
-            if (kAP && cRv() != null) {
-                return cRv().ao(str, true);
+            if (kUM && cVM() != null) {
+                return cVM().aq(str, true);
             }
             return str;
-        } else if (kAP && kAO && cRv() != null) {
-            return cRv().zB(str);
+        } else if (kUM && kUL && cVM() != null) {
+            return cVM().zU(str);
         } else {
             return str;
         }
     }
 
-    public static String zC(String str) {
-        if (cRv() != null) {
-            return cRv().zC(str);
+    public static String zV(String str) {
+        if (cVM() != null) {
+            return cVM().zV(str);
         }
         return null;
     }
 
     public static void d(Context context, String str, int i) {
-        if (cRv() != null) {
-            cRv().d(context, str, i);
+        if (cVM() != null) {
+            cVM().d(context, str, i);
         }
     }
 
     public static void aq(Context context, String str) {
-        if (cRv() != null) {
-            cRv().aq(context, str);
+        if (cVM() != null) {
+            cVM().aq(context, str);
         }
     }
 
     public static void ar(Context context, String str) {
-        if (kAP && kAO && cRv() != null) {
-            cRv().ar(context, str);
+        if (kUM && kUL && cVM() != null) {
+            cVM().ar(context, str);
         }
     }
 
-    public static void zD(String str) {
-        if (kAP && kAO && cRv() != null) {
-            cRv().zD(str);
+    public static void zW(String str) {
+        if (kUM && kUL && cVM() != null) {
+            cVM().zW(str);
         }
     }
 
     public static void clearCache(Context context) {
-        if (cRv() != null) {
-            cRv().clearCache(context);
+        if (cVM() != null) {
+            cVM().clearCache(context);
         }
     }
 
-    public static String zE(String str) {
-        if (cRv() != null) {
-            return cRv().zE(str);
+    public static String zX(String str) {
+        if (cVM() != null) {
+            return cVM().zX(str);
         }
         return null;
     }
 
-    public static void tx(boolean z) {
-        kAO = z;
+    public static void tL(boolean z) {
+        kUL = z;
     }
 
-    public static void cRw() {
-        kAP = SwitchManager.getInstance().findType(VCacheSwitch.CACHE_SWITCH) == 1;
+    public static void cVN() {
+        kUM = SwitchManager.getInstance().findType(VCacheSwitch.CACHE_SWITCH) == 1;
     }
 }

@@ -7,47 +7,47 @@ import com.baidu.util.Base64Encoder;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes12.dex */
 public class c {
-    private String ajN;
-    private String ajO;
-    private String ajP;
-    private String ajQ;
-    private String ajR;
+    private String alj;
+    private String alk;
+    private String alm;
+    private String aln;
+    private String alo;
 
     public c() {
         init();
     }
 
     private void init() {
-        this.ajN = Build.MODEL;
-        if (TextUtils.isEmpty(this.ajN)) {
-            this.ajN = "NUL";
+        this.alj = Build.MODEL;
+        if (TextUtils.isEmpty(this.alj)) {
+            this.alj = "NUL";
         } else {
-            this.ajN = this.ajN.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+            this.alj = this.alj.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
         }
-        this.ajO = Build.MANUFACTURER;
-        if (TextUtils.isEmpty(this.ajO)) {
-            this.ajO = "NUL";
+        this.alk = Build.MANUFACTURER;
+        if (TextUtils.isEmpty(this.alk)) {
+            this.alk = "NUL";
         } else {
-            this.ajO = this.ajO.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+            this.alk = this.alk.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
         }
-        this.ajP = Build.VERSION.RELEASE;
-        if (TextUtils.isEmpty(this.ajP)) {
-            this.ajP = "0.0";
+        this.alm = Build.VERSION.RELEASE;
+        if (TextUtils.isEmpty(this.alm)) {
+            this.alm = "0.0";
         } else {
-            this.ajP = this.ajP.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+            this.alm = this.alm.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
         }
-        this.ajQ = su();
-        this.ajR = new String(Base64Encoder.B64Encode(this.ajQ.getBytes()));
+        this.aln = sP();
+        this.alo = new String(Base64Encoder.B64Encode(this.aln.getBytes()));
     }
 
-    private String su() {
-        String str = this.ajN;
-        String str2 = this.ajP;
+    private String sP() {
+        String str = this.alj;
+        String str2 = this.alm;
         int i = Build.VERSION.SDK_INT;
-        return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.ajO;
+        return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.alk;
     }
 
     public String getDeviceInfo() {
-        return this.ajQ;
+        return this.aln;
     }
 }

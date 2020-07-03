@@ -54,9 +54,9 @@ public class a extends aa {
             }
             c.d("StartDeviceMotionAction", "startSensor===");
             final i iVar = new i("deviceMotionChange", optParamsAsJo, optString);
-            if (!com.baidu.swan.apps.am.g.a.asu().a(i, new a.InterfaceC0293a() { // from class: com.baidu.swan.apps.am.g.a.a.1
-                @Override // com.baidu.swan.apps.am.g.a.InterfaceC0293a
-                public void w(float[] fArr) {
+            if (!com.baidu.swan.apps.am.g.a.atA().a(i, new a.InterfaceC0299a() { // from class: com.baidu.swan.apps.am.g.a.a.1
+                @Override // com.baidu.swan.apps.am.g.a.InterfaceC0299a
+                public void x(float[] fArr) {
                     if (fArr != null && fArr.length == 3) {
                         a.this.a(unitedSchemeEntity, callbackHandler, iVar, fArr);
                     }

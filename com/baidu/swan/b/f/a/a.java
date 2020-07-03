@@ -15,10 +15,10 @@ public class a extends com.baidu.swan.b.d.a {
 
     @Override // com.baidu.swan.b.d.a
     public com.baidu.swan.apps.api.c.b b(JSONObject jSONObject, com.baidu.swan.apps.n.b bVar) {
-        e aoG = e.aoG();
-        if (aoG != null && aoG.aoz() != null) {
-            w.co(aoG.aoz());
-            bVar.aa(null);
+        e apN = e.apN();
+        if (apN != null && apN.apG() != null) {
+            w.cp(apN.apG());
+            bVar.ah(null);
         } else if (DEBUG) {
             Log.d("StartPermissionsPage", "swan or activity is null");
         }

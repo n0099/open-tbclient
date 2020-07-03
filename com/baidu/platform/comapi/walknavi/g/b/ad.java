@@ -14,9 +14,9 @@ public class ad extends b {
     public ad(Context context, View view) {
         this.b = null;
         this.c = null;
-        this.a = (RelativeLayout) view.findViewById(R.raw.lottie_tab_home_1);
-        this.b = (TextView) this.a.findViewById(R.raw.lottie_tab_live);
-        this.c = (TextView) this.a.findViewById(R.raw.lottie_tab_live_1);
+        this.a = (RelativeLayout) view.findViewById(R.raw.lottie_redpack_run);
+        this.b = (TextView) this.a.findViewById(R.raw.lottie_refresh_dark);
+        this.c = (TextView) this.a.findViewById(R.raw.lottie_refresh_light);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

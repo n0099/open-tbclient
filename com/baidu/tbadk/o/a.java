@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -19,7 +19,7 @@ import java.io.OutputStream;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean etH = false;
+    private static boolean eCy = false;
     private static String link = "";
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [77=4, 78=4, 80=4, 81=4, 84=4, 85=4, 87=4, 88=4] */
@@ -173,7 +173,7 @@ public class a {
         return z;
     }
 
-    public static String dX(Context context) {
+    public static String dY(Context context) {
         String host;
         int port;
         String str = null;
@@ -199,7 +199,7 @@ public class a {
         }
     }
 
-    public static boolean bfV() {
+    public static boolean bib() {
         try {
             return Settings.Secure.getInt(ContentResolverProxy.getContentResolver(), "adb_enabled", 0) > 0;
         } catch (Exception e) {
@@ -211,7 +211,7 @@ public class a {
     public static String L(File file) {
         FileInputStream fileInputStream;
         String str;
-        if (etH) {
+        if (eCy) {
             return "hasSend_" + link;
         }
         String str2 = TbConfig.SERVER_ADDRESS + TbConfig.DEBUG_UPLOAD;
@@ -225,14 +225,14 @@ public class a {
                     byte[] bArr = new byte[(int) file.length()];
                     fileInputStream.read(bArr);
                     fileInputStream.close();
-                    x xVar = new x(str2 + "?fn=" + file.getName());
-                    xVar.addPostData("debugfile", bArr);
-                    xVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
-                    xVar.addPostData("type", "android");
-                    str = xVar.postMultiNetData();
+                    y yVar = new y(str2 + "?fn=" + file.getName());
+                    yVar.addPostData("debugfile", bArr);
+                    yVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
+                    yVar.addPostData("type", "android");
+                    str = yVar.postMultiNetData();
                     if (str != null && !str.isEmpty()) {
                         link = new JSONObject(str).getString("url");
-                        etH = true;
+                        eCy = true;
                         String str3 = link;
                         if (fileInputStream != null) {
                             try {

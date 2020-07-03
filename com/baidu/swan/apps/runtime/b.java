@@ -10,8 +10,8 @@ import java.util.Map;
 /* loaded from: classes11.dex */
 public final class b implements com.baidu.swan.apps.aq.e.b<i.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Map<String, com.baidu.swan.apps.aq.e.b<i.a>> czr = new HashMap();
-    private final List<com.baidu.swan.apps.aq.e.c<i.a, Boolean>> czs = new ArrayList();
+    private final Map<String, com.baidu.swan.apps.aq.e.b<i.a>> cEb = new HashMap();
+    private final List<com.baidu.swan.apps.aq.e.c<i.a, Boolean>> cEc = new ArrayList();
 
     public b a(final com.baidu.swan.apps.aq.e.b<i.a> bVar, String... strArr) {
         if (bVar != null && strArr != null && strArr.length > 0) {
@@ -21,7 +21,7 @@ public final class b implements com.baidu.swan.apps.aq.e.b<i.a> {
                 /* renamed from: onCallback */
                 public void H(String str) {
                     if (!TextUtils.isEmpty(str)) {
-                        b.this.czr.put(str, bVar);
+                        b.this.cEb.put(str, bVar);
                     }
                 }
             }, strArr);
@@ -29,14 +29,14 @@ public final class b implements com.baidu.swan.apps.aq.e.b<i.a> {
         return this;
     }
 
-    public b v(String... strArr) {
+    public b u(String... strArr) {
         if (strArr != null && strArr.length > 0) {
             com.baidu.swan.apps.aq.e.a.a(new com.baidu.swan.apps.aq.e.b<String>() { // from class: com.baidu.swan.apps.runtime.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.aq.e.b
                 /* renamed from: onCallback */
                 public void H(String str) {
-                    b.this.czr.remove(str);
+                    b.this.cEb.remove(str);
                 }
             }, strArr);
         }
@@ -45,7 +45,7 @@ public final class b implements com.baidu.swan.apps.aq.e.b<i.a> {
 
     public b a(com.baidu.swan.apps.aq.e.c<i.a, Boolean> cVar) {
         if (cVar != null) {
-            this.czs.add(cVar);
+            this.cEc.add(cVar);
         }
         return this;
     }
@@ -58,7 +58,7 @@ public final class b implements com.baidu.swan.apps.aq.e.b<i.a> {
         if (DEBUG) {
             Log.i("EventHandler", "handle: " + aVar);
         }
-        if (h(aVar) && (bVar = this.czr.get(aVar.id)) != null) {
+        if (h(aVar) && (bVar = this.cEb.get(aVar.id)) != null) {
             bVar.H(aVar);
         }
     }
@@ -67,7 +67,7 @@ public final class b implements com.baidu.swan.apps.aq.e.b<i.a> {
         if (aVar == null) {
             return false;
         }
-        for (com.baidu.swan.apps.aq.e.c<i.a, Boolean> cVar : this.czs) {
+        for (com.baidu.swan.apps.aq.e.c<i.a, Boolean> cVar : this.cEc) {
             if (cVar != null && !cVar.I(aVar).booleanValue()) {
                 return false;
             }

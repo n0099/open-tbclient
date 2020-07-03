@@ -5,35 +5,35 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import com.baidu.live.u.a;
+import com.baidu.live.sdk.a;
 /* loaded from: classes3.dex */
 public class PriorityVerticalLinearLayout extends LinearLayout {
-    private int bip;
+    private int bbk;
 
     public PriorityVerticalLinearLayout(Context context) {
         super(context);
-        this.bip = -1;
+        this.bbk = -1;
         setOrientation(1);
     }
 
     public PriorityVerticalLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bip = -1;
+        this.bbk = -1;
         setOrientation(1);
     }
 
     public PriorityVerticalLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bip = -1;
+        this.bbk = -1;
         setOrientation(1);
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
-        int W = W(view);
-        if (W >= 0) {
-            super.addView(view, W, layoutParams);
-            if (this.bip >= 0) {
+        int Q = Q(view);
+        if (Q >= 0) {
+            super.addView(view, Q, layoutParams);
+            if (this.bbk >= 0) {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) view.getLayoutParams();
                 if (layoutParams2 != null) {
                     int i2 = -1;
@@ -43,7 +43,7 @@ public class PriorityVerticalLinearLayout extends LinearLayout {
                     if (i2 == 20) {
                         layoutParams2.bottomMargin = 0;
                     } else {
-                        layoutParams2.bottomMargin = this.bip;
+                        layoutParams2.bottomMargin = this.bbk;
                     }
                     layoutParams2.topMargin = 0;
                 }
@@ -53,10 +53,10 @@ public class PriorityVerticalLinearLayout extends LinearLayout {
     }
 
     public void setDefaultItemMargin(int i) {
-        this.bip = i;
+        this.bbk = i;
     }
 
-    private int W(View view) {
+    private int Q(View view) {
         if (view == null || !(view.getTag(a.g.sdk_pvl_layout_priority_tag_key) instanceof Integer)) {
             return -1;
         }

@@ -9,19 +9,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 class a {
-    private String vC;
-    private Map<String, f> vD;
+    private String wc;
+    private Map<String, f> wd;
 
     public a(String str) {
-        this.vC = str;
+        this.wc = str;
     }
 
-    private Map<String, f> eR() {
-        if (this.vD != null) {
-            return this.vD;
+    private Map<String, f> fh() {
+        if (this.wd != null) {
+            return this.wd;
         }
-        this.vD = new HashMap();
-        File file = new File(this.vC.concat(File.separator).concat("res_config.json"));
+        this.wd = new HashMap();
+        File file = new File(this.wc.concat(File.separator).concat("res_config.json"));
         if (file.exists()) {
             try {
                 JSONArray optJSONArray = new JSONObject(g.f(file)).optJSONArray("res");
@@ -31,11 +31,11 @@ class a {
                         JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                         if (optJSONObject != null) {
                             f fVar = new f();
-                            fVar.vT = optJSONObject.getString("resPath");
-                            fVar.vU = optJSONObject.optString("resId");
-                            fVar.vV = optJSONObject.optString("encoding");
-                            fVar.vW = optJSONObject.optString("md5");
-                            this.vD.put(fVar.vT, fVar);
+                            fVar.wt = optJSONObject.getString("resPath");
+                            fVar.wu = optJSONObject.optString("resId");
+                            fVar.wv = optJSONObject.optString("encoding");
+                            fVar.ww = optJSONObject.optString("md5");
+                            this.wd.put(fVar.wt, fVar);
                         }
                     }
                 }
@@ -43,13 +43,13 @@ class a {
                 e.printStackTrace();
             }
         }
-        return this.vD;
+        return this.wd;
     }
 
-    public f aF(String str) {
-        Map<String, f> eR = eR();
-        if (eR.containsKey(str)) {
-            return eR.get(str);
+    public f aG(String str) {
+        Map<String, f> fh = fh();
+        if (fh.containsKey(str)) {
+            return fh.get(str);
         }
         return null;
     }

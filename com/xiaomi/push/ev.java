@@ -58,7 +58,7 @@ public class ev implements et {
             try {
                 if (TextUtils.isEmpty(a2)) {
                     em.a(context, d, 1008, "info is empty");
-                } else if (a != 1 || eq.m264a(context)) {
+                } else if (a != 1 || eq.m261a(context)) {
                     String type = context.getContentResolver().getType(el.a(b, a2));
                     if (TextUtils.isEmpty(type) || !"success".equals(type)) {
                         em.a(context, d, 1008, "A is fail to help B's provider");

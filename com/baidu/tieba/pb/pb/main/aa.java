@@ -5,15 +5,15 @@ import com.baidu.tbadk.core.data.MetaData;
 import java.util.HashMap;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes9.dex */
-public class aa implements com.baidu.adp.widget.ListView.o {
-    public static final BdUniqueId jOm = BdUniqueId.gen();
+public class aa implements com.baidu.adp.widget.ListView.q {
+    public static final BdUniqueId khZ = BdUniqueId.gen();
     public String cover;
-    private boolean dCL;
-    public MetaData dFJ;
+    private boolean dJg;
+    public MetaData dMu;
     public String description;
     public boolean isChushou;
-    public int jNS;
-    public boolean jNT = false;
+    public int khG;
+    public boolean khH = false;
     public long liveId;
     public int liveStatus;
     public String routeType;
@@ -27,7 +27,7 @@ public class aa implements com.baidu.adp.widget.ListView.o {
         if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.pb_display_type.intValue() == 3 && alaLiveInfo.live_status.intValue() == 1) {
             this.userName = alaLiveInfo.user_info.user_name;
             this.liveStatus = alaLiveInfo.live_status.intValue();
-            this.jNS = alaLiveInfo.audience_count.intValue();
+            this.khG = alaLiveInfo.audience_count.intValue();
             this.description = alaLiveInfo.description;
             this.cover = alaLiveInfo.cover;
             this.liveId = alaLiveInfo.live_id.longValue();
@@ -36,24 +36,24 @@ public class aa implements com.baidu.adp.widget.ListView.o {
             this.thirdRoomId = alaLiveInfo.third_room_id;
             this.routeType = alaLiveInfo.router_type;
             if (alaLiveInfo.user_info.user_id != null && alaLiveInfo.user_info.user_id.longValue() > 0 && this.userMap != null && (metaData = this.userMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
-                this.dFJ = metaData;
+                this.dMu = metaData;
             }
-            this.dCL = true;
+            this.dJg = true;
             return;
         }
-        this.dCL = false;
+        this.dJg = false;
     }
 
     public boolean isValid() {
-        return this.dCL;
+        return this.dJg;
     }
 
     public void setUserMap(HashMap<String, MetaData> hashMap) {
         this.userMap = hashMap;
     }
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return jOm;
+        return khZ;
     }
 }

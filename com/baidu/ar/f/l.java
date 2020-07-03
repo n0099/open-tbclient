@@ -50,7 +50,7 @@ public class l {
         }
     }
 
-    public static Object aN(String str) {
+    public static Object aO(String str) {
         try {
             return Class.forName(str).newInstance();
         } catch (Exception e) {

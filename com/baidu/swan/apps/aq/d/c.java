@@ -5,54 +5,54 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 /* loaded from: classes11.dex */
 public class c implements b {
-    private final Queue<a> cLc = new ArrayDeque();
-    private a cLd;
+    private final Queue<a> cPM = new ArrayDeque();
+    private a cPN;
 
     public void b(a aVar) {
         if (aVar != null) {
-            synchronized (this.cLc) {
-                this.cLc.offer(aVar.a(this));
+            synchronized (this.cPM) {
+                this.cPM.offer(aVar.a(this));
             }
         }
-        auf();
+        avl();
     }
 
     @Override // com.baidu.swan.apps.aq.d.b
     public void a(a aVar) {
-        synchronized (this.cLc) {
-            if (aVar == this.cLd) {
+        synchronized (this.cPM) {
+            if (aVar == this.cPN) {
                 runNextTask();
             }
         }
     }
 
-    private void auf() {
-        synchronized (this.cLc) {
-            if (this.cLd == null) {
+    private void avl() {
+        synchronized (this.cPM) {
+            if (this.cPN == null) {
                 runNextTask();
             }
         }
     }
 
     private void runNextTask() {
-        synchronized (this.cLc) {
-            this.cLd = null;
-            if (!this.cLc.isEmpty()) {
-                this.cLd = this.cLc.poll();
-                if (this.cLd == null) {
+        synchronized (this.cPM) {
+            this.cPN = null;
+            if (!this.cPM.isEmpty()) {
+                this.cPN = this.cPM.poll();
+                if (this.cPN == null) {
                     runNextTask();
                 } else {
-                    aj.p(this.cLd);
+                    aj.p(this.cPN);
                 }
             }
         }
     }
 
     public synchronized void clear() {
-        if (this.cLd != null) {
-            this.cLd.finish();
-            this.cLd = null;
+        if (this.cPN != null) {
+            this.cPN.finish();
+            this.cPN = null;
         }
-        this.cLc.clear();
+        this.cPM.clear();
     }
 }

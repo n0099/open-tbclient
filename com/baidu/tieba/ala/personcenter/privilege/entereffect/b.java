@@ -14,10 +14,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 /* loaded from: classes3.dex */
 public class b {
-    private AlaEffectPreviewView grA;
-    private AlaEnterEffectData grB;
-    private int grC = 2;
-    private IFrameCallback grD = new IFrameCallback() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.b.1
+    private RelativeLayout gEn;
+    private IImageFramePlayerViewController gEo;
+    private AlaEffectPreviewView gEp;
+    private AlaEnterEffectData gEq;
+    private int gEr = 2;
+    private IFrameCallback gEs = new IFrameCallback() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.b.1
         @Override // com.baidu.ala.gift.IFrameCallback
         public void onFrameStart() {
         }
@@ -29,55 +31,53 @@ public class b {
         @Override // com.baidu.ala.gift.IFrameCallback
         public void onFrameEnd() {
             b.a(b.this);
-            if (b.this.grC <= 0 && b.this.grB != null) {
-                b.this.a(b.this.grB);
+            if (b.this.gEr <= 0 && b.this.gEq != null) {
+                b.this.a(b.this.gEq);
             }
         }
     };
-    private a grE = new a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.b.2
+    private a gEt = new a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.b.2
         @Override // com.baidu.tieba.ala.personcenter.privilege.entereffect.b.a
-        public void bIM() {
+        public void bLR() {
             b.a(b.this);
-            if (b.this.grB != null) {
-                if (b.this.grB.type != 1 || b.this.grC > 0) {
-                    if (b.this.grB.type == 0) {
-                        b.this.a(b.this.grB);
+            if (b.this.gEq != null) {
+                if (b.this.gEq.type != 1 || b.this.gEr > 0) {
+                    if (b.this.gEq.type == 0) {
+                        b.this.a(b.this.gEq);
                         return;
                     }
                     return;
                 }
-                b.this.a(b.this.grB);
+                b.this.a(b.this.gEq);
             }
         }
     };
-    private RelativeLayout gry;
-    private IImageFramePlayerViewController grz;
     private Context mContext;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bIM();
+        void bLR();
     }
 
     static /* synthetic */ int a(b bVar) {
-        int i = bVar.grC;
-        bVar.grC = i - 1;
+        int i = bVar.gEr;
+        bVar.gEr = i - 1;
         return i;
     }
 
     public b(Context context, RelativeLayout relativeLayout) {
         this.mContext = context;
-        this.gry = relativeLayout;
+        this.gEn = relativeLayout;
     }
 
     public void a(AlaEnterEffectData alaEnterEffectData) {
         if (alaEnterEffectData != null) {
-            this.grB = alaEnterEffectData;
-            if (this.grB.type == 1) {
-                this.grC = 2;
+            this.gEq = alaEnterEffectData;
+            if (this.gEq.type == 1) {
+                this.gEr = 2;
                 b(alaEnterEffectData);
                 c(alaEnterEffectData);
-            } else if (this.grB.type == 0) {
+            } else if (this.gEq.type == 0) {
                 c(alaEnterEffectData);
             }
         }
@@ -85,13 +85,13 @@ public class b {
 
     private void b(AlaEnterEffectData alaEnterEffectData) {
         CustomResponsedMessage runTask;
-        if (this.grz == null && (runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER, IImageFramePlayerViewController.class, this.mContext)) != null && runTask.getData() != null) {
-            this.grz = (IImageFramePlayerViewController) runTask.getData();
-            this.grz.setFrameCallback(this.grD);
+        if (this.gEo == null && (runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER, IImageFramePlayerViewController.class, this.mContext)) != null && runTask.getData() != null) {
+            this.gEo = (IImageFramePlayerViewController) runTask.getData();
+            this.gEo.setFrameCallback(this.gEs);
         }
-        if (this.grz != null) {
-            if (this.grz.getAnimView().getParent() == null) {
-                this.gry.addView(this.grz.getAnimView(), new RelativeLayout.LayoutParams(-1, l.getEquipmentHeight(this.mContext)));
+        if (this.gEo != null) {
+            if (this.gEo.getAnimView().getParent() == null) {
+                this.gEn.addView(this.gEo.getAnimView(), new RelativeLayout.LayoutParams(-1, l.getEquipmentHeight(this.mContext)));
             }
             AlaDynamicGiftAndNativeData alaDynamicGiftAndNativeData = new AlaDynamicGiftAndNativeData();
             alaDynamicGiftAndNativeData.mAlaDynamicGift = alaEnterEffectData.gift;
@@ -100,32 +100,32 @@ public class b {
                 alaDynamicGiftAndNativeData.mAlaDynamicGift.configInfo.oppositeY = 0.6499999761581421d;
             }
             alaDynamicGiftAndNativeData.upZipDirPath = AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName;
-            this.grz.setData(alaDynamicGiftAndNativeData);
-            this.grz.startAnim();
+            this.gEo.setData(alaDynamicGiftAndNativeData);
+            this.gEo.startAnim();
         }
     }
 
     private void c(AlaEnterEffectData alaEnterEffectData) {
-        if (this.grA == null) {
-            this.grA = new AlaEffectPreviewView(this.mContext);
-            this.grA.setAnimCompleteCallback(this.grE);
+        if (this.gEp == null) {
+            this.gEp = new AlaEffectPreviewView(this.mContext);
+            this.gEp.setAnimCompleteCallback(this.gEt);
         }
-        if (this.grA.getParent() == null) {
+        if (this.gEp.getParent() == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(2, R.id.effet_name_tv);
             layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds51);
-            this.gry.addView(this.grA, layoutParams);
+            this.gEn.addView(this.gEp, layoutParams);
         }
-        this.grA.setData(alaEnterEffectData);
-        this.grA.bIK();
+        this.gEp.setData(alaEnterEffectData);
+        this.gEp.bLP();
     }
 
     public void onDestory() {
-        if (this.grz != null) {
-            this.grz.onDestroy();
+        if (this.gEo != null) {
+            this.gEo.onDestroy();
         }
-        if (this.grA != null) {
-            this.grA.onDestory();
+        if (this.gEp != null) {
+            this.gEp.onDestory();
         }
     }
 }

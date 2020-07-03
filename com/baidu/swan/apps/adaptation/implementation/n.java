@@ -6,7 +6,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class n implements com.baidu.swan.apps.adaptation.a.l {
     @Override // com.baidu.swan.apps.adaptation.a.l
-    public void aM(String str, String str2) {
+    public void aO(String str, String str2) {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.l

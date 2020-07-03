@@ -5,16 +5,12 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import com.baidu.live.tbadk.core.util.UrlManager;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
-import com.baidu.live.tbadk.ubc.UbcStatisticItem;
-import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
-import com.baidu.live.tbadk.ubc.UbcStatisticManager;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class PayManager {
     private static PayManager instance = null;
@@ -59,7 +55,6 @@ public class PayManager {
             showToast(a.i.sdk_plugin_pay_error);
             return;
         }
-        UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_RECHARGE_REQ, UbcStatConstant.ContentType.UBC_TYPE_PAY_SDK, "liveroom", null));
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, intentConfig));
     }
 

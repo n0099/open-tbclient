@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class b extends com.baidu.swan.apps.p.a<com.baidu.swan.apps.p.a.c> {
     @Override // com.baidu.swan.apps.p.a
     @NonNull
-    public String aek() {
+    public String afq() {
         return "releasekeyboard";
     }
 

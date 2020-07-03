@@ -7,12 +7,12 @@ import java.util.Set;
 import java.util.TreeSet;
 /* loaded from: classes.dex */
 public class b implements c {
-    private Cursor Iz;
+    private Cursor Jf;
     private final Set<String> keySet;
     private final ContentValues values;
 
     public b(Cursor cursor) {
-        this.Iz = cursor;
+        this.Jf = cursor;
         this.values = null;
         this.keySet = new TreeSet();
         if (cursor != null) {
@@ -49,53 +49,53 @@ public class b implements c {
     public Object getObject(String str) {
         Object valueOf;
         Object string;
-        int columnIndex = this.Iz.getColumnIndex(str);
-        if (columnIndex <= 0 || columnIndex >= this.Iz.getColumnCount()) {
+        int columnIndex = this.Jf.getColumnIndex(str);
+        if (columnIndex <= 0 || columnIndex >= this.Jf.getColumnCount()) {
             return null;
         }
         if (0 == 0) {
             try {
-                valueOf = Short.valueOf(this.Iz.getShort(columnIndex));
+                valueOf = Short.valueOf(this.Jf.getShort(columnIndex));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Integer.valueOf(this.Iz.getInt(columnIndex));
+                    valueOf = Integer.valueOf(this.Jf.getInt(columnIndex));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Long.valueOf(this.Iz.getLong(columnIndex));
+                    valueOf = Long.valueOf(this.Jf.getLong(columnIndex));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Float.valueOf(this.Iz.getFloat(columnIndex));
+                    valueOf = Float.valueOf(this.Jf.getFloat(columnIndex));
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Double.valueOf(this.Iz.getDouble(columnIndex));
+                    valueOf = Double.valueOf(this.Jf.getDouble(columnIndex));
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    string = this.Iz.getString(columnIndex);
+                    string = this.Jf.getString(columnIndex);
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
                 if (string == null) {
                     try {
-                        return this.Iz.getBlob(columnIndex);
+                        return this.Jf.getBlob(columnIndex);
                     } catch (Exception e7) {
                         e7.printStackTrace();
                         return string;

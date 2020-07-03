@@ -8,10 +8,10 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends c {
-    private String rt;
-    private a rv;
-    private boolean rw = false;
-    private List<String> ru = new ArrayList();
+    private String rS;
+    private a rU;
+    private boolean rV = false;
+    private List<String> rT = new ArrayList();
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -19,25 +19,25 @@ public class d extends c {
     }
 
     public d(String str) {
-        this.rt = str;
+        this.rS = str;
     }
 
-    private void ao(String str) {
+    private void ap(String str) {
         try {
             System.load(str);
         } catch (Throwable th) {
-            if (this.rv != null) {
-                this.rv.a(str, th.getMessage());
+            if (this.rU != null) {
+                this.rU.a(str, th.getMessage());
             }
             throw th;
         }
     }
 
-    private List<String> dH() {
+    private List<String> dX() {
         List<String> asList = Arrays.asList("c++_shared", "opencv_java3", "anakin_lite");
         try {
             for (String str : asList) {
-                an(str);
+                ao(str);
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -51,17 +51,17 @@ public class d extends c {
     }
 
     @Override // com.baidu.ar.libloader.c, com.baidu.ar.libloader.a
-    public /* bridge */ /* synthetic */ void a(ARType aRType, String str, String str2, a.InterfaceC0084a interfaceC0084a) {
-        super.a(aRType, str, str2, interfaceC0084a);
+    public /* bridge */ /* synthetic */ void a(ARType aRType, String str, String str2, a.InterfaceC0085a interfaceC0085a) {
+        super.a(aRType, str, str2, interfaceC0085a);
     }
 
     public void a(a aVar) {
-        this.rv = aVar;
+        this.rU = aVar;
     }
 
     @Override // com.baidu.ar.libloader.c, com.baidu.ar.libloader.a
     public void a(String str, a.c cVar) {
-        if (cVar == null || !this.ru.contains(str)) {
+        if (cVar == null || !this.rT.contains(str)) {
             super.a(str, cVar);
         } else {
             cVar.onReady();
@@ -74,22 +74,22 @@ public class d extends c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void an(String str) {
+    public void ao(String str) {
         boolean isEmpty;
         boolean exists;
         boolean z = true;
-        if (!this.rw) {
-            this.rw = true;
-            if (dH().contains(str)) {
+        if (!this.rV) {
+            this.rV = true;
+            if (dX().contains(str)) {
                 return;
             }
         }
         try {
-            super.an(str);
-            if (this.ru.contains(str)) {
+            super.ao(str);
+            if (this.rT.contains(str)) {
                 return;
             }
-            this.ru.add(str);
+            this.rT.add(str);
         } finally {
             if (!isEmpty) {
                 if (exists) {

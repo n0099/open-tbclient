@@ -6,13 +6,13 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes10.dex */
 public class SquareModel extends BdBaseModel<Object> {
-    private long gSS;
-    private long gST;
-    private long gSU;
-    private long gSV;
-    private b lis;
-    private h lit;
-    private a liu;
+    private long hfB;
+    private long hfC;
+    private long hfD;
+    private long hfE;
+    private b lCo;
+    private h lCp;
+    private a lCq;
     private long mTimeStamp;
 
     /* loaded from: classes10.dex */
@@ -22,38 +22,38 @@ public class SquareModel extends BdBaseModel<Object> {
 
     public SquareModel(TbPageContext<Object> tbPageContext) {
         super(tbPageContext);
-        this.lis = null;
-        this.lit = null;
-        this.liu = null;
-        this.gSS = 0L;
-        this.gST = 0L;
-        this.gSU = 0L;
-        this.gSV = 0L;
-        this.lit = new h();
+        this.lCo = null;
+        this.lCp = null;
+        this.lCq = null;
+        this.hfB = 0L;
+        this.hfC = 0L;
+        this.hfD = 0L;
+        this.hfE = 0L;
+        this.lCp = new h();
     }
 
-    public long bPp() {
-        return this.gSV;
+    public long bSs() {
+        return this.hfE;
     }
 
-    public long bPq() {
-        return this.gST;
+    public long bSt() {
+        return this.hfC;
     }
 
-    public long bPr() {
-        return this.gSU;
+    public long bSu() {
+        return this.hfD;
     }
 
-    public long bPs() {
-        return this.gSS;
+    public long bSv() {
+        return this.hfB;
     }
 
-    public h dcA() {
-        return this.lit;
+    public h dgP() {
+        return this.lCp;
     }
 
     public void a(a aVar) {
-        this.liu = aVar;
+        this.lCq = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -63,40 +63,40 @@ public class SquareModel extends BdBaseModel<Object> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.lis != null) {
-            this.lis.cancel();
+        if (this.lCo != null) {
+            this.lCo.cancel();
             return false;
         }
         return false;
     }
 
-    public boolean dcB() {
-        return DH(1);
+    public boolean dgQ() {
+        return EJ(1);
     }
 
-    public boolean dcC() {
-        return DH(0);
+    public boolean dgR() {
+        return EJ(0);
     }
 
-    public boolean DH(int i) {
-        if (this.lis != null) {
+    public boolean EJ(int i) {
+        if (this.lCo != null) {
             return false;
         }
-        this.lis = new b(i);
-        this.lis.execute(new Object[0]);
+        this.lCo = new b(i);
+        this.lCo.execute(new Object[0]);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public class b extends BdAsyncTask<Object, h, h> {
-        private int liw;
-        private com.baidu.tieba.square.b.a liv = null;
-        private l<String> lix = null;
+        private int lCs;
+        private com.baidu.tieba.square.b.a lCr = null;
+        private l<String> lCt = null;
 
         public b(int i) {
-            this.liw = 1;
-            this.liw = i;
+            this.lCs = 1;
+            this.lCs = i;
             setPriority(3);
         }
 
@@ -107,10 +107,10 @@ public class SquareModel extends BdBaseModel<Object> {
         public h doInBackground(Object... objArr) {
             h hVar;
             String str = null;
-            this.liv = new com.baidu.tieba.square.b.a();
-            this.lix = com.baidu.tbadk.core.c.a.aSS().vM("tb.square");
-            if (this.liw == 0) {
-                String str2 = this.lix.get("square_cache_key");
+            this.lCr = new com.baidu.tieba.square.b.a();
+            this.lCt = com.baidu.tbadk.core.c.a.aUM().wc("tb.square");
+            if (this.lCs == 0) {
+                String str2 = this.lCt.get("square_cache_key");
                 if (str2 == null) {
                     return null;
                 }
@@ -120,8 +120,8 @@ public class SquareModel extends BdBaseModel<Object> {
                 if (hVar2.isEmpty()) {
                     SquareModel.this.mTimeStamp = 0L;
                 }
-                if (!hVar2.dcu()) {
-                    this.liw = 1;
+                if (!hVar2.dgJ()) {
+                    this.lCs = 1;
                     str = str2;
                     hVar = hVar2;
                 } else {
@@ -130,32 +130,32 @@ public class SquareModel extends BdBaseModel<Object> {
             } else {
                 hVar = null;
             }
-            if (this.liw == 1) {
-                SquareModel.this.gSS = System.currentTimeMillis();
-                this.liv.addPostData("prevtime", SquareModel.this.mTimeStamp + "");
-                str = this.liv.dbX();
-                SquareModel.this.gST = this.liv.dbY();
-                SquareModel.this.gSU = this.liv.dbZ();
-                SquareModel.this.gSV = System.currentTimeMillis();
+            if (this.lCs == 1) {
+                SquareModel.this.hfB = System.currentTimeMillis();
+                this.lCr.addPostData("prevtime", SquareModel.this.mTimeStamp + "");
+                str = this.lCr.dgm();
+                SquareModel.this.hfC = this.lCr.dgn();
+                SquareModel.this.hfD = this.lCr.dgo();
+                SquareModel.this.hfE = System.currentTimeMillis();
             }
-            if (this.liv.isRequestSuccess()) {
+            if (this.lCr.isRequestSuccess()) {
                 h hVar3 = new h();
                 hVar3.parserJson(str);
                 Long valueOf = Long.valueOf(hVar3.getTimeStamp());
                 if (valueOf.longValue() > SquareModel.this.mTimeStamp) {
-                    this.lix.set("square_cache_key", str, 86400000L);
+                    this.lCt.set("square_cache_key", str, 86400000L);
                     hVar = hVar3;
                 } else {
-                    String str3 = this.lix.get("square_cache_key");
+                    String str3 = this.lCt.get("square_cache_key");
                     if (str3 != null) {
                         h hVar4 = new h();
                         hVar4.parserJson(str3);
-                        hVar4.aU(hVar3.dcx());
+                        hVar4.aV(hVar3.dgM());
                         hVar4.setTimeStamp(valueOf.longValue());
-                        this.lix.set("square_cache_key", hVar4.dcy(), 86400000L);
+                        this.lCt.set("square_cache_key", hVar4.dgN(), 86400000L);
                         hVar = hVar4;
                     } else {
-                        this.lix.set("square_cache_key", str, 86400000L);
+                        this.lCt.set("square_cache_key", str, 86400000L);
                         hVar = hVar3;
                     }
                 }
@@ -167,10 +167,10 @@ public class SquareModel extends BdBaseModel<Object> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            if (this.liv != null) {
-                this.liv.cancel();
+            if (this.lCr != null) {
+                this.lCr.cancel();
             }
-            SquareModel.this.lis = null;
+            SquareModel.this.lCo = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -178,14 +178,14 @@ public class SquareModel extends BdBaseModel<Object> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(h hVar) {
-            SquareModel.this.lis = null;
-            SquareModel.this.lit = hVar;
-            if (SquareModel.this.liu != null) {
-                if (this.liw == 0 || this.liv.isRequestSuccess()) {
-                    SquareModel.this.liu.a(true, null, hVar);
+            SquareModel.this.lCo = null;
+            SquareModel.this.lCp = hVar;
+            if (SquareModel.this.lCq != null) {
+                if (this.lCs == 0 || this.lCr.isRequestSuccess()) {
+                    SquareModel.this.lCq.a(true, null, hVar);
                     return;
                 }
-                SquareModel.this.liu.a(false, this.liv.aNO(), hVar);
+                SquareModel.this.lCq.a(false, this.lCr.aPy(), hVar);
             }
         }
     }

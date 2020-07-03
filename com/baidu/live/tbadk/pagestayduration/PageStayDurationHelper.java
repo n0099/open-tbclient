@@ -4,6 +4,7 @@ import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.Iterator;
 import java.util.List;
+@Deprecated
 /* loaded from: classes3.dex */
 public class PageStayDurationHelper {
     public static final String STAT_SOURCE_TRACE_CONNECTORS = "_";

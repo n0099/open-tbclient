@@ -13,11 +13,11 @@ public class p {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a {
-        private static final p dqo = new p();
+        private static final p dva = new p();
     }
 
-    public static p aIF() {
-        return a.dqo;
+    public static p aJL() {
+        return a.dva;
     }
 
     public final void onEvent(String str) {
@@ -36,61 +36,61 @@ public class p {
     }
 
     public void onEvent(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.OS()) {
-            if (e.aIh() != null || !TextUtils.isEmpty(str)) {
-                n.aID().j(str, str2, i);
+        if (com.baidu.pyramid.runtime.multiprocess.a.PY()) {
+            if (e.aJn() != null || !TextUtils.isEmpty(str)) {
+                n.aJJ().j(str, str2, i);
                 return;
             }
             return;
         }
         try {
-            aIi().ubcOnEvent(str, s.tS(str2), i);
+            aJo().ubcOnEvent(str, s.ua(str2), i);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public void onEvent(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.OS()) {
-            if (e.aIh() != null || !TextUtils.isEmpty(str)) {
-                n.aID().a(str, jSONObject, i);
+        if (com.baidu.pyramid.runtime.multiprocess.a.PY()) {
+            if (e.aJn() != null || !TextUtils.isEmpty(str)) {
+                n.aJJ().a(str, jSONObject, i);
                 return;
             }
             return;
         }
         try {
-            aIi().ubcOnEvent(str, s.cw(jSONObject), i);
+            aJo().ubcOnEvent(str, s.cD(jSONObject), i);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public Flow i(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.OS()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.PY()) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return n.aID().i(str, str2, i);
+            return n.aJJ().i(str, str2, i);
         }
-        return k(str, s.tS(str2), i);
+        return k(str, s.ua(str2), i);
     }
 
     public void upload() {
-        n.aID().upload();
+        n.aJJ().upload();
     }
 
-    public void aIG() {
-        n.aID().aIb();
+    public void aJM() {
+        n.aJJ().aJh();
     }
 
-    private IRemoteUBCService aIi() throws RemoteException {
-        return e.aIi();
+    private IRemoteUBCService aJo() throws RemoteException {
+        return e.aJo();
     }
 
     private Flow k(String str, String str2, int i) {
         Flow flow;
         try {
-            flow = aIi().ubcBeginFlow(str, str2, i);
+            flow = aJo().ubcBeginFlow(str, str2, i);
         } catch (RemoteException e) {
             e.printStackTrace();
             flow = null;

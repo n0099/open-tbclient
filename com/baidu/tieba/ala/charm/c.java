@@ -11,7 +11,7 @@ public interface c {
 
         void onClose();
 
-        void pU(String str);
+        void qc(String str);
     }
 
     void a(a aVar);
@@ -20,7 +20,7 @@ public interface c {
 
     void a(String str, String str2, String str3, boolean z, String str4, String str5);
 
-    void btb();
+    void bis();
 
     void release();
 }

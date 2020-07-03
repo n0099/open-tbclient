@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class WrapLineLayout extends ViewGroup {
-    private List<List<View>> dYc;
-    private List<Integer> dYd;
+    private List<List<View>> egc;
+    private List<Integer> egd;
 
     public WrapLineLayout(Context context) {
         super(context);
-        this.dYc = new ArrayList();
-        this.dYd = new ArrayList();
+        this.egc = new ArrayList();
+        this.egd = new ArrayList();
     }
 
     public WrapLineLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dYc = new ArrayList();
-        this.dYd = new ArrayList();
+        this.egc = new ArrayList();
+        this.egd = new ArrayList();
     }
 
     @Override // android.view.ViewGroup
@@ -91,8 +91,8 @@ public class WrapLineLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.dYc.clear();
-        this.dYd.clear();
+        this.egc.clear();
+        this.egd.clear();
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         ArrayList arrayList = new ArrayList();
         int childCount = getChildCount();
@@ -105,8 +105,8 @@ public class WrapLineLayout extends ViewGroup {
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
             if (marginLayoutParams.leftMargin + measuredWidth + marginLayoutParams.rightMargin + i6 > width) {
-                this.dYd.add(Integer.valueOf(i5));
-                this.dYc.add(arrayList);
+                this.egd.add(Integer.valueOf(i5));
+                this.egc.add(arrayList);
                 i6 = 0;
                 arrayList = new ArrayList();
             }
@@ -117,17 +117,17 @@ public class WrapLineLayout extends ViewGroup {
             i5 = max;
             i6 = i8;
         }
-        this.dYd.add(Integer.valueOf(i5));
-        this.dYc.add(arrayList);
+        this.egd.add(Integer.valueOf(i5));
+        this.egc.add(arrayList);
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        int size = this.dYc.size();
+        int size = this.egc.size();
         int i9 = 0;
         int i10 = paddingTop;
         int i11 = paddingLeft;
         while (i9 < size) {
-            List<View> list = this.dYc.get(i9);
-            int intValue = this.dYd.get(i9).intValue();
+            List<View> list = this.egc.get(i9);
+            int intValue = this.egd.get(i9).intValue();
             int i12 = 0;
             while (true) {
                 int i13 = i12;

@@ -11,11 +11,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.maintab.FragmentTabIndicator;
 import com.baidu.live.tbadk.maintab.TbFragmentTabIndicator;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class FragmentTabWidget extends LinearLayout {
     private static final int DEFAULT_PAINT_FLAGS = 6;

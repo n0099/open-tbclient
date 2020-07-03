@@ -7,21 +7,21 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 /* loaded from: classes7.dex */
 public final class Functions {
-    static final io.reactivex.c.h<Object, Object> nnI = new g();
-    public static final Runnable nnJ = new d();
-    public static final io.reactivex.c.a nnK = new a();
-    static final io.reactivex.c.g<Object> nnL = new b();
-    public static final io.reactivex.c.g<Throwable> nnM = new e();
-    public static final io.reactivex.c.g<Throwable> nnN = new k();
-    public static final io.reactivex.c.i nnO = new c();
-    static final io.reactivex.c.j<Object> nnP = new l();
-    static final io.reactivex.c.j<Object> nnQ = new f();
-    static final Callable<Object> nnR = new j();
-    static final Comparator<Object> nnS = new i();
-    public static final io.reactivex.c.g<org.a.d> nnT = new h();
+    static final io.reactivex.c.h<Object, Object> nJx = new g();
+    public static final Runnable nJy = new d();
+    public static final io.reactivex.c.a nJz = new a();
+    static final io.reactivex.c.g<Object> nJA = new b();
+    public static final io.reactivex.c.g<Throwable> nJB = new e();
+    public static final io.reactivex.c.g<Throwable> nJC = new k();
+    public static final io.reactivex.c.i nJD = new c();
+    static final io.reactivex.c.j<Object> nJE = new l();
+    static final io.reactivex.c.j<Object> nJF = new f();
+    static final Callable<Object> nJG = new j();
+    static final Comparator<Object> nJH = new i();
+    public static final io.reactivex.c.g<org.a.d> nJI = new h();
 
-    public static <T> io.reactivex.c.g<T> dKQ() {
-        return (io.reactivex.c.g<T>) nnL;
+    public static <T> io.reactivex.c.g<T> dPw() {
+        return (io.reactivex.c.g<T>) nJA;
     }
 
     /* loaded from: classes7.dex */
@@ -132,7 +132,7 @@ public final class Functions {
         }
 
         @Override // io.reactivex.c.i
-        public void gf(long j) {
+        public void gk(long j) {
         }
     }
 

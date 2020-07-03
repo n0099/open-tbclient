@@ -144,4 +144,12 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
         getIntent().putExtra("live_from_type", str3);
         isAlreadyEnterLiveRoom = true;
     }
+
+    public AlaLiveRoomActivityConfig(Context context, AlaLiveInfoCoreData alaLiveInfoCoreData, String str, String str2) {
+        super(context);
+        getIntent().putExtra("live_from_type", str);
+        getIntent().putExtra("live_from_forum_id", str2);
+        getIntent().putExtra("live_info_core", alaLiveInfoCoreData);
+        isAlreadyEnterLiveRoom = true;
+    }
 }

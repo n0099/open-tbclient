@@ -8,20 +8,20 @@ public class b {
         if (hVar == null) {
             return null;
         }
-        ByteBuffer allocate = ByteBuffer.allocate(hVar.ayH() + 12 + hVar.ayI());
+        ByteBuffer allocate = ByteBuffer.allocate(hVar.azN() + 12 + hVar.azO());
         allocate.put((byte) -27);
         allocate.put((byte) -89);
-        if (hVar.ayD() == null || hVar.ayD().length != 2) {
+        if (hVar.azJ() == null || hVar.azJ().length != 2) {
             return null;
         }
-        allocate.put(hVar.ayD()[0]);
-        allocate.put(hVar.ayD()[1]);
-        allocate.put(hVar.ayF());
-        allocate.put(hVar.ayG());
-        if (hVar.ayJ() == null || hVar.ayJ().length == 0) {
+        allocate.put(hVar.azJ()[0]);
+        allocate.put(hVar.azJ()[1]);
+        allocate.put(hVar.azL());
+        allocate.put(hVar.azM());
+        if (hVar.azP() == null || hVar.azP().length == 0) {
             return null;
         }
-        int length = hVar.ayJ().length;
+        int length = hVar.azP().length;
         allocate.put((byte) ((length >> 8) & 255));
         allocate.put((byte) (length & 255));
         if (hVar.getContent() == null || hVar.getContent().length == 0) {
@@ -29,8 +29,8 @@ public class b {
         } else {
             allocate.putInt(hVar.getContent().length);
         }
-        if (hVar.ayJ() != null) {
-            allocate.put(hVar.ayJ());
+        if (hVar.azP() != null) {
+            allocate.put(hVar.azP());
         }
         if (hVar.getContent() != null) {
             allocate.put(hVar.getContent());
@@ -40,7 +40,7 @@ public class b {
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: int */
     /* JADX WARN: Multi-variable type inference failed */
-    public static h U(byte[] bArr) {
+    public static h W(byte[] bArr) {
         h hVar = null;
         if (bArr != null) {
             ByteBuffer wrap = ByteBuffer.wrap(bArr);
@@ -55,10 +55,10 @@ public class b {
                 int i = wrap.getShort();
                 hVar.c((short) i);
                 int i2 = wrap.getInt();
-                hVar.im(i2);
+                hVar.ix(i2);
                 byte[] bArr2 = new byte[i];
                 wrap.get(bArr2, 0, i);
-                hVar.Q(bArr2);
+                hVar.S(bArr2);
                 if (i2 > 0) {
                     byte[] bArr3 = new byte[i2];
                     wrap.get(bArr3, 0, i2);

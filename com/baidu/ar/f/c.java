@@ -8,26 +8,26 @@ import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 /* loaded from: classes3.dex */
 public class c {
-    private static String wh = "pro";
-    private static String wi = TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY;
+    private static String wH = "pro";
+    private static String wI = TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY;
 
-    public static String eT() {
-        return wh;
+    public static String fj() {
+        return wH;
     }
 
-    public static String eU() {
-        return wi;
+    public static String fk() {
+        return wI;
     }
 
     public static int getVersionCode() {
-        return 450;
+        return 460;
     }
 
     public static String getVersionName() {
-        return "4.5.0";
+        return "4.6.0";
     }
 
-    public static String o(Context context) {
+    public static String q(Context context) {
         String str = null;
         if (context == null) {
             return null;
@@ -42,7 +42,7 @@ public class c {
                     if (!TextUtils.isEmpty(str2)) {
                         sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                         sb.append(str2);
-                        b.aI("appId = " + sb.toString());
+                        b.aJ("appId = " + sb.toString());
                     }
                 }
             } catch (PackageManager.NameNotFoundException e) {

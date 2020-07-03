@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
@@ -20,42 +20,42 @@ public class b extends ActivityDelegation {
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onAttachedToWindow() {
-        boF();
+        brf();
         aA(getAgent(), this.mParams.getString("options"));
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onSelfFinish() {
-        boG();
+        brg();
     }
 
-    private void boF() {
+    private void brf() {
     }
 
-    private void boG() {
+    private void brg() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jc(boolean z) {
+    public void jo(boolean z) {
         this.mResult.putBoolean("share_result", z);
-        boG();
+        brg();
         finish();
     }
 
     private void aA(Context context, String str) {
         if (context == null) {
-            jc(false);
+            jo(false);
             return;
         }
         a aVar = new a();
         try {
-            aVar.cK(new JSONObject(str));
-            TiebaStatic.log(new an("c13530").dh("obj_id", aVar.efm).ag("obj_type", aVar.efn).dh("obj_source", aVar.efo));
+            aVar.cR(new JSONObject(str));
+            TiebaStatic.log(new ao("c13530").dk("obj_id", aVar.enX).ag("obj_type", aVar.enY).dk("obj_source", aVar.enZ));
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(context, aVar, false);
             shareDialogConfig.onCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.1
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    b.this.jc(false);
+                    b.this.jo(false);
                 }
             };
             shareDialogConfig.onDismissListener = new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.2
@@ -65,7 +65,7 @@ public class b extends ActivityDelegation {
             };
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
         } catch (JSONException e) {
-            jc(false);
+            jo(false);
         }
     }
 }

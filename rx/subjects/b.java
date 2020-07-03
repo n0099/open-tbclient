@@ -5,8 +5,8 @@ import rx.d;
 import rx.j;
 /* loaded from: classes6.dex */
 public class b<T, R> extends c<T, R> {
-    private final d<T> nLP;
-    private final c<T, R> nLQ;
+    private final d<T> ohD;
+    private final c<T, R> ohE;
 
     public b(final c<T, R> cVar) {
         super(new d.a<R>() { // from class: rx.subjects.b.1
@@ -19,22 +19,22 @@ public class b<T, R> extends c<T, R> {
                 c.this.a((j) jVar);
             }
         });
-        this.nLQ = cVar;
-        this.nLP = new rx.b.d<>(cVar);
+        this.ohE = cVar;
+        this.ohD = new rx.b.d<>(cVar);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.nLP.onCompleted();
+        this.ohD.onCompleted();
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.nLP.onError(th);
+        this.ohD.onError(th);
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.nLP.onNext(t);
+        this.ohD.onNext(t);
     }
 }

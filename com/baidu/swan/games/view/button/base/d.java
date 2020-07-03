@@ -10,7 +10,7 @@ import java.io.File;
 public class d {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static PathType oQ(String str) {
+    public static PathType oY(String str) {
         if (TextUtils.isEmpty(str)) {
             return PathType.ERROR;
         }
@@ -20,11 +20,11 @@ public class d {
         return PathType.RELATIVE;
     }
 
-    public static String aCU() {
-        File bk;
-        e aox = com.baidu.swan.apps.runtime.d.aoB().aox();
-        if (aox.available() && aox.getVersion() != null && (bk = a.c.bk(aox.getAppId(), aox.getVersion())) != null && bk.exists()) {
-            return "file://" + bk.getAbsolutePath();
+    public static String aEa() {
+        File bm;
+        e apE = com.baidu.swan.apps.runtime.d.apI().apE();
+        if (apE.available() && apE.getVersion() != null && (bm = a.c.bm(apE.getAppId(), apE.getVersion())) != null && bm.exists()) {
+            return "file://" + bm.getAbsolutePath();
         }
         return null;
     }

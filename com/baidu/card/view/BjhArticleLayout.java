@@ -13,23 +13,23 @@ import com.baidu.card.n;
 import com.baidu.card.o;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.m;
 /* loaded from: classes8.dex */
 public class BjhArticleLayout extends RelativeLayout implements View.OnClickListener, n<AbsThreadDataSupport>, o {
-    private AbsThreadDataSupport adw;
-    private View.OnClickListener adx;
-    private aa<AbsThreadDataSupport> aeY;
-    private TextView agh;
-    private TbImageView agi;
-    private View agj;
-    private float agk;
-    private float agl;
-    private float agm;
+    private AbsThreadDataSupport aea;
+    private View.OnClickListener aeb;
+    private aa<AbsThreadDataSupport> afH;
+    private TextView ahl;
+    private TbImageView ahm;
+    private View ahn;
+    private float aho;
+    private float ahp;
+    private float ahq;
     private TextView mTitle;
     private int tbds21;
     private int tbds30;
@@ -40,11 +40,11 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
 
     public BjhArticleLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.agk = l.getDimens(context, R.dimen.tbds10);
+        this.aho = l.getDimens(context, R.dimen.tbds10);
         this.tbds21 = l.getDimens(context, R.dimen.tbds21);
-        this.agl = l.getDimens(context, R.dimen.tbds16);
+        this.ahp = l.getDimens(context, R.dimen.tbds16);
         this.tbds30 = l.getDimens(context, R.dimen.tbds30);
-        this.agm = l.getDimens(context, R.dimen.tbds44);
+        this.ahq = l.getDimens(context, R.dimen.tbds44);
         initUI();
     }
 
@@ -52,27 +52,27 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
     @Override // com.baidu.card.n
     /* renamed from: b */
     public void D(AbsThreadDataSupport absThreadDataSupport) {
-        this.adw = absThreadDataSupport;
-        bk aOi = absThreadDataSupport.aOi();
-        if (aOi.isShareThread && aOi.dHm != null) {
-            if (aOi.dHm.dCi) {
+        this.aea = absThreadDataSupport;
+        bu aPS = absThreadDataSupport.aPS();
+        if (aPS.isShareThread && aPS.dNX != null) {
+            if (aPS.dNX.dID) {
                 setVisibility(8);
                 return;
             }
-            aOi = aOi.dHm.aPf();
+            aPS = aPS.dNX.aQQ();
         }
-        this.mTitle.setText(aOi.getTitle());
-        if (StringUtils.isNull(aOi.aSz())) {
-            this.agh.setVisibility(8);
-            this.agi.setVisibility(8);
-            this.agj.setVisibility(8);
+        this.mTitle.setText(aPS.getTitle());
+        if (StringUtils.isNull(aPS.aUo())) {
+            this.ahl.setVisibility(8);
+            this.ahm.setVisibility(8);
+            this.ahn.setVisibility(8);
         } else {
-            this.agh.setVisibility(0);
-            this.agi.setVisibility(0);
-            this.agj.setVisibility(0);
-            this.agi.startLoad(aOi.aSz(), 10, false);
+            this.ahl.setVisibility(0);
+            this.ahm.setVisibility(0);
+            this.ahn.setVisibility(0);
+            this.ahm.startLoad(aPS.aUo(), 10, false);
         }
-        m.a(this.mTitle, aOi.getId(), this.agi.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        m.a(this.mTitle, aPS.getId(), this.ahm.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, (int) R.color.cp_cont_d);
     }
 
     private void initUI() {
@@ -81,37 +81,37 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
         setId(R.id.bjh_content);
         this.mTitle = (TextView) findViewById(R.id.title);
         this.mTitle.setOnClickListener(this);
-        this.agh = (TextView) findViewById(R.id.icon);
-        this.agh.setOnClickListener(this);
-        this.agi = (TbImageView) findViewById(R.id.cover_img);
-        this.agi.setPlaceHolder(3);
-        this.agi.setOnClickListener(this);
-        this.agj = findViewById(R.id.bottom_mask);
-        this.agj.setOnClickListener(this);
-        if (this.agi.getLayoutParams() != null) {
-            this.agi.getLayoutParams().height = (int) (((l.getEquipmentWidth(getContext()) - (2.0f * this.agm)) / 16.0f) * 9.0f);
+        this.ahl = (TextView) findViewById(R.id.icon);
+        this.ahl.setOnClickListener(this);
+        this.ahm = (TbImageView) findViewById(R.id.cover_img);
+        this.ahm.setPlaceHolder(3);
+        this.ahm.setOnClickListener(this);
+        this.ahn = findViewById(R.id.bottom_mask);
+        this.ahn.setOnClickListener(this);
+        if (this.ahm.getLayoutParams() != null) {
+            this.ahm.getLayoutParams().height = (int) (((l.getEquipmentWidth(getContext()) - (2.0f * this.ahq)) / 16.0f) * 9.0f);
         }
-        this.agh.setTranslationY(-this.agl);
-        this.agi.setDrawCorner(true);
-        this.agi.setConrers(15);
-        this.agi.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
+        this.ahl.setTranslationY(-this.ahp);
+        this.ahm.setDrawCorner(true);
+        this.ahm.setConrers(15);
+        this.ahm.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int measuredHeight = getMeasuredHeight();
-        if (this.agj.getLayoutParams() != null) {
-            this.agj.getLayoutParams().height = measuredHeight;
+        if (this.ahn.getLayoutParams() != null) {
+            this.ahn.getLayoutParams().height = measuredHeight;
         }
     }
 
     public void setSubClickListener(aa<AbsThreadDataSupport> aaVar) {
-        this.aeY = aaVar;
+        this.afH = aaVar;
     }
 
     public void setJumpToPbListener(View.OnClickListener onClickListener) {
-        this.adx = onClickListener;
+        this.aeb = onClickListener;
     }
 
     public TextView getTitle() {
@@ -119,26 +119,26 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
     }
 
     public TextView getIcon() {
-        return this.agh;
+        return this.ahl;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.adx != null) {
-            this.adx.onClick(view);
+        if (this.aeb != null) {
+            this.aeb.onClick(view);
         }
-        if (this.aeY != null) {
-            this.aeY.a(view, this.adw);
+        if (this.afH != null) {
+            this.afH.a(view, this.aea);
         }
     }
 
     @Override // com.baidu.card.o
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.adw != null && this.adw.aOi() != null) {
-            m.a(this.mTitle, this.adw.aOi().getId(), this.agi.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        if (this.aea != null && this.aea.aPS() != null) {
+            m.a(this.mTitle, this.aea.aPS().getId(), this.ahm.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, (int) R.color.cp_cont_d);
         }
-        am.setViewTextColor(this.agh, (int) R.color.cp_cont_a);
-        com.baidu.tbadk.core.util.e.a.aVw().lp(0).lr(R.color.cp_mask_b_alpha42).O(this.agk).aR(this.agh);
-        com.baidu.tbadk.core.util.e.a.aVw().lp(0).j(R.color.cp_mask_b, R.color.cp_mask_b_alpha33).Q(l.getDimens(getContext(), R.dimen.tbds10)).P(l.getDimens(getContext(), R.dimen.tbds10)).S(l.getDimens(getContext(), R.dimen.tbds10)).R(l.getDimens(getContext(), R.dimen.tbds10)).lx(128).aR(this.agj);
+        an.setViewTextColor(this.ahl, (int) R.color.cp_cont_a);
+        com.baidu.tbadk.core.util.e.a.aXq().lG(0).lI(R.color.cp_mask_b_alpha42).Q(this.aho).aR(this.ahl);
+        com.baidu.tbadk.core.util.e.a.aXq().lG(0).j(R.color.cp_mask_b, R.color.cp_mask_b_alpha33).S(l.getDimens(getContext(), R.dimen.tbds10)).R(l.getDimens(getContext(), R.dimen.tbds10)).U(l.getDimens(getContext(), R.dimen.tbds10)).T(l.getDimens(getContext(), R.dimen.tbds10)).lO(128).aR(this.ahn);
     }
 }

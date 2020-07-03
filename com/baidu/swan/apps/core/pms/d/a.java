@@ -15,17 +15,17 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<Integer> bYx = i.O(0, 1010, 1011, 1012, 1020, 1015);
-    private static final Set<String> bYy = new HashSet();
-    private static final c<String, String> bYz = new c<String, String>() { // from class: com.baidu.swan.apps.core.pms.d.a.1
+    private static final Set<Integer> cdn = i.O(0, 1010, 1011, 1012, 1020, 1015);
+    private static final Set<String> cdo = new HashSet();
+    private static final c<String, String> cdp = new c<String, String>() { // from class: com.baidu.swan.apps.core.pms.d.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.aq.e.c
-        /* renamed from: jz */
+        /* renamed from: jH */
         public String I(String str) {
             return str;
         }
     };
-    private static final c<b.a, String> bYA = new c<b.a, String>() { // from class: com.baidu.swan.apps.core.pms.d.a.2
+    private static final c<b.a, String> cdq = new c<b.a, String>() { // from class: com.baidu.swan.apps.core.pms.d.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.aq.e.c
         /* renamed from: a */
@@ -34,27 +34,27 @@ public final class a {
         }
     };
 
-    private static boolean aak() {
-        return com.baidu.swan.apps.u.a.aeU().getSwitch("swan_predownload_effective", false);
+    private static boolean abq() {
+        return com.baidu.swan.apps.u.a.aga().getSwitch("swan_predownload_effective", false);
     }
 
-    public static boolean eZ(int i) {
-        return bYx.contains(Integer.valueOf(i));
+    public static boolean fk(int i) {
+        return cdn.contains(Integer.valueOf(i));
     }
 
     public static boolean c(com.baidu.swan.pms.model.a aVar) {
-        return aVar != null && eZ(aVar.errorNo);
+        return aVar != null && fk(aVar.errorNo);
     }
 
-    public static boolean H(String str, boolean z) {
+    public static boolean J(String str, boolean z) {
         boolean booleanValue;
         boolean z2 = false;
         String str2 = "shouldDownloadItem app=" + str + " record=" + z + " : ";
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        synchronized (bYy) {
-            if (((Boolean) n(str2 + " should", Boolean.valueOf(z ? !bYy.add(str) : !bYy.contains(str)))).booleanValue() || !((Boolean) n(str2 + " AB", Boolean.valueOf(aak()))).booleanValue()) {
+        synchronized (cdo) {
+            if (((Boolean) n(str2 + " should", Boolean.valueOf(z ? !cdo.add(str) : !cdo.contains(str)))).booleanValue() || !((Boolean) n(str2 + " AB", Boolean.valueOf(abq()))).booleanValue()) {
                 z2 = true;
             }
             booleanValue = ((Boolean) n(str2, Boolean.valueOf(z2))).booleanValue();
@@ -62,16 +62,16 @@ public final class a {
         return booleanValue;
     }
 
-    public static boolean jx(String str) {
-        return H(str, false);
+    public static boolean jF(String str) {
+        return J(str, false);
     }
 
     public static List<String> e(Collection<String> collection) {
-        return a(bYz, collection);
+        return a(cdp, collection);
     }
 
     public static List<b.a> f(Collection<b.a> collection) {
-        return a(bYA, collection);
+        return a(cdq, collection);
     }
 
     public static <SwanItemT> List<SwanItemT> a(@NonNull c<SwanItemT, String> cVar, Collection<SwanItemT> collection, boolean z) {
@@ -80,7 +80,7 @@ public final class a {
             Iterator<SwanItemT> it = collection.iterator();
             while (it.hasNext()) {
                 SwanItemT next = it.next();
-                if (H(next == null ? "" : cVar.I(next), z)) {
+                if (J(next == null ? "" : cVar.I(next), z)) {
                     arrayList.add(next);
                 }
             }
@@ -93,13 +93,13 @@ public final class a {
         return a(cVar, collection, false);
     }
 
-    public static boolean jy(String str) {
-        return H(str, true);
+    public static boolean jG(String str) {
+        return J(str, true);
     }
 
     private static <T> T n(String str, T t) {
         if (DEBUG) {
-            Log.i("PreDownloadUtils", "Recorded=" + bYy.size() + " # " + str + " => " + t);
+            Log.i("PreDownloadUtils", "Recorded=" + cdo.size() + " # " + str + " => " + t);
         }
         return t;
     }

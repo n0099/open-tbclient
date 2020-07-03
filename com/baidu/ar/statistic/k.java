@@ -4,92 +4,92 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 final class k {
-    private d uR;
-    private ArrayList<com.baidu.ar.statistic.a> uS;
-    private int uT;
-    private int uU;
-    private boolean uV;
-    private List<String> uW;
-    private a uX;
+    private d vr;
+    private ArrayList<com.baidu.ar.statistic.a> vs;
+    private int vt;
+    private int vu;
+    private boolean vv;
+    private List<String> vw;
+    private a vx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
     public interface a {
-        void G(int i);
+        void M(int i);
     }
 
     public k(d dVar, int i, int i2) {
-        this.uR = dVar;
-        this.uT = i <= 0 ? 20 : i;
-        this.uU = i2 < this.uT ? this.uT : i2;
-        this.uS = new ArrayList<>(this.uT);
-        this.uV = false;
-        this.uW = null;
-        this.uX = null;
+        this.vr = dVar;
+        this.vt = i <= 0 ? 20 : i;
+        this.vu = i2 < this.vt ? this.vt : i2;
+        this.vs = new ArrayList<>(this.vt);
+        this.vv = false;
+        this.vw = null;
+        this.vx = null;
     }
 
     private boolean m(com.baidu.ar.statistic.a aVar) {
-        return aC(aVar.eB());
+        return aD(aVar.eR());
     }
 
     public void a(a aVar) {
-        this.uX = aVar;
-    }
-
-    public boolean aB(String str) {
-        return !this.uV || aC(str);
+        this.vx = aVar;
     }
 
     public boolean aC(String str) {
-        return this.uW != null && this.uW.contains(str);
+        return !this.vv || aD(str);
     }
 
-    public int eL() {
-        int size = this.uS.size();
+    public boolean aD(String str) {
+        return this.vw != null && this.vw.contains(str);
+    }
+
+    public int fb() {
+        int size = this.vs.size();
         if (size > 0) {
-            synchronized (this.uR) {
-                this.uR.addAll(this.uS);
+            synchronized (this.vr) {
+                this.vr.addAll(this.vs);
             }
-            this.uS.clear();
-            if (this.uX != null) {
-                this.uX.G(size);
+            this.vs.clear();
+            if (this.vx != null) {
+                this.vx.M(size);
             }
         }
         return size;
     }
 
-    public void g(List<String> list) {
-        this.uW = list;
-        this.uV = true;
-        if (this.uS.isEmpty()) {
+    public void i(List<String> list) {
+        this.vw = list;
+        this.vv = true;
+        if (this.vs.isEmpty()) {
             return;
         }
-        if (this.uW == null || this.uW.isEmpty()) {
-            this.uS.clear();
+        if (this.vw == null || this.vw.isEmpty()) {
+            this.vs.clear();
             return;
         }
-        for (int size = this.uS.size() - 1; size >= 0; size--) {
-            if (!this.uW.contains(this.uS.get(size).eB())) {
-                this.uW.remove(size);
+        for (int size = this.vs.size() - 1; size >= 0; size--) {
+            if (!this.vw.contains(this.vs.get(size).eR())) {
+                this.vw.remove(size);
             }
         }
-        if (this.uS.size() >= this.uT) {
-            eL();
+        if (this.vs.size() >= this.vt) {
+            fb();
         }
     }
 
     public boolean n(com.baidu.ar.statistic.a aVar) {
-        if (this.uV) {
+        if (this.vv) {
             if (m(aVar)) {
-                this.uS.add(aVar);
-                if (this.uS.size() >= this.uT) {
-                    eL();
+                this.vs.add(aVar);
+                if (this.vs.size() >= this.vt) {
+                    fb();
                     return true;
                 }
                 return true;
             }
-        } else if (this.uS.size() < this.uU) {
-            this.uS.add(aVar);
+        } else if (this.vs.size() < this.vu) {
+            this.vs.add(aVar);
             return true;
         }
         return false;

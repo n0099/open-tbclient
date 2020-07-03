@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -51,14 +51,14 @@ public class d {
                 }
             }
             if (i2 > 0) {
-                an anVar = new an("c12223");
-                anVar.ag("obj_param1", i2);
-                TiebaStatic.log(anVar);
+                ao aoVar = new ao("c12223");
+                aoVar.ag("obj_param1", i2);
+                TiebaStatic.log(aoVar);
             }
             if (i > 0) {
-                an anVar2 = new an(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
-                anVar2.ag("obj_param1", i);
-                TiebaStatic.log(anVar2);
+                ao aoVar2 = new ao(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
+                aoVar2.ag("obj_param1", i);
+                TiebaStatic.log(aoVar2);
             }
         }
     }

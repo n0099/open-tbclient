@@ -4,58 +4,58 @@ import android.content.Context;
 import com.baidu.tieba.write.a;
 /* loaded from: classes.dex */
 public class f extends h {
-    private a.C0747a lRN;
+    private a.C0762a mlX;
 
-    public f(Context context, a.C0747a c0747a) {
-        super(context, c0747a);
-        this.lRN = c0747a;
+    public f(Context context, a.C0762a c0762a) {
+        super(context, c0762a);
+        this.mlX = c0762a;
     }
 
     @Override // com.baidu.tieba.write.h
-    public void dmD() {
+    public void dqQ() {
         if (this.mState == 4) {
             this.mState = 1;
             this.mState = 2;
-            if (this.lRT != null) {
-                this.lRT.En(this.mState);
+            if (this.mmd != null) {
+                this.mmd.Fp(this.mState);
             }
-            dmA();
+            dqN();
         }
     }
 
     @Override // com.baidu.tieba.write.h
-    public void aiD() {
+    public void ajJ() {
         if (this.mState == 2) {
             this.mState = 3;
-            if (this.lRT != null) {
-                this.lRT.En(this.mState);
+            if (this.mmd != null) {
+                this.mmd.Fp(this.mState);
             }
-            dmC();
+            dqP();
         }
     }
 
     @Override // com.baidu.tieba.write.h
-    public void dmE() {
-        dmC();
+    public void dqR() {
+        dqP();
     }
 
     @Override // com.baidu.tieba.write.h
     public void onDestroy() {
     }
 
-    private void dmA() {
-        this.lRN.deP.setClickable(true);
+    private void dqN() {
+        this.mlX.djB.setClickable(true);
         this.mState = 2;
-        if (this.lRT != null) {
-            this.lRT.En(this.mState);
+        if (this.mmd != null) {
+            this.mmd.Fp(this.mState);
         }
     }
 
-    private void dmC() {
-        this.lRN.deP.setClickable(false);
+    private void dqP() {
+        this.mlX.djB.setClickable(false);
         this.mState = 4;
-        if (this.lRT != null) {
-            this.lRT.En(this.mState);
+        if (this.mmd != null) {
+            this.mmd.Fp(this.mState);
         }
     }
 }

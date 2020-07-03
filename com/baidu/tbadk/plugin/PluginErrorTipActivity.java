@@ -13,7 +13,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.f.e;
 import com.baidu.adp.plugin.packageManager.status.PluginStatus;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -22,13 +22,13 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
-    private ImageView etp;
-    private TextView etq;
-    private View etr;
-    private TextView ets;
-    private TextView ett;
-    private PluginStatus etu;
-    private ShadowLayout etv;
+    private ImageView eCg;
+    private TextView eCh;
+    private View eCi;
+    private TextView eCj;
+    private TextView eCk;
+    private PluginStatus eCl;
+    private ShadowLayout eCm;
     private View mBack;
     private NavigationBar mNavigationBar;
 
@@ -51,11 +51,11 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.etu = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
+            this.eCl = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
         } else {
-            this.etu = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
+            this.eCl = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
         }
-        if (this.etu == null) {
+        if (this.eCl == null) {
             finish();
             return;
         }
@@ -68,26 +68,26 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
         this.mBack.setOnClickListener(this);
         this.mNavigationBar.setTitleText(R.string.pluginstatus_tip_title);
-        this.etp = (ImageView) findViewById(R.id.plugin_error_tip_image);
-        this.etq = (TextView) findViewById(R.id.plugin_error_install_fail);
-        this.ets = (TextView) findViewById(R.id.plugin_error_tip_resolve);
-        this.etr = findViewById(R.id.plugin_error_parent);
-        this.etv = (ShadowLayout) findViewById(R.id.plugin_error_shadow_layout);
-        this.ett = (TextView) findViewById(R.id.plugin_error_btn);
-        this.ett.setOnClickListener(this);
-        this.ets.setText(getString(R.string.plugin_error_tips, new Object[]{this.etu.getErrorMsg(), this.etu.oF()}));
-        if (this.etu.getErrorCode() == 5 || this.etu.getErrorCode() == 1 || this.etu.getErrorCode() == 100) {
-            this.ett.setText(R.string.pluginstatus_btn_restartapp);
-            this.ett.setVisibility(0);
+        this.eCg = (ImageView) findViewById(R.id.plugin_error_tip_image);
+        this.eCh = (TextView) findViewById(R.id.plugin_error_install_fail);
+        this.eCj = (TextView) findViewById(R.id.plugin_error_tip_resolve);
+        this.eCi = findViewById(R.id.plugin_error_parent);
+        this.eCm = (ShadowLayout) findViewById(R.id.plugin_error_shadow_layout);
+        this.eCk = (TextView) findViewById(R.id.plugin_error_btn);
+        this.eCk.setOnClickListener(this);
+        this.eCj.setText(getString(R.string.plugin_error_tips, new Object[]{this.eCl.getErrorMsg(), this.eCl.oV()}));
+        if (this.eCl.getErrorCode() == 5 || this.eCl.getErrorCode() == 1 || this.eCl.getErrorCode() == 100) {
+            this.eCk.setText(R.string.pluginstatus_btn_restartapp);
+            this.eCk.setVisibility(0);
             return;
         }
-        this.ett.setVisibility(8);
+        this.eCk.setVisibility(8);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.etu);
+        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.eCl);
         if (jsonStrWithObject != null) {
             bundle.putString(PluginStatus.class.getName(), jsonStrWithObject);
         }
@@ -97,12 +97,12 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onClick(View view) {
         if (view == this.mBack) {
             finish();
-        } else if (view == this.ett) {
-            if (this.etu != null && this.etu.getErrorCode() == 100) {
-                com.baidu.adp.plugin.b.a.nH().at(true);
+        } else if (view == this.eCk) {
+            if (this.eCl != null && this.eCl.getErrorCode() == 100) {
+                com.baidu.adp.plugin.b.a.nX().au(true);
             }
             showLoadingDialog(getResources().getString(R.string.waiting));
-            e.ld().postDelayed(new Runnable() { // from class: com.baidu.tbadk.plugin.PluginErrorTipActivity.1
+            e.lt().postDelayed(new Runnable() { // from class: com.baidu.tbadk.plugin.PluginErrorTipActivity.1
                 @Override // java.lang.Runnable
                 public void run() {
                     HashSet hashSet = new HashSet(10);
@@ -129,12 +129,12 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        am.setImageResource(this.etp, R.drawable.new_pic_emotion_05);
-        am.setViewTextColor(this.etq, (int) R.color.cp_cont_c);
-        am.setBackgroundColor(this.etr, R.color.cp_bg_line_d);
-        am.setViewTextColor(this.ets, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.ett, (int) R.color.cp_cont_g);
-        am.setBackgroundResource(this.ett, R.drawable.selector_blue_gradient_button);
-        this.etv.setShadowColor(R.color.plugin_button_shadow_blue);
+        an.setImageResource(this.eCg, R.drawable.new_pic_emotion_05);
+        an.setViewTextColor(this.eCh, (int) R.color.cp_cont_c);
+        an.setBackgroundColor(this.eCi, R.color.cp_bg_line_d);
+        an.setViewTextColor(this.eCj, (int) R.color.cp_cont_b);
+        an.setViewTextColor(this.eCk, (int) R.color.cp_cont_g);
+        an.setBackgroundResource(this.eCk, R.drawable.selector_blue_gradient_button);
+        this.eCm.setShadowColor(R.color.plugin_button_shadow_blue);
     }
 }

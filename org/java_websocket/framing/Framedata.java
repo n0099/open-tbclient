@@ -14,15 +14,15 @@ public interface Framedata {
         CLOSING
     }
 
-    boolean WK();
+    boolean XQ();
 
-    ByteBuffer dPg();
+    ByteBuffer dTM();
 
-    boolean dPh();
+    boolean dTN();
 
-    boolean dPi();
+    boolean dTO();
 
-    boolean dPj();
+    boolean dTP();
 
-    Opcode dPk();
+    Opcode dTQ();
 }

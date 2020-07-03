@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public interface a {
-    public static final b<Object> cho = new b<Object>() { // from class: com.baidu.swan.apps.v.b.a.a.1
+    public static final b<Object> cmc = new b<Object>() { // from class: com.baidu.swan.apps.v.b.a.a.1
         @Override // com.baidu.swan.apps.v.b.a.b
         protected Object a(Bundle bundle, String str, Object obj) {
             return bundle.get(str);
@@ -22,7 +22,7 @@ public interface a {
         protected void b(Bundle bundle, String str, Object obj) {
         }
     };
-    public static final b<Boolean> chp = new b<Boolean>(false) { // from class: com.baidu.swan.apps.v.b.a.a.12
+    public static final b<Boolean> cme = new b<Boolean>(false) { // from class: com.baidu.swan.apps.v.b.a.a.12
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -37,7 +37,7 @@ public interface a {
             bundle.putBoolean(str, bool.booleanValue());
         }
     };
-    public static final b<Byte> chq = new b<Byte>((byte) 0) { // from class: com.baidu.swan.apps.v.b.a.a.23
+    public static final b<Byte> cmf = new b<Byte>((byte) 0) { // from class: com.baidu.swan.apps.v.b.a.a.23
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -52,7 +52,7 @@ public interface a {
             bundle.putByte(str, b.byteValue());
         }
     };
-    public static final b<Short> chr = new b<Short>(0) { // from class: com.baidu.swan.apps.v.b.a.a.27
+    public static final b<Short> cmg = new b<Short>(0) { // from class: com.baidu.swan.apps.v.b.a.a.27
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -67,7 +67,7 @@ public interface a {
             bundle.putShort(str, sh.shortValue());
         }
     };
-    public static final b<Integer> chs = new b<Integer>(0) { // from class: com.baidu.swan.apps.v.b.a.a.28
+    public static final b<Integer> cmh = new b<Integer>(0) { // from class: com.baidu.swan.apps.v.b.a.a.28
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -82,7 +82,7 @@ public interface a {
             bundle.putInt(str, num.intValue());
         }
     };
-    public static final b<Long> cht = new b<Long>(0L) { // from class: com.baidu.swan.apps.v.b.a.a.29
+    public static final b<Long> cmi = new b<Long>(0L) { // from class: com.baidu.swan.apps.v.b.a.a.29
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -97,7 +97,7 @@ public interface a {
             bundle.putLong(str, l.longValue());
         }
     };
-    public static final b<Float> chu = new b<Float>(Float.valueOf(0.0f)) { // from class: com.baidu.swan.apps.v.b.a.a.30
+    public static final b<Float> cmj = new b<Float>(Float.valueOf(0.0f)) { // from class: com.baidu.swan.apps.v.b.a.a.30
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -112,7 +112,7 @@ public interface a {
             bundle.putFloat(str, f.floatValue());
         }
     };
-    public static final b<Double> chv = new b<Double>(Double.valueOf(0.0d)) { // from class: com.baidu.swan.apps.v.b.a.a.31
+    public static final b<Double> cmk = new b<Double>(Double.valueOf(0.0d)) { // from class: com.baidu.swan.apps.v.b.a.a.31
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -127,7 +127,7 @@ public interface a {
             bundle.putDouble(str, d.doubleValue());
         }
     };
-    public static final b<String> chw = new b<String>() { // from class: com.baidu.swan.apps.v.b.a.a.32
+    public static final b<String> cml = new b<String>() { // from class: com.baidu.swan.apps.v.b.a.a.32
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -142,7 +142,7 @@ public interface a {
             bundle.putString(str, str2);
         }
     };
-    public static final b<CharSequence> chx = new b<CharSequence>() { // from class: com.baidu.swan.apps.v.b.a.a.2
+    public static final b<CharSequence> cmm = new b<CharSequence>() { // from class: com.baidu.swan.apps.v.b.a.a.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -157,7 +157,7 @@ public interface a {
             bundle.putCharSequence(str, charSequence);
         }
     };
-    public static final b<Serializable> chy = new b<Serializable>() { // from class: com.baidu.swan.apps.v.b.a.a.3
+    public static final b<Serializable> cmn = new b<Serializable>() { // from class: com.baidu.swan.apps.v.b.a.a.3
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -172,7 +172,7 @@ public interface a {
             bundle.putSerializable(str, serializable);
         }
     };
-    public static final b<ArrayList<Integer>> chz = new b<ArrayList<Integer>>() { // from class: com.baidu.swan.apps.v.b.a.a.4
+    public static final b<ArrayList<Integer>> cmo = new b<ArrayList<Integer>>() { // from class: com.baidu.swan.apps.v.b.a.a.4
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -187,7 +187,7 @@ public interface a {
             bundle.putIntegerArrayList(str, arrayList);
         }
     };
-    public static final b<ArrayList<String>> chA = new b<ArrayList<String>>() { // from class: com.baidu.swan.apps.v.b.a.a.5
+    public static final b<ArrayList<String>> cmp = new b<ArrayList<String>>() { // from class: com.baidu.swan.apps.v.b.a.a.5
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -202,7 +202,7 @@ public interface a {
             bundle.putStringArrayList(str, arrayList);
         }
     };
-    public static final b<ArrayList<CharSequence>> chB = new b<ArrayList<CharSequence>>() { // from class: com.baidu.swan.apps.v.b.a.a.6
+    public static final b<ArrayList<CharSequence>> cmq = new b<ArrayList<CharSequence>>() { // from class: com.baidu.swan.apps.v.b.a.a.6
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -217,7 +217,7 @@ public interface a {
             bundle.putCharSequenceArrayList(str, arrayList);
         }
     };
-    public static final b<boolean[]> chC = new b<boolean[]>() { // from class: com.baidu.swan.apps.v.b.a.a.7
+    public static final b<boolean[]> cmr = new b<boolean[]>() { // from class: com.baidu.swan.apps.v.b.a.a.7
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -232,7 +232,7 @@ public interface a {
             bundle.putBooleanArray(str, zArr);
         }
     };
-    public static final b<byte[]> chD = new b<byte[]>() { // from class: com.baidu.swan.apps.v.b.a.a.8
+    public static final b<byte[]> cms = new b<byte[]>() { // from class: com.baidu.swan.apps.v.b.a.a.8
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -247,7 +247,7 @@ public interface a {
             bundle.putByteArray(str, bArr);
         }
     };
-    public static final b<short[]> chE = new b<short[]>() { // from class: com.baidu.swan.apps.v.b.a.a.9
+    public static final b<short[]> cmt = new b<short[]>() { // from class: com.baidu.swan.apps.v.b.a.a.9
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -262,7 +262,7 @@ public interface a {
             bundle.putShortArray(str, sArr);
         }
     };
-    public static final b<char[]> chF = new b<char[]>() { // from class: com.baidu.swan.apps.v.b.a.a.10
+    public static final b<char[]> cmu = new b<char[]>() { // from class: com.baidu.swan.apps.v.b.a.a.10
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -277,7 +277,7 @@ public interface a {
             bundle.putCharArray(str, cArr);
         }
     };
-    public static final b<int[]> chG = new b<int[]>() { // from class: com.baidu.swan.apps.v.b.a.a.11
+    public static final b<int[]> cmv = new b<int[]>() { // from class: com.baidu.swan.apps.v.b.a.a.11
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -292,7 +292,7 @@ public interface a {
             bundle.putIntArray(str, iArr);
         }
     };
-    public static final b<long[]> chH = new b<long[]>() { // from class: com.baidu.swan.apps.v.b.a.a.13
+    public static final b<long[]> cmw = new b<long[]>() { // from class: com.baidu.swan.apps.v.b.a.a.13
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -307,7 +307,7 @@ public interface a {
             bundle.putLongArray(str, jArr);
         }
     };
-    public static final b<float[]> chI = new b<float[]>() { // from class: com.baidu.swan.apps.v.b.a.a.14
+    public static final b<float[]> cmx = new b<float[]>() { // from class: com.baidu.swan.apps.v.b.a.a.14
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -322,7 +322,7 @@ public interface a {
             bundle.putFloatArray(str, fArr);
         }
     };
-    public static final b<double[]> chJ = new b<double[]>() { // from class: com.baidu.swan.apps.v.b.a.a.15
+    public static final b<double[]> cmy = new b<double[]>() { // from class: com.baidu.swan.apps.v.b.a.a.15
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -337,7 +337,7 @@ public interface a {
             bundle.putDoubleArray(str, dArr);
         }
     };
-    public static final b<String[]> chK = new b<String[]>() { // from class: com.baidu.swan.apps.v.b.a.a.16
+    public static final b<String[]> cmz = new b<String[]>() { // from class: com.baidu.swan.apps.v.b.a.a.16
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -352,7 +352,7 @@ public interface a {
             bundle.putStringArray(str, strArr);
         }
     };
-    public static final b<CharSequence[]> chL = new b<CharSequence[]>() { // from class: com.baidu.swan.apps.v.b.a.a.17
+    public static final b<CharSequence[]> cmA = new b<CharSequence[]>() { // from class: com.baidu.swan.apps.v.b.a.a.17
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -368,7 +368,7 @@ public interface a {
         }
     };
     @RequiresApi(api = 21)
-    public static final b<Size> chM = new b<Size>() { // from class: com.baidu.swan.apps.v.b.a.a.18
+    public static final b<Size> cmB = new b<Size>() { // from class: com.baidu.swan.apps.v.b.a.a.18
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -384,7 +384,7 @@ public interface a {
         }
     };
     @RequiresApi(api = 21)
-    public static final b<SizeF> chN = new b<SizeF>() { // from class: com.baidu.swan.apps.v.b.a.a.19
+    public static final b<SizeF> cmC = new b<SizeF>() { // from class: com.baidu.swan.apps.v.b.a.a.19
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -399,7 +399,7 @@ public interface a {
             bundle.putSizeF(str, sizeF);
         }
     };
-    public static final b<Bundle> chO = new b<Bundle>() { // from class: com.baidu.swan.apps.v.b.a.a.20
+    public static final b<Bundle> cmD = new b<Bundle>() { // from class: com.baidu.swan.apps.v.b.a.a.20
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -414,7 +414,7 @@ public interface a {
             bundle.putBundle(str, bundle2);
         }
     };
-    public static final b<Parcelable> chP = new b<Parcelable>() { // from class: com.baidu.swan.apps.v.b.a.a.21
+    public static final b<Parcelable> cmE = new b<Parcelable>() { // from class: com.baidu.swan.apps.v.b.a.a.21
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -429,7 +429,7 @@ public interface a {
             bundle.putParcelable(str, parcelable);
         }
     };
-    public static final b<Parcelable[]> chQ = new b<Parcelable[]>() { // from class: com.baidu.swan.apps.v.b.a.a.22
+    public static final b<Parcelable[]> cmF = new b<Parcelable[]>() { // from class: com.baidu.swan.apps.v.b.a.a.22
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -444,7 +444,7 @@ public interface a {
             bundle.putParcelableArray(str, parcelableArr);
         }
     };
-    public static final b<ArrayList<? extends Parcelable>> chR = new b<ArrayList<? extends Parcelable>>() { // from class: com.baidu.swan.apps.v.b.a.a.24
+    public static final b<ArrayList<? extends Parcelable>> cmG = new b<ArrayList<? extends Parcelable>>() { // from class: com.baidu.swan.apps.v.b.a.a.24
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -459,7 +459,7 @@ public interface a {
             bundle.putParcelableArrayList(str, arrayList);
         }
     };
-    public static final b<SparseArray<? extends Parcelable>> chS = new b<SparseArray<? extends Parcelable>>() { // from class: com.baidu.swan.apps.v.b.a.a.25
+    public static final b<SparseArray<? extends Parcelable>> cmH = new b<SparseArray<? extends Parcelable>>() { // from class: com.baidu.swan.apps.v.b.a.a.25
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b
@@ -474,7 +474,7 @@ public interface a {
             bundle.putSparseParcelableArray(str, sparseArray);
         }
     };
-    public static final b<IBinder> chT = new b<IBinder>() { // from class: com.baidu.swan.apps.v.b.a.a.26
+    public static final b<IBinder> cmI = new b<IBinder>() { // from class: com.baidu.swan.apps.v.b.a.a.26
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.v.b.a.b

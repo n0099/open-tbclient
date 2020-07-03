@@ -1,13 +1,19 @@
 package com.baidu.tieba.ala.liveroom.activeview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
-import android.widget.FrameLayout;
-import com.baidu.live.u.a;
+import com.baidu.live.pendantview.PendantChildView;
+import com.baidu.live.pendantview.PendantParentView;
+import com.baidu.live.sdk.a;
+@SuppressLint({"ViewConstructor"})
 /* loaded from: classes3.dex */
-public class AlaActiveRootView extends FrameLayout implements com.baidu.live.g.b {
-    public AlaActiveRootView(Context context) {
+public class AlaActiveRootView extends PendantChildView implements com.baidu.live.g.b {
+    private final int pos;
+
+    public AlaActiveRootView(int i, Context context) {
         super(context);
+        this.pos = i;
         init();
     }
 
@@ -82,8 +88,37 @@ public class AlaActiveRootView extends FrameLayout implements com.baidu.live.g.b
         return this;
     }
 
-    @Override // com.baidu.live.g.b
-    public boolean wC() {
-        return getVisibility() == 0;
+    @Override // com.baidu.live.pendantview.PendantChildView
+    public PendantParentView.Position getVerticalPosition() {
+        return this.pos == 1 ? PendantParentView.Position.LEFT : PendantParentView.Position.RIGHT;
+    }
+
+    @Override // com.baidu.live.pendantview.PendantChildView
+    public PendantParentView.Position getVerticalPkPosition() {
+        return PendantParentView.Position.RIGHT;
+    }
+
+    @Override // com.baidu.live.pendantview.PendantChildView
+    public PendantParentView.Position getHorizontalPosition() {
+        return PendantParentView.Position.RIGHT;
+    }
+
+    @Override // com.baidu.live.pendantview.PendantChildView
+    public PendantParentView.Position getHorizontalFullPosition() {
+        return PendantParentView.Position.RIGHT;
+    }
+
+    @Override // com.baidu.live.pendantview.PendantChildView
+    public int getPriority() {
+        if (this.pos == 1 || this.pos == 2) {
+            View lastChild = getLastChild();
+            if (lastChild instanceof AlaActiveBannerView) {
+                return 30;
+            }
+            if (lastChild instanceof AlaActiveWebView) {
+                return 25;
+            }
+        }
+        return -1;
     }
 }

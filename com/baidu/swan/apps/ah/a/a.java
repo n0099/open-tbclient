@@ -8,63 +8,63 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c.a cBo;
-    private c.a cBp;
-    private HashMap<String, c.a> cBq = new HashMap<>();
+    private c.a cFY;
+    private c.a cFZ;
+    private HashMap<String, c.a> cGa = new HashMap<>();
 
-    public void nP(String str) {
+    public void nX(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 throw new RuntimeException("appId can not be empty");
             }
             return;
         }
-        fg(true);
-        Q(str, true);
+        fl(true);
+        S(str, true);
     }
 
-    public ArrayList<String> fg(boolean z) {
-        if (this.cBp != null && this.cBp.data != null && this.cBp.data.size() > 0) {
+    public ArrayList<String> fl(boolean z) {
+        if (this.cFZ != null && this.cFZ.data != null && this.cFZ.data.size() > 0) {
             if (DEBUG) {
-                Log.e("SwanAppWebSafe", "read webActions from cache: token=" + this.cBp.token + ", data=" + this.cBp.data);
+                Log.e("SwanAppWebSafe", "read webActions from cache: token=" + this.cFZ.token + ", data=" + this.cFZ.data);
             }
-            return this.cBp.data;
+            return this.cFZ.data;
         }
-        if (this.cBp != null) {
-            this.cBp.token = "";
-            this.cBp.data.clear();
+        if (this.cFZ != null) {
+            this.cFZ.token = "";
+            this.cFZ.data.clear();
         } else {
-            this.cBp = new c.a();
+            this.cFZ = new c.a();
         }
-        c.a(z, this.cBp);
-        return this.cBp.data;
+        c.a(z, this.cFZ);
+        return this.cFZ.data;
     }
 
-    public ArrayList<String> apK() {
+    public ArrayList<String> aqQ() {
         c.a aVar = new c.a();
         c.a(aVar);
         return aVar.data;
     }
 
-    public ArrayList<String> Q(String str, boolean z) {
-        if (this.cBo != null && this.cBo.data != null && this.cBo.data.size() > 0) {
+    public ArrayList<String> S(String str, boolean z) {
+        if (this.cFY != null && this.cFY.data != null && this.cFY.data.size() > 0) {
             if (DEBUG) {
-                Log.e("SwanAppWebSafe", "read webdomains from cache: token=" + this.cBo.token + ", data=" + this.cBo.data);
+                Log.e("SwanAppWebSafe", "read webdomains from cache: token=" + this.cFY.token + ", data=" + this.cFY.data);
             }
-            return this.cBo.data;
+            return this.cFY.data;
         }
-        if (this.cBo != null) {
-            this.cBo.token = "";
-            this.cBo.data.clear();
+        if (this.cFY != null) {
+            this.cFY.token = "";
+            this.cFY.data.clear();
         } else {
-            this.cBo = new c.a();
+            this.cFY = new c.a();
         }
-        c.a(z, str, this.cBo);
-        return this.cBo.data;
+        c.a(z, str, this.cFY);
+        return this.cFY.data;
     }
 
     public c.a m(String str, String str2, boolean z) {
-        c.a aVar = this.cBq.get(str2);
+        c.a aVar = this.cGa.get(str2);
         if (aVar != null && aVar.data != null && aVar.data.size() > 0) {
             if (DEBUG) {
                 Log.e("SwanAppWebSafe", "read serverDomains from cache: data= " + aVar.data);
@@ -77,20 +77,20 @@ public class a {
                 aVar = new c.a();
             }
             c.a(z, str, str2, aVar);
-            this.cBq.put(str2, aVar);
+            this.cGa.put(str2, aVar);
         }
         return aVar;
     }
 
     public void release() {
-        if (this.cBo != null) {
-            this.cBo.data.clear();
+        if (this.cFY != null) {
+            this.cFY.data.clear();
         }
-        if (this.cBp != null) {
-            this.cBp.data.clear();
+        if (this.cFZ != null) {
+            this.cFZ.data.clear();
         }
-        this.cBo = null;
-        this.cBp = null;
+        this.cFY = null;
+        this.cFZ = null;
         if (DEBUG) {
             Log.d("SwanAppWebSafe", "release cache done");
         }

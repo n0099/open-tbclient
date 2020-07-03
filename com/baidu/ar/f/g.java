@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public final class g {
-    private static String wn = null;
+    private static String wN = null;
 
     /* JADX WARN: Removed duplicated region for block: B:31:0x0030 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*

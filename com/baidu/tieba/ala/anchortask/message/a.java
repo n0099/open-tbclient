@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.anchortask.message;
 import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes3.dex */
 public class a extends HttpMessage {
-    private long aul;
+    private long awn;
     private long liveId;
 
     public a() {
@@ -11,7 +11,7 @@ public class a extends HttpMessage {
     }
 
     public void af(long j) {
-        this.aul = j;
+        this.awn = j;
     }
 
     public void setLiveId(long j) {
@@ -20,6 +20,6 @@ public class a extends HttpMessage {
 
     public void setParams() {
         addParam("live_id", this.liveId);
-        addParam("anchor_id", this.aul);
+        addParam("anchor_id", this.awn);
     }
 }

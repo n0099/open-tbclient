@@ -14,23 +14,23 @@ import org.aspectj.lang.a;
 /* loaded from: classes7.dex */
 public class TimeCodeBox extends AbstractBox implements SampleEntry {
     public static final String TYPE = "tmcd";
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_16 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_16 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_9 = null;
     int dataReferenceIndex;
     long flags;
     int frameDuration;
@@ -110,7 +110,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
 
     @Override // com.coremedia.iso.boxes.sampleentry.SampleEntry
     public void setDataReferenceIndex(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Kc(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Lj(i)));
         this.dataReferenceIndex = i;
     }
 
@@ -125,7 +125,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setTimeScale(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.Kc(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.Lj(i)));
         this.timeScale = i;
     }
 
@@ -135,7 +135,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setFrameDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.Kc(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.Lj(i)));
         this.frameDuration = i;
     }
 
@@ -145,7 +145,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setNumberOfFrames(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.Kc(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.Lj(i)));
         this.numberOfFrames = i;
     }
 
@@ -155,7 +155,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setReserved1(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, org.aspectj.a.a.a.Kc(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, org.aspectj.a.a.a.Lj(i)));
         this.reserved1 = i;
     }
 
@@ -165,7 +165,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setReserved2(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.Kc(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.Lj(i)));
         this.reserved2 = i;
     }
 
@@ -175,7 +175,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setFlags(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.gt(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.gy(j)));
         this.flags = j;
     }
 

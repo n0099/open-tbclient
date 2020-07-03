@@ -8,6 +8,7 @@ import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.lib.lbs.BdLocationMananger;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tieba.compatible.EditorHelper;
+@Deprecated
 /* loaded from: classes3.dex */
 public class BdStatisticsManager {
     private static volatile BdStatisticsManager statisticsManager = null;

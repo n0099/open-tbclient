@@ -1,9 +1,9 @@
 package com.baidu.tieba.homepage.topic.topictab.message;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.b.a;
@@ -15,13 +15,13 @@ import tbclient.NewTopicList.NewTopicList;
 import tbclient.NewTopicList.NewTopicListResIdl;
 /* loaded from: classes9.dex */
 public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
-    private List<o> mTopicDataList;
+    private List<q> mTopicDataList;
 
     public ResponseHttpGetTopicListMessage() {
         super(CmdConfigHttp.CMD_TOPIC_LIST);
     }
 
-    public List<o> getTopicDataList() {
+    public List<q> getTopicDataList() {
         return this.mTopicDataList;
     }
 
@@ -32,7 +32,7 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
         if (newTopicListResIdl != null) {
             setError(newTopicListResIdl.error.errorno.intValue());
             setErrorString(newTopicListResIdl.error.usermsg);
-            if (getError() == 0 && newTopicListResIdl.data != null && !v.isEmpty(newTopicListResIdl.data.topic_list)) {
+            if (getError() == 0 && newTopicListResIdl.data != null && !w.isEmpty(newTopicListResIdl.data.topic_list)) {
                 this.mTopicDataList = new ArrayList();
                 int i2 = 1;
                 for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
@@ -42,13 +42,13 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
                         aVar.a(newTopicList);
                         this.mTopicDataList.add(aVar);
                         c cVar = new c();
-                        cVar.gTB = R.dimen.tbds1;
-                        cVar.iiK = R.color.cp_bg_line_b;
+                        cVar.hgk = R.dimen.tbds1;
+                        cVar.izO = R.color.cp_bg_line_b;
                         this.mTopicDataList.add(cVar);
                         i2++;
                     }
                 }
-                ((c) v.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).gTB = 0;
+                ((c) w.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).hgk = 0;
             }
         }
     }

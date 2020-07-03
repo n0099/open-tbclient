@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes8.dex */
 public class c {
-    private AdvertAppInfo iSf;
+    private AdvertAppInfo jjr;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -17,34 +17,34 @@ public class c {
     }
 
     public void d(AdvertAppInfo advertAppInfo) {
-        this.iSf = advertAppInfo;
+        this.jjr = advertAppInfo;
     }
 
-    public void crI() {
-        Hh("click");
-        com.baidu.tieba.recapp.report.d.cVA().a(com.baidu.tieba.recapp.report.g.c(this.iSf, 2, 0));
+    public void cvy() {
+        HJ("click");
+        com.baidu.tieba.recapp.report.d.cZQ().a(com.baidu.tieba.recapp.report.g.c(this.jjr, 2, 0));
     }
 
-    public void crJ() {
-        Hh("click");
-        com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.g.c(this.iSf, 2, 0);
-        c.LE("title");
-        com.baidu.tieba.recapp.report.d.cVA().a(c);
+    public void cvz() {
+        HJ("click");
+        com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.g.c(this.jjr, 2, 0);
+        c.Mf("title");
+        com.baidu.tieba.recapp.report.d.cZQ().a(c);
     }
 
-    public void crK() {
-        Hh("show");
-        com.baidu.tieba.recapp.report.d.cVA().a(com.baidu.tieba.recapp.report.g.c(this.iSf, 3, 0));
+    public void cko() {
+        HJ("show");
+        com.baidu.tieba.recapp.report.d.cZQ().a(com.baidu.tieba.recapp.report.g.c(this.jjr, 3, 0));
     }
 
-    public void crL() {
+    public void cvA() {
     }
 
-    public void Hg(String str) {
+    public void HI(String str) {
         TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, "app_name", str);
     }
 
-    public void Hh(String str) {
-        com.baidu.tbadk.distribute.a.bcL().a(this.iSf, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PB", str, 1);
+    public void HJ(String str) {
+        com.baidu.tbadk.distribute.a.beN().a(this.jjr, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PB", str, 1);
     }
 }

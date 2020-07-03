@@ -8,10 +8,10 @@ import java.util.List;
 public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hu> f571a;
+    public List<hu> f577a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jn f570a = new jn("XmPushActionCollectData");
+    private static final jn f576a = new jn("XmPushActionCollectData");
     private static final jf a = new jf("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,9 +20,9 @@ public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
     public int compareTo(Cif cif) {
         int a2;
         if (getClass().equals(cif.getClass())) {
-            int compareTo = Boolean.valueOf(m404a()).compareTo(Boolean.valueOf(cif.m404a()));
+            int compareTo = Boolean.valueOf(m401a()).compareTo(Boolean.valueOf(cif.m401a()));
             if (compareTo == 0) {
-                if (!m404a() || (a2 = iy.a(this.f571a, cif.f571a)) == 0) {
+                if (!m401a() || (a2 = iy.a(this.f577a, cif.f577a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -33,44 +33,44 @@ public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
     }
 
     public Cif a(List<hu> list) {
-        this.f571a = list;
+        this.f577a = list;
         return this;
     }
 
     public void a() {
-        if (this.f571a == null) {
+        if (this.f577a == null) {
             throw new jj("Required field 'dataCollectionItems' was not present! Struct: " + toString());
         }
     }
 
     @Override // com.xiaomi.push.ix
     public void a(ji jiVar) {
-        jiVar.m486a();
+        jiVar.m483a();
         while (true) {
-            jf m482a = jiVar.m482a();
-            if (m482a.a == 0) {
+            jf m479a = jiVar.m479a();
+            if (m479a.a == 0) {
                 jiVar.f();
                 a();
                 return;
             }
-            switch (m482a.f777a) {
+            switch (m479a.f783a) {
                 case 1:
-                    if (m482a.a == 15) {
-                        jg m483a = jiVar.m483a();
-                        this.f571a = new ArrayList(m483a.f778a);
-                        for (int i = 0; i < m483a.f778a; i++) {
+                    if (m479a.a == 15) {
+                        jg m480a = jiVar.m480a();
+                        this.f577a = new ArrayList(m480a.f784a);
+                        for (int i = 0; i < m480a.f784a; i++) {
                             hu huVar = new hu();
                             huVar.a(jiVar);
-                            this.f571a.add(huVar);
+                            this.f577a.add(huVar);
                         }
                         jiVar.i();
                         break;
                     } else {
-                        jl.a(jiVar, m482a.a);
+                        jl.a(jiVar, m479a.a);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m482a.a);
+                    jl.a(jiVar, m479a.a);
                     break;
             }
             jiVar.g();
@@ -78,40 +78,40 @@ public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m404a() {
-        return this.f571a != null;
+    public boolean m401a() {
+        return this.f577a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m405a(Cif cif) {
+    public boolean m402a(Cif cif) {
         if (cif == null) {
             return false;
         }
-        boolean m404a = m404a();
-        boolean m404a2 = cif.m404a();
-        return !(m404a || m404a2) || (m404a && m404a2 && this.f571a.equals(cif.f571a));
+        boolean m401a = m401a();
+        boolean m401a2 = cif.m401a();
+        return !(m401a || m401a2) || (m401a && m401a2 && this.f577a.equals(cif.f577a));
     }
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
         a();
-        jiVar.a(f570a);
-        if (this.f571a != null) {
+        jiVar.a(f576a);
+        if (this.f577a != null) {
             jiVar.a(a);
-            jiVar.a(new jg((byte) 12, this.f571a.size()));
-            for (hu huVar : this.f571a) {
+            jiVar.a(new jg((byte) 12, this.f577a.size()));
+            for (hu huVar : this.f577a) {
                 huVar.b(jiVar);
             }
             jiVar.e();
             jiVar.b();
         }
         jiVar.c();
-        jiVar.m490a();
+        jiVar.m487a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof Cif)) {
-            return m405a((Cif) obj);
+            return m402a((Cif) obj);
         }
         return false;
     }
@@ -123,10 +123,10 @@ public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("XmPushActionCollectData(");
         sb.append("dataCollectionItems:");
-        if (this.f571a == null) {
+        if (this.f577a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f571a);
+            sb.append(this.f577a);
         }
         sb.append(")");
         return sb.toString();

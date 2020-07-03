@@ -2,24 +2,24 @@ package com.baidu.tieba.homepage.concern.b;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.ak;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.ap;
+import com.baidu.tbadk.core.data.bu;
 /* loaded from: classes9.dex */
 public class a extends AbsThreadDataSupport {
-    public static final BdUniqueId hYI = BdUniqueId.gen();
+    public static final BdUniqueId inm = BdUniqueId.gen();
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bk aOi() {
+    public bu aPS() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ak aOk() {
+    public ap aPU() {
         return null;
     }
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hYI;
+        return inm;
     }
 }

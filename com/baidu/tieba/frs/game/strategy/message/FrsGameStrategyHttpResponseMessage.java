@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.game.strategy.message;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.frs.game.strategy.tab.e;
 import com.squareup.wire.Wire;
 import java.util.List;
@@ -11,7 +11,7 @@ import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
 public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
     private boolean mHasMore;
     private List<e> mTabList;
-    private List<o> mThreadList;
+    private List<q> mThreadList;
 
     public FrsGameStrategyHttpResponseMessage() {
         super(1003362);
@@ -27,8 +27,8 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
                 setError(gameForumGuideTabResIdl.error.errorno.intValue());
                 setErrorString(gameForumGuideTabResIdl.error.errmsg);
             }
-            this.mTabList = a.cs(gameForumGuideTabResIdl.data.sub_tab_list);
-            this.mThreadList = a.ct(gameForumGuideTabResIdl.data.thread_list);
+            this.mTabList = a.cC(gameForumGuideTabResIdl.data.sub_tab_list);
+            this.mThreadList = a.cD(gameForumGuideTabResIdl.data.thread_list);
             this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
         }
     }
@@ -50,7 +50,7 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
         return this.mTabList;
     }
 
-    public List<o> getThreadList() {
+    public List<q> getThreadList() {
         return this.mThreadList;
     }
 

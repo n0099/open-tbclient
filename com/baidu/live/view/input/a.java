@@ -1,6 +1,7 @@
 package com.baidu.live.view.input;
 
 import android.view.View;
+import com.baidu.live.data.AlaLiveInfoData;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -8,29 +9,31 @@ public interface a {
 
     /* renamed from: com.baidu.live.view.input.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0184a {
-        boolean CC();
+    public interface InterfaceC0190a {
+        boolean Dd();
 
-        void CE();
+        void Df();
 
-        void CF();
+        void Dg();
 
-        boolean CG();
+        boolean Dh();
 
-        int CH();
+        int Di();
 
         void r(String str, boolean z);
     }
 
-    boolean Ei();
+    boolean EK();
 
-    boolean Ej();
+    boolean EL();
 
-    void Ek();
+    boolean EM();
 
-    void Eo();
+    void EN();
 
-    void a(List<String> list, Map<String, Integer> map);
+    void ES();
+
+    void a(List<String> list, Map<String, Integer> map, AlaLiveInfoData alaLiveInfoData);
 
     int getQuickInputPanelExpandHeight();
 

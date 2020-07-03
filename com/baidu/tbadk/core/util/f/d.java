@@ -2,28 +2,28 @@ package com.baidu.tbadk.core.util.f;
 
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.p;
 import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.t;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    public static void a(r rVar, BdUniqueId bdUniqueId, c cVar) {
-        p adapter;
+    public static void a(t tVar, BdUniqueId bdUniqueId, c cVar) {
+        r adapter;
         g.log("video preload start ");
-        if (rVar != null) {
+        if (tVar != null) {
             if (cVar != null && !cVar.videoNeedPreload()) {
                 g.log("this page don't preload ");
                 return;
             }
-            g.log("video preload switch  " + e.aVK().isOpen() + " num " + e.aVK().aVL() + " size " + e.aVK().getSize());
-            if (e.aVK().isOpen() && (adapter = rVar.getAdapter()) != null) {
-                boolean z = rVar.getFirstVisiblePosition() == 0;
-                int lastVisiblePosition = rVar.getLastVisiblePosition();
+            g.log("video preload switch  " + e.aXE().isOpen() + " num " + e.aXE().aXF() + " size " + e.aXE().getSize());
+            if (e.aXE().isOpen() && (adapter = tVar.getAdapter()) != null) {
+                boolean z = tVar.getFirstVisiblePosition() == 0;
+                int lastVisiblePosition = tVar.getLastVisiblePosition();
                 ArrayList arrayList = new ArrayList();
                 g.log("video preload  end=  " + lastVisiblePosition + "  " + adapter.getCount());
                 if (lastVisiblePosition >= 0 && adapter.getCount() > 0) {
-                    for (int i = z ? 0 : lastVisiblePosition; i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= e.aVK().aVL(); i++) {
+                    for (int i = z ? 0 : lastVisiblePosition; i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= e.aXE().aXF(); i++) {
                         g.log("video preload  i=  " + i);
                         Object item = adapter.getItem(i);
                         if (item instanceof a) {
@@ -31,7 +31,7 @@ public class d {
                             if (!TextUtils.isEmpty(aVar.getVideoUrl())) {
                                 g.log("url: " + aVar.getVideoUrl());
                                 if (cVar.isCyberVideoUsedThisPage()) {
-                                    CyberPlayerManager.prefetch(aVar.getVideoUrl(), null, null, e.aVK().getSize(), null);
+                                    CyberPlayerManager.prefetch(aVar.getVideoUrl(), null, null, e.aXE().getSize(), null);
                                 } else {
                                     arrayList.add(aVar.getVideoUrl());
                                 }
@@ -40,7 +40,7 @@ public class d {
                     }
                     g.log("video preload  urls size   " + arrayList.size());
                     if (arrayList.size() > 0) {
-                        h.aVM().aG(arrayList);
+                        h.aXG().aO(arrayList);
                     }
                 }
             }

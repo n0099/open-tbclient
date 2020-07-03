@@ -18,12 +18,12 @@ public final class j {
     public static JSONObject a(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3, String str4) {
         JSONObject jSONObject;
         try {
-            byte[] dL = com.baidu.crabsdk.sender.i.dL(str);
-            if (dL == null || dL.length == 0) {
+            byte[] dN = com.baidu.crabsdk.sender.i.dN(str);
+            if (dN == null || dN.length == 0) {
                 onUploadFilesCallback.onFailed("Read file error!");
                 jSONObject = null;
             } else {
-                String encodeToString = Base64.encodeToString(dL, 0);
+                String encodeToString = Base64.encodeToString(dN, 0);
                 jSONObject = a(str2, str3, str4);
                 jSONObject.put(IjkMediaMeta.IJKM_KEY_FORMAT, 1);
                 jSONObject.put(TbConfig.TMP_LOG_DIR_NAME, encodeToString);
@@ -49,18 +49,18 @@ public final class j {
             jSONObject.put("phoneTime", System.currentTimeMillis());
             jSONObject.put("networkInfo", o.H());
             jSONObject.put(BdStatsConstant.StatsKey.UNAME, t.getUserName());
-            jSONObject.put("uid", t.sP());
+            jSONObject.put("uid", t.tk());
             jSONObject.put("batVN", "7.5.1");
             jSONObject.put("nativeVN", CrabSDK.NDK_VERSION);
-            jSONObject.put("isRoot", q.sN());
+            jSONObject.put("isRoot", q.ti());
             jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.J());
-            jSONObject.put("appLabel", p.sL());
+            jSONObject.put("appLabel", p.tg());
             if (TextUtils.isEmpty(com.baidu.crabsdk.a.o)) {
                 jSONObject.put("appVN", p.L());
             } else {
                 jSONObject.put("appVN", com.baidu.crabsdk.a.o);
             }
-            jSONObject.put("appVC", p.sM());
+            jSONObject.put("appVC", p.th());
             jSONObject.put("model", Build.MODEL);
             jSONObject.put(Constants.PHONE_BRAND, Build.BRAND);
             jSONObject.put("os", "Android");

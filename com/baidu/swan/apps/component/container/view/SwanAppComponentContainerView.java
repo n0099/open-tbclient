@@ -16,8 +16,8 @@ import com.baidu.swan.apps.console.c;
 /* loaded from: classes11.dex */
 public class SwanAppComponentContainerView extends FrameLayout {
     protected static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.component.b.b bPw;
-    private ScrollView bQQ;
+    private com.baidu.swan.apps.component.b.b bUk;
+    private ScrollView bVE;
     private Path mPath;
     private View mTargetView;
 
@@ -38,7 +38,7 @@ public class SwanAppComponentContainerView extends FrameLayout {
             this.mPath = new Path();
         }
         if (this.mTargetView != null) {
-            a.aS("Component-ContainerView", "repeat setTargetView with the different view");
+            a.aU("Component-ContainerView", "repeat setTargetView with the different view");
             removeView(this.mTargetView);
         }
         this.mTargetView = view;
@@ -46,7 +46,7 @@ public class SwanAppComponentContainerView extends FrameLayout {
     }
 
     public void setModel(@NonNull com.baidu.swan.apps.component.b.b bVar) {
-        this.bPw = bVar;
+        this.bUk = bVar;
     }
 
     @Override // android.view.View
@@ -57,11 +57,11 @@ public class SwanAppComponentContainerView extends FrameLayout {
     }
 
     private void n(Canvas canvas) {
-        if (Build.VERSION.SDK_INT >= 21 && this.mPath != null && this.mTargetView != null && (this.bPw instanceof com.baidu.swan.apps.component.components.e.c.b)) {
-            com.baidu.swan.apps.component.components.e.c.b bVar = (com.baidu.swan.apps.component.components.e.c.b) this.bPw;
-            this.mPath.addRoundRect(this.mTargetView.getLeft(), this.mTargetView.getTop(), this.mTargetView.getRight(), this.mTargetView.getBottom(), bVar.bPr, bVar.bPr, Path.Direction.CW);
+        if (Build.VERSION.SDK_INT >= 21 && this.mPath != null && this.mTargetView != null && (this.bUk instanceof com.baidu.swan.apps.component.components.e.c.b)) {
+            com.baidu.swan.apps.component.components.e.c.b bVar = (com.baidu.swan.apps.component.components.e.c.b) this.bUk;
+            this.mPath.addRoundRect(this.mTargetView.getLeft(), this.mTargetView.getTop(), this.mTargetView.getRight(), this.mTargetView.getBottom(), bVar.bUf, bVar.bUf, Path.Direction.CW);
             if (DEBUG) {
-                Log.d("Component-ContainerView", "SwanAppComponentContainerView  model.borderRadius =" + bVar.bPr);
+                Log.d("Component-ContainerView", "SwanAppComponentContainerView  model.borderRadius =" + bVar.bUf);
             }
             canvas.clipPath(this.mPath);
         }
@@ -71,19 +71,19 @@ public class SwanAppComponentContainerView extends FrameLayout {
     /* JADX WARN: Type inference failed for: r1v2, types: [android.view.View] */
     /* JADX WARN: Type inference failed for: r1v3 */
     public void setHidden(boolean z) {
-        ScrollView scrollView = this.bQQ;
+        ScrollView scrollView = this.bVE;
         ?? r1 = this;
         if (scrollView != null) {
-            r1 = this.bQQ;
+            r1 = this.bVE;
         }
         r1.setVisibility(z ? 8 : 0);
     }
 
     public ScrollView getScrollView() {
-        return this.bQQ;
+        return this.bVE;
     }
 
     public void setScrollView(ScrollView scrollView) {
-        this.bQQ = scrollView;
+        this.bVE = scrollView;
     }
 }

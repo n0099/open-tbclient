@@ -22,7 +22,7 @@ public class m {
         this.tag = str3;
     }
 
-    public String aTi() {
+    public String aVc() {
         return this.tip;
     }
 

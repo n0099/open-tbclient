@@ -7,14 +7,14 @@ public class cj {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f162a;
+    public long f168a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f163a;
+    private String f169a;
     public int b;
 
     /* renamed from: b  reason: collision with other field name */
-    public long f164b;
+    public long f170b;
     public int c;
     public int d;
     public int e;
@@ -24,43 +24,43 @@ public class cj {
     }
 
     public cj(cj cjVar) {
-        this.f162a = cjVar.f162a;
+        this.f168a = cjVar.f168a;
         this.a = cjVar.a;
         this.h = cjVar.h;
         this.b = cjVar.b;
         this.c = cjVar.c;
-        this.f164b = cjVar.f164b;
+        this.f170b = cjVar.f170b;
         this.d = cjVar.d;
-        this.f163a = cjVar.f163a;
+        this.f169a = cjVar.f169a;
         this.e = cjVar.e;
     }
 
     public Bundle a() {
         Bundle bundle = new Bundle();
-        bundle.putLong("id", this.f162a);
+        bundle.putLong("id", this.f168a);
         bundle.putInt("showType", this.a);
         bundle.putInt("nonsense", this.b);
         bundle.putInt("receiveUpperBound", this.c);
-        bundle.putLong("lastShowTime", this.f164b);
+        bundle.putLong("lastShowTime", this.f170b);
         bundle.putInt("multi", this.e);
         return bundle;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m198a() {
-        return this.f163a;
+    public String m195a() {
+        return this.f169a;
     }
 
     public void a(String str) {
-        this.f163a = str;
+        this.f169a = str;
     }
 
     public void a(JSONObject jSONObject) {
-        this.f162a = jSONObject.optLong("id");
+        this.f168a = jSONObject.optLong("id");
         this.a = jSONObject.optInt("showType");
         this.b = jSONObject.optInt("nonsense");
         this.c = jSONObject.optInt("receiveUpperBound");
-        this.f164b = jSONObject.optLong("lastShowTime");
+        this.f170b = jSONObject.optLong("lastShowTime");
         this.e = jSONObject.optInt("multi");
     }
 

@@ -7,74 +7,74 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes12.dex */
 class d<V> {
-    public final int jwX;
+    public final int jQp;
     public final int mItemSize;
-    final Queue myV;
-    private final boolean myW;
-    private int myX;
+    final Queue mVc;
+    private final boolean mVd;
+    private int mVe;
 
     public d(int i, int i2, int i3, boolean z) {
         com.facebook.common.internal.g.checkState(i > 0);
         com.facebook.common.internal.g.checkState(i2 >= 0);
         com.facebook.common.internal.g.checkState(i3 >= 0);
         this.mItemSize = i;
-        this.jwX = i2;
-        this.myV = new LinkedList();
-        this.myX = i3;
-        this.myW = z;
+        this.jQp = i2;
+        this.mVc = new LinkedList();
+        this.mVe = i3;
+        this.mVd = z;
     }
 
-    public boolean dAR() {
-        return this.myX + dAS() > this.jwX;
+    public boolean dFt() {
+        return this.mVe + dFu() > this.jQp;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int dAS() {
-        return this.myV.size();
+    public int dFu() {
+        return this.mVc.size();
     }
 
     @Nullable
     public V get() {
         V pop = pop();
         if (pop != null) {
-            this.myX++;
+            this.mVe++;
         }
         return pop;
     }
 
     @Nullable
     public V pop() {
-        return (V) this.myV.poll();
+        return (V) this.mVc.poll();
     }
 
-    public void dAT() {
-        this.myX++;
+    public void dFv() {
+        this.mVe++;
     }
 
     public void release(V v) {
         com.facebook.common.internal.g.checkNotNull(v);
-        if (this.myW) {
-            com.facebook.common.internal.g.checkState(this.myX > 0);
-            this.myX--;
-            bn(v);
-        } else if (this.myX > 0) {
-            this.myX--;
-            bn(v);
+        if (this.mVd) {
+            com.facebook.common.internal.g.checkState(this.mVe > 0);
+            this.mVe--;
+            bo(v);
+        } else if (this.mVe > 0) {
+            this.mVe--;
+            bo(v);
         } else {
             com.facebook.common.c.a.h("BUCKET", "Tried to release value %s from an empty bucket!", v);
         }
     }
 
-    void bn(V v) {
-        this.myV.add(v);
+    void bo(V v) {
+        this.mVc.add(v);
     }
 
-    public void dAU() {
-        com.facebook.common.internal.g.checkState(this.myX > 0);
-        this.myX--;
+    public void dFw() {
+        com.facebook.common.internal.g.checkState(this.mVe > 0);
+        this.mVe--;
     }
 
-    public int dxW() {
-        return this.myX;
+    public int dCy() {
+        return this.mVe;
     }
 }

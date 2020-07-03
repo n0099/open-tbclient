@@ -1,108 +1,128 @@
 package com.baidu.tieba.frs.examination;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.j;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.f.g;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.dialog.i;
 import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.SaveDraftDialogView;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.coreExtra.data.ab;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.tbadkCore.w;
+import com.google.gson.Gson;
 /* loaded from: classes9.dex */
-public class a {
-    private NewWriteModel emH;
-    private final BaseFragmentActivity gRG;
-    private final ForumWriteData hyK;
-    private final SerializableItemInfo hyL;
-    private final EditText hyM;
-    private final EditText hyN;
-    private WriteData hyO;
-    private InputMethodManager mInputManager;
-    private com.baidu.tbadk.core.view.a euw = null;
-    private final NewWriteModel.d emV = new NewWriteModel.d() { // from class: com.baidu.tieba.frs.examination.a.1
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ab abVar, WriteData writeData, AntiData antiData) {
-            a.this.closeLoadingDialog();
-            if (postWriteCallBackData != null) {
-                if (!z) {
-                    a.this.gRG.showToast(postWriteCallBackData.getErrorString());
-                    return;
-                }
-                TiebaStatic.log(new an("c13723").dh("tid", postWriteCallBackData.getThreadId()).dh("fid", a.this.hyK.forumId).dh("fname", a.this.hyK.forumName).dh("uid", TbadkCoreApplication.getCurrentAccount()));
-                Intent intent = new Intent();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
-                intent.putExtras(bundle);
-                a.this.gRG.setResult(-1, intent);
-                a.this.gRG.finish();
-            }
-        }
-    };
+public abstract class a implements View.OnClickListener {
+    protected Gson gson = new Gson();
+    protected View hCa;
+    protected final ForumWriteData hLG;
+    protected TextView hLH;
+    protected SerializableItemInfo hLI;
+    protected final c hLJ;
+    private i hLK;
+    private SaveDraftDialogView hLL;
+    protected final BaseFragmentActivity hep;
+    protected TextView mCenterText;
+    protected NavigationBar mNavigationBar;
+    protected View mRoot;
 
-    public a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo, EditText editText, EditText editText2) {
-        this.mInputManager = null;
-        this.gRG = baseFragmentActivity;
-        this.hyK = forumWriteData;
-        this.hyL = serializableItemInfo;
-        this.hyM = editText;
-        this.hyN = editText2;
-        this.mInputManager = (InputMethodManager) baseFragmentActivity.getSystemService("input_method");
+    public abstract void bfY();
+
+    protected abstract void cbV();
+
+    public abstract void cbX();
+
+    protected abstract void initUI();
+
+    public a(BaseFragmentActivity baseFragmentActivity, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo) {
+        this.hep = baseFragmentActivity;
+        this.hLG = forumWriteData;
+        this.hLI = serializableItemInfo;
+        this.hLJ = new c(this.hep, this.hep.getUniqueId(), this.hLG, this.hLI);
         initUI();
-        initData();
+        biq();
+        cbV();
     }
 
-    private void initUI() {
-        this.euw = new com.baidu.tbadk.core.view.a(this.gRG);
-    }
-
-    private void initData() {
-        this.emH = new NewWriteModel();
-        this.hyO = new WriteData();
-        this.emH.b(this.emV);
-    }
-
-    public void a(String str, String str2, ForumWriteData forumWriteData) {
-        if (!j.isNetWorkAvailable()) {
-            l.showToast(this.gRG, (int) R.string.neterror);
+    protected void biq() {
+        if (this.mNavigationBar != null) {
+            this.hLH = new TextView(this.hep);
+            this.hLH.setAlpha(0.5f);
+            this.hLH.setText(this.hep.getString(R.string.send_post));
+            this.hLH.setTextSize(0, l.getDimens(this.hep, R.dimen.tbds44));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 17;
+            layoutParams.rightMargin = l.getDimens(this.hep, R.dimen.tbds44);
+            this.hLH.setLayoutParams(layoutParams);
+            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.hLH, this);
+            this.mCenterText = this.mNavigationBar.setCenterTextTitle(this.hep.getString(R.string.publish_comment));
+            this.mCenterText.setTextSize(0, l.getDimens(this.hep, R.dimen.tbds44));
+            this.hCa = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
-        if (this.hyL != null) {
-            this.hyO.setItem_id(String.valueOf(this.hyL.id));
+    }
+
+    public View getView() {
+        return this.mRoot;
+    }
+
+    public void onActivityResult(int i, int i2, Intent intent) {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void cbW() {
+        if (this.hLL == null) {
+            this.hLL = new SaveDraftDialogView(this.hep);
+            this.hLL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.examination.a.1
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    if (view != null) {
+                        int id = view.getId();
+                        if (id == R.id.save_draft_dialog_not_save) {
+                            a.this.cbY();
+                            a.this.hep.finish();
+                        } else if (id == R.id.save_draft_dialog_save) {
+                            a.this.bfY();
+                            a.this.hep.finish();
+                        }
+                        a.this.hLK.dismiss();
+                    }
+                }
+            });
         }
-        this.hyO.setForumName(forumWriteData.forumName);
-        this.hyO.setContent(str);
-        this.hyO.setComment_head(str2);
-        this.hyO.setForumId(forumWriteData.forumId);
-        this.hyO.setTitle("");
-        this.hyO.setIsNoTitle(true);
-        this.gRG.HidenSoftKeyPad(this.mInputManager, this.hyM);
-        this.gRG.HidenSoftKeyPad(this.mInputManager, this.hyN);
-        bYH();
+        if (this.hLK == null) {
+            this.hLK = new i(this.hep.getPageContext());
+            this.hLK.setContentView(this.hLL);
+        }
+        this.hLL.setText(this.hep.getString(R.string.write_save_draft_dialog_normal_title), null, this.hep.getString(R.string.save));
+        this.hLK.showDialog();
     }
 
-    private void bYH() {
-        this.emH.d(this.hyO);
-        this.emH.dfc();
-        showLoadingDialog();
+    protected void cbY() {
+        if (this.hLG != null) {
+            w.c(String.valueOf(this.hLG.forumId), (WriteData) null);
+        }
     }
 
-    public void showLoadingDialog() {
-        this.euw.setCancelListener(null);
-        this.euw.setTipString(R.string.sending);
-        this.euw.setDialogVisiable(true);
+    public void onDestroy() {
+        g.dismissDialog(this.hLK, this.hep);
     }
 
-    public void closeLoadingDialog() {
-        this.euw.setDialogVisiable(false);
+    public void onChangeSkinType() {
+        an.setBackgroundColor(this.mRoot, R.color.cp_bg_line_d);
+        if (this.mCenterText != null) {
+            an.setViewTextColor(this.mCenterText, (int) R.color.cp_cont_b);
+        }
+        if (this.hLH != null) {
+            an.setViewTextColor(this.hLH, (int) R.color.cp_link_tip_c);
+        }
+        if (this.mNavigationBar != null) {
+            this.mNavigationBar.onBackBtnOnChangeSkin();
+        }
     }
 }

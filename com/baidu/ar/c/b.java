@@ -1,37 +1,37 @@
 package com.baidu.ar.c;
 /* loaded from: classes3.dex */
 public abstract class b {
-    private String J;
-    private Object lf = null;
-    private long lg = 0;
+    private String I;
+    private Object lC = null;
+    private long lD = 0;
     private long mTimestamp;
 
     public void S(String str) {
-        this.J = str;
+        this.I = str;
     }
 
     public void a(Object obj) {
-        this.lf = obj;
+        this.lC = obj;
     }
 
-    public String cl() {
-        return this.J;
+    public String cD() {
+        return this.I;
     }
 
-    public Object cm() {
-        return this.lf;
+    public Object cE() {
+        return this.lC;
     }
 
-    public long cn() {
-        return this.lg;
+    public long cF() {
+        return this.lD;
     }
 
     public long getTimestamp() {
         return this.mTimestamp;
     }
 
-    public void q(long j) {
-        this.lg = j;
+    public void p(long j) {
+        this.lD = j;
     }
 
     public void setTimestamp(long j) {

@@ -8,5 +8,5 @@ public final class PostArgs {
     public File file;
     public String fileName;
     public String mimeType;
-    public StringMap nho;
+    public StringMap nDe;
 }

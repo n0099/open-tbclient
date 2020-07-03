@@ -7,11 +7,11 @@ import org.json.JSONObject;
 public class f {
     public String callback;
     public int sourceType = 3;
-    public boolean cms = true;
-    public String cmt = "back";
-    public int cmu = 60;
+    public boolean crg = true;
+    public String crh = "back";
+    public int cri = 60;
 
-    public static f aC(JSONObject jSONObject) {
+    public static f aJ(JSONObject jSONObject) {
         f fVar = new f();
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("sourceType");
@@ -46,13 +46,13 @@ public class f {
                 }
                 fVar.sourceType = i;
             }
-            fVar.cms = jSONObject.optBoolean("compressed", true);
+            fVar.crg = jSONObject.optBoolean("compressed", true);
             int optInt = jSONObject.optInt("maxDuration", 60);
             if (optInt > 60) {
                 optInt = 60;
             }
-            fVar.cmu = optInt;
-            fVar.cmt = jSONObject.optString(PixelReadParams.DEFAULT_FILTER_ID);
+            fVar.cri = optInt;
+            fVar.crh = jSONObject.optString(PixelReadParams.DEFAULT_FILTER_ID);
             fVar.callback = jSONObject.optString("cb");
         }
         return fVar;

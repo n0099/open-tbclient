@@ -82,7 +82,7 @@ public class GifFrame implements c {
         return nativeGetYOffset();
     }
 
-    public int dtI() {
+    public int dyl() {
         return nativeGetDisposalMode();
     }
 }

@@ -8,16 +8,16 @@ public class ft implements Cloneable {
     public static String c = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f372a;
+    private int f378a;
 
     /* renamed from: a  reason: collision with other field name */
-    private fw f373a;
+    private fw f379a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f374a = fs.f357a;
+    private boolean f380a = fs.f363a;
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f375b = true;
+    private boolean f381b = true;
     private String d;
     private String e;
     private String f;
@@ -27,7 +27,7 @@ public class ft implements Cloneable {
     }
 
     public static final String a() {
-        return c != null ? c : ab.m122a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? b : "app.chat.xiaomi.net";
+        return c != null ? c : ab.m119a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? b : "app.chat.xiaomi.net";
     }
 
     public static final void a(String str) {
@@ -35,27 +35,27 @@ public class ft implements Cloneable {
     }
 
     private void a(Map<String, Integer> map, int i, String str, fw fwVar) {
-        this.f372a = i;
+        this.f378a = i;
         this.d = str;
-        this.f373a = fwVar;
+        this.f379a = fwVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int mo298a() {
-        return this.f372a;
+    public int mo295a() {
+        return this.f378a;
     }
 
     public void a(boolean z) {
-        this.f374a = z;
+        this.f380a = z;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m299a() {
-        return this.f374a;
+    public boolean m296a() {
+        return this.f380a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m300a() {
+    public byte[] m297a() {
         return null;
     }
 

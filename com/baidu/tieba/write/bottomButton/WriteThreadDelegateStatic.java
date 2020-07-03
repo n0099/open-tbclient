@@ -34,7 +34,7 @@ public class WriteThreadDelegateStatic extends b {
     }
 
     static {
-        if (!d.aMs()) {
+        if (!d.aNV()) {
             CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener

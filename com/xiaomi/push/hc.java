@@ -11,7 +11,7 @@ final class hc {
         fh a;
 
         /* renamed from: a  reason: collision with other field name */
-        String f421a;
+        String f427a;
 
         a() {
         }
@@ -19,7 +19,7 @@ final class hc {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a a(Exception exc) {
-        m329a(exc);
+        m326a(exc);
         boolean z = exc instanceof gd;
         Exception exc2 = exc;
         if (z) {
@@ -43,13 +43,13 @@ final class hc {
             aVar.a = fh.GSLB_TCP_ERR_OTHER;
         }
         if (aVar.a == fh.GSLB_TCP_ERR_OTHER) {
-            aVar.f421a = str;
+            aVar.f427a = str;
         }
         return aVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static void m329a(Exception exc) {
+    private static void m326a(Exception exc) {
         if (exc == null) {
             throw new NullPointerException();
         }
@@ -58,7 +58,7 @@ final class hc {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a b(Exception exc) {
         Throwable cause;
-        m329a(exc);
+        m326a(exc);
         boolean z = exc instanceof gd;
         Exception exc2 = exc;
         if (z) {
@@ -84,14 +84,14 @@ final class hc {
             aVar.a = fh.CONN_XMPP_ERR;
         }
         if (aVar.a == fh.CONN_TCP_ERR_OTHER || aVar.a == fh.CONN_XMPP_ERR || aVar.a == fh.CONN_BOSH_ERR) {
-            aVar.f421a = str;
+            aVar.f427a = str;
         }
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a c(Exception exc) {
-        m329a(exc);
+        m326a(exc);
         boolean z = exc instanceof gd;
         Exception exc2 = exc;
         if (z) {
@@ -132,14 +132,14 @@ final class hc {
                 break;
         }
         if (aVar.a == fh.BIND_TCP_ERR || aVar.a == fh.BIND_XMPP_ERR || aVar.a == fh.BIND_BOSH_ERR) {
-            aVar.f421a = str;
+            aVar.f427a = str;
         }
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a d(Exception exc) {
-        m329a(exc);
+        m326a(exc);
         boolean z = exc instanceof gd;
         Exception exc2 = exc;
         if (z) {
@@ -177,7 +177,7 @@ final class hc {
                 break;
         }
         if (aVar.a == fh.CHANNEL_TCP_ERR || aVar.a == fh.CHANNEL_XMPPEXCEPTION || aVar.a == fh.CHANNEL_BOSH_EXCEPTION) {
-            aVar.f421a = str;
+            aVar.f427a = str;
         }
         return aVar;
     }

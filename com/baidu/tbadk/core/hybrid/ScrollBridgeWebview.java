@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class ScrollBridgeWebview extends BridgeWebView {
-    private a dKL;
-    private boolean dKM;
+    private a dRB;
+    private boolean dRC;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,36 +19,36 @@ public class ScrollBridgeWebview extends BridgeWebView {
 
     public ScrollBridgeWebview(Context context) {
         super(context);
-        this.dKM = false;
+        this.dRC = false;
     }
 
     public ScrollBridgeWebview(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dKM = false;
+        this.dRC = false;
     }
 
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.dKL != null) {
+        if (this.dRB != null) {
             if (Math.abs((getContentHeight() * getScale()) - (getHeight() + getScrollY())) < 1.0f) {
-                this.dKL.p(i, i2, i3, i4);
+                this.dRB.p(i, i2, i3, i4);
             } else if (getScrollY() == 0) {
-                this.dKL.q(i, i2, i3, i4);
+                this.dRB.q(i, i2, i3, i4);
             } else {
-                this.dKL.onScrollChanged(i, i2, i3, i4);
+                this.dRB.onScrollChanged(i, i2, i3, i4);
             }
         }
     }
 
     public void setOnScrollChangeListener(a aVar) {
-        this.dKL = aVar;
+        this.dRB = aVar;
     }
 
     @Override // android.webkit.WebView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean onTouchEvent = super.onTouchEvent(motionEvent);
-        if (this.dKM) {
+        if (this.dRC) {
             if (motionEvent.getAction() == 0) {
                 requestDisallowInterceptTouchEvent(false);
             } else {
@@ -59,6 +59,6 @@ public class ScrollBridgeWebview extends BridgeWebView {
     }
 
     public void setNeedDisAllowParentInterceptTouchEvent(boolean z) {
-        this.dKM = z;
+        this.dRC = z;
     }
 }

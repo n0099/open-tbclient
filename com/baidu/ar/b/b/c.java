@@ -10,27 +10,27 @@ public abstract class c extends d {
 
     @Override // com.baidu.ar.b.b.d
     public void execute() {
-        if (!com.baidu.ar.b.a.ac().c(this.cK)) {
-            com.baidu.ar.mdl.a f = com.baidu.ar.b.a.ac().f(this.cK);
-            if (f == null) {
-                com.baidu.ar.f.b.b("MdlInitTask", "can not find configs by type = " + this.cK);
+        if (!com.baidu.ar.b.a.aq().d(this.cX)) {
+            com.baidu.ar.mdl.a g = com.baidu.ar.b.a.aq().g(this.cX);
+            if (g == null) {
+                com.baidu.ar.f.b.b("MdlInitTask", "can not find configs by type = " + this.cX);
                 return;
             }
-            int a = a(f);
+            int a = a(g);
             if (a != 0) {
-                com.baidu.ar.f.b.b("MdlInitTask", "mdl init result =  " + a + ", mdlType = " + this.cK);
+                com.baidu.ar.f.b.b("MdlInitTask", "mdl init result =  " + a + ", mdlType = " + this.cX);
                 return;
             }
-            com.baidu.ar.b.a.ac().d(this.cK);
+            com.baidu.ar.b.a.aq().e(this.cX);
         }
-        com.baidu.ar.b.a.ac().a(new Runnable() { // from class: com.baidu.ar.b.b.c.1
+        com.baidu.ar.b.a.aq().a(new Runnable() { // from class: com.baidu.ar.b.b.c.1
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.ar.b.a.a aVar;
-                if (c.this.cL == null || (aVar = c.this.cL.get()) == null) {
+                if (c.this.cY == null || (aVar = c.this.cY.get()) == null) {
                     return;
                 }
-                aVar.ad();
+                aVar.ar();
             }
         });
     }

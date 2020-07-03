@@ -1,33 +1,33 @@
 package com.facebook.imagepipeline.c;
 /* loaded from: classes12.dex */
 public class o<K, V> implements p<K, V> {
-    private final p<K, V> mvT;
-    private final r mvU;
+    private final p<K, V> mRS;
+    private final r mRT;
 
     public o(p<K, V> pVar, r rVar) {
-        this.mvT = pVar;
-        this.mvU = rVar;
+        this.mRS = pVar;
+        this.mRT = rVar;
     }
 
     @Override // com.facebook.imagepipeline.c.p
-    public com.facebook.common.references.a<V> bi(K k) {
-        com.facebook.common.references.a<V> bi = this.mvT.bi(k);
-        if (bi == null) {
-            this.mvU.dxQ();
+    public com.facebook.common.references.a<V> bj(K k) {
+        com.facebook.common.references.a<V> bj = this.mRS.bj(k);
+        if (bj == null) {
+            this.mRT.dCs();
         } else {
-            this.mvU.bf(k);
+            this.mRT.bg(k);
         }
-        return bi;
+        return bj;
     }
 
     @Override // com.facebook.imagepipeline.c.p
     public com.facebook.common.references.a<V> a(K k, com.facebook.common.references.a<V> aVar) {
-        this.mvU.dxR();
-        return this.mvT.a(k, aVar);
+        this.mRT.dCt();
+        return this.mRS.a(k, aVar);
     }
 
     @Override // com.facebook.imagepipeline.c.p
     public boolean b(com.facebook.common.internal.h<K> hVar) {
-        return this.mvT.b(hVar);
+        return this.mRS.b(hVar);
     }
 }

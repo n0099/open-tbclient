@@ -6,13 +6,13 @@ import java.util.HashSet;
 /* loaded from: classes11.dex */
 public final class g {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int cGc = 0;
+    private static int cKM = 0;
 
-    public static void gT(int i) {
-        cGc = i;
+    public static void he(int i) {
+        cKM = i;
     }
 
-    public static String ov(String str) {
+    public static String oD(String str) {
         if (!TextUtils.isEmpty(str)) {
             String params = ah.getParams(str);
             if (!TextUtils.isEmpty(params)) {
@@ -27,15 +27,15 @@ public final class g {
     }
 
     public static <EvenT extends com.baidu.swan.apps.statistic.a.e> EvenT a(EvenT event) {
-        return (EvenT) a(event, "coreState", Integer.valueOf(com.baidu.swan.apps.core.turbo.d.abk()));
+        return (EvenT) a(event, "coreState", Integer.valueOf(com.baidu.swan.apps.core.turbo.d.acq()));
     }
 
     public static <EvenT extends com.baidu.swan.apps.statistic.a.e> EvenT b(EvenT event) {
-        return (EvenT) a(event, "packageState", Integer.valueOf(com.baidu.swan.apps.runtime.d.aoB().aox().aoM()));
+        return (EvenT) a(event, "packageState", Integer.valueOf(com.baidu.swan.apps.runtime.d.apI().apE().apT()));
     }
 
     public static <EvenT extends com.baidu.swan.apps.statistic.a.e> EvenT c(EvenT event) {
-        return (EvenT) a(event, "isDownloading", Integer.valueOf(com.baidu.swan.apps.runtime.d.aoB().aox().aoL() ? 1 : 0));
+        return (EvenT) a(event, "isDownloading", Integer.valueOf(com.baidu.swan.apps.runtime.d.apI().apE().apS() ? 1 : 0));
     }
 
     public static <EvenT extends com.baidu.swan.apps.statistic.a.e> EvenT a(EvenT event, String str, Object obj) {

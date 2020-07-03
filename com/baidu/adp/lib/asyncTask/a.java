@@ -23,7 +23,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class a implements Executor {
     private Handler mHandler;
     private HandlerThread sHandlerThread;
-    private static a IX = null;
+    private static a Jx = null;
     private static final ThreadFactory sThreadFactory = new ThreadFactory() { // from class: com.baidu.adp.lib.asyncTask.a.1
         private final AtomicInteger mCount = new AtomicInteger(1);
 
@@ -75,15 +75,15 @@ public class a implements Executor {
         return this.mWaitingTasks.size() + "/" + this.mRunningTasks.size() + "/" + this.mTimeOutTasks.size();
     }
 
-    public static a jX() {
-        if (IX == null) {
+    public static a kn() {
+        if (Jx == null) {
             synchronized (a.class) {
-                if (IX == null) {
-                    IX = new a();
+                if (Jx == null) {
+                    Jx = new a();
                 }
             }
         }
-        return IX;
+        return Jx;
     }
 
     @Override // java.util.concurrent.Executor
@@ -225,8 +225,8 @@ public class a implements Executor {
         if (abstractRunnableC0019a == null) {
             return false;
         }
-        BdAsyncTaskParallel.BdAsyncTaskParallelType jZ = abstractRunnableC0019a.jZ();
-        return jZ == BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL ? i < 1 : jZ == BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL ? i < 2 : jZ == BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL ? i < 3 : jZ == BdAsyncTaskParallel.BdAsyncTaskParallelType.FOUR_PARALLEL ? i < 4 : jZ != BdAsyncTaskParallel.BdAsyncTaskParallelType.CUSTOM_PARALLEL || i < abstractRunnableC0019a.getExcuteNum();
+        BdAsyncTaskParallel.BdAsyncTaskParallelType kp = abstractRunnableC0019a.kp();
+        return kp == BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL ? i < 1 : kp == BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL ? i < 2 : kp == BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL ? i < 3 : kp == BdAsyncTaskParallel.BdAsyncTaskParallelType.FOUR_PARALLEL ? i < 4 : kp != BdAsyncTaskParallel.BdAsyncTaskParallelType.CUSTOM_PARALLEL || i < abstractRunnableC0019a.getExcuteNum();
     }
 
     protected synchronized void e(AbstractRunnableC0019a abstractRunnableC0019a) {
@@ -318,7 +318,7 @@ public class a implements Executor {
                 break;
             }
             AbstractRunnableC0019a next = it.next();
-            if (next != null && next.jY() == bdAsyncTask) {
+            if (next != null && next.ko() == bdAsyncTask) {
                 break;
             }
         }
@@ -337,7 +337,7 @@ public class a implements Executor {
                 while (it.hasNext()) {
                     AbstractRunnableC0019a next = it.next();
                     int tag = next.getTag();
-                    i = (!((str != null && tag == id && str.equals(next.getKey())) || (str == null && id != 0 && tag == id)) || next.jY() == null || next.jY().isCancelled()) ? i : i + 1;
+                    i = (!((str != null && tag == id && str.equals(next.getKey())) || (str == null && id != 0 && tag == id)) || next.ko() == null || next.ko().isCancelled()) ? i : i + 1;
                 }
             }
         }
@@ -397,7 +397,7 @@ public class a implements Executor {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x002f, code lost:
-        r0 = r0.jY();
+        r0 = r0.ko();
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -413,7 +413,7 @@ public class a implements Executor {
                 }
                 AbstractRunnableC0019a next = it.next();
                 String key = next.getKey();
-                if (key != null && key.equals(str) && !next.jY().isCancelled()) {
+                if (key != null && key.equals(str) && !next.ko().isCancelled()) {
                     break;
                 }
             }
@@ -436,8 +436,8 @@ public class a implements Executor {
                 int tag = next.getTag();
                 String key = next.getKey();
                 if ((str != null && tag == id && str.equals(key)) || (str == null && id != 0 && tag == id)) {
-                    if (next.jY() != null && !next.jY().isCancelled()) {
-                        linkedList3.add(next.jY());
+                    if (next.ko() != null && !next.ko().isCancelled()) {
+                        linkedList3.add(next.ko());
                     }
                 }
             }
@@ -450,76 +450,76 @@ public class a implements Executor {
     /* renamed from: com.baidu.adp.lib.asyncTask.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static abstract class AbstractRunnableC0019a implements Runnable {
-        private b<?> IZ;
+        private b<?> Jz;
 
         public AbstractRunnableC0019a(b<?> bVar) {
-            this.IZ = null;
-            if (bVar == null || bVar.jY() == null) {
+            this.Jz = null;
+            if (bVar == null || bVar.ko() == null) {
                 throw new InvalidParameterException("parameter is null");
             }
-            this.IZ = bVar;
+            this.Jz = bVar;
         }
 
         public void runTask() {
             try {
-                this.IZ.run();
+                this.Jz.run();
             } catch (OutOfMemoryError e) {
                 BdBaseApplication.getInst().onAppMemoryLow();
             }
         }
 
         public void cancelTask() {
-            this.IZ.cancelTask();
+            this.Jz.cancelTask();
         }
 
         public boolean isCancelled() {
-            return this.IZ.isCancelled();
+            return this.Jz.isCancelled();
         }
 
-        public BdAsyncTask<?, ?, ?> jY() {
-            return this.IZ.jY();
+        public BdAsyncTask<?, ?, ?> ko() {
+            return this.Jz.ko();
         }
 
         public int getPriority() {
-            return this.IZ.jY().getPriority();
+            return this.Jz.ko().getPriority();
         }
 
         public void setTimeout(boolean z) {
-            this.IZ.jY().setTimeout(z);
+            this.Jz.ko().setTimeout(z);
         }
 
         public boolean IsTimeout() {
-            return this.IZ.jY().isTimeout();
+            return this.Jz.ko().isTimeout();
         }
 
         public int getTag() {
-            return this.IZ.jY().getTag();
+            return this.Jz.ko().getTag();
         }
 
         public int getParallelTag() {
-            if (this.IZ.jY().getParallel() != null) {
-                return this.IZ.jY().getParallel().getTag();
+            if (this.Jz.ko().getParallel() != null) {
+                return this.Jz.ko().getParallel().getTag();
             }
             return 0;
         }
 
         public String getKey() {
-            return this.IZ.jY().getKey();
+            return this.Jz.ko().getKey();
         }
 
-        public BdAsyncTaskParallel.BdAsyncTaskParallelType jZ() {
-            return this.IZ.jY().getParallel() != null ? this.IZ.jY().getParallel().ka() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
+        public BdAsyncTaskParallel.BdAsyncTaskParallelType kp() {
+            return this.Jz.ko().getParallel() != null ? this.Jz.ko().getParallel().kq() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
         }
 
         public int getExcuteNum() {
-            if (this.IZ.jY().getParallel() != null) {
-                return this.IZ.jY().getParallel().getExecuteNum();
+            if (this.Jz.ko().getParallel() != null) {
+                return this.Jz.ko().getParallel().getExecuteNum();
             }
             return 1;
         }
 
         public boolean isSelfExecute() {
-            return this.IZ.jY().isSelfExecute();
+            return this.Jz.ko().isSelfExecute();
         }
     }
 }

@@ -1,30 +1,24 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bu;
 /* loaded from: classes.dex */
-public class k implements com.baidu.adp.widget.ListView.o {
-    public static final BdUniqueId hnc = BdUniqueId.gen();
-    private int height = 0;
-    private int hnd = 0;
+public class k {
+    private static String hzq;
+    public static k hzp = null;
+    private static bu aiq = null;
 
-    @Override // com.baidu.adp.widget.ListView.o
-    public BdUniqueId getType() {
-        return hnc;
+    public static synchronized void an(bu buVar) {
+        synchronized (k.class) {
+            hzq = buVar.tid;
+            aiq = buVar;
+        }
     }
 
-    public int getHeight() {
-        return this.height;
+    public static bu bXN() {
+        return aiq;
     }
 
-    public void setHeight(int i) {
-        this.height = i;
-    }
-
-    public int bUJ() {
-        return this.hnd;
-    }
-
-    public void tH(int i) {
-        this.hnd = i;
+    public static String bXO() {
+        return hzq;
     }
 }

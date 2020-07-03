@@ -16,12 +16,12 @@ import java.util.regex.Pattern;
 /* loaded from: classes11.dex */
 public final class p {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Pattern cJY = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
-    private static HashMap<String, Integer> cJZ = new HashMap<>();
-    private static HashMap<String, Integer> cKa = new HashMap<>();
-    private static HashMap<String, String> cKb = new HashMap<>();
-    private static HashMap<String, String> cKc = new HashMap<>();
-    private static final Pattern cKd;
+    private static final Pattern cOI = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+    private static HashMap<String, Integer> cOJ = new HashMap<>();
+    private static HashMap<String, Integer> cOK = new HashMap<>();
+    private static HashMap<String, String> cOL = new HashMap<>();
+    private static HashMap<String, String> cOM = new HashMap<>();
+    private static final Pattern cON;
 
     static {
         f("application/andrew-inset", "ez", 5);
@@ -342,19 +342,19 @@ public final class p {
         f("audio/aac", TranscoderPlugin.AUDIO_CODEC, 1);
         f("application/vnd.rn-realmedia", "rm", 0);
         f("message/rfc822", "mht", 11);
-        cKd = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        cON = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void f(String str, String str2, int i) {
-        cJZ.put(str2, Integer.valueOf(i));
-        cKa.put(str, Integer.valueOf(i));
-        cKb.put(str2, str);
-        if (!cKc.containsKey(str)) {
-            cKc.put(str, str2);
+        cOJ.put(str2, Integer.valueOf(i));
+        cOK.put(str, Integer.valueOf(i));
+        cOL.put(str2, str);
+        if (!cOM.containsKey(str)) {
+            cOM.put(str, str2);
         }
     }
 
-    public static String pC(String str) {
+    public static String pK(String str) {
         int lastIndexOf;
         if (str == null || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) {
             return "";
@@ -363,23 +363,23 @@ public final class p {
     }
 
     @Nullable
-    public static String pD(String str) {
+    public static String pL(String str) {
         if (str == null) {
             return null;
         }
-        return cKc.get(str);
+        return cOM.get(str);
     }
 
-    public static String pE(String str) {
+    public static String pM(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return cKb.get(str);
+        return cOL.get(str);
     }
 
-    public static String pF(String str) {
+    public static String pN(String str) {
         try {
-            Matcher matcher = cJY.matcher(str);
+            Matcher matcher = cOI.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }

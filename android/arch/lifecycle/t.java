@@ -5,17 +5,17 @@ import android.arch.lifecycle.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
 public class t implements h {
-    private final Object yC;
-    private final b.a yD;
+    private final Object zc;
+    private final b.a zd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(Object obj) {
-        this.yC = obj;
-        this.yD = b.xK.g(this.yC.getClass());
+        this.zc = obj;
+        this.zd = b.yk.g(this.zc.getClass());
     }
 
     @Override // android.arch.lifecycle.h
     public void a(j jVar, Lifecycle.Event event) {
-        this.yD.a(jVar, event, this.yC);
+        this.zd.a(jVar, event, this.zc);
     }
 }

@@ -24,7 +24,7 @@ public class a extends aa {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("authorized", b.cA(context));
+            jSONObject.put("authorized", b.cB(context));
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
             return true;
         } catch (JSONException e) {

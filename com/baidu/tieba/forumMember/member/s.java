@@ -3,42 +3,42 @@ package com.baidu.tieba.forumMember.member;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes10.dex */
-public class s implements com.baidu.adp.widget.ListView.o {
-    public static final BdUniqueId hkE = BdUniqueId.gen();
-    private String hky;
-    private int hkw = -1;
-    private int hkF = -1;
+public class s implements com.baidu.adp.widget.ListView.q {
+    public static final BdUniqueId hwL = BdUniqueId.gen();
+    private String hwF;
+    private int hwD = -1;
+    private int hwM = -1;
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hkE;
+        return hwL;
     }
 
-    public int bTE() {
-        return this.hkF;
+    public int bWA() {
+        return this.hwM;
     }
 
-    public void tB(int i) {
-        this.hkF = i;
+    public void uc(int i) {
+        this.hwM = i;
     }
 
-    public int bTC() {
-        return this.hkw;
+    public int bWy() {
+        return this.hwD;
     }
 
-    public void tA(int i) {
-        this.hkw = i;
+    public void ub(int i) {
+        this.hwD = i;
     }
 
-    public String bTD() {
-        return this.hky;
+    public String bWz() {
+        return this.hwF;
     }
 
-    public void Ew(String str) {
-        this.hky = str;
+    public void EX(String str) {
+        this.hwF = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.hky) || this.hkw < 0;
+        return StringUtils.isNull(this.hwF) || this.hwD < 0;
     }
 }

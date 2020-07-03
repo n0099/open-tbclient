@@ -11,7 +11,7 @@ import java.io.RandomAccessFile;
 import java.lang.reflect.Field;
 /* loaded from: classes5.dex */
 public class DeviceUtils {
-    private static ARCH nTJ = ARCH.Unknown;
+    private static ARCH opz = ARCH.Unknown;
 
     /* loaded from: classes5.dex */
     public enum ARCH {
@@ -32,7 +32,7 @@ public class DeviceUtils {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized ARCH dSE() {
+    public static synchronized ARCH dXk() {
         RandomAccessFile randomAccessFile;
         int i;
         synchronized (DeviceUtils.class) {
@@ -47,16 +47,16 @@ public class DeviceUtils {
                             randomAccessFile.readFully(bArr);
                             switch (bArr[18] | (bArr[19] << 8)) {
                                 case 3:
-                                    nTJ = ARCH.X86;
+                                    opz = ARCH.X86;
                                     break;
                                 case 8:
-                                    nTJ = ARCH.MIPS;
+                                    opz = ARCH.MIPS;
                                     break;
                                 case 40:
-                                    nTJ = ARCH.ARM;
+                                    opz = ARCH.ARM;
                                     break;
                                 case 183:
-                                    nTJ = ARCH.ARM64;
+                                    opz = ARCH.ARM64;
                                     break;
                                 default:
                                     Log.e("NativeBitmapFactory", "libc.so is unknown arch: " + Integer.toHexString(i));
@@ -79,7 +79,7 @@ public class DeviceUtils {
                                     e3.printStackTrace();
                                 }
                             }
-                            return nTJ;
+                            return opz;
                         } catch (IOException e4) {
                             e = e4;
                             e.printStackTrace();
@@ -90,7 +90,7 @@ public class DeviceUtils {
                                     e5.printStackTrace();
                                 }
                             }
-                            return nTJ;
+                            return opz;
                         }
                     } catch (Throwable th) {
                         th = th;
@@ -118,7 +118,7 @@ public class DeviceUtils {
                 }
             }
         }
-        return nTJ;
+        return opz;
     }
 
     public static String get_CPU_ABI() {
@@ -162,10 +162,10 @@ public class DeviceUtils {
     }
 
     public static boolean isRealARMArch() {
-        return (supportABI("armeabi-v7a") || supportABI("armeabi")) && ARCH.ARM.equals(dSE());
+        return (supportABI("armeabi-v7a") || supportABI("armeabi")) && ARCH.ARM.equals(dXk());
     }
 
     public static boolean isRealX86Arch() {
-        return supportABI("x86") || ARCH.X86.equals(dSE());
+        return supportABI("x86") || ARCH.X86.equals(dXk());
     }
 }

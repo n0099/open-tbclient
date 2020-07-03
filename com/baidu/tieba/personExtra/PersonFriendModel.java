@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.au;
+import com.baidu.tbadk.core.data.az;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes11.dex */
 public class PersonFriendModel extends BdBaseModel {
-    private static final String eQQ = TbConfig.SERVER_ADDRESS + Config.GET_FRIEND_LIST_ADDRESS;
-    private static TbHttpMessageTask task = new TbHttpMessageTask(1002001, eQQ);
-    private au mData;
+    private static final String fbb = TbConfig.SERVER_ADDRESS + Config.GET_FRIEND_LIST_ADDRESS;
+    private static TbHttpMessageTask task = new TbHttpMessageTask(1002001, fbb);
+    private az mData;
     private String mId;
     private boolean mIsHost;
     private int mSex;
@@ -24,7 +24,7 @@ public class PersonFriendModel extends BdBaseModel {
 
     public PersonFriendModel(TbPageContext tbPageContext, boolean z) {
         super(tbPageContext);
-        this.mData = new au();
+        this.mData = new az();
         this.mIsHost = z;
     }
 
@@ -40,15 +40,15 @@ public class PersonFriendModel extends BdBaseModel {
         this.mSex = i;
     }
 
-    public void d(au auVar) {
-        this.mData = auVar;
+    public void d(az azVar) {
+        this.mData = azVar;
     }
 
-    public au cOT() {
+    public az cTk() {
         return this.mData;
     }
 
-    public void cOq() {
+    public void cSH() {
         super.sendMessage(new PersonFriendByUidLocalMessage());
     }
 

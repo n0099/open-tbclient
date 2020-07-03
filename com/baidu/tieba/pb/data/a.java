@@ -2,17 +2,17 @@ package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes9.dex */
-public class a implements com.baidu.adp.widget.ListView.o {
-    public static final BdUniqueId jEP = BdUniqueId.gen();
-    public b jEQ;
+public class a implements com.baidu.adp.widget.ListView.q {
+    public static final BdUniqueId jYz = BdUniqueId.gen();
+    public b jYA;
     public int locate;
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return jEP;
+        return jYz;
     }
 
     public void a(b bVar) {
-        this.jEQ = bVar;
+        this.jYA = bVar;
     }
 }

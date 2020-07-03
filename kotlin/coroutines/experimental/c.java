@@ -5,14 +5,14 @@ import kotlin.h;
 @h
 /* loaded from: classes7.dex */
 public interface c extends d.b {
-    public static final a ntG = a.ntH;
+    public static final a nPt = a.nPu;
 
     <T> b<T> a(b<? super T> bVar);
 
     @h
     /* loaded from: classes7.dex */
     public static final class a implements d.c<c> {
-        static final /* synthetic */ a ntH = new a();
+        static final /* synthetic */ a nPu = new a();
 
         private a() {
         }

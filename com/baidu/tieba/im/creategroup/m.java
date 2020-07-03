@@ -6,27 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes10.dex */
 public class m extends BaseAdapter {
-    private String[] iyf;
-    private GroupAddressLocateActivity iyr;
+    private String[] iPk;
+    private GroupAddressLocateActivity iPw;
 
     public m(GroupAddressLocateActivity groupAddressLocateActivity, String[] strArr) {
-        this.iyf = null;
-        this.iyr = null;
-        this.iyr = groupAddressLocateActivity;
-        this.iyf = strArr;
+        this.iPk = null;
+        this.iPw = null;
+        this.iPw = groupAddressLocateActivity;
+        this.iPk = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.iyf != null) {
-            return this.iyf.length;
+        if (this.iPk != null) {
+            return this.iPk.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.iyf == null || i <= -1 || i >= this.iyf.length) ? "" : this.iyf[i];
+        return (this.iPk == null || i <= -1 || i >= this.iPk.length) ? "" : this.iPk[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,30 +38,30 @@ public class m extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            aVar = new a(this.iyr);
-            view = aVar.bvV();
+            aVar = new a(this.iPw);
+            view = aVar.byQ();
         } else {
             aVar = (a) view.getTag();
         }
-        if (aVar.ckk() != null) {
+        if (aVar.cnZ() != null) {
             if (i + 1 == getCount()) {
-                aVar.ckk().setVisibility(8);
+                aVar.cnZ().setVisibility(8);
             } else {
-                aVar.ckk().setVisibility(0);
+                aVar.cnZ().setVisibility(0);
             }
         }
-        aVar.FX(getItem(i).toString());
-        if (this.iyr.getSelectedPosition() == i) {
-            aVar.oS(true);
+        aVar.Gz(getItem(i).toString());
+        if (this.iPw.getSelectedPosition() == i) {
+            aVar.pc(true);
         } else {
-            aVar.oS(false);
+            aVar.pc(false);
         }
-        cf(view);
+        cg(view);
         return view;
     }
 
-    private void cf(View view) {
-        this.iyr.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.iyr.getLayoutMode().onModeChanged(view);
+    private void cg(View view) {
+        this.iPw.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.iPw.getLayoutMode().onModeChanged(view);
     }
 }

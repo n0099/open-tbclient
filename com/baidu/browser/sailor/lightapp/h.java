@@ -11,17 +11,17 @@ import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class h implements Runnable {
-    final /* synthetic */ BdLightappKernelClient acL;
-    final /* synthetic */ String acN;
-    final /* synthetic */ String acO;
-    final /* synthetic */ String acP;
+    final /* synthetic */ BdLightappKernelClient adq;
+    final /* synthetic */ String ads;
+    final /* synthetic */ String adt;
+    final /* synthetic */ String adu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(BdLightappKernelClient bdLightappKernelClient, String str, String str2, String str3) {
-        this.acL = bdLightappKernelClient;
-        this.acN = str;
-        this.acO = str2;
-        this.acP = str3;
+        this.adq = bdLightappKernelClient;
+        this.ads = str;
+        this.adt = str2;
+        this.adu = str3;
     }
 
     @Override // java.lang.Runnable
@@ -30,21 +30,21 @@ public class h implements Runnable {
         MediaRecorder mediaRecorder;
         File file;
         File file2 = null;
-        BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(this.acN, this.acO);
-        bdLightappKernelJsCallback.setCallbackListener(this.acL);
-        mediaRecorder = this.acL.mRecorder;
+        BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(this.ads, this.adt);
+        bdLightappKernelJsCallback.setCallbackListener(this.adq);
+        mediaRecorder = this.adq.mRecorder;
         if (mediaRecorder != null) {
             bdLightappKernelJsCallback.sendFailCallBack("Already in Recording , Please stop recording before start ");
             return;
         }
-        this.acL.resetRecorder();
+        this.adq.resetRecorder();
         MediaRecorder mediaRecorder2 = new MediaRecorder();
         mediaRecorder2.setAudioSource(1);
         if (Build.VERSION.SDK_INT >= 11) {
             mediaRecorder2.setOutputFormat(3);
         }
         mediaRecorder2.setAudioEncoder(1);
-        if (TextUtils.isEmpty(this.acP)) {
+        if (TextUtils.isEmpty(this.adu)) {
             String str = String.valueOf(System.currentTimeMillis()) + ".amr";
             File cacheDir = BdSailorPlatform.getInstance().getAppContext().getCacheDir();
             if (com.baidu.browser.sailor.util.b.a()) {
@@ -59,23 +59,23 @@ public class h implements Runnable {
                 file2 = new File(file, str);
             }
         } else {
-            file2 = new File(com.baidu.browser.sailor.util.b.a(this.acL.getPaivateDir(), this.acP));
+            file2 = new File(com.baidu.browser.sailor.util.b.a(this.adq.getPaivateDir(), this.adu));
         }
         mediaRecorder2.setOutputFile(file2.getAbsolutePath());
-        this.acL.mRecordingFile = file2;
+        this.adq.mRecordingFile = file2;
         try {
             mediaRecorder2.prepare();
             mediaRecorder2.start();
-            this.acL.mRecorder = mediaRecorder2;
+            this.adq.mRecorder = mediaRecorder2;
             bdLightappKernelJsCallback.sendSuccCallBack();
         } catch (IOException e) {
             e.printStackTrace();
             bdLightappKernelJsCallback.sendFailCallBack(e.getMessage());
-            this.acL.resetRecorder();
+            this.adq.resetRecorder();
         } catch (IllegalStateException e2) {
             e2.printStackTrace();
             bdLightappKernelJsCallback.sendFailCallBack(e2.getMessage());
-            this.acL.resetRecorder();
+            this.adq.resetRecorder();
         }
     }
 }

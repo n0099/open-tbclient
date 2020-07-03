@@ -4,10 +4,10 @@ interface ar {
     String a();
 
     /* renamed from: a  reason: collision with other method in class */
-    boolean m134a();
+    boolean m131a();
 
     /* renamed from: b */
-    String mo132b();
+    String mo129b();
 
     String c();
 

@@ -11,10 +11,10 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ak;
+import com.baidu.tbadk.core.data.ap;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.core.view.f;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
@@ -24,34 +24,34 @@ import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class a {
-    private b ijT;
-    private com.baidu.tieba.homepage.video.d.a ijU;
+    private b iAV;
+    private com.baidu.tieba.homepage.video.d.a iAW;
     private BdUniqueId mBdUniqueId;
     private TbPageContext mPageContext;
-    private CustomMessageListener gWm = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.video.a.1
+    private CustomMessageListener hjb = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.video.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             a.this.g(customResponsedMessage);
-            if (a.this.ijU != null) {
-                a.this.ijU.cfH();
+            if (a.this.iAW != null) {
+                a.this.iAW.cjd();
             }
         }
     };
-    private NEGFeedBackView.a ibD = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.video.a.2
+    private NEGFeedBackView.a iqa = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.video.a.2
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
-        public void b(ak akVar) {
-            if (akVar == null) {
+        public void b(ap apVar) {
+            if (apVar == null) {
             }
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
-        public void a(ak akVar, CompoundButton compoundButton, boolean z) {
+        public void a(ap apVar, CompoundButton compoundButton, boolean z) {
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
-        public void a(ArrayList<Integer> arrayList, String str, ak akVar) {
-            if (arrayList != null && akVar != null) {
+        public void a(ArrayList<Integer> arrayList, String str, ap apVar) {
+            if (arrayList != null && apVar != null) {
                 StringBuilder sb = new StringBuilder();
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
@@ -60,42 +60,42 @@ public class a {
                 if (sb.length() > 0) {
                     sb.deleteCharAt(sb.length() - 1);
                 }
-                if (akVar.threadType != 0 && akVar.threadType != 40 && akVar.threadType == 49) {
+                if (apVar.threadType != 0 && apVar.threadType != 40 && apVar.threadType == 49) {
                 }
-                if (a.this.ijU != null) {
-                    a.this.ijU.CZ();
+                if (a.this.iAW != null) {
+                    a.this.iAW.DA();
                 }
             }
         }
     };
-    private f.c fdl = new f.c() { // from class: com.baidu.tieba.homepage.video.a.3
+    private f.c fov = new f.c() { // from class: com.baidu.tieba.homepage.video.a.3
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
-                a.this.ijU.oj(false);
-                a.this.ijT.chg();
-                TiebaStatic.log(new an("c13582"));
+                a.this.iAW.ou(false);
+                a.this.iAV.ckS();
+                TiebaStatic.log(new ao("c13582"));
                 return;
             }
-            a.this.ijU.b((f.e) null);
+            a.this.iAW.b((f.e) null);
             a.this.mPageContext.showToast(R.string.neterror);
         }
     };
-    private BdListView.e ibF = new BdListView.e() { // from class: com.baidu.tieba.homepage.video.a.4
+    private BdListView.e iqc = new BdListView.e() { // from class: com.baidu.tieba.homepage.video.a.4
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            a.this.ijU.bqM();
-            a.this.ijT.bXH();
+            a.this.iAW.btJ();
+            a.this.iAV.caS();
         }
     };
-    private b.a ijV = new b.a() { // from class: com.baidu.tieba.homepage.video.a.5
+    private b.a iAX = new b.a() { // from class: com.baidu.tieba.homepage.video.a.5
         @Override // com.baidu.tieba.homepage.video.b.b.a
         public void m(int i, String str, boolean z) {
-            a.this.ijU.b((f.e) null);
-            a.this.ijU.hideLoadingView();
-            a.this.ijU.bqQ();
-            if (v.isEmpty(a.this.ijU.getDataList())) {
-                a.this.ijU.k(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.video.a.5.1
+            a.this.iAW.b((f.e) null);
+            a.this.iAW.hideLoadingView();
+            a.this.iAW.btN();
+            if (w.isEmpty(a.this.iAW.getDataList())) {
+                a.this.iAW.l(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.video.a.5.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         a.this.loadData();
@@ -104,7 +104,7 @@ public class a {
                 return;
             }
             if (z) {
-                a.this.ijU.z(a.this.ibH);
+                a.this.iAW.A(a.this.iqe);
             }
             if (StringUtils.isNull(str)) {
                 a.this.mPageContext.showToast(R.string.video_tab_load_more_fail);
@@ -115,29 +115,29 @@ public class a {
 
         @Override // com.baidu.tieba.homepage.video.b.b.a
         public void f(int i, boolean z, boolean z2) {
-            a.this.ijU.hideLoadingView();
-            a.this.ijU.bqQ();
+            a.this.iAW.hideLoadingView();
+            a.this.iAW.btN();
             if (z || z2) {
-                a.this.ijU.b((f.e) null);
+                a.this.iAW.b((f.e) null);
             } else {
-                a.this.ijU.b(a.this.wB(i));
+                a.this.iAW.b(a.this.xh(i));
             }
             if (i != 0) {
-                a.this.ijU.az(a.this.ijT.getDataList());
-                a.this.ijU.z(a.this.ibH);
-            } else if (v.isEmpty(a.this.ijU.getDataList())) {
-                a.this.ijU.showNoDataView();
+                a.this.iAW.aD(a.this.iAV.getDataList());
+                a.this.iAW.A(a.this.iqe);
+            } else if (w.isEmpty(a.this.iAW.getDataList())) {
+                a.this.iAW.showNoDataView();
             } else if (z) {
-                a.this.ijU.bqL();
+                a.this.iAW.btI();
             }
         }
     };
-    private View.OnClickListener ibH = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.video.a.6
+    private View.OnClickListener iqe = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.video.a.6
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.ijU != null && a.this.ijT != null) {
-                a.this.ijU.bqM();
-                a.this.ijT.bXH();
+            if (a.this.iAW != null && a.this.iAV != null) {
+                a.this.iAW.btJ();
+                a.this.iAV.caS();
             }
         }
     };
@@ -145,46 +145,46 @@ public class a {
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
-        this.ijU = new com.baidu.tieba.homepage.video.d.a(this.mPageContext, bdUniqueId, this.ibD);
-        this.ijT = new b(this.mPageContext, this.ijV);
+        this.iAW = new com.baidu.tieba.homepage.video.d.a(this.mPageContext, bdUniqueId, this.iqa);
+        this.iAV = new b(this.mPageContext, this.iAX);
     }
 
     public void init() {
-        this.ijT.registerListener();
-        this.ijU.init();
-        this.ijU.setListPullRefreshListener(this.fdl);
-        this.ijU.a(this.ibF);
-        MessageManager.getInstance().registerListener(this.gWm);
+        this.iAV.registerListener();
+        this.iAW.init();
+        this.iAW.setListPullRefreshListener(this.fov);
+        this.iAW.a(this.iqc);
+        MessageManager.getInstance().registerListener(this.hjb);
     }
 
     public View getView() {
-        if (this.ijU != null) {
-            return this.ijU.getRootView();
+        if (this.iAW != null) {
+            return this.iAW.getRootView();
         }
         return null;
     }
 
     public void loadData() {
-        if (this.ijU != null) {
-            this.ijU.cfK();
-            this.ijU.showLoadingView();
+        if (this.iAW != null) {
+            this.iAW.cjg();
+            this.iAW.showLoadingView();
         }
-        if (this.ijT != null) {
-            this.ijT.chg();
+        if (this.iAV != null) {
+            this.iAV.ckS();
         }
     }
 
-    public void Ho() {
-        if (this.ijU != null) {
-            this.ijU.oj(false);
-            this.ijU.cfI();
-            this.ijU.cfG();
-            this.ijU.startPullRefresh();
+    public void IB() {
+        if (this.iAW != null) {
+            this.iAW.ou(false);
+            this.iAW.cje();
+            this.iAW.cjc();
+            this.iAW.startPullRefresh();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public f.e wB(int i) {
+    public f.e xh(int i) {
         String string;
         if (i <= 0) {
             string = this.mPageContext.getResources().getString(R.string.video_tab_no_more);
@@ -194,48 +194,48 @@ public class a {
         return new f.e(string, 1000);
     }
 
-    public void aWr() {
-        if (this.ijU != null) {
-            this.ijU.aWr();
+    public void aYj() {
+        if (this.iAW != null) {
+            this.iAW.aYj();
         }
     }
 
     public void onPause() {
-        if (this.ijU != null) {
-            this.ijU.onPause();
-            this.ijU.ceA();
-            this.ijU.setTabInForeBackgroundState(true);
+        if (this.iAW != null) {
+            this.iAW.onPause();
+            this.iAW.chX();
+            this.iAW.setTabInForeBackgroundState(true);
         }
     }
 
     public void onDestroy() {
-        if (this.ijU != null) {
-            this.ijU.setListPullRefreshListener(null);
-            this.ijU.a((BdListView.e) null);
-            this.ijU.onDestroy();
+        if (this.iAW != null) {
+            this.iAW.setListPullRefreshListener(null);
+            this.iAW.a((BdListView.e) null);
+            this.iAW.onDestroy();
         }
-        if (this.ijT != null) {
-            this.ijT.onDestroy();
+        if (this.iAV != null) {
+            this.iAV.onDestroy();
         }
-        MessageManager.getInstance().unRegisterListener(this.gWm);
+        MessageManager.getInstance().unRegisterListener(this.hjb);
     }
 
     public void setPrimary(boolean z) {
         if (z) {
-            this.ijU.chi();
+            this.iAW.ckU();
         } else {
-            this.ijU.ceA();
+            this.iAW.chX();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.ijT != null && !v.isEmpty(this.ijT.getDataList())) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.iAV != null && !w.isEmpty(this.iAV.getDataList())) {
             String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
-            this.ijT.EY(optString);
-            this.ijT.FB(optString);
-            if (this.ijU != null) {
-                this.ijU.FD(optString);
+            this.iAV.Fz(optString);
+            this.iAV.Gc(optString);
+            if (this.iAW != null) {
+                this.iAW.Ge(optString);
             }
         }
     }

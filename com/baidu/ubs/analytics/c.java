@@ -6,11 +6,11 @@ import com.baidu.ubs.analytics.d.j;
 public final class c {
     private long e;
     private Context mContext;
-    private boolean miC;
-    private long miD;
-    private long miE;
-    private boolean miF;
-    private int miG;
+    private boolean mEv;
+    private long mEw;
+    private long mEx;
+    private boolean mEy;
+    private int mEz;
 
     /* synthetic */ c(a aVar, byte b) {
         this(aVar);
@@ -18,12 +18,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.miC = aVar.miC;
-        this.e = aVar.miH;
-        this.miD = aVar.miD;
-        this.miF = aVar.miF;
-        this.miE = aVar.miE;
-        this.miG = aVar.miG;
+        this.mEv = aVar.mEv;
+        this.e = aVar.mEA;
+        this.mEw = aVar.mEw;
+        this.mEy = aVar.mEy;
+        this.mEx = aVar.mEx;
+        this.mEz = aVar.mEz;
     }
 
     public final Context b() {
@@ -31,7 +31,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.miC;
+        return this.mEv;
     }
 
     public final long d() {
@@ -39,68 +39,68 @@ public final class c {
     }
 
     public final long e() {
-        return this.miD;
+        return this.mEw;
     }
 
     public final long f() {
-        return this.miE;
+        return this.mEx;
     }
 
     public final boolean g() {
-        return this.miF;
+        return this.mEy;
     }
 
     public final int h() {
-        return this.miG;
+        return this.mEz;
     }
 
     /* loaded from: classes8.dex */
     public static class a {
         private Context mContext;
-        private boolean miC = true;
-        private long miH = 30000;
-        private long miD = 60000;
-        private long miE = 10000;
-        private boolean miF = false;
-        private int miG = 1000;
+        private boolean mEv = true;
+        private long mEA = 30000;
+        private long mEw = 60000;
+        private long mEx = 10000;
+        private boolean mEy = false;
+        private int mEz = 1000;
 
-        public a fI(Context context) {
+        public a fJ(Context context) {
             this.mContext = context;
             return this;
         }
 
-        public a vQ(boolean z) {
-            this.miC = z;
+        public a wm(boolean z) {
+            this.mEv = z;
             return this;
         }
 
-        public a fA(long j) {
-            this.miH = 1000 * j;
+        public a fF(long j) {
+            this.mEA = 1000 * j;
             return this;
         }
 
-        public a GB(int i) {
-            this.miD = i * 60 * 1000;
+        public a HI(int i) {
+            this.mEw = i * 60 * 1000;
             return this;
         }
 
-        public a fB(long j) {
-            this.miE = 1000 * j;
+        public a fG(long j) {
+            this.mEx = 1000 * j;
             return this;
         }
 
-        public a vR(boolean z) {
-            this.miF = z;
+        public a wn(boolean z) {
+            this.mEy = z;
             return this;
         }
 
-        public a GC(int i) {
+        public a HJ(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.miG = i2 < 1000 ? i2 : 1000;
+            this.mEz = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c dsw() {
+        public c dxb() {
             if (this.mContext == null) {
                 j.I("Context must be not empty!");
                 return null;

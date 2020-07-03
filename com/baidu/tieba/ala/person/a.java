@@ -6,39 +6,39 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.u.a;
+import com.baidu.live.sdk.a;
 /* loaded from: classes3.dex */
 public class a extends Dialog implements View.OnClickListener {
     private Context context;
-    private View gkA;
-    private InterfaceC0579a gkB;
-    private boolean gkC;
-    private View gkz;
+    private View gxn;
+    private View gxo;
+    private InterfaceC0588a gxp;
+    private boolean gxq;
 
     /* renamed from: com.baidu.tieba.ala.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0579a {
-        void bHW();
+    public interface InterfaceC0588a {
+        void bLa();
     }
 
     public a(Context context) {
         super(context, a.j.Theme_Report_Dialog);
-        this.gkC = false;
+        this.gxq = false;
         this.context = context;
     }
 
     public a(Context context, boolean z) {
         super(context, a.j.Theme_Report_Dialog);
-        this.gkC = false;
+        this.gxq = false;
         this.context = context;
-        this.gkC = z;
+        this.gxq = z;
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(a.h.ala_person_dialog_report);
-        if (this.gkC) {
+        if (this.gxq) {
             resize();
         } else {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(this.context);
@@ -49,22 +49,22 @@ public class a extends Dialog implements View.OnClickListener {
         }
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.gkz = findViewById(a.g.report);
-        this.gkA = findViewById(a.g.report_cancel);
-        this.gkz.setOnClickListener(this);
-        this.gkA.setOnClickListener(this);
+        this.gxn = findViewById(a.g.report);
+        this.gxo = findViewById(a.g.report_cancel);
+        this.gxn.setOnClickListener(this);
+        this.gxo.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == a.g.report && this.gkB != null) {
-            this.gkB.bHW();
+        if (view.getId() == a.g.report && this.gxp != null) {
+            this.gxp.bLa();
         }
         dismiss();
     }
 
-    public void a(InterfaceC0579a interfaceC0579a) {
-        this.gkB = interfaceC0579a;
+    public void a(InterfaceC0588a interfaceC0588a) {
+        this.gxp = interfaceC0588a;
     }
 
     public void resize() {

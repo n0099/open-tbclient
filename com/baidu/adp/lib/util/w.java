@@ -7,16 +7,16 @@ import android.widget.Toast;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class w {
-    private static Field ND;
-    private static Field NF;
+    private static Field Oh;
+    private static Field Oi;
 
     static {
         try {
             if (Build.VERSION.SDK_INT < 28) {
-                ND = Toast.class.getDeclaredField("mTN");
-                ND.setAccessible(true);
-                NF = ND.getType().getDeclaredField("mHandler");
-                NF.setAccessible(true);
+                Oh = Toast.class.getDeclaredField("mTN");
+                Oh.setAccessible(true);
+                Oi = Oh.getType().getDeclaredField("mHandler");
+                Oi.setAccessible(true);
             }
         } catch (Exception e) {
         }
@@ -26,8 +26,8 @@ public class w {
         Object obj;
         Handler handler;
         try {
-            if (Build.VERSION.SDK_INT < 28 && ND != null && NF != null && (obj = ND.get(toast)) != null && (handler = (Handler) NF.get(obj)) != null) {
-                NF.set(obj, new a(handler));
+            if (Build.VERSION.SDK_INT < 28 && Oh != null && Oi != null && (obj = Oh.get(toast)) != null && (handler = (Handler) Oi.get(obj)) != null) {
+                Oi.set(obj, new a(handler));
             }
         } catch (Exception e) {
         }
@@ -35,10 +35,10 @@ public class w {
 
     /* loaded from: classes.dex */
     public static class a extends Handler {
-        private Handler NG;
+        private Handler Oj;
 
         public a(Handler handler) {
-            this.NG = handler;
+            this.Oj = handler;
         }
 
         @Override // android.os.Handler
@@ -52,8 +52,8 @@ public class w {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             try {
-                if (this.NG != null) {
-                    this.NG.handleMessage(message);
+                if (this.Oj != null) {
+                    this.Oj.handleMessage(message);
                 }
             } catch (Exception e) {
             }

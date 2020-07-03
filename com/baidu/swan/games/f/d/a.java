@@ -10,13 +10,13 @@ public abstract class a implements b {
     }
 
     @Override // com.baidu.swan.games.f.d.b
-    public String ZI() {
+    public String aaO() {
         return null;
     }
 
     @Override // com.baidu.swan.games.f.d.b
     @Nullable
-    public V8EngineConfiguration.CodeCacheSetting ZH() {
+    public V8EngineConfiguration.CodeCacheSetting aaN() {
         return null;
     }
 

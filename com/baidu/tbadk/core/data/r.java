@@ -1,49 +1,37 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.FrsPage.ForumBookInfo;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
+import org.json.JSONObject;
+import tbclient.CartoonThread;
 /* loaded from: classes.dex */
 public class r {
-    private String author;
-    private String dBL;
-    private String dBM;
-    private String dBN;
-    private String dBO;
-    private String dBP;
-    private String dBQ;
-    private String dBR;
-    private long dBS;
-    private long dBT;
-    private long dBU;
-    private long dBV;
-    private long dBW;
-    private long dBX;
-    private int dBz;
+    private long cartoonId;
+    private int chapterId;
 
-    public String aOI() {
-        return this.dBL;
-    }
-
-    public int aOJ() {
-        return this.dBz;
-    }
-
-    public void a(ForumBookInfo forumBookInfo) {
-        if (forumBookInfo != null) {
-            this.dBL = forumBookInfo.book_id;
-            this.dBz = forumBookInfo.book_type.intValue();
-            this.dBM = forumBookInfo.book_title;
-            this.dBN = forumBookInfo.book_cover;
-            this.author = forumBookInfo.author;
-            this.dBO = forumBookInfo.forum_pic;
-            this.dBP = forumBookInfo.show_chapter_id;
-            this.dBQ = forumBookInfo.show_chapter_no;
-            this.dBR = forumBookInfo.show_chapter_title;
-            this.dBS = forumBookInfo.history_page_id.longValue();
-            this.dBT = forumBookInfo.history_paragraph_id.longValue();
-            this.dBU = forumBookInfo.history_word_id.longValue();
-            this.dBV = forumBookInfo.history_percent.longValue();
-            this.dBW = forumBookInfo.show_page_id.longValue();
-            this.dBX = forumBookInfo.show_paragraph_id.longValue();
+    public void a(CartoonThread cartoonThread) {
+        if (cartoonThread != null) {
+            this.cartoonId = cartoonThread.cartoon_id.longValue();
+            this.chapterId = cartoonThread.chapter_id.intValue();
         }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.cartoonId = jSONObject.optLong("cartoon_id");
+                this.chapterId = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
+    }
+
+    public long getCartoonId() {
+        return this.cartoonId;
+    }
+
+    public int getChapterId() {
+        return this.chapterId;
     }
 }

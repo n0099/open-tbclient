@@ -9,7 +9,7 @@ import java.net.NetworkInterface;
 import java.util.Enumeration;
 /* loaded from: classes11.dex */
 public class a {
-    private static InetAddress Ne() {
+    private static InetAddress On() {
         InetAddress inetAddress;
         try {
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
@@ -49,11 +49,11 @@ public class a {
         }
     }
 
-    private static String Nf() {
+    private static String Oo() {
         byte[] hardwareAddress;
         try {
-            InetAddress Ne = Ne();
-            if (Ne == null || (hardwareAddress = NetworkInterface.getByInetAddress(Ne).getHardwareAddress()) == null) {
+            InetAddress On = On();
+            if (On == null || (hardwareAddress = NetworkInterface.getByInetAddress(On).getHardwareAddress()) == null) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
@@ -73,11 +73,11 @@ public class a {
         }
     }
 
-    private static String Ng() {
-        return ((WifiManager) g.Nj().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
+    private static String Op() {
+        return ((WifiManager) g.Os().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
     }
 
-    private static String Nh() {
+    private static String Oq() {
         byte[] hardwareAddress;
         try {
             NetworkInterface byName = NetworkInterface.getByName("wlan0");
@@ -98,20 +98,20 @@ public class a {
         }
     }
 
-    public static String getMacAddress() {
-        String Nh;
-        if (Build.VERSION.SDK_INT < 23) {
-            Nh = Ng();
-        } else {
-            Nh = Nh();
-        }
-        if (!gy(Nh)) {
-            Nh = Nf();
-        }
-        return !TextUtils.isEmpty(Nh) ? Nh.toUpperCase() : Nh;
+    private static boolean gG(String str) {
+        return (TextUtils.isEmpty(str) || str.equals(Config.DEF_MAC_ID)) ? false : true;
     }
 
-    private static boolean gy(String str) {
-        return (TextUtils.isEmpty(str) || str.equals(Config.DEF_MAC_ID)) ? false : true;
+    public static String getMacAddress() {
+        String Oq;
+        if (Build.VERSION.SDK_INT < 23) {
+            Oq = Op();
+        } else {
+            Oq = Oq();
+        }
+        if (!gG(Oq)) {
+            Oq = Oo();
+        }
+        return !TextUtils.isEmpty(Oq) ? Oq.toUpperCase() : Oq;
     }
 }

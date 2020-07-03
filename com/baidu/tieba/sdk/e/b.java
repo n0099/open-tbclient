@@ -17,14 +17,15 @@ public class b implements CustomMessageTask.CustomRunnable {
             intent.putExtra("live_id", alaLiveRoomActivityConfig.getIntent().getLongExtra("live_id", 0L));
             intent.putExtra("user_name", alaLiveRoomActivityConfig.getIntent().getStringExtra("user_name"));
             intent.putExtra(AlaLiveRoomActivityConfig.LIVE_BROADCAST_GIFT_TOAST_QUEUE, alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_BROADCAST_GIFT_TOAST_QUEUE));
+            intent.putExtra(AlaLiveRoomActivityConfig.LAST_LIVE_INFO, alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LAST_LIVE_INFO));
             intent.putExtra("room_id", alaLiveRoomActivityConfig.getIntent().getStringExtra("room_id"));
             intent.putExtra("params", alaLiveRoomActivityConfig.getIntent().getStringExtra("params"));
             if (!(alaLiveRoomActivityConfig.getContext() instanceof Activity)) {
                 intent.addFlags(268435456);
             }
-            e cWD = com.baidu.tieba.sdk.d.a.cWz().cWD();
-            if (cWD != null) {
-                cWD.f(alaLiveRoomActivityConfig.getContext(), intent);
+            e daS = com.baidu.tieba.sdk.d.a.daO().daS();
+            if (daS != null) {
+                daS.f(alaLiveRoomActivityConfig.getContext(), intent);
                 return null;
             }
             return null;

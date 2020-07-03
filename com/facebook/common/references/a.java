@@ -11,8 +11,8 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes13.dex */
 public final class a<T> implements Closeable, Cloneable {
-    private static Class<a> mls = a.class;
-    private static final c<Closeable> mmY = new c<Closeable>() { // from class: com.facebook.common.references.a.1
+    private static Class<a> mHo = a.class;
+    private static final c<Closeable> mIY = new c<Closeable>() { // from class: com.facebook.common.references.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.references.c
         /* renamed from: f */
@@ -24,16 +24,16 @@ public final class a<T> implements Closeable, Cloneable {
         }
     };
     @GuardedBy("this")
-    private boolean OE = false;
-    private final SharedReference<T> mmX;
+    private boolean Pi = false;
+    private final SharedReference<T> mIX;
 
     private a(SharedReference<T> sharedReference) {
-        this.mmX = (SharedReference) g.checkNotNull(sharedReference);
-        sharedReference.duR();
+        this.mIX = (SharedReference) g.checkNotNull(sharedReference);
+        sharedReference.dzu();
     }
 
     private a(T t, c<T> cVar) {
-        this.mmX = new SharedReference<>(t, cVar);
+        this.mIX = new SharedReference<>(t, cVar);
     }
 
     /* JADX WARN: Incorrect types in method signature: <T::Ljava/io/Closeable;>(TT;)Lcom/facebook/common/references/a<TT;>; */
@@ -41,7 +41,7 @@ public final class a<T> implements Closeable, Cloneable {
         if (closeable == null) {
             return null;
         }
-        return new a(closeable, mmY);
+        return new a(closeable, mIY);
     }
 
     public static <T> a<T> a(@PropagatesNullable T t, c<T> cVar) {
@@ -52,29 +52,29 @@ public final class a<T> implements Closeable, Cloneable {
     }
 
     public synchronized T get() {
-        g.checkState(!this.OE);
-        return this.mmX.get();
+        g.checkState(!this.Pi);
+        return this.mIX.get();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: duO */
+    /* renamed from: dzr */
     public synchronized a<T> clone() {
         g.checkState(isValid());
-        return new a<>(this.mmX);
+        return new a<>(this.mIX);
     }
 
     @Nullable
-    public synchronized a<T> duP() {
+    public synchronized a<T> dzs() {
         return isValid() ? clone() : null;
     }
 
     public synchronized boolean isValid() {
-        return !this.OE;
+        return !this.Pi;
     }
 
-    public int duQ() {
+    public int dzt() {
         if (isValid()) {
-            return System.identityHashCode(this.mmX.get());
+            return System.identityHashCode(this.mIX.get());
         }
         return 0;
     }
@@ -82,9 +82,9 @@ public final class a<T> implements Closeable, Cloneable {
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this) {
-            if (!this.OE) {
-                this.OE = true;
-                this.mmX.duS();
+            if (!this.Pi) {
+                this.Pi = true;
+                this.mIX.dzv();
             }
         }
     }
@@ -96,7 +96,7 @@ public final class a<T> implements Closeable, Cloneable {
     @Nullable
     public static <T> a<T> b(@Nullable a<T> aVar) {
         if (aVar != null) {
-            return aVar.duP();
+            return aVar.dzs();
         }
         return null;
     }
@@ -129,8 +129,8 @@ public final class a<T> implements Closeable, Cloneable {
     protected void finalize() throws Throwable {
         try {
             synchronized (this) {
-                if (!this.OE) {
-                    com.facebook.common.c.a.c(mls, "Finalized without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.mmX)), this.mmX.get().getClass().getName());
+                if (!this.Pi) {
+                    com.facebook.common.c.a.c(mHo, "Finalized without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.mIX)), this.mIX.get().getClass().getName());
                     close();
                 }
             }

@@ -11,39 +11,39 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
-    private CustomMessageListener aQM;
-    private com.baidu.live.k.d fSS;
-    private String fST;
+    private CustomMessageListener aTs;
+    private com.baidu.live.l.d gfy;
+    private String gfz;
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.aQM = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.liveroom.g.a.1
+        this.aTs = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.liveroom.g.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 UpdateAttentionMessage.UpdateAttentionData data;
-                if ((customResponsedMessage instanceof UpdateAttentionMessage) && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && data.isAttention && data.isSucc && TextUtils.equals(data.toUid, a.this.fST)) {
-                    if (a.this.fSS == null) {
-                        a.this.fSS = new com.baidu.live.k.d(a.this.getPageContext());
+                if ((customResponsedMessage instanceof UpdateAttentionMessage) && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && data.isAttention && data.isSucc && TextUtils.equals(data.toUid, a.this.gfz)) {
+                    if (a.this.gfy == null) {
+                        a.this.gfy = new com.baidu.live.l.d(a.this.getPageContext());
                     }
-                    a.this.fSS.a(BdSwitchView.SwitchState.ON, "", 2);
+                    a.this.gfy.a(BdSwitchView.SwitchState.ON, "", 2);
                 }
             }
         };
-        this.aQM.setTag(tbPageContext.getUniqueId());
-        this.aQM.setSelfListener(true);
+        this.aTs.setTag(tbPageContext.getUniqueId());
+        this.aTs.setSelfListener(true);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
-    public void ao(ViewGroup viewGroup) {
-        super.ao(viewGroup);
-        getPageContext().registerListener(this.aQM);
+    public void aq(ViewGroup viewGroup) {
+        super.aq(viewGroup);
+        getPageContext().registerListener(this.aTs);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
-    public void vm() {
-        super.vm();
-        MessageManager.getInstance().unRegisterListener(this.aQM);
+    public void vH() {
+        super.vH();
+        MessageManager.getInstance().unRegisterListener(this.aTs);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
@@ -51,7 +51,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         super.onDestroy();
     }
 
-    public void Cn(String str) {
-        this.fST = str;
+    public void CL(String str) {
+        this.gfz = str;
     }
 }

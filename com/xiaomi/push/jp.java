@@ -8,17 +8,17 @@ public class jp extends js {
     protected InputStream a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected OutputStream f781a;
+    protected OutputStream f787a;
 
     protected jp() {
         this.a = null;
-        this.f781a = null;
+        this.f787a = null;
     }
 
     public jp(OutputStream outputStream) {
         this.a = null;
-        this.f781a = null;
-        this.f781a = outputStream;
+        this.f787a = null;
+        this.f787a = outputStream;
     }
 
     @Override // com.xiaomi.push.js
@@ -39,11 +39,11 @@ public class jp extends js {
 
     @Override // com.xiaomi.push.js
     public void a(byte[] bArr, int i, int i2) {
-        if (this.f781a == null) {
+        if (this.f787a == null) {
             throw new jt(1, "Cannot write to null outputStream");
         }
         try {
-            this.f781a.write(bArr, i, i2);
+            this.f787a.write(bArr, i, i2);
         } catch (IOException e) {
             throw new jt(0, e);
         }

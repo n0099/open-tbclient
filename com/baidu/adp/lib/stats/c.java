@@ -1,18 +1,18 @@
 package com.baidu.adp.lib.stats;
 /* loaded from: classes.dex */
 public class c {
-    public String LG;
-    public String LH;
-    public String LI;
-    public String LJ;
-    public String LK;
-    public String LM;
-    public String LN;
-    public String LO;
-    public String LQ;
-    public String LR;
-    public String LS;
-    public String LU;
+    public String Mk;
+    public String Ml;
+    public String Mm;
+    public String Mn;
+    public String Mo;
+    public String Mp;
+    public String Mq;
+    public String Mr;
+    public String Ms;
+    public String Mt;
+    public String Mu;
+    public String Mv;
     public String mAppVersion;
     public String mBduss;
     public String mChannel;

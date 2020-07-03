@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.io.File;
 /* loaded from: classes11.dex */
 public final class a {
-    public static boolean gT(String str) {
+    public static boolean hb(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

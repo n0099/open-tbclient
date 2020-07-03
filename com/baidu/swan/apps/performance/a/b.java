@@ -10,28 +10,28 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class b implements d {
-    private c crY;
-    private long crZ;
-    private LinkedHashMap<String, List<a>> crW = new LinkedHashMap<>();
+    private c cwM;
+    private long cwN;
+    private LinkedHashMap<String, List<a>> cwK = new LinkedHashMap<>();
     private HashMap<String, a> mCache = new HashMap<>();
-    private SimpleDateFormat crX = new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault());
+    private SimpleDateFormat cwL = new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault());
     private boolean mIsWorking = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(c cVar) {
-        this.crY = cVar;
+        this.cwM = cVar;
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
     public synchronized void start(long j) {
-        if (this.crW.size() > 0) {
-            this.crW.clear();
+        if (this.cwK.size() > 0) {
+            this.cwK.clear();
         }
         if (this.mCache.size() > 0) {
             this.mCache.clear();
         }
         this.mIsWorking = true;
-        this.crZ = System.currentTimeMillis();
+        this.cwN = System.currentTimeMillis();
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
@@ -40,26 +40,26 @@ public class b implements d {
     }
 
     @Override // com.baidu.swan.apps.performance.a.d
-    public synchronized void iq(String str) {
+    public synchronized void iy(String str) {
         if (this.mIsWorking && !TextUtils.isEmpty(str)) {
-            List<a> list = this.crW.get(str);
+            List<a> list = this.cwK.get(str);
             if (list == null) {
                 list = new ArrayList<>();
-                this.crW.put(str, list);
+                this.cwK.put(str, list);
             }
             a aVar = new a();
             aVar.setStart(System.currentTimeMillis());
-            aVar.mG(str);
+            aVar.mO(str);
             list.add(aVar);
             this.mCache.put(Thread.currentThread().getName(), aVar);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.a.d
-    public synchronized void ir(String str) {
+    public synchronized void iz(String str) {
         String name;
         a aVar;
-        if (this.mIsWorking && !TextUtils.isEmpty(str) && this.crW.get(str) != null && (aVar = this.mCache.get((name = Thread.currentThread().getName()))) != null) {
+        if (this.mIsWorking && !TextUtils.isEmpty(str) && this.cwK.get(str) != null && (aVar = this.mCache.get((name = Thread.currentThread().getName()))) != null) {
             aVar.setEnd(System.currentTimeMillis());
             this.mCache.remove(name);
         }
@@ -70,39 +70,39 @@ public class b implements d {
         String str;
         int i;
         int i2;
-        long alG;
+        long amM;
         int i3;
-        if (this.crW == null || this.crW.size() <= 0) {
+        if (this.cwK == null || this.cwK.size() <= 0) {
             str = "";
         } else {
-            StringBuilder sb = new StringBuilder("api marker start time " + this.crX.format(Long.valueOf(this.crZ)) + "\n\n");
+            StringBuilder sb = new StringBuilder("api marker start time " + this.cwL.format(Long.valueOf(this.cwN)) + "\n\n");
             long j = 0;
             int i4 = 0;
             int i5 = 0;
-            for (Map.Entry<String, List<a>> entry : this.crW.entrySet()) {
+            for (Map.Entry<String, List<a>> entry : this.cwK.entrySet()) {
                 List<a> value = entry.getValue();
                 if (value != null && value.size() > 0) {
                     long j2 = 0;
                     int i6 = 0;
                     StringBuilder sb2 = new StringBuilder();
                     for (a aVar : value) {
-                        if (this.crY == null || this.crY.a(aVar)) {
-                            sb2.append("----- start time ").append(this.crX.format(Long.valueOf(aVar.getStart()))).append("\n");
-                            sb2.append("----- end time ").append(this.crX.format(Long.valueOf(aVar.getEnd()))).append("\n");
-                            sb2.append("----- cost time ").append(aVar.alG()).append("ms\n");
+                        if (this.cwM == null || this.cwM.a(aVar)) {
+                            sb2.append("----- start time ").append(this.cwL.format(Long.valueOf(aVar.getStart()))).append("\n");
+                            sb2.append("----- end time ").append(this.cwL.format(Long.valueOf(aVar.getEnd()))).append("\n");
+                            sb2.append("----- cost time ").append(aVar.amM()).append("ms\n");
                             sb2.append("----------------------------\n");
-                            j += aVar.alG();
+                            j += aVar.amM();
                             i2 = i6 + 1;
-                            alG = j2 + aVar.alG();
+                            amM = j2 + aVar.amM();
                             i3 = i5 + 1;
                         } else {
                             i2 = i6;
-                            alG = j2;
+                            amM = j2;
                             i3 = i5;
                         }
                         i6 = i2;
                         i5 = i3;
-                        j2 = alG;
+                        j2 = amM;
                     }
                     if (i6 > 0) {
                         sb2.append("----------- ").append(i6).append(" times cost ").append(j2).append("ms\n\n");

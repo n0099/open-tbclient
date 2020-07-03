@@ -5,17 +5,17 @@ import com.baidu.swan.apps.aq.ah;
 import com.baidu.swan.apps.scheme.actions.k.j;
 /* loaded from: classes11.dex */
 public final class b {
-    public String coT;
+    public String ctH;
     public String mBaseUrl;
     public String mPage;
     public String mParams;
 
-    public static b bx(String str, String str2) {
+    public static b bz(String str, String str2) {
         b bVar = new b();
         bVar.mPage = ah.delAllParamsFromUrl(str);
         bVar.mParams = ah.getParams(str);
         bVar.mBaseUrl = str2;
-        bVar.coT = j.oh(bVar.mPage);
+        bVar.ctH = j.oq(bVar.mPage);
         return bVar;
     }
 
@@ -37,11 +37,11 @@ public final class b {
         return this.mParams;
     }
 
-    public String ajR() {
-        return this.coT;
+    public String akX() {
+        return this.ctH;
     }
 
     public String toString() {
-        return "SwanAppPageParam{mPage='" + this.mPage + "', mParams='" + this.mParams + "', mBaseUrl='" + this.mBaseUrl + "', mRoutePage='" + this.coT + "'}";
+        return "SwanAppPageParam{mPage='" + this.mPage + "', mParams='" + this.mParams + "', mBaseUrl='" + this.mBaseUrl + "', mRoutePage='" + this.ctH + "'}";
     }
 }

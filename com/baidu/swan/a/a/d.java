@@ -5,8 +5,8 @@ import com.baidu.swan.a.e;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public class d extends com.baidu.swan.a.a<c> {
-    private e<c> cOY;
-    private com.baidu.swan.pms.a.c<c> cOZ = new com.baidu.swan.pms.a.b<c>() { // from class: com.baidu.swan.a.a.d.1
+    private e<c> cTI;
+    private com.baidu.swan.pms.a.c<c> cTJ = new com.baidu.swan.pms.a.b<c>() { // from class: com.baidu.swan.a.a.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: c */
@@ -36,8 +36,8 @@ public class d extends com.baidu.swan.a.a<c> {
         /* renamed from: e */
         public void M(c cVar) {
             super.M(cVar);
-            if (d.this.cOY != null) {
-                d.this.cOY.p(cVar.currentSize, cVar.size);
+            if (d.this.cTI != null) {
+                d.this.cTI.p(cVar.currentSize, cVar.size);
             }
         }
 
@@ -45,10 +45,10 @@ public class d extends com.baidu.swan.a.a<c> {
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         public void a(c cVar, com.baidu.swan.pms.model.a aVar) {
             super.a((AnonymousClass1) cVar, aVar);
-            if (d.this.cOY != null) {
-                d.this.cOY.W(aVar.errorNo, aVar.errorMsg);
+            if (d.this.cTI != null) {
+                d.this.cTI.Y(aVar.errorNo, aVar.errorMsg);
             }
-            com.baidu.swan.e.d.tW(cVar.filePath);
+            com.baidu.swan.e.d.ue(cVar.filePath);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -56,31 +56,31 @@ public class d extends com.baidu.swan.a.a<c> {
         /* renamed from: f */
         public void L(c cVar) {
             super.L(cVar);
-            if (d.this.cOY != null) {
-                d.this.cOY.V(cVar);
+            if (d.this.cTI != null) {
+                d.this.cTI.V(cVar);
             }
         }
     };
 
     public d(e<c> eVar) {
-        this.cOY = eVar;
+        this.cTI = eVar;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void ZP() {
-        super.ZP();
+    public void aaV() {
+        super.aaV();
     }
 
     @Override // com.baidu.swan.pms.a.g
     public void b(com.baidu.swan.pms.model.a aVar) {
         super.b(aVar);
-        if (this.cOY != null) {
-            this.cOY.W(aVar.errorNo, aVar.errorMsg);
+        if (this.cTI != null) {
+            this.cTI.Y(aVar.errorNo, aVar.errorMsg);
         }
     }
 
     @Override // com.baidu.swan.a.a
-    public com.baidu.swan.pms.a.c<c> avc() {
-        return this.cOZ;
+    public com.baidu.swan.pms.a.c<c> awi() {
+        return this.cTJ;
     }
 }

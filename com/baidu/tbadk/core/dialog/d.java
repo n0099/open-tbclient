@@ -10,8 +10,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class d extends AlertDialog {
-    private TextView dIB;
-    private CircleView1080 dID;
+    private TextView dPr;
+    private CircleView1080 dPt;
     private String mMessage;
     private int mPercent;
     private TextView mTextView;
@@ -32,17 +32,17 @@ public class d extends AlertDialog {
                 layoutParams.topMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds50);
                 findViewById.setLayoutParams(layoutParams);
             }
-            this.dIB = (TextView) window.findViewById(R.id.text_progress_dialog_message);
-            if (this.dIB.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.dIB.getLayoutParams();
+            this.dPr = (TextView) window.findViewById(R.id.text_progress_dialog_message);
+            if (this.dPr.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.dPr.getLayoutParams();
                 layoutParams2.topMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds35);
-                this.dIB.setLayoutParams(layoutParams2);
+                this.dPr.setLayoutParams(layoutParams2);
             }
             if (!StringUtils.isNull(this.mMessage)) {
-                this.dIB.setText(this.mMessage);
+                this.dPr.setText(this.mMessage);
             }
             this.mTextView = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
-            this.dID = (CircleView1080) window.findViewById(R.id.circle_progress_dialog);
+            this.dPt = (CircleView1080) window.findViewById(R.id.circle_progress_dialog);
         }
     }
 
@@ -52,16 +52,16 @@ public class d extends AlertDialog {
             if (this.mTextView != null) {
                 this.mTextView.setText(i + "%");
             }
-            if (this.dID != null) {
-                this.dID.setProgress(i);
+            if (this.dPt != null) {
+                this.dPt.setProgress(i);
             }
         }
     }
 
     public void setMessage(String str) {
         this.mMessage = str;
-        if (this.dIB != null) {
-            this.dIB.setText(this.mMessage);
+        if (this.dPr != null) {
+            this.dPr.setText(this.mMessage);
         }
     }
 }

@@ -16,23 +16,23 @@ import android.util.AttributeSet;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class TbCornersImageView extends AppCompatImageView {
-    private float biG;
+    private float bnJ;
     private int borderColor;
     private int borderWidth;
     private int cornerRadius;
-    private boolean ewM;
-    private boolean ewN;
-    private int ewO;
-    private int ewP;
-    private int ewQ;
-    private int ewR;
-    private int ewS;
-    private int ewT;
-    private int ewU;
-    private float[] ewV;
-    private float[] ewW;
-    private RectF ewX;
-    private RectF ewY;
+    private boolean eFU;
+    private boolean eFV;
+    private int eFW;
+    private int eFX;
+    private int eFY;
+    private int eFZ;
+    private int eGa;
+    private int eGb;
+    private int eGc;
+    private float[] eGd;
+    private float[] eGe;
+    private RectF eGf;
+    private RectF eGg;
     private int height;
     private Paint paint;
     private Path path;
@@ -50,45 +50,45 @@ public class TbCornersImageView extends AppCompatImageView {
     public TbCornersImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.borderColor = -1;
-        this.ewP = -1;
+        this.eFX = -1;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.CornersImageView, 0, 0);
         for (int i2 = 0; i2 < obtainStyledAttributes.getIndexCount(); i2++) {
             int index = obtainStyledAttributes.getIndex(i2);
             if (index == 7) {
-                this.ewN = obtainStyledAttributes.getBoolean(index, this.ewN);
+                this.eFV = obtainStyledAttributes.getBoolean(index, this.eFV);
             } else if (index == 4) {
-                this.ewM = obtainStyledAttributes.getBoolean(index, this.ewM);
+                this.eFU = obtainStyledAttributes.getBoolean(index, this.eFU);
             } else if (index == 1) {
                 this.borderWidth = obtainStyledAttributes.getDimensionPixelSize(index, this.borderWidth);
             } else if (index == 2) {
                 this.borderColor = obtainStyledAttributes.getColor(index, this.borderColor);
             } else if (index == 6) {
-                this.ewO = obtainStyledAttributes.getDimensionPixelSize(index, this.ewO);
+                this.eFW = obtainStyledAttributes.getDimensionPixelSize(index, this.eFW);
             } else if (index == 3) {
-                this.ewP = obtainStyledAttributes.getColor(index, this.ewP);
+                this.eFX = obtainStyledAttributes.getColor(index, this.eFX);
             } else if (index == 0) {
                 this.cornerRadius = obtainStyledAttributes.getDimensionPixelSize(index, this.cornerRadius);
             } else if (index == 11) {
-                this.ewQ = obtainStyledAttributes.getDimensionPixelSize(index, this.ewQ);
+                this.eFY = obtainStyledAttributes.getDimensionPixelSize(index, this.eFY);
             } else if (index == 10) {
-                this.ewR = obtainStyledAttributes.getDimensionPixelSize(index, this.ewR);
+                this.eFZ = obtainStyledAttributes.getDimensionPixelSize(index, this.eFZ);
             } else if (index == 5) {
-                this.ewS = obtainStyledAttributes.getDimensionPixelSize(index, this.ewS);
+                this.eGa = obtainStyledAttributes.getDimensionPixelSize(index, this.eGa);
             } else if (index == 8) {
-                this.ewT = obtainStyledAttributes.getDimensionPixelSize(index, this.ewT);
+                this.eGb = obtainStyledAttributes.getDimensionPixelSize(index, this.eGb);
             } else if (index == 9) {
-                this.ewU = obtainStyledAttributes.getColor(index, this.ewU);
+                this.eGc = obtainStyledAttributes.getColor(index, this.eGc);
             }
         }
         obtainStyledAttributes.recycle();
-        this.ewV = new float[8];
-        this.ewW = new float[8];
-        this.ewY = new RectF();
-        this.ewX = new RectF();
+        this.eGd = new float[8];
+        this.eGe = new float[8];
+        this.eGg = new RectF();
+        this.eGf = new RectF();
         this.paint = new Paint();
         this.path = new Path();
-        bho();
-        bhp();
+        bjA();
+        bjB();
     }
 
     @Override // android.view.View
@@ -96,23 +96,23 @@ public class TbCornersImageView extends AppCompatImageView {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = i;
         this.height = i2;
-        bhm();
-        bhn();
+        bjy();
+        bjz();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.saveLayer(this.ewX, null, 31);
-        if (!this.ewN) {
-            canvas.scale((((this.width - (this.borderWidth * 2)) - (this.ewO * 2)) * 1.0f) / this.width, (((this.height - (this.borderWidth * 2)) - (this.ewO * 2)) * 1.0f) / this.height, this.width / 2.0f, this.height / 2.0f);
+        canvas.saveLayer(this.eGf, null, 31);
+        if (!this.eFV) {
+            canvas.scale((((this.width - (this.borderWidth * 2)) - (this.eFW * 2)) * 1.0f) / this.width, (((this.height - (this.borderWidth * 2)) - (this.eFW * 2)) * 1.0f) / this.height, this.width / 2.0f, this.height / 2.0f);
         }
         super.onDraw(canvas);
         this.paint.reset();
         this.path.reset();
-        if (this.ewM) {
-            this.path.addCircle(this.width / 2.0f, this.height / 2.0f, this.biG, Path.Direction.CCW);
+        if (this.eFU) {
+            this.path.addCircle(this.width / 2.0f, this.height / 2.0f, this.bnJ, Path.Direction.CCW);
         } else {
-            this.path.addRoundRect(this.ewX, this.ewW, Path.Direction.CCW);
+            this.path.addRoundRect(this.eGf, this.eGe, Path.Direction.CCW);
         }
         this.paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         this.paint.setAntiAlias(true);
@@ -124,140 +124,140 @@ public class TbCornersImageView extends AppCompatImageView {
         } else {
             this.paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
             Path path = new Path();
-            path.addRect(this.ewX, Path.Direction.CW);
+            path.addRect(this.eGf, Path.Direction.CW);
             path.op(this.path, Path.Op.DIFFERENCE);
             canvas.drawPath(path, this.paint);
         }
         this.paint.setXfermode(null);
-        if (this.ewU != 0) {
-            this.paint.setColor(this.ewU);
+        if (this.eGc != 0) {
+            this.paint.setColor(this.eGc);
             canvas.drawPath(this.path, this.paint);
         }
         canvas.restore();
-        C(canvas);
+        D(canvas);
     }
 
-    private void C(Canvas canvas) {
-        if (this.ewM) {
+    private void D(Canvas canvas) {
+        if (this.eFU) {
             if (this.borderWidth > 0) {
-                a(canvas, this.borderWidth, this.borderColor, this.biG - (this.borderWidth / 2.0f));
+                a(canvas, this.borderWidth, this.borderColor, this.bnJ - (this.borderWidth / 2.0f));
             }
-            if (this.ewO > 0) {
-                a(canvas, this.ewO, this.ewP, (this.biG - this.borderWidth) - (this.ewO / 2.0f));
+            if (this.eFW > 0) {
+                a(canvas, this.eFW, this.eFX, (this.bnJ - this.borderWidth) - (this.eFW / 2.0f));
             }
         } else if (this.borderWidth > 0) {
-            a(canvas, this.borderWidth, this.borderColor, this.ewY, this.ewV);
+            a(canvas, this.borderWidth, this.borderColor, this.eGg, this.eGd);
         }
     }
 
     private void a(Canvas canvas, int i, int i2, float f) {
-        aT(i, i2);
+        aX(i, i2);
         this.path.addCircle(this.width / 2.0f, this.height / 2.0f, f, Path.Direction.CCW);
         canvas.drawPath(this.path, this.paint);
     }
 
     private void a(Canvas canvas, int i, int i2, RectF rectF, float[] fArr) {
-        aT(i, i2);
+        aX(i, i2);
         this.path.addRoundRect(rectF, fArr, Path.Direction.CCW);
         canvas.drawPath(this.path, this.paint);
     }
 
-    private void aT(int i, int i2) {
+    private void aX(int i, int i2) {
         this.path.reset();
         this.paint.setStrokeWidth(i);
         this.paint.setColor(i2);
         this.paint.setStyle(Paint.Style.STROKE);
     }
 
-    private void bhm() {
-        if (!this.ewM) {
-            this.ewY.set(this.borderWidth / 2.0f, this.borderWidth / 2.0f, this.width - (this.borderWidth / 2.0f), this.height - (this.borderWidth / 2.0f));
+    private void bjy() {
+        if (!this.eFU) {
+            this.eGg.set(this.borderWidth / 2.0f, this.borderWidth / 2.0f, this.width - (this.borderWidth / 2.0f), this.height - (this.borderWidth / 2.0f));
         }
     }
 
-    private void bhn() {
-        if (this.ewM) {
-            this.biG = Math.min(this.width, this.height) / 2.0f;
-            this.ewX.set((this.width / 2.0f) - this.biG, (this.height / 2.0f) - this.biG, (this.width / 2.0f) + this.biG, (this.height / 2.0f) + this.biG);
+    private void bjz() {
+        if (this.eFU) {
+            this.bnJ = Math.min(this.width, this.height) / 2.0f;
+            this.eGf.set((this.width / 2.0f) - this.bnJ, (this.height / 2.0f) - this.bnJ, (this.width / 2.0f) + this.bnJ, (this.height / 2.0f) + this.bnJ);
             return;
         }
-        this.ewX.set(0.0f, 0.0f, this.width, this.height);
-        if (this.ewN) {
-            this.ewX = this.ewY;
+        this.eGf.set(0.0f, 0.0f, this.width, this.height);
+        if (this.eFV) {
+            this.eGf = this.eGg;
         }
     }
 
-    private void bho() {
-        if (!this.ewM) {
+    private void bjA() {
+        if (!this.eFU) {
             if (this.cornerRadius > 0) {
-                for (int i = 0; i < this.ewV.length; i++) {
-                    this.ewV[i] = this.cornerRadius;
-                    this.ewW[i] = this.cornerRadius - (this.borderWidth / 2.0f);
+                for (int i = 0; i < this.eGd.length; i++) {
+                    this.eGd[i] = this.cornerRadius;
+                    this.eGe[i] = this.cornerRadius - (this.borderWidth / 2.0f);
                 }
                 return;
             }
-            float[] fArr = this.ewV;
-            float[] fArr2 = this.ewV;
-            float f = this.ewQ;
+            float[] fArr = this.eGd;
+            float[] fArr2 = this.eGd;
+            float f = this.eFY;
             fArr2[1] = f;
             fArr[0] = f;
-            float[] fArr3 = this.ewV;
-            float[] fArr4 = this.ewV;
-            float f2 = this.ewR;
+            float[] fArr3 = this.eGd;
+            float[] fArr4 = this.eGd;
+            float f2 = this.eFZ;
             fArr4[3] = f2;
             fArr3[2] = f2;
-            float[] fArr5 = this.ewV;
-            float[] fArr6 = this.ewV;
-            float f3 = this.ewT;
+            float[] fArr5 = this.eGd;
+            float[] fArr6 = this.eGd;
+            float f3 = this.eGb;
             fArr6[5] = f3;
             fArr5[4] = f3;
-            float[] fArr7 = this.ewV;
-            float[] fArr8 = this.ewV;
-            float f4 = this.ewS;
+            float[] fArr7 = this.eGd;
+            float[] fArr8 = this.eGd;
+            float f4 = this.eGa;
             fArr8[7] = f4;
             fArr7[6] = f4;
-            float[] fArr9 = this.ewW;
-            float f5 = this.ewQ - (this.borderWidth / 2.0f);
-            this.ewW[1] = f5;
+            float[] fArr9 = this.eGe;
+            float f5 = this.eFY - (this.borderWidth / 2.0f);
+            this.eGe[1] = f5;
             fArr9[0] = f5;
-            float[] fArr10 = this.ewW;
-            float f6 = this.ewR - (this.borderWidth / 2.0f);
-            this.ewW[3] = f6;
+            float[] fArr10 = this.eGe;
+            float f6 = this.eFZ - (this.borderWidth / 2.0f);
+            this.eGe[3] = f6;
             fArr10[2] = f6;
-            float[] fArr11 = this.ewW;
-            float f7 = this.ewT - (this.borderWidth / 2.0f);
-            this.ewW[5] = f7;
+            float[] fArr11 = this.eGe;
+            float f7 = this.eGb - (this.borderWidth / 2.0f);
+            this.eGe[5] = f7;
             fArr11[4] = f7;
-            float[] fArr12 = this.ewW;
-            float f8 = this.ewS - (this.borderWidth / 2.0f);
-            this.ewW[7] = f8;
+            float[] fArr12 = this.eGe;
+            float f8 = this.eGa - (this.borderWidth / 2.0f);
+            this.eGe[7] = f8;
             fArr12[6] = f8;
         }
     }
 
-    private void iA(boolean z) {
+    private void iL(boolean z) {
         if (z) {
             this.cornerRadius = 0;
         }
-        bho();
-        bhm();
+        bjA();
+        bjy();
         invalidate();
     }
 
-    private void bhp() {
-        if (!this.ewM) {
-            this.ewO = 0;
+    private void bjB() {
+        if (!this.eFU) {
+            this.eFW = 0;
         }
     }
 
     public void setMaskColor(@ColorInt int i) {
-        this.ewU = i;
+        this.eGc = i;
         invalidate();
     }
 
     public void setBorderWidth(int i) {
         this.borderWidth = i;
-        iA(false);
+        iL(false);
     }
 
     public void setBorderColor(@ColorInt int i) {
@@ -266,38 +266,38 @@ public class TbCornersImageView extends AppCompatImageView {
     }
 
     public void setInnerBorderWidth(int i) {
-        this.ewO = i;
-        bhp();
+        this.eFW = i;
+        bjB();
         invalidate();
     }
 
     public void setInnerBorderColor(@ColorInt int i) {
-        this.ewP = i;
+        this.eFX = i;
         invalidate();
     }
 
     public void setCornerRadius(int i) {
         this.cornerRadius = i;
-        iA(false);
+        iL(false);
     }
 
     public void setCornerTopLeftRadius(int i) {
-        this.ewQ = i;
-        iA(true);
+        this.eFY = i;
+        iL(true);
     }
 
     public void setCornerTopRightRadius(int i) {
-        this.ewR = i;
-        iA(true);
+        this.eFZ = i;
+        iL(true);
     }
 
     public void setCornerBottomLeftRadius(int i) {
-        this.ewS = i;
-        iA(true);
+        this.eGa = i;
+        iL(true);
     }
 
     public void setCornerBottomRightRadius(int i) {
-        this.ewT = i;
-        iA(true);
+        this.eGb = i;
+        iL(true);
     }
 }

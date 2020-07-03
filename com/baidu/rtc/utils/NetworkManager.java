@@ -11,13 +11,13 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
 public class NetworkManager {
-    private static NetworkManager bEw;
+    private static NetworkManager bJk;
     private Application mApp;
-    private NetworkType bEx = null;
+    private NetworkType bJl = null;
     private boolean isNetAvailable = true;
-    private final LinkedList<a> bEy = new LinkedList<>();
-    private NetworkConnectChangedReceiver bEz = new NetworkConnectChangedReceiver();
-    private Object bEA = new Object();
+    private final LinkedList<a> bJm = new LinkedList<>();
+    private NetworkConnectChangedReceiver bJn = new NetworkConnectChangedReceiver();
+    private Object bJo = new Object();
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -27,26 +27,26 @@ public class NetworkManager {
     private NetworkManager() {
     }
 
-    public static NetworkManager PX() {
-        if (bEw == null) {
+    public static NetworkManager Rd() {
+        if (bJk == null) {
             synchronized (NetworkManager.class) {
-                if (bEw == null) {
-                    bEw = new NetworkManager();
+                if (bJk == null) {
+                    bJk = new NetworkManager();
                 }
             }
         }
-        return bEw;
+        return bJk;
     }
 
     public void init(Application application) {
         this.mApp = application;
-        this.bEx = aQ(this.mApp);
+        this.bJl = aR(this.mApp);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-        this.mApp.registerReceiver(this.bEz, intentFilter);
+        this.mApp.registerReceiver(this.bJn, intentFilter);
     }
 
-    public boolean PY() {
+    public boolean Re() {
         return this.mApp != null;
     }
 
@@ -55,7 +55,7 @@ public class NetworkManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public NetworkType aQ(Context context) {
+    public NetworkType aR(Context context) {
         NetworkType networkType = NetworkType.NETWORK_NO;
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
         if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
@@ -101,15 +101,15 @@ public class NetworkManager {
         return networkType2;
     }
 
-    public NetworkType PZ() {
-        return this.bEx == null ? NetworkType.NETWORK_UNKNOWN : this.bEx;
+    public NetworkType Rf() {
+        return this.bJl == null ? NetworkType.NETWORK_UNKNOWN : this.bJl;
     }
 
     public void a(a aVar) {
         if (aVar != null) {
-            synchronized (this.bEA) {
-                if (!this.bEy.contains(aVar)) {
-                    this.bEy.add(aVar);
+            synchronized (this.bJo) {
+                if (!this.bJm.contains(aVar)) {
+                    this.bJm.add(aVar);
                 }
             }
         }
@@ -117,19 +117,19 @@ public class NetworkManager {
 
     public void b(a aVar) {
         if (aVar != null) {
-            synchronized (this.bEA) {
-                if (this.bEy.contains(aVar)) {
-                    this.bEy.remove(aVar);
+            synchronized (this.bJo) {
+                if (this.bJm.contains(aVar)) {
+                    this.bJm.remove(aVar);
                 }
             }
         }
     }
 
-    public int Qa() {
-        if (this.bEx == null) {
+    public int Rg() {
+        if (this.bJl == null) {
             return -1;
         }
-        switch (this.bEx) {
+        switch (this.bJl) {
             case NETWORK_WIFI:
                 return 1;
             case NETWORK_2G:
@@ -152,17 +152,17 @@ public class NetworkManager {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            NetworkType aQ;
-            if (intent.getAction() == "android.net.conn.CONNECTIVITY_CHANGE" && (aQ = NetworkManager.this.aQ(NetworkManager.this.mApp)) != NetworkManager.this.bEx) {
-                NetworkType networkType = NetworkManager.this.bEx;
-                NetworkManager.this.bEx = aQ;
-                if (!NetworkManager.this.bEy.isEmpty()) {
-                    synchronized (NetworkManager.this.bEA) {
-                        Iterator it = NetworkManager.this.bEy.iterator();
+            NetworkType aR;
+            if (intent.getAction() == "android.net.conn.CONNECTIVITY_CHANGE" && (aR = NetworkManager.this.aR(NetworkManager.this.mApp)) != NetworkManager.this.bJl) {
+                NetworkType networkType = NetworkManager.this.bJl;
+                NetworkManager.this.bJl = aR;
+                if (!NetworkManager.this.bJm.isEmpty()) {
+                    synchronized (NetworkManager.this.bJo) {
+                        Iterator it = NetworkManager.this.bJm.iterator();
                         while (it.hasNext()) {
                             a aVar = (a) it.next();
                             if (aVar != null) {
-                                aVar.onNetworkChanged(NetworkManager.this.bEx, networkType);
+                                aVar.onNetworkChanged(NetworkManager.this.bJl, networkType);
                             }
                         }
                     }

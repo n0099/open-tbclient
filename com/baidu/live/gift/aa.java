@@ -8,7 +8,7 @@ public interface aa {
 
     void a(Context context, long j, String str, long j2, String str2, String str3);
 
-    void ya();
+    void yA();
 
-    void yy();
+    void yY();
 }

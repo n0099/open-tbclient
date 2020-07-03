@@ -29,13 +29,13 @@ public class f {
             if (DEBUG) {
                 Log.w("SwanAppDiskCleaner", "非主进程调用，不执行操作");
             }
-        } else if (acx()) {
-            n.atu().execute(new Runnable() { // from class: com.baidu.swan.apps.env.a.f.1
+        } else if (adD()) {
+            n.auA().execute(new Runnable() { // from class: com.baidu.swan.apps.env.a.f.1
                 @Override // java.lang.Runnable
                 public void run() {
                     List<String> list;
-                    List<String> ab;
-                    h.arO().putLong("clean_disk_check_time", System.currentTimeMillis());
+                    List<String> af;
+                    h.asV().putLong("clean_disk_check_time", System.currentTimeMillis());
                     Map aP = f.this.aP(0L);
                     if (aP.isEmpty()) {
                         if (f.DEBUG) {
@@ -51,7 +51,7 @@ public class f {
                         if (!it.hasNext()) {
                             break;
                         }
-                        arrayList = ((com.baidu.swan.apps.env.a.a) it.next()).ab(list);
+                        arrayList = ((com.baidu.swan.apps.env.a.a) it.next()).af(list);
                     }
                     if (list == null || list.isEmpty()) {
                         if (f.DEBUG) {
@@ -63,11 +63,11 @@ public class f {
                     if (f.DEBUG) {
                         Log.i("SwanAppDiskCleaner", "after strategy swanApp size=" + list.size());
                     }
-                    com.baidu.swan.pms.node.b.a aHg = com.baidu.swan.pms.node.b.b.aHf().aHg();
-                    long j = aHg.dmQ;
-                    long j2 = aHg.dmS;
-                    long j3 = aHg.dmR;
-                    long j4 = aHg.dmP;
+                    com.baidu.swan.pms.node.b.a aIm = com.baidu.swan.pms.node.b.b.aIl().aIm();
+                    long j = aIm.drC;
+                    long j2 = aIm.drE;
+                    long j3 = aIm.drD;
+                    long j4 = aIm.drB;
                     if (f.DEBUG) {
                         Log.i("SwanAppDiskCleaner", "forceCleanHour=" + j + ", ignoreCleanHour=" + j2 + ", holdMaxCount=" + j3 + ", maxCount=" + j4);
                     }
@@ -88,26 +88,26 @@ public class f {
                     if (f.DEBUG) {
                         Log.i("SwanAppDiskCleaner", "timeoutSize=" + arrayList2.size() + ", ignoreCleanSize=" + arrayList3.size() + " normalSize=" + list.size() + " allSize=" + aP.size());
                     }
-                    List<String> ab2 = new b((int) j3).ab(list);
-                    if (ab2 == null) {
-                        ab2 = arrayList2;
+                    List<String> af2 = new b((int) j3).af(list);
+                    if (af2 == null) {
+                        af2 = arrayList2;
                     } else {
-                        ab2.addAll(arrayList2);
+                        af2.addAll(arrayList2);
                     }
-                    if (arrayList3.size() > j4 && (ab = new b((int) j4).ab(arrayList3)) != null) {
-                        ab2.addAll(ab);
+                    if (arrayList3.size() > j4 && (af = new b((int) j4).af(arrayList3)) != null) {
+                        af2.addAll(af);
                     }
                     if (f.DEBUG) {
-                        Log.i("SwanAppDiskCleaner", "deleteSwanAppList=" + ab2);
+                        Log.i("SwanAppDiskCleaner", "deleteSwanAppList=" + af2);
                     }
-                    com.baidu.swan.apps.env.e.acv().acw().b(ab2, false, false);
+                    com.baidu.swan.apps.env.e.adB().adC().b(af2, false, false);
                 }
             }, "cleanDiskSpace");
         }
     }
 
-    private boolean acx() {
-        long j = h.arO().getLong("clean_disk_check_time", 0L);
+    private boolean adD() {
+        long j = h.asV().getLong("clean_disk_check_time", 0L);
         boolean z = System.currentTimeMillis() - j >= 86400000;
         if (DEBUG && !z) {
             Log.w("SwanAppDiskCleaner", "未达到指定频率不清理, lastTime=" + j + ", now=" + System.currentTimeMillis());
@@ -119,11 +119,11 @@ public class f {
     @WorkerThread
     @NonNull
     public Map<String, Long> aP(long j) {
-        Map<String, PMSAppInfo> aFX = com.baidu.swan.pms.database.a.aFV().aFX();
-        if (aFX == null || aFX.isEmpty()) {
+        Map<String, PMSAppInfo> aHd = com.baidu.swan.pms.database.a.aHb().aHd();
+        if (aHd == null || aHd.isEmpty()) {
             return Collections.emptyMap();
         }
-        ArrayList<PMSAppInfo> arrayList = new ArrayList(aFX.values());
+        ArrayList<PMSAppInfo> arrayList = new ArrayList(aHd.values());
         Collections.sort(arrayList, new a());
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (PMSAppInfo pMSAppInfo : arrayList) {

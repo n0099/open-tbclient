@@ -8,44 +8,44 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
-    private static c dcX = new c();
-    private static String dcY = "banner_ad_close_btn_show_key";
-    private static String dcZ = "banner_ad_close_duration_key";
-    private long dda;
-    private long ddb;
+    private static c dhJ = new c();
+    private static String dhK = "banner_ad_close_btn_show_key";
+    private static String dhL = "banner_ad_close_duration_key";
+    private long dhM;
+    private long dhN;
 
     private c() {
     }
 
-    public static c aCc() {
-        return dcX;
+    public static c aDi() {
+        return dhJ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sC(String str) {
-        h.arO().putBoolean(dcY, "1".equals(str));
+    public void sK(String str) {
+        h.asV().putBoolean(dhK, "1".equals(str));
     }
 
-    public boolean aCd() {
-        return h.arO().getBoolean(dcY, true);
+    public boolean aDj() {
+        return h.asV().getBoolean(dhK, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sD(String str) {
-        h.arO().putString(dcZ, str);
+    public void sL(String str) {
+        h.asV().putString(dhL, str);
     }
 
-    private long aCe() {
-        String string = h.arO().getString(dcZ, "1");
+    private long aDk() {
+        String string = h.asV().getString(dhL, "1");
         return string != null ? Long.valueOf(string).longValue() * 60 * 60 * 1000 : BdKVCache.MILLS_1Hour;
     }
 
-    public void cB(String str, String str2) {
-        h.arO().putString(str, str2);
+    public void cD(String str, String str2) {
+        h.asV().putString(str, str2);
     }
 
-    private long sE(String str) {
-        String string = h.arO().getString(str, "0");
+    private long sM(String str) {
+        String string = h.asV().getString(str, "0");
         if (string != null) {
             return Long.valueOf(string).longValue();
         }
@@ -54,63 +54,63 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bF(long j) {
-        h.arO().putLong("banner_ad_start_show_key", j);
+        h.asV().putLong("banner_ad_start_show_key", j);
     }
 
-    public long aCf() {
-        return h.arO().getLong("banner_ad_start_show_key", 5L) * 1000;
+    public long aDl() {
+        return h.asV().getLong("banner_ad_start_show_key", 5L) * 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bG(long j) {
-        h.arO().putLong("banner_ad_repeat_show_key", j);
+        h.asV().putLong("banner_ad_repeat_show_key", j);
     }
 
-    public long aCg() {
-        return h.arO().getLong("banner_ad_repeat_show_key", 120L) * 1000;
+    public long aDm() {
+        return h.asV().getLong("banner_ad_repeat_show_key", 120L) * 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bH(long j) {
-        h.arO().putLong("banner_ad_close_key", j);
+        h.asV().putLong("banner_ad_close_key", j);
     }
 
-    public long aCh() {
-        return h.arO().getLong("banner_ad_close_key", 60L) * 1000;
+    public long aDn() {
+        return h.asV().getLong("banner_ad_close_key", 60L) * 1000;
     }
 
-    public void aCi() {
-        this.dda = System.currentTimeMillis();
+    public void aDo() {
+        this.dhM = System.currentTimeMillis();
     }
 
-    public void aCj() {
-        this.ddb = System.currentTimeMillis();
+    public void aDp() {
+        this.dhN = System.currentTimeMillis();
     }
 
-    public boolean sF(String str) {
-        return System.currentTimeMillis() - sE(str) <= aCe();
+    public boolean sN(String str) {
+        return System.currentTimeMillis() - sM(str) <= aDk();
     }
 
-    public boolean aCk() {
-        return this.dda != 0 && System.currentTimeMillis() - this.dda <= aCf();
+    public boolean aDq() {
+        return this.dhM != 0 && System.currentTimeMillis() - this.dhM <= aDl();
     }
 
-    public boolean aCl() {
-        return this.ddb != 0 && System.currentTimeMillis() - this.ddb <= aCg();
+    public boolean aDr() {
+        return this.dhN != 0 && System.currentTimeMillis() - this.dhN <= aDm();
     }
 
-    public void aCm() {
-        e aoF = e.aoF();
-        if (aoF != null && com.baidu.swan.apps.u.a.afd() != null && com.baidu.swan.apps.u.a.afo() != null) {
-            aoF.aoU().getRequest().cookieManager(com.baidu.swan.apps.u.a.afo().SM()).url(com.baidu.swan.apps.u.a.afd().Sd()).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.utils.c.1
+    public void aDs() {
+        e apM = e.apM();
+        if (apM != null && com.baidu.swan.apps.u.a.agj() != null && com.baidu.swan.apps.u.a.agu() != null) {
+            apM.aqb().getRequest().cookieManager(com.baidu.swan.apps.u.a.agu().TS()).url(com.baidu.swan.apps.u.a.agj().Tj()).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.utils.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onSuccess(String str, int i) {
                     JSONObject optJSONObject;
                     try {
                         if (com.baidu.swan.games.network.c.V(str, i) && (optJSONObject = new JSONObject(str).optJSONObject("data")) != null) {
-                            c.this.sC(optJSONObject.optString("show", "1"));
-                            c.this.sD(optJSONObject.optString("duration", "1"));
+                            c.this.sK(optJSONObject.optString("show", "1"));
+                            c.this.sL(optJSONObject.optString("duration", "1"));
                             c.this.bF(optJSONObject.optLong("startNoBannerADGap", 5L));
                             c.this.bG(optJSONObject.optLong("bannerShowSuccGap", 120L));
                             c.this.bH(optJSONObject.optLong("preventBannerADShowingGap", 60L));

@@ -13,67 +13,67 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class d {
-    private static boolean drb = false;
-    private static boolean drc = false;
-    private static String drd = "";
-    private static String dre = "";
-    private static HashMap<String, List<VeloceIpcResult.a>> drf = new HashMap<>();
+    private static boolean dvN = false;
+    private static boolean dvO = false;
+    private static String dvP = "";
+    private static String dvQ = "";
+    private static HashMap<String, List<VeloceIpcResult.a>> dvR = new HashMap<>();
 
-    public static boolean aJo() {
-        if (ProcessUtils.isMainProcess() && drc) {
-            return drb;
+    public static boolean aKu() {
+        if (ProcessUtils.isMainProcess() && dvO) {
+            return dvN;
         }
         DelegateResult k = k("veloce_is_veloce", null);
         if (k != null && k.isOk()) {
-            drc = true;
-            drb = k.mResult.getBoolean("is_veloce", false);
+            dvO = true;
+            dvN = k.mResult.getBoolean("is_veloce", false);
         }
-        return drb;
+        return dvN;
     }
 
-    public static String aJp() {
-        if (TextUtils.isEmpty(drd)) {
-            aJq();
+    public static String aKv() {
+        if (TextUtils.isEmpty(dvP)) {
+            aKw();
         }
-        return drd;
+        return dvP;
     }
 
-    private static Bundle aJq() {
+    private static Bundle aKw() {
         DelegateResult k = k("veloce_get_host_info", null);
         if (k == null || !k.isOk()) {
             return null;
         }
         Bundle bundle = k.mResult;
-        drd = bundle.getString("host_package");
-        dre = bundle.getString("host_version");
+        dvP = bundle.getString("host_package");
+        dvQ = bundle.getString("host_version");
         return bundle;
     }
 
-    private static Bundle jD(int i) {
+    private static Bundle jO(int i) {
         Bundle bundle = new Bundle();
         bundle.putInt("result_code", i);
         return bundle;
     }
 
     public static synchronized Bundle j(String str, Bundle bundle) {
-        Bundle jD;
+        Bundle jO;
         synchronized (d.class) {
             if (TextUtils.isEmpty(str)) {
-                jD = null;
+                jO = null;
             } else {
-                List<VeloceIpcResult.a> list = drf.get(str);
+                List<VeloceIpcResult.a> list = dvR.get(str);
                 if (list == null) {
-                    jD = null;
+                    jO = null;
                 } else {
                     for (VeloceIpcResult.a aVar : list) {
                         aVar.a(VeloceIpcResult.f(0, bundle));
                     }
-                    drf.remove(list);
-                    jD = jD(0);
+                    dvR.remove(list);
+                    jO = jO(0);
                 }
             }
         }
-        return jD;
+        return jO;
     }
 
     public static DelegateResult k(@NonNull String str, @Nullable Bundle bundle) {

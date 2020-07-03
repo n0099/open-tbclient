@@ -3,19 +3,19 @@ package com.baidu.tieba.ala.personcenter.privilege.entereffect.a;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> aSj;
-    private BdTypeListView fbb;
-    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a grO;
-    private c grP;
-    private List<o> mDataList;
+    private List<com.baidu.adp.widget.ListView.a> aUP;
+    private BdTypeListView fml;
+    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a gEC;
+    private c gED;
+    private List<q> mDataList;
     private TbPageContext mPageContext;
 
     /* loaded from: classes3.dex */
@@ -24,31 +24,31 @@ public class b {
 
     public b(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.fbb = bdTypeListView;
-        CY();
+        this.fml = bdTypeListView;
+        Dz();
     }
 
-    private void CY() {
-        this.aSj = new ArrayList();
-        this.grO = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
-        this.aSj.add(this.grO);
-        this.grP = new c(this.mPageContext.getPageActivity());
-        this.aSj.add(this.grP);
-        this.fbb.addAdapters(this.aSj);
+    private void Dz() {
+        this.aUP = new ArrayList();
+        this.gEC = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
+        this.aUP.add(this.gEC);
+        this.gED = new c(this.mPageContext.getPageActivity());
+        this.aUP.add(this.gED);
+        this.fml.addAdapters(this.aUP);
     }
 
-    public void setData(List<o> list) {
-        if (!v.isEmpty(list)) {
-            this.fbb.setData(list);
-            this.mDataList = this.fbb.getData();
+    public void setData(List<q> list) {
+        if (!w.isEmpty(list)) {
+            this.fml.setData(list);
+            this.mDataList = this.fml.getData();
         }
     }
 
-    public void at(String str, boolean z) {
+    public void av(String str, boolean z) {
         if (!TextUtils.isEmpty(str) && this.mDataList != null) {
-            for (o oVar : this.mDataList) {
-                if (oVar instanceof AlaEnterEffectData) {
-                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) oVar;
+            for (q qVar : this.mDataList) {
+                if (qVar instanceof AlaEnterEffectData) {
+                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) qVar;
                     if (str.equals(alaEnterEffectData.id)) {
                         alaEnterEffectData.use_status = z ? 1 : 0;
                     } else {
@@ -60,11 +60,11 @@ public class b {
         }
     }
 
-    public void au(String str, boolean z) {
+    public void aw(String str, boolean z) {
         if (!TextUtils.isEmpty(str) && this.mDataList != null) {
-            for (o oVar : this.mDataList) {
-                if (oVar instanceof AlaEnterEffectData) {
-                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) oVar;
+            for (q qVar : this.mDataList) {
+                if (qVar instanceof AlaEnterEffectData) {
+                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) qVar;
                     if (str.equals(alaEnterEffectData.id)) {
                         alaEnterEffectData.isOwn = z;
                         notifyDataSetChanged();
@@ -75,11 +75,11 @@ public class b {
         }
     }
 
-    public void aG(String str, int i) {
+    public void aF(String str, int i) {
         if (!StringUtils.isNull(str) && this.mDataList != null) {
-            for (o oVar : this.mDataList) {
-                if (oVar instanceof AlaEnterEffectData) {
-                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) oVar;
+            for (q qVar : this.mDataList) {
+                if (qVar instanceof AlaEnterEffectData) {
+                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) qVar;
                     if (alaEnterEffectData.type == 1 && str.equals(alaEnterEffectData.gift.giftId)) {
                         alaEnterEffectData.downLoadStatus = i;
                         notifyDataSetChanged();
@@ -90,7 +90,7 @@ public class b {
     }
 
     public void notifyDataSetChanged() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.aSj) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.aUP) {
             aVar.notifyDataSetChanged();
         }
     }

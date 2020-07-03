@@ -15,11 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.tbadk.widget.VCenterTextSpan;
-import com.baidu.live.u.a;
 import com.baidu.tieba.live.tbean.BuyTBeanStringUlti;
 import com.baidu.tieba.live.tbean.data.CustomData;
 /* loaded from: classes3.dex */

@@ -5,83 +5,82 @@ import com.tb.airbnb.lottie.model.content.ShapeStroke;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class e implements b {
-    private final float DR;
-    private final List<com.tb.airbnb.lottie.model.a.b> DS;
-    private final String name;
-    private final com.tb.airbnb.lottie.model.a.d nkM;
-    private final GradientType nkQ;
-    private final com.tb.airbnb.lottie.model.a.c nkR;
-    private final com.tb.airbnb.lottie.model.a.f nkS;
-    private final com.tb.airbnb.lottie.model.a.f nkT;
-    private final com.tb.airbnb.lottie.model.a.b nkW;
-    private final ShapeStroke.LineCapType nkX;
-    private final ShapeStroke.LineJoinType nkY;
+    private final float Er;
+    private final List<com.tb.airbnb.lottie.model.a.b> Es;
+    private final com.tb.airbnb.lottie.model.a.d nGB;
+    private final GradientType nGF;
+    private final com.tb.airbnb.lottie.model.a.c nGG;
+    private final com.tb.airbnb.lottie.model.a.f nGH;
+    private final com.tb.airbnb.lottie.model.a.f nGI;
+    private final com.tb.airbnb.lottie.model.a.b nGL;
+    private final ShapeStroke.LineCapType nGM;
+    private final ShapeStroke.LineJoinType nGN;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b nkZ;
+    private final com.tb.airbnb.lottie.model.a.b nGO;
+    private final String name;
 
     public e(String str, GradientType gradientType, com.tb.airbnb.lottie.model.a.c cVar, com.tb.airbnb.lottie.model.a.d dVar, com.tb.airbnb.lottie.model.a.f fVar, com.tb.airbnb.lottie.model.a.f fVar2, com.tb.airbnb.lottie.model.a.b bVar, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, float f, List<com.tb.airbnb.lottie.model.a.b> list, @Nullable com.tb.airbnb.lottie.model.a.b bVar2) {
         this.name = str;
-        this.nkQ = gradientType;
-        this.nkR = cVar;
-        this.nkM = dVar;
-        this.nkS = fVar;
-        this.nkT = fVar2;
-        this.nkW = bVar;
-        this.nkX = lineCapType;
-        this.nkY = lineJoinType;
-        this.DR = f;
-        this.DS = list;
-        this.nkZ = bVar2;
+        this.nGF = gradientType;
+        this.nGG = cVar;
+        this.nGB = dVar;
+        this.nGH = fVar;
+        this.nGI = fVar2;
+        this.nGL = bVar;
+        this.nGM = lineCapType;
+        this.nGN = lineJoinType;
+        this.Er = f;
+        this.Es = list;
+        this.nGO = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType dJh() {
-        return this.nkQ;
+    public GradientType dNN() {
+        return this.nGF;
     }
 
-    public com.tb.airbnb.lottie.model.a.c dJi() {
-        return this.nkR;
+    public com.tb.airbnb.lottie.model.a.c dNO() {
+        return this.nGG;
     }
 
-    public com.tb.airbnb.lottie.model.a.d dJc() {
-        return this.nkM;
+    public com.tb.airbnb.lottie.model.a.d dNI() {
+        return this.nGB;
     }
 
-    public com.tb.airbnb.lottie.model.a.f dJj() {
-        return this.nkS;
+    public com.tb.airbnb.lottie.model.a.f dNP() {
+        return this.nGH;
     }
 
-    public com.tb.airbnb.lottie.model.a.f dJk() {
-        return this.nkT;
+    public com.tb.airbnb.lottie.model.a.f dNQ() {
+        return this.nGI;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dJl() {
-        return this.nkW;
+    public com.tb.airbnb.lottie.model.a.b dNR() {
+        return this.nGL;
     }
 
-    public ShapeStroke.LineCapType dJm() {
-        return this.nkX;
+    public ShapeStroke.LineCapType dNS() {
+        return this.nGM;
     }
 
-    public ShapeStroke.LineJoinType dJn() {
-        return this.nkY;
+    public ShapeStroke.LineJoinType dNT() {
+        return this.nGN;
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public List<com.tb.airbnb.lottie.model.a.b> m50if() {
-        return this.DS;
+    public List<com.tb.airbnb.lottie.model.a.b> iw() {
+        return this.Es;
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.b dJo() {
-        return this.nkZ;
+    public com.tb.airbnb.lottie.model.a.b dNU() {
+        return this.nGO;
     }
 
-    public float ih() {
-        return this.DR;
+    public float iy() {
+        return this.Er;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b

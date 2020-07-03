@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class c extends b {
-    private ArrayList<b> lh;
+    private ArrayList<b> lE;
 
     public c() {
         S("DetectorGroup");
     }
 
     public boolean T(String str) {
-        Iterator<b> it = this.lh.iterator();
+        Iterator<b> it = this.lE.iterator();
         while (it.hasNext()) {
-            if (it.next().cl().equals(str)) {
+            if (it.next().cD().equals(str)) {
                 return true;
             }
         }
@@ -21,13 +21,13 @@ public class c extends b {
     }
 
     public void c(b bVar) {
-        if (this.lh == null) {
-            this.lh = new ArrayList<>();
+        if (this.lE == null) {
+            this.lE = new ArrayList<>();
         }
-        this.lh.add(bVar);
+        this.lE.add(bVar);
     }
 
-    public ArrayList<b> co() {
-        return this.lh;
+    public ArrayList<b> cG() {
+        return this.lE;
     }
 }

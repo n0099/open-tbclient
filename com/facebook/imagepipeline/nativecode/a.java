@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes12.dex */
 public class a {
-    public static final List<String> mzy = Collections.unmodifiableList(new ArrayList());
+    public static final List<String> mVF = Collections.unmodifiableList(new ArrayList());
 
     public static void load() {
         com.facebook.common.e.a.loadLibrary("imagepipeline");

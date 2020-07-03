@@ -24,7 +24,7 @@ public class jo extends je {
 
         @Override // com.xiaomi.push.je.a, com.xiaomi.push.jk
         public ji a(js jsVar) {
-            jo joVar = new jo(jsVar, this.f775a, this.b);
+            jo joVar = new jo(jsVar, this.f781a, this.b);
             if (this.a != 0) {
                 joVar.b(this.a);
             }
@@ -75,7 +75,7 @@ public class jo extends je {
         }
         if (this.a.b() >= a2) {
             try {
-                String str = new String(this.a.m493a(), this.a.a(), a2, "UTF-8");
+                String str = new String(this.a.m490a(), this.a.a(), a2, "UTF-8");
                 this.a.a(a2);
                 return str;
             } catch (UnsupportedEncodingException e2) {
@@ -93,7 +93,7 @@ public class jo extends je {
         }
         c(a2);
         if (this.a.b() >= a2) {
-            ByteBuffer wrap = ByteBuffer.wrap(this.a.m493a(), this.a.a(), a2);
+            ByteBuffer wrap = ByteBuffer.wrap(this.a.m490a(), this.a.a(), a2);
             this.a.a(a2);
             return wrap;
         }

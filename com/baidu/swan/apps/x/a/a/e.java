@@ -7,11 +7,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e implements com.baidu.swan.apps.model.a {
-    public ArrayList<c> cjv;
+    public ArrayList<c> cok;
     public int strokeWidth = 1;
-    public int Dc = ViewCompat.MEASURED_STATE_MASK;
-    public int cjk = 0;
-    public int cjr = 0;
+    public int DD = ViewCompat.MEASURED_STATE_MASK;
+    public int cnZ = 0;
+    public int cog = 0;
 
     @Override // com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
@@ -19,29 +19,29 @@ public class e implements com.baidu.swan.apps.model.a {
             JSONArray optJSONArray = jSONObject.optJSONArray("points");
             int length = optJSONArray == null ? 0 : optJSONArray.length();
             if (length > 0) {
-                this.cjv = new ArrayList<>(length);
+                this.cok = new ArrayList<>(length);
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
                         c cVar = new c();
                         cVar.parseFromJson(optJSONObject);
                         if (cVar.isValid()) {
-                            this.cjv.add(cVar);
+                            this.cok.add(cVar);
                         }
                     }
                 }
             }
-            if (this.cjv != null && this.cjv.size() > 0) {
+            if (this.cok != null && this.cok.size() > 0) {
                 this.strokeWidth = (int) Math.abs(com.baidu.swan.apps.x.a.d.k(jSONObject.optInt("strokeWidth", 1)));
-                this.Dc = com.baidu.swan.apps.x.a.d.N(jSONObject.optString("strokeColor"), ViewCompat.MEASURED_STATE_MASK);
-                this.cjk = com.baidu.swan.apps.x.a.d.N(jSONObject.optString("fillColor"), 0);
-                this.cjr = jSONObject.optInt("zIndex", 0);
+                this.DD = com.baidu.swan.apps.x.a.d.N(jSONObject.optString("strokeColor"), ViewCompat.MEASURED_STATE_MASK);
+                this.cnZ = com.baidu.swan.apps.x.a.d.N(jSONObject.optString("fillColor"), 0);
+                this.cog = jSONObject.optInt("zIndex", 0);
             }
         }
     }
 
     @Override // com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (this.cjv == null || this.cjv.isEmpty()) ? false : true;
+        return (this.cok == null || this.cok.isEmpty()) ? false : true;
     }
 }

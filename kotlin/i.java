@@ -10,7 +10,7 @@ public final class i {
         return new Result.Failure(th);
     }
 
-    public static final void bG(Object obj) {
+    public static final void bH(Object obj) {
         if (obj instanceof Result.Failure) {
             throw ((Result.Failure) obj).exception;
         }

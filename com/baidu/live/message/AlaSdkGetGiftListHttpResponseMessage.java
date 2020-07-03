@@ -1,6 +1,9 @@
 package com.baidu.live.message;
 
 import com.baidu.live.adp.lib.cache.BdKVCache;
+import com.baidu.live.data.g;
+import com.baidu.live.data.s;
+import com.baidu.live.gift.h;
 import com.baidu.live.gift.i;
 import com.baidu.live.tbadk.core.dbcache.DBKVCacheManager;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
@@ -10,9 +13,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private ArrayList<com.baidu.live.data.f> aHZ;
-    private ArrayList<com.baidu.live.data.g> aIa;
-    private ArrayList<i> aMl;
+    private ArrayList<com.baidu.live.data.f> aKD;
+    private ArrayList<g> aKE;
+    private ArrayList<i> aOR;
+    private s aZn;
     private String scene_from;
 
     public AlaSdkGetGiftListHttpResponseMessage() {
@@ -32,21 +36,32 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
         if (optJSONObject != null) {
             long optLong = optJSONObject.optLong("sleep_time_span");
             if (!z) {
-                com.baidu.live.c uN = com.baidu.live.c.uN();
-                uN.putLong("ala_sdk_get_gift_list_req_time", (optLong * 1000) + System.currentTimeMillis());
+                com.baidu.live.c vf = com.baidu.live.c.vf();
+                vf.putLong("ala_sdk_get_gift_list_req_time", (optLong * 1000) + System.currentTimeMillis());
             }
             this.scene_from = optJSONObject.optString("scene_from");
             if (m(optJSONObject.optJSONArray("list"))) {
                 k(optJSONObject.optJSONArray("num_info"));
-                as(this.scene_from, jSONObject.toString());
+                at(this.scene_from, jSONObject.toString());
+                I(optJSONObject.optJSONObject("contact_conf"));
             }
+        }
+    }
+
+    private void I(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.aZn = new s();
+            this.aZn.iconUrl = jSONObject.optString("button_url");
+            this.aZn.axX = jSONObject.optString("dialog_content");
+            this.aZn.dialogTitle = jSONObject.optString("dialog_title");
+            this.aZn.axY = jSONObject.optString("dialog_content_copy");
         }
     }
 
     private boolean m(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.aMl = new ArrayList<>();
-            this.aHZ = new ArrayList<>();
+            this.aOR = new ArrayList<>();
+            this.aKD = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 int optInt = optJSONObject.optInt("category_id");
@@ -63,7 +78,7 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
                     fVar.setCategoryName(optString);
                     fVar.f(arrayList);
                     fVar.aY(z);
-                    this.aHZ.add(fVar);
+                    this.aKD.add(fVar);
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("gift_list");
                 if (optJSONArray2 != null) {
@@ -80,53 +95,57 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
                     i iVar = new i();
                     iVar.setCategoryId(optInt);
                     iVar.setCategoryName(optString);
-                    iVar.v(arrayList2);
+                    iVar.z(arrayList2);
                     iVar.aY(z);
-                    this.aMl.add(iVar);
+                    this.aOR.add(iVar);
                 }
             }
         }
-        return (this.aMl == null || this.aMl.isEmpty()) ? false : true;
+        return (this.aOR == null || this.aOR.isEmpty()) ? false : true;
     }
 
     private void k(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.aIa = new ArrayList<>();
+            this.aKE = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    com.baidu.live.data.g gVar = new com.baidu.live.data.g();
+                    g gVar = new g();
                     gVar.parser(optJSONObject);
-                    this.aIa.add(gVar);
+                    this.aKE.add(gVar);
                 }
             }
         }
     }
 
-    private void as(String str, String str2) {
+    private void at(String str, String str2) {
         BdKVCache<String> stringCacheWithSapce;
         if (str2 != null && (stringCacheWithSapce = DBKVCacheManager.getInstance().getStringCacheWithSapce(DBKVCacheManager.ALA_GIFT_LIST_CACHE_KEY)) != null) {
-            stringCacheWithSapce.asyncSet(com.baidu.live.gift.h.f(str, 0L), str2, com.baidu.live.gift.h.aEz);
+            stringCacheWithSapce.asyncSet(h.f(str, 0L), str2, h.aGV);
         }
     }
 
-    public ArrayList<i> At() {
-        return this.aMl;
+    public ArrayList<i> AT() {
+        return this.aOR;
     }
 
     public ArrayList<com.baidu.live.data.f> getCategoryList() {
-        return this.aHZ;
+        return this.aKD;
     }
 
-    public ArrayList<com.baidu.live.data.g> Au() {
-        return this.aIa;
+    public ArrayList<g> AU() {
+        return this.aKE;
     }
 
     public String getSceneFrom() {
         return this.scene_from;
     }
 
-    public String Av() {
-        return getOrginalMessage() instanceof e ? ((e) getOrginalMessage()).Av() : "";
+    public String AV() {
+        return getOrginalMessage() instanceof e ? ((e) getOrginalMessage()).AV() : "";
+    }
+
+    public s FX() {
+        return this.aZn;
     }
 }

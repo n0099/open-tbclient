@@ -9,20 +9,20 @@ public interface a {
 
     /* renamed from: com.baidu.live.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0158a {
+    public interface InterfaceC0160a {
     }
 
     void a(ViewGroup viewGroup, q qVar);
 
-    void a(InterfaceC0158a interfaceC0158a);
+    void a(InterfaceC0160a interfaceC0160a);
 
     void a(d dVar, boolean z, boolean z2);
 
-    void aS(boolean z);
+    void aT(boolean z);
 
     void b(q qVar);
 
-    void bE(int i);
+    void bK(int i);
 
     View getRootView();
 
@@ -32,9 +32,9 @@ public interface a {
 
     void setVisible(int i);
 
-    boolean vl();
+    boolean vG();
 
-    void vm();
+    void vH();
 
-    void vn();
+    void vI();
 }

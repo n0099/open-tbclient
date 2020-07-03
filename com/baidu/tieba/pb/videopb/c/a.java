@@ -9,11 +9,11 @@ import tbclient.AlaLiveInfo;
 import tbclient.Promotion;
 /* loaded from: classes9.dex */
 public class a extends b {
-    public static final BdUniqueId kfg = BdUniqueId.gen();
+    public static final BdUniqueId kyU = BdUniqueId.gen();
     private Long appear_time;
     private String image;
     public boolean isChushou;
-    private long kfi;
+    private long kyW;
     private String link;
     private String link_text;
     public String routeType;
@@ -22,19 +22,19 @@ public class a extends b {
     public String thirdRoomId;
     private String title;
     public long userId;
-    private boolean kfh = false;
-    public boolean kfj = false;
+    private boolean kyV = false;
+    public boolean kyX = false;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return kfg;
+        return kyU;
     }
 
     public String getTitle() {
         return this.title;
     }
 
-    public String cLW() {
+    public String cQn() {
         return this.sub_title;
     }
 
@@ -46,20 +46,20 @@ public class a extends b {
         return this.link;
     }
 
-    public String cLX() {
+    public String cQo() {
         return this.link_text;
     }
 
-    public Long cLY() {
+    public Long cQp() {
         return this.appear_time;
     }
 
-    public boolean cLZ() {
-        return this.kfh;
+    public boolean cQq() {
+        return this.kyV;
     }
 
-    public long cMa() {
-        return this.kfi;
+    public long cQr() {
+        return this.kyW;
     }
 
     public void a(Promotion promotion) {
@@ -69,15 +69,15 @@ public class a extends b {
         this.link = promotion.link;
         this.link_text = promotion.link_text;
         this.appear_time = promotion.appear_time;
-        this.kfh = false;
-        this.kfj = false;
+        this.kyV = false;
+        this.kyX = false;
     }
 
     public void parserProtoBuf(@NonNull AlaLiveInfo alaLiveInfo) {
         this.title = alaLiveInfo.first_headline;
         this.sub_title = alaLiveInfo.second_headline;
         this.image = alaLiveInfo.cover;
-        this.kfi = alaLiveInfo.live_id.longValue();
+        this.kyW = alaLiveInfo.live_id.longValue();
         this.userId = alaLiveInfo.user_info != null ? alaLiveInfo.user_info.user_id.longValue() : 0L;
         this.isChushou = alaLiveInfo.live_from.intValue() == 1;
         this.thirdLiveType = alaLiveInfo.third_live_type;
@@ -86,7 +86,7 @@ public class a extends b {
         this.link = "";
         this.link_text = TbadkCoreApplication.getInst().getString(R.string.pb_ala_enter);
         this.appear_time = 1L;
-        this.kfh = true;
-        this.kfj = false;
+        this.kyV = true;
+        this.kyX = false;
     }
 }

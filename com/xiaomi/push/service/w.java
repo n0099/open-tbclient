@@ -37,15 +37,15 @@ public final class w {
         try {
             fl flVar = new fl();
             flVar.a(5);
-            flVar.c(kVar.f914a);
+            flVar.c(kVar.f920a);
             flVar.b(a(iiVar));
             flVar.a("SECMSG", "message");
-            String str = kVar.f914a;
-            iiVar.f599a.f526a = str.substring(0, str.indexOf(UgcConstant.AT_RULE_TAG));
-            iiVar.f599a.f530c = str.substring(str.indexOf("/") + 1);
+            String str = kVar.f920a;
+            iiVar.f605a.f532a = str.substring(0, str.indexOf(UgcConstant.AT_RULE_TAG));
+            iiVar.f605a.f536c = str.substring(str.indexOf("/") + 1);
             flVar.a(iw.a(iiVar), kVar.c);
             flVar.a((short) 1);
-            com.xiaomi.channel.commonutils.logger.b.m51a("try send mi push message. packagename:" + iiVar.f604b + " action:" + iiVar.f597a);
+            com.xiaomi.channel.commonutils.logger.b.m48a("try send mi push message. packagename:" + iiVar.f610b + " action:" + iiVar.f603a);
             return flVar;
         } catch (NullPointerException e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -68,8 +68,8 @@ public final class w {
         byte[] a = iw.a(t);
         ii iiVar = new ii();
         ib ibVar = new ib();
-        ibVar.f525a = 5L;
-        ibVar.f526a = "fakeid";
+        ibVar.f531a = 5L;
+        ibVar.f532a = "fakeid";
         iiVar.a(ibVar);
         iiVar.a(ByteBuffer.wrap(a));
         iiVar.a(hmVar);
@@ -81,13 +81,13 @@ public final class w {
     }
 
     private static String a(ii iiVar) {
-        if (iiVar.f598a != null && iiVar.f598a.f514b != null) {
-            String str = iiVar.f598a.f514b.get("ext_traffic_source_pkg");
+        if (iiVar.f604a != null && iiVar.f604a.f520b != null) {
+            String str = iiVar.f604a.f520b.get("ext_traffic_source_pkg");
             if (!TextUtils.isEmpty(str)) {
                 return str;
             }
         }
-        return iiVar.f604b;
+        return iiVar.f610b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -110,16 +110,16 @@ public final class w {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(XMPushService xMPushService, ii iiVar) {
         df.a(iiVar.b(), xMPushService.getApplicationContext(), iiVar, -1);
-        fs m516a = xMPushService.m516a();
-        if (m516a == null) {
+        fs m513a = xMPushService.m513a();
+        if (m513a == null) {
             throw new gd("try send msg while connection is null.");
         }
-        if (!m516a.m292a()) {
+        if (!m513a.m289a()) {
             throw new gd("Don't support XMPP connection.");
         }
         fl a = a(l.a((Context) xMPushService), xMPushService, iiVar);
         if (a != null) {
-            m516a.b(a);
+            m513a.b(a);
         }
     }
 
@@ -136,16 +136,16 @@ public final class w {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(XMPushService xMPushService, String str, byte[] bArr) {
         df.a(str, xMPushService.getApplicationContext(), bArr);
-        fs m516a = xMPushService.m516a();
-        if (m516a == null) {
+        fs m513a = xMPushService.m513a();
+        if (m513a == null) {
             throw new gd("try send msg while connection is null.");
         }
-        if (!m516a.m292a()) {
+        if (!m513a.m289a()) {
             throw new gd("Don't support XMPP connection.");
         }
         fl a = a(xMPushService, bArr);
         if (a != null) {
-            m516a.b(a);
+            m513a.b(a);
         } else {
             o.a(xMPushService, str, bArr, ErrorCode.ERROR_INVALID_PAYLOAD, "not a valid message");
         }

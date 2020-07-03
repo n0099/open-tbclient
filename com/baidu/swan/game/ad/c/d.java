@@ -15,93 +15,93 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class d {
-    private static String cRm = "ug_";
-    private static String cRn = "ug_business";
-    private static String cRo = "ctkey";
-    private static String cRp = "CTK";
-    private static String cRq = "eqid";
-    private static String cRr = "sid_eid";
-    private static String cRs = "exps";
-    private String cQa;
-    private String cRt;
-    private String cRu;
-    public b cRy;
+    private static String cVW = "ug_";
+    private static String cVX = "ug_business";
+    private static String cVY = "ctkey";
+    private static String cVZ = "CTK";
+    private static String cWa = "eqid";
+    private static String cWb = "sid_eid";
+    private static String cWc = "exps";
+    private String cUK;
+    private String cWd;
+    private String cWe;
+    public b cWi;
     protected Context mContext;
-    private String cRl = "https://mobads.baidu.com/cpro/ui/mads.php";
-    private String cRv = "1";
-    private String cRw = "2";
-    private String cRx = "8.800201";
+    private String cVV = "https://mobads.baidu.com/cpro/ui/mads.php";
+    private String cWf = "1";
+    private String cWg = "2";
+    private String cWh = "8.800201";
 
-    protected abstract HashMap<String, String> awv();
+    protected abstract HashMap<String, String> axB();
 
     public d(Context context, b bVar) {
         this.mContext = context;
-        this.cRy = bVar;
-        if (this.cRy != null) {
-            this.cQa = this.cRy.aws();
-            this.cRt = this.cRy.getAppSid();
-            this.cRu = this.cRy.awt();
+        this.cWi = bVar;
+        if (this.cWi != null) {
+            this.cUK = this.cWi.axy();
+            this.cWd = this.cWi.getAppSid();
+            this.cWe = this.cWi.axz();
         }
     }
 
-    public String aww() {
-        HashMap<String, String> awx = awx();
-        awx.putAll(awv());
-        return com.baidu.swan.game.ad.e.c.getRequestAdUrl(this.cRl, awx);
+    public String axC() {
+        HashMap<String, String> axD = axD();
+        axD.putAll(axB());
+        return com.baidu.swan.game.ad.e.c.getRequestAdUrl(this.cVV, axD);
     }
 
-    private HashMap<String, String> awx() {
-        b.a aoJ;
+    private HashMap<String, String> axD() {
+        b.a apQ;
         JSONArray optJSONArray;
         JSONObject jSONObject;
         HashMap<String, String> hashMap = new HashMap<>();
         try {
             hashMap.put(IXAdRequestInfo.QUERY_WIDTH, String.valueOf(Math.round(ag.getDisplayWidth(this.mContext) / ag.getDensity(this.mContext))));
             hashMap.put(IXAdRequestInfo.QUERY_HEIGHT, String.valueOf(Math.round(ag.getDisplayHeight(this.mContext) / ag.getDensity(this.mContext))));
-            hashMap.put("net", "" + auQ());
-            hashMap.put("n", this.cRv);
-            hashMap.put("pk", this.cRu);
-            hashMap.put("appid", this.cRt);
+            hashMap.put("net", "" + avW());
+            hashMap.put("n", this.cWf);
+            hashMap.put("pk", this.cWe);
+            hashMap.put("appid", this.cWd);
             hashMap.put("sw", "" + ag.getDisplayWidth(this.mContext));
             hashMap.put(IXAdRequestInfo.SCREEN_HEIGHT, "" + ag.getDisplayHeight(this.mContext));
-            hashMap.put(IXAdRequestInfo.SN, "" + awy());
+            hashMap.put(IXAdRequestInfo.SN, "" + axE());
             hashMap.put("os", "android");
-            hashMap.put("apid", "" + this.cQa);
+            hashMap.put("apid", "" + this.cUK);
             hashMap.put("chid", "0");
-            String atR = aj.atR();
-            if (atR.equals("0")) {
-                atR = "";
+            String auX = aj.auX();
+            if (auX.equals("0")) {
+                auX = "";
             }
-            hashMap.put("imei", atR);
-            hashMap.put("cuid", com.baidu.swan.apps.u.a.aeW().bc(com.baidu.swan.apps.u.a.aeR()));
-            hashMap.put(IXAdRequestInfo.P_VER, this.cRx);
-            hashMap.put("rpt", this.cRw);
+            hashMap.put("imei", auX);
+            hashMap.put("cuid", com.baidu.swan.apps.u.a.agc().bd(com.baidu.swan.apps.u.a.afX()));
+            hashMap.put(IXAdRequestInfo.P_VER, this.cWh);
+            hashMap.put("rpt", this.cWg);
             hashMap.put("tab", "2");
             hashMap.put("req_id", "");
-            com.baidu.swan.apps.runtime.e aoG = com.baidu.swan.apps.runtime.e.aoG();
-            if (aoG != null && (aoJ = aoG.aoJ()) != null) {
-                hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, aoJ.agK());
-                JSONObject agu = aoJ.agu();
-                if (agu != null) {
-                    hashMap.put("eqid", agu.optString(cRq, ""));
+            com.baidu.swan.apps.runtime.e apN = com.baidu.swan.apps.runtime.e.apN();
+            if (apN != null && (apQ = apN.apQ()) != null) {
+                hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, apQ.ahQ());
+                JSONObject ahA = apQ.ahA();
+                if (ahA != null) {
+                    hashMap.put("eqid", ahA.optString(cWa, ""));
                 }
-                JSONObject ahc = aoJ.ahc();
-                if (ahc != null) {
-                    if (ahc.has(cRn) && (jSONObject = ahc.getJSONObject(cRn)) != null) {
+                JSONObject aii = apQ.aii();
+                if (aii != null) {
+                    if (aii.has(cVX) && (jSONObject = aii.getJSONObject(cVX)) != null) {
                         Iterator<String> keys = jSONObject.keys();
                         while (keys != null && keys.hasNext()) {
                             String next = keys.next();
                             if (!TextUtils.isEmpty(next)) {
                                 String optString = jSONObject.optString(next, "none");
-                                if (cRp.equals(next)) {
-                                    hashMap.put(cRo, optString);
+                                if (cVZ.equals(next)) {
+                                    hashMap.put(cVY, optString);
                                 } else {
-                                    hashMap.put(cRm + next, optString);
+                                    hashMap.put(cVW + next, optString);
                                 }
                             }
                         }
                     }
-                    if (ahc.has(cRr) && (optJSONArray = ahc.optJSONArray(cRr)) != null && optJSONArray.length() > 0) {
+                    if (aii.has(cWb) && (optJSONArray = aii.optJSONArray(cWb)) != null && optJSONArray.length() > 0) {
                         StringBuilder sb = new StringBuilder();
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             String optString2 = optJSONArray.optString(i);
@@ -113,20 +113,20 @@ public abstract class d {
                             }
                         }
                         if (sb.length() > 0) {
-                            hashMap.put(cRs, sb.toString());
+                            hashMap.put(cWc, sb.toString());
                         }
                     }
                 }
             }
-            hashMap.put("con_name", com.baidu.swan.apps.u.a.afB().getHostName());
+            hashMap.put("con_name", com.baidu.swan.apps.u.a.agH().getHostName());
             return hashMap;
         } catch (Exception e) {
             return hashMap;
         }
     }
 
-    private int auQ() {
-        switch (SwanAppNetworkUtils.akA()) {
+    private int avW() {
+        switch (SwanAppNetworkUtils.alG()) {
             case NONE:
             default:
                 return 0;
@@ -143,10 +143,10 @@ public abstract class d {
         }
     }
 
-    private String awy() {
+    private String axE() {
         try {
-            String atR = aj.atR();
-            return TextUtils.isEmpty(atR) ? aj.getWifiInfo(this.mContext) : atR;
+            String auX = aj.auX();
+            return TextUtils.isEmpty(auX) ? aj.getWifiInfo(this.mContext) : auX;
         } catch (Exception e) {
             return "";
         }

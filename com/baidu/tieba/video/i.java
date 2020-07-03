@@ -1,19 +1,8 @@
 package com.baidu.tieba.video;
+
+import java.util.List;
 /* loaded from: classes.dex */
 public class i {
-    public static boolean did() {
-        return com.baidu.tbadk.core.sharedPref.b.aTX().getInt("key_video_guide_count", 0) < com.baidu.tbadk.core.sharedPref.b.aTX().getInt("key_video_guide_max_count", 0) && com.baidu.tbadk.core.sharedPref.b.aTX().getInt("key_no_behavior_count", 0) >= 2;
-    }
-
-    public static void die() {
-        com.baidu.tbadk.core.sharedPref.b.aTX().putInt("key_video_guide_count", com.baidu.tbadk.core.sharedPref.b.aTX().getInt("key_video_guide_count", 0) + 1);
-    }
-
-    public static void dif() {
-        com.baidu.tbadk.core.sharedPref.b.aTX().putInt("key_no_behavior_count", com.baidu.tbadk.core.sharedPref.b.aTX().getInt("key_no_behavior_count", 0) + 1);
-    }
-
-    public static void dig() {
-        com.baidu.tbadk.core.sharedPref.b.aTX().putInt("key_no_behavior_count", 0);
-    }
+    public boolean mHasMore;
+    public List<VideoItemData> mVideoItemDatas;
 }

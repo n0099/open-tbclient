@@ -8,14 +8,14 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes8.dex */
 final class a {
-    private static final a miU = new a();
+    private static final a mEN = new a();
     private boolean ac;
-    private final Set<InterfaceC0766a> miV = new LinkedHashSet();
+    private final Set<InterfaceC0785a> mEO = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0766a {
-        void Nl();
+    public interface InterfaceC0785a {
+        void T();
 
         void U();
 
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a dsC() {
-        return miU;
+    public static a dxh() {
+        return mEN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0766a> dsD() {
-        return this.miV;
+    public final Set<InterfaceC0785a> dxi() {
+        return this.mEO;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0766a interfaceC0766a) {
-        synchronized (this.miV) {
-            this.miV.add(interfaceC0766a);
+    public final void a(InterfaceC0785a interfaceC0785a) {
+        synchronized (this.mEO) {
+            this.mEO.add(interfaceC0785a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.miV) {
-            this.miV.clear();
+        synchronized (this.mEO) {
+            this.mEO.clear();
         }
     }
 

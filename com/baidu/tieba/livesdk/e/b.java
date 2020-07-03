@@ -24,7 +24,7 @@ public class b implements IImageLoader {
         }
         if (decode != null) {
             if (decode.toLowerCase().startsWith("file://")) {
-                c.kX().a(decode.substring(7), 43, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.1
+                c.ln().a(decode.substring(7), 43, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.1
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.e.b
@@ -35,7 +35,7 @@ public class b implements IImageLoader {
                     }
                 }, i2, i, null, new Object[0]);
             } else {
-                c.kX().a(decode, 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.2
+                c.ln().a(decode, 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.2
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.e.b
@@ -51,7 +51,7 @@ public class b implements IImageLoader {
 
     @Override // com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader
     public void loadBlurImage(final String str, String str2, final IImageLoaderListener iImageLoaderListener) {
-        c.kX().a(str, 39, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.3
+        c.ln().a(str, 39, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b
@@ -68,10 +68,10 @@ public class b implements IImageLoader {
         if (str != null) {
             try {
                 if (str.toLowerCase().startsWith("file://")) {
-                    c.kX().k(str, 36);
+                    c.ln().k(str, 36);
                 } else {
-                    c.kX().k(str, 10);
-                    c.kX().k(str, 39);
+                    c.ln().k(str, 10);
+                    c.ln().k(str, 39);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

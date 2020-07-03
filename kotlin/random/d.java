@@ -6,28 +6,28 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public abstract class d {
-    public static final b nuj = new b(null);
-    private static final d nuh = kotlin.internal.b.ntQ.dLW();
-    public static final a nui = a.nuk;
+    public static final b nPW = new b(null);
+    private static final d nPU = kotlin.internal.b.nPD.dQC();
+    public static final a nPV = a.nPX;
 
-    public abstract int JT(int i);
+    public abstract int La(int i);
 
     public int nextInt() {
-        return JT(32);
+        return La(32);
     }
 
     public int nextInt(int i) {
-        return dK(0, i);
+        return dT(0, i);
     }
 
-    public int dK(int i, int i2) {
+    public int dT(int i, int i2) {
         int nextInt;
         int i3;
-        e.dM(i, i2);
+        e.dV(i, i2);
         int i4 = i2 - i;
         if (i4 > 0 || i4 == Integer.MIN_VALUE) {
             if (((-i4) & i4) == i4) {
-                i3 = JT(c.JU(i4));
+                i3 = La(c.Lb(i4));
             } else {
                 do {
                     nextInt = nextInt() >>> 1;
@@ -49,15 +49,15 @@ public abstract class d {
     }
 
     public boolean nextBoolean() {
-        return JT(1) != 0;
+        return La(1) != 0;
     }
 
     public double nextDouble() {
-        return c.dJ(JT(26), JT(27));
+        return c.dS(La(26), La(27));
     }
 
     public float nextFloat() {
-        return JT(24) / 16777216;
+        return La(24) / 16777216;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:13:0x0054  */
@@ -87,9 +87,9 @@ public abstract class d {
                         i += 4;
                     }
                     int i5 = i2 - i;
-                    int JT = JT(i5 * 8);
+                    int La = La(i5 * 8);
                     for (int i6 = 0; i6 < i5; i6++) {
-                        bArr[i + i6] = (byte) (JT >>> (i6 * 8));
+                        bArr[i + i6] = (byte) (La >>> (i6 * 8));
                     }
                     return bArr;
                 }
@@ -101,7 +101,7 @@ public abstract class d {
         }
     }
 
-    public byte[] aw(byte[] bArr) {
+    public byte[] ay(byte[] bArr) {
         q.m(bArr, com.baidu.fsg.base.statistics.b.j);
         return v(bArr, 0, bArr.length);
     }
@@ -117,69 +117,69 @@ public abstract class d {
         }
 
         @Override // kotlin.random.d
-        public int JT(int i) {
-            return d.nuh.JT(i);
+        public int La(int i) {
+            return d.nPU.La(i);
         }
 
         @Override // kotlin.random.d
         public int nextInt() {
-            return d.nuh.nextInt();
+            return d.nPU.nextInt();
         }
 
         @Override // kotlin.random.d
         public int nextInt(int i) {
-            return d.nuh.nextInt(i);
+            return d.nPU.nextInt(i);
         }
 
         @Override // kotlin.random.d
-        public int dK(int i, int i2) {
-            return d.nuh.dK(i, i2);
+        public int dT(int i, int i2) {
+            return d.nPU.dT(i, i2);
         }
 
         @Override // kotlin.random.d
         public long nextLong() {
-            return d.nuh.nextLong();
+            return d.nPU.nextLong();
         }
 
         @Override // kotlin.random.d
         public boolean nextBoolean() {
-            return d.nuh.nextBoolean();
+            return d.nPU.nextBoolean();
         }
 
         @Override // kotlin.random.d
         public double nextDouble() {
-            return d.nuh.nextDouble();
+            return d.nPU.nextDouble();
         }
 
         @Override // kotlin.random.d
         public float nextFloat() {
-            return d.nuh.nextFloat();
+            return d.nPU.nextFloat();
         }
 
         @Override // kotlin.random.d
-        public byte[] aw(byte[] bArr) {
+        public byte[] ay(byte[] bArr) {
             q.m(bArr, com.baidu.fsg.base.statistics.b.j);
-            return d.nuh.aw(bArr);
+            return d.nPU.ay(bArr);
         }
 
         @Override // kotlin.random.d
         public byte[] v(byte[] bArr, int i, int i2) {
             q.m(bArr, com.baidu.fsg.base.statistics.b.j);
-            return d.nuh.v(bArr, i, i2);
+            return d.nPU.v(bArr, i, i2);
         }
     }
 
     @h
     /* loaded from: classes7.dex */
     public static final class a extends d {
-        public static final a nuk = new a();
+        public static final a nPX = new a();
 
         private a() {
         }
 
         @Override // kotlin.random.d
-        public int JT(int i) {
-            return d.nuj.JT(i);
+        public int La(int i) {
+            return d.nPW.La(i);
         }
     }
 }

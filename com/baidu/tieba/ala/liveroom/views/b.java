@@ -28,6 +28,7 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.data.q;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.dialog.BdToast;
 import com.baidu.live.tbadk.core.util.SkinManager;
@@ -39,7 +40,6 @@ import com.baidu.live.tbadk.statics.AlaStaticItem;
 import com.baidu.live.tbadk.statics.AlaStaticsManager;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.live.u.a;
 import com.baidu.live.utils.i;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -50,40 +50,40 @@ import java.util.Date;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
 public class b extends com.baidu.live.liveroom.middleware.a.a {
-    private TextView aND;
-    private int fpC;
-    private HeadImageView fqd;
-    private com.baidu.live.liveroom.middleware.a.e gfU;
-    private RelativeLayout gfV;
-    private ImageView gfW;
-    private TextView gfX;
-    private LinearLayout gfY;
-    private LinearLayout gfZ;
-    private TextView gga;
-    private TextView ggb;
-    private TextView ggc;
-    private TextView ggd;
-    private TextView gge;
-    private TextView ggf;
-    private TextView ggg;
-    private FrameLayout ggh;
-    private TextView ggi;
-    private FrameLayout ggj;
-    private TbImageView ggk;
-    private TextView ggl;
-    private TextView ggm;
-    private RelativeLayout ggn;
-    private LinearLayout ggo;
-    private TextView ggp;
-    private TextView ggq;
-    private String ggt;
+    private TextView aQj;
+    private int fAN;
+    private HeadImageView fBo;
+    private com.baidu.live.liveroom.middleware.a.e gsR;
+    private RelativeLayout gsS;
+    private ImageView gsT;
+    private TextView gsU;
+    private LinearLayout gsV;
+    private LinearLayout gsW;
+    private TextView gsX;
+    private TextView gsY;
+    private TextView gsZ;
+    private TextView gta;
+    private TextView gtb;
+    private TextView gtc;
+    private TextView gtd;
+    private FrameLayout gte;
+    private TextView gtf;
+    private FrameLayout gtg;
+    private TbImageView gth;
+    private TextView gti;
+    private TextView gtj;
+    private RelativeLayout gtk;
+    private LinearLayout gtl;
+    private TextView gtm;
+    private TextView gtn;
+    private String gtq;
     private Context mContext;
     private AlaLiveInfoData mLiveInfo;
     private String mPortrait;
     private View rootView;
-    private boolean ggr = false;
-    private boolean ggs = false;
-    private String fHL = null;
+    private boolean gto = false;
+    private boolean gtp = false;
+    private String fSU = null;
     private String otherParams = "";
 
     @Override // com.baidu.live.liveroom.middleware.i
@@ -95,9 +95,9 @@ public class b extends com.baidu.live.liveroom.middleware.a.a {
     @Override // com.baidu.live.liveroom.middleware.a.b
     public View a(q qVar, com.baidu.live.liveroom.middleware.a.e eVar, int i, String str, String str2, String str3) {
         this.mPortrait = str2;
-        this.fpC = i;
-        this.fHL = str;
-        this.gfU = eVar;
+        this.fAN = i;
+        this.fSU = str;
+        this.gsR = eVar;
         d(qVar, str3);
         return this.rootView;
     }
@@ -110,41 +110,41 @@ public class b extends com.baidu.live.liveroom.middleware.a.a {
 
     private void initUI() {
         this.rootView = LayoutInflater.from(this.mContext).inflate(a.h.ala_live_end_view_layout, (ViewGroup) null);
-        this.gfV = (RelativeLayout) this.rootView.findViewById(a.g.inner_layout);
-        this.gfW = (ImageView) this.rootView.findViewById(a.g.imgClose);
-        this.fqd = (HeadImageView) this.rootView.findViewById(a.g.avatar_imageView);
-        this.gfX = (TextView) this.rootView.findViewById(a.g.username_textView);
-        this.gfY = (LinearLayout) this.rootView.findViewById(a.g.endTitle_layout);
-        this.gfZ = (LinearLayout) this.rootView.findViewById(a.g.achievement_layout);
-        this.aND = (TextView) this.rootView.findViewById(a.g.title_textView);
-        this.gga = (TextView) this.rootView.findViewById(a.g.tvLiveEndTitle);
-        this.ggb = (TextView) this.rootView.findViewById(a.g.tvLiveEndSubTitle);
-        this.ggc = (TextView) this.rootView.findViewById(a.g.tvLiveEndUseTime);
-        this.ggd = (TextView) this.rootView.findViewById(a.g.tvLiveEndWatchNum);
-        this.gge = (TextView) this.rootView.findViewById(a.g.tvLiveEndNewFansNum);
-        this.ggf = (TextView) this.rootView.findViewById(a.g.tvLiveEndGiverNum);
-        this.ggg = (TextView) this.rootView.findViewById(a.g.tvLiveEndNewCharmNum);
-        this.ggh = (FrameLayout) this.rootView.findViewById(a.g.share_layout);
-        this.ggi = (TextView) this.rootView.findViewById(a.g.share_textView);
-        this.ggj = (FrameLayout) this.rootView.findViewById(a.g.qr_layout);
-        this.ggk = (TbImageView) this.rootView.findViewById(a.g.qr_imageView);
-        this.ggl = (TextView) this.rootView.findViewById(a.g.appName_textView);
-        this.ggm = (TextView) this.rootView.findViewById(a.g.qrIntroduce_textView);
-        this.ggn = (RelativeLayout) this.rootView.findViewById(a.g.userHead_layout);
-        this.ggo = (LinearLayout) this.rootView.findViewById(a.g.official_qq_group_ll);
-        this.ggp = (TextView) this.rootView.findViewById(a.g.official_qq_group);
-        this.ggq = (TextView) this.rootView.findViewById(a.g.copy_official_qq_group);
+        this.gsS = (RelativeLayout) this.rootView.findViewById(a.g.inner_layout);
+        this.gsT = (ImageView) this.rootView.findViewById(a.g.imgClose);
+        this.fBo = (HeadImageView) this.rootView.findViewById(a.g.avatar_imageView);
+        this.gsU = (TextView) this.rootView.findViewById(a.g.username_textView);
+        this.gsV = (LinearLayout) this.rootView.findViewById(a.g.endTitle_layout);
+        this.gsW = (LinearLayout) this.rootView.findViewById(a.g.achievement_layout);
+        this.aQj = (TextView) this.rootView.findViewById(a.g.title_textView);
+        this.gsX = (TextView) this.rootView.findViewById(a.g.tvLiveEndTitle);
+        this.gsY = (TextView) this.rootView.findViewById(a.g.tvLiveEndSubTitle);
+        this.gsZ = (TextView) this.rootView.findViewById(a.g.tvLiveEndUseTime);
+        this.gta = (TextView) this.rootView.findViewById(a.g.tvLiveEndWatchNum);
+        this.gtb = (TextView) this.rootView.findViewById(a.g.tvLiveEndNewFansNum);
+        this.gtc = (TextView) this.rootView.findViewById(a.g.tvLiveEndGiverNum);
+        this.gtd = (TextView) this.rootView.findViewById(a.g.tvLiveEndNewCharmNum);
+        this.gte = (FrameLayout) this.rootView.findViewById(a.g.share_layout);
+        this.gtf = (TextView) this.rootView.findViewById(a.g.share_textView);
+        this.gtg = (FrameLayout) this.rootView.findViewById(a.g.qr_layout);
+        this.gth = (TbImageView) this.rootView.findViewById(a.g.qr_imageView);
+        this.gti = (TextView) this.rootView.findViewById(a.g.appName_textView);
+        this.gtj = (TextView) this.rootView.findViewById(a.g.qrIntroduce_textView);
+        this.gtk = (RelativeLayout) this.rootView.findViewById(a.g.userHead_layout);
+        this.gtl = (LinearLayout) this.rootView.findViewById(a.g.official_qq_group_ll);
+        this.gtm = (TextView) this.rootView.findViewById(a.g.official_qq_group);
+        this.gtn = (TextView) this.rootView.findViewById(a.g.copy_official_qq_group);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.gfY.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gfW.getLayoutParams();
+            this.gsV.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gsT.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.topMargin += UtilHelper.getStatusBarHeight();
-                this.gfW.setLayoutParams(layoutParams);
+                this.gsT.setLayoutParams(layoutParams);
             }
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.ggn.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gtk.getLayoutParams();
             if (layoutParams2 != null) {
                 layoutParams2.topMargin += UtilHelper.getStatusBarHeight();
-                this.ggn.setLayoutParams(layoutParams2);
+                this.gtk.setLayoutParams(layoutParams2);
             }
         }
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
@@ -159,14 +159,14 @@ public class b extends com.baidu.live.liveroom.middleware.a.a {
         final String str2;
         if (qVar != null && qVar.mLiveInfo != null) {
             this.mLiveInfo = qVar.mLiveInfo;
-            this.fqd.setIsRound(true);
-            this.fqd.setDrawBorder(true);
-            this.fqd.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.fqd.setAutoChangeStyle(false);
+            this.fBo.setIsRound(true);
+            this.fBo.setDrawBorder(true);
+            this.fBo.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.fBo.setAutoChangeStyle(false);
             if (TextUtils.isEmpty(this.mPortrait)) {
-                this.fqd.setDefaultResource(a.f.pic_avatar_moren);
+                this.fBo.setDefaultResource(a.f.pic_avatar_moren);
             } else {
-                this.fqd.startLoad(this.mPortrait, 12, false, false);
+                this.fBo.startLoad(this.mPortrait, 12, false, false);
             }
             if (TextUtils.isEmpty(str) || "null".equals(str)) {
                 str = this.mLiveInfo.getNameShow();
@@ -174,49 +174,49 @@ public class b extends com.baidu.live.liveroom.middleware.a.a {
             if (!TextUtils.isEmpty(str) && str.length() > 10) {
                 str = str.substring(0, 8) + StringHelper.STRING_MORE;
             }
-            this.gfX.setText(Html.fromHtml(String.format("亲爱的<font color='#fed500'>%s</font>，本次直播荣获称号", str)));
+            this.gsU.setText(Html.fromHtml(String.format("亲爱的<font color='#fed500'>%s</font>，本次直播荣获称号", str)));
             String str3 = qVar.mLiveInfo.anchorTitle;
-            this.aND.setText((TextUtils.isEmpty(str3) || TextUtils.equals(str3, "null")) ? "" : "");
-            this.gga.setText(this.mContext.getResources().getString(a.i.live_over_name));
-            if (!TextUtils.isEmpty(this.fHL)) {
-                SkinManager.setViewTextColor(this.ggb, a.d.sdk_hk_gradient_color_start);
-                this.ggb.setAlpha(0.7f);
-                this.ggb.setText(this.fHL);
-                this.ggb.setVisibility(0);
-            } else if (this.fpC == 1) {
-                SkinManager.setViewTextColor(this.ggb, a.d.sdk_hk_gradient_color_start);
-                this.ggb.setAlpha(0.7f);
+            this.aQj.setText((TextUtils.isEmpty(str3) || TextUtils.equals(str3, "null")) ? "" : "");
+            this.gsX.setText(this.mContext.getResources().getString(a.i.live_over_name));
+            if (!TextUtils.isEmpty(this.fSU)) {
+                SkinManager.setViewTextColor(this.gsY, a.d.sdk_hk_gradient_color_start);
+                this.gsY.setAlpha(0.7f);
+                this.gsY.setText(this.fSU);
+                this.gsY.setVisibility(0);
+            } else if (this.fAN == 1) {
+                SkinManager.setViewTextColor(this.gsY, a.d.sdk_hk_gradient_color_start);
+                this.gsY.setAlpha(0.7f);
                 String closeReason = this.mLiveInfo.getCloseReason();
                 if (TextUtils.equals(closeReason, "0")) {
                     closeReason = "";
                 }
-                this.ggb.setText(closeReason);
-                this.ggb.setVisibility(0);
-                this.gga.setText(this.mContext.getResources().getString(a.i.live_closed));
-            } else if (this.fpC == 0) {
-                this.ggb.setVisibility(8);
+                this.gsY.setText(closeReason);
+                this.gsY.setVisibility(0);
+                this.gsX.setText(this.mContext.getResources().getString(a.i.live_closed));
+            } else if (this.fAN == 0) {
+                this.gsY.setVisibility(8);
             }
-            this.ggc.setText(StringUtils.translateSecondsToString2((int) this.mLiveInfo.getLiveDuration()));
+            this.gsZ.setText(StringUtils.translateSecondsToString2((int) this.mLiveInfo.getLiveDuration()));
             if (this.mLiveInfo.familyFansCount > 10000) {
-                this.ggd.setText(i.numFormatOverWanNaForAudienceNum(this.mLiveInfo.familyFansCount));
+                this.gta.setText(i.numFormatOverWanNaForAudienceNum(this.mLiveInfo.familyFansCount));
             } else {
-                this.ggd.setText(i.formatTosepara(this.mLiveInfo.familyFansCount));
+                this.gta.setText(i.formatTosepara(this.mLiveInfo.familyFansCount));
             }
-            this.gge.setText(i.formatTosepara(this.mLiveInfo.newFansCount));
-            this.ggf.setText(i.formatTosepara(this.mLiveInfo.rewardUserCount));
-            this.ggg.setText(i.formatTosepara(this.mLiveInfo.charm_count));
-            this.gfW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.b.1
+            this.gtb.setText(i.formatTosepara(this.mLiveInfo.newFansCount));
+            this.gtc.setText(i.formatTosepara(this.mLiveInfo.rewardUserCount));
+            this.gtd.setText(i.formatTosepara(this.mLiveInfo.charm_count));
+            this.gsT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.gfU != null) {
-                        b.this.gfU.Fb();
+                    if (b.this.gsR != null) {
+                        b.this.gsR.FK();
                     }
                 }
             });
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                this.ggi.setBackgroundResource(a.f.round_sharebtn_hk_bg_radius_12_n);
+                this.gtf.setBackgroundResource(a.f.round_sharebtn_hk_bg_radius_12_n);
             } else {
-                this.ggi.setBackgroundResource(a.f.sdk_round_btn_qm_bg_radius_40_n);
+                this.gtf.setBackgroundResource(a.f.sdk_round_btn_qm_bg_radius_40_n);
             }
             final String str4 = this.mLiveInfo.live_id + "";
             final String str5 = this.mLiveInfo.room_id + "";
@@ -225,7 +225,7 @@ public class b extends com.baidu.live.liveroom.middleware.a.a {
             } else {
                 str2 = this.mLiveInfo.feed_id;
             }
-            this.ggi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.b.2
+            this.gtf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.b.2
                 /* JADX WARN: Removed duplicated region for block: B:23:0x0071  */
                 /* JADX WARN: Removed duplicated region for block: B:26:0x0082  */
                 /* JADX WARN: Removed duplicated region for block: B:32:0x0095  */
@@ -237,23 +237,23 @@ public class b extends com.baidu.live.liveroom.middleware.a.a {
                     boolean z;
                     File file;
                     LogManager.getLiveCloseLogger().doClickShowOffLiveCloseLog(str4, str5, str2, b.this.otherParams);
-                    if (b.this.gfU != null) {
-                        boolean z2 = !TextUtils.isEmpty(b.this.mLiveInfo.qrcodeDownloadUrl) && b.this.ggr;
+                    if (b.this.gsR != null) {
+                        boolean z2 = !TextUtils.isEmpty(b.this.mLiveInfo.qrcodeDownloadUrl) && b.this.gto;
                         try {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        if (!TextUtils.isEmpty(b.this.ggt) && (file = new File(b.this.ggt)) != null && file.exists()) {
+                        if (!TextUtils.isEmpty(b.this.gtq) && (file = new File(b.this.gtq)) != null && file.exists()) {
                             if (file.isFile()) {
                                 z = true;
-                                if (z || b.this.ggs != z2) {
-                                    b.this.ggt = b.this.lq(z2);
+                                if (z || b.this.gtp != z2) {
+                                    b.this.gtq = b.this.ly(z2);
                                 }
                                 if (z2) {
-                                    b.this.ggs = true;
+                                    b.this.gtp = true;
                                 }
-                                if (TextUtils.isEmpty(b.this.ggt)) {
-                                    b.this.gfU.fx(b.this.ggt);
+                                if (TextUtils.isEmpty(b.this.gtq)) {
+                                    b.this.gsR.fD(b.this.gtq);
                                     return;
                                 } else {
                                     BdUtilHelper.getCustomToast().showToast("分享失败", 0);
@@ -264,19 +264,19 @@ public class b extends com.baidu.live.liveroom.middleware.a.a {
                         z = false;
                         if (z) {
                         }
-                        b.this.ggt = b.this.lq(z2);
+                        b.this.gtq = b.this.ly(z2);
                         if (z2) {
                         }
-                        if (TextUtils.isEmpty(b.this.ggt)) {
+                        if (TextUtils.isEmpty(b.this.gtq)) {
                         }
                     }
                 }
             });
-            this.ggk.setEvent(new TbImageView.ImageViewEvent() { // from class: com.baidu.tieba.ala.liveroom.views.b.3
+            this.gth.setEvent(new TbImageView.ImageViewEvent() { // from class: com.baidu.tieba.ala.liveroom.views.b.3
                 @Override // com.baidu.live.tbadk.widget.TbImageView.ImageViewEvent
                 public void onComplete(String str6, boolean z) {
                     if (TextUtils.equals(str6, b.this.mLiveInfo.qrcodeDownloadUrl)) {
-                        b.this.ggr = z;
+                        b.this.gto = z;
                     }
                 }
 
@@ -292,27 +292,27 @@ public class b extends com.baidu.live.liveroom.middleware.a.a {
             } else if (TbadkCoreApplication.getInst().isTieba()) {
                 str6 = "百度贴吧";
             }
-            this.ggl.setText(str6);
+            this.gti.setText(str6);
             String nameShow = this.mLiveInfo.getNameShow();
             if (nameShow == null) {
                 nameShow = "";
             }
-            this.ggm.setText("长按二维码认识 " + nameShow);
-            if (bGL()) {
-                this.ggo.setVisibility(0);
-                this.ggp.setText(this.mContext.getResources().getString(a.i.ala_live_end_official_qq_group) + " " + com.baidu.live.v.a.Ge().aWF.ayy.avq);
-                this.ggq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.b.4
+            this.gtj.setText("长按二维码认识 " + nameShow);
+            if (bJS()) {
+                this.gtl.setVisibility(0);
+                this.gtm.setText(this.mContext.getResources().getString(a.i.ala_live_end_official_qq_group) + " " + com.baidu.live.v.a.Hm().aZp.aAN.axw);
+                this.gtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.b.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        b.this.copyToClipboard(com.baidu.live.v.a.Ge().aWF.ayy.avq);
+                        b.this.copyToClipboard(com.baidu.live.v.a.Hm().aZp.aAN.axw);
                         BdToast.makeText(b.this.mContext, b.this.mContext.getResources().getString(a.i.ala_live_end_copy_qq_to_clipboard)).setDuration(17).show();
                     }
                 });
             } else {
-                this.ggo.setVisibility(8);
+                this.gtl.setVisibility(8);
             }
             if (!TextUtils.isEmpty(this.mLiveInfo.qrcodeDownloadUrl)) {
-                this.ggk.startLoad(this.mLiveInfo.qrcodeDownloadUrl, 10, false);
+                this.gth.startLoad(this.mLiveInfo.qrcodeDownloadUrl, 10, false);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913097, "into_end_view"));
         }
@@ -335,7 +335,7 @@ public class b extends com.baidu.live.liveroom.middleware.a.a {
     }
 
     @Override // com.baidu.live.liveroom.middleware.i
-    public void bR(boolean z) {
+    public void bT(boolean z) {
     }
 
     @Override // com.baidu.live.liveroom.middleware.i
@@ -347,8 +347,8 @@ public class b extends com.baidu.live.liveroom.middleware.a.a {
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
     }
 
-    private boolean bGL() {
-        return (com.baidu.live.v.a.Ge().aWF == null || com.baidu.live.v.a.Ge().aWF.ayy == null || TextUtils.isEmpty(com.baidu.live.v.a.Ge().aWF.ayy.avq)) ? false : true;
+    private boolean bJS() {
+        return (com.baidu.live.v.a.Hm().aZp == null || com.baidu.live.v.a.Hm().aZp.aAN == null || TextUtils.isEmpty(com.baidu.live.v.a.Hm().aZp.aAN.axw)) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -364,32 +364,32 @@ public class b extends com.baidu.live.liveroom.middleware.a.a {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     /* JADX INFO: Access modifiers changed from: private */
-    public String lq(boolean z) {
+    public String ly(boolean z) {
         String str;
         String str2;
-        RelativeLayout relativeLayout = this.gfV;
+        RelativeLayout relativeLayout = this.gsS;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd_HH_mm_ss");
         Calendar.getInstance().add(5, 0);
         String charSequence = TextUtils.concat("screenshot_", simpleDateFormat.format(new Date()), ".jpg").toString();
         Bitmap createBitmap = Bitmap.createBitmap(relativeLayout.getWidth(), relativeLayout.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
-        this.gfW.setVisibility(8);
-        this.gfY.setVisibility(8);
-        this.gfZ.setVisibility(0);
-        this.ggh.setVisibility(8);
-        this.ggo.setVisibility(8);
+        this.gsT.setVisibility(8);
+        this.gsV.setVisibility(8);
+        this.gsW.setVisibility(0);
+        this.gte.setVisibility(8);
+        this.gtl.setVisibility(8);
         if (z) {
-            this.ggj.setVisibility(0);
+            this.gtg.setAlpha(1.0f);
         }
         relativeLayout.draw(canvas);
-        this.gfW.setVisibility(0);
-        this.gfY.setVisibility(0);
-        this.gfZ.setVisibility(4);
-        this.ggh.setVisibility(0);
-        if (bGL()) {
-            this.ggo.setVisibility(0);
+        this.gsT.setVisibility(0);
+        this.gsV.setVisibility(0);
+        this.gsW.setVisibility(4);
+        this.gte.setVisibility(0);
+        if (bJS()) {
+            this.gtl.setVisibility(0);
         }
-        this.ggj.setVisibility(4);
+        this.gtg.setAlpha(0.0f);
         File externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         if (TbadkCoreApplication.getInst().isHaokan()) {
             str = "haokan";
@@ -441,18 +441,18 @@ public class b extends com.baidu.live.liveroom.middleware.a.a {
                     }
                 }
                 return path;
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (Throwable th) {
                 if (createBitmap != null) {
                     try {
                         createBitmap.recycle();
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
                     }
                 }
-                return null;
+                throw th;
             }
-        } catch (Throwable th) {
+        } catch (IOException e3) {
+            e3.printStackTrace();
             if (createBitmap != null) {
                 try {
                     createBitmap.recycle();
@@ -460,7 +460,7 @@ public class b extends com.baidu.live.liveroom.middleware.a.a {
                     e4.printStackTrace();
                 }
             }
-            throw th;
+            return null;
         }
     }
 }

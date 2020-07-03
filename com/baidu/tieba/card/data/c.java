@@ -4,76 +4,76 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.ak;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.ap;
+import com.baidu.tbadk.core.data.bu;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.ae;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.af;
+import com.baidu.tbadk.core.util.ao;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
-public abstract class c extends AbsThreadDataSupport implements ae {
-    public bk dEA;
-    private String gHa;
-    private int gHb;
-    private String gHc;
-    private String gHd;
-    public int gHf;
+public abstract class c extends AbsThreadDataSupport implements af {
+    public bu dLi;
+    private String gUa;
+    private int gUb;
+    private String gUc;
+    private String gUd;
+    public int gUf;
     private String mExtra;
     private String mSource;
     public String tid;
     public int objType = 1;
-    private Integer gHe = 0;
-    public int dEB = 0;
-    public int dEC = 0;
+    private Integer gUe = 0;
+    public int dLj = 0;
+    public int dLk = 0;
 
     public void setWeight(String str) {
-        this.gHa = str;
+        this.gUa = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void st(int i) {
-        this.gHb = i;
+    public void sR(int i) {
+        this.gUb = i;
     }
 
-    public void Dp(String str) {
-        this.gHc = str;
+    public void DQ(String str) {
+        this.gUc = str;
     }
 
-    public int bLB() {
-        return this.gHb;
+    public int bOL() {
+        return this.gUb;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public String aOl() {
-        return this.mSource + "#" + this.gHb + "#" + this.gHc;
+    public String aPV() {
+        return this.mSource + "#" + this.gUb + "#" + this.gUc;
     }
 
     public String getWeight() {
-        return this.gHa;
+        return this.gUa;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String bLC() {
-        return this.gHc;
+    public String bOM() {
+        return this.gUc;
     }
 
-    public String bLD() {
-        return this.gHd;
+    public String bON() {
+        return this.gUd;
     }
 
-    public void Dq(String str) {
-        this.gHd = str;
+    public void DR(String str) {
+        this.gUd = str;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bk aOi() {
+    public bu aPS() {
         return null;
     }
 
@@ -89,68 +89,67 @@ public abstract class c extends AbsThreadDataSupport implements ae {
         return this.mExtra;
     }
 
-    public Integer bLE() {
-        return this.gHe;
+    public Integer bOO() {
+        return this.gUe;
     }
 
     public void k(Integer num) {
-        this.gHe = num;
+        this.gUe = num;
     }
 
-    public an Dr(String str) {
-        return ay(str, false);
+    public ao DS(String str) {
+        return aA(str, false);
     }
 
-    public an ay(String str, boolean z) {
-        bk aOi = aOi();
-        if (aOi == null || str.length() == 0) {
+    public ao aA(String str, boolean z) {
+        bu aPS = aPS();
+        if (aPS == null || str.length() == 0) {
             return null;
         }
-        an dh = new an(str).dh("fid", String.valueOf(aOi.getFid())).dh("tid", String.valueOf(aOi.getTid())).dh("nid", aOi.getNid()).dh("obj_id", getExtra()).dh("obj_param1", getWeight()).ag(TiebaInitialize.Params.OBJ_PARAM2, 1).dh("obj_source", getSource()).ag("obj_locate", bLB()).dh("uid", TbadkCoreApplication.getCurrentAccount()).dh(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.bLj());
+        ao dk = new ao(str).dk("fid", String.valueOf(aPS.getFid())).dk("tid", String.valueOf(aPS.getTid())).dk("nid", aPS.getNid()).dk("obj_id", getExtra()).dk("obj_param1", getWeight()).ag(TiebaInitialize.Params.OBJ_PARAM2, 1).dk("obj_source", getSource()).ag("obj_locate", bOL()).dk("uid", TbadkCoreApplication.getCurrentAccount()).dk(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.bOr()).dk("ab_tag", bOM());
         if (!z) {
-            dh.ag("obj_type", bLF());
+            dk.ag("obj_type", bOP());
         } else {
-            if (aOi.dHk > 0) {
-                dh.ag("midpageflag", 1);
+            if (aPS.dNV > 0) {
+                dk.ag("midpageflag", 1);
             } else {
-                dh.ag("midpageflag", 0);
+                dk.ag("midpageflag", 0);
             }
-            dh.dh("ab_tag", bLC());
-            dh.ag("is_vertical", bLE().intValue());
+            dk.ag("is_vertical", bOO().intValue());
         }
-        if (aOi.aSb() != null && aOi.aSb().ddL() != null && aOi.aSb().ddL().bis() != null && aOi.aSb().ddL().bis().size() > 0) {
-            dh.ag(TiebaInitialize.Params.OBJ_TO, aOi.aSb().lmA ? 2 : 1);
+        if (aPS.aTS() != null && aPS.aTS().dia() != null && aPS.aTS().dia().bkO() != null && aPS.aTS().dia().bkO().size() > 0) {
+            dk.ag(TiebaInitialize.Params.OBJ_TO, aPS.aTS().lGt ? 2 : 1);
         }
-        return dh;
+        return dk;
     }
 
-    public an aI(String str, int i) {
-        bk aOi = aOi();
-        if (aOi == null) {
+    public ao aH(String str, int i) {
+        bu aPS = aPS();
+        if (aPS == null) {
             return null;
         }
-        an dh = new an(str).dh("fid", String.valueOf(aOi.getFid())).dh("tid", String.valueOf(aOi.getTid())).ag(TiebaInitialize.Params.OBJ_PARAM2, 1).dh("obj_param1", getWeight()).dh("obj_source", getSource()).ag("obj_locate", bLB()).dh("obj_name", bLC()).dh("uid", TbadkCoreApplication.getCurrentAccount()).dh(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.bLj());
+        ao dk = new ao(str).dk("fid", String.valueOf(aPS.getFid())).dk("tid", String.valueOf(aPS.getTid())).ag(TiebaInitialize.Params.OBJ_PARAM2, 1).dk("obj_param1", getWeight()).dk("obj_source", getSource()).ag("obj_locate", bOL()).dk("obj_name", bOM()).dk("uid", TbadkCoreApplication.getCurrentAccount()).dk(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.bOr());
         if (i == 0) {
-            dh.ag("obj_type", bLF());
+            dk.ag("obj_type", bOP());
         } else {
-            dh.ag("obj_type", i);
+            dk.ag("obj_type", i);
         }
-        dh.dh("obj_id", getExtra());
-        return dh;
+        dk.dk("obj_id", getExtra());
+        return dk;
     }
 
-    private int bLF() {
+    private int bOP() {
         int i;
         int i2 = 0;
-        bk aOi = aOi();
-        if (aOi == null) {
+        bu aPS = aPS();
+        if (aPS == null) {
             return 0;
         }
-        ArrayList<MediaData> aQH = aOi.aQH();
-        if (aQH == null) {
+        ArrayList<MediaData> aSy = aPS.aSy();
+        if (aSy == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = aQH.iterator();
+            Iterator<MediaData> it = aSy.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
@@ -166,42 +165,42 @@ public abstract class c extends AbsThreadDataSupport implements ae {
         return i;
     }
 
-    @Override // com.baidu.tbadk.core.util.ae
+    @Override // com.baidu.tbadk.core.util.af
     public ArrayList<PreLoadImageInfo> getImages() {
-        bk aOi = aOi();
-        if (aOi != null) {
-            return aOi.getImages();
+        bu aPS = aPS();
+        if (aPS != null) {
+            return aPS.getImages();
         }
         return null;
     }
 
-    public void su(int i) {
-        this.gHf = i;
+    public void sS(int i) {
+        this.gUf = i;
     }
 
-    public boolean bLG() {
-        return this.gHf == 1;
+    public boolean bOQ() {
+        return this.gUf == 1;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ak aOk() {
-        if (aOi() == null || this.feedBackReasonMap == null || this.feedBackReasonMap.size() <= 0) {
+    public ap aPU() {
+        if (aPS() == null || this.feedBackReasonMap == null || this.feedBackReasonMap.size() <= 0) {
             return null;
         }
-        ak akVar = new ak();
-        akVar.setTid(aOi().getTid());
-        akVar.setFid(aOi().getFid());
-        akVar.setNid(aOi().getNid());
-        akVar.setFeedBackReasonMap(this.feedBackReasonMap);
-        akVar.weight = this.gHa;
-        akVar.source = this.mSource;
-        akVar.extra = this.mExtra;
-        akVar.threadType = aOi().threadType;
-        return akVar;
+        ap apVar = new ap();
+        apVar.setTid(aPS().getTid());
+        apVar.setFid(aPS().getFid());
+        apVar.setNid(aPS().getNid());
+        apVar.setFeedBackReasonMap(this.feedBackReasonMap);
+        apVar.weight = this.gUa;
+        apVar.source = this.mSource;
+        apVar.extra = this.mExtra;
+        apVar.threadType = aPS().threadType;
+        return apVar;
     }
 
-    public void bLH() {
-        if (this.dEA == null) {
+    public void bOR() {
+        if (this.dLi == null) {
         }
     }
 }

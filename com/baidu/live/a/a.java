@@ -10,13 +10,13 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.im.p;
 /* loaded from: classes3.dex */
 public class a {
-    private static Application.ActivityLifecycleCallbacks asw;
+    private static Application.ActivityLifecycleCallbacks atO;
 
     public static void d(Application application) {
-        if (asw == null) {
-            asw = new C0154a();
+        if (atO == null) {
+            atO = new C0156a();
         }
-        application.registerActivityLifecycleCallbacks(asw);
+        application.registerActivityLifecycleCallbacks(atO);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -37,17 +37,17 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0154a implements Application.ActivityLifecycleCallbacks {
-        private p asx;
-        private CustomMessageListener asy;
+    public static class C0156a implements Application.ActivityLifecycleCallbacks {
+        private p atP;
+        private CustomMessageListener atQ;
 
-        private C0154a() {
-            this.asy = new CustomMessageListener(2913191) { // from class: com.baidu.live.a.a.a.1
+        private C0156a() {
+            this.atQ = new CustomMessageListener(2913191) { // from class: com.baidu.live.a.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (C0154a.this.asx != null) {
-                        C0154a.this.asx.CV();
+                    if (C0156a.this.atP != null) {
+                        C0156a.this.atP.Dw();
                     }
                 }
             };
@@ -60,11 +60,11 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             if (a.o(activity)) {
-                if (this.asx == null) {
-                    this.asx = new p();
+                if (this.atP == null) {
+                    this.atP = new p();
                 }
-                this.asx.init(String.valueOf(activity.hashCode()));
-                MessageManager.getInstance().registerListener(this.asy);
+                this.atP.init(String.valueOf(activity.hashCode()));
+                MessageManager.getInstance().registerListener(this.atQ);
             }
         }
 
@@ -87,10 +87,10 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             if (a.o(activity)) {
-                if (this.asx != null) {
-                    this.asx.destroy(String.valueOf(activity.hashCode()));
+                if (this.atP != null) {
+                    this.atP.destroy(String.valueOf(activity.hashCode()));
                 }
-                MessageManager.getInstance().unRegisterListener(this.asy);
+                MessageManager.getInstance().unRegisterListener(this.atQ);
             }
         }
     }

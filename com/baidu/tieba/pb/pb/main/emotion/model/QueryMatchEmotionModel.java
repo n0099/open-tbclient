@@ -9,7 +9,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.pb.pb.main.emotion.message.QueryMatchEmotionResponseMessage;
@@ -19,9 +19,9 @@ import java.util.Map;
 import tbclient.T;
 /* loaded from: classes9.dex */
 public class QueryMatchEmotionModel extends BdBaseModel {
-    private static LinkedHashMap<String, List<EmotionImageData>> jWy = new LinkedHashMap<>();
-    private final HttpMessageListener epg;
-    private a jWx;
+    private static LinkedHashMap<String, List<EmotionImageData>> kqo = new LinkedHashMap<>();
+    private final HttpMessageListener exW;
+    private a kqn;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -32,38 +32,38 @@ public class QueryMatchEmotionModel extends BdBaseModel {
 
     public QueryMatchEmotionModel(e<T> eVar) {
         super(eVar);
-        this.epg = new HttpMessageListener(1003369) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel.1
+        this.exW = new HttpMessageListener(1003369) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003369 && (httpResponsedMessage instanceof QueryMatchEmotionResponseMessage) && QueryMatchEmotionModel.this.jWx != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003369 && (httpResponsedMessage instanceof QueryMatchEmotionResponseMessage) && QueryMatchEmotionModel.this.kqn != null) {
                     QueryMatchEmotionResponseMessage queryMatchEmotionResponseMessage = (QueryMatchEmotionResponseMessage) httpResponsedMessage;
                     if (queryMatchEmotionResponseMessage.getData() == null) {
-                        QueryMatchEmotionModel.this.jWx.onFail(queryMatchEmotionResponseMessage.getError(), queryMatchEmotionResponseMessage.getErrorString());
+                        QueryMatchEmotionModel.this.kqn.onFail(queryMatchEmotionResponseMessage.getError(), queryMatchEmotionResponseMessage.getErrorString());
                     } else if (httpResponsedMessage.getOrginalMessage() != null && (httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
                         String str = (String) httpResponsedMessage.getOrginalMessage().getExtra();
-                        QueryMatchEmotionModel.this.jWx.o(str, queryMatchEmotionResponseMessage.getData());
+                        QueryMatchEmotionModel.this.kqn.o(str, queryMatchEmotionResponseMessage.getData());
                         QueryMatchEmotionModel.this.p(str, queryMatchEmotionResponseMessage.getData());
                     }
                 }
             }
         };
-        Fv();
-        this.epg.setSelfListener(true);
-        registerListener(this.epg);
+        xp();
+        this.exW.setSelfListener(true);
+        registerListener(this.exW);
     }
 
-    private void Fv() {
+    private void xp() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003369, TbConfig.SERVER_ADDRESS + Config.GET_PB_QUERY_MATCH_EMOTION);
         tbHttpMessageTask.setResponsedClass(QueryMatchEmotionResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void a(String str, a aVar) {
-        this.jWx = aVar;
-        if (this.jWx != null) {
-            if (!v.isEmpty(JJ(str))) {
-                this.jWx.o(str, jWy.get(str));
+        this.kqn = aVar;
+        if (this.kqn != null) {
+            if (!w.isEmpty(Kl(str))) {
+                this.kqn.o(str, kqo.get(str));
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(1003369);
@@ -75,29 +75,29 @@ public class QueryMatchEmotionModel extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p(String str, List<EmotionImageData> list) {
-        if (!TextUtils.isEmpty(str) && !v.isEmpty(list)) {
-            if (jWy == null) {
-                jWy = new LinkedHashMap<>();
+        if (!TextUtils.isEmpty(str) && !w.isEmpty(list)) {
+            if (kqo == null) {
+                kqo = new LinkedHashMap<>();
             }
-            if (!jWy.containsKey(str)) {
-                if (jWy.size() > 10) {
-                    Map.Entry<String, List<EmotionImageData>> next = jWy.entrySet().iterator().next();
+            if (!kqo.containsKey(str)) {
+                if (kqo.size() > 10) {
+                    Map.Entry<String, List<EmotionImageData>> next = kqo.entrySet().iterator().next();
                     if (next != null) {
-                        jWy.remove(next.getKey());
+                        kqo.remove(next.getKey());
                     } else {
-                        jWy.clear();
+                        kqo.clear();
                     }
                 }
-                jWy.put(str, list);
+                kqo.put(str, list);
             }
         }
     }
 
-    private List<EmotionImageData> JJ(String str) {
-        if (jWy == null || !jWy.containsKey(str)) {
+    private List<EmotionImageData> Kl(String str) {
+        if (kqo == null || !kqo.containsKey(str)) {
             return null;
         }
-        return jWy.get(str);
+        return kqo.get(str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -107,7 +107,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.epg);
+        MessageManager.getInstance().unRegisterListener(this.exW);
         MessageManager.getInstance().unRegisterTask(1003369);
         return true;
     }

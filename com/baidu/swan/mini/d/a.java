@@ -11,43 +11,43 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Map<String, C0454a> dkS = new ConcurrentHashMap();
-    private final Map<String, ConcurrentHashMap<String, C0454a>> dkT = new ConcurrentHashMap();
+    private final Map<String, C0460a> dpD = new ConcurrentHashMap();
+    private final Map<String, ConcurrentHashMap<String, C0460a>> dpE = new ConcurrentHashMap();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void cH(String str, @Nullable String str2) {
+    public void cJ(String str, @Nullable String str2) {
         if (DEBUG) {
             Log.v("MiniPerformanceTracer", "(" + System.currentTimeMillis() + ") record: " + str + ", " + str2);
         }
-        C0454a c0454a = new C0454a(str, str2);
-        this.dkS.put(c0454a.aFs(), c0454a);
+        C0460a c0460a = new C0460a(str, str2);
+        this.dpD.put(c0460a.aGy(), c0460a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void T(@NonNull String str, String str2, @Nullable String str3) {
+    public void U(@NonNull String str, String str2, @Nullable String str3) {
         if (DEBUG) {
             Log.v("MiniPerformanceTracer", "(" + System.currentTimeMillis() + ") record: " + str + ", " + str2 + ", " + str3);
         }
-        C0454a c0454a = new C0454a(str2, str3);
-        ConcurrentHashMap<String, C0454a> concurrentHashMap = this.dkT.get(str);
+        C0460a c0460a = new C0460a(str2, str3);
+        ConcurrentHashMap<String, C0460a> concurrentHashMap = this.dpE.get(str);
         if (concurrentHashMap == null) {
             concurrentHashMap = new ConcurrentHashMap<>();
-            this.dkT.put(str, concurrentHashMap);
+            this.dpE.put(str, concurrentHashMap);
         }
-        concurrentHashMap.put(c0454a.aFs(), c0454a);
+        concurrentHashMap.put(c0460a.aGy(), c0460a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public JSONArray sZ(@Nullable String str) {
-        ConcurrentHashMap<String, C0454a> concurrentHashMap;
-        if (!TextUtils.isEmpty(str) && (concurrentHashMap = this.dkT.get(str)) != null) {
+    public JSONArray th(@Nullable String str) {
+        ConcurrentHashMap<String, C0460a> concurrentHashMap;
+        if (!TextUtils.isEmpty(str) && (concurrentHashMap = this.dpE.get(str)) != null) {
             JSONArray jSONArray = new JSONArray();
-            for (C0454a c0454a : this.dkS.values()) {
-                jSONArray.put(c0454a.toJson());
+            for (C0460a c0460a : this.dpD.values()) {
+                jSONArray.put(c0460a.toJson());
             }
-            for (C0454a c0454a2 : concurrentHashMap.values()) {
-                jSONArray.put(c0454a2.toJson());
+            for (C0460a c0460a2 : concurrentHashMap.values()) {
+                jSONArray.put(c0460a2.toJson());
             }
             return jSONArray;
         }
@@ -56,25 +56,25 @@ public class a {
 
     /* renamed from: com.baidu.swan.mini.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private static class C0454a {
-        private String dkU;
+    private static class C0460a {
+        private String dpF;
         private final String mMessage;
         private long mTimestamp = System.currentTimeMillis();
 
-        C0454a(String str, String str2) {
-            this.dkU = str;
+        C0460a(String str, String str2) {
+            this.dpF = str;
             this.mMessage = str2;
         }
 
-        String aFs() {
-            return this.dkU;
+        String aGy() {
+            return this.dpF;
         }
 
         @NonNull
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("type", this.dkU);
+                jSONObject.put("type", this.dpF);
                 jSONObject.put("timestamp", this.mTimestamp);
                 jSONObject.put("message", this.mMessage);
             } catch (Exception e) {

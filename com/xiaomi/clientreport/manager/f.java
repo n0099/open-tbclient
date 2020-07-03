@@ -14,7 +14,7 @@ public class f extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo163a() {
+    public int mo160a() {
         return 100889;
     }
 
@@ -24,7 +24,7 @@ public class f extends ai.a {
         ExecutorService executorService;
         b = this.a.b();
         if (b > 0) {
-            executorService = this.a.f16a;
+            executorService = this.a.f22a;
             executorService.execute(new g(this));
         }
     }

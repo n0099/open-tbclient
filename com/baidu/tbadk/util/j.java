@@ -7,9 +7,9 @@ import com.baidu.live.tbadk.util.DaemonServiceManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class j {
-    private static j euZ = new j();
-    private b eva;
-    private a evb;
+    private static j eEd = new j();
+    private b eEe;
+    private a eEf;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,25 +19,25 @@ public class j {
     private j() {
     }
 
-    public static j bgv() {
-        return euZ;
+    public static j biI() {
+        return eEd;
     }
 
     public void a(a aVar) {
-        this.evb = aVar;
-        if (this.eva != null) {
-            this.eva.cancel();
+        this.eEf = aVar;
+        if (this.eEe != null) {
+            this.eEe.cancel();
         }
-        this.eva = new b();
-        this.eva.setPriority(4);
-        this.eva.execute(new String[0]);
+        this.eEe = new b();
+        this.eEe.setPriority(4);
+        this.eEe.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean checkCrashNumOverLimit() {
         int i;
         long j = 0;
-        byte[] GetFileData = com.baidu.tbadk.core.util.m.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + DaemonServiceManager.CRASH_HOUR_RECORD_FILE);
+        byte[] GetFileData = com.baidu.tbadk.core.util.n.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + DaemonServiceManager.CRASH_HOUR_RECORD_FILE);
         String str = null;
         if (GetFileData != null) {
             str = new String(GetFileData);
@@ -77,8 +77,8 @@ public class j {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (j.this.evb != null && bool != null) {
-                j.this.evb.onResult(bool.booleanValue());
+            if (j.this.eEf != null && bool != null) {
+                j.this.eEf.onResult(bool.booleanValue());
             }
         }
     }

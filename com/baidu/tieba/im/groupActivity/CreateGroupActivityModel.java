@@ -6,39 +6,39 @@ import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.im.message.RequestCreateGroupActivityMessage;
 /* loaded from: classes10.dex */
 public class CreateGroupActivityModel extends BdBaseModel<BaseActivity> {
-    private GroupActivityData iCQ;
-    RequestCreateGroupActivityMessage iCR;
+    private GroupActivityData iTU;
+    RequestCreateGroupActivityMessage iTV;
     private BaseActivity mActivity;
 
     public CreateGroupActivityModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.iCQ = new GroupActivityData();
+        this.iTU = new GroupActivityData();
         this.mActivity = baseActivity;
     }
 
-    public GroupActivityData cna() {
-        return this.iCQ;
+    public GroupActivityData cqP() {
+        return this.iTU;
     }
 
-    public void pl(boolean z) {
-        if (this.iCQ != null) {
-            this.iCR = new RequestCreateGroupActivityMessage();
-            this.iCR.setCommitType(z ? 1 : 0);
+    public void pv(boolean z) {
+        if (this.iTU != null) {
+            this.iTV = new RequestCreateGroupActivityMessage();
+            this.iTV.setCommitType(z ? 1 : 0);
             if (z) {
-                this.iCR.setActivityId(this.iCQ.getActivityId());
+                this.iTV.setActivityId(this.iTU.getActivityId());
             }
-            this.iCR.setgActivityArea(this.iCQ.getgActivityArea());
-            this.iCR.setgActivityContent(this.iCQ.getgActivityContent());
-            this.iCR.setgActivityTime(this.iCQ.getgActivityTime());
-            this.iCR.setgActivityTitle(this.iCQ.getgActivityTitle());
-            this.iCR.setGroupId(this.iCQ.getGroupId());
-            this.mActivity.sendMessage(this.iCR);
+            this.iTV.setgActivityArea(this.iTU.getgActivityArea());
+            this.iTV.setgActivityContent(this.iTU.getgActivityContent());
+            this.iTV.setgActivityTime(this.iTU.getgActivityTime());
+            this.iTV.setgActivityTitle(this.iTU.getgActivityTitle());
+            this.iTV.setGroupId(this.iTU.getGroupId());
+            this.mActivity.sendMessage(this.iTV);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
-        if (this.iCR != null) {
+        if (this.iTV != null) {
         }
     }
 

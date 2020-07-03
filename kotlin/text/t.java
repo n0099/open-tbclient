@@ -8,7 +8,7 @@ import kotlin.collections.ad;
 @kotlin.h
 /* loaded from: classes7.dex */
 public class t extends s {
-    public static final boolean H(String str, String str2, boolean z) {
+    public static final boolean I(String str, String str2, boolean z) {
         if (str == null) {
             return str2 == null;
         } else if (!z) {
@@ -38,10 +38,10 @@ public class t extends s {
         if ((i & 2) != 0) {
             z = false;
         }
-        return l.I(str, str2, z);
+        return l.J(str, str2, z);
     }
 
-    public static final boolean I(String str, String str2, boolean z) {
+    public static final boolean J(String str, String str2, boolean z) {
         kotlin.jvm.internal.q.m(str, "receiver$0");
         kotlin.jvm.internal.q.m(str2, "prefix");
         return !z ? str.startsWith(str2) : l.a(str, 0, str2, 0, str2.length(), z);
@@ -51,9 +51,9 @@ public class t extends s {
         boolean z;
         kotlin.jvm.internal.q.m(charSequence, "receiver$0");
         if (charSequence.length() != 0) {
-            kotlin.b.h s = l.s(charSequence);
-            if (!(s instanceof Collection) || !((Collection) s).isEmpty()) {
-                Iterator<Integer> it = s.iterator();
+            kotlin.b.h w = l.w(charSequence);
+            if (!(w instanceof Collection) || !((Collection) w).isEmpty()) {
+                Iterator<Integer> it = w.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = true;

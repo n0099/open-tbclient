@@ -5,12 +5,12 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class b implements d {
     @Override // com.baidu.swan.pms.node.d
-    public JSONArray aGX() {
+    public JSONArray aId() {
         return null;
     }
 
     @Override // com.baidu.swan.pms.node.d
-    public JSONObject aGY() {
+    public JSONObject aIe() {
         return null;
     }
 }

@@ -3,42 +3,40 @@ package com.baidu.ar.http;
 import com.baidu.ar.ihttp.HttpException;
 /* loaded from: classes3.dex */
 class a implements l {
-
-    /* renamed from: pl  reason: collision with root package name */
-    private com.baidu.ar.ihttp.a f974pl;
-    private HttpException pm;
+    private com.baidu.ar.ihttp.a pK;
+    private HttpException pL;
     private Object mLock = new Object();
-    private volatile boolean pn = false;
+    private volatile boolean pM = false;
 
     public a(HttpException httpException, com.baidu.ar.ihttp.a aVar) {
-        this.pm = httpException;
-        this.f974pl = aVar;
+        this.pL = httpException;
+        this.pK = aVar;
     }
 
     @Override // com.baidu.ar.http.l
     public void cancel() {
-        if (this.pn) {
+        if (this.pM) {
             return;
         }
         synchronized (this.mLock) {
             Boolean bool = true;
-            this.pn = bool.booleanValue();
+            this.pM = bool.booleanValue();
         }
     }
 
     @Override // com.baidu.ar.http.l
-    public i di() {
+    public i dy() {
         return null;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         synchronized (this.mLock) {
-            if (this.pn) {
+            if (this.pM) {
                 return;
             }
-            if (this.f974pl != null) {
-                this.f974pl.a(this.pm);
+            if (this.pK != null) {
+                this.pK.a(this.pL);
             }
         }
     }

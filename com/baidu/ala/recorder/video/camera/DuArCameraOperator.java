@@ -253,7 +253,7 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
                 GLES20.glClear(16384);
                 GLES20.glViewport(0, 0, this.mEncodeHeight, this.mEncodeWidth);
                 this.mFullScreen.drawFrame(this.mOffscreenTexture, fArr, null);
-                eglSurfaceBase.setPresentationTime(this.mCameraTexture.getTimestamp());
+                eglSurfaceBase.setPresentationTime(j);
                 eglSurfaceBase.swapBuffers();
             } catch (Exception e) {
                 try {
@@ -413,9 +413,9 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
             isSetupConfig = true;
             DuArConfig instance = DuArConfig.instance();
             b.a(this.mActivityReference.get().getApplicationContext(), instance.appId, instance.apiKey, instance.secretKey, new c(instance.getDuArSourcePath()));
-            if (b.LQ() != null) {
-                b.LQ();
-                FILTER_DEFAULT = c.LT();
+            if (b.MZ() != null) {
+                b.MZ();
+                FILTER_DEFAULT = c.Ne();
             }
         }
     }
@@ -437,7 +437,9 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
                                 DuArCameraOperator.this.mARProcessor.setBeautyValue(BeautyType.lutIntensity, DuArCameraOperator.this.mFilterLevel);
                             }
                             if (!DuArCameraOperator.this.mBeautyParams.isEmpty()) {
-                                DuArCameraOperator.this.mARProcessor.setBeautyValues(BeautyDataManager.getInstance().convertParams(DuArCameraOperator.this.mBeautyParams));
+                                ConcurrentHashMap<BeautyType, Object> convertParams = BeautyDataManager.getInstance().convertParams(DuArCameraOperator.this.mBeautyParams);
+                                DuArCameraOperator.this.d("ar->setBeautyValues:" + (convertParams != null ? convertParams.toString() : null));
+                                DuArCameraOperator.this.mARProcessor.setBeautyValues(convertParams);
                             }
                             DuArCameraOperator.this.hasProcessFirstFrame = true;
                             DuArCameraOperator.access$310(DuArCameraOperator.this);
@@ -455,7 +457,7 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
                             DuArCameraOperator.this.setBeautyJsonPath(DuArCameraOperator.this.mFaceFilePath);
                         }
                         if (DuArCameraOperator.this.mARProcessor != null) {
-                            DuArCameraOperator.this.mARProcessor.setAccurateSmooth(true);
+                            DuArCameraOperator.this.mARProcessor.setQulaityParm(b.Na());
                         }
                     }
                 });
@@ -971,6 +973,7 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
         if (this.mARProcessor != null && this.hasProcessFirstFrame) {
             this.mARProcessor.setBeautyValues(BeautyDataManager.getInstance().convertParams(concurrentHashMap));
         }
+        d(new StringBuilder().append("------DuAr setBeautyParams: ").append(concurrentHashMap).toString() != null ? concurrentHashMap.toString() : null);
         this.mBeautyParams.putAll(concurrentHashMap);
     }
 

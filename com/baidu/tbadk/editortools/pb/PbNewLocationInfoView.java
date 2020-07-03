@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class PbNewLocationInfoView extends TextView {
@@ -46,9 +45,5 @@ public class PbNewLocationInfoView extends TextView {
 
     public int getState() {
         return this.mState;
-    }
-
-    public void onChangeSkinType() {
-        setTextColor(am.getColor(R.color.cp_cont_f));
     }
 }

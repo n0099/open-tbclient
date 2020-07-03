@@ -8,7 +8,7 @@ import java.io.File;
 @TargetApi(14)
 /* loaded from: classes3.dex */
 public class c {
-    private static File bsq() {
+    private static File bvl() {
         File file = new File(BdBaseApplication.getInst().getFilesDir(), "duar");
         if (!file.exists()) {
             file.mkdirs();
@@ -16,7 +16,7 @@ public class c {
         return file;
     }
 
-    private static File bsr() {
+    private static File bvm() {
         File file = new File(Environment.getExternalStorageState().equals("mounted") ? BdBaseApplication.getInst().getExternalFilesDir(null) : null, "duar");
         if (!file.exists()) {
             file.mkdirs();
@@ -24,35 +24,35 @@ public class c {
         return file;
     }
 
-    public static File bss() {
-        File file = new File(bsq(), "ar-solibs");
+    public static File bvn() {
+        File file = new File(bvl(), "ar-solibs");
         if (!file.exists()) {
             file.mkdirs();
         }
         return file;
     }
 
-    public static File bst() {
-        File file = new File(bsr(), "ar-resource");
+    public static File bvo() {
+        File file = new File(bvm(), "ar-resource");
         if (!file.exists()) {
             file.mkdirs();
         }
         return file;
     }
 
-    public static d Ba(String str) {
-        return d.dA("4.5-v1", str);
+    public static d By(String str) {
+        return d.dE("4.6", str);
     }
 
-    public static boolean ew(Context context) {
-        d Ba = Ba("so");
-        if (Ba == null) {
+    public static boolean ex(Context context) {
+        d By = By("so");
+        if (By == null) {
             return false;
         }
-        if (com.baidu.tieba.ala.a.a.a.f.j(context, Ba.bsu())) {
+        if (com.baidu.tieba.ala.a.a.a.f.j(context, By.bvp())) {
             return true;
         }
-        com.baidu.tieba.ala.a.a.a.f.i(context, Ba.bsu());
-        return com.baidu.tieba.ala.a.a.a.f.j(context, Ba.bsu());
+        com.baidu.tieba.ala.a.a.a.f.i(context, By.bvp());
+        return com.baidu.tieba.ala.a.a.a.f.j(context, By.bvp());
     }
 }

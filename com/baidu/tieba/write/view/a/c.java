@@ -5,20 +5,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import com.baidu.adp.base.e;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.core.view.HorizontalListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.write.write.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c extends a {
-    private HorizontalListView lFc;
-    private d lXy;
+    private HorizontalListView lYO;
     private View mRootView;
+    private d mrV;
 
     public void a(com.baidu.tieba.write.write.c cVar) {
-        this.lXy.b(cVar);
+        this.mrV.b(cVar);
     }
 
     public c(e eVar) {
@@ -28,9 +28,9 @@ public class c extends a {
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(R.layout.pic_sticker_view, (ViewGroup) null);
-        this.lFc = (HorizontalListView) this.mRootView.findViewById(R.id.horizontal_list);
-        this.lXy = new d();
-        this.lFc.setAdapter((ListAdapter) this.lXy);
+        this.lYO = (HorizontalListView) this.mRootView.findViewById(R.id.horizontal_list);
+        this.mrV = new d();
+        this.lYO.setAdapter((ListAdapter) this.mrV);
     }
 
     public View getRootView() {
@@ -38,18 +38,18 @@ public class c extends a {
     }
 
     public void onChangeSkinType() {
-        am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        bva();
+        an.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
+        bxV();
     }
 
-    public void eX(List<String> list) {
-        if (!v.isEmpty(list)) {
-            this.lXy.setData(list);
-            this.lXy.notifyDataSetChanged();
+    public void fk(List<String> list) {
+        if (!w.isEmpty(list)) {
+            this.mrV.setData(list);
+            this.mrV.notifyDataSetChanged();
         }
     }
 
-    public void bva() {
-        this.lXy.notifyDataSetChanged();
+    public void bxV() {
+        this.mrV.notifyDataSetChanged();
     }
 }

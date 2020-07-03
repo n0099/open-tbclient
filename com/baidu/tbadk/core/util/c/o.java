@@ -1,61 +1,100 @@
 package com.baidu.tbadk.core.util.c;
 
 import android.graphics.Bitmap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
-public class o extends a {
-    private int procType;
+public class o implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a> {
+    private int width = 0;
+    private int height = 0;
 
-    public o(int i) {
-        this.procType = i;
+    public o() {
+        aXo();
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int getWidth() {
-        return 0;
+    private void aXo() {
+        this.width = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
+        this.height = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int getHeight() {
-        return 0;
-    }
-
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean isFromCDN() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aVo() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aVp() {
-        return false;
+    @Override // com.baidu.adp.lib.e.e
+    public boolean lq() {
+        return true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.e.e
+    @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.ImageView.a yv = com.baidu.tbadk.imageManager.c.beu().yv(str3);
-        if (yv == null) {
-            Bitmap bitmap = am.getBitmap(com.baidu.adp.lib.f.b.toInt(str2, 0));
-            if (bitmap == null) {
-                return null;
-            }
-            com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(bitmap, false, str2);
-            com.baidu.tbadk.imageManager.c.beu().c(str3, aVar);
-            return aVar;
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(q(str, i, i2), com.baidu.tbadk.imageManager.c.bgz().yO(q(str, i, i2)), i, i2);
+        if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.getRawBitmap() == null || checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
+            return null;
         }
-        return yv;
+        return checkIsValidPicMemoryCache;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int aVq() {
-        return this.procType;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.e
+    /* renamed from: b */
+    public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, com.baidu.adp.lib.e.a aVar, Object... objArr) {
+        if (StringUtils.isNull(str)) {
+            return null;
+        }
+        return p(str, i, i2);
+    }
+
+    @Override // com.baidu.adp.lib.e.e
+    public void a(String str, Object obj, int i, int i2, Object... objArr) {
+        if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a) && ((com.baidu.adp.widget.ImageView.a) obj).isNeedCache()) {
+            com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
+            aVar.aB(i);
+            aVar.aC(i2);
+            com.baidu.tbadk.imageManager.c.bgz().c(q(str, i, i2), aVar);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.e
+    /* renamed from: b */
+    public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, com.baidu.adp.lib.e.a aVar, Object... objArr) {
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.e.e
+    public BdAsyncTaskParallel lr() {
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.e.e
+    public int ls() {
+        return 1;
+    }
+
+    public com.baidu.adp.widget.ImageView.a p(String str, int i, int i2) {
+        Bitmap loadResizedBitmap;
+        try {
+            if (str.toLowerCase().endsWith(".gif")) {
+                return new com.baidu.adp.widget.ImageView.a(BitmapHelper.loadBitmap(str), true, str);
+            }
+            if (i > 0 && i2 > 0 && i < this.width && i2 < this.height) {
+                loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, i, i2);
+            } else {
+                loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, this.width, this.height);
+            }
+            return new com.baidu.adp.widget.ImageView.a(loadResizedBitmap, false, str);
+        } catch (Throwable th) {
+            return null;
+        }
+    }
+
+    public String q(String str, int i, int i2) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("localimage_");
+        sb.append(str);
+        sb.append(':').append("w=").append(i).append("&h=").append(i2);
+        return sb.toString();
     }
 }

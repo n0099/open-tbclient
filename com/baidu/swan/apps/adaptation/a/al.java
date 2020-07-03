@@ -3,11 +3,11 @@ package com.baidu.swan.apps.adaptation.a;
 import android.content.Context;
 /* loaded from: classes11.dex */
 public interface al {
-    void Su();
+    void TA();
 
-    al Sv();
+    al TB();
 
-    void Sw();
+    void TC();
 
     void a(com.baidu.swan.apps.media.c.c cVar, Context context);
 

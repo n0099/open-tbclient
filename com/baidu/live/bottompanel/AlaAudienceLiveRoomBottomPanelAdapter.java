@@ -9,27 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
-    private d ath;
+    private d avj;
     private int mSkinType = 0;
     private int mPrimaryPosition = -1;
-    private final List<d> atg = new ArrayList();
+    private final List<d> avi = new ArrayList();
 
     public void setData(List<d> list) {
-        this.atg.clear();
+        this.avi.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.atg.addAll(list);
+            this.avi.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.atg.size();
+        return this.avi.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        d dVar = (d) ListUtils.getItem(this.atg, i);
+        d dVar = (d) ListUtils.getItem(this.avi, i);
         if (dVar != null && dVar.getPanelView() != null) {
             View panelView = dVar.getPanelView();
             if (panelView.getParent() != null) {
@@ -52,12 +52,12 @@ public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
             this.mPrimaryPosition = i;
             if (obj instanceof d) {
                 d dVar = (d) obj;
-                if (this.ath != viewGroup) {
-                    if (this.ath != null) {
-                        this.ath.enterBackground();
+                if (this.avj != viewGroup) {
+                    if (this.avj != null) {
+                        this.avj.enterBackground();
                     }
                     dVar.enterForeground();
-                    this.ath = dVar;
+                    this.avj = dVar;
                 }
             }
         }
@@ -68,9 +68,9 @@ public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
         return (obj instanceof d) && ((d) obj).getPanelView() == view;
     }
 
-    public void vg() {
-        if (this.ath != null) {
-            this.ath.enterForeground();
+    public void vB() {
+        if (this.avj != null) {
+            this.avj.enterForeground();
         }
     }
 

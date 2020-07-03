@@ -9,10 +9,10 @@ import org.json.JSONObject;
 public class b extends EventTargetImpl {
     public b(com.baidu.swan.games.f.b bVar) {
         super(bVar);
-        d.axh().a(this);
+        d.ayn().a(this);
     }
 
-    public void Y(int i, String str) throws JSONException {
+    public void aa(int i, String str) throws JSONException {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("state", i);
         jSONObject.put("msg", str);

@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes9.dex */
 public class UniversityEvaluationActivityStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921459, new CustomMessageTask.CustomRunnable<IntentConfig>() { // from class: com.baidu.tieba.frs.examination.UniversityEvaluationActivityStatic.1
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921460, new CustomMessageTask.CustomRunnable<IntentConfig>() { // from class: com.baidu.tieba.frs.examination.UniversityEvaluationActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {

@@ -27,7 +27,6 @@ import com.baidu.sofire.e;
 import com.baidu.sofire.i.m;
 import com.baidu.sofire.i.o;
 import com.baidu.sofire.jni.Asc;
-import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import com.baidu.webkit.internal.ABTestConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
@@ -186,7 +185,7 @@ public class U extends Thread {
             synchronized (U.class) {
                 super.run();
                 handleThreadStart();
-                if (this.mFrom == 1 || this.mFrom == 2 || this.mFrom == 3 || this.mOut || System.currentTimeMillis() - sLastCheckTime >= KeepJobService.JOB_CHECK_PERIODIC) {
+                if (this.mFrom == 1 || this.mFrom == 2 || this.mFrom == 3 || this.mOut || System.currentTimeMillis() - sLastCheckTime >= 600000) {
                     if (com.baidu.sofire.i.d.f(this.context)) {
                         sLastCheckTime = System.currentTimeMillis();
                     }
@@ -207,7 +206,7 @@ public class U extends Thread {
                         intent.putExtra("target_method", "handleWork");
                         intent.putExtra("from", 6);
                         PendingIntent service = PendingIntent.getService(context, 1000, intent, 134217728);
-                        long currentTimeMillis = ((System.currentTimeMillis() + u) - KeepJobService.JOB_CHECK_PERIODIC) + ((long) (1200000.0d * Math.random()));
+                        long currentTimeMillis = ((System.currentTimeMillis() + u) - 600000) + ((long) (1200000.0d * Math.random()));
                         eVar.c.putLong("npuct", currentTimeMillis);
                         eVar.c.commit();
                         new StringBuilder("b=false,").append(currentTimeMillis).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(u).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(System.currentTimeMillis());

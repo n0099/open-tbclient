@@ -7,47 +7,47 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 /* loaded from: classes11.dex */
 public abstract class a implements d {
-    private static final ReadWriteLock cGR = new ReentrantReadWriteLock();
-    private File mRecordFile = arG();
+    private static final ReadWriteLock cLB = new ReentrantReadWriteLock();
+    private File mRecordFile = asN();
     private final long MAX_SIZE = getMaxSize();
 
     @NonNull
-    public abstract String arH();
+    public abstract String asO();
 
     @Override // com.baidu.swan.apps.storage.b.d
     public void br(long j) {
-        cGR.writeLock().lock();
+        cLB.writeLock().lock();
         try {
             if (this.mRecordFile == null) {
-                this.mRecordFile = arG();
+                this.mRecordFile = asN();
             }
             File file = this.mRecordFile;
             if (!file.exists()) {
                 file.createNewFile();
             }
-            com.baidu.swan.e.d.saveFileCommon(String.valueOf(arF() + j).getBytes(), file);
+            com.baidu.swan.e.d.saveFileCommon(String.valueOf(asM() + j).getBytes(), file);
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
         } finally {
-            cGR.writeLock().unlock();
+            cLB.writeLock().unlock();
         }
     }
 
     @Override // com.baidu.swan.apps.storage.b.d
     public boolean bs(long j) {
-        cGR.readLock().lock();
+        cLB.readLock().lock();
         try {
-            return arF() + j > this.MAX_SIZE;
+            return asM() + j > this.MAX_SIZE;
         } finally {
-            cGR.readLock().unlock();
+            cLB.readLock().unlock();
         }
     }
 
-    private long arF() {
+    private long asM() {
         if (this.mRecordFile == null) {
-            this.mRecordFile = arG();
+            this.mRecordFile = asN();
         }
         File file = this.mRecordFile;
         if (file.exists() && file.isFile()) {
@@ -68,7 +68,7 @@ public abstract class a implements d {
         return 0L;
     }
 
-    private File arG() {
-        return new File(arH() + File.separator + "record.pro");
+    private File asN() {
+        return new File(asO() + File.separator + "record.pro");
     }
 }

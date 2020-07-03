@@ -30,8 +30,8 @@ public final class e {
 
     private static void a(ViewGroup.MarginLayoutParams marginLayoutParams, int[] iArr) {
         if (iArr != null && iArr.length == 4) {
-            Context Nt = com.baidu.prologue.a.b.a.bzx.get().Nt();
-            marginLayoutParams.setMargins(l.dip2px(Nt, iArr[0]), l.dip2px(Nt, iArr[1]), l.dip2px(Nt, iArr[2]), l.dip2px(Nt, iArr[3]));
+            Context Oz = com.baidu.prologue.a.b.a.bEl.get().Oz();
+            marginLayoutParams.setMargins(l.dip2px(Oz, iArr[0]), l.dip2px(Oz, iArr[1]), l.dip2px(Oz, iArr[2]), l.dip2px(Oz, iArr[3]));
         }
     }
 
@@ -49,10 +49,10 @@ public final class e {
 
     private static void a(RelativeLayout.LayoutParams layoutParams, JSONObject jSONObject) {
         if (jSONObject != null) {
-            int Y = SplashStyleRecorder.Y(jSONObject);
-            int[] Z = SplashStyleRecorder.Z(jSONObject);
-            a(layoutParams, Y);
-            a(layoutParams, Z);
+            int af = SplashStyleRecorder.af(jSONObject);
+            int[] ag = SplashStyleRecorder.ag(jSONObject);
+            a(layoutParams, af);
+            a(layoutParams, ag);
         }
     }
 }

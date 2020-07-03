@@ -6,15 +6,15 @@ import kotlin.collections.ae;
 /* loaded from: classes7.dex */
 public final class j extends ae {
     private boolean hasNext;
-    private final long nuD;
-    private final long nuF;
-    private long nuG;
+    private final long nQp;
+    private final long nQr;
+    private long nQs;
 
     public j(long j, long j2, long j3) {
         boolean z = true;
-        this.nuD = j3;
-        this.nuF = j2;
-        if (this.nuD > 0) {
+        this.nQp = j3;
+        this.nQr = j2;
+        if (this.nQp > 0) {
             if (j > j2) {
                 z = false;
             }
@@ -22,7 +22,7 @@ public final class j extends ae {
             z = false;
         }
         this.hasNext = z;
-        this.nuG = this.hasNext ? j : this.nuF;
+        this.nQs = this.hasNext ? j : this.nQr;
     }
 
     @Override // java.util.Iterator
@@ -32,14 +32,14 @@ public final class j extends ae {
 
     @Override // kotlin.collections.ae
     public long nextLong() {
-        long j = this.nuG;
-        if (j == this.nuF) {
+        long j = this.nQs;
+        if (j == this.nQr) {
             if (!this.hasNext) {
                 throw new NoSuchElementException();
             }
             this.hasNext = false;
         } else {
-            this.nuG += this.nuD;
+            this.nQs += this.nQp;
         }
         return j;
     }

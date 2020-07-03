@@ -10,12 +10,12 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0228a {
+    public static class C0234a {
         static final a a = new a();
     }
 
     public static a a() {
-        return C0228a.a;
+        return C0234a.a;
     }
 
     private a() {

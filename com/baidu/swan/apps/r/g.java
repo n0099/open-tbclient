@@ -13,9 +13,9 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes11.dex */
 public class g extends m {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Map<String, a> cgv = new HashMap();
-    public final com.baidu.swan.apps.v.b.a.c cgw = new c.a();
-    private final com.baidu.swan.apps.v.b.a.c cgx = new c.a();
+    private final Map<String, a> clj = new HashMap();
+    public final com.baidu.swan.apps.v.b.a.c clk = new c.a();
+    private final com.baidu.swan.apps.v.b.a.c cll = new c.a();
 
     public g a(a... aVarArr) {
         com.baidu.swan.apps.aq.e.a.a(new com.baidu.swan.apps.aq.e.b<a>() { // from class: com.baidu.swan.apps.r.g.1
@@ -24,21 +24,21 @@ public class g extends m {
             /* renamed from: a */
             public void H(a aVar) {
                 aVar.b(g.this);
-                g.this.cgv.put(aVar.id, aVar);
+                g.this.clj.put(aVar.id, aVar);
             }
         }, aVarArr);
         return this;
     }
 
     public g B(Bundle bundle) {
-        this.cgw.E(bundle);
+        this.clk.E(bundle);
         return this;
     }
 
     public synchronized g a(ReadableByteChannel readableByteChannel) {
         long currentTimeMillis = System.currentTimeMillis();
-        this.cgx.ahi();
-        final com.baidu.swan.apps.aq.b.a X = new com.baidu.swan.apps.aq.b.a().hL(32768).a(30L, TimeUnit.SECONDS).X(this.cgw.toBundle());
+        this.cll.aio();
+        final com.baidu.swan.apps.aq.b.a X = new com.baidu.swan.apps.aq.b.a().hW(32768).a(30L, TimeUnit.SECONDS).X(this.clk.toBundle());
         X.t(new com.baidu.swan.apps.aq.e.b<String>() { // from class: com.baidu.swan.apps.r.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.aq.e.b
@@ -47,11 +47,11 @@ public class g extends m {
                 if ("on_progress".equals(str)) {
                     g.this.i((i.a) new i.a("installer_on_progress").d(" event_params_installer_progress", X.getProgress()));
                 } else if ("pump_finish".equals(str)) {
-                    g.this.ns("installer_on_pump_finish");
+                    g.this.nA("installer_on_pump_finish");
                 } else if ("finish".equals(str)) {
-                    g.this.ns("installer_on_finish");
+                    g.this.nA("installer_on_finish");
                 } else if ("start".equals(str)) {
-                    g.this.ns("installer_on_start");
+                    g.this.nA("installer_on_start");
                 }
             }
         });
@@ -75,7 +75,7 @@ public class g extends m {
                 @Override // com.baidu.swan.apps.aq.e.b
                 /* renamed from: a */
                 public void H(a aVar) {
-                    aVar.aeM();
+                    aVar.afS();
                 }
             });
         }
@@ -83,7 +83,7 @@ public class g extends m {
     }
 
     public boolean isOk() {
-        if (this.cgv.isEmpty() || this.cgx.getBoolean("flag_is_ok", false)) {
+        if (this.clj.isEmpty() || this.cll.getBoolean("flag_is_ok", false)) {
             return true;
         }
         final boolean[] zArr = {true};
@@ -96,24 +96,24 @@ public class g extends m {
                 zArr2[0] = zArr2[0] & aVar.isOk();
             }
         });
-        this.cgx.N("flag_is_ok", zArr[0]);
+        this.cll.P("flag_is_ok", zArr[0]);
         return zArr[0];
     }
 
     private void h(com.baidu.swan.apps.aq.e.b<a> bVar) {
-        com.baidu.swan.apps.aq.e.a.a(bVar, this.cgv.values());
+        com.baidu.swan.apps.aq.e.a.a(bVar, this.clj.values());
     }
 
     private void log(String str) {
         if (DEBUG) {
-            com.baidu.swan.apps.v.c.a.lk(this.cgw.getString("launch_id", "")).ll(str).ln("SwanInstaller");
+            com.baidu.swan.apps.v.c.a.ls(this.clk.getString("launch_id", "")).lt(str).lv("SwanInstaller");
             Log.i("SwanInstaller", str);
         }
     }
 
     /* loaded from: classes11.dex */
     public static abstract class a implements com.baidu.swan.apps.aq.e.b<Pipe.SourceChannel> {
-        private g cgB;
+        private g clp;
         final String id;
         private final Bundle mResult = new Bundle();
 
@@ -125,32 +125,32 @@ public class g extends m {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b(g gVar) {
-            this.cgB = gVar;
+            this.clp = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.aq.e.b
         /* renamed from: a */
         public void H(Pipe.SourceChannel sourceChannel) {
-            if (this.cgB != null && a(sourceChannel, this.cgB.cgw.toBundle())) {
-                aeN();
+            if (this.clp != null && a(sourceChannel, this.clp.clk.toBundle())) {
+                afT();
             }
         }
 
-        private void aeN() {
+        private void afT() {
             this.mResult.putBoolean("flag_is_ok", true);
         }
 
-        public Bundle aeO() {
+        public Bundle afU() {
             return this.mResult;
         }
 
         public boolean isOk() {
-            return aeO().getBoolean("flag_is_ok");
+            return afU().getBoolean("flag_is_ok");
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
-        public void aeM() {
+        public void afS() {
         }
 
         public String toString() {

@@ -3,35 +3,35 @@ package com.baidu.tieba.emotion.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes6.dex */
 public class b {
-    private int bfa;
-    private int bfc;
+    private int bkl;
+    private int bkm;
     private int column;
-    private int gNA;
-    private int gNB;
-    private com.baidu.tbadk.editortools.emotiontool.c gNC;
-    private int gND;
-    private int gNE;
-    private EmotionGroupType gNz;
+    private int haA;
+    private EmotionGroupType hav;
+    private int haw;
+    private int hax;
+    private com.baidu.tbadk.editortools.emotiontool.c hay;
+    private int haz;
     private int index;
     private int row;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.gNC = cVar;
+        this.hay = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c bNC() {
-        return this.gNC;
+    public com.baidu.tbadk.editortools.emotiontool.c bQH() {
+        return this.hay;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.gNz = emotionGroupType;
+        this.hav = emotionGroupType;
     }
 
-    public EmotionGroupType bND() {
-        return this.gNz;
+    public EmotionGroupType bQI() {
+        return this.hav;
     }
 
-    public void nq(int i) {
+    public void nK(int i) {
         this.row = i;
     }
 
@@ -43,44 +43,44 @@ public class b {
         this.column = i;
     }
 
-    public int bNE() {
+    public int bQJ() {
         return this.column;
     }
 
-    public void sE(int i) {
-        this.gNE = i;
+    public void tf(int i) {
+        this.haA = i;
     }
 
-    public int bNF() {
-        return this.gNE;
+    public int bQK() {
+        return this.haA;
     }
 
-    public void sF(int i) {
-        this.gND = i;
+    public void tg(int i) {
+        this.haz = i;
     }
 
-    public int bNG() {
-        return this.gND;
+    public int bQL() {
+        return this.haz;
     }
 
-    public void sG(int i) {
-        this.gNA = i;
+    public void th(int i) {
+        this.haw = i;
     }
 
-    public int bNH() {
-        return this.gNA;
+    public int bQM() {
+        return this.haw;
     }
 
-    public void sH(int i) {
-        this.bfa = i;
+    public void ti(int i) {
+        this.bkl = i;
     }
 
-    public int bNI() {
-        return this.bfa;
+    public int bQN() {
+        return this.bkl;
     }
 
-    public void sI(int i) {
-        this.bfc = i;
+    public void tj(int i) {
+        this.bkm = i;
     }
 
     public void setIndex(int i) {
@@ -91,11 +91,11 @@ public class b {
         return this.index;
     }
 
-    public void sJ(int i) {
-        this.gNB = i;
+    public void tk(int i) {
+        this.hax = i;
     }
 
-    public int bNJ() {
-        return this.gNB;
+    public int bQO() {
+        return this.hax;
     }
 }

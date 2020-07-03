@@ -18,7 +18,7 @@ public class g extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(final Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.runtime.e eVar) {
-        if (eVar != null && eVar.TU()) {
+        if (eVar != null && eVar.Va()) {
             if (DEBUG) {
                 Log.d("LoginAction", "LoginAction does not supported when app is invisible.");
             }
@@ -42,7 +42,7 @@ public class g extends aa {
                 com.baidu.swan.games.v.c.e(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
                 com.baidu.swan.apps.api.module.a.b.a(eVar, 1, 201, "empty cb");
                 return false;
-            } else if (!optParamsAsJo.optBoolean("force", true) && !eVar.aoS().isLogin(context)) {
+            } else if (!optParamsAsJo.optBoolean("force", true) && !eVar.apZ().isLogin(context)) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
                 com.baidu.swan.games.v.c.e(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
@@ -52,14 +52,14 @@ public class g extends aa {
                 Activity activity = (Activity) context;
                 String optString2 = optParamsAsJo.optString("__plugin__", null);
                 if (!TextUtils.isEmpty(optString2)) {
-                    com.baidu.swan.apps.setting.b.a.a(activity, "snsapi_userinfo", com.baidu.swan.apps.ae.g.b.mO(optString2), false, new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.setting.a.g.1
+                    com.baidu.swan.apps.setting.b.a.a(activity, "snsapi_userinfo", com.baidu.swan.apps.ae.g.b.mW(optString2), false, new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.setting.a.g.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.swan.apps.aq.e.b
                         /* renamed from: a */
                         public void H(com.baidu.swan.apps.setting.b.a aVar) {
                             if (aVar == null) {
                                 callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(403, "permission denied").toString());
-                            } else if (aVar.aqP()) {
+                            } else if (aVar.arV()) {
                                 com.baidu.swan.apps.api.module.a.b.a(eVar, (Activity) context, optParamsAsJo, callbackHandler, optString);
                             } else {
                                 callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(403, "permission denied").toString());

@@ -8,17 +8,17 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.gift.a.c;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.log.LogManager;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaGiftGraffitiShowView extends LinearLayout {
-    private c aLN;
-    private AlaGraffitiGiftInfoView aLO;
-    private FrameLayout aLP;
-    private int aLQ;
-    private int aLR;
+    private c aOt;
+    private AlaGraffitiGiftInfoView aOu;
+    private FrameLayout aOv;
+    private int aOw;
+    private int aOx;
 
     public AlaGiftGraffitiShowView(Context context) {
         super(context);
@@ -37,12 +37,12 @@ public class AlaGiftGraffitiShowView extends LinearLayout {
 
     private void init() {
         View.inflate(getContext(), a.h.ala_gift_graffiti_show_layout, this);
-        this.aLO = (AlaGraffitiGiftInfoView) findViewById(a.g.ala_gift_graffiti_info);
-        this.aLO.setBackgroundResource(a.f.ala_small_gift_bg_alpha_shape);
-        this.aLP = (FrameLayout) findViewById(a.g.ala_gift_graffiti_show_container);
+        this.aOu = (AlaGraffitiGiftInfoView) findViewById(a.g.ala_gift_graffiti_info);
+        this.aOu.setBackgroundResource(a.f.ala_small_gift_bg_alpha_shape);
+        this.aOv = (FrameLayout) findViewById(a.g.ala_gift_graffiti_show_container);
         int dip2px = BdUtilHelper.dip2px(getContext(), 32.0f);
-        this.aLR = dip2px;
-        this.aLQ = dip2px;
+        this.aOx = dip2px;
+        this.aOw = dip2px;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -51,48 +51,48 @@ public class AlaGiftGraffitiShowView extends LinearLayout {
     }
 
     public void setGiftItem(c cVar) {
-        this.aLN = cVar;
-        if (this.aLN != null && this.aLN.aJC.aEq != null) {
-            this.aLO.setVisibility(0);
-            this.aLO.setGiftInfo(this.aLN.portrait, this.aLN.aJC.xo(), String.format(getResources().getString(a.i.ala_gift_graffiti_send_info), cVar.userName, Integer.valueOf(ListUtils.getCount(cVar.aJC.aEq.aFt))));
-            if (cVar.aJI) {
-                LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW, cVar.avv, cVar.avw, cVar.giftId, "");
+        this.aOt = cVar;
+        if (this.aOt != null && this.aOt.aMi.aGM != null) {
+            this.aOu.setVisibility(0);
+            this.aOu.setGiftInfo(this.aOt.portrait, this.aOt.aMi.getThumbnail_url(), String.format(getResources().getString(a.i.ala_gift_graffiti_send_info), cVar.userName, Integer.valueOf(ListUtils.getCount(cVar.aMi.aGM.aHP))));
+            if (cVar.aMo) {
+                LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW, cVar.axB, cVar.axC, cVar.giftId, "");
                 return;
             }
             return;
         }
-        this.aLO.setVisibility(4);
-        if (cVar.aJI) {
-            LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW_FAIL, cVar.avv, cVar.avw, cVar.giftId, "手绘信息为空");
+        this.aOu.setVisibility(4);
+        if (cVar.aMo) {
+            LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW_FAIL, cVar.axB, cVar.axC, cVar.giftId, "手绘信息为空");
         }
     }
 
     public void b(View view, int i, int i2, int i3, int i4) {
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.aLR, this.aLQ);
-        layoutParams.leftMargin = (i - (this.aLR / 2)) + i3;
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.aOx, this.aOw);
+        layoutParams.leftMargin = (i - (this.aOx / 2)) + i3;
         layoutParams.topMargin = i2 - i4;
-        this.aLP.addView(view, layoutParams);
+        this.aOv.addView(view, layoutParams);
     }
 
-    public void An() {
-        for (int childCount = this.aLP.getChildCount() - 1; childCount >= 0; childCount--) {
-            this.aLP.getChildAt(childCount).clearAnimation();
-            this.aLP.removeViewAt(childCount);
+    public void AN() {
+        for (int childCount = this.aOv.getChildCount() - 1; childCount >= 0; childCount--) {
+            this.aOv.getChildAt(childCount).clearAnimation();
+            this.aOv.removeViewAt(childCount);
         }
-        this.aLO.setVisibility(4);
+        this.aOu.setVisibility(4);
     }
 
     public View getInfoView() {
-        return this.aLO;
+        return this.aOu;
     }
 
     public void setOffsetY(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aLO.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aOu.getLayoutParams();
         layoutParams.topMargin = i;
         if (layoutParams.topMargin < 0) {
             layoutParams.topMargin = 0;
         }
-        this.aLO.setLayoutParams(layoutParams);
-        this.aLO.requestLayout();
+        this.aOu.setLayoutParams(layoutParams);
+        this.aOu.requestLayout();
     }
 }

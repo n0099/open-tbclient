@@ -22,15 +22,15 @@ public class a {
     }
 
     public static a a() {
-        return C0119a.a;
+        return C0121a.a;
     }
 
     /* renamed from: com.baidu.fsg.face.liveness.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C0119a {
+    private static class C0121a {
         private static a a = new a();
 
-        private C0119a() {
+        private C0121a() {
         }
     }
 

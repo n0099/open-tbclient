@@ -8,15 +8,15 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public class e implements a {
-    private Set<String> ccr;
+    private Set<String> chg;
 
     public e(@Nullable Set<String> set) {
-        this.ccr = set;
+        this.chg = set;
     }
 
     @Override // com.baidu.swan.apps.env.a.a
     @Nullable
-    public List<String> ab(@Nullable List<String> list) {
+    public List<String> af(@Nullable List<String> list) {
         if (list == null || list.size() == 0) {
             return null;
         }
@@ -29,7 +29,7 @@ public class e implements a {
                         Log.d("IDiskCleanStrategy", "过滤「智能小程序」");
                     }
                     it.remove();
-                } else if (this.ccr != null && this.ccr.contains(next)) {
+                } else if (this.chg != null && this.chg.contains(next)) {
                     if (DEBUG) {
                         Log.d("IDiskCleanStrategy", "过滤指定id: " + next);
                     }

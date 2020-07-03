@@ -6,7 +6,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.data.ax;
+import com.baidu.tbadk.core.data.bc;
 import com.baidu.tbadk.core.g;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tieba.R;
@@ -14,14 +14,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes9.dex */
 public class e {
-    private TbPageContext dIF;
+    private TbPageContext dPv;
 
     public e(TbPageContext tbPageContext) {
-        this.dIF = tbPageContext;
+        this.dPv = tbPageContext;
         MessageManager.getInstance().registerStickyMode(2921453);
     }
 
-    public boolean aj(Intent intent) {
+    public boolean ak(Intent intent) {
         return intent.getIntExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION, 0) == 1;
     }
 
@@ -30,30 +30,30 @@ public class e {
         if (intent != null) {
             String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
             if (!TextUtils.isEmpty(stringExtra)) {
-                String string = this.dIF.getString(R.string.des_page_home_recommend);
-                ax axVar = new ax();
+                String string = this.dPv.getString(R.string.des_page_home_recommend);
+                bc bcVar = new bc();
                 Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)").matcher(intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME));
                 if (matcher.find()) {
-                    axVar.tid = matcher.group(1);
+                    bcVar.tid = matcher.group(1);
                 }
                 if (stringExtra.equals(string)) {
-                    axVar.dDN = 1;
+                    bcVar.dKj = 1;
                 } else {
-                    axVar.dDN = 2;
-                    axVar.tabName = stringExtra;
+                    bcVar.dKj = 2;
+                    bcVar.tabName = stringExtra;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, axVar));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, bcVar));
                 if (stringExtra.equals(string)) {
                     intent.putExtra("sub_locate_type", 1);
                 } else {
                     intent.putExtra("sub_locate_type", stringExtra);
                     i = 1;
                 }
-                if (dVar != null && dVar.bWK() != null) {
-                    dVar.bWK().setCurrentTabByType(i);
-                    FragmentTabHost.b kY = dVar.bWK().kY(i);
-                    if (kY != null && (kY.mContentFragment instanceof g)) {
-                        ((g) kY.mContentFragment).z(intent);
+                if (dVar != null && dVar.bZU() != null) {
+                    dVar.bZU().setCurrentTabByType(i);
+                    FragmentTabHost.b lm = dVar.bZU().lm(i);
+                    if (lm != null && (lm.mContentFragment instanceof g)) {
+                        ((g) lm.mContentFragment).z(intent);
                     }
                 }
             }

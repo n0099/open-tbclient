@@ -12,7 +12,7 @@ import javax.annotation.concurrent.ThreadSafe;
 @d
 /* loaded from: classes12.dex */
 public class GifImage implements c, b {
-    private static volatile boolean mlo;
+    private static volatile boolean mHk;
     @d
     private long mNativeContext;
 
@@ -52,17 +52,17 @@ public class GifImage implements c, b {
     @d
     private native int nativeGetWidth();
 
-    private static synchronized void dtJ() {
+    private static synchronized void dym() {
         synchronized (GifImage.class) {
-            if (!mlo) {
-                mlo = true;
+            if (!mHk) {
+                mHk = true;
                 a.loadLibrary("gifimage");
             }
         }
     }
 
     public static GifImage x(long j, int i) {
-        dtJ();
+        dym();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
@@ -101,7 +101,7 @@ public class GifImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public int[] dtK() {
+    public int[] dyn() {
         return nativeGetFrameDurations();
     }
 
@@ -120,13 +120,13 @@ public class GifImage implements c, b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.b
-    /* renamed from: GH */
-    public GifFrame GK(int i) {
+    /* renamed from: HO */
+    public GifFrame HR(int i) {
         return nativeGetFrame(i);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean dtL() {
+    public boolean dyo() {
         return false;
     }
 
@@ -136,16 +136,16 @@ public class GifImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public AnimatedDrawableFrameInfo GI(int i) {
-        GifFrame GK = GK(i);
+    public AnimatedDrawableFrameInfo HP(int i) {
+        GifFrame HR = HR(i);
         try {
-            return new AnimatedDrawableFrameInfo(i, GK.getXOffset(), GK.getYOffset(), GK.getWidth(), GK.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, GJ(GK.dtI()));
+            return new AnimatedDrawableFrameInfo(i, HR.getXOffset(), HR.getYOffset(), HR.getWidth(), HR.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, HQ(HR.dyl()));
         } finally {
-            GK.dispose();
+            HR.dispose();
         }
     }
 
-    private static AnimatedDrawableFrameInfo.DisposalMethod GJ(int i) {
+    private static AnimatedDrawableFrameInfo.DisposalMethod HQ(int i) {
         if (i == 0) {
             return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
         }

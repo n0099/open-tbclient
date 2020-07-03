@@ -398,7 +398,7 @@ public class FUCameraOperator implements IFaceUnityOperator, ICameraOperator {
                 GLES20.glClear(16384);
                 GLES20.glViewport(0, 0, this.mEncodeHeight, this.mEncodeWidth);
                 this.mFullScreen.drawFrame(this.mOffscreenTexture, fArr, null);
-                eglSurfaceBase.setPresentationTime(this.mCameraTexture.getTimestamp());
+                eglSurfaceBase.setPresentationTime(j);
                 eglSurfaceBase.swapBuffers();
             } catch (Exception e) {
                 try {

@@ -4,28 +4,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class f extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.h> {
-    private TbImageView dRP;
-    private View kwx;
+    private TbImageView dYH;
+    private View kQu;
     private View mRootView;
 
     public f(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.dRP = (TbImageView) this.mRootView.findViewById(R.id.center_image);
-        this.kwx = this.mRootView.findViewById(R.id.more_view_container);
+        this.dYH = (TbImageView) this.mRootView.findViewById(R.id.center_image);
+        this.kQu = this.mRootView.findViewById(R.id.more_view_container);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            am.setImageResource(this.dRP, R.drawable.icon_mine_more);
-            am.setBackgroundResource(this.mRootView, R.drawable.btn_look_more_selector);
+            an.setImageResource(this.dYH, R.drawable.icon_mine_more);
+            an.setBackgroundResource(this.mRootView, R.drawable.btn_look_more_selector);
         }
     }
 
@@ -40,7 +40,7 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         if (hVar == null) {
             this.mRootView.setVisibility(8);
         }
-        ViewGroup.LayoutParams layoutParams = this.kwx.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.kQu.getLayoutParams();
         if (layoutParams != null) {
             if (layoutParams.width > 0) {
                 layoutParams.width = hVar.width;
@@ -49,7 +49,7 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
                 layoutParams.height = hVar.height;
             }
         }
-        this.kwx.setLayoutParams(layoutParams);
+        this.kQu.setLayoutParams(layoutParams);
         this.mRootView.setVisibility(0);
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

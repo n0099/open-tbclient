@@ -10,26 +10,26 @@ import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class HandAR extends c {
     private static final String TAG = HandAR.class.getSimpleName();
-    private AlgoHandleController bU = null;
-    private e lb;
-    private a oY;
+    private AlgoHandleController ch = null;
+    private e ly;
+    private a py;
 
     private void b(long j) {
-        if (this.bU == null || j <= 0) {
+        if (this.ch == null || j <= 0) {
             return;
         }
-        long handleType = this.bU.getHandleType(j);
-        if (this.oY == null || handleType != 19) {
+        long handleType = this.ch.getHandleType(j);
+        if (this.py == null || handleType != 19) {
             return;
         }
-        this.oY.b(j);
+        this.py.b(j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.ar.c
     public void a(long j) {
         super.a(j);
-        if (j <= 0 || this.bU == null || this.bU.getHandleType(j) != 19) {
+        if (j <= 0 || this.ch == null || this.ch.getHandleType(j) != 19) {
             return;
         }
         b(j);
@@ -37,14 +37,18 @@ public class HandAR extends c {
 
     @Override // com.baidu.ar.c
     public void release() {
-        if (this.oY != null) {
-            this.oY.a((AlgoHandleController) null);
-            this.oY.ai();
-            a(this.oY);
+        if (this.py != null) {
+            this.py.a((AlgoHandleController) null);
+            this.py.aw();
+            a(this.py);
         }
-        if (this.bU != null) {
-            this.bU.release();
-            this.bU = null;
+        if (this.ch != null) {
+            this.ch.release();
+            this.ch = null;
+        }
+        j r = r();
+        if (r != null) {
+            r.r(19);
         }
         super.release();
     }
@@ -52,32 +56,40 @@ public class HandAR extends c {
     @Override // com.baidu.ar.c
     public void setup(HashMap<String, Object> hashMap) {
         super.setup(hashMap);
-        if (this.bU == null) {
-            this.bU = new AlgoHandleController();
+        if (this.ch == null) {
+            this.ch = new AlgoHandleController();
         }
-        this.oY = new a();
-        this.oY.a(this.bU);
-        this.lb = new e() { // from class: com.baidu.ar.hand.HandAR.1
+        this.py = new a();
+        this.py.a(this.ch);
+        this.ly = new e() { // from class: com.baidu.ar.hand.HandAR.1
             @Override // com.baidu.ar.c.e
             public void a(com.baidu.ar.c.b bVar) {
-                long cn = bVar.cn();
+                long cF = bVar.cF();
                 j r = HandAR.this.r();
-                if (r == null || cn <= 0) {
+                if (r == null || cF <= 0) {
                     return;
                 }
-                r.a(cn, "ability_hand_skeleton");
+                r.a(cF, "ability_hand_skeleton");
+                HandAR.this.a(cF);
             }
 
             @Override // com.baidu.ar.c.e
             public void a(l lVar) {
+                com.baidu.ar.f.b.c(HandAR.TAG, "onSetup result = " + lVar.isSuccess());
+                j r = HandAR.this.r();
+                if (r == null || HandAR.this.py == null) {
+                    return;
+                }
+                r.a(lVar.cL(), HandAR.this.py.cK());
             }
 
             @Override // com.baidu.ar.c.e
             public void b(l lVar) {
+                com.baidu.ar.f.b.c(HandAR.TAG, "onRelease result = " + lVar.isSuccess());
             }
         };
-        a(this.oY, this.lb);
-        com.baidu.ar.b.a.ac().a(getContext(), getMdlConfigs());
-        this.oY.c((Bundle) null);
+        a(this.py, this.ly);
+        com.baidu.ar.b.a.aq().a(getContext(), getMdlConfigs());
+        this.py.c((Bundle) null);
     }
 }

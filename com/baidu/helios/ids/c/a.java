@@ -21,22 +21,22 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.helios.ids.a {
-    private a.C0141a ara;
-    private b aro;
-    private C0148a arp;
+    private b asH;
+    private C0150a asI;
+    private a.C0143a ast;
     private List<a.c<String>> i;
 
     /* renamed from: com.baidu.helios.ids.c.a$2  reason: invalid class name */
     /* loaded from: classes6.dex */
     class AnonymousClass2 implements Runnable {
         final /* synthetic */ Handler a;
-        final /* synthetic */ C0148a art;
+        final /* synthetic */ C0150a asM;
         final /* synthetic */ Context b;
 
-        AnonymousClass2(Handler handler, Context context, C0148a c0148a) {
+        AnonymousClass2(Handler handler, Context context, C0150a c0150a) {
             this.a = handler;
             this.b = context;
-            this.art = c0148a;
+            this.asM = c0150a;
         }
 
         @Override // java.lang.Runnable
@@ -50,58 +50,58 @@ public class a extends com.baidu.helios.ids.a {
                         final String oaid = idSupplier.getOAID();
                         AnonymousClass2.this.a.removeMessages(0);
                         final long elapsedRealtime2 = SystemClock.elapsedRealtime();
-                        AnonymousClass2.this.art.arz = a.this.aqQ.aoW.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.2.1.1
+                        AnonymousClass2.this.asM.asS = a.this.asi.aqp.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.2.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                a.this.aro.c(elapsedRealtime2 - elapsedRealtime);
-                                a.this.aro.a(z ? 1L : 2L, 3L);
-                                a.this.aro.a(16L, 124L);
-                                a.this.aro.b(oaid);
+                                a.this.asH.c(elapsedRealtime2 - elapsedRealtime);
+                                a.this.asH.a(z ? 1L : 2L, 3L);
+                                a.this.asH.a(16L, 124L);
+                                a.this.asH.b(oaid);
                                 if (!TextUtils.isEmpty(oaid)) {
                                     try {
                                         String aa = com.baidu.helios.ids.a.aa("A10", new com.baidu.helios.common.b.a.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(oaid.getBytes("UTF-8")));
-                                        a.this.aro.a(aa);
-                                        a.this.aro.d(aa);
-                                        a.this.aro.a(32L, 124L);
+                                        a.this.asH.a(aa);
+                                        a.this.asH.d(aa);
+                                        a.this.asH.a(32L, 124L);
                                     } catch (Exception e) {
                                     }
                                 }
-                                a.this.aro.d();
-                                if (AnonymousClass2.this.art.d.get()) {
+                                a.this.asH.d();
+                                if (AnonymousClass2.this.asM.d.get()) {
                                     return;
                                 }
                                 a.this.a();
-                                AnonymousClass2.this.art.d.set(true);
+                                AnonymousClass2.this.asM.d.set(true);
                             }
                         });
                     }
                 });
-                this.art.ary = a.this.aqQ.aoW.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.2.2
+                this.asM.asR = a.this.asi.aqp.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.2.2
                     @Override // java.lang.Runnable
                     public void run() {
                         if (InitSdk == 1008612 || InitSdk == 1008611 || InitSdk == 1008615) {
-                            if (!AnonymousClass2.this.art.d.get()) {
-                                AnonymousClass2.this.art.d.set(true);
+                            if (!AnonymousClass2.this.asM.d.get()) {
+                                AnonymousClass2.this.asM.d.set(true);
                                 a.this.a();
                             }
                             AnonymousClass2.this.a.removeMessages(0);
                         }
-                        a.this.aro.a(InitSdk);
-                        a.this.aro.a(8L, 124L);
-                        a.this.aro.d();
+                        a.this.asH.a(InitSdk);
+                        a.this.asH.a(8L, 124L);
+                        a.this.asH.d();
                     }
                 });
             } catch (Throwable th) {
-                a.this.aqQ.aoW.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.2.3
+                a.this.asi.aqp.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.2.3
                     @Override // java.lang.Runnable
                     public void run() {
                         AnonymousClass2.this.a.removeMessages(0);
-                        a.this.aro.c(Log.getStackTraceString(th));
-                        a.this.aro.d();
-                        if (AnonymousClass2.this.art.d.get()) {
+                        a.this.asH.c(Log.getStackTraceString(th));
+                        a.this.asH.d();
+                        if (AnonymousClass2.this.asM.d.get()) {
                             return;
                         }
-                        AnonymousClass2.this.art.d.set(true);
+                        AnonymousClass2.this.asM.d.set(true);
                         a.this.a();
                     }
                 });
@@ -111,13 +111,13 @@ public class a extends com.baidu.helios.ids.a {
 
     /* renamed from: com.baidu.helios.ids.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0148a {
-        Future<?> arx;
-        Future<?> ary;
-        Future<?> arz;
+    public class C0150a {
+        Future<?> asQ;
+        Future<?> asR;
+        Future<?> asS;
         AtomicBoolean d = new AtomicBoolean(false);
 
-        public C0148a() {
+        public C0150a() {
         }
     }
 
@@ -132,8 +132,8 @@ public class a extends com.baidu.helios.ids.a {
         private long w;
         private String x;
         private boolean p = true;
-        private e arB = new e();
-        private ArrayList<String> arC = new ArrayList<>();
+        private e asU = new e();
+        private ArrayList<String> asV = new ArrayList<>();
 
         b() {
         }
@@ -144,18 +144,18 @@ public class a extends com.baidu.helios.ids.a {
                 jSONObject.put("form_id", this.r);
                 jSONObject.put("lst_fe_ts", this.o);
                 jSONObject.put("c_form_ver", 1);
-                jSONObject.put("flags", this.arB.up());
+                jSONObject.put("flags", this.asU.uH());
                 jSONObject.put("init_res", this.s);
                 jSONObject.put("acquire_ts_cost", this.w);
                 jSONObject.put("oid", this.x);
-                int size = this.arC.size();
+                int size = this.asV.size();
                 if (size > 0) {
                     int min = Math.min(size, 5);
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject.put("his_form_ids", jSONObject2);
                     jSONObject2.put("count", min);
                     for (int i = 0; i < min; i++) {
-                        jSONObject2.put("id_" + i, this.arC.get((size - min) + i));
+                        jSONObject2.put("id_" + i, this.asV.get((size - min) + i));
                     }
                 }
             } catch (Exception e) {
@@ -175,7 +175,7 @@ public class a extends com.baidu.helios.ids.a {
         }
 
         public void a(long j, long j2) {
-            if (this.arB.d(j, j2)) {
+            if (this.asU.d(j, j2)) {
                 this.p = true;
             }
         }
@@ -229,7 +229,7 @@ public class a extends com.baidu.helios.ids.a {
         }
 
         public boolean c() {
-            String q = a.this.ara.q("cache.dat", true);
+            String q = a.this.ast.q("cache.dat", true);
             if (TextUtils.isEmpty(q)) {
                 return false;
             }
@@ -238,21 +238,21 @@ public class a extends com.baidu.helios.ids.a {
                 this.r = jSONObject.optString("form_id");
                 this.o = jSONObject.getLong("lst_fe_ts");
                 this.v = jSONObject.getInt("c_form_ver");
-                this.arB.R(jSONObject.getLong("flags"));
+                this.asU.R(jSONObject.getLong("flags"));
                 this.s = jSONObject.optInt("init_res");
                 this.w = jSONObject.optLong("acquire_ts_cost");
                 this.x = jSONObject.optString("oid");
-                this.arC.clear();
+                this.asV.clear();
                 JSONObject optJSONObject = jSONObject.optJSONObject("his_form_ids");
                 if (optJSONObject != null) {
                     int i = optJSONObject.getInt("count");
                     for (int i2 = 0; i2 < i; i2++) {
                         String string = optJSONObject.getString("id_" + i2);
                         if (TextUtils.isEmpty(string)) {
-                            this.arC.clear();
+                            this.asV.clear();
                             return false;
                         }
-                        this.arC.add(string);
+                        this.asV.add(string);
                     }
                 }
                 return true;
@@ -262,17 +262,17 @@ public class a extends com.baidu.helios.ids.a {
         }
 
         public void d(String str) {
-            if (this.arC.contains(str)) {
+            if (this.asV.contains(str)) {
                 return;
             }
-            this.arC.add(str);
+            this.asV.add(str);
             this.p = true;
         }
 
         public boolean d() {
             if (this.p) {
                 try {
-                    a.this.ara.d("cache.dat", e().toString(), true);
+                    a.this.ast.d("cache.dat", e().toString(), true);
                     this.p = false;
                     return true;
                 } catch (Exception e) {
@@ -298,7 +298,7 @@ public class a extends com.baidu.helios.ids.a {
 
     public a() {
         super("oid");
-        this.aro = new b();
+        this.asH = new b();
         this.i = new ArrayList();
     }
 
@@ -313,56 +313,56 @@ public class a extends com.baidu.helios.ids.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(a.c<String> cVar) {
         Bundle bundle = new Bundle();
-        if (TextUtils.isEmpty(this.aro.a())) {
-            cVar.a(this.aro.s, null, bundle);
+        if (TextUtils.isEmpty(this.asH.a())) {
+            cVar.a(this.asH.s, null, bundle);
         } else {
-            cVar.a(this.aro.a(), bundle);
+            cVar.a(this.asH.a(), bundle);
         }
     }
 
     @Override // com.baidu.helios.ids.a
     public void a(a.b bVar) {
-        this.ara = this.aqP.eb(getName());
-        Context context = this.aqQ.applicationContext;
-        final C0148a c0148a = new C0148a();
-        this.arp = c0148a;
-        this.aro.c();
+        this.ast = this.ash.ed(getName());
+        Context context = this.asi.applicationContext;
+        final C0150a c0150a = new C0150a();
+        this.asI = c0150a;
+        this.asH.c();
         long currentTimeMillis = System.currentTimeMillis();
-        if (!bVar.aqU && Math.abs(currentTimeMillis - this.aro.b()) <= 604800000) {
-            c0148a.d.set(true);
+        if (!bVar.asn && Math.abs(currentTimeMillis - this.asH.b()) <= 604800000) {
+            c0150a.d.set(true);
             return;
         }
-        this.aro.b(currentTimeMillis);
-        this.aro.a(4L, 124L);
-        this.aro.c(0L);
-        this.aro.d();
-        c0148a.arx = this.aqQ.aoX.submit(new AnonymousClass2(new Handler(Looper.getMainLooper()) { // from class: com.baidu.helios.ids.c.a.1
+        this.asH.b(currentTimeMillis);
+        this.asH.a(4L, 124L);
+        this.asH.c(0L);
+        this.asH.d();
+        c0150a.asQ = this.asi.aqq.submit(new AnonymousClass2(new Handler(Looper.getMainLooper()) { // from class: com.baidu.helios.ids.c.a.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.what == 0) {
-                    a.this.aqQ.aoW.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.1.1
+                    a.this.asi.aqp.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (c0148a.d.get()) {
+                            if (c0150a.d.get()) {
                                 return;
                             }
-                            a.this.aro.a(64L, 124L);
-                            a.this.aro.d();
+                            a.this.asH.a(64L, 124L);
+                            a.this.asH.d();
                             a.this.a();
-                            c0148a.d.set(true);
+                            c0150a.d.set(true);
                         }
                     });
                 }
             }
-        }, context, c0148a));
+        }, context, c0150a));
     }
 
     @Override // com.baidu.helios.ids.a
     public void a(final a.c<String> cVar) {
-        this.aqQ.aoW.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.3
+        this.asi.aqp.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.arp.d.get()) {
+                if (a.this.asI.d.get()) {
                     a.this.b(cVar);
                 } else {
                     a.this.i.add(cVar);
@@ -372,7 +372,7 @@ public class a extends com.baidu.helios.ids.a {
     }
 
     @Override // com.baidu.helios.ids.a
-    public String ux() {
-        return this.aro.a();
+    public String uP() {
+        return this.asH.a();
     }
 }

@@ -3,10 +3,10 @@ package com.baidu.tieba.ala.personcenter.c;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes3.dex */
 public class k extends b {
-    public static final BdUniqueId goT = BdUniqueId.gen();
+    public static final BdUniqueId gBI = BdUniqueId.gen();
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return goT;
+        return gBI;
     }
 }

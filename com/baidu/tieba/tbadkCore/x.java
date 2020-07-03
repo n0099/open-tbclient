@@ -18,7 +18,7 @@ public class x {
             com.baidu.adp.lib.util.l.showToast(context, (int) R.string.download_error);
             return;
         }
-        File GetFile = com.baidu.tbadk.core.util.m.GetFile(str.replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk");
+        File GetFile = com.baidu.tbadk.core.util.n.GetFile(str.replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk");
         if (GetFile != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
@@ -36,11 +36,11 @@ public class x {
         }
     }
 
-    public static boolean ap(Activity activity) {
+    public static boolean aq(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean checkWriteExternalStorage = com.baidu.tbadk.core.util.ab.checkWriteExternalStorage(activity);
+        boolean checkWriteExternalStorage = com.baidu.tbadk.core.util.ac.checkWriteExternalStorage(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }

@@ -11,9 +11,9 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 /* loaded from: classes5.dex */
 public class b extends ScrollingMovementMethod {
-    private static Object nSA = new NoCopySpan.Concrete();
-    private static b nSz;
-    private boolean nSy = false;
+    private static b ooo;
+    private static Object oop = new NoCopySpan.Concrete();
+    private boolean oon = false;
 
     @Override // android.text.method.BaseMovementMethod, android.text.method.MovementMethod
     public boolean onKeyDown(TextView textView, Spannable spannable, int i, KeyEvent keyEvent) {
@@ -75,7 +75,7 @@ public class b extends ScrollingMovementMethod {
         int selectionEnd = Selection.getSelectionEnd(spannable);
         int min = Math.min(selectionStart, selectionEnd);
         int max = Math.max(selectionStart, selectionEnd);
-        if (min < 0 && spannable.getSpanStart(nSA) >= 0) {
+        if (min < 0 && spannable.getSpanStart(oop) >= 0) {
             max = spannable.length();
             min = max;
         }
@@ -145,7 +145,7 @@ public class b extends ScrollingMovementMethod {
     public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.nSy = false;
+            this.oon = false;
         }
         if (action == 1 || action == 0) {
             int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
@@ -157,7 +157,7 @@ public class b extends ScrollingMovementMethod {
             ClickableSpan[] clickableSpanArr = (ClickableSpan[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
             if (clickableSpanArr.length != 0) {
                 if (action == 1) {
-                    if (!this.nSy) {
+                    if (!this.oon) {
                         clickableSpanArr[0].onClick(textView);
                     }
                 } else if (action == 0) {
@@ -174,23 +174,23 @@ public class b extends ScrollingMovementMethod {
     @Override // android.text.method.BaseMovementMethod, android.text.method.MovementMethod
     public void initialize(TextView textView, Spannable spannable) {
         Selection.removeSelection(spannable);
-        spannable.removeSpan(nSA);
+        spannable.removeSpan(oop);
     }
 
     @Override // android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
     public void onTakeFocus(TextView textView, Spannable spannable, int i) {
         Selection.removeSelection(spannable);
         if ((i & 1) != 0) {
-            spannable.setSpan(nSA, 0, 0, 34);
+            spannable.setSpan(oop, 0, 0, 34);
         } else {
-            spannable.removeSpan(nSA);
+            spannable.removeSpan(oop);
         }
     }
 
-    public static b dSA() {
-        if (nSz == null) {
-            nSz = new b();
+    public static b dXg() {
+        if (ooo == null) {
+            ooo = new b();
         }
-        return nSz;
+        return ooo;
     }
 }

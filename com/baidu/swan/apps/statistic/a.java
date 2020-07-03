@@ -3,13 +3,13 @@ package com.baidu.swan.apps.statistic;
 import com.baidu.swan.ubc.Flow;
 /* loaded from: classes11.dex */
 public class a {
-    private final Flow cFO;
+    private final Flow cKy;
 
     public a(Flow flow) {
-        this.cFO = flow;
+        this.cKy = flow;
     }
 
-    public Flow arc() {
-        return this.cFO;
+    public Flow asi() {
+        return this.cKy;
     }
 }

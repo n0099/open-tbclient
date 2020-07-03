@@ -1,7 +1,7 @@
 package com.baidu.tieba.recapp.widget;
 /* loaded from: classes13.dex */
 public interface a {
-    void crv();
+    void aYi();
 
     void onChangeSkinType();
 

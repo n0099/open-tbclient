@@ -4,97 +4,106 @@ import android.app.Activity;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.ala.AlaLastLiveroomInfo;
 import com.baidu.live.view.web.g;
 /* loaded from: classes3.dex */
 public class a implements c {
-    private long aWv;
-    private boolean fAh;
-    private b fIm;
-    private long fIn;
-    private String fIo;
-    private CustomMessageListener flX;
+    private String aBT;
+    private String aBU;
+    private long aZe;
+    private boolean fLq;
+    private b fTv;
+    private long fTw;
+    private CustomMessageListener fxk;
     private Activity mActivity;
 
     public a(Activity activity) {
         this.mActivity = activity;
-        bsb();
+        buX();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void setHost(boolean z) {
-        this.fAh = z;
+        this.fLq = z;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
-    public void g(long j, String str) {
-        this.fIn = j;
-        this.fIo = str;
-        if (this.fIo == null) {
-            this.fIo = "";
+    public void e(long j, String str, String str2) {
+        this.fTw = j;
+        this.aBT = str;
+        if (this.aBT == null) {
+            this.aBT = "";
         }
+        this.aBU = str2;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void setLiveId(long j) {
-        this.aWv = j;
+        this.aZe = j;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void aA(String str, int i) {
-        this.fIm = new b(this.mActivity);
+        this.fTv = new b(this.mActivity);
         g gVar = new g();
-        gVar.u(this.mActivity).a(this.fIm).a(this.fIm.bsc().getSchemeCallback()).aB(this.fIn).fU(this.fIo).cv(this.fAh).aC(this.aWv);
-        com.baidu.live.view.web.a[] JF = gVar.JF();
-        for (com.baidu.live.view.web.a aVar : JF) {
-            this.fIm.bsc().addJavascriptInterface(aVar, aVar.getName());
+        AlaLastLiveroomInfo alaLastLiveroomInfo = new AlaLastLiveroomInfo();
+        alaLastLiveroomInfo.setLastLiveId(this.aZe);
+        alaLastLiveroomInfo.setLastAnchorUname(this.aBT);
+        alaLastLiveroomInfo.setLastAnchorUid(String.valueOf(this.fTw));
+        alaLastLiveroomInfo.setLastAnchorPortrait(this.aBU);
+        alaLastLiveroomInfo.setFrom(AlaLastLiveroomInfo.TYPE_FROM_HALF_WEBVIEW);
+        gVar.u(this.mActivity).b(this.fTv).a(this.fTv.Hf().getSchemeCallback()).aB(this.fTw).gc(this.aBT).cB(this.fLq).aC(this.aZe).a(alaLastLiveroomInfo);
+        com.baidu.live.view.web.a[] KO = gVar.KO();
+        for (com.baidu.live.view.web.a aVar : KO) {
+            this.fTv.Hf().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.fIm.aB(str, i);
+        this.fTv.aB(str, i);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void resume() {
-        if (this.fIm != null && this.fIm.isShowing() && this.fIm.bsc() != null) {
-            this.fIm.bsc().onResume();
+        if (this.fTv != null && this.fTv.isShowing() && this.fTv.Hf() != null) {
+            this.fTv.Hf().onResume();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void pause() {
-        if (this.fIm != null && this.fIm.isShowing() && this.fIm.bsc() != null) {
-            this.fIm.bsc().onPause();
+        if (this.fTv != null && this.fTv.isShowing() && this.fTv.Hf() != null) {
+            this.fTv.Hf().onPause();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
-    public void cu(int i) {
-        if (this.fIm != null && this.fIm.isShowing()) {
-            this.fIm.cu(i);
+    public void cA(int i) {
+        if (this.fTv != null && this.fTv.isShowing()) {
+            this.fTv.cA(i);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void release() {
-        this.fIn = 0L;
-        this.fIo = "";
-        MessageManager.getInstance().unRegisterListener(this.flX);
-        if (this.fIm != null) {
-            this.fIm.bsd();
-            if (this.fIm.bsc() != null) {
-                this.fIm.bsc().release();
+        this.fTw = 0L;
+        this.aBT = "";
+        MessageManager.getInstance().unRegisterListener(this.fxk);
+        if (this.fTv != null) {
+            this.fTv.buY();
+            if (this.fTv.Hf() != null) {
+                this.fTv.Hf().release();
             }
         }
     }
 
-    private void bsb() {
-        this.flX = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.a.a.1
+    private void buX() {
+        this.fxk = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (a.this.fIm != null && a.this.fIm.isShowing()) {
-                    a.this.fIm.dismiss();
+                if (a.this.fTv != null && a.this.fTv.isShowing()) {
+                    a.this.fTv.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.flX);
+        MessageManager.getInstance().registerListener(this.fxk);
     }
 }

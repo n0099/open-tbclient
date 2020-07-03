@@ -7,8 +7,8 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private String dlL;
-    private long dlM;
+    private String dqw;
+    private long dqx;
     private JSONObject mData;
     private int mErrorCode = -1;
     private String mErrorMessage;
@@ -37,24 +37,24 @@ public class c {
         this.mErrorMessage = str;
     }
 
-    public String aGm() {
-        return this.dlL;
+    public String aHs() {
+        return this.dqw;
     }
 
     public void setTipMessage(String str) {
-        this.dlL = str;
+        this.dqw = str;
     }
 
     public void bL(long j) {
-        this.dlM = j;
+        this.dqx = j;
     }
 
-    public static c tj(String str) {
+    public static c tr(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
-            return bZ(new JSONObject(str));
+            return cg(new JSONObject(str));
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -64,7 +64,7 @@ public class c {
         }
     }
 
-    public static c bZ(JSONObject jSONObject) {
+    public static c cg(JSONObject jSONObject) {
         c cVar = new c();
         cVar.setErrorCode(jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1));
         cVar.setErrorMessage(jSONObject.optString(BaseJsonData.TAG_ERRMSG));

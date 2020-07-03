@@ -1,33 +1,31 @@
 package com.baidu.ar.arrender;
 /* loaded from: classes3.dex */
 public class Texture {
-    private long eu;
-    private int in;
-
-    /* renamed from: io  reason: collision with root package name */
-    private int f972io = 3553;
+    private long eG;
+    private int iC;
+    private int iD = 3553;
 
     public long getHandle() {
-        return this.eu;
+        return this.eG;
     }
 
     public int getId() {
-        return this.in;
+        return this.iC;
     }
 
     public int getType() {
-        return this.f972io;
+        return this.iD;
     }
 
     public void setHandle(long j) {
-        this.eu = j;
+        this.eG = j;
     }
 
     public void setId(int i) {
-        this.in = i;
+        this.iC = i;
     }
 
     public void setType(int i) {
-        this.f972io = i;
+        this.iD = i;
     }
 }

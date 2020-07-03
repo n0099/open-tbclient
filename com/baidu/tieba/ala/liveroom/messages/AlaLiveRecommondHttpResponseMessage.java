@@ -5,21 +5,21 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaLiveRecommondHttpResponseMessage extends JsonHttpResponsedMessage {
-    private n gab;
+    private n gmZ;
 
     public AlaLiveRecommondHttpResponseMessage() {
         super(1021021);
     }
 
-    public n bEJ() {
-        return this.gab;
+    public n bHP() {
+        return this.gmZ;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null) {
-            this.gab = new n();
-            this.gab.parserJson(jSONObject);
+            this.gmZ = new n();
+            this.gmZ.parserJson(jSONObject);
         }
     }
 }

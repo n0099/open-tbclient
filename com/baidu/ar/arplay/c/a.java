@@ -5,5 +5,5 @@ import com.baidu.ar.arplay.c.e;
 public interface a {
     void a(e.a aVar);
 
-    void az();
+    void aN();
 }

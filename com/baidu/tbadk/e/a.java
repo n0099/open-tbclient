@@ -6,134 +6,134 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    private static b dxL = null;
-    private static a dxM = null;
-    private static boolean dxN = false;
-    private static String dxO = "";
-    private static transient List<String> dxP = new ArrayList(5);
+    private static b dCR = null;
+    private static a dCS = null;
+    private static boolean dCT = false;
+    private static String dCU = "";
+    private static transient List<String> dCV = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (dxM == null) {
+        if (dCS == null) {
             synchronized (a.class) {
-                if (dxM == null) {
-                    dxM = new a();
-                    dxL = b.c(baseFragmentActivity);
+                if (dCS == null) {
+                    dCS = new a();
+                    dCR = b.c(baseFragmentActivity);
                 }
             }
-        } else if (dxL != null) {
-            dxL.a(baseFragmentActivity.getPageContext());
+        } else if (dCR != null) {
+            dCR.a(baseFragmentActivity.getPageContext());
         }
-        if (dxN && dxL != null) {
-            dxL.aMW();
-            dxL.aMX();
-            dxN = false;
+        if (dCT && dCR != null) {
+            dCR.aOz();
+            dCR.aOA();
+            dCT = false;
         }
-        return dxM;
+        return dCS;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        aMT();
+        aOw();
         if (z) {
-            aMP();
+            aOs();
         }
         if (z2) {
-            aMQ();
+            aOt();
         }
-        gD(z3);
+        gK(z3);
         a(aVar);
     }
 
-    public void aMP() {
-        aMT();
-        if (dxL != null) {
-            dxL.aMW();
-            dxN = false;
+    public void aOs() {
+        aOw();
+        if (dCR != null) {
+            dCR.aOz();
+            dCT = false;
         }
     }
 
-    public void aMQ() {
-        aMT();
-        if (dxL != null) {
-            dxL.aMX();
-            dxN = false;
+    public void aOt() {
+        aOw();
+        if (dCR != null) {
+            dCR.aOA();
+            dCT = false;
         }
     }
 
-    public void gD(boolean z) {
-        aMT();
-        if (dxL != null) {
-            dxL.gD(z);
+    public void gK(boolean z) {
+        aOw();
+        if (dCR != null) {
+            dCR.gK(z);
         }
     }
 
     public void a(b.a aVar) {
-        aMT();
-        if (dxL != null) {
-            dxL.c(aVar);
+        aOw();
+        if (dCR != null) {
+            dCR.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        aMT();
-        if (dxL != null) {
-            if (dxL.aMU()) {
-                dxL.c(aVar);
+        aOw();
+        if (dCR != null) {
+            if (dCR.aOx()) {
+                dCR.c(aVar);
             }
-            dxL.aMV();
+            dCR.aOy();
         }
     }
 
     public void a(int i, b.a aVar) {
-        aMT();
-        if (dxL != null) {
-            if (dxL.aMU()) {
-                dxL.c(aVar);
+        aOw();
+        if (dCR != null) {
+            if (dCR.aOx()) {
+                dCR.c(aVar);
             }
-            dxL.jW(i);
+            dCR.kh(i);
         }
     }
 
-    public void aMR() {
-        aMT();
-        if (dxL != null) {
-            dxL.aMR();
-            dxN = true;
+    public void aOu() {
+        aOw();
+        if (dCR != null) {
+            dCR.aOu();
+            dCT = true;
         }
     }
 
     public void resetContext() {
-        aMT();
-        if (dxL != null) {
-            dxL.resetContext();
+        aOw();
+        if (dCR != null) {
+            dCR.resetContext();
         }
     }
 
-    public void aMS() {
-        aMT();
+    public void aOv() {
+        aOw();
         resetContext();
-        aMR();
+        aOu();
     }
 
-    private void aMT() {
-        if (dxL == null) {
+    private void aOw() {
+        if (dCR == null) {
         }
     }
 
     public static void resetAll() {
         try {
-            if (dxL != null) {
-                if (dxM != null) {
-                    dxM.aMS();
+            if (dCR != null) {
+                if (dCS != null) {
+                    dCS.aOv();
                 }
-                dxL.removeCallBack();
-                dxL.aMY();
-                dxL = null;
+                dCR.removeCallBack();
+                dCR.aOB();
+                dCR = null;
             }
-            if (dxM != null) {
-                dxM = null;
+            if (dCS != null) {
+                dCS = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

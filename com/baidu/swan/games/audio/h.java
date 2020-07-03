@@ -9,21 +9,21 @@ public class h {
     public h(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c e = com.baidu.swan.games.binding.model.c.e(jsObject);
         if (e != null) {
-            com.baidu.swan.apps.runtime.e aoF = com.baidu.swan.apps.runtime.e.aoF();
-            if (aoF == null) {
-                a(e, false, rb("internal error"));
+            com.baidu.swan.apps.runtime.e apM = com.baidu.swan.apps.runtime.e.apM();
+            if (apM == null) {
+                a(e, false, rj("internal error"));
                 return;
             }
             try {
                 boolean optBoolean = e.optBoolean("mixWithOther", false);
-                aoF.aoX().a("key_audio_is_mix_with_other", Boolean.valueOf(optBoolean));
+                apM.aqe().a("key_audio_is_mix_with_other", Boolean.valueOf(optBoolean));
                 if (DEBUG) {
                     Log.d("InnerAudioOptionApi", "Audio Mix Changed to " + optBoolean);
                 }
                 a(e, true, "setInnerAudioOption:ok");
             } catch (Exception e2) {
                 com.baidu.swan.apps.console.c.e("InnerAudioOptionApi", "set swanApp global var error");
-                a(e, false, rb("internal error"));
+                a(e, false, rj("internal error"));
             }
         }
     }
@@ -34,7 +34,7 @@ public class h {
         com.baidu.swan.games.utils.b.a(cVar, z, bVar);
     }
 
-    private String rb(String str) {
+    private String rj(String str) {
         return String.format("setInnerAudioOption:fail %s", str);
     }
 }

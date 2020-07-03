@@ -10,14 +10,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class PersonPageIndicator extends LinearLayout {
-    private View gnL;
-    private FrameLayout gnM;
-    private ViewPager.OnPageChangeListener gnN;
-    private LinearLayout gnO;
+    private View gAB;
+    private FrameLayout gAC;
+    private ViewPager.OnPageChangeListener gAD;
+    private LinearLayout gAE;
     private ViewPager mViewPager;
 
     public PersonPageIndicator(Context context) {
@@ -38,29 +38,29 @@ public class PersonPageIndicator extends LinearLayout {
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.ala_person_page_indicator, this);
-        this.gnL = findViewById(a.g.indicator);
-        this.gnM = (FrameLayout) findViewById(a.g.indicator_wrapper);
-        this.gnO = (LinearLayout) findViewById(a.g.tab_view_layout);
+        this.gAB = findViewById(a.g.indicator);
+        this.gAC = (FrameLayout) findViewById(a.g.indicator_wrapper);
+        this.gAE = (LinearLayout) findViewById(a.g.tab_view_layout);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.gnL.setBackgroundResource(a.f.ala_person_indicator_bg_hk);
+            this.gAB.setBackgroundResource(a.f.ala_person_indicator_bg_hk);
         } else {
-            this.gnL.setBackgroundResource(a.f.ala_person_indicator_bg_qm);
+            this.gAB.setBackgroundResource(a.f.ala_person_indicator_bg_qm);
         }
     }
 
     public void setIndicatorMargin(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gnM.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gAC.getLayoutParams();
         layoutParams.leftMargin = i;
         layoutParams.rightMargin = i;
-        this.gnM.setLayoutParams(layoutParams);
+        this.gAC.setLayoutParams(layoutParams);
     }
 
-    public void CW(String str) {
+    public void Dx(String str) {
         if (!StringUtils.isNull(str)) {
             TextView textView = new TextView(getContext());
             textView.setTextSize(0, BdUtilHelper.getDimens(getContext(), a.e.sdk_fontsize24));
             textView.setText(str);
-            this.gnO.addView(textView);
+            this.gAE.addView(textView);
         }
     }
 
@@ -69,38 +69,38 @@ public class PersonPageIndicator extends LinearLayout {
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.ala.person.view.PersonPageIndicator.1
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i2, float f, int i3) {
-                if (f <= 0.0f || i2 >= PersonPageIndicator.this.gnO.getChildCount() - 1) {
-                    PersonPageIndicator.this.gnL.getLayoutParams().width = PersonPageIndicator.this.gnO.getChildAt(i2).getMeasuredWidth();
+                if (f <= 0.0f || i2 >= PersonPageIndicator.this.gAE.getChildCount() - 1) {
+                    PersonPageIndicator.this.gAB.getLayoutParams().width = PersonPageIndicator.this.gAE.getChildAt(i2).getMeasuredWidth();
                 } else {
-                    View childAt = PersonPageIndicator.this.gnO.getChildAt(i2);
-                    View childAt2 = PersonPageIndicator.this.gnO.getChildAt(i2 + 1);
-                    PersonPageIndicator.this.gnL.getLayoutParams().width = (int) (((childAt2.getWidth() - childAt.getWidth()) * f) + childAt.getWidth());
+                    View childAt = PersonPageIndicator.this.gAE.getChildAt(i2);
+                    View childAt2 = PersonPageIndicator.this.gAE.getChildAt(i2 + 1);
+                    PersonPageIndicator.this.gAB.getLayoutParams().width = (int) (((childAt2.getWidth() - childAt.getWidth()) * f) + childAt.getWidth());
                 }
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) PersonPageIndicator.this.gnL.getLayoutParams();
-                layoutParams.leftMargin = (int) ((((i * i2) + (i / 2)) - (PersonPageIndicator.this.gnL.getLayoutParams().width / 2)) + (i * f));
-                PersonPageIndicator.this.gnL.setLayoutParams(layoutParams);
-                if (PersonPageIndicator.this.gnN != null) {
-                    PersonPageIndicator.this.gnN.onPageScrolled(i2, f, i3);
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) PersonPageIndicator.this.gAB.getLayoutParams();
+                layoutParams.leftMargin = (int) ((((i * i2) + (i / 2)) - (PersonPageIndicator.this.gAB.getLayoutParams().width / 2)) + (i * f));
+                PersonPageIndicator.this.gAB.setLayoutParams(layoutParams);
+                if (PersonPageIndicator.this.gAD != null) {
+                    PersonPageIndicator.this.gAD.onPageScrolled(i2, f, i3);
                 }
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i2) {
-                if (PersonPageIndicator.this.gnN != null) {
-                    PersonPageIndicator.this.gnN.onPageSelected(i2);
+                if (PersonPageIndicator.this.gAD != null) {
+                    PersonPageIndicator.this.gAD.onPageSelected(i2);
                 }
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i2) {
-                if (PersonPageIndicator.this.gnN != null) {
-                    PersonPageIndicator.this.gnN.onPageScrollStateChanged(i2);
+                if (PersonPageIndicator.this.gAD != null) {
+                    PersonPageIndicator.this.gAD.onPageScrollStateChanged(i2);
                 }
             }
         });
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.gnN = onPageChangeListener;
+        this.gAD = onPageChangeListener;
     }
 }

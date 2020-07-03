@@ -12,11 +12,11 @@ public class b {
     private String a;
     private String b;
     private long g;
-    private a nbw;
+    private a nxn;
     private volatile boolean c = false;
-    private d<ParserRet> nbv = new com.kascend.chushou.widget.a.a();
+    private d<ParserRet> nxm = new com.kascend.chushou.widget.a.a();
     private boolean f = false;
-    private final tv.chushou.zues.c nbx = new tv.chushou.zues.c(Looper.getMainLooper(), new Handler.Callback() { // from class: com.kascend.chushou.widget.a.b.2
+    private final tv.chushou.zues.c nxo = new tv.chushou.zues.c(Looper.getMainLooper(), new Handler.Callback() { // from class: com.kascend.chushou.widget.a.b.2
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
@@ -39,25 +39,25 @@ public class b {
 
     public void a(String str) {
         this.a = str;
-        if (this.nbv != null) {
-            this.nbv.b();
+        if (this.nxm != null) {
+            this.nxm.b();
         }
     }
 
     public void a(a aVar) {
-        this.nbw = aVar;
+        this.nxn = aVar;
     }
 
     public void a(boolean z) {
         if (z) {
-            this.nbv = new c();
+            this.nxm = new c();
         } else {
-            this.nbv = new com.kascend.chushou.widget.a.a();
+            this.nxm = new com.kascend.chushou.widget.a.a();
         }
     }
 
     public void b(boolean z) {
-        this.nbx.removeMessages(1);
+        this.nxo.removeMessages(1);
         this.c = true;
         if (z) {
             this.b = null;
@@ -69,8 +69,8 @@ public class b {
     }
 
     public void b() {
-        if (this.nbv != null) {
-            this.nbv.c();
+        if (this.nxm != null) {
+            this.nxm.c();
         }
         d();
     }
@@ -81,14 +81,14 @@ public class b {
 
     public void d() {
         this.c = false;
-        this.nbx.removeMessages(1);
+        this.nxo.removeMessages(1);
         if (!this.f || System.currentTimeMillis() - this.g >= 20000) {
             if (this.f) {
                 com.kascend.chushou.toolkit.a.a.l("type", Constants.VIA_REPORT_TYPE_WPA_STATE, "value", this.a);
             }
             this.g = System.currentTimeMillis();
             this.f = true;
-            com.kascend.chushou.c.c.dEj().d(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.a.b.1
+            com.kascend.chushou.c.c.dIL().d(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.a.b.1
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }
@@ -97,26 +97,26 @@ public class b {
                 public void a(String str, JSONObject jSONObject) {
                     long j;
                     b.this.f = false;
-                    ParserRet A = e.A(jSONObject, b.this.b);
-                    if (A.mRc == 0 && A.mData != null) {
-                        b.this.b = A.mBreakpoint;
-                        if (b.this.nbw != null) {
-                            b.this.nbw.b(A);
+                    ParserRet B = e.B(jSONObject, b.this.b);
+                    if (B.mRc == 0 && B.mData != null) {
+                        b.this.b = B.mBreakpoint;
+                        if (b.this.nxn != null) {
+                            b.this.nxn.b(B);
                         }
-                        long longValue = ((Long) A.mData1).longValue();
+                        long longValue = ((Long) B.mData1).longValue();
                         if (longValue == -1) {
-                            if (b.this.nbv != null) {
-                                j = b.this.nbv.E(A);
+                            if (b.this.nxm != null) {
+                                j = b.this.nxm.E(B);
                             } else {
                                 j = 1000;
                             }
-                            b.this.nbx.A(1, j);
+                            b.this.nxo.B(1, j);
                             return;
                         }
-                        if (b.this.nbv != null) {
-                            b.this.nbv.b();
+                        if (b.this.nxm != null) {
+                            b.this.nxm.b();
                         }
-                        b.this.nbx.A(1, longValue);
+                        b.this.nxo.B(1, longValue);
                         return;
                     }
                     a(-1, "");
@@ -126,12 +126,12 @@ public class b {
                 public void a(int i, String str) {
                     long j;
                     b.this.f = false;
-                    if (b.this.nbv != null) {
-                        j = b.this.nbv.a();
+                    if (b.this.nxm != null) {
+                        j = b.this.nxm.a();
                     } else {
                         j = 1000;
                     }
-                    b.this.nbx.A(1, j);
+                    b.this.nxo.B(1, j);
                 }
             }, this.a, this.b);
         }

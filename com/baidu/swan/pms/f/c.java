@@ -8,7 +8,7 @@ import java.io.IOException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
-    public static File dw(Context context) {
+    public static File dx(Context context) {
         File dir = context.getDir("pms_dir", 0);
         if (!dir.exists()) {
             dir.mkdir();
@@ -16,11 +16,11 @@ public class c {
         return dir;
     }
 
-    public static String cM(String str, String str2) {
-        return W(str, str2, File.separator);
+    public static String cO(String str, String str2) {
+        return X(str, str2, File.separator);
     }
 
-    public static String W(String str, String str2, String str3) {
+    public static String X(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str)) {
             if (TextUtils.isEmpty(str2)) {
                 return str;
@@ -39,11 +39,11 @@ public class c {
         return str2;
     }
 
-    public static File cN(String str, String str2) {
+    public static File cP(String str, String str2) {
         File file = new File(str);
         if (file.exists() || file.mkdirs()) {
-            String cM = cM(str, str2);
-            String str3 = cM;
+            String cO = cO(str, str2);
+            String str3 = cO;
             for (int i = 0; i < 1000; i++) {
                 File file2 = new File(str3);
                 try {
@@ -55,14 +55,14 @@ public class c {
                         e.printStackTrace();
                     }
                 }
-                str3 = cM + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i;
+                str3 = cO + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i;
             }
             return null;
         }
         return null;
     }
 
-    public static String A(String... strArr) {
+    public static String z(String... strArr) {
         JSONObject jSONObject = new JSONObject();
         if (strArr != null) {
             try {

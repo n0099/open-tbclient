@@ -6,14 +6,14 @@ import android.os.Looper;
 import android.os.Message;
 /* loaded from: classes3.dex */
 class a {
-    private HandlerThread jI;
-    private HandlerC0079a jJ;
+    private HandlerThread ka;
+    private HandlerC0080a kb;
     private String mTag;
 
     /* renamed from: com.baidu.ar.capture.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static final class HandlerC0079a extends Handler {
-        public HandlerC0079a(Looper looper) {
+    private static final class HandlerC0080a extends Handler {
+        public HandlerC0080a(Looper looper) {
             super(looper);
         }
 
@@ -42,25 +42,25 @@ class a {
     }
 
     public void execute(Runnable runnable) {
-        if (this.jJ != null) {
-            this.jJ.c(runnable);
+        if (this.kb != null) {
+            this.kb.c(runnable);
         }
     }
 
     public void start() {
-        this.jI = new HandlerThread(this.mTag);
-        this.jI.start();
-        this.jJ = new HandlerC0079a(this.jI.getLooper());
+        this.ka = new HandlerThread(this.mTag);
+        this.ka.start();
+        this.kb = new HandlerC0080a(this.ka.getLooper());
     }
 
     public void stop() {
-        if (this.jJ != null) {
-            this.jJ.release();
-            this.jJ = null;
+        if (this.kb != null) {
+            this.kb.release();
+            this.kb = null;
         }
-        if (this.jI != null) {
-            this.jI.quit();
-            this.jI = null;
+        if (this.ka != null) {
+            this.ka.quit();
+            this.ka = null;
         }
     }
 }

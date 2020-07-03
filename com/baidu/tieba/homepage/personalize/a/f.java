@@ -6,25 +6,25 @@ import com.baidu.tieba.card.l;
 public class f<T extends com.baidu.tieba.card.l> extends com.baidu.tieba.card.a.a<T> implements com.baidu.tieba.play.f {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a.a
-    /* renamed from: cgo */
-    public T bLW() {
-        return (T) this.gIN;
+    /* renamed from: cjO */
+    public T bPg() {
+        return (T) this.gVN;
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        if (this.gIN == 0) {
+        if (this.gVN == 0) {
             return false;
         }
-        return ((com.baidu.tieba.card.l) this.gIN).isPlayStarted();
+        return ((com.baidu.tieba.card.l) this.gVN).isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        if (this.gIN == 0) {
+        if (this.gVN == 0) {
             return false;
         }
-        return ((com.baidu.tieba.card.l) this.gIN).isPlaying();
+        return ((com.baidu.tieba.card.l) this.gVN).isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
@@ -34,39 +34,39 @@ public class f<T extends com.baidu.tieba.card.l> extends com.baidu.tieba.card.a.
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if (this.gIN != 0) {
-            ((com.baidu.tieba.card.l) this.gIN).startPlay();
+        if (this.gVN != 0) {
+            ((com.baidu.tieba.card.l) this.gVN).startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.gIN != 0) {
-            ((com.baidu.tieba.card.l) this.gIN).stopPlay();
+        if (this.gVN != 0) {
+            ((com.baidu.tieba.card.l) this.gVN).stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.gIN == 0) {
+        if (this.gVN == 0) {
             return null;
         }
-        return ((com.baidu.tieba.card.l) this.gIN).getVideoContainer();
+        return ((com.baidu.tieba.card.l) this.gVN).getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.gIN == 0) {
+        if (this.gVN == 0) {
             return null;
         }
-        return ((com.baidu.tieba.card.l) this.gIN).getPlayUrl();
+        return ((com.baidu.tieba.card.l) this.gVN).getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.gIN == 0) {
+        if (this.gVN == 0) {
             return 0;
         }
-        return ((com.baidu.tieba.card.l) this.gIN).getCurrentPosition();
+        return ((com.baidu.tieba.card.l) this.gVN).getCurrentPosition();
     }
 }

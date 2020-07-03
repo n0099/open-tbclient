@@ -11,9 +11,9 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.util.ae;
 import com.baidu.tieba.R;
@@ -59,12 +59,12 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
         }
     }
 
-    public void setData(bk bkVar) {
-        if (bkVar != null && bkVar.aQS() != null) {
-            AlaUserInfoData alaUserInfoData = bkVar.aQS().user_info;
+    public void setData(bu buVar) {
+        if (buVar != null && buVar.aSJ() != null) {
+            AlaUserInfoData alaUserInfoData = buVar.aSJ().user_info;
             String str = "";
-            if (bkVar.aQx() != null) {
-                str = bkVar.aQx().getName_show();
+            if (buVar.aSp() != null) {
+                str = buVar.aSp().getName_show();
             } else if (alaUserInfoData != null) {
                 str = alaUserInfoData.user_name;
             }
@@ -75,7 +75,7 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
                 this.alaCardUserHeadImg.startLoad(alaUserInfoData.portrait, 28, false);
             }
             this.alaCardUserName.setText(str);
-            this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), aq.numFormatOverWan(bkVar.aQS().audience_count)));
+            this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), ar.numFormatOverWan(buVar.aSJ().audience_count)));
         }
     }
 
@@ -86,8 +86,8 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext) {
-        am.setViewTextColor(this.alaCardUserName, R.color.cp_cont_a, TbadkCoreApplication.getInst().getSkinType());
-        am.setViewTextColor(this.alaWatchCount, R.color.cp_cont_a, TbadkCoreApplication.getInst().getSkinType());
+        an.setViewTextColor(this.alaCardUserName, R.color.cp_cont_a, TbadkCoreApplication.getInst().getSkinType());
+        an.setViewTextColor(this.alaWatchCount, R.color.cp_cont_a, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void startPlayAnimation() {

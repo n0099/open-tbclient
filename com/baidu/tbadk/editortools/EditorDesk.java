@@ -6,54 +6,54 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class EditorDesk extends FrameLayout {
-    private LinkedList<g> ekW;
-    private LinkedList<m> ekX;
-    private m ekY;
-    private boolean ekZ;
-    private boolean ela;
-    private EditorTools elb;
-    private Runnable elc;
+    private LinkedList<g> etI;
+    private LinkedList<m> etJ;
+    private m etK;
+    private boolean etL;
+    private boolean etM;
+    private EditorTools etN;
+    private Runnable etO;
     private int mBgColor;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public EditorDesk(Context context, EditorTools editorTools) {
         super(context);
         this.mBgColor = R.color.cp_bg_line_h;
-        this.ekY = null;
-        this.ekZ = true;
-        this.ela = false;
-        this.elc = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorDesk.1
+        this.etK = null;
+        this.etL = true;
+        this.etM = false;
+        this.etO = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorDesk.1
             @Override // java.lang.Runnable
             public void run() {
-                if (EditorDesk.this.ekY != null) {
-                    EditorDesk.this.ekY.display();
+                if (EditorDesk.this.etK != null) {
+                    EditorDesk.this.etK.display();
                 }
             }
         };
-        this.ekW = new LinkedList<>();
-        this.ekX = new LinkedList<>();
-        this.elb = editorTools;
+        this.etI = new LinkedList<>();
+        this.etJ = new LinkedList<>();
+        this.etN = editorTools;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(g gVar) {
-        this.ekW.add(gVar);
+        this.etI.add(gVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(m mVar) {
-        this.ekX.add(mVar);
+        this.etJ.add(mVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void build() {
-        Iterator<m> it = this.ekX.iterator();
+        Iterator<m> it = this.etJ.iterator();
         while (it.hasNext()) {
             m next = it.next();
             if (next.getToolId() == 2) {
@@ -71,16 +71,16 @@ public class EditorDesk extends FrameLayout {
 
     private void b(m mVar) {
         if (mVar instanceof MoreDeskView) {
-            ((MoreDeskView) mVar).g(this.ekW);
+            ((MoreDeskView) mVar).g(this.etI);
             mVar.init();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void clear() {
-        this.ekY = null;
-        this.ekW.clear();
-        this.ekX.clear();
+        this.etK = null;
+        this.etI.clear();
+        this.etJ.clear();
     }
 
     protected void display() {
@@ -89,23 +89,23 @@ public class EditorDesk extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hide() {
-        if (this.ekY != null) {
-            this.ekY.hide();
+        if (this.etK != null) {
+            this.etK.hide();
         }
-        this.ekY = null;
+        this.etK = null;
         setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void nc(int i) {
-        if (ng(i)) {
-            if (bda()) {
-                this.ekZ = true;
+    public void nw(int i) {
+        if (nA(i)) {
+            if (bfd()) {
+                this.etL = true;
             } else {
-                this.ekZ = false;
+                this.etL = false;
             }
-            boolean z = this.ela;
-            Iterator<m> it = this.ekX.iterator();
+            boolean z = this.etM;
+            Iterator<m> it = this.etJ.iterator();
             while (it.hasNext()) {
                 m next = it.next();
                 if (!z && TbadkCoreApplication.getInst().isKeyboardHeightCanUsed() && (next instanceof View)) {
@@ -113,31 +113,31 @@ public class EditorDesk extends FrameLayout {
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
                     layoutParams.height = TbadkCoreApplication.getInst().getKeyboardHeight();
                     view.setLayoutParams(layoutParams);
-                    this.ela = true;
+                    this.etM = true;
                 }
                 if (next.getToolId() == i) {
-                    this.ekY = next;
-                    if (this.ekZ) {
+                    this.etK = next;
+                    if (this.etL) {
                         next.display();
                     }
                 } else {
                     next.hide();
                 }
             }
-            if (!this.ekZ && (getContext() instanceof Activity)) {
-                if (this.elb != null) {
-                    this.elb.bde();
+            if (!this.etL && (getContext() instanceof Activity)) {
+                if (this.etN != null) {
+                    this.etN.bfh();
                 } else {
                     com.baidu.adp.lib.util.l.hideSoftKeyPad(getContext(), ((Activity) getContext()).getCurrentFocus());
                 }
-                com.baidu.adp.lib.f.e.ld().postDelayed(this.elc, 250L);
+                com.baidu.adp.lib.f.e.lt().postDelayed(this.etO, 250L);
             }
             display();
         }
     }
 
-    private boolean ng(int i) {
-        Iterator<m> it = this.ekX.iterator();
+    private boolean nA(int i) {
+        Iterator<m> it = this.etJ.iterator();
         while (it.hasNext()) {
             if (it.next().getToolId() == i) {
                 return true;
@@ -146,8 +146,33 @@ public class EditorDesk extends FrameLayout {
         return false;
     }
 
-    public g ne(int i) {
-        Iterator<g> it = this.ekW.iterator();
+    public void setDeskLauncherEnabled(boolean z) {
+        Iterator<g> it = this.etI.iterator();
+        while (it.hasNext()) {
+            g next = it.next();
+            if (next != null && (next instanceof View)) {
+                ((View) next).setEnabled(z);
+            }
+        }
+    }
+
+    public boolean u(boolean z, int i) {
+        Iterator<g> it = this.etI.iterator();
+        while (it.hasNext()) {
+            g next = it.next();
+            if (next instanceof View) {
+                View view = (View) next;
+                if (next.getToolId() == i) {
+                    view.setEnabled(z);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public g ny(int i) {
+        Iterator<g> it = this.etI.iterator();
         while (it.hasNext()) {
             g next = it.next();
             if (next.getToolId() == i) {
@@ -159,13 +184,13 @@ public class EditorDesk extends FrameLayout {
 
     public void onChangeSkinType(int i) {
         if (this.mBgColor > 0) {
-            am.setBackgroundColor(this, this.mBgColor, i);
+            an.setBackgroundColor(this, this.mBgColor, i);
         }
-        Iterator<g> it = this.ekW.iterator();
+        Iterator<g> it = this.etI.iterator();
         while (it.hasNext()) {
             it.next().onChangeSkinType(i);
         }
-        Iterator<m> it2 = this.ekX.iterator();
+        Iterator<m> it2 = this.etJ.iterator();
         while (it2.hasNext()) {
             m next = it2.next();
             if (next != null) {
@@ -174,12 +199,12 @@ public class EditorDesk extends FrameLayout {
         }
     }
 
-    public boolean bcZ() {
-        return getVisibility() == 0 && bda();
+    public boolean bfc() {
+        return getVisibility() == 0 && bfd();
     }
 
-    private boolean bda() {
-        Iterator<m> it = this.ekX.iterator();
+    private boolean bfd() {
+        Iterator<m> it = this.etJ.iterator();
         while (it.hasNext()) {
             if (((View) it.next()).getVisibility() == 0) {
                 return true;

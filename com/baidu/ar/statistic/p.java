@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class p {
-    private static com.baidu.ar.lua.c vb;
-    private static final List<String> vc = Arrays.asList(StatisticConstants.EVENT_FILTER_ADJUST, StatisticConstants.EVENT_FILTER_SWITCH, StatisticConstants.EVENT_BEAUTIFY_ADJUST);
+    private static com.baidu.ar.lua.c vB;
+    private static final List<String> vC = Arrays.asList(StatisticConstants.EVENT_FILTER_ADJUST, StatisticConstants.EVENT_FILTER_SWITCH, StatisticConstants.EVENT_BEAUTIFY_ADJUST);
 
     public static void b(com.baidu.ar.lua.b bVar) {
-        vb = new com.baidu.ar.lua.c() { // from class: com.baidu.ar.statistic.p.1
+        vB = new com.baidu.ar.lua.c() { // from class: com.baidu.ar.statistic.p.1
             @Override // com.baidu.ar.lua.c
             public void a(int i, int i2, HashMap<String, Object> hashMap) {
                 if (i == 1801) {
@@ -32,15 +32,15 @@ public class p {
                 return arrayList;
             }
         };
-        bVar.c(vb);
+        bVar.c(vB);
     }
 
     public static void c(com.baidu.ar.lua.b bVar) {
-        if (vb != null) {
+        if (vB != null) {
             if (bVar != null) {
-                bVar.d(vb);
+                bVar.d(vB);
             }
-            vb = null;
+            vB = null;
         }
     }
 
@@ -78,7 +78,7 @@ public class p {
                     hashMap2.put("event_param", str);
                 }
             }
-            if (vc.contains(str2)) {
+            if (vC.contains(str2)) {
                 StatisticApi.onEventDebounce(str2, 200L, hashMap2);
             } else {
                 StatisticApi.onEvent(str2, hashMap2);

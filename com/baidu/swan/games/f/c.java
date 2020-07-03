@@ -23,9 +23,9 @@ public class c extends com.baidu.swan.games.f.a {
 
     @Override // com.baidu.swan.games.f.a
     @NonNull
-    public EventTarget azu() {
-        b bVar = new b(this, this.cWu.getInitBasePath());
-        bVar.env.config = com.baidu.swan.apps.swancore.a.a.arV();
+    public EventTarget aAA() {
+        b bVar = new b(this, this.dbg.getInitBasePath());
+        bVar.env.config = com.baidu.swan.apps.swancore.a.a.atc();
         return bVar;
     }
 
@@ -37,24 +37,24 @@ public class c extends com.baidu.swan.games.f.a {
     /* loaded from: classes11.dex */
     public static class b extends EventTargetImpl {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-        private com.baidu.swan.games.f.b cTU;
-        private com.baidu.swan.games.i.e cVB;
+        private com.baidu.swan.games.f.b cYE;
+        private com.baidu.swan.games.i.e dal;
         @V8JavascriptField
         public a env;
 
         public b(com.baidu.swan.games.f.b bVar, String str) {
             super(bVar);
-            this.cTU = bVar;
+            this.cYE = bVar;
             this.env = new a();
             this.env.basePath = str;
         }
 
         @JavascriptInterface
         public com.baidu.swan.games.i.e getFileSystemManager() {
-            if (this.cVB == null) {
-                this.cVB = new com.baidu.swan.games.i.e((com.baidu.swan.games.f.a) this.cTU);
+            if (this.dal == null) {
+                this.dal = new com.baidu.swan.games.i.e((com.baidu.swan.games.f.a) this.cYE);
             }
-            return this.cVB;
+            return this.dal;
         }
 
         @JavascriptInterface
@@ -64,7 +64,7 @@ public class c extends com.baidu.swan.games.f.a {
 
         @JavascriptInterface
         public String getAPIs(int i) {
-            return DEBUG ? com.baidu.swan.apps.af.a.a.amt() ? com.baidu.swan.apps.aq.h.z(i, true) : "" : (com.baidu.swan.apps.aq.h.ati() && com.baidu.swan.apps.u.a.aeU().Rh()) ? com.baidu.swan.apps.aq.h.z(i, true) : "";
+            return DEBUG ? com.baidu.swan.apps.af.a.a.anz() ? com.baidu.swan.apps.aq.h.A(i, true) : "" : (com.baidu.swan.apps.aq.h.auo() && com.baidu.swan.apps.u.a.aga().Sn()) ? com.baidu.swan.apps.aq.h.A(i, true) : "";
         }
     }
 }

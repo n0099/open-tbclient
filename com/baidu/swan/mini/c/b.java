@@ -23,11 +23,11 @@ public class b {
         if (TextUtils.isEmpty(appId) || TextUtils.isEmpty(bundleId)) {
             return null;
         }
-        return S(appId, bundleId, String.valueOf(aVar.getVersionCode()));
+        return T(appId, bundleId, String.valueOf(aVar.getVersionCode()));
     }
 
     @NonNull
-    public static File S(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+    public static File T(@NonNull String str, @NonNull String str2, @NonNull String str3) {
         return new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "swan_mini_folder" + File.separator + str + File.separator + str2, str3);
     }
 
@@ -53,7 +53,7 @@ public class b {
         }
         a.b w = com.baidu.swan.apps.r.a.a.w(file);
         if (w.type != -1) {
-            if (com.baidu.swan.apps.r.a.a.a(w.cgD, b, w.type).isSuccess) {
+            if (com.baidu.swan.apps.r.a.a.a(w.clr, b, w.type).isSuccess) {
                 return new com.baidu.swan.pms.b.b.b(0, "解密成功");
             }
             return new com.baidu.swan.pms.b.b.b(1011, "解密失败");
@@ -66,11 +66,11 @@ public class b {
 
     public static void c(com.baidu.swan.pms.b.a aVar) {
         if (aVar != null) {
-            e(aVar.getAppId(), aVar.getBundleId(), aVar.getVersionCode());
+            f(aVar.getAppId(), aVar.getBundleId(), aVar.getVersionCode());
         }
     }
 
-    private static void e(String str, String str2, long j) {
+    private static void f(String str, String str2, long j) {
         File[] listFiles;
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (listFiles = new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "swan_mini_folder" + File.separator + str, str2).listFiles(new FileFilter() { // from class: com.baidu.swan.mini.c.b.1
             @Override // java.io.FileFilter
@@ -79,7 +79,7 @@ public class b {
             }
         })) != null && listFiles.length > 0) {
             for (File file : listFiles) {
-                if (file != null && e(j, file.getName()) && !com.baidu.swan.mini.a.aFk().contains(file.getAbsolutePath())) {
+                if (file != null && e(j, file.getName()) && !com.baidu.swan.mini.a.aGq().contains(file.getAbsolutePath())) {
                     if (DEBUG) {
                         Log.i("Mini-Pm", "删除低版本文件夹：" + file.getAbsolutePath());
                     }

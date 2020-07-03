@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.adaptation.a;
 /* loaded from: classes11.dex */
 public interface aj {
-    void Sq();
+    void Tw();
 
-    void Sr();
+    void Tx();
 
-    long Ss();
+    long Ty();
 
     void aJ(long j);
 

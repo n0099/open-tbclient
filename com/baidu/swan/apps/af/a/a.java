@@ -15,185 +15,185 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public final class a {
-    private static com.baidu.swan.apps.storage.c.a ctf;
+    private static com.baidu.swan.apps.storage.c.a cxT;
     private static final boolean DEBUG = b.DEBUG;
-    private static final Set<String> ctg = new HashSet();
+    private static final Set<String> cxU = new HashSet();
 
     static {
-        ctg.add("aiapps_websafe_debug_key");
-        ctg.add("aiapps_server_domains_debug_key");
-        ctg.add("aiapps_use_extension_debug_key");
-        ctg.add("aiapps_emit_live_debug_key");
-        ctg.add("aiapps_emit_https_debug_key");
-        ctg.add("aiapps_emit_wss_debug_key");
-        ctg.add("aiapps_load_cts_debug_key");
-        ctg.add("aiapps_env_data");
-        ctg.add("aiapps_js_native_switch_key");
-        ctg.add("aiapps_emit_game_core_debug_key");
-        ctg.add("aiapps_emit_game_launch_mode_key");
+        cxU.add("aiapps_websafe_debug_key");
+        cxU.add("aiapps_server_domains_debug_key");
+        cxU.add("aiapps_use_extension_debug_key");
+        cxU.add("aiapps_emit_live_debug_key");
+        cxU.add("aiapps_emit_https_debug_key");
+        cxU.add("aiapps_emit_wss_debug_key");
+        cxU.add("aiapps_load_cts_debug_key");
+        cxU.add("aiapps_env_data");
+        cxU.add("aiapps_js_native_switch_key");
+        cxU.add("aiapps_emit_game_core_debug_key");
+        cxU.add("aiapps_emit_game_launch_mode_key");
     }
 
-    public static com.baidu.swan.apps.storage.c.a alZ() {
-        if (ctf == null) {
+    public static com.baidu.swan.apps.storage.c.a anf() {
+        if (cxT == null) {
             synchronized (a.class) {
-                if (ctf == null) {
-                    ctf = new com.baidu.swan.apps.storage.c.a("swan_app_debug");
-                    ctf.cGU.addAll(ctg);
+                if (cxT == null) {
+                    cxT = new com.baidu.swan.apps.storage.c.a("swan_app_debug");
+                    cxT.cLE.addAll(cxU);
                 }
             }
         }
-        return ctf;
+        return cxT;
     }
 
-    public static boolean ama() {
-        return alZ().getBoolean("swan_debug_force_ab", false);
+    public static boolean ang() {
+        return anf().getBoolean("swan_debug_force_ab", false);
     }
 
-    public static boolean akT() {
-        return alZ().getBoolean("swan_debug_forbid_sample", true);
+    public static boolean alZ() {
+        return anf().getBoolean("swan_debug_forbid_sample", true);
     }
 
-    public static boolean amb() {
+    public static boolean anh() {
         return getBoolean("aiapps_websafe_debug_key", true);
     }
 
-    public static boolean amc() {
+    public static boolean ani() {
         return getBoolean("aiapps_server_domains_debug_key", true);
     }
 
-    public static void ev(boolean z) {
+    public static void eA(boolean z) {
         setBoolean("aiapps_websafe_debug_key", z);
     }
 
-    public static void ew(boolean z) {
+    public static void eB(boolean z) {
         setBoolean("aiapps_server_domains_debug_key", z);
     }
 
-    public static boolean amd() {
+    public static boolean anj() {
         return getBoolean("aiapps_close_view_disable_debug_key", false);
     }
 
-    public static boolean ame() {
+    public static boolean ank() {
         return getBoolean("aiapps_dashboard_enable_debug_key", false);
     }
 
-    public static boolean amf() {
+    public static boolean anl() {
         return getBoolean("swan_game_fps_debug_key", false);
     }
 
-    public static boolean amg() {
+    public static boolean anm() {
         return getBoolean("aiapps_sconsole_scan_mode_debug_key", false);
     }
 
-    public static boolean amh() {
+    public static boolean ann() {
         return getBoolean("aiapps_use_extension_debug_key", false);
     }
 
-    public static void ex(boolean z) {
+    public static void eC(boolean z) {
         setBoolean("aiapps_use_extension_debug_key", z);
     }
 
-    public static boolean ami() {
+    public static boolean ano() {
         return getBoolean("aiapps_use_game_extension_debug_key", false);
     }
 
-    public static boolean amj() {
+    public static boolean anp() {
         return getBoolean("aiapps_emit_live_debug_key", false);
     }
 
-    public static void ey(boolean z) {
+    public static void eD(boolean z) {
         setBoolean("aiapps_emit_live_debug_key", z);
     }
 
-    public static boolean amk() {
+    public static boolean anq() {
         return getBoolean("aiapps_emit_https_debug_key", false);
     }
 
-    public static void ez(boolean z) {
+    public static void eE(boolean z) {
         setBoolean("aiapps_emit_https_debug_key", z);
     }
 
-    public static boolean aml() {
-        return com.baidu.swan.apps.swancore.b.arR();
-    }
-
-    public static void eA(boolean z) {
-        com.baidu.swan.apps.swancore.b.fn(z);
-    }
-
-    public static boolean amm() {
-        return getBoolean("aiapps_emit_game_core_debug_key", false);
-    }
-
-    public static void eB(boolean z) {
-        setBoolean("aiapps_emit_game_core_debug_key", z);
-    }
-
-    public static boolean amn() {
-        return getBoolean("aiapps_emit_game_launch_mode_key", false);
-    }
-
-    public static void eC(boolean z) {
-        setBoolean("aiapps_emit_game_launch_mode_key", z);
-    }
-
-    public static boolean amo() {
-        return getBoolean("aiapps_emit_wss_debug_key", false);
-    }
-
-    public static void eD(boolean z) {
-        setBoolean("aiapps_emit_wss_debug_key", z);
-    }
-
-    public static void eE(boolean z) {
-        setBoolean("aiapps_load_cts_debug_key", z);
-    }
-
-    public static boolean amp() {
-        return getBoolean("aiapps_load_cts_debug_key", false);
-    }
-
-    public static void mQ(String str) {
-        alZ().putString("aiapps_env_data", str);
-    }
-
-    public static String amq() {
-        return alZ().getString("aiapps_env_data", "");
-    }
-
-    public static void setBoolean(String str, boolean z) {
-        alZ().putBoolean(str, z);
-    }
-
-    public static boolean getBoolean(String str, boolean z) {
-        return alZ().getBoolean(str, z);
-    }
-
-    private static boolean c(c cVar) {
-        return (DEBUG && cVar.isDebug()) || mR(cVar.agZ()) || com.baidu.swan.apps.console.debugger.b.VX() || com.baidu.swan.apps.console.debugger.b.VY() || (amn() && cVar.agI());
-    }
-
-    public static boolean m(com.baidu.swan.apps.v.b.b bVar) {
-        return (DEBUG && bVar.isDebug()) || mR(bVar.agZ()) || com.baidu.swan.apps.console.debugger.b.VX() || com.baidu.swan.apps.console.debugger.b.VY() || (amn() && bVar.agI());
-    }
-
-    public static boolean amr() {
-        return com.baidu.swan.apps.console.debugger.b.VX() || com.baidu.swan.apps.console.debugger.b.VY();
-    }
-
-    public static boolean mR(String str) {
-        return !TextUtils.isEmpty(str) || e.Wm();
-    }
-
-    public static boolean ams() {
-        return getBoolean("aiapps_force_authorized_key", false);
-    }
-
-    public static boolean amt() {
-        return getBoolean("aiapps_js_native_switch_key", true);
+    public static boolean anr() {
+        return com.baidu.swan.apps.swancore.b.asY();
     }
 
     public static void eF(boolean z) {
+        com.baidu.swan.apps.swancore.b.fs(z);
+    }
+
+    public static boolean ans() {
+        return getBoolean("aiapps_emit_game_core_debug_key", false);
+    }
+
+    public static void eG(boolean z) {
+        setBoolean("aiapps_emit_game_core_debug_key", z);
+    }
+
+    public static boolean ant() {
+        return getBoolean("aiapps_emit_game_launch_mode_key", false);
+    }
+
+    public static void eH(boolean z) {
+        setBoolean("aiapps_emit_game_launch_mode_key", z);
+    }
+
+    public static boolean anu() {
+        return getBoolean("aiapps_emit_wss_debug_key", false);
+    }
+
+    public static void eI(boolean z) {
+        setBoolean("aiapps_emit_wss_debug_key", z);
+    }
+
+    public static void eJ(boolean z) {
+        setBoolean("aiapps_load_cts_debug_key", z);
+    }
+
+    public static boolean anv() {
+        return getBoolean("aiapps_load_cts_debug_key", false);
+    }
+
+    public static void mY(String str) {
+        anf().putString("aiapps_env_data", str);
+    }
+
+    public static String anw() {
+        return anf().getString("aiapps_env_data", "");
+    }
+
+    public static void setBoolean(String str, boolean z) {
+        anf().putBoolean(str, z);
+    }
+
+    public static boolean getBoolean(String str, boolean z) {
+        return anf().getBoolean(str, z);
+    }
+
+    private static boolean c(c cVar) {
+        return (DEBUG && cVar.isDebug()) || mZ(cVar.aif()) || com.baidu.swan.apps.console.debugger.b.Xd() || com.baidu.swan.apps.console.debugger.b.Xe() || (ant() && cVar.ahO());
+    }
+
+    public static boolean m(com.baidu.swan.apps.v.b.b bVar) {
+        return (DEBUG && bVar.isDebug()) || mZ(bVar.aif()) || com.baidu.swan.apps.console.debugger.b.Xd() || com.baidu.swan.apps.console.debugger.b.Xe() || (ant() && bVar.ahO());
+    }
+
+    public static boolean anx() {
+        return com.baidu.swan.apps.console.debugger.b.Xd() || com.baidu.swan.apps.console.debugger.b.Xe();
+    }
+
+    public static boolean mZ(String str) {
+        return !TextUtils.isEmpty(str) || e.Xs();
+    }
+
+    public static boolean any() {
+        return getBoolean("aiapps_force_authorized_key", false);
+    }
+
+    public static boolean anz() {
+        return getBoolean("aiapps_js_native_switch_key", true);
+    }
+
+    public static void eK(boolean z) {
         setBoolean("aiapps_js_native_switch_key", z);
     }
 
@@ -201,13 +201,13 @@ public final class a {
         if (DEBUG && bVar.isDebug()) {
             return e.a.a(bVar, bVar2);
         }
-        if (mR(bVar.agZ())) {
-            return e.C0371e.d(bVar);
+        if (mZ(bVar.aif())) {
+            return e.C0377e.d(bVar);
         }
-        if (com.baidu.swan.apps.console.debugger.b.VX()) {
+        if (com.baidu.swan.apps.console.debugger.b.Xd()) {
             return com.baidu.swan.apps.console.debugger.adbdebug.a.d(bVar);
         }
-        if (com.baidu.swan.apps.console.debugger.b.VY()) {
+        if (com.baidu.swan.apps.console.debugger.b.Xe()) {
             return com.baidu.swan.apps.console.debugger.b.b.d(bVar);
         }
         return null;
@@ -215,60 +215,60 @@ public final class a {
 
     public static Bundle d(c cVar) {
         if (c(cVar)) {
-            b.a amv = amv();
-            amv.kW(cVar.getAppId());
-            amv.kZ(cVar.agK());
-            amv.lb(cVar.getPage());
-            amv.dZ(cVar.isDebug());
-            amv.lc(cVar.agR());
-            amv.H(cVar.agQ());
-            amv.la(cVar.agM());
-            amv.ld(cVar.agS());
-            amv.b(cVar.abG());
-            amv.c(cVar.abH());
-            amv.le(cVar.agV());
-            amv.lf(cVar.agZ());
-            amv.kR("0");
-            amv.fD(cVar.getAppFrameType());
-            amv.fC(cVar.getOrientation());
-            if (mR(cVar.agZ()) || amr()) {
-                amv.kX(cVar.getAppId());
+            b.a anB = anB();
+            anB.le(cVar.getAppId());
+            anB.lh(cVar.ahQ());
+            anB.lj(cVar.getPage());
+            anB.ee(cVar.isDebug());
+            anB.lk(cVar.ahX());
+            anB.H(cVar.ahW());
+            anB.li(cVar.ahS());
+            anB.ll(cVar.ahY());
+            anB.b(cVar.acM());
+            anB.c(cVar.acN());
+            anB.lm(cVar.aib());
+            anB.ln(cVar.aif());
+            anB.kZ("0");
+            anB.fO(cVar.getAppFrameType());
+            anB.fN(cVar.getOrientation());
+            if (mZ(cVar.aif()) || anx()) {
+                anB.lf(cVar.getAppId());
             }
-            return amv.toBundle();
+            return anB.toBundle();
         }
         return null;
     }
 
     public static String n(com.baidu.swan.apps.v.b.b bVar) {
         if (DEBUG && bVar.isDebug()) {
-            return e.a.aeK().getPath();
+            return e.a.afQ().getPath();
         }
-        if (mR(bVar.agZ())) {
-            return e.C0371e.VZ().getPath();
+        if (mZ(bVar.aif())) {
+            return e.C0377e.Xf().getPath();
         }
-        if (com.baidu.swan.apps.console.debugger.b.VX()) {
-            return com.baidu.swan.apps.console.debugger.adbdebug.a.VZ().getPath();
+        if (com.baidu.swan.apps.console.debugger.b.Xd()) {
+            return com.baidu.swan.apps.console.debugger.adbdebug.a.Xf().getPath();
         }
-        if (com.baidu.swan.apps.console.debugger.b.VY()) {
-            return com.baidu.swan.apps.console.debugger.b.b.VZ().getPath();
+        if (com.baidu.swan.apps.console.debugger.b.Xe()) {
+            return com.baidu.swan.apps.console.debugger.b.b.Xf().getPath();
         }
         return "";
     }
 
-    public static void Yc() {
-        com.baidu.swan.apps.core.d.b YP;
-        com.baidu.swan.apps.core.d.e QH = f.ahV().QH();
-        if (QH != null && (YP = QH.YP()) != null) {
-            YP.Yc();
+    public static void Zi() {
+        com.baidu.swan.apps.core.d.b ZV;
+        com.baidu.swan.apps.core.d.e RN = f.ajb().RN();
+        if (RN != null && (ZV = RN.ZV()) != null) {
+            ZV.Zi();
         }
     }
 
-    public static boolean amu() {
-        return amp() || amj() || amk() || amh() || !amb() || aml() || amm() || amo() || amn();
+    public static boolean anA() {
+        return anv() || anp() || anq() || ann() || !anh() || anr() || ans() || anu() || ant();
     }
 
-    public static b.a amv() {
-        return ((b.a) ((b.a) ((b.a) new b.a().h(new PMSAppInfo())).kY("小程序测试").kW("10985873").aV(Color.parseColor("#FF308EF0"))).kZ("1230000000000000")).kU("小程序简介").kT("测试服务类目").kS("测试主体信息").kX("CdKRXT4IrCwTD6LIBS7DIlL8rmbKx58N").kR("1.0").kV("https://b.bdstatic.com/searchbox/mappconsole/image/20180502/1525250801121271.png");
+    public static b.a anB() {
+        return ((b.a) ((b.a) ((b.a) new b.a().h(new PMSAppInfo())).lg("小程序测试").le("10985873").aV(Color.parseColor("#FF308EF0"))).lh("1230000000000000")).lc("小程序简介").lb("测试服务类目").la("测试主体信息").lf("CdKRXT4IrCwTD6LIBS7DIlL8rmbKx58N").kZ("1.0").ld("https://b.bdstatic.com/searchbox/mappconsole/image/20180502/1525250801121271.png");
     }
 
     public static ExtensionCore d(ExtensionCore extensionCore) {

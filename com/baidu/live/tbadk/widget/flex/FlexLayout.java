@@ -9,8 +9,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.flex.FlexAdapter;
-import com.baidu.live.u.a;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 /* loaded from: classes3.dex */

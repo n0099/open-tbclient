@@ -19,29 +19,29 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes11.dex */
 public class d {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static JSONObject bMO;
+    private static JSONObject bRC;
 
-    public static synchronized void UF() {
+    public static synchronized void VL() {
         synchronized (d.class) {
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "release cache system info");
             }
-            bMO = null;
+            bRC = null;
         }
     }
 
     @Nullable
-    public static synchronized void bp(Context context) {
+    public static synchronized void bq(Context context) {
         synchronized (d.class) {
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "start pre cache");
             }
-            if (com.baidu.swan.apps.u.a.aeU().Ry()) {
-                if (bMO == null && context != null) {
+            if (com.baidu.swan.apps.u.a.aga().SE()) {
+                if (bRC == null && context != null) {
                     if (DEBUG) {
                         Log.d("SystemInfoCacheHelper", "need create system info");
                     }
-                    bMO = br(context);
+                    bRC = bs(context);
                 }
                 if (DEBUG) {
                     Log.d("SystemInfoCacheHelper", "end pre cache system info");
@@ -52,24 +52,24 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public static synchronized JSONObject bq(Context context) {
+    public static synchronized JSONObject br(Context context) {
         JSONObject jSONObject;
         synchronized (d.class) {
-            if (bMO == null && context != null) {
+            if (bRC == null && context != null) {
                 if (DEBUG) {
                     Log.d("SystemInfoCacheHelper", "need create system info");
                 }
-                bMO = br(context);
+                bRC = bs(context);
             }
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "return cache system info");
             }
-            jSONObject = bMO;
+            jSONObject = bRC;
         }
         return jSONObject;
     }
 
-    public static JSONObject br(@NonNull Context context) {
+    public static JSONObject bs(@NonNull Context context) {
         if (DEBUG) {
             Log.d("SystemInfoCacheHelper", "start create System Info");
         }
@@ -89,11 +89,11 @@ public class d {
             jSONObject.put("version", aj.getVersionName());
             jSONObject.put("system", "Android " + Build.VERSION.RELEASE);
             jSONObject.put("platform", "android");
-            jSONObject.put("fontSizeSetting", com.baidu.swan.apps.u.a.afd().SJ());
+            jSONObject.put("fontSizeSetting", com.baidu.swan.apps.u.a.agj().TP());
             jSONObject.put("swanNativeVersion", com.baidu.swan.apps.c.getVersion());
-            jSONObject.put("host", com.baidu.swan.apps.u.a.afB().getHostName());
-            jSONObject.put("statusBarHeight", ag.D(ag.getStatusBarHeight()));
-            jSONObject.put("navigationBarHeight", ag.D(ag.getActionBarHeight()));
+            jSONObject.put("host", com.baidu.swan.apps.u.a.agH().getHostName());
+            jSONObject.put("statusBarHeight", ag.F(ag.getStatusBarHeight()));
+            jSONObject.put("navigationBarHeight", ag.F(ag.getActionBarHeight()));
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "end create System Info");
                 return jSONObject;

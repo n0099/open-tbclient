@@ -1,25 +1,28 @@
 package com.baidu.tieba.personCenter.c;
 
-import android.os.Bundle;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.data.UserData;
+import java.util.List;
 /* loaded from: classes9.dex */
-public class g extends com.baidu.tieba.card.data.b {
-    public static BdUniqueId kmE = BdUniqueId.gen();
-    public String auL;
-    public int itemId;
-    public boolean kmA;
-    public boolean kmB = false;
-    public i kmC;
-    public Bundle kmD;
-    public int kmy;
-    public boolean kmz;
-    public String title;
-    public int type;
-    public UserData userData;
+public class g extends com.baidu.tieba.card.data.b implements q {
+    public static BdUniqueId kGn = BdUniqueId.gen();
+    public List<a> dvd;
+    public UserData mUserData;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
+    /* loaded from: classes9.dex */
+    public static class a {
+        public int kGo;
+        public String text;
+        public int type;
+    }
+
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return kmE;
+        return kGn;
+    }
+
+    public void ev(List<a> list) {
+        this.dvd = list;
     }
 }

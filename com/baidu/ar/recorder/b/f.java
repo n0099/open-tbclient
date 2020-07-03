@@ -10,11 +10,11 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes3.dex */
 public class f extends b {
     private static final String TAG = f.class.getSimpleName();
-    private Surface tf;
+    private Surface tF;
 
     @Override // com.baidu.ar.recorder.b.b
-    public /* bridge */ /* synthetic */ void Q(boolean z) {
-        super.Q(z);
+    public /* bridge */ /* synthetic */ void R(boolean z) {
+        super.R(z);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:? A[RETURN, SYNTHETIC] */
@@ -25,28 +25,28 @@ public class f extends b {
     public void a(EncoderParams encoderParams, d dVar) {
         boolean z = true;
         if (encoderParams != null && dVar != null) {
-            this.sX = dVar;
+            this.tx = dVar;
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(encoderParams.getVideoCodec(), encoderParams.getVideoWidth(), encoderParams.getVideoHeight());
             createVideoFormat.setInteger("color-format", 2130708361);
             createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, encoderParams.getVideoBitrate());
             createVideoFormat.setInteger("frame-rate", encoderParams.getVideoFrameRate());
             createVideoFormat.setInteger("i-frame-interval", encoderParams.getVideoIFrameInterval());
             try {
-                this.sY = MediaCodec.createEncoderByType(encoderParams.getVideoCodec());
-                this.sY.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                this.tf = this.sY.createInputSurface();
-                this.tb = true;
+                this.ty = MediaCodec.createEncoderByType(encoderParams.getVideoCodec());
+                this.ty.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+                this.tF = this.ty.createInputSurface();
+                this.tB = true;
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.ta == null) {
-                this.ta.a(z, this.tf);
+            if (this.tA == null) {
+                this.tA.a(z, this.tF);
                 return;
             }
             return;
         }
         z = false;
-        if (this.ta == null) {
+        if (this.tA == null) {
         }
     }
 
@@ -61,26 +61,26 @@ public class f extends b {
     }
 
     @Override // com.baidu.ar.recorder.b.b
-    protected void en() {
-        if (this.tc == 0) {
-            this.tc = this.sZ.presentationTimeUs;
+    protected void eD() {
+        if (this.tC == 0) {
+            this.tC = this.tz.presentationTimeUs;
         }
-        this.sZ.presentationTimeUs -= this.tc;
-        com.baidu.ar.f.b.c(TAG, "syncTimestamp mVideoEncoder = " + this.sZ.size + "|" + this.sZ.presentationTimeUs);
+        this.tz.presentationTimeUs -= this.tC;
+        com.baidu.ar.f.b.c(TAG, "syncTimestamp mVideoEncoder = " + this.tz.size + "|" + this.tz.presentationTimeUs);
     }
 
     @Override // com.baidu.ar.recorder.b.b
-    public /* bridge */ /* synthetic */ void eo() {
-        super.eo();
+    public /* bridge */ /* synthetic */ void eE() {
+        super.eE();
     }
 
     @Override // com.baidu.ar.recorder.b.b
-    public /* bridge */ /* synthetic */ void ep() {
-        super.ep();
+    public /* bridge */ /* synthetic */ void eF() {
+        super.eF();
     }
 
     @Override // com.baidu.ar.recorder.b.b
-    public /* bridge */ /* synthetic */ void eq() {
-        super.eq();
+    public /* bridge */ /* synthetic */ void eG() {
+        super.eG();
     }
 }

@@ -1,19 +1,32 @@
 package com.baidu.ar.c;
 /* loaded from: classes3.dex */
 public class l {
-    private String J;
-    private boolean lR;
+    private String I;
+    private int mp;
+    private boolean mq;
 
     public l(String str, boolean z) {
-        this.J = str;
-        this.lR = z;
+        this.mp = -1;
+        this.I = str;
+        this.mq = z;
     }
 
-    public String cl() {
-        return this.J;
+    public l(String str, boolean z, int i) {
+        this.mp = -1;
+        this.I = str;
+        this.mq = z;
+        this.mp = i;
+    }
+
+    public String cD() {
+        return this.I;
+    }
+
+    public int cL() {
+        return this.mp;
     }
 
     public boolean isSuccess() {
-        return this.lR;
+        return this.mq;
     }
 }

@@ -4,29 +4,29 @@ import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class h {
-    private String auL;
+    private String awR;
     private String text;
 
-    public static h s(JSONObject jSONObject) {
+    public static h u(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
         h hVar = new h();
         hVar.text = jSONObject.optString("text");
-        hVar.auL = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
+        hVar.awR = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
         return hVar;
     }
 
-    public String vX() {
-        return this.auL;
+    public String wv() {
+        return this.awR;
     }
 
     public String getText() {
         return this.text;
     }
 
-    public void er(String str) {
-        this.auL = str;
+    public void ew(String str) {
+        this.awR = str;
     }
 
     public void setText(String str) {

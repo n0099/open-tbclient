@@ -26,7 +26,7 @@ public class t implements ak {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ak
-    public ExecutorService St() {
+    public ExecutorService Tz() {
         return null;
     }
 }

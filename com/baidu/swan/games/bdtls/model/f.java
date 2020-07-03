@@ -4,14 +4,14 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes11.dex */
 public final class f {
-    private String cUN;
-    private com.baidu.swan.games.bdtls.b.b cUO;
+    private String cZx;
+    private com.baidu.swan.games.bdtls.b.b cZy;
 
     public boolean equals(Object obj) {
         if (this != obj) {
             if (obj instanceof f) {
                 f fVar = (f) obj;
-                if (!q.l((Object) this.cUN, (Object) fVar.cUN) || !q.l(this.cUO, fVar.cUO)) {
+                if (!q.l((Object) this.cZx, (Object) fVar.cZx) || !q.l(this.cZy, fVar.cZy)) {
                 }
             }
             return false;
@@ -20,26 +20,26 @@ public final class f {
     }
 
     public int hashCode() {
-        String str = this.cUN;
+        String str = this.cZx;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        com.baidu.swan.games.bdtls.b.b bVar = this.cUO;
+        com.baidu.swan.games.bdtls.b.b bVar = this.cZy;
         return hashCode + (bVar != null ? bVar.hashCode() : 0);
     }
 
     public String toString() {
-        return "BdtlsRequestParams(requestData=" + this.cUN + ", bdtlsRequest=" + this.cUO + ")";
+        return "BdtlsRequestParams(requestData=" + this.cZx + ", bdtlsRequest=" + this.cZy + ")";
     }
 
     public f(String str, com.baidu.swan.games.bdtls.b.b bVar) {
-        this.cUN = str;
-        this.cUO = bVar;
+        this.cZx = str;
+        this.cZy = bVar;
     }
 
-    public final String ayB() {
-        return this.cUN;
+    public final String azH() {
+        return this.cZx;
     }
 
-    public final com.baidu.swan.games.bdtls.b.b ayC() {
-        return this.cUO;
+    public final com.baidu.swan.games.bdtls.b.b azI() {
+        return this.cZy;
     }
 }

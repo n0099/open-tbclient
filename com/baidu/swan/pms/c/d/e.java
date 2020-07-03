@@ -1,51 +1,51 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes11.dex */
 public class e extends f {
-    private String dmC;
-    private int dmD;
-    private String dmF;
-    private String dmG;
-    private int dmH;
-    private String dmJ;
+    private String drn;
+    private int dro;
+    private String drq;
+    private String drr;
+    private int drt;
+    private String drv;
 
     public e(String str, int i, String str2, int i2) {
         super(i2);
-        this.dmH = -1;
-        this.dmC = str;
-        this.dmJ = str2;
-        this.dmD = i;
+        this.drt = -1;
+        this.drn = str;
+        this.drv = str2;
+        this.dro = i;
     }
 
-    public e tr(String str) {
-        this.dmF = str;
+    public e tz(String str) {
+        this.drq = str;
         return this;
     }
 
-    public int aGQ() {
-        return this.dmH;
+    public int aHW() {
+        return this.drt;
     }
 
-    public void ts(String str) {
-        this.dmG = str;
+    public void tA(String str) {
+        this.drr = str;
     }
 
     public String getBundleId() {
-        return this.dmC;
+        return this.drn;
     }
 
-    public String aGV() {
-        return this.dmJ;
+    public String aIb() {
+        return this.drv;
     }
 
-    public int aGO() {
-        return this.dmD;
+    public int aHU() {
+        return this.dro;
     }
 
-    public String aGR() {
-        return this.dmF;
+    public String aHX() {
+        return this.drq;
     }
 
-    public String aGS() {
-        return this.dmG;
+    public String aHY() {
+        return this.drr;
     }
 }

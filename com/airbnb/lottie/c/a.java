@@ -16,9 +16,9 @@ public class a {
                 arrayList.add(w.s(jsonReader, eVar));
             }
             jsonReader.endArray();
-            r.j(arrayList);
+            r.l(arrayList);
         } else {
-            arrayList.add(new com.airbnb.lottie.e.a(p.g(jsonReader, com.airbnb.lottie.d.f.jk())));
+            arrayList.add(new com.airbnb.lottie.e.a(p.g(jsonReader, com.airbnb.lottie.d.f.jA())));
         }
         return new com.airbnb.lottie.model.a.e(arrayList);
     }
@@ -82,7 +82,7 @@ public class a {
         }
         jsonReader.endObject();
         if (z) {
-            eVar.aW("Lottie doesn't support expressions.");
+            eVar.aX("Lottie doesn't support expressions.");
         }
         return eVar2 != null ? eVar2 : new com.airbnb.lottie.model.a.i(bVar2, bVar);
     }

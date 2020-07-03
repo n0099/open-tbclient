@@ -5,11 +5,11 @@ import android.graphics.SurfaceTexture;
 import android.media.AudioManager;
 import android.view.Surface;
 import android.view.TextureView;
+import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.ndk.AlaNDKPKPlayerAdapter;
 import com.baidu.ala.ndk.AudioProcessModule;
 import com.baidu.ala.player.AlaAudioPlayer;
 import com.baidu.ala.player.CallStateReceiver;
-import com.baidu.ala.player.StreamConfig;
 import com.baidu.ala.recorder.video.RecorderHandler;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
@@ -29,6 +29,7 @@ public class AlaLivePKPlayer {
     private static final int PCM_BYTE_LENGTH = 2048;
     public static final int PLAYER_VIDEO_MODEL_FILL = 1;
     public static final int PLAYER_VIDEO_MODEL_FIT = 2;
+    private static final String TAG = "LIVE_SDK_JNI";
     private WeakReference<Context> mContext;
     private RecorderHandler mHandler;
     private AlaNDKPKPlayerAdapter mNDKAdapter;
@@ -88,21 +89,34 @@ public class AlaLivePKPlayer {
     }
 
     public int startPlay(final String str, final int i, final String str2) {
+        int streamVolume;
+        int streamMaxVolume;
         if (this.mEnableRtcACE) {
+            try {
+                if (this.mAudioManager == null) {
+                    this.mAudioManager = (AudioManager) this.mContext.get().getSystemService("audio");
+                }
+                int curAudioStreamType = this.mAudioPlayer.getCurAudioStreamType(this.mEnableRtcACE);
+                if (curAudioStreamType == 3) {
+                    streamVolume = this.mAudioManager.getStreamVolume(3);
+                    streamMaxVolume = this.mAudioManager.getStreamMaxVolume(3);
+                } else {
+                    streamVolume = this.mAudioManager.getStreamVolume(0);
+                    streamMaxVolume = this.mAudioManager.getStreamMaxVolume(0);
+                }
+                BdLog.e("LIVE_SDK_JNI|stream volume type =" + curAudioStreamType + "|currentStreamVolume =" + streamVolume + "|maxStreamVolume=" + streamMaxVolume);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             if (!this.mRunOpenSLES) {
                 if (this.mAudioPlayer == null) {
                     this.mAudioPlayer = new AlaAudioPlayer(StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 4, this.mEnableRtcACE);
-                    try {
-                        this.mAudioManager = (AudioManager) this.mContext.get().getSystemService("audio");
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
                     setAudioRoute();
                 }
             } else if (this.mNativePlayFlags == 0) {
                 this.mNDKAdapter.setWebRtcHandle(AudioProcessModule.sharedInstance().getContext());
-                if (AudioProcessModule.sharedInstance().createAudioPlayer(StreamConfig.OUTPUT_SAMPLE_RATE, 1, StreamConfig.OUTPUT_FRAMES_PER_BUFFER) != 0) {
-                    BdLog.e("createAudioPlayer failed");
+                if (AudioProcessModule.sharedInstance().createAudioPlayer(StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 1, StreamConfig.OUTPUT_FRAMES_PER_BUFFER) != 0) {
+                    BdLog.e("LIVE_SDK_JNIcreateAudioPlayer failed");
                 }
                 setAudioRoute();
                 this.mNativePlayFlags = 1;
@@ -124,7 +138,7 @@ public class AlaLivePKPlayer {
                             return;
                         }
                     }
-                    BdLog.e("startPlayerNative error:" + startPlayerNative);
+                    BdLog.e("LIVE_SDK_JNIstartPlayerNative error:" + startPlayerNative);
                 }
             }
         });
@@ -133,8 +147,12 @@ public class AlaLivePKPlayer {
 
     private void setAudioRoute() {
         try {
+            if (this.mAudioManager == null) {
+                this.mAudioManager = (AudioManager) this.mContext.get().getSystemService("audio");
+            }
             if (this.mAudioManager != null) {
                 boolean isWiredHeadsetOn = this.mAudioManager.isWiredHeadsetOn();
+                BdLog.e("LIVE_SDK_JNIpk is wire head set on is wear?" + isWiredHeadsetOn);
                 this.mAudioManager.setMode(3);
                 this.mAudioManager.setSpeakerphoneOn(!isWiredHeadsetOn);
             }

@@ -5,32 +5,31 @@ import android.arch.lifecycle.w;
 import android.content.Intent;
 import android.graphics.Rect;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.data.bu;
 import com.baidu.tieba.pb.pb.main.PbModel;
 /* loaded from: classes9.dex */
 public class e extends w {
-    private PbModel jHV;
-    private d kef = new d();
-    private int keg = 0;
+    private PbModel kbF;
+    private d kxU = new d();
+    private int kxV = 0;
 
     public void init(Intent intent) {
-        this.kef.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
-        this.kef.sC(intent.getBooleanExtra("key_jump_to_comment_area", false));
+        this.kxU.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
+        this.kxU.sQ(intent.getBooleanExtra("key_jump_to_comment_area", false));
     }
 
     public void i(PbModel pbModel) {
-        this.jHV = pbModel;
+        this.kbF = pbModel;
     }
 
-    public void c(com.baidu.tieba.pb.data.e eVar, int i) {
+    public void b(com.baidu.tieba.pb.data.e eVar, int i) {
         boolean z = true;
-        if (i >= this.keg) {
-            this.keg = i;
-            this.kef.K(eVar);
+        if (i >= this.kxV) {
+            this.kxV = i;
+            this.kxU.L(eVar);
             if (eVar != null) {
-                d dVar = this.kef;
-                if (eVar.getIsNewUrl() != 1 && !eVar.cCZ()) {
+                d dVar = this.kxU;
+                if (eVar.getIsNewUrl() != 1 && !eVar.cHp()) {
                     z = false;
                 }
                 dVar.setFromCDN(z);
@@ -38,115 +37,111 @@ public class e extends w {
         }
     }
 
-    public com.baidu.tieba.pb.data.e cLr() {
-        return this.kef.cLr();
+    public com.baidu.tieba.pb.data.e cPI() {
+        return this.kxU.cPI();
     }
 
     public boolean isFromCDN() {
-        return this.kef.isFromCDN();
+        return this.kxU.isFromCDN();
     }
 
-    public com.baidu.tieba.pb.data.e cLs() {
-        return this.kef.cLs();
+    public com.baidu.tieba.pb.data.e cPJ() {
+        return this.kxU.cPJ();
     }
 
-    public void d(com.baidu.tieba.pb.data.e eVar, int i) {
+    public void c(com.baidu.tieba.pb.data.e eVar, int i) {
         if (i == 3) {
-            this.kef.setData(eVar);
+            this.kxU.setData(eVar);
         }
     }
 
-    public p<bk> cLt() {
-        return this.kef.cLt();
+    public p<bu> cPK() {
+        return this.kxU.cPK();
     }
 
-    public Rect cLu() {
-        if (this.kef.cLu() == null || this.kef.cLu().isEmpty()) {
+    public Rect cPL() {
+        if (this.kxU.cPL() == null || this.kxU.cPL().isEmpty()) {
             return null;
         }
-        return this.kef.cLu();
+        return this.kxU.cPL();
     }
 
-    public void sF(boolean z) {
-        if (this.kef.cLy().getValue() != null) {
-            com.baidu.tieba.pb.data.e aI = this.jHV.aI(this.kef.cLy().getValue());
-            if (aI != null) {
-                this.kef.cLw().addLast(this.kef.cLs());
-                this.kef.setData(aI);
-                this.kef.aQ(!v.isEmpty(aI.cCY()) ? aI.cCY().get(0) : null);
-                this.kef.aP(this.kef.cLw().getLast() != null ? this.kef.cLw().getLast().cCy() : null);
-                this.jHV.Au(z ? 21 : 22);
-                this.jHV.j(aI);
-                this.kef.setIsLoading(true);
+    public void sT(boolean z) {
+        if (this.kxU.cPP().getValue() != null) {
+            com.baidu.tieba.pb.data.e aJ = this.kbF.aJ(this.kxU.cPP().getValue());
+            if (aJ != null) {
+                this.kxU.cPN().addLast(this.kxU.cPJ());
+                this.kxU.setData(aJ);
+                this.kxU.aR(!com.baidu.tbadk.core.util.w.isEmpty(aJ.cHo()) ? aJ.cHo().get(0) : null);
+                this.kxU.aQ(this.kxU.cPN().getLast() != null ? this.kxU.cPN().getLast().cGN() : null);
+                this.kbF.Bw(z ? 21 : 22);
+                this.kbF.j(aJ);
+                this.kxU.setIsLoading(true);
             }
         }
     }
 
-    public void aR(bk bkVar) {
-        com.baidu.tieba.pb.data.e aI;
-        if (bkVar != null && (aI = this.jHV.aI(bkVar)) != null) {
-            this.kef.cLw().addLast(this.kef.cLs());
-            this.kef.setData(aI);
-            this.kef.aQ(!v.isEmpty(aI.cCY()) ? aI.cCY().get(0) : null);
-            this.kef.aP(this.kef.cLw().getLast() != null ? this.kef.cLw().getLast().cCy() : null);
-            this.jHV.Au(20);
-            this.jHV.j(aI);
-            this.kef.setIsLoading(true);
+    public void aS(bu buVar) {
+        com.baidu.tieba.pb.data.e aJ;
+        if (buVar != null && (aJ = this.kbF.aJ(buVar)) != null) {
+            this.kxU.cPN().addLast(this.kxU.cPJ());
+            this.kxU.setData(aJ);
+            this.kxU.aR(!com.baidu.tbadk.core.util.w.isEmpty(aJ.cHo()) ? aJ.cHo().get(0) : null);
+            this.kxU.aQ(this.kxU.cPN().getLast() != null ? this.kxU.cPN().getLast().cGN() : null);
+            this.kbF.Bw(20);
+            this.kbF.j(aJ);
+            this.kxU.setIsLoading(true);
         }
     }
 
-    public void cLD() {
-        com.baidu.tieba.pb.data.e pollLast = this.kef.cLw().pollLast();
+    public void cPU() {
+        com.baidu.tieba.pb.data.e pollLast = this.kxU.cPN().pollLast();
         if (pollLast != null) {
-            this.kef.setData(pollLast);
-            this.kef.aQ(!v.isEmpty(pollLast.cCY()) ? pollLast.cCY().get(0) : null);
-            this.kef.aP(this.kef.cLw().peekLast() != null ? this.kef.cLw().peekLast().cCy() : null);
-            this.jHV.j(pollLast);
-            this.kef.setIsLoading(true);
+            this.kxU.setData(pollLast);
+            this.kxU.aR(!com.baidu.tbadk.core.util.w.isEmpty(pollLast.cHo()) ? pollLast.cHo().get(0) : null);
+            this.kxU.aQ(this.kxU.cPN().peekLast() != null ? this.kxU.cPN().peekLast().cGN() : null);
+            this.kbF.j(pollLast);
+            this.kxU.setIsLoading(true);
         }
     }
 
-    public p<bk> cLx() {
-        return this.kef.cLx();
+    public p<bu> cPO() {
+        return this.kxU.cPO();
     }
 
-    public p<bk> cLy() {
-        return this.kef.cLy();
+    public p<bu> cPP() {
+        return this.kxU.cPP();
     }
 
-    public p<Boolean> cLz() {
-        return this.kef.cLz();
+    public p<Boolean> cPQ() {
+        return this.kxU.cPQ();
     }
 
-    public void sD(boolean z) {
-        this.kef.sD(z);
+    public void sR(boolean z) {
+        this.kxU.sR(z);
     }
 
-    public p<Boolean> cLA() {
-        return this.kef.cLA();
+    public p<Boolean> cPR() {
+        return this.kxU.cPR();
     }
 
-    public void sE(boolean z) {
-        this.kef.sE(z);
+    public void sS(boolean z) {
+        this.kxU.sS(z);
     }
 
     public void setIsLoading(boolean z) {
-        this.kef.setIsLoading(z);
+        this.kxU.setIsLoading(z);
     }
 
-    public p<Boolean> cLB() {
-        return this.kef.cLB();
+    public p<Boolean> cPS() {
+        return this.kxU.cPS();
     }
 
-    public boolean cLv() {
-        return this.kef.cLv();
+    public boolean cPM() {
+        return this.kxU.cPM();
     }
 
-    public void setCurrentTab(int i) {
-        this.kef.setCurrentTab(i);
-    }
-
-    public p<Integer> cLC() {
-        return this.kef.cLC();
+    public p<Integer> cPT() {
+        return this.kxU.cPT();
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.swan.videoplayer.a;
 import com.baidu.swan.videoplayer.SwanVideoView;
 /* loaded from: classes11.dex */
 public interface a {
-    void N(int i, int i2);
+    void P(int i, int i2);
 
     void f(int i, int i2, String str);
 
-    void gr(boolean z);
+    void gw(boolean z);
 
     void h(SwanVideoView swanVideoView);
 

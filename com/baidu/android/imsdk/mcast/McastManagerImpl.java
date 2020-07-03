@@ -154,6 +154,9 @@ public class McastManagerImpl {
     }
 
     public Boolean isReliable(long j) {
+        if (j <= 0) {
+            return false;
+        }
         return Boolean.valueOf(j == this.mReliableCastId);
     }
 

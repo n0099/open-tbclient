@@ -17,20 +17,20 @@ import java.util.SimpleTimeZone;
 /* loaded from: classes11.dex */
 public class x {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String cNG = "cookieMap";
-    public static String cNH = "ptokenDomains";
-    public static String cNI = "bdussDomains";
-
-    public static void cV(Context context) {
-        cW(context);
-    }
+    public static String cSq = "cookieMap";
+    public static String cSr = "ptokenDomains";
+    public static String cSs = "bdussDomains";
 
     public static void cW(Context context) {
+        cX(context);
+    }
+
+    public static void cX(Context context) {
         if (context != null) {
-            String cH = a.cH(context);
-            String cO = a.cO(context);
-            b(context, cH, auJ());
-            c(context, cO, auJ());
+            String cI = a.cI(context);
+            String cP = a.cP(context);
+            b(context, cI, avP());
+            c(context, cP, avP());
         }
     }
 
@@ -54,14 +54,14 @@ public class x {
     }
 
     private static String buildBDUSSCookie(String str, String str2) {
-        return N(str, "BDUSS", str2);
+        return O(str, "BDUSS", str2);
     }
 
     private static String buildPtokenCookie(String str, String str2) {
-        return N(str, "PTOKEN", str2);
+        return O(str, "PTOKEN", str2);
     }
 
-    private static String N(String str, String str2, String str3) {
+    private static String O(String str, String str2, String str3) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(1, TextUtils.isEmpty(str3) ? -8 : 8);
@@ -100,7 +100,7 @@ public class x {
         }
     }
 
-    private static List<String> auJ() {
+    private static List<String> avP() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("baidu.com");
         arrayList.add("hao123.com");

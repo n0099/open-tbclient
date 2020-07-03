@@ -1,7 +1,7 @@
 package com.baidu.ar.mdl;
 /* loaded from: classes3.dex */
 public class a {
-    public boolean rE;
-    public String[] rF;
+    public boolean sd;
+    public String[] se;
     public int type;
 }

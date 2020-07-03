@@ -1,50 +1,56 @@
 package com.baidu.ar.auth;
 
 import android.content.Context;
+import android.os.Build;
+import android.support.media.ExifInterface;
 import android.text.TextUtils;
 import com.baidu.ar.auth.l;
 import com.baidu.ar.bean.DuMixARConfig;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.f.q;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.HttpFactory;
 import com.baidu.ar.ihttp.IHttpRequest;
 import com.baidu.ar.ihttp.IHttpResponse;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.mobstat.Config;
 import com.baidu.webkit.internal.ETAG;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 class b implements l {
-    private volatile IHttpRequest bK;
-    private boolean iZ;
-    private String ja;
-    private String jb;
-    private l.a jc;
-    private int jd = 0;
+    private volatile IHttpRequest bX;
+    private boolean jq;
+    private String jr;
+    private String js;
+    private l.a jt;
+    private int ju = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static final class a {
-        boolean jf;
-        JSONObject jg;
-        String jh;
+        boolean jw;
+        JSONObject jx;
+        String jy;
 
         private a() {
         }
     }
 
     public b(f fVar) {
-        this.iZ = fVar.jm;
-        this.ja = fVar.jp;
-        this.jb = fVar.jq;
+        this.jq = fVar.jD;
+        this.jr = fVar.jG;
+        this.js = fVar.jH;
     }
 
     private String O(String str) {
-        return com.baidu.ar.f.j.aM(str + (TextUtils.isEmpty(this.ja) ? DuMixARConfig.getAPIKey() : this.jb));
+        return com.baidu.ar.f.j.aN(str + (TextUtils.isEmpty(this.jr) ? DuMixARConfig.getAPIKey() : this.js));
     }
 
     private String P(String str) {
@@ -56,10 +62,10 @@ class b implements l {
     }
 
     private void a(final j jVar) {
-        if (this.bK == null) {
+        if (this.bX == null) {
             return;
         }
-        this.bK.enqueue(new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.auth.b.1
+        this.bX.enqueue(new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.auth.b.1
             @Override // com.baidu.ar.ihttp.a
             public void a(HttpException httpException) {
                 b.this.b(jVar);
@@ -69,13 +75,13 @@ class b implements l {
             public void a(IHttpResponse iHttpResponse) {
                 try {
                     a b = b.this.b(iHttpResponse);
-                    if (b.jf) {
-                        b.this.d(b.jg);
+                    if (b.jw) {
+                        b.this.e(b.jx);
                         if (jVar != null) {
                             jVar.onSuccess();
                         }
                     } else if (jVar != null) {
-                        jVar.onError(b.jh, 0);
+                        jVar.onError(b.jy, 0);
                     }
                 } catch (Exception e) {
                     b.this.b(jVar);
@@ -101,33 +107,37 @@ class b implements l {
             throw new HttpException(4, "response format is error");
         }
         a aVar = new a();
-        aVar.jf = jSONObject.getInt("errorNum") == 0;
-        if (aVar.jf) {
-            aVar.jg = jSONObject.optJSONObject("data");
+        aVar.jw = jSONObject.getInt("errorNum") == 0;
+        if (aVar.jw) {
+            aVar.jx = jSONObject.optJSONObject("data");
         } else {
-            aVar.jh = jSONObject.has(TiebaInitialize.LogFields.ERROR_MESSAGE) ? jSONObject.getString(TiebaInitialize.LogFields.ERROR_MESSAGE) : "";
+            aVar.jy = jSONObject.has(TiebaInitialize.LogFields.ERROR_MESSAGE) ? jSONObject.getString(TiebaInitialize.LogFields.ERROR_MESSAGE) : "";
         }
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(j jVar) {
-        int i = this.jd + 1;
-        this.jd = i;
+        int i = this.ju + 1;
+        this.ju = i;
         if (i > 5) {
+            if (jVar != null) {
+                jVar.onSuccess();
+                return;
+            }
             return;
         }
-        com.baidu.ar.f.b.b("ARAuth", "retry " + this.jd + " at " + System.currentTimeMillis());
+        com.baidu.ar.f.b.b("ARAuth", "retry " + this.ju + " at " + System.currentTimeMillis());
         try {
             Thread.currentThread();
-            Thread.sleep(this.jd * 500);
+            Thread.sleep(this.ju * 500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         a(jVar);
     }
 
-    private long[] bQ() {
+    private long[] cf() {
         long currentTimeMillis = System.currentTimeMillis();
         int i = 0;
         while (currentTimeMillis < 946656000000L) {
@@ -150,9 +160,22 @@ class b implements l {
         return jArr;
     }
 
+    private String cg() {
+        String str = Build.CPU_ABI;
+        if (Build.VERSION.SDK_INT >= 21) {
+            str = Arrays.asList(Build.SUPPORTED_ABIS).toString();
+        }
+        String uuid = new UUID(("182020" + (Build.BOARD.length() % 10) + (Build.BRAND.length() % 10) + (str.length() % 10) + (Build.DEVICE.length() % 10) + (Build.DISPLAY.length() % 10) + (Build.HOST.length() % 10) + (Build.ID.length() % 10) + (Build.MANUFACTURER.length() % 10) + (Build.MODEL.length() % 10) + (Build.PRODUCT.length() % 10) + (Build.TAGS.length() % 10) + (Build.TYPE.length() % 10) + (Build.USER.length() % 10)).hashCode(), "dumix corp".hashCode()).toString();
+        String str2 = ExifInterface.GPS_MEASUREMENT_IN_PROGRESS;
+        if (!TextUtils.isEmpty(Build.MANUFACTURER)) {
+            str2 = String.valueOf(Build.MANUFACTURER.charAt(0));
+        }
+        return str2 + uuid.replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toUpperCase();
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public void d(JSONObject jSONObject) {
-        if (this.jc == null) {
+    public void e(JSONObject jSONObject) {
+        if (this.jt == null) {
             return;
         }
         HashSet hashSet = new HashSet();
@@ -167,41 +190,56 @@ class b implements l {
                 }
             }
         }
-        this.jc.a(hashSet);
+        this.jt.a(hashSet);
     }
 
-    private String g(Context context) {
-        UUID eV = new com.baidu.ar.f.e(context).eV();
-        String uuid = eV == null ? "" : eV.toString();
+    private String h(Context context) {
+        UUID fl = new com.baidu.ar.f.e(context).fl();
+        String uuid = fl == null ? "" : fl.toString();
         StringBuilder sb = new StringBuilder();
-        String eT = com.baidu.ar.f.c.eT();
-        a(sb, "app_id", TextUtils.isEmpty(this.ja) ? DuMixARConfig.getAipAppId() : this.ja);
-        a(sb, "dumix_type", eT);
+        String fj = com.baidu.ar.f.c.fj();
+        a(sb, "app_id", TextUtils.isEmpty(this.jr) ? DuMixARConfig.getAipAppId() : this.jr);
+        a(sb, Constants.PHONE_BRAND, Build.BRAND);
+        a(sb, Config.DEVICE_PART, Build.DEVICE);
+        a(sb, "dumix_type", fj);
         a(sb, "fr", "-1");
+        a(sb, HttpConstants.HTTP_MANUFACTURER, Build.MANUFACTURER);
+        a(sb, "model", Build.MODEL);
+        a(sb, HttpConstants.HTTP_OS_TYPE, "android");
+        a(sb, "serial_num", i(context));
         a(sb, "timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         a(sb, "user_id", uuid);
         a(sb, "sign", O(sb.toString()));
         return sb.toString();
     }
 
+    private String i(Context context) {
+        String cg = Build.VERSION.SDK_INT > 28 ? cg() : (Build.VERSION.SDK_INT <= 27 || context.checkSelfPermission("android.permission.READ_PHONE_STATE") != 0) ? Build.SERIAL : Build.getSerial();
+        return "unknown".equals(cg) ? "" : cg;
+    }
+
     @Override // com.baidu.ar.auth.l
     public void a(l.a aVar) {
-        this.jc = aVar;
+        this.jt = aVar;
     }
 
     @Override // com.baidu.ar.auth.l
     public void doAuth(Context context, j jVar) {
-        this.bK = HttpFactory.newRequest();
-        if (this.bK == null) {
+        this.bX = HttpFactory.newRequest();
+        if (this.bX == null) {
             return;
         }
-        long[] bQ = bQ();
-        if (bQ[0] != 1) {
-            com.baidu.ar.f.b.b("ARAuth", "time err. " + bQ[1]);
+        long[] cf = cf();
+        if (cf[0] != 1) {
+            com.baidu.ar.f.b.b("ARAuth", "time err. " + cf[1]);
+            if (jVar != null) {
+                jVar.onSuccess();
+                return;
+            }
             return;
         }
-        String fk = q.fk();
-        this.bK.setMethod("POST").setUrl(fk).addHeader("Content-Type: application/x-www-form-urlencoded").setBody(g(context));
+        String fA = q.fA();
+        this.bX.setMethod("POST").setUrl(fA).addHeader("Content-Type: application/x-www-form-urlencoded").setBody(h(context));
         a(jVar);
     }
 }

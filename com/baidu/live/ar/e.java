@@ -1,19 +1,51 @@
 package com.baidu.live.ar;
 
-import android.text.TextUtils;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class e {
-    private static File ate = getPrivateCaptureRootChildDir("duFilter");
-    public static String atf;
+    private String auW;
+    private String avd;
+    private String ave;
+    private String avf;
+    private String mFile;
+    private String mId;
+    private String mName;
+    private String mType;
 
-    public static File getPrivateCaptureRootChildDir(String str) {
-        String str2 = TbadkCoreApplication.getInst().getContext().getFilesDir().getAbsoluteFile() + File.separator + "live_ar" + File.separator;
-        return TextUtils.isEmpty(str) ? new File(str2) : new File(str2, str);
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.mId = jSONObject.optString("id");
+            this.mName = jSONObject.optString("name");
+            this.avd = jSONObject.optString("bgurl");
+            this.mType = jSONObject.optString("type");
+            this.ave = jSONObject.optString("current");
+            this.mFile = jSONObject.optString("feature_file");
+            this.avf = jSONObject.optString("feature_file_token");
+            this.auW = jSONObject.optString("thinface_value");
+        }
     }
 
-    public static void ek(String str) {
-        atf = str;
+    public String vq() {
+        return this.avd;
+    }
+
+    public String vr() {
+        return this.mFile;
+    }
+
+    public String getName() {
+        return this.mName;
+    }
+
+    public String getType() {
+        return this.mType;
+    }
+
+    public String vs() {
+        return this.ave;
+    }
+
+    public String vt() {
+        return this.auW;
     }
 }

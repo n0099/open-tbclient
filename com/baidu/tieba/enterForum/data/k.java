@@ -1,66 +1,61 @@
 package com.baidu.tieba.enterForum.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import tbclient.RecommendForumInfo;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.w;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.FrsTabInfo;
 /* loaded from: classes9.dex */
-public class k extends f implements com.baidu.tbadk.mvc.b.a {
-    private boolean gPf;
-    private String mAvatar;
-    private long mForumId;
-    private String mForumName;
-    private int member_count;
-    private String recom_reason;
-    private int thread_count;
+public class k {
+    private ArrayList<j> hbT;
 
-    public k() {
-        setType(8);
-    }
-
-    public String getAvatar() {
-        return this.mAvatar;
-    }
-
-    public String getForumName() {
-        return this.mForumName;
-    }
-
-    public long getForumId() {
-        return this.mForumId;
-    }
-
-    public boolean isLike() {
-        return this.gPf;
-    }
-
-    public void setLike(boolean z) {
-        this.gPf = z;
-    }
-
-    public int bOq() {
-        return this.member_count;
-    }
-
-    public int bOr() {
-        return this.thread_count;
-    }
-
-    public void a(RecommendForumInfo recommendForumInfo) {
-        if (recommendForumInfo != null) {
-            try {
-                this.mForumId = recommendForumInfo.forum_id.longValue();
-                this.mAvatar = recommendForumInfo.avatar;
-                this.mForumName = recommendForumInfo.forum_name;
-                this.gPf = recommendForumInfo.is_like.intValue() == 1;
-                this.member_count = recommendForumInfo.member_count.intValue();
-                this.thread_count = recommendForumInfo.thread_count.intValue();
-                this.recom_reason = recommendForumInfo.recom_reason;
-            } catch (Exception e) {
-                BdLog.detailException(e);
+    public void cb(List<FrsTabInfo> list) {
+        if (this.hbT == null) {
+            this.hbT = new ArrayList<>();
+        }
+        this.hbT.clear();
+        if (list != null) {
+            for (FrsTabInfo frsTabInfo : list) {
+                if (frsTabInfo != null && !StringUtils.isNull(frsTabInfo.tab_code) && !StringUtils.isNull(frsTabInfo.tab_name)) {
+                    this.hbT.add(new j(frsTabInfo));
+                }
             }
         }
     }
 
-    public String aOj() {
-        return this.recom_reason;
+    public ArrayList<j> bRy() {
+        return this.hbT;
+    }
+
+    public boolean b(j jVar) {
+        if (jVar == null) {
+            return false;
+        }
+        if (w.isEmpty(this.hbT)) {
+            return true;
+        }
+        Iterator<j> it = this.hbT.iterator();
+        while (it.hasNext()) {
+            j next = it.next();
+            if (jVar.a(next)) {
+                return jVar.bRw() > next.bRw();
+            }
+        }
+        return true;
+    }
+
+    public boolean b(k kVar) {
+        if (kVar == null || kVar.hbT == null || this.hbT.size() != kVar.hbT.size()) {
+            return false;
+        }
+        for (int i = 0; i < this.hbT.size(); i++) {
+            j jVar = this.hbT.get(i);
+            j jVar2 = this.hbT.get(i);
+            if (jVar == null || jVar2 == null || !jVar.a(jVar2)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

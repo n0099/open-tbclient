@@ -17,11 +17,12 @@ import java.util.Comparator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
+    public static Object mLock = new Object();
 
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0030a {
-        public boolean Ta;
+        public boolean TC;
         public String mErrMsg;
     }
 
@@ -29,16 +30,18 @@ public class a {
         if (classLoader == null || classLoader2 == null) {
             return null;
         }
-        boolean z2 = true;
-        try {
-            Class.forName("dalvik.system.BaseDexClassLoader");
-        } catch (ClassNotFoundException e) {
-            z2 = false;
+        synchronized (mLock) {
+            boolean z2 = true;
+            try {
+                Class.forName("dalvik.system.BaseDexClassLoader");
+            } catch (ClassNotFoundException e) {
+                z2 = false;
+            }
+            if (!z2) {
+                return a(classLoader, classLoader2, str, z);
+            }
+            return b(classLoader, classLoader2, str, z, str2);
         }
-        if (!z2) {
-            return a(classLoader, classLoader2, str, z);
-        }
-        return b(classLoader, classLoader2, str, z, str2);
     }
 
     private static C0030a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
@@ -103,7 +106,7 @@ public class a {
         return c0030a;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [257=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [260=7] */
     private static C0030a b(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z, String str2) {
         C0030a c0030a;
         List list;
@@ -123,14 +126,14 @@ public class a {
                 declaredMethod.invoke(pathList, str2, null);
                 Object combineArray = combineArray(C(pathList), C(pathList2));
                 if (combineArray instanceof File[]) {
-                    Arrays.sort((File[]) combineArray, oI());
+                    Arrays.sort((File[]) combineArray, oY());
                     list = combineArray;
                 } else {
                     boolean z2 = combineArray instanceof List;
                     list = combineArray;
                     if (z2) {
                         List list4 = (List) combineArray;
-                        Collections.sort(list4, oI());
+                        Collections.sort(list4, oY());
                         list = list4;
                     }
                 }
@@ -144,14 +147,14 @@ public class a {
                 setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(B(pathList), B(pathList2)) : combineArray(B(pathList2), B(pathList)));
                 Object combineArray2 = combineArray(C(pathList), C(pathList2));
                 if (combineArray2 instanceof File[]) {
-                    Arrays.sort((File[]) combineArray2, oI());
+                    Arrays.sort((File[]) combineArray2, oY());
                     list3 = combineArray2;
                 } else {
                     boolean z3 = combineArray2 instanceof List;
                     list3 = combineArray2;
                     if (z3) {
                         List list5 = (List) combineArray2;
-                        Collections.sort(list5, oI());
+                        Collections.sort(list5, oY());
                         list3 = list5;
                     }
                 }
@@ -165,14 +168,14 @@ public class a {
                 setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(B(pathList), B(pathList2)) : combineArray(B(pathList2), B(pathList)));
                 Object combineArray3 = combineArray(C(pathList), C(pathList2));
                 if (combineArray3 instanceof File[]) {
-                    Arrays.sort((File[]) combineArray3, oI());
+                    Arrays.sort((File[]) combineArray3, oY());
                     list2 = combineArray3;
                 } else {
                     boolean z4 = combineArray3 instanceof List;
                     list2 = combineArray3;
                     if (z4) {
                         List list6 = (List) combineArray3;
-                        Collections.sort(list6, oI());
+                        Collections.sort(list6, oY());
                         list2 = list6;
                     }
                 }
@@ -276,7 +279,7 @@ public class a {
 
     private static C0030a a(boolean z, Throwable th) {
         C0030a c0030a = new C0030a();
-        c0030a.Ta = z;
+        c0030a.TC = z;
         c0030a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0030a;
     }
@@ -313,7 +316,7 @@ public class a {
         }
     }
 
-    private static final Comparator<File> oI() {
+    private static final Comparator<File> oY() {
         return new Comparator<File>() { // from class: com.baidu.adp.plugin.util.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator

@@ -10,8 +10,8 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newinterest.a.a;
@@ -20,89 +20,89 @@ import com.baidu.tieba.view.NoScrollGridView;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class InterestSelectionFragment extends BaseFragment implements a.b {
-    private TBSpecificationBtn jAV;
-    private FrameLayout jAW;
-    private TextView jAX;
-    private TextView jAY;
-    private com.baidu.tieba.newinterest.c.a jAZ;
-    private NoScrollGridView jBa;
-    private com.baidu.tieba.newinterest.a.a jBb;
-    private a jBc;
+    private TBSpecificationBtn jUo;
+    private FrameLayout jUp;
+    private TextView jUq;
+    private TextView jUr;
+    private com.baidu.tieba.newinterest.c.a jUs;
+    private NoScrollGridView jUt;
+    private com.baidu.tieba.newinterest.a.a jUu;
+    private a jUv;
     private View mRootView;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void dR(List<b> list);
+        void ef(List<b> list);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jAZ = new com.baidu.tieba.newinterest.c.a();
+        this.jUs = new com.baidu.tieba.newinterest.c.a();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mRootView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_interest_selection_layout, viewGroup, false);
         initUI();
-        bYI();
+        cbV();
         return this.mRootView;
     }
 
     private void initUI() {
-        this.jBa = (NoScrollGridView) this.mRootView.findViewById(R.id.interest_selection_grid_view);
-        this.jAV = (TBSpecificationBtn) this.mRootView.findViewById(R.id.interest_selected_btn);
-        this.jAX = (TextView) this.mRootView.findViewById(R.id.interest_selection_title);
-        this.jAX.setTypeface(Typeface.DEFAULT_BOLD);
-        this.jAY = (TextView) this.mRootView.findViewById(R.id.interest_selection_desc);
-        this.jAW = (FrameLayout) this.mRootView.findViewById(R.id.bottom_select_layout);
+        this.jUt = (NoScrollGridView) this.mRootView.findViewById(R.id.interest_selection_grid_view);
+        this.jUo = (TBSpecificationBtn) this.mRootView.findViewById(R.id.interest_selected_btn);
+        this.jUq = (TextView) this.mRootView.findViewById(R.id.interest_selection_title);
+        this.jUq.setTypeface(Typeface.DEFAULT_BOLD);
+        this.jUr = (TextView) this.mRootView.findViewById(R.id.interest_selection_desc);
+        this.jUp = (FrameLayout) this.mRootView.findViewById(R.id.bottom_select_layout);
         com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-        this.jAV.setTextSize(R.dimen.tbds42);
-        this.jAV.setConfig(bVar);
-        this.jAV.setText(getResources().getString(R.string.select_interest_introduce));
-        this.jAV.setEnabled(false);
-        this.jAV.setOnClickListener(this);
-        this.jBb = new com.baidu.tieba.newinterest.a.a(this.jAZ.cBb(), getContext());
-        this.jBa.setAdapter((ListAdapter) this.jBb);
+        this.jUo.setTextSize(R.dimen.tbds42);
+        this.jUo.setConfig(bVar);
+        this.jUo.setText(getResources().getString(R.string.select_interest_introduce));
+        this.jUo.setEnabled(false);
+        this.jUo.setOnClickListener(this);
+        this.jUu = new com.baidu.tieba.newinterest.a.a(this.jUs.cFr(), getContext());
+        this.jUt.setAdapter((ListAdapter) this.jUu);
     }
 
-    private void bYI() {
-        this.jBb.a(this);
+    private void cbV() {
+        this.jUu.a(this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jBc != null) {
-            this.jBc.dR(this.jBb.cAU());
-            an anVar = new an("c13682");
-            anVar.ag("obj_type", 2);
-            anVar.ag("obj_locate", 5);
-            TiebaStatic.log(anVar);
+        if (this.jUv != null) {
+            this.jUv.ef(this.jUu.cFk());
+            ao aoVar = new ao("c13682");
+            aoVar.ag("obj_type", 2);
+            aoVar.ag("obj_locate", 5);
+            TiebaStatic.log(aoVar);
         }
     }
 
     @Override // com.baidu.tieba.newinterest.a.a.b
-    public void zL(int i) {
-        if (i > 0 && !this.jAV.isEnabled()) {
-            this.jAV.setEnabled(true);
-            this.jAV.setText(getString(R.string.next_step));
+    public void AN(int i) {
+        if (i > 0 && !this.jUo.isEnabled()) {
+            this.jUo.setEnabled(true);
+            this.jUo.setText(getString(R.string.next_step));
         } else if (i == 0) {
-            this.jAV.setEnabled(false);
-            this.jAV.setText(getResources().getString(R.string.select_interest_introduce));
+            this.jUo.setEnabled(false);
+            this.jUo.setText(getResources().getString(R.string.select_interest_introduce));
         }
     }
 
     public void a(a aVar) {
-        this.jBc = aVar;
+        this.jUv = aVar;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        am.setViewTextColor(this.jAX, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.jAY, (int) R.color.cp_cont_j);
-        am.setBackgroundColor(this.jAW, R.color.cp_bg_line_d);
-        this.jBb.notifyDataSetChanged();
+        an.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
+        an.setViewTextColor(this.jUq, (int) R.color.cp_cont_b);
+        an.setViewTextColor(this.jUr, (int) R.color.cp_cont_j);
+        an.setBackgroundColor(this.jUp, R.color.cp_bg_line_d);
+        this.jUu.notifyDataSetChanged();
     }
 }

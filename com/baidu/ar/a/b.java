@@ -6,20 +6,21 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private JSONObject bD;
-    private e bE;
-    private String bF;
-    private ICallbackWith<String> bG;
+    private JSONObject bP;
+    private JSONObject bQ;
+    private e bR;
+    private String bS;
+    private ICallbackWith<String> bT;
     private Context mContext;
 
     public b(Context context) {
-        this.bF = "default";
+        this.bS = "default";
         if (context != null) {
             this.mContext = context.getApplicationContext();
             a a = d.a(context);
             if (a != null) {
-                this.bD = a.bC;
-                this.bF = a.bB;
+                this.bP = a.bO;
+                this.bS = a.bN;
             }
         }
     }
@@ -29,55 +30,64 @@ public class b {
         if (aVar == null || this.mContext == null) {
             return;
         }
-        this.bF = aVar.bB;
-        this.bD = aVar.bC;
+        this.bS = aVar.bN;
+        this.bP = aVar.bO;
         d.a(this.mContext, aVar);
     }
 
-    public JSONObject P() {
-        return this.bD;
-    }
-
-    public int Q() {
-        return c.Q();
-    }
-
     public void a(ICallbackWith<String> iCallbackWith) {
-        this.bG = iCallbackWith;
+        this.bT = iCallbackWith;
+    }
+
+    public JSONObject ad() {
+        if (this.bQ == null) {
+            com.baidu.ar.f.b.c(TAG, "use inner config: " + this.bP);
+            return this.bP;
+        }
+        com.baidu.ar.f.b.c(TAG, "use outter config: " + this.bQ);
+        return this.bQ;
+    }
+
+    public int ae() {
+        return c.ae();
     }
 
     public void b(final ICallbackWith<JSONObject> iCallbackWith) {
-        this.bE = new e();
-        this.bE.c(new ICallbackWith<String>() { // from class: com.baidu.ar.a.b.1
+        this.bR = new e();
+        this.bR.c(new ICallbackWith<String>() { // from class: com.baidu.ar.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.ar.callback.ICallbackWith
             /* renamed from: k */
             public void run(String str) {
-                if (b.this.bG != null) {
-                    b.this.bG.run(str);
+                if (b.this.bT != null) {
+                    b.this.bT.run(str);
                 }
             }
         });
-        this.bE.a(this.mContext, this.bF, new ICallbackWith<a>() { // from class: com.baidu.ar.a.b.2
+        this.bR.a(this.mContext, this.bS, new ICallbackWith<a>() { // from class: com.baidu.ar.a.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.ar.callback.ICallbackWith
             /* renamed from: b */
             public void run(a aVar) {
-                b.this.bE = null;
+                b.this.bR = null;
                 b.this.a(aVar);
                 if (iCallbackWith == null || aVar == null) {
                     return;
                 }
-                iCallbackWith.run(aVar.bC);
+                iCallbackWith.run(aVar.bO);
             }
         });
     }
 
+    public void c(JSONObject jSONObject) {
+        this.bQ = jSONObject;
+    }
+
     public void release() {
-        this.bG = null;
-        if (this.bE != null) {
-            this.bE.cancel();
-            this.bE = null;
+        this.bT = null;
+        if (this.bR != null) {
+            this.bR.cancel();
+            this.bR = null;
         }
         this.mContext = null;
     }

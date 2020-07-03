@@ -17,7 +17,7 @@ public class ExtensionCore extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fk */
+        /* renamed from: fv */
         public ExtensionCore[] newArray(int i) {
             return new ExtensionCore[i];
         }

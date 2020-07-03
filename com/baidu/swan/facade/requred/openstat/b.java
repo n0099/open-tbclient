@@ -5,7 +5,7 @@ import com.baidu.swan.ubc.m;
 /* loaded from: classes11.dex */
 public class b implements ab {
     @Override // com.baidu.swan.apps.adaptation.a.ab
-    public m ST() {
+    public m TZ() {
         return new a();
     }
 }

@@ -16,15 +16,15 @@ public class ei extends ai.a {
     private Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f231a;
+    private SharedPreferences f237a;
 
     /* renamed from: a  reason: collision with other field name */
-    private com.xiaomi.push.service.ak f232a;
+    private com.xiaomi.push.service.ak f238a;
 
     public ei(Context context) {
         this.a = context;
-        this.f231a = context.getSharedPreferences("mipush_extra", 0);
-        this.f232a = com.xiaomi.push.service.ak.a(context);
+        this.f237a = context.getSharedPreferences("mipush_extra", 0);
+        this.f238a = com.xiaomi.push.service.ak.a(context);
     }
 
     private List<hu> a(File file) {
@@ -37,8 +37,8 @@ public class ei extends ai.a {
         r1 = null;
         fileInputStream2 = null;
         FileLock fileLock2 = null;
-        dp m229a = dq.a().m229a();
-        String a = m229a == null ? "" : m229a.a();
+        dp m226a = dq.a().m226a();
+        String a = m226a == null ? "" : m226a.a();
         if (TextUtils.isEmpty(a)) {
             return null;
         }
@@ -47,7 +47,7 @@ public class ei extends ai.a {
         synchronized (dv.a) {
             try {
                 File file2 = new File(this.a.getExternalFilesDir(null), "push_cdata.lock");
-                y.m587a(file2);
+                y.m584a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -128,13 +128,13 @@ public class ei extends ai.a {
     }
 
     private void a() {
-        SharedPreferences.Editor edit = this.f231a.edit();
+        SharedPreferences.Editor edit = this.f237a.edit();
         edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
         edit.commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m234a() {
+    private boolean m231a() {
         if (az.d(this.a)) {
             return false;
         }
@@ -145,22 +145,22 @@ public class ei extends ai.a {
     }
 
     private boolean b() {
-        if (this.f232a.a(hr.Upload3GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f231a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f232a.a(hr.Upload3GFrequency.a(), 432000)));
+        if (this.f238a.a(hr.Upload3GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f237a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f238a.a(hr.Upload3GFrequency.a(), 432000)));
         }
         return false;
     }
 
     private boolean c() {
-        if (this.f232a.a(hr.Upload4GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f231a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f232a.a(hr.Upload4GFrequency.a(), 259200)));
+        if (this.f238a.a(hr.Upload4GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f237a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f238a.a(hr.Upload4GFrequency.a(), 259200)));
         }
         return false;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo163a() {
+    public int mo160a() {
         return 1;
     }
 
@@ -171,7 +171,7 @@ public class ei extends ai.a {
             if (file.length() > 1863680) {
                 file.delete();
             }
-        } else if (m234a() || !file.exists()) {
+        } else if (m231a() || !file.exists()) {
         } else {
             List<hu> a = a(file);
             if (!ad.a(a)) {
@@ -183,11 +183,11 @@ public class ei extends ai.a {
                 cif.a(a);
                 byte[] a2 = y.a(iw.a(cif));
                 il ilVar = new il("-1", false);
-                ilVar.c(hw.DataCollection.f475a);
+                ilVar.c(hw.DataCollection.f481a);
                 ilVar.a(a2);
-                dp m229a = dq.a().m229a();
-                if (m229a != null) {
-                    m229a.a(ilVar, hm.Notification, null);
+                dp m226a = dq.a().m226a();
+                if (m226a != null) {
+                    m226a.a(ilVar, hm.Notification, null);
                 }
                 a();
             }

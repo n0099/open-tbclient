@@ -3,19 +3,19 @@ package com.baidu.live.message;
 import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes3.dex */
 public class e extends HttpMessage {
-    private String aJQ;
-    private String aWC;
-    private String aWD;
+    private String aMw;
+    private String aZl;
+    private String aZm;
 
     public e(String str, String str2, String str3) {
         super(1021120);
-        this.aJQ = str;
-        this.aWC = str2;
-        this.aWD = str3;
-        addParam("scene_from", this.aJQ);
+        this.aMw = str;
+        this.aZl = str2;
+        this.aZm = str3;
+        addParam("scene_from", this.aMw);
     }
 
-    public String Av() {
-        return this.aWD;
+    public String AV() {
+        return this.aZm;
     }
 }

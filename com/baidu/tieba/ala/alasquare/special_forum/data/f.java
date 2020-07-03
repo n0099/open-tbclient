@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId feh = BdUniqueId.gen();
-    public AlaInfoData fiw;
-    public boolean fiy;
+    public static final BdUniqueId fpr = BdUniqueId.gen();
+    public AlaInfoData ftK;
+    public boolean ftL;
     public UserData mUserData;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return feh;
+        return fpr;
     }
 }

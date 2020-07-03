@@ -5,8 +5,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e {
-    public static String[] bgs() {
-        String string = com.baidu.tbadk.core.sharedPref.b.aTX().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+    public static String[] biF() {
+        String string = com.baidu.tbadk.core.sharedPref.b.aVP().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
         if (StringUtils.isNull(string)) {
             return new String[0];
         }
@@ -14,9 +14,9 @@ public class e {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a yO = a.yO(str);
-                if (yO != null && !StringUtils.isNull(yO.forumName)) {
-                    arrayList.add(yO.forumName);
+                a zh = a.zh(str);
+                if (zh != null && !StringUtils.isNull(zh.forumName)) {
+                    arrayList.add(zh.forumName);
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);
@@ -44,7 +44,7 @@ public class e {
             return this.forumName + "#" + this.level;
         }
 
-        public static a yO(String str) {
+        public static a zh(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }

@@ -10,28 +10,28 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tieba.frs.e.b;
 /* loaded from: classes9.dex */
 public class f {
-    private com.baidu.tbadk.n.a.a Vt;
-    private g hKN;
-    private b hKW;
+    private com.baidu.tbadk.n.a.a VX;
+    private g hXZ;
+    private b hYi;
     private Context mContext;
     private ViewGroup mParent;
-    private b.a hKX = new b.a() { // from class: com.baidu.tieba.frs.e.f.1
+    private b.a hYj = new b.a() { // from class: com.baidu.tieba.frs.e.f.1
         @Override // com.baidu.tieba.frs.e.b.a
         public void onStateChanged(int i) {
             if (i == 1) {
                 if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
-                    if (f.this.Vt == null) {
-                        f.this.Vt = new com.baidu.tbadk.n.a.a("anim_switch_trans_frs");
+                    if (f.this.VX == null) {
+                        f.this.VX = new com.baidu.tbadk.n.a.a("anim_switch_trans_frs");
                     }
-                    f.this.Vt.bfQ();
+                    f.this.VX.bhW();
                 }
             } else if (i == 2) {
                 f.this.showContentView();
-                if (f.this.Vt != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
-                    f.this.Vt.bfR();
+                if (f.this.VX != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
+                    f.this.VX.bhX();
                 }
             } else if (i == 0) {
-                f.this.cbq();
+                f.this.ceI();
             }
         }
     };
@@ -45,21 +45,21 @@ public class f {
     public f(Context context, ViewGroup viewGroup, Intent intent) {
         this.mContext = context;
         this.mParent = viewGroup;
-        this.hKN = new g(context);
-        this.hKW = c.a(this.hKN, intent);
-        this.hKW.a(this.hKX);
+        this.hXZ = new g(context);
+        this.hYi = c.a(this.hXZ, intent);
+        this.hYi.a(this.hYj);
     }
 
-    public void cbo() {
+    public void ceG() {
         if (this.mParent != null) {
-            cbq();
-            this.mParent.addView(this.hKN.mRootView);
-            cbp();
-            this.hKW.cbe();
+            ceI();
+            this.mParent.addView(this.hXZ.mRootView);
+            ceH();
+            this.hYi.cew();
         }
     }
 
-    public void bUm() {
+    public void bXo() {
         if (this.mParent != null) {
             hide();
         }
@@ -67,13 +67,13 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
-        com.baidu.adp.lib.f.e.ld().removeCallbacks(this.mHideRunnable);
-        if (this.hKW.getState() == 1) {
-            com.baidu.adp.lib.f.e.ld().postDelayed(this.mHideRunnable, 10L);
+        com.baidu.adp.lib.f.e.lt().removeCallbacks(this.mHideRunnable);
+        if (this.hYi.getState() == 1) {
+            com.baidu.adp.lib.f.e.lt().postDelayed(this.mHideRunnable, 10L);
             return;
         }
         showContentView();
-        this.hKW.cbf();
+        this.hYi.cex();
     }
 
     public static boolean T(Intent intent) {
@@ -90,7 +90,7 @@ public class f {
         }
     }
 
-    private void cbp() {
+    private void ceH() {
         View findViewById;
         if (this.mParent != null && (this.mParent.getChildAt(0) instanceof SwipeBackLayout)) {
             this.mParent.getChildAt(0).setVisibility(8);
@@ -101,11 +101,11 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbq() {
-        ViewParent parent = this.hKN.mRootView.getParent();
+    public void ceI() {
+        ViewParent parent = this.hXZ.mRootView.getParent();
         if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(this.hKN.mRootView);
+            ((ViewGroup) parent).removeView(this.hXZ.mRootView);
         }
-        com.baidu.adp.lib.f.e.ld().removeCallbacks(this.mHideRunnable);
+        com.baidu.adp.lib.f.e.lt().removeCallbacks(this.mHideRunnable);
     }
 }

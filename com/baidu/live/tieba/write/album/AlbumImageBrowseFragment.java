@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.BaseFragment;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.FileHelper;
@@ -16,18 +17,17 @@ import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.img.ImageFileInfo;
 import com.baidu.live.tbadk.skin.SkinUtil;
-import com.baidu.live.u.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlbumImageBrowseFragment extends BaseFragment {
-    private ImageView atr;
-    private TextView bdA;
-    private TextView bdB;
-    private c bdi;
-    private AlbumActivity bdw;
-    private AlbumImagePagerAdapter bdx;
-    private ImageView bdy;
-    private View bdz;
+    private ImageView avt;
+    private AlbumActivity biJ;
+    private AlbumImagePagerAdapter biK;
+    private ImageView biL;
+    private View biM;
+    private TextView biN;
+    private TextView biO;
+    private c biv;
     private View mNoDataView;
     private View mRoot;
     private ViewPager mViewPager;
@@ -35,21 +35,21 @@ public class AlbumImageBrowseFragment extends BaseFragment {
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.live.tieba.write.album.AlbumImageBrowseFragment.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view != AlbumImageBrowseFragment.this.bdz && view == AlbumImageBrowseFragment.this.bdy && AlbumImageBrowseFragment.this.bdx != null && AlbumImageBrowseFragment.this.bdi != null && AlbumImageBrowseFragment.this.bdw != null) {
-                if (AlbumImageBrowseFragment.this.bdi.Hz()) {
-                    AlbumImageBrowseFragment.this.bdw.showToast(a.i.sdk_ph_album_choose_switch_tip);
-                } else if (AlbumImageBrowseFragment.this.bdx.dm(AlbumImageBrowseFragment.this.mCurrentIndex)) {
-                    ImageFileInfo dl = AlbumImageBrowseFragment.this.bdx.dl(AlbumImageBrowseFragment.this.mCurrentIndex);
-                    if (AlbumImageBrowseFragment.this.bdi.isAdded(dl)) {
-                        if (AlbumImageBrowseFragment.this.bdw.b(dl)) {
-                            AlbumImageBrowseFragment.this.a(AlbumImageBrowseFragment.this.bdy, false);
-                            AlbumImageBrowseFragment.this.bdw.a(dl, false);
+            if (view != AlbumImageBrowseFragment.this.biM && view == AlbumImageBrowseFragment.this.biL && AlbumImageBrowseFragment.this.biK != null && AlbumImageBrowseFragment.this.biv != null && AlbumImageBrowseFragment.this.biJ != null) {
+                if (AlbumImageBrowseFragment.this.biv.IM()) {
+                    AlbumImageBrowseFragment.this.biJ.showToast(a.i.sdk_ph_album_choose_switch_tip);
+                } else if (AlbumImageBrowseFragment.this.biK.dw(AlbumImageBrowseFragment.this.mCurrentIndex)) {
+                    ImageFileInfo dv = AlbumImageBrowseFragment.this.biK.dv(AlbumImageBrowseFragment.this.mCurrentIndex);
+                    if (AlbumImageBrowseFragment.this.biv.isAdded(dv)) {
+                        if (AlbumImageBrowseFragment.this.biJ.b(dv)) {
+                            AlbumImageBrowseFragment.this.a(AlbumImageBrowseFragment.this.biL, false);
+                            AlbumImageBrowseFragment.this.biJ.a(dv, false);
                         }
-                    } else if (AlbumImageBrowseFragment.this.bdw.a(dl)) {
-                        AlbumImageBrowseFragment.this.a(AlbumImageBrowseFragment.this.bdy, true);
-                        AlbumImageBrowseFragment.this.bdw.a(dl, true);
+                    } else if (AlbumImageBrowseFragment.this.biJ.a(dv)) {
+                        AlbumImageBrowseFragment.this.a(AlbumImageBrowseFragment.this.biL, true);
+                        AlbumImageBrowseFragment.this.biJ.a(dv, true);
                     }
-                    AlbumImageBrowseFragment.this.Hm();
+                    AlbumImageBrowseFragment.this.Iz();
                 }
             }
         }
@@ -58,19 +58,19 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             AlbumImageBrowseFragment.this.mCurrentIndex = i;
-            if (AlbumImageBrowseFragment.this.bdx != null && AlbumImageBrowseFragment.this.bdi != null) {
-                ImageFileInfo dl = AlbumImageBrowseFragment.this.bdx.dl(AlbumImageBrowseFragment.this.mCurrentIndex);
-                if (AlbumImageBrowseFragment.this.bdi.isAdded(dl)) {
-                    AlbumImageBrowseFragment.this.a(AlbumImageBrowseFragment.this.bdy, true);
+            if (AlbumImageBrowseFragment.this.biK != null && AlbumImageBrowseFragment.this.biv != null) {
+                ImageFileInfo dv = AlbumImageBrowseFragment.this.biK.dv(AlbumImageBrowseFragment.this.mCurrentIndex);
+                if (AlbumImageBrowseFragment.this.biv.isAdded(dv)) {
+                    AlbumImageBrowseFragment.this.a(AlbumImageBrowseFragment.this.biL, true);
                 } else {
-                    AlbumImageBrowseFragment.this.a(AlbumImageBrowseFragment.this.bdy, false);
+                    AlbumImageBrowseFragment.this.a(AlbumImageBrowseFragment.this.biL, false);
                 }
-                if (dl == null || !dl.isGif()) {
-                    AlbumImageBrowseFragment.this.bdB.setVisibility(0);
+                if (dv == null || !dv.isGif()) {
+                    AlbumImageBrowseFragment.this.biO.setVisibility(0);
                 } else {
-                    AlbumImageBrowseFragment.this.bdB.setVisibility(8);
+                    AlbumImageBrowseFragment.this.biO.setVisibility(8);
                 }
-                AlbumImageBrowseFragment.this.ci(AlbumImageBrowseFragment.this.bdi.isOriginalImg());
+                AlbumImageBrowseFragment.this.cn(AlbumImageBrowseFragment.this.biv.isOriginalImg());
             }
         }
 
@@ -86,77 +86,77 @@ public class AlbumImageBrowseFragment extends BaseFragment {
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bdw = (AlbumActivity) getBaseFragmentActivity();
-        this.bdi = this.bdw.Hj();
+        this.biJ = (AlbumActivity) getBaseFragmentActivity();
+        this.biv = this.biJ.Iw();
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mRoot = layoutInflater.inflate(a.h.sdk_ph_album_big_image_view, (ViewGroup) null);
-        this.atr = (ImageView) this.mRoot.findViewById(a.g.img_back);
-        this.bdy = (ImageView) this.mRoot.findViewById(a.g.img_choose);
+        this.avt = (ImageView) this.mRoot.findViewById(a.g.img_back);
+        this.biL = (ImageView) this.mRoot.findViewById(a.g.img_choose);
         this.mViewPager = (ViewPager) this.mRoot.findViewById(a.g.viewPager);
         this.mNoDataView = this.mRoot.findViewById(a.g.album_no_data);
-        this.bdA = (TextView) this.mRoot.findViewById(a.g.btn_next_step);
-        this.bdB = (TextView) this.mRoot.findViewById(a.g.original_select_btn);
-        this.bdz = this.mRoot.findViewById(a.g.layout_bottom);
-        this.atr.setOnClickListener(this.bdw);
-        this.bdA.setOnClickListener(this.bdw);
-        this.bdy.setOnClickListener(this.mOnClickListener);
-        this.bdB.setOnClickListener(this.bdw);
-        this.bdz.setOnClickListener(this.mOnClickListener);
+        this.biN = (TextView) this.mRoot.findViewById(a.g.btn_next_step);
+        this.biO = (TextView) this.mRoot.findViewById(a.g.original_select_btn);
+        this.biM = this.mRoot.findViewById(a.g.layout_bottom);
+        this.avt.setOnClickListener(this.biJ);
+        this.biN.setOnClickListener(this.biJ);
+        this.biL.setOnClickListener(this.mOnClickListener);
+        this.biO.setOnClickListener(this.biJ);
+        this.biM.setOnClickListener(this.mOnClickListener);
         this.mViewPager.setOnPageChangeListener(this.mOnPageChangeListener);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return this.mRoot;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Hm() {
-        this.bdw.Hg();
+    public void Iz() {
+        this.biJ.It();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
         if (isShow()) {
-            Ho();
+            IB();
         }
     }
 
-    private void Hn() {
-        List<ImageFileInfo> HE;
+    private void IA() {
+        List<ImageFileInfo> IR;
         int currentIndex;
-        if (this.bdi == null && this.bdw != null) {
-            this.bdi = this.bdw.Hj();
+        if (this.biv == null && this.biJ != null) {
+            this.biv = this.biJ.Iw();
         }
-        if (this.bdi != null && (HE = this.bdi.HE()) != null && (currentIndex = this.bdi.getCurrentIndex()) >= 0) {
+        if (this.biv != null && (IR = this.biv.IR()) != null && (currentIndex = this.biv.getCurrentIndex()) >= 0) {
             this.mCurrentIndex = currentIndex;
-            this.bdx = new AlbumImagePagerAdapter(this.bdw);
-            this.mViewPager.setAdapter(this.bdx);
-            if (this.mCurrentIndex == 0 && HE != null) {
-                ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(HE, this.mCurrentIndex);
-                if (this.bdi.isAdded(imageFileInfo)) {
-                    a(this.bdy, true);
+            this.biK = new AlbumImagePagerAdapter(this.biJ);
+            this.mViewPager.setAdapter(this.biK);
+            if (this.mCurrentIndex == 0 && IR != null) {
+                ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(IR, this.mCurrentIndex);
+                if (this.biv.isAdded(imageFileInfo)) {
+                    a(this.biL, true);
                 } else {
-                    a(this.bdy, false);
+                    a(this.biL, false);
                 }
                 if (imageFileInfo.isGif()) {
-                    this.bdB.setVisibility(8);
+                    this.biO.setVisibility(8);
                 } else {
-                    this.bdB.setVisibility(0);
+                    this.biO.setVisibility(0);
                 }
             }
-            this.bdx.setData(HE);
+            this.biK.setData(IR);
             this.mViewPager.setCurrentItem(this.mCurrentIndex, false);
-            ci(this.bdi.isOriginalImg());
+            cn(this.biv.isOriginalImg());
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onHiddenChanged(boolean z) {
         super.onHiddenChanged(z);
-        if (z && this.bdx != null) {
-            this.bdx.setData(null);
+        if (z && this.biK != null) {
+            this.biK.setData(null);
         }
     }
 
@@ -164,45 +164,45 @@ public class AlbumImageBrowseFragment extends BaseFragment {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         SkinUtil.onModeChanged(getPageContext(), this.mRoot);
-        SkinManager.setNavbarIconSrc(this.atr, a.f.sdk_icon_return_bg_s, a.f.sdk_icon_return_bg, i);
-        if (this.bdi != null) {
-            ci(this.bdi.isOriginalImg());
+        SkinManager.setNavbarIconSrc(this.avt, a.f.sdk_icon_return_bg_s, a.f.sdk_icon_return_bg, i);
+        if (this.biv != null) {
+            cn(this.biv.isOriginalImg());
         }
-        if (this.bdx != null) {
-            this.bdx.notifyDataSetChanged();
+        if (this.biK != null) {
+            this.biK.notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ImageView imageView, boolean z) {
-        if (imageView != null && this.bdw != null) {
+        if (imageView != null && this.biJ != null) {
             SkinManager.setImageResource(imageView, z ? a.f.sdk_ph_ic_post_edit_select_s : a.f.sdk_ph_icon_image_clear_select);
-            if (this.bdA != null) {
-                int count = this.bdi != null ? ListUtils.getCount(this.bdi.HB()) : 0;
-                this.bdA.setText(this.bdw.getString(a.i.sdk_ph_image_selected_list_count_max, new Object[]{Integer.valueOf(count), Integer.valueOf(this.bdi != null ? this.bdi.getMaxImagesAllowed() : 1)}));
-                this.bdA.setEnabled(count > 0);
+            if (this.biN != null) {
+                int count = this.biv != null ? ListUtils.getCount(this.biv.IO()) : 0;
+                this.biN.setText(this.biJ.getString(a.i.sdk_ph_image_selected_list_count_max, new Object[]{Integer.valueOf(count), Integer.valueOf(this.biv != null ? this.biv.getMaxImagesAllowed() : 1)}));
+                this.biN.setEnabled(count > 0);
             }
         }
     }
 
-    private void Ho() {
+    private void IB() {
         if (!isHidden()) {
             this.mNoDataView.setVisibility(8);
             this.mViewPager.setVisibility(0);
-            Hn();
+            IA();
         }
     }
 
-    public void ci(boolean z) {
+    public void cn(boolean z) {
         long j;
-        if (this.bdw != null && this.bdB != null) {
-            if (this.bdx != null) {
-                ImageFileInfo dl = this.bdx.dl(this.mCurrentIndex);
-                j = dl != null ? FileHelper.getFileSize(dl.getFilePath()) : 0L;
+        if (this.biJ != null && this.biO != null) {
+            if (this.biK != null) {
+                ImageFileInfo dv = this.biK.dv(this.mCurrentIndex);
+                j = dv != null ? FileHelper.getFileSize(dv.getFilePath()) : 0L;
             } else {
                 j = 0;
             }
-            String string = this.bdw.getResources().getString(a.i.sdk_ph_original_img);
+            String string = this.biJ.getResources().getString(a.i.sdk_ph_original_img);
             if (z) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(string);
@@ -212,14 +212,14 @@ public class AlbumImageBrowseFragment extends BaseFragment {
                     sb.append(")");
                 }
                 String sb2 = sb.toString();
-                SkinManager.setViewTextColor(this.bdB, a.d.sdk_cp_link_tip_a);
-                this.bdB.setText(sb2);
-                this.bdB.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.f.sdk_ph_icon_image_select_ok_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                SkinManager.setViewTextColor(this.biO, a.d.sdk_cp_link_tip_a);
+                this.biO.setText(sb2);
+                this.biO.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.f.sdk_ph_icon_image_select_ok_n), (Drawable) null, (Drawable) null, (Drawable) null);
                 return;
             }
-            SkinManager.setViewTextColor(this.bdB, a.d.sdk_cp_cont_f);
-            this.bdB.setText(string);
-            this.bdB.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.f.sdk_ph_icon_image_select_n), (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.setViewTextColor(this.biO, a.d.sdk_cp_cont_f);
+            this.biO.setText(string);
+            this.biO.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.f.sdk_ph_icon_image_select_n), (Drawable) null, (Drawable) null, (Drawable) null);
         }
     }
 }

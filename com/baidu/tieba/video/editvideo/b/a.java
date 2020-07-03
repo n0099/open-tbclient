@@ -10,55 +10,50 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a lCM;
-    private b lCN;
-    b.a lCO;
+    private com.baidu.tieba.video.editvideo.data.a lWv;
+    private b lWw;
+    b.a lWx;
     private Context mContext;
 
     public a(Context context) {
         this.mContext = context;
     }
 
-    public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.lCM = aVar;
+    public void b(com.baidu.tieba.video.editvideo.data.a aVar) {
+        this.lWv = aVar;
     }
 
-    public boolean diD() {
-        return (this.lCM == null || "normal".equalsIgnoreCase(this.lCM.value)) ? false : true;
+    public String dmM() {
+        return (this.lWv == null || "normal".equalsIgnoreCase(this.lWv.value)) ? "" : this.lWv.value;
     }
 
-    public void NB(String str) {
-        if ((this.lCN == null || !this.lCN.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String diG = diG();
-            String str2 = "normal";
-            if (this.lCM != null) {
-                str2 = this.lCM.value;
+    public void fF(String str, String str2) {
+        if ((this.lWw == null || !this.lWw.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            this.lWw = new b(this.mContext, str, dmP(), str2);
+            if (this.lWx != null) {
+                this.lWw.a(this.lWx);
             }
-            this.lCN = new b(this.mContext, str, diG, str2);
-            if (this.lCO != null) {
-                this.lCN.a(this.lCO);
-            }
-            this.lCN.diH();
+            this.lWw.dmQ();
         }
     }
 
-    public boolean diE() {
-        if (this.lCN != null) {
-            return this.lCN.isRunning();
+    public boolean dmN() {
+        if (this.lWw != null) {
+            return this.lWw.isRunning();
         }
         return false;
     }
 
-    public void diF() {
-        if (this.lCN != null) {
-            this.lCN.diI();
+    public void dmO() {
+        if (this.lWw != null) {
+            this.lWw.dmR();
         }
     }
 
     public void a(b.a aVar) {
-        this.lCO = aVar;
-        if (this.lCN != null) {
-            this.lCN.a(this.lCO);
+        this.lWx = aVar;
+        if (this.lWw != null) {
+            this.lWw.a(this.lWx);
         }
     }
 
@@ -94,7 +89,7 @@ public class a {
         }
     }
 
-    private static String diG() {
-        return com.baidu.tieba.video.c.lAO + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String dmP() {
+        return com.baidu.tieba.video.d.lUu + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

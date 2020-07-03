@@ -1,44 +1,44 @@
 package com.baidu.tieba.forumsearch.b;
 
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.SearchPostForum.DataRes;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes11.dex */
 public class c {
-    private SearchForum hlU;
-    private List<SearchForum> hlV;
-    private ArrayList<o> hlW;
-    private String hlt;
+    private String hxA;
+    private SearchForum hyb;
+    private List<SearchForum> hyc;
+    private ArrayList<q> hyd;
 
     public c(String str) {
-        this.hlt = str;
+        this.hxA = str;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.hlU = dataRes.exact_match;
-            this.hlV = dataRes.fuzzy_match;
-            this.hlW = new ArrayList<>();
-            b bVar = new b(this.hlt);
-            if (this.hlU != null) {
-                bVar.a(this.hlU);
-                this.hlW.add(bVar);
+            this.hyb = dataRes.exact_match;
+            this.hyc = dataRes.fuzzy_match;
+            this.hyd = new ArrayList<>();
+            b bVar = new b(this.hxA);
+            if (this.hyb != null) {
+                bVar.a(this.hyb);
+                this.hyd.add(bVar);
             }
-            if (this.hlV != null) {
-                for (SearchForum searchForum : this.hlV) {
+            if (this.hyc != null) {
+                for (SearchForum searchForum : this.hyc) {
                     if (searchForum != null) {
-                        b bVar2 = new b(this.hlt);
+                        b bVar2 = new b(this.hxA);
                         bVar2.a(searchForum);
-                        this.hlW.add(bVar2);
+                        this.hyd.add(bVar2);
                     }
                 }
             }
         }
     }
 
-    public ArrayList<o> bTX() {
-        return this.hlW;
+    public ArrayList<q> bWT() {
+        return this.hyd;
     }
 }

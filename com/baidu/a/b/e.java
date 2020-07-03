@@ -16,22 +16,22 @@ import java.util.HashMap;
 public class e {
     private static boolean DEBUG = AppConfig.isDebug();
     private static String TAG = "networkparam";
-    private static HashMap<String, Integer> ajS = new HashMap<>();
+    private static HashMap<String, Integer> alp = new HashMap<>();
     private Context mContext = AppRuntime.getAppContext();
 
     static {
-        ajS.put("WIFI", 1);
-        ajS.put("3GNET", 21);
-        ajS.put("3GWAP", 22);
-        ajS.put("CMNET", 31);
-        ajS.put("UNINET", 32);
-        ajS.put("CTNET", 33);
-        ajS.put("CMWAP", 41);
-        ajS.put("UNIWAP", 42);
-        ajS.put("CTWAP", 43);
+        alp.put("WIFI", 1);
+        alp.put("3GNET", 21);
+        alp.put("3GWAP", 22);
+        alp.put("CMNET", 31);
+        alp.put("UNINET", 32);
+        alp.put("CTNET", 33);
+        alp.put("CMWAP", 41);
+        alp.put("UNIWAP", 42);
+        alp.put("CTWAP", 43);
     }
 
-    public String sA() {
+    public String sV() {
         long j;
         String str;
         if (!DEBUG) {
@@ -44,7 +44,7 @@ public class e {
         int subType = connectManager.getSubType();
         if (!TextUtils.isEmpty(netType)) {
             String upperCase = netType.toUpperCase();
-            Integer num = ajS.get(upperCase);
+            Integer num = alp.get(upperCase);
             if (num == null) {
                 num = 5;
             }
@@ -61,20 +61,20 @@ public class e {
 
     public String l(String str, boolean z) {
         if (z) {
-            String sA = sA();
-            if (TextUtils.equals(sA, "5_0")) {
+            String sV = sV();
+            if (TextUtils.equals(sV, "5_0")) {
                 return UrlUtil.addParam(str, "network", PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).getString("last network type", "5_0"));
             }
-            if (!TextUtils.isEmpty(sA)) {
-                if (!TextUtils.equals(sA, "5_0")) {
+            if (!TextUtils.isEmpty(sV)) {
+                if (!TextUtils.equals(sV, "5_0")) {
                     SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).edit();
-                    edit.putString("last network type", sA);
+                    edit.putString("last network type", sV);
                     edit.commit();
                 }
-                return UrlUtil.addParam(str, "network", sA);
+                return UrlUtil.addParam(str, "network", sV);
             }
             return str;
         }
-        return UrlUtil.addParam(str, "network", sA());
+        return UrlUtil.addParam(str, "network", sV());
     }
 }

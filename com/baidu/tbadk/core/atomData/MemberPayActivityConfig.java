@@ -23,6 +23,7 @@ public class MemberPayActivityConfig extends IntentConfig {
     public static final int FROM_MEMBERCENTER_JOIN = 21;
     public static final int FROM_MEMBERCENTER_SPREAD = 15;
     public static final int FROM_MEMBER_CENTER = 3;
+    public static final int FROM_MORE_LINK = 26;
     public static final int FROM_MY_INFORMATION = 24;
     public static final int FROM_PB_MUTE = 4;
     public static final int FROM_PERSON_INFO_MUTE = 5;
@@ -33,6 +34,7 @@ public class MemberPayActivityConfig extends IntentConfig {
     public static final int FROM_SKIN_ITEM_DIALOG = 10;
     public static final int FROM_TAIL = 6;
     public static final int FROM_THEME_LIST_PAGE = 9;
+    public static final String IS_WRITE = "is_write";
     public static final String MEMBER_TYPE = "member_type";
     public static final String PAY_TYPE = "pay_type";
     public static final int SCENE_FROM_MEMBER_DEFAULT_COMMON = 0;
@@ -99,6 +101,13 @@ public class MemberPayActivityConfig extends IntentConfig {
         if (i2 > 0) {
             getIntent().putExtra("from", i2);
         }
+    }
+
+    public MemberPayActivityConfig(Context context, int i, int i2, int i3) {
+        super(context);
+        getIntent().putExtra("member_type", i);
+        getIntent().putExtra(IS_WRITE, i3);
+        getIntent().putExtra("from", i2);
     }
 
     public void setReferPageClickZone(String str, String str2) {

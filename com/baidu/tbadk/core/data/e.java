@@ -5,10 +5,10 @@ import org.json.JSONObject;
 import tbclient.ActivityInfo;
 /* loaded from: classes.dex */
 public class e {
-    public long dBh;
-    public int dBi;
-    public int dBj;
-    public String dBk;
+    public int dHA;
+    public String dHB;
+    public long dHy;
+    public int dHz;
     public String main_title;
     public String sub_title;
     public String subpage_link;
@@ -16,12 +16,12 @@ public class e {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.dBh = jSONObject.optLong("activity_id");
+                this.dHy = jSONObject.optLong("activity_id");
                 this.main_title = jSONObject.optString("main_title");
                 this.sub_title = jSONObject.optString("sub_title");
-                this.dBi = jSONObject.optInt("back_pic_width");
-                this.dBj = jSONObject.optInt("back_pic_height");
-                this.dBk = jSONObject.optString("back_pic");
+                this.dHz = jSONObject.optInt("back_pic_width");
+                this.dHA = jSONObject.optInt("back_pic_height");
+                this.dHB = jSONObject.optString("back_pic");
                 this.subpage_link = jSONObject.optString("subpage_link");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -32,12 +32,12 @@ public class e {
     public void a(ActivityInfo activityInfo) {
         if (activityInfo != null) {
             try {
-                this.dBh = activityInfo.activity_id.longValue();
+                this.dHy = activityInfo.activity_id.longValue();
                 this.main_title = activityInfo.main_title;
                 this.sub_title = activityInfo.sub_title;
-                this.dBi = activityInfo.back_pic_width.intValue();
-                this.dBj = activityInfo.back_pic_height.intValue();
-                this.dBk = activityInfo.back_pic;
+                this.dHz = activityInfo.back_pic_width.intValue();
+                this.dHA = activityInfo.back_pic_height.intValue();
+                this.dHB = activityInfo.back_pic;
                 this.subpage_link = activityInfo.subpage_link;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

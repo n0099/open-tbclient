@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.util.a.c;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
@@ -13,8 +13,8 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes.dex */
     public static class a {
         public String blockUrl;
-        public c dOw;
-        public BlockPopInfoData ecK;
+        public c dVo;
+        public BlockPopInfoData els;
         public String errorString;
         public boolean hasShownForbiddenAlert;
         public boolean isAttention;
@@ -55,12 +55,12 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                 String optString = jSONObject.optString("block_content");
                 String optString2 = jSONObject.optString("block_confirm");
                 String optString3 = jSONObject.optString("block_cancel");
-                if (!aq.isEmpty(optString) && !aq.isEmpty(this.blockUrl) && !aq.isEmpty(optString2) && !aq.isEmpty(optString3)) {
-                    this.ecK = new BlockPopInfoData();
-                    this.ecK.block_info = optString;
-                    this.ecK.ahead_url = this.blockUrl;
-                    this.ecK.ahead_info = optString2;
-                    this.ecK.ok_info = optString3;
+                if (!ar.isEmpty(optString) && !ar.isEmpty(this.blockUrl) && !ar.isEmpty(optString2) && !ar.isEmpty(optString3)) {
+                    this.els = new BlockPopInfoData();
+                    this.els.block_info = optString;
+                    this.els.ahead_url = this.blockUrl;
+                    this.els.ahead_info = optString2;
+                    this.els.ok_info = optString3;
                 }
             }
         }

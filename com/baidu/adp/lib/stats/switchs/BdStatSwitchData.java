@@ -5,6 +5,7 @@ import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.adp.lib.stats.switchs.BdStatisticsUploadConfig;
 import com.baidu.adp.lib.stats.switchs.BdStatisticsWriteConfig;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -110,7 +111,7 @@ public class BdStatSwitchData implements Serializable {
             ArrayList<String> arrayList = new ArrayList<>();
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("common");
             if (bdStatisticsWriteConfigItem != null) {
-                bdStatisticsWriteConfigItem.isWrite = optJSONObject2.optInt("is_write", 0) != 0;
+                bdStatisticsWriteConfigItem.isWrite = optJSONObject2.optInt(MemberPayActivityConfig.IS_WRITE, 0) != 0;
                 bdStatisticsWriteConfigItem.particleNum = optJSONObject2.optInt("particleNum");
                 bdStatisticsWriteConfigItem.isExac = optJSONObject2.optInt("is_exact", 0) != 0;
             }
@@ -123,7 +124,7 @@ public class BdStatSwitchData implements Serializable {
                     if (bdStatisticsWriteConfigItem != null) {
                         BdStatisticsWriteConfig.BdStatisticsWriteChildItem bdStatisticsWriteChildItem = new BdStatisticsWriteConfig.BdStatisticsWriteChildItem();
                         bdStatisticsWriteChildItem.subType = optJSONObject3.optString("type");
-                        bdStatisticsWriteChildItem.isWrite = optJSONObject3.optInt("is_write", 0) != 0;
+                        bdStatisticsWriteChildItem.isWrite = optJSONObject3.optInt(MemberPayActivityConfig.IS_WRITE, 0) != 0;
                         bdStatisticsWriteConfigItem.childItem.put(bdStatisticsWriteChildItem.subType, bdStatisticsWriteChildItem);
                         BdStatisticsUploadConfig.BdStatistisUploadChilidItem bdStatistisUploadChilidItem = new BdStatisticsUploadConfig.BdStatistisUploadChilidItem();
                         bdStatistisUploadChilidItem.subType = optJSONObject3.optString("type");

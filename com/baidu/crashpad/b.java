@@ -64,7 +64,7 @@ public final class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.crashpad.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class RunnableC0102b implements Runnable {
+    public class RunnableC0104b implements Runnable {
         String[] a;
         c b;
         boolean c;
@@ -75,7 +75,7 @@ public final class b {
         boolean h;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public RunnableC0102b(String str, String str2, String str3, boolean z, c cVar) {
+        public RunnableC0104b(String str, String str2, String str3, boolean z, c cVar) {
             this.d = 0;
             this.e = new StringBuffer("");
             this.a = new String[]{str};
@@ -86,7 +86,7 @@ public final class b {
             this.h = z;
         }
 
-        RunnableC0102b(b bVar, File[] fileArr, String str, String str2, boolean z) {
+        RunnableC0104b(b bVar, File[] fileArr, String str, String str2, boolean z) {
             b.this = bVar;
             this.d = 0;
             this.e = new StringBuffer("");
@@ -218,7 +218,7 @@ public final class b {
         if (!file.exists() || (listFiles = file.listFiles(new a(bVar.c))) == null || listFiles.length == 0) {
             return false;
         }
-        Thread thread = new Thread(new RunnableC0102b(bVar, listFiles, bVar.c, bVar.b, bVar.d));
+        Thread thread = new Thread(new RunnableC0104b(bVar, listFiles, bVar.c, bVar.b, bVar.d));
         thread.setName("T7@ZeusLogDir1");
         thread.start();
         return true;

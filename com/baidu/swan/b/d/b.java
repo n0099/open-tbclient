@@ -10,14 +10,14 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b implements ap {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private HashMap<String, a> cTe = new HashMap<>();
+    private HashMap<String, a> cXO = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b() {
-        apO();
+        aqU();
     }
 
-    private void apO() {
+    private void aqU() {
         a(new com.baidu.swan.b.c.a());
         a(new com.baidu.swan.b.c.b());
         a(new com.baidu.swan.b.a.a.a());
@@ -33,10 +33,10 @@ public class b implements ap {
         if (DEBUG && TextUtils.isEmpty(aVar.name)) {
             throw new IllegalArgumentException("action name is null");
         }
-        if (DEBUG && this.cTe.containsKey(aVar.name)) {
+        if (DEBUG && this.cXO.containsKey(aVar.name)) {
             throw new IllegalArgumentException("duplicate action: " + aVar);
         }
-        this.cTe.put(aVar.name, aVar);
+        this.cXO.put(aVar.name, aVar);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
@@ -45,7 +45,7 @@ public class b implements ap {
     }
 
     private com.baidu.swan.apps.api.c.b b(String str, JSONObject jSONObject, com.baidu.swan.apps.n.b bVar) {
-        a aVar = this.cTe.get(str);
+        a aVar = this.cXO.get(str);
         if (aVar != null) {
             if (DEBUG) {
                 Log.i("GameCenterDispatcher", "action: " + str + " params: " + jSONObject);

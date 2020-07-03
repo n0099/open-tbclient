@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.AbsDelegateAdapter;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
-import com.baidu.live.u.a;
+import com.baidu.live.sdk.a;
 /* loaded from: classes3.dex */
 public class b extends AbsDelegateAdapter<com.baidu.tieba.ala.liveroom.recommend.data.b, a> {
     public b(Context context, BdUniqueId bdUniqueId) {
@@ -21,7 +21,7 @@ public class b extends AbsDelegateAdapter<com.baidu.tieba.ala.liveroom.recommend
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
-    /* renamed from: ax */
+    /* renamed from: aA */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(this.mContext).inflate(a.h.ala_recommend_live_type_item_layout, viewGroup, false));
     }
@@ -43,18 +43,18 @@ public class b extends AbsDelegateAdapter<com.baidu.tieba.ala.liveroom.recommend
                 string = this.mContext.getString(a.i.recommend_live_recommend);
                 break;
         }
-        aVar.gdN.getPaint().setShader(new LinearGradient(0.0f, 0.0f, dimensionPixelSize, 0.0f, Color.parseColor("#FF1E66"), Color.parseColor("#FF6619"), Shader.TileMode.CLAMP));
-        aVar.gdN.setText(string);
+        aVar.gqH.getPaint().setShader(new LinearGradient(0.0f, 0.0f, dimensionPixelSize, 0.0f, Color.parseColor("#FF1E66"), Color.parseColor("#FF6619"), Shader.TileMode.CLAMP));
+        aVar.gqH.setText(string);
         return view;
     }
 
     /* loaded from: classes3.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private TextView gdN;
+        private TextView gqH;
 
         private a(View view) {
             super(view);
-            this.gdN = (TextView) view.findViewById(a.g.ala_recommend_live_type);
+            this.gqH = (TextView) view.findViewById(a.g.ala_recommend_live_type);
         }
     }
 }

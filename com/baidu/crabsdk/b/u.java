@@ -13,11 +13,11 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes8.dex */
 public final class u {
-    private static com.baidu.crabsdk.c.b<List> alj = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
+    private static com.baidu.crabsdk.c.b<List> amE = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
     private static String bv = "";
-    private static String akS = "";
-    private static int alk = 0;
-    private static int alm = 0;
+    private static String bc = "";
+    private static int amF = 0;
+    private static int amG = 0;
 
     private static WebView H(View view) {
         if (view instanceof ViewGroup) {
@@ -25,7 +25,7 @@ public final class u {
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, alk, alm)))) {
+                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, amF, amG)))) {
                         continue;
                     } else if (childAt instanceof WebView) {
                         return (WebView) childAt;
@@ -41,12 +41,12 @@ public final class u {
         return null;
     }
 
-    public static String sR() {
-        return alj.size() > 0 ? new JSONArray((Collection) alj).toString() : "";
+    public static String tm() {
+        return amE.size() > 0 ? new JSONArray((Collection) amE).toString() : "";
     }
 
-    public static boolean sS() {
-        return sR().length() > 0;
+    public static boolean tn() {
+        return tm().length() > 0;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x005a A[Catch: Exception -> 0x00d0, TryCatch #0 {Exception -> 0x00d0, blocks: (B:16:0x004a, B:18:0x0054, B:20:0x005a, B:22:0x0066), top: B:27:0x004a }] */
@@ -59,19 +59,19 @@ public final class u {
         if (activity == null) {
             return;
         }
-        if (alk == 0 || alm == 0) {
+        if (amF == 0 || amG == 0) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            alm = displayMetrics.heightPixels;
-            alk = displayMetrics.widthPixels;
+            amG = displayMetrics.heightPixels;
+            amF = displayMetrics.widthPixels;
         }
         switch (motionEvent.getAction()) {
             case 0:
                 String name = activity.getClass().getName();
-                if (!name.equals(akS)) {
+                if (!name.equals(bc)) {
                     com.baidu.crabsdk.c.a.v("***** !tempName.equals(activityName) *****");
-                    akS = name;
-                    alj.clear();
+                    bc = name;
+                    amE.clear();
                 }
                 if (activity != null) {
                     try {
@@ -90,8 +90,8 @@ public final class u {
                                 arrayList.add(H.getTitle());
                                 arrayList.add(bv);
                                 com.baidu.crabsdk.c.a.v("title:" + H.getTitle() + "; url:" + bv);
-                                alj.add(arrayList);
-                                com.baidu.crabsdk.c.a.v("###### jsonArray.toString() : " + sR());
+                                amE.add(arrayList);
+                                com.baidu.crabsdk.c.a.v("###### jsonArray.toString() : " + tm());
                                 return;
                             }
                             return;

@@ -10,34 +10,34 @@ import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String cJm;
+    private static String cNW;
 
-    public static String asS() {
-        return pv("swan");
+    public static String atY() {
+        return pD("swan");
     }
 
-    public static String aco() {
-        return pv("swangame");
+    public static String adu() {
+        return pD("swangame");
     }
 
-    private static String pv(String str) {
-        String hostName = com.baidu.swan.apps.u.a.afB().getHostName();
+    private static String pD(String str) {
+        String hostName = com.baidu.swan.apps.u.a.agH().getHostName();
         a aVar = new a();
-        aVar.pw(str).px(c.getVersion()).py(hostName).pz(getVersionName()).pA(getOSVersion());
-        return aVar.asT();
+        aVar.pE(str).pF(c.getVersion()).pG(hostName).pH(getVersionName()).pI(getOSVersion());
+        return aVar.atZ();
     }
 
     private static Context getContext() {
-        return com.baidu.swan.apps.u.a.aeR();
+        return com.baidu.swan.apps.u.a.afX();
     }
 
     public static String getVersionName() {
-        if (!TextUtils.isEmpty(cJm)) {
-            return cJm;
+        if (!TextUtils.isEmpty(cNW)) {
+            return cNW;
         }
         try {
-            cJm = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-            return cJm;
+            cNW = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+            return cNW;
         } catch (PackageManager.NameNotFoundException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -56,54 +56,54 @@ public class b {
 
     /* loaded from: classes11.dex */
     public static class a {
-        private static String cJr = "%s/%s";
-        private static String cJs = "%s-%s/%s";
-        private static String cJt = "(Baidu; P1 %s)";
-        private static String cJu = "%s/%s";
-        private String ajP;
-        private String cJn;
-        private String cJo;
-        private String cJp;
-        private String cJq;
+        private static String cOb = "%s/%s";
+        private static String cOc = "%s-%s/%s";
+        private static String cOd = "(Baidu; P1 %s)";
+        private static String cOe = "%s/%s";
+        private String alm;
+        private String cNX;
+        private String cNY;
+        private String cNZ;
+        private String cOa;
 
-        public a pw(String str) {
-            this.cJn = str;
+        public a pE(String str) {
+            this.cNX = str;
             return this;
         }
 
-        public a px(String str) {
-            this.cJo = str;
+        public a pF(String str) {
+            this.cNY = str;
             return this;
         }
 
-        public a py(String str) {
-            this.cJp = str;
+        public a pG(String str) {
+            this.cNZ = str;
             return this;
         }
 
-        public a pz(String str) {
-            this.cJq = str;
+        public a pH(String str) {
+            this.cOa = str;
             return this;
         }
 
-        public a pA(String str) {
-            this.ajP = str;
+        public a pI(String str) {
+            this.alm = str;
             return this;
         }
 
-        public String asT() {
-            String format = String.format(cJr, this.cJn, this.cJo);
-            String format2 = String.format(cJs, this.cJn, this.cJp, this.cJq);
-            String format3 = String.format(cJu, this.cJp, this.cJq);
-            String format4 = String.format(cJt, this.ajP);
-            if (asU()) {
+        public String atZ() {
+            String format = String.format(cOb, this.cNX, this.cNY);
+            String format2 = String.format(cOc, this.cNX, this.cNZ, this.cOa);
+            String format3 = String.format(cOe, this.cNZ, this.cOa);
+            String format4 = String.format(cOd, this.alm);
+            if (aua()) {
                 return String.format("%s %s %s %s", format, format2, format3, format4);
             }
             return String.format("%s %s %s", format, format2, format4);
         }
 
-        private boolean asU() {
-            return TextUtils.equals("baiduboxapp", this.cJp);
+        private boolean aua() {
+            return TextUtils.equals("baiduboxapp", this.cNZ);
         }
     }
 }

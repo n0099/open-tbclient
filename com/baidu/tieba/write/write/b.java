@@ -7,8 +7,9 @@ import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.widget.EditText;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.view.spanGroup.TbLinkForegroundColorSpan;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,16 +17,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public class b {
-    private String dlF;
-    private ArrayList<String> lRn;
-    private final String lYe = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private String dqq;
+    private ArrayList<String> mlw;
+    private final String msM = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
         Object[] spans;
         if (editText != null && (text = editText.getText()) != null) {
             for (Object obj : text.getSpans(0, text.length(), Object.class)) {
-                if ((obj instanceof ForegroundColorSpan) || (obj instanceof BackgroundColorSpan)) {
+                if (((obj instanceof ForegroundColorSpan) && !(obj instanceof TbLinkForegroundColorSpan)) || (obj instanceof BackgroundColorSpan)) {
                     text.removeSpan(obj);
                 }
             }
@@ -38,10 +39,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.isEmpty(this.lRn)) {
+        if (spannable != null && !w.isEmpty(this.mlw)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.lRn.iterator();
+                Iterator<String> it = this.mlw.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -55,8 +56,8 @@ public class b {
             int length = str2.length();
             while (indexOf >= 0) {
                 int i = indexOf + length;
-                int color = am.getColor(R.color.cp_cont_a);
-                int color2 = am.getColor(R.color.cp_cont_h_alpha85);
+                int color = an.getColor(R.color.cp_cont_a);
+                int color2 = an.getColor(R.color.cp_cont_h_alpha85);
                 ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
                 BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
                 spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
@@ -90,7 +91,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.isEmpty(dmv())) {
+        if (w.isEmpty(dqI())) {
             return false;
         }
         return i(editText) || i(editText2);
@@ -112,26 +113,30 @@ public class b {
         }
     }
 
-    public void aX(ArrayList<String> arrayList) {
-        this.lRn = arrayList;
+    public void aY(ArrayList<String> arrayList) {
+        this.mlw = arrayList;
     }
 
-    public ArrayList<String> dmv() {
-        return this.lRn;
+    public ArrayList<String> dqI() {
+        return this.mlw;
     }
 
-    public void Og(String str) {
-        this.dlF = str;
+    public void OM(String str) {
+        this.dqq = str;
     }
 
-    public String dmz() {
-        return this.dlF;
+    public String dqM() {
+        return this.dqq;
     }
 
     private void c(Spannable spannable) {
         Matcher matcher = Pattern.compile("@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+").matcher(spannable);
         while (matcher.find()) {
-            spannable.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_c)), matcher.start(), matcher.end(), 33);
+            spannable.setSpan(new ForegroundColorSpan(an.getColor(R.color.cp_link_tip_c)), matcher.start(), matcher.end(), 33);
         }
+    }
+
+    public boolean d(Spannable spannable) {
+        return Pattern.compile("@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+").matcher(spannable).find();
     }
 }

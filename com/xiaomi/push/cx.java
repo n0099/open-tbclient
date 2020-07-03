@@ -6,10 +6,10 @@ public final class cx {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f185a;
+    private String f191a;
 
     public cx(String str, int i) {
-        this.f185a = str;
+        this.f191a = str;
         this.a = i;
     }
 
@@ -31,9 +31,9 @@ public final class cx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static InetSocketAddress m210a(String str, int i) {
+    public static InetSocketAddress m207a(String str, int i) {
         cx a = a(str, i);
-        return new InetSocketAddress(a.m211a(), a.a());
+        return new InetSocketAddress(a.m208a(), a.a());
     }
 
     public int a() {
@@ -41,11 +41,11 @@ public final class cx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m211a() {
-        return this.f185a;
+    public String m208a() {
+        return this.f191a;
     }
 
     public String toString() {
-        return this.a > 0 ? this.f185a + ":" + this.a : this.f185a;
+        return this.a > 0 ? this.f191a + ":" + this.a : this.f191a;
     }
 }

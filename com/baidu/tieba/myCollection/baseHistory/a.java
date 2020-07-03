@@ -22,6 +22,7 @@ public class a implements f {
     private String liveId = "";
     private String userName = "";
     private String description = "";
+    private boolean jMK = true;
 
     public boolean equals(Object obj) {
         if (obj == null || !(obj instanceof a)) {
@@ -79,7 +80,7 @@ public class a implements f {
         return (((this.isHostOnly ? 1 : 0) + (hashCode6 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean du(JSONObject jSONObject) {
+    public boolean dE(JSONObject jSONObject) {
         String optString = jSONObject.optString("forum_name");
         String optString2 = jSONObject.optString("thread_id");
         String optString3 = jSONObject.optString("thread_name");
@@ -177,7 +178,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String czK() {
+    public String cDH() {
         return this.threadName;
     }
 
@@ -201,27 +202,27 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String bds() {
+    public String bfw() {
         return this.postID;
     }
 
-    public void IJ(String str) {
+    public void Jl(String str) {
         this.postID = str;
     }
 
-    public boolean czL() {
+    public boolean cDI() {
         return this.isHostOnly;
     }
 
-    public void qK(boolean z) {
+    public void qU(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean czM() {
+    public boolean cDJ() {
         return this.isSquence;
     }
 
-    public void qL(boolean z) {
+    public void qV(boolean z) {
         this.isSquence = z;
     }
 
@@ -229,7 +230,7 @@ public class a implements f {
         return this.liveId;
     }
 
-    public void fs(String str) {
+    public void eI(String str) {
         this.liveId = str;
     }
 
@@ -249,21 +250,29 @@ public class a implements f {
         this.description = str;
     }
 
+    public boolean cDK() {
+        return this.jMK;
+    }
+
+    public void qW(boolean z) {
+        this.jMK = z;
+    }
+
     @Override // com.baidu.tbadk.mvc.b.d
     public String getCacheKey() {
         return this.threadType == 49 ? this.liveId + "_ala" : this.threadId;
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String beO() {
+    public String bgT() {
         return toJsonObject().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean yz(String str) {
+    public boolean yS(String str) {
         if (str != null) {
             try {
-                return du(new JSONObject(str));
+                return dE(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

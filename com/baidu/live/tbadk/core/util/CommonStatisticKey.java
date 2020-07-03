@@ -1,4 +1,5 @@
 package com.baidu.live.tbadk.core.util;
+@Deprecated
 /* loaded from: classes3.dex */
 public class CommonStatisticKey {
     public static final String FACESHOP_FROM_MORE = "faceshop_from_more";

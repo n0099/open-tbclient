@@ -1,19 +1,19 @@
 package com.baidu.swan.pms.c.a.d;
 /* loaded from: classes11.dex */
 public class d {
-    private static d dma;
-    private com.baidu.swan.pms.c.a.c.b dmb = new com.baidu.swan.pms.c.a.c.b();
+    private static d dqL;
+    private com.baidu.swan.pms.c.a.c.b dqM = new com.baidu.swan.pms.c.a.c.b();
 
-    public static d aGy() {
-        if (dma != null) {
-            return dma;
+    public static d aHE() {
+        if (dqL != null) {
+            return dqL;
         }
         synchronized (d.class) {
-            if (dma == null) {
-                dma = new d();
+            if (dqL == null) {
+                dqL = new d();
             }
         }
-        return dma;
+        return dqL;
     }
 
     private d() {
@@ -27,23 +27,23 @@ public class d {
     }
 
     public synchronized <T> void j(f<T> fVar) {
-        fVar.gj(false);
-        this.dmb.b(fVar);
+        fVar.go(false);
+        this.dqM.b(fVar);
     }
 
-    public synchronized boolean td(String str) {
-        return this.dmb.td(str);
+    public synchronized boolean tl(String str) {
+        return this.dqM.tl(str);
     }
 
-    public synchronized boolean te(String str) {
-        return this.dmb.te(str);
+    public synchronized boolean tm(String str) {
+        return this.dqM.tm(str);
     }
 
     public synchronized void c(b bVar) {
-        this.dmb.a(bVar);
+        this.dqM.a(bVar);
     }
 
     public synchronized void d(b bVar) {
-        this.dmb.b(bVar);
+        this.dqM.b(bVar);
     }
 }

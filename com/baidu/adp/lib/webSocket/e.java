@@ -10,7 +10,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 /* loaded from: classes.dex */
 public class e {
-    private static com.baidu.adp.lib.webSocket.b NZ;
+    private static com.baidu.adp.lib.webSocket.b OB;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,11 +22,11 @@ public class e {
 
         boolean isConnected();
 
-        String mD();
+        String mT();
 
-        long mE();
+        long mU();
 
-        int mF();
+        int mV();
 
         int read(ByteBuffer byteBuffer) throws Exception;
 
@@ -35,8 +35,8 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(String str, int i, l lVar, boolean z) throws Exception {
-        if (NZ != null) {
-            return NZ.a(str, i, lVar);
+        if (OB != null) {
+            return OB.a(str, i, lVar);
         }
         if (z) {
             return new b(str, i, lVar);
@@ -46,10 +46,10 @@ public class e {
 
     /* loaded from: classes.dex */
     static class c implements a {
-        private long Ob;
-        private String Oc;
-        private String Od;
-        private String Oe;
+        private long OD;
+        private String OE;
+        private String OF;
+        private String OG;
         private byte[] mData;
         private InputStream mInputStream;
         private OutputStream mOutputStream;
@@ -60,25 +60,25 @@ public class e {
             this.mInputStream = null;
             this.mOutputStream = null;
             this.mData = null;
-            this.Ob = 0L;
-            this.Oc = null;
-            this.Od = null;
-            this.Oe = null;
+            this.OD = 0L;
+            this.OE = null;
+            this.OF = null;
+            this.OG = null;
             this.mSocket = new Socket();
             long currentTimeMillis = System.currentTimeMillis();
             InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
             if (inetSocketAddress.getAddress() != null) {
-                this.Oc = inetSocketAddress.getAddress().getHostAddress();
-                this.Ob = System.currentTimeMillis() - currentTimeMillis;
+                this.OE = inetSocketAddress.getAddress().getHostAddress();
+                this.OD = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.mSocket.connect(inetSocketAddress, lVar.mY());
-            this.mSocket.setSoTimeout(lVar.mX());
+            this.mSocket.connect(inetSocketAddress, lVar.no());
+            this.mSocket.setSoTimeout(lVar.nn());
             this.mSocket.setTcpNoDelay(lVar.getTcpNoDelay());
             this.mInputStream = this.mSocket.getInputStream();
             this.mOutputStream = this.mSocket.getOutputStream();
             this.mData = new byte[1024];
-            this.Od = com.baidu.adp.lib.util.l.getLocalDns();
-            this.Oe = com.baidu.adp.lib.util.l.getLocalDnsBak();
+            this.OF = com.baidu.adp.lib.util.l.getLocalDns();
+            this.OG = com.baidu.adp.lib.util.l.getLocalDnsBak();
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
@@ -132,106 +132,106 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String mD() {
-            return this.Oc;
+        public String mT() {
+            return this.OE;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public long mE() {
-            return this.Ob;
+        public long mU() {
+            return this.OD;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public String getLocalDns() {
-            return this.Od;
+            return this.OF;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public String getLocalDnsBak() {
-            return this.Oe;
+            return this.OG;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public int mF() {
+        public int mV() {
             return 0;
         }
     }
 
     /* loaded from: classes.dex */
     static class b implements a {
-        private SocketChannel Oa;
-        private long Ob;
-        private String Oc;
-        private String Od;
-        private String Oe;
+        private SocketChannel OC;
+        private long OD;
+        private String OE;
+        private String OF;
+        private String OG;
 
         public b(String str, int i, l lVar) throws Exception {
-            this.Oa = null;
-            this.Ob = 0L;
-            this.Oc = null;
-            this.Od = null;
-            this.Oe = null;
-            this.Oa = SocketChannel.open();
+            this.OC = null;
+            this.OD = 0L;
+            this.OE = null;
+            this.OF = null;
+            this.OG = null;
+            this.OC = SocketChannel.open();
             long currentTimeMillis = System.currentTimeMillis();
             InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
             if (inetSocketAddress.getAddress() != null) {
-                this.Oc = inetSocketAddress.getAddress().getHostAddress();
-                this.Ob = System.currentTimeMillis() - currentTimeMillis;
+                this.OE = inetSocketAddress.getAddress().getHostAddress();
+                this.OD = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.Oa.socket().connect(inetSocketAddress, lVar.mY());
-            this.Oa.socket().setSoTimeout(lVar.mX());
-            this.Oa.socket().setTcpNoDelay(lVar.getTcpNoDelay());
-            this.Od = com.baidu.adp.lib.util.l.getLocalDns();
-            this.Oe = com.baidu.adp.lib.util.l.getLocalDnsBak();
+            this.OC.socket().connect(inetSocketAddress, lVar.no());
+            this.OC.socket().setSoTimeout(lVar.nn());
+            this.OC.socket().setTcpNoDelay(lVar.getTcpNoDelay());
+            this.OF = com.baidu.adp.lib.util.l.getLocalDns();
+            this.OG = com.baidu.adp.lib.util.l.getLocalDnsBak();
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public void close() throws IOException {
-            if (this.Oa != null) {
-                this.Oa.close();
+            if (this.OC != null) {
+                this.OC.close();
             }
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public boolean isConnected() {
-            if (this.Oa != null) {
-                return this.Oa.isConnected();
+            if (this.OC != null) {
+                return this.OC.isConnected();
             }
             return false;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public int read(ByteBuffer byteBuffer) throws Exception {
-            return this.Oa.read(byteBuffer);
+            return this.OC.read(byteBuffer);
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public int write(ByteBuffer byteBuffer) throws Exception {
-            return this.Oa.write(byteBuffer);
+            return this.OC.write(byteBuffer);
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String mD() {
-            return this.Oc;
+        public String mT() {
+            return this.OE;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public long mE() {
-            return this.Ob;
+        public long mU() {
+            return this.OD;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public String getLocalDns() {
-            return this.Od;
+            return this.OF;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public String getLocalDnsBak() {
-            return this.Oe;
+            return this.OG;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public int mF() {
+        public int mV() {
             return 0;
         }
     }

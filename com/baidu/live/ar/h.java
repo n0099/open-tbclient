@@ -1,25 +1,13 @@
 package com.baidu.live.ar;
 
-import com.baidu.live.ar.AlaFilterAndBeautyData;
+import com.baidu.live.adp.BdUniqueId;
 /* loaded from: classes3.dex */
 public interface h {
-    void a(float f, AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey);
+    void a(BdUniqueId bdUniqueId);
 
-    void n(int i, int i2);
+    void b(BdUniqueId bdUniqueId);
 
-    void o(int i, int i2);
+    void destory();
 
-    void onBlurLevelSelected(int i);
-
-    void onFilterSelected(String str, String str2, float f);
-
-    void p(int i, int i2);
-
-    void q(int i, int i2);
-
-    void vd();
-
-    void ve();
-
-    void vf();
+    AlaFilterAndBeautyData vv();
 }

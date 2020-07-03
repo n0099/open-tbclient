@@ -2,6 +2,7 @@ package com.baidu.live.tbadk.data;
 
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+@Deprecated
 /* loaded from: classes3.dex */
 public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     private NewsNotifyData mData;

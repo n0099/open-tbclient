@@ -6,9 +6,9 @@ public class AdvertSDKStatic {
     public static String Tag = "tag";
 
     static {
-        new a().Fv();
+        new a().xp();
         Log.e("AdvertSDKStatic", "Advert install finished.");
-        new b().Fv();
-        new c().Fv();
+        new b().xp();
+        new c().xp();
     }
 }

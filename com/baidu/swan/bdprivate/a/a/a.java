@@ -18,9 +18,9 @@ public interface a {
 
     void a(Context context, Bundle bundle, com.baidu.swan.apps.a.a aVar);
 
-    void a(Context context, a.InterfaceC0408a interfaceC0408a);
+    void a(Context context, a.InterfaceC0414a interfaceC0414a);
 
-    void a(Context context, a.InterfaceC0412a interfaceC0412a);
+    void a(Context context, a.InterfaceC0418a interfaceC0418a);
 
     void a(l.a aVar, String str, List<String> list);
 
@@ -30,9 +30,9 @@ public interface a {
 
     void b(c cVar);
 
-    String cQ(Context context);
+    String cR(Context context);
 
-    z cT(Context context);
+    z cU(Context context);
 
     String getBduss(Context context);
 

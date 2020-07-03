@@ -3,22 +3,22 @@ package com.baidu.tbadk.g;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class d {
-    private ViewGroup dxS;
-    private c dxT;
+    private ViewGroup dCY;
+    private c dCZ;
 
-    public ViewGroup aNe() {
-        return this.dxS;
+    public ViewGroup aOH() {
+        return this.dCY;
     }
 
-    public void x(ViewGroup viewGroup) {
-        this.dxS = viewGroup;
+    public void z(ViewGroup viewGroup) {
+        this.dCY = viewGroup;
     }
 
-    public c aNf() {
-        return this.dxT;
+    public c aOI() {
+        return this.dCZ;
     }
 
     public void a(c cVar) {
-        this.dxT = cVar;
+        this.dCZ = cVar;
     }
 }

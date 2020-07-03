@@ -6,12 +6,12 @@ import android.text.TextUtils;
 public class f extends a {
     @Override // com.baidu.swan.apps.storage.b.a
     @NonNull
-    public String arH() {
-        String oL = com.baidu.swan.apps.storage.b.oL(com.baidu.swan.apps.runtime.d.aoB().getAppId());
-        if (TextUtils.isEmpty(oL)) {
+    public String asO() {
+        String oT = com.baidu.swan.apps.storage.b.oT(com.baidu.swan.apps.runtime.d.apI().getAppId());
+        if (TextUtils.isEmpty(oT)) {
             return "";
         }
-        return oL;
+        return oT;
     }
 
     @Override // com.baidu.swan.apps.storage.b.d

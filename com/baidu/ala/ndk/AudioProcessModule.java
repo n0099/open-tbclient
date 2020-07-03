@@ -116,33 +116,27 @@ public class AudioProcessModule {
     }
 
     public int updateSystemInfo(int i, String str) {
-        updateSysInfo(this.mContext, i, str);
-        return 0;
+        return updateSysInfo(this.mContext, i, str);
     }
 
     public int setAssetManage(AssetManager assetManager) {
-        setAssetManage(this.mContext, assetManager);
-        return 0;
+        return setAssetManage(this.mContext, assetManager);
     }
 
     public int setCaptureBuffer(ByteBuffer byteBuffer, float f) {
-        setCaptureBuffer(this.mContext, byteBuffer, f);
-        return 0;
+        return setCaptureBuffer(this.mContext, byteBuffer, f);
     }
 
     public int updateCaptureBuffer(int[] iArr, int[] iArr2) {
-        updateCaptureBuffer(this.mContext, iArr, iArr2);
-        return 0;
+        return updateCaptureBuffer(this.mContext, iArr, iArr2);
     }
 
     public int setRenderBuffer(ByteBuffer byteBuffer, float f) {
-        setRenderBuffer(this.mContext, byteBuffer, f);
-        return 0;
+        return setRenderBuffer(this.mContext, byteBuffer, f);
     }
 
     public int updateRenderBuffer(int[] iArr, int[] iArr2) {
-        updateRenderBuffer(this.mContext, iArr, iArr2);
-        return 0;
+        return updateRenderBuffer(this.mContext, iArr, iArr2);
     }
 
     public int createAudioPlayer(int i, int i2, int i3) {

@@ -2,22 +2,22 @@ package com.baidu.tbadk.coreExtra.share;
 
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class e {
-    private static int bbg() {
-        if (aq.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+    private static int bdi() {
+        if (ar.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             return 3;
         }
-        return com.baidu.tbadk.core.sharedPref.b.aTX().getInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
+        return com.baidu.tbadk.core.sharedPref.b.aVP().getInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
     }
 
-    public static int bbh() {
-        if (TbSingleton.getInstance().getSharePanelConfData() == null || !TbSingleton.getInstance().getSharePanelConfData().aYh()) {
+    public static int bdj() {
+        if (TbSingleton.getInstance().getSharePanelConfData() == null || !TbSingleton.getInstance().getSharePanelConfData().bam()) {
             return -1;
         }
-        switch (bbg()) {
+        switch (bdi()) {
             case 2:
                 return R.drawable.icon_mask_share_circle40_svg;
             case 3:
@@ -34,9 +34,9 @@ public class e {
         }
     }
 
-    public static void mM(int i) {
-        if (i > 0 && !aq.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            com.baidu.tbadk.core.sharedPref.b.aTX().putInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
+    public static void ng(int i) {
+        if (i > 0 && !ar.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            com.baidu.tbadk.core.sharedPref.b.aVP().putInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
         }
     }
 }

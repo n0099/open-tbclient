@@ -88,6 +88,12 @@ public class MainTabActivityConfig extends IntentConfig {
         }
     }
 
+    public void setSubTabName(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra("sub_tab_name", str);
+        }
+    }
+
     public void setPushFollowUpAction(int i) {
         if (getIntent() != null) {
             getIntent().putExtra(PUSH_FOLLOW_UP_ACTION, i);

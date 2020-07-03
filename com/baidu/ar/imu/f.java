@@ -1,36 +1,36 @@
 package com.baidu.ar.imu;
 /* loaded from: classes3.dex */
 public class f {
-    private float[] ih;
-    private int qH;
-    private float qI;
-    private float[] qJ;
+    private float[] iw;
+    private int rg;
+    private float rh;
+    private float[] ri;
 
-    public void C(int i) {
-        this.qH = i;
+    public void I(int i) {
+        this.rg = i;
     }
 
-    public void d(float f) {
-        this.qI = f;
+    public int dL() {
+        return this.rg;
     }
 
-    public int dv() {
-        return this.qH;
-    }
-
-    public void g(float[] fArr) {
-        this.qJ = fArr;
+    public void f(float f) {
+        this.rh = f;
     }
 
     public float getAngle() {
-        return this.qI;
+        return this.rh;
     }
 
     public float[] getMatrix() {
-        return this.ih;
+        return this.iw;
+    }
+
+    public void h(float[] fArr) {
+        this.ri = fArr;
     }
 
     public void setMatrix(float[] fArr) {
-        this.ih = fArr;
+        this.iw = fArr;
     }
 }

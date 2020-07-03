@@ -6,24 +6,24 @@ import java.io.File;
 public abstract class a implements com.baidu.swan.apps.extcore.model.b.a {
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull
-    public File acO() {
-        return new File(com.baidu.swan.games.l.a.aeI(), "extension_core");
+    public File adU() {
+        return new File(com.baidu.swan.games.l.a.afO(), "extension_core");
     }
 
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull
-    public String acP() {
+    public String adV() {
         return "aigames/extcore/game-extension-core.zip";
     }
 
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull
-    public String acQ() {
+    public String adW() {
         return "aigames/extcore/game-extension-config.json";
     }
 
     @Override // com.baidu.swan.apps.extcore.model.b.a
-    public int acR() {
+    public int adX() {
         return 1;
     }
 }

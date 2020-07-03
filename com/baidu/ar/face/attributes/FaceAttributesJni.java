@@ -5,15 +5,15 @@ import com.baidu.ar.libloader.b;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class FaceAttributesJni {
-    protected static boolean mC;
+    protected static boolean mZ;
 
     static {
-        mC = false;
+        mZ = false;
         try {
-            b.an("FaceAttributes");
-            mC = true;
+            b.ao("FaceAttributes");
+            mZ = true;
         } catch (Throwable th) {
-            mC = false;
+            mZ = false;
             th.printStackTrace();
         }
     }

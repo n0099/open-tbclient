@@ -13,7 +13,7 @@ public class d extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b ig(String str) {
+    public com.baidu.swan.apps.api.c.b io(String str) {
         if (DEBUG) {
             Log.d("Api-Compass", "start listen compass");
         }
@@ -22,16 +22,16 @@ public class d extends com.baidu.swan.apps.api.a.d {
             public com.baidu.swan.apps.api.c.b a(com.baidu.swan.apps.runtime.e eVar, JSONObject jSONObject, @Nullable String str2) {
                 com.baidu.swan.apps.console.c.i("Api-Compass", " init ");
                 final i iVar = new i("compassChange", jSONObject, str2);
-                com.baidu.swan.apps.am.e.a aso = com.baidu.swan.apps.am.e.a.aso();
-                aso.init(d.this.getContext());
-                aso.a(new a.InterfaceC0292a() { // from class: com.baidu.swan.apps.api.module.k.d.1.1
-                    @Override // com.baidu.swan.apps.am.e.a.InterfaceC0292a
+                com.baidu.swan.apps.am.e.a atu = com.baidu.swan.apps.am.e.a.atu();
+                atu.init(d.this.getContext());
+                atu.a(new a.InterfaceC0298a() { // from class: com.baidu.swan.apps.api.module.k.d.1.1
+                    @Override // com.baidu.swan.apps.am.e.a.InterfaceC0298a
                     public void b(float f, int i) {
                         com.baidu.swan.apps.console.c.i("Api-Compass", "handle compass change, angle:" + f + ",accuracy: " + i);
                         JSONObject jSONObject2 = new JSONObject();
                         try {
                             jSONObject2.put("direction", f);
-                            jSONObject2.put("accuracy", com.baidu.swan.apps.am.e.a.hw(i));
+                            jSONObject2.put("accuracy", com.baidu.swan.apps.am.e.a.hH(i));
                             iVar.a(d.this, jSONObject2);
                         } catch (JSONException e) {
                             com.baidu.swan.apps.console.c.e("Api-Compass", "handle compass,json error，" + e.toString());
@@ -40,19 +40,19 @@ public class d extends com.baidu.swan.apps.api.a.d {
                     }
                 });
                 com.baidu.swan.apps.console.c.i("Api-Compass", "start listen compass");
-                aso.asp();
+                atu.atv();
                 iVar.a(d.this);
                 return new com.baidu.swan.apps.api.c.b(0);
             }
         });
     }
 
-    public com.baidu.swan.apps.api.c.b Us() {
+    public com.baidu.swan.apps.api.c.b Vy() {
         if (DEBUG) {
             Log.d("Api-Compass", "stop accelerometer");
         }
         com.baidu.swan.apps.console.c.i("Api-Compass", "stop listen compass");
-        com.baidu.swan.apps.am.e.a.aso().asq();
+        com.baidu.swan.apps.am.e.a.atu().atw();
         return new com.baidu.swan.apps.api.c.b(0);
     }
 }

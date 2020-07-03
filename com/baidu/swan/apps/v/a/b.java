@@ -12,8 +12,8 @@ import java.util.List;
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean kH(@Nullable String str) {
-        if (!com.baidu.swan.apps.u.a.aeU().Rs()) {
+    public static boolean kP(@Nullable String str) {
+        if (!com.baidu.swan.apps.u.a.aga().Sy()) {
             if (DEBUG) {
                 Log.d("LaunchError", "isExecuteSwanNewYearH5Downgrade false => 新年小程序错误兜底h5降级ab开关为关闭 swan_new_year_h5_downgrade false");
             }
@@ -24,14 +24,14 @@ public class b {
             }
             return false;
         } else {
-            List<String> ags = ags();
-            if (ags == null) {
+            List<String> ahy = ahy();
+            if (ahy == null) {
                 if (DEBUG) {
                     Log.w("LaunchError", "isExecuteSwanNewYearH5Downgrade false =》 illegal newYearAppIds");
                 }
                 return false;
             }
-            for (String str2 : ags) {
+            for (String str2 : ahy) {
                 if (TextUtils.isEmpty(str2)) {
                     if (DEBUG) {
                         Log.w("LaunchError", "isExecuteSwanNewYearH5Downgrade =》 illegal newYearAppId");
@@ -53,21 +53,21 @@ public class b {
     }
 
     @NonNull
-    public static String agr() {
-        String Rt = Rt();
+    public static String ahx() {
+        String Sz = Sz();
         if (DEBUG) {
-            Log.d("LaunchError", "getSwanNewYearH5DowngradeScheme => originUrl: " + Rt);
+            Log.d("LaunchError", "getSwanNewYearH5DowngradeScheme => originUrl: " + Sz);
         }
         String str = null;
         try {
-            str = URLEncoder.encode(Rt, "UTF-8");
+            str = URLEncoder.encode(Sz, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             if (DEBUG) {
                 throw new RuntimeException(e);
             }
         }
         if (TextUtils.isEmpty(str)) {
-            str = Rt;
+            str = Sz;
         }
         if (DEBUG) {
             Log.d("LaunchError", "getSwanNewYearH5DowngradeScheme => encodedUrl: " + str);
@@ -80,15 +80,15 @@ public class b {
     }
 
     @NonNull
-    private static String Rt() {
-        String Rt = com.baidu.swan.apps.u.a.aeU().Rt();
-        if (TextUtils.isEmpty(Rt)) {
+    private static String Sz() {
+        String Sz = com.baidu.swan.apps.u.a.aga().Sz();
+        if (TextUtils.isEmpty(Sz)) {
             return "https://2019.baidu.com/activity/shake2019/index.html?idfrom=aiappfb";
         }
-        return Rt;
+        return Sz;
     }
 
-    private static List<String> ags() {
+    private static List<String> ahy() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("i2UoL6iWVUjaSpHLA4ftCxO2SNCdkTf0");
         arrayList.add("uSTqbBp5u8egzErCpTiPrAOumDjAXWMU");

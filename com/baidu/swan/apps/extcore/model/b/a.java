@@ -5,16 +5,16 @@ import java.io.File;
 /* loaded from: classes11.dex */
 public interface a {
     @NonNull
-    String acN();
+    String adT();
 
     @NonNull
-    File acO();
+    File adU();
 
     @NonNull
-    String acP();
+    String adV();
 
     @NonNull
-    String acQ();
+    String adW();
 
-    int acR();
+    int adX();
 }

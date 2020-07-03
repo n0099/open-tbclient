@@ -1,6 +1,7 @@
 package com.baidu.live.tbadk.core.atomdata;
 
 import android.content.Context;
+import com.baidu.live.tbadk.ala.AlaLastLiveroomInfo;
 import com.baidu.live.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.live.tbadk.core.data.AlaBroadcastGiftToastData;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
@@ -69,6 +70,7 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_TAIL_LIGHT = "tail_light_play";
     public static final String FROM_TYPE_VIDEO_AUTO_PLAY = "video_auto_play";
     public static final String FROM_TYPE_VIDEO_PLAY = "video_play";
+    public static final String LAST_LIVE_INFO = "last_live_info";
     public static final String LIVE_BROADCAST_GIFT_TOAST_QUEUE = "live_broadcast_gift_toast_queue";
     public static final String LIVE_ENTRY_LIVE_URL = "live_entry_live_url";
     public static final String LIVE_ENTRY_NAME = "live_entry_name";
@@ -139,6 +141,12 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
 
     public void addExtraByParams(String str) {
         getIntent().putExtra("params", str);
+    }
+
+    public void addLastLiveInfoParams(AlaLastLiveroomInfo alaLastLiveroomInfo) {
+        if (alaLastLiveroomInfo != null) {
+            getIntent().putExtra(LAST_LIVE_INFO, alaLastLiveroomInfo.toJson());
+        }
     }
 
     public void addExtraByLiveId(long j, String str, String str2) {

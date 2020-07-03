@@ -31,13 +31,13 @@ import android.widget.ImageView;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.BlockingLinkedDeque;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.coreextra.view.ImageUrlData;
 import com.baidu.live.tbadk.widget.largeimage.logic.ILoadBlockBitmapCallback;
 import com.baidu.live.tbadk.widget.largeimage.logic.LargeImageDelegate;
-import com.baidu.live.u.a;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */

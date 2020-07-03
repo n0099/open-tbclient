@@ -9,28 +9,28 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class e extends a {
-    private final com.tb.airbnb.lottie.a.a.c nkc;
+    private final com.tb.airbnb.lottie.a.a.c nFR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(com.tb.airbnb.lottie.f fVar, Layer layer) {
         super(fVar, layer);
-        this.nkc = new com.tb.airbnb.lottie.a.a.c(fVar, this, new j("__container", layer.hG()));
-        this.nkc.b(Collections.emptyList(), Collections.emptyList());
+        this.nFR = new com.tb.airbnb.lottie.a.a.c(fVar, this, new j("__container", layer.hW()));
+        this.nFR.b(Collections.emptyList(), Collections.emptyList());
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a
     void b(@NonNull Canvas canvas, Matrix matrix, int i) {
-        this.nkc.a(canvas, matrix, i);
+        this.nFR.a(canvas, matrix, i);
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
-        this.nkc.a(rectF, this.Ex);
+        this.nFR.a(rectF, this.EZ);
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a
     protected void b(com.tb.airbnb.lottie.model.e eVar, int i, List<com.tb.airbnb.lottie.model.e> list, com.tb.airbnb.lottie.model.e eVar2) {
-        this.nkc.a(eVar, i, list, eVar2);
+        this.nFR.a(eVar, i, list, eVar2);
     }
 }

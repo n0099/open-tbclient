@@ -1,20 +1,42 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes.dex */
-public class bl extends com.baidu.tieba.card.data.b {
-    public bk dEA;
-    public int dHY;
-    public int dHZ;
-    public int dIa;
-    public String stType;
+public class bl {
+    private String uid = "";
+    private String uname = "";
+    private String portrait = "";
+    private String institute = "";
+    private int isLike = -1;
 
-    public bl(bk bkVar) {
-        this.dEA = bkVar;
+    public void a(SchoolRecomUserInfo schoolRecomUserInfo) {
+        if (schoolRecomUserInfo != null) {
+            this.uid = StringUtils.string(schoolRecomUserInfo.uid);
+            this.uname = schoolRecomUserInfo.uname;
+            this.portrait = schoolRecomUserInfo.portrait;
+            this.institute = schoolRecomUserInfo.institute;
+            this.isLike = schoolRecomUserInfo.is_liked.intValue();
+        }
     }
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
-    public BdUniqueId getType() {
-        return null;
+    public String getUid() {
+        return this.uid;
+    }
+
+    public String aRA() {
+        return this.uname;
+    }
+
+    public String getPortrait() {
+        return this.portrait;
+    }
+
+    public String aRB() {
+        return this.institute;
+    }
+
+    public int getIsLike() {
+        return this.isLike;
     }
 }

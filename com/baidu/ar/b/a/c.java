@@ -4,28 +4,28 @@ import com.baidu.ar.c.h;
 import com.baidu.ar.c.i;
 /* loaded from: classes3.dex */
 public class c extends h {
-    private int cD;
-    private int cE;
-    private int cF;
+    private int cQ;
+    private int cR;
+    private int cS;
 
     public c(i iVar) {
         super(iVar);
-        this.cF = 0;
+        this.cS = 0;
     }
 
-    public int af() {
-        return this.cF;
+    public int at() {
+        return this.cS;
     }
 
-    public int aj() {
-        return this.cD;
+    public int ax() {
+        return this.cQ;
     }
 
-    public int ak() {
-        return this.cE;
+    public int ay() {
+        return this.cR;
     }
 
-    public void g(int i) {
-        this.cF = i;
+    public void h(int i) {
+        this.cS = i;
     }
 }

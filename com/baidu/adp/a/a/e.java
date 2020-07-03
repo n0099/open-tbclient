@@ -7,26 +7,26 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int GC;
-    private a GD;
+    private int Hf;
+    private a Hg;
 
-    public a js() throws IOException {
+    public a jI() throws IOException {
         a aVar = new a();
-        aVar.GG = bj("/proc/uid_stat/" + this.GC + "/tcp_rcv");
-        aVar.GH = bj("/proc/uid_stat/" + this.GC + "/tcp_snd");
-        aVar.GF = d.g(aVar.GG + aVar.GH);
+        aVar.Hi = bk("/proc/uid_stat/" + this.Hf + "/tcp_rcv");
+        aVar.Hj = bk("/proc/uid_stat/" + this.Hf + "/tcp_snd");
+        aVar.Hh = d.g(aVar.Hi + aVar.Hj);
         return aVar;
     }
 
-    public a jt() throws IOException {
-        a js = js();
-        this.GD.GG = d.g(js.GG - d.jr().GG);
-        this.GD.GH = d.g(js.GH - d.jr().GH);
-        this.GD.GF = d.g(js.GF - d.jr().GF);
-        return this.GD;
+    public a jJ() throws IOException {
+        a jI = jI();
+        this.Hg.Hi = d.g(jI.Hi - d.jH().Hi);
+        this.Hg.Hj = d.g(jI.Hj - d.jH().Hj);
+        this.Hg.Hh = d.g(jI.Hh - d.jH().Hh);
+        return this.Hg;
     }
 
-    public double bj(String str) {
+    public double bk(String str) {
         BufferedReader bufferedReader;
         double d = 0.0d;
         try {
@@ -57,13 +57,13 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         while (true) {
             try {
-                d.a(jt());
+                d.a(jJ());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            if (!jp()) {
+            if (!jF()) {
                 return;
             }
             Thread.sleep(500L);
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double GF = 0.0d;
-        double GG = 0.0d;
-        double GH = 0.0d;
+        double Hh = 0.0d;
+        double Hi = 0.0d;
+        double Hj = 0.0d;
 
         public a() {
         }

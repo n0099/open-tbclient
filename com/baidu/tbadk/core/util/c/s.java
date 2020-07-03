@@ -1,63 +1,104 @@
 package com.baidu.tbadk.core.util.c;
 
 import android.graphics.Bitmap;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.graphics.NinePatch;
+import android.graphics.Rect;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class s extends a {
-    private boolean aha;
-    private boolean dPA;
-    private boolean dPB;
-    private int height;
     private int procType;
-    private int width;
 
-    public s(boolean z, boolean z2, boolean z3, int i) {
-        this.aha = true;
-        this.dPA = false;
-        this.dPB = false;
+    public s(int i) {
         this.procType = 0;
-        this.width = 0;
-        this.height = 0;
-        this.aha = z;
-        this.dPA = z2;
-        this.dPB = z3;
         this.procType = i;
-        this.width = Math.min(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
-        this.height = (int) (this.width * 1.6f);
-    }
-
-    @Override // com.baidu.tbadk.core.util.c.a
-    public Bitmap e(Bitmap bitmap, int i, int i2) {
-        return bitmap;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public int getWidth() {
-        return this.width;
+        return 0;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public int getHeight() {
-        return this.height;
+        return 0;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
-        return this.aha;
+        return true;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aVo() {
-        return this.dPB;
+    public boolean aXi() {
+        return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aVp() {
-        return this.dPA;
+    public boolean aXj() {
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.util.c.a
+    public com.baidu.adp.lib.Disk.ops.c wU(String str) {
+        return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.e.e
+    /* renamed from: b */
+    public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
+        com.baidu.adp.widget.ImageView.a yO = com.baidu.tbadk.imageManager.c.bgz().yO(str);
+        if (yO != null) {
+            yO.Ue.resourceFromType = "memory";
+            yO.Ue.costTime = 0L;
+            yO.Ue.isScuess = true;
+        }
+        return yO;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.util.c.a
+    public com.baidu.adp.widget.ImageView.a a(com.baidu.adp.lib.Disk.ops.c cVar, String str, int i, int i2) {
+        if (cVar == null || !(cVar instanceof com.baidu.adp.lib.Disk.ops.b)) {
+            return null;
+        }
+        com.baidu.adp.lib.Disk.ops.b bVar = (com.baidu.adp.lib.Disk.ops.b) cVar;
+        cVar.formatData(cVar.getData());
+        Bitmap bitmap = cVar.getBitmap();
+        if (bitmap != null) {
+            return new com.baidu.adp.widget.ImageView.a(bitmap, false, str, bVar.getRect());
+        }
+        return null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.util.c.a
+    public Bitmap a(byte[] bArr, Rect rect, StringBuilder sb) {
+        return BitmapHelper.Bytes2NineBitmap(bArr, rect, sb);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.util.c.a
+    public boolean s(Bitmap bitmap) {
+        return bitmap.getNinePatchChunk() != null && NinePatch.isNinePatchChunk(bitmap.getNinePatchChunk());
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.util.c.a
+    public Bitmap checkBitmapSize(Bitmap bitmap, int i, int i2) {
+        return bitmap;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int aVq() {
+    protected Bitmap e(Bitmap bitmap, int i, int i2) {
+        return bitmap;
+    }
+
+    @Override // com.baidu.tbadk.core.util.c.a
+    public int aXk() {
         return this.procType;
     }
 }

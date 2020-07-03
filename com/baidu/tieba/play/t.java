@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.io.File;
 /* loaded from: classes.dex */
 public class t {
-    public static final String eMr = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-    public static final String eMs = eMr + "/.tieba_video_cache";
-    public static final String HV = eMs + "/v2";
-    public static final String eMt = HV + "/";
-    public static final String eMu = HV + "/files";
-    public static final String eMv = eMu + "/";
+    public static final String eWD = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+    public static final String eWE = eWD + "/.tieba_video_cache";
+    public static final String Iv = eWE + "/v2";
+    public static final String eWF = Iv + "/";
+    public static final String eWG = Iv + "/files";
+    public static final String eWH = eWG + "/";
 
-    private static long zy(String str) {
+    private static long zR(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(eMv + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(eWH + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -27,7 +27,7 @@ public class t {
         return j;
     }
 
-    private static String zz(String str) {
+    private static String zS(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -38,13 +38,13 @@ public class t {
         return substring;
     }
 
-    public static long KA(String str) {
+    public static long Lb(String str) {
         try {
-            String zz = zz(str);
-            if (StringUtils.isNULL(zz)) {
+            String zS = zS(str);
+            if (StringUtils.isNULL(zS)) {
                 return 0L;
             }
-            return zy(zz);
+            return zR(zS);
         } catch (Exception e) {
             e.printStackTrace();
             return 0L;

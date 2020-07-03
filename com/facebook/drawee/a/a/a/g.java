@@ -7,114 +7,114 @@ import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class g extends com.facebook.imagepipeline.h.a {
     private boolean mEnabled;
-    private final com.facebook.drawee.a.a.d moQ;
-    private final com.facebook.common.time.b moR;
-    private final h moS = new h();
+    private final com.facebook.drawee.a.a.d mKP;
+    private final com.facebook.common.time.b mKQ;
+    private final h mKR = new h();
     @Nullable
-    private c moT;
+    private c mKS;
     @Nullable
-    private com.facebook.drawee.a.a.a.a.c moU;
+    private com.facebook.drawee.a.a.a.a.c mKT;
     @Nullable
-    private com.facebook.drawee.a.a.a.a.a moV;
+    private com.facebook.drawee.a.a.a.a.a mKU;
     @Nullable
-    private com.facebook.imagepipeline.h.b moW;
+    private com.facebook.imagepipeline.h.b mKV;
     @Nullable
-    private List<f> moX;
+    private List<f> mKW;
     @Nullable
-    private b mor;
+    private b mKq;
 
     public g(com.facebook.common.time.b bVar, com.facebook.drawee.a.a.d dVar) {
-        this.moR = bVar;
-        this.moQ = dVar;
+        this.mKQ = bVar;
+        this.mKP = dVar;
     }
 
     public void setEnabled(boolean z) {
         this.mEnabled = z;
         if (z) {
-            dvK();
-            if (this.mor != null) {
-                this.moQ.a(this.mor);
+            dAn();
+            if (this.mKq != null) {
+                this.mKP.a(this.mKq);
             }
-            if (this.moV != null) {
-                this.moQ.a(this.moV);
+            if (this.mKU != null) {
+                this.mKP.a(this.mKU);
             }
-            if (this.moW != null) {
-                this.moQ.a(this.moW);
+            if (this.mKV != null) {
+                this.mKP.a(this.mKV);
                 return;
             }
             return;
         }
-        if (this.mor != null) {
-            this.moQ.b(this.mor);
+        if (this.mKq != null) {
+            this.mKP.b(this.mKq);
         }
-        if (this.moV != null) {
-            this.moQ.b(this.moV);
+        if (this.mKU != null) {
+            this.mKP.b(this.mKU);
         }
-        if (this.moW != null) {
-            this.moQ.b(this.moW);
+        if (this.mKV != null) {
+            this.mKP.b(this.mKV);
         }
     }
 
     public void b(@Nullable f fVar) {
         if (fVar != null) {
-            if (this.moX == null) {
-                this.moX = new LinkedList();
+            if (this.mKW == null) {
+                this.mKW = new LinkedList();
             }
-            this.moX.add(fVar);
+            this.mKW.add(fVar);
         }
     }
 
-    public void dvI() {
-        if (this.moX != null) {
-            this.moX.clear();
+    public void dAl() {
+        if (this.mKW != null) {
+            this.mKW.clear();
         }
     }
 
     public void a(h hVar, int i) {
-        hVar.GT(i);
-        if (this.mEnabled && this.moX != null && !this.moX.isEmpty()) {
+        hVar.Ia(i);
+        if (this.mEnabled && this.mKW != null && !this.mKW.isEmpty()) {
             if (i == 3) {
-                dvJ();
+                dAm();
             }
-            e dvM = hVar.dvM();
-            for (f fVar : this.moX) {
-                fVar.a(dvM, i);
+            e dAp = hVar.dAp();
+            for (f fVar : this.mKW) {
+                fVar.a(dAp, i);
             }
         }
     }
 
-    private void dvJ() {
-        com.facebook.drawee.d.b hierarchy = this.moQ.getHierarchy();
+    private void dAm() {
+        com.facebook.drawee.d.b hierarchy = this.mKP.getHierarchy();
         if (hierarchy != null && hierarchy.getTopLevelDrawable() != null) {
             Rect bounds = hierarchy.getTopLevelDrawable().getBounds();
-            this.moS.GV(bounds.width());
-            this.moS.GW(bounds.height());
+            this.mKR.Ic(bounds.width());
+            this.mKR.Id(bounds.height());
         }
     }
 
-    private void dvK() {
-        if (this.moV == null) {
-            this.moV = new com.facebook.drawee.a.a.a.a.a(this.moR, this.moS, this);
+    private void dAn() {
+        if (this.mKU == null) {
+            this.mKU = new com.facebook.drawee.a.a.a.a.a(this.mKQ, this.mKR, this);
         }
-        if (this.moU == null) {
-            this.moU = new com.facebook.drawee.a.a.a.a.c(this.moR, this.moS);
+        if (this.mKT == null) {
+            this.mKT = new com.facebook.drawee.a.a.a.a.c(this.mKQ, this.mKR);
         }
-        if (this.mor == null) {
-            this.mor = new com.facebook.drawee.a.a.a.a.b(this.moS, this);
+        if (this.mKq == null) {
+            this.mKq = new com.facebook.drawee.a.a.a.a.b(this.mKR, this);
         }
-        if (this.moT == null) {
-            this.moT = new c(this.moQ.getId(), this.mor);
+        if (this.mKS == null) {
+            this.mKS = new c(this.mKP.getId(), this.mKq);
         } else {
-            this.moT.init(this.moQ.getId());
+            this.mKS.init(this.mKP.getId());
         }
-        if (this.moW == null) {
-            this.moW = new com.facebook.imagepipeline.h.b(this.moU, this.moT);
+        if (this.mKV == null) {
+            this.mKV = new com.facebook.imagepipeline.h.b(this.mKT, this.mKS);
         }
     }
 
     public void reset() {
-        dvI();
+        dAl();
         setEnabled(false);
-        this.moS.reset();
+        this.mKR.reset();
     }
 }

@@ -13,7 +13,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile ArrayMap<String, e> cqC;
+    private static volatile ArrayMap<String, e> cvr;
 
     @Override // com.baidu.swan.apps.network.c.b.b
     @NonNull
@@ -22,19 +22,19 @@ public class a extends b {
     }
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void aK(JSONObject jSONObject) {
-        com.baidu.swan.apps.runtime.e aoF;
+    public void aR(JSONObject jSONObject) {
+        com.baidu.swan.apps.runtime.e apM;
         if (DEBUG) {
             Log.d("SwanAppAccreditNode", "onUpdate: ");
         }
-        if (jSONObject != null && (aoF = com.baidu.swan.apps.runtime.e.aoF()) != null) {
-            aoF.aoR().putString("node_data_accredit_list", jSONObject.toString());
+        if (jSONObject != null && (apM = com.baidu.swan.apps.runtime.e.apM()) != null) {
+            apM.apY().putString("node_data_accredit_list", jSONObject.toString());
             resetCache();
         }
     }
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void akM() {
+    public void alS() {
         if (DEBUG) {
             Log.d("SwanAppAccreditNode", "onFiltered: ");
         }
@@ -48,17 +48,17 @@ public class a extends b {
     }
 
     public static void k(@NonNull final com.baidu.swan.apps.aq.e.b<Map<String, e>> bVar) {
-        com.baidu.swan.apps.network.c.a.akD().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1
+        com.baidu.swan.apps.network.c.a.alJ().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1
             @Override // com.baidu.swan.apps.network.c.a.a
-            public void akH() {
-                Map<String, e> akO = a.akO();
-                if (akO.size() > 0) {
-                    com.baidu.swan.apps.aq.e.b.this.H(akO);
+            public void alN() {
+                Map<String, e> alU = a.alU();
+                if (alU.size() > 0) {
+                    com.baidu.swan.apps.aq.e.b.this.H(alU);
                 } else {
-                    com.baidu.swan.apps.network.c.a.akD().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1.1
+                    com.baidu.swan.apps.network.c.a.alJ().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1.1
                         @Override // com.baidu.swan.apps.network.c.a.a
-                        public void akH() {
-                            com.baidu.swan.apps.aq.e.b.this.H(a.akO());
+                        public void alN() {
+                            com.baidu.swan.apps.aq.e.b.this.H(a.alU());
                         }
                     });
                 }
@@ -67,17 +67,17 @@ public class a extends b {
     }
 
     public static void a(final String str, @NonNull final com.baidu.swan.apps.aq.e.b<e> bVar) {
-        com.baidu.swan.apps.network.c.a.akD().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2
+        com.baidu.swan.apps.network.c.a.alJ().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2
             @Override // com.baidu.swan.apps.network.c.a.a
-            public void akH() {
-                e eVar = a.akO().get(str);
+            public void alN() {
+                e eVar = a.alU().get(str);
                 if (eVar != null) {
                     bVar.H(eVar);
                 } else {
-                    com.baidu.swan.apps.network.c.a.akD().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2.1
+                    com.baidu.swan.apps.network.c.a.alJ().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2.1
                         @Override // com.baidu.swan.apps.network.c.a.a
-                        public void akH() {
-                            bVar.H(a.akO().get(str));
+                        public void alN() {
+                            bVar.H(a.alU().get(str));
                         }
                     });
                 }
@@ -86,35 +86,35 @@ public class a extends b {
     }
 
     @Nullable
-    public static e mi(String str) {
-        return akO().get(str);
+    public static e mq(String str) {
+        return alU().get(str);
     }
 
-    public static void akN() {
-        com.baidu.swan.apps.runtime.e aoF = com.baidu.swan.apps.runtime.e.aoF();
-        if (aoF != null) {
-            com.baidu.swan.apps.network.c.a.akD().a(new a());
-            aoF.aoR().putString("node_data_accredit_list", "");
+    public static void alT() {
+        com.baidu.swan.apps.runtime.e apM = com.baidu.swan.apps.runtime.e.apM();
+        if (apM != null) {
+            com.baidu.swan.apps.network.c.a.alJ().a(new a());
+            apM.apY().putString("node_data_accredit_list", "");
             resetCache();
-            com.baidu.swan.apps.network.c.a.akD().update();
+            com.baidu.swan.apps.network.c.a.alJ().update();
         }
     }
 
     private static void resetCache() {
-        cqC = null;
+        cvr = null;
     }
 
     @NonNull
-    public static Map<String, e> akO() {
+    public static Map<String, e> alU() {
         JSONObject optJSONObject;
         ArrayMap<String, e> arrayMap;
-        if (!com.baidu.swan.apps.performance.b.b.alL() || (arrayMap = cqC) == null) {
+        if (!com.baidu.swan.apps.performance.b.b.amR() || (arrayMap = cvr) == null) {
             ArrayMap<String, e> arrayMap2 = new ArrayMap<>();
-            com.baidu.swan.apps.runtime.e aoF = com.baidu.swan.apps.runtime.e.aoF();
-            if (aoF == null) {
+            com.baidu.swan.apps.runtime.e apM = com.baidu.swan.apps.runtime.e.apM();
+            if (apM == null) {
                 return arrayMap2;
             }
-            String string = aoF.aoR().getString("node_data_accredit_list", "");
+            String string = apM.apY().getString("node_data_accredit_list", "");
             if (TextUtils.isEmpty(string)) {
                 return arrayMap2;
             }
@@ -130,7 +130,7 @@ public class a extends b {
                         arrayMap2.put(next, e.i(next, optJSONObject));
                     }
                 }
-                cqC = arrayMap2;
+                cvr = arrayMap2;
                 return arrayMap2;
             } catch (JSONException e) {
                 e.printStackTrace();

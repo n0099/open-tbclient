@@ -7,10 +7,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a extends l {
     public a(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_hot_tipc), 26, i);
-        this.elH = R.drawable.icon_pure_post_topic24_svg;
-        this.elJ = true;
-        this.elK = false;
-        this.elO = new int[]{43};
+        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_link), 31, i);
+        this.eut = R.drawable.ic_icon_pure_post_link24_svg;
+        this.euw = true;
+        this.eux = false;
+        this.euB = new int[]{21};
     }
 }

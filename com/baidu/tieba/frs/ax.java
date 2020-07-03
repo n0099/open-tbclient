@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes.dex */
-public class ax {
-    public int hre;
-    public boolean isSelected;
-    public String name;
+
+import com.baidu.tbadk.core.data.bu;
+/* loaded from: classes9.dex */
+public interface ax {
+    void ao(bu buVar);
 }

@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.am;
+import com.baidu.tbadk.core.data.ar;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.chat.b.a;
 import com.baidu.tieba.im.data.GroupMsgData;
@@ -15,18 +15,18 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static g iwJ;
+    private static g iNO;
 
     private g() {
     }
 
-    public static synchronized g cki() {
+    public static synchronized g cnX() {
         g gVar;
         synchronized (g.class) {
-            if (iwJ == null) {
-                iwJ = new g();
+            if (iNO == null) {
+                iNO = new g();
             }
-            gVar = iwJ;
+            gVar = iNO;
         }
         return gVar;
     }
@@ -37,7 +37,7 @@ public class g {
         }
     }
 
-    public long ez(long j) {
+    public long eC(long j) {
         return TbadkSettings.getInst().loadLong("tb_group_msg_" + j, -1L);
     }
 
@@ -70,7 +70,7 @@ public class g {
                     TiebaStatic.pushMsg(next.getMsgId(), 1, next.getLink(), next.getStat());
                 }
                 CustomMessage customMessage = new CustomMessage(CmdConfigCustom.DEAL_YY_NOTIFICATION);
-                customMessage.setData(new am(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
+                customMessage.setData(new ar(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
                 MessageManager.getInstance().sendMessage(customMessage);
             }
             if (groupMsgData.getListMessage().size() > 0) {
@@ -82,7 +82,7 @@ public class g {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.b.g.1
             @Override // com.baidu.tieba.im.chat.b.a.c
-            public boolean FU(String str) {
+            public boolean Gw(String str) {
                 return true;
             }
         }, false);

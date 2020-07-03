@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
 public class BdRootActivity extends Activity {
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        return b.qV().getResources();
+        return b.rm().getResources();
     }
 
     @Override // android.app.Activity
@@ -19,6 +19,6 @@ public class BdRootActivity extends Activity {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SharedPreferences getSharedPreferences(String str, int i) {
-        return b.qV().getSharedPreferences(str, i);
+        return b.rm().getSharedPreferences(str, i);
     }
 }

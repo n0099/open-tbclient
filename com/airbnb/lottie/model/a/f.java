@@ -14,7 +14,7 @@ public class f extends n<PointF, PointF> {
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<PointF, PointF> hK() {
-        return new com.airbnb.lottie.a.b.j(this.Ci);
+    public com.airbnb.lottie.a.b.a<PointF, PointF> ia() {
+        return new com.airbnb.lottie.a.b.j(this.CJ);
     }
 }

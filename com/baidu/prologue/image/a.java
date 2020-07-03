@@ -7,9 +7,9 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 /* loaded from: classes6.dex */
 public class a extends BitmapTransformation {
-    private BitmapPool bBi;
-    private int bBj;
-    private int bBk;
+    private BitmapPool bFW;
+    private int bFX;
+    private int bFY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@NonNull Context context) {
@@ -17,8 +17,8 @@ public class a extends BitmapTransformation {
     }
 
     a(@NonNull BitmapPool bitmapPool) {
-        this.bBj = 0;
-        this.bBk = 0;
-        this.bBi = bitmapPool;
+        this.bFX = 0;
+        this.bFY = 0;
+        this.bFW = bitmapPool;
     }
 }

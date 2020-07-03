@@ -91,7 +91,7 @@ public final class DumperService extends Service implements b.c {
             if (this.e != null) {
                 b bVar = this.e;
                 if (b.a && stringExtra2 != null && !stringExtra2.isEmpty() && new File(stringExtra2).exists()) {
-                    Thread thread = new Thread(new b.RunnableC0102b(stringExtra2, bVar.c, bVar.b, bVar.d, this));
+                    Thread thread = new Thread(new b.RunnableC0104b(stringExtra2, bVar.c, bVar.b, bVar.d, this));
                     thread.setName("T7@ZeusLogFile1");
                     thread.start();
                 }

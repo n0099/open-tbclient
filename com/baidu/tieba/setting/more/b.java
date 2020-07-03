@@ -7,69 +7,69 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 /* loaded from: classes13.dex */
 public class b extends com.baidu.adp.base.c<AdSettingActivity> {
-    private ImageView hzB;
-    private AdSettingActivity kWr;
-    private MsgSettingItemView kWs;
-    private TextView kWt;
-    private View kWu;
-    private View kWv;
-    private TextView kWw;
-    private TextView kWx;
-    private TextView kWy;
+    private ImageView hMJ;
+    private AdSettingActivity lqo;
+    private MsgSettingItemView lqp;
+    private TextView lqq;
+    private View lqr;
+    private View lqs;
+    private TextView lqt;
+    private TextView lqu;
+    private TextView lqv;
     private NavigationBar mNavigationBar;
     private View mParent;
 
     public b(AdSettingActivity adSettingActivity) {
         super(adSettingActivity.getPageContext());
-        this.kWr = adSettingActivity;
-        bbB();
+        this.lqo = adSettingActivity;
+        bdD();
     }
 
-    private void bbB() {
-        this.kWr.setContentView(R.layout.ad_setting_activity);
-        this.mNavigationBar = (NavigationBar) this.kWr.findViewById(R.id.view_navigation_bar);
+    private void bdD() {
+        this.lqo.setContentView(R.layout.ad_setting_activity);
+        this.mNavigationBar = (NavigationBar) this.lqo.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.kWr.getPageContext().getString(R.string.ad_control_setting));
-        this.kWs = (MsgSettingItemView) this.kWr.findViewById(R.id.memberAdSetting);
-        this.kWs.setLineVisibility(false);
-        this.kWt = (TextView) this.kWr.findViewById(R.id.memberAdTips);
-        this.kWu = this.kWr.findViewById(R.id.privacyContainer);
-        this.kWv = this.kWr.findViewById(R.id.privacyItem);
-        this.kWy = (TextView) this.kWr.findViewById(R.id.privacyControlText);
-        this.kWw = (TextView) this.kWr.findViewById(R.id.privacyControlTipsSmall);
-        this.kWw = (TextView) this.kWr.findViewById(R.id.privacyControlTipsSmall);
-        this.kWx = (TextView) this.kWr.findViewById(R.id.privacyControlTips);
-        this.hzB = (ImageView) this.kWr.findViewById(R.id.arrow);
-        this.mParent = this.kWr.findViewById(R.id.parent);
-        this.kWv.setOnClickListener(this.kWr);
-        cXz();
+        this.mNavigationBar.setTitleText(this.lqo.getPageContext().getString(R.string.ad_control_setting));
+        this.lqp = (MsgSettingItemView) this.lqo.findViewById(R.id.memberAdSetting);
+        this.lqp.setLineVisibility(false);
+        this.lqq = (TextView) this.lqo.findViewById(R.id.memberAdTips);
+        this.lqr = this.lqo.findViewById(R.id.privacyContainer);
+        this.lqs = this.lqo.findViewById(R.id.privacyItem);
+        this.lqv = (TextView) this.lqo.findViewById(R.id.privacyControlText);
+        this.lqt = (TextView) this.lqo.findViewById(R.id.privacyControlTipsSmall);
+        this.lqt = (TextView) this.lqo.findViewById(R.id.privacyControlTipsSmall);
+        this.lqu = (TextView) this.lqo.findViewById(R.id.privacyControlTips);
+        this.hMJ = (ImageView) this.lqo.findViewById(R.id.arrow);
+        this.mParent = this.lqo.findViewById(R.id.parent);
+        this.lqs.setOnClickListener(this.lqo);
+        dbO();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
-        this.kWr.getLayoutMode().setNightMode(i == 1);
-        this.kWr.getLayoutMode().onModeChanged(this.mParent);
+        this.lqo.getLayoutMode().setNightMode(i == 1);
+        this.lqo.getLayoutMode().onModeChanged(this.mParent);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        am.setViewTextColor(this.kWt, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.kWx, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.kWy, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.kWw, (int) R.color.cp_cont_c);
-        am.setBackgroundColor(this.kWt, R.color.cp_bg_line_d);
-        SvgManager.aUW().a(this.hzB, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        am.setBackgroundColor(this.kWu, R.color.cp_bg_line_d);
-        am.setBackgroundResource(this.kWv, R.drawable.setting_item_selector);
+        an.setViewTextColor(this.lqq, (int) R.color.cp_cont_b);
+        an.setViewTextColor(this.lqu, (int) R.color.cp_cont_b);
+        an.setViewTextColor(this.lqv, (int) R.color.cp_cont_b);
+        an.setViewTextColor(this.lqt, (int) R.color.cp_cont_c);
+        an.setBackgroundColor(this.lqq, R.color.cp_bg_line_d);
+        SvgManager.aWQ().a(this.hMJ, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        an.setBackgroundColor(this.lqr, R.color.cp_bg_line_d);
+        an.setBackgroundResource(this.lqs, R.drawable.setting_item_selector);
     }
 
-    private void cXz() {
+    private void dbO() {
         int i;
         int i2 = 0;
-        this.kWs.setText(R.string.member_ad_setting_text);
-        this.kWs.setOnSwitchStateChangeListener(this.kWr);
+        this.lqp.setText(R.string.member_ad_setting_text);
+        this.lqp.setOnSwitchStateChangeListener(this.lqo);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
             i = currentAccountObj.getMemberCloseAdIsOpen();
@@ -78,27 +78,27 @@ public class b extends com.baidu.adp.base.c<AdSettingActivity> {
             i = 0;
         }
         if (i == 0) {
-            this.kWs.setVisibility(8);
-            this.kWt.setVisibility(8);
+            this.lqp.setVisibility(8);
+            this.lqq.setVisibility(8);
         } else if (i2 == 0) {
-            this.kWs.turnOffNoCallback();
+            this.lqp.turnOffNoCallback();
         } else {
-            this.kWs.turnOnNoCallback();
+            this.lqp.turnOnNoCallback();
         }
-        if (TextUtils.isEmpty(com.baidu.tbadk.core.sharedPref.b.aTX().getString("sync_ad_privacy_url", ""))) {
-            this.kWu.setVisibility(8);
+        if (TextUtils.isEmpty(com.baidu.tbadk.core.sharedPref.b.aVP().getString("sync_ad_privacy_url", ""))) {
+            this.lqr.setVisibility(8);
         }
     }
 
-    public View cXA() {
-        return this.kWv;
+    public View dbP() {
+        return this.lqs;
     }
 
-    public void cXB() {
-        this.kWs.turnOffNoCallback();
+    public void dbQ() {
+        this.lqp.turnOffNoCallback();
     }
 
-    public void cXC() {
-        this.kWs.turnOnNoCallback();
+    public void dbR() {
+        this.lqp.turnOnNoCallback();
     }
 }

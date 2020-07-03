@@ -3,29 +3,29 @@ package com.baidu.poly.a.c;
 import android.widget.ImageView;
 /* loaded from: classes11.dex */
 public class b {
-    private static b buo;
-    private c bup;
+    private static b bzg;
+    private c bzh;
 
     public b(c cVar) {
-        this.bup = cVar;
+        this.bzh = cVar;
     }
 
-    public static b MP() {
-        return buo;
+    public static b NY() {
+        return bzg;
     }
 
     public static void a(c cVar) {
-        if (buo == null) {
+        if (bzg == null) {
             synchronized (b.class) {
-                if (buo == null) {
-                    buo = new b(cVar);
+                if (bzg == null) {
+                    bzg = new b(cVar);
                 }
             }
         }
     }
 
     public void b(ImageView imageView, String str) {
-        c cVar = this.bup;
+        c cVar = this.bzh;
         if (cVar != null) {
             cVar.a(imageView, str);
         }

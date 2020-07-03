@@ -7,7 +7,7 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class b implements b.a {
     @Override // com.baidu.helios.channels.b.a
-    public List<com.baidu.helios.channels.a> ub() {
+    public List<com.baidu.helios.channels.a> ut() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new QuantumChannel());
         arrayList.add(new com.baidu.helios.channels.a.a());

@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class a {
     protected static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
 
-    public static List<e> aG(String str, String str2) throws ParseError {
+    public static List<e> aI(String str, String str2) throws ParseError {
         if (TextUtils.isEmpty(str)) {
             throw new ParseError(1, "afd/entry retun null");
         }
@@ -29,7 +29,7 @@ public class a {
 
     public static List<e> o(JSONObject jSONObject, String str) throws ParseError {
         List<e> list;
-        List<e> Og;
+        List<e> Pm;
         if (DEBUG) {
             Log.d("AfdResponseParser", "AFD response : " + jSONObject.toString());
         }
@@ -45,7 +45,7 @@ public class a {
         JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
         if (optJSONObject2 != null) {
             String optString = optJSONObject2.optString("cmd");
-            SplashStyleRecorder.X(optJSONObject2.optJSONObject("style_desc"));
+            SplashStyleRecorder.ae(optJSONObject2.optJSONObject("style_desc"));
             if (TextUtils.equals(IMTrack.DbBuilder.ACTION_UPDATE, optString)) {
                 list = a(optJSONArray, str, false);
                 String optString2 = optJSONObject2.optString("empty_ext_info");
@@ -59,9 +59,9 @@ public class a {
                     list = a(optJSONArray, str, true);
                 } else {
                     String optString3 = optJSONObject2.optString("ukey");
-                    if (!TextUtils.isEmpty(optString3) && (Og = d.Og()) != null) {
-                        for (e eVar : Og) {
-                            if (TextUtils.equals(eVar.bzX, optString3)) {
+                    if (!TextUtils.isEmpty(optString3) && (Pm = d.Pm()) != null) {
+                        for (e eVar : Pm) {
+                            if (TextUtils.equals(eVar.bEL, optString3)) {
                                 arrayList.add(eVar);
                                 list = arrayList;
                                 break;
@@ -85,18 +85,18 @@ public class a {
         List<e> o = e.o(jSONArray);
         if (z) {
             for (e eVar : o) {
-                eVar.bAh = true;
+                eVar.bEV = true;
             }
         } else {
             new ArrayList();
-            HashMap<String, e> Oh = d.Oh();
-            if (Oh == null || Oh.size() == 0) {
-                d.R(o);
+            HashMap<String, e> Pn = d.Pn();
+            if (Pn == null || Pn.size() == 0) {
+                d.V(o);
             } else {
-                d.Of();
-                d.R(o);
+                d.Pl();
+                d.V(o);
             }
-            d.S(o);
+            d.W(o);
         }
         return o;
     }

@@ -10,7 +10,7 @@ public class a {
     private int totalCount;
     private List<b> userList = new ArrayList();
 
-    public void cM(JSONObject jSONObject) {
+    public void cV(JSONObject jSONObject) {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("users");
             int optInt = jSONObject.optInt("has_more");
@@ -21,7 +21,7 @@ public class a {
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     b bVar = new b();
-                    bVar.cM(optJSONObject);
+                    bVar.cV(optJSONObject);
                     this.userList.add(bVar);
                 }
             }

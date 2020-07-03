@@ -17,13 +17,13 @@ class n implements j {
 
     /* loaded from: classes6.dex */
     private static class a {
-        private static a aqs;
+        private static a arK;
         private static HashMap<String, Integer> b = new HashMap<>();
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.helios.a.a.n$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0127a {
+        public static class C0129a {
             private String a;
             private String b;
             private String c;
@@ -32,7 +32,7 @@ class n implements j {
             private int f;
             private String g;
 
-            public C0127a(Context context) {
+            public C0129a(Context context) {
                 c(context);
             }
 
@@ -116,20 +116,20 @@ class n implements j {
             b.put("CMWAP", 41);
             b.put("UNIWAP", 42);
             b.put("CTWAP", 43);
-            aqs = new a();
+            arK = new a();
         }
 
         private a() {
         }
 
-        public static a ul() {
-            return aqs;
+        public static a uD() {
+            return arK;
         }
 
         public String a(Context context) {
-            C0127a c0127a = new C0127a(context);
-            String g = c0127a.g();
-            int e = c0127a.e();
+            C0129a c0129a = new C0129a(context);
+            String g = c0129a.g();
+            int e = c0129a.e();
             if (TextUtils.isEmpty(g)) {
                 return ((Object) 5) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + e;
             }
@@ -143,7 +143,7 @@ class n implements j {
 
     /* loaded from: classes6.dex */
     private static class b {
-        private static b aqt = new b();
+        private static b arL = new b();
         private String b;
         private DisplayMetrics c;
 
@@ -207,8 +207,8 @@ class n implements j {
             }
         }
 
-        public static b um() {
-            return aqt;
+        public static b uE() {
+            return arL;
         }
 
         public String a(Context context) {
@@ -223,7 +223,7 @@ class n implements j {
 
     /* loaded from: classes6.dex */
     private static class c {
-        private static c aqu = new c();
+        private static c arM = new c();
         private String a;
         private String b;
         private String c;
@@ -262,8 +262,8 @@ class n implements j {
             return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.b;
         }
 
-        public static c un() {
-            return aqu;
+        public static c uF() {
+            return arM;
         }
 
         public String b() {
@@ -273,12 +273,12 @@ class n implements j {
 
     @Override // com.baidu.helios.a.a.j
     public String a() {
-        return c.un().b();
+        return c.uF().b();
     }
 
     @Override // com.baidu.helios.a.a.j
     public String a(Context context) {
-        return b.um().a(context);
+        return b.uE().a(context);
     }
 
     @Override // com.baidu.helios.a.a.j
@@ -293,11 +293,11 @@ class n implements j {
 
     @Override // com.baidu.helios.a.a.j
     public String c(Context context) {
-        return com.baidu.helios.b.ae(context).tO();
+        return com.baidu.helios.b.af(context).ug();
     }
 
     @Override // com.baidu.helios.a.a.j
     public String d(Context context) {
-        return a.ul().a(context);
+        return a.uD().a(context);
     }
 }

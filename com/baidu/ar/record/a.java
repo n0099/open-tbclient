@@ -14,20 +14,20 @@ import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class a implements OnRenderFinishedListener, IRecord {
     private static final String TAG = a.class.getSimpleName();
-    private DuMixOutput ab;
-    private AudioParams iv;
+    private DuMixOutput aa;
+    private AudioParams iK;
     private Context mContext;
-    private j oF;
-    private RecordCallback sc;
-    private b sd;
-    private EncoderParams se;
-    private MovieRecorderCallback sf;
-    private IEasyAudio sg;
-    private EasyAudioCallback sh;
-    private long sk;
-    private boolean si = false;
-    private boolean sj = false;
-    private long sl = 0;
+    private j pf;
+    private RecordCallback sC;
+    private b sD;
+    private EncoderParams sE;
+    private MovieRecorderCallback sF;
+    private IEasyAudio sG;
+    private EasyAudioCallback sH;
+    private long sK;
+    private boolean sI = false;
+    private boolean sJ = false;
+    private long sL = 0;
 
     /* renamed from: com.baidu.ar.record.a$3  reason: invalid class name */
     /* loaded from: classes3.dex */
@@ -52,7 +52,7 @@ public class a implements OnRenderFinishedListener, IRecord {
 
     public a(Context context, j jVar) {
         this.mContext = context;
-        this.oF = jVar;
+        this.pf = jVar;
     }
 
     private void a(EncoderParams encoderParams, AudioParams audioParams) {
@@ -77,27 +77,27 @@ public class a implements OnRenderFinishedListener, IRecord {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(ByteBuffer byteBuffer, int i) {
-        long nanoTime = System.nanoTime() - this.sl;
-        if (this.sd != null && byteBuffer != null && i > 0 && !this.sj) {
-            this.sd.onAudioFrameAvailable(byteBuffer, i, nanoTime);
+        long nanoTime = System.nanoTime() - this.sL;
+        if (this.sD != null && byteBuffer != null && i > 0 && !this.sJ) {
+            this.sD.onAudioFrameAvailable(byteBuffer, i, nanoTime);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(boolean z, AudioParams audioParams) {
-        this.se.setAudioIncluded(z);
-        if (this.sd != null) {
-            a(this.se, audioParams);
-            this.sd.startRecorder(this.mContext, this.se, this.sf);
+        this.sE.setAudioIncluded(z);
+        if (this.sD != null) {
+            a(this.sE, audioParams);
+            this.sD.startRecorder(this.mContext, this.sE, this.sF);
         }
     }
 
-    private void dR() {
-        if (this.iv == null) {
-            this.iv = new AudioParams();
+    private void eh() {
+        if (this.iK == null) {
+            this.iK = new AudioParams();
         }
-        if (this.sh == null) {
-            this.sh = new EasyAudioCallback() { // from class: com.baidu.ar.record.a.1
+        if (this.sH == null) {
+            this.sH = new EasyAudioCallback() { // from class: com.baidu.ar.record.a.1
                 @Override // com.baidu.ar.audio.EasyAudioCallback
                 public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j) {
                     a.this.a(byteBuffer, i);
@@ -115,24 +115,24 @@ public class a implements OnRenderFinishedListener, IRecord {
                 }
             };
         }
-        if (this.sg == null) {
-            this.sg = com.baidu.ar.a.c();
+        if (this.sG == null) {
+            this.sG = com.baidu.ar.a.c();
         }
     }
 
-    private void dS() {
-        if (this.se == null) {
-            this.se = new EncoderParams();
+    private void ei() {
+        if (this.sE == null) {
+            this.sE = new EncoderParams();
         }
-        if (this.sf == null) {
-            this.sf = new MovieRecorderCallback() { // from class: com.baidu.ar.record.a.2
+        if (this.sF == null) {
+            this.sF = new MovieRecorderCallback() { // from class: com.baidu.ar.record.a.2
                 @Override // com.baidu.ar.record.MovieRecorderCallback
                 public void onRecorderComplete(boolean z, String str) {
                     com.baidu.ar.f.b.c(a.TAG, "onRecorderComplete result = " + z);
-                    a.this.si = false;
-                    if (a.this.sc != null) {
-                        a.this.sc.onRecorderComplete(z, str);
-                        a.this.sc = null;
+                    a.this.sI = false;
+                    if (a.this.sC != null) {
+                        a.this.sC.onRecorderComplete(z, str);
+                        a.this.sC = null;
                     }
                 }
 
@@ -143,11 +143,11 @@ public class a implements OnRenderFinishedListener, IRecord {
 
                 @Override // com.baidu.ar.record.MovieRecorderCallback
                 public void onRecorderInit(Surface surface) {
-                    if (a.this.se == null) {
+                    if (a.this.sE == null) {
                         return;
                     }
                     com.baidu.ar.f.b.c(a.TAG, "onRecorderInit inputSurface = " + surface.hashCode());
-                    a.this.ab = new DuMixOutput(surface, a.this.se.getVideoWidth(), a.this.se.getVideoHeight());
+                    a.this.aa = new DuMixOutput(surface, a.this.sE.getVideoWidth(), a.this.sE.getVideoHeight());
                     DuMixOutput.b bVar = DuMixOutput.b.ROTATE_0;
                     switch (AnonymousClass3.$SwitchMap$com$baidu$ar$arplay$core$engine$rotate$Orientation[OrientationManager.getGlobalOrientation().ordinal()]) {
                         case 1:
@@ -160,11 +160,11 @@ public class a implements OnRenderFinishedListener, IRecord {
                             bVar = DuMixOutput.b.ROTATE_180;
                             break;
                     }
-                    a.this.ab.setRotationType(bVar);
-                    if (a.this.oF == null || a.this.se == null) {
+                    a.this.aa.setRotationType(bVar);
+                    if (a.this.pf == null || a.this.sE == null) {
                         return;
                     }
-                    a.this.oF.addOutputSurface(a.this.ab);
+                    a.this.pf.addOutputSurface(a.this.aa);
                 }
 
                 @Override // com.baidu.ar.record.MovieRecorderCallback
@@ -172,86 +172,86 @@ public class a implements OnRenderFinishedListener, IRecord {
                     com.baidu.ar.f.b.c(a.TAG, "onRecorderProcess process = " + i);
                     if (i > 100) {
                         a.this.stopRecord();
-                    } else if (a.this.sc != null) {
-                        a.this.sc.onRecorderProcess(i);
+                    } else if (a.this.sC != null) {
+                        a.this.sC.onRecorderProcess(i);
                     }
                 }
 
                 @Override // com.baidu.ar.record.MovieRecorderCallback
                 public void onRecorderStart(boolean z) {
                     com.baidu.ar.f.b.c(a.TAG, "onRecorderStart result = " + z);
-                    a.this.si = z;
-                    if (a.this.sc != null) {
-                        a.this.sc.onRecorderStart(z);
+                    a.this.sI = z;
+                    if (a.this.sC != null) {
+                        a.this.sC.onRecorderStart(z);
                     }
                 }
             };
         }
-        if (this.sd == null) {
-            this.sd = com.baidu.ar.a.b();
+        if (this.sD == null) {
+            this.sD = com.baidu.ar.a.b();
         }
     }
 
     @Override // com.baidu.ar.arplay.core.filter.OnRenderFinishedListener
     public void onRenderFinished() {
-        if (this.sd == null || this.sj) {
+        if (this.sD == null || this.sJ) {
             return;
         }
-        this.sd.onVideoFrameAvailable(System.nanoTime() - this.sl);
+        this.sD.onVideoFrameAvailable(System.nanoTime() - this.sL);
     }
 
     @Override // com.baidu.ar.record.IRecord
     public void pauseRecord() {
-        if (!this.si || this.sj) {
+        if (!this.sI || this.sJ) {
             return;
         }
-        this.sj = true;
-        this.sk = System.nanoTime();
+        this.sJ = true;
+        this.sK = System.nanoTime();
     }
 
     @Override // com.baidu.ar.record.IRecord
     public void resumeRecord() {
-        if (this.si && this.sj) {
-            this.sj = false;
-            this.sl += System.nanoTime() - this.sk;
+        if (this.sI && this.sJ) {
+            this.sJ = false;
+            this.sL += System.nanoTime() - this.sK;
         }
     }
 
     @Override // com.baidu.ar.record.IRecord
     public void startRecord(String str, long j, RecordCallback recordCallback) {
-        dR();
-        dS();
-        this.sc = recordCallback;
-        if (this.se != null) {
-            this.se.setOutputFile(str);
-            this.se.setOutputTotalMs(j);
+        eh();
+        ei();
+        this.sC = recordCallback;
+        if (this.sE != null) {
+            this.sE.setOutputFile(str);
+            this.sE.setOutputTotalMs(j);
         }
-        if (this.sg != null) {
-            this.sg.startAudio(this.iv, this.sh);
+        if (this.sG != null) {
+            this.sG.startAudio(this.iK, this.sH);
         }
-        if (this.oF != null) {
-            this.oF.setRenderFinishedListener(this);
+        if (this.pf != null) {
+            this.pf.setRenderFinishedListener(this);
         }
     }
 
     @Override // com.baidu.ar.record.IRecord
     public synchronized void stopRecord() {
-        if (this.sg != null) {
-            this.sg.stopAudio(this.sh);
-            this.sg = null;
+        if (this.sG != null) {
+            this.sG.stopAudio(this.sH);
+            this.sG = null;
         }
-        this.iv = null;
-        this.sh = null;
-        if (this.sd != null) {
-            this.sd.stopRecorder();
-            this.sd = null;
+        this.iK = null;
+        this.sH = null;
+        if (this.sD != null) {
+            this.sD.stopRecorder();
+            this.sD = null;
         }
-        this.se = null;
-        this.sf = null;
-        if (this.oF != null) {
-            this.oF.removeOutputSurface(this.ab);
-            this.oF.setRenderFinishedListener(null);
+        this.sE = null;
+        this.sF = null;
+        if (this.pf != null) {
+            this.pf.removeOutputSurface(this.aa);
+            this.pf.setRenderFinishedListener(null);
         }
-        this.ab = null;
+        this.aa = null;
     }
 }

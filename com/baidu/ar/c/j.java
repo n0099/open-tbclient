@@ -1,59 +1,82 @@
 package com.baidu.ar.c;
 
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.ar.arplay.core.engine.pixel.FramePixels;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadListener;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 /* loaded from: classes3.dex */
 public abstract class j extends a implements PixelReadListener {
-    private static volatile boolean lQ = true;
-    private boolean P = false;
-    protected PixelReadParams lP;
+    private static volatile boolean mn = true;
+    private boolean O = false;
+    private Handler mHandler;
+    protected PixelReadParams mm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void x(boolean z) {
-        lQ = z;
+    public static void w(boolean z) {
+        mn = z;
     }
 
-    protected abstract void X();
-
-    public boolean Y() {
-        return true;
+    public final void a(Looper looper) {
+        if (this.mHandler == null) {
+            this.mHandler = new Handler(looper);
+        }
     }
-
-    protected abstract void Z();
 
     @Override // com.baidu.ar.c.a, com.baidu.ar.c.k
     public final void a(e eVar) {
         com.baidu.ar.f.b.c("FrameDetector", "setup callback is " + (eVar != null));
         super.a(eVar);
-        X();
+        al();
     }
 
+    protected abstract void al();
+
+    public boolean am() {
+        return true;
+    }
+
+    protected abstract void an();
+
     public void b(boolean z) {
-        this.P = z;
+        this.O = z;
     }
 
     protected abstract boolean c(FramePixels framePixels);
 
-    public PixelReadParams ct() {
-        return this.lP;
+    public PixelReadParams cJ() {
+        return this.mm;
     }
 
-    public boolean cu() {
-        return this.P;
+    public boolean cK() {
+        return this.O;
     }
 
     @Override // com.baidu.ar.arplay.core.engine.pixel.PixelReadListener
-    public boolean onPixelRead(FramePixels framePixels) {
-        if (!this.P || lQ) {
-            return c(framePixels);
+    public final boolean onPixelRead(final FramePixels framePixels) {
+        if (!this.O || mn) {
+            if (this.mHandler != null) {
+                this.mHandler.post(new Runnable() { // from class: com.baidu.ar.c.j.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        j.this.c(framePixels);
+                    }
+                });
+            } else {
+                c(framePixels);
+            }
+            return true;
         }
         return false;
     }
 
     @Override // com.baidu.ar.c.a, com.baidu.ar.c.k
     public final void release() {
-        Z();
+        if (this.mHandler != null) {
+            this.mHandler.removeCallbacksAndMessages(null);
+            this.mHandler = null;
+        }
+        an();
         super.release();
     }
 }

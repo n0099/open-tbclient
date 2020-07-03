@@ -1,47 +1,55 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.aa;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bj;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
-public class c implements ai {
-    public static final AtomicReference<ai> hmq = new AtomicReference<>(null);
-    private static final ai hmr = new c();
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import tbclient.BawuThrones;
+/* loaded from: classes8.dex */
+public class c {
+    private w hyB;
+    private BawuThrones hyC;
 
     private c() {
     }
 
-    public static ai bUj() {
-        ai aiVar = hmq.get();
-        return aiVar == null ? hmr : aiVar;
+    public static c bXg() {
+        return a.hyD;
     }
 
-    @Override // com.baidu.tieba.frs.ai
-    public h<ICardInfo, ? extends aa.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
+    public void a(BawuThrones bawuThrones) {
+        this.hyC = bawuThrones;
     }
 
-    @Override // com.baidu.tieba.frs.ai
-    public com.baidu.adp.widget.ListView.a<? extends bk, ? extends aa.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
+    public BawuThrones bXh() {
+        return this.hyC;
     }
 
-    @Override // com.baidu.tieba.frs.ai
-    public com.baidu.adp.widget.ListView.a<? extends bk, ? extends aa.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
+    public void ei(String str, String str2) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_RECOMMEND);
+        httpMessage.addParam("forum_id", str);
+        httpMessage.addParam("thread_id", str2);
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    @Override // com.baidu.tieba.frs.ai
-    public com.baidu.adp.widget.ListView.a<? extends bj, ? extends aa.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
+    public void b(TbPageContext tbPageContext, String str, String str2) {
+        if (this.hyB == null) {
+            this.hyB = new w();
+        }
+        this.hyB.b(tbPageContext, str, str2);
+    }
+
+    public void destory() {
+        this.hyC = null;
+        if (this.hyB != null) {
+            this.hyB.onDestory();
+        }
+        this.hyB = null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes8.dex */
+    public static class a {
+        private static c hyD = new c();
     }
 }

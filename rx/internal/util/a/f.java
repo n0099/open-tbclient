@@ -3,62 +3,62 @@ package rx.internal.util.a;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public abstract class f<E> extends g<E> {
-    protected static final int nKB = Integer.getInteger("sparse.shift", 0).intValue();
-    private static final long nKC;
-    private static final int nKD;
-    protected final long nKE;
-    protected final E[] ntA;
+    protected static final int ogp = Integer.getInteger("sparse.shift", 0).intValue();
+    private static final long ogq;
+    private static final int ogr;
+    protected final E[] nPn;
+    protected final long ogs;
 
     static {
-        int Q = ae.nKM.Q(Object[].class);
+        int Q = ae.ogA.Q(Object[].class);
         if (4 == Q) {
-            nKD = nKB + 2;
+            ogr = ogp + 2;
         } else if (8 == Q) {
-            nKD = nKB + 3;
+            ogr = ogp + 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        nKC = ae.nKM.R(Object[].class) + (32 << (nKD - nKB));
+        ogq = ae.ogA.R(Object[].class) + (32 << (ogr - ogp));
     }
 
     public f(int i) {
-        int JN = h.JN(i);
-        this.nKE = JN - 1;
-        this.ntA = (E[]) new Object[(JN << nKB) + 64];
+        int KU = h.KU(i);
+        this.ogs = KU - 1;
+        this.nPn = (E[]) new Object[(KU << ogp) + 64];
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final long gw(long j) {
-        return U(j, this.nKE);
+    public final long gB(long j) {
+        return V(j, this.ogs);
     }
 
-    protected final long U(long j, long j2) {
-        return nKC + ((j & j2) << nKD);
+    protected final long V(long j, long j2) {
+        return ogq + ((j & j2) << ogr);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(E[] eArr, long j, E e) {
-        ae.nKM.a(eArr, j, e);
+        ae.ogA.a(eArr, j, e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b(E[] eArr, long j, E e) {
-        ae.nKM.b(eArr, j, e);
+        ae.ogA.b(eArr, j, e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E a(E[] eArr, long j) {
-        return (E) ae.nKM.c(eArr, j);
+        return (E) ae.ogA.c(eArr, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final E gx(long j) {
-        return b(this.ntA, j);
+    public final E gC(long j) {
+        return b(this.nPn, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E b(E[] eArr, long j) {
-        return (E) ae.nKM.d(eArr, j);
+        return (E) ae.ogA.d(eArr, j);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable

@@ -71,9 +71,9 @@ public final class DeviceId {
     }
 
     private g.a b(String str) {
-        e dc = this.f.dc(str);
-        if (dc != null) {
-            return this.e.b(dc);
+        e de2 = this.f.de(str);
+        if (de2 != null) {
+            return this.e.b(de2);
         }
         return null;
     }
@@ -104,19 +104,19 @@ public final class DeviceId {
         if (aVar == null) {
             throw new NullPointerException("cuidV270Info should not be null");
         }
-        e sp = aVar.sp();
+        e sK = aVar.sK();
         this.e.a(aVar, true, false);
-        this.f.a(sp);
+        this.f.a(sK);
         this.e.a(aVar);
     }
 
     private g.a d() {
-        e da;
+        e dc;
         File file = new File(this.c.getFilesDir(), "libcuid.so");
-        if (!file.exists() || (da = e.da(com.baidu.cesium.f.c.a(file))) == null) {
+        if (!file.exists() || (dc = e.dc(com.baidu.cesium.f.c.a(file))) == null) {
             return null;
         }
-        return this.e.b(da);
+        return this.e.b(dc);
     }
 
     public static String getCUID(Context context) {

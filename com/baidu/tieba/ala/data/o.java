@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.data;
 import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes3.dex */
 public class o extends HttpMessage {
-    private long ftn;
-    private long fto;
-    private String ftp;
+    private String fEA;
+    private long fEy;
+    private long fEz;
     private String liveId;
     private String roomId;
 
@@ -13,30 +13,30 @@ public class o extends HttpMessage {
         super(1021159);
     }
 
-    public void du(long j) {
-        this.ftn = j;
+    public void dx(long j) {
+        this.fEy = j;
     }
 
-    public void dv(long j) {
-        this.fto = j;
+    public void dy(long j) {
+        this.fEz = j;
     }
 
-    public void BA(String str) {
-        this.ftp = str;
+    public void BY(String str) {
+        this.fEA = str;
     }
 
-    public void fs(String str) {
+    public void eI(String str) {
         this.liveId = str;
     }
 
-    public void ft(String str) {
+    public void fy(String str) {
         this.roomId = str;
     }
 
     public void setParams() {
-        addParam("red_packet_balance", this.ftn);
-        addParam("red_packet_num", this.fto);
-        addParam("condition", this.ftp);
+        addParam("red_packet_balance", this.fEy);
+        addParam("red_packet_num", this.fEz);
+        addParam("condition", this.fEA);
         addParam("live_id", this.liveId);
         addParam("room_id", this.roomId);
     }

@@ -17,17 +17,17 @@ public final class a {
 
     public static void a(final com.baidu.swan.apps.core.container.a aVar, com.baidu.swan.apps.event.a.a aVar2) {
         String format;
-        String x;
+        String y;
         if (aVar != null && aVar2 != null) {
             f.D("postMessage", "dispatchJSEvent start.");
             if (aVar.isWebView()) {
-                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bMG);
-                x = "";
+                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bRu);
+                y = "";
             } else {
                 format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
-                x = x(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bMG);
+                y = y(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bRu);
             }
-            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, x + aVar2.kd(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", d(aVar), NotificationCompat.CATEGORY_EVENT));
+            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, y + aVar2.kl(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", d(aVar), NotificationCompat.CATEGORY_EVENT));
             f.D("postMessage", "dispatchJSEvent buildEvent");
             if (DEBUG) {
                 Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format2);
@@ -65,7 +65,7 @@ public final class a {
         return SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME;
     }
 
-    public static String x(String str, String str2, String str3) {
+    public static String y(String str, String str2, String str3) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return "";
         }
@@ -81,6 +81,6 @@ public final class a {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || obj == null) {
             return "";
         }
-        return ((obj instanceof Integer) || (obj instanceof Float) || (obj instanceof Double) || (obj instanceof Long) || (obj instanceof Boolean)) ? String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, obj) : x(str, str2, String.valueOf(obj));
+        return ((obj instanceof Integer) || (obj instanceof Float) || (obj instanceof Double) || (obj instanceof Long) || (obj instanceof Boolean)) ? String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, obj) : y(str, str2, String.valueOf(obj));
     }
 }

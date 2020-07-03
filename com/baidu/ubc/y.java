@@ -6,18 +6,18 @@ import org.json.JSONException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes13.dex */
 public class y {
-    public static void tT(String str) {
+    public static void ub(String str) {
     }
 
     public static void e(ah ahVar) {
         if (ahVar != null && !ahVar.isEmpty()) {
-            JSONArray aIX = ahVar.aIX();
-            int length = aIX.length();
-            boolean aIY = ahVar.aIY();
+            JSONArray aKd = ahVar.aKd();
+            int length = aKd.length();
+            boolean aKe = ahVar.aKe();
             for (int i = 0; i < length; i++) {
                 try {
-                    if (aIY != g.dsd().tE(aIX.getJSONObject(i).getString("id"))) {
-                        Log.w("UBCDebug", " data is " + aIY + "  content " + ahVar.dsv().toString());
+                    if (aKe != g.dwI().tM(aKd.getJSONObject(i).getString("id"))) {
+                        Log.w("UBCDebug", " data is " + aKe + "  content " + ahVar.dxa().toString());
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

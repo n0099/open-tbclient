@@ -46,9 +46,9 @@ public class SwanAppGlobalJsBridge extends a {
         }
         SchemeTimeCostMoniter.getInstance().schemeStart(str2);
         String path = unitedSchemeEntity.getUri().getPath();
-        f.alH().iq(path);
+        f.amN().iy(path);
         boolean dispatch = this.mMainDispatcher.dispatch(getDispatchContext(), unitedSchemeEntity, this.mCallbackHandler);
-        f.alH().ir(path);
+        f.amN().iz(path);
         SchemeTimeCostMoniter.getInstance().schemeEnd(str2);
         return dispatch;
     }

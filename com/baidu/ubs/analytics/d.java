@@ -16,19 +16,19 @@ public final class d {
     private String i;
     private boolean j;
     private Map<String, g> k;
-    private JSONArray miI;
+    private JSONArray mEB;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public static class a {
-        public static final d miJ = new d((byte) 0);
+        public static final d mEC = new d((byte) 0);
     }
 
     /* synthetic */ d(byte b) {
         this();
     }
 
-    public final Map<String, g> dsx() {
+    public final Map<String, g> dxc() {
         return this.k;
     }
 
@@ -40,8 +40,8 @@ public final class d {
         this.j = z;
     }
 
-    public static d dsy() {
-        return a.miJ;
+    public static d dxd() {
+        return a.mEC;
     }
 
     public final void a(Context context) {
@@ -87,20 +87,20 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final SampleResult Pr(String str) {
-        if (this.miI == null) {
+    public final SampleResult Qd(String str) {
+        if (this.mEB == null) {
             if (str == null || this.k == null) {
                 return SampleResult.OTHERE;
             }
             if (this.k.containsKey(str)) {
-                return i.Py(this.k.get(str).getGroup());
+                return i.Qk(this.k.get(str).getGroup());
             }
             return SampleResult.OTHERE;
         }
-        for (int i = 0; i < this.miI.length(); i++) {
-            JSONObject optJSONObject = this.miI.optJSONObject(i);
+        for (int i = 0; i < this.mEB.length(); i++) {
+            JSONObject optJSONObject = this.mEB.optJSONObject(i);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
-                return i.Py(optJSONObject.optString(TbEnum.ParamKey.GROUP));
+                return i.Qk(optJSONObject.optString(TbEnum.ParamKey.GROUP));
             }
         }
         return SampleResult.OTHERE;

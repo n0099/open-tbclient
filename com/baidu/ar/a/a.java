@@ -4,6 +4,6 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class a {
-    public String bB;
-    public JSONObject bC;
+    public String bN;
+    public JSONObject bO;
 }

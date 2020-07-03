@@ -12,11 +12,11 @@ import com.baidu.ar.recorder.b.f;
 /* loaded from: classes3.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private HandlerThread sQ;
-    private Handler sR;
-    private f sS;
-    private volatile boolean si = false;
-    private d sv;
+    private volatile boolean sI = false;
+    private d sV;
+    private HandlerThread tq;
+    private Handler tr;
+    private f ts;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
@@ -32,19 +32,19 @@ public class b {
                     b.this.a((EncoderParams) message.obj);
                     return;
                 case 1002:
-                    b.this.eh();
+                    b.this.ex();
                     return;
                 case 1003:
                     b.this.y((message.arg1 << 32) | (message.arg2 & 4294967295L));
                     return;
                 case 1004:
-                    b.this.el();
+                    b.this.eB();
                     return;
                 case 1005:
-                    b.this.em();
+                    b.this.eC();
                     return;
                 case 1006:
-                    b.this.bI();
+                    b.this.bW();
                     return;
                 default:
                     return;
@@ -55,61 +55,61 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(EncoderParams encoderParams) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.sS.a(encoderParams, this.sv);
+            this.ts.a(encoderParams, this.sV);
         }
     }
 
     private void a(d dVar, c cVar) {
-        this.sQ = new HandlerThread("VideoRecorderThread");
-        this.sQ.start();
-        this.sR = new a(this.sQ.getLooper());
+        this.tq = new HandlerThread("VideoRecorderThread");
+        this.tq.start();
+        this.tr = new a(this.tq.getLooper());
         if (Build.VERSION.SDK_INT >= 18) {
-            this.sS = new f();
-            this.sS.a(cVar);
-            this.sv = dVar;
+            this.ts = new f();
+            this.ts.a(cVar);
+            this.sV = dVar;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bI() {
-        if (this.sR != null) {
-            this.sR.removeCallbacksAndMessages(null);
-            this.sR = null;
+    public void bW() {
+        if (this.tr != null) {
+            this.tr.removeCallbacksAndMessages(null);
+            this.tr = null;
         }
-        if (this.sQ != null) {
-            this.sQ.quit();
-            this.sQ = null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void eh() {
-        if (Build.VERSION.SDK_INT >= 18) {
-            this.sS.eq();
+        if (this.tq != null) {
+            this.tq.quit();
+            this.tq = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void el() {
+    public void eB() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.sS.Q(true);
+            this.ts.R(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void em() {
+    public void eC() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.sS.ep();
-            this.sS.eo();
-            this.sS = null;
-            this.sv = null;
+            this.ts.eF();
+            this.ts.eE();
+            this.ts = null;
+            this.sV = null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ex() {
+        if (Build.VERSION.SDK_INT >= 18) {
+            this.ts.eG();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void y(long j) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.sS.Q(false);
+            this.ts.R(false);
         }
     }
 
@@ -119,43 +119,43 @@ public class b {
             return false;
         }
         a(dVar, cVar);
-        this.sR.sendMessage(this.sR.obtainMessage(1001, encoderParams));
-        this.si = true;
+        this.tr.sendMessage(this.tr.obtainMessage(1001, encoderParams));
+        this.sI = true;
         return true;
     }
 
-    public void eg() {
-        if (this.sR != null) {
-            this.sR.removeCallbacksAndMessages(null);
-            this.sR.sendMessage(this.sR.obtainMessage(1005));
-            this.sR.sendMessage(this.sR.obtainMessage(1006));
+    public void ew() {
+        if (this.tr != null) {
+            this.tr.removeCallbacksAndMessages(null);
+            this.tr.sendMessage(this.tr.obtainMessage(1005));
+            this.tr.sendMessage(this.tr.obtainMessage(1006));
         }
     }
 
     public boolean isRunning() {
-        return this.sQ != null && this.sQ.isAlive();
+        return this.tq != null && this.tq.isAlive();
     }
 
     public void startRecording() {
-        if (this.sR != null) {
-            this.sR.sendMessage(this.sR.obtainMessage(1002));
+        if (this.tr != null) {
+            this.tr.sendMessage(this.tr.obtainMessage(1002));
         }
     }
 
     public void stopRecording() {
-        if (this.sR == null || !this.si) {
+        if (this.tr == null || !this.sI) {
             return;
         }
-        this.si = false;
-        this.sR.sendMessage(this.sR.obtainMessage(1004));
+        this.sI = false;
+        this.tr.sendMessage(this.tr.obtainMessage(1004));
     }
 
     public void x(long j) {
         int i = (int) (j >> 32);
         int i2 = (int) j;
-        if (this.sR == null || !this.si) {
+        if (this.tr == null || !this.sI) {
             return;
         }
-        this.sR.sendMessage(this.sR.obtainMessage(1003, i, i2));
+        this.tr.sendMessage(this.tr.obtainMessage(1003, i, i2));
     }
 }

@@ -20,8 +20,8 @@ class c extends a {
         try {
             int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
             boolean z2 = pixel == -1 || pixel == -657931;
-            if (!z2 && this.cpM != null) {
-                for (Integer num : this.cpM) {
+            if (!z2 && this.cuB != null) {
+                for (Integer num : this.cuB) {
                     if (num.intValue() == pixel) {
                         z = true;
                         break;

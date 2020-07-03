@@ -15,9 +15,9 @@ public class GameWebViewJavascriptInterface {
         if (DEBUG) {
             Log.i(TAG, "closeGameWebView");
         }
-        a aDu = a.aDu();
-        if (aDu != null) {
-            aDu.close();
+        a aEA = a.aEA();
+        if (aEA != null) {
+            aEA.close();
         }
     }
 
@@ -26,9 +26,9 @@ public class GameWebViewJavascriptInterface {
         if (DEBUG) {
             Log.i(TAG, "onGameLoadingFinish");
         }
-        a aDu = a.aDu();
-        if (aDu != null) {
-            aDu.onGameLoadingFinish();
+        a aEA = a.aEA();
+        if (aEA != null) {
+            aEA.onGameLoadingFinish();
         }
     }
 }

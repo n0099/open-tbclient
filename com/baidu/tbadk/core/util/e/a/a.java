@@ -3,21 +3,21 @@ package com.baidu.tbadk.core.util.e.a;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected Drawable dPW;
-    protected Drawable dPX;
-    protected Drawable dPY;
-    protected Drawable dPZ;
-    protected Drawable dkc;
+    protected Drawable dWO;
+    protected Drawable dWP;
+    protected Drawable dWQ;
+    protected Drawable dWR;
+    protected Drawable doN;
     protected int mAlpha;
     protected int mType = 1;
-    protected boolean dQa = false;
-    protected boolean dQb = false;
-    protected boolean dQc = false;
-    protected boolean dQd = false;
-    protected boolean dQe = false;
+    protected boolean dWS = false;
+    protected boolean dWT = false;
+    protected boolean dWU = false;
+    protected boolean dWV = false;
+    protected boolean dWW = false;
 
     public void e(Drawable drawable) {
-        if (this.dQe && drawable != null) {
+        if (this.dWW && drawable != null) {
             drawable.mutate().setAlpha(this.mAlpha);
         }
     }

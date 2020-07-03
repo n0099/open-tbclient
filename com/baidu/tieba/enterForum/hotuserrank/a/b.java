@@ -3,12 +3,12 @@ package com.baidu.tieba.enterForum.hotuserrank.a;
 import com.baidu.tbadk.core.data.MetaData;
 /* loaded from: classes9.dex */
 public class b {
-    public String gSu;
-    public String gSv;
-    public String gSw;
-    public MetaData gSx;
+    public String hfd;
+    public String hfe;
+    public String hff;
+    public MetaData hfg;
     public String rankNum;
     public String userName;
-    public boolean gSy = false;
-    public boolean gSl = false;
+    public boolean hfh = false;
+    public boolean heU = false;
 }

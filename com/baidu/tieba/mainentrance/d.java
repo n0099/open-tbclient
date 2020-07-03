@@ -7,36 +7,36 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class d extends BaseAdapter {
-    private ArrayList<String> dJp;
-    private final String hnl;
-    private boolean jgo = true;
+    private ArrayList<String> dQf;
+    private final String hzC;
+    private boolean jxx = true;
     private final Context mContext;
 
     public d(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.dJp = arrayList;
-        this.hnl = this.mContext.getText(R.string.forum).toString();
+        this.dQf = arrayList;
+        this.hzC = this.mContext.getText(R.string.forum).toString();
     }
 
     public void setData(ArrayList<String> arrayList) {
-        this.dJp = arrayList;
+        this.dQf = arrayList;
     }
 
-    public void qj(boolean z) {
-        this.jgo = z;
+    public void qt(boolean z) {
+        this.jxx = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dJp == null) {
+        if (this.dQf == null) {
             return 0;
         }
-        return this.dJp.size();
+        return this.dQf.size();
     }
 
     @Override // android.widget.Adapter
@@ -45,7 +45,7 @@ public class d extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.dJp.get(i);
+        return this.dQf.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -60,7 +60,7 @@ public class d extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
             aVar = new a();
-            aVar.dWR = (TextView) view.findViewById(R.id.home_lv_search_forum);
+            aVar.een = (TextView) view.findViewById(R.id.home_lv_search_forum);
             aVar.dividerLine = view.findViewById(R.id.home_dialog_lv_search_forum_divider);
             view.setTag(aVar);
         } else {
@@ -69,22 +69,22 @@ public class d extends BaseAdapter {
         Object item = getItem(i);
         if (item != null) {
             String str = (String) item;
-            if (this.jgo) {
-                aVar.dWR.setText(str.concat(this.hnl));
+            if (this.jxx) {
+                aVar.een.setText(str.concat(this.hzC));
             } else {
-                aVar.dWR.setText(str);
+                aVar.een.setText(str);
             }
-            am.setViewTextColor(aVar.dWR, R.color.cp_cont_b, 1);
-            am.setBackgroundColor(aVar.dividerLine, R.color.cp_bg_line_c);
-            am.setBackgroundResource(view, R.drawable.addresslist_item_bg);
+            an.setViewTextColor(aVar.een, R.color.cp_cont_b, 1);
+            an.setBackgroundColor(aVar.dividerLine, R.color.cp_bg_line_c);
+            an.setBackgroundResource(view, R.drawable.addresslist_item_bg);
         }
         return view;
     }
 
     /* loaded from: classes11.dex */
     private class a {
-        TextView dWR;
         View dividerLine;
+        TextView een;
 
         private a() {
         }

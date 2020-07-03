@@ -23,11 +23,11 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     public SubjectSubscriptionManager() {
-        super(a.nLX);
+        super(a.ohL);
         this.active = true;
-        this.onStart = Actions.dPM();
-        this.onAdded = Actions.dPM();
-        this.onTerminated = Actions.dPM();
+        this.onStart = Actions.dUs();
+        this.onAdded = Actions.dUs();
+        this.onTerminated = Actions.dUs();
     }
 
     public void call(j<? super T> jVar) {
@@ -59,7 +59,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     b<T>[] observers() {
-        return get().nLU;
+        return get().ohI;
     }
 
     boolean add(b<T> bVar) {
@@ -89,34 +89,34 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] next(Object obj) {
         setLatest(obj);
-        return get().nLU;
+        return get().ohI;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] terminate(Object obj) {
         setLatest(obj);
         this.active = false;
-        return get().terminated ? a.nLV : getAndSet(a.nLW).nLU;
+        return get().terminated ? a.ohJ : getAndSet(a.ohK).ohI;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes6.dex */
     public static final class a<T> {
-        static final b[] nLV = new b[0];
-        static final a nLW = new a(true, nLV);
-        static final a nLX = new a(false, nLV);
-        final b[] nLU;
+        static final b[] ohJ = new b[0];
+        static final a ohK = new a(true, ohJ);
+        static final a ohL = new a(false, ohJ);
+        final b[] ohI;
         final boolean terminated;
 
         public a(boolean z, b[] bVarArr) {
             this.terminated = z;
-            this.nLU = bVarArr;
+            this.ohI = bVarArr;
         }
 
         public a b(b bVar) {
-            int length = this.nLU.length;
+            int length = this.ohI.length;
             b[] bVarArr = new b[length + 1];
-            System.arraycopy(this.nLU, 0, bVarArr, 0, length);
+            System.arraycopy(this.ohI, 0, bVarArr, 0, length);
             bVarArr[length] = bVar;
             return new a(this.terminated, bVarArr);
         }
@@ -124,10 +124,10 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         public a c(b bVar) {
             b[] bVarArr;
             int i;
-            b[] bVarArr2 = this.nLU;
+            b[] bVarArr2 = this.ohI;
             int length = bVarArr2.length;
             if (length == 1 && bVarArr2[0] == bVar) {
-                return nLX;
+                return ohL;
             }
             if (length != 0) {
                 b[] bVarArr3 = new b[length - 1];
@@ -147,7 +147,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                     i3 = i;
                 }
                 if (i3 == 0) {
-                    return nLX;
+                    return ohL;
                 }
                 if (i3 < length - 1) {
                     bVarArr = new b[i3];
@@ -168,7 +168,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         boolean emitting;
         boolean fastPath;
         boolean first = true;
-        List<Object> nLY;
+        List<Object> ohM;
 
         public b(j<? super T> jVar) {
             this.actual = jVar;
@@ -190,15 +190,15 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void ce(Object obj) {
+        public void cf(Object obj) {
             if (!this.fastPath) {
                 synchronized (this) {
                     this.first = false;
                     if (this.emitting) {
-                        if (this.nLY == null) {
-                            this.nLY = new ArrayList();
+                        if (this.ohM == null) {
+                            this.ohM = new ArrayList();
                         }
-                        this.nLY.add(obj);
+                        this.ohM.add(obj);
                         return;
                     }
                     this.fastPath = true;
@@ -208,7 +208,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void cf(Object obj) {
+        public void cg(Object obj) {
             synchronized (this) {
                 if (this.first && !this.emitting) {
                     this.first = false;
@@ -251,8 +251,8 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                 try {
                     synchronized (this) {
                         try {
-                            list = this.nLY;
-                            this.nLY = null;
+                            list = this.ohM;
+                            this.ohM = null;
                             if (list == null) {
                                 this.emitting = false;
                                 return;

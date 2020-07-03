@@ -8,10 +8,10 @@ import com.baidu.card.a.a;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 /* loaded from: classes8.dex */
 public abstract class b<T extends AbsThreadDataSupport> implements n<T>, o {
-    protected ae adr;
-    private Boolean ads = false;
-    private com.baidu.tieba.card.aa<T> adt;
-    public a adu;
+    protected ai adV;
+    private Boolean adW = false;
+    private com.baidu.tieba.card.aa<T> adX;
+    public a adY;
     protected Context mContext;
 
     /* loaded from: classes8.dex */
@@ -26,33 +26,33 @@ public abstract class b<T extends AbsThreadDataSupport> implements n<T>, o {
         this.mContext = context;
     }
 
-    public void a(ae aeVar) {
-        this.adr = aeVar;
+    public void a(ai aiVar) {
+        this.adV = aiVar;
     }
 
-    public void aX(int i) {
+    public void bd(int i) {
     }
 
-    public void aY(int i) {
+    public void be(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void rr() {
+    public void rI() {
     }
 
-    public com.baidu.tieba.card.aa<T> rs() {
-        return this.adt;
+    public com.baidu.tieba.card.aa<T> rJ() {
+        return this.adX;
     }
 
     public void setOnCardSubClickListener(com.baidu.tieba.card.aa<T> aaVar) {
-        this.adt = aaVar;
+        this.adX = aaVar;
     }
 
     public void a(int i, a.b bVar) {
-        this.adr.a(i, bVar);
+        this.adV.a(i, bVar);
     }
 
-    public void aZ(int i) {
+    public void bf(int i) {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
@@ -68,11 +68,11 @@ public abstract class b<T extends AbsThreadDataSupport> implements n<T>, o {
         }
     }
 
-    public Boolean rt() {
-        return this.ads;
+    public Boolean rK() {
+        return this.adW;
     }
 
     public void b(Boolean bool) {
-        this.ads = bool;
+        this.adW = bool;
     }
 }

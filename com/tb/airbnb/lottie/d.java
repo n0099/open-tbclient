@@ -12,102 +12,102 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class d {
+    private Map<String, List<Layer>> Aj;
+    private Map<String, com.tb.airbnb.lottie.model.c> Ak;
+    private SparseArrayCompat<com.tb.airbnb.lottie.model.d> Al;
+    private LongSparseArray<Layer> Am;
+    private List<Layer> An;
+    private float Ao;
+    private float Ap;
+    private float Aq;
     private Rect bounds;
     private Map<String, g> images;
-    private final m njm = new m();
-    private final HashSet<String> zH = new HashSet<>();
-    private Map<String, List<Layer>> zI;
-    private Map<String, com.tb.airbnb.lottie.model.c> zJ;
-    private SparseArrayCompat<com.tb.airbnb.lottie.model.d> zK;
-    private LongSparseArray<Layer> zL;
-    private List<Layer> zM;
-    private float zN;
-    private float zO;
-    private float zP;
+    private final m nFb = new m();
+    private final HashSet<String> Ai = new HashSet<>();
 
     public void a(Rect rect, float f, float f2, float f3, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, g> map2, SparseArrayCompat<com.tb.airbnb.lottie.model.d> sparseArrayCompat, Map<String, com.tb.airbnb.lottie.model.c> map3) {
         this.bounds = rect;
-        this.zN = f;
-        this.zO = f2;
-        this.zP = f3;
-        this.zM = list;
-        this.zL = longSparseArray;
-        this.zI = map;
+        this.Ao = f;
+        this.Ap = f2;
+        this.Aq = f3;
+        this.An = list;
+        this.Am = longSparseArray;
+        this.Aj = map;
         this.images = map2;
-        this.zK = sparseArrayCompat;
-        this.zJ = map3;
+        this.Al = sparseArrayCompat;
+        this.Ak = map3;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public void aW(String str) {
+    public void aX(String str) {
         Log.w("LOTTIE", str);
-        this.zH.add(str);
+        this.Ai.add(str);
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.njm.setEnabled(z);
+        this.nFb.setEnabled(z);
     }
 
     public m getPerformanceTracker() {
-        return this.njm;
+        return this.nFb;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public Layer gd(long j) {
-        return this.zL.get(j);
+    public Layer gi(long j) {
+        return this.Am.get(j);
     }
 
-    public Rect gC() {
+    public Rect gS() {
         return this.bounds;
     }
 
-    public float gD() {
-        return (gL() / this.zP) * 1000.0f;
+    public float gT() {
+        return (hb() / this.Aq) * 1000.0f;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public float gE() {
-        return this.zN;
+    public float gU() {
+        return this.Ao;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public float gF() {
-        return this.zO;
+    public float gV() {
+        return this.Ap;
     }
 
-    public float gG() {
-        return this.zP;
+    public float gW() {
+        return this.Aq;
     }
 
-    public List<Layer> gH() {
-        return this.zM;
+    public List<Layer> gX() {
+        return this.An;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public List<Layer> aX(String str) {
-        return this.zI.get(str);
+    public List<Layer> aY(String str) {
+        return this.Aj.get(str);
     }
 
-    public SparseArrayCompat<com.tb.airbnb.lottie.model.d> gI() {
-        return this.zK;
+    public SparseArrayCompat<com.tb.airbnb.lottie.model.d> gY() {
+        return this.Al;
     }
 
-    public Map<String, com.tb.airbnb.lottie.model.c> gJ() {
-        return this.zJ;
+    public Map<String, com.tb.airbnb.lottie.model.c> gZ() {
+        return this.Ak;
     }
 
-    public Map<String, g> gK() {
+    public Map<String, g> ha() {
         return this.images;
     }
 
-    public float gL() {
-        return this.zO - this.zN;
+    public float hb() {
+        return this.Ap - this.Ao;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder("LottieComposition:\n");
-        for (Layer layer : this.zM) {
+        for (Layer layer : this.An) {
             sb.append(layer.toString("\t"));
         }
         return sb.toString();

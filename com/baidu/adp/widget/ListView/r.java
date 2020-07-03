@@ -1,11 +1,9 @@
 package com.baidu.adp.widget.ListView;
 /* loaded from: classes.dex */
-public interface r {
-    void cancelRefresh();
+public interface r<T> {
+    int getCount();
 
-    p getAdapter();
+    T getItem(int i);
 
-    int getFirstVisiblePosition();
-
-    int getLastVisiblePosition();
+    void notifyDataSetChanged();
 }

@@ -8,21 +8,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    public String aDd;
-    public c aDe;
+    public String aFv;
+    public c aFw;
     public int frameCount;
     public String id;
     public int priority;
     public String videoMd5;
     public String videoUrl;
 
-    public JSONObject wF() {
+    public JSONObject xc() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("id", this.id);
             jSONObject.put("mp4_file_url", this.videoUrl);
             jSONObject.put("video_md5", this.videoMd5);
-            jSONObject.put(FuFaceItem.JK_SO_URL, this.aDd);
+            jSONObject.put(FuFaceItem.JK_SO_URL, this.aFv);
             jSONObject.put("frame_count", this.frameCount);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -33,27 +33,27 @@ public class a {
     public a k(String str, String str2, String str3, String str4) {
         this.videoUrl = str;
         this.videoMd5 = str4;
-        if (this.aDe == null) {
-            this.aDe = new c();
+        if (this.aFw == null) {
+            this.aFw = new c();
         }
-        this.aDe.aDL = str2;
-        this.aDe.videoPath = str3;
+        this.aFw.aGh = str2;
+        this.aFw.videoPath = str3;
         return this;
     }
 
     public a b(String str, String str2, List<String> list) {
-        this.aDd = str;
-        if (this.aDe == null) {
-            this.aDe = new c();
+        this.aFv = str;
+        if (this.aFw == null) {
+            this.aFw = new c();
         }
-        this.aDe.upZipDirPath = str2;
+        this.aFw.upZipDirPath = str2;
         if (list != null) {
             this.frameCount = list.size();
-            if (this.aDe.aDK != null && this.aDe.aDK.aDJ != null) {
-                this.aDe.aDK.aDJ.frame_count = this.frameCount;
+            if (this.aFw.aGg != null && this.aFw.aGg.aGf != null) {
+                this.aFw.aGg.aGf.frame_count = this.frameCount;
             }
-            this.aDe.unZipFilesPathList = new ArrayList<>();
-            this.aDe.unZipFilesPathList.addAll(list);
+            this.aFw.unZipFilesPathList = new ArrayList<>();
+            this.aFw.unZipFilesPathList.addAll(list);
         }
         return this;
     }

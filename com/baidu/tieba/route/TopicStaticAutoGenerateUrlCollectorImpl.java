@@ -10,7 +10,6 @@ public final class TopicStaticAutoGenerateUrlCollectorImpl implements d {
     public Map<String, ArrayList<String>> getConfigRouterMap() {
         HashMap hashMap = new HashMap();
         ArrayList arrayList = new ArrayList();
-        arrayList.add("TopicDetailActivityConfig");
         arrayList.add("http://tieba.baidu.com/mo/q/newtopic/detail");
         arrayList.add("https://tieba.baidu.com/mo/q/newtopic/detail");
         arrayList.add("com.baidu.tieba://deeplink?jump=new_hot_topic_list");

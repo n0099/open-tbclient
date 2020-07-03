@@ -7,42 +7,42 @@ import com.baidu.ar.c.j;
 /* loaded from: classes3.dex */
 class d extends j {
     private static final String TAG = d.class.getSimpleName();
-    private volatile boolean jN = false;
+    private volatile boolean kf = false;
 
     public d(String str, int i, int i2) {
-        this.lP = new PixelReadParams(PixelType.RGBA);
-        this.lP.setPreFilterID(str);
-        this.lP.setOutputWidth(i);
-        this.lP.setOutputHeight(i2);
+        this.mm = new PixelReadParams(PixelType.RGBA);
+        this.mm.setPreFilterID(str);
+        this.mm.setOutputWidth(i);
+        this.mm.setOutputHeight(i2);
         if (PixelReadParams.DEFAULT_FILTER_ID.equals(str)) {
-            this.lP.setIsPortrait(true);
+            this.mm.setIsPortrait(true);
         }
     }
 
     @Override // com.baidu.ar.c.j
-    protected void X() {
+    protected void al() {
     }
 
     @Override // com.baidu.ar.c.j
-    protected void Z() {
-        this.jN = false;
-    }
-
-    public String bW() {
-        return this.lP.getPreFilterID();
+    protected void an() {
+        this.kf = false;
     }
 
     @Override // com.baidu.ar.c.j
     protected boolean c(FramePixels framePixels) {
-        if (!this.jN || this.lb == null) {
+        if (!this.kf || this.ly == null) {
             return true;
         }
         c cVar = new c();
         cVar.S(TAG);
         cVar.setTimestamp(framePixels.getTimestamp());
         cVar.setData(framePixels.getPixelData());
-        this.lb.a(cVar);
+        this.ly.a(cVar);
         return true;
+    }
+
+    public String cm() {
+        return this.mm.getPreFilterID();
     }
 
     @Override // com.baidu.ar.c.k
@@ -50,7 +50,7 @@ class d extends j {
         return TAG;
     }
 
-    public void u(boolean z) {
-        this.jN = z;
+    public void t(boolean z) {
+        this.kf = z;
     }
 }

@@ -6,19 +6,19 @@ import com.baidu.swan.games.m.b.b;
 import com.baidu.swan.games.m.b.c;
 /* loaded from: classes7.dex */
 public class a {
-    public static c aAO() {
+    public static c aBU() {
         return new com.baidu.swan.games.m.a.c();
     }
 
-    public static b aAP() {
+    public static b aBV() {
         return new com.baidu.swan.games.m.a.b();
     }
 
-    public static com.baidu.swan.games.m.b.a aAQ() {
+    public static com.baidu.swan.games.m.b.a aBW() {
         return new com.baidu.swan.games.m.a.a();
     }
 
-    public static aq aAR() {
+    public static aq aBX() {
         return new w();
     }
 }

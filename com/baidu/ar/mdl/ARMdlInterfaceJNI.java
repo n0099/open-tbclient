@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class ARMdlInterfaceJNI {
     static {
-        com.baidu.ar.libloader.b.an("ARMdlSDK2");
+        com.baidu.ar.libloader.b.ao("ARMdlSDK2");
     }
 
     public static native int getVersion();

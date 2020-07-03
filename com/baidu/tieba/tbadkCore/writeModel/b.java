@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.data.bn;
 import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
@@ -13,11 +13,11 @@ public class b {
     final int errorCode;
     private String errorString;
     private int isCopyTWZhibo;
-    private String lqj;
-    private String lqk;
+    private String lJU;
+    private String lJV;
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
-    private be mReplyPrivacyTip;
+    private bn mReplyPrivacyTip;
     private VideoEasterEggData mVideoEasterEggData;
     private String preMsg;
     private String videoId;
@@ -35,19 +35,19 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean dfg() {
+    public boolean djr() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean dfh() {
+    public boolean djs() {
         return this.errorCode == 1990055;
     }
 
-    public boolean dfi() {
+    public boolean djt() {
         return this.errorCode == 3250012;
     }
 
-    public boolean dfj() {
+    public boolean dju() {
         return this.errorCode == 227001;
     }
 
@@ -63,7 +63,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData bUc() {
+    public AntiData bXd() {
         return this.antiData;
     }
 
@@ -107,20 +107,20 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String dfk() {
-        return this.lqj;
+    public String djv() {
+        return this.lJU;
     }
 
-    public void MU(String str) {
-        this.lqj = str;
+    public void Nw(String str) {
+        this.lJU = str;
     }
 
-    public String dfl() {
-        return this.lqk;
+    public String djw() {
+        return this.lJV;
     }
 
-    public void MV(String str) {
-        this.lqk = str;
+    public void Nx(String str) {
+        this.lJV = str;
     }
 
     public CustomDialogData getActivityDialog() {
@@ -159,11 +159,11 @@ public class b {
         this.mContriInfo = contriInfo;
     }
 
-    public void setReplyPrivacyTip(be beVar) {
-        this.mReplyPrivacyTip = beVar;
+    public void setReplyPrivacyTip(bn bnVar) {
+        this.mReplyPrivacyTip = bnVar;
     }
 
-    public be getReplyPrivacyTip() {
+    public bn getReplyPrivacyTip() {
         return this.mReplyPrivacyTip;
     }
 

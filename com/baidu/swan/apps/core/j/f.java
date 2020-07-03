@@ -8,45 +8,45 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private b bZo;
-    private HashMap<String, c> bZp;
+    private b cee;
+    private HashMap<String, c> cef;
 
-    public static f aaH() {
-        return a.bZq;
+    public static f abN() {
+        return a.ceg;
     }
 
     private f() {
         long currentTimeMillis = System.currentTimeMillis();
-        this.bZo = aaI();
-        this.bZp = this.bZo.aaE();
+        this.cee = abO();
+        this.cef = this.cee.abK();
         if (DEBUG) {
             Log.d("SwanAppPresetManager", "构造PresetMap耗时：" + (System.currentTimeMillis() - currentTimeMillis));
         }
     }
 
     @Nullable
-    public c jJ(String str) {
-        if (this.bZp != null) {
-            return this.bZp.get(str);
+    public c jR(String str) {
+        if (this.cef != null) {
+            return this.cef.get(str);
         }
         return null;
     }
 
     public void a(c cVar, d dVar) {
-        this.bZo.a(cVar, dVar);
+        this.cee.a(cVar, dVar);
     }
 
-    private b aaI() {
-        return (DEBUG && aaJ()) ? new e() : new com.baidu.swan.apps.core.j.a();
+    private b abO() {
+        return (DEBUG && abP()) ? new e() : new com.baidu.swan.apps.core.j.a();
     }
 
-    public static boolean aaJ() {
+    public static boolean abP() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("sp_swan_sdcard_preset", false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a {
-        private static final f bZq = new f();
+        private static final f ceg = new f();
     }
 }

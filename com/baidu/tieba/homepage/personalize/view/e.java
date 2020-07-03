@@ -1,221 +1,205 @@
 package com.baidu.tieba.homepage.personalize.view;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.afd.videopaster.d;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tieba.play.operableVideoView.d;
-import java.util.HashMap;
-import tbclient.VideoInfo;
+import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
+import com.baidu.tbadk.BdToken.q;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.widget.mission.MaxSignItemView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.view.RoundRelativeLayout;
 /* loaded from: classes9.dex */
-public class e extends com.baidu.tieba.play.operableVideoView.b {
-    private bk aee;
-    private com.baidu.afd.videopaster.d gDU;
-    private CustomMessageListener gEk;
-    private boolean igC;
-    protected boolean igD;
-    private Runnable igE;
+public class e extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.personalize.data.g> {
+    private ActiveCenterData dAN;
+    private ImageView dDy;
+    private ImageView ivO;
+    private TextView ivP;
+    private RoundRelativeLayout ivQ;
+    private FrameLayout ivR;
+    private TextView ivS;
+    private TextView ivT;
+    private MaxSignItemView ivU;
+    private RoundRelativeLayout ivV;
+    private TextView ivW;
+    private TextView ivX;
+    private TBSpecificationBtn ivY;
+    private TextView ivZ;
+    private int mSkinType;
 
-    public e(Context context, View view) {
-        super(context, view);
-        this.igC = false;
-        this.gEk = new CustomMessageListener(2921395) { // from class: com.baidu.tieba.homepage.personalize.view.e.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                com.baidu.afd.videopaster.data.b bVar;
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.afd.videopaster.data.b) && (bVar = (com.baidu.afd.videopaster.data.b) customResponsedMessage.getData()) != null) {
-                    String videoId = bVar.getVideoId();
-                    if (!StringUtils.isNull(videoId) && e.this.aee != null && videoId.equals(e.this.aee.getId())) {
-                        e.this.gDU.a(e.this.a(e.this.aee, bVar));
-                    }
-                }
-            }
-        };
-        this.igE = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.view.e.4
-            @Override // java.lang.Runnable
-            public void run() {
-                if (e.this.gDU != null) {
-                    e.this.igD = false;
-                    e.this.gDU.stop();
-                    e.this.gDU.onDestroy();
-                }
-            }
-        };
-        tz(true);
-        cgL();
+    public e(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        this.mSkinType = 3;
+        init(getView());
     }
 
-    protected void cgL() {
-        this.gDU = new com.baidu.afd.videopaster.d(this.mContext, (ViewGroup) cQD());
-        this.gDU.a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.e.1
-            @Override // com.baidu.afd.videopaster.d.a
-            public void pV() {
-            }
-
-            @Override // com.baidu.afd.videopaster.d.a
-            public void pU() {
-                e.this.startPlay();
-            }
-
-            @Override // com.baidu.afd.videopaster.d.a
-            public void pT() {
-            }
-
-            @Override // com.baidu.afd.videopaster.d.a
-            public boolean pW() {
-                return false;
+    private void init(View view) {
+        this.ivO = (ImageView) view.findViewById(R.id.header_logo);
+        this.ivP = (TextView) view.findViewById(R.id.header_title);
+        this.dDy = (ImageView) view.findViewById(R.id.header_close);
+        this.ivQ = (RoundRelativeLayout) view.findViewById(R.id.card_body);
+        this.ivQ.setAllCornerRound(l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds10));
+        this.ivR = (FrameLayout) view.findViewById(R.id.body_desc);
+        this.ivS = (TextView) view.findViewById(R.id.text_left);
+        this.ivT = (TextView) view.findViewById(R.id.text_right);
+        this.ivU = (MaxSignItemView) view.findViewById(R.id.sign_view);
+        this.ivV = (RoundRelativeLayout) view.findViewById(R.id.bottom_action_layout);
+        this.ivV.setAllCornerRound(l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds21));
+        this.ivW = (TextView) view.findViewById(R.id.bottom_title);
+        this.ivX = (TextView) view.findViewById(R.id.bottom_detail);
+        this.ivY = (TBSpecificationBtn) view.findViewById(R.id.bottom_btn);
+        this.ivZ = (TextView) view.findViewById(R.id.bottom_btn_text);
+        this.dDy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.view.e.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                TiebaStatic.log(new ao("c13742").ag("obj_source", 3).ag("obj_type", 3));
+                q.aMU().gH(false);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921461));
             }
         });
-        a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.e.2
-            @Override // com.baidu.tieba.play.operableVideoView.d.a
-            public void cj(int i, int i2) {
-                if (!e.this.cSd()) {
-                    if (i2 >= i) {
-                        if (e.this.gDU.a(false, false, "NEWINDEX")) {
-                        }
-                    } else if (i != 0 && !e.this.air && (i2 * 100) / i >= 80 && i > 15000) {
-                        e.this.aD(e.this.aee);
-                    }
-                }
+        this.ivU.setItemClickListener(new MaxSignItemView.a() { // from class: com.baidu.tieba.homepage.personalize.view.e.2
+            @Override // com.baidu.tbadk.widget.mission.MaxSignItemView.a
+            public void b(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
+                e.this.d(activeCenterStatusData);
             }
         });
+        this.ivY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.view.e.3
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                TiebaStatic.log(new ao("c13742").ag("obj_source", 3).ag("obj_type", 2));
+                q.aMU().c(e.this.mTbPageContext);
+            }
+        });
+        onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public void setUniqueId(BdUniqueId bdUniqueId) {
-        super.setUniqueId(bdUniqueId);
-        this.gEk.setTag(this.afZ);
-        MessageManager.getInstance().registerListener(this.gEk);
+    @Override // com.baidu.tieba.card.b
+    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+        if (this.mSkinType != i) {
+            aYj();
+        }
+        this.mSkinType = i;
     }
 
-    @Override // com.baidu.tieba.play.operableVideoView.b, com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public void setData(bk bkVar) {
-        if (bkVar != null) {
-            super.setData(bkVar);
-            boolean z = this.aee == bkVar;
-            this.aee = bkVar;
-            if (this.gDU != null) {
-                if (this.igC && z) {
-                    this.igC = false;
+    private void aYj() {
+        SvgManager.aWQ().a(this.ivO, R.drawable.ic_pic_mask_taskcenter_svg, SvgManager.SvgResourceStateType.NORMAL);
+        an.setViewTextColor(this.ivP, (int) R.color.cp_cont_b);
+        an.setBackgroundColor(this.ivQ, R.color.cp_other_g);
+        an.setBackgroundColor(this.ivR, R.color.cp_other_h);
+        an.setViewTextColor(this.ivS, (int) R.color.cp_btn_a);
+        an.setViewTextColor(this.ivT, (int) R.color.cp_btn_a);
+        an.setBackgroundColor(this.ivV, R.color.cp_bg_line_k);
+        an.setViewTextColor(this.ivW, (int) R.color.cp_cont_b);
+        an.setViewTextColor(this.ivX, (int) R.color.cp_cont_d);
+        an.setViewTextColor(this.ivZ, (int) R.color.cp_cont_d);
+        this.ivU.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        SvgManager.aWQ().a(this.dDy, R.drawable.icon_pure_close12_n_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+    }
+
+    @Override // com.baidu.tieba.card.b
+    public int getLayout() {
+        return R.layout.layout_home_page_item_mission_entrance;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.card.b
+    public void a(com.baidu.tieba.homepage.personalize.data.g gVar) {
+        this.dAN = gVar.aMX();
+        if (this.dAN != null) {
+            this.ivP.setText(R.string.mission_entrance_header_title);
+            this.ivS.setText(ar.cutChineseAndEnglishWithSuffix(this.dAN.win_title, 14, StringHelper.STRING_MORE));
+            this.ivT.setText(ar.cutChineseAndEnglishWithSuffix(this.dAN.win_desc, 30, StringHelper.STRING_MORE));
+            this.ivU.setData(this.dAN);
+            d(this.dAN.getTodayMissionStatus());
+            aYj();
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
+        if (this.dAN != null && this.dAN.mission != null && activeCenterStatusData != null) {
+            this.ivV.setAllCornerRound(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21));
+            String str = activeCenterStatusData.mission;
+            TextView textView = this.ivW;
+            if (str == null) {
+                str = "";
+            }
+            textView.setText(str);
+            String str2 = activeCenterStatusData.desc;
+            TextView textView2 = this.ivX;
+            if (str2 == null) {
+                str2 = "";
+            }
+            textView2.setText(str2);
+            if (activeCenterStatusData.is_today_mission == 0) {
+                this.ivY.setVisibility(0);
+                this.ivZ.setVisibility(8);
+                if (activeCenterStatusData.is_completed) {
+                    this.ivY.setText("已完成");
+                    this.ivY.setClickable(false);
+                    this.ivY.setEnabled(false);
                 } else {
-                    this.gDU.reset();
+                    this.ivY.setText("已过期");
+                    this.ivY.setClickable(false);
+                    this.ivY.setEnabled(false);
                 }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.play.operableVideoView.b, com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.g.a
-    public void onCompletion(com.baidu.tieba.play.g gVar) {
-        if (!this.gDU.a(false, false, "NEWINDEX")) {
-            startPlay();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aD(bk bkVar) {
-        if (bkVar != null && bkVar.getId() != null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921394, bkVar.getId()));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.afd.videopaster.a a(bk bkVar, com.baidu.afd.videopaster.data.b bVar) {
-        int i;
-        int i2;
-        int i3;
-        int i4 = -1;
-        if (bkVar == null || bVar == null) {
-            return null;
-        }
-        int qa = bVar.qa();
-        int qb = bVar.qb();
-        int pZ = bVar.pZ();
-        if (pZ != -1) {
-            i = qa != -1 ? (pZ - qa) - 1 : -1;
-            if (qb != -1) {
-                i4 = (qb - pZ) - 1;
-            }
-        } else {
-            i = -1;
-        }
-        VideoInfo aQQ = bkVar.aQQ();
-        if (aQQ != null) {
-            i3 = aQQ.video_width.intValue();
-            i2 = aQQ.video_height.intValue();
-        } else {
-            i2 = 0;
-            i3 = 0;
-        }
-        HashMap hashMap = new HashMap();
-        hashMap.put("video_vid", bkVar.getId());
-        hashMap.put("video_title", bkVar.getTitle());
-        hashMap.put("forum_id", String.valueOf(bkVar.getFid()));
-        hashMap.put("forum_name", bkVar.aQC());
-        hashMap.put("up_distance", String.valueOf(i));
-        hashMap.put("down_distance", String.valueOf(i4));
-        com.baidu.afd.videopaster.a a = com.baidu.afd.videopaster.c.a(3, 0, "1546854828072", pZ + 1, i3, i2);
-        a.w(hashMap);
-        return a;
-    }
-
-    public void onPause() {
-    }
-
-    public void onResume() {
-    }
-
-    @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public boolean or(boolean z) {
-        if (this.gDU != null) {
-            if (z) {
-                if (this.gDU.pE()) {
-                    this.igD = false;
-                    this.gDU.stop();
+            } else if (activeCenterStatusData.is_today_mission == 1) {
+                this.ivY.setVisibility(0);
+                this.ivZ.setVisibility(8);
+                if (this.dAN.mission.task_type == 13) {
+                    if (activeCenterStatusData.is_completed) {
+                        this.ivY.setText("去领取");
+                        this.ivY.setClickable(true);
+                        this.ivY.setEnabled(true);
+                    } else {
+                        this.ivY.setText("未达标");
+                        this.ivY.setClickable(false);
+                        this.ivY.setEnabled(false);
+                    }
+                } else {
+                    if (this.dAN.mission.task_type == 6) {
+                        if (q.aMU().aNd().areNotificationsEnabled()) {
+                            activeCenterStatusData.is_completed = true;
+                        } else {
+                            activeCenterStatusData.is_completed = false;
+                        }
+                    }
+                    if (activeCenterStatusData.is_completed) {
+                        this.ivY.setText("已完成");
+                        this.ivY.setClickable(false);
+                        this.ivY.setEnabled(false);
+                    } else {
+                        this.ivY.setText("去完成");
+                        this.ivY.setClickable(true);
+                        this.ivY.setEnabled(true);
+                    }
                 }
-            } else if (this.gDU.pE()) {
-                this.igC = true;
-                this.gDU.az(true);
+            } else {
+                this.ivY.setVisibility(8);
+                this.ivZ.setVisibility(0);
+                this.ivZ.setText("未开始");
             }
+            com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
+            bVar.mC(R.color.cp_cont_h);
+            bVar.mA(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
+            this.ivY.setConfig(bVar);
+            this.ivY.setTextSize(R.dimen.tbds34);
         }
-        return super.or(z);
-    }
-
-    @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public void startPlay() {
-        if (this.gDU != null && this.gDU.pE()) {
-            this.igD = true;
-            this.gDU.resume();
-            return;
-        }
-        super.startPlay();
-    }
-
-    @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public void stopPlay() {
-        super.stopPlay();
-        if (this.gDU != null && this.gDU.pE()) {
-            com.baidu.adp.lib.f.e.ld().removeCallbacks(this.igE);
-            com.baidu.adp.lib.f.e.ld().post(this.igE);
-        }
-    }
-
-    @Override // com.baidu.tieba.play.operableVideoView.d
-    protected int cgM() {
-        return 1;
-    }
-
-    @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public boolean isPlaying() {
-        if (this.gDU == null || !this.gDU.pE()) {
-            return super.isPlaying();
-        }
-        return this.igD || this.gDU.pO();
     }
 }

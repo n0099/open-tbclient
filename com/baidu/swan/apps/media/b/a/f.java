@@ -7,14 +7,14 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.actions.aa;
 /* loaded from: classes11.dex */
 public class f extends aa {
-    private c coe;
-    private k cof;
-    private e cog;
-    private d coh;
-    private i coi;
-    private b coj;
-    private j cok;
-    private h col;
+    private c csR;
+    private k csS;
+    private e csT;
+    private d csU;
+    private i csV;
+    private b csW;
+    private j csX;
+    private h csY;
 
     public f(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/video");
@@ -87,52 +87,52 @@ public class f extends aa {
         }
         switch (c) {
             case 0:
-                if (this.coe == null) {
-                    this.coe = new c("/swanAPI/video/open");
+                if (this.csR == null) {
+                    this.csR = new c("/swanAPI/video/open");
                 }
-                a = this.coe.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.csR.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 1:
-                if (this.cof == null) {
-                    this.cof = new k("/swanAPI/video/update");
+                if (this.csS == null) {
+                    this.csS = new k("/swanAPI/video/update");
                 }
-                a = this.cof.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.csS.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 2:
-                if (this.col == null) {
-                    this.col = new h("/swanAPI/video/remove");
+                if (this.csY == null) {
+                    this.csY = new h("/swanAPI/video/remove");
                 }
-                a = this.col.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.csY.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 3:
-                if (this.cog == null) {
-                    this.cog = new e("/swanAPI/video/play");
+                if (this.csT == null) {
+                    this.csT = new e("/swanAPI/video/play");
                 }
-                a = this.cog.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.csT.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 4:
-                if (this.coh == null) {
-                    this.coh = new d("/swanAPI/video/pause");
+                if (this.csU == null) {
+                    this.csU = new d("/swanAPI/video/pause");
                 }
-                a = this.coh.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.csU.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 5:
-                if (this.coi == null) {
-                    this.coi = new i("/swanAPI/video/seek");
+                if (this.csV == null) {
+                    this.csV = new i("/swanAPI/video/seek");
                 }
-                a = this.coi.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.csV.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 6:
-                if (this.coj == null) {
-                    this.coj = new b("/swanAPI/video/fullScreen");
+                if (this.csW == null) {
+                    this.csW = new b("/swanAPI/video/fullScreen");
                 }
-                a = this.coj.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.csW.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 7:
-                if (this.cok == null) {
-                    this.cok = new j("/swanAPI/video/sendDanmu");
+                if (this.csX == null) {
+                    this.csX = new j("/swanAPI/video/sendDanmu");
                 }
-                a = this.cok.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.csX.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             default:
                 a = false;

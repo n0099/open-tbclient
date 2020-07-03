@@ -1,51 +1,29 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import android.net.Uri;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.tbadk.core.util.aq;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class s {
-    public static final List<String> ebm = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
-    private static List<String> ebn;
+    public List<t> ejW;
 
-    public static boolean xh(String str) {
-        String string;
-        if (aq.isEmpty(str)) {
-            return false;
-        }
-        if (ebn == null && (string = com.baidu.tbadk.core.sharedPref.b.aTX().getString("js_host_white_list", null)) != null) {
-            ebn = xj(string);
-        }
-        if (ebn == null) {
-            ebn = ebm;
-        }
-        Uri parse = Uri.parse(str);
-        if (parse != null) {
-            String host = parse.getHost();
-            for (String str2 : ebn) {
-                if (host.endsWith(str2)) {
-                    return true;
+    public void S(JSONArray jSONArray) {
+        this.ejW = new ArrayList();
+        try {
+            if (jSONArray == null) {
+                com.baidu.tbadk.core.sharedPref.b.aVP().putString("key_index_tab_info_list", "[]");
+                return;
+            }
+            for (int i = 0; i < jSONArray.length(); i++) {
+                t tVar = new t();
+                tVar.parserJson(jSONArray.getJSONObject(i));
+                if (!tVar.isDirtyData()) {
+                    this.ejW.add(tVar);
                 }
             }
+            com.baidu.tbadk.core.sharedPref.b.aVP().putString("key_index_tab_info_list", jSONArray.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return false;
-    }
-
-    public static void xi(String str) {
-        if (str == null) {
-            com.baidu.tbadk.core.sharedPref.b.aTX().putString("js_host_white_list", "");
-        } else {
-            com.baidu.tbadk.core.sharedPref.b.aTX().putString("js_host_white_list", str);
-        }
-        ebn = xj(str);
-    }
-
-    private static List<String> xj(String str) {
-        if (aq.isEmpty(str)) {
-            return null;
-        }
-        return Arrays.asList(str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR));
     }
 }

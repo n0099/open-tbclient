@@ -13,21 +13,21 @@ import java.util.Deque;
 /* loaded from: classes11.dex */
 public class b implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Deque<Message> ctZ = new ArrayDeque();
+    private final Deque<Message> cyM = new ArrayDeque();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void amJ() {
-        a amQ = a.amQ();
-        while (amQ.amU() && !this.ctZ.isEmpty()) {
-            Message peek = this.ctZ.peek();
+    public void anP() {
+        a anW = a.anW();
+        while (anW.aoa() && !this.cyM.isEmpty()) {
+            Message peek = this.cyM.peek();
             if (peek == null || A(peek)) {
-                this.ctZ.poll();
+                this.cyM.poll();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void na(String str) {
+    public void ni(String str) {
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
@@ -36,28 +36,28 @@ public class b implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void a(@NonNull c cVar) {
-        Message amK = cVar.amK();
-        amK.arg1 = SwanAppProcessInfo.current().index;
-        if (d.aoB().ane() && (amK.obj instanceof Bundle)) {
-            Bundle bundle = (Bundle) amK.obj;
+        Message anQ = cVar.anQ();
+        anQ.arg1 = SwanAppProcessInfo.current().index;
+        if (d.apI().aok() && (anQ.obj instanceof Bundle)) {
+            Bundle bundle = (Bundle) anQ.obj;
             if (!bundle.containsKey("ai_apps_id")) {
-                bundle.putString("ai_apps_id", d.aoB().getAppId());
+                bundle.putString("ai_apps_id", d.apI().getAppId());
             }
         }
-        if (!A(amK) && cVar.isSticky()) {
-            this.ctZ.offer(amK);
-            a.amQ().amS();
+        if (!A(anQ) && cVar.isSticky()) {
+            this.cyM.offer(anQ);
+            a.anW().anY();
         }
     }
 
     private boolean A(Message message) {
-        a amQ = a.amQ();
-        if (message != null && amQ.amU()) {
+        a anW = a.anW();
+        if (message != null && anW.aoa()) {
             try {
-                amQ.amR().send(message);
+                anW.anX().send(message);
                 return true;
             } catch (RemoteException e) {
-                amQ.amV();
+                anW.aob();
                 if (DEBUG) {
                     e.printStackTrace();
                 }

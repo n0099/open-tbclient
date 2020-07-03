@@ -5,5 +5,5 @@ import com.baidu.live.data.q;
 public interface c {
     void b(com.baidu.live.data.k kVar);
 
-    void i(q qVar);
+    void k(q qVar);
 }

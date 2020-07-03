@@ -5,9 +5,9 @@ import kotlin.collections.ad;
 @kotlin.h
 /* loaded from: classes7.dex */
 public class f implements Iterable<Integer> {
-    public static final a nuy = new a(null);
-    private final int nuw;
-    private final int nux;
+    public static final a nQk = new a(null);
+    private final int nQi;
+    private final int nQj;
     private final int step;
 
     public f(int i, int i2, int i3) {
@@ -17,47 +17,47 @@ public class f implements Iterable<Integer> {
         if (i3 == Integer.MIN_VALUE) {
             throw new IllegalArgumentException("Step must be greater than Int.MIN_VALUE to avoid overflow on negation.");
         }
-        this.nuw = i;
-        this.nux = kotlin.internal.c.an(i, i2, i3);
+        this.nQi = i;
+        this.nQj = kotlin.internal.c.an(i, i2, i3);
         this.step = i3;
     }
 
     public final int getFirst() {
-        return this.nuw;
+        return this.nQi;
     }
 
     public final int getLast() {
-        return this.nux;
+        return this.nQj;
     }
 
-    public final int dMk() {
+    public final int dQQ() {
         return this.step;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: dMl */
+    /* renamed from: dQR */
     public ad iterator() {
-        return new g(this.nuw, this.nux, this.step);
+        return new g(this.nQi, this.nQj, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.nuw > this.nux : this.nuw < this.nux;
+        return this.step > 0 ? this.nQi > this.nQj : this.nQi < this.nQj;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof f) && ((isEmpty() && ((f) obj).isEmpty()) || (this.nuw == ((f) obj).nuw && this.nux == ((f) obj).nux && this.step == ((f) obj).step));
+        return (obj instanceof f) && ((isEmpty() && ((f) obj).isEmpty()) || (this.nQi == ((f) obj).nQi && this.nQj == ((f) obj).nQj && this.step == ((f) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.nuw * 31) + this.nux) * 31) + this.step;
+        return (((this.nQi * 31) + this.nQj) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? this.nuw + IStringUtil.TOP_PATH + this.nux + " step " + this.step : this.nuw + " downTo " + this.nux + " step " + (-this.step);
+        return this.step > 0 ? this.nQi + IStringUtil.TOP_PATH + this.nQj + " step " + this.step : this.nQi + " downTo " + this.nQj + " step " + (-this.step);
     }
 
     @kotlin.h

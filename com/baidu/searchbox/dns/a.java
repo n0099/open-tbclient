@@ -13,7 +13,7 @@ public class a {
     private static volatile a b;
     private boolean d;
     private ConnectivityManager e;
-    private C0266a f;
+    private C0272a f;
     private boolean g = false;
     private Context mContext;
     private static long a = 5000;
@@ -40,7 +40,7 @@ public class a {
             this.e = (ConnectivityManager) this.mContext.getSystemService("connectivity");
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(c);
-            this.f = new C0266a();
+            this.f = new C0272a();
             this.mContext.registerReceiver(this.f, intentFilter);
             this.g = true;
         }
@@ -66,8 +66,8 @@ public class a {
 
     /* renamed from: com.baidu.searchbox.dns.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    private class C0266a extends BroadcastReceiver {
-        private C0266a() {
+    private class C0272a extends BroadcastReceiver {
+        private C0272a() {
         }
 
         @Override // android.content.BroadcastReceiver

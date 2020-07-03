@@ -6,7 +6,7 @@ import com.baidu.tieba.ala.data.j;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaUpdateWishListResponseMessage extends JsonHttpResponsedMessage {
-    private j gjz;
+    private j gwm;
 
     public AlaUpdateWishListResponseMessage(int i) {
         super(i);
@@ -17,14 +17,14 @@ public class AlaUpdateWishListResponseMessage extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
-            this.gjz = new j();
+            this.gwm = new j();
             if (optJSONObject != null) {
-                this.gjz.parserJson(optJSONObject);
+                this.gwm.parserJson(optJSONObject);
             }
         }
     }
 
-    public j bHG() {
-        return this.gjz;
+    public j bKK() {
+        return this.gwm;
     }
 }

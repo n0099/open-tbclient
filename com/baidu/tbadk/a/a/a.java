@@ -7,9 +7,9 @@ import java.util.ArrayList;
 public abstract class a {
     public abstract void a(e eVar);
 
-    public abstract BdUniqueId aMu();
+    public abstract BdUniqueId aNX();
 
-    public abstract ArrayList<String> aMv();
+    public abstract ArrayList<String> aNY();
 
-    public abstract e aMw();
+    public abstract e aNZ();
 }

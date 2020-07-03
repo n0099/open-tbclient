@@ -7,22 +7,22 @@ import com.baidu.ubs.analytics.d;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class a {
-    private static boolean miB = false;
+    private static boolean mEu = false;
 
-    public static void Po(String str) {
-        if (miB) {
-            e.dsH().Po(str);
+    public static void Qa(String str) {
+        if (mEu) {
+            e.dxm().Qa(str);
         }
     }
 
-    public static void Pp(String str) {
-        if (miB) {
-            e.dsH().Pp(str);
+    public static void Qb(String str) {
+        if (mEu) {
+            e.dxm().Qb(str);
         }
     }
 
     public static void a(String str, String str2, String str3, Map<String, String> map) {
-        if (miB && str != null) {
+        if (mEu && str != null) {
             j.b(str, str2, str3, map);
         }
     }
@@ -33,11 +33,11 @@ public class a {
         }
     }
 
-    public static SampleResult Pq(String str) {
-        return miB ? d.a.miJ.Pr(str) : SampleResult.OTHERE;
+    public static SampleResult Qc(String str) {
+        return mEu ? d.a.mEC.Qd(str) : SampleResult.OTHERE;
     }
 
-    public static void vP(boolean z) {
-        miB = z;
+    public static void wl(boolean z) {
+        mEu = z;
     }
 }

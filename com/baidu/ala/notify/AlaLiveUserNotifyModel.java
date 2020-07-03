@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import java.util.ArrayList;
 @Deprecated
 /* loaded from: classes3.dex */
@@ -22,7 +22,7 @@ public class AlaLiveUserNotifyModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if ((httpResponsedMessage instanceof AlaLiveGetUserNotifyResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaLiveUserNotifyModel.this.mCurTag) {
                 AlaLiveGetUserNotifyResponsedMessage alaLiveGetUserNotifyResponsedMessage = (AlaLiveGetUserNotifyResponsedMessage) httpResponsedMessage;
-                int count = v.getCount(alaLiveGetUserNotifyResponsedMessage.getDataList());
+                int count = w.getCount(alaLiveGetUserNotifyResponsedMessage.getDataList());
                 if (count > 0) {
                     if (AlaLiveUserNotifyModel.this.mIsNeedShowDialog) {
                         AlaLiveUserNotifyModel.this.showNextNotifyDialog(0, alaLiveGetUserNotifyResponsedMessage.getDataList());
@@ -58,10 +58,10 @@ public class AlaLiveUserNotifyModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showNextNotifyDialog(int i, ArrayList<AlaLiveUserNotifyData> arrayList) {
-        if (i < v.getCount(arrayList)) {
+        if (i < w.getCount(arrayList)) {
             int i2 = i;
             while (true) {
-                if (i2 >= v.getCount(arrayList)) {
+                if (i2 >= w.getCount(arrayList)) {
                     i2 = i;
                     break;
                 } else if (arrayList.get(i2).isSuperGuardian()) {

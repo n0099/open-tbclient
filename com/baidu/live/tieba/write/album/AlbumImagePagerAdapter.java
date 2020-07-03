@@ -4,24 +4,24 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.img.ImageFileInfo;
 import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.live.u.a;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
-    private Map<Integer, Boolean> bdI = new HashMap();
-    private AlbumActivity bdw;
+    private AlbumActivity biJ;
+    private Map<Integer, Boolean> biV = new HashMap();
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mList;
 
     public AlbumImagePagerAdapter(AlbumActivity albumActivity) {
-        this.bdw = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.bdw.getPageContext().getPageActivity());
+        this.biJ = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.biJ.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -44,15 +44,15 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         viewGroup.removeView((View) obj);
     }
 
-    public ImageFileInfo dl(int i) {
+    public ImageFileInfo dv(int i) {
         return (ImageFileInfo) ListUtils.getItem(this.mList, i);
     }
 
-    public boolean dm(int i) {
-        if (this.bdI.get(Integer.valueOf(i)) == null) {
+    public boolean dw(int i) {
+        if (this.biV.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.bdI.get(Integer.valueOf(i)).booleanValue();
+        return this.biV.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -65,10 +65,10 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         tbImageView.setDefaultErrorResource(0);
         tbImageView.setGifIconSupport(false);
         tbImageView.setLongIconSupport(false);
-        ImageFileInfo dl = dl(i);
-        if (dl != null) {
-            tbImageView.startLoad(dl.getFilePath(), 35, false, false);
-            this.bdI.put(Integer.valueOf(i), true);
+        ImageFileInfo dv = dv(i);
+        if (dv != null) {
+            tbImageView.startLoad(dv.getFilePath(), 35, false, false);
+            this.biV.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
         SkinManager.setBackgroundColor(inflate, a.d.sdk_cp_bg_line_d);

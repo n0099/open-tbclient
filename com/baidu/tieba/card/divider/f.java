@@ -4,28 +4,28 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class f extends com.baidu.tieba.card.b<e> {
-    private View gIK;
-    private View gIL;
+    private View gVK;
+    private View gVL;
     private TextView mTitle;
 
     public f(TbPageContext tbPageContext) {
         super(tbPageContext);
         getView().setOnClickListener(this);
-        this.gIK = getView().findViewById(R.id.card_divider_top_margin);
+        this.gVK = getView().findViewById(R.id.card_divider_top_margin);
         this.mTitle = (TextView) getView().findViewById(R.id.card_divider_tv);
-        this.gIL = getView().findViewById(R.id.bottom_line);
+        this.gVL = getView().findViewById(R.id.bottom_line);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_d);
-            am.setBackgroundColor(this.gIL, R.color.cp_bg_line_c);
-            am.setBackgroundColor(this.gIK, R.color.cp_bg_line_c);
+            an.setViewTextColor(this.mTitle, (int) R.color.cp_cont_d);
+            an.setBackgroundColor(this.gVL, R.color.cp_bg_line_c);
+            an.setBackgroundColor(this.gVK, R.color.cp_bg_line_c);
         }
         this.mSkinType = i;
     }
@@ -40,9 +40,9 @@ public class f extends com.baidu.tieba.card.b<e> {
     public void a(e eVar) {
         if (eVar != null) {
             if (eVar.needTopMargin) {
-                this.gIK.setVisibility(0);
+                this.gVK.setVisibility(0);
             } else {
-                this.gIK.setVisibility(8);
+                this.gVK.setVisibility(8);
             }
             this.mTitle.setText(eVar.title);
             onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());

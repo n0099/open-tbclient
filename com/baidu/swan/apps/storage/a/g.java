@@ -31,17 +31,17 @@ public class g extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
             return false;
         }
-        String string = eVar.aoQ().ary().getString(optString, "");
+        String string = eVar.apX().asF().getString(optString, "");
         try {
-            JSONObject ib = ib(string);
-            if (ib == null) {
-                ib = new JSONObject();
+            JSONObject ij = ij(string);
+            if (ij == null) {
+                ij = new JSONObject();
                 if (TextUtils.isEmpty(string)) {
                     string = "";
                 }
-                ib.put("data", string);
+                ij.put("data", string);
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(ib, 0);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(ij, 0);
             return true;
         } catch (JSONException e) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "JSONException");
@@ -52,7 +52,7 @@ public class g extends aa {
         }
     }
 
-    private JSONObject ib(String str) {
+    private JSONObject ij(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

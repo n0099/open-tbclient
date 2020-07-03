@@ -8,12 +8,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends c {
-    private static a brg;
-    public static JSONObject brl;
-    private b brh;
-    private String bri;
-    private File brj;
-    private boolean brk;
+    private static a bwj;
+    public static JSONObject bwo;
+    private b bwk;
+    private String bwl;
+    private File bwm;
+    private boolean bwn;
     private WeakReference<Context> mContext;
 
     private a() {
@@ -24,23 +24,23 @@ public class a extends c {
     }
 
     public void a(String str, File file, boolean z) {
-        this.bri = str;
-        this.brj = file;
-        this.brk = z;
+        this.bwl = str;
+        this.bwm = file;
+        this.bwn = z;
     }
 
-    public static a aC(Context context) {
-        if (brg == null) {
+    public static a aD(Context context) {
+        if (bwj == null) {
             init(context);
         }
-        brg.setContext(context);
-        return brg;
+        bwj.setContext(context);
+        return bwj;
     }
 
     private static synchronized void init(Context context) {
         synchronized (a.class) {
-            if (brg == null) {
-                brg = new a();
+            if (bwj == null) {
+                bwj = new a();
             }
         }
     }
@@ -54,90 +54,90 @@ public class a extends c {
 
     @Override // com.baidu.minivideo.arface.utils.f
     public void run() {
-        boolean LZ = LZ();
-        brl = new JSONObject();
-        if (LZ) {
+        boolean Nk = Nk();
+        bwo = new JSONObject();
+        if (Nk) {
             try {
-                brl.put("type", com.baidu.minivideo.arface.c.bqJ ? "assets" : "soloader");
-                brl.put("exist", LZ);
-                brl.put("path", this.brj);
+                bwo.put("type", com.baidu.minivideo.arface.c.bvK ? "assets" : "soloader");
+                bwo.put("exist", Nk);
+                bwo.put("path", this.bwm);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             setState(2);
         } else if (getContext() != null) {
             try {
-                Ma();
+                Nl();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
     }
 
-    public boolean LZ() {
-        return this.brj != null && this.brj.isDirectory() && this.brj.exists();
+    public boolean Nk() {
+        return this.bwm != null && this.bwm.isDirectory() && this.bwm.exists();
     }
 
-    private void Ma() {
-        this.brh = new b(getContext());
+    private void Nl() {
+        this.bwk = new b(getContext());
         new AsyncTask<Void, Void, Boolean>() { // from class: com.baidu.minivideo.arface.utils.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             public Boolean doInBackground(Void... voidArr) {
                 boolean renameTo;
-                if (a.brl == null) {
-                    a.brl = new JSONObject();
+                if (a.bwo == null) {
+                    a.bwo = new JSONObject();
                 }
-                if (a.this.brj != null) {
-                    if (a.this.brk || !a.this.LZ()) {
-                        if (!a.this.brj.isDirectory()) {
+                if (a.this.bwm != null) {
+                    if (a.this.bwn || !a.this.Nk()) {
+                        if (!a.this.bwm.isDirectory()) {
                             try {
-                                a.brl.put("file-del", true);
+                                a.bwo.put("file-del", true);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            a.this.brj.delete();
+                            a.this.bwm.delete();
                         }
-                        File file = new File(a.this.brj.getAbsoluteFile() + ".loading");
-                        boolean b = a.this.brh.b(a.this.bri, file);
+                        File file = new File(a.this.bwm.getAbsoluteFile() + ".loading");
+                        boolean b = a.this.bwk.b(a.this.bwl, file);
                         if (b) {
                             try {
-                                a.brl.put("assetsToSD", true);
+                                a.bwo.put("assetsToSD", true);
                             } catch (JSONException e2) {
                                 e2.printStackTrace();
                             }
-                            renameTo = file.renameTo(a.this.brj);
+                            renameTo = file.renameTo(a.this.bwm);
                         } else {
                             renameTo = b;
                         }
                         if (!renameTo) {
                             try {
-                                a.brl.put("renameTo-del", true);
+                                a.bwo.put("renameTo-del", true);
                             } catch (JSONException e3) {
                                 e3.printStackTrace();
                             }
                             e.deleteDir(file);
-                            if (a.this.brj.exists()) {
-                                e.deleteDir(a.this.brj);
+                            if (a.this.bwm.exists()) {
+                                e.deleteDir(a.this.bwm);
                             }
                         }
                         try {
-                            a.brl.put("result", renameTo);
+                            a.bwo.put("result", renameTo);
                         } catch (JSONException e4) {
                             e4.printStackTrace();
                         }
                         return Boolean.valueOf(renameTo);
                     }
                     try {
-                        a.brl.put("exist", true);
+                        a.bwo.put("exist", true);
                     } catch (JSONException e5) {
                         e5.printStackTrace();
                     }
                     return true;
                 }
                 try {
-                    a.brl.put("sdcardPath", "null");
+                    a.bwo.put("sdcardPath", "null");
                 } catch (JSONException e6) {
                     e6.printStackTrace();
                 }

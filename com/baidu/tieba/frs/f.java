@@ -1,14 +1,8 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.drawable.Drawable;
-import java.util.HashMap;
+import android.view.View;
+import com.baidu.tbadk.core.data.bu;
 /* loaded from: classes.dex */
-public class f {
-    private HashMap<String, Drawable> hmN = new HashMap<>();
-
-    public void destory() {
-        if (!this.hmN.isEmpty()) {
-            this.hmN.clear();
-        }
-    }
+public interface f {
+    void a(int i, int i2, View view, View view2, bu buVar);
 }

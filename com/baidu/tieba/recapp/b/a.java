@@ -17,7 +17,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cp */
+    /* renamed from: cB */
     public b b(ViewGroup viewGroup) {
         View view = new View(this.mPageContext.getPageActivity());
         view.setVisibility(8);
@@ -28,9 +28,9 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.d dVar, b bVar) {
-        AdvertAppInfo bLJ = dVar.bLJ();
-        if (bLJ != null) {
-            com.baidu.tbadk.core.data.b.c(bLJ.advertAppContext, bLJ.dAy, bLJ.dAD.dAQ == -1001);
+        AdvertAppInfo bOT = dVar.bOT();
+        if (bOT != null) {
+            com.baidu.tbadk.core.data.b.c(bOT.advertAppContext, bOT.dGP, bOT.dGU.dHh == -1001);
         }
         return bVar.getView();
     }

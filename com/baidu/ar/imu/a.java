@@ -7,31 +7,31 @@ import com.baidu.ar.arplay.representation.Quaternion;
 /* loaded from: classes3.dex */
 public class a extends j {
     private static final String TAG = a.class.getSimpleName();
-    private final Quaternion qf;
-    private int qg;
-    private double qh;
+    private final Quaternion qE;
+    private int qF;
+    private double qG;
     private long timestamp;
 
     public a(SensorManager sensorManager) {
         super(sensorManager);
-        this.qf = new Quaternion();
-        this.qg = 0;
-        this.qh = 0.0d;
-        com.baidu.ar.f.b.c(TAG, "sensorList size " + String.valueOf(this.rf.size()));
-        if (this.rf.size() > 120) {
-            this.rf.clear();
+        this.qE = new Quaternion();
+        this.qF = 0;
+        this.qG = 0.0d;
+        com.baidu.ar.f.b.c(TAG, "sensorList size " + String.valueOf(this.rE.size()));
+        if (this.rE.size() > 120) {
+            this.rE.clear();
         }
-        this.rf.add(sensorManager.getDefaultSensor(4));
+        this.rE.add(sensorManager.getDefaultSensor(4));
     }
 
-    private void dr() {
-        if (this.rj) {
-            a(this.rm.matrix, this.rg.matrix, this.rk.matrix);
+    private void dH() {
+        if (this.rI) {
+            a(this.rL.matrix, this.rF.matrix, this.rJ.matrix);
             return;
         }
-        System.arraycopy(this.rg.matrix, 0, this.rk.matrix, 0, this.rk.matrix.length);
-        Matrix.setIdentityM(this.rm.matrix, 0);
-        this.rj = true;
+        System.arraycopy(this.rF.matrix, 0, this.rJ.matrix, 0, this.rJ.matrix.length);
+        Matrix.setIdentityM(this.rL.matrix, 0);
+        this.rI = true;
     }
 
     @Override // android.hardware.SensorEventListener
@@ -42,32 +42,32 @@ public class a extends j {
                 float f2 = sensorEvent.values[0];
                 float f3 = sensorEvent.values[1];
                 float f4 = sensorEvent.values[2];
-                this.qh = Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4));
-                if (this.qh > 0.10000000149011612d) {
-                    f2 = (float) (f2 / this.qh);
-                    f3 = (float) (f3 / this.qh);
-                    f4 = (float) (f4 / this.qh);
+                this.qG = Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4));
+                if (this.qG > 0.10000000149011612d) {
+                    f2 = (float) (f2 / this.qG);
+                    f3 = (float) (f3 / this.qG);
+                    f4 = (float) (f4 / this.qG);
                 }
-                double d = (this.qh * f) / 2.0d;
+                double d = (this.qG * f) / 2.0d;
                 double sin = Math.sin(d);
                 double cos = Math.cos(d);
-                this.qf.setX((float) (f2 * sin));
-                this.qf.setY((float) (f3 * sin));
-                this.qf.setZ((float) (f4 * sin));
-                this.qf.setW(-((float) cos));
-                synchronized (this.re) {
-                    this.qf.multiplyByQuat(this.rh, this.rh);
+                this.qE.setX((float) (f2 * sin));
+                this.qE.setY((float) (f3 * sin));
+                this.qE.setZ((float) (f4 * sin));
+                this.qE.setW(-((float) cos));
+                synchronized (this.rD) {
+                    this.qE.multiplyByQuat(this.rG, this.rG);
                 }
-                Quaternion m18clone = this.rh.m18clone();
-                m18clone.w(-m18clone.w());
-                synchronized (this.re) {
-                    SensorManager.getRotationMatrixFromVector(this.rg.matrix, m18clone.toArray());
+                Quaternion m17clone = this.rG.m17clone();
+                m17clone.w(-m17clone.w());
+                synchronized (this.rD) {
+                    SensorManager.getRotationMatrixFromVector(this.rF.matrix, m17clone.toArray());
                 }
             }
             this.timestamp = sensorEvent.timestamp;
-            this.qg++;
-            if (this.qg > 20) {
-                dr();
+            this.qF++;
+            if (this.qF > 20) {
+                dH();
                 setChanged();
                 notifyObservers();
             }

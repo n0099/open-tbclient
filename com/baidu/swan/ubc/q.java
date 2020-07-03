@@ -8,38 +8,38 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class q {
-    private String cgm;
-    private int dqp;
-    private JSONObject dqq;
-    private List<g> dqr = new ArrayList();
+    private String cla;
+    private int dvb;
+    private JSONObject dvc;
+    private List<g> dvd = new ArrayList();
     private int mThreshold;
 
     public q(String str, JSONObject jSONObject) {
-        this.cgm = str;
-        this.dqq = jSONObject;
+        this.cla = str;
+        this.dvc = jSONObject;
     }
 
     public String getSign() {
-        return this.cgm;
+        return this.cla;
     }
 
-    public int aII() {
+    public int aJO() {
         return this.mThreshold;
     }
 
-    public int aIJ() {
-        return this.dqp;
+    public int aJP() {
+        return this.dvb;
     }
 
-    public List<g> aIK() {
-        return this.dqr;
+    public List<g> aJQ() {
+        return this.dvd;
     }
 
-    public boolean aIL() {
+    public boolean aJR() {
         try {
-            JSONObject jSONObject = this.dqq;
+            JSONObject jSONObject = this.dvc;
             this.mThreshold = jSONObject.getInt("threshold");
-            this.dqp = jSONObject.getInt("timeup");
+            this.dvb = jSONObject.getInt("timeup");
             JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
@@ -53,27 +53,27 @@ public class q {
                 if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
                     g gVar = new g(string, string2, string3, intValue, string5, string4);
                     if (jSONObject2.has("rate")) {
-                        gVar.jw(Integer.valueOf(jSONObject2.getString("rate")).intValue());
+                        gVar.jH(Integer.valueOf(jSONObject2.getString("rate")).intValue());
                     }
                     if (jSONObject2.has("bizid")) {
-                        gVar.tM(jSONObject2.getString("bizid"));
+                        gVar.tU(jSONObject2.getString("bizid"));
                     }
                     if (jSONObject2.has("c")) {
                         gVar.setCategory(jSONObject2.getString("c"));
                     }
                     if (jSONObject2.has("limitUnit")) {
-                        gVar.jx(Integer.valueOf(jSONObject2.getString("limitUnit")).intValue());
+                        gVar.jI(Integer.valueOf(jSONObject2.getString("limitUnit")).intValue());
                     }
                     if (jSONObject2.has("limitCnt")) {
-                        gVar.jy(Integer.valueOf(jSONObject2.getString("limitCnt")).intValue());
+                        gVar.jJ(Integer.valueOf(jSONObject2.getString("limitCnt")).intValue());
                     }
                     if (jSONObject2.has("idtype")) {
-                        gVar.tN(jSONObject2.getString("idtype"));
+                        gVar.tV(jSONObject2.getString("idtype"));
                     }
                     if (jSONObject2.has("appblacklist")) {
-                        gVar.tO(jSONObject2.getString("appblacklist"));
+                        gVar.tW(jSONObject2.getString("appblacklist"));
                     }
-                    this.dqr.add(gVar);
+                    this.dvd.add(gVar);
                 }
             }
             return true;

@@ -19,7 +19,7 @@ public class a {
     public int borderWidth;
     @V8JavascriptField
     public String color;
-    private InterfaceC0441a ddq;
+    private InterfaceC0447a dib;
     @V8JavascriptField
     public String fontWeight;
     @V8JavascriptField
@@ -35,7 +35,7 @@ public class a {
     @V8JavascriptField
 
     /* renamed from: top  reason: collision with root package name */
-    public int f1007top;
+    public int f1011top;
     @V8JavascriptField
     public int width;
     @V8JavascriptField
@@ -45,8 +45,8 @@ public class a {
 
     /* renamed from: com.baidu.swan.games.view.button.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0441a {
-        void aCQ();
+    public interface InterfaceC0447a {
+        void aDW();
     }
 
     public a(@NonNull com.baidu.swan.games.binding.model.c cVar) {
@@ -55,7 +55,7 @@ public class a {
 
     private void m(@NonNull com.baidu.swan.games.binding.model.c cVar) {
         this.left = cVar.optInt("left", this.left);
-        this.f1007top = cVar.optInt(VerticalTranslateLayout.TOP, this.f1007top);
+        this.f1011top = cVar.optInt(VerticalTranslateLayout.TOP, this.f1011top);
         this.width = cVar.optInt("width", this.width);
         this.height = cVar.optInt("height", this.height);
         this.backgroundColor = cVar.optString("backgroundColor", this.backgroundColor);
@@ -79,16 +79,16 @@ public class a {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.ddq != null) {
-            this.ddq.aCQ();
+        if (this.dib != null) {
+            this.dib.aDW();
         }
     }
 
-    public void a(InterfaceC0441a interfaceC0441a) {
-        this.ddq = interfaceC0441a;
+    public void a(InterfaceC0447a interfaceC0447a) {
+        this.dib = interfaceC0447a;
     }
 
-    public static int iA(@ColorInt int i) {
+    public static int iL(@ColorInt int i) {
         int i2 = (16711680 & i) >> 16;
         int i3 = (65280 & i) >> 8;
         int i4 = i & 255;
@@ -100,6 +100,6 @@ public class a {
     }
 
     public String toString() {
-        return "left:" + this.left + ";top:" + this.f1007top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
+        return "left:" + this.left + ";top:" + this.f1011top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
     }
 }

@@ -10,13 +10,13 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.ntA;
+        E[] eArr = this.nPn;
         long j = this.producerIndex;
-        long gw = gw(j);
-        if (b(eArr, gw) != null) {
+        long gB = gB(j);
+        if (b(eArr, gB) != null) {
             return false;
         }
-        b(eArr, gw, e);
+        b(eArr, gB, e);
         soProducerIndex(1 + j);
         return true;
     }
@@ -24,53 +24,53 @@ public final class q<E> extends v<E> {
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long gw = gw(j);
-        E[] eArr = this.ntA;
-        E b = b(eArr, gw);
+        long gB = gB(j);
+        E[] eArr = this.nPn;
+        E b = b(eArr, gB);
         if (b == null) {
             return null;
         }
-        b(eArr, gw, null);
+        b(eArr, gB, null);
         soConsumerIndex(j + 1);
         return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return gx(gw(this.consumerIndex));
+        return gC(gB(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dLb = dLb();
+        long dPH = dPH();
         while (true) {
-            long dLa = dLa();
-            long dLb2 = dLb();
-            if (dLb == dLb2) {
-                return (int) (dLa - dLb2);
+            long dPG = dPG();
+            long dPH2 = dPH();
+            if (dPH == dPH2) {
+                return (int) (dPG - dPH2);
             }
-            dLb = dLb2;
+            dPH = dPH2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dLa() == dLb();
+        return dPG() == dPH();
     }
 
     private void soProducerIndex(long j) {
-        ae.nKM.a(this, nKG, j);
+        ae.ogA.a(this, ogu, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.nKM.a(this, nKF, j);
+        ae.ogA.a(this, ogt, j);
     }
 
-    private long dLa() {
-        return ae.nKM.e(this, nKG);
+    private long dPG() {
+        return ae.ogA.e(this, ogu);
     }
 
-    private long dLb() {
-        return ae.nKM.e(this, nKF);
+    private long dPH() {
+        return ae.ogA.e(this, ogt);
     }
 }

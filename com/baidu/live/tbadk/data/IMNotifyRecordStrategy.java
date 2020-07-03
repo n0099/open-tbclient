@@ -3,6 +3,7 @@ package com.baidu.live.tbadk.data;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.util.HashMap;
 import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes3.dex */
 public class IMNotifyRecordStrategy {
     public static final String NET_TYPENAME_2G = "2g";

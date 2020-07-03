@@ -8,10 +8,10 @@ public interface g {
 
     /* loaded from: classes.dex */
     public interface a {
-        public static final String jrL = File.separator;
-        public static final String eMr = Environment.getExternalStorageDirectory() + jrL + "tieba";
-        public static final String jrS = eMr + jrL + ".tieba_post_monitor";
-        public static final String jrT = jrS + jrL + AbstractBceClient.URL_PREFIX;
-        public static final String jrU = jrT + jrL;
+        public static final String jJc = File.separator;
+        public static final String eWD = Environment.getExternalStorageDirectory() + jJc + "tieba";
+        public static final String jJj = eWD + jJc + ".tieba_post_monitor";
+        public static final String jJk = jJj + jJc + AbstractBceClient.URL_PREFIX;
+        public static final String jJl = jJk + jJc;
     }
 }

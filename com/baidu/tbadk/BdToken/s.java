@@ -1,53 +1,37 @@
 package com.baidu.tbadk.BdToken;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.aq;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.os.Build;
+import android.webkit.CookieManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.util.ah;
+import com.xiaomi.mipush.sdk.Constants;
+import org.apache.http.cookie.SM;
 /* loaded from: classes.dex */
 public class s {
-    private long dwf;
-    private ArrayList<u> dwg;
-    private long mStartDate;
-    private String mUrl;
-
-    public void parseJson(String str) {
-        if (!aq.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.mStartDate = jSONObject.optLong("start_date", 0L) * 1000;
-                this.dwf = jSONObject.optLong("end_date", 0L) * 1000;
-                this.mUrl = jSONObject.optString("ahead_url", "");
-                this.dwg = new ArrayList<>();
-                JSONArray optJSONArray = jSONObject.optJSONArray("time");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONArray optJSONArray2 = optJSONArray.optJSONArray(i);
-                        u uVar = new u();
-                        uVar.parseJson(optJSONArray2);
-                        this.dwg.add(uVar);
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-        }
+    public s() {
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_NEW_USER_GET_MONEY, TbConfig.NEW_USER_GET_MONEY_URL);
+        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
+        tbHttpMessageTask.setResponsedClass(NewUserGetMoneyResMsg.class);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public long getStartDate() {
-        return this.mStartDate;
-    }
-
-    public long aLN() {
-        return this.dwf;
-    }
-
-    public String getUrl() {
-        return this.mUrl;
-    }
-
-    public ArrayList<u> aLO() {
-        return this.dwg;
+    public void aNn() {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEW_USER_GET_MONEY);
+        httpMessage.addParam(Constants.PHONE_BRAND, Build.BRAND);
+        httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+        httpMessage.addParam("client_version", TbConfig.getVersion());
+        httpMessage.addParam("client_type", "Android");
+        httpMessage.addParam("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
+        httpMessage.addParam(com.baidu.fsg.base.statistics.j.c, ah.getUserAgent());
+        httpMessage.addHeader(SM.COOKIE, CookieManager.getInstance().getCookie("tieba.baidu.com"));
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

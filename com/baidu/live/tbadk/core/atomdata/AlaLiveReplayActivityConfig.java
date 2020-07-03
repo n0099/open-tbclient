@@ -2,6 +2,7 @@ package com.baidu.live.tbadk.core.atomdata;
 
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
+@Deprecated
 /* loaded from: classes3.dex */
 public class AlaLiveReplayActivityConfig extends IntentConfig {
     public static final String LIVE_ID = "live_id";

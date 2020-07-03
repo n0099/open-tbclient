@@ -29,17 +29,17 @@ public class a extends aa {
             com.baidu.swan.apps.console.c.e("AdLanding", "adLanding: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (f.ahV().QH() == null) {
+        } else if (f.ajb().RN() == null) {
             com.baidu.swan.apps.console.c.i("AdLandingAction", "open page failed");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         } else {
-            com.baidu.swan.apps.model.b bx = com.baidu.swan.apps.model.b.bx(a, a);
-            bx.mParams = a2;
-            if (h.Uv().isFullScreen()) {
-                a(unitedSchemeEntity, bx);
+            com.baidu.swan.apps.model.b bz = com.baidu.swan.apps.model.b.bz(a, a);
+            bz.mParams = a2;
+            if (h.VB().isFullScreen()) {
+                a(unitedSchemeEntity, bz);
             } else {
-                b(unitedSchemeEntity, bx);
+                b(unitedSchemeEntity, bz);
             }
             com.baidu.swan.apps.console.c.i("AdLanding", "open adLanding page finish");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -48,7 +48,7 @@ public class a extends aa {
     }
 
     private void a(final UnitedSchemeEntity unitedSchemeEntity, final com.baidu.swan.apps.model.b bVar) {
-        h.Uv().Ux();
+        h.VB().VD();
         aj.c(new Runnable() { // from class: com.baidu.swan.apps.adlanding.a.1
             @Override // java.lang.Runnable
             public void run() {

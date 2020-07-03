@@ -3,39 +3,39 @@ package com.baidu.tbadk.n;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class b extends g {
-    private a erK;
-    private boolean erL;
-    private boolean erM;
+    private a eAC;
+    private boolean eAD;
+    private boolean eAE;
 
-    public void bfz() {
-        if (!this.erL && m.bfJ().bfK()) {
-            this.erL = true;
+    public void bhF() {
+        if (!this.eAD && m.bhP().bhQ()) {
+            this.eAD = true;
             if (Build.VERSION.SDK_INT >= 16) {
-                if (this.erK == null) {
-                    this.erK = new a();
+                if (this.eAC == null) {
+                    this.eAC = new a();
                 }
-                this.erK.start();
+                this.eAC.start();
             }
         }
     }
 
-    public void bfA() {
-        if (Build.VERSION.SDK_INT >= 16 && this.erK != null) {
-            this.erK.stop();
+    public void bhG() {
+        if (Build.VERSION.SDK_INT >= 16 && this.eAC != null) {
+            this.eAC.stop();
         }
     }
 
-    public void bfB() {
+    public void bhH() {
         o oVar;
-        if (!this.erM && this.erK != null && this.erK.getFps() >= 0 && (oVar = (o) m.bfJ().nE(this.mSubType)) != null) {
+        if (!this.eAE && this.eAC != null && this.eAC.getFps() >= 0 && (oVar = (o) m.bhP().nZ(this.mSubType)) != null) {
             oVar.a(this);
-            this.erM = true;
+            this.eAE = true;
         }
     }
 
     public int getFps() {
-        if (this.erK != null) {
-            return this.erK.getFps();
+        if (this.eAC != null) {
+            return this.eAC.getFps();
         }
         return -1;
     }

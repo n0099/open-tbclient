@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.gamelist.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.ala.AlaCmdConfigSocket;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bu;
 import com.squareup.wire.Wire;
 import java.util.LinkedList;
 import tbclient.LiveLabelInfo;
@@ -12,7 +12,7 @@ import tbclient.ThreadInfo;
 public class AlaSubListGameLiveSocketResponseMessage extends SocketResponsedMessage {
     private LinkedList<LiveLabelInfo> entryList;
     private boolean mHasMore;
-    private LinkedList<bk> threadList;
+    private LinkedList<bu> threadList;
 
     public AlaSubListGameLiveSocketResponseMessage() {
         super(AlaCmdConfigSocket.CMD_ALA_SUB_LIVE_LIST);
@@ -30,16 +30,16 @@ public class AlaSubListGameLiveSocketResponseMessage extends SocketResponsedMess
             this.entryList.addAll(liveTabliveSubTabResIdl.data.label);
             for (ThreadInfo threadInfo : liveTabliveSubTabResIdl.data.live) {
                 if (threadInfo.thread_type.intValue() == 49) {
-                    bk bkVar = new bk();
-                    bkVar.a(threadInfo);
-                    this.threadList.add(bkVar);
+                    bu buVar = new bu();
+                    buVar.a(threadInfo);
+                    this.threadList.add(buVar);
                 }
             }
             this.mHasMore = liveTabliveSubTabResIdl.data.has_more.intValue() == 1;
         }
     }
 
-    public LinkedList<bk> getThreadLiveList() {
+    public LinkedList<bu> getThreadLiveList() {
         return this.threadList;
     }
 

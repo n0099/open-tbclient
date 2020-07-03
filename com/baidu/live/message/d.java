@@ -16,7 +16,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes3.dex */
 public class d extends HttpMessage {
-    private AlaLiveExceptionInfo aWB;
+    private AlaLiveExceptionInfo aZk;
 
     public d() {
         super(1021049);
@@ -24,40 +24,40 @@ public class d extends HttpMessage {
 
     public void a(AlaLiveExceptionInfo alaLiveExceptionInfo) {
         long j;
-        this.aWB = alaLiveExceptionInfo;
-        if (this.aWB != null) {
-            addParam("appState", this.aWB.appState);
-            addParam("connect", this.aWB.connect ? 1 : 0);
-            addParam("dropFrame", this.aWB.dropFrame);
-            addParam("live_id", this.aWB.liveID);
-            addParam("lostRate", this.aWB.lostRate);
-            addParam("ls", this.aWB.liveType);
-            addParam("media_status", this.aWB.mediaStatus);
-            addParam("net_speed", this.aWB.netSpped);
-            addParam(HttpConstants.NETWORK_TYPE, this.aWB.networkType);
-            addParam("node_ip", this.aWB.nodeIP);
-            addParam("phone", this.aWB.phone ? 1 : 0);
-            addParam("session_line", this.aWB.sessionChannel);
-            addParam("status", this.aWB.status);
-            addParam("stream_url", this.aWB.streamUrl);
-            addParam("video_level", this.aWB.videoLevel);
-            addParam("fps_min", this.aWB.fpsMin);
-            addParam("fps_max", this.aWB.fpsMax);
-            addParam("fps_avg", this.aWB.fpsAvg);
-            addParam("failure_audio", this.aWB.failureAudio);
-            addParam("failure_video", this.aWB.failureVideo);
-            addParam("play_fail", this.aWB.playFail);
-            addParam("lag_network_num", this.aWB.lagNetworkNum);
-            addParam("lag_sync_num", this.aWB.lagSyncNum);
-            addParam("lag_n_min", this.aWB.lagnmin);
-            addParam("lag_n_max", this.aWB.lagnmax);
-            addParam("lag_n_total", this.aWB.lagntotal);
-            addParam("lag_s_min", this.aWB.lagsmin);
-            addParam("lag_s_max", this.aWB.lagsmax);
-            addParam("lag_s_total", this.aWB.lagstotal);
-            addParam("connect_count", this.aWB.connectCount);
-            addParam(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, this.aWB.eventType);
-            addParam("first_open", this.aWB.firstOpenTime);
+        this.aZk = alaLiveExceptionInfo;
+        if (this.aZk != null) {
+            addParam("appState", this.aZk.appState);
+            addParam("connect", this.aZk.connect ? 1 : 0);
+            addParam("dropFrame", this.aZk.dropFrame);
+            addParam("live_id", this.aZk.liveID);
+            addParam("lostRate", this.aZk.lostRate);
+            addParam("ls", this.aZk.liveType);
+            addParam("media_status", this.aZk.mediaStatus);
+            addParam("net_speed", this.aZk.netSpped);
+            addParam(HttpConstants.NETWORK_TYPE, this.aZk.networkType);
+            addParam("node_ip", this.aZk.nodeIP);
+            addParam("phone", this.aZk.phone ? 1 : 0);
+            addParam("session_line", this.aZk.sessionChannel);
+            addParam("status", this.aZk.status);
+            addParam("stream_url", this.aZk.streamUrl);
+            addParam("video_level", this.aZk.videoLevel);
+            addParam("fps_min", this.aZk.fpsMin);
+            addParam("fps_max", this.aZk.fpsMax);
+            addParam("fps_avg", this.aZk.fpsAvg);
+            addParam("failure_audio", this.aZk.failureAudio);
+            addParam("failure_video", this.aZk.failureVideo);
+            addParam("play_fail", this.aZk.playFail);
+            addParam("lag_network_num", this.aZk.lagNetworkNum);
+            addParam("lag_sync_num", this.aZk.lagSyncNum);
+            addParam("lag_n_min", this.aZk.lagnmin);
+            addParam("lag_n_max", this.aZk.lagnmax);
+            addParam("lag_n_total", this.aZk.lagntotal);
+            addParam("lag_s_min", this.aZk.lagsmin);
+            addParam("lag_s_max", this.aZk.lagsmax);
+            addParam("lag_s_total", this.aZk.lagstotal);
+            addParam("connect_count", this.aZk.connectCount);
+            addParam(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, this.aZk.eventType);
+            addParam("first_open", this.aZk.firstOpenTime);
             addParam("im_sdk_version", BIMManager.getVersion());
             addParam("im_sdk_connet", LoginManager.getInstance(TbadkCoreApplication.getInst().getContext()).isIMLogined() + "");
             if (IMConfigInternal.getInstance().getSDKVersionValue(TbadkCoreApplication.getInst().getContext()) >= 5850036) {

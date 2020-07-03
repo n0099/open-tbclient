@@ -5,44 +5,44 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class b extends d {
-    protected TextView iKV;
+    protected TextView jbX;
 
     public b(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.iKV = null;
+        this.jbX = null;
         setContentView(R.layout.update_group_info_activity);
-        yi(R.string.group_update_info);
-        this.iKV = (TextView) this.iKW.findViewById(R.id.edit_count);
+        yS(R.string.group_update_info);
+        this.jbX = (TextView) this.jbY.findViewById(R.id.edit_count);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void cpK() {
+    public void ctz() {
         String obj;
         if (this.mEditText.getText() != null && (obj = this.mEditText.getText().toString()) != null) {
             int length = obj.length();
             C(length, length, 15, 300);
             int i = 300 - length;
-            this.iKV.setText(String.valueOf(i));
+            this.jbX.setText(String.valueOf(i));
             if (i <= 50) {
-                this.iKV.setVisibility(0);
+                this.jbX.setVisibility(0);
             } else {
-                this.iKV.setVisibility(8);
+                this.jbX.setVisibility(8);
             }
             if (i == 0) {
-                this.iKV.setTextColor(this.iKW.getResources().getColor(R.color.common_color_10170));
+                this.jbX.setTextColor(this.jbY.getResources().getColor(R.color.common_color_10170));
             } else {
-                ckA();
+                cop();
             }
         }
     }
 
-    private void ckA() {
-        this.iKW.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.iKW.getLayoutMode().onModeChanged(this.iKV);
+    private void cop() {
+        this.jbY.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.jbY.getLayoutMode().onModeChanged(this.jbX);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int cpL() {
+    public int ctA() {
         return R.string.group_step_info_error;
     }
 }

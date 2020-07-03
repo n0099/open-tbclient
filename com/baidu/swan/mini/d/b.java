@@ -11,22 +11,22 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a dkV = new a();
+    private a dpG = new a();
 
-    public void cI(@NonNull String str, @Nullable String str2) {
-        this.dkV.cH(str, str2);
+    public void cK(@NonNull String str, @Nullable String str2) {
+        this.dpG.cJ(str, str2);
     }
 
-    public void U(@NonNull String str, @NonNull String str2, @Nullable String str3) {
-        this.dkV.T(str, str2, str3);
+    public void V(@NonNull String str, @NonNull String str2, @Nullable String str3) {
+        this.dpG.U(str, str2, str3);
     }
 
     public void j(@NonNull final String str, @Nullable final Map<String, String> map) {
         n.postOnComputation(new Runnable() { // from class: com.baidu.swan.mini.d.b.1
             @Override // java.lang.Runnable
             public void run() {
-                JSONArray sZ = b.this.dkV.sZ(str);
-                if (sZ != null) {
+                JSONArray th = b.this.dpG.th(str);
+                if (th != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("from", "swan");
@@ -36,7 +36,7 @@ public class b {
                                 jSONObject2.put(str2, map.get(str2));
                             }
                         }
-                        jSONObject2.put("info", sZ);
+                        jSONObject2.put("info", th);
                         jSONObject.put("ext", jSONObject2);
                         b.this.k("1181", jSONObject);
                     } catch (Exception e) {

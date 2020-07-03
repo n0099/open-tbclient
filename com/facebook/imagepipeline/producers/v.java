@@ -62,11 +62,11 @@ public class v extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String dBG() {
+    protected String dGi() {
         return "LocalAssetFetchProducer";
     }
 
     private static String i(ImageRequest imageRequest) {
-        return imageRequest.dCo().getPath().substring(1);
+        return imageRequest.dGQ().getPath().substring(1);
     }
 }

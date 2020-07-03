@@ -4,27 +4,27 @@ import android.view.Surface;
 import com.baidu.ar.DuMixOutput;
 /* loaded from: classes3.dex */
 class n {
-    private DuMixOutput ab;
-    private Surface gJ;
-    private String im;
+    private DuMixOutput aa;
+    private Surface gV;
+    private String iB;
 
     public n(DuMixOutput duMixOutput) {
-        this.ab = duMixOutput;
+        this.aa = duMixOutput;
     }
 
     public void N(String str) {
-        this.im = str;
+        this.iB = str;
     }
 
-    public String bz() {
-        return this.im;
+    public String bN() {
+        return this.iB;
     }
 
     public Surface getSurface() {
-        return this.gJ;
+        return this.gV;
     }
 
     public void setSurface(Surface surface) {
-        this.gJ = surface;
+        this.gV = surface;
     }
 }

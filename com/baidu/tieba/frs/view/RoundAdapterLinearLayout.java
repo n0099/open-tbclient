@@ -14,7 +14,7 @@ import com.baidu.tieba.view.AdapterLinearLayout;
 import java.util.Arrays;
 /* loaded from: classes9.dex */
 public class RoundAdapterLinearLayout extends AdapterLinearLayout {
-    private Shape dJt;
+    private Shape dQj;
     private Paint mPaint;
     private float mRadius;
     private RectF mRectF;
@@ -54,7 +54,7 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.dJt == null) {
+            if (this.dQj == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(R.dimen.tbds5) ? getResources().getDimension(R.dimen.tbds5) : getPaddingLeft();
@@ -64,10 +64,10 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
                 RectF rectF = new RectF(dimension, paddingTop, dimension2, paddingBottom);
                 float[] fArr2 = new float[8];
                 Arrays.fill(fArr2, this.mRadius);
-                this.dJt = new RoundRectShape(fArr, rectF, fArr2);
+                this.dQj = new RoundRectShape(fArr, rectF, fArr2);
                 this.mRectF.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
             }
-            this.dJt.resize(getWidth(), getHeight());
+            this.dQj.resize(getWidth(), getHeight());
         }
     }
 
@@ -76,8 +76,8 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
         int saveCount = canvas.getSaveCount();
         canvas.save();
         super.dispatchDraw(canvas);
-        if (this.dJt != null) {
-            this.dJt.draw(canvas, this.mPaint);
+        if (this.dQj != null) {
+            this.dQj.draw(canvas, this.mPaint);
         }
         canvas.drawRoundRect(this.mRectF, this.mRadius, this.mRadius, this.mStrokePaint);
         canvas.restoreToCount(saveCount);

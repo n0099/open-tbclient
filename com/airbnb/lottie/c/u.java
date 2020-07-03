@@ -82,7 +82,7 @@ public class u {
                             maskMode = Mask.MaskMode.MaskModeSubtract;
                             continue;
                         case true:
-                            eVar.aW("Animation contains intersect masks. They are not supported but will be treated like add masks.");
+                            eVar.aX("Animation contains intersect masks. They are not supported but will be treated like add masks.");
                             maskMode = Mask.MaskMode.MaskModeIntersect;
                             continue;
                         default:

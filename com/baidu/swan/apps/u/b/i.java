@@ -8,9 +8,9 @@ public interface i {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void agk();
+        void ahq();
 
-        void agl();
+        void ahr();
     }
 
     void a(Context context, String str, Uri uri);

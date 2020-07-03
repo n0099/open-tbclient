@@ -1,11 +1,11 @@
 package com.baidu.live.tbadk.img;
 
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.LocalViewSize;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.img.ImageUploader;
-import com.baidu.live.u.a;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class AsyncImageUploadModel<T> {

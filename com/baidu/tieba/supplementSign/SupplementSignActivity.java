@@ -16,12 +16,12 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class SupplementSignActivity extends TbWebViewActivity {
     private int forumId;
-    private final String lju = "signSuccess";
+    private final String lDp = "signSuccess";
     private final String INTERFACE_NAME = "SupplementSignInterface";
-    private int ljv = 0;
-    private int ljw = 0;
-    private int ljx = 0;
-    private CustomMessageListener ljy = new CustomMessageListener(CmdConfigCustom.CMD_RESPONSE_MEM) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.1
+    private int lDq = 0;
+    private int lDr = 0;
+    private int lDs = 0;
+    private CustomMessageListener lDt = new CustomMessageListener(CmdConfigCustom.CMD_RESPONSE_MEM) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -30,16 +30,16 @@ public class SupplementSignActivity extends TbWebViewActivity {
             }
         }
     };
-    private b ljz = new b() { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
+    private b lDu = new b() { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
         @Override // com.baidu.tieba.tbadkCore.e.b
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if ("SupplementSignInterface".equalsIgnoreCase(str) && "signSuccess".equalsIgnoreCase(str2)) {
                 if (!StringUtils.isNull(str3)) {
                     try {
                         JSONObject jSONObject = new JSONObject(str3);
-                        SupplementSignActivity.this.ljv = jSONObject.optInt(SchemeCollecter.CLASSIFY_ALL);
-                        SupplementSignActivity.this.ljw += jSONObject.optInt("signed", 0);
-                        SupplementSignActivity.this.ljx = jSONObject.optInt("bonus", 0) + SupplementSignActivity.this.ljx;
+                        SupplementSignActivity.this.lDq = jSONObject.optInt(SchemeCollecter.CLASSIFY_ALL);
+                        SupplementSignActivity.this.lDr += jSONObject.optInt("signed", 0);
+                        SupplementSignActivity.this.lDs = jSONObject.optInt("bonus", 0) + SupplementSignActivity.this.lDs;
                     } catch (Throwable th) {
                         BdLog.e(th);
                     }
@@ -58,24 +58,24 @@ public class SupplementSignActivity extends TbWebViewActivity {
         if (intent != null) {
             this.forumId = intent.getIntExtra(SupplementSignActivityConfig.FORUM_ID, 0);
         }
-        addJsPromptInterface(this.ljz);
-        this.mView.gG(false);
-        registerListener(this.ljy);
+        addJsPromptInterface(this.lDu);
+        this.mView.gN(false);
+        registerListener(this.lDt);
     }
 
     @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.mView.aNE();
+        this.mView.aPi();
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
         Intent intent = new Intent();
         intent.putExtra(SupplementSignActivityConfig.FORUM_ID, this.forumId);
-        intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.ljv);
-        intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.ljw);
-        intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.ljx);
+        intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.lDq);
+        intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.lDr);
+        intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.lDs);
         super.finish(-1, intent);
     }
 

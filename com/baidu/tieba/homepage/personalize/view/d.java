@@ -1,34 +1,43 @@
 package com.baidu.tieba.homepage.personalize.view;
 
 import android.content.Context;
-import com.baidu.card.y;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AbsThreadDataSupport;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
-public class d extends y {
-    private f igB;
+public class d extends com.baidu.card.b<AbsThreadDataSupport> {
+    private e ivN;
 
-    public d(Context context) {
+    public d(Context context, TbPageContext<?> tbPageContext) {
         super(context);
+        this.ivN = new e(tbPageContext);
     }
 
-    @Override // com.baidu.card.y, com.baidu.card.am
-    protected com.baidu.tieba.play.operableVideoView.a ry() {
-        this.igB = new f(this.mContext, this.afX);
-        return this.igB;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.card.b
+    public View getView() {
+        return this.ivN.getView();
     }
 
-    @Override // com.baidu.card.am
-    public void onPause() {
-        super.onPause();
-        if (this.igB != null) {
-            this.igB.onPause();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.card.n
+    /* renamed from: b */
+    public void D(AbsThreadDataSupport absThreadDataSupport) {
+        if (absThreadDataSupport instanceof com.baidu.tieba.homepage.personalize.data.g) {
+            this.ivN.a((com.baidu.tieba.homepage.personalize.data.g) absThreadDataSupport);
         }
     }
 
-    @Override // com.baidu.card.am
-    public void onResume() {
-        super.onResume();
-        if (this.igB != null) {
-            this.igB.onResume();
-        }
+    @Override // com.baidu.card.o
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        an.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
+        this.ivN.onChangeSkinType(tbPageContext, i);
+    }
+
+    public void setTag(BdUniqueId bdUniqueId) {
+        this.ivN.setTag(bdUniqueId);
     }
 }

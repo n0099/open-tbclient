@@ -9,55 +9,55 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class MaybeDelayOtherPublisher<T, U> extends io.reactivex.internal.operators.maybe.a<T, T> {
-    final org.a.b<U> noG;
+    final org.a.b<U> nKt;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
-        this.source.a(new a(mVar, this.noG));
+        this.source.a(new a(mVar, this.nKt));
     }
 
     /* loaded from: classes7.dex */
     static final class a<T, U> implements io.reactivex.disposables.b, m<T> {
         io.reactivex.disposables.b d;
-        final OtherSubscriber<T> npq;
-        final org.a.b<U> npr;
+        final OtherSubscriber<T> nLd;
+        final org.a.b<U> nLe;
 
         a(m<? super T> mVar, org.a.b<U> bVar) {
-            this.npq = new OtherSubscriber<>(mVar);
-            this.npr = bVar;
+            this.nLd = new OtherSubscriber<>(mVar);
+            this.nLe = bVar;
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
             this.d.dispose();
             this.d = DisposableHelper.DISPOSED;
-            SubscriptionHelper.cancel(this.npq);
+            SubscriptionHelper.cancel(this.nLd);
         }
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return SubscriptionHelper.isCancelled(this.npq.get());
+            return SubscriptionHelper.isCancelled(this.nLd.get());
         }
 
         @Override // io.reactivex.m
         public void onSubscribe(io.reactivex.disposables.b bVar) {
             if (DisposableHelper.validate(this.d, bVar)) {
                 this.d = bVar;
-                this.npq.actual.onSubscribe(this);
+                this.nLd.actual.onSubscribe(this);
             }
         }
 
         @Override // io.reactivex.m
         public void onSuccess(T t) {
             this.d = DisposableHelper.DISPOSED;
-            this.npq.value = t;
+            this.nLd.value = t;
             subscribeNext();
         }
 
         @Override // io.reactivex.m
         public void onError(Throwable th) {
             this.d = DisposableHelper.DISPOSED;
-            this.npq.error = th;
+            this.nLd.error = th;
             subscribeNext();
         }
 
@@ -68,7 +68,7 @@ public final class MaybeDelayOtherPublisher<T, U> extends io.reactivex.internal.
         }
 
         void subscribeNext() {
-            this.npr.subscribe(this.npq);
+            this.nLe.subscribe(this.nLd);
         }
     }
 

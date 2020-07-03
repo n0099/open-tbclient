@@ -6,46 +6,46 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public final class b {
-    private static ArrayList<a> cjz = new ArrayList<>();
+    private static ArrayList<a> coo = new ArrayList<>();
 
-    public static void eg(boolean z) {
-        for (int size = cjz.size() - 1; size >= 0; size--) {
-            a aVar = cjz.get(size);
+    public static void el(boolean z) {
+        for (int size = coo.size() - 1; size >= 0; size--) {
+            a aVar = coo.get(size);
             if (aVar != null) {
-                aVar.ee(z);
+                aVar.ej(z);
             }
         }
     }
 
-    public static void ef(boolean z) {
-        for (int size = cjz.size() - 1; size >= 0; size--) {
-            a aVar = cjz.get(size);
+    public static void ek(boolean z) {
+        for (int size = coo.size() - 1; size >= 0; size--) {
+            a aVar = coo.get(size);
             if (aVar != null) {
-                aVar.ef(z);
+                aVar.ek(z);
             }
         }
     }
 
-    public static a lt(String str) {
+    public static a lB(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (int size = cjz.size() - 1; size >= 0; size--) {
-            a aVar = cjz.get(size);
-            if (aVar != null && TextUtils.equals(str, aVar.aey())) {
+        for (int size = coo.size() - 1; size >= 0; size--) {
+            a aVar = coo.get(size);
+            if (aVar != null && TextUtils.equals(str, aVar.afE())) {
                 return aVar;
             }
         }
         return null;
     }
 
-    public static a E(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+    public static a F(@Nullable String str, @Nullable String str2, @NonNull String str3) {
         if (TextUtils.isEmpty(str3)) {
             return null;
         }
-        for (int size = cjz.size() - 1; size >= 0; size--) {
-            a aVar = cjz.get(size);
-            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.aih())) || TextUtils.equals(str3, aVar.aey())))) {
+        for (int size = coo.size() - 1; size >= 0; size--) {
+            a aVar = coo.get(size);
+            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.ajn())) || TextUtils.equals(str3, aVar.afE())))) {
                 return aVar;
             }
         }
@@ -53,27 +53,27 @@ public final class b {
     }
 
     public static void a(a aVar) {
-        if (aVar != null && !cjz.contains(aVar)) {
-            cjz.add(aVar);
+        if (aVar != null && !coo.contains(aVar)) {
+            coo.add(aVar);
         }
     }
 
     public static void b(a aVar) {
         if (aVar != null) {
-            cjz.remove(aVar);
+            coo.remove(aVar);
         }
     }
 
-    public static void aij() {
-        cjz.clear();
+    public static void ajp() {
+        coo.clear();
     }
 
-    public static boolean lu(String str) {
+    public static boolean lC(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (int size = cjz.size() - 1; size >= 0; size--) {
-            a aVar = cjz.get(size);
+        for (int size = coo.size() - 1; size >= 0; size--) {
+            a aVar = coo.get(size);
             if (aVar != null && TextUtils.equals(str, aVar.getSlaveId()) && aVar.onBackPressed()) {
                 return true;
             }
@@ -83,8 +83,8 @@ public final class b {
 
     public static void destroy(String str) {
         if (!TextUtils.isEmpty(str)) {
-            for (int size = cjz.size() - 1; size >= 0; size--) {
-                a aVar = cjz.get(size);
+            for (int size = coo.size() - 1; size >= 0; size--) {
+                a aVar = coo.get(size);
                 if (aVar != null && TextUtils.equals(str, aVar.getSlaveId())) {
                     aVar.onDestroy();
                 }
@@ -93,8 +93,8 @@ public final class b {
     }
 
     public static void destroy() {
-        for (int size = cjz.size() - 1; size >= 0; size--) {
-            a aVar = cjz.get(size);
+        for (int size = coo.size() - 1; size >= 0; size--) {
+            a aVar = coo.get(size);
             if (aVar != null) {
                 aVar.onDestroy();
             }

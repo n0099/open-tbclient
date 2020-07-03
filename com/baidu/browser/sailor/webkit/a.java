@@ -8,8 +8,8 @@ import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes11.dex */
 public final class a {
     public static final String a = BdSailor.class.getName();
-    private static a adj;
-    public WebView adk;
+    private static a adN;
+    public WebView adO;
     public Context b;
     private boolean e;
 
@@ -17,36 +17,36 @@ public final class a {
     }
 
     public static void b() {
-        a ro = ro();
-        ro.f();
-        ro.b = null;
-        adj = null;
+        a rF = rF();
+        rF.f();
+        rF.b = null;
+        adN = null;
     }
 
     private void f() {
         Log.w(a, "BdWebViewSingleton, old instance has been destroyed");
-        if (this.adk != null) {
-            this.adk.destroy();
-            this.adk = null;
+        if (this.adO != null) {
+            this.adO.destroy();
+            this.adO = null;
         }
     }
 
-    public static a ro() {
-        if (adj == null) {
-            adj = new a();
-        } else if (adj.adk != null && (adj.e ^ BdZeusUtil.isWebkitLoaded())) {
+    public static a rF() {
+        if (adN == null) {
+            adN = new a();
+        } else if (adN.adO != null && (adN.e ^ BdZeusUtil.isWebkitLoaded())) {
             Log.d(a, "BdWebViewSingleton, re-new instance need because of the kernel changed");
-            adj.f();
-            adj.e();
+            adN.f();
+            adN.e();
         }
-        return adj;
+        return adN;
     }
 
     public final boolean c() {
         Log.d(a, "BdWebViewSingleton pauseTimer");
         try {
             e();
-            this.adk.pauseTimers();
+            this.adO.pauseTimers();
             return true;
         } catch (Exception e) {
             Log.printStackTrace(e);
@@ -58,7 +58,7 @@ public final class a {
         Log.d(a, "BdWebViewSingleton resumeTimer");
         try {
             e();
-            this.adk.resumeTimers();
+            this.adO.resumeTimers();
             return true;
         } catch (Exception e) {
             Log.printStackTrace(e);
@@ -67,7 +67,7 @@ public final class a {
     }
 
     public final void e() {
-        if (this.adk != null || this.b == null) {
+        if (this.adO != null || this.b == null) {
             return;
         }
         if (BdZeusUtil.isWebkitLoaded()) {
@@ -76,6 +76,6 @@ public final class a {
             this.e = false;
             Log.d(a, "BdWebViewSingleton init system webview,zeus was not load complete");
         }
-        this.adk = new WebView(this.b);
+        this.adO = new WebView(this.b);
     }
 }

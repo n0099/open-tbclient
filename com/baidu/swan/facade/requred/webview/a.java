@@ -8,7 +8,7 @@ public class a extends com.baidu.swan.apps.adaptation.implementation.b {
     public JSONObject getRawSwitch() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (com.baidu.swan.f.b.aKi()) {
+            if (com.baidu.swan.f.b.aLo()) {
                 jSONObject.put("swanswitch_android_setdata", 1);
             }
             jSONObject.put("swanswitch_ab_inline_video", 1);
@@ -21,7 +21,7 @@ public class a extends com.baidu.swan.apps.adaptation.implementation.b {
     }
 
     @Override // com.baidu.swan.apps.adaptation.implementation.b, com.baidu.swan.apps.adaptation.a.d
-    public boolean Rs() {
+    public boolean Sy() {
         return false;
     }
 }

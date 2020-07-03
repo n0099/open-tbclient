@@ -17,40 +17,40 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public final class a implements c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Set<b<?>> cKL = new HashSet();
-    private final Set<Object> cKM = new HashSet();
-    private int cKN = 0;
-    private int cKO = 0;
-    private int cKP = 0;
-    private int cKQ = 0;
-    private int cKR = -1;
-    private int cKS = 0;
-    private final Object[] cKT;
+    private final Object[] cPD;
+    private final Set<b<?>> cPv = new HashSet();
+    private final Set<Object> cPw = new HashSet();
+    private int cPx = 0;
+    private int cPy = 0;
+    private int cPz = 0;
+    private int cPA = 0;
+    private int cPB = -1;
+    private int cPC = 0;
 
     private a(Object... objArr) {
-        this.cKT = objArr == null ? new Object[0] : objArr;
+        this.cPD = objArr == null ? new Object[0] : objArr;
     }
 
     public static a n(Object... objArr) {
         return new a(objArr);
     }
 
-    public boolean aud() {
-        return this.cKS > 0;
+    public boolean avj() {
+        return this.cPC > 0;
     }
 
     public a a(b<?>... bVarArr) {
         if (bVarArr != null) {
-            this.cKL.addAll(Arrays.asList(bVarArr));
+            this.cPv.addAll(Arrays.asList(bVarArr));
         }
         return this;
     }
 
-    public a hM(int i) {
+    public a hX(int i) {
         Object[] objArr;
-        if (!aud() && i > 0) {
-            this.cKS = i;
-            for (Object obj : this.cKT) {
+        if (!avj() && i > 0) {
+            this.cPC = i;
+            for (Object obj : this.cPD) {
                 if (obj instanceof Class) {
                     a(i, (Class) obj);
                 } else if (obj instanceof Annotation) {
@@ -66,46 +66,46 @@ public final class a implements c {
                 }
             }
         }
-        aue();
-        this.cKS = 0;
+        avk();
+        this.cPC = 0;
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Class<?>... clsArr) {
-        return a(cKU, i, clsArr);
+        return a(cPE, i, clsArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Package... packageArr) {
-        return a(cKV, i, packageArr);
+        return a(cPF, i, packageArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Annotation... annotationArr) {
-        return a(cKW, i, annotationArr);
+        return a(cPG, i, annotationArr);
     }
 
     public a a(int i, @NonNull Method... methodArr) {
-        return a(cKY, i, methodArr);
+        return a(cPI, i, methodArr);
     }
 
     public a a(int i, @NonNull Field... fieldArr) {
-        return a(cKX, i, fieldArr);
+        return a(cPH, i, fieldArr);
     }
 
     public a a(int i, Constructor<?>... constructorArr) {
-        return a(cKZ, i, constructorArr);
+        return a(cPJ, i, constructorArr);
     }
 
     @RequiresApi(api = 26)
     public a a(int i, Parameter... parameterArr) {
-        return a(cLa, i, parameterArr);
+        return a(cPK, i, parameterArr);
     }
 
     @SafeVarargs
     private final <TargeT> a a(@NonNull b<TargeT> bVar, int i, TargeT... targetArr) {
-        if (!this.cKL.contains(bVar)) {
+        if (!this.cPv.contains(bVar)) {
             int i2 = i - 1;
             if (i > 0 && targetArr != null && targetArr.length > 0) {
                 for (TargeT target : targetArr) {
@@ -120,15 +120,15 @@ public final class a implements c {
     }
 
     private <TargeT> boolean U(TargeT target) {
-        this.cKN++;
+        this.cPx++;
         if (target == null) {
-            this.cKP++;
+            this.cPz++;
             return false;
-        } else if (this.cKM.contains(target)) {
-            this.cKO++;
+        } else if (this.cPw.contains(target)) {
+            this.cPy++;
             return false;
         } else {
-            this.cKM.add(target);
+            this.cPw.add(target);
             return true;
         }
     }
@@ -137,32 +137,32 @@ public final class a implements c {
         if (DEBUG) {
             int i3 = i + 1;
             if (-1 < i3) {
-                this.cKR = (this.cKR < 0 || this.cKR > i3) ? i3 : this.cKR;
-                this.cKQ = i3 > this.cKQ ? i3 : this.cKQ;
+                this.cPB = (this.cPB < 0 || this.cPB > i3) ? i3 : this.cPB;
+                this.cPA = i3 > this.cPA ? i3 : this.cPA;
             }
-            int size = this.cKM.size();
+            int size = this.cPw.size();
             Object[] objArr = new Object[10];
             objArr[0] = str;
             if (i3 < 0) {
-                i3 = this.cKS;
+                i3 = this.cPC;
             }
             objArr[1] = Integer.valueOf(i3);
-            objArr[2] = Integer.valueOf(this.cKR);
-            objArr[3] = Integer.valueOf(this.cKQ);
+            objArr[2] = Integer.valueOf(this.cPB);
+            objArr[3] = Integer.valueOf(this.cPA);
             objArr[4] = Integer.valueOf(i2);
-            objArr[5] = NumberFormat.getPercentInstance().format(size / this.cKN);
+            objArr[5] = NumberFormat.getPercentInstance().format(size / this.cPx);
             objArr[6] = Integer.valueOf(size);
-            objArr[7] = Integer.valueOf(this.cKP);
-            objArr[8] = Integer.valueOf(this.cKO);
-            objArr[9] = Integer.valueOf(this.cKN);
+            objArr[7] = Integer.valueOf(this.cPz);
+            objArr[8] = Integer.valueOf(this.cPy);
+            objArr[9] = Integer.valueOf(this.cPx);
             Log.i("ClassWalker", String.format("load %13s => Depth:%3d[%2d/%-2d] Targets:%-7d Cached:%-7s Record:%-7d Void:%-7d Hit:%-7d Total:%-7d", objArr));
         }
     }
 
-    private a aue() {
+    private a avk() {
         if (DEBUG) {
             ArrayList<String> arrayList = new ArrayList();
-            for (Object obj : this.cKM) {
+            for (Object obj : this.cPw) {
                 if (obj != null) {
                     arrayList.add("Cached => " + obj.getClass().getName() + " # " + obj);
                 }
@@ -172,7 +172,7 @@ public final class a implements c {
             for (String str : arrayList) {
                 Log.i("ClassWalker", str);
             }
-            m("Report", -2, this.cKT.length);
+            m("Report", -2, this.cPD.length);
         }
         return this;
     }

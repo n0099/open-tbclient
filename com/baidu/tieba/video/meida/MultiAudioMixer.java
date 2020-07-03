@@ -8,25 +8,25 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 /* loaded from: classes10.dex */
 public abstract class MultiAudioMixer {
-    private b lGv;
+    private b mak;
 
     /* loaded from: classes10.dex */
     public interface b {
-        void Fb(int i);
+        void Ge(int i);
 
-        void ag(byte[] bArr) throws IOException;
+        void ai(byte[] bArr) throws IOException;
 
-        void djN();
+        void dnZ();
     }
 
     abstract byte[] c(byte[][] bArr);
 
-    public static MultiAudioMixer djM() {
+    public static MultiAudioMixer dnY() {
         return new a();
     }
 
     public void a(b bVar) {
-        this.lGv = bVar;
+        this.mak = bVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[ARITH, INVOKE, ARITH, IF, INVOKE, MOVE_EXCEPTION, AGET, IF, ARRAY_LENGTH, INVOKE, MOVE_EXCEPTION] complete} */
@@ -45,8 +45,8 @@ public abstract class MultiAudioMixer {
                     fileInputStreamArr[i2] = new FileInputStream(fileArr[i2]);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    if (this.lGv != null) {
-                        this.lGv.Fb(1);
+                    if (this.mak != null) {
+                        this.mak.Ge(1);
                     }
                     try {
                         int length2 = fileInputStreamArr.length;
@@ -89,8 +89,8 @@ public abstract class MultiAudioMixer {
                 }
             }
             byte[] c = c(bArr);
-            if (c != null && this.lGv != null) {
-                this.lGv.ag(c);
+            if (c != null && this.mak != null) {
+                this.mak.ai(c);
             }
             z = true;
             for (boolean z2 : zArr) {
@@ -99,8 +99,8 @@ public abstract class MultiAudioMixer {
                 }
             }
         } while (!z);
-        if (this.lGv != null) {
-            this.lGv.djN();
+        if (this.mak != null) {
+            this.mak.dnZ();
         }
     }
 

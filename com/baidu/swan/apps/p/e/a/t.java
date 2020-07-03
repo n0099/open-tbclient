@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class t extends com.baidu.swan.apps.p.a<com.baidu.swan.apps.p.e.b.a> {
     @Override // com.baidu.swan.apps.p.a
     @NonNull
-    public String aek() {
+    public String afq() {
         return "updateVideoRect";
     }
 

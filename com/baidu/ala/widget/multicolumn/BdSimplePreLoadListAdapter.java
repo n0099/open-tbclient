@@ -9,16 +9,16 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ListAdapter;
 import android.widget.WrapperListAdapter;
-import com.baidu.adp.widget.ListView.e;
-import com.baidu.adp.widget.ListView.p;
+import com.baidu.adp.widget.ListView.f;
+import com.baidu.adp.widget.ListView.r;
 /* loaded from: classes3.dex */
-public class BdSimplePreLoadListAdapter extends BaseAdapter implements p {
+public class BdSimplePreLoadListAdapter extends BaseAdapter implements r {
     private DataSetObserver mAdapterDataSetObserver;
     private Context mContext;
     private ListAdapter mAdapter = null;
     private boolean mIsFilterable = false;
     private DataSetObserver mDataSetObserver = null;
-    private e.a mListPreLoad = null;
+    private f.a mListPreLoad = null;
 
     public BdSimplePreLoadListAdapter(Context context) {
         this.mContext = null;
@@ -46,7 +46,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements p {
         };
     }
 
-    public void setListPreLoad(e.a aVar) {
+    public void setListPreLoad(f.a aVar) {
         this.mListPreLoad = aVar;
     }
 
@@ -100,7 +100,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements p {
         return this.mAdapter;
     }
 
-    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.p
+    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.r
     public int getCount() {
         if (this.mAdapter != null) {
             return this.mAdapter.getCount();
@@ -108,7 +108,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements p {
         return 0;
     }
 
-    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.p
+    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.r
     public Object getItem(int i) {
         if (this.mAdapter != null) {
             return this.mAdapter.getItem(i);
@@ -137,7 +137,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements p {
         return this.mAdapter != null ? this.mAdapter.hasStableIds() : super.hasStableIds();
     }
 
-    @Override // android.widget.BaseAdapter, com.baidu.adp.widget.ListView.p
+    @Override // android.widget.BaseAdapter, com.baidu.adp.widget.ListView.r
     public void notifyDataSetChanged() {
         super.notifyDataSetChanged();
         if (this.mAdapter instanceof BaseAdapter) {

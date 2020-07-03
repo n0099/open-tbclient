@@ -19,14 +19,14 @@ public class d {
         return this.error == null;
     }
 
-    public String cz(String str, String str2) {
+    public String cB(String str, String str2) {
         if (isSuccess()) {
-            return a.sy(str);
+            return a.sG(str);
         }
-        return a.P(str, str2, aBU());
+        return a.Q(str, str2, aDa());
     }
 
-    public String aBU() {
+    public String aDa() {
         return this.error;
     }
 
@@ -34,11 +34,11 @@ public class d {
         return this.data;
     }
 
-    public static Object aBV() {
+    public static Object aDb() {
         return new JsObject();
     }
 
-    public static String iw(int i) {
+    public static String iH(int i) {
         switch (i) {
             case 1:
                 return "boolean";
@@ -70,7 +70,7 @@ public class d {
         return new d(null, obj);
     }
 
-    public static d sz(@NonNull String str) {
+    public static d sH(@NonNull String str) {
         return new d(str, null);
     }
 
@@ -78,8 +78,8 @@ public class d {
         if (dVar.isSuccess()) {
             return dVar.getData();
         }
-        String P = a.P(str, str2, dVar.aBU());
-        bVar.throwJSException(JSExceptionType.Error, P);
-        return P;
+        String Q = a.Q(str, str2, dVar.aDa());
+        bVar.throwJSException(JSExceptionType.Error, Q);
+        return Q;
     }
 }

@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.data.MetaData;
 import java.util.HashMap;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes9.dex */
-public class x implements com.baidu.adp.widget.ListView.o {
-    public static final BdUniqueId jNR = BdUniqueId.gen();
+public class x implements com.baidu.adp.widget.ListView.q {
+    public static final BdUniqueId khF = BdUniqueId.gen();
     public String cover;
-    public MetaData dFJ;
+    public MetaData dMu;
     public String description;
     public boolean isChushou;
-    public int jNS;
+    public int khG;
     public long liveId;
     public int liveStatus;
     public String routeType;
@@ -19,9 +19,9 @@ public class x implements com.baidu.adp.widget.ListView.o {
     public String thirdRoomId;
     private HashMap<String, MetaData> userMap;
     public String userName;
-    private boolean dCL = false;
-    public boolean jNT = false;
-    public boolean jNU = false;
+    private boolean dJg = false;
+    public boolean khH = false;
+    public boolean khI = false;
 
     public void a(AlaLiveInfo alaLiveInfo) {
         MetaData metaData;
@@ -29,7 +29,7 @@ public class x implements com.baidu.adp.widget.ListView.o {
             this.userName = alaLiveInfo.user_info.user_name;
             this.description = alaLiveInfo.description;
             this.cover = alaLiveInfo.cover;
-            this.jNS = alaLiveInfo.audience_count.intValue();
+            this.khG = alaLiveInfo.audience_count.intValue();
             this.liveStatus = alaLiveInfo.live_status.intValue();
             this.liveId = alaLiveInfo.live_id.longValue();
             this.isChushou = alaLiveInfo.live_from.intValue() == 1;
@@ -37,40 +37,40 @@ public class x implements com.baidu.adp.widget.ListView.o {
             this.thirdRoomId = alaLiveInfo.third_room_id;
             this.routeType = alaLiveInfo.router_type;
             if (alaLiveInfo.user_info.user_id != null && alaLiveInfo.user_info.user_id.longValue() > 0 && this.userMap != null && (metaData = this.userMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
-                this.dFJ = metaData;
-                this.dFJ.setIsLike(this.dFJ.hadConcerned());
+                this.dMu = metaData;
+                this.dMu.setIsLike(this.dMu.hadConcerned());
             }
-            this.dCL = true;
+            this.dJg = true;
         }
     }
 
     public boolean isValid() {
-        return this.dCL;
+        return this.dJg;
     }
 
     public void reset() {
         this.userName = null;
-        this.jNS = 0;
+        this.khG = 0;
         this.description = null;
         this.cover = null;
         this.liveStatus = 0;
         this.liveId = 0L;
-        this.dFJ = null;
+        this.dMu = null;
         this.userMap = null;
         this.isChushou = false;
         this.thirdLiveType = null;
         this.thirdRoomId = null;
         this.routeType = null;
-        this.jNU = false;
-        this.dCL = false;
+        this.khI = false;
+        this.dJg = false;
     }
 
     public void setUserMap(HashMap<String, MetaData> hashMap) {
         this.userMap = hashMap;
     }
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return jNR;
+        return khF;
     }
 }

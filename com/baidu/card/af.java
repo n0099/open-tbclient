@@ -1,51 +1,38 @@
 package com.baidu.card;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
+import android.content.Context;
+import android.view.View;
+import com.baidu.card.view.SmartAppBottomLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 /* loaded from: classes8.dex */
-public class af {
-    private static final int afh = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44);
-    private static final int afi = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-    public static final int afj = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds15);
-    boolean afk = false;
-    int afl = afi;
-    int afm = 0;
-    int afn = afj;
-    int afo = afh;
-    int afp = 0;
-    int afq = afh;
-    int afr = afh;
-    int afs = R.color.cp_bg_line_e;
+public class af extends h {
+    private SmartAppBottomLayout afp;
 
-    public void be(int i) {
-        this.afl = i;
+    public af(Context context) {
+        super(context);
+        this.afp = new SmartAppBottomLayout(context);
     }
 
-    public void bf(int i) {
-        this.afm = i;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.card.b
+    public View getView() {
+        return this.afp;
     }
 
-    public void bg(int i) {
-        this.afn = i;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.card.n
+    /* renamed from: b */
+    public void D(AbsThreadDataSupport absThreadDataSupport) {
+        if (this.afp != null) {
+            this.afp.D(absThreadDataSupport);
+        }
     }
 
-    public void bh(int i) {
-        this.afo = i;
-    }
-
-    public void bi(int i) {
-        this.afp = i;
-    }
-
-    public void bj(int i) {
-        this.afq = i;
-    }
-
-    public void bk(int i) {
-        this.afr = i;
-    }
-
-    public void setBackgroundResource(int i) {
-        this.afs = i;
+    @Override // com.baidu.card.o
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        if (this.afp != null) {
+            this.afp.onChangeSkinType();
+        }
     }
 }

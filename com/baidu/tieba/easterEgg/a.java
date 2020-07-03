@@ -1,14 +1,14 @@
 package com.baidu.tieba.easterEgg;
 
 import android.webkit.JsPromptResult;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a implements com.baidu.tieba.tbadkCore.e.b {
-    private List<c> gMi = new ArrayList();
+    private List<c> gZf = new ArrayList();
 
     public a() {
         a(new com.baidu.tieba.easterEgg.b.a.b());
@@ -17,14 +17,14 @@ public class a implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     public void a(c cVar) {
-        if (cVar != null && this.gMi != null) {
-            this.gMi.add(cVar);
+        if (cVar != null && this.gZf != null) {
+            this.gZf.add(cVar);
         }
     }
 
     public void clearListener() {
-        if (this.gMi != null) {
-            this.gMi.clear();
+        if (this.gZf != null) {
+            this.gZf.clear();
         }
     }
 
@@ -34,9 +34,9 @@ public class a implements com.baidu.tieba.tbadkCore.e.b {
             try {
                 JSONObject jSONObject = new JSONObject(str3);
                 String optString = jSONObject.optString("method_name");
-                if (!aq.isEmpty(str2)) {
+                if (!ar.isEmpty(str2)) {
                     String trim = optString.trim();
-                    for (c cVar : this.gMi) {
+                    for (c cVar : this.gZf) {
                         if (trim.equals(cVar.getMethodName())) {
                             cVar.a(trim, jSONObject.optString("args"), jSONObject.optString("native_exts"), jSONObject.optString("native_clbk"), jsPromptResult);
                         }

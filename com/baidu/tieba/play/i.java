@@ -3,7 +3,7 @@ package com.baidu.tieba.play;
 import android.content.Context;
 /* loaded from: classes.dex */
 public interface i {
-    String ao(String str, boolean z);
+    String aq(String str, boolean z);
 
     void aq(Context context, String str);
 
@@ -13,11 +13,11 @@ public interface i {
 
     void d(Context context, String str, int i);
 
-    String zB(String str);
+    String zU(String str);
 
-    String zC(String str);
+    String zV(String str);
 
-    void zD(String str);
+    void zW(String str);
 
-    String zE(String str);
+    String zX(String str);
 }

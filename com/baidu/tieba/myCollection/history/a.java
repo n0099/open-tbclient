@@ -6,65 +6,79 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.mvc.d.b;
 import com.baidu.tieba.R;
 import java.util.Date;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.baseHistory.a, b> {
-    private TextView dWI;
-    private TextView gnU;
-    private TextView jvx;
+    private TextView eee;
+    private TextView gAK;
+    private TextView jMQ;
+    private TextView jMR;
     private View mLine;
     private View mRootView;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mRootView = view;
-        this.jvx = (TextView) view.findViewById(R.id.title);
-        this.dWI = (TextView) view.findViewById(R.id.content);
-        this.dWI.setSingleLine();
-        this.dWI.setEllipsize(TextUtils.TruncateAt.END);
-        this.gnU = (TextView) view.findViewById(R.id.time);
+        this.jMQ = (TextView) view.findViewById(R.id.title);
+        this.eee = (TextView) view.findViewById(R.id.content);
+        this.eee.setSingleLine();
+        this.eee.setEllipsize(TextUtils.TruncateAt.END);
+        this.gAK = (TextView) view.findViewById(R.id.time);
+        this.jMR = (TextView) view.findViewById(R.id.live_status);
         this.mLine = view.findViewById(R.id.line);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
     /* renamed from: a */
-    public void an(com.baidu.tieba.myCollection.baseHistory.a aVar) {
-        super.an(aVar);
+    public void ao(com.baidu.tieba.myCollection.baseHistory.a aVar) {
+        super.ao(aVar);
         if (aVar != null) {
-            if (this.jvx != null) {
+            if (this.jMQ != null) {
                 if (aVar.getThreadType() == 49) {
                     if (StringUtils.isNull(aVar.getDescription())) {
-                        this.jvx.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
+                        if (StringUtils.isNull(aVar.getUserName())) {
+                            this.jMQ.setText(getString(R.string.pb_history_default_user_name));
+                        } else {
+                            this.jMQ.setText(aVar.getUserName());
+                        }
                     } else {
-                        this.jvx.setText(aVar.getDescription());
+                        this.jMQ.setText(aVar.getDescription());
                     }
-                } else if (aVar.czK() != null) {
+                } else if (aVar.cDH() != null) {
                     if (aVar.isShareThread()) {
-                        this.jvx.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.czK()));
+                        this.jMQ.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.cDH()));
                     } else {
-                        this.jvx.setText(aVar.czK());
+                        this.jMQ.setText(aVar.cDH());
                     }
                 }
             }
-            if (this.dWI != null) {
+            if (this.eee != null) {
                 if (aVar.getThreadType() == 49 && !TextUtils.isEmpty(aVar.getUserName())) {
-                    this.dWI.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
+                    this.eee.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
+                } else if (aVar.getThreadType() == 49) {
+                    this.eee.setText(String.format(getString(R.string.pb_history_user_name), getString(R.string.pb_history_default_user_name)));
                 } else if (aVar.getForumName() != null) {
-                    this.dWI.setText(aVar.getForumName());
+                    this.eee.setText(aVar.getForumName());
                 }
             }
-            if (this.gnU != null) {
-                String j = aq.j(new Date(aVar.getTime()));
+            if (aVar.getThreadType() == 49) {
+                this.jMR.setVisibility(aVar.cDK() ? 0 : 8);
+            } else {
+                this.jMR.setVisibility(8);
+            }
+            if (this.gAK != null) {
+                String j = ar.j(new Date(aVar.getTime()));
                 if (j == null) {
                     j = "";
                 }
-                this.gnU.setText(j);
+                this.gAK.setText(j);
             }
         }
     }
@@ -72,11 +86,13 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     @Override // com.baidu.tieba.tbadkCore.r
     @SuppressLint({"ResourceAsColor"})
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        am.setBackgroundResource(this.mRootView, R.drawable.list_item_selector);
-        am.setBackgroundResource(this.mLine, R.color.cp_bg_line_c);
-        am.setViewTextColor(this.jvx, R.color.cp_cont_b, 1);
-        am.setViewTextColor(this.dWI, R.color.cp_cont_d, 1);
-        am.setViewTextColor(this.gnU, R.color.cp_cont_d, 1);
+        an.setBackgroundResource(this.mRootView, R.drawable.list_item_selector);
+        an.setBackgroundResource(this.mLine, R.color.cp_bg_line_c);
+        an.setViewTextColor(this.jMQ, R.color.cp_cont_b, 1);
+        an.setViewTextColor(this.eee, R.color.cp_cont_d, 1);
+        an.setViewTextColor(this.gAK, R.color.cp_cont_d, 1);
+        an.setViewTextColor(this.jMR, (int) R.color.cp_cont_a);
+        com.baidu.tbadk.core.util.e.a.aXq().lL(UtilHelper.getDimenPixelSize(R.dimen.tbds6)).b("LEFT_RIGHT", R.color.cp_other_b, R.color.cp_cont_h).aR(this.jMR);
         return true;
     }
 }

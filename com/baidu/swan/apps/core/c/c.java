@@ -13,7 +13,7 @@ public class c {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void g(boolean z, String str);
+        void h(boolean z, String str);
     }
 
     public static void a(@NonNull e eVar, @NonNull final Context context, @NonNull final a aVar) {
@@ -22,23 +22,23 @@ public class c {
             public void m(Exception exc) {
                 com.baidu.swan.apps.console.c.e("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
                 String message = exc.getMessage();
-                aVar.g(false, context.getString(a.h.aiapps_authenticate_fail) + (TextUtils.isEmpty(message) ? "" : "\n" + message));
+                aVar.h(false, context.getString(a.h.aiapps_authenticate_fail) + (TextUtils.isEmpty(message) ? "" : "\n" + message));
             }
 
             @Override // com.baidu.swan.apps.adaptation.a.e.a
-            public void df(boolean z) {
+            public void dk(boolean z) {
                 if (!z) {
                     com.baidu.swan.apps.console.c.e("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
-                    aVar.g(false, context.getString(a.h.aiapps_authenticate_fail));
+                    aVar.h(false, context.getString(a.h.aiapps_authenticate_fail));
                     return;
                 }
                 com.baidu.swan.apps.console.c.e("DeveloperAuthenticateHelper", "Authentication Success");
-                aVar.g(true, "");
+                aVar.h(true, "");
             }
         });
     }
 
     public static void R(Context context, String str) {
-        new g.a(context).e(context.getString(a.h.aiapps_debug_switch_title)).nq(str).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_confirm, (DialogInterface.OnClickListener) null).aon();
+        new g.a(context).e(context.getString(a.h.aiapps_debug_switch_title)).ny(str).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_confirm, (DialogInterface.OnClickListener) null).apu();
     }
 }

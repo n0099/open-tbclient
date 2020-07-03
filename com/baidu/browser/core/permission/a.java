@@ -5,39 +5,39 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class a {
-    private static a acp = new a();
-    private Map<Integer, a.InterfaceC0125a> aco = new HashMap();
+    private static a acU = new a();
+    private Map<Integer, a.InterfaceC0127a> acT = new HashMap();
 
     private a() {
     }
 
-    public static a rk() {
-        return acp;
+    public static a rB() {
+        return acU;
     }
 
-    public void a(int i, a.InterfaceC0125a interfaceC0125a) {
-        if (this.aco != null) {
+    public void a(int i, a.InterfaceC0127a interfaceC0127a) {
+        if (this.acT != null) {
             synchronized (a.class) {
-                if (this.aco.containsKey(Integer.valueOf(i))) {
-                    this.aco.remove(Integer.valueOf(i));
+                if (this.acT.containsKey(Integer.valueOf(i))) {
+                    this.acT.remove(Integer.valueOf(i));
                 }
-                this.aco.put(Integer.valueOf(i), interfaceC0125a);
+                this.acT.put(Integer.valueOf(i), interfaceC0127a);
             }
         }
     }
 
-    public void aV(int i) {
+    public void bb(int i) {
         synchronized (a.class) {
-            if (this.aco != null && this.aco.containsKey(Integer.valueOf(i))) {
-                this.aco.remove(Integer.valueOf(i));
+            if (this.acT != null && this.acT.containsKey(Integer.valueOf(i))) {
+                this.acT.remove(Integer.valueOf(i));
             }
         }
     }
 
-    public a.InterfaceC0125a aW(int i) {
-        if (this.aco == null || !this.aco.containsKey(Integer.valueOf(i))) {
+    public a.InterfaceC0127a bc(int i) {
+        if (this.acT == null || !this.acT.containsKey(Integer.valueOf(i))) {
             return null;
         }
-        return this.aco.get(Integer.valueOf(i));
+        return this.acT.get(Integer.valueOf(i));
     }
 }

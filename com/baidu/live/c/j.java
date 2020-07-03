@@ -1,14 +1,12 @@
 package com.baidu.live.c;
 
 import android.content.Context;
-import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 /* loaded from: classes3.dex */
 public class j extends IntentConfig {
-    public j(Context context, int i, int i2) {
+    public j(Context context, String str, String str2) {
         super(context);
-        setRequestCode(i);
-        setIntentAction(IntentAction.ActivityForResult);
-        getIntent().putExtra("item_count", i2);
+        getIntent().putExtra("charm_value", str2);
+        getIntent().putExtra("user_id", str);
     }
 }

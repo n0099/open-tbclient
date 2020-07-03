@@ -131,8 +131,8 @@ public final class CompositeException extends RuntimeException {
                 appendStackTrace(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                synchronized (aVar.dPK()) {
-                    aVar.bA(sb.toString());
+                synchronized (aVar.dUq()) {
+                    aVar.bB(sb.toString());
                 }
                 return;
             }
@@ -153,9 +153,9 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static abstract class a {
-        abstract void bA(Object obj);
+        abstract void bB(Object obj);
 
-        abstract Object dPK();
+        abstract Object dUq();
 
         a() {
         }
@@ -164,39 +164,39 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static final class b extends a {
-        private final PrintStream nnF;
+        private final PrintStream nJu;
 
         b(PrintStream printStream) {
-            this.nnF = printStream;
+            this.nJu = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object dPK() {
-            return this.nnF;
+        Object dUq() {
+            return this.nJu;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        void bA(Object obj) {
-            this.nnF.println(obj);
+        void bB(Object obj) {
+            this.nJu.println(obj);
         }
     }
 
     /* loaded from: classes6.dex */
     static final class c extends a {
-        private final PrintWriter nnG;
+        private final PrintWriter nJv;
 
         c(PrintWriter printWriter) {
-            this.nnG = printWriter;
+            this.nJv = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object dPK() {
-            return this.nnG;
+        Object dUq() {
+            return this.nJv;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        void bA(Object obj) {
-            this.nnG.println(obj);
+        void bB(Object obj) {
+            this.nJv.println(obj);
         }
     }
 

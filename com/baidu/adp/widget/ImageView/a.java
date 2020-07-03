@@ -16,10 +16,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class a {
     public static final Object lockForSyncImageDecoder = new Object();
-    public C0031a TA;
-    private int Tx;
-    private int Ty;
-    private com.baidu.adp.gif.b Tz;
+    private int Ua;
+    private int Ub;
+    private com.baidu.adp.gif.b Uc;
+    public C0031a Ue;
     private AtomicBoolean drawingNow;
     private Bitmap image;
     private volatile boolean isGif;
@@ -38,7 +38,7 @@ public class a {
     /* renamed from: com.baidu.adp.widget.ImageView.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0031a {
-        public long TC;
+        public long Ug;
         public long costTime;
         public boolean isScuess;
         public String resourceFromType;
@@ -56,7 +56,7 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.TA = new C0031a();
+        this.Ue = new C0031a();
         this.image = bitmap;
         this.isGif = z;
         checkIsNinePatchBitmap();
@@ -74,7 +74,7 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.TA = new C0031a();
+        this.Ue = new C0031a();
         this.image = bitmap;
         this.isGif = z;
         this.url = str;
@@ -93,7 +93,7 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.TA = new C0031a();
+        this.Ue = new C0031a();
         this.image = bitmap;
         this.isGif = z;
         this.url = str;
@@ -113,7 +113,7 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.TA = new C0031a();
+        this.Ue = new C0031a();
         this.image = bitmap;
         this.isGif = z;
         this.url = str;
@@ -133,8 +133,8 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.TA = new C0031a();
-        this.Tz = bVar;
+        this.Ue = new C0031a();
+        this.Uc = bVar;
         this.image = bitmap;
         this.isGif = z;
     }
@@ -151,8 +151,8 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.TA = new C0031a();
-        this.Tz = bVar;
+        this.Ue = new C0031a();
+        this.Uc = bVar;
         this.mIsEmotionGif = true;
     }
 
@@ -169,7 +169,7 @@ public class a {
     }
 
     public com.baidu.adp.gif.b getGif() {
-        return this.Tz;
+        return this.Uc;
     }
 
     public int getWidth() {
@@ -241,9 +241,9 @@ public class a {
                 this.image = null;
                 bitmap.recycle();
             }
-            if (this.Tz != null) {
-                com.baidu.adp.gif.b bVar = this.Tz;
-                this.Tz = null;
+            if (this.Uc != null) {
+                com.baidu.adp.gif.b bVar = this.Uc;
+                this.Uc = null;
                 bVar.close();
             }
             return true;
@@ -317,12 +317,12 @@ public class a {
         return this.isNinePatchBitmap;
     }
 
-    public void av(int i) {
-        this.Tx = i;
+    public void aB(int i) {
+        this.Ua = i;
     }
 
-    public void aw(int i) {
-        this.Ty = i;
+    public void aC(int i) {
+        this.Ub = i;
     }
 
     public void setNeedCache(boolean z) {

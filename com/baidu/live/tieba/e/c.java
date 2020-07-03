@@ -7,7 +7,7 @@ import android.provider.Settings;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class c extends ContentObserver {
-    private a bcG;
+    private a bhQ;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -20,14 +20,14 @@ public class c extends ContentObserver {
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        GY();
+        Il();
     }
 
-    private void GY() {
+    private void Il() {
         try {
             int i = Settings.System.getInt(TbadkCoreApplication.getInst().getContentResolver(), "accelerometer_rotation");
-            if (this.bcG != null) {
-                this.bcG.onChange(i == 1);
+            if (this.bhQ != null) {
+                this.bhQ.onChange(i == 1);
             }
         } catch (Settings.SettingNotFoundException e) {
             e.printStackTrace();
@@ -35,7 +35,7 @@ public class c extends ContentObserver {
     }
 
     public void a(a aVar) {
-        this.bcG = aVar;
-        GY();
+        this.bhQ = aVar;
+        Il();
     }
 }

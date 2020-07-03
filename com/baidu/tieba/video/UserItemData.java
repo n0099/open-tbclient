@@ -8,14 +8,14 @@ public class UserItemData implements Parcelable {
     public static final Parcelable.Creator<UserItemData> CREATOR = new Parcelable.Creator<UserItemData>() { // from class: com.baidu.tieba.video.UserItemData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: aa */
+        /* renamed from: ad */
         public UserItemData createFromParcel(Parcel parcel) {
             return new UserItemData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: EQ */
+        /* renamed from: FS */
         public UserItemData[] newArray(int i) {
             return new UserItemData[i];
         }
@@ -35,7 +35,7 @@ public class UserItemData implements Parcelable {
     public String user_name;
     public String video_num;
 
-    public String dhV() {
+    public String dmg() {
         return !TextUtils.isEmpty(this.name_show) ? this.name_show : this.user_name;
     }
 

@@ -16,7 +16,7 @@ public class a extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b id(String str) {
+    public com.baidu.swan.apps.api.c.b il(String str) {
         if (DEBUG) {
             Log.d("Api-Accelerometer", "start listen accelerometer");
         }
@@ -25,10 +25,10 @@ public class a extends com.baidu.swan.apps.api.a.d {
             public com.baidu.swan.apps.api.c.b a(com.baidu.swan.apps.runtime.e eVar, JSONObject jSONObject, @Nullable final String str2) {
                 com.baidu.swan.apps.console.c.i("Api-Accelerometer", " init ");
                 final i iVar = new i("accelerometerChange", jSONObject, str2);
-                com.baidu.swan.apps.am.a.a asf = com.baidu.swan.apps.am.a.a.asf();
-                asf.m(a.this.getContext(), C0311a.ie(jSONObject.optString("interval")));
-                asf.a(new a.InterfaceC0289a() { // from class: com.baidu.swan.apps.api.module.k.a.1.1
-                    @Override // com.baidu.swan.apps.am.a.a.InterfaceC0289a
+                com.baidu.swan.apps.am.a.a atm = com.baidu.swan.apps.am.a.a.atm();
+                atm.m(a.this.getContext(), C0317a.im(jSONObject.optString("interval")));
+                atm.a(new a.InterfaceC0295a() { // from class: com.baidu.swan.apps.api.module.k.a.1.1
+                    @Override // com.baidu.swan.apps.am.a.a.InterfaceC0295a
                     public void a(double[] dArr) {
                         if (dArr == null || dArr.length != 3) {
                             com.baidu.swan.apps.console.c.e("Api-Accelerometer", "illegal accelerometers");
@@ -48,35 +48,35 @@ public class a extends com.baidu.swan.apps.api.a.d {
                         }
                     }
                 });
-                asf.asg();
+                atm.atn();
                 iVar.a(a.this);
                 return new com.baidu.swan.apps.api.c.b(0);
             }
         });
     }
 
-    public com.baidu.swan.apps.api.c.b Up() {
+    public com.baidu.swan.apps.api.c.b Vv() {
         if (DEBUG) {
             Log.d("Api-Accelerometer", "stop accelerometer");
         }
         com.baidu.swan.apps.console.c.i("Api-Accelerometer", "stop listen accelerometer");
-        com.baidu.swan.apps.am.a.a.asf().ash();
+        com.baidu.swan.apps.am.a.a.atm().ato();
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
     /* renamed from: com.baidu.swan.apps.api.module.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0311a {
-        private static ArrayMap<String, Integer> bMr = new ArrayMap<>(3);
+    public static class C0317a {
+        private static ArrayMap<String, Integer> bRf = new ArrayMap<>(3);
 
         static {
-            bMr.put("ui", 60);
-            bMr.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
-            bMr.put("normal", 200);
+            bRf.put("ui", 60);
+            bRf.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
+            bRf.put("normal", 200);
         }
 
-        public static int ie(String str) {
-            Integer num = bMr.get(str);
+        public static int im(String str) {
+            Integer num = bRf.get(str);
             if (num != null) {
                 return num.intValue();
             }

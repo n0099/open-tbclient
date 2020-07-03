@@ -1,5 +1,16 @@
 package com.baidu.adp.widget.ListView;
+
+import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
-public interface s<T> extends p<T> {
-    int getPositionByType(int i, int i2);
+public interface s<V extends ViewGroup> {
+    int getContentViewsCount();
+
+    int getFooterViewsCount();
+
+    int getHeaderViewsCount();
+
+    V getListView();
+
+    boolean removeHeaderView(View view);
 }

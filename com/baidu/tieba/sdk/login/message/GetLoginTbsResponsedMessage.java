@@ -20,23 +20,23 @@ public class GetLoginTbsResponsedMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0) {
-            a cWN = com.baidu.tieba.sdk.login.a.cWK().cWN();
-            a.C0717a c0717a = new a.C0717a();
-            if (cWN != null) {
-                c0717a.LN(cWN.bduss);
-                c0717a.LL(cWN.userName);
-                c0717a.LM(cWN.nickName);
-                c0717a.LK(cWN.userId);
-                c0717a.LP(cWN.portrait);
-                c0717a.CK(cWN.sex);
+            a dbc = com.baidu.tieba.sdk.login.a.daZ().dbc();
+            a.C0733a c0733a = new a.C0733a();
+            if (dbc != null) {
+                c0733a.Mo(dbc.bduss);
+                c0733a.Mm(dbc.userName);
+                c0733a.Mn(dbc.nickName);
+                c0733a.Ml(dbc.userId);
+                c0733a.Mq(dbc.portrait);
+                c0733a.DM(dbc.sex);
             }
-            c0717a.CL(1);
+            c0733a.DN(1);
             if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI)) != null) {
-                c0717a.LO(optJSONObject.optString("tbs"));
+                c0733a.Mp(optJSONObject.optString("tbs"));
             }
-            AccountData cWS = c0717a.cWS();
-            TbadkCoreApplication.setCurrentAccount(cWS, TbadkCoreApplication.getInst().getApp().getApplicationContext());
-            c.uN().putString("ala_account_user_tbs", cWS.getTbs());
+            AccountData dbh = c0733a.dbh();
+            TbadkCoreApplication.setCurrentAccount(dbh, TbadkCoreApplication.getInst().getApp().getApplicationContext());
+            c.vf().putString("ala_account_user_tbs", dbh.getTbs());
         }
     }
 }

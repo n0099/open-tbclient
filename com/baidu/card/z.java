@@ -1,124 +1,193 @@
 package com.baidu.card;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
-public class z extends d implements n<bk>, o {
-    private static final int aew = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds62);
-    private int aeA = R.drawable.ic_icon_pure_card_delete_svg;
-    private int aeB = R.color.cp_cont_g;
-    private View.OnClickListener aeC = new View.OnClickListener() { // from class: com.baidu.card.z.1
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (z.this.aee != null) {
-                CustomMessage customMessage = new CustomMessage(2921428, z.this.mPageId);
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921428, z.this.aee);
-                customResponsedMessage.setOrginalMessage(customMessage);
-                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-            }
-        }
-    };
-    private bk aee;
-    private Align aev;
-    private ImageView aex;
-    private FrameLayout aey;
-    private int aez;
-    private BdUniqueId mPageId;
-    private RelativeLayout mRootView;
+public class z extends d implements n<com.baidu.tbadk.core.data.ap>, o {
+    private static final int afa = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds124);
+    public NEGFeedBackView afb;
+    private Align afc;
 
-    public z(Context context, int i) {
-        this.aez = 0;
-        this.aez = i;
-        this.mRootView = new RelativeLayout(context);
-        this.aex = new ImageView(context);
-        this.aey = new FrameLayout(context);
-        this.aey.addView(this.aex, new FrameLayout.LayoutParams(aew, aew));
-        this.aey.setOnClickListener(this.aeC);
-        b(Align.ALIGN_RIGHT_BOTTOM);
-        this.mRootView.addView(this.aey);
-        F(this.mRootView);
-        setInsertIndex(-1);
-        a(new RelativeLayout.LayoutParams(-1, -1));
+    public z(TbPageContext tbPageContext, boolean z) {
+        this(tbPageContext, z ? Align.ALIGN_RIGHT_BOTTOM : Align.ALIGN_RIGHT_TOP);
     }
 
-    public void b(Align align) {
-        if (align != this.aev) {
+    public z(TbPageContext tbPageContext, Align align) {
+        setInsertIndex(-1);
+        this.afb = new NEGFeedBackView(tbPageContext);
+        this.afb.setId(R.id.decor_item_right_id);
+        F(this.afb);
+        a(align);
+    }
+
+    public void a(Align align) {
+        if (this.afc != align) {
             if (align == Align.ALIGN_RIGHT_TOP) {
-                int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds77);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+                int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+                int dimens2 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+                int dimens3 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+                int dimens4 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimens, dimens);
                 layoutParams.addRule(11);
                 layoutParams.addRule(10);
-                layoutParams.rightMargin = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42);
-                layoutParams.topMargin = dimens;
-                layoutParams.bottomMargin = 0;
-                this.aey.setLayoutParams(layoutParams);
+                layoutParams.rightMargin = dimens3;
+                layoutParams.topMargin = dimens4;
+                a(layoutParams);
+                this.afb.setSvgResId(R.drawable.icon_pure_close12_n_svg, R.color.cp_cont_g);
+                this.afb.setPadding(dimens2, dimens2, dimens2, dimens2);
+                this.afb.setLayoutParams(layoutParams);
             } else if (align == Align.ALIGN_RIGHT_CENTER) {
-                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
+                int dimens5 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+                int dimens6 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+                int dimens7 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimens5, dimens5);
                 layoutParams2.addRule(11);
                 layoutParams2.addRule(15);
-                layoutParams2.rightMargin = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42);
-                layoutParams2.topMargin = 0;
+                layoutParams2.rightMargin = dimens7;
                 layoutParams2.bottomMargin = 0;
-                this.aey.setLayoutParams(layoutParams2);
+                a(layoutParams2);
+                this.afb.setSvgResId(R.drawable.icon_pure_close12_n_svg, R.color.cp_cont_g);
+                this.afb.setPadding(dimens6, dimens6, dimens6, dimens6);
+                this.afb.setLayoutParams(layoutParams2);
             } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
-                RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
+                int i = afa;
+                int dimens8 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+                int dimens9 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+                int dimens10 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+                RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i, i);
                 layoutParams3.addRule(11);
                 layoutParams3.addRule(12);
-                layoutParams3.rightMargin = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42);
-                layoutParams3.bottomMargin = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds51);
-                layoutParams3.topMargin = 0;
-                this.aey.setLayoutParams(layoutParams3);
+                layoutParams3.rightMargin = dimens9;
+                layoutParams3.bottomMargin = dimens10;
+                a(layoutParams3);
+                this.afb.setSvgResId(R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g);
+                this.afb.setPadding(dimens8, dimens8, dimens8, dimens8);
+                this.afb.setLayoutParams(layoutParams3);
             }
-            this.aev = align;
+            this.afc = align;
         }
     }
 
-    public void e(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport.aOp()) {
-            b(Align.ALIGN_RIGHT_TOP);
-        } else {
-            b(Align.ALIGN_RIGHT_BOTTOM);
+    private void d(AbsThreadDataSupport absThreadDataSupport) {
+        if (absThreadDataSupport.aPZ()) {
+            int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+            int dimens2 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+            int dimens3 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+            int dimens4 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimens, dimens);
+            layoutParams.addRule(11);
+            layoutParams.addRule(10);
+            layoutParams.rightMargin = dimens3;
+            layoutParams.topMargin = dimens4;
+            a(layoutParams);
+            this.afb.setSvgResId(R.drawable.icon_pure_close12_n_svg, R.color.cp_cont_g);
+            this.afb.setPadding(dimens2, dimens2, dimens2, dimens2);
+            this.afb.setLayoutParams(layoutParams);
+            return;
         }
+        int i = afa;
+        int dimens5 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+        int dimens6 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+        int dimens7 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds17);
+        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(i, i);
+        layoutParams2.addRule(11);
+        layoutParams2.addRule(10);
+        layoutParams2.rightMargin = dimens6;
+        layoutParams2.topMargin = dimens7;
+        a(layoutParams2);
+        this.afb.setSvgResId(R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g);
+        this.afb.setPadding(dimens5, dimens5, dimens5, dimens5);
+        this.afb.setLayoutParams(layoutParams2);
+    }
+
+    private void bj(int i) {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.afb.getLayoutParams();
+        if (this.afb.getParent() == null || layoutParams == null || layoutParams.topMargin != i) {
+            int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+            int dimens2 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+            int dimens3 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimens, dimens);
+            layoutParams2.addRule(11);
+            layoutParams2.addRule(10);
+            layoutParams2.rightMargin = dimens3;
+            layoutParams2.topMargin = i;
+            a(layoutParams2);
+            this.afb.setSvgResId(R.drawable.icon_pure_close12_n_svg, R.color.cp_cont_g);
+            this.afb.setPadding(dimens2, dimens2, dimens2, dimens2);
+            this.afb.setLayoutParams(layoutParams2);
+        }
+    }
+
+    private boolean e(AbsThreadDataSupport absThreadDataSupport) {
+        return (absThreadDataSupport instanceof com.baidu.tieba.card.data.k) && ((com.baidu.tieba.card.data.k) absThreadDataSupport).gUQ;
+    }
+
+    public void f(AbsThreadDataSupport absThreadDataSupport) {
+        if (absThreadDataSupport != null && absThreadDataSupport.aPU() != null) {
+            if (absThreadDataSupport.aPU().aQO() > 0 || absThreadDataSupport.aPS() == null) {
+                d(absThreadDataSupport);
+            } else if (absThreadDataSupport.aPZ()) {
+                if (absThreadDataSupport.aPW()) {
+                    bj(bh(e(absThreadDataSupport) ? R.dimen.tbds64 : R.dimen.tbds42));
+                } else if (absThreadDataSupport.aPX()) {
+                    if (this.aef != null) {
+                        this.aef.a(this);
+                    }
+                } else {
+                    a(Align.ALIGN_RIGHT_TOP);
+                }
+            } else {
+                a(Align.ALIGN_RIGHT_BOTTOM);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.card.d
+    /* renamed from: rW */
+    public NEGFeedBackView rO() {
+        return this.afb;
+    }
+
+    public void a(NEGFeedBackView.a aVar) {
+        this.afb.setEventCallback(aVar);
+    }
+
+    public void setAutoProcess(boolean z) {
+        this.afb.setAutoProcess(z);
+    }
+
+    public void setHeadText(String str) {
+        this.afb.setHeadText(str);
+    }
+
+    public void aG(boolean z) {
+        this.afb.aG(z);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.n
     /* renamed from: a */
-    public void D(bk bkVar) {
-        this.aee = bkVar;
-        if (bkVar == null) {
-            this.aey.setVisibility(8);
-        } else if (!isShow(4)) {
-            this.aey.setVisibility(8);
-        } else {
-            this.aey.setVisibility(0);
-            SvgManager.aUW().a(this.aex, this.aeA, this.aeB, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+    public void D(com.baidu.tbadk.core.data.ap apVar) {
+        if (apVar == null) {
+            this.afb.setVisibility(8);
+            return;
         }
-    }
-
-    private boolean isShow(int i) {
-        return (this.aez & i) > 0;
+        this.afb.setData(apVar);
+        this.afb.setFirstRowSingleColumn(true);
+        this.afb.setVisibility(0);
     }
 
     @Override // com.baidu.card.o
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        SvgManager.aUW().a(this.aex, this.aeA, this.aeB, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.afb.onChangeSkinType();
     }
 
-    public void setPageId(BdUniqueId bdUniqueId) {
-        this.mPageId = bdUniqueId;
+    private int bh(int i) {
+        return com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), i);
     }
 }

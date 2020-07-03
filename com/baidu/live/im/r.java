@@ -47,8 +47,8 @@ public class r {
     }
 
     private static final List<a> b(com.baidu.c.a.b.a.c cVar) {
-        int i = cVar.blG.blT;
-        String str = cVar.blG.blU;
+        int i = cVar.bqH.bqU;
+        String str = cVar.bqH.bqV;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -58,7 +58,7 @@ public class r {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     a aVar = new a();
-                    if (aVar.D(optJSONObject)) {
+                    if (aVar.F(optJSONObject)) {
                         arrayList.add(aVar);
                     }
                 }
@@ -71,7 +71,7 @@ public class r {
     }
 
     private static final List<a> c(com.baidu.c.a.b.a.c cVar) {
-        String str = cVar.blH;
+        String str = cVar.bqI;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -81,7 +81,7 @@ public class r {
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     a aVar = new a();
-                    if (aVar.D(optJSONObject)) {
+                    if (aVar.F(optJSONObject)) {
                         arrayList.add(aVar);
                     }
                 }
@@ -107,7 +107,7 @@ public class r {
     }
 
     private static final List<a> d(com.baidu.c.a.b.a.c cVar) {
-        int i = cVar.blG.feedback;
+        int i = cVar.bqH.feedback;
         ArrayList arrayList = new ArrayList();
         if (i > 0) {
             a aVar = new a();
@@ -128,8 +128,8 @@ public class r {
 
     private static final List<a> e(com.baidu.c.a.b.a.c cVar) {
         ArrayList arrayList = new ArrayList();
-        if (cVar != null && cVar.blG != null) {
-            String str = cVar.blG.blV;
+        if (cVar != null && cVar.bqH != null) {
+            String str = cVar.bqH.bqW;
             if (!TextUtils.isEmpty(str)) {
                 a aVar = new a();
                 aVar.setContent(str);

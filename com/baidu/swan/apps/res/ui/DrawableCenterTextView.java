@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.baidu.swan.apps.aq.ag;
 /* loaded from: classes11.dex */
 public class DrawableCenterTextView extends TextView {
-    private Pair<Object, Object> cvs;
+    private Pair<Object, Object> cAd;
     private boolean isDrawBorder;
     private boolean isDrawSingleBorder;
     private boolean isPressEnable;
@@ -42,7 +42,7 @@ public class DrawableCenterTextView extends TextView {
         this.mRoundDrawable = new GradientDrawable();
         this.mOutShadowPaint = null;
         this.mRoundPath = new Path();
-        this.cvs = null;
+        this.cAd = null;
         this.isPressed = false;
         this.mCornerRadius = -1.0f;
         this.mAnimationPercent = 0.0f;
@@ -144,15 +144,15 @@ public class DrawableCenterTextView extends TextView {
                 }
             }
             if (this.isPressed) {
-                if (this.cvs.second instanceof String) {
-                    this.mRoundDrawable.setColor(Color.parseColor(this.cvs.second.toString()));
-                } else if (this.cvs.second instanceof Integer) {
-                    this.mRoundDrawable.setColor(getResources().getColor(Integer.valueOf(this.cvs.second.toString()).intValue()));
+                if (this.cAd.second instanceof String) {
+                    this.mRoundDrawable.setColor(Color.parseColor(this.cAd.second.toString()));
+                } else if (this.cAd.second instanceof Integer) {
+                    this.mRoundDrawable.setColor(getResources().getColor(Integer.valueOf(this.cAd.second.toString()).intValue()));
                 }
-            } else if (this.cvs.first instanceof String) {
-                this.mRoundDrawable.setColor(Color.parseColor(this.cvs.first.toString()));
-            } else if (this.cvs.first instanceof Integer) {
-                this.mRoundDrawable.setColor(getResources().getColor(Integer.valueOf(this.cvs.first.toString()).intValue()));
+            } else if (this.cAd.first instanceof String) {
+                this.mRoundDrawable.setColor(Color.parseColor(this.cAd.first.toString()));
+            } else if (this.cAd.first instanceof Integer) {
+                this.mRoundDrawable.setColor(getResources().getColor(Integer.valueOf(this.cAd.first.toString()).intValue()));
             }
             canvas.save();
             if (this.mIsAnimationActive) {
@@ -280,7 +280,7 @@ public class DrawableCenterTextView extends TextView {
     }
 
     private boolean isEnableHandlePress() {
-        return this.isPressEnable && this.cvs != null;
+        return this.isPressEnable && this.cAd != null;
     }
 
     @Override // android.widget.TextView, android.view.View

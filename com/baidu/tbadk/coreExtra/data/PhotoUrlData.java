@@ -11,6 +11,7 @@ public class PhotoUrlData implements Serializable {
     private static final long serialVersionUID = -6994746964706195260L;
     private String bigurl;
     private String height;
+    private String originPic;
     private String pic;
     private String picId;
     private String smallurl;
@@ -55,6 +56,14 @@ public class PhotoUrlData implements Serializable {
 
     public void setSmallurl(String str) {
         this.smallurl = str;
+    }
+
+    public String getOriginPic() {
+        return this.originPic;
+    }
+
+    public void setOriginPic(String str) {
+        this.originPic = str;
     }
 
     public String getBigurl() {

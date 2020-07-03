@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.ala.AlaCmdConfigCustom;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.c;
 import com.baidu.tbadk.download.d;
@@ -133,7 +133,7 @@ public class ResourceDownloader {
                         ResourceDownloader.addDownloadingResId(str);
                         DownloaderHelper.cleanDir(new File(str4));
                         downloadData.setPath(str8);
-                        d.bcU().f(downloadData);
+                        d.beW().f(downloadData);
                         return true;
                     }
                     return false;
@@ -151,7 +151,7 @@ public class ResourceDownloader {
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean isResZipDownloading(String str) {
         boolean contains;
-        if (!v.isEmpty(sResDownloadingTaskList) && !StringUtils.isNull(str)) {
+        if (!w.isEmpty(sResDownloadingTaskList) && !StringUtils.isNull(str)) {
             synchronized (sResDownloadingTaskList) {
                 contains = sResDownloadingTaskList.contains(str);
             }

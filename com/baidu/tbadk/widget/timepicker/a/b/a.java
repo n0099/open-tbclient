@@ -7,100 +7,100 @@ import com.baidu.tbadk.widget.timepicker.a.f.b;
 import java.util.Calendar;
 /* loaded from: classes8.dex */
 public class a {
-    private com.baidu.tbadk.widget.timepicker.a.c.a eFN = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
+    private com.baidu.tbadk.widget.timepicker.a.c.a ePZ = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
 
     public a(Context context, e eVar) {
-        this.eFN.context = context;
-        this.eFN.eFO = eVar;
+        this.ePZ.context = context;
+        this.ePZ.eQa = eVar;
     }
 
     public a a(boolean[] zArr) {
-        this.eFN.eFV = zArr;
+        this.ePZ.eQh = zArr;
         return this;
     }
 
-    public a iK(boolean z) {
-        this.eFN.eGC = z;
+    public a iW(boolean z) {
+        this.ePZ.eQO = z;
         return this;
     }
 
-    public a A(ViewGroup viewGroup) {
-        this.eFN.decorView = viewGroup;
+    public a C(ViewGroup viewGroup) {
+        this.ePZ.decorView = viewGroup;
         return this;
     }
 
-    public a ow(int i) {
-        this.eFN.eGx = i;
+    public a oU(int i) {
+        this.ePZ.eQJ = i;
         return this;
     }
 
-    public a ox(int i) {
-        this.eFN.eGB = i;
+    public a oV(int i) {
+        this.ePZ.eQN = i;
         return this;
     }
 
     public a a(Calendar calendar) {
-        this.eFN.eFW = calendar;
+        this.ePZ.eQi = calendar;
         return this;
     }
 
     public a a(int i, com.baidu.tbadk.widget.timepicker.a.d.a aVar) {
-        this.eFN.eGp = i;
-        this.eFN.eFQ = aVar;
+        this.ePZ.eQB = i;
+        this.ePZ.eQc = aVar;
         return this;
     }
 
-    public a ac(float f) {
-        this.eFN.lineSpacingMultiplier = f;
+    public a ae(float f) {
+        this.ePZ.lineSpacingMultiplier = f;
         return this;
     }
 
-    public a oy(int i) {
-        this.eFN.dividerColor = i;
+    public a oW(int i) {
+        this.ePZ.dividerColor = i;
         return this;
     }
 
-    public a oz(int i) {
-        this.eFN.backgroundId = i;
+    public a oX(int i) {
+        this.ePZ.backgroundId = i;
         return this;
     }
 
-    public a oA(int i) {
-        this.eFN.textColorCenter = i;
+    public a oY(int i) {
+        this.ePZ.textColorCenter = i;
         return this;
     }
 
-    public a oB(int i) {
-        this.eFN.textColorOut = i;
+    public a oZ(int i) {
+        this.ePZ.textColorOut = i;
         return this;
     }
 
     public a b(String str, String str2, String str3, String str4, String str5, String str6) {
-        this.eFN.eGd = str;
-        this.eFN.eGe = str2;
-        this.eFN.eGf = str3;
-        this.eFN.eGg = str4;
-        this.eFN.eGh = str5;
-        this.eFN.eGi = str6;
+        this.ePZ.eQp = str;
+        this.ePZ.eQq = str2;
+        this.ePZ.eQr = str3;
+        this.ePZ.eQs = str4;
+        this.ePZ.eQt = str5;
+        this.ePZ.eQu = str6;
         return this;
     }
 
     public a g(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.eFN.eGj = i;
-        this.eFN.eGk = i2;
-        this.eFN.eGl = i3;
-        this.eFN.eGm = i4;
-        this.eFN.eGn = i5;
-        this.eFN.eGo = i6;
+        this.ePZ.eQv = i;
+        this.ePZ.eQw = i2;
+        this.ePZ.eQx = i3;
+        this.ePZ.eQy = i4;
+        this.ePZ.eQz = i5;
+        this.ePZ.eQA = i6;
         return this;
     }
 
-    public a iL(boolean z) {
-        this.eFN.isCenterLabel = z;
+    public a iX(boolean z) {
+        this.ePZ.isCenterLabel = z;
         return this;
     }
 
-    public b bjr() {
-        return new b(this.eFN);
+    public b blQ() {
+        return new b(this.ePZ);
     }
 }

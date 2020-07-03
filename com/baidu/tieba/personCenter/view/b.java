@@ -3,7 +3,7 @@ package com.baidu.tieba.personCenter.view;
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class b extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.e> {
@@ -17,7 +17,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.e> 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundColor(getView(), R.color.cp_bg_line_c);
+            an.setBackgroundColor(getView(), R.color.cp_bg_line_c);
             this.mSkinType = i;
         }
     }

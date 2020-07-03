@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes6.dex */
 public class x {
     private final z mViewModelStore;
-    private final b yJ;
+    private final b zj;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -16,7 +16,7 @@ public class x {
     }
 
     public x(@NonNull z zVar, @NonNull b bVar) {
-        this.yJ = bVar;
+        this.zj = bVar;
         this.mViewModelStore = zVar;
     }
 
@@ -33,11 +33,11 @@ public class x {
     @NonNull
     @MainThread
     public <T extends w> T b(@NonNull String str, @NonNull Class<T> cls) {
-        T t = (T) this.mViewModelStore.aS(str);
+        T t = (T) this.mViewModelStore.aT(str);
         if (!cls.isInstance(t)) {
             if (t != null) {
             }
-            T t2 = (T) this.yJ.create(cls);
+            T t2 = (T) this.zj.create(cls);
             this.mViewModelStore.a(str, t2);
             return t2;
         }
@@ -61,15 +61,15 @@ public class x {
 
     /* loaded from: classes6.dex */
     public static class a extends c {
-        private static a yK;
+        private static a zk;
         private Application mApplication;
 
         @NonNull
         public static a c(@NonNull Application application) {
-            if (yK == null) {
-                yK = new a(application);
+            if (zk == null) {
+                zk = new a(application);
             }
-            return yK;
+            return zk;
         }
 
         public a(@NonNull Application application) {

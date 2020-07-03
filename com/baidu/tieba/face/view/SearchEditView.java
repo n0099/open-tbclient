@@ -15,21 +15,21 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class SearchEditView extends RelativeLayout {
-    private EditText had;
-    private ImageView hae;
-    private ImageView haf;
-    private LinearLayout hag;
-    private a hah;
+    private EditText hmp;
+    private ImageView hmq;
+    private ImageView hmr;
+    private LinearLayout hms;
+    private a hmt;
 
     /* loaded from: classes.dex */
     public interface a {
-        void DR(String str);
+        void Es(String str);
 
-        void DS(String str);
+        void Et(String str);
     }
 
     public SearchEditView(Context context) {
@@ -49,14 +49,14 @@ public class SearchEditView extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.emotion_search_edit, (ViewGroup) this, true);
-        this.had = (EditText) findViewById(R.id.edit_search);
-        this.hae = (ImageView) findViewById(R.id.iv_search);
-        this.haf = (ImageView) findViewById(R.id.iv_del_all);
-        this.hag = (LinearLayout) findViewById(R.id.iv_del_all_layout);
-        am.setImageResource(this.hae, R.drawable.icon_emotion_search);
-        am.setImageResource(this.haf, R.drawable.del_search_btn);
-        am.setViewTextColor(this.had, (int) R.color.cp_cont_b);
-        this.had.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.face.view.SearchEditView.1
+        this.hmp = (EditText) findViewById(R.id.edit_search);
+        this.hmq = (ImageView) findViewById(R.id.iv_search);
+        this.hmr = (ImageView) findViewById(R.id.iv_del_all);
+        this.hms = (LinearLayout) findViewById(R.id.iv_del_all_layout);
+        an.setImageResource(this.hmq, R.drawable.icon_emotion_search);
+        an.setImageResource(this.hmr, R.drawable.del_search_btn);
+        an.setViewTextColor(this.hmp, (int) R.color.cp_cont_b);
+        this.hmp.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.face.view.SearchEditView.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -67,33 +67,33 @@ public class SearchEditView extends RelativeLayout {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (SearchEditView.this.hah != null) {
-                    SearchEditView.this.hah.DS(editable.toString().trim());
+                if (SearchEditView.this.hmt != null) {
+                    SearchEditView.this.hmt.Et(editable.toString().trim());
                 }
                 if (editable.toString().trim().length() == 0) {
-                    SearchEditView.this.hag.setVisibility(4);
+                    SearchEditView.this.hms.setVisibility(4);
                 } else {
-                    SearchEditView.this.hag.setVisibility(0);
+                    SearchEditView.this.hms.setVisibility(0);
                 }
             }
         });
-        this.had.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.face.view.SearchEditView.2
+        this.hmp.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.face.view.SearchEditView.2
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
-                    String trim = SearchEditView.this.had.getText().toString().trim();
-                    if (!TextUtils.isEmpty(trim) && SearchEditView.this.hah != null) {
-                        SearchEditView.this.hah.DR(trim);
+                    String trim = SearchEditView.this.hmp.getText().toString().trim();
+                    if (!TextUtils.isEmpty(trim) && SearchEditView.this.hmt != null) {
+                        SearchEditView.this.hmt.Es(trim);
                     }
                     return true;
                 }
                 return false;
             }
         });
-        this.hag.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.face.view.SearchEditView.3
+        this.hms.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.face.view.SearchEditView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                SearchEditView.this.had.setText("");
+                SearchEditView.this.hmp.setText("");
             }
         });
         onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
@@ -101,30 +101,30 @@ public class SearchEditView extends RelativeLayout {
 
     public void onChangeSkin(int i) {
         if (i == 0) {
-            this.had.setHintTextColor(getResources().getColor(R.color.cp_cont_d));
+            this.hmp.setHintTextColor(getResources().getColor(R.color.cp_cont_d));
         } else {
-            this.had.setHintTextColor(getResources().getColor(R.color.cp_cont_d_1));
+            this.hmp.setHintTextColor(getResources().getColor(R.color.cp_cont_d_1));
         }
     }
 
     public void setCallback(a aVar) {
-        this.hah = aVar;
+        this.hmt = aVar;
     }
 
     public void setText(String str) {
         if (str != null) {
-            this.had.setText(str);
-            this.had.setSelection(str.length());
+            this.hmp.setText(str);
+            this.hmp.setSelection(str.length());
         }
     }
 
     public void setSelection(int i) {
-        if (i <= this.had.getText().length()) {
-            this.had.setSelection(i);
+        if (i <= this.hmp.getText().length()) {
+            this.hmp.setSelection(i);
         }
     }
 
-    public boolean bRb() {
-        return this.had.requestFocus();
+    public boolean bTX() {
+        return this.hmp.requestFocus();
     }
 }

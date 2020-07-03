@@ -10,7 +10,7 @@ public final class FlowableTake<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.noe.a((j) new TakeSubscriber(cVar, this.limit));
+        this.nJT.a((j) new TakeSubscriber(cVar, this.limit));
     }
 
     /* loaded from: classes7.dex */

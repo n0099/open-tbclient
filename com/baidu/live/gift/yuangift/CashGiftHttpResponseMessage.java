@@ -6,14 +6,14 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
-    public int aBA;
-    public int aBB;
-    public int aBz;
-    public g aNY;
-    public String aNZ;
-    public int aOa;
-    public int aOb;
-    public int aOc;
+    public int aDK;
+    public int aDL;
+    public int aDM;
+    public g aQE;
+    public String aQF;
+    public int aQG;
+    public int aQH;
+    public int aQI;
     public long dubi;
     public String iconId;
     public long nonMemberT;
@@ -33,8 +33,8 @@ public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("gift_info");
             if (optJSONObject3 != null) {
-                this.aNY = new g();
-                this.aNY.parseJson(optJSONObject3);
+                this.aQE = new g();
+                this.aQE.parseJson(optJSONObject3);
             }
             this.previewGiftId = optJSONObject.optInt("preview_gift_id");
             this.photoUrl = optJSONObject.optString("photo_url");
@@ -42,14 +42,14 @@ public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
             this.iconId = optJSONObject.optString("icon_id");
             this.nonMemberT = optJSONObject.optLong("non_member_t");
             this.dubi = optJSONObject.optLong("dubi");
-            this.aOb = optJSONObject.optInt("photo_width");
-            this.aOa = optJSONObject.optInt("photo_height");
-            this.aNZ = optJSONObject.optString("back_ground");
-            this.aOc = optJSONObject.optInt("premium_user");
+            this.aQH = optJSONObject.optInt("photo_width");
+            this.aQG = optJSONObject.optInt("photo_height");
+            this.aQF = optJSONObject.optString("back_ground");
+            this.aQI = optJSONObject.optInt("premium_user");
             if (optJSONObject.has("cash_gift") && (optJSONObject2 = optJSONObject.optJSONObject("cash_gift")) != null) {
-                this.aBz = optJSONObject2.optInt("show_times_daily");
-                this.aBA = optJSONObject2.optInt("continue_show_times");
-                this.aBB = optJSONObject2.optInt("condition");
+                this.aDK = optJSONObject2.optInt("show_times_daily");
+                this.aDL = optJSONObject2.optInt("continue_show_times");
+                this.aDM = optJSONObject2.optInt("condition");
             }
         }
     }

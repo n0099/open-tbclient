@@ -12,66 +12,66 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 class m implements k {
-    private Charset po;
-    private int pV = 0;
-    private String pS = d.MULTIPART_BOUNDARY;
-    private StringBuilder pp = new StringBuilder();
-    private Map<String, byte[]> pU = new HashMap();
-    private Map<String, String> pT = new HashMap();
+    private Charset pN;
+    private int qu = 0;
+    private String qr = d.MULTIPART_BOUNDARY;
+    private StringBuilder pO = new StringBuilder();
+    private Map<String, byte[]> qt = new HashMap();
+    private Map<String, String> qs = new HashMap();
 
     private InputStream a(String str, String str2, String str3, String str4, boolean z) {
         StringBuilder sb = new StringBuilder();
-        sb.append(str).append("--").append(this.pS).append("\r\n").append(String.format("Content-Disposition: form-data; name=\"%s\"; filename=\"%s\"", j.a(str2, this.po), j.a(str3, this.po))).append("\r\n").append("Content-Type:").append(str4).append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+        sb.append(str).append("--").append(this.qr).append("\r\n").append(String.format("Content-Disposition: form-data; name=\"%s\"; filename=\"%s\"", j.a(str2, this.pN), j.a(str3, this.pN))).append("\r\n").append("Content-Type:").append(str4).append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         if (z) {
-            sb.append("charset=").append(this.po.name());
+            sb.append("charset=").append(this.pN.name());
         }
         sb.append("\r\n");
         sb.append("\r\n");
-        return new ByteArrayInputStream(sb.toString().getBytes(this.po));
+        return new ByteArrayInputStream(sb.toString().getBytes(this.pN));
     }
 
     public void a(String str, byte[] bArr) {
         if (bArr != null) {
-            this.pV += bArr.length;
+            this.qu += bArr.length;
         }
-        this.pU.put(str, bArr);
+        this.qt.put(str, bArr);
     }
 
     @Override // com.baidu.ar.http.k
     public void a(Charset charset) {
-        this.po = charset;
+        this.pN = charset;
     }
 
-    public void al(String str) {
-        this.pS = str;
+    public void am(String str) {
+        this.qr = str;
     }
 
     @Override // com.baidu.ar.http.k
-    public InputStream[] dj() {
+    public InputStream[] dz() {
         ArrayList arrayList = new ArrayList();
-        if (this.pp.length() > 0) {
-            arrayList.add(new ByteArrayInputStream(this.pp.toString().getBytes(this.po)));
+        if (this.pO.length() > 0) {
+            arrayList.add(new ByteArrayInputStream(this.pO.toString().getBytes(this.pN)));
         }
         String str = "";
-        if (!this.pT.isEmpty()) {
-            for (Map.Entry<String, String> entry : this.pT.entrySet()) {
-                arrayList.add(a(str, entry.getKey(), new File(entry.getValue()).getName(), j.aj(entry.getValue()), false));
+        if (!this.qs.isEmpty()) {
+            for (Map.Entry<String, String> entry : this.qs.entrySet()) {
+                arrayList.add(a(str, entry.getKey(), new File(entry.getValue()).getName(), j.ak(entry.getValue()), false));
                 arrayList.add(new FileInputStream(entry.getValue()));
                 str = "\r\n";
             }
         }
-        if (!this.pU.isEmpty()) {
+        if (!this.qt.isEmpty()) {
             String valueOf = String.valueOf(System.currentTimeMillis());
             int i = 1;
-            for (Map.Entry<String, byte[]> entry2 : this.pU.entrySet()) {
+            for (Map.Entry<String, byte[]> entry2 : this.qt.entrySet()) {
                 arrayList.add(a(str, entry2.getKey(), valueOf + i + ".jpg", "application/octet-stream", true));
                 arrayList.add(new ByteArrayInputStream(entry2.getValue()));
                 str = "\r\n";
                 i++;
             }
         }
-        if (!this.pT.isEmpty() || !this.pU.isEmpty()) {
-            arrayList.add(new ByteArrayInputStream((str + "--" + this.pS + "--\r\n").getBytes(this.po)));
+        if (!this.qs.isEmpty() || !this.qt.isEmpty()) {
+            arrayList.add(new ByteArrayInputStream((str + "--" + this.qr + "--\r\n").getBytes(this.pN)));
         }
         return (InputStream[]) arrayList.toArray(new InputStream[arrayList.size()]);
     }
@@ -80,23 +80,23 @@ class m implements k {
         if (TextUtils.isEmpty(str) || str2 == null) {
             return;
         }
-        this.pp.append("--").append(this.pS).append("\r\n");
-        this.pp.append("Content-Disposition: form-data; name=\"").append(j.a(str, this.po)).append("\"\r\n");
-        this.pp.append("\r\n");
-        this.pp.append(j.a(str2, this.po));
-        this.pp.append("\r\n");
+        this.pO.append("--").append(this.qr).append("\r\n");
+        this.pO.append("Content-Disposition: form-data; name=\"").append(j.a(str, this.pN)).append("\"\r\n");
+        this.pO.append("\r\n");
+        this.pO.append(j.a(str2, this.pN));
+        this.pO.append("\r\n");
     }
 
     public void f(String str, String str2) {
         File file = new File(str2);
         if (file.exists()) {
-            this.pV = (int) (file.length() + this.pV);
+            this.qu = (int) (file.length() + this.qu);
         }
-        this.pT.put(str, str2);
+        this.qs.put(str, str2);
     }
 
     public String getBoundary() {
-        return this.pS;
+        return this.qr;
     }
 
     @Override // com.baidu.ar.http.k
@@ -106,10 +106,10 @@ class m implements k {
 
     @Override // com.baidu.ar.http.k
     public int getSize() {
-        return this.pV;
+        return this.qu;
     }
 
     public boolean isEmpty() {
-        return this.pp.length() == 0 && this.pU.isEmpty() && this.pT.isEmpty();
+        return this.pO.length() == 0 && this.qt.isEmpty() && this.qs.isEmpty();
     }
 }

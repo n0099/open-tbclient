@@ -7,17 +7,17 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 /* loaded from: classes8.dex */
 public class k extends b<AbsThreadDataSupport> {
-    private CardForumHeadLayout adL;
-    private AbsThreadDataSupport adw;
+    private AbsThreadDataSupport aea;
+    private CardForumHeadLayout aep;
 
     public k(Context context) {
         super(context);
-        this.adL = new CardForumHeadLayout(context);
-        this.adL.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.k.1
+        this.aep = new CardForumHeadLayout(context);
+        this.aep.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.rs() != null) {
-                    k.this.rs().a(view, k.this.adw);
+                if (k.this.rJ() != null) {
+                    k.this.rJ().a(view, k.this.aea);
                 }
             }
         });
@@ -26,23 +26,23 @@ public class k extends b<AbsThreadDataSupport> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.adL;
+        return this.aep;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.n
     /* renamed from: b */
     public void D(AbsThreadDataSupport absThreadDataSupport) {
-        if (this.adL != null && absThreadDataSupport != null) {
-            this.adw = absThreadDataSupport;
-            this.adL.setData(absThreadDataSupport.aOi());
+        if (this.aep != null && absThreadDataSupport != null) {
+            this.aea = absThreadDataSupport;
+            this.aep.setData(absThreadDataSupport.aPS());
         }
     }
 
     @Override // com.baidu.card.o
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.adL != null) {
-            this.adL.onChangeSkinType();
+        if (this.aep != null) {
+            this.aep.onChangeSkinType();
         }
     }
 }

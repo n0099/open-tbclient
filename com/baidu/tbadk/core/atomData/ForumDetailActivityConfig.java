@@ -2,10 +2,12 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ForumDetailActivityConfig extends IntentConfig {
     public static final String FORUM_ID = "forum_id";
     public static final String FROM_TYPE = "from_type";
+    public ArrayList<String> tabs;
 
     /* loaded from: classes.dex */
     public enum FromType {
@@ -25,6 +27,10 @@ public class ForumDetailActivityConfig extends IntentConfig {
         super(context);
         getIntent().putExtra("forum_id", str);
         getIntent().putExtra("from_type", fromType.toString());
+    }
+
+    public void setForumTabs(ArrayList<String> arrayList) {
+        this.tabs = arrayList;
     }
 
     public static boolean isFromFrs(String str) {

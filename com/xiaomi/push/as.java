@@ -7,13 +7,13 @@ class as implements ar {
     private Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Class<?> f110a;
+    private Class<?> f116a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Object f111a;
+    private Object f117a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Method f112a = null;
+    private Method f118a = null;
     private Method b = null;
     private Method c = null;
     private Method d = null;
@@ -24,9 +24,9 @@ class as implements ar {
     }
 
     private String a(Context context, Method method) {
-        if (this.f111a != null && method != null) {
+        if (this.f117a != null && method != null) {
             try {
-                Object invoke = method.invoke(this.f111a, context);
+                Object invoke = method.invoke(this.f117a, context);
                 if (invoke != null) {
                     return (String) invoke;
                 }
@@ -39,35 +39,35 @@ class as implements ar {
 
     private void a(Context context) {
         try {
-            this.f110a = t.a(context, "com.android.id.impl.IdProviderImpl");
-            this.f111a = this.f110a.newInstance();
-            this.f112a = this.f110a.getMethod("getUDID", Context.class);
-            this.b = this.f110a.getMethod("getOAID", Context.class);
-            this.c = this.f110a.getMethod("getVAID", Context.class);
-            this.d = this.f110a.getMethod("getAAID", Context.class);
+            this.f116a = t.a(context, "com.android.id.impl.IdProviderImpl");
+            this.f117a = this.f116a.newInstance();
+            this.f118a = this.f116a.getMethod("getUDID", Context.class);
+            this.b = this.f116a.getMethod("getOAID", Context.class);
+            this.c = this.f116a.getMethod("getVAID", Context.class);
+            this.d = this.f116a.getMethod("getAAID", Context.class);
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a("miui load class error", e);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m135a(Context context) {
+    public static boolean m132a(Context context) {
         return "com.xiaomi.xmsf".equals(context.getPackageName());
     }
 
     @Override // com.xiaomi.push.ar
     public String a() {
-        return a(this.a, this.f112a);
+        return a(this.a, this.f118a);
     }
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return (this.f110a == null || this.f111a == null) ? false : true;
+        return (this.f116a == null || this.f117a == null) ? false : true;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo132b() {
+    public String mo129b() {
         return a(this.a, this.b);
     }
 

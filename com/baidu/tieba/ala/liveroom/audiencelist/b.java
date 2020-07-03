@@ -7,19 +7,19 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.u.a;
 import com.baidu.live.utils.i;
 /* loaded from: classes3.dex */
 public class b {
     private long count;
-    private com.baidu.tieba.ala.liveroom.operation.b fKN;
-    private TextView fMQ;
-    private ImageView fMR;
+    private com.baidu.tieba.ala.liveroom.operation.b fVL;
+    private TextView fXP;
+    private ImageView fXQ;
     private boolean isHost;
     private Context mContext;
     private View mView = null;
-    private boolean fMS = true;
+    private boolean fxP = true;
 
     public b(Context context, boolean z) {
         this.isHost = false;
@@ -32,26 +32,26 @@ public class b {
         this.mView = View.inflate(this.mContext, a.h.ala_liveroom_audience_count_layout, null);
         this.mView.setMinimumWidth(this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds90));
         this.mView.setId(a.g.ala_liveroom_audience_count_layout);
-        this.fMQ = (TextView) this.mView.findViewById(a.g.ala_live_room_audience_count);
-        this.fMR = (ImageView) this.mView.findViewById(a.g.close_imageView);
+        this.fXP = (TextView) this.mView.findViewById(a.g.ala_live_room_audience_count);
+        this.fXQ = (ImageView) this.mView.findViewById(a.g.close_imageView);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.fMR.setVisibility(0);
-            this.fMR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
+            this.fXQ.setVisibility(0);
+            this.fXQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.fKN != null) {
-                        b.this.fKN.l(view, 8);
+                    if (b.this.fVL != null) {
+                        b.this.fVL.l(view, 8);
                     }
                 }
             });
         } else {
-            this.fMR.setVisibility(8);
+            this.fXQ.setVisibility(8);
         }
-        this.fMQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.2
+        this.fXP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.fKN != null) {
-                    b.this.fKN.l(view, 14);
+                if (b.this.fVL != null) {
+                    b.this.fVL.l(view, 14);
                 }
             }
         });
@@ -61,7 +61,7 @@ public class b {
         if (this.mView.getParent() != null) {
             ((ViewGroup) this.mView.getParent()).removeView(this.mView);
         }
-        dm(j);
+        dp(j);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds72));
         layoutParams.addRule(11);
         layoutParams.addRule(8, i);
@@ -70,27 +70,27 @@ public class b {
     }
 
     public void setVisible(int i) {
-        if (this.fMS) {
+        if (this.fxP) {
             this.mView.setVisibility(i);
         } else {
             this.mView.setVisibility(8);
         }
     }
 
-    public void kE(boolean z) {
+    public void kM(boolean z) {
         if (z) {
-            this.fMR.setVisibility(0);
+            this.fXQ.setVisibility(0);
         } else {
-            this.fMR.setVisibility(8);
+            this.fXQ.setVisibility(8);
         }
     }
 
-    public void dm(long j) {
+    public void dp(long j) {
         if (j < 0) {
             j = 0;
         }
         this.count = j;
-        this.fMQ.setText(i.numFormatOverWanNaForAudienceNum(j));
+        this.fXP.setText(i.numFormatOverWanNaForAudienceNum(j));
     }
 
     public long getCount() {
@@ -98,12 +98,12 @@ public class b {
     }
 
     public void a(com.baidu.tieba.ala.liveroom.operation.b bVar) {
-        this.fKN = bVar;
+        this.fVL = bVar;
     }
 
-    public void kF(boolean z) {
-        if (this.fMQ != null) {
-            this.fMQ.setEnabled(z);
+    public void kN(boolean z) {
+        if (this.fXP != null) {
+            this.fXP.setEnabled(z);
         }
     }
 }

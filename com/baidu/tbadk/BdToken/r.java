@@ -1,83 +1,113 @@
 package com.baidu.tbadk.BdToken;
 
 import android.app.Activity;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import android.text.TextUtils;
+import android.view.MotionEvent;
+import android.view.View;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.aq;
-import java.util.Date;
-import java.util.Iterator;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 /* loaded from: classes.dex */
 public class r {
-    private long dwc;
-    private CustomMessageListener dwd = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.baidu.tbadk.BdToken.r.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null) {
-                r.this.aLL();
+    private static View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.BdToken.r.1
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            TbPageContext<?> aNm;
+            Object tag = view.getTag();
+            if (tag instanceof CompleteTaskToastData) {
+                CompleteTaskToastData completeTaskToastData = (CompleteTaskToastData) tag;
+                if (!TextUtils.isEmpty(completeTaskToastData.url) && (aNm = r.aNm()) != null) {
+                    bc.aWU().b(aNm, new String[]{completeTaskToastData.url});
+                    com.baidu.tbadk.BdToken.completeTask.c.aD(completeTaskToastData.activityId, completeTaskToastData.missionId);
+                }
             }
         }
     };
-    private s dwb = new s();
 
-    public r() {
-        MessageManager.getInstance().registerListener(this.dwd);
-        aLL();
-        this.dwc = com.baidu.tbadk.core.sharedPref.b.aTX().getLong("key_redpacket_pop_last_time", 0L);
+    private static boolean isMainProcess() {
+        return TbadkCoreApplication.getInst().isMainProcess(true);
     }
 
-    public void check() {
-        if (aLK() && isShowTime()) {
-            aLM();
+    public static void n(int i, long j) {
+        if (isMainProcess()) {
+            c.aMo().n(i, j);
+        } else {
+            a(i, j, MissionEvent.MESSAGE_ACTIVITY);
         }
     }
 
-    private boolean aLK() {
-        Date date = new Date();
-        return date.getTime() >= this.dwb.getStartDate() && date.getTime() <= this.dwb.aLN();
-    }
-
-    private boolean isShowTime() {
-        if (com.baidu.tbadk.core.util.v.isEmpty(this.dwb.aLO())) {
-            return false;
+    public static void a(int i, int i2, long j) {
+        if (isMainProcess()) {
+            c.aMo().p(i, j);
+        } else {
+            b(i, i2, j, MissionEvent.MESSAGE_RESUME);
         }
-        Date date = new Date();
-        Iterator<u> it = this.dwb.aLO().iterator();
-        while (it.hasNext()) {
-            u next = it.next();
-            if (date.getTime() >= next.getStartTime() && date.getTime() <= next.getEndTime() && !a(next)) {
-                return true;
-            }
+    }
+
+    public static void r(int i, long j) {
+        if (isMainProcess()) {
+            c.aMo().aMy();
+        } else {
+            a(i, j, MissionEvent.MESSAGE_PAUSE);
         }
-        return false;
     }
 
-    private boolean a(u uVar) {
-        return uVar != null && this.dwc >= uVar.getStartTime() && this.dwc <= uVar.getEndTime();
+    public static void s(int i, long j) {
+        if (isMainProcess()) {
+            c.aMo().aMA();
+        } else {
+            a(i, j, MissionEvent.MESSAGE_TOUCH);
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aLL() {
-        this.dwb.parseJson(com.baidu.tbadk.core.sharedPref.b.aTX().getString("key_redpacket_pop", ""));
+    public static void a(int i, long j, String str) {
+        MissionEvent missionEvent = new MissionEvent();
+        missionEvent.tid = j;
+        missionEvent.pageId = i;
+        missionEvent.actionType = str;
+        com.baidu.tbadk.mutiprocess.g.publishEvent(missionEvent);
     }
 
-    private void aLM() {
-        if (!aq.isEmpty(this.dwb.getUrl())) {
-            this.dwc = System.currentTimeMillis();
-            com.baidu.tbadk.core.sharedPref.b.aTX().putLong("key_redpacket_pop_last_time", this.dwc);
-            TiebaStatic.log(new an("c13083"));
-            String str = this.dwb.getUrl() + "?page_type=open_full_screen_opacity_web_page";
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(currentActivity, "", str, true)));
-            }
+    public static void b(int i, int i2, long j, String str) {
+        MissionEvent missionEvent = new MissionEvent();
+        missionEvent.tid = j;
+        missionEvent.pageId = i2;
+        missionEvent.pageType = i;
+        missionEvent.actionType = str;
+        com.baidu.tbadk.mutiprocess.g.publishEvent(missionEvent);
+    }
+
+    public static TbPageContext aNm() {
+        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+        if (currentActivity instanceof BaseActivity) {
+            return ((BaseActivity) currentActivity).getPageContext();
+        }
+        if (currentActivity instanceof BaseFragmentActivity) {
+            return ((BaseFragmentActivity) currentActivity).getPageContext();
+        }
+        return null;
+    }
+
+    public static com.baidu.tbadk.core.dialog.f a(CompleteTaskToastData completeTaskToastData) {
+        TbPageContext aNm;
+        if (completeTaskToastData == null || (aNm = aNm()) == null || aNm.getUniqueId() == null || completeTaskToastData.pageId != aNm.getUniqueId().getId()) {
+            return null;
+        }
+        com.baidu.tbadk.core.dialog.f d = com.baidu.tbadk.core.dialog.f.d(aNm.getPageActivity(), completeTaskToastData.message);
+        d.le(completeTaskToastData.duration);
+        d.setOnClickListener(mOnClickListener);
+        d.setTag(completeTaskToastData);
+        d.aUW();
+        return d;
+    }
+
+    public static void a(MotionEvent motionEvent, int i, long j) {
+        if (motionEvent != null && motionEvent.getAction() == 0) {
+            s(i, j);
         }
     }
 }

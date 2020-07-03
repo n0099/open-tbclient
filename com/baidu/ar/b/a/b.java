@@ -12,33 +12,12 @@ import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public abstract class b extends j implements a {
     private static final String TAG = b.class.getSimpleName();
-    protected c cC;
-    private boolean cB = false;
-    protected AlgoHandleController bU = null;
+    protected c cP;
+    private boolean cO = false;
+    protected AlgoHandleController ch = null;
 
     public b() {
-        this.lP = new PixelReadParams(PixelType.NV21);
-    }
-
-    @Override // com.baidu.ar.c.j
-    protected void X() {
-        if (this.cC == null) {
-            com.baidu.ar.f.b.b(getName(), "setupFrameDetector mMdlParams is null or empty");
-        } else if (this.lb != null) {
-            this.lb.a(new l(getName(), true));
-        }
-    }
-
-    @Override // com.baidu.ar.c.j
-    public boolean Y() {
-        return !com.baidu.ar.b.a.ac().a(af());
-    }
-
-    @Override // com.baidu.ar.c.j
-    protected void Z() {
-        if (this.lb != null) {
-            this.lb.b(new l(getName(), true));
-        }
+        this.mm = new PixelReadParams(PixelType.NV21);
     }
 
     public abstract com.baidu.ar.b.b.b a(ByteBuffer byteBuffer, int i, int i2, long j, boolean z, int i3, int i4);
@@ -52,40 +31,61 @@ public abstract class b extends j implements a {
     }
 
     public void a(c cVar) {
-        this.cC = cVar;
-        this.lP.setOutputWidth(this.cC.ak());
-        this.lP.setOutputHeight(this.cC.aj());
+        this.cP = cVar;
+        this.mm.setOutputWidth(this.cP.ay());
+        this.mm.setOutputHeight(this.cP.ax());
     }
 
     public void a(AlgoHandleController algoHandleController) {
-        this.bU = algoHandleController;
+        this.ch = algoHandleController;
     }
 
-    protected abstract int af();
-
-    public com.baidu.ar.b.b.a ag() {
-        com.baidu.ar.b.b.a ah = ah();
-        if (ah != null) {
-            ah.a(this);
+    @Override // com.baidu.ar.c.j
+    protected void al() {
+        if (this.cP == null) {
+            com.baidu.ar.f.b.b(getName(), "setupFrameDetector mMdlParams is null or empty");
+        } else if (this.ly != null) {
+            this.ly.a(new l(getName(), true));
         }
-        return ah;
     }
 
-    public abstract com.baidu.ar.b.b.a ah();
+    @Override // com.baidu.ar.c.j
+    public boolean am() {
+        return !com.baidu.ar.b.a.aq().b(at());
+    }
 
-    public void ai() {
-        com.baidu.ar.b.b.a ag = ag();
-        if (ag == null) {
+    @Override // com.baidu.ar.c.j
+    protected void an() {
+        if (this.ly != null) {
+            this.ly.b(new l(getName(), true));
+        }
+    }
+
+    protected abstract int at();
+
+    public com.baidu.ar.b.b.a au() {
+        com.baidu.ar.b.b.a av = av();
+        if (av != null) {
+            av.a(this);
+        }
+        return av;
+    }
+
+    public abstract com.baidu.ar.b.b.a av();
+
+    public void aw() {
+        com.baidu.ar.b.b.a au = au();
+        if (au == null) {
             return;
         }
-        com.baidu.ar.b.a.ac().a((d) ag);
+        com.baidu.ar.b.a.aq().a((d) au);
     }
 
     public abstract com.baidu.ar.b.b.c b(Bundle bundle);
 
     public void b(long j) {
-        if (this.bU != null) {
-            this.bU.destroyHandle(j);
+        if (this.ch != null) {
+            this.ch.destroyHandle(j);
         }
     }
 
@@ -94,12 +94,12 @@ public abstract class b extends j implements a {
         if (a == null) {
             return;
         }
-        com.baidu.ar.b.a.ac().a((d) a);
+        com.baidu.ar.b.a.aq().a((d) a);
     }
 
     @Override // com.baidu.ar.c.j
     protected final boolean c(FramePixels framePixels) {
-        if (!com.baidu.ar.b.a.ac().c(af()) || framePixels == null) {
+        if (!com.baidu.ar.b.a.aq().d(at()) || framePixels == null) {
             return false;
         }
         com.baidu.ar.b.b.b a = a(framePixels.getPixelsAddress(), framePixels.getWidth(), framePixels.getHeight(), framePixels.getTimestamp(), framePixels.isFrontCamera(), framePixels.getOrientation().getDegree(), framePixels.getSegOrientation().getValue());
@@ -107,6 +107,6 @@ public abstract class b extends j implements a {
             return false;
         }
         a.a(this);
-        return com.baidu.ar.b.a.ac().a((d) a);
+        return com.baidu.ar.b.a.aq().a((d) a);
     }
 }

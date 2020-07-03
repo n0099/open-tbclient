@@ -40,11 +40,11 @@ public class e {
         return new String(com.baidu.cesium.d.a.a(str.getBytes()));
     }
 
-    public static e da(String str) {
-        return db(e(str));
+    public static e dc(String str) {
+        return dd(e(str));
     }
 
-    private static e db(String str) {
+    private static e dd(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

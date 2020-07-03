@@ -6,26 +6,28 @@ public interface k {
 
     /* loaded from: classes3.dex */
     public interface a {
-        boolean CC();
+        boolean Dd();
 
-        void CD();
+        void De();
 
-        void CE();
+        void Df();
 
-        void CF();
+        void Dg();
 
-        boolean CG();
+        boolean Dh();
 
-        int CH();
+        int Di();
 
-        void fq(String str);
+        void fw(String str);
     }
 
-    void BZ();
+    void Cz();
 
-    j CA();
+    j Da();
 
-    com.baidu.live.view.input.a CB();
+    com.baidu.live.view.input.a Db();
+
+    int Dc();
 
     void a(a aVar);
 
@@ -34,6 +36,10 @@ public interface k {
     void a(boolean z, int i, int i2, String str);
 
     void f(Map<String, Integer> map);
+
+    int getImMsgListViewHeight();
+
+    int getImMsgListViewTop();
 
     void onDestroy();
 

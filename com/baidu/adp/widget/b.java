@@ -5,15 +5,22 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b extends ImageSpan {
     private WeakReference<Drawable> mDrawableRef;
+    private int mPaddingRight;
     private int offset;
 
     public b(Context context, Bitmap bitmap, int i) {
         super(context, bitmap, i);
+    }
+
+    public b(Drawable drawable) {
+        super(drawable);
     }
 
     public b(Drawable drawable, int i) {
@@ -22,6 +29,11 @@ public class b extends ImageSpan {
 
     public b(Context context, int i) {
         super(context, i);
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
+        return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.mPaddingRight;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
@@ -46,5 +58,9 @@ public class b extends ImageSpan {
             return drawable2;
         }
         return drawable;
+    }
+
+    public void setPaddingRight(int i) {
+        this.mPaddingRight = i;
     }
 }

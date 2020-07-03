@@ -17,18 +17,18 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class d implements com.baidu.ar.lua.c, IStepLoading {
     private Context mContext;
-    private ARCaseBundleInfo vJ;
-    private a vK;
-    private ICallbackWith<IStepLoading> vL;
-    private String vM;
-    private boolean vN;
+    private ARCaseBundleInfo wj;
+    private a wk;
+    private ICallbackWith<IStepLoading> wl;
+    private String wm;
+    private boolean wn;
 
     public d(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
     private ICancellable a(String str, ICallback iCallback, IError iError, IProgressCallback iProgressCallback) {
-        return com.baidu.ar.d.d.b(new e(this.mContext, this.vJ, this.vK), str).d(new c(this.vJ, str, this.vK, iProgressCallback)).d(new b(iCallback, iError));
+        return com.baidu.ar.d.d.b(new e(this.mContext, this.wj, this.wk), str).d(new c(this.wj, str, this.wk, iProgressCallback)).d(new b(iCallback, iError));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -51,7 +51,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
         String str = (String) hashMap.get("res_path");
         final String str2 = (String) hashMap.get("request_id");
         final boolean z = ((Integer) hashMap.get("need_progress")).intValue() != 0;
-        this.vM = str;
+        this.wm = str;
         a(str, new ICallback() { // from class: com.baidu.ar.steploading.d.1
             @Override // com.baidu.ar.callback.ICallback
             public void run() {
@@ -80,13 +80,13 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
     public void a(int i, int i2, HashMap<String, Object> hashMap) {
         if (i == 5001) {
             if (hashMap != null) {
-                this.vN = false;
+                this.wn = false;
                 t(hashMap);
             }
         } else if (i == 1901 && com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1) == 3010) {
-            this.vN = true;
-            if (this.vL != null) {
-                this.vL.run(this);
+            this.wn = true;
+            if (this.wl != null) {
+                this.wl.run(this);
             } else {
                 cancel();
             }
@@ -99,14 +99,14 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
 
     @Override // com.baidu.ar.steploading.IStepLoading
     public void cancel() {
-        if (!this.vN || TextUtils.isEmpty(this.vM)) {
+        if (!this.wn || TextUtils.isEmpty(this.wm)) {
             return;
         }
-        this.vN = false;
+        this.wn = false;
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", 3021);
         hashMap.put("if_download", 0);
-        hashMap.put("download_batchid", this.vM);
+        hashMap.put("download_batchid", this.wm);
         ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
     }
 
@@ -119,36 +119,36 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
     }
 
     public void release() {
-        this.vN = false;
-        this.vM = null;
-        this.vL = null;
+        this.wn = false;
+        this.wm = null;
+        this.wl = null;
         this.mContext = null;
-        this.vJ = null;
-        this.vK = null;
+        this.wj = null;
+        this.wk = null;
     }
 
     @Override // com.baidu.ar.steploading.IStepLoading
     public void retry() {
-        if (!this.vN || TextUtils.isEmpty(this.vM)) {
+        if (!this.wn || TextUtils.isEmpty(this.wm)) {
             return;
         }
-        this.vN = false;
+        this.wn = false;
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", 3021);
         hashMap.put("if_download", 1);
-        hashMap.put("download_batchid", this.vM);
+        hashMap.put("download_batchid", this.wm);
         ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
     }
 
     @Override // com.baidu.ar.steploading.IStepLoading
     public void setLoadErrorListener(ICallbackWith<IStepLoading> iCallbackWith) {
-        this.vL = iCallbackWith;
+        this.wl = iCallbackWith;
     }
 
     public void switchCase(String str) {
-        this.vJ = new ARCaseBundleInfo();
-        this.vJ.caseDir = str;
-        this.vJ.arKey = ARConfig.getARKey();
-        this.vK = new a(this.vJ.caseDir);
+        this.wj = new ARCaseBundleInfo();
+        this.wj.caseDir = str;
+        this.wj.arKey = ARConfig.getARKey();
+        this.wk = new a(this.wj.caseDir);
     }
 }

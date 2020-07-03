@@ -87,7 +87,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         this.mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() { // from class: com.kascend.chushou.view.homepage.HomePageRecommendFragment.1
             @Override // android.support.v7.widget.GridLayoutManager.SpanSizeLookup
             public int getSpanSize(int i) {
-                if (HomePageRecommendFragment.this.mRecyclerView.KH(i) || HomePageRecommendFragment.this.mRecyclerView.KI(i)) {
+                if (HomePageRecommendFragment.this.mRecyclerView.LN(i) || HomePageRecommendFragment.this.mRecyclerView.LO(i)) {
                     return 4;
                 }
                 return com.kascend.chushou.view.a.a.b.a(HomePageRecommendFragment.this.mAdapter.getItemViewType(i - HomePageRecommendFragment.this.mRecyclerView.getHeaderViewCount()), 4);
@@ -186,7 +186,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
 
     @Override // com.kascend.chushou.view.base.b, android.support.v4.app.Fragment
     public void onDestroyView() {
-        tv.chushou.zues.a.a.ch(this);
+        tv.chushou.zues.a.a.ci(this);
         this.mPresenter.a();
         super.onDestroyView();
     }
@@ -206,14 +206,14 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         switch (i) {
             case 1:
                 if (!this.mLoadedSuc) {
-                    this.mEmptyView.Jn(1);
+                    this.mEmptyView.Ku(1);
                     this.mRecyclerView.setVisibility(8);
                     return;
                 }
                 return;
             case 2:
                 this.mLoadedSuc = true;
-                this.mEmptyView.Jn(2);
+                this.mEmptyView.Ku(2);
                 this.mRecyclerView.completeRefresh();
                 this.mRecyclerView.setVisibility(0);
                 return;
@@ -222,7 +222,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
             case 6:
                 this.mLoadedSuc = false;
                 this.mRecyclerView.completeRefresh();
-                this.mEmptyView.Jn(i);
+                this.mEmptyView.Ku(i);
                 this.mRecyclerView.setVisibility(8);
                 return;
             case 5:
@@ -277,9 +277,9 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
 
     public void subscribeResult(boolean z, String str, ListItem listItem) {
         if (z) {
-            int bu = this.mAdapter.bu(listItem);
-            if (bu != -1) {
-                this.mAdapter.notifyItemChanged(bu, TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE);
+            int bv = this.mAdapter.bv(listItem);
+            if (bv != -1) {
+                this.mAdapter.notifyItemChanged(bv, TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE);
                 return;
             }
             return;
@@ -287,7 +287,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         if (h.isEmpty(str)) {
             str = tv.chushou.widget.a.c.getString(a.i.subscribe_failed);
         }
-        g.u(str);
+        g.y(str);
     }
 
     public int getRecommend() {

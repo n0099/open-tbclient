@@ -1,4 +1,5 @@
 package com.baidu.live.tbadk.pagestayduration;
+@Deprecated
 /* loaded from: classes3.dex */
 public class PageStayDurationConstants {
     public static final int DEFAULT_MAX_COST = 3;

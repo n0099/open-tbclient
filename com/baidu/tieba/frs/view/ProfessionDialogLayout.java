@@ -10,13 +10,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class ProfessionDialogLayout extends LinearLayout {
-    private View.OnClickListener hRT;
-    private View.OnClickListener hRU;
+    private View.OnClickListener ign;
+    private View.OnClickListener igo;
     private Context mContext;
 
     public ProfessionDialogLayout(Context context) {
@@ -39,37 +39,37 @@ public class ProfessionDialogLayout extends LinearLayout {
         LayoutInflater.from(context).inflate(R.layout.profession_dialog_layout, this);
         setOrientation(1);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.img_bg);
-        am.setViewTextColor((TextView) findViewById(R.id.desc_1), (int) R.color.cp_cont_j);
-        am.setViewTextColor((TextView) findViewById(R.id.desc_2), (int) R.color.cp_cont_j);
-        am.setViewTextColor((TextView) findViewById(R.id.button), (int) R.color.cp_link_tip_a);
+        an.setViewTextColor((TextView) findViewById(R.id.desc_1), (int) R.color.cp_cont_j);
+        an.setViewTextColor((TextView) findViewById(R.id.desc_2), (int) R.color.cp_cont_j);
+        an.setViewTextColor((TextView) findViewById(R.id.button), (int) R.color.cp_link_tip_a);
         setImageAttribute(tbImageView);
-        am.setImageResource(tbImageView, R.drawable.img_frs_professinal_popup);
+        an.setImageResource(tbImageView, R.drawable.img_frs_professinal_popup);
         TbImageView tbImageView2 = (TbImageView) findViewById(R.id.close_btn);
-        am.setImageResource(tbImageView2, R.drawable.icon_prefession_popup_close_n);
+        an.setImageResource(tbImageView2, R.drawable.icon_prefession_popup_close_n);
         tbImageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ProfessionDialogLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ProfessionDialogLayout.this.hRU != null) {
-                    ProfessionDialogLayout.this.hRU.onClick(view);
+                if (ProfessionDialogLayout.this.igo != null) {
+                    ProfessionDialogLayout.this.igo.onClick(view);
                 }
             }
         });
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ProfessionDialogLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ProfessionDialogLayout.this.hRT != null) {
-                    ProfessionDialogLayout.this.hRT.onClick(view);
+                if (ProfessionDialogLayout.this.ign != null) {
+                    ProfessionDialogLayout.this.ign.onClick(view);
                 }
             }
         });
     }
 
     public void setButtonClickListener(View.OnClickListener onClickListener) {
-        this.hRT = onClickListener;
+        this.ign = onClickListener;
     }
 
     public void setCloseViewClickListener(View.OnClickListener onClickListener) {
-        this.hRU = onClickListener;
+        this.igo = onClickListener;
     }
 
     private void setImageAttribute(TbImageView tbImageView) {

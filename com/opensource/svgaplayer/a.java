@@ -4,9 +4,9 @@ import kotlin.h;
 @h
 /* loaded from: classes.dex */
 public interface a {
-    void Qv();
+    void RB();
 
-    void Qw();
+    void RC();
 
     void b(int i, double d);
 

@@ -2,21 +2,21 @@ package com.baidu.tieba.forumMember.a;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import tbclient.User;
 /* loaded from: classes10.dex */
-public class e implements o {
-    public static final BdUniqueId hjy = BdUniqueId.gen();
+public class e implements q {
+    public static final BdUniqueId hvG = BdUniqueId.gen();
     private int fansNum;
-    private String gSu;
+    private String hfd;
     private String intro;
     private String name;
     private String nameShow;
     private String userId;
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hjy;
+        return hvG;
     }
 
     public String getUserId() {
@@ -28,11 +28,11 @@ public class e implements o {
     }
 
     public String getHeadUrl() {
-        return this.gSu;
+        return this.hfd;
     }
 
     public void setHeadUrl(String str) {
-        this.gSu = str;
+        this.hfd = str;
     }
 
     public String getName() {

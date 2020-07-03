@@ -5,31 +5,31 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.g;
 /* loaded from: classes6.dex */
 public final class a {
-    private static final AtomicReference<a> nFp = new AtomicReference<>();
-    private final g nFq;
+    private static final AtomicReference<a> oba = new AtomicReference<>();
+    private final g obb;
 
-    private static a dPI() {
+    private static a dUo() {
         a aVar;
         do {
-            aVar = nFp.get();
+            aVar = oba.get();
             if (aVar != null) {
                 break;
             }
             aVar = new a();
-        } while (!nFp.compareAndSet(null, aVar));
+        } while (!oba.compareAndSet(null, aVar));
         return aVar;
     }
 
     private a() {
-        g dPH = rx.a.a.a.dPE().dPF().dPH();
-        if (dPH != null) {
-            this.nFq = dPH;
+        g dUn = rx.a.a.a.dUk().dUl().dUn();
+        if (dUn != null) {
+            this.obb = dUn;
         } else {
-            this.nFq = new b(Looper.getMainLooper());
+            this.obb = new b(Looper.getMainLooper());
         }
     }
 
-    public static g dPJ() {
-        return dPI().nFq;
+    public static g dUp() {
+        return dUo().obb;
     }
 }

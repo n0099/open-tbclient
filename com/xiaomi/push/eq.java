@@ -9,27 +9,27 @@ public final class eq {
     private static volatile eq a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f300a;
+    private int f306a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f301a;
+    private Context f307a;
 
     /* renamed from: a  reason: collision with other field name */
-    private eu f302a;
+    private eu f308a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f303a;
+    private String f309a;
 
     /* renamed from: a  reason: collision with other field name */
-    private HashMap<es, et> f304a = new HashMap<>();
+    private HashMap<es, et> f310a = new HashMap<>();
     private String b;
 
     private eq(Context context) {
-        this.f301a = context;
-        this.f304a.put(es.SERVICE_ACTION, new ew());
-        this.f304a.put(es.SERVICE_COMPONENT, new ex());
-        this.f304a.put(es.ACTIVITY, new eo());
-        this.f304a.put(es.PROVIDER, new ev());
+        this.f307a = context;
+        this.f310a.put(es.SERVICE_ACTION, new ew());
+        this.f310a.put(es.SERVICE_COMPONENT, new ex());
+        this.f310a.put(es.ACTIVITY, new eo());
+        this.f310a.put(es.PROVIDER, new ev());
     }
 
     public static eq a(Context context) {
@@ -45,30 +45,30 @@ public final class eq {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(es esVar, Context context, ep epVar) {
-        this.f304a.get(esVar).a(context, epVar);
+        this.f310a.get(esVar).a(context, epVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m264a(Context context) {
-        return com.xiaomi.push.service.aa.m529a(context, context.getPackageName());
+    public static boolean m261a(Context context) {
+        return com.xiaomi.push.service.aa.m526a(context, context.getPackageName());
     }
 
     public int a() {
-        return this.f300a;
+        return this.f306a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public eu m265a() {
-        return this.f302a;
+    public eu m262a() {
+        return this.f308a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m266a() {
-        return this.f303a;
+    public String m263a() {
+        return this.f309a;
     }
 
     public void a(int i) {
-        this.f300a = i;
+        this.f306a = i;
     }
 
     public void a(Context context, String str, int i, String str2, String str3) {
@@ -77,23 +77,23 @@ public final class eq {
             return;
         }
         a(i);
-        ai.a(this.f301a).a(new er(this, str, context, str2, str3));
+        ai.a(this.f307a).a(new er(this, str, context, str2, str3));
     }
 
     public void a(es esVar, Context context, Intent intent, String str) {
         if (esVar != null) {
-            this.f304a.get(esVar).a(context, intent, str);
+            this.f310a.get(esVar).a(context, intent, str);
         } else {
             em.a(context, "null", 1008, "A receive a incorrect message with empty type");
         }
     }
 
     public void a(eu euVar) {
-        this.f302a = euVar;
+        this.f308a = euVar;
     }
 
     public void a(String str) {
-        this.f303a = str;
+        this.f309a = str;
     }
 
     public void a(String str, String str2, int i, eu euVar) {

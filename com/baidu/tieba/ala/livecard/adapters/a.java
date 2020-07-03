@@ -5,9 +5,10 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.y;
+import com.baidu.tieba.frs.j;
 /* loaded from: classes3.dex */
-public class a extends com.baidu.tieba.frs.h<com.baidu.tieba.tbadkCore.g, com.baidu.tieba.ala.livecard.a.b> implements y {
-    private com.baidu.tieba.ala.livecard.b.a fGc;
+public class a extends j<com.baidu.tieba.tbadkCore.g, com.baidu.tieba.ala.livecard.a.b> implements y {
+    private com.baidu.tieba.ala.livecard.b.a fRl;
     private String mForumName;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -18,28 +19,28 @@ public class a extends com.baidu.tieba.frs.h<com.baidu.tieba.tbadkCore.g, com.ba
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ai */
+    /* renamed from: ak */
     public com.baidu.tieba.ala.livecard.a.b b(ViewGroup viewGroup) {
         if (this.mPageContext == null) {
             return null;
         }
-        this.fGc = new com.baidu.tieba.ala.livecard.b.a(this.mPageContext);
-        this.fGc.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.b(this.fGc);
+        this.fRl = new com.baidu.tieba.ala.livecard.b.a(this.mPageContext);
+        this.fRl.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.b(this.fRl);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.g gVar, com.baidu.tieba.ala.livecard.a.b bVar) {
         super.a(i, view, viewGroup, (ViewGroup) gVar, (com.baidu.tieba.tbadkCore.g) bVar);
         if (gVar != null) {
-            int topThreadSize = this.hmR != null ? this.hmR.getTopThreadSize() : 0;
-            if (gVar.ljH != null && gVar.ljH.get(0) != null) {
-                gVar.ljH.get(0).dDb = (i + 1) - topThreadSize;
+            int topThreadSize = this.hzi != null ? this.hzi.getTopThreadSize() : 0;
+            if (gVar.lDC != null && gVar.lDC.get(0) != null) {
+                gVar.lDC.get(0).dJw = (i + 1) - topThreadSize;
             }
-            bVar.fGv.setForumName(this.mForumName);
-            bVar.fGv.a(gVar);
+            bVar.fRE.setForumName(this.mForumName);
+            bVar.fRE.a(gVar);
         }
         return view;
     }
@@ -50,6 +51,6 @@ public class a extends com.baidu.tieba.frs.h<com.baidu.tieba.tbadkCore.g, com.ba
     }
 
     @Override // com.baidu.tieba.card.y
-    public void qy(int i) {
+    public void qX(int i) {
     }
 }

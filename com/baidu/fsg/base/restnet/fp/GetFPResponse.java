@@ -51,7 +51,7 @@ public class GetFPResponse implements IBeanResponse {
     public static class RimConfig implements NoProguard {
 
         /* renamed from: common  reason: collision with root package name */
-        public CommonConfig f983common;
+        public CommonConfig f988common;
         public LivenessConfig living;
         public OcrConfig ocr;
     }

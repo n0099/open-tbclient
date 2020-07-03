@@ -6,18 +6,18 @@ import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 /* loaded from: classes10.dex */
 public class VideoAdView extends RelativeLayout {
-    private com.baidu.mobads.production.h.b bsD;
-    private IOAdEventListener bsE;
-    private VideoAdViewListener bsF;
+    private com.baidu.mobads.production.h.b bxx;
+    private IOAdEventListener bxy;
+    private VideoAdViewListener bxz;
 
     public VideoAdView(Context context) {
         super(context);
-        this.bsE = new v(this);
+        this.bxy = new v(this);
     }
 
     public VideoAdView(Context context, String str) {
         super(context, null);
-        this.bsE = new v(this);
+        this.bxy = new v(this);
     }
 
     /* loaded from: classes10.dex */
@@ -60,19 +60,19 @@ public class VideoAdView extends RelativeLayout {
     }
 
     public void requestAd(VideoAdRequest videoAdRequest) {
-        this.bsD = new com.baidu.mobads.production.h.b(getContext(), "TODO");
-        this.bsD.setActivity(getContext());
-        this.bsD.setAdSlotBase(this);
-        this.bsD.addEventListener(IXAdEvent.AD_CLICK_THRU, this.bsE);
-        this.bsD.addEventListener(IXAdEvent.AD_LOADED, this.bsE);
-        this.bsD.addEventListener(IXAdEvent.AD_STARTED, this.bsE);
-        this.bsD.addEventListener(IXAdEvent.AD_STOPPED, this.bsE);
-        this.bsD.addEventListener(IXAdEvent.AD_ERROR, this.bsE);
-        this.bsD.request();
+        this.bxx = new com.baidu.mobads.production.h.b(getContext(), "TODO");
+        this.bxx.setActivity(getContext());
+        this.bxx.setAdSlotBase(this);
+        this.bxx.addEventListener(IXAdEvent.AD_CLICK_THRU, this.bxy);
+        this.bxx.addEventListener(IXAdEvent.AD_LOADED, this.bxy);
+        this.bxx.addEventListener(IXAdEvent.AD_STARTED, this.bxy);
+        this.bxx.addEventListener(IXAdEvent.AD_STOPPED, this.bxy);
+        this.bxx.addEventListener(IXAdEvent.AD_ERROR, this.bxy);
+        this.bxx.request();
     }
 
     public void startVideo() {
-        this.bsD.start();
+        this.bxx.start();
     }
 
     public static void setAppSid(Context context, String str) {
@@ -80,6 +80,6 @@ public class VideoAdView extends RelativeLayout {
     }
 
     public void setListener(VideoAdViewListener videoAdViewListener) {
-        this.bsF = videoAdViewListener;
+        this.bxz = videoAdViewListener;
     }
 }

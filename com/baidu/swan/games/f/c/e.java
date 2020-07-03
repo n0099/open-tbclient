@@ -24,18 +24,18 @@ public class e implements PermissionProxy {
             }
             return;
         }
-        final String rA = rA(str);
-        com.baidu.swan.apps.runtime.e aoF = com.baidu.swan.apps.runtime.e.aoF();
-        if (TextUtils.isEmpty(rA) || aoF == null || aoF.aoz() == null) {
+        final String rI = rI(str);
+        com.baidu.swan.apps.runtime.e apM = com.baidu.swan.apps.runtime.e.apM();
+        if (TextUtils.isEmpty(rI) || apM == null || apM.apG() == null) {
             permissionListener.onPermissionResult(str, 2);
         } else {
-            aoF.aoR().b(aoF.aoz(), str, new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.games.f.c.e.1
+            apM.apY().b(apM.apG(), str, new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.games.f.c.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.aq.e.b
                 /* renamed from: a */
                 public void H(h<b.d> hVar) {
                     if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                        e.this.a(str, rA, permissionListener);
+                        e.this.a(str, rI, permissionListener);
                     } else {
                         permissionListener.onPermissionResult(str, 2);
                     }
@@ -44,7 +44,7 @@ public class e implements PermissionProxy {
         }
     }
 
-    private String rA(String str) {
+    private String rI(String str) {
         if (str == null) {
             return null;
         }
@@ -77,12 +77,12 @@ public class e implements PermissionProxy {
     public void a(@NonNull final String str, @NonNull String str2, @NonNull final PermissionListener permissionListener) {
         com.baidu.swan.apps.ad.a.a(str2, new String[]{str2}, 2, new com.baidu.swan.apps.ad.b() { // from class: com.baidu.swan.games.f.c.e.2
             @Override // com.baidu.swan.apps.ad.b
-            public void gY(String str3) {
+            public void hg(String str3) {
                 permissionListener.onPermissionResult(str, 0);
             }
 
             @Override // com.baidu.swan.apps.ad.b
-            public void M(int i, String str3) {
+            public void O(int i, String str3) {
                 permissionListener.onPermissionResult(str, 1);
             }
         });

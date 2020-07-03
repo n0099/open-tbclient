@@ -14,7 +14,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.t;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.BaseActivity;
@@ -42,16 +42,16 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes10.dex */
 public class MembersActivity extends BaseActivity<MembersActivity> implements View.OnClickListener, BdListView.e {
-    private com.baidu.tbadk.core.view.g iBI;
-    private m iBJ;
-    private MembersModel iBK;
-    private final com.baidu.adp.framework.listener.c isB = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_REQUEST_MEMBERS_BY_ID) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.6
+    private com.baidu.tbadk.core.view.g iSN;
+    private m iSO;
+    private MembersModel iSP;
+    private final com.baidu.adp.framework.listener.c iJH = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_REQUEST_MEMBERS_BY_ID) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             RequestMembersMessage requestMembersMessage;
-            l cmQ = MembersActivity.this.iBJ.cmQ();
-            MembersActivity.this.cbc();
+            l cqF = MembersActivity.this.iSO.cqF();
+            MembersActivity.this.ceu();
             if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseMembersMessage)) {
                 MembersActivity.this.showToast(R.string.neterror);
                 return;
@@ -63,7 +63,7 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
             } else {
                 requestMembersMessage = (RequestMembersMessage) orginalMessage;
             }
-            MembersActivity.this.iBK.setRequestM(requestMembersMessage);
+            MembersActivity.this.iSP.setRequestM(requestMembersMessage);
             if (responseMembersMessage.getError() != 0) {
                 if (responseMembersMessage.getError() > 0) {
                     MembersActivity.this.showToast(StringUtils.isNull(responseMembersMessage.getErrorString()) ? MembersActivity.this.getResources().getString(R.string.neterror) : responseMembersMessage.getErrorString());
@@ -76,34 +76,34 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
             MembersData membersData = responseMembersMessage.getMembersData();
             List<UserData> users = membersData.getUsers();
             if (users != null) {
-                if (MembersActivity.this.cgb()) {
+                if (MembersActivity.this.cjB()) {
                     MembersActivity.this.a(membersData.getPermission());
                 }
-                if (MembersActivity.this.cgb()) {
-                    cmQ.reset(true);
+                if (MembersActivity.this.cjB()) {
+                    cqF.reset(true);
                 }
-                if (users.size() != MembersActivity.this.iBK.getLen()) {
-                    cmQ.pf(false);
-                    cmQ.pg(false);
-                    if (MembersActivity.this.cgb() && users.size() == 0) {
-                        MembersActivity.this.cmE();
+                if (users.size() != MembersActivity.this.iSP.getLen()) {
+                    cqF.pp(false);
+                    cqF.pq(false);
+                    if (MembersActivity.this.cjB() && users.size() == 0) {
+                        MembersActivity.this.cqt();
                         return;
                     }
                 } else {
-                    cmQ.pg(true);
+                    cqF.pq(true);
                 }
-                MembersActivity.this.iBK.addStart(users.size());
-                MembersActivity.this.iBK.setLen(20);
-                cmQ.dh(users);
-                cmQ.notifyDataSetChanged();
+                MembersActivity.this.iSP.addStart(users.size());
+                MembersActivity.this.iSP.setLen(20);
+                cqF.dv(users);
+                cqF.notifyDataSetChanged();
             }
         }
     };
-    private final com.baidu.adp.framework.listener.c iBL = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_REMOVE_MEMBERS) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.7
+    private final com.baidu.adp.framework.listener.c iSQ = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_REMOVE_MEMBERS) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            MembersActivity.this.iBJ.showProgressBar(false);
+            MembersActivity.this.iSO.showProgressBar(false);
             if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseRemoveMembersMessage)) {
                 MembersActivity.this.showToast(R.string.neterror);
                 return;
@@ -119,12 +119,12 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                 }
             }
             MembersActivity.this.showToast(R.string.delete_success);
-            MembersActivity.this.iBJ.cmQ().di(MembersActivity.this.iBK.getUserIds());
-            MembersActivity.this.iBJ.cmR();
-            MembersActivity.this.iBJ.cmQ().cmJ();
+            MembersActivity.this.iSO.cqF().dw(MembersActivity.this.iSP.getUserIds());
+            MembersActivity.this.iSO.cqG();
+            MembersActivity.this.iSO.cqF().cqy();
         }
     };
-    private final CustomMessageListener iBM = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.2
+    private final CustomMessageListener iSR = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -136,7 +136,7 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                         MembersActivity.this.reset();
                     } else if (cmd.equals("kick_out")) {
                         MembersActivity.this.reset();
-                        MembersActivity.this.iBJ.ckg().startPullRefresh();
+                        MembersActivity.this.iSO.cnV().startPullRefresh();
                     }
                 }
             }
@@ -160,21 +160,21 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
     }
 
     private void initListener() {
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.iBM);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.iBM);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.iSR);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.iSR);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.iBK.saveInstance(bundle);
+        this.iSP.saveInstance(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.iBJ.cmP().aWa();
+        this.iSO.cqE().aXU();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -183,38 +183,38 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
         super.onDestroy();
     }
 
-    public MembersModel cmD() {
-        return this.iBK;
+    public MembersModel cqs() {
+        return this.iSP;
     }
 
     private void initUI() {
-        this.iBJ = new m(this);
-        final BdListView ckg = this.iBJ.ckg();
-        this.iBI = new com.baidu.tbadk.core.view.g(getPageContext());
-        this.iBI.setListPullRefreshListener(new f.c() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.1
+        this.iSO = new m(this);
+        final BdListView cnV = this.iSO.cnV();
+        this.iSN = new com.baidu.tbadk.core.view.g(getPageContext());
+        this.iSN.setListPullRefreshListener(new f.c() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.1
             @Override // com.baidu.tbadk.core.view.f.c
             public void onListPullRefresh(boolean z) {
-                if (!MembersActivity.this.iBJ.cmQ().cjS()) {
-                    if (!MembersActivity.this.cgb()) {
+                if (!MembersActivity.this.iSO.cqF().cnH()) {
+                    if (!MembersActivity.this.cjB()) {
                         MembersActivity.this.reset();
                     }
-                    MembersActivity.this.iBK.sendMessage(MembersActivity.this.iBK.getGroupId(), MembersActivity.this.iBK.getStart(), MembersActivity.this.iBK.getLen(), MembersActivity.this.iBK.getOrderType());
+                    MembersActivity.this.iSP.sendMessage(MembersActivity.this.iSP.getGroupId(), MembersActivity.this.iSP.getStart(), MembersActivity.this.iSP.getLen(), MembersActivity.this.iSP.getOrderType());
                     return;
                 }
-                ckg.completePullRefreshPostDelayed(0L);
+                cnV.completePullRefreshPostDelayed(0L);
             }
         });
-        ckg.setPullRefresh(this.iBI);
-        ckg.setOnSrollToBottomListener(this);
-        ckg.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.3
+        cnV.setPullRefresh(this.iSN);
+        cnV.setOnSrollToBottomListener(this);
+        cnV.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.3
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                l cmQ = MembersActivity.this.iBJ.cmQ();
-                UserData userData = (UserData) cmQ.getItem(i);
+                l cqF = MembersActivity.this.iSO.cqF();
+                UserData userData = (UserData) cqF.getItem(i);
                 if (userData != null) {
-                    if (cmQ.cjS()) {
+                    if (cqF.cnH()) {
                         if (!userData.getPermission().isController()) {
-                            cmQ.f(Long.valueOf(userData.getUserIdLong()));
+                            cqF.f(Long.valueOf(userData.getUserIdLong()));
                             return;
                         }
                         return;
@@ -223,11 +223,11 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                 }
             }
         });
-        ckg.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.4
+        cnV.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.4
             @Override // android.widget.AdapterView.OnItemLongClickListener
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (!MembersActivity.this.iBJ.cmQ().cjS() && MembersActivity.this.iBK.isController()) {
-                    UserData userData = (UserData) MembersActivity.this.iBJ.cmQ().getItem(i);
+                if (!MembersActivity.this.iSO.cqF().cnH() && MembersActivity.this.iSP.isController()) {
+                    UserData userData = (UserData) MembersActivity.this.iSO.cqF().getItem(i);
                     if (userData != null) {
                         if (userData.getPermission().isController()) {
                             return false;
@@ -239,7 +239,7 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                             @Override // com.baidu.tbadk.core.dialog.a.b
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                                 aVar.dismiss();
-                                MembersActivity.this.a(MembersActivity.this.iBK.getGroupId(), arrayList);
+                                MembersActivity.this.b(MembersActivity.this.iSP.getGroupId(), arrayList);
                             }
                         }, new a.b() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.4.2
                             @Override // com.baidu.tbadk.core.dialog.a.b
@@ -253,28 +253,28 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                 return false;
             }
         });
-        this.iBJ.cmM().setOnClickListener(this);
-        this.iBJ.cmN().setOnClickListener(this);
-        this.iBJ.cmO().setOnClickListener(this);
-        this.iBJ.setController(false);
-        this.iBJ.cmQ().a(new l.a() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.5
+        this.iSO.cqB().setOnClickListener(this);
+        this.iSO.cqC().setOnClickListener(this);
+        this.iSO.cqD().setOnClickListener(this);
+        this.iSO.setController(false);
+        this.iSO.cqF().a(new l.a() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.5
             @Override // com.baidu.tieba.im.frsgroup.l.a
-            public void xI(int i) {
-                MembersActivity.this.iBJ.xJ(i);
+            public void ys(int i) {
+                MembersActivity.this.iSO.yt(i);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(long j, List<Long> list) {
+    public void b(long j, List<Long> list) {
         if (list != null && list.size() != 0) {
-            this.iBJ.showProgressBar(true);
-            this.iBK.setUserIds(list);
-            this.iBK.sendRemoveMessage(j, dg(list));
+            this.iSO.showProgressBar(true);
+            this.iSP.setUserIds(list);
+            this.iSP.sendRemoveMessage(j, du(list));
         }
     }
 
-    private String dg(List<Long> list) {
+    private String du(List<Long> list) {
         StringBuffer stringBuffer = new StringBuffer();
         for (Long l : list) {
             stringBuffer.append(l).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
@@ -286,86 +286,86 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
     }
 
     private void startLoading() {
-        this.iBK.setUseCache(false);
-        this.iBK.setRequestM(null);
-        this.iBJ.cmQ().reset(true);
-        this.iBK.setStart(0);
-        this.iBK.setLen(50);
-        this.iBJ.ckg().startPullRefresh();
+        this.iSP.setUseCache(false);
+        this.iSP.setRequestM(null);
+        this.iSO.cqF().reset(true);
+        this.iSP.setStart(0);
+        this.iSP.setLen(50);
+        this.iSO.cnV().startPullRefresh();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reset() {
-        this.iBK.setUseCache(true);
-        this.iBK.setRequestM(null);
-        this.iBJ.cmQ().reset(false);
-        this.iBK.setStart(0);
-        this.iBK.setLen(50);
+        this.iSP.setUseCache(true);
+        this.iSP.setRequestM(null);
+        this.iSO.cqF().reset(false);
+        this.iSP.setStart(0);
+        this.iSP.setLen(50);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbc() {
-        if (cgb()) {
-            this.iBJ.cbc();
+    public void ceu() {
+        if (cjB()) {
+            this.iSO.ceu();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cgb() {
-        return 50 == this.iBK.getLen();
+    public boolean cjB() {
+        return 50 == this.iSP.getLen();
     }
 
     public void initData(Bundle bundle) {
-        this.iBK = new MembersModel(this);
-        this.iBK.setUniqueId(getUniqueId());
+        this.iSP = new MembersModel(this);
+        this.iSP.setUniqueId(getUniqueId());
         if (bundle == null) {
-            this.iBK.initWithIntent(getIntent());
+            this.iSP.initWithIntent(getIntent());
         } else {
-            this.iBK.initWithBundle(bundle);
+            this.iSP.initWithBundle(bundle);
         }
-        registerListener(this.isB);
-        registerListener(this.iBL);
+        registerListener(this.iJH);
+        registerListener(this.iSQ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(UserData.Permission permission) {
         if (permission != null) {
             boolean isController = permission.isController();
-            this.iBK.setController(isController);
-            this.iBJ.setController(isController);
+            this.iSP.setController(isController);
+            this.iSO.setController(isController);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmE() {
-        this.iBJ.cmP().e(getPageContext());
-        this.iBJ.cmP().setTextOption(NoDataViewFactory.d.lV(R.string.members_no_person));
-        this.iBJ.cmP().setVisibility(0);
+    public void cqt() {
+        this.iSO.cqE().e(getPageContext());
+        this.iSO.cqE().setTextOption(NoDataViewFactory.d.mm(R.string.members_no_person));
+        this.iSO.cqE().setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.iBJ.onChangeSkinType(i);
-        this.iBI.changeSkin(i);
+        this.iSO.onChangeSkinType(i);
+        this.iSN.changeSkin(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.iBJ.cmS()) {
-            cmF();
-        } else if (view == this.iBJ.cmM()) {
-            cmH();
-            this.iBJ.pj(false);
-        } else if (view == this.iBJ.cmN()) {
-            cmG();
-            this.iBJ.pj(true);
-        } else if (view == this.iBJ.cmO()) {
-            cmI();
+        if (view == this.iSO.cqH()) {
+            cqu();
+        } else if (view == this.iSO.cqB()) {
+            cqw();
+            this.iSO.pt(false);
+        } else if (view == this.iSO.cqC()) {
+            cqv();
+            this.iSO.pt(true);
+        } else if (view == this.iSO.cqD()) {
+            cqx();
         }
     }
 
-    private void cmF() {
+    private void cqu() {
         final com.baidu.tbadk.core.dialog.i iVar = new com.baidu.tbadk.core.dialog.i(getPageContext());
         iVar.a(TbadkApplication.getInst().getString(R.string.members_order), getResources().getStringArray(R.array.members_order_by), new k.c() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.8
             @Override // com.baidu.tbadk.core.dialog.k.c
@@ -382,44 +382,44 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                         i2 = 2;
                         break;
                 }
-                MembersActivity.this.iBK.setOrderType(i2);
+                MembersActivity.this.iSP.setOrderType(i2);
                 MembersActivity.this.showToast(MembersActivity.this.getResources().getStringArray(R.array.members_order_by_short)[i]);
                 MembersActivity.this.reset();
-                MembersActivity.this.iBJ.ckg().startPullRefresh();
+                MembersActivity.this.iSO.cnV().startPullRefresh();
             }
         });
         iVar.showDialog();
     }
 
-    private void cmG() {
-        this.iBJ.xJ(0);
-        this.iBJ.pi(false);
-        this.iBJ.cmQ().ph(false);
-        this.iBJ.cmQ().cmJ();
-        this.iBJ.cmR();
+    private void cqv() {
+        this.iSO.yt(0);
+        this.iSO.ps(false);
+        this.iSO.cqF().pr(false);
+        this.iSO.cqF().cqy();
+        this.iSO.cqG();
     }
 
-    private void cmH() {
-        this.iBJ.xJ(0);
-        this.iBJ.pi(true);
-        this.iBJ.cmQ().ph(true);
-        this.iBJ.cmR();
+    private void cqw() {
+        this.iSO.yt(0);
+        this.iSO.ps(true);
+        this.iSO.cqF().pr(true);
+        this.iSO.cqG();
     }
 
-    private void cmI() {
-        Set<Long> cmK = this.iBJ.cmQ().cmK();
-        if (cmK.size() > 0) {
+    private void cqx() {
+        Set<Long> cqz = this.iSO.cqF().cqz();
+        if (cqz.size() > 0) {
             final ArrayList arrayList = new ArrayList();
-            arrayList.addAll(cmK);
+            arrayList.addAll(cqz);
             DialogUtil.removeMembersDialog(getPageContext().getPageActivity(), new a.b() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.9
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    MembersActivity.this.iBJ.pi(false);
-                    MembersActivity.this.iBJ.cmQ().ph(false);
-                    MembersActivity.this.iBJ.cmR();
-                    MembersActivity.this.a(MembersActivity.this.iBK.getGroupId(), arrayList);
-                    MembersActivity.this.iBJ.pj(true);
+                    MembersActivity.this.iSO.ps(false);
+                    MembersActivity.this.iSO.cqF().pr(false);
+                    MembersActivity.this.iSO.cqG();
+                    MembersActivity.this.b(MembersActivity.this.iSP.getGroupId(), arrayList);
+                    MembersActivity.this.iSO.pt(true);
                 }
             }, new a.b() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.10
                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -430,9 +430,9 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
         }
     }
 
-    private void bqx() {
-        if (this.iBJ.cmQ().cmL()) {
-            this.iBK.sendMessage(this.iBK.getGroupId(), this.iBK.getStart(), this.iBK.getLen(), this.iBK.getOrderType());
+    private void btu() {
+        if (this.iSO.cqF().cqA()) {
+            this.iSP.sendMessage(this.iSP.getGroupId(), this.iSP.getStart(), this.iSP.getLen(), this.iSP.getOrderType());
         }
     }
 
@@ -444,14 +444,14 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        bqx();
+        btu();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity
-    public r onGetPreLoadListView() {
-        if (this.iBJ == null || this.iBJ.ckg() == null) {
+    public t onGetPreLoadListView() {
+        if (this.iSO == null || this.iSO.cnV() == null) {
             return null;
         }
-        return this.iBJ.ckg().getPreLoadHandle();
+        return this.iSO.cnV().getPreLoadHandle();
     }
 }

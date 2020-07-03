@@ -11,7 +11,7 @@ import java.io.OutputStream;
 /* loaded from: classes11.dex */
 class c {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static File aeL() {
+    public static File afR() {
         File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_mini_zip");
         if (!file.exists()) {
             file.mkdirs();
@@ -32,7 +32,7 @@ class c {
                 }
             } catch (Throwable th) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.d("Mini-Pm-Download", com.baidu.swan.pms.d.aFP().getProcessName() + ": path exception or no space left." + th.toString());
+                    Log.d("Mini-Pm-Download", com.baidu.swan.pms.d.aGV().getProcessName() + ": path exception or no space left." + th.toString());
                 }
             }
         }
@@ -118,7 +118,7 @@ class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean d(String str, long j, String str2) {
+    public static boolean e(String str, long j, String str2) {
         if (q(str, j)) {
             String md5 = str != null ? com.baidu.swan.pms.f.a.toMd5(new File(str), true) : null;
             if (str2 == null || md5 == null) {

@@ -7,61 +7,61 @@ import com.facebook.imagepipeline.g.f;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class a extends com.facebook.drawee.controller.b<f> {
-    private final h moS;
-    private final com.facebook.common.time.b moZ;
-    private final g mop;
+    private final h mKR;
+    private final com.facebook.common.time.b mKY;
+    private final g mKo;
 
     public a(com.facebook.common.time.b bVar, h hVar, g gVar) {
-        this.moZ = bVar;
-        this.moS = hVar;
-        this.mop = gVar;
+        this.mKY = bVar;
+        this.mKR = hVar;
+        this.mKo = gVar;
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void g(String str, Object obj) {
-        this.moS.fF(this.moZ.now());
-        this.moS.PX(str);
-        this.moS.aY(obj);
-        this.mop.a(this.moS, 0);
+        this.mKR.fK(this.mKY.now());
+        this.mKR.QJ(str);
+        this.mKR.aZ(obj);
+        this.mKo.a(this.mKR, 0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     /* renamed from: a */
     public void h(String str, @Nullable f fVar) {
-        this.moS.fG(this.moZ.now());
-        this.moS.PX(str);
-        this.moS.a(fVar);
-        this.mop.a(this.moS, 2);
+        this.mKR.fL(this.mKY.now());
+        this.mKR.QJ(str);
+        this.mKR.a(fVar);
+        this.mKo.a(this.mKR, 2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void a(String str, @Nullable f fVar, @Nullable Animatable animatable) {
-        this.moS.fH(this.moZ.now());
-        this.moS.PX(str);
-        this.moS.a(fVar);
-        this.moS.vX(true);
-        this.mop.a(this.moS, 3);
+        this.mKR.fM(this.mKY.now());
+        this.mKR.QJ(str);
+        this.mKR.a(fVar);
+        this.mKR.wt(true);
+        this.mKo.a(this.mKR, 3);
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void h(String str, Throwable th) {
-        this.moS.fI(this.moZ.now());
-        this.moS.PX(str);
-        this.moS.vX(false);
-        this.mop.a(this.moS, 5);
+        this.mKR.fN(this.mKY.now());
+        this.mKR.QJ(str);
+        this.mKR.wt(false);
+        this.mKo.a(this.mKR, 5);
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
-    public void eV(String str) {
-        super.eV(str);
-        int dvL = this.moS.dvL();
-        if (dvL != 3 && dvL != 5) {
-            this.moS.fJ(this.moZ.now());
-            this.moS.PX(str);
-            this.moS.vW(true);
-            this.mop.a(this.moS, 4);
+    public void fb(String str) {
+        super.fb(str);
+        int dAo = this.mKR.dAo();
+        if (dAo != 3 && dAo != 5) {
+            this.mKR.fO(this.mKY.now());
+            this.mKR.QJ(str);
+            this.mKR.ws(true);
+            this.mKo.a(this.mKR, 4);
         }
     }
 }

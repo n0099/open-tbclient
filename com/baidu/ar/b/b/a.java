@@ -6,22 +6,22 @@ public abstract class a extends d {
         this.level = 1;
     }
 
-    public abstract boolean al();
+    public abstract boolean az();
 
     @Override // com.baidu.ar.b.b.d
     public void execute() {
-        if (com.baidu.ar.b.a.ac().c(this.cK)) {
-            com.baidu.ar.b.a.ac().e(this.cK);
-            al();
+        if (com.baidu.ar.b.a.aq().d(this.cX)) {
+            com.baidu.ar.b.a.aq().f(this.cX);
+            az();
         }
-        com.baidu.ar.b.a.ac().a(new Runnable() { // from class: com.baidu.ar.b.b.a.1
+        com.baidu.ar.b.a.aq().a(new Runnable() { // from class: com.baidu.ar.b.b.a.1
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.ar.b.a.a aVar;
-                if (a.this.cL == null || (aVar = a.this.cL.get()) == null) {
+                if (a.this.cY == null || (aVar = a.this.cY.get()) == null) {
                     return;
                 }
-                aVar.ae();
+                aVar.as();
             }
         });
     }

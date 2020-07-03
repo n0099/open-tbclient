@@ -62,9 +62,9 @@ public class SwanAppUtilsJavaScriptInterface {
 
     @JavascriptInterface
     public void callShare(String str, String str2, boolean z, boolean z2, String str3) {
-        f.alH().iq("callShare");
+        f.amN().iy("callShare");
         realCallShare(this.mActivity, this.mSource, str, str2, z, z2, str3);
-        f.alH().ir("callShare");
+        f.amN().iz("callShare");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -101,14 +101,14 @@ public class SwanAppUtilsJavaScriptInterface {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        com.baidu.swan.apps.u.a.aeS().a(context, parseString, new i.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
+        com.baidu.swan.apps.u.a.afY().a(context, parseString, new i.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
             @Override // com.baidu.swan.apps.u.b.i.a
-            public void agk() {
+            public void ahq() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str3, String.valueOf(true));
             }
 
             @Override // com.baidu.swan.apps.u.b.i.a
-            public void agl() {
+            public void ahr() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str4, String.valueOf(false));
             }
         });
@@ -128,7 +128,7 @@ public class SwanAppUtilsJavaScriptInterface {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            f.alH().iq("ubcEvent");
+            f.amN().iy("ubcEvent");
             JSONObject jSONObject = new JSONObject(str);
             try {
                 String optString = jSONObject.optString("min_v");
@@ -143,7 +143,7 @@ public class SwanAppUtilsJavaScriptInterface {
         } catch (JSONException e2) {
             e2.printStackTrace();
         } finally {
-            f.alH().ir("ubcEvent");
+            f.amN().iz("ubcEvent");
         }
     }
 }

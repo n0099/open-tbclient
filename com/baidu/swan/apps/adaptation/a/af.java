@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.adaptation.a;
 /* loaded from: classes11.dex */
 public interface af {
-    void So();
+    void Tu();
 
-    boolean r(String str, String str2, String str3);
+    boolean s(String str, String str2, String str3);
 }

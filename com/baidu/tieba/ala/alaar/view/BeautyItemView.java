@@ -8,15 +8,16 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.u.a;
+import com.baidu.live.sdk.a;
 /* loaded from: classes3.dex */
 public class BeautyItemView extends LinearLayout {
-    public ImageView eZi;
-    public TextView fad;
-    public ImageView fae;
-    public ImageView faf;
-    public FrameLayout fag;
-    public TextView fah;
+    public ImageView fkf;
+    public TextView fli;
+    public ImageView flj;
+    public ImageView flk;
+    public FrameLayout fll;
+    public TextView flm;
+    public ImageView fln;
 
     public BeautyItemView(Context context) {
         super(context);
@@ -25,32 +26,42 @@ public class BeautyItemView extends LinearLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(a.h.beauty_ar_item_layout, (ViewGroup) this, true);
-        this.fae = (ImageView) inflate.findViewById(a.g.filter_img);
-        this.fae.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eZi = (ImageView) inflate.findViewById(a.g.filter_unload);
-        this.eZi.setVisibility(8);
-        this.faf = (ImageView) inflate.findViewById(a.g.filter_bg);
-        this.fad = (TextView) inflate.findViewById(a.g.filter_text);
-        this.fag = (FrameLayout) inflate.findViewById(a.g.fl_head);
-        this.fah = (TextView) inflate.findViewById(a.g.line);
-        this.fah.setVisibility(8);
+        this.flj = (ImageView) inflate.findViewById(a.g.filter_img);
+        this.fln = (ImageView) inflate.findViewById(a.g.filter_redot);
+        this.fln.setVisibility(8);
+        this.flj.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fkf = (ImageView) inflate.findViewById(a.g.filter_unload);
+        this.fkf.setVisibility(8);
+        this.flk = (ImageView) inflate.findViewById(a.g.filter_bg);
+        this.fli = (TextView) inflate.findViewById(a.g.filter_text);
+        this.fll = (FrameLayout) inflate.findViewById(a.g.fl_head);
+        this.flm = (TextView) inflate.findViewById(a.g.line);
+        this.flm.setVisibility(8);
     }
 
     public void setUnselectedBackground() {
-        this.fad.setTextColor(getResources().getColor(a.d.sdk_cp_cont_i));
-        this.faf.setVisibility(4);
+        this.fli.setTextColor(getResources().getColor(a.d.sdk_cp_cont_i));
+        this.flk.setVisibility(4);
     }
 
     public void setSelectedBackground() {
-        this.fad.setTextColor(getResources().getColor(a.d.sdk_cp_other_b));
-        this.faf.setVisibility(0);
+        this.fli.setTextColor(getResources().getColor(a.d.sdk_cp_other_b));
+        this.flk.setVisibility(0);
     }
 
     public void setItemIcon(int i) {
-        this.fae.setImageDrawable(getResources().getDrawable(i));
+        this.flj.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setItemText(String str) {
-        this.fad.setText(str);
+        this.fli.setText(str);
+    }
+
+    public void setRedotVisible(boolean z) {
+        if (z) {
+            this.fln.setVisibility(0);
+        } else {
+            this.fln.setVisibility(8);
+        }
     }
 }

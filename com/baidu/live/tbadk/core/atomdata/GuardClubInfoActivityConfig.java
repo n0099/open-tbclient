@@ -5,6 +5,8 @@ import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 /* loaded from: classes3.dex */
 public class GuardClubInfoActivityConfig extends IntentConfig {
     public static final String ANCHOR_ID = "anchor_id";
+    public static final String ANCHOR_NAME = "anchor_name";
+    public static final String ANCHOR_PORTRAIT = "anchor_portrait";
     public static final String FEED_ID = "feed_id";
     public static final String FROM_LOC_INFO = "from_loc_info";
     public static final String IS_CLUB_MEMBER = "is_club_member";
@@ -51,5 +53,10 @@ public class GuardClubInfoActivityConfig extends IntentConfig {
 
     public void setIsTranslucent(boolean z) {
         getIntent().putExtra("is_translucent", z);
+    }
+
+    public void setAnchorInfo(String str, String str2) {
+        getIntent().putExtra(ANCHOR_NAME, str);
+        getIntent().putExtra(ANCHOR_PORTRAIT, str2);
     }
 }

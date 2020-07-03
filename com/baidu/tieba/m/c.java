@@ -25,10 +25,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private RelativeLayout jsZ;
-    private TextView jta;
-    private Runnable jtb;
-    private Runnable jtc;
+    private RelativeLayout jKq;
+    private TextView jKr;
+    private Runnable jKs;
+    private Runnable jKt;
     private Context mContext;
     private Handler mHandler;
     private HandlerThread mHandlerThread;
@@ -43,8 +43,8 @@ public class c {
         this.mContext = context;
     }
 
-    public void cyZ() {
-        if (!this.mIsShowing && isMainProcess() && cza()) {
+    public void cCW() {
+        if (!this.mIsShowing && isMainProcess() && cCX()) {
             if (this.mHandlerThread == null) {
                 this.mHandlerThread = new HandlerThread("splash-thread");
                 this.mHandlerThread.start();
@@ -52,73 +52,73 @@ public class c {
             if (this.mHandler == null) {
                 this.mHandler = new Handler(this.mHandlerThread.getLooper());
             }
-            if (this.jtb == null) {
-                this.jtb = new Runnable() { // from class: com.baidu.tieba.m.c.1
+            if (this.jKs == null) {
+                this.jKs = new Runnable() { // from class: com.baidu.tieba.m.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (c.this.jsZ != null) {
-                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.jsZ);
+                        if (c.this.jKq != null) {
+                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.jKq);
                             c.this.clean();
                         }
                     }
                 };
             }
-            if (this.jtc == null) {
-                this.jtc = new Runnable() { // from class: com.baidu.tieba.m.c.2
+            if (this.jKt == null) {
+                this.jKt = new Runnable() { // from class: com.baidu.tieba.m.c.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.IF(c.this.mContext.getString(R.string.data_init));
+                        c.this.Jh(c.this.mContext.getString(R.string.data_init));
                     }
                 };
             }
-            this.mHandler.removeCallbacks(this.jtc);
-            this.mHandler.postAtFrontOfQueue(this.jtc);
+            this.mHandler.removeCallbacks(this.jKt);
+            this.mHandler.postAtFrontOfQueue(this.jKt);
             this.mIsShowing = true;
-            this.mHandler.postDelayed(this.jtb, 20000L);
+            this.mHandler.postDelayed(this.jKs, 20000L);
         }
     }
 
     public void hide() {
-        if (this.jsZ != null && this.jta != null) {
-            this.mHandler.removeCallbacks(this.jtb);
-            this.mHandler.post(this.jtb);
+        if (this.jKq != null && this.jKr != null) {
+            this.mHandler.removeCallbacks(this.jKs);
+            this.mHandler.post(this.jKs);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void clean() {
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.jtb);
-            this.mHandler.removeCallbacks(this.jtc);
-            this.jtc = null;
-            this.jtb = null;
+            this.mHandler.removeCallbacks(this.jKs);
+            this.mHandler.removeCallbacks(this.jKt);
+            this.jKt = null;
+            this.jKs = null;
             this.mHandler = null;
         }
         if (this.mHandlerThread != null) {
             this.mHandlerThread.quit();
         }
-        if (this.jta != null) {
-            this.jta = null;
+        if (this.jKr != null) {
+            this.jKr = null;
         }
-        if (this.jsZ != null) {
-            this.jsZ = null;
+        if (this.jKq != null) {
+            this.jKq = null;
         }
         this.mIsShowing = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void IF(String str) {
-        if (this.jta == null) {
-            this.jta = new b(this.mContext);
-            this.jta.setTextSize(1, 18.0f);
+    public void Jh(String str) {
+        if (this.jKr == null) {
+            this.jKr = new b(this.mContext);
+            this.jKr.setTextSize(1, 18.0f);
         }
-        this.jta.setText(str);
-        this.jsZ = new RelativeLayout(this.mContext);
-        this.jsZ.setBackgroundResource(R.drawable.pic_splash_logo);
+        this.jKr.setText(str);
+        this.jKq = new RelativeLayout(this.mContext);
+        this.jKq.setBackgroundResource(R.drawable.pic_splash_logo);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
         layoutParams.addRule(15);
-        this.jsZ.addView(this.jta, layoutParams);
+        this.jKq.addView(this.jKr, layoutParams);
         WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams();
         layoutParams2.type = 2005;
         layoutParams2.format = 1;
@@ -128,7 +128,7 @@ public class c {
         layoutParams2.width = -1;
         layoutParams2.height = -1;
         layoutParams2.flags = 1280;
-        ((WindowManager) this.mContext.getSystemService("window")).addView(this.jsZ, layoutParams2);
+        ((WindowManager) this.mContext.getSystemService("window")).addView(this.jKq, layoutParams2);
     }
 
     private boolean isMainProcess() {
@@ -151,7 +151,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean cza() {
+    private boolean cCX() {
         List<String> fa = fa(this.mContext);
         if (fa == null || fa.size() == 0) {
             return false;
@@ -188,9 +188,9 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends TextView {
-        private LinearGradient bdd;
-        private Matrix jte;
-        private int jtf;
+        private LinearGradient biq;
+        private Matrix jKv;
+        private int jKw;
         private boolean mAnimating;
         private Paint mPaint;
         private int mViewWidth;
@@ -198,20 +198,20 @@ public class c {
         public b(Context context) {
             super(context);
             this.mViewWidth = 0;
-            this.jtf = 0;
+            this.jKw = 0;
             this.mAnimating = true;
         }
 
         @Override // android.widget.TextView, android.view.View
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
-            if (this.mAnimating && this.jte != null) {
-                this.jtf += this.mViewWidth / 10;
-                if (this.jtf > this.mViewWidth * 2) {
-                    this.jtf = -this.mViewWidth;
+            if (this.mAnimating && this.jKv != null) {
+                this.jKw += this.mViewWidth / 10;
+                if (this.jKw > this.mViewWidth * 2) {
+                    this.jKw = -this.mViewWidth;
                 }
-                this.jte.setTranslate(this.jtf, 0.0f);
-                this.bdd.setLocalMatrix(this.jte);
+                this.jKv.setTranslate(this.jKw, 0.0f);
+                this.biq.setLocalMatrix(this.jKv);
                 postInvalidateDelayed(50L);
             }
         }
@@ -223,9 +223,9 @@ public class c {
                 this.mViewWidth = getMeasuredWidth();
                 if (this.mViewWidth > 0) {
                     this.mPaint = getPaint();
-                    this.bdd = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
-                    this.mPaint.setShader(this.bdd);
-                    this.jte = new Matrix();
+                    this.biq = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
+                    this.mPaint.setShader(this.biq);
+                    this.jKv = new Matrix();
                 }
             }
         }

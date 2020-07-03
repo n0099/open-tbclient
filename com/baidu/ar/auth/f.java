@@ -5,12 +5,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class f {
-    public int jl;
-    public boolean jm;
-    public boolean jn;
-    public final List<String> jo = new ArrayList();
-    public String jp;
-    public String jq;
-    public List<Integer> jr;
-    public boolean js;
+    public int jC;
+    public boolean jD;
+    public boolean jE;
+    public final List<String> jF = new ArrayList();
+    public String jG;
+    public String jH;
+    public List<Integer> jI;
+    public boolean jJ;
 }

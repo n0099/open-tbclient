@@ -1,8 +1,10 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.write.upload.ForwardUploadData;
@@ -10,6 +12,7 @@ import com.baidu.tieba.write.upload.ImageTextUploadData;
 import com.baidu.tieba.write.upload.VideoUploadData;
 import java.io.File;
 import java.io.Serializable;
+import java.net.URLEncoder;
 import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -79,6 +82,8 @@ public class WriteData extends OrmObject implements Serializable {
     private String mMemeContSign;
     private String mMemeText;
     private BaijiahaoData mOriBaijiahaoData;
+    private String mOtherComment;
+    private int mOtherGrade;
     private boolean mPostLatLng;
     private String mRecommendExt;
     private String mReplyUid;
@@ -98,6 +103,7 @@ public class WriteData extends OrmObject implements Serializable {
     private String mShareSummaryImgType;
     private int mShareSummaryImgWidth;
     private String mShareSummaryTitle;
+    private SpanGroupManager mSpanGroupManager;
     private String mSubPbReplyPrefix;
     private int mTabId;
     private String mTabName;
@@ -107,6 +113,11 @@ public class WriteData extends OrmObject implements Serializable {
     private String mTitle;
     private String mTopicId;
     private int mType;
+    private String mUniversityComment;
+    private String mUniversityGrade;
+    private String mUniversitySubjectComment;
+    private String mUniversitySubjectContent;
+    private String mUniversitySubjectGrade;
     private String mVcode;
     private VcodeExtra mVcodeExtra;
     private String mVcodeMD5;
@@ -117,6 +128,7 @@ public class WriteData extends OrmObject implements Serializable {
     private int mVideoReviewType;
     private String mVoiceMd5;
     private VoiceData.VoiceModel mVoiceModel;
+    WriteVoteData mWriteVoteData;
     private String originalThreadId;
     private String originalVideoCover;
     private String originalVideoTitle;
@@ -233,6 +245,13 @@ public class WriteData extends OrmObject implements Serializable {
         this.originalThreadId = "";
         this.mTakePhotoNum = 0;
         this.entranceType = 0;
+        this.mUniversityGrade = "";
+        this.mUniversitySubjectContent = "";
+        this.mUniversitySubjectGrade = "";
+        this.mUniversityComment = "";
+        this.mUniversitySubjectComment = "";
+        this.mOtherGrade = 0;
+        this.mOtherComment = "";
     }
 
     public WriteData(int i) {
@@ -270,16 +289,15 @@ public class WriteData extends OrmObject implements Serializable {
         try {
             jSONObject.put("mType", this.mType);
             jSONObject.put("mTitle", this.mTitle);
-            jSONObject.put("mContent", this.mContent);
+            jSONObject.put("mContent", this.mSpanGroupManager == null ? this.mContent : this.mSpanGroupManager.aZa());
             jSONObject.put("mReplyUid", this.mReplyUid);
             jSONObject.put("mThreadId", this.mThreadId);
             jSONObject.put("mIsInterviewLive", this.mIsInterviewLivew);
             jSONObject.put("mCategoryTo", this.mCategoryTo);
-            if (this.writeImagesInfo != null) {
-                jSONObject.put("writeImagesInfo", this.writeImagesInfo.toJson());
-            }
             if (this.mVideoInfo != null) {
                 jSONObject.put("new_video_info", VideoInfo.jsonWithObject(this.mVideoInfo));
+            } else if (this.writeImagesInfo != null) {
+                jSONObject.put("writeImagesInfo", this.writeImagesInfo.toJson());
             }
             if (this.mVoiceModel != null) {
                 jSONObject.put("mVoiceModel", VoiceData.VoiceModel.jsonWithObject(this.mVoiceModel));
@@ -294,6 +312,13 @@ public class WriteData extends OrmObject implements Serializable {
             jSONObject.put("pro_zone", this.proZone);
             jSONObject.put("topic_id", this.mTopicId);
             jSONObject.put("sub_pb_reply_prefix", this.mSubPbReplyPrefix);
+            jSONObject.put("mUniversityGrade", this.mUniversityGrade);
+            jSONObject.put("mUniversitySubjectContent", this.mUniversitySubjectContent);
+            jSONObject.put("mUniversitySubjectGrade", this.mUniversitySubjectGrade);
+            jSONObject.put("mUniversityComment", this.mUniversityComment);
+            jSONObject.put("mUniversitySubjectComment", this.mUniversitySubjectComment);
+            jSONObject.put("other_grade", this.mOtherGrade);
+            jSONObject.put("other_comment", this.mOtherComment);
         } catch (Exception e) {
         }
         return jSONObject.toString();
@@ -333,6 +358,13 @@ public class WriteData extends OrmObject implements Serializable {
             writeData.proZone = jSONObject.optInt("pro_zone");
             writeData.mTopicId = jSONObject.optString("topic_id");
             writeData.mSubPbReplyPrefix = jSONObject.optString("sub_pb_reply_prefix");
+            writeData.mUniversityGrade = jSONObject.optString("mUniversityGrade", "");
+            writeData.mUniversitySubjectContent = jSONObject.optString("mUniversitySubjectContent", "");
+            writeData.mUniversitySubjectGrade = jSONObject.optString("mUniversitySubjectGrade", "");
+            writeData.mUniversityComment = jSONObject.optString("mUniversityComment", "");
+            writeData.mUniversitySubjectComment = jSONObject.optString("mUniversitySubjectComment", "");
+            writeData.mOtherGrade = jSONObject.optInt("other_grade", 0);
+            writeData.mOtherComment = jSONObject.optString("other_comment", "");
             return writeData;
         } catch (Exception e) {
             return null;
@@ -595,6 +627,17 @@ public class WriteData extends OrmObject implements Serializable {
                 return sb.toString();
             }
         }
+    }
+
+    public String getVoteContentForPost() {
+        if (this.mWriteVoteData == null) {
+            return "";
+        }
+        String jsonString = this.mWriteVoteData.toJsonString();
+        if (StringUtils.isNull(jsonString)) {
+            return "";
+        }
+        return String.format(WriteVoteData.VOTE_CONTENT_PREFIX_FORMAT, URLEncoder.encode(jsonString));
     }
 
     public boolean isAddition() {
@@ -1067,5 +1110,73 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setComment_head(String str) {
         this.comment_head = str;
+    }
+
+    public WriteVoteData getWriteVoteData() {
+        return this.mWriteVoteData;
+    }
+
+    public void setWriteVoteData(WriteVoteData writeVoteData) {
+        this.mWriteVoteData = writeVoteData;
+    }
+
+    public void setSpanGroupManager(SpanGroupManager spanGroupManager) {
+        this.mSpanGroupManager = spanGroupManager;
+    }
+
+    public void setmUniversityGrade(String str) {
+        this.mUniversityGrade = str;
+    }
+
+    public void setmUniversitySubjectContent(String str) {
+        this.mUniversitySubjectContent = str;
+    }
+
+    public void setmUniversitySubjectGrade(String str) {
+        this.mUniversitySubjectGrade = str;
+    }
+
+    public void setmUniversityComment(String str) {
+        this.mUniversityComment = str;
+    }
+
+    public void setmUniversitySubjectComment(String str) {
+        this.mUniversitySubjectComment = str;
+    }
+
+    public void setOtherGrade(int i) {
+        this.mOtherGrade = i;
+    }
+
+    public void setOtherComment(String str) {
+        this.mOtherComment = str;
+    }
+
+    public String getmUniversityGrade() {
+        return this.mUniversityGrade;
+    }
+
+    public String getmUniversitySubjectContent() {
+        return this.mUniversitySubjectContent;
+    }
+
+    public String getmUniversitySubjectGrade() {
+        return this.mUniversitySubjectGrade;
+    }
+
+    public String getmUniversityComment() {
+        return this.mUniversityComment;
+    }
+
+    public String getmUniversitySubjectComment() {
+        return this.mUniversitySubjectComment;
+    }
+
+    public int getOtherGrade() {
+        return this.mOtherGrade;
+    }
+
+    public String getOtherComment() {
+        return this.mOtherComment;
     }
 }

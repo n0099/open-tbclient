@@ -9,6 +9,7 @@ import com.baidu.tieba.frs.SerializableItemInfo;
 public class UniversityEvaluationConfig extends IntentConfig {
     public static final String FORUM_WRITE_DATA = "forum_write_data";
     public static final String ITEM_INFO = "item_info";
+    public static final String ITEM_IS_SCHOOL = "item_is_school";
 
     public UniversityEvaluationConfig(Context context, int i) {
         super(context);
@@ -25,6 +26,12 @@ public class UniversityEvaluationConfig extends IntentConfig {
     public void setScoreItemInfo(SerializableItemInfo serializableItemInfo) {
         if (getIntent() != null) {
             getIntent().putExtra(ITEM_INFO, serializableItemInfo);
+        }
+    }
+
+    public void setItemIsSchool(boolean z) {
+        if (getIntent() != null) {
+            getIntent().putExtra(ITEM_IS_SCHOOL, z);
         }
     }
 }

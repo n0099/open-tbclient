@@ -12,6 +12,6 @@ public class a implements i {
 
     @Override // com.baidu.swan.games.f.i
     public String getUserAgent() {
-        return com.baidu.swan.apps.ao.a.asS();
+        return com.baidu.swan.apps.ao.a.atY();
     }
 }

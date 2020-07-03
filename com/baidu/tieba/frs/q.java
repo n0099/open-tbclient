@@ -1,113 +1,46 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.Rect;
-import android.support.v7.widget.ActivityChooserView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.aa;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
-public class q extends aa.a {
-    public static BdUniqueId hqq = BdUniqueId.gen();
-    private LinearLayout ehT;
-    private int epD;
-    public TextView hqr;
-    public ImageView hqs;
-    private int hqt;
-    private CustomMessageListener hqu;
-    private ViewGroup mParent;
-    private View mRootView;
-    private Rect rect;
+/* loaded from: classes9.dex */
+public class q extends j<r, s> {
+    private final int fjn;
 
-    public q(View view, ViewGroup viewGroup) {
-        super(view);
-        this.rect = new Rect();
-        this.hqu = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.q.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                Integer num;
-                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer) && (num = (Integer) customResponsedMessage.getData()) != null) {
-                    q.this.nu(num.intValue());
-                }
-            }
-        };
-        this.mRootView = view;
-        this.mParent = viewGroup;
-        this.ehT = (LinearLayout) view.findViewById(R.id.container);
-        this.hqs = (ImageView) view.findViewById(R.id.emotion_view);
-        this.hqr = (TextView) view.findViewById(R.id.no_data_tips);
-        com.baidu.tbadk.core.util.am.setImageResource(this.hqs, R.drawable.new_pic_emotion_06);
-        this.hqu.setTag(hqq);
-        MessageManager.getInstance().registerListener(this.hqu);
-        bWC();
+    public q(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
+        this.fjn = (com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
     }
 
-    private void bWC() {
-        if (this.mRootView != null) {
-            this.mRootView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() { // from class: com.baidu.tieba.frs.q.2
-                @Override // android.view.View.OnLayoutChangeListener
-                public void onLayoutChange(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-                    if (q.this.bV(view)) {
-                        q.this.nu(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-                    }
-                }
-            });
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: E */
+    public s b(ViewGroup viewGroup) {
+        View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
+        ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
+        generateLayoutParamsByParent.width = -1;
+        generateLayoutParamsByParent.height = this.fjn;
+        inflate.setLayoutParams(generateLayoutParamsByParent);
+        return new s(inflate, viewGroup);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean bV(View view) {
-        if (view == null) {
-            return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, r rVar, s sVar) {
+        super.a(i, view, viewGroup, (ViewGroup) rVar, (r) sVar);
+        if (rVar.bZL() == 6) {
+            sVar.hDa.setText(R.string.attention_no_post_tip);
+        } else {
+            sVar.hDa.setText(R.string.no_data_common_txt);
         }
-        return view.getGlobalVisibleRect(this.rect);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void nu(int i) {
-        if (this.mRootView != null && this.mParent != null) {
-            if (this.epD <= 0) {
-                this.epD = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
-            }
-            if (i != Integer.MAX_VALUE || this.hqt != Integer.MAX_VALUE) {
-                this.hqt = i;
-                if (this.mParent.getLocalVisibleRect(this.rect)) {
-                    int i2 = this.rect.bottom;
-                    int abs = Math.abs(this.ehT.getTop());
-                    int abs2 = i2 - Math.abs(this.ehT.getBottom());
-                    ViewGroup.LayoutParams layoutParams = this.ehT.getLayoutParams();
-                    if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                        if (abs < this.epD) {
-                            marginLayoutParams.topMargin = this.epD;
-                            this.ehT.setLayoutParams(marginLayoutParams);
-                        } else if (abs == this.epD) {
-                            if (abs2 > this.epD) {
-                                marginLayoutParams.topMargin = ((abs2 - this.epD) / 2) + this.epD;
-                                this.ehT.setLayoutParams(marginLayoutParams);
-                            }
-                        } else if (abs > this.epD) {
-                            if (abs2 < this.epD) {
-                                marginLayoutParams.topMargin = this.epD;
-                            } else if (abs2 == this.epD) {
-                                marginLayoutParams.topMargin = this.epD;
-                            } else if (abs2 > this.epD) {
-                                marginLayoutParams.topMargin = (abs + abs2) / 2;
-                            }
-                            this.ehT.setLayoutParams(marginLayoutParams);
-                        }
-                    }
-                }
-            }
-        }
+        com.baidu.tbadk.core.util.an.setViewTextColor(sVar.hDa, R.color.cp_cont_j, 1);
+        com.baidu.tbadk.core.util.an.setImageResource(sVar.hDb, R.drawable.new_pic_emotion_06);
+        return view;
     }
 }

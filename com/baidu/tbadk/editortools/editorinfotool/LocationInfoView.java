@@ -1,13 +1,27 @@
 package com.baidu.tbadk.editortools.editorinfotool;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.View;
+import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.core.view.commonBtn.c;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView;
 /* loaded from: classes.dex */
-public class LocationInfoView extends EditorInfoView {
-    private int mState;
+public class LocationInfoView extends LinearLayout implements View.OnClickListener {
+    private TBSpecificationBtn euD;
+    private a euE;
+    private int mSkinType;
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void bfn();
+    }
 
     public LocationInfoView(Context context) {
         this(context, null);
@@ -15,37 +29,61 @@ public class LocationInfoView extends EditorInfoView {
 
     public LocationInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        setMaxEms(8);
-        setEllipsize(TextUtils.TruncateAt.END);
-        setState(0, null);
+        this.mSkinType = 3;
+        initUI();
     }
 
-    public void setState(int i, String str) {
-        this.mState = i;
-        if (i == 1) {
-            if (str == null) {
-                str = getResources().getString(R.string.location_loading);
-            }
-            setText(str);
-        } else if (i == 2) {
-            if (str == null) {
-                str = getResources().getString(R.string.location_default);
-            }
-            setText(str);
-        } else {
-            if (str == null) {
-                str = getResources().getString(R.string.location_default);
-            }
-            setText(str);
+    public TBSpecificationBtn getLocationBtn() {
+        return this.euD;
+    }
+
+    private void initUI() {
+        setOrientation(0);
+        setGravity(16);
+        c cVar = new c();
+        cVar.mE(R.color.cp_cont_b);
+        cVar.k(R.drawable.ic_icon_pure_post_location16_svg, 0, true);
+        cVar.mz(R.color.cp_cont_e);
+        cVar.aR(l.getDimens(getContext(), R.dimen.tbds22), l.getDimens(getContext(), R.dimen.tbds28));
+        this.euD = new TBSpecificationBtn(getContext());
+        this.euD.setConfig(cVar);
+        this.euD.setTextSize(R.dimen.tbds32);
+        this.euD.setOnClickListener(this);
+        this.euD.setText(getContext().getString(R.string.location_where_are_you));
+        addView(this.euD, new LinearLayout.LayoutParams(-2, l.getDimens(getContext(), R.dimen.tbds63)));
+        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void onChangeSkinType(int i) {
+        if (this.mSkinType != i) {
+            this.euD.aYj();
+            this.mSkinType = i;
         }
     }
 
-    public int getState() {
-        return this.mState;
+    public void setState(int i, String str) {
+        if (!StringUtils.isNull(str)) {
+            if (str.contains("·")) {
+                int indexOf = str.indexOf("·");
+                str = str.substring(0, indexOf) + str.substring(indexOf + 1, str.length());
+            }
+            this.euD.setText(ar.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
+        } else if (i == 1) {
+            this.euD.setText(getContext().getString(R.string.location_loading));
+        } else {
+            this.euD.setText(getContext().getString(R.string.location_where_are_you));
+        }
+        this.euD.ege = Integer.valueOf(i);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void setLocationClickListener(a aVar) {
+        this.euE = aVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.euE != null) {
+            this.euE.bfn();
+        }
     }
 }

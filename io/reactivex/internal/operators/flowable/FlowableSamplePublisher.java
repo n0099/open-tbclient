@@ -8,17 +8,17 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
-    final org.a.b<?> noG;
-    final boolean noW;
+    final boolean nKJ;
+    final org.a.b<?> nKt;
     final org.a.b<T> source;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.noW) {
-            this.source.subscribe(new SampleMainEmitLast(bVar, this.noG));
+        if (this.nKJ) {
+            this.source.subscribe(new SampleMainEmitLast(bVar, this.nKt));
         } else {
-            this.source.subscribe(new SampleMainNoLast(bVar, this.noG));
+            this.source.subscribe(new SampleMainNoLast(bVar, this.nKt));
         }
     }
 
@@ -114,32 +114,32 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
 
     /* loaded from: classes7.dex */
     static final class a<T> implements j<Object> {
-        final SamplePublisherSubscriber<T> noX;
+        final SamplePublisherSubscriber<T> nKK;
 
         a(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
-            this.noX = samplePublisherSubscriber;
+            this.nKK = samplePublisherSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            if (this.noX.setOther(dVar)) {
+            if (this.nKK.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(Object obj) {
-            this.noX.run();
+            this.nKK.run();
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.noX.error(th);
+            this.nKK.error(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            this.noX.complete();
+            this.nKK.complete();
         }
     }
 

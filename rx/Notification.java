@@ -1,9 +1,9 @@
 package rx;
 /* loaded from: classes6.dex */
 public final class Notification<T> {
-    private static final Notification<Void> nFb = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind nEZ;
-    private final Throwable nFa;
+    private static final Notification<Void> oaM = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind oaK;
+    private final Throwable oaL;
     private final T value;
 
     /* loaded from: classes6.dex */
@@ -13,7 +13,7 @@ public final class Notification<T> {
         OnCompleted
     }
 
-    public static <T> Notification<T> bQ(T t) {
+    public static <T> Notification<T> bR(T t) {
         return new Notification<>(Kind.OnNext, t, null);
     }
 
@@ -21,18 +21,18 @@ public final class Notification<T> {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> dPs() {
-        return (Notification<T>) nFb;
+    public static <T> Notification<T> dTY() {
+        return (Notification<T>) oaM;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.nFa = th;
-        this.nEZ = kind;
+        this.oaL = th;
+        this.oaK = kind;
     }
 
-    public Throwable dPt() {
-        return this.nFa;
+    public Throwable dTZ() {
+        return this.oaL;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return dPx() && this.value != null;
+        return dUd() && this.value != null;
     }
 
-    public boolean dPu() {
-        return dKI() && this.nFa != null;
+    public boolean dUa() {
+        return dPo() && this.oaL != null;
     }
 
-    public Kind dPv() {
-        return this.nEZ;
+    public Kind dUb() {
+        return this.oaK;
     }
 
-    public boolean dKI() {
-        return dPv() == Kind.OnError;
+    public boolean dPo() {
+        return dUb() == Kind.OnError;
     }
 
-    public boolean dPw() {
-        return dPv() == Kind.OnCompleted;
+    public boolean dUc() {
+        return dUb() == Kind.OnCompleted;
     }
 
-    public boolean dPx() {
-        return dPv() == Kind.OnNext;
+    public boolean dUd() {
+        return dUb() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(dPv());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(dUb());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (dPu()) {
-            append.append(' ').append(dPt().getMessage());
+        if (dUa()) {
+            append.append(' ').append(dTZ().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = dPv().hashCode();
+        int hashCode = dUb().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (dPu()) {
-            return (hashCode * 31) + dPt().hashCode();
+        if (dUa()) {
+            return (hashCode * 31) + dTZ().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.dPv() != dPv() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.nFa != notification.nFa && (this.nFa == null || !this.nFa.equals(notification.nFa))))) {
+            if (notification.dUb() != dUb() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.oaL != notification.oaL && (this.oaL == null || !this.oaL.equals(notification.oaL))))) {
                 z = false;
             }
             return z;

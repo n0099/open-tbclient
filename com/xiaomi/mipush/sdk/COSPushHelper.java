@@ -7,7 +7,7 @@ import android.os.SystemClock;
 public class COSPushHelper {
 
     /* renamed from: a  reason: collision with other field name */
-    private static volatile boolean f23a = false;
+    private static volatile boolean f29a = false;
     private static long a = 0;
 
     public static void convertMessage(Intent intent) {
@@ -25,11 +25,11 @@ public class COSPushHelper {
     }
 
     public static boolean getNeedRegister() {
-        return f23a;
+        return f29a;
     }
 
     public static boolean hasNetwork(Context context) {
-        return h.m111a(context);
+        return h.m108a(context);
     }
 
     public static void onNotificationMessageCome(Context context, String str) {
@@ -41,14 +41,14 @@ public class COSPushHelper {
     public static void registerCOSAssemblePush(Context context) {
         AbstractPushManager a2 = e.a(context).a(d.ASSEMBLE_PUSH_COS);
         if (a2 != null) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("ASSEMBLE_PUSH :  register cos when network change!");
+            com.xiaomi.channel.commonutils.logger.b.m48a("ASSEMBLE_PUSH :  register cos when network change!");
             a2.register();
         }
     }
 
     public static synchronized void setNeedRegister(boolean z) {
         synchronized (COSPushHelper.class) {
-            f23a = z;
+            f29a = z;
         }
     }
 

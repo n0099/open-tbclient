@@ -2,12 +2,12 @@ package com.baidu.tbadk.core.data;
 /* loaded from: classes8.dex */
 public class c {
     public int type = 0;
-    public int dAZ = 0;
-    public int dBa = 1;
-    public int dBb = 1;
-    public int dBc = 0;
-    public int dBd = 0;
-    public int dBe = 1;
-    public int dBf = 0;
-    public int dBg = 0;
+    public int dHq = 0;
+    public int dHr = 1;
+    public int dHs = 1;
+    public int dHt = 0;
+    public int dHu = 0;
+    public int dHv = 1;
+    public int dHw = 0;
+    public int dHx = 0;
 }

@@ -15,109 +15,109 @@ import java.util.Map;
 import java.util.Vector;
 /* loaded from: classes3.dex */
 public class a {
-    private static final double[] eT = {1.5707963267948966d, 3.141592653589793d};
-    private c eQ;
-    private e ez = e.EStatSingleFingerCandidate;
-    private boolean eA = true;
-    private int eB = -1;
-    private float eC = -1.0f;
-    private float eD = -1.0f;
-    private float eE = -1.0f;
-    private float eF = -1.0f;
-    private long eG = -1;
-    private int eH = -1;
-    private float eI = -1.0f;
-    private float eJ = -1.0f;
-    private float eK = -1.0f;
-    private float eL = -1.0f;
-    private long eM = -1;
-    private double eN = -1.0d;
-    private double eO = -1.0d;
-    private double eP = -1.0d;
-    private boolean eR = true;
-    private boolean eS = false;
-    private d eU = d.ESWIPE_RIGHT;
-    private boolean eV = false;
-    private boolean eW = false;
-    private boolean eX = false;
-    private boolean eY = false;
-    private boolean eZ = false;
-    private boolean fa = false;
-    private boolean fb = false;
-    private boolean fc = false;
-    private boolean fd = false;
-    private boolean fe = true;
-    private boolean isScreenOrientationLandscape = false;
-    private int ff = 0;
-    private int fg = 0;
-    private C0075a fh = null;
-    private Map<Integer, Vector<Float>> fi = new HashMap();
+    private static final double[] ff = {1.5707963267948966d, 3.141592653589793d};
+    private c fc;
+    private e eL = e.EStatSingleFingerCandidate;
+    private boolean eM = true;
+    private int eN = -1;
+    private float eO = -1.0f;
+    private float eP = -1.0f;
+    private float eQ = -1.0f;
+    private float eR = -1.0f;
+    private long eS = -1;
+    private int eT = -1;
+    private float eU = -1.0f;
+    private float eV = -1.0f;
+    private float eW = -1.0f;
+    private float eX = -1.0f;
+    private long eY = -1;
+    private double eZ = -1.0d;
+    private double fa = -1.0d;
+    private double fb = -1.0d;
+    private boolean fd = true;
+    private boolean fe = false;
+    private d fg = d.ESWIPE_RIGHT;
+    private boolean fh = false;
+    private boolean fi = false;
     private boolean fj = false;
-    ARPMessage.MessageHandler fk = new ARPMessage.MessageHandler() { // from class: com.baidu.ar.arplay.core.engine.a.1
+    private boolean fk = false;
+    private boolean fl = false;
+    private boolean fm = false;
+    private boolean fn = false;
+    private boolean fo = false;
+    private boolean fp = false;
+    private boolean fq = true;
+    private boolean isScreenOrientationLandscape = false;
+    private int fr = 0;
+    private int fs = 0;
+    private C0076a ft = null;
+    private Map<Integer, Vector<Float>> fu = new HashMap();
+    private boolean fv = false;
+    ARPMessage.MessageHandler fw = new ARPMessage.MessageHandler() { // from class: com.baidu.ar.arplay.core.engine.a.1
         @Override // com.baidu.ar.arplay.core.message.ARPMessage.MessageHandler
         public void handleMessage(int i, int i2, HashMap<String, Object> hashMap) {
             if (hashMap != null) {
                 if (hashMap.get("disable_all") != null) {
                     if (1 == ((Integer) hashMap.get("disable_all")).intValue()) {
-                        a.this.eV = true;
+                        a.this.fh = true;
                     } else {
-                        a.this.eV = false;
+                        a.this.fh = false;
                     }
                 }
                 if (hashMap.get("disable_click") != null) {
                     if (1 == ((Integer) hashMap.get("disable_click")).intValue()) {
-                        a.this.eW = true;
+                        a.this.fi = true;
                     } else {
-                        a.this.eW = false;
+                        a.this.fi = false;
                     }
                 }
                 if (hashMap.get("disable_double_click") != null) {
                     if (1 == ((Integer) hashMap.get("disable_double_click")).intValue()) {
-                        a.this.eX = true;
+                        a.this.fj = true;
                     } else {
-                        a.this.eX = false;
+                        a.this.fj = false;
                     }
                 }
                 if (hashMap.get("disable_long_press") != null) {
                     if (1 == ((Integer) hashMap.get("disable_long_press")).intValue()) {
-                        a.this.eY = true;
+                        a.this.fk = true;
                     } else {
-                        a.this.eY = false;
+                        a.this.fk = false;
                     }
                 }
                 if (hashMap.get("disable_swipe") != null) {
                     if (1 == ((Integer) hashMap.get("disable_swipe")).intValue()) {
-                        a.this.eZ = true;
+                        a.this.fl = true;
                     } else {
-                        a.this.eZ = false;
+                        a.this.fl = false;
                     }
                 }
                 if (hashMap.get("disable_scroll") != null) {
                     if (1 == ((Integer) hashMap.get("disable_scroll")).intValue()) {
-                        a.this.fa = true;
+                        a.this.fm = true;
                     } else {
-                        a.this.fa = false;
+                        a.this.fm = false;
                     }
                 }
                 if (hashMap.get("disable_two_finger_scroll") != null) {
                     if (1 == ((Integer) hashMap.get("disable_two_finger_scroll")).intValue()) {
-                        a.this.fb = true;
+                        a.this.fn = true;
                     } else {
-                        a.this.fb = false;
+                        a.this.fn = false;
                     }
                 }
                 if (hashMap.get("disable_pinch") != null) {
                     if (1 == ((Integer) hashMap.get("disable_pinch")).intValue()) {
-                        a.this.fc = true;
+                        a.this.fo = true;
                     } else {
-                        a.this.fc = false;
+                        a.this.fo = false;
                     }
                 }
                 if (hashMap.get("disable_two_finger_rotate") != null) {
                     if (1 == ((Integer) hashMap.get("disable_two_finger_rotate")).intValue()) {
-                        a.this.fd = true;
+                        a.this.fp = true;
                     } else {
-                        a.this.fd = false;
+                        a.this.fp = false;
                     }
                 }
             }
@@ -127,13 +127,13 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.arplay.core.engine.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0075a {
-        public int fn;
+    public static class C0076a {
+        public int fz;
         public long time;
         public float x;
         public float y;
 
-        private C0075a() {
+        private C0076a() {
         }
     }
 
@@ -154,11 +154,11 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class c extends Handler {
-        WeakReference<a> fz;
+        WeakReference<a> fL;
 
         public c(Looper looper, a aVar) {
             super(looper);
-            this.fz = new WeakReference<>(aVar);
+            this.fL = new WeakReference<>(aVar);
         }
 
         @Override // android.os.Handler
@@ -166,25 +166,25 @@ public class a {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    if (this.fz.get() != null && this.fz.get().ez == e.EStatSingleFingerCandidate && this.fz.get().eA) {
-                        this.fz.get().ez = e.EStatLongPresss;
-                        if (this.fz.get().eV || this.fz.get().eY) {
+                    if (this.fL.get() != null && this.fL.get().eL == e.EStatSingleFingerCandidate && this.fL.get().eM) {
+                        this.fL.get().eL = e.EStatLongPresss;
+                        if (this.fL.get().fh || this.fL.get().fk) {
                             return;
                         }
-                        this.fz.get().a(b.EGESTURE_LONG_PRESS.ordinal(), Calendar.getInstance().getTimeInMillis(), this.fz.get().eB, this.fz.get().eE, this.fz.get().eF, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+                        this.fL.get().a(b.EGESTURE_LONG_PRESS.ordinal(), Calendar.getInstance().getTimeInMillis(), this.fL.get().eN, this.fL.get().eQ, this.fL.get().eR, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                         return;
                     }
                     return;
                 case 2:
-                    a aVar = this.fz.get();
+                    a aVar = this.fL.get();
                     if (aVar == null || message.obj == null) {
                         return;
                     }
-                    C0075a c0075a = (C0075a) message.obj;
-                    if (!aVar.eW) {
-                        this.fz.get().a(b.EGESTURE_CLICK.ordinal(), c0075a.time, c0075a.fn, c0075a.x, c0075a.y, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+                    C0076a c0076a = (C0076a) message.obj;
+                    if (!aVar.fi) {
+                        this.fL.get().a(b.EGESTURE_CLICK.ordinal(), c0076a.time, c0076a.fz, c0076a.x, c0076a.y, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                     }
-                    this.fz.get().a(b.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+                    this.fL.get().a(b.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                     return;
                 default:
                     return;
@@ -225,7 +225,7 @@ public class a {
     }
 
     public a(Looper looper) {
-        this.eQ = new c(looper, this);
+        this.fc = new c(looper, this);
     }
 
     private double a(double d2, double d3, double d4, double d5) {
@@ -256,7 +256,7 @@ public class a {
 
     private float a(MotionEvent motionEvent) {
         try {
-            return (motionEvent.getX(motionEvent.findPointerIndex(this.eB)) - this.eE) / ((float) (motionEvent.getEventTime() - this.eG));
+            return (motionEvent.getX(motionEvent.findPointerIndex(this.eN)) - this.eQ) / ((float) (motionEvent.getEventTime() - this.eS));
         } catch (IllegalArgumentException e2) {
             e2.printStackTrace();
             return 0.0f;
@@ -271,7 +271,7 @@ public class a {
         float f11;
         float f12;
         if (this.isScreenOrientationLandscape) {
-            f8 = this.fg - f3;
+            f8 = this.fs - f3;
             f7 = -f5;
         } else {
             f7 = f4;
@@ -280,14 +280,14 @@ public class a {
             f4 = f5;
         }
         float[] windowSize = ARPEngine.getInstance().getWindowSize();
-        if (windowSize.length != 2 || windowSize[0] <= 0.0f || windowSize[1] <= 0.0f || this.ff <= 0 || this.fg <= 0) {
+        if (windowSize.length != 2 || windowSize[0] <= 0.0f || windowSize[1] <= 0.0f || this.fr <= 0 || this.fs <= 0) {
             f9 = f4;
             f10 = f7;
             f11 = f2;
             f12 = f8;
         } else {
-            float f13 = windowSize[0] / this.ff;
-            float f14 = windowSize[1] / this.fg;
+            float f13 = windowSize[0] / this.fr;
+            float f14 = windowSize[1] / this.fs;
             float f15 = f8 * f13;
             f9 = f4 * f14;
             f10 = f7 * f13;
@@ -297,31 +297,31 @@ public class a {
         ARPEngine.getInstance().onTouchUpdate(i, f12, f11, f10, f9, j, i2, f6);
     }
 
-    private void aN() {
-        if (this.eQ.hasMessages(2)) {
-            this.eQ.removeMessages(2);
-            if (this.fh != null) {
-                if (!this.eW) {
-                    a(b.EGESTURE_CLICK.ordinal(), this.fh.time, this.fh.fn, this.fh.x, this.fh.y, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
-                }
-                a(b.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
-                this.fh = null;
-            }
-        }
-    }
-
     private float b(MotionEvent motionEvent) {
         try {
-            return (motionEvent.getY(motionEvent.findPointerIndex(this.eB)) - this.eF) / ((float) (motionEvent.getEventTime() - this.eG));
+            return (motionEvent.getY(motionEvent.findPointerIndex(this.eN)) - this.eR) / ((float) (motionEvent.getEventTime() - this.eS));
         } catch (IllegalArgumentException e2) {
             e2.printStackTrace();
             return 0.0f;
         }
     }
 
+    private void bb() {
+        if (this.fc.hasMessages(2)) {
+            this.fc.removeMessages(2);
+            if (this.ft != null) {
+                if (!this.fi) {
+                    a(b.EGESTURE_CLICK.ordinal(), this.ft.time, this.ft.fz, this.ft.x, this.ft.y, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+                }
+                a(b.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+                this.ft = null;
+            }
+        }
+    }
+
     private float c(MotionEvent motionEvent) {
         try {
-            return (motionEvent.getX(motionEvent.findPointerIndex(this.eH)) - this.eK) / ((float) (motionEvent.getEventTime() - this.eM));
+            return (motionEvent.getX(motionEvent.findPointerIndex(this.eT)) - this.eW) / ((float) (motionEvent.getEventTime() - this.eY));
         } catch (IllegalArgumentException e2) {
             e2.printStackTrace();
             return 0.0f;
@@ -329,11 +329,11 @@ public class a {
     }
 
     private void clearStatus() {
-        this.ez = e.EStatSingleFingerCandidate;
-        this.eA = true;
-        this.eN = -1.0d;
-        this.eQ.removeMessages(1);
-        if (this.eQ.hasMessages(2)) {
+        this.eL = e.EStatSingleFingerCandidate;
+        this.eM = true;
+        this.eZ = -1.0d;
+        this.fc.removeMessages(1);
+        if (this.fc.hasMessages(2)) {
             return;
         }
         a(b.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
@@ -341,7 +341,7 @@ public class a {
 
     private float d(MotionEvent motionEvent) {
         try {
-            return (motionEvent.getY(motionEvent.findPointerIndex(this.eH)) - this.eL) / ((float) (motionEvent.getEventTime() - this.eM));
+            return (motionEvent.getY(motionEvent.findPointerIndex(this.eT)) - this.eX) / ((float) (motionEvent.getEventTime() - this.eY));
         } catch (IllegalArgumentException e2) {
             e2.printStackTrace();
             return 0.0f;
@@ -350,7 +350,7 @@ public class a {
 
     private float e(MotionEvent motionEvent) {
         try {
-            return motionEvent.getX(motionEvent.findPointerIndex(this.eB));
+            return motionEvent.getX(motionEvent.findPointerIndex(this.eN));
         } catch (IllegalArgumentException e2) {
             e2.printStackTrace();
             return 0.0f;
@@ -359,7 +359,7 @@ public class a {
 
     private float f(MotionEvent motionEvent) {
         try {
-            return motionEvent.getY(motionEvent.findPointerIndex(this.eB));
+            return motionEvent.getY(motionEvent.findPointerIndex(this.eN));
         } catch (IllegalArgumentException e2) {
             e2.printStackTrace();
             return 0.0f;
@@ -368,7 +368,7 @@ public class a {
 
     private float g(MotionEvent motionEvent) {
         try {
-            return motionEvent.getX(motionEvent.findPointerIndex(this.eH));
+            return motionEvent.getX(motionEvent.findPointerIndex(this.eT));
         } catch (IllegalArgumentException e2) {
             e2.printStackTrace();
             return 0.0f;
@@ -377,7 +377,7 @@ public class a {
 
     private float h(MotionEvent motionEvent) {
         try {
-            return motionEvent.getY(motionEvent.findPointerIndex(this.eH));
+            return motionEvent.getY(motionEvent.findPointerIndex(this.eT));
         } catch (IllegalArgumentException e2) {
             e2.printStackTrace();
             return 0.0f;
@@ -398,7 +398,7 @@ public class a {
                 Vector<Float> vector = new Vector<>(2);
                 vector.add(Float.valueOf(x));
                 vector.add(Float.valueOf(y));
-                this.fi.put(Integer.valueOf(pointerId), vector);
+                this.fu.put(Integer.valueOf(pointerId), vector);
                 a(pointerId, x, y, 0.0f, 0.0f, motionEvent.getEventTime(), f.ETOUCH_BEGIN.ordinal(), motionEvent.getPressure(actionIndex));
                 return;
             case 1:
@@ -409,11 +409,11 @@ public class a {
                 float y2 = motionEvent.getY(actionIndex2);
                 float f2 = 0.0f;
                 float f3 = 0.0f;
-                if (this.fi.containsKey(Integer.valueOf(pointerId2))) {
-                    Vector<Float> vector2 = this.fi.get(Integer.valueOf(pointerId2));
+                if (this.fu.containsKey(Integer.valueOf(pointerId2))) {
+                    Vector<Float> vector2 = this.fu.get(Integer.valueOf(pointerId2));
                     f2 = x2 - vector2.elementAt(0).floatValue();
                     f3 = y2 - vector2.elementAt(1).floatValue();
-                    this.fi.remove(Integer.valueOf(pointerId2));
+                    this.fu.remove(Integer.valueOf(pointerId2));
                 }
                 a(pointerId2, x2, y2, f2, f3, motionEvent.getEventTime(), f.ETOUCH_END.ordinal(), motionEvent.getPressure(actionIndex2));
                 return;
@@ -425,8 +425,8 @@ public class a {
                     float y3 = motionEvent.getY(i);
                     float f4 = 0.0f;
                     float f5 = 0.0f;
-                    if (this.fi.containsKey(Integer.valueOf(pointerId3))) {
-                        Vector<Float> vector3 = this.fi.get(Integer.valueOf(pointerId3));
+                    if (this.fu.containsKey(Integer.valueOf(pointerId3))) {
+                        Vector<Float> vector3 = this.fu.get(Integer.valueOf(pointerId3));
                         float floatValue = x3 - vector3.firstElement().floatValue();
                         f5 = y3 - vector3.lastElement().floatValue();
                         vector3.setElementAt(Float.valueOf(x3), 0);
@@ -445,11 +445,11 @@ public class a {
                 float y4 = motionEvent.getY(actionIndex3);
                 float f6 = 0.0f;
                 float f7 = 0.0f;
-                if (this.fi.containsKey(Integer.valueOf(pointerId4))) {
-                    Vector<Float> vector4 = this.fi.get(Integer.valueOf(pointerId4));
+                if (this.fu.containsKey(Integer.valueOf(pointerId4))) {
+                    Vector<Float> vector4 = this.fu.get(Integer.valueOf(pointerId4));
                     f6 = x4 - vector4.elementAt(0).floatValue();
                     f7 = y4 - vector4.elementAt(1).floatValue();
-                    this.fi.remove(Integer.valueOf(pointerId4));
+                    this.fu.remove(Integer.valueOf(pointerId4));
                 }
                 a(pointerId4, x4, y4, f6, f7, motionEvent.getEventTime(), f.ETOUCH_CANCEL.ordinal(), motionEvent.getPressure(actionIndex3));
                 return;
@@ -475,8 +475,8 @@ public class a {
         float f19;
         float f20;
         if (this.isScreenOrientationLandscape) {
-            f12 = this.fg - f3;
-            f11 = this.fg - f7;
+            f12 = this.fs - f3;
+            f11 = this.fs - f7;
         } else {
             f11 = f6;
             f12 = f2;
@@ -484,7 +484,7 @@ public class a {
             f6 = f7;
         }
         float[] windowSize = ARPEngine.getInstance().getWindowSize();
-        if (windowSize.length != 2 || windowSize[0] <= 0.0f || windowSize[1] <= 0.0f || this.ff <= 0 || this.fg <= 0) {
+        if (windowSize.length != 2 || windowSize[0] <= 0.0f || windowSize[1] <= 0.0f || this.fr <= 0 || this.fs <= 0) {
             f13 = f9;
             f14 = f8;
             f15 = f6;
@@ -494,8 +494,8 @@ public class a {
             f19 = f2;
             f20 = f12;
         } else {
-            float f21 = windowSize[0] / this.ff;
-            float f22 = windowSize[1] / this.fg;
+            float f21 = windowSize[0] / this.fr;
+            float f22 = windowSize[1] / this.fs;
             f13 = f9 * f22;
             f14 = f8 * f21;
             f15 = f6 * f22;
@@ -509,110 +509,110 @@ public class a {
     }
 
     public void d(int i, int i2) {
-        this.fg = i2;
-        this.ff = i;
+        this.fs = i2;
+        this.fr = i;
+    }
+
+    public void i(boolean z) {
+        this.fv = z;
     }
 
     public void j(boolean z) {
-        this.fj = z;
-    }
-
-    public void k(boolean z) {
-        this.fe = z;
+        this.fq = z;
     }
 
     public void onPause() {
-        ARPMessage.getInstance().removeMessageHandeler(this.fk);
+        ARPMessage.getInstance().removeMessageHandeler(this.fw);
     }
 
     public void onResume() {
-        ARPMessage.getInstance().registerMessageHandler(11, this.fk);
+        ARPMessage.getInstance().registerMessageHandler(11, this.fw);
     }
 
     public void onTouchEvent(MotionEvent motionEvent) {
-        if (this.fj && this.fe) {
+        if (this.fv && this.fq) {
             i(motionEvent);
-            switch (this.ez) {
+            switch (this.eL) {
                 case EStatSingleFingerCandidate:
                     if (motionEvent.getActionMasked() == 0) {
                         Log.d("touchopt", "touchinv Action Down when EStatSingleFingerCandidate");
-                        this.eB = motionEvent.getPointerId(motionEvent.getActionIndex());
-                        this.eC = motionEvent.getX();
-                        this.eD = motionEvent.getY();
-                        this.eE = this.eC;
-                        this.eF = this.eD;
-                        this.eG = motionEvent.getEventTime();
-                        if (this.eQ.hasMessages(2) && this.fh != null && a(this.fh.x, this.fh.y, motionEvent.getX(), motionEvent.getY()) > 100.0d) {
-                            aN();
+                        this.eN = motionEvent.getPointerId(motionEvent.getActionIndex());
+                        this.eO = motionEvent.getX();
+                        this.eP = motionEvent.getY();
+                        this.eQ = this.eO;
+                        this.eR = this.eP;
+                        this.eS = motionEvent.getEventTime();
+                        if (this.fc.hasMessages(2) && this.ft != null && a(this.ft.x, this.ft.y, motionEvent.getX(), motionEvent.getY()) > 100.0d) {
+                            bb();
                         }
-                        this.eQ.sendEmptyMessageDelayed(1, 600L);
-                        Log.d("touchopt", String.format("touchinv Action Down when EStatSingleFingerCandidate x %1.1f, y %1.1f, time %d id %d", Float.valueOf(this.eC), Float.valueOf(this.eD), Long.valueOf(this.eG), Integer.valueOf(this.eB)));
+                        this.fc.sendEmptyMessageDelayed(1, 600L);
+                        Log.d("touchopt", String.format("touchinv Action Down when EStatSingleFingerCandidate x %1.1f, y %1.1f, time %d id %d", Float.valueOf(this.eO), Float.valueOf(this.eP), Long.valueOf(this.eS), Integer.valueOf(this.eN)));
                         return;
                     } else if (2 == motionEvent.getActionMasked()) {
-                        double a = a(this.eC, this.eD, motionEvent.getX(), motionEvent.getY());
+                        double a = a(this.eO, this.eP, motionEvent.getX(), motionEvent.getY());
                         Log.d("touchopt", String.format("touchinv Action Move when EStatSingleFingerCandidate x %1.1f, y %1.1f, distance %1.2f", Float.valueOf(motionEvent.getX()), Float.valueOf(motionEvent.getY()), Double.valueOf(a)));
                         if (a < 20.0d) {
                             if (motionEvent.getEventTime() - motionEvent.getDownTime() > 600) {
-                                this.ez = e.EStatLongPresss;
-                                if (!this.eV && !this.eY) {
-                                    a(b.EGESTURE_LONG_PRESS.ordinal(), motionEvent.getDownTime(), this.eB, motionEvent.getX(), motionEvent.getY(), -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+                                this.eL = e.EStatLongPresss;
+                                if (!this.fh && !this.fk) {
+                                    a(b.EGESTURE_LONG_PRESS.ordinal(), motionEvent.getDownTime(), this.eN, motionEvent.getX(), motionEvent.getY(), -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                                 }
-                                this.eQ.removeMessages(1);
+                                this.fc.removeMessages(1);
                             }
                         } else if (a < 50.0d) {
-                            this.eA = false;
+                            this.eM = false;
                         } else {
-                            aN();
-                            this.ez = e.EStatScroll;
-                            if (!this.eV && !this.fa) {
-                                a(b.EGESTURE_SINGLE_FINGER_SCROLL.ordinal(), motionEvent.getEventTime(), this.eB, motionEvent.getX(), motionEvent.getY(), a(motionEvent), b(motionEvent), -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+                            bb();
+                            this.eL = e.EStatScroll;
+                            if (!this.fh && !this.fm) {
+                                a(b.EGESTURE_SINGLE_FINGER_SCROLL.ordinal(), motionEvent.getEventTime(), this.eN, motionEvent.getX(), motionEvent.getY(), a(motionEvent), b(motionEvent), -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                             }
-                            this.eQ.removeMessages(1);
+                            this.fc.removeMessages(1);
                         }
-                        this.eE = motionEvent.getX();
-                        this.eF = motionEvent.getY();
-                        this.eG = motionEvent.getEventTime();
+                        this.eQ = motionEvent.getX();
+                        this.eR = motionEvent.getY();
+                        this.eS = motionEvent.getEventTime();
                         return;
                     } else if (1 != motionEvent.getActionMasked()) {
                         if (5 == motionEvent.getActionMasked()) {
-                            if (this.eA) {
-                                this.eH = motionEvent.getPointerId(motionEvent.getActionIndex());
-                                this.eI = motionEvent.getX(motionEvent.findPointerIndex(this.eH));
-                                this.eJ = motionEvent.getY(motionEvent.findPointerIndex(this.eH));
-                                this.eM = motionEvent.getEventTime();
-                                this.eK = this.eI;
-                                this.eL = this.eJ;
-                                this.eO = a(motionEvent.getX(), motionEvent.getY(), this.eI, this.eJ);
-                                this.ez = e.EStatTwoFingersCandidate;
+                            if (this.eM) {
+                                this.eT = motionEvent.getPointerId(motionEvent.getActionIndex());
+                                this.eU = motionEvent.getX(motionEvent.findPointerIndex(this.eT));
+                                this.eV = motionEvent.getY(motionEvent.findPointerIndex(this.eT));
+                                this.eY = motionEvent.getEventTime();
+                                this.eW = this.eU;
+                                this.eX = this.eV;
+                                this.fa = a(motionEvent.getX(), motionEvent.getY(), this.eU, this.eV);
+                                this.eL = e.EStatTwoFingersCandidate;
                             } else {
-                                this.ez = e.EStatUnknown;
+                                this.eL = e.EStatUnknown;
                             }
-                            aN();
+                            bb();
                             return;
                         }
                         return;
                     } else {
-                        if (a(this.eC, this.eD, motionEvent.getX(), motionEvent.getY()) < 20.0d && motionEvent.getEventTime() - motionEvent.getDownTime() < 300 && !this.eV) {
-                            if (this.eX) {
-                                if (!this.eW) {
+                        if (a(this.eO, this.eP, motionEvent.getX(), motionEvent.getY()) < 20.0d && motionEvent.getEventTime() - motionEvent.getDownTime() < 300 && !this.fh) {
+                            if (this.fj) {
+                                if (!this.fi) {
                                     a(b.EGESTURE_CLICK.ordinal(), motionEvent.getDownTime(), motionEvent.getPointerId(0), motionEvent.getX(), motionEvent.getY(), -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                                     a(b.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                                 }
-                            } else if (this.eQ.hasMessages(2)) {
-                                this.eQ.removeMessages(2);
+                            } else if (this.fc.hasMessages(2)) {
+                                this.fc.removeMessages(2);
                                 a(b.EGESTURE_DOUBLE_CLICK.ordinal(), motionEvent.getDownTime(), motionEvent.getPointerId(0), motionEvent.getX(), motionEvent.getY(), -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                                 a(b.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                             } else {
                                 Message obtain = Message.obtain();
                                 obtain.what = 2;
-                                C0075a c0075a = new C0075a();
-                                c0075a.fn = motionEvent.getPointerId(0);
-                                c0075a.x = motionEvent.getX();
-                                c0075a.y = motionEvent.getY();
-                                c0075a.time = motionEvent.getDownTime();
-                                obtain.obj = c0075a;
-                                this.fh = c0075a;
-                                this.eQ.sendMessageDelayed(obtain, 400L);
+                                C0076a c0076a = new C0076a();
+                                c0076a.fz = motionEvent.getPointerId(0);
+                                c0076a.x = motionEvent.getX();
+                                c0076a.y = motionEvent.getY();
+                                c0076a.time = motionEvent.getDownTime();
+                                obtain.obj = c0076a;
+                                this.ft = c0076a;
+                                this.fc.sendMessageDelayed(obtain, 400L);
                             }
                         }
                         clearStatus();
@@ -620,111 +620,111 @@ public class a {
                     }
                 case EStatTwoFingersCandidate:
                     if (5 == motionEvent.getActionMasked()) {
-                        this.ez = e.EStatUnknown;
+                        this.eL = e.EStatUnknown;
                         return;
                     } else if (6 == motionEvent.getActionMasked()) {
-                        this.ez = e.EStatUnknown;
+                        this.eL = e.EStatUnknown;
                         return;
                     } else if (2 != motionEvent.getActionMasked()) {
-                        this.ez = e.EStatUnknown;
+                        this.eL = e.EStatUnknown;
                         return;
                     } else {
                         float e2 = e(motionEvent);
                         float f2 = f(motionEvent);
                         float g = g(motionEvent);
                         float h = h(motionEvent);
-                        double a2 = a(this.eC, this.eD, e2, f2);
-                        double a3 = a(this.eI, this.eJ, g, h);
+                        double a2 = a(this.eO, this.eP, e2, f2);
+                        double a3 = a(this.eU, this.eV, g, h);
                         if ((a2 > 50.0d || a3 > 50.0d) && a2 > 20.0d && a3 > 20.0d) {
-                            double a4 = a(this.eC, this.eD, e2, f2, this.eI, this.eJ, g, h);
+                            double a4 = a(this.eO, this.eP, e2, f2, this.eU, this.eV, g, h);
                             if (a4 < 0.7853981633974483d) {
-                                this.ez = e.EStatTwoFingersScroll;
-                                if (!this.eV && !this.fb) {
-                                    a(b.EGESTURE_TWO_FINGER_SCROLL.ordinal(), motionEvent.getDownTime(), this.eB, e2, f2, a(motionEvent), b(motionEvent), this.eH, g, h, c(motionEvent), d(motionEvent), -1, 0.0f);
+                                this.eL = e.EStatTwoFingersScroll;
+                                if (!this.fh && !this.fn) {
+                                    a(b.EGESTURE_TWO_FINGER_SCROLL.ordinal(), motionEvent.getDownTime(), this.eN, e2, f2, a(motionEvent), b(motionEvent), this.eT, g, h, c(motionEvent), d(motionEvent), -1, 0.0f);
                                     Log.d("touchopt", "EStatTwoFingersScroll");
                                 }
                             } else if (a4 > 3.141592653589793d || a4 <= 1.5707963267948966d) {
-                                this.ez = e.EStatPinchAndUnpinch;
-                                this.eN = a(e2, f2, g, h);
+                                this.eL = e.EStatPinchAndUnpinch;
+                                this.eZ = a(e2, f2, g, h);
                             } else {
-                                float f3 = (this.eC + this.eI) / 2.0f;
-                                float f4 = (this.eD + this.eJ) / 2.0f;
-                                double a5 = a(f3, f4, this.eC, this.eD, this.eC, this.eD, e2, f2);
-                                double a6 = a(f3, f4, this.eI, this.eJ, this.eI, this.eJ, g, h);
+                                float f3 = (this.eO + this.eU) / 2.0f;
+                                float f4 = (this.eP + this.eV) / 2.0f;
+                                double a5 = a(f3, f4, this.eO, this.eP, this.eO, this.eP, e2, f2);
+                                double a6 = a(f3, f4, this.eU, this.eV, this.eU, this.eV, g, h);
                                 if (Math.abs(a5 - 1.5707963267948966d) < 0.6283185307179586d || Math.abs(a6 - 1.5707963267948966d) < 0.6283185307179586d) {
-                                    this.ez = e.EStatTwoFingerRotate;
-                                    this.eP = a4;
+                                    this.eL = e.EStatTwoFingerRotate;
+                                    this.fb = a4;
                                 } else {
-                                    this.ez = e.EStatPinchAndUnpinch;
-                                    this.eN = a(e2, f2, g, h);
+                                    this.eL = e.EStatPinchAndUnpinch;
+                                    this.eZ = a(e2, f2, g, h);
                                 }
                             }
                         }
-                        this.eE = e2;
-                        this.eF = f2;
-                        this.eG = motionEvent.getEventTime();
-                        this.eK = g;
-                        this.eL = h;
-                        this.eM = motionEvent.getEventTime();
+                        this.eQ = e2;
+                        this.eR = f2;
+                        this.eS = motionEvent.getEventTime();
+                        this.eW = g;
+                        this.eX = h;
+                        this.eY = motionEvent.getEventTime();
                         return;
                     }
                 case EStatScroll:
                     try {
                         if (5 == motionEvent.getActionMasked()) {
-                            this.eC = motionEvent.getX(motionEvent.findPointerIndex(this.eB));
-                            this.eD = motionEvent.getY(motionEvent.findPointerIndex(this.eB));
-                            this.eE = this.eC;
-                            this.eF = this.eD;
-                            this.eG = motionEvent.getEventTime();
-                            this.eH = motionEvent.getPointerId(motionEvent.getActionIndex());
-                            this.eI = motionEvent.getX(motionEvent.findPointerIndex(this.eH));
-                            this.eJ = motionEvent.getY(motionEvent.findPointerIndex(this.eH));
-                            this.eM = motionEvent.getEventTime();
-                            this.eK = this.eI;
-                            this.eL = this.eJ;
-                            this.ez = e.EStatTwoFingersCandidate;
-                            if (this.eV || this.fa) {
+                            this.eO = motionEvent.getX(motionEvent.findPointerIndex(this.eN));
+                            this.eP = motionEvent.getY(motionEvent.findPointerIndex(this.eN));
+                            this.eQ = this.eO;
+                            this.eR = this.eP;
+                            this.eS = motionEvent.getEventTime();
+                            this.eT = motionEvent.getPointerId(motionEvent.getActionIndex());
+                            this.eU = motionEvent.getX(motionEvent.findPointerIndex(this.eT));
+                            this.eV = motionEvent.getY(motionEvent.findPointerIndex(this.eT));
+                            this.eY = motionEvent.getEventTime();
+                            this.eW = this.eU;
+                            this.eX = this.eV;
+                            this.eL = e.EStatTwoFingersCandidate;
+                            if (this.fh || this.fm) {
                                 return;
                             }
                             a(b.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                             return;
                         } else if (6 == motionEvent.getActionMasked()) {
-                            this.ez = e.EStatUnknown;
+                            this.eL = e.EStatUnknown;
                             return;
                         } else if (1 == motionEvent.getActionMasked()) {
                             clearStatus();
                             return;
                         } else if (2 != motionEvent.getActionMasked()) {
-                            this.ez = e.EStatUnknown;
+                            this.eL = e.EStatUnknown;
                             return;
-                        } else if (motionEvent.getEventTime() - this.eG >= 1) {
+                        } else if (motionEvent.getEventTime() - this.eS >= 1) {
                             float e3 = e(motionEvent);
                             float f5 = f(motionEvent);
-                            if (!this.eV && !this.fa) {
-                                a(b.EGESTURE_SINGLE_FINGER_SCROLL.ordinal(), motionEvent.getEventTime(), this.eB, e3, f5, a(motionEvent), b(motionEvent), -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+                            if (!this.fh && !this.fm) {
+                                a(b.EGESTURE_SINGLE_FINGER_SCROLL.ordinal(), motionEvent.getEventTime(), this.eN, e3, f5, a(motionEvent), b(motionEvent), -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                             }
-                            float f6 = e3 - this.eE;
-                            float f7 = f5 - this.eF;
-                            float eventTime = f6 / ((float) (motionEvent.getEventTime() - this.eG));
-                            float eventTime2 = f7 / ((float) (motionEvent.getEventTime() - this.eG));
+                            float f6 = e3 - this.eQ;
+                            float f7 = f5 - this.eR;
+                            float eventTime = f6 / ((float) (motionEvent.getEventTime() - this.eS));
+                            float eventTime2 = f7 / ((float) (motionEvent.getEventTime() - this.eS));
                             if (Math.abs(f6) > Math.abs(f7) && Math.abs(f6) > 100.0d && Math.abs(eventTime) > 20.0d) {
                                 if (f6 > 0.0f) {
-                                    this.eU = d.ESWIPE_RIGHT;
+                                    this.fg = d.ESWIPE_RIGHT;
                                 } else {
-                                    this.eU = d.ESWIPE_LEFT;
+                                    this.fg = d.ESWIPE_LEFT;
                                 }
-                                this.ez = e.EStatSwipe;
+                                this.eL = e.EStatSwipe;
                             } else if (Math.abs(f7) > Math.abs(f6) && Math.abs(f7) > 100.0d && Math.abs(eventTime2) > 20.0d) {
                                 if (f7 > 0.0f) {
-                                    this.eU = d.ESWIPE_DOWN;
+                                    this.fg = d.ESWIPE_DOWN;
                                 } else {
-                                    this.eU = d.ESWIPE_UP;
+                                    this.fg = d.ESWIPE_UP;
                                 }
-                                this.ez = e.EStatSwipe;
+                                this.eL = e.EStatSwipe;
                             }
-                            this.eE = e3;
-                            this.eF = f5;
-                            this.eG = motionEvent.getEventTime();
+                            this.eQ = e3;
+                            this.eR = f5;
+                            this.eS = motionEvent.getEventTime();
                             return;
                         } else {
                             return;
@@ -734,66 +734,66 @@ public class a {
                         return;
                     }
                 case EStatSwipe:
-                    if (1 != motionEvent.getActionMasked() || this.eV || this.eZ) {
+                    if (1 != motionEvent.getActionMasked() || this.fh || this.fl) {
                         return;
                     }
-                    a(b.EGESTURE_SWIPE.ordinal(), motionEvent.getEventTime(), this.eB, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, this.eU.ordinal(), 0.0f);
+                    a(b.EGESTURE_SWIPE.ordinal(), motionEvent.getEventTime(), this.eN, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, this.fg.ordinal(), 0.0f);
                     clearStatus();
                     return;
                 case EStatTwoFingersScroll:
                     if (5 == motionEvent.getActionMasked()) {
-                        this.ez = e.EStatUnknown;
+                        this.eL = e.EStatUnknown;
                         return;
                     } else if (6 == motionEvent.getActionMasked()) {
-                        this.ez = e.EStatScroll;
-                        if (((motionEvent.getAction() & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >>> 8) == this.eB) {
-                            this.eB = this.eH;
-                            this.eC = this.eI;
-                            this.eD = this.eJ;
-                            this.eE = this.eK;
-                            this.eF = this.eL;
-                            this.eG = this.eM;
+                        this.eL = e.EStatScroll;
+                        if (((motionEvent.getAction() & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >>> 8) == this.eN) {
+                            this.eN = this.eT;
+                            this.eO = this.eU;
+                            this.eP = this.eV;
+                            this.eQ = this.eW;
+                            this.eR = this.eX;
+                            this.eS = this.eY;
                         }
                         a(b.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                         return;
                     } else if (2 != motionEvent.getActionMasked()) {
-                        this.ez = e.EStatUnknown;
+                        this.eL = e.EStatUnknown;
                         return;
-                    } else if (motionEvent.getEventTime() - this.eG < 1 || motionEvent.getEventTime() - this.eM < 1) {
+                    } else if (motionEvent.getEventTime() - this.eS < 1 || motionEvent.getEventTime() - this.eY < 1) {
                         return;
                     } else {
                         float e5 = e(motionEvent);
                         float f8 = f(motionEvent);
                         float g2 = g(motionEvent);
                         float h2 = h(motionEvent);
-                        if (!this.eV && !this.fb) {
-                            a(b.EGESTURE_TWO_FINGER_SCROLL.ordinal(), motionEvent.getEventTime(), this.eB, e5, f8, a(motionEvent), b(motionEvent), this.eH, g2, h2, c(motionEvent), d(motionEvent), -1, 0.0f);
+                        if (!this.fh && !this.fn) {
+                            a(b.EGESTURE_TWO_FINGER_SCROLL.ordinal(), motionEvent.getEventTime(), this.eN, e5, f8, a(motionEvent), b(motionEvent), this.eT, g2, h2, c(motionEvent), d(motionEvent), -1, 0.0f);
                         }
-                        this.eE = e5;
-                        this.eF = f8;
-                        this.eG = motionEvent.getEventTime();
-                        this.eK = g2;
-                        this.eL = h2;
-                        this.eM = motionEvent.getEventTime();
+                        this.eQ = e5;
+                        this.eR = f8;
+                        this.eS = motionEvent.getEventTime();
+                        this.eW = g2;
+                        this.eX = h2;
+                        this.eY = motionEvent.getEventTime();
                         return;
                     }
                 case EStatPinchAndUnpinch:
                     if (5 == motionEvent.getActionMasked()) {
-                        this.ez = e.EStatUnknown;
-                        this.eR = true;
+                        this.eL = e.EStatUnknown;
+                        this.fd = true;
                         return;
                     } else if (6 == motionEvent.getActionMasked()) {
-                        this.ez = e.EStatScroll;
-                        if (((motionEvent.getAction() & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >>> 8) == this.eB) {
-                            this.eB = this.eH;
+                        this.eL = e.EStatScroll;
+                        if (((motionEvent.getAction() & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >>> 8) == this.eN) {
+                            this.eN = this.eT;
                         }
-                        this.eR = true;
+                        this.fd = true;
                         ARPEngine.getInstance().onGestureUpdateWithScaleFinish(b.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f, true);
                         return;
                     } else if (2 != motionEvent.getActionMasked()) {
-                        this.ez = e.EStatUnknown;
+                        this.eL = e.EStatUnknown;
                         return;
-                    } else if (motionEvent.getEventTime() - this.eG < 1 || motionEvent.getEventTime() - this.eM < 1) {
+                    } else if (motionEvent.getEventTime() - this.eS < 1 || motionEvent.getEventTime() - this.eY < 1) {
                         return;
                     } else {
                         float e6 = e(motionEvent);
@@ -801,38 +801,38 @@ public class a {
                         float g3 = g(motionEvent);
                         float h3 = h(motionEvent);
                         double a7 = a(e6, f9, g3, h3);
-                        if (a7 > this.eN) {
-                            if (!this.eV && !this.fc) {
-                                if (!this.eR) {
-                                    if (this.eS) {
+                        if (a7 > this.eZ) {
+                            if (!this.fh && !this.fo) {
+                                if (!this.fd) {
+                                    if (this.fe) {
                                         a(b.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                                     }
-                                    this.eS = false;
+                                    this.fe = false;
                                 }
-                                a(b.EGESTURE_TWO_FINGER_UNPINCH.ordinal(), motionEvent.getEventTime(), this.eB, e6, f9, a(motionEvent), b(motionEvent), this.eH, g3, h3, c(motionEvent), d(motionEvent), -1, 0.0f);
-                                if (this.eR) {
-                                    this.eS = false;
+                                a(b.EGESTURE_TWO_FINGER_UNPINCH.ordinal(), motionEvent.getEventTime(), this.eN, e6, f9, a(motionEvent), b(motionEvent), this.eT, g3, h3, c(motionEvent), d(motionEvent), -1, 0.0f);
+                                if (this.fd) {
+                                    this.fe = false;
                                 }
                             }
-                        } else if (!this.eV && !this.fc) {
-                            if (!this.eR) {
-                                if (!this.eS) {
+                        } else if (!this.fh && !this.fo) {
+                            if (!this.fd) {
+                                if (!this.fe) {
                                     a(b.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                                 }
-                                this.eS = true;
+                                this.fe = true;
                             }
-                            a(b.EGESTURE_TWO_FINGER_PINCH.ordinal(), motionEvent.getEventTime(), this.eB, e6, f9, a(motionEvent), b(motionEvent), this.eH, g3, h3, c(motionEvent), d(motionEvent), -1, 0.0f);
-                            if (this.eR) {
-                                this.eS = true;
+                            a(b.EGESTURE_TWO_FINGER_PINCH.ordinal(), motionEvent.getEventTime(), this.eN, e6, f9, a(motionEvent), b(motionEvent), this.eT, g3, h3, c(motionEvent), d(motionEvent), -1, 0.0f);
+                            if (this.fd) {
+                                this.fe = true;
                             }
                         }
-                        this.eN = a7;
-                        this.eE = e6;
-                        this.eF = f9;
-                        this.eG = motionEvent.getEventTime();
-                        this.eK = g3;
-                        this.eL = h3;
-                        this.eM = motionEvent.getEventTime();
+                        this.eZ = a7;
+                        this.eQ = e6;
+                        this.eR = f9;
+                        this.eS = motionEvent.getEventTime();
+                        this.eW = g3;
+                        this.eX = h3;
+                        this.eY = motionEvent.getEventTime();
                         return;
                     }
                 case EStatTwoFingerRotate:
@@ -841,7 +841,7 @@ public class a {
                             clearStatus();
                             return;
                         } else {
-                            this.ez = e.EStatUnknown;
+                            this.eL = e.EStatUnknown;
                             return;
                         }
                     }
@@ -849,16 +849,16 @@ public class a {
                     float f10 = f(motionEvent);
                     float g4 = g(motionEvent);
                     float h4 = h(motionEvent);
-                    double a8 = a(this.eK - this.eE, this.eL - this.eF, g4 - e7, h4 - f10);
-                    if (!this.eV && !this.fd) {
-                        a(b.EGESTURE_TWO_FINGER_ROTATE.ordinal(), motionEvent.getEventTime(), this.eB, e7, f10, -1.0f, -1.0f, this.eH, g4, h4, -1.0f, -1.0f, -1, (float) a8);
+                    double a8 = a(this.eW - this.eQ, this.eX - this.eR, g4 - e7, h4 - f10);
+                    if (!this.fh && !this.fp) {
+                        a(b.EGESTURE_TWO_FINGER_ROTATE.ordinal(), motionEvent.getEventTime(), this.eN, e7, f10, -1.0f, -1.0f, this.eT, g4, h4, -1.0f, -1.0f, -1, (float) a8);
                     }
-                    this.eE = e7;
-                    this.eF = f10;
-                    this.eG = motionEvent.getEventTime();
-                    this.eK = g4;
-                    this.eL = h4;
-                    this.eM = motionEvent.getEventTime();
+                    this.eQ = e7;
+                    this.eR = f10;
+                    this.eS = motionEvent.getEventTime();
+                    this.eW = g4;
+                    this.eX = h4;
+                    this.eY = motionEvent.getEventTime();
                     return;
                 case EStatLongPresss:
                     if (2 != motionEvent.getActionMasked()) {
@@ -866,17 +866,17 @@ public class a {
                             clearStatus();
                             return;
                         } else {
-                            this.ez = e.EStatUnknown;
+                            this.eL = e.EStatUnknown;
                             return;
                         }
-                    } else if (a(this.eC, this.eD, motionEvent.getX(), motionEvent.getY()) > 50.0d) {
-                        this.ez = e.EScrollAfterLongPress;
-                        if (!this.eV && !this.fa) {
-                            a(b.EGESTURE_SINGLE_FINGER_SCROLL.ordinal(), motionEvent.getEventTime(), this.eB, motionEvent.getX(), motionEvent.getY(), a(motionEvent), b(motionEvent), -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+                    } else if (a(this.eO, this.eP, motionEvent.getX(), motionEvent.getY()) > 50.0d) {
+                        this.eL = e.EScrollAfterLongPress;
+                        if (!this.fh && !this.fm) {
+                            a(b.EGESTURE_SINGLE_FINGER_SCROLL.ordinal(), motionEvent.getEventTime(), this.eN, motionEvent.getX(), motionEvent.getY(), a(motionEvent), b(motionEvent), -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                         }
-                        this.eE = e(motionEvent);
-                        this.eF = f(motionEvent);
-                        this.eG = motionEvent.getEventTime();
+                        this.eQ = e(motionEvent);
+                        this.eR = f(motionEvent);
+                        this.eS = motionEvent.getEventTime();
                         return;
                     } else {
                         return;
@@ -887,16 +887,16 @@ public class a {
                             clearStatus();
                             return;
                         } else {
-                            this.ez = e.EStatUnknown;
+                            this.eL = e.EStatUnknown;
                             return;
                         }
                     }
-                    if (!this.eV && !this.fa) {
-                        a(b.EGESTURE_SINGLE_FINGER_SCROLL.ordinal(), motionEvent.getEventTime(), this.eB, motionEvent.getX(), motionEvent.getY(), a(motionEvent), b(motionEvent), -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+                    if (!this.fh && !this.fm) {
+                        a(b.EGESTURE_SINGLE_FINGER_SCROLL.ordinal(), motionEvent.getEventTime(), this.eN, motionEvent.getX(), motionEvent.getY(), a(motionEvent), b(motionEvent), -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                     }
-                    this.eE = e(motionEvent);
-                    this.eF = f(motionEvent);
-                    this.eG = motionEvent.getEventTime();
+                    this.eQ = e(motionEvent);
+                    this.eR = f(motionEvent);
+                    this.eS = motionEvent.getEventTime();
                     return;
                 case EStatPinch:
                 case EStatUnPinch:

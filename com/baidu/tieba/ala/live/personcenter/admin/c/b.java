@@ -13,44 +13,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BdBaseModel {
-    private a fDY;
-    private com.baidu.tieba.ala.live.personcenter.admin.b.a fEd;
-    private HttpMessageListener fnL;
+    private a fPh;
+    private com.baidu.tieba.ala.live.personcenter.admin.b.a fPm;
+    private HttpMessageListener fyY;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void al(int i, String str);
+        void an(int i, String str);
 
-        void jz(boolean z);
+        void jM(boolean z);
     }
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fnL = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
+        this.fyY = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaAdminListResponseMessage) {
                     AlaAdminListResponseMessage alaAdminListResponseMessage = (AlaAdminListResponseMessage) httpResponsedMessage;
                     if (!alaAdminListResponseMessage.isSuccess()) {
-                        if (b.this.fDY != null) {
-                            b.this.fDY.al(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
+                        if (b.this.fPh != null) {
+                            b.this.fPh.an(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    b.this.fEd = alaAdminListResponseMessage.bvM();
-                    if (b.this.fDY != null) {
-                        b.this.fDY.jz(false);
+                    b.this.fPm = alaAdminListResponseMessage.byH();
+                    if (b.this.fPh != null) {
+                        b.this.fPh.jM(false);
                     }
                 }
             }
         };
-        Fv();
-        registerListener(this.fnL);
+        xp();
+        registerListener(this.fyY);
     }
 
-    private void Fv() {
+    private void xp() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021078, TbConfig.SERVER_ADDRESS + "ala/perm/getAnchorAdmin");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -59,13 +59,13 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bvN() {
+    public void byI() {
         sendMessage(new com.baidu.tieba.ala.live.personcenter.admin.message.a());
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     protected boolean loadData() {
-        bvN();
+        byI();
         return true;
     }
 
@@ -76,30 +76,30 @@ public class b extends BdBaseModel {
     }
 
     public List<IAdapterData> getUserList() {
-        return hasData() ? new ArrayList(this.fEd.getUserList()) : new ArrayList();
+        return hasData() ? new ArrayList(this.fPm.getUserList()) : new ArrayList();
     }
 
-    public int bvL() {
+    public int byG() {
         if (hasData()) {
-            return this.fEd.bvL();
+            return this.fPm.byG();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.fDY = aVar;
+        this.fPh = aVar;
     }
 
     public void a(com.baidu.tieba.ala.live.personcenter.admin.b.b bVar) {
         if (hasData()) {
-            this.fEd.getUserList().remove(bVar);
-            if (this.fDY != null) {
-                this.fDY.jz(false);
+            this.fPm.getUserList().remove(bVar);
+            if (this.fPh != null) {
+                this.fPh.jM(false);
             }
         }
     }
 
     private boolean hasData() {
-        return (this.fEd == null || this.fEd.getUserList() == null || this.fEd.getUserList().isEmpty()) ? false : true;
+        return (this.fPm == null || this.fPm.getUserList() == null || this.fPm.getUserList().isEmpty()) ? false : true;
     }
 }

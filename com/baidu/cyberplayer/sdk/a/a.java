@@ -11,14 +11,14 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a implements b.a {
     private static final String a = Boolean.toString(true);
-    private InterfaceC0106a b;
+    private InterfaceC0108a b;
     private String c;
     private String d;
     private ArrayList<String> e = null;
 
     /* renamed from: com.baidu.cyberplayer.sdk.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0106a {
+    public interface InterfaceC0108a {
         void a(String str, long j);
 
         void a(String str, long j, int i, String str2);
@@ -172,12 +172,12 @@ public class a implements b.a {
         this.b.a(str, j, -1, str2 + ",networkstatus:" + m.i() + ",url:" + str);
     }
 
-    public void a(String str, String str2, String str3, InterfaceC0106a interfaceC0106a) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0106a == null) {
+    public void a(String str, String str2, String str3, InterfaceC0108a interfaceC0108a) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0108a == null) {
             return;
         }
         this.c = str2;
-        this.b = interfaceC0106a;
+        this.b = interfaceC0108a;
         this.d = str3;
         m.b(this.d);
         CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.d);

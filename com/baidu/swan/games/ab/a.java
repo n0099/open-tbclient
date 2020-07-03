@@ -18,8 +18,8 @@ public class a {
     public static void getUUAPInfo(JsObject jsObject) {
         final c e = c.e(jsObject);
         if (e != null) {
-            e aoG = e.aoG();
-            if (aoG == null) {
+            e apN = e.apN();
+            if (apN == null) {
                 c(e, "internal error");
                 return;
             }
@@ -27,12 +27,12 @@ public class a {
             if (DEBUG) {
                 Log.i("SwanGameUuapApi", "getUUAPInfo-domain: " + optString);
             }
-            aoG.aoR().d("mapp_uuap_info", new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.games.ab.a.1
+            apN.apY().d("mapp_uuap_info", new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.games.ab.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.aq.e.b
                 /* renamed from: c */
                 public void H(com.baidu.swan.apps.setting.oauth.e eVar) {
-                    if (eVar == null || eVar.forbidden || eVar.cEu != 1) {
+                    if (eVar == null || eVar.forbidden || eVar.cJe != 1) {
                         a.c(c.this, "system deny");
                     } else {
                         a.d(c.this, optString);
@@ -47,10 +47,10 @@ public class a {
         b bVar = new b();
         String cookie = CookieManager.getInstance().getCookie(str);
         if (!TextUtils.isEmpty(cookie)) {
-            Map<String, String> sH = sH(cookie);
-            bVar.uuap_p_token = sH.get("UUAP_P_TOKEN");
-            bVar.uuap_p_token_offline = sH.get("UUAP_P_TOKEN_OFFLINE");
-            bVar.uuap_s_token = sH.get("UUAP_S_TOKEN");
+            Map<String, String> sP = sP(cookie);
+            bVar.uuap_p_token = sP.get("UUAP_P_TOKEN");
+            bVar.uuap_p_token_offline = sP.get("UUAP_P_TOKEN_OFFLINE");
+            bVar.uuap_s_token = sP.get("UUAP_S_TOKEN");
         }
         com.baidu.swan.games.utils.b.a(cVar, true, bVar);
     }
@@ -63,7 +63,7 @@ public class a {
     }
 
     @NonNull
-    private static Map<String, String> sH(@NonNull String str) {
+    private static Map<String, String> sP(@NonNull String str) {
         String[] split;
         HashMap hashMap = new HashMap();
         for (String str2 : str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {

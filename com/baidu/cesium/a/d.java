@@ -23,15 +23,15 @@ public final class d {
         return new byte[]{-101, -5, -82, -122, -10, 77, -50, -88, 27, -103, -100, 67, 98, 89, -44, -92, -125, 65, -82, -74, 1, 92, -103, -116, 74, -60, 73, 78, 77, -42, 107, -109};
     }
 
-    public static byte[] sb() {
+    public static byte[] sw() {
         return new byte[]{121, -75, -64, -117, -32, 4, -8, -19, -11, 84, -123, -65, -29, -73, 23, Byte.MAX_VALUE, 52, -54, 124, 29, 10, -105, -19, 73, 56, 100, 42, 41, -13, 25, -76, -71};
     }
 
-    public static byte[] sc() {
+    public static byte[] sx() {
         return new byte[]{10, 28, -53, -126, Constants.GZIP_CAST_TYPE, -111, 68, -11, -28, Constants.SHORT_PING_CMD_TYPE, 81, 41, 59, -1, 98, -58, -25, -60, -55, 70, 66, 51, -63, -79, -96, 37, 70, 7, 108, 59, -79, -65};
     }
 
-    public static byte[] sd() {
+    public static byte[] sy() {
         return new byte[]{-14, -21, -20, -77, 32, 107, -63, 36, -44, -86, 57, -31, 102, 90, 4, 13, 91, 22, 84, 30, -86, 4, -106, -62, 49, 108, 61, 48, -101, 90, -110, 88};
     }
 }

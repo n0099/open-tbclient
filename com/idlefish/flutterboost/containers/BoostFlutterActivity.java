@@ -178,7 +178,7 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
     protected void onResume() {
         super.onResume();
         this.lifecycle.b(Lifecycle.Event.ON_RESUME);
-        this.delegate.onResume();
+        this.delegate.onResume(true);
     }
 
     @Override // android.app.Activity
@@ -190,7 +190,7 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
     @Override // android.app.Activity
     protected void onPause() {
         super.onPause();
-        this.delegate.onPause();
+        this.delegate.onPause(true);
         this.lifecycle.b(Lifecycle.Event.ON_PAUSE);
     }
 
@@ -328,10 +328,6 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
     }
 
     @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
-    public void onFlutterContainerOpen() {
-    }
-
-    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
-    public void onFlutterContainerClose() {
+    public void setSwipeBackEnable(boolean z) {
     }
 }

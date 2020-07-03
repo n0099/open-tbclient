@@ -6,9 +6,9 @@ import com.baidu.swan.pms.model.g;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class b {
-    public f dmt;
-    public List<g> dmw;
-    public com.baidu.swan.pms.model.d dmx;
-    public PMSAppInfo dmy;
-    public com.baidu.swan.pms.model.b dmz;
+    public f dre;
+    public List<g> drh;
+    public com.baidu.swan.pms.model.d dri;
+    public PMSAppInfo drj;
+    public com.baidu.swan.pms.model.b drk;
 }

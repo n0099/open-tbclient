@@ -13,65 +13,65 @@ import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class e extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
-    private BaseActivity eNm;
-    private BdListView hKx;
-    private NavigationBar ivD;
-    private d ivE;
-    private View ivF;
+    private BaseActivity eXy;
+    private BdListView hXJ;
+    private NavigationBar iMJ;
+    private d iMK;
+    private View iML;
     private NoDataView mNoDataView;
     private View mRoot;
 
     public e(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.eNm = baseActivity;
+        this.eXy = baseActivity;
         initView();
     }
 
     private void initView() {
-        this.mRoot = View.inflate(this.eNm.getPageContext().getContext(), R.layout.official_bar_history_activity, null);
-        this.eNm.getPageContext().getPageActivity().setContentView(this.mRoot);
-        this.ivD = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
-        this.ivD.setTitleText(R.string.officical_bar_info_history);
-        this.ivD.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.hKx = (BdListView) this.mRoot.findViewById(R.id.bar_history_list);
-        this.ivE = new d(this.eNm, this.eNm.getPageContext().getContext());
-        this.hKx.setAdapter((ListAdapter) this.ivE);
-        this.ivF = View.inflate(this.eNm.getPageContext().getContext(), R.layout.official_bar_history_item_occupy, null);
-        this.hKx.addHeaderView(this.ivF);
-        this.hKx.addFooterView(this.ivF);
+        this.mRoot = View.inflate(this.eXy.getPageContext().getContext(), R.layout.official_bar_history_activity, null);
+        this.eXy.getPageContext().getPageActivity().setContentView(this.mRoot);
+        this.iMJ = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
+        this.iMJ.setTitleText(R.string.officical_bar_info_history);
+        this.iMJ.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.hXJ = (BdListView) this.mRoot.findViewById(R.id.bar_history_list);
+        this.iMK = new d(this.eXy, this.eXy.getPageContext().getContext());
+        this.hXJ.setAdapter((ListAdapter) this.iMK);
+        this.iML = View.inflate(this.eXy.getPageContext().getContext(), R.layout.official_bar_history_item_occupy, null);
+        this.hXJ.addHeaderView(this.iML);
+        this.hXJ.addFooterView(this.iML);
     }
 
     public void setData(List<ResponseHistoryMessage.a> list) {
-        this.ivE.setData(list);
-        cV(list);
+        this.iMK.setData(list);
+        dj(list);
     }
 
     public void onChangeSkinType(int i) {
-        this.eNm.getLayoutMode().setNightMode(i == 1);
-        this.eNm.getLayoutMode().onModeChanged(this.mRoot);
-        this.ivD.onChangeSkinType(this.eNm.getPageContext(), i);
+        this.eXy.getLayoutMode().setNightMode(i == 1);
+        this.eXy.getLayoutMode().onModeChanged(this.mRoot);
+        this.iMJ.onChangeSkinType(this.eXy.getPageContext(), i);
     }
 
     public void c(BdListView.e eVar) {
-        this.hKx.setOnSrollToBottomListener(eVar);
+        this.hXJ.setOnSrollToBottomListener(eVar);
     }
 
-    public boolean cjW() {
-        return this.ivE.getCount() != 0 && this.hKx.getLastVisiblePosition() - this.hKx.getHeaderViewsCount() < this.ivE.getCount() + (-1);
+    public boolean cnL() {
+        return this.iMK.getCount() != 0 && this.hXJ.getLastVisiblePosition() - this.hXJ.getHeaderViewsCount() < this.iMK.getCount() + (-1);
     }
 
-    public void cV(List<ResponseHistoryMessage.a> list) {
+    public void dj(List<ResponseHistoryMessage.a> list) {
         if (list != null && list.size() > 0 && this.mNoDataView != null) {
             this.mNoDataView.setVisibility(8);
         }
     }
 
-    public void cW(List<ResponseHistoryMessage.a> list) {
+    public void dk(List<ResponseHistoryMessage.a> list) {
         if (list == null || list.size() == 0) {
             if (this.mNoDataView == null) {
-                this.mNoDataView = NoDataViewFactory.a(this.eNm.getPageContext().getPageActivity(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 400), NoDataViewFactory.d.lV(R.string.no_data_text), null);
+                this.mNoDataView = NoDataViewFactory.a(this.eXy.getPageContext().getPageActivity(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 400), NoDataViewFactory.d.mm(R.string.no_data_text), null);
             }
-            this.mNoDataView.onChangeSkinType(this.eNm.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.mNoDataView.onChangeSkinType(this.eXy.getPageContext(), TbadkApplication.getInst().getSkinType());
             this.mNoDataView.setVisibility(0);
         }
     }

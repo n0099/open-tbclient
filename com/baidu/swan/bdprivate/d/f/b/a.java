@@ -17,28 +17,28 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     public String appId;
-    public C0411a cOq;
-    public c cOr;
-    public b cOs;
+    public C0417a cTa;
+    public c cTb;
+    public b cTc;
     public JSONObject data;
 
     /* renamed from: com.baidu.swan.bdprivate.d.f.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0411a {
-        public int aBk;
-        public String cOt;
-        public String cOu;
-        public int cOv;
-        public String cOw;
-        public String cOx;
-        public int cOy;
-        public String cOz;
+    public static class C0417a {
+        public int aDv;
+        public String cTd;
+        public String cTe;
+        public int cTf;
+        public String cTg;
+        public String cTh;
+        public int cTi;
+        public String cTj;
         public int screenWidth;
     }
 
     /* loaded from: classes11.dex */
     public static class b {
-        public int cOA;
+        public int cTk;
         public int network;
     }
 
@@ -50,31 +50,31 @@ public class a {
     }
 
     public a(@NonNull Context context, @NonNull JSONObject jSONObject) {
-        C0411a c0411a = new C0411a();
+        C0417a c0417a = new C0417a();
         c cVar = new c();
         b bVar = new b();
-        String aoH = e.aoH();
-        this.appId = TextUtils.isEmpty(aoH) ? "" : aoH;
-        this.cOq = c0411a;
-        this.cOr = cVar;
-        this.cOs = bVar;
+        String apO = e.apO();
+        this.appId = TextUtils.isEmpty(apO) ? "" : apO;
+        this.cTa = c0417a;
+        this.cTb = cVar;
+        this.cTc = bVar;
         this.data = jSONObject;
-        String atR = aj.atR();
-        c0411a.cOt = "0".equals(atR) ? "" : atR;
+        String auX = aj.auX();
+        c0417a.cTd = "0".equals(auX) ? "" : auX;
         String androidId = getAndroidId();
-        c0411a.cOu = "0".equals(androidId) ? "" : androidId;
-        c0411a.cOv = 2;
-        c0411a.aBk = com.baidu.swan.bdprivate.d.f.c.a.db(context) ? 3 : 2;
-        String VJ = com.baidu.swan.apps.h.c.VJ();
-        c0411a.cOw = "NUL".equals(VJ) ? "" : VJ;
+        c0417a.cTe = "0".equals(androidId) ? "" : androidId;
+        c0417a.cTf = 2;
+        c0417a.aDv = com.baidu.swan.bdprivate.d.f.c.a.dc(context) ? 3 : 2;
+        String WP = com.baidu.swan.apps.h.c.WP();
+        c0417a.cTg = "NUL".equals(WP) ? "" : WP;
         String deviceModel = com.baidu.swan.apps.h.c.getDeviceModel();
-        c0411a.cOx = "NUL".equals(deviceModel) ? "" : deviceModel;
-        c0411a.cOy = ag.getDisplayHeight(context);
-        c0411a.screenWidth = ag.getDisplayWidth(context);
+        c0417a.cTh = "NUL".equals(deviceModel) ? "" : deviceModel;
+        c0417a.cTi = ag.getDisplayHeight(context);
+        c0417a.screenWidth = ag.getDisplayWidth(context);
         String wifiInfo = getWifiInfo();
-        c0411a.cOz = (TextUtils.isEmpty(wifiInfo) || Config.DEF_MAC_ID.equals(wifiInfo)) ? "" : "";
-        bVar.network = com.baidu.swan.bdprivate.d.f.c.a.auQ();
-        bVar.cOA = com.baidu.swan.bdprivate.d.f.c.a.dc(context);
+        c0417a.cTj = (TextUtils.isEmpty(wifiInfo) || Config.DEF_MAC_ID.equals(wifiInfo)) ? "" : "";
+        bVar.network = com.baidu.swan.bdprivate.d.f.c.a.avW();
+        bVar.cTk = com.baidu.swan.bdprivate.d.f.c.a.dd(context);
     }
 
     @NonNull
@@ -85,22 +85,22 @@ public class a {
         JSONObject jSONObject4 = new JSONObject();
         try {
             jSONObject.put("app_id", this.appId);
-            jSONObject2.put("deviceid", this.cOq.cOt);
-            jSONObject2.put("androidid", this.cOq.cOu);
-            jSONObject2.put(HttpConstants.HTTP_OS_TYPE, this.cOq.cOv);
-            jSONObject2.put(HttpConstants.DEVICE_TYPE, this.cOq.aBk);
-            jSONObject2.put("device_vendor", this.cOq.cOw);
-            jSONObject2.put("device_model", this.cOq.cOx);
-            jSONObject2.put("screen_height", this.cOq.cOy);
-            jSONObject2.put("screen_width", this.cOq.screenWidth);
-            jSONObject2.put("mac", this.cOq.cOz);
+            jSONObject2.put("deviceid", this.cTa.cTd);
+            jSONObject2.put("androidid", this.cTa.cTe);
+            jSONObject2.put(HttpConstants.HTTP_OS_TYPE, this.cTa.cTf);
+            jSONObject2.put(HttpConstants.DEVICE_TYPE, this.cTa.aDv);
+            jSONObject2.put("device_vendor", this.cTa.cTg);
+            jSONObject2.put("device_model", this.cTa.cTh);
+            jSONObject2.put("screen_height", this.cTa.cTi);
+            jSONObject2.put("screen_width", this.cTa.screenWidth);
+            jSONObject2.put("mac", this.cTa.cTj);
             jSONObject.put(Config.DEVICE_PART, jSONObject2);
-            jSONObject3.put("coord_type", this.cOr.coordType);
-            jSONObject3.put("latitude", this.cOr.latitude);
-            jSONObject3.put("longitude", this.cOr.longitude);
+            jSONObject3.put("coord_type", this.cTb.coordType);
+            jSONObject3.put("latitude", this.cTb.latitude);
+            jSONObject3.put("longitude", this.cTb.longitude);
             jSONObject.put(TableDefine.DB_TABLE_USERINFO, jSONObject3);
-            jSONObject4.put("network", this.cOs.network);
-            jSONObject4.put("operator", this.cOs.cOA);
+            jSONObject4.put("network", this.cTc.network);
+            jSONObject4.put("operator", this.cTc.cTk);
             jSONObject.put("network", jSONObject4);
             jSONObject.put("data", this.data);
         } catch (JSONException e) {

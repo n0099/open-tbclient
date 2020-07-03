@@ -20,7 +20,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +34,7 @@ public class c {
     private Resources pluginRes;
     private boolean isNightMode = false;
     Map<String, b> viewModeInfos = new HashMap();
-    public boolean dyZ = false;
+    public boolean dFs = false;
 
     public void initModeInfos(String str, Context context, AttributeSet attributeSet) {
         int[] resID;
@@ -297,8 +297,8 @@ public class c {
 
     private Drawable getDrawable(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.dyZ && skinType == 4)) {
-            return am.getDrawable(i);
+        if (skinType == 2 || (!this.dFs && skinType == 4)) {
+            return an.getDrawable(i);
         }
         if (!z) {
             try {
@@ -333,8 +333,8 @@ public class c {
 
     private int getColor(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.dyZ && skinType == 4)) {
-            return am.getColor(i);
+        if (skinType == 2 || (!this.dFs && skinType == 4)) {
+            return an.getColor(i);
         }
         if (!z) {
             return this.contextRes.getColor(i);
@@ -355,8 +355,8 @@ public class c {
 
     private ColorStateList getColorList(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.dyZ && skinType == 4)) {
-            return am.getColorList(i);
+        if (skinType == 2 || (!this.dFs && skinType == 4)) {
+            return an.getColorList(i);
         }
         if (!z) {
             return this.contextRes.getColorStateList(i);

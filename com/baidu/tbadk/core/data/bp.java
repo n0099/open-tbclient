@@ -1,46 +1,44 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import org.json.JSONObject;
-import tbclient.FrsPage.TopNews;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SeniorLottery;
 /* loaded from: classes.dex */
-public class bp extends PostData {
-    public static final BdUniqueId dIj = BdUniqueId.gen();
-    private String dDo;
-    private int position = 0;
-    private String summary;
+public class bp {
+    private an dKG;
+    private List<g> dKH;
+    private String dKI;
+    private List<h> dKJ;
+    private String dKK;
+    private List<am> dKL;
 
-    public String aSL() {
-        return this.dDo;
-    }
-
-    public String getSummary() {
-        return this.summary;
-    }
-
-    public void a(TopNews topNews) {
-        if (topNews != null) {
-            this.dDo = topNews.news_link;
-            this.summary = topNews.summary;
-        }
-    }
-
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.dDo = jSONObject.optString("news_link");
-                this.summary = jSONObject.optString("summary");
-                this.position = jSONObject.optInt("position", 0);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    public void a(SeniorLottery seniorLottery) {
+        if (seniorLottery != null) {
+            this.dKG = new an();
+            this.dKG.a(seniorLottery.theme);
+            this.dKH = new ArrayList();
+            int size = seniorLottery.award_info.size();
+            for (int i = 0; i < size; i++) {
+                g gVar = new g();
+                gVar.a(seniorLottery.award_info.get(i));
+                this.dKH.add(gVar);
+            }
+            this.dKI = seniorLottery.myaward;
+            this.dKJ = new ArrayList();
+            int size2 = seniorLottery.luck_users.size();
+            for (int i2 = 0; i2 < size2; i2++) {
+                h hVar = new h();
+                hVar.a(seniorLottery.luck_users.get(i2));
+                this.dKJ.add(hVar);
+            }
+            this.dKK = seniorLottery.act_desc;
+            this.dKL = new ArrayList();
+            int size3 = seniorLottery.act_regular.size();
+            for (int i3 = 0; i3 < size3; i3++) {
+                am amVar = new am();
+                amVar.a(seniorLottery.act_regular.get(i3));
+                this.dKL.add(amVar);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.o
-    public BdUniqueId getType() {
-        return dIj;
     }
 }

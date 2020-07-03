@@ -2,6 +2,7 @@ package com.baidu.tieba.ala.liveroom.master.a;
 
 import com.baidu.ala.recorder.video.VideoRecorderType;
 import com.baidu.tieba.ala.liveroom.data.f;
+@Deprecated
 /* loaded from: classes3.dex */
 public class e extends a {
     public e(f fVar) {
@@ -14,7 +15,7 @@ public class e extends a {
         super.a(s, obj);
         switch (s) {
             case 1:
-                this.fNw.fTO.a((short) 2, null);
+                this.fYL.ggv.a((short) 2, null);
                 return;
             default:
                 return;
@@ -22,35 +23,35 @@ public class e extends a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bEx() {
-        if (this.fNw != null && this.fNw.fTM != null) {
-            if (this.fZK != null) {
-                this.fZK.rl(2);
+    public void bHD() {
+        if (this.fYL != null && this.fYL.ggs != null) {
+            if (this.gmI != null) {
+                this.gmI.rJ(2);
             }
-            this.fNw.fTM.startRecord();
+            this.fYL.ggs.startRecord();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void aQ(int i, String str) {
-        if (this.fNw != null && this.fNw.fTM.getVideoRecorderType() == VideoRecorderType.SCREEN) {
+    public void aU(int i, String str) {
+        if (this.fYL != null && this.fYL.ggs.getVideoRecorderType() == VideoRecorderType.SCREEN) {
             if (i == 0) {
-                if (this.fNw != null && this.fNw.fTO != null && this.mCurrentState != 4) {
-                    this.fNw.fTO.a((short) 4, this.fYi);
+                if (this.fYL != null && this.fYL.ggv != null && this.mCurrentState != 4) {
+                    this.fYL.ggv.a((short) 4, this.glk);
                 }
-            } else if (this.fZJ != null) {
-                this.fZJ.onError(i, str);
+            } else if (this.gmH != null) {
+                this.gmH.onError(i, str);
             }
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bEy() {
-        super.bEy();
+    public void bHE() {
+        super.bHE();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bEz() {
-        super.bEz();
+    public void bHF() {
+        super.bHF();
     }
 }

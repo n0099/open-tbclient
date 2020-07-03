@@ -7,13 +7,13 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.aa;
+import com.baidu.adp.widget.ListView.ad;
 import com.baidu.card.view.CardForumHeadLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.g;
 /* loaded from: classes9.dex */
@@ -25,7 +25,7 @@ public class d extends com.baidu.adp.widget.ListView.a<g, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cc */
+    /* renamed from: co */
     public a b(ViewGroup viewGroup) {
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.mContext);
@@ -58,51 +58,51 @@ public class d extends com.baidu.adp.widget.ListView.a<g, a> {
         if (gVar != null) {
             aVar.a(gVar);
         }
-        aVar.aWr();
+        aVar.aYj();
         return view;
     }
 
     /* loaded from: classes9.dex */
-    public class a extends aa.a implements View.OnClickListener {
-        View dJr;
-        ImageView hQb;
-        View hxk;
-        CardForumHeadLayout jUX;
-        private g jUY;
+    public class a extends ad.a implements View.OnClickListener {
+        View dQh;
+        View hKi;
+        ImageView idv;
+        CardForumHeadLayout koN;
+        private g koO;
 
         public a(View view) {
             super(view);
-            this.jUX = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-            if (this.jUX != null) {
-                this.jUX.setOnClickListener(this.jUX);
-                this.jUX.setAfterClickListener(this);
+            this.koN = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+            if (this.koN != null) {
+                this.koN.setOnClickListener(this.koN);
+                this.koN.setAfterClickListener(this);
             }
-            this.dJr = ((ViewGroup) view).getChildAt(1);
-            this.hQb = (ImageView) ((ViewGroup) view).getChildAt(2);
-            this.hxk = ((ViewGroup) view).getChildAt(3);
+            this.dQh = ((ViewGroup) view).getChildAt(1);
+            this.idv = (ImageView) ((ViewGroup) view).getChildAt(2);
+            this.hKi = ((ViewGroup) view).getChildAt(3);
         }
 
         public void a(g gVar) {
             if (gVar != null) {
-                this.jUY = gVar;
-                this.hxk.setVisibility(gVar.jFY ? 0 : 8);
+                this.koO = gVar;
+                this.hKi.setVisibility(gVar.jZI ? 0 : 8);
                 if (getView() != null) {
-                    getView().setPadding(0, 0, 0, gVar.jFY ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
+                    getView().setPadding(0, 0, 0, gVar.jZI ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
                 }
-                this.jUX.setData(gVar.forumName, gVar.jFX, gVar.postNum, gVar.memberNum);
+                this.koN.setData(gVar.forumName, gVar.jZH, gVar.postNum, gVar.memberNum);
             }
         }
 
-        public void aWr() {
-            SvgManager.aUW().a(this.hQb, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
-            am.setBackgroundColor(this.dJr, R.color.cp_bg_line_b);
-            am.setBackgroundColor(this.hxk, R.color.cp_bg_line_b);
-            this.jUX.onChangeSkinType();
+        public void aYj() {
+            SvgManager.aWQ().a(this.idv, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
+            an.setBackgroundColor(this.dQh, R.color.cp_bg_line_b);
+            an.setBackgroundColor(this.hKi, R.color.cp_bg_line_b);
+            this.koN.onChangeSkinType();
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new an("c13698").dh("tid", this.jUY.tid).dh("fid", this.jUY.fid).s("uid", TbadkCoreApplication.getCurrentAccountId()));
+            TiebaStatic.log(new ao("c13698").dk("tid", this.koO.tid).dk("fid", this.koO.fid).s("uid", TbadkCoreApplication.getCurrentAccountId()));
         }
     }
 }

@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
-    private static View.OnClickListener dxr = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
+    private static View.OnClickListener dCx = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
@@ -29,7 +29,7 @@ public class c {
                     return;
                 }
                 a aVar = (a) view.getTag();
-                AlaUserInfoData alaUserInfoData = aVar.dxn;
+                AlaUserInfoData alaUserInfoData = aVar.dCt;
                 if (alaUserInfoData != null) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     if (alaUserInfoData.anchor_live != 0) {
@@ -45,23 +45,23 @@ public class c {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     switch (i) {
                         case 1:
-                            TiebaStatic.log(new an("c11850").dh("uid", currentAccount));
+                            TiebaStatic.log(new ao("c11850").dk("uid", currentAccount));
                             break;
                         case 2:
                         case 3:
                         case 4:
-                            TiebaStatic.log(new an("c11851").dh("uid", currentAccount));
+                            TiebaStatic.log(new ao("c11851").dk("uid", currentAccount));
                             break;
                         case 5:
-                            TiebaStatic.log(new an("c11852").dh("uid", currentAccount));
+                            TiebaStatic.log(new ao("c11852").dk("uid", currentAccount));
                             break;
                         case 7:
                             if (alaUserInfoData.ala_id != 0) {
-                                TiebaStatic.log(new an("c11855").dh("uid", currentAccount).s("click_uid", alaUserInfoData.ala_id).ag("live_status", alaUserInfoData.live_status));
+                                TiebaStatic.log(new ao("c11855").dk("uid", currentAccount).s("click_uid", alaUserInfoData.ala_id).ag("live_status", alaUserInfoData.live_status));
                             }
-                            TiebaStatic.log(new an("c12542"));
-                            if (aVar.dxo && !StringUtils.isNull(alaUserInfoData.sex)) {
-                                BdToast.a(view.getContext(), (CharSequence) String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), (int) R.drawable.icon_pure_toast_mistake40_svg, true).aSY();
+                            TiebaStatic.log(new ao("c12542"));
+                            if (aVar.dCu && !StringUtils.isNull(alaUserInfoData.sex)) {
+                                BdToast.a(view.getContext(), (CharSequence) String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), (int) R.drawable.icon_pure_toast_mistake40_svg, true).aUS();
                                 return;
                             }
                             break;
@@ -78,12 +78,12 @@ public class c {
         }
     };
 
-    public static TextView dB(Context context) {
+    public static TextView dD(Context context) {
         if (context == null || MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) == null) {
             return null;
         }
         TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.ala_tail_view_layout, (ViewGroup) null);
-        textView.setOnClickListener(dxr);
+        textView.setOnClickListener(dCx);
         return textView;
     }
 }

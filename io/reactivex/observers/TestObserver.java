@@ -9,12 +9,12 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implements c, io.reactivex.disposables.b, m<T>, u<T>, y<T> {
     private final u<? super T> actual;
-    private io.reactivex.internal.a.b<T> nnV;
+    private io.reactivex.internal.a.b<T> nJK;
     private final AtomicReference<io.reactivex.disposables.b> subscription;
 
     @Override // io.reactivex.c
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        this.nrW = Thread.currentThread();
+        this.nNJ = Thread.currentThread();
         if (bVar == null) {
             this.errors.add(new NullPointerException("onSubscribe received a null Subscription"));
         } else if (!this.subscription.compareAndSet(null, bVar)) {
@@ -23,20 +23,20 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
                 this.errors.add(new IllegalStateException("onSubscribe received multiple subscriptions: " + bVar));
             }
         } else {
-            if (this.nrY != 0 && (bVar instanceof io.reactivex.internal.a.b)) {
-                this.nnV = (io.reactivex.internal.a.b) bVar;
-                int requestFusion = this.nnV.requestFusion(this.nrY);
-                this.nrZ = requestFusion;
+            if (this.nNL != 0 && (bVar instanceof io.reactivex.internal.a.b)) {
+                this.nJK = (io.reactivex.internal.a.b) bVar;
+                int requestFusion = this.nJK.requestFusion(this.nNL);
+                this.nNM = requestFusion;
                 if (requestFusion == 1) {
-                    this.nrX = true;
-                    this.nrW = Thread.currentThread();
+                    this.nNK = true;
+                    this.nNJ = Thread.currentThread();
                     while (true) {
                         try {
-                            T poll = this.nnV.poll();
+                            T poll = this.nJK.poll();
                             if (poll != null) {
                                 this.values.add(poll);
                             } else {
-                                this.nrV++;
+                                this.nNI++;
                                 this.subscription.lazySet(DisposableHelper.DISPOSED);
                                 return;
                             }
@@ -53,14 +53,14 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
 
     @Override // io.reactivex.u
     public void onNext(T t) {
-        if (!this.nrX) {
-            this.nrX = true;
+        if (!this.nNK) {
+            this.nNK = true;
             if (this.subscription.get() == null) {
                 this.errors.add(new IllegalStateException("onSubscribe not called in proper order"));
             }
         }
-        this.nrW = Thread.currentThread();
-        if (this.nrZ != 2) {
+        this.nNJ = Thread.currentThread();
+        if (this.nNM != 2) {
             this.values.add(t);
             if (t == null) {
                 this.errors.add(new NullPointerException("onNext received a null value"));
@@ -70,7 +70,7 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
         }
         while (true) {
             try {
-                T poll = this.nnV.poll();
+                T poll = this.nJK.poll();
                 if (poll != null) {
                     this.values.add(poll);
                 } else {
@@ -78,7 +78,7 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
                 }
             } catch (Throwable th) {
                 this.errors.add(th);
-                this.nnV.dispose();
+                this.nJK.dispose();
                 return;
             }
         }
@@ -86,14 +86,14 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
 
     @Override // io.reactivex.c
     public void onError(Throwable th) {
-        if (!this.nrX) {
-            this.nrX = true;
+        if (!this.nNK) {
+            this.nNK = true;
             if (this.subscription.get() == null) {
                 this.errors.add(new IllegalStateException("onSubscribe not called in proper order"));
             }
         }
         try {
-            this.nrW = Thread.currentThread();
+            this.nNJ = Thread.currentThread();
             if (th == null) {
                 this.errors.add(new NullPointerException("onError received a null Throwable"));
             } else {
@@ -101,24 +101,24 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
             }
             this.actual.onError(th);
         } finally {
-            this.nrU.countDown();
+            this.nNH.countDown();
         }
     }
 
     @Override // io.reactivex.c
     public void onComplete() {
-        if (!this.nrX) {
-            this.nrX = true;
+        if (!this.nNK) {
+            this.nNK = true;
             if (this.subscription.get() == null) {
                 this.errors.add(new IllegalStateException("onSubscribe not called in proper order"));
             }
         }
         try {
-            this.nrW = Thread.currentThread();
-            this.nrV++;
+            this.nNJ = Thread.currentThread();
+            this.nNI++;
             this.actual.onComplete();
         } finally {
-            this.nrU.countDown();
+            this.nNH.countDown();
         }
     }
 

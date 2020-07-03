@@ -5,19 +5,16 @@ import android.view.View;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.widget.listview.BdListView;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 import com.baidu.live.tbadk.core.view.TbListCommonPullView;
-import com.baidu.live.u.a;
 import com.baidu.tieba.ala.live.personcenter.forbidden.c.b;
 /* loaded from: classes3.dex */
 public class a {
-    private com.baidu.live.n.b fDW;
-    private b fFp;
-    private c fFq;
-    public TbPageContext pageContext;
-    private CustomMessageListener fDX = new CustomMessageListener(2913051, true) { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.1
+    private com.baidu.live.o.b fPf;
+    private CustomMessageListener fPg = new CustomMessageListener(2913051, true) { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -36,8 +33,8 @@ public class a {
                     @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                     public void onClick(BdAlertDialog bdAlertDialog2) {
                         bdAlertDialog2.dismiss();
-                        a.this.fDW.q(bVar.getUserId(), null, null);
-                        a.this.fFp.a(bVar);
+                        a.this.fPf.r(bVar.getUserId(), null, null);
+                        a.this.fQy.a(bVar);
                     }
                 });
                 if (TbadkCoreApplication.getInst().isMobileBaidu()) {
@@ -49,51 +46,54 @@ public class a {
             }
         }
     };
-    private b.a fFr = new b.a() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.2
+    private b.a fQA = new b.a() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.2
         @Override // com.baidu.tieba.ala.live.personcenter.forbidden.c.b.a
-        public void jz(boolean z) {
-            a.this.fFq.completePullRefresh();
-            a.this.fFq.hideNoDataView();
-            if (a.this.fFp.getUserList().size() == 0) {
-                a.this.fFq.bvP();
-                a.this.fFq.buA();
-                a.this.fFq.showNoDataView();
+        public void jM(boolean z) {
+            a.this.fQz.completePullRefresh();
+            a.this.fQz.hideNoDataView();
+            if (a.this.fQy.getUserList().size() == 0) {
+                a.this.fQz.byK();
+                a.this.fQz.bxv();
+                a.this.fQz.showNoDataView();
                 return;
             }
-            a.this.fFq.bqQ();
-            a.this.fFq.bvO();
-            a.this.fFq.e(a.this.fFp.getUserList(), a.this.fFp.getTotalCount());
+            a.this.fQz.btN();
+            a.this.fQz.byJ();
+            a.this.fQz.f(a.this.fQy.getUserList(), a.this.fQy.getTotalCount());
             if (z) {
-                a.this.fFq.buf();
+                a.this.fQz.bxa();
             } else {
-                a.this.fFq.buA();
+                a.this.fQz.bxv();
             }
         }
 
         @Override // com.baidu.tieba.ala.live.personcenter.forbidden.c.b.a
-        public void al(int i, String str) {
-            a.this.fFq.completePullRefresh();
-            a.this.fFq.hideNoDataView();
-            if (a.this.fFp.getUserList().size() > 0) {
-                if (a.this.fFp.hasMore()) {
-                    a.this.fFq.buf();
+        public void an(int i, String str) {
+            a.this.fQz.completePullRefresh();
+            a.this.fQz.hideNoDataView();
+            if (a.this.fQy.getUserList().size() > 0) {
+                if (a.this.fQy.hasMore()) {
+                    a.this.fQz.bxa();
                 } else {
-                    a.this.fFq.bqL();
+                    a.this.fQz.btI();
                 }
                 a.this.getPageContext().showToast(str, true);
                 return;
             }
-            a.this.fFq.buA();
-            a.this.fFq.bvP();
-            a.this.fFq.a(a.i.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.2.1
+            a.this.fQz.bxv();
+            a.this.fQz.byK();
+            a.this.fQz.a(a.i.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.2.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.fFq.bqQ();
-                    a.this.fFp.bvN();
+                    a.this.fQz.btN();
+                    a.this.fQy.byI();
                 }
             });
         }
     };
+    private b fQy;
+    private c fQz;
+    public TbPageContext pageContext;
 
     public TbPageContext getPageContext() {
         return this.pageContext;
@@ -101,34 +101,34 @@ public class a {
 
     public a(TbPageContext tbPageContext, View view) {
         this.pageContext = tbPageContext;
-        by(view);
+        bB(view);
     }
 
-    private void by(View view) {
-        this.fFp = new b(getPageContext());
-        this.fFp.a(this.fFr);
-        this.fDW = new com.baidu.live.n.b(getPageContext());
-        this.fFq = new c(getPageContext(), view);
-        this.fFq.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.3
+    private void bB(View view) {
+        this.fQy = new b(getPageContext());
+        this.fQy.a(this.fQA);
+        this.fPf = new com.baidu.live.o.b(getPageContext());
+        this.fQz = new c(getPageContext(), view);
+        this.fQz.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.3
             @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
             public void onListPullRefresh(boolean z) {
-                a.this.fFp.bvN();
+                a.this.fQy.byI();
             }
         });
-        this.fFq.setOnSrollToBottomListener(new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.4
+        this.fQz.setOnSrollToBottomListener(new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.4
             @Override // com.baidu.live.adp.widget.listview.BdListView.OnScrollToBottomListener
             public void onScrollToBottom() {
-                if (a.this.fFp.hasMore()) {
-                    a.this.fFp.buH();
-                    a.this.fFq.bqM();
+                if (a.this.fQy.hasMore()) {
+                    a.this.fQy.bxC();
+                    a.this.fQz.btJ();
                 }
             }
         });
     }
 
     public void onCreate(Bundle bundle) {
-        getPageContext().registerListener(this.fDX);
-        this.fFp.bvN();
+        getPageContext().registerListener(this.fPg);
+        this.fQy.byI();
     }
 
     public void onPause() {
@@ -147,8 +147,8 @@ public class a {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.fFq != null) {
-            this.fFq.onChangeSkinType(i);
+        if (this.fQz != null) {
+            this.fQz.onChangeSkinType(i);
         }
     }
 }

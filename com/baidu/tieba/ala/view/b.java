@@ -6,37 +6,37 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class b {
-    private String eUU;
-    private boolean eUV;
-    private TextView guS;
-    private FrameLayout guT;
-    private HeadImageView guU;
-    private TextView guV;
+    private String fff;
+    private boolean ffg;
+    private TextView gHG;
+    private FrameLayout gHH;
+    private HeadImageView gHI;
+    private TextView gHJ;
     private Context mContext;
     private String mPortrait;
     private View view;
 
     public b(Context context, String str, boolean z, String str2) {
         this.mContext = context;
-        this.eUU = str;
-        this.eUV = z;
+        this.fff = str;
+        this.ffg = z;
         this.mPortrait = str2;
         initView();
     }
 
     private void initView() {
         this.view = LayoutInflater.from(this.mContext).inflate(a.h.ala_rank_list_defend_bottom_view, (ViewGroup) null);
-        this.guS = (TextView) this.view.findViewById(a.g.ala_rank_list_user_rank);
-        this.guT = (FrameLayout) this.view.findViewById(a.g.ala_rank_list_header_layout);
-        this.guU = (HeadImageView) this.view.findViewById(a.g.ala_rank_list_user_header);
-        this.guV = (TextView) this.view.findViewById(a.g.ala_rank_list_user_name);
-        if (this.guU != null) {
-            this.guU.setIsRound(true);
-            this.guU.setAutoChangeStyle(false);
+        this.gHG = (TextView) this.view.findViewById(a.g.ala_rank_list_user_rank);
+        this.gHH = (FrameLayout) this.view.findViewById(a.g.ala_rank_list_header_layout);
+        this.gHI = (HeadImageView) this.view.findViewById(a.g.ala_rank_list_user_header);
+        this.gHJ = (TextView) this.view.findViewById(a.g.ala_rank_list_user_name);
+        if (this.gHI != null) {
+            this.gHI.setIsRound(true);
+            this.gHI.setAutoChangeStyle(false);
         }
     }
 

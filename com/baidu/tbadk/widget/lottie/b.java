@@ -5,14 +5,14 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.adp.lib.util.s;
 import com.baidu.tbadk.core.hybrid.r;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.m;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.n;
+import com.baidu.tbadk.core.util.y;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
-    private x bth;
-    private a eCd;
+    private y byb;
+    private a eLM;
     private String mPath;
     private String mUrl;
 
@@ -37,14 +37,14 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.eCd = aVar;
+        this.eLM = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String doInBackground(Void... voidArr) {
-        if (aq.isEmpty(this.mPath) || aq.isEmpty(this.mUrl) || !checkInternalTempDir(this.mPath)) {
+        if (ar.isEmpty(this.mPath) || ar.isEmpty(this.mUrl) || !checkInternalTempDir(this.mPath)) {
             return null;
         }
         String md5 = s.toMd5(this.mUrl);
@@ -52,10 +52,10 @@ public class b extends BdAsyncTask<Void, Void, String> {
         if (isExists(str)) {
             return md5;
         }
-        this.bth = new x();
-        this.bth.setUrl(this.mUrl);
+        this.byb = new y();
+        this.byb.setUrl(this.mUrl);
         String str2 = this.mPath + md5 + ".zip";
-        if (this.bth.downloadFile(str2, null, 0, 3, 0, true) && unZip(str2, str)) {
+        if (this.byb.downloadFile(str2, null, 0, 3, 0, true) && unZip(str2, str)) {
             clearTemp(str2);
             return md5;
         }
@@ -67,29 +67,29 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.eCd != null) {
-            if (!aq.isEmpty(str)) {
-                this.eCd.onLoaded(true, str);
+        if (this.eLM != null) {
+            if (!ar.isEmpty(str)) {
+                this.eLM.onLoaded(true, str);
             } else {
-                this.eCd.onLoaded(false, null);
+                this.eLM.onLoaded(false, null);
             }
         }
     }
 
     private boolean unZip(String str, String str2) {
-        if (aq.isEmpty(str) || aq.isEmpty(str2)) {
+        if (ar.isEmpty(str) || ar.isEmpty(str2)) {
             return false;
         }
         return r.unZipFiles(str, str2);
     }
 
     private void clearTemp(String str) {
-        if (!aq.isEmpty(str)) {
-            m.deleteFileOrDir(new File(str));
+        if (!ar.isEmpty(str)) {
+            n.deleteFileOrDir(new File(str));
         }
     }
 
     private boolean isExists(String str) {
-        return !aq.isEmpty(str) && new File(str).exists();
+        return !ar.isEmpty(str) && new File(str).exists();
     }
 }

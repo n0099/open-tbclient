@@ -8,11 +8,13 @@ import com.baidu.ar.arplay.representation.Matrixf4x4;
 public interface j extends IRenderer {
     void a(float f);
 
+    void a(int i, boolean z);
+
     void a(long j, String str);
 
     void a(PointF pointF, boolean z);
 
-    void a(ARPEngine.g gVar);
+    void a(ARPEngine.e eVar);
 
     void a(TakePictureCallback takePictureCallback);
 
@@ -22,41 +24,39 @@ public interface j extends IRenderer {
 
     void a(k kVar);
 
-    void a(l lVar, boolean z);
-
     void a(m mVar, boolean z);
 
     void a(com.baidu.ar.imu.b bVar);
 
-    Matrixf4x4 aI();
+    void aK();
 
-    void aw();
+    Matrixf4x4 aW();
 
     void b(String str, Object obj);
 
-    void bc();
+    void bq();
 
-    void bd();
+    void br();
 
-    String be();
+    String bs();
 
-    void bf();
+    void bt();
 
-    void i(boolean z);
+    void h(boolean z);
 
     boolean isDriverdByARPVersion();
 
-    void m(boolean z);
+    void l(boolean z);
 
-    boolean n(boolean z);
+    boolean m(boolean z);
 
-    void o(boolean z);
+    void n(boolean z);
+
+    void r(int i);
 
     void sceneRotateToCamera();
 
     void sceneWorldPositionToOrigin();
-
-    void setFaceCallBack(ARPEngine.f fVar);
 
     String updateFilterCase(String str);
 }

@@ -29,8 +29,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.favrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0197a implements Comparator<String> {
-        C0197a() {
+    public class C0203a implements Comparator<String> {
+        C0203a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -339,7 +339,7 @@ public class a {
                     }
                     if (this.f.size() > 0) {
                         try {
-                            Collections.sort(this.f, new C0197a());
+                            Collections.sort(this.f, new C0203a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -379,7 +379,7 @@ public class a {
                     }
                     if (this.e.size() > 0) {
                         try {
-                            Collections.sort(this.e, new C0197a());
+                            Collections.sort(this.e, new C0203a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

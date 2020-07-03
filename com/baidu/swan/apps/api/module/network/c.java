@@ -16,20 +16,20 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected static final Set<String> bLR = i.O("localhost", "127.0.0.1");
+    protected static final Set<String> bQF = i.O("localhost", "127.0.0.1");
 
-    public static String hL(String str) {
+    public static String hT(String str) {
         return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
     }
 
-    public static HttpUrl hM(String str) {
+    public static HttpUrl hU(String str) {
         HttpUrl parse = HttpUrl.parse(str);
-        if (d.aoB().aoz() == null) {
+        if (d.apI().apG() == null) {
             if (a(parse)) {
                 return parse;
             }
             return null;
-        } else if (com.baidu.swan.apps.af.a.a.amk() || a(parse)) {
+        } else if (com.baidu.swan.apps.af.a.a.anq() || a(parse)) {
             return parse;
         } else {
             return null;
@@ -37,12 +37,12 @@ public class c {
     }
 
     public static boolean a(@Nullable HttpUrl httpUrl) {
-        boolean apL = com.baidu.swan.apps.ah.a.b.apL();
-        if (!com.baidu.swan.apps.u.a.aeU().Rn()) {
-            apL = false;
+        boolean aqR = com.baidu.swan.apps.ah.a.b.aqR();
+        if (!com.baidu.swan.apps.u.a.aga().St()) {
+            aqR = false;
         }
         if (httpUrl != null) {
-            return (!apL || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !bLR.contains(httpUrl.host().toLowerCase());
+            return (!aqR || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !bQF.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }
@@ -70,7 +70,7 @@ public class c {
         return jSONObject;
     }
 
-    public static JSONObject hN(String str) {
+    public static JSONObject hV(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(str)) {
@@ -84,7 +84,7 @@ public class c {
         return jSONObject;
     }
 
-    public static String Uj() {
-        return z.atE() == 2 ? z.pJ("https://smartapps.cn/%s/%s/page-frame.html") : z.pJ("https://smartapp.baidu.com/%s/%s/page-frame.html");
+    public static String Vp() {
+        return z.auK() == 2 ? z.pR("https://smartapps.cn/%s/%s/page-frame.html") : z.pR("https://smartapp.baidu.com/%s/%s/page-frame.html");
     }
 }

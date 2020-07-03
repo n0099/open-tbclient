@@ -82,7 +82,7 @@ public class b {
         Matrix.translateM(fArr, 0, f, f2, 1.0f);
     }
 
-    public static void u(float[] fArr) {
+    public static void v(float[] fArr) {
         Matrix.setIdentityM(fArr, 0);
     }
 }

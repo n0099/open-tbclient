@@ -8,26 +8,26 @@ import com.baidu.swan.apps.aq.aj;
 import com.baidu.swan.apps.w.f;
 /* loaded from: classes11.dex */
 public class d {
-    private b dcV;
+    private b dhH;
 
     public d(JsObject jsObject) {
-        this.dcV = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
-        a.aBY().a(this);
+        this.dhH = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
+        a.aDe().a(this);
     }
 
     @JavascriptInterface
     public boolean applyUpdate() {
-        final SwanAppActivity ahF = f.ahV().ahF();
-        if (ahF == null) {
+        final SwanAppActivity aiL = f.ajb().aiL();
+        if (aiL == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate activity is null");
             return false;
-        } else if (ahF.isDestroyed() || ahF.getIntent() == null) {
+        } else if (aiL.isDestroyed() || aiL.getIntent() == null) {
             return false;
         } else {
             aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.aa.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.games.utils.a.m(ahF);
+                    com.baidu.swan.games.utils.a.m(aiL);
                 }
             });
             return true;
@@ -43,7 +43,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.dcV != null && JSEvent.isValid(cVar)) {
+        if (this.dhH != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.d("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -69,13 +69,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.dcV.b(cVar);
+                    this.dhH.b(cVar);
                     return;
                 case true:
-                    this.dcV.aCa();
+                    this.dhH.aDg();
                     return;
                 case true:
-                    this.dcV.aCb();
+                    this.dhH.aDh();
                     return;
                 default:
                     return;

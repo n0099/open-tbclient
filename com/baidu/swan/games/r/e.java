@@ -9,45 +9,45 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes11.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.f.b cTU;
+    private com.baidu.swan.games.f.b cYE;
     @V8JavascriptField
     public JsObject canvas = null;
 
     public e(com.baidu.swan.games.f.b bVar) {
-        this.cTU = bVar;
-        aBg();
-        aBh();
+        this.cYE = bVar;
+        aCm();
+        aCn();
     }
 
-    private boolean aBg() {
-        return cx(this.cTU.getInitBasePath(), "swan-game-open-data.js");
+    private boolean aCm() {
+        return cz(this.cYE.getInitBasePath(), "swan-game-open-data.js");
     }
 
-    private boolean aBh() {
-        String ahC = com.baidu.swan.apps.w.f.ahV().ahC();
-        String aBk = f.aBi().aBk();
+    private boolean aCn() {
+        String aiI = com.baidu.swan.apps.w.f.ajb().aiI();
+        String aCq = f.aCo().aCq();
         if (DEBUG) {
-            Log.d("SwanGameOpenDataContext", "baseFilePath: " + ahC);
-            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + aBk);
+            Log.d("SwanGameOpenDataContext", "baseFilePath: " + aiI);
+            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + aCq);
         }
-        return cx(ahC, aBk);
+        return cz(aiI, aCq);
     }
 
     @JavascriptInterface
     public void destroyOpenDataContext() {
-        this.cTU.azz().azL();
+        this.cYE.aAF().aAR();
     }
 
     @JavascriptInterface
     public void postMessage(JsObject jsObject) {
-        this.cTU.azC().dispatchEvent(new JSEvent("postmessage", jsObject));
+        this.cYE.aAI().dispatchEvent(new JSEvent("postmessage", jsObject));
     }
 
-    private boolean cx(String str, String str2) {
-        if (!f.aBi().aBj() || TextUtils.isEmpty(str)) {
+    private boolean cz(String str, String str2) {
+        if (!f.aCo().aCp() || TextUtils.isEmpty(str)) {
             return false;
         }
-        this.cTU.azz().ck(str, str2);
+        this.cYE.aAF().cm(str, str2);
         return true;
     }
 }

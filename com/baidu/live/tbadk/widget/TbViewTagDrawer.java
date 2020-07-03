@@ -7,8 +7,8 @@ import android.graphics.RectF;
 import android.text.TextUtils;
 import android.view.View;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class TbViewTagDrawer {
     public static final int DEFAULT_PADDING = 16;

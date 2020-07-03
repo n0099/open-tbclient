@@ -13,7 +13,7 @@ public class b extends com.baidu.tieba.card.data.b {
     public long start_time;
     public String url;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
         return TYPE;
     }

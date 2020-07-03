@@ -9,11 +9,11 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes9.dex */
 public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int iQv;
     private String ids;
+    private int jhE;
     private int mPn = 1;
 
-    public void d(FeedData feedData) {
+    public void e(FeedData feedData) {
         if (feedData != null) {
             this.ids = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
         }
@@ -21,46 +21,46 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.iQv = 4;
+        this.jhE = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.iQv = 1;
+        this.jhE = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.iQv;
+        return this.jhE;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> beP() {
+    public HashMap<String, Object> bgU() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
         hashMap.put(Config.PACKAGE_NAME, String.valueOf(this.mPn));
-        hashMap.put("q_type", Integer.valueOf(com.baidu.tbadk.core.k.aNQ().getViewImageQuality()));
+        hashMap.put("q_type", Integer.valueOf(com.baidu.tbadk.core.k.aPA().getViewImageQuality()));
         hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
         hashMap.put("scr_h", Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
         hashMap.put("scr_w", Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
-        if (this.iQv == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.jhE == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> beQ() {
+    public HashMap<String, String> bgV() {
         return null;
     }
 
-    @Override // com.baidu.tbadk.mvc.b.k
-    public Object ii(boolean z) {
+    @Override // com.baidu.tbadk.mvc.b.l
+    public Object ir(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.pn = Integer.valueOf(this.mPn);
             builder.ids = this.ids;
-            builder.q_type = Integer.valueOf(com.baidu.tbadk.core.k.aNQ().getViewImageQuality());
+            builder.q_type = Integer.valueOf(com.baidu.tbadk.core.k.aPA().getViewImageQuality());
             builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
             builder.scr_h = Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp()));
             builder.scr_w = Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp()));
@@ -81,12 +81,12 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String beM() {
+    public String bgR() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean beN() {
+    public boolean bgS() {
         return true;
     }
 

@@ -7,13 +7,13 @@ import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes10.dex */
 public class a implements com.baidu.tieba.pb.chosen.net.a {
-    private UserInfo jEf;
+    private UserInfo jXP;
     private List<Post> postList;
     private ExcellentPbThreadInfo threadInfo;
     private List<User> userList;
 
     public a(UserInfo userInfo, ExcellentPbThreadInfo excellentPbThreadInfo, List<Post> list, List<User> list2) {
-        this.jEf = userInfo;
+        this.jXP = userInfo;
         this.threadInfo = excellentPbThreadInfo;
         this.postList = list;
         this.userList = list2;
@@ -21,7 +21,7 @@ public class a implements com.baidu.tieba.pb.chosen.net.a {
 
     @Override // com.baidu.tieba.pb.chosen.net.a
     public UserInfo getUserInfo() {
-        return this.jEf;
+        return this.jXP;
     }
 
     @Override // com.baidu.tieba.pb.chosen.net.a

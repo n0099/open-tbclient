@@ -9,15 +9,18 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.message.HistoryMessage;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.myCollection.history.PbHistoryActivity;
+import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusHttpResponseMessage;
 /* loaded from: classes11.dex */
 public class Static {
     public static String Tag = "tag";
@@ -41,25 +44,23 @@ public class Static {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof HistoryMessage) {
                     HistoryMessage historyMessage = (HistoryMessage) customResponsedMessage;
-                    if (historyMessage.Activity != null) {
-                        PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(historyMessage.Activity);
-                        com.baidu.tieba.myCollection.baseHistory.a aVar = new com.baidu.tieba.myCollection.baseHistory.a();
-                        aVar.setThreadId(historyMessage.threadId);
-                        aVar.setForumName(historyMessage.forumName);
-                        aVar.setThreadName(historyMessage.threadName);
-                        aVar.IJ(historyMessage.postID);
-                        aVar.qK(historyMessage.isHostOnly);
-                        aVar.qL(historyMessage.isSquence);
-                        aVar.setThreadType(historyMessage.threadType);
-                        aVar.setCartoonId(historyMessage.cartoonId);
-                        aVar.setChapterId(historyMessage.chapterId);
-                        aVar.setIsShareThread(historyMessage.isShareThread);
-                        aVar.setManga(historyMessage.isManga);
-                        aVar.fs(historyMessage.liveId);
-                        aVar.setUserName(historyMessage.userName);
-                        aVar.setDescription(historyMessage.description);
-                        pbHistoryCacheModel.a((PbHistoryCacheModel) aVar);
-                    }
+                    PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(historyMessage.Activity);
+                    com.baidu.tieba.myCollection.baseHistory.a aVar = new com.baidu.tieba.myCollection.baseHistory.a();
+                    aVar.setThreadId(historyMessage.threadId);
+                    aVar.setForumName(historyMessage.forumName);
+                    aVar.setThreadName(historyMessage.threadName);
+                    aVar.Jl(historyMessage.postID);
+                    aVar.qU(historyMessage.isHostOnly);
+                    aVar.qV(historyMessage.isSquence);
+                    aVar.setThreadType(historyMessage.threadType);
+                    aVar.setCartoonId(historyMessage.cartoonId);
+                    aVar.setChapterId(historyMessage.chapterId);
+                    aVar.setIsShareThread(historyMessage.isShareThread);
+                    aVar.setManga(historyMessage.isManga);
+                    aVar.eI(historyMessage.liveId);
+                    aVar.setUserName(historyMessage.userName);
+                    aVar.setDescription(historyMessage.description);
+                    pbHistoryCacheModel.a((PbHistoryCacheModel) aVar);
                 }
             }
         });
@@ -97,11 +98,11 @@ public class Static {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        com.baidu.tieba.myCollection.a.a.czN().destroy();
+                        com.baidu.tieba.myCollection.a.a.cDM().destroy();
                     } else if (TbadkCoreApplication.isLogin()) {
-                        com.baidu.tieba.myCollection.a.a.czN().start();
+                        com.baidu.tieba.myCollection.a.a.cDM().start();
                     } else {
-                        com.baidu.tieba.myCollection.a.a.czN().destroy();
+                        com.baidu.tieba.myCollection.a.a.cDM().destroy();
                     }
                 }
             }
@@ -111,9 +112,9 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin()) {
-                    com.baidu.tieba.myCollection.a.a.czN().restart();
+                    com.baidu.tieba.myCollection.a.a.cDM().restart();
                 } else {
-                    com.baidu.tieba.myCollection.a.a.czN().destroy();
+                    com.baidu.tieba.myCollection.a.a.cDM().destroy();
                 }
             }
         });
@@ -122,10 +123,11 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark() > 0) {
-                    b.czo().czr();
-                    b.czo().qE(true);
+                    b.cDl().cDo();
+                    b.cDl().qO(true);
                 }
             }
         });
+        com.baidu.tieba.tbadkCore.a.a.c(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED, TbConfig.URL_ALA_LIVE_ROOM_CLOSED, AlaMGetLiveStatusHttpResponseMessage.class, false, true, true, true);
     }
 }

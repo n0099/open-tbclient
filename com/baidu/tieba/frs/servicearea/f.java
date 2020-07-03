@@ -6,9 +6,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -25,7 +25,7 @@ public class f implements b {
         this.mRootView.setOrientation(0);
     }
 
-    private View eJ(Context context) {
+    private View eK(Context context) {
         LinearLayout linearLayout = new LinearLayout(context);
         linearLayout.setGravity(17);
         linearLayout.setOrientation(0);
@@ -60,28 +60,28 @@ public class f implements b {
 
     @Override // com.baidu.tieba.frs.servicearea.b
     public void setData(y yVar) {
-        if (yVar != null && !v.isEmpty(yVar.dataList)) {
+        if (yVar != null && !w.isEmpty(yVar.dataList)) {
             this.mRootView.removeAllViews();
-            if (yVar.lkX == 2) {
+            if (yVar.lER == 2) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams.leftMargin = l.getDimens(this.mContext, R.dimen.tbds44);
-                this.mRootView.addView(eJ(this.mContext), layoutParams);
+                this.mRootView.addView(eK(this.mContext), layoutParams);
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams2.leftMargin = l.getDimens(this.mContext, R.dimen.tbds104);
-                this.mRootView.addView(eJ(this.mContext), layoutParams2);
-            } else if (yVar.lkX == 3) {
+                this.mRootView.addView(eK(this.mContext), layoutParams2);
+            } else if (yVar.lER == 3) {
                 int equipmentWidth = l.getEquipmentWidth(this.mContext) / 3;
                 for (int i = 0; i < 3; i++) {
-                    this.mRootView.addView(eJ(this.mContext), new LinearLayout.LayoutParams(equipmentWidth, -2));
+                    this.mRootView.addView(eK(this.mContext), new LinearLayout.LayoutParams(equipmentWidth, -2));
                 }
             }
             for (int i2 = 0; i2 < this.mRootView.getChildCount(); i2++) {
                 final z zVar = yVar.dataList.get(i2);
                 if (zVar != null) {
                     ((TbImageView) this.mRootView.getChildAt(i2).findViewById(R.id.service_img)).startLoad(zVar.imageUrl, 10, false);
-                    ((TextView) this.mRootView.getChildAt(i2).findViewById(R.id.service_name)).setText(aq.cutChineseAndEnglishWithSuffix(zVar.name, 8, ""));
+                    ((TextView) this.mRootView.getChildAt(i2).findViewById(R.id.service_name)).setText(ar.cutChineseAndEnglishWithSuffix(zVar.name, 8, ""));
                     final View findViewById = this.mRootView.getChildAt(i2).findViewById(R.id.service_red_dot);
-                    findViewById.setVisibility(zVar.gQs ? 0 : 8);
+                    findViewById.setVisibility(zVar.hdb ? 0 : 8);
                     this.mRootView.getChildAt(i2).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.servicearea.f.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
@@ -101,8 +101,8 @@ public class f implements b {
         while (true) {
             int i3 = i2;
             if (i3 < this.mRootView.getChildCount()) {
-                am.setViewTextColor((TextView) this.mRootView.getChildAt(i3).findViewById(R.id.service_name), (int) R.color.cp_cont_b);
-                this.mRootView.getChildAt(i3).findViewById(R.id.service_red_dot).setBackground(am.getDrawable(R.drawable.frs_service_red_dot));
+                an.setViewTextColor((TextView) this.mRootView.getChildAt(i3).findViewById(R.id.service_name), (int) R.color.cp_cont_b);
+                this.mRootView.getChildAt(i3).findViewById(R.id.service_red_dot).setBackground(an.getDrawable(R.drawable.frs_service_red_dot));
                 i2 = i3 + 1;
             } else {
                 return;

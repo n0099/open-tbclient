@@ -9,27 +9,27 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.CreateGroupMainActivityConfig;
 import com.baidu.tbadk.core.atomData.CreateGroupStepActivityConfig;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupPermData;
 /* loaded from: classes10.dex */
-public class g extends com.baidu.tieba.frs.h<h, i> {
-    private View.OnClickListener dUl;
+public class g extends com.baidu.tieba.frs.j<h, i> {
+    private View.OnClickListener ebA;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dUl = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.g.1
+        this.ebA = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof Integer) {
                     int intValue = ((Integer) view.getTag()).intValue();
                     if (g.this.getItem(intValue) instanceof h) {
                         h hVar = (h) g.this.getItem(intValue);
-                        int cmw = hVar.cmw();
-                        if (cmw == 0 && (hVar.rS() instanceof GroupPermData)) {
-                            g.this.a((GroupPermData) hVar.rS());
-                        } else if (cmw == 1) {
-                            bc.checkUpIsLogin(g.this.mPageContext.getPageActivity());
+                        int cql = hVar.cql();
+                        if (cql == 0 && (hVar.sk() instanceof GroupPermData)) {
+                            g.this.a((GroupPermData) hVar.sk());
+                        } else if (cql == 1) {
+                            be.checkUpIsLogin(g.this.mPageContext.getPageActivity());
                         }
                     }
                 }
@@ -39,20 +39,20 @@ public class g extends com.baidu.tieba.frs.h<h, i> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bL */
+    /* renamed from: bU */
     public i b(ViewGroup viewGroup) {
-        return new i(LayoutInflater.from(this.mContext).inflate(R.layout.net_refresh_view_layout, (ViewGroup) null), this.dUl);
+        return new i(LayoutInflater.from(this.mContext).inflate(R.layout.net_refresh_view_layout, (ViewGroup) null), this.ebA);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, h hVar, i iVar) {
         super.a(i, view, viewGroup, (ViewGroup) hVar, (h) iVar);
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         if (hVar != null) {
-            iVar.a(hVar.cmx(), hVar.cmt(), hVar.cmu(), hVar.cmv());
-            iVar.iBi.setTag(Integer.valueOf(i));
+            iVar.a(hVar.cqm(), hVar.cqi(), hVar.cqj(), hVar.cqk());
+            iVar.iSn.setTag(Integer.valueOf(i));
         }
         return view;
     }

@@ -14,33 +14,33 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class AutoZone extends Zone {
-    public static final AutoZone ngH = new AutoZone();
-    private final String ngI;
-    private Map<ZoneIndex, ZoneInfo> ngJ;
-    private Client ngK;
+    public static final AutoZone nCx = new AutoZone();
+    private Client nCA;
+    private final String nCy;
+    private Map<ZoneIndex, ZoneInfo> nCz;
 
     public AutoZone() {
         this("https://uc.qbox.me");
     }
 
     AutoZone(String str) {
-        this.ngJ = new ConcurrentHashMap();
-        this.ngK = new Client();
-        this.ngI = str;
+        this.nCz = new ConcurrentHashMap();
+        this.nCA = new Client();
+        this.nCy = str;
     }
 
     private void a(ZoneIndex zoneIndex, CompletionHandler completionHandler) {
-        this.ngK.a(this.ngI + "/v2/query?ak=" + zoneIndex.ngO + "&bucket=" + zoneIndex.bucket, null, UpToken.nim, completionHandler);
+        this.nCA.a(this.nCy + "/v2/query?ak=" + zoneIndex.nCE + "&bucket=" + zoneIndex.bucket, null, UpToken.nEb, completionHandler);
     }
 
-    ZoneInfo fN(String str, String str2) {
-        return this.ngJ.get(new ZoneIndex(str, str2));
+    ZoneInfo fX(String str, String str2) {
+        return this.nCz.get(new ZoneIndex(str, str2));
     }
 
-    ZoneInfo QO(String str) {
+    ZoneInfo RA(String str) {
         try {
             String[] split = str.split(":");
-            return fN(split[0], new JSONObject(new String(UrlSafeBase64.decode(split[2]), "utf-8")).getString("scope").split(":")[0]);
+            return fX(split[0], new JSONObject(new String(UrlSafeBase64.decode(split[2]), "utf-8")).getString("scope").split(":")[0]);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -49,25 +49,25 @@ public final class AutoZone extends Zone {
 
     void a(final ZoneIndex zoneIndex, final Zone.QueryHandler queryHandler) {
         if (zoneIndex == null) {
-            queryHandler.JA(-5);
-        } else if (this.ngJ.get(zoneIndex) != null) {
+            queryHandler.KH(-5);
+        } else if (this.nCz.get(zoneIndex) != null) {
             queryHandler.onSuccess();
         } else {
             a(zoneIndex, new CompletionHandler() { // from class: com.qiniu.android.common.AutoZone.1
                 @Override // com.qiniu.android.http.CompletionHandler
                 public void a(ResponseInfo responseInfo, JSONObject jSONObject) {
-                    if (responseInfo.dHW() && jSONObject != null) {
+                    if (responseInfo.dMC() && jSONObject != null) {
                         try {
-                            AutoZone.this.ngJ.put(zoneIndex, ZoneInfo.ee(jSONObject));
+                            AutoZone.this.nCz.put(zoneIndex, ZoneInfo.eo(jSONObject));
                             queryHandler.onSuccess();
                             return;
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            queryHandler.JA(-1);
+                            queryHandler.KH(-1);
                             return;
                         }
                     }
-                    queryHandler.JA(responseInfo.statusCode);
+                    queryHandler.KH(responseInfo.statusCode);
                 }
             });
         }
@@ -75,34 +75,34 @@ public final class AutoZone extends Zone {
 
     @Override // com.qiniu.android.common.Zone
     public synchronized String d(String str, boolean z, String str2) {
-        ZoneInfo QO;
-        QO = QO(str);
-        return QO != null ? super.a(QO, z, str2) : null;
+        ZoneInfo RA;
+        RA = RA(str);
+        return RA != null ? super.a(RA, z, str2) : null;
     }
 
     @Override // com.qiniu.android.common.Zone
     public void a(String str, Zone.QueryHandler queryHandler) {
-        a(ZoneIndex.QQ(str), queryHandler);
+        a(ZoneIndex.RC(str), queryHandler);
     }
 
     @Override // com.qiniu.android.common.Zone
-    public synchronized void QP(String str) {
+    public synchronized void RB(String str) {
         ZoneInfo zoneInfo;
         if (str != null) {
             String host = URI.create(str).getHost();
-            Iterator<Map.Entry<ZoneIndex, ZoneInfo>> it = this.ngJ.entrySet().iterator();
+            Iterator<Map.Entry<ZoneIndex, ZoneInfo>> it = this.nCz.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     zoneInfo = null;
                     break;
                 }
                 zoneInfo = it.next().getValue();
-                if (zoneInfo.ngW.contains(host)) {
+                if (zoneInfo.nCM.contains(host)) {
                     break;
                 }
             }
             if (zoneInfo != null) {
-                zoneInfo.QP(host);
+                zoneInfo.RB(host);
             }
         }
     }
@@ -111,14 +111,14 @@ public final class AutoZone extends Zone {
     /* loaded from: classes5.dex */
     public static class ZoneIndex {
         final String bucket;
-        final String ngO;
+        final String nCE;
 
         ZoneIndex(String str, String str2) {
-            this.ngO = str;
+            this.nCE = str;
             this.bucket = str2;
         }
 
-        static ZoneIndex QQ(String str) {
+        static ZoneIndex RC(String str) {
             String[] split = str.split(":");
             try {
                 return new ZoneIndex(split[0], new JSONObject(new String(UrlSafeBase64.decode(split[2]), "utf-8")).getString("scope").split(":")[0]);
@@ -129,11 +129,11 @@ public final class AutoZone extends Zone {
         }
 
         public int hashCode() {
-            return (this.ngO.hashCode() * 37) + this.bucket.hashCode();
+            return (this.nCE.hashCode() * 37) + this.bucket.hashCode();
         }
 
         public boolean equals(Object obj) {
-            return obj == this || (obj != null && (obj instanceof ZoneIndex) && ((ZoneIndex) obj).ngO.equals(this.ngO) && ((ZoneIndex) obj).bucket.equals(this.bucket));
+            return obj == this || (obj != null && (obj instanceof ZoneIndex) && ((ZoneIndex) obj).nCE.equals(this.nCE) && ((ZoneIndex) obj).bucket.equals(this.bucket));
         }
     }
 }

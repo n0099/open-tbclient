@@ -3,7 +3,7 @@ package com.baidu.ar.vo.b;
 public interface a {
     float[] a(float f, float[] fArr);
 
-    void fD();
+    void fT();
 
     int insertModel(String str, int i, int i2, float[] fArr, float f);
 }

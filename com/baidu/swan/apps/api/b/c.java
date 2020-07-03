@@ -6,34 +6,34 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class c implements a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c bMS;
-    private List<a> bMT = new ArrayList();
+    private static volatile c bRG;
+    private List<a> bRH = new ArrayList();
 
     private c() {
-        this.bMT.add(new b());
+        this.bRH.add(new b());
     }
 
-    public static c UG() {
-        if (bMS == null) {
+    public static c VM() {
+        if (bRG == null) {
             synchronized (c.class) {
-                if (bMS == null) {
-                    bMS = new c();
+                if (bRG == null) {
+                    bRG = new c();
                 }
             }
         }
-        return bMS;
+        return bRG;
     }
 
     @Override // com.baidu.swan.apps.api.b.a
-    public void iq(String str) {
+    public void iy(String str) {
         if (DEBUG) {
             Log.d("Api-Marker", "markStart: " + str);
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.bMT.size()) {
-                this.bMT.get(i2).iq(str);
+            if (i2 < this.bRH.size()) {
+                this.bRH.get(i2).iy(str);
                 i = i2 + 1;
             } else {
                 return;
@@ -42,15 +42,15 @@ public class c implements a {
     }
 
     @Override // com.baidu.swan.apps.api.b.a
-    public void ir(String str) {
+    public void iz(String str) {
         if (DEBUG) {
             Log.d("Api-Marker", "markEnd: " + str);
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.bMT.size()) {
-                this.bMT.get(i2).ir(str);
+            if (i2 < this.bRH.size()) {
+                this.bRH.get(i2).iz(str);
                 i = i2 + 1;
             } else {
                 return;
@@ -62,8 +62,8 @@ public class c implements a {
         if (DEBUG) {
             Log.d("Api-Marker", "release: ");
         }
-        if (bMS != null) {
-            bMS = null;
+        if (bRG != null) {
+            bRG = null;
         }
     }
 }

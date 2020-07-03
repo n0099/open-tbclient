@@ -3,6 +3,7 @@ package com.baidu.live.tbadk.core.data;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes3.dex */
 public class AdditionData implements Serializable {
     private static final long serialVersionUID = -6760087984237848132L;

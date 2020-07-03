@@ -15,17 +15,17 @@ public class av implements eu {
     @Override // com.xiaomi.push.eu
     public void a(Context context, HashMap<String, String> hashMap) {
         il ilVar = new il();
-        ilVar.b(eq.a(context).m266a());
+        ilVar.b(eq.a(context).m263a());
         ilVar.d(eq.a(context).b());
-        ilVar.c(hw.AwakeAppResponse.f475a);
+        ilVar.c(hw.AwakeAppResponse.f481a);
         ilVar.a(an.a());
-        ilVar.f616a = hashMap;
+        ilVar.f622a = hashMap;
         byte[] a = iw.a(w.a(ilVar.c(), ilVar.b(), ilVar, hm.Notification));
         if (!(context instanceof XMPushService)) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("MoleInfo : context is not correct in pushLayer " + ilVar.a());
+            com.xiaomi.channel.commonutils.logger.b.m48a("MoleInfo : context is not correct in pushLayer " + ilVar.a());
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m51a("MoleInfo : send data directly in pushLayer " + ilVar.a());
+        com.xiaomi.channel.commonutils.logger.b.m48a("MoleInfo : send data directly in pushLayer " + ilVar.a());
         ((XMPushService) context).a(context.getPackageName(), a, true);
     }
 
@@ -39,6 +39,6 @@ public class av implements eu {
 
     @Override // com.xiaomi.push.eu
     public void c(Context context, HashMap<String, String> hashMap) {
-        com.xiaomi.channel.commonutils.logger.b.m51a("MoleInfo：\u3000" + el.b(hashMap));
+        com.xiaomi.channel.commonutils.logger.b.m48a("MoleInfo：\u3000" + el.b(hashMap));
     }
 }

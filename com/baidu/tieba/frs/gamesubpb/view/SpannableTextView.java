@@ -18,21 +18,21 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.gamesubpb.a;
 import com.baidu.tieba.frs.gamesubpb.model.d;
 /* loaded from: classes9.dex */
 public class SpannableTextView extends TextView {
-    private long fhm;
-    private a.InterfaceC0616a hDs;
-    private int hEm;
-    private int hEn;
-    private int hEo;
-    private int hEp;
-    private int hEq;
-    private int hEr;
-    private boolean hEs;
+    private long fsA;
+    private a.InterfaceC0624a hQA;
+    private boolean hRA;
+    private int hRu;
+    private int hRv;
+    private int hRw;
+    private int hRx;
+    private int hRy;
+    private int hRz;
 
     public SpannableTextView(Context context) {
         super(context);
@@ -50,18 +50,18 @@ public class SpannableTextView extends TextView {
     }
 
     private void init() {
-        this.fhm = com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), -1L);
-        this.hEr = (l.getEquipmentWidth(getContext()) - (getResources().getDimensionPixelSize(R.dimen.ds34) * 2)) - 20;
+        this.fsA = com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), -1L);
+        this.hRz = (l.getEquipmentWidth(getContext()) - (getResources().getDimensionPixelSize(R.dimen.ds34) * 2)) - 20;
         onChangeSkinType();
     }
 
     public void f(d dVar) {
         setText(g(dVar));
-        setMovementMethod(a.bZD());
+        setMovementMethod(a.ccQ());
     }
 
-    public void setClickListener(a.InterfaceC0616a interfaceC0616a) {
-        this.hDs = interfaceC0616a;
+    public void setClickListener(a.InterfaceC0624a interfaceC0624a) {
+        this.hQA = interfaceC0624a;
     }
 
     private SpannableString g(d dVar) {
@@ -71,19 +71,19 @@ public class SpannableTextView extends TextView {
         int length2 = ": ".length();
         String str2 = dVar.userName;
         int length3 = str2 != null ? str2.length() : 0;
-        String str3 = dVar.hDS ? dVar.userName + "  楼主: " : dVar.userName + ": ";
+        String str3 = dVar.hRa ? dVar.userName + "  楼主: " : dVar.userName + ": ";
         String str4 = dVar.content;
         int length4 = str4 != null ? str4.length() : 0;
-        if ((EO(new StringBuilder().append(str3).append(str4).toString()) % this.hEr) + EO(new StringBuilder().append("|").append(dVar.hDK).toString()) >= this.hEr) {
-            str = "\n" + dVar.hDK;
+        if ((Fp(new StringBuilder().append(str3).append(str4).toString()) % this.hRz) + Fp(new StringBuilder().append("|").append(dVar.hQS).toString()) >= this.hRz) {
+            str = "\n" + dVar.hQS;
         } else {
-            str = " " + dVar.hDK;
+            str = " " + dVar.hQS;
         }
         int length5 = str != null ? str.length() : 0;
-        boolean equals = String.valueOf(this.fhm).equals(dVar.userId);
+        boolean equals = String.valueOf(this.fsA).equals(dVar.userId);
         String str5 = "|  删除";
         if (equals) {
-            if (EO("|  删除") + (EO(new StringBuilder().append(str3).append(str4).append(str).toString()) % this.hEr) >= this.hEr) {
+            if (Fp("|  删除") + (Fp(new StringBuilder().append(str3).append(str4).append(str).toString()) % this.hRz) >= this.hRz) {
                 str5 = "\n删除";
             } else {
                 str5 = "  删除";
@@ -98,24 +98,24 @@ public class SpannableTextView extends TextView {
         SpannableString spannableString = new SpannableString(append.append(str5).append(equals ? "|" : "").toString());
         int i2 = 0 + length3;
         spannableString.setSpan(new c(dVar), 0, i2, 17);
-        if (dVar.hDS) {
+        if (dVar.hRa) {
             i = i2 + length;
-            spannableString.setSpan(new ForegroundColorSpan(this.hEn), i2, i, 17);
+            spannableString.setSpan(new ForegroundColorSpan(this.hRv), i2, i, 17);
         } else {
             i = i2;
         }
         int i3 = i + length2 + length4;
         int i4 = i3 + length5;
-        spannableString.setSpan(new ForegroundColorSpan(this.hEo), i3, i4, 17);
+        spannableString.setSpan(new ForegroundColorSpan(this.hRw), i3, i4, 17);
         if (equals) {
             int i5 = i4 + length6;
             spannableString.setSpan(new b(dVar), i4, i5, 17);
-            spannableString.setSpan(new ForegroundColorSpan(this.hEq), i5, i5 + length7, 17);
+            spannableString.setSpan(new ForegroundColorSpan(this.hRy), i5, i5 + length7, 17);
         }
         return spannableString;
     }
 
-    private int EO(String str) {
+    private int Fp(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -127,22 +127,22 @@ public class SpannableTextView extends TextView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes9.dex */
     public class c extends ClickableSpan {
-        private d hEu;
+        private d hRC;
 
         public c(d dVar) {
-            this.hEu = dVar;
+            this.hRC = dVar;
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            textPaint.setColor(SpannableTextView.this.hEm);
+            textPaint.setColor(SpannableTextView.this.hRu);
             textPaint.setUnderlineText(false);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            if (SpannableTextView.this.hDs != null) {
-                SpannableTextView.this.hDs.a(this.hEu);
+            if (SpannableTextView.this.hQA != null) {
+                SpannableTextView.this.hQA.a(this.hRC);
             }
         }
     }
@@ -150,29 +150,29 @@ public class SpannableTextView extends TextView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes9.dex */
     public class b extends ClickableSpan {
-        private d hEu;
+        private d hRC;
 
         public b(d dVar) {
-            this.hEu = dVar;
+            this.hRC = dVar;
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            textPaint.setColor(SpannableTextView.this.hEp);
+            textPaint.setColor(SpannableTextView.this.hRx);
             textPaint.setUnderlineText(false);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            if (SpannableTextView.this.hDs != null) {
-                SpannableTextView.this.hDs.b(this.hEu);
+            if (SpannableTextView.this.hQA != null) {
+                SpannableTextView.this.hQA.b(this.hRC);
             }
         }
     }
 
     @Override // android.view.View
     public boolean performClick() {
-        if (this.hEs) {
+        if (this.hRA) {
             return true;
         }
         return super.performClick();
@@ -180,21 +180,21 @@ public class SpannableTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.hEs = false;
+        this.hRA = false;
         return super.onTouchEvent(motionEvent);
     }
 
     public void onChangeSkinType() {
-        this.hEm = am.getColor(R.color.cp_link_tip_c);
-        this.hEn = am.getColor(R.color.cp_link_tip_a);
-        this.hEo = am.getColor(R.color.cp_cont_d);
-        this.hEp = am.getColor(R.color.cp_link_tip_c);
-        this.hEq = am.getColor(R.color.cp_bg_line_d);
+        this.hRu = an.getColor(R.color.cp_link_tip_c);
+        this.hRv = an.getColor(R.color.cp_link_tip_a);
+        this.hRw = an.getColor(R.color.cp_cont_d);
+        this.hRx = an.getColor(R.color.cp_link_tip_c);
+        this.hRy = an.getColor(R.color.cp_bg_line_d);
     }
 
     /* loaded from: classes9.dex */
     private static class a extends LinkMovementMethod {
-        private static a hEt;
+        private static a hRB;
 
         private a() {
         }
@@ -217,7 +217,7 @@ public class SpannableTextView extends TextView {
                         Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                     }
                     if (textView instanceof SpannableTextView) {
-                        ((SpannableTextView) textView).hEs = true;
+                        ((SpannableTextView) textView).hRA = true;
                     }
                     return true;
                 }
@@ -228,11 +228,11 @@ public class SpannableTextView extends TextView {
             return Touch.onTouchEvent(textView, spannable, motionEvent);
         }
 
-        public static a bZD() {
-            if (hEt == null) {
-                hEt = new a();
+        public static a ccQ() {
+            if (hRB == null) {
+                hRB = new a();
             }
-            return hEt;
+            return hRB;
         }
     }
 }

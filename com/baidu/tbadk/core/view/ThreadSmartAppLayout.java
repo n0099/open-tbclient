@@ -12,17 +12,17 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.R;
 import tbclient.SmartApp;
 /* loaded from: classes8.dex */
 public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, n<AbsThreadDataSupport> {
-    private View.OnClickListener ags;
-    private HeadImageView dTc;
-    private TextView dXr;
-    private SmartApp dXs;
+    private View.OnClickListener ahw;
+    private HeadImageView dZV;
+    private TextView eeN;
+    private SmartApp eeO;
     private TextView mTitleView;
 
     public ThreadSmartAppLayout(Context context) {
@@ -36,42 +36,42 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     public ThreadSmartAppLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         LayoutInflater.from(context).inflate(R.layout.thread_smart_app_layout, (ViewGroup) this, true);
-        this.dTc = (HeadImageView) findViewById(R.id.iv_thread_smart_app_head);
-        this.dTc.setIsRound(true);
-        this.dTc.setPlaceHolder(1);
+        this.dZV = (HeadImageView) findViewById(R.id.iv_thread_smart_app_head);
+        this.dZV.setIsRound(true);
+        this.dZV.setPlaceHolder(1);
         this.mTitleView = (TextView) findViewById(R.id.tv_thread_smart_app_title);
-        this.dXr = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
+        this.eeN = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
         setOnClickListener(this);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        am.setBackgroundResource(this, R.drawable.applets_cell_bg);
-        am.setViewTextColor(this.mTitleView, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.dXr, (int) R.color.cp_cont_j);
+        an.setBackgroundResource(this, R.drawable.applets_cell_bg);
+        an.setViewTextColor(this.mTitleView, (int) R.color.cp_cont_b);
+        an.setViewTextColor(this.eeN, (int) R.color.cp_cont_j);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.ags = onClickListener;
+        this.ahw = onClickListener;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.dXs != null) {
-            if (!com.baidu.tieba.aiapps.a.b(this.dXs.id, this.dXs.link, "1191003900000000", this.dXs.is_game)) {
-                if (!aq.isEmpty(this.dXs.h5_url)) {
-                    ba.aVa().b(S(getContext()), new String[]{this.dXs.h5_url});
+        if (this.eeO != null) {
+            if (!com.baidu.tieba.aiapps.a.b(this.eeO.id, this.eeO.link, "1191003900000000", this.eeO.is_game)) {
+                if (!ar.isEmpty(this.eeO.h5_url)) {
+                    bc.aWU().b(T(getContext()), new String[]{this.eeO.h5_url});
                 } else {
                     return;
                 }
             }
-            if (this.ags != null) {
-                this.ags.onClick(view);
+            if (this.ahw != null) {
+                this.ahw.onClick(view);
             }
         }
     }
 
-    private TbPageContext S(Context context) {
+    private TbPageContext T(Context context) {
         if (context instanceof BaseActivity) {
             return ((BaseActivity) context).getPageContext();
         }
@@ -85,23 +85,23 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     @Override // com.baidu.card.n
     /* renamed from: b */
     public void D(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport == null || absThreadDataSupport.aOi() == null || absThreadDataSupport.aOi().aRn() == null) {
+        if (absThreadDataSupport == null || absThreadDataSupport.aPS() == null || absThreadDataSupport.aPS().aTe() == null) {
             setVisibility(8);
             return;
         }
-        this.dXs = absThreadDataSupport.aOi().aRn();
-        if (!aq.isEmpty(this.dXs.avatar)) {
-            this.dTc.startLoad(this.dXs.avatar, 10, false, false);
+        this.eeO = absThreadDataSupport.aPS().aTe();
+        if (!ar.isEmpty(this.eeO.avatar)) {
+            this.dZV.startLoad(this.eeO.avatar, 10, false, false);
         }
-        if (!aq.isEmpty(this.dXs.name)) {
-            this.mTitleView.setText(this.dXs.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
+        if (!ar.isEmpty(this.eeO.name)) {
+            this.mTitleView.setText(this.eeO.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
         } else {
             this.mTitleView.setText(getContext().getResources().getString(R.string.intelligent_smart_app));
         }
-        if (!aq.isEmpty(this.dXs._abstract)) {
-            this.dXr.setText(this.dXs._abstract);
+        if (!ar.isEmpty(this.eeO._abstract)) {
+            this.eeN.setText(this.eeO._abstract);
         } else {
-            this.dXr.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
+            this.eeN.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
         }
         setVisibility(0);
     }

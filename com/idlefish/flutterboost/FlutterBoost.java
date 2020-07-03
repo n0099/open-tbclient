@@ -9,6 +9,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.packageManager.pluginSettings.c;
+import com.baidu.adp.plugin.util.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.idlefish.flutterboost.interfaces.IContainerManager;
 import com.idlefish.flutterboost.interfaces.INativeRouter;
@@ -265,24 +266,26 @@ public class FlutterBoost {
     /* JADX INFO: Access modifiers changed from: private */
     public FlutterEngine createEngine() {
         if (this.mEngine == null) {
-            FlutterMain.startInitialization(this.mPlatform.getApplication());
-            PluginSetting findPluginSetting = c.oA().findPluginSetting("com.baidu.tieba.pluginFlutter");
-            if (findPluginSetting != null && findPluginSetting.apkPath != null) {
-                String replace = findPluginSetting.apkPath.replace(".apk", "");
-                try {
-                    FlutterLoader flutterLoader = FlutterLoader.getInstance();
-                    Field declaredField = FlutterLoader.class.getDeclaredField("aotSharedLibraryName");
-                    declaredField.setAccessible(true);
-                    declaredField.set(flutterLoader, replace + "/lib/libapp.so");
-                } catch (Exception e) {
-                    BdLog.e("resSetSupplier2 exception");
-                    e.printStackTrace();
+            synchronized (a.mLock) {
+                FlutterMain.startInitialization(this.mPlatform.getApplication());
+                PluginSetting findPluginSetting = c.oQ().findPluginSetting("com.baidu.tieba.pluginFlutter");
+                if (findPluginSetting != null && findPluginSetting.apkPath != null) {
+                    String replace = findPluginSetting.apkPath.replace(".apk", "");
+                    try {
+                        FlutterLoader flutterLoader = FlutterLoader.getInstance();
+                        Field declaredField = FlutterLoader.class.getDeclaredField("aotSharedLibraryName");
+                        declaredField.setAccessible(true);
+                        declaredField.set(flutterLoader, replace + "/lib/libapp.so");
+                    } catch (Exception e) {
+                        BdLog.e("resSetSupplier2 exception");
+                        e.printStackTrace();
+                    }
+                } else if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    return null;
                 }
-            } else if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                return null;
+                FlutterMain.ensureInitializationComplete(this.mPlatform.getApplication().getApplicationContext(), new FlutterShellArgs(new String[0]).toArray());
+                this.mEngine = new FlutterEngine(this.mPlatform.getApplication().getApplicationContext());
             }
-            FlutterMain.ensureInitializationComplete(this.mPlatform.getApplication().getApplicationContext(), new FlutterShellArgs(new String[0]).toArray());
-            this.mEngine = new FlutterEngine(this.mPlatform.getApplication().getApplicationContext());
         }
         return this.mEngine;
     }

@@ -7,8 +7,8 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    public int dsn;
-    public int dso;
+    public int dwY;
+    public int dwZ;
     public int mAudioBitrate;
     public int mVideoBitrate;
     public int mVideoHeight;
@@ -20,8 +20,8 @@ public final class a {
         try {
             jSONObject.put("videoBitrate", this.mVideoBitrate);
             jSONObject.put("audioBitrate", this.mAudioBitrate);
-            jSONObject.put("videoFPS", this.dsn);
-            jSONObject.put("netSpeed", this.dso);
+            jSONObject.put("videoFPS", this.dwY);
+            jSONObject.put("netSpeed", this.dwZ);
             jSONObject.put("videoWidth", this.mVideoWidth);
             jSONObject.put("videoHeight", this.mVideoHeight);
             jSONObject2.putOpt("info", jSONObject);

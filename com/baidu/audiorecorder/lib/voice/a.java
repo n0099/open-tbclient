@@ -7,133 +7,133 @@ import com.baidu.adp.lib.voice.h;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class a {
-    private static b YN;
-    private static String YO;
-    private static g YP;
-    private static int YM = 0;
-    private static long YQ = 0;
+    private static b Zs;
+    private static String Zt;
+    private static g Zu;
+    private static int Zr = 0;
+    private static long Zv = 0;
     private static Handler mHandler = new Handler(new Handler.Callback() { // from class: com.baidu.audiorecorder.lib.voice.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    if (a.YP != null) {
-                        a.YP.l(a.YO, message.arg1);
-                        g unused = a.YP = null;
+                    if (a.Zu != null) {
+                        a.Zu.l(a.Zt, message.arg1);
+                        g unused = a.Zu = null;
                         break;
                     }
                     break;
                 case 1:
                 case 3:
-                    if (a.YP != null) {
+                    if (a.Zu != null) {
                         if (com.baidu.adp.lib.util.f.checkSDHasSpace()) {
-                            a.YP.error(message.what, h.getString(R.string.voice_err_create_file_fail));
+                            a.Zu.error(message.what, h.getString(R.string.voice_err_create_file_fail));
                         } else {
-                            a.YP.error(message.what, h.getString(R.string.voice_err_sdcard_nospace));
+                            a.Zu.error(message.what, h.getString(R.string.voice_err_sdcard_nospace));
                         }
-                        g unused2 = a.YP = null;
+                        g unused2 = a.Zu = null;
                         break;
                     }
                     break;
                 case 2:
-                    if (a.YP != null) {
-                        a.YP.error(message.what, h.getString(R.string.voice_err_file_fail));
-                        g unused3 = a.YP = null;
+                    if (a.Zu != null) {
+                        a.Zu.error(message.what, h.getString(R.string.voice_err_file_fail));
+                        g unused3 = a.Zu = null;
                         break;
                     }
                     break;
                 case 4:
-                    if (a.YP != null) {
-                        a.YP.ao(message.arg1);
+                    if (a.Zu != null) {
+                        a.Zu.au(message.arg1);
                         break;
                     }
                     break;
                 case 5:
-                    if (a.YP != null) {
-                        a.YP.error(message.what, h.getString(R.string.voice_err_load_lib_fail));
-                        g unused4 = a.YP = null;
+                    if (a.Zu != null) {
+                        a.Zu.error(message.what, h.getString(R.string.voice_err_load_lib_fail));
+                        g unused4 = a.Zu = null;
                         break;
                     }
                     break;
                 case 6:
-                    if (a.YP != null) {
-                        a.YP.error(message.what, h.getString(R.string.voice_err_init_fail));
-                        g unused5 = a.YP = null;
+                    if (a.Zu != null) {
+                        a.Zu.error(message.what, h.getString(R.string.voice_err_init_fail));
+                        g unused5 = a.Zu = null;
                         break;
                     }
                     break;
                 case 7:
-                    if (a.YP != null) {
-                        a.YP.error(message.what, h.getString(R.string.voice_record_timeout_tip));
-                        g unused6 = a.YP = null;
+                    if (a.Zu != null) {
+                        a.Zu.error(message.what, h.getString(R.string.voice_record_timeout_tip));
+                        g unused6 = a.Zu = null;
                         break;
                     }
                     break;
                 case 8:
-                    if (a.YP != null) {
-                        a.YP.error(message.what, h.getString(R.string.voice_record_short_tip));
-                        g unused7 = a.YP = null;
+                    if (a.Zu != null) {
+                        a.Zu.error(message.what, h.getString(R.string.voice_record_short_tip));
+                        g unused7 = a.Zu = null;
                         break;
                     }
                     break;
                 case 9:
-                    if (a.YP != null) {
-                        a.YP.ap(message.arg1);
+                    if (a.Zu != null) {
+                        a.Zu.av(message.arg1);
                         break;
                     }
                     break;
                 case 100:
-                    if (a.YP != null) {
-                        a.YP.mw();
+                    if (a.Zu != null) {
+                        a.Zu.mM();
                         break;
                     }
                     break;
                 default:
-                    if (a.YP != null) {
-                        a.YP.error(message.what, h.getString(R.string.voice_err_other));
-                        g unused8 = a.YP = null;
+                    if (a.Zu != null) {
+                        a.Zu.error(message.what, h.getString(R.string.voice_err_other));
+                        g unused8 = a.Zu = null;
                         break;
                     }
                     break;
             }
-            int unused9 = a.YM = 0;
+            int unused9 = a.Zr = 0;
             return false;
         }
     });
 
     public static boolean a(String str, int i, g gVar) {
-        if (System.currentTimeMillis() - YQ < 1000) {
+        if (System.currentTimeMillis() - Zv < 1000) {
             return false;
         }
-        YQ = System.currentTimeMillis();
-        if (YM == 0) {
-            if (YN == null) {
-                YN = new b(mHandler);
+        Zv = System.currentTimeMillis();
+        if (Zr == 0) {
+            if (Zs == null) {
+                Zs = new b(mHandler);
             }
-            YO = str;
-            YP = gVar;
-            if (YN.p(str, i)) {
-                YM = 3;
-                new Thread(YN).start();
+            Zt = str;
+            Zu = gVar;
+            if (Zs.p(str, i)) {
+                Zr = 3;
+                new Thread(Zs).start();
                 return true;
             }
-            YN = null;
+            Zs = null;
             return false;
         }
         return false;
     }
 
     public static void stop() {
-        if (YN != null) {
-            YN.stop();
+        if (Zs != null) {
+            Zs.stop();
         }
-        YM = 0;
+        Zr = 0;
     }
 
     public static void cancel() {
-        if (YN != null) {
-            YN.cancel();
+        if (Zs != null) {
+            Zs.cancel();
         }
-        YM = 0;
+        Zr = 0;
     }
 }

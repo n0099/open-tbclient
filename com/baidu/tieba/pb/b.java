@@ -14,7 +14,7 @@ public class b {
         public static String CLICK = "c12586";
     }
 
-    public static CustomDialogData dv(JSONObject jSONObject) {
+    public static CustomDialogData dF(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("tb_hudong")) == null || TextUtils.isEmpty(optJSONObject.optString("content"))) {
             return null;

@@ -17,7 +17,7 @@ public class c extends b {
             @Override // java.lang.Runnable
             public void run() {
                 for (String str : list) {
-                    aVar.ky(str);
+                    aVar.kG(str);
                 }
             }
         });

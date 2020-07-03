@@ -11,7 +11,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -19,10 +19,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.ae;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.af;
 import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.personPolymeric.c.i;
 import com.baidu.tieba.personPolymeric.c.j;
@@ -50,8 +50,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     private b mOnResult;
     private HttpMessageListener pageHttpListener;
     private c pageSocketListener;
-    public final ArrayList<o> postList;
-    public final ArrayList<o> threadList;
+    public final ArrayList<q> postList;
+    public final ArrayList<q> threadList;
     public int view_card_num;
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
@@ -225,7 +225,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
         int i2 = 1;
-        if (ar.aUX().aUY()) {
+        if (as.aWR().aWS()) {
             i2 = 2;
         }
         userPostPageRequestMessage.set_scr_w(equipmentWidth);
@@ -252,7 +252,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             } else {
                 z = true;
             }
-            if (v.isEmpty(dataRes.post_list) && z) {
+            if (w.isEmpty(dataRes.post_list) && z) {
                 this.mCardNullPolymericData = new i();
                 this.postList.add(this.mCardNullPolymericData);
                 return;
@@ -270,7 +270,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 } else if (this.mFrom == FROM_PERSON_POST) {
                     cardPersonDynamicThreadData.from = 1;
                 }
-                if (cardPersonDynamicThreadData.gIi != 33) {
+                if (cardPersonDynamicThreadData.gVi != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 }
@@ -320,7 +320,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes11.dex */
-    public static class PostInfoList extends OrmObject implements o, ae, Serializable {
+    public static class PostInfoList extends OrmObject implements q, af, Serializable {
         public static final BdUniqueId POST_INFO = BdUniqueId.gen();
         public boolean isDeal;
         public boolean isShareThread;
@@ -416,7 +416,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             }
         }
 
-        @Override // com.baidu.tbadk.core.util.ae
+        @Override // com.baidu.tbadk.core.util.af
         public ArrayList<PreLoadImageInfo> getImages() {
             Media[] mediaArr;
             ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
@@ -431,7 +431,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             return arrayList;
         }
 
-        @Override // com.baidu.adp.widget.ListView.o
+        @Override // com.baidu.adp.widget.ListView.q
         public BdUniqueId getType() {
             return POST_INFO;
         }
@@ -516,28 +516,28 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    public static ArrayList<o> mergeDynamicThreadByTime(ArrayList<o> arrayList) {
+    public static ArrayList<q> mergeDynamicThreadByTime(ArrayList<q> arrayList) {
         String str;
         String str2;
         String str3;
-        String yearBytime = aq.getYearBytime(System.currentTimeMillis());
+        String yearBytime = ar.getYearBytime(System.currentTimeMillis());
         String str4 = "";
         String str5 = "";
-        Iterator<o> it = arrayList.iterator();
+        Iterator<q> it = arrayList.iterator();
         while (it.hasNext()) {
-            o next = it.next();
+            q next = it.next();
             if (next instanceof CardPersonDynamicThreadData) {
-                ((CardPersonDynamicThreadData) next).gIu = true;
-                ((CardPersonDynamicThreadData) next).gIt = true;
-                long j = ((CardPersonDynamicThreadData) next).gIg * 1000;
-                String yearBytime2 = aq.getYearBytime(j);
-                String chineseMonthBytime = aq.getChineseMonthBytime(j);
-                String dateBytime = aq.getDateBytime(j);
-                if (aq.equals(yearBytime2, yearBytime)) {
-                    ((CardPersonDynamicThreadData) next).gIu = false;
+                ((CardPersonDynamicThreadData) next).gVu = true;
+                ((CardPersonDynamicThreadData) next).gVt = true;
+                long j = ((CardPersonDynamicThreadData) next).gVg * 1000;
+                String yearBytime2 = ar.getYearBytime(j);
+                String chineseMonthBytime = ar.getChineseMonthBytime(j);
+                String dateBytime = ar.getDateBytime(j);
+                if (ar.equals(yearBytime2, yearBytime)) {
+                    ((CardPersonDynamicThreadData) next).gVu = false;
                 }
-                if (aq.equals(dateBytime, str5) && aq.equals(chineseMonthBytime, str4) && aq.equals(yearBytime2, yearBytime)) {
-                    ((CardPersonDynamicThreadData) next).gIt = false;
+                if (ar.equals(dateBytime, str5) && ar.equals(chineseMonthBytime, str4) && ar.equals(yearBytime2, yearBytime)) {
+                    ((CardPersonDynamicThreadData) next).gVt = false;
                     str = str5;
                     str2 = str4;
                     str3 = yearBytime;

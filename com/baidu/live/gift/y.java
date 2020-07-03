@@ -13,5 +13,5 @@ public interface y {
 
     void onResume();
 
-    View yx();
+    View yX();
 }

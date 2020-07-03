@@ -12,16 +12,16 @@ public class e extends com.baidu.swan.apps.core.d.h {
     private static final String TAG = e.class.getSimpleName();
 
     @Override // com.baidu.swan.apps.core.d.h
-    public com.baidu.swan.apps.adaptation.b.f Tb() {
-        return com.baidu.swan.apps.core.turbo.d.abl().abm().bj(getContext());
+    public com.baidu.swan.apps.adaptation.b.f Uh() {
+        return com.baidu.swan.apps.core.turbo.d.acr().acs().bk(getContext());
     }
 
     @Override // com.baidu.swan.apps.core.d.h
-    protected com.baidu.swan.apps.core.f.d Tx() {
+    protected com.baidu.swan.apps.core.f.d UD() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.c.a.e.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public boolean fS(String str) {
-                return super.fS(str);
+            public boolean ga(String str) {
+                return super.ga(str);
             }
         };
     }
@@ -29,20 +29,20 @@ public class e extends com.baidu.swan.apps.core.d.h {
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
     protected void ae(View view) {
         super.ae(view);
-        this.bVa.setRightZoneVisibility(true);
+        this.bZO.setRightZoneVisibility(true);
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
-    protected void TC() {
-        FragmentActivity aHv = aHv();
-        if (aHv != null && this.bVb == null) {
-            this.bVb = new com.baidu.swan.menu.h(aHv, this.bVa, TD(), com.baidu.swan.apps.u.a.aeV(), new com.baidu.swan.apps.view.c.b());
-            new com.baidu.swan.apps.y.a(this.bVb, this).ajG();
+    protected void UI() {
+        FragmentActivity aIB = aIB();
+        if (aIB != null && this.bZP == null) {
+            this.bZP = new com.baidu.swan.menu.h(aIB, this.bZO, UJ(), com.baidu.swan.apps.u.a.agb(), new com.baidu.swan.apps.view.c.b());
+            new com.baidu.swan.apps.y.a(this.bZP, this).akM();
         }
     }
 
-    private int TD() {
-        return Yq() ? 18 : 12;
+    private int UJ() {
+        return Zw() ? 18 : 12;
     }
 
     /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.swan.apps.adaptation.b.d] */
@@ -50,41 +50,41 @@ public class e extends com.baidu.swan.apps.core.d.h {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
         ae(inflate);
-        this.bWj = Tb();
-        this.bWj.a(Tx());
-        this.bHi = this.bWj.Th();
-        this.bWj.loadUrl(this.mUrl);
+        this.caX = Uh();
+        this.caX.a(UD());
+        this.bLW = this.caX.Un();
+        this.caX.loadUrl(this.mUrl);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
-        this.bWj.a(frameLayout, this.bHi.covertToView());
+        this.caX.a(frameLayout, this.bLW.covertToView());
         a(frameLayout);
         return immersionEnabled() ? initImmersion(inflate) : inflate;
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
-    protected boolean Ty() {
+    protected boolean UE() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
-    public boolean Tc() {
-        if (this.bHi != null && this.bHi.canGoBack()) {
-            this.bHi.goBack();
+    public boolean Ui() {
+        if (this.bLW != null && this.bLW.canGoBack()) {
+            this.bLW.goBack();
             return true;
         }
-        TE();
+        UK();
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
-        TE();
+        UK();
         super.onDestroy();
     }
 
-    private void TE() {
-        com.baidu.swan.apps.a.a TF;
-        if (!f.bIQ.TH() && (TF = f.bIQ.TF()) != null) {
-            TF.onResult(-2);
+    private void UK() {
+        com.baidu.swan.apps.a.a UL;
+        if (!f.bNE.UN() && (UL = f.bNE.UL()) != null) {
+            UL.onResult(-2);
         }
     }
 }

@@ -4,22 +4,24 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public class l {
     private Context context;
-    public m ekV;
-    public int elH;
-    public int elI;
-    public boolean elJ;
-    public int elL;
-    public int elM;
-    public int[] elO;
+    public m etH;
+    public int[] euB;
+    public boolean euC;
+    public int eut;
+    public int euu;
+    public int euv;
+    public boolean euw;
+    public int euy;
+    public int euz;
     public int id;
     public String name;
-    public boolean elK = true;
-    public boolean elN = false;
+    public boolean eux = true;
+    public boolean euA = false;
 
     public l(String str, int i, int i2) {
         this.name = str;
         this.id = i;
-        this.elL = i2;
+        this.euy = i2;
     }
 
     public l(Context context, String str, int i) {
@@ -32,7 +34,7 @@ public class l {
         this.name = str;
         this.id = i;
         this.context = context;
-        this.elL = i2;
+        this.euy = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,10 +42,10 @@ public class l {
         return this.context;
     }
 
-    public boolean qH() {
+    public boolean qY() {
         return true;
     }
 
-    public void hZ(boolean z) {
+    public void ii(boolean z) {
     }
 }

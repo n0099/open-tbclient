@@ -3,7 +3,7 @@ package com.baidu.ar.vo.c;
 public final class b {
     public int type;
     public float x;
-    public float xl;
-    public boolean xm;
+    public float xL;
+    public boolean xM;
     public float y;
 }

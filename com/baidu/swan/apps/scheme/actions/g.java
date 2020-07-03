@@ -28,12 +28,12 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class g extends com.baidu.swan.apps.network.a implements com.baidu.swan.apps.network.f {
-    private static AtomicLong cBJ = new AtomicLong(System.currentTimeMillis());
-    private int cBK;
+    private static AtomicLong cGt = new AtomicLong(System.currentTimeMillis());
+    private int cGu;
 
     public g(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/downloadFile");
-        this.cBK = 0;
+        this.cGu = 0;
     }
 
     @Override // com.baidu.swan.apps.network.a, com.baidu.swan.apps.scheme.actions.aa
@@ -54,19 +54,19 @@ public class g extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
             return false;
         }
         final String optString3 = b.optString("filePath");
-        if (!TextUtils.isEmpty(optString3) && com.baidu.swan.e.d.tZ(optString3)) {
+        if (!TextUtils.isEmpty(optString3) && com.baidu.swan.e.d.uh(optString3)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal path");
             return false;
         }
-        String aoH = com.baidu.swan.apps.runtime.e.aoH();
-        if (TextUtils.isEmpty(aoH)) {
+        String apO = com.baidu.swan.apps.runtime.e.apO();
+        if (TextUtils.isEmpty(apO)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal appId");
             return false;
         }
-        final String hL = com.baidu.swan.apps.api.module.network.c.hL(aoH);
-        Request v = v(b, hL);
+        final String hT = com.baidu.swan.apps.api.module.network.c.hT(apO);
+        Request v = v(b, hT);
         if (v == null) {
-            unitedSchemeEntity.result = ga(this.cBK);
+            unitedSchemeEntity.result = gl(this.cGu);
             return false;
         }
         final String httpUrl = v.url().toString();
@@ -76,35 +76,35 @@ public class g extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
         HashMap<String, String> c = c(optJSONObject, true);
         String optString4 = b.optString("__plugin__");
         if (!TextUtils.isEmpty(optString4)) {
-            com.baidu.swan.pms.model.h mP = com.baidu.swan.apps.ae.g.b.mP(optString4);
+            com.baidu.swan.pms.model.h mX = com.baidu.swan.apps.ae.g.b.mX(optString4);
             if (c == null) {
                 c = new HashMap<>();
             }
-            c.put("X-SWAN-HOSTSIGN", com.baidu.swan.apps.ae.g.a.e(mP));
+            c.put("X-SWAN-HOSTSIGN", com.baidu.swan.apps.ae.g.a.e(mX));
         }
         bVar.B(c);
-        com.baidu.swan.apps.w.f.ahV().aic();
+        com.baidu.swan.apps.w.f.ajb().aji();
         final String valueOf = String.valueOf(System.currentTimeMillis());
-        this.cpN.put(valueOf, 0L);
+        this.cuC.put(valueOf, 0L);
         com.baidu.swan.apps.network.a.a aVar = new com.baidu.swan.apps.network.a.a();
-        aVar.a(new a.InterfaceC0360a() { // from class: com.baidu.swan.apps.scheme.actions.g.1
-            @Override // com.baidu.swan.apps.network.a.a.InterfaceC0360a
+        aVar.a(new a.InterfaceC0366a() { // from class: com.baidu.swan.apps.scheme.actions.g.1
+            @Override // com.baidu.swan.apps.network.a.a.InterfaceC0366a
             public void be(long j) {
                 callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, "download file failed because file size exceeds limit").toString());
-                SwanAppNetworkUtils.a(com.baidu.swan.c.c.a.aFx().getOkHttpClient(), hL);
-                g.this.mg(valueOf);
+                SwanAppNetworkUtils.a(com.baidu.swan.c.c.a.aGD().getOkHttpClient(), hT);
+                g.this.mo(valueOf);
             }
 
-            @Override // com.baidu.swan.apps.network.a.a.InterfaceC0360a
+            @Override // com.baidu.swan.apps.network.a.a.InterfaceC0366a
             public void l(long j, long j2) {
                 callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, "progress callback fail()").toString());
-                SwanAppNetworkUtils.a(com.baidu.swan.c.c.a.aFx().getOkHttpClient(), hL);
-                g.this.mg(valueOf);
+                SwanAppNetworkUtils.a(com.baidu.swan.c.c.a.aGD().getOkHttpClient(), hT);
+                g.this.mo(valueOf);
             }
 
-            @Override // com.baidu.swan.apps.network.a.a.InterfaceC0360a
+            @Override // com.baidu.swan.apps.network.a.a.InterfaceC0366a
             public void b(int i, long j, long j2) {
-                if (System.currentTimeMillis() - g.this.mf(valueOf) > 500) {
+                if (System.currentTimeMillis() - g.this.mn(valueOf) > 500) {
                     if (i <= 100) {
                         try {
                             JSONObject jSONObject = new JSONObject();
@@ -118,45 +118,45 @@ public class g extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
                             }
                         }
                     }
-                    g.this.cpN.put(valueOf, Long.valueOf(System.currentTimeMillis()));
+                    g.this.cuC.put(valueOf, Long.valueOf(System.currentTimeMillis()));
                 }
             }
         });
-        final String aro = com.baidu.swan.apps.statistic.h.aro();
-        final String page = aj.atU().getPage();
+        final String asv = com.baidu.swan.apps.statistic.h.asv();
+        final String page = aj.ava().getPage();
         com.baidu.swan.apps.statistic.h.S(httpUrl, 0);
-        OkHttpClient.Builder aFy = com.baidu.swan.c.c.a.aFx().aFy();
-        aFy.addNetworkInterceptor(new com.baidu.swan.apps.network.a.d());
-        com.baidu.swan.c.c.a.aFx().a(aFy);
-        aFy.addInterceptor(bVar).addNetworkInterceptor(aVar).build().newCall(com.baidu.swan.apps.network.a.c.a(v, "downloadFile", b.optString("__plugin__"))).enqueue(new Callback() { // from class: com.baidu.swan.apps.scheme.actions.g.2
+        OkHttpClient.Builder aGE = com.baidu.swan.c.c.a.aGD().aGE();
+        aGE.addNetworkInterceptor(new com.baidu.swan.apps.network.a.d());
+        com.baidu.swan.c.c.a.aGD().a(aGE);
+        aGE.addInterceptor(bVar).addNetworkInterceptor(aVar).build().newCall(com.baidu.swan.apps.network.a.c.a(v, "downloadFile", b.optString("__plugin__"))).enqueue(new Callback() { // from class: com.baidu.swan.apps.scheme.actions.g.2
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
-                com.baidu.swan.apps.w.f.ahV().aid();
+                com.baidu.swan.apps.w.f.ajb().ajj();
                 callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
-                g.this.mg(valueOf);
+                g.this.mo(valueOf);
                 if (SwanAppNetworkUtils.isNetworkConnected(null)) {
-                    com.baidu.swan.apps.statistic.h.a(0, httpUrl, 0, iOException.getMessage(), aro, page);
+                    com.baidu.swan.apps.statistic.h.a(0, httpUrl, 0, iOException.getMessage(), asv, page);
                 }
             }
 
             @Override // okhttp3.Callback
             public void onResponse(Call call, Response response) {
-                String oa;
+                String oj;
                 String str;
                 if (!TextUtils.isEmpty(optString3)) {
-                    oa = g.this.oa(optString3);
+                    oj = g.this.oj(optString3);
                 } else {
-                    oa = g.a(response, fileExtensionFromUrl);
+                    oj = g.a(response, fileExtensionFromUrl);
                 }
-                if (TextUtils.isEmpty(oa)) {
+                if (TextUtils.isEmpty(oj)) {
                     callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, "realFilePath create fail").toString());
                     return;
                 }
                 if (aa.DEBUG) {
-                    Log.d("DownloadFileAction", "the real file path is " + oa);
+                    Log.d("DownloadFileAction", "the real file path is " + oj);
                 }
                 if (TextUtils.isEmpty(optString3)) {
-                    str = com.baidu.swan.apps.w.f.ahV().ahB().pc(oa);
+                    str = com.baidu.swan.apps.w.f.ajb().aiH().pk(oj);
                 } else {
                     str = optString3;
                 }
@@ -171,7 +171,7 @@ public class g extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
                     jSONObject.put("statusCode", code);
                     jSONObject.put(TextUtils.isEmpty(optString3) ? "tempFilePath" : "filePath", str);
                     InputStream byteStream = response.body().byteStream();
-                    File file = new File(oa);
+                    File file = new File(oj);
                     if (file.exists()) {
                         file.delete();
                         file.createNewFile();
@@ -187,31 +187,31 @@ public class g extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
                     }
                     callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(201, e.getMessage()).toString());
                 } finally {
-                    g.this.mg(valueOf);
-                    com.baidu.swan.apps.w.f.ahV().aid();
+                    g.this.mo(valueOf);
+                    com.baidu.swan.apps.w.f.ajb().ajj();
                 }
                 if (aa.DEBUG) {
                     Log.d("DownloadFileAction", "onResponse: respCode: " + code + ", url=" + httpUrl + ", msg=" + message);
                 }
-                com.baidu.swan.apps.statistic.h.a(code, httpUrl, 0, message, aro, page);
+                com.baidu.swan.apps.statistic.h.a(code, httpUrl, 0, message, asv, page);
             }
         });
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(hN(hL), 0));
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(hV(hT), 0));
         return true;
     }
 
     @Nullable
     private Request v(@Nullable JSONObject jSONObject, @Nullable String str) {
-        HttpUrl hM;
-        if (jSONObject == null || TextUtils.isEmpty(str) || (hM = com.baidu.swan.apps.api.module.network.c.hM(jSONObject.optString("url"))) == null) {
+        HttpUrl hU;
+        if (jSONObject == null || TextUtils.isEmpty(str) || (hU = com.baidu.swan.apps.api.module.network.c.hU(jSONObject.optString("url"))) == null) {
             return null;
         }
-        String httpUrl = hM.toString();
+        String httpUrl = hU.toString();
         if (TextUtils.isEmpty(httpUrl)) {
             return null;
         }
-        this.cBK = com.baidu.swan.apps.ah.a.b.G("downloadFile", httpUrl, jSONObject.optString("__plugin__"));
-        if (this.cBK == 0) {
+        this.cGu = com.baidu.swan.apps.ah.a.b.H("downloadFile", httpUrl, jSONObject.optString("__plugin__"));
+        if (this.cGu == 0) {
             return new Request.Builder().url(httpUrl).tag(str).build();
         }
         return null;
@@ -222,9 +222,9 @@ public class g extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
         int lastIndexOf;
         String header = response.header("Content-Disposition", null);
         if (!TextUtils.isEmpty(header)) {
-            String pF = com.baidu.swan.apps.aq.p.pF(header);
-            if (!TextUtils.isEmpty(pF) && (lastIndexOf = pF.lastIndexOf(".") + 1) > 0) {
-                str = pF.substring(lastIndexOf);
+            String pN = com.baidu.swan.apps.aq.p.pN(header);
+            if (!TextUtils.isEmpty(pN) && (lastIndexOf = pN.lastIndexOf(".") + 1) > 0) {
+                str = pN.substring(lastIndexOf);
             }
         } else {
             String header2 = response.header("Content-Type", null);
@@ -236,27 +236,27 @@ public class g extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
                     if (i >= length) {
                         break;
                     }
-                    String pD = com.baidu.swan.apps.aq.p.pD(split[i]);
-                    if (!TextUtils.isEmpty(pD)) {
-                        str = pD;
+                    String pL = com.baidu.swan.apps.aq.p.pL(split[i]);
+                    if (!TextUtils.isEmpty(pL)) {
+                        str = pL;
                         break;
                     }
                     i++;
                 }
             }
         }
-        return com.baidu.swan.apps.w.f.ahV().ahB().pd(cBJ.getAndIncrement() + (TextUtils.isEmpty(str) ? "" : "." + str));
+        return com.baidu.swan.apps.w.f.ajb().aiH().pl(cGt.getAndIncrement() + (TextUtils.isEmpty(str) ? "" : "." + str));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @Nullable
-    public String oa(@NonNull String str) {
+    public String oj(@NonNull String str) {
         File parentFile;
-        String pa = com.baidu.swan.apps.w.f.ahV().ahB().pa(str);
-        if (pa == null || pa.endsWith(File.separator) || (parentFile = new File(pa).getParentFile()) == null || !parentFile.exists()) {
+        String pi = com.baidu.swan.apps.w.f.ajb().aiH().pi(str);
+        if (pi == null || pi.endsWith(File.separator) || (parentFile = new File(pi).getParentFile()) == null || !parentFile.exists()) {
             return null;
         }
-        return pa;
+        return pi;
     }
 
     private String getFileExtensionFromUrl(String str) {
@@ -264,6 +264,6 @@ public class g extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
         if (TextUtils.isEmpty(str) || (parse = Uri.parse(str)) == null) {
             return null;
         }
-        return com.baidu.swan.e.d.tY(parse.getPath());
+        return com.baidu.swan.e.d.ug(parse.getPath());
     }
 }

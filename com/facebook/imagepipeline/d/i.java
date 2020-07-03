@@ -7,18 +7,18 @@ import com.facebook.imagepipeline.c.p;
 import com.facebook.imagepipeline.d.h;
 /* loaded from: classes12.dex */
 public class i {
-    private final com.facebook.common.internal.j<Boolean> mwN;
-    private final boolean mxn;
-    private final b.a mxo;
-    private final boolean mxp;
-    private final com.facebook.common.g.b mxq;
-    private final boolean mxr;
-    private final boolean mxs;
-    private final int mxt;
-    private final int mxu;
-    private boolean mxv;
-    private final boolean mxw;
-    private final c mxx;
+    private final com.facebook.common.internal.j<Boolean> mSO;
+    private final boolean mTA;
+    private final c mTB;
+    private final boolean mTr;
+    private final b.a mTs;
+    private final boolean mTt;
+    private final com.facebook.common.g.b mTu;
+    private final boolean mTv;
+    private final boolean mTw;
+    private final int mTx;
+    private final int mTy;
+    private boolean mTz;
 
     /* loaded from: classes12.dex */
     public interface c {
@@ -26,93 +26,93 @@ public class i {
     }
 
     private i(a aVar) {
-        this.mxn = aVar.mxn;
-        this.mxo = aVar.mxo;
-        this.mxp = aVar.mxp;
-        this.mxq = aVar.mxq;
-        this.mxr = aVar.mxr;
-        this.mxs = aVar.mxs;
-        this.mxt = aVar.mxt;
-        this.mxu = aVar.mxu;
-        this.mxv = aVar.mxv;
-        this.mxw = aVar.mxw;
-        if (aVar.mxx == null) {
-            this.mxx = new b();
+        this.mTr = aVar.mTr;
+        this.mTs = aVar.mTs;
+        this.mTt = aVar.mTt;
+        this.mTu = aVar.mTu;
+        this.mTv = aVar.mTv;
+        this.mTw = aVar.mTw;
+        this.mTx = aVar.mTx;
+        this.mTy = aVar.mTy;
+        this.mTz = aVar.mTz;
+        this.mTA = aVar.mTA;
+        if (aVar.mTB == null) {
+            this.mTB = new b();
         } else {
-            this.mxx = aVar.mxx;
+            this.mTB = aVar.mTB;
         }
-        this.mwN = aVar.mwN;
+        this.mSO = aVar.mSO;
     }
 
-    public boolean dzj() {
-        return this.mxr;
+    public boolean dDL() {
+        return this.mTv;
     }
 
-    public boolean dzk() {
-        return this.mxn;
+    public boolean dDM() {
+        return this.mTr;
     }
 
-    public boolean dzl() {
-        return this.mxp;
+    public boolean dDN() {
+        return this.mTt;
     }
 
-    public b.a dzm() {
-        return this.mxo;
+    public b.a dDO() {
+        return this.mTs;
     }
 
-    public com.facebook.common.g.b dzn() {
-        return this.mxq;
+    public com.facebook.common.g.b dDP() {
+        return this.mTu;
     }
 
-    public boolean dzo() {
-        return this.mxs;
+    public boolean dDQ() {
+        return this.mTw;
     }
 
-    public int dzp() {
-        return this.mxt;
+    public int dDR() {
+        return this.mTx;
     }
 
-    public int dzq() {
-        return this.mxu;
+    public int dDS() {
+        return this.mTy;
     }
 
-    public boolean dzr() {
-        return this.mxw;
+    public boolean dDT() {
+        return this.mTA;
     }
 
-    public c dzs() {
-        return this.mxx;
+    public c dDU() {
+        return this.mTB;
     }
 
-    public boolean dzt() {
-        return this.mxv;
+    public boolean dDV() {
+        return this.mTz;
     }
 
-    public com.facebook.common.internal.j<Boolean> dzu() {
-        return this.mwN;
+    public com.facebook.common.internal.j<Boolean> dDW() {
+        return this.mSO;
     }
 
     /* loaded from: classes12.dex */
     public static class a {
-        public com.facebook.common.internal.j<Boolean> mwN;
-        private b.a mxo;
-        private com.facebook.common.g.b mxq;
-        private c mxx;
-        private final h.a mxy;
-        private boolean mxn = false;
-        private boolean mxp = false;
-        private boolean mxr = false;
-        private boolean mxs = false;
-        private int mxt = 0;
-        private int mxu = 0;
-        public boolean mxv = false;
-        private boolean mxw = false;
+        public com.facebook.common.internal.j<Boolean> mSO;
+        private c mTB;
+        private final h.a mTC;
+        private b.a mTs;
+        private com.facebook.common.g.b mTu;
+        private boolean mTr = false;
+        private boolean mTt = false;
+        private boolean mTv = false;
+        private boolean mTw = false;
+        private int mTx = 0;
+        private int mTy = 0;
+        public boolean mTz = false;
+        private boolean mTA = false;
 
         public a(h.a aVar) {
-            this.mxy = aVar;
+            this.mTC = aVar;
         }
 
-        public i dzv() {
+        public i dDX() {
             return new i(this);
         }
     }

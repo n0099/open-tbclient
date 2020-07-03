@@ -5,20 +5,20 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes9.dex */
 public class ai extends PostData {
-    public static final BdUniqueId jQD = BdUniqueId.gen();
-    public com.baidu.tbadk.core.data.ar jQE;
-    public com.baidu.tbadk.core.data.ar jQF;
-    public com.baidu.tbadk.core.data.ar jQG;
+    public static final BdUniqueId kkt = BdUniqueId.gen();
+    public com.baidu.tbadk.core.data.aw kku;
+    public com.baidu.tbadk.core.data.aw kkv;
+    public com.baidu.tbadk.core.data.aw kkw;
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return jQD;
+        return kkt;
     }
 
     public boolean hasData() {
-        if (this.jQE == null || StringUtils.isNull(this.jQE.summary)) {
-            if (this.jQF == null || StringUtils.isNull(this.jQF.summary)) {
-                return (this.jQG == null || StringUtils.isNull(this.jQG.summary)) ? false : true;
+        if (this.kku == null || StringUtils.isNull(this.kku.summary)) {
+            if (this.kkv == null || StringUtils.isNull(this.kkv.summary)) {
+                return (this.kkw == null || StringUtils.isNull(this.kkw.summary)) ? false : true;
             }
             return true;
         }

@@ -5,7 +5,7 @@ import java.io.File;
 public class a {
     private static final String TAG = a.class.getSimpleName();
 
-    public static void ap(String str) {
+    public static void aq(String str) {
         File parentFile = new File(str).getParentFile();
         if (parentFile.exists()) {
             return;
@@ -13,7 +13,7 @@ public class a {
         parentFile.mkdirs();
     }
 
-    public static boolean aq(String str) {
+    public static boolean ar(String str) {
         return new File(str).delete();
     }
 }

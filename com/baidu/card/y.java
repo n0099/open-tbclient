@@ -1,14 +1,43 @@
 package com.baidu.card;
 
 import android.content.Context;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AbsThreadDataSupport;
+import com.baidu.tbadk.core.view.MultiLinkCardView;
 /* loaded from: classes8.dex */
-public class y extends am {
+public class y extends h {
+    private MultiLinkCardView aeZ;
+
     public y(Context context) {
         super(context);
+        this.aeZ = new MultiLinkCardView(context);
     }
 
-    @Override // com.baidu.card.am
-    protected com.baidu.tieba.play.operableVideoView.a ry() {
-        return new com.baidu.tieba.play.operableVideoView.d(this.mContext, this.afX);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.card.b
+    public View getView() {
+        return this.aeZ;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.card.n
+    /* renamed from: b */
+    public void D(AbsThreadDataSupport absThreadDataSupport) {
+        if (c(absThreadDataSupport) || absThreadDataSupport == null || absThreadDataSupport.aPS() == null || com.baidu.tbadk.core.util.w.isEmpty(absThreadDataSupport.aPS().aUx()) || com.baidu.tbadk.core.util.w.getCount(absThreadDataSupport.aPS().aUx()) == 1) {
+            this.aeZ.setVisibility(8);
+            return;
+        }
+        this.aeZ.aP(absThreadDataSupport.aPS().aUx());
+        this.aeZ.setVisibility(0);
+    }
+
+    @Override // com.baidu.card.o
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        this.aeZ.onChangeSkinType();
+    }
+
+    private boolean c(AbsThreadDataSupport absThreadDataSupport) {
+        return (absThreadDataSupport == null || absThreadDataSupport.aPS() == null || absThreadDataSupport.aPS().aUw() == null || absThreadDataSupport.aPS().aUw().getOptions() == null || absThreadDataSupport.aPS().aUw().getOptions().size() <= 0) ? false : true;
     }
 }

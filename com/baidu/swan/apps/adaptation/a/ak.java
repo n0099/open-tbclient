@@ -6,7 +6,7 @@ import org.json.JSONArray;
 public interface ak {
     void G(String str, int i);
 
-    ExecutorService St();
+    ExecutorService Tz();
 
     void a(String str, int i, JSONArray jSONArray);
 

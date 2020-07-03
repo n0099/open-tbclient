@@ -27,9 +27,9 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 class j implements e {
     protected JSONObject a(JSONObject jSONObject, a aVar) {
-        String eC = aVar.eC();
-        if (eC != null) {
-            jSONObject.put("_uniq", eC);
+        String eS = aVar.eS();
+        if (eS != null) {
+            jSONObject.put("_uniq", eS);
         }
         return jSONObject;
     }
@@ -40,10 +40,10 @@ class j implements e {
             throw new SecurityException("context is cleared");
         }
         try {
-            JSONObject eD = aVar.eD();
-            a(eD, aVar);
-            a(eD, context);
-            g(eD);
+            JSONObject eT = aVar.eT();
+            a(eT, aVar);
+            a(eT, context);
+            h(eT);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -63,8 +63,8 @@ class j implements e {
         }
         JSONArray jSONArray = new JSONArray();
         try {
-            Map<String, Object> f = f(list);
-            Set<String> keySet = f != null ? f.keySet() : null;
+            Map<String, Object> h = h(list);
+            Set<String> keySet = h != null ? h.keySet() : null;
             Iterator<a> it = list.iterator();
             while (true) {
                 try {
@@ -92,8 +92,8 @@ class j implements e {
                 }
             }
             if (jSONObject != null) {
-                if (f != null) {
-                    for (Map.Entry<String, Object> entry : f.entrySet()) {
+                if (h != null) {
+                    for (Map.Entry<String, Object> entry : h.entrySet()) {
                         jSONObject.put(entry.getKey(), entry.getValue());
                     }
                 }
@@ -104,7 +104,7 @@ class j implements e {
             e = e2;
         }
         if (jSONObject == null) {
-            g(jSONObject);
+            h(jSONObject);
         }
     }
 
@@ -115,7 +115,7 @@ class j implements e {
         jSONObject.put(HttpConstants.HTTP_OS_TYPE_OLD, "android");
         jSONObject.put(HttpConstants.HTTP_OS_TYPE, "android");
         jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, com.baidu.ar.f.c.getVersionCode());
-        jSONObject.put("app_id", com.baidu.ar.f.c.o(context));
+        jSONObject.put("app_id", com.baidu.ar.f.c.q(context));
         jSONObject.put("device_id", Build.MODEL);
         jSONObject.put(HttpConstants.HTTP_SYSTEM_VERSION, Build.VERSION.SDK_INT);
         jSONObject.put(HttpConstants.OS_BRAND, Build.BRAND.toLowerCase());
@@ -125,27 +125,27 @@ class j implements e {
         jSONObject.put(HttpConstants.OS_WIDTH_PIXELS, context.getResources().getDisplayMetrics().widthPixels);
         jSONObject.put(HttpConstants.OS_HEIGHT_PIXELS, context.getResources().getDisplayMetrics().heightPixels);
         jSONObject.put(HttpConstants.OS_SCALE_PDI, context.getResources().getDisplayMetrics().densityDpi);
-        long[] eY = com.baidu.ar.f.o.eY();
-        jSONObject.put(HttpConstants.OS_ROM_MEMORY, eY[0]);
-        jSONObject.put(HttpConstants.OS_ROM_AVAIL_MEMORY, eY[1]);
-        jSONObject.put(HttpConstants.OS_SDCARD_MEMORY, com.baidu.ar.f.o.eZ());
-        jSONObject.put(HttpConstants.OS_ROM_SDCARD_AVAIL_MEMORY, com.baidu.ar.f.o.fa());
-        jSONObject.put(HttpConstants.OS_RAM_MEMEORY, com.baidu.ar.f.o.x(context));
-        jSONObject.put(HttpConstants.OS_RAM_AVAIL_MEMORY, com.baidu.ar.f.o.y(context));
-        if (com.baidu.ar.f.o.z(context)) {
+        long[] fo = com.baidu.ar.f.o.fo();
+        jSONObject.put(HttpConstants.OS_ROM_MEMORY, fo[0]);
+        jSONObject.put(HttpConstants.OS_ROM_AVAIL_MEMORY, fo[1]);
+        jSONObject.put(HttpConstants.OS_SDCARD_MEMORY, com.baidu.ar.f.o.fp());
+        jSONObject.put(HttpConstants.OS_ROM_SDCARD_AVAIL_MEMORY, com.baidu.ar.f.o.fq());
+        jSONObject.put(HttpConstants.OS_RAM_MEMEORY, com.baidu.ar.f.o.z(context));
+        jSONObject.put(HttpConstants.OS_RAM_AVAIL_MEMORY, com.baidu.ar.f.o.A(context));
+        if (com.baidu.ar.f.o.B(context)) {
             jSONObject.put(HttpConstants.OS_HAS_GYROSCOPE, 1);
         } else {
             jSONObject.put(HttpConstants.OS_HAS_GYROSCOPE, 0);
         }
-        jSONObject.put(HttpConstants.OS_CPU_NAME, com.baidu.ar.f.o.fb());
-        jSONObject.put(HttpConstants.OS_CPU_NUM_CORES, com.baidu.ar.f.o.fc());
-        jSONObject.put(HttpConstants.OS_CPU_MIN_FREQ, com.baidu.ar.f.o.fd());
-        jSONObject.put(HttpConstants.OS_CPU_MAX_FREQ, com.baidu.ar.f.o.fe());
+        jSONObject.put(HttpConstants.OS_CPU_NAME, com.baidu.ar.f.o.fr());
+        jSONObject.put(HttpConstants.OS_CPU_NUM_CORES, com.baidu.ar.f.o.fs());
+        jSONObject.put(HttpConstants.OS_CPU_MIN_FREQ, com.baidu.ar.f.o.ft());
+        jSONObject.put(HttpConstants.OS_CPU_MAX_FREQ, com.baidu.ar.f.o.fu());
         jSONObject.put(HttpConstants.OS_CPU_ABI, Build.CPU_ABI);
-        jSONObject.put(HttpConstants.OS_CPU_CUR_FREQ, com.baidu.ar.f.o.ff());
+        jSONObject.put(HttpConstants.OS_CPU_CUR_FREQ, com.baidu.ar.f.o.fv());
         jSONObject.put(HttpConstants.OS_NATIVE_HEAPSIZE, (int) (Runtime.getRuntime().maxMemory() / 1048576));
         jSONObject.put(HttpConstants.OS_NATIVE_SENSOR, ((SensorManager) context.getSystemService("sensor")).getDefaultSensor(4) != null);
-        jSONObject.put(HttpConstants.NETWORK_TYPE, com.baidu.ar.f.k.t(context));
+        jSONObject.put(HttpConstants.NETWORK_TYPE, com.baidu.ar.f.k.v(context));
         if (Build.VERSION.SDK_INT < 21) {
             jSONObject.put(HttpConstants.OS_CPU_SUPPORTED_ABIS, Build.CPU_ABI);
         } else {
@@ -155,9 +155,9 @@ class j implements e {
     }
 
     protected void a(JSONObject jSONObject, Context context) {
-        UUID eV = new com.baidu.ar.f.e(context).eV();
-        String uuid = eV != null ? eV.toString() : "";
-        f(jSONObject);
+        UUID fl = new com.baidu.ar.f.e(context).fl();
+        String uuid = fl != null ? fl.toString() : "";
+        g(jSONObject);
         jSONObject.put(HttpConstants.AIP_APP_ID, DuMixARConfig.getAipAppId());
         jSONObject.put("cuid", ARConfig.getCUID());
         a(context, jSONObject);
@@ -169,8 +169,8 @@ class j implements e {
         jSONObject.put("os_version", Build.VERSION.SDK_INT);
         jSONObject.put("app_version", com.baidu.ar.f.c.getVersionCode());
         jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, com.baidu.ar.f.c.getVersionCode());
-        if (!TextUtils.isEmpty(com.baidu.ar.f.c.o(context))) {
-            jSONObject.put("app_id", com.baidu.ar.f.c.o(context));
+        if (!TextUtils.isEmpty(com.baidu.ar.f.c.q(context))) {
+            jSONObject.put("app_id", com.baidu.ar.f.c.q(context));
         }
         jSONObject.put(HttpConstants.HTTP_SYSTEM_VERSION, Build.VERSION.SDK_INT);
         jSONObject.put(HttpConstants.HTTP_HARDWARE, Build.HARDWARE);
@@ -178,34 +178,7 @@ class j implements e {
         jSONObject.put(HttpConstants.HTTP_BOARD, Build.BOARD);
     }
 
-    protected Map<String, Object> f(List<a> list) {
-        Object au;
-        HashMap hashMap = new HashMap();
-        HashMap hashMap2 = new HashMap();
-        a aVar = list.get(0);
-        ArrayList<String> arrayList = new ArrayList();
-        Iterator<String> keys = aVar.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            if (!"event_id".equals(next) && (au = aVar.au(next)) != null) {
-                hashMap.put(next, au);
-                hashMap2.put(next, au);
-                arrayList.add(next);
-            }
-        }
-        int size = list.size();
-        for (int i = 1; i < size; i++) {
-            a aVar2 = list.get(i);
-            for (String str : arrayList) {
-                if (hashMap2.containsKey(str) && !hashMap.get(str).equals(aVar2.au(str))) {
-                    hashMap2.remove(str);
-                }
-            }
-        }
-        return hashMap2;
-    }
-
-    protected void f(JSONObject jSONObject) {
+    protected void g(JSONObject jSONObject) {
         jSONObject.put(HttpConstants.AIP_APP_ID, DuMixARConfig.getAipAppId());
         jSONObject.put(HttpConstants.IS_AIP, "3");
         Object[] signatureAndTime = ARConfig.getSignatureAndTime();
@@ -213,13 +186,40 @@ class j implements e {
         jSONObject.put("timestamp", signatureAndTime[1]);
     }
 
-    protected void g(JSONObject jSONObject) {
+    protected Map<String, Object> h(List<a> list) {
+        Object av;
+        HashMap hashMap = new HashMap();
+        HashMap hashMap2 = new HashMap();
+        a aVar = list.get(0);
+        ArrayList<String> arrayList = new ArrayList();
+        Iterator<String> keys = aVar.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            if (!"event_id".equals(next) && (av = aVar.av(next)) != null) {
+                hashMap.put(next, av);
+                hashMap2.put(next, av);
+                arrayList.add(next);
+            }
+        }
+        int size = list.size();
+        for (int i = 1; i < size; i++) {
+            a aVar2 = list.get(i);
+            for (String str : arrayList) {
+                if (hashMap2.containsKey(str) && !hashMap.get(str).equals(aVar2.av(str))) {
+                    hashMap2.remove(str);
+                }
+            }
+        }
+        return hashMap2;
+    }
+
+    protected void h(JSONObject jSONObject) {
         int i;
         IHttpRequest newRequest = HttpFactory.newRequest();
         if (newRequest == null) {
             return;
         }
-        newRequest.setUrl(com.baidu.ar.f.q.fl()).setMethod("POST").setBody(jSONObject);
+        newRequest.setUrl(com.baidu.ar.f.q.fB()).setMethod("POST").setBody(jSONObject);
         IHttpResponse execute = newRequest.execute();
         String str = "";
         if (execute.isSuccess()) {

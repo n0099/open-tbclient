@@ -18,19 +18,19 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private IHttpRequest bK;
-    private ICallbackWith<String> bL;
+    private IHttpRequest bX;
+    private ICallbackWith<String> bY;
 
     private JSONObject a(Context context, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            m.f(jSONObject);
+            m.g(jSONObject);
             m.b(context, jSONObject);
             m.a(context, jSONObject);
             jSONObject.put("device_platform", "");
             jSONObject.put("os_version", Build.VERSION.SDK_INT);
             jSONObject.put(HttpConstants.DEVICE_TYPE, Build.BRAND);
-            jSONObject.put("device_id", m.u(context));
+            jSONObject.put("device_id", m.w(context));
             jSONObject.put("app_version", com.baidu.ar.f.c.getVersionCode());
             jSONObject.put("manufacture", Build.MANUFACTURER);
             jSONObject.put(HttpConstants.HTTP_HARDWARE, Build.HARDWARE);
@@ -42,7 +42,7 @@ public class e {
         return jSONObject;
     }
 
-    private boolean c(JSONObject jSONObject) {
+    private boolean d(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject == null || !jSONObject.has("common") || (optJSONObject = jSONObject.optJSONObject("common")) == null || !optJSONObject.has("cpu_score")) {
             return false;
@@ -60,7 +60,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public a q(String str) {
         if (TextUtils.isEmpty(str)) {
-            if (this.bL != null) {
+            if (this.bY != null) {
                 r("response is empty");
                 return null;
             }
@@ -71,7 +71,7 @@ public class e {
             if (jSONObject != null) {
                 int optInt = jSONObject.optInt("err_num", -1);
                 if (optInt != 0 || !jSONObject.has("data")) {
-                    if (this.bL != null) {
+                    if (this.bY != null) {
                         r("err_num: " + optInt + " " + (jSONObject.has("err_msg") ? jSONObject.getString("err_msg") : ""));
                         return null;
                     }
@@ -82,9 +82,9 @@ public class e {
                     return null;
                 }
                 a aVar = new a();
-                aVar.bC = optJSONObject.getJSONObject("classification");
-                aVar.bB = optJSONObject.optString("classification_id", "default");
-                if (!c(aVar.bC) && this.bL != null) {
+                aVar.bO = optJSONObject.getJSONObject("classification");
+                aVar.bN = optJSONObject.optString("classification_id", "default");
+                if (!d(aVar.bO) && this.bY != null) {
                     com.baidu.ar.f.b.b(TAG, str);
                     r("config format is error. see Logcat filter: " + TAG);
                 }
@@ -92,7 +92,7 @@ public class e {
             }
             return null;
         } catch (JSONException e) {
-            if (this.bL != null) {
+            if (this.bY != null) {
                 r(e.getMessage());
             }
             e.printStackTrace();
@@ -101,7 +101,7 @@ public class e {
     }
 
     private void r(String str) {
-        this.bL.run("fetch ability scheme config fail. " + str);
+        this.bY.run("fetch ability scheme config fail. " + str);
     }
 
     public void a(Context context, String str, final ICallbackWith<a> iCallbackWith) {
@@ -109,7 +109,7 @@ public class e {
         if (newRequest == null) {
             return;
         }
-        newRequest.setMethod("POST").setUrl(q.fp()).setBody(a(context, str));
+        newRequest.setMethod("POST").setUrl(q.fF()).setBody(a(context, str));
         newRequest.enqueue(new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.a.e.1
             @Override // com.baidu.ar.ihttp.a
             public void a(HttpException httpException) {
@@ -133,18 +133,18 @@ public class e {
                 }
             }
         });
-        this.bK = newRequest;
+        this.bX = newRequest;
     }
 
     public void c(ICallbackWith<String> iCallbackWith) {
-        this.bL = iCallbackWith;
+        this.bY = iCallbackWith;
     }
 
     public void cancel() {
-        this.bL = null;
-        if (this.bK != null) {
-            this.bK.cancel();
-            this.bK = null;
+        this.bY = null;
+        if (this.bX != null) {
+            this.bX.cancel();
+            this.bX = null;
         }
     }
 }

@@ -11,45 +11,45 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes11.dex */
 public abstract class CollectFragment extends BaseFragment {
-    protected boolean dyV = false;
-    private final CustomMessageListener dyW = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.collectTab.CollectFragment.1
+    protected boolean dFo = false;
+    private final CustomMessageListener dFp = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.collectTab.CollectFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                CollectFragment.this.jY(CollectFragment.this.getType());
-                if (!CollectFragment.this.dyV) {
+                CollectFragment.this.kj(CollectFragment.this.getType());
+                if (!CollectFragment.this.dFo) {
                     CollectFragment.this.p(false, CollectFragment.this.getType());
                 }
             }
         }
     };
 
-    public abstract boolean aNN();
+    public abstract boolean aPx();
 
     public abstract int getType();
 
-    public boolean aNM() {
-        return this.dyV;
+    public boolean aPw() {
+        return this.dFo;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        registerListener(this.dyW);
+        registerListener(this.dFp);
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        MessageManager.getInstance().unRegisterListener(this.dyW);
+        MessageManager.getInstance().unRegisterListener(this.dFp);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void jY(int i) {
+    public void kj(int i) {
         Bundle bundle = new Bundle();
-        this.dyV = !aNN() && j.isNetWorkAvailable();
-        bundle.putBoolean("is_enable_edit", this.dyV);
+        this.dFo = !aPx() && j.isNetWorkAvailable();
+        bundle.putBoolean("is_enable_edit", this.dFo);
         bundle.putInt("fragment_type", i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE, bundle));
     }

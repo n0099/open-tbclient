@@ -2,55 +2,55 @@ package com.baidu.ar.vo.a;
 /* loaded from: classes3.dex */
 public class b {
     private String id;
-    private int wO;
-    private String wP;
-    private int wR;
-    private String wS;
-    private int wQ = 1000;
-    private boolean wT = true;
+    private int xo;
+    private String xp;
+    private int xr;
+    private String xs;
+    private int xq = 1000;
+    private boolean xt = true;
 
-    public void I(int i) {
-        this.wO = i;
+    public void O(int i) {
+        this.xo = i;
     }
 
-    public void J(int i) {
-        this.wQ = i;
+    public void P(int i) {
+        this.xq = i;
     }
 
-    public void K(int i) {
-        this.wR = i;
+    public void Q(int i) {
+        this.xr = i;
     }
 
-    public void W(boolean z) {
-        this.wT = z;
-    }
-
-    public void aP(String str) {
-        this.wP = str;
+    public void X(boolean z) {
+        this.xt = z;
     }
 
     public void aQ(String str) {
-        this.wS = str;
+        this.xp = str;
     }
 
-    public int fA() {
-        return this.wQ;
+    public void aR(String str) {
+        this.xs = str;
     }
 
-    public int fB() {
-        return this.wR;
+    public int fO() {
+        return this.xo;
     }
 
-    public boolean fC() {
-        return this.wT;
+    public String fP() {
+        return this.xp;
     }
 
-    public int fy() {
-        return this.wO;
+    public int fQ() {
+        return this.xq;
     }
 
-    public String fz() {
-        return this.wP;
+    public int fR() {
+        return this.xr;
+    }
+
+    public boolean fS() {
+        return this.xt;
     }
 
     public String getId() {
@@ -62,6 +62,6 @@ public class b {
     }
 
     public String toString() {
-        return "SlamModel{id='" + this.id + "', placeType=" + this.wO + ", position='" + this.wP + "', distance=" + this.wQ + ", pitchAngle=" + this.wR + ", rotation='" + this.wS + "', mImmediatelyPlaceModel=" + this.wT + '}';
+        return "SlamModel{id='" + this.id + "', placeType=" + this.xo + ", position='" + this.xp + "', distance=" + this.xq + ", pitchAngle=" + this.xr + ", rotation='" + this.xs + "', mImmediatelyPlaceModel=" + this.xt + '}';
     }
 }

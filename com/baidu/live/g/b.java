@@ -6,6 +6,4 @@ public interface b {
     View getOverlayView();
 
     void setViewTouchable(boolean z);
-
-    boolean wC();
 }

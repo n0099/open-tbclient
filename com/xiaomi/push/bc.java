@@ -3,42 +3,42 @@ package com.xiaomi.push;
 public class bc {
 
     /* renamed from: a  reason: collision with other field name */
-    private static byte[] f123a;
+    private static byte[] f129a;
     private static final String a = System.getProperty("line.separator");
 
     /* renamed from: a  reason: collision with other field name */
-    private static char[] f124a = new char[64];
+    private static char[] f130a = new char[64];
 
     static {
         char c = 'A';
         int i = 0;
         while (c <= 'Z') {
-            f124a[i] = c;
+            f130a[i] = c;
             c = (char) (c + 1);
             i++;
         }
         char c2 = 'a';
         while (c2 <= 'z') {
-            f124a[i] = c2;
+            f130a[i] = c2;
             c2 = (char) (c2 + 1);
             i++;
         }
         char c3 = '0';
         while (c3 <= '9') {
-            f124a[i] = c3;
+            f130a[i] = c3;
             c3 = (char) (c3 + 1);
             i++;
         }
         int i2 = i + 1;
-        f124a[i] = '+';
+        f130a[i] = '+';
         int i3 = i2 + 1;
-        f124a[i2] = '/';
-        f123a = new byte[128];
-        for (int i4 = 0; i4 < f123a.length; i4++) {
-            f123a[i4] = -1;
+        f130a[i2] = '/';
+        f129a = new byte[128];
+        for (int i4 = 0; i4 < f129a.length; i4++) {
+            f129a[i4] = -1;
         }
         for (int i5 = 0; i5 < 64; i5++) {
-            f123a[f124a[i5]] = (byte) i5;
+            f129a[f130a[i5]] = (byte) i5;
         }
     }
 
@@ -47,7 +47,7 @@ public class bc {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m159a(String str) {
+    public static byte[] m156a(String str) {
         return a(str.toCharArray());
     }
 
@@ -93,10 +93,10 @@ public class bc {
             if (c3 > 127 || c4 > 127 || c > 127 || c2 > 127) {
                 throw new IllegalArgumentException("Illegal character in Base64 encoded data.");
             }
-            byte b = f123a[c3];
-            byte b2 = f123a[c4];
-            byte b3 = f123a[c];
-            byte b4 = f123a[c2];
+            byte b = f129a[c3];
+            byte b2 = f129a[c4];
+            byte b3 = f129a[c];
+            byte b4 = f129a[c2];
             if (b < 0 || b2 < 0 || b3 < 0 || b4 < 0) {
                 throw new IllegalArgumentException("Illegal character in Base64 encoded data.");
             }
@@ -156,12 +156,12 @@ public class bc {
             int i13 = ((i3 & 15) << 2) | (i5 >>> 6);
             int i14 = i5 & 63;
             int i15 = i8 + 1;
-            cArr[i8] = f124a[i11];
+            cArr[i8] = f130a[i11];
             int i16 = i15 + 1;
-            cArr[i15] = f124a[i12];
-            cArr[i16] = i16 < i6 ? f124a[i13] : '=';
+            cArr[i15] = f130a[i12];
+            cArr[i16] = i16 < i6 ? f130a[i13] : '=';
             int i17 = i16 + 1;
-            cArr[i17] = i17 < i6 ? f124a[i14] : '=';
+            cArr[i17] = i17 < i6 ? f130a[i14] : '=';
             i8 = i17 + 1;
             i = i4;
         }
@@ -169,6 +169,6 @@ public class bc {
     }
 
     public static String b(String str) {
-        return new String(m159a(str));
+        return new String(m156a(str));
     }
 }

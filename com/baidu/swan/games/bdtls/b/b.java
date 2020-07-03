@@ -7,53 +7,53 @@ import com.baidu.swan.games.bdtls.model.i;
 import java.io.IOException;
 /* loaded from: classes11.dex */
 public abstract class b {
-    protected boolean cVq = false;
-    protected int cVr = 0;
-    private String cVs;
+    protected boolean daa = false;
+    protected int dab = 0;
+    private String dac;
 
-    public abstract void V(byte[] bArr);
+    public abstract void X(byte[] bArr);
 
     public abstract void b(IOException iOException);
 
-    public abstract void io(int i);
+    public abstract void iz(int i);
 
-    public final String W(byte[] bArr) {
+    public final String Y(byte[] bArr) {
         String str = new String(bArr);
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
         }
-        if (this.cVq) {
-            i a = com.baidu.swan.games.bdtls.d.axM().a(e.axN().axO(), bArr);
+        if (this.daa) {
+            i a = com.baidu.swan.games.bdtls.d.ayS().a(e.ayT().ayU(), bArr);
             if (a != null) {
                 if (!TextUtils.isEmpty(a.getResponseMessage())) {
                     str = a.getResponseMessage();
                 }
-                this.cVr = a.ayL().intValue();
+                this.dab = a.azR().intValue();
             } else {
-                this.cVr = -1;
+                this.dab = -1;
             }
-            e.axN().axO().in(this.cVr);
-            if (this.cVr == -1) {
-                com.baidu.swan.games.bdtls.c.axL().setEnable(false);
+            e.ayT().ayU().iy(this.dab);
+            if (this.dab == -1) {
+                com.baidu.swan.games.bdtls.c.ayR().setEnable(false);
             }
         }
         return str;
     }
 
-    public final void rk(String str) {
-        this.cVr = 0;
-        com.baidu.swan.games.bdtls.c.axL().a(str, this);
+    public final void rs(String str) {
+        this.dab = 0;
+        com.baidu.swan.games.bdtls.c.ayR().a(str, this);
     }
 
-    public void fJ(boolean z) {
-        this.cVq = z;
+    public void fO(boolean z) {
+        this.daa = z;
     }
 
     public String getMethod() {
-        return this.cVs;
+        return this.dac;
     }
 
-    public void rl(String str) {
-        this.cVs = str;
+    public void rt(String str) {
+        this.dac = str;
     }
 }

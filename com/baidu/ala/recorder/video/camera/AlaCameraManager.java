@@ -23,11 +23,13 @@ public class AlaCameraManager implements ICameraStatusHandler {
     private static final int CAMERA_FLUSHLIGHT_OFF = 2;
     private static final int CAMERA_FLUSHLIGHT_ON = 1;
     private static final int CAMERA_FLUSHLIGHT_UNINIT = 0;
+    private static final boolean IS_OPEN_TAG = false;
     private static final int MAX_CAREMA_ERROR_COUNT = 3;
     private static final int MAX_CAREMA_ERROR_INTERVAL = 30000;
     private static final int PREVIEW_BUFFER_COUNT = 3;
     private static final int REQ_CAMERA_FPS = 30;
     private static final String SP_CAMERA_FACING = "ala_carema_is_back";
+    private static final String TAG = "LIVE_SDK_JNI";
     private static int mFlushLightStatus = 0;
     private Activity mActivity;
     private ICameraOperator mCameraOperator;
@@ -172,7 +174,6 @@ public class AlaCameraManager implements ICameraStatusHandler {
             parameters.setPreviewFormat(17);
             CameraUtils.choosePreviewSize(parameters, this.mVideoConfig.getPreviewHeight(), this.mVideoConfig.getPreviewWidth());
             CameraUtils.chooseFixedPreviewFps(parameters, 30000);
-            parameters.setRecordingHint(true);
             if (this.mIsBackCamera) {
                 if (mFlushLightStatus == 1) {
                     CameraUtils.turnLightOn(parameters);
@@ -180,8 +181,6 @@ public class AlaCameraManager implements ICameraStatusHandler {
                     CameraUtils.turnLightOff(parameters);
                 }
             }
-            CameraUtils.setVideoStabilization(parameters);
-            CameraUtils.setExposureCompensation(this.mCamera, this.mExposureCompensation);
             CameraUtils.setFocusModes(parameters);
             return parameters;
         } catch (Exception e) {

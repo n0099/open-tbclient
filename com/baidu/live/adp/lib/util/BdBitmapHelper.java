@@ -114,12 +114,15 @@ public class BdBitmapHelper {
 
     public Bitmap resizeBitmap(Bitmap bitmap, int i, int i2) {
         float f;
-        if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
+        if (i <= 0 || i2 <= 0 || bitmap == null || bitmap.isRecycled()) {
             return null;
         }
         if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
+            if (width <= 0 || height <= 0) {
+                return null;
+            }
             if (i2 / height > i / width) {
                 f = i / width;
             } else {

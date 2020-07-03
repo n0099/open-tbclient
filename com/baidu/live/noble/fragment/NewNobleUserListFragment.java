@@ -14,56 +14,56 @@ import com.baidu.live.tbadk.core.BaseFragment;
 import com.baidu.live.tbadk.log.LogConfig;
 /* loaded from: classes3.dex */
 public class NewNobleUserListFragment extends BaseFragment {
-    private String aWr;
-    private long aXA;
-    private e aXx;
-    private b aXy;
-    private com.baidu.live.noble.data.b aXz;
-    private String ayw;
+    private String aAL;
+    private String aZa;
+    private e baf;
+    private b bag;
+    private com.baidu.live.noble.data.b bah;
+    private long bai;
     private boolean mIsHost;
     private String mLiveId;
     private int mTabId;
     private Handler mHandler = new Handler();
-    private final b.a aXB = new b.a() { // from class: com.baidu.live.noble.fragment.NewNobleUserListFragment.1
+    private final b.a baj = new b.a() { // from class: com.baidu.live.noble.fragment.NewNobleUserListFragment.1
         @Override // com.baidu.live.noble.d.b.a
-        public void FC() {
-            NewNobleUserListFragment.this.FA();
+        public void Gl() {
+            NewNobleUserListFragment.this.Gj();
         }
     };
-    private final e.a aXC = new e.a() { // from class: com.baidu.live.noble.fragment.NewNobleUserListFragment.2
+    private final e.a bak = new e.a() { // from class: com.baidu.live.noble.fragment.NewNobleUserListFragment.2
         @Override // com.baidu.live.noble.c.e.a
         public void a(com.baidu.live.noble.data.b bVar) {
-            NewNobleUserListFragment.this.aXz = bVar;
-            if (NewNobleUserListFragment.this.aXy != null) {
-                NewNobleUserListFragment.this.aXy.b(bVar);
+            NewNobleUserListFragment.this.bah = bVar;
+            if (NewNobleUserListFragment.this.bag != null) {
+                NewNobleUserListFragment.this.bag.b(bVar);
             }
             if (bVar == null) {
-                NewNobleUserListFragment.this.aXA = 5L;
-                NewNobleUserListFragment.this.ao(NewNobleUserListFragment.this.aXA);
+                NewNobleUserListFragment.this.bai = 5L;
+                NewNobleUserListFragment.this.ao(NewNobleUserListFragment.this.bai);
                 return;
             }
-            if (bVar.aXN <= 0) {
-                NewNobleUserListFragment.this.aXA = 5L;
+            if (bVar.bav <= 0) {
+                NewNobleUserListFragment.this.bai = 5L;
             } else {
-                NewNobleUserListFragment.this.aXA = bVar.aXN;
+                NewNobleUserListFragment.this.bai = bVar.bav;
             }
-            NewNobleUserListFragment.this.ao(NewNobleUserListFragment.this.aXA);
+            NewNobleUserListFragment.this.ao(NewNobleUserListFragment.this.bai);
         }
 
         @Override // com.baidu.live.noble.c.e.a
         public void onFail(int i, String str) {
             BdUtilHelper.showToast(NewNobleUserListFragment.this.getPageContext().getPageActivity(), str);
-            NewNobleUserListFragment.this.aXA = 5L;
-            NewNobleUserListFragment.this.ao(NewNobleUserListFragment.this.aXA);
-            if (NewNobleUserListFragment.this.aXy != null && NewNobleUserListFragment.this.aXz == null) {
-                NewNobleUserListFragment.this.aXy.bU(true);
+            NewNobleUserListFragment.this.bai = 5L;
+            NewNobleUserListFragment.this.ao(NewNobleUserListFragment.this.bai);
+            if (NewNobleUserListFragment.this.bag != null && NewNobleUserListFragment.this.bah == null) {
+                NewNobleUserListFragment.this.bag.bW(true);
             }
         }
     };
-    private final Runnable aXD = new Runnable() { // from class: com.baidu.live.noble.fragment.NewNobleUserListFragment.3
+    private final Runnable bal = new Runnable() { // from class: com.baidu.live.noble.fragment.NewNobleUserListFragment.3
         @Override // java.lang.Runnable
         public void run() {
-            NewNobleUserListFragment.this.FA();
+            NewNobleUserListFragment.this.Gj();
         }
     };
 
@@ -71,25 +71,25 @@ public class NewNobleUserListFragment extends BaseFragment {
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         initData(bundle);
-        this.aXy = new b(getPageContext(), this.mLiveId, this.aWr, this.mIsHost);
-        this.aXy.a(this.aXB);
-        return this.aXy.getRootView();
+        this.bag = new b(getPageContext(), this.mLiveId, this.aZa, this.mIsHost);
+        this.bag.a(this.baj);
+        return this.bag.getRootView();
     }
 
     private void initData(Bundle bundle) {
-        this.aXx = new e(getPageContext(), this.aXC);
+        this.baf = new e(getPageContext(), this.bak);
         Bundle arguments = getArguments();
         if (bundle != null) {
             this.mLiveId = bundle.getString("live_id");
-            this.aWr = bundle.getString("anchor_id");
-            this.ayw = bundle.getString(LogConfig.LOG_GIFT_ID);
+            this.aZa = bundle.getString("anchor_id");
+            this.aAL = bundle.getString(LogConfig.LOG_GIFT_ID);
             this.mTabId = bundle.getInt("tab_id");
             this.mIsHost = bundle.getBoolean("is_host");
             return;
         }
         this.mLiveId = arguments.getString("live_id");
-        this.aWr = arguments.getString("anchor_id");
-        this.ayw = arguments.getString(LogConfig.LOG_GIFT_ID);
+        this.aZa = arguments.getString("anchor_id");
+        this.aAL = arguments.getString(LogConfig.LOG_GIFT_ID);
         this.mTabId = arguments.getInt("tab_id");
         this.mIsHost = arguments.getBoolean("is_host");
     }
@@ -98,17 +98,17 @@ public class NewNobleUserListFragment extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary() && isAdded()) {
-            FA();
+            Gj();
         } else {
-            FB();
+            Gk();
         }
     }
 
     @Override // android.support.v4.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.aXy != null) {
-            this.aXy.a(configuration);
+        if (this.bag != null) {
+            this.bag.a(configuration);
         }
     }
 
@@ -116,39 +116,39 @@ public class NewNobleUserListFragment extends BaseFragment {
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putString("live_id", this.mLiveId);
-        bundle.putString("anchor_id", this.aWr);
-        bundle.putString(LogConfig.LOG_GIFT_ID, this.ayw);
+        bundle.putString("anchor_id", this.aZa);
+        bundle.putString(LogConfig.LOG_GIFT_ID, this.aAL);
         bundle.putInt("tab_id", this.mTabId);
         bundle.putBoolean("is_host", this.mIsHost);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FA() {
-        if (this.aXx != null) {
-            this.aXx.at(this.aWr, this.mLiveId);
+    public void Gj() {
+        if (this.baf != null) {
+            this.baf.au(this.aZa, this.mLiveId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ao(long j) {
-        if (this.mHandler != null && this.aXD != null) {
-            this.mHandler.removeCallbacks(this.aXD);
-            this.mHandler.postDelayed(this.aXD, 1000 * j);
+        if (this.mHandler != null && this.bal != null) {
+            this.mHandler.removeCallbacks(this.bal);
+            this.mHandler.postDelayed(this.bal, 1000 * j);
         }
     }
 
-    private void FB() {
-        if (this.mHandler != null && this.aXD != null) {
-            this.mHandler.removeCallbacks(this.aXD);
+    private void Gk() {
+        if (this.mHandler != null && this.bal != null) {
+            this.mHandler.removeCallbacks(this.bal);
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.aXx != null) {
-            this.aXx.onDestroy();
+        if (this.baf != null) {
+            this.baf.onDestroy();
         }
-        FB();
+        Gk();
     }
 }

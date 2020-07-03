@@ -4,13 +4,13 @@ import android.webkit.WebView;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes2.dex */
 public interface b {
-    void B(boolean z, String str);
+    void D(boolean z, String str);
 
     boolean c(WebView webView, String str);
 
     void d(NewWriteModel.d dVar);
 
-    void dmP();
+    void drb();
 
     void onDestroy();
 

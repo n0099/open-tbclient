@@ -10,65 +10,65 @@ import com.baidu.swan.apps.w.f;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes11.dex */
 public class c {
-    private static boolean bRb = false;
+    private static boolean bVP = false;
 
-    public static void dr(boolean z) {
-        bRb = z;
+    public static void dw(boolean z) {
+        bVP = z;
     }
 
-    public static boolean VR() {
-        return bRb;
+    public static boolean WX() {
+        return bVP;
     }
 
     public static void v(String str, String str2) {
-        s(TbConfig.TMP_LOG_DIR_NAME, str, str2);
+        t(TbConfig.TMP_LOG_DIR_NAME, str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.v(str, str2);
         }
     }
 
     public static void d(String str, String str2) {
-        s("debug", str, str2);
+        t("debug", str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d(str, str2);
         }
     }
 
     public static void i(String str, String str2) {
-        s("info", str, str2);
+        t("info", str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.i(str, str2);
         }
     }
 
     public static void w(String str, String str2) {
-        s("warn", str, str2);
+        t("warn", str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.w(str, str2);
         }
     }
 
     public static void e(String str, String str2) {
-        s(BdStatsConstant.StatsType.ERROR, str, str2);
+        t(BdStatsConstant.StatsType.ERROR, str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.e(str, str2);
         }
     }
 
     public static void e(String str, String str2, Throwable th) {
-        s(BdStatsConstant.StatsType.ERROR, str, th != null ? "Exception:" + th.getMessage() + "\n" + str2 : str2);
+        t(BdStatsConstant.StatsType.ERROR, str, th != null ? "Exception:" + th.getMessage() + "\n" + str2 : str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.e(str, str2, th);
         }
     }
 
-    private static void s(String str, String str2, String str3) {
-        if (!TextUtils.isEmpty(str3) && bRb) {
+    private static void t(String str, String str2, String str3) {
+        if (!TextUtils.isEmpty(str3) && bVP) {
             StringBuilder sb = new StringBuilder();
-            String a = i.a(i.atq(), "yyyy-MM-dd HH:mm:ss");
+            String a = i.a(i.auw(), "yyyy-MM-dd HH:mm:ss");
             String fileName = getFileName();
             sb.append(a).append("  ").append(fileName).append("  ").append("line:").append(getLineNumber()).append("\n").append("module:").append(str2).append("\n").append(str3);
-            f.ahV().ahy().aN(str, sb.toString());
+            f.ajb().aiE().aP(str, sb.toString());
         }
     }
 

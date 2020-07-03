@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b implements a<JSONObject> {
-    private JSONArray cFJ = new JSONArray();
+    private JSONArray cKt = new JSONArray();
 
     public void add(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
@@ -22,7 +22,7 @@ public class b implements a<JSONObject> {
             jSONObject.put("actionId", str);
             jSONObject.put("timeStamp", String.valueOf(System.currentTimeMillis()));
             jSONObject.put("info", str2);
-            bs(jSONObject);
+            bz(jSONObject);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.w("LaunchTraceCollector", Log.getStackTraceString(e));
@@ -30,24 +30,24 @@ public class b implements a<JSONObject> {
         }
     }
 
-    public void bs(JSONObject jSONObject) {
+    public void bz(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.cFJ.put(jSONObject);
+            this.cKt.put(jSONObject);
         }
     }
 
-    public JSONObject ara() {
+    public JSONObject asg() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("launchLog", this.cFJ);
-            jSONObject.put("performance", com.baidu.swan.apps.performance.c.alv());
+            jSONObject.put("launchLog", this.cKt);
+            jSONObject.put("performance", com.baidu.swan.apps.performance.c.amB());
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e));
             }
         }
         try {
-            jSONObject.put("abtest", com.baidu.swan.apps.u.a.aeU().getRawSwitch());
+            jSONObject.put("abtest", com.baidu.swan.apps.u.a.aga().getRawSwitch());
         } catch (Exception e2) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e2));
@@ -57,6 +57,6 @@ public class b implements a<JSONObject> {
     }
 
     public void clear() {
-        this.cFJ = new JSONArray();
+        this.cKt = new JSONArray();
     }
 }

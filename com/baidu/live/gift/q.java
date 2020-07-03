@@ -5,7 +5,7 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 /* loaded from: classes3.dex */
 public class q extends HttpMessage {
-    public int aFE;
+    public int aIa;
     public String giftId;
     public String sceneFrom;
 
@@ -15,8 +15,8 @@ public class q extends HttpMessage {
 
     public void a(String str, String str2, String str3, String str4, int i, int i2, String str5) {
         this.giftId = str;
-        this.sceneFrom = com.baidu.live.utils.q.Id();
-        this.aFE = i;
+        this.sceneFrom = com.baidu.live.utils.p.Jq();
+        this.aIa = i;
         addParam("scene_from", this.sceneFrom);
         addParam(LegoListActivityConfig.ITEM_ID, str);
         addParam("item_type", str2);

@@ -20,25 +20,25 @@ import org.json.JSONObject;
 class e {
     public static void a(byte[] bArr, f fVar) {
         JSONObject jSONObject = new JSONObject(new String(a("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDn6dzi813ZXXfMIeXrxJxtVekfpxksX9N5XPh9g4D94cOvZnYL93PngexbPfGW9T7DhGnPdgRxR6Ux1pGRdTfrL9yK8nR7uCa5Va9IXbNd4T5QPpbmJ5hvmk7qg8GY8BxcC/0M+a5ylVP8bUDq50Y9Si+7g844wOCbrOkzSe920wIDAQAB".getBytes(), bArr)));
-        fVar.jl = jSONObject.getInt("authType");
-        fVar.jm = jSONObject.getInt("ignoreNetError") == 1;
-        fVar.jn = jSONObject.getInt("noAuthTip") == 1;
-        fVar.jp = jSONObject.optString("appId");
-        fVar.jq = jSONObject.optString("apiKey");
-        fVar.js = jSONObject.optInt("grantedAll", 0) == 1;
+        fVar.jC = jSONObject.getInt("authType");
+        fVar.jD = jSONObject.getInt("ignoreNetError") == 1;
+        fVar.jE = jSONObject.getInt("noAuthTip") == 1;
+        fVar.jG = jSONObject.optString("appId");
+        fVar.jH = jSONObject.optString("apiKey");
+        fVar.jJ = jSONObject.optInt("grantedAll", 0) == 1;
         JSONArray optJSONArray = jSONObject.optJSONArray(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_KEY);
         if (optJSONArray != null) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                fVar.jo.add(optJSONArray.getString(i));
+                fVar.jF.add(optJSONArray.getString(i));
             }
         }
         String optString = jSONObject.optString(Config.INPUT_DEF_PKG);
-        if (!TextUtils.isEmpty(optString) && !fVar.jo.contains(optString)) {
-            fVar.jo.add(optString);
+        if (!TextUtils.isEmpty(optString) && !fVar.jF.contains(optString)) {
+            fVar.jF.add(optString);
         }
-        if (fVar.js) {
-            fVar.jr = FeatureCodes.getAll();
+        if (fVar.jJ) {
+            fVar.jI = FeatureCodes.getAll();
             return;
         }
         JSONArray jSONArray = jSONObject.getJSONArray("features");
@@ -47,7 +47,7 @@ class e {
         for (int i2 = 0; i2 < length2; i2++) {
             arrayList.add(Integer.valueOf(jSONArray.getInt(i2)));
         }
-        fVar.jr = arrayList;
+        fVar.jI = arrayList;
     }
 
     private static byte[] a(byte[] bArr, byte[] bArr2) {
@@ -68,19 +68,19 @@ class e {
         return byteArrayOutputStream.toByteArray();
     }
 
-    public static f j(Context context) {
+    public static f l(Context context) {
         f fVar = new f();
-        byte[] k = k(context);
-        if (k != null) {
-            a(k, fVar);
+        byte[] m = m(context);
+        if (m != null) {
+            a(m, fVar);
         } else {
-            fVar.jl = 1;
-            fVar.jm = false;
+            fVar.jC = 1;
+            fVar.jD = false;
         }
         return fVar;
     }
 
-    private static byte[] k(Context context) {
+    private static byte[] m(Context context) {
         InputStream inputStream;
         Throwable th;
         ByteArrayOutputStream byteArrayOutputStream;

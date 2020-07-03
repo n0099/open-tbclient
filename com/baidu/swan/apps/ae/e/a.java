@@ -14,9 +14,9 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
     public static void O(String str, int i) {
-        File kC;
+        File kK;
         String[] list;
-        if (!TextUtils.isEmpty(str) && i >= 0 && (kC = e.kC(str)) != null && (list = kC.list()) != null && list.length > i) {
+        if (!TextUtils.isEmpty(str) && i >= 0 && (kK = e.kK(str)) != null && (list = kK.list()) != null && list.length > i) {
             List asList = Arrays.asList(list);
             try {
                 Collections.sort(asList, new Comparator<String>() { // from class: com.baidu.swan.apps.ae.e.a.1
@@ -41,7 +41,7 @@ public class a {
             for (int i2 = 0; i2 < size; i2++) {
                 if (i2 >= i) {
                     String str2 = (String) asList.get(i2);
-                    d.deleteFile(e.bh(str, str2));
+                    d.deleteFile(e.bj(str, str2));
                     m(str, Long.parseLong(str2));
                     com.baidu.swan.apps.ae.d.a.print("delete plugin name = " + str + " ; version = " + str2);
                 }
@@ -52,9 +52,9 @@ public class a {
     private static void m(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
             h hVar = new h();
-            hVar.dlx = str;
+            hVar.dqi = str;
             hVar.versionName = b.bt(j);
-            com.baidu.swan.pms.database.a.aFV().f(hVar);
+            com.baidu.swan.pms.database.a.aHb().f(hVar);
         }
     }
 }

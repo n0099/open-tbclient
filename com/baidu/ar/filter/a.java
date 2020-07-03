@@ -12,27 +12,38 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private String aB;
-    private DefaultParams c;
-    private j oF;
-    private FilterStateListener oG;
-    private HashMap<FilterNode, Boolean> oH = new HashMap<>();
-    private HashMap<FilterNode, Boolean> oI = new HashMap<>();
-    private HashMap<FilterNode, Boolean> oJ = new HashMap<>();
+    private DefaultParams d;
+    private String mCasePath;
+    private j pf;
+    private FilterStateListener pg;
+    private HashMap<FilterNode, Boolean> ph = new HashMap<>();
+    private HashMap<FilterNode, Boolean> pi = new HashMap<>();
+    private HashMap<FilterNode, Boolean> pj = new HashMap<>();
 
     public a(DefaultParams defaultParams) {
-        this.c = defaultParams;
-        if (this.oH != null) {
-            this.oH.put(FilterNode.lutFilter, false);
-            this.oH.put(FilterNode.skinFilter, false);
-            this.oH.put(FilterNode.faceFilter, false);
-            this.oH.put(FilterNode.makeupFilter, false);
+        this.d = defaultParams;
+        if (this.ph != null) {
+            this.ph.put(FilterNode.lutFilter, false);
+            this.ph.put(FilterNode.skinFilter, false);
+            this.ph.put(FilterNode.faceFilter, false);
+            this.ph.put(FilterNode.makeupFilter, false);
         }
-        if (this.oI != null) {
-            this.oI.put(FilterNode.lutFilter, true);
-            this.oI.put(FilterNode.skinFilter, Boolean.valueOf(this.c.isUseBeautyFilter()));
-            this.oI.put(FilterNode.faceFilter, Boolean.valueOf(this.c.isUseFaceFilter()));
-            this.oI.put(FilterNode.makeupFilter, Boolean.valueOf(this.c.isUseMakeupFilter()));
+        if (this.pi != null) {
+            this.pi.put(FilterNode.lutFilter, true);
+            this.pi.put(FilterNode.skinFilter, Boolean.valueOf(this.d.isUseBeautyFilter()));
+            this.pi.put(FilterNode.faceFilter, Boolean.valueOf(this.d.isUseFaceFilter()));
+            this.pi.put(FilterNode.makeupFilter, Boolean.valueOf(this.d.isUseMakeupFilter()));
+        }
+    }
+
+    private void G(int i) {
+        if (this.pf != null) {
+            h hVar = new h();
+            hVar.o("ability_common_filter");
+            hVar.setFilterName(FilterNode.faceFilter.getNodeName());
+            hVar.K("clearAllKnead");
+            hVar.s(i);
+            this.pf.a(hVar);
         }
     }
 
@@ -60,13 +71,13 @@ public class a {
     }
 
     public void a(j jVar) {
-        this.oF = jVar;
+        this.pf = jVar;
     }
 
     public synchronized void a(FilterNode filterNode, boolean z) {
         b.c("ARFilterManager", "updateAbilityState filerName = " + filterNode + " && state = " + z);
-        if (filterNode != null && this.oI != null && this.oI.containsKey(filterNode)) {
-            this.oI.put(filterNode, Boolean.valueOf(z));
+        if (filterNode != null && this.pi != null && this.pi.containsKey(filterNode)) {
+            this.pi.put(filterNode, Boolean.valueOf(z));
         }
     }
 
@@ -113,7 +124,7 @@ public class a {
         } else if (obj instanceof String) {
             hVar.L((String) obj);
         } else if (obj instanceof Integer) {
-            hVar.q(((Integer) obj).intValue());
+            hVar.s(((Integer) obj).intValue());
         } else if (!(obj instanceof float[])) {
             b.b("ARFilterManager", "updateFilter value type error!!!");
             return;
@@ -121,8 +132,8 @@ public class a {
             hVar.b((float[]) obj);
         }
         hVar.e(z);
-        if (this.oF != null) {
-            this.oF.a(hVar);
+        if (this.pf != null) {
+            this.pf.a(hVar);
         }
     }
 
@@ -138,99 +149,102 @@ public class a {
         hVar.K("is_enable");
         if (z) {
             Integer num = 1;
-            hVar.q(num.intValue());
+            hVar.s(num.intValue());
         } else {
             Integer num2 = 0;
-            hVar.q(num2.intValue());
+            hVar.s(num2.intValue());
         }
-        if (this.oF != null) {
-            this.oF.a(hVar);
+        if (this.pf != null) {
+            this.pf.a(hVar);
         }
     }
 
-    public void ae(String str) {
-        this.aB = str;
+    public void af(String str) {
+        this.mCasePath = str;
     }
 
-    public void bc() {
-        if (this.oF != null) {
-            this.oF.bc();
+    public void bq() {
+        if (this.pf != null) {
+            this.pf.bq();
         }
     }
 
     public void clearAllFilter() {
-        if (this.oF != null) {
-            h hVar = new h();
-            hVar.o("ability_common_filter");
-            hVar.setFilterName(FilterNode.faceFilter.getNodeName());
-            hVar.K("clearAllKnead");
-            hVar.q(1);
-            this.oF.a(hVar);
-        }
+        G(1);
     }
 
-    public synchronized void d(List<String> list) {
-        if (list != null) {
-            if (this.oH != null) {
-                this.oH.put(FilterNode.lutFilter, Boolean.valueOf(list.contains(FilterNode.lutFilter.getNodeName())));
-                this.oH.put(FilterNode.skinFilter, Boolean.valueOf(list.contains(FilterNode.skinFilter.getNodeName())));
-                this.oH.put(FilterNode.faceFilter, Boolean.valueOf(list.contains(FilterNode.faceFilter.getNodeName())));
-                this.oH.put(FilterNode.makeupFilter, Boolean.valueOf(list.contains(FilterNode.makeupFilter.getNodeName())));
-                b.c("ARFilterManager", "onPipelineChanged mPipelineStates = " + this.oH.toString());
+    public synchronized void dv() {
+        if (this.ph != null) {
+            this.ph.put(FilterNode.lutFilter, true);
+            this.ph.put(FilterNode.skinFilter, true);
+            this.ph.put(FilterNode.faceFilter, true);
+            this.ph.put(FilterNode.makeupFilter, true);
+            b.c("ARFilterManager", "onPipelineCreate mPipelineStates = " + this.ph.toString());
+        }
+        dw();
+    }
+
+    public void dw() {
+        boolean z = true;
+        if (this.pj != null && this.ph != null && this.pi != null) {
+            this.pj.put(FilterNode.lutFilter, Boolean.valueOf(this.ph.get(FilterNode.lutFilter).booleanValue() && this.pi.get(FilterNode.lutFilter).booleanValue()));
+            this.pj.put(FilterNode.skinFilter, Boolean.valueOf(this.ph.get(FilterNode.skinFilter).booleanValue() && this.pi.get(FilterNode.skinFilter).booleanValue()));
+            this.pj.put(FilterNode.faceFilter, Boolean.valueOf(this.ph.get(FilterNode.faceFilter).booleanValue() && this.pi.get(FilterNode.faceFilter).booleanValue()));
+            HashMap<FilterNode, Boolean> hashMap = this.pj;
+            FilterNode filterNode = FilterNode.makeupFilter;
+            if (!this.ph.get(FilterNode.makeupFilter).booleanValue() || !this.pi.get(FilterNode.makeupFilter).booleanValue()) {
+                z = false;
             }
-            dg();
+            hashMap.put(filterNode, Boolean.valueOf(z));
+            b.c("ARFilterManager", "callbackFilterStates mFilterStates = " + this.pj.toString() + " && mCasePath = " + this.mCasePath);
+        }
+        if (this.pg != null) {
+            this.pg.onFilterStateChanged(this.pj, this.mCasePath);
         }
     }
 
-    public synchronized void df() {
-        if (this.oH != null) {
-            this.oH.put(FilterNode.lutFilter, true);
-            this.oH.put(FilterNode.skinFilter, true);
-            this.oH.put(FilterNode.faceFilter, true);
-            this.oH.put(FilterNode.makeupFilter, true);
-            b.c("ARFilterManager", "onPipelineCreate mPipelineStates = " + this.oH.toString());
-        }
-        dg();
-    }
-
-    public synchronized void dg() {
-        if (this.oJ != null && this.oH != null && this.oI != null) {
-            this.oJ.put(FilterNode.lutFilter, Boolean.valueOf(this.oH.get(FilterNode.lutFilter).booleanValue() && this.oI.get(FilterNode.lutFilter).booleanValue()));
-            this.oJ.put(FilterNode.skinFilter, Boolean.valueOf(this.oH.get(FilterNode.skinFilter).booleanValue() && this.oI.get(FilterNode.skinFilter).booleanValue()));
-            this.oJ.put(FilterNode.faceFilter, Boolean.valueOf(this.oH.get(FilterNode.faceFilter).booleanValue() && this.oI.get(FilterNode.faceFilter).booleanValue()));
-            this.oJ.put(FilterNode.makeupFilter, Boolean.valueOf(this.oH.get(FilterNode.makeupFilter).booleanValue() && this.oI.get(FilterNode.makeupFilter).booleanValue()));
-            b.c("ARFilterManager", "callbackFilterStates mFilterStates = " + this.oJ.toString() + " && mCasePath = " + this.aB);
-        }
-        if (this.oG != null) {
-            this.oG.onFilterStateChanged(this.oJ, this.aB);
+    public synchronized void f(List<String> list) {
+        if (list != null) {
+            if (this.ph != null) {
+                this.ph.put(FilterNode.lutFilter, Boolean.valueOf(list.contains(FilterNode.lutFilter.getNodeName())));
+                this.ph.put(FilterNode.skinFilter, Boolean.valueOf(list.contains(FilterNode.skinFilter.getNodeName())));
+                this.ph.put(FilterNode.faceFilter, Boolean.valueOf(list.contains(FilterNode.faceFilter.getNodeName())));
+                this.ph.put(FilterNode.makeupFilter, Boolean.valueOf(list.contains(FilterNode.makeupFilter.getNodeName())));
+                b.c("ARFilterManager", "onPipelineChanged mPipelineStates = " + this.ph.toString());
+            }
+            dw();
         }
     }
 
     public synchronized void release() {
-        this.c = null;
-        this.oF = null;
-        this.oG = null;
-        if (this.oH != null) {
-            this.oH.clear();
-            this.oH = null;
+        this.d = null;
+        this.pf = null;
+        this.pg = null;
+        if (this.ph != null) {
+            this.ph.clear();
+            this.ph = null;
         }
-        if (this.oI != null) {
-            this.oI.clear();
-            this.oI = null;
+        if (this.pi != null) {
+            this.pi.clear();
+            this.pi = null;
         }
-        if (this.oJ != null) {
-            this.oJ.clear();
-            this.oJ = null;
+        if (this.pj != null) {
+            this.pj.clear();
+            this.pj = null;
         }
+    }
+
+    public void resetAllFilter() {
+        G(0);
     }
 
     public void setFilterStateListener(FilterStateListener filterStateListener) {
-        this.oG = filterStateListener;
+        this.pg = filterStateListener;
     }
 
     public String updateFilterCase(String str) {
-        if (this.oF != null) {
-            return this.oF.updateFilterCase(str);
+        if (this.pf != null) {
+            return this.pf.updateFilterCase(str);
         }
         return null;
     }

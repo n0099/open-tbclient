@@ -4,8 +4,8 @@ import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 /* loaded from: classes11.dex */
 public class j {
-    private boolean cYb;
-    private boolean cYc;
+    private boolean dcO;
+    private boolean dcP;
     @V8JavascriptField
     public long lastAccessedTime;
     @V8JavascriptField
@@ -17,19 +17,19 @@ public class j {
 
     @JavascriptInterface
     public boolean isDirectory() {
-        return this.cYb;
+        return this.dcO;
     }
 
     @JavascriptInterface
     public boolean isFile() {
-        return this.cYc;
+        return this.dcP;
     }
 
-    public void fL(boolean z) {
-        this.cYb = z;
+    public void fQ(boolean z) {
+        this.dcO = z;
     }
 
-    public void fM(boolean z) {
-        this.cYc = z;
+    public void fR(boolean z) {
+        this.dcP = z;
     }
 }

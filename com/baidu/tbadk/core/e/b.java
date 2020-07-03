@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.e;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a dKY = null;
+    private static a dRO = null;
 
     public static void q(Context context, int i) {
-        if (dKY != null) {
-            dKY.q(context, i);
+        if (dRO != null) {
+            dRO.q(context, i);
         }
     }
 
     public static void b(Context context, int i, boolean z) {
-        if (dKY != null) {
-            dKY.b(context, i, z);
+        if (dRO != null) {
+            dRO.b(context, i, z);
         }
     }
 
-    public static void dF(Context context) {
-        if (dKY != null) {
-            dKY.dF(context);
+    public static void dG(Context context) {
+        if (dRO != null) {
+            dRO.dG(context);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (dKY != null) {
-            dKY.c(context, i, z);
+        if (dRO != null) {
+            dRO.c(context, i, z);
         }
     }
 
-    public static Class<?> aTO() {
-        if (dKY == null) {
+    public static Class<?> aVG() {
+        if (dRO == null) {
             return null;
         }
-        return dKY.aTO();
+        return dRO.aVG();
     }
 
-    public static String aTP() {
-        if (dKY == null) {
+    public static String aVH() {
+        if (dRO == null) {
             return null;
         }
-        return dKY.aTP();
+        return dRO.aVH();
     }
 
     public static void a(a aVar) {
-        dKY = aVar;
+        dRO = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (dKY == null) {
+        if (dRO == null) {
             return -1;
         }
-        return dKY.getCurrentTabType();
+        return dRO.getCurrentTabType();
     }
 }

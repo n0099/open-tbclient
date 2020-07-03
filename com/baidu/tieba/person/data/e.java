@@ -1,17 +1,17 @@
 package com.baidu.tieba.person.data;
 
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class e {
-    private ArrayList<o> dJp;
-    private boolean klh = true;
+    private ArrayList<q> dQf;
+    private boolean kET = true;
 
-    public void aQ(ArrayList<o> arrayList) {
-        this.dJp = arrayList;
+    public void aR(ArrayList<q> arrayList) {
+        this.dQf = arrayList;
     }
 
-    public void sN(boolean z) {
-        this.klh = z;
+    public void tb(boolean z) {
+        this.kET = z;
     }
 }

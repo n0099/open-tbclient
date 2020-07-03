@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private int OW;
-    private int OX;
-    private boolean OY;
-    private boolean OZ;
-    private String Ok;
-    private int Pa;
-    private int Pb;
-    private boolean Pc;
-    private boolean Pd;
+    private String OO;
+    private boolean PD;
+    private int PE;
+    private int PF;
+    private boolean PG;
+    private boolean PH;
+    private int Px;
+    private int Py;
+    private boolean Pz;
 
     public l() {
-        this.Ok = null;
-        this.OW = 32768;
-        this.OX = 131072;
-        this.OY = false;
-        this.OZ = true;
-        this.Pa = 30000;
-        this.Pb = 30000;
-        this.Pc = true;
-        this.Pd = true;
-        this.Ok = null;
+        this.OO = null;
+        this.Px = 32768;
+        this.Py = 131072;
+        this.Pz = false;
+        this.PD = true;
+        this.PE = 30000;
+        this.PF = 30000;
+        this.PG = true;
+        this.PH = true;
+        this.OO = null;
     }
 
     public l(l lVar) {
-        this.Ok = null;
-        this.OW = lVar.OW;
-        this.OX = lVar.OX;
-        this.OY = lVar.OY;
-        this.OZ = lVar.OZ;
-        this.Pa = lVar.Pa;
-        this.Pb = lVar.Pb;
-        this.Pc = lVar.Pc;
-        this.Pd = lVar.Pd;
-        this.Ok = lVar.Ok;
+        this.OO = null;
+        this.Px = lVar.Px;
+        this.Py = lVar.Py;
+        this.Pz = lVar.Pz;
+        this.PD = lVar.PD;
+        this.PE = lVar.PE;
+        this.PF = lVar.PF;
+        this.PG = lVar.PG;
+        this.PH = lVar.PH;
+        this.OO = lVar.OO;
     }
 
-    public boolean mU() {
-        return this.OY;
+    public boolean nk() {
+        return this.Pz;
     }
 
-    public int mV() {
-        return this.OW;
+    public int nl() {
+        return this.Px;
     }
 
-    public int mW() {
-        return this.OX;
+    public int nm() {
+        return this.Py;
     }
 
     public boolean getTcpNoDelay() {
-        return this.OZ;
+        return this.PD;
     }
 
-    public int mX() {
-        return this.Pa;
+    public int nn() {
+        return this.PE;
     }
 
-    public int mY() {
-        return this.Pb;
+    public int no() {
+        return this.PF;
     }
 
-    public boolean mZ() {
-        return this.Pc;
+    public boolean np() {
+        return this.PG;
     }
 
-    public boolean na() {
-        return this.Pd;
+    public boolean nq() {
+        return this.PH;
     }
 
-    public String nb() {
-        return this.Ok;
+    public String nr() {
+        return this.OO;
     }
 
-    public void cd(String str) {
-        this.Ok = str;
+    public void ce(String str) {
+        this.OO = str;
     }
 }

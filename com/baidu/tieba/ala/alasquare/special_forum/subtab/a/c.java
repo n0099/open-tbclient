@@ -3,25 +3,25 @@ package com.baidu.tieba.ala.alasquare.special_forum.subtab.a;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.aa;
+import com.baidu.adp.widget.ListView.ad;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.e> {
-    private a fjL;
+    private a fuY;
 
     public c(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.fjL = new a(getView());
+        this.fuY = new a(getView());
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        am.setViewTextColor(this.fjL.textView, (int) R.color.cp_cont_d);
-        am.setBackgroundColor(this.fjL.dJr, R.color.cp_bg_line_c);
+        an.setViewTextColor(this.fuY.textView, (int) R.color.cp_cont_d);
+        an.setBackgroundColor(this.fuY.dQh, R.color.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -39,16 +39,16 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     }
 
     /* loaded from: classes3.dex */
-    public static class a extends aa.a {
-        public View dJr;
-        public View dex;
+    public static class a extends ad.a {
+        public View dQh;
+        public View djj;
         public TextView textView;
 
         public a(View view) {
             super(view);
-            this.dex = view;
-            this.textView = (TextView) this.dex.findViewById(R.id.tv_empty);
-            this.dJr = this.dex.findViewById(R.id.devider_line);
+            this.djj = view;
+            this.textView = (TextView) this.djj.findViewById(R.id.tv_empty);
+            this.dQh = this.djj.findViewById(R.id.devider_line);
         }
     }
 }

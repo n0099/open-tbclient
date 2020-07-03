@@ -8,79 +8,79 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class e {
-    private final List<String> Dj;
+    private final List<String> DM;
     @Nullable
-    private f Dk;
+    private f DN;
 
     public e(String... strArr) {
-        this.Dj = Arrays.asList(strArr);
+        this.DM = Arrays.asList(strArr);
     }
 
     private e(e eVar) {
-        this.Dj = new ArrayList(eVar.Dj);
-        this.Dk = eVar.Dk;
+        this.DM = new ArrayList(eVar.DM);
+        this.DN = eVar.DN;
     }
 
     @CheckResult
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public e be(String str) {
+    public e bf(String str) {
         e eVar = new e(this);
-        eVar.Dj.add(str);
+        eVar.DM.add(str);
         return eVar;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public e a(f fVar) {
         e eVar = new e(this);
-        eVar.Dk = fVar;
+        eVar.DN = fVar;
         return eVar;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f hH() {
-        return this.Dk;
+    public f hX() {
+        return this.DN;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean g(String str, int i) {
-        if (bf(str)) {
+        if (bg(str)) {
             return true;
         }
-        if (i >= this.Dj.size()) {
+        if (i >= this.DM.size()) {
             return false;
         }
-        return this.Dj.get(i).equals(str) || this.Dj.get(i).equals("**") || this.Dj.get(i).equals("*");
+        return this.DM.get(i).equals(str) || this.DM.get(i).equals("**") || this.DM.get(i).equals("*");
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int h(String str, int i) {
-        if (bf(str)) {
+        if (bg(str)) {
             return 0;
         }
-        if (this.Dj.get(i).equals("**")) {
-            return (i != this.Dj.size() + (-1) && this.Dj.get(i + 1).equals(str)) ? 2 : 0;
+        if (this.DM.get(i).equals("**")) {
+            return (i != this.DM.size() + (-1) && this.DM.get(i + 1).equals(str)) ? 2 : 0;
         }
         return 1;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean i(String str, int i) {
-        if (i >= this.Dj.size()) {
+        if (i >= this.DM.size()) {
             return false;
         }
-        boolean z = i == this.Dj.size() + (-1);
-        String str2 = this.Dj.get(i);
+        boolean z = i == this.DM.size() + (-1);
+        String str2 = this.DM.get(i);
         if (!str2.equals("**")) {
-            return (z || (i == this.Dj.size() + (-2) && hI())) && (str2.equals(str) || str2.equals("*"));
+            return (z || (i == this.DM.size() + (-2) && hY())) && (str2.equals(str) || str2.equals("*"));
         }
-        if (!z && this.Dj.get(i + 1).equals(str)) {
-            return i == this.Dj.size() + (-2) || (i == this.Dj.size() + (-3) && hI());
+        if (!z && this.DM.get(i + 1).equals(str)) {
+            return i == this.DM.size() + (-2) || (i == this.DM.size() + (-3) && hY());
         } else if (z) {
             return true;
         } else {
-            if (i + 1 >= this.Dj.size() - 1) {
-                return this.Dj.get(i + 1).equals(str);
+            if (i + 1 >= this.DM.size() - 1) {
+                return this.DM.get(i + 1).equals(str);
             }
             return false;
         }
@@ -91,18 +91,18 @@ public class e {
         if (str.equals("__container")) {
             return true;
         }
-        return i < this.Dj.size() + (-1) || this.Dj.get(i).equals("**");
+        return i < this.DM.size() + (-1) || this.DM.get(i).equals("**");
     }
 
-    private boolean bf(String str) {
+    private boolean bg(String str) {
         return str.equals("__container");
     }
 
-    private boolean hI() {
-        return this.Dj.get(this.Dj.size() - 1).equals("**");
+    private boolean hY() {
+        return this.DM.get(this.DM.size() - 1).equals("**");
     }
 
     public String toString() {
-        return "KeyPath{keys=" + this.Dj + ",resolved=" + (this.Dk != null) + '}';
+        return "KeyPath{keys=" + this.DM + ",resolved=" + (this.DN != null) + '}';
     }
 }

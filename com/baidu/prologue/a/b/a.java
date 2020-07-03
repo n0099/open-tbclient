@@ -6,69 +6,69 @@ import android.support.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
 public interface a {
-    public static final AtomicReference<a> bzx = new AtomicReference<>();
+    public static final AtomicReference<a> bEl = new AtomicReference<>();
 
     @NonNull
-    String NA();
+    String OA();
 
     @NonNull
-    String NB();
+    String OB();
 
     @NonNull
-    String NC();
-
-    boolean ND();
+    String OC();
 
     @NonNull
-    String NE();
+    String OD();
 
-    boolean NF();
+    @NonNull
+    String OE();
 
-    String NG();
+    @NonNull
+    String OF();
 
-    String NH();
+    @NonNull
+    String OG();
 
-    String[] NI();
+    @NonNull
+    String OH();
 
-    String NJ();
+    @NonNull
+    String OI();
 
-    String NK();
+    boolean OJ();
+
+    @NonNull
+    String OK();
+
+    boolean OL();
+
+    String OM();
+
+    String ON();
+
+    String[] OO();
+
+    String OP();
+
+    String OQ();
 
     @IdRes
-    int NL();
+    int OR();
 
     @IdRes
-    int NM();
+    int OS();
 
     @IdRes
-    int NN();
+    int OT();
 
-    String NO();
+    String OU();
 
-    int NP();
+    int OV();
 
-    String NQ();
-
-    @NonNull
-    Context Nt();
+    String OW();
 
     @NonNull
-    String Nu();
-
-    @NonNull
-    String Nv();
-
-    @NonNull
-    String Nw();
-
-    @NonNull
-    String Nx();
-
-    @NonNull
-    String Ny();
-
-    @NonNull
-    String Nz();
+    Context Oz();
 
     boolean a(String str, com.baidu.prologue.c.b bVar);
 
@@ -76,7 +76,7 @@ public interface a {
     String androidId();
 
     @NonNull
-    String pC();
+    String pT();
 
     @NonNull
     String userAgent();

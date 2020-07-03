@@ -34,7 +34,7 @@ public class b extends com.baidu.swan.b.d.a {
                     jSONObject3.put("versionName", packageInfo.versionName);
                     jSONObject3.put("versionCode", packageInfo.versionCode);
                     jSONObject2.put("data", jSONObject3);
-                    bVar.aa(jSONObject2);
+                    bVar.ah(jSONObject2);
                 } else {
                     bVar.onFail(31016, "no package info");
                 }

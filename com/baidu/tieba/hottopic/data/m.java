@@ -1,0 +1,28 @@
+package com.baidu.tieba.hottopic.data;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.q;
+/* loaded from: classes8.dex */
+public class m implements q {
+    public static final BdUniqueId iEM = BdUniqueId.gen();
+    public String dIO;
+    public long fid;
+    public String fname;
+    public String iDE;
+    private boolean iEN = false;
+    public long iEO;
+    public long postId;
+    public long replyNum;
+    public String summary;
+    public String tid;
+    public String title;
+
+    @Override // com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return iEM;
+    }
+
+    public boolean clQ() {
+        return this.iEN;
+    }
+}

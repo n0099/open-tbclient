@@ -9,15 +9,15 @@ public class DH {
 
     private static native byte[] getSecretKey(int i, int i2, int i3);
 
-    public static int auU() {
+    public static int awa() {
         return getSecret();
     }
 
-    public static int auV() {
+    public static int awb() {
         return getGroupId();
     }
 
-    public static int am(int i, int i2) {
+    public static int ao(int i, int i2) {
         return getPublicKey(i, i2);
     }
 

@@ -9,30 +9,30 @@ import java.io.OutputStream;
 public class a {
     protected int height;
     protected Bitmap image;
-    protected int kit;
-    protected OutputStream kiv;
-    protected byte[] kiw;
-    protected byte[] kix;
-    protected int kiy;
-    protected byte[] kiz;
+    protected int kCf;
+    protected OutputStream kCh;
+    protected byte[] kCi;
+    protected byte[] kCj;
+    protected int kCk;
+    protected byte[] kCl;
     protected int width;
     protected int x = 0;
     protected int y = 0;
     protected int transparent = -1;
-    protected int kiu = -1;
+    protected int kCg = -1;
     protected int delay = 0;
     protected boolean started = false;
-    protected boolean[] kiA = new boolean[256];
-    protected int kiB = 7;
-    protected int kiC = -1;
-    protected boolean kiD = false;
-    protected boolean kiE = true;
-    protected boolean kiF = false;
-    protected int kiG = 10;
+    protected boolean[] kCm = new boolean[256];
+    protected int kCn = 7;
+    protected int kCo = -1;
+    protected boolean kCp = false;
+    protected boolean kCq = true;
+    protected boolean kCr = false;
+    protected int kCs = 10;
 
-    public void Ba(int i) {
+    public void Cc(int i) {
         if (i >= 0) {
-            this.kiu = i;
+            this.kCg = i;
         }
     }
 
@@ -41,54 +41,54 @@ public class a {
             return false;
         }
         try {
-            if (!this.kiF) {
+            if (!this.kCr) {
                 setSize(bitmap.getWidth(), bitmap.getHeight());
             }
             this.image = bitmap;
-            cMI();
-            cMH();
-            if (this.kiE) {
-                cML();
-                cMN();
-                if (this.kiu >= 0) {
-                    cMM();
+            cQZ();
+            cQY();
+            if (this.kCq) {
+                cRc();
+                cRe();
+                if (this.kCg >= 0) {
+                    cRd();
                 }
             }
-            cMJ();
-            cMK();
-            if (!this.kiE) {
-                cMN();
+            cRa();
+            cRb();
+            if (!this.kCq) {
+                cRe();
             }
-            cMO();
-            this.kiE = false;
+            cRf();
+            this.kCq = false;
             return true;
         } catch (IOException e) {
             return false;
         }
     }
 
-    public boolean cMG() {
+    public boolean cQX() {
         boolean z;
         if (this.started) {
             this.started = false;
             try {
-                this.kiv.write(59);
-                this.kiv.flush();
-                if (this.kiD) {
-                    this.kiv.close();
+                this.kCh.write(59);
+                this.kCh.flush();
+                if (this.kCp) {
+                    this.kCh.close();
                 }
                 z = true;
             } catch (IOException e) {
                 z = false;
             }
-            this.kit = 0;
-            this.kiv = null;
+            this.kCf = 0;
+            this.kCh = null;
             this.image = null;
-            this.kiw = null;
-            this.kix = null;
-            this.kiz = null;
-            this.kiD = false;
-            this.kiE = true;
+            this.kCi = null;
+            this.kCj = null;
+            this.kCl = null;
+            this.kCp = false;
+            this.kCq = true;
             return z;
         }
         return false;
@@ -103,7 +103,7 @@ public class a {
         if (this.height < 1) {
             this.height = 240;
         }
-        this.kiF = true;
+        this.kCr = true;
     }
 
     public boolean b(OutputStream outputStream) {
@@ -111,8 +111,8 @@ public class a {
             return false;
         }
         boolean z = true;
-        this.kiD = false;
-        this.kiv = outputStream;
+        this.kCp = false;
+        this.kCh = outputStream;
         try {
             writeString("GIF89a");
         } catch (IOException e) {
@@ -122,56 +122,56 @@ public class a {
         return z;
     }
 
-    protected void cMH() {
-        int length = this.kiw.length;
+    protected void cQY() {
+        int length = this.kCi.length;
         int i = length / 3;
-        this.kix = new byte[i];
-        c cVar = new c(this.kiw, length, this.kiG);
-        this.kiz = cVar.cMU();
-        for (int i2 = 0; i2 < this.kiz.length; i2 += 3) {
-            byte b = this.kiz[i2];
-            this.kiz[i2] = this.kiz[i2 + 2];
-            this.kiz[i2 + 2] = b;
-            this.kiA[i2 / 3] = false;
+        this.kCj = new byte[i];
+        c cVar = new c(this.kCi, length, this.kCs);
+        this.kCl = cVar.cRl();
+        for (int i2 = 0; i2 < this.kCl.length; i2 += 3) {
+            byte b = this.kCl[i2];
+            this.kCl[i2] = this.kCl[i2 + 2];
+            this.kCl[i2 + 2] = b;
+            this.kCm[i2 / 3] = false;
         }
         int i3 = 0;
         for (int i4 = 0; i4 < i; i4++) {
             int i5 = i3 + 1;
             int i6 = i5 + 1;
             i3 = i6 + 1;
-            int V = cVar.V(this.kiw[i3] & 255, this.kiw[i5] & 255, this.kiw[i6] & 255);
-            this.kiA[V] = true;
-            this.kix[i4] = (byte) V;
+            int V = cVar.V(this.kCi[i3] & 255, this.kCi[i5] & 255, this.kCi[i6] & 255);
+            this.kCm[V] = true;
+            this.kCj[i4] = (byte) V;
         }
-        this.kiw = null;
-        this.kiy = 8;
-        this.kiB = 7;
+        this.kCi = null;
+        this.kCk = 8;
+        this.kCn = 7;
         if (this.transparent != -1) {
-            this.kit = Bb(this.transparent);
+            this.kCf = Cd(this.transparent);
         }
     }
 
-    protected int Bb(int i) {
+    protected int Cd(int i) {
         int i2;
         int i3 = 0;
-        if (this.kiz == null) {
+        if (this.kCl == null) {
             return -1;
         }
         int i4 = (i >> 16) & 255;
         int i5 = (i >> 8) & 255;
         int i6 = (i >> 0) & 255;
         int i7 = 16777216;
-        int length = this.kiz.length;
+        int length = this.kCl.length;
         int i8 = 0;
         while (i3 < length) {
             int i9 = i3 + 1;
-            int i10 = i4 - (this.kiz[i3] & 255);
+            int i10 = i4 - (this.kCl[i3] & 255);
             int i11 = i9 + 1;
-            int i12 = i5 - (this.kiz[i9] & 255);
-            int i13 = i6 - (this.kiz[i11] & 255);
+            int i12 = i5 - (this.kCl[i9] & 255);
+            int i13 = i6 - (this.kCl[i11] & 255);
             int i14 = (i10 * i10) + (i12 * i12) + (i13 * i13);
             int i15 = i11 / 3;
-            if (!this.kiA[i15] || i14 >= i7) {
+            if (!this.kCm[i15] || i14 >= i7) {
                 i14 = i7;
                 i2 = i8;
             } else {
@@ -184,7 +184,7 @@ public class a {
         return i8;
     }
 
-    protected void cMI() {
+    protected void cQZ() {
         int width = this.image.getWidth();
         int height = this.image.getHeight();
         if (width != this.width || height != this.height) {
@@ -193,14 +193,14 @@ public class a {
             this.image = createBitmap;
         }
         int[] F = F(this.image);
-        this.kiw = new byte[F.length * 3];
+        this.kCi = new byte[F.length * 3];
         for (int i = 0; i < F.length; i++) {
             int i2 = F[i];
             int i3 = i * 3;
             int i4 = i3 + 1;
-            this.kiw[i3] = (byte) ((i2 >> 0) & 255);
-            this.kiw[i4] = (byte) ((i2 >> 8) & 255);
-            this.kiw[i4 + 1] = (byte) ((i2 >> 16) & 255);
+            this.kCi[i3] = (byte) ((i2 >> 0) & 255);
+            this.kCi[i4] = (byte) ((i2 >> 8) & 255);
+            this.kCi[i4 + 1] = (byte) ((i2 >> 16) & 255);
         }
     }
 
@@ -212,12 +212,12 @@ public class a {
         return iArr;
     }
 
-    protected void cMJ() throws IOException {
+    protected void cRa() throws IOException {
         int i;
         int i2;
-        this.kiv.write(33);
-        this.kiv.write(249);
-        this.kiv.write(4);
+        this.kCh.write(33);
+        this.kCh.write(249);
+        this.kCh.write(4);
         if (this.transparent == -1) {
             i2 = 0;
             i = 0;
@@ -225,67 +225,67 @@ public class a {
             i = 1;
             i2 = 2;
         }
-        if (this.kiC >= 0) {
-            i2 = this.kiC & 7;
+        if (this.kCo >= 0) {
+            i2 = this.kCo & 7;
         }
-        this.kiv.write((i2 << 2) | 0 | 0 | i);
+        this.kCh.write((i2 << 2) | 0 | 0 | i);
         writeShort(this.delay);
-        this.kiv.write(this.kit);
-        this.kiv.write(0);
+        this.kCh.write(this.kCf);
+        this.kCh.write(0);
     }
 
-    protected void cMK() throws IOException {
-        this.kiv.write(44);
+    protected void cRb() throws IOException {
+        this.kCh.write(44);
         writeShort(this.x);
         writeShort(this.y);
         writeShort(this.width);
         writeShort(this.height);
-        if (this.kiE) {
-            this.kiv.write(0);
+        if (this.kCq) {
+            this.kCh.write(0);
         } else {
-            this.kiv.write(this.kiB | 128);
+            this.kCh.write(this.kCn | 128);
         }
     }
 
-    protected void cML() throws IOException {
+    protected void cRc() throws IOException {
         writeShort(this.width);
         writeShort(this.height);
-        this.kiv.write(this.kiB | 240);
-        this.kiv.write(0);
-        this.kiv.write(0);
+        this.kCh.write(this.kCn | 240);
+        this.kCh.write(0);
+        this.kCh.write(0);
     }
 
-    protected void cMM() throws IOException {
-        this.kiv.write(33);
-        this.kiv.write(255);
-        this.kiv.write(11);
+    protected void cRd() throws IOException {
+        this.kCh.write(33);
+        this.kCh.write(255);
+        this.kCh.write(11);
         writeString("NETSCAPE2.0");
-        this.kiv.write(3);
-        this.kiv.write(1);
-        writeShort(this.kiu);
-        this.kiv.write(0);
+        this.kCh.write(3);
+        this.kCh.write(1);
+        writeShort(this.kCg);
+        this.kCh.write(0);
     }
 
-    protected void cMN() throws IOException {
-        this.kiv.write(this.kiz, 0, this.kiz.length);
-        int length = 768 - this.kiz.length;
+    protected void cRe() throws IOException {
+        this.kCh.write(this.kCl, 0, this.kCl.length);
+        int length = 768 - this.kCl.length;
         for (int i = 0; i < length; i++) {
-            this.kiv.write(0);
+            this.kCh.write(0);
         }
     }
 
-    protected void cMO() throws IOException {
-        new b(this.width, this.height, this.kix, this.kiy).encode(this.kiv);
+    protected void cRf() throws IOException {
+        new b(this.width, this.height, this.kCj, this.kCk).encode(this.kCh);
     }
 
     protected void writeShort(int i) throws IOException {
-        this.kiv.write(i & 255);
-        this.kiv.write((i >> 8) & 255);
+        this.kCh.write(i & 255);
+        this.kCh.write((i >> 8) & 255);
     }
 
     protected void writeString(String str) throws IOException {
         for (int i = 0; i < str.length(); i++) {
-            this.kiv.write((byte) str.charAt(i));
+            this.kCh.write((byte) str.charAt(i));
         }
     }
 }

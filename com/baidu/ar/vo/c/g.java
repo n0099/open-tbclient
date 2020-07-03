@@ -14,37 +14,37 @@ import java.util.HashMap;
 public class g implements d {
     private int mPreviewHeight;
     private int mPreviewWidth;
-    private com.baidu.ar.vo.a.b xn;
-    private com.baidu.ar.vo.b.a xo;
-    private j xp;
-    private com.baidu.ar.vo.a xq;
-    private boolean xr = true;
-    private int xs = 0;
-    private volatile Runnable xt;
+    private com.baidu.ar.vo.a.b xN;
+    private com.baidu.ar.vo.b.a xO;
+    private j xP;
+    private com.baidu.ar.vo.a xQ;
+    private boolean xR = true;
+    private int xS = 0;
+    private volatile Runnable xT;
 
     public g(j jVar, com.baidu.ar.vo.a.b bVar, com.baidu.ar.vo.b.a aVar, com.baidu.ar.vo.a aVar2) {
-        this.xp = jVar;
-        this.xn = bVar;
-        this.xo = aVar;
-        this.xq = aVar2;
+        this.xP = jVar;
+        this.xN = bVar;
+        this.xO = aVar;
+        this.xQ = aVar2;
     }
 
-    private boolean fK() {
-        if (this.xs == 0) {
-            this.xs = this.xp.isDriverdByARPVersion() ? 1 : -1;
+    private boolean ga() {
+        if (this.xS == 0) {
+            this.xS = this.xP.isDriverdByARPVersion() ? 1 : -1;
         }
-        return this.xs == 1;
+        return this.xS == 1;
     }
 
-    private void g(int i, int i2) {
+    private void h(int i, int i2) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", 4101);
         hashMap.put("guideDirection", Integer.valueOf(i2));
         hashMap.put("switchGuide", Integer.valueOf(i));
-        this.xq.d(hashMap);
+        this.xQ.d(hashMap);
     }
 
-    private float[] r(float[] fArr) {
+    private float[] s(float[] fArr) {
         if (fArr == null || fArr.length != 16) {
             return null;
         }
@@ -72,7 +72,7 @@ public class g implements d {
         if (bVar == null) {
             return;
         }
-        if (bVar.xm) {
+        if (bVar.xM) {
             int[] b = b(bVar.x, bVar.y);
             f = b[1];
             f2 = b[0];
@@ -81,26 +81,26 @@ public class g implements d {
             f = bVar.y;
             f2 = f3;
         }
-        String a = a(this.xn);
+        String a = a(this.xN);
         if (bVar.type == 3) {
-            this.xo.fD();
-            a(a, (int) f2, (int) f, null, (int) bVar.xl);
-            this.xt = new Runnable() { // from class: com.baidu.ar.vo.c.g.1
+            this.xO.fT();
+            a(a, (int) f2, (int) f, null, (int) bVar.xL);
+            this.xT = new Runnable() { // from class: com.baidu.ar.vo.c.g.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (g.this.xp != null) {
-                        g.this.xp.sceneRotateToCamera();
+                    if (g.this.xP != null) {
+                        g.this.xP.sceneRotateToCamera();
                     }
                 }
             };
         } else if (bVar.type == 2) {
-            this.xo.fD();
-            a(a, (int) f2, (int) f, null, (int) bVar.xl);
-            this.xt = new Runnable() { // from class: com.baidu.ar.vo.c.g.2
+            this.xO.fT();
+            a(a, (int) f2, (int) f, null, (int) bVar.xL);
+            this.xT = new Runnable() { // from class: com.baidu.ar.vo.c.g.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (g.this.xp != null) {
-                        g.this.xp.sceneWorldPositionToOrigin();
+                    if (g.this.xP != null) {
+                        g.this.xP.sceneWorldPositionToOrigin();
                     }
                 }
             };
@@ -109,8 +109,8 @@ public class g implements d {
 
     @Override // com.baidu.ar.vo.c.d
     public void a(String str, int i, int i2, float[] fArr, float f) {
-        if (this.xo != null) {
-            this.xo.insertModel(str, i, i2, fArr, f);
+        if (this.xO != null) {
+            this.xO.insertModel(str, i, i2, fArr, f);
         }
     }
 
@@ -128,54 +128,54 @@ public class g implements d {
     }
 
     @Override // com.baidu.ar.vo.c.d
-    public void fG() {
-        g(1, 0);
+    public void fW() {
+        h(1, 0);
     }
 
     @Override // com.baidu.ar.vo.c.d
-    public void fH() {
-        g(1, 1);
+    public void fX() {
+        h(1, 1);
     }
 
     @Override // com.baidu.ar.vo.c.d
-    public void fI() {
-        g(0, 1);
+    public void fY() {
+        h(0, 1);
     }
 
     @Override // com.baidu.ar.vo.c.d
-    public void fJ() {
-        this.xp.i(true);
+    public void fZ() {
+        this.xP.h(true);
     }
 
     @Override // com.baidu.ar.vo.c.d
-    public void q(float[] fArr) {
-        if (this.xp == null || fArr == null || fArr.length != 16) {
+    public void r(float[] fArr) {
+        if (this.xP == null || fArr == null || fArr.length != 16) {
             return;
         }
-        if (this.xt != null) {
-            this.xt.run();
-            this.xt = null;
+        if (this.xT != null) {
+            this.xT.run();
+            this.xT = null;
         }
-        this.xp.b(ARPScriptEnvironment.KEY_DATA_PIP_SLAM, fArr);
-        if (this.xr) {
-            this.xr = false;
-            this.xq.b(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, null);
+        this.xP.b(ARPScriptEnvironment.KEY_DATA_PIP_SLAM, fArr);
+        if (this.xR) {
+            this.xR = false;
+            this.xQ.b(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, null);
         }
-        if (fK()) {
-            fArr = r(fArr);
+        if (ga()) {
+            fArr = s(fArr);
         }
         k kVar = new k();
         kVar.o("ability_vo");
         kVar.setMatrix(fArr);
-        this.xp.a(kVar);
+        this.xP.a(kVar);
     }
 
     @Override // com.baidu.ar.vo.c.d
     public void release() {
-        this.xo = null;
-        this.xt = null;
-        this.xp = null;
-        this.xq = null;
+        this.xO = null;
+        this.xT = null;
+        this.xP = null;
+        this.xQ = null;
     }
 
     public void setPreviewSize(int i, int i2) {

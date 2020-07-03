@@ -2,23 +2,23 @@ package com.baidu.tbadk.BdToken.completeTask;
 
 import android.support.annotation.Nullable;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ar;
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    public static void aA(int i, int i2) {
-        new an("c13317").ag("obj_source", i).ag("obj_type", i2).aUT();
+    public static void aC(int i, int i2) {
+        new ao("c13317").ag("obj_source", i).ag("obj_type", i2).aWN();
     }
 
-    public static void aB(int i, int i2) {
-        new an("c13318").ag("obj_source", i).ag("obj_type", i2).aUT();
+    public static void aD(int i, int i2) {
+        new ao("c13318").ag("obj_source", i).ag("obj_type", i2).aWN();
     }
 
     public static JSONObject a(@Nullable JSONObject jSONObject, int i, int i2, String str) {
-        if (i != 0 && i2 != 0 && !aq.isEmpty(str)) {
+        if (i != 0 && i2 != 0 && !ar.isEmpty(str)) {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }

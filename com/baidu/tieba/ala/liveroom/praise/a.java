@@ -11,20 +11,20 @@ import com.baidu.tieba.ala.liveroom.operation.b;
 import com.baidu.tieba.ala.liveroom.praise.DetailPraiseView;
 /* loaded from: classes3.dex */
 public class a {
-    private DetailPraiseView gcY;
-    private b gcZ;
-    private boolean gda;
+    private DetailPraiseView gpS;
+    private b gpT;
+    private boolean gpU;
     private TbPageContext mTbPageContext;
     private String otherParams;
-    private DetailPraiseView.a gdb = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
+    private DetailPraiseView.a gpV = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
         @Override // com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.a
-        public void bFU() {
-            if (a.this.gcZ != null) {
-                a.this.gcZ.l(a.this.gcY, 12);
+        public void bIZ() {
+            if (a.this.gpT != null) {
+                a.this.gpT.l(a.this.gpS, 12);
             }
         }
     };
-    private CustomMessageListener foe = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.praise.a.2
+    private CustomMessageListener fzr = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.praise.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,60 +40,60 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.foe.setTag(this.mTbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.foe);
+        this.fzr.setTag(this.mTbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.fzr);
     }
 
     public void b(b bVar) {
-        this.gcZ = bVar;
+        this.gpT = bVar;
     }
 
-    public void ll(boolean z) {
-        if (this.gda && z) {
+    public void lt(boolean z) {
+        if (this.gpU && z) {
             z = false;
         }
-        if (this.gcY != null) {
-            this.gcY.setShowPraise(z);
+        if (this.gpS != null) {
+            this.gpS.setShowPraise(z);
         }
     }
 
-    public void lm(boolean z) {
-        this.gda = z;
+    public void lu(boolean z) {
+        this.gpU = z;
     }
 
     public void setPraiseEnable(boolean z) {
-        if (this.gda && z) {
+        if (this.gpU && z) {
             z = false;
         }
-        if (this.gcY != null) {
-            this.gcY.setPraiseEnable(z);
+        if (this.gpS != null) {
+            this.gpS.setPraiseEnable(z);
         }
     }
 
-    public void au(ViewGroup viewGroup) {
+    public void ax(ViewGroup viewGroup) {
         if (viewGroup != null && this.mTbPageContext != null) {
-            if (this.gcY == null) {
-                this.gcY = new DetailPraiseView(this.mTbPageContext.getPageActivity());
+            if (this.gpS == null) {
+                this.gpS = new DetailPraiseView(this.mTbPageContext.getPageActivity());
             }
-            this.gcY.setOnDoubleClickListener(this.gdb);
-            if (this.gcY.getParent() != null) {
-                ((ViewGroup) this.gcY.getParent()).removeView(this.gcY);
+            this.gpS.setOnDoubleClickListener(this.gpV);
+            if (this.gpS.getParent() != null) {
+                ((ViewGroup) this.gpS.getParent()).removeView(this.gpS);
             }
-            viewGroup.addView(this.gcY, 0, new RelativeLayout.LayoutParams(-1, -1));
+            viewGroup.addView(this.gpS, 0, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
-    public void bvi() {
-        if (this.gcY != null) {
-            this.gcY.bvi();
+    public void byd() {
+        if (this.gpS != null) {
+            this.gpS.byd();
         }
     }
 
-    public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.foe);
+    public void yW() {
+        MessageManager.getInstance().unRegisterListener(this.fzr);
     }
 
     public View getView() {
-        return this.gcY;
+        return this.gpS;
     }
 }

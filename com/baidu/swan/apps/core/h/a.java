@@ -15,7 +15,7 @@ public final class a {
         }
         Bundle bundle2 = new Bundle();
         bundle2.putBundle("swan_app_on_launch_event", bundle);
-        com.baidu.swan.apps.process.messaging.a.amG().a(new com.baidu.swan.apps.process.messaging.c(122, bundle2).a(cVar.cud).eH(true));
+        com.baidu.swan.apps.process.messaging.a.anM().a(new com.baidu.swan.apps.process.messaging.c(122, bundle2).a(cVar.cyQ).eM(true));
         if (DEBUG) {
             Log.d("AppLaunchMessenger", "sendAppLaunchEvent event end.");
         }
@@ -23,33 +23,33 @@ public final class a {
 
     /* renamed from: com.baidu.swan.apps.core.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0339a {
-        private static int bYZ = -1;
+    public static class C0345a {
+        private static int cdP = -1;
 
-        public static String aax() {
+        public static String abD() {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_app_launch_switch", "debug_ab");
         }
 
-        public static boolean aay() {
+        public static boolean abE() {
             if (a.DEBUG) {
-                Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + aax());
-                String aax = aax();
+                Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + abD());
+                String abD = abD();
                 char c = 65535;
-                switch (aax.hashCode()) {
+                switch (abD.hashCode()) {
                     case 251117829:
-                        if (aax.equals("debug_on_app_launch")) {
+                        if (abD.equals("debug_on_app_launch")) {
                             c = 0;
                             break;
                         }
                         break;
                     case 547804557:
-                        if (aax.equals("debug_ab")) {
+                        if (abD.equals("debug_ab")) {
                             c = 2;
                             break;
                         }
                         break;
                     case 569516856:
-                        if (aax.equals("debug_on_activity_create")) {
+                        if (abD.equals("debug_on_activity_create")) {
                             c = 1;
                             break;
                         }
@@ -62,13 +62,13 @@ public final class a {
                         return false;
                 }
             }
-            if (bYZ < 0) {
-                bYZ = com.baidu.swan.apps.u.a.aeU().getSwitch("swan_app_launch_switch", 1);
+            if (cdP < 0) {
+                cdP = com.baidu.swan.apps.u.a.aga().getSwitch("swan_app_launch_switch", 1);
             }
             if (a.DEBUG) {
-                Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + bYZ);
+                Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + cdP);
             }
-            return bYZ == 1;
+            return cdP == 1;
         }
     }
 }

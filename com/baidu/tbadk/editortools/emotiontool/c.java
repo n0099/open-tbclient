@@ -4,13 +4,13 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
     private int cols;
-    private com.baidu.adp.widget.ImageView.a elT;
-    private com.baidu.adp.widget.ImageView.a elU;
+    private com.baidu.adp.widget.ImageView.a euJ;
+    private com.baidu.adp.widget.ImageView.a euK;
     private int rows;
 
-    public abstract boolean bdl();
+    public abstract boolean bfp();
 
-    public abstract EmotionGroupType bdm();
+    public abstract EmotionGroupType bfq();
 
     public abstract int getEmotionsCount();
 
@@ -22,51 +22,51 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public abstract String nk(int i);
+    public abstract String nE(int i);
 
-    public abstract boolean yb(String str);
+    public abstract boolean yu(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a yc(String str);
+    public abstract com.baidu.adp.widget.ImageView.a yv(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a yd(String str);
+    public abstract com.baidu.adp.widget.ImageView.a yw(String str);
 
-    public com.baidu.adp.widget.ImageView.a bdn() {
-        return this.elT;
+    public com.baidu.adp.widget.ImageView.a bfr() {
+        return this.euJ;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.getRawBitmap();
         }
-        this.elT = aVar;
+        this.euJ = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a bdo() {
-        return this.elU;
+    public com.baidu.adp.widget.ImageView.a bfs() {
+        return this.euK;
     }
 
     public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.getRawBitmap();
         }
-        this.elU = aVar;
+        this.euK = aVar;
     }
 
-    public int bdp() {
+    public int bft() {
         return this.cols;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void nl(int i) {
+    public void nF(int i) {
         this.cols = i;
     }
 
-    public int bdq() {
+    public int bfu() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void nm(int i) {
+    public void nG(int i) {
         this.rows = i;
     }
 }

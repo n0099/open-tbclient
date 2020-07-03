@@ -6,15 +6,15 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 /* loaded from: classes6.dex */
 public class c extends com.baidu.helios.bridge.a {
-    private volatile h aps;
-    private volatile com.baidu.helios.bridge.a.a apt;
-    private volatile Future<Boolean> apu;
-    private volatile Future<Boolean> apv;
+    private volatile h aqK;
+    private volatile com.baidu.helios.bridge.a.a aqL;
+    private volatile Future<Boolean> aqM;
+    private volatile Future<Boolean> aqN;
     private volatile boolean g;
     private volatile boolean j;
     private String k;
     private Object l = new Object();
-    private Object apw = new Object();
+    private Object aqO = new Object();
     private volatile boolean e = true;
     private volatile boolean f = false;
 
@@ -26,28 +26,28 @@ public class c extends com.baidu.helios.bridge.a {
         if (this.e || this.f) {
             return;
         }
-        synchronized (this.apw) {
+        synchronized (this.aqO) {
             c();
         }
         try {
-            this.apv.get();
+            this.aqN.get();
         } catch (Exception e) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (this.f || this.apv != null) {
+        if (this.f || this.aqN != null) {
             return;
         }
-        this.apv = this.aoS.aoW.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.multiprocess.c.1
+        this.aqN = this.aql.aqp.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.multiprocess.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
             public Boolean call() {
-                c.this.apt = new com.baidu.helios.bridge.a.a();
-                c.this.apt.a(c.this.aoS);
-                c.this.apt.a(c.this.aoT);
+                c.this.aqL = new com.baidu.helios.bridge.a.a();
+                c.this.aqL.a(c.this.aql);
+                c.this.aqL.a(c.this.aqm);
                 c.this.f = true;
                 return true;
             }
@@ -62,26 +62,26 @@ public class c extends com.baidu.helios.bridge.a {
                 }
             }
             try {
-                this.apu.get();
+                this.aqM.get();
             } catch (Exception e) {
             }
         }
     }
 
     private void e() {
-        if (this.g || this.apu != null) {
+        if (this.g || this.aqM != null) {
             return;
         }
-        this.apu = this.aoS.aoW.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.multiprocess.c.2
+        this.aqM = this.aql.aqp.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.multiprocess.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
             public Boolean call() {
-                c.this.aps = new h(c.this, c.this.k);
-                c.this.aps.a(c.this.aoS);
-                c.this.aps.a(c.this.aoT);
+                c.this.aqK = new h(c.this, c.this.k);
+                c.this.aqK.a(c.this.aql);
+                c.this.aqK.a(c.this.aqm);
                 c.this.g = true;
-                if (c.this.aps.a()) {
+                if (c.this.aqK.a()) {
                     c.this.j = true;
                     return true;
                 }
@@ -104,12 +104,12 @@ public class c extends com.baidu.helios.bridge.a {
         if (this.e) {
             d();
             if (this.j) {
-                this.aps.a(str, bundle, cVar);
+                this.aqK.a(str, bundle, cVar);
                 return;
             }
         }
         b();
-        this.apt.a(str, bundle, cVar);
+        this.aqL.a(str, bundle, cVar);
     }
 
     @Override // com.baidu.helios.bridge.a
@@ -120,7 +120,7 @@ public class c extends com.baidu.helios.bridge.a {
             }
             return;
         }
-        synchronized (this.apw) {
+        synchronized (this.aqO) {
             c();
         }
     }
@@ -130,7 +130,7 @@ public class c extends com.baidu.helios.bridge.a {
         if (this.e) {
             d();
             if (this.j) {
-                a.d d = this.aps.d(str, bundle);
+                a.d d = this.aqK.d(str, bundle);
                 if (d.isSuccess()) {
                     return d;
                 }
@@ -138,18 +138,18 @@ public class c extends com.baidu.helios.bridge.a {
             }
         }
         b();
-        return this.apt.d(str, bundle);
+        return this.aqL.d(str, bundle);
     }
 
     @Override // com.baidu.helios.bridge.a
-    public boolean dV(String str) {
+    public boolean dX(String str) {
         if (this.e) {
             d();
             if (this.j) {
-                return this.aps.dV(str);
+                return this.aqK.dX(str);
             }
         }
         b();
-        return this.apt.dV(str);
+        return this.aqL.dX(str);
     }
 }

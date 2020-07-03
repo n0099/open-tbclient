@@ -6,14 +6,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.aa;
+import com.baidu.adp.widget.ListView.ad;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
-public class BdTypeListView extends BdListView implements t<BdTypeListView> {
-    private HashMap<BdUniqueId, a> UJ;
-    aa mTypeAdapter;
+public class BdTypeListView extends BdListView implements v<BdTypeListView> {
+    private HashMap<BdUniqueId, a> Vo;
+    private HashMap<BdUniqueId, j> Vp;
+    ad mTypeAdapter;
 
     public BdTypeListView(Context context) {
         super(context);
@@ -35,10 +36,13 @@ public class BdTypeListView extends BdListView implements t<BdTypeListView> {
 
     private void init() {
         if (this.mTypeAdapter == null) {
-            this.mTypeAdapter = new aa();
+            this.mTypeAdapter = new ad();
         }
-        if (this.UJ == null) {
-            this.UJ = new HashMap<>();
+        if (this.Vo == null) {
+            this.Vo = new HashMap<>();
+        }
+        if (this.Vp == null) {
+            this.Vp = new HashMap<>();
         }
         super.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.adp.widget.ListView.BdTypeListView.1
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -61,7 +65,7 @@ public class BdTypeListView extends BdListView implements t<BdTypeListView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.widget.ListView.BdTypeListView' to match base method */
-    @Override // com.baidu.adp.widget.ListView.BdListView, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.BdListView, com.baidu.adp.widget.ListView.s
     /* renamed from: getListView */
     public BdListView getListView2() {
         return this;
@@ -77,90 +81,102 @@ public class BdTypeListView extends BdListView implements t<BdTypeListView> {
     public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
     }
 
-    @Override // com.baidu.adp.widget.ListView.t
+    @Override // com.baidu.adp.widget.ListView.v
     public void addAdapters(List<a> list) {
-        for (a<o, aa.a> aVar : list) {
-            BdUniqueId bdUniqueId = null;
+        for (a<q, ad.a> aVar : list) {
             if (aVar != null) {
-                if (aVar.oO() != null) {
-                    bdUniqueId = aVar.oO();
-                    i iVar = new i(aVar.mContext, bdUniqueId, aVar.mPageId);
-                    iVar.a(aVar);
-                    this.mTypeAdapter.addAdapter(iVar);
+                BdUniqueId bdUniqueId = null;
+                if (aVar.pe() != null) {
+                    bdUniqueId = aVar.pe();
+                    if (!this.Vp.containsKey(bdUniqueId)) {
+                        j jVar = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
+                        jVar.a(aVar);
+                        this.mTypeAdapter.addAdapter(jVar);
+                        this.Vp.put(bdUniqueId, jVar);
+                    }
                 }
-                if (aVar.oP() != null) {
-                    bdUniqueId = aVar.oP();
-                    i iVar2 = new i(aVar.mContext, bdUniqueId, aVar.mPageId);
-                    iVar2.a(aVar);
-                    this.mTypeAdapter.addAdapter(iVar2);
+                if (aVar.pf() != null) {
+                    bdUniqueId = aVar.pf();
+                    if (!this.Vp.containsKey(bdUniqueId)) {
+                        j jVar2 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
+                        jVar2.a(aVar);
+                        this.mTypeAdapter.addAdapter(jVar2);
+                        this.Vp.put(bdUniqueId, jVar2);
+                    }
                 }
-                if (aVar.oQ() != null) {
-                    bdUniqueId = aVar.oQ();
-                    i iVar3 = new i(aVar.mContext, bdUniqueId, aVar.mPageId);
-                    iVar3.a(aVar);
-                    this.mTypeAdapter.addAdapter(iVar3);
+                if (aVar.pg() != null) {
+                    bdUniqueId = aVar.pg();
+                    if (!this.Vp.containsKey(bdUniqueId)) {
+                        j jVar3 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
+                        jVar3.a(aVar);
+                        this.mTypeAdapter.addAdapter(jVar3);
+                        this.Vp.put(bdUniqueId, jVar3);
+                    }
                 }
-                if (aVar.oR() != null) {
-                    bdUniqueId = aVar.oR();
-                    i iVar4 = new i(aVar.mContext, bdUniqueId, aVar.mPageId);
-                    iVar4.a(aVar);
-                    this.mTypeAdapter.addAdapter(iVar4);
+                if (aVar.ph() != null) {
+                    bdUniqueId = aVar.ph();
+                    if (!this.Vp.containsKey(bdUniqueId)) {
+                        j jVar4 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
+                        jVar4.a(aVar);
+                        this.mTypeAdapter.addAdapter(jVar4);
+                        this.Vp.put(bdUniqueId, jVar4);
+                    }
                 }
-            }
-            if (bdUniqueId == null) {
-                this.mTypeAdapter.addAdapter(aVar);
-            } else {
-                this.UJ.put(aVar.TK, aVar);
+                if (bdUniqueId == null) {
+                    this.mTypeAdapter.addAdapter(aVar);
+                } else {
+                    this.Vo.put(aVar.Un, aVar);
+                }
             }
         }
         setAdapter((ListAdapter) this.mTypeAdapter);
     }
 
-    @Override // com.baidu.adp.widget.ListView.t
-    public void setData(List<o> list) {
+    @Override // com.baidu.adp.widget.ListView.v
+    public void setData(List<? extends q> list) {
         ArrayList arrayList = new ArrayList();
-        for (o oVar : list) {
-            if (oVar != null) {
-                if (this.UJ.containsKey(oVar.getType())) {
-                    a aVar = this.UJ.get(oVar.getType());
-                    if (aVar.oO() != null) {
-                        h hVar = new h();
-                        hVar.g(aVar.oO());
-                        hVar.a(oVar);
-                        arrayList.add(hVar);
+        for (q qVar : list) {
+            if (qVar != null) {
+                if (this.Vo.containsKey(qVar.getType())) {
+                    a aVar = this.Vo.get(qVar.getType());
+                    if (aVar.pe() != null) {
+                        i iVar = new i();
+                        iVar.g(aVar.pe());
+                        iVar.a(qVar);
+                        arrayList.add(iVar);
                     }
-                    if (aVar.oP() != null) {
-                        h hVar2 = new h();
-                        hVar2.g(aVar.oP());
-                        hVar2.a(oVar);
-                        arrayList.add(hVar2);
+                    if (aVar.pf() != null) {
+                        i iVar2 = new i();
+                        iVar2.g(aVar.pf());
+                        iVar2.a(qVar);
+                        arrayList.add(iVar2);
                     }
-                    if (aVar.oQ() != null) {
-                        h hVar3 = new h();
-                        hVar3.g(aVar.oQ());
-                        hVar3.a(oVar);
-                        arrayList.add(hVar3);
+                    if (aVar.pg() != null) {
+                        i iVar3 = new i();
+                        iVar3.g(aVar.pg());
+                        iVar3.a(qVar);
+                        arrayList.add(iVar3);
                     }
-                    if (aVar.oR() != null) {
-                        h hVar4 = new h();
-                        hVar4.g(aVar.oR());
-                        hVar4.a(oVar);
-                        arrayList.add(hVar4);
+                    if (aVar.ph() != null) {
+                        i iVar4 = new i();
+                        iVar4.g(aVar.ph());
+                        iVar4.a(qVar);
+                        arrayList.add(iVar4);
                     }
                 } else {
-                    arrayList.add(oVar);
+                    arrayList.add(qVar);
                 }
             }
         }
         this.mTypeAdapter.setData(arrayList);
     }
 
-    @Override // com.baidu.adp.widget.ListView.t
-    public List<o> getData() {
+    @Override // com.baidu.adp.widget.ListView.v
+    public List<q> getData() {
         return this.mTypeAdapter.getData();
     }
 
-    public o getItem(int i) {
+    public q getItem(int i) {
         return this.mTypeAdapter.getItem(i);
     }
 }

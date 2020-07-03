@@ -19,28 +19,28 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    public static List<Pair<String, Pair<String, String>>> csn;
+    public static List<Pair<String, Pair<String, String>>> cxb;
 
     static {
         if (DEBUG) {
-            csn = new ArrayList();
-            csn.add(new Pair<>("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
-            csn.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
-            csn.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
-            csn.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
-            csn.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
-            csn.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
-            csn.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
-            csn.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
+            cxb = new ArrayList();
+            cxb.add(new Pair<>("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
+            cxb.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
+            cxb.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
+            cxb.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
+            cxb.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
+            cxb.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
+            cxb.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
+            cxb.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
         }
     }
 
     public static void a(String str, String str2, List<UbcFlowEvent> list, String str3) {
         if (!TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-            com.baidu.swan.apps.statistic.a ow = h.ow("770");
+            com.baidu.swan.apps.statistic.a oE = h.oE("770");
             for (UbcFlowEvent ubcFlowEvent : list) {
                 if (ubcFlowEvent != null) {
-                    com.baidu.swan.apps.statistic.b.a(ow, ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.alB());
+                    com.baidu.swan.apps.statistic.b.a(oE, ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.amH());
                 }
             }
             JSONObject jSONObject = new JSONObject();
@@ -49,8 +49,8 @@ public class a {
                 jSONObject.put("from", "swan");
                 jSONObject.put("type", str2);
                 jSONObject2.put("appid", str);
-                jSONObject2.put("mobile", k.ats());
-                jSONObject2.put("net", SwanAppNetworkUtils.akA().type);
+                jSONObject2.put("mobile", k.auy());
+                jSONObject2.put("net", SwanAppNetworkUtils.alG().type);
                 if (TextUtils.isEmpty(str3)) {
                     str3 = "0";
                 }
@@ -59,9 +59,9 @@ public class a {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            com.baidu.swan.apps.statistic.b.a(ow, jSONObject.toString());
-            com.baidu.swan.apps.statistic.b.c(ow);
-            a(str, list, csn);
+            com.baidu.swan.apps.statistic.b.a(oE, jSONObject.toString());
+            com.baidu.swan.apps.statistic.b.c(oE);
+            a(str, list, cxb);
         }
     }
 
@@ -75,8 +75,8 @@ public class a {
             sb.append("\n").append("小程序ID：").append(str);
             for (UbcFlowEvent ubcFlowEvent : list) {
                 if (ubcFlowEvent != null) {
-                    sb.append("\n").append(ubcFlowEvent.alB()).append(" : ").append(ubcFlowEvent.id);
-                    hashMap.put(ubcFlowEvent.id, Long.valueOf(ubcFlowEvent.alB()));
+                    sb.append("\n").append(ubcFlowEvent.amH()).append(" : ").append(ubcFlowEvent.id);
+                    hashMap.put(ubcFlowEvent.id, Long.valueOf(ubcFlowEvent.amH()));
                 }
             }
             sb.append("\n").append("耗时计算开始：>>>>>>>>>>>>");
@@ -96,15 +96,15 @@ public class a {
         }
     }
 
-    public static int alO() {
-        return com.baidu.swan.apps.u.a.aeU().getSwitch("swan_app_dns_slow_time", -1);
+    public static int amU() {
+        return com.baidu.swan.apps.u.a.aga().getSwitch("swan_app_dns_slow_time", -1);
     }
 
-    public static int alP() {
-        return com.baidu.swan.apps.u.a.aeU().getSwitch("swan_app_conn_slow_time", -1);
+    public static int amV() {
+        return com.baidu.swan.apps.u.a.aga().getSwitch("swan_app_conn_slow_time", -1);
     }
 
-    public static int alQ() {
-        return com.baidu.swan.apps.u.a.aeU().getSwitch("swan_app_pms_download_slow_time", -1);
+    public static int amW() {
+        return com.baidu.swan.apps.u.a.aga().getSwitch("swan_app_pms_download_slow_time", -1);
     }
 }

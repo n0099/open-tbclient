@@ -12,27 +12,27 @@ import android.util.Log;
 /* loaded from: classes11.dex */
 public class al {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a cKo;
+    private static a cOY;
     @Nullable
-    private com.baidu.swan.apps.w.a cKl = new com.baidu.swan.apps.w.a() { // from class: com.baidu.swan.apps.aq.al.1
+    private com.baidu.swan.apps.w.a cOV = new com.baidu.swan.apps.w.a() { // from class: com.baidu.swan.apps.aq.al.1
         @Override // com.baidu.swan.apps.w.a, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
-            if (com.baidu.swan.apps.aq.a.asX()) {
+            if (com.baidu.swan.apps.aq.a.aud()) {
                 super.onActivityCreated(activity, bundle);
                 if (activity != null && activity.getIntent() != null) {
                     Intent intent = activity.getIntent();
-                    com.baidu.swan.apps.adaptation.a.q afd = com.baidu.swan.apps.u.a.afd();
+                    com.baidu.swan.apps.adaptation.a.q agj = com.baidu.swan.apps.u.a.agj();
                     ComponentName component = intent.getComponent();
-                    if (al.this.cKm && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && afd != null && component != null && TextUtils.equals(afd.Sf(), component.getClassName())) {
-                        com.baidu.swan.apps.aq.a asW = com.baidu.swan.apps.aq.a.asW();
-                        boolean x = asW.x(al.this.cKn, false);
+                    if (al.this.cOW && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && agj != null && component != null && TextUtils.equals(agj.Tl(), component.getClassName())) {
+                        com.baidu.swan.apps.aq.a auc = com.baidu.swan.apps.aq.a.auc();
+                        boolean y = auc.y(al.this.cOX, false);
                         if (al.DEBUG) {
-                            Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + x + ", taskId=" + al.this.cKn);
+                            Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + y + ", taskId=" + al.this.cOX);
                         }
-                        asW.asY();
+                        auc.aue();
                     }
                     if (al.DEBUG) {
-                        Log.d("SwanHomeScreenLaunch", "class=" + activity + ", swanAppForeground=" + al.this.cKm + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
+                        Log.d("SwanHomeScreenLaunch", "class=" + activity + ", swanAppForeground=" + al.this.cOW + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
                     }
                 }
             }
@@ -41,15 +41,15 @@ public class al {
         @Override // com.baidu.swan.apps.w.a, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             super.onActivityStarted(activity);
-            if (!al.this.cKm || activity == null || activity.getTaskId() != al.this.cKn) {
-                al.this.cKm = false;
+            if (!al.this.cOW || activity == null || activity.getTaskId() != al.this.cOX) {
+                al.this.cOW = false;
             } else {
-                al.this.cKm = true;
+                al.this.cOW = true;
             }
         }
     };
-    private boolean cKm;
-    private int cKn;
+    private boolean cOW;
+    private int cOX;
     @NonNull
     private final Application mApp;
 
@@ -61,26 +61,26 @@ public class al {
 
     public al(@NonNull Application application) {
         this.mApp = application;
-        cKo = new a() { // from class: com.baidu.swan.apps.aq.al.2
+        cOY = new a() { // from class: com.baidu.swan.apps.aq.al.2
             @Override // com.baidu.swan.apps.aq.al.a
             public void m(boolean z, int i) {
                 if (z) {
-                    al.this.cKm = true;
-                    al.this.cKn = i;
+                    al.this.cOW = true;
+                    al.this.cOX = i;
                 }
             }
         };
-        application.registerActivityLifecycleCallbacks(this.cKl);
+        application.registerActivityLifecycleCallbacks(this.cOV);
     }
 
     public void onDestroy() {
-        cKo = null;
-        this.mApp.unregisterActivityLifecycleCallbacks(this.cKl);
+        cOY = null;
+        this.mApp.unregisterActivityLifecycleCallbacks(this.cOV);
     }
 
     public static void l(boolean z, int i) {
-        if (cKo != null) {
-            cKo.m(z, i);
+        if (cOY != null) {
+            cOY.m(z, i);
         }
     }
 }

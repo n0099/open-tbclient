@@ -11,18 +11,18 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class FrsFoldingView extends LinearLayout {
-    private int hMd;
-    private boolean hMe;
-    private LinearLayout.LayoutParams hMf;
-    private LinearLayout hMg;
-    private FrameLayout hMh;
-    private FrameLayout hMi;
-    private ImageView hMj;
+    private int hZp;
+    private boolean hZq;
+    private LinearLayout.LayoutParams hZr;
+    private LinearLayout hZs;
+    private FrameLayout hZt;
+    private FrameLayout hZu;
+    private ImageView hZv;
     private View mRootView;
 
     public FrsFoldingView(Context context) {
@@ -35,53 +35,53 @@ public class FrsFoldingView extends LinearLayout {
 
     public FrsFoldingView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hMd = 0;
-        this.hMe = true;
+        this.hZp = 0;
+        this.hZq = true;
         init();
     }
 
     private void init() {
         initView();
-        cbC();
+        ceU();
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(getContext()).inflate(R.layout.folding_view_layout, (ViewGroup) this, true);
-        this.hMg = (LinearLayout) this.mRootView.findViewById(R.id.folding_root_layout);
-        this.hMh = (FrameLayout) this.mRootView.findViewById(R.id.permanent_layout);
-        this.hMi = (FrameLayout) this.mRootView.findViewById(R.id.collapsible_layout);
-        this.hMj = (ImageView) this.mRootView.findViewById(R.id.folding_arrow);
-        SvgManager.aUW().a(this.hMj, R.drawable.ic_icon_pure_open12_right_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_e);
+        this.hZs = (LinearLayout) this.mRootView.findViewById(R.id.folding_root_layout);
+        this.hZt = (FrameLayout) this.mRootView.findViewById(R.id.permanent_layout);
+        this.hZu = (FrameLayout) this.mRootView.findViewById(R.id.collapsible_layout);
+        this.hZv = (ImageView) this.mRootView.findViewById(R.id.folding_arrow);
+        SvgManager.aWQ().a(this.hZv, R.drawable.ic_icon_pure_open12_right_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        an.setBackgroundColor(this.mRootView, R.color.cp_bg_line_e);
     }
 
-    private void cbC() {
+    private void ceU() {
         this.mRootView.findViewById(R.id.folding_arrow).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.FrsFoldingView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FrsFoldingView.this.hMe) {
-                    FrsFoldingView.this.cbD();
-                    FrsFoldingView.this.hMe = false;
+                if (FrsFoldingView.this.hZq) {
+                    FrsFoldingView.this.ceV();
+                    FrsFoldingView.this.hZq = false;
                     return;
                 }
-                FrsFoldingView.this.cbE();
-                FrsFoldingView.this.hMe = true;
+                FrsFoldingView.this.ceW();
+                FrsFoldingView.this.hZq = true;
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbD() {
-        this.hMf = (LinearLayout.LayoutParams) this.hMi.getLayoutParams();
+    public void ceV() {
+        this.hZr = (LinearLayout.LayoutParams) this.hZu.getLayoutParams();
         final ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.vc.FrsFoldingView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) ofFloat.getAnimatedValue()).floatValue();
-                FrsFoldingView.this.hMf.height = (int) (FrsFoldingView.this.hMd * floatValue);
-                FrsFoldingView.this.hMi.setLayoutParams(FrsFoldingView.this.hMf);
-                FrsFoldingView.this.hMi.setAlpha(floatValue);
-                FrsFoldingView.this.hMj.setRotation((-floatValue) * 180.0f);
+                FrsFoldingView.this.hZr.height = (int) (FrsFoldingView.this.hZp * floatValue);
+                FrsFoldingView.this.hZu.setLayoutParams(FrsFoldingView.this.hZr);
+                FrsFoldingView.this.hZu.setAlpha(floatValue);
+                FrsFoldingView.this.hZv.setRotation((-floatValue) * 180.0f);
             }
         });
         ofFloat.setDuration(300L);
@@ -89,41 +89,41 @@ public class FrsFoldingView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbE() {
-        this.hMf = (LinearLayout.LayoutParams) this.hMi.getLayoutParams();
+    public void ceW() {
+        this.hZr = (LinearLayout.LayoutParams) this.hZu.getLayoutParams();
         final ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.vc.FrsFoldingView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) ofFloat.getAnimatedValue()).floatValue();
-                FrsFoldingView.this.hMf.height = (int) (FrsFoldingView.this.hMd * floatValue);
-                FrsFoldingView.this.hMi.setLayoutParams(FrsFoldingView.this.hMf);
-                FrsFoldingView.this.hMi.setAlpha(floatValue);
-                FrsFoldingView.this.hMj.setRotation((-floatValue) * 180.0f);
+                FrsFoldingView.this.hZr.height = (int) (FrsFoldingView.this.hZp * floatValue);
+                FrsFoldingView.this.hZu.setLayoutParams(FrsFoldingView.this.hZr);
+                FrsFoldingView.this.hZu.setAlpha(floatValue);
+                FrsFoldingView.this.hZv.setRotation((-floatValue) * 180.0f);
             }
         });
         ofFloat.setDuration(300L);
         ofFloat.start();
     }
 
-    public void setViews(List<View> list, List<com.baidu.tieba.frs.view.d> list2) {
+    public void setViews(List<View> list, List<com.baidu.tieba.frs.view.g> list2) {
         if (list == null || list.size() == 0) {
             throw new IllegalArgumentException("com.baidu.tieba.frs.vc.FrsFoldingView setViews(List<View> views) IllegalArgumentException");
         }
-        this.hMh.removeAllViews();
-        this.hMh.addView(list.get(0));
+        this.hZt.removeAllViews();
+        this.hZt.addView(list.get(0));
         if (list.size() > 1) {
-            this.hMj.setVisibility(0);
-            this.hMi.removeAllViews();
-            this.hMi.addView(list.get(1));
-            this.hMd = list2.get(1).getCount() * com.baidu.adp.lib.util.l.getDimens(getContext().getApplicationContext(), R.dimen.tbds83);
+            this.hZv.setVisibility(0);
+            this.hZu.removeAllViews();
+            this.hZu.addView(list.get(1));
+            this.hZp = list2.get(1).getCount() * com.baidu.adp.lib.util.l.getDimens(getContext().getApplicationContext(), R.dimen.tbds83);
             return;
         }
-        this.hMj.setVisibility(8);
+        this.hZv.setVisibility(8);
     }
 
     public void onChangeSkinType() {
-        am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_e);
-        SvgManager.aUW().a(this.hMj, R.drawable.ic_icon_pure_open12_right_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        an.setBackgroundColor(this.mRootView, R.color.cp_bg_line_e);
+        SvgManager.aWQ().a(this.hZv, R.drawable.ic_icon_pure_open12_right_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 }

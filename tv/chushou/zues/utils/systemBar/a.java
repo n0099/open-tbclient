@@ -23,9 +23,9 @@ public class a {
     private boolean mStatusBarAvailable;
     private boolean mStatusBarTintEnabled;
     private View mStatusBarTintView;
-    private C0919a nOR;
-    private int nOS = -1;
-    private ViewGroup nOT;
+    private C0938a okF;
+    private int okG = -1;
+    private ViewGroup okH;
 
     static {
         if (Build.VERSION.SDK_INT >= 19) {
@@ -37,13 +37,13 @@ public class a {
     public a(Activity activity) {
         ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
         this.mActivity = activity;
-        this.nOT = viewGroup;
+        this.okH = viewGroup;
         if (Build.VERSION.SDK_INT >= 19) {
-            this.mNavBarAvailable = b.gC(activity);
+            this.mNavBarAvailable = b.gD(activity);
             this.mStatusBarAvailable = true;
         }
-        this.nOR = new C0919a(activity, this.mStatusBarAvailable, this.mNavBarAvailable);
-        if (!this.nOR.hasNavigtionBar()) {
+        this.okF = new C0938a(activity, this.mStatusBarAvailable, this.mNavBarAvailable);
+        if (!this.okF.hasNavigtionBar()) {
             this.mNavBarAvailable = false;
         }
         if (this.mStatusBarAvailable) {
@@ -61,7 +61,7 @@ public class a {
             if (i == 1) {
                 marginLayoutParams.rightMargin = 0;
             } else {
-                marginLayoutParams.rightMargin = this.nOR.mNavigationBarWidth;
+                marginLayoutParams.rightMargin = this.okF.mNavigationBarWidth;
             }
             this.mStatusBarTintView.setLayoutParams(marginLayoutParams);
             this.mStatusBarTintView.setVisibility(0);
@@ -76,7 +76,7 @@ public class a {
             if (i == 1) {
                 marginLayoutParams.rightMargin = 0;
             } else {
-                marginLayoutParams.rightMargin = this.nOR.mNavigationBarWidth;
+                marginLayoutParams.rightMargin = this.okF.mNavigationBarWidth;
             }
             this.mStatusBarTintView.setLayoutParams(marginLayoutParams);
             this.mStatusBarTintView.setVisibility(z ? 0 : 8);
@@ -103,17 +103,17 @@ public class a {
 
     public void setNavigationBarTintResource(int i) {
         if (this.mNavBarAvailable) {
-            this.nOS = i;
+            this.okG = i;
             this.mNavBarTintView.setBackgroundResource(i);
         }
     }
 
     private void setupStatusBarView(Context context, ViewGroup viewGroup) {
         this.mStatusBarTintView = new View(context);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.nOR.getStatusBarHeight());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.okF.getStatusBarHeight());
         layoutParams.gravity = 48;
-        if (!this.nOR.isNavigationAtBottom()) {
-            layoutParams.rightMargin = this.nOR.getNavigationBarWidth();
+        if (!this.okF.isNavigationAtBottom()) {
+            layoutParams.rightMargin = this.okF.getNavigationBarWidth();
         }
         this.mStatusBarTintView.setLayoutParams(layoutParams);
         this.mStatusBarTintView.setBackgroundColor(-1728053248);
@@ -125,11 +125,11 @@ public class a {
         FrameLayout.LayoutParams layoutParams;
         if (this.mActivity != null && this.mNavBarTintView == null) {
             this.mNavBarTintView = new View(context);
-            if (this.nOR.isNavigationAtBottom()) {
-                layoutParams = new FrameLayout.LayoutParams(-1, this.nOR.getNavigationBarHeight());
+            if (this.okF.isNavigationAtBottom()) {
+                layoutParams = new FrameLayout.LayoutParams(-1, this.okF.getNavigationBarHeight());
                 layoutParams.gravity = 80;
             } else {
-                layoutParams = new FrameLayout.LayoutParams(this.nOR.getNavigationBarWidth(), -1);
+                layoutParams = new FrameLayout.LayoutParams(this.okF.getNavigationBarWidth(), -1);
                 layoutParams.gravity = 5;
             }
             this.mNavBarTintView.setLayoutParams(layoutParams);
@@ -139,24 +139,24 @@ public class a {
         }
     }
 
-    public void dSe() {
-        if (this.mActivity != null && this.nOT != null) {
-            this.nOR = new C0919a(this.mActivity, this.mStatusBarAvailable, this.mNavBarAvailable);
+    public void dWK() {
+        if (this.mActivity != null && this.okH != null) {
+            this.okF = new C0938a(this.mActivity, this.mStatusBarAvailable, this.mNavBarAvailable);
             if (this.mNavBarTintView != null) {
-                this.nOT.removeView(this.mNavBarTintView);
+                this.okH.removeView(this.mNavBarTintView);
                 this.mNavBarTintView = null;
             }
-            setupNavBarView(this.mActivity, this.nOT);
+            setupNavBarView(this.mActivity, this.okH);
             if (this.mNavBarTintEnabled) {
                 setNavigationBarTintEnabled(this.mNavBarTintEnabled);
-                setNavigationBarTintResource(this.nOS);
+                setNavigationBarTintResource(this.okG);
             }
         }
     }
 
     /* renamed from: tv.chushou.zues.utils.systemBar.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0919a {
+    public static class C0938a {
         private final int mActionBarHeight;
         private boolean mHasNavigationBar;
         private final boolean mInPortrait;
@@ -167,7 +167,7 @@ public class a {
         private final boolean mTranslucentNavBar;
         private final boolean mTranslucentStatusBar;
 
-        private C0919a(Activity activity, boolean z, boolean z2) {
+        private C0938a(Activity activity, boolean z, boolean z2) {
             Resources resources = activity.getResources();
             this.mInPortrait = resources.getConfiguration().orientation == 1;
             this.mSmallestWidthDp = getSmallestWidthDp(activity);
@@ -175,7 +175,7 @@ public class a {
             this.mActionBarHeight = getActionBarHeight(activity);
             this.mNavigationBarHeight = getNavigationBarHeight(activity);
             this.mNavigationBarWidth = getNavigationBarWidth(activity);
-            this.mHasNavigationBar = b.gC(activity);
+            this.mHasNavigationBar = b.gD(activity);
             this.mTranslucentStatusBar = z;
             this.mTranslucentNavBar = z2;
         }
@@ -216,7 +216,7 @@ public class a {
 
         @TargetApi(14)
         private boolean hasNavBar(Context context) {
-            return b.gC(context);
+            return b.gD(context);
         }
 
         private int getInternalDimensionSize(Resources resources, String str) {

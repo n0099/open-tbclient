@@ -4,7 +4,7 @@ import java.util.Iterator;
 @kotlin.h
 /* loaded from: classes7.dex */
 public abstract class n implements Iterator<Character> {
-    public abstract char dLH();
+    public abstract char dQn();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -13,8 +13,8 @@ public abstract class n implements Iterator<Character> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: dLG */
+    /* renamed from: dQm */
     public final Character next() {
-        return Character.valueOf(dLH());
+        return Character.valueOf(dQn());
     }
 }

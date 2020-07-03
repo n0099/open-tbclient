@@ -6,6 +6,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.Serializable;
 import java.util.List;
+@Deprecated
 /* loaded from: classes3.dex */
 public class VideoInfo implements Serializable {
     public static final String DRAFT_JSON_NAME = "new_video_info";

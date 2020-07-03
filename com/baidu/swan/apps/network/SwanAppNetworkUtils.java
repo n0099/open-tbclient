@@ -143,7 +143,7 @@ public class SwanAppNetworkUtils {
         return "unknown";
     }
 
-    public static NetType akA() {
+    public static NetType alG() {
         String networkClass = getNetworkClass();
         char c = 65535;
         switch (networkClass.hashCode()) {
@@ -216,12 +216,12 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    public static String akB() {
-        String pP = aj.pP(com.baidu.swan.apps.core.turbo.d.abl().abJ());
-        if (TextUtils.isEmpty(pP)) {
+    public static String alH() {
+        String pX = aj.pX(com.baidu.swan.apps.core.turbo.d.acr().acP());
+        if (TextUtils.isEmpty(pX)) {
             return "";
         }
-        return pP;
+        return pX;
     }
 
     public static <T> void a(String str, String str2, ResponseCallback<T> responseCallback) {
@@ -229,7 +229,7 @@ public class SwanAppNetworkUtils {
             Log.d("postJsonRequest", "url:" + str + "\nbody:" + str2);
         }
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.swan.c.c.a.aFx().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.afo().SM()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
+            com.baidu.swan.c.c.a.aGD().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.agu().TS()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
         }
     }
 }

@@ -27,24 +27,24 @@ public class ea extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo163a() {
+    public int mo160a() {
         return 24;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo163a() {
+    public ho mo160a() {
         return ho.AppIsInstalled;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo163a() {
+    public String mo160a() {
         String[] a = a();
         if (a == null || a.length <= 0) {
             return null;
         }
-        PackageManager packageManager = this.f230a.getPackageManager();
+        PackageManager packageManager = this.f236a.getPackageManager();
         StringBuilder sb = new StringBuilder();
         for (String str : a) {
             try {

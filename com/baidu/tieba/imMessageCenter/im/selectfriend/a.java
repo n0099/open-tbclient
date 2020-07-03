@@ -8,15 +8,15 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a extends BaseAdapter {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> ePO;
-    private int ePR = R.color.cp_cont_b;
-    private int ePS = R.color.cp_cont_c;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> eZZ;
+    private int fac = R.color.cp_cont_b;
+    private int fad = R.color.cp_cont_c;
     private Context mContext;
 
     public a(Context context) {
@@ -24,26 +24,26 @@ public class a extends BaseAdapter {
     }
 
     public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.ePO = list;
+        this.eZZ = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.ePO == null) {
+        if (this.eZZ == null) {
             return 0;
         }
-        return this.ePO.size();
+        return this.eZZ.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pi */
+    /* renamed from: pH */
     public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
-        if (this.ePO == null || i < 0 || i >= this.ePO.size()) {
+        if (this.eZZ == null || i < 0 || i >= this.eZZ.size()) {
             return null;
         }
-        return this.ePO.get(i);
+        return this.eZZ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -62,7 +62,7 @@ public class a extends BaseAdapter {
         if (item == null) {
             return 2;
         }
-        if (!TextUtils.isEmpty(item.baZ()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.baY())) {
+        if (!TextUtils.isEmpty(item.bdb()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.bda())) {
             return 0;
         }
         return 1;
@@ -70,7 +70,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0649a c0649a;
+        C0662a c0662a;
         b bVar;
         if (getItemViewType(i) == 2) {
             return null;
@@ -82,38 +82,38 @@ public class a extends BaseAdapter {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.select_friend_group_item, (ViewGroup) null);
                 b bVar2 = new b();
-                bVar2.eQa = (TextView) view.findViewById(R.id.addresslist_group_item_key);
-                bVar2.dJr = view.findViewById(R.id.addresslist_group_item_divider);
+                bVar2.fal = (TextView) view.findViewById(R.id.addresslist_group_item_key);
+                bVar2.dQh = view.findViewById(R.id.addresslist_group_item_divider);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
-            if (item.baZ() != null) {
-                bVar.eQa.setText(item.baZ());
+            if (item.bdb() != null) {
+                bVar.fal.setText(item.bdb());
             }
-            am.setViewTextColor(bVar.eQa, this.ePS, 1);
-            am.setBackgroundColor(bVar.dJr, R.color.cp_bg_line_c);
+            an.setViewTextColor(bVar.fal, this.fad, 1);
+            an.setBackgroundColor(bVar.dQh, R.color.cp_bg_line_c);
             return view;
         } else if (getItemViewType(i) == 1) {
-            if (view == null || view.getTag() == null || !(view.getTag() instanceof C0649a)) {
-                C0649a c0649a2 = new C0649a();
+            if (view == null || view.getTag() == null || !(view.getTag() instanceof C0662a)) {
+                C0662a c0662a2 = new C0662a();
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.select_friend_child_item, (ViewGroup) null);
-                c0649a2.ePP = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
-                c0649a2.ePQ = (TextView) view.findViewById(R.id.addresslist_child_item_name);
-                c0649a2.dJr = view.findViewById(R.id.addresslist_child_item_divider);
-                view.setTag(c0649a2);
-                c0649a = c0649a2;
+                c0662a2.faa = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
+                c0662a2.fab = (TextView) view.findViewById(R.id.addresslist_child_item_name);
+                c0662a2.dQh = view.findViewById(R.id.addresslist_child_item_divider);
+                view.setTag(c0662a2);
+                c0662a = c0662a2;
             } else {
-                c0649a = (C0649a) view.getTag();
+                c0662a = (C0662a) view.getTag();
             }
             if (item.getUserName() != null) {
-                c0649a.ePQ.setText(item.getUserName());
-                c0649a.ePP.startLoad(item.baY(), 12, false);
+                c0662a.fab.setText(item.getUserName());
+                c0662a.faa.startLoad(item.bda(), 12, false);
             }
-            am.setViewTextColor(c0649a.ePQ, this.ePR, 1);
-            am.setBackgroundResource(c0649a.dJr, R.color.cp_bg_line_c);
-            am.setBackgroundResource(view, R.drawable.select_friend_item_bg);
+            an.setViewTextColor(c0662a.fab, this.fac, 1);
+            an.setBackgroundResource(c0662a.dQh, R.color.cp_bg_line_c);
+            an.setBackgroundResource(view, R.drawable.select_friend_item_bg);
             return view;
         } else {
             return null;
@@ -122,8 +122,8 @@ public class a extends BaseAdapter {
 
     /* loaded from: classes9.dex */
     private class b {
-        View dJr;
-        TextView eQa;
+        View dQh;
+        TextView fal;
 
         private b() {
         }
@@ -131,12 +131,12 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.imMessageCenter.im.selectfriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    private class C0649a {
-        View dJr;
-        HeadImageView ePP;
-        TextView ePQ;
+    private class C0662a {
+        View dQh;
+        HeadImageView faa;
+        TextView fab;
 
-        private C0649a() {
+        private C0662a() {
         }
     }
 }

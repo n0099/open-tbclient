@@ -12,45 +12,45 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.m;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.n;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
 /* loaded from: classes13.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
-    private a kVL;
-    private b kVM;
-    private BaseActivity.LoadDataCallBack kVN;
+    private a lpI;
+    private b lpJ;
+    private BaseActivity.LoadDataCallBack lpK;
     private Context mContext;
 
     public SystemHelpSettingModel(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.kVL = null;
-        this.kVM = null;
+        this.lpI = null;
+        this.lpJ = null;
         this.mContext = null;
-        this.kVN = null;
+        this.lpK = null;
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void bKM() {
-        if (this.kVL == null) {
-            this.kVL = new a();
-            this.kVL.execute(new String[0]);
+    public void bNR() {
+        if (this.lpI == null) {
+            this.lpI = new a();
+            this.lpI.execute(new String[0]);
         }
     }
 
-    public void cXt() {
+    public void dbI() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, currentAccount));
         }
     }
 
-    public void cXu() {
-        if (this.kVM == null) {
-            this.kVM = new b();
-            this.kVM.execute(new String[0]);
+    public void dbJ() {
+        if (this.lpJ == null) {
+            this.lpJ = new b();
+            this.lpJ.execute(new String[0]);
         }
     }
 
@@ -69,9 +69,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            SystemHelpSettingModel.this.kVL = null;
-            if (SystemHelpSettingModel.this.kVN != null) {
-                SystemHelpSettingModel.this.kVN.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+            SystemHelpSettingModel.this.lpI = null;
+            if (SystemHelpSettingModel.this.lpK != null) {
+                SystemHelpSettingModel.this.lpK.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
             }
         }
 
@@ -80,11 +80,11 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().deleteDatabase();
-            com.baidu.tbadk.core.voice.a.b.aXp();
+            com.baidu.tbadk.core.voice.a.b.aZv();
             try {
-                m.wi("image");
-                m.wi(TbConfig.IMAGE_CACHE_DIR_NAME);
-                ap.aUU().aUV();
+                n.wy("image");
+                n.wy(TbConfig.IMAGE_CACHE_DIR_NAME);
+                aq.aWO().aWP();
                 return null;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -105,9 +105,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         public String doInBackground(String... strArr) {
             com.baidu.adp.lib.Disk.b bVar = new com.baidu.adp.lib.Disk.b();
             String checkDir = bVar.checkDir("image", true, false, true);
-            String cacheDir = m.getCacheDir();
+            String cacheDir = n.getCacheDir();
             String str = cacheDir + "voice";
-            long fileSize = m.getFileSize(cacheDir + "tieba_database.db") + m.getDirectorySize(checkDir, false) + m.getDirectorySize(str, false) + m.getDirectorySize(bVar.checkDir(TbConfig.IMAGE_CACHE_DIR_NAME, true, false, true), false);
+            long fileSize = n.getFileSize(cacheDir + "tieba_database.db") + n.getDirectorySize(checkDir, false) + n.getDirectorySize(str, false) + n.getDirectorySize(bVar.checkDir(TbConfig.IMAGE_CACHE_DIR_NAME, true, false, true), false);
             float f = 0.0f + ((float) fileSize);
             if (fileSize >= 10485.76d) {
                 return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + SystemHelpSettingModel.this.mContext.getString(R.string.mebibyte);
@@ -120,9 +120,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((b) str);
-            SystemHelpSettingModel.this.kVM = null;
-            if (SystemHelpSettingModel.this.kVN != null) {
-                SystemHelpSettingModel.this.kVN.callback(MoreModel.TaskType.GET_SIZE, str);
+            SystemHelpSettingModel.this.lpJ = null;
+            if (SystemHelpSettingModel.this.lpK != null) {
+                SystemHelpSettingModel.this.lpK.callback(MoreModel.TaskType.GET_SIZE, str);
             }
         }
     }
@@ -138,6 +138,6 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.kVN = loadDataCallBack;
+        this.lpK = loadDataCallBack;
     }
 }

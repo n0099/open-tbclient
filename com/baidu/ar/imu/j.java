@@ -12,24 +12,24 @@ import java.util.Observable;
 /* loaded from: classes3.dex */
 public abstract class j extends Observable implements SensorEventListener {
     private static final String TAG = j.class.getSimpleName();
-    protected float[] qJ;
-    private SensorManager ri;
-    protected Object rc = new Object();
-    protected Boolean rd = true;
-    protected final Object re = new Object();
-    protected List<Sensor> rf = new ArrayList();
-    boolean rj = false;
-    protected final Matrixf4x4 rg = new Matrixf4x4();
-    protected final Quaternion rh = new Quaternion();
-    protected final Matrixf4x4 rk = new Matrixf4x4();
-    protected final Matrixf4x4 rl = new Matrixf4x4();
-    protected final Matrixf4x4 rm = new Matrixf4x4();
+    private SensorManager rH;
+    protected float[] ri;
+    protected Object rB = new Object();
+    protected Boolean rC = true;
+    protected final Object rD = new Object();
+    protected List<Sensor> rE = new ArrayList();
+    boolean rI = false;
+    protected final Matrixf4x4 rF = new Matrixf4x4();
+    protected final Quaternion rG = new Quaternion();
+    protected final Matrixf4x4 rJ = new Matrixf4x4();
+    protected final Matrixf4x4 rK = new Matrixf4x4();
+    protected final Matrixf4x4 rL = new Matrixf4x4();
 
     public j(SensorManager sensorManager) {
-        this.ri = sensorManager;
-        com.baidu.ar.f.b.c(TAG, "sensorList size " + String.valueOf(this.rf.size()));
-        if (this.rf.size() > 120) {
-            this.rf.clear();
+        this.rH = sensorManager;
+        com.baidu.ar.f.b.c(TAG, "sensorList size " + String.valueOf(this.rE.size()));
+        if (this.rE.size() > 120) {
+            this.rE.clear();
         }
     }
 
@@ -66,8 +66,8 @@ public abstract class j extends Observable implements SensorEventListener {
         System.arraycopy(fArr2, 0, fArr, 0, fArr2.length);
     }
 
-    public boolean dD() {
-        for (Sensor sensor : this.rf) {
+    public boolean dT() {
+        for (Sensor sensor : this.rE) {
             if (sensor == null) {
                 return false;
             }
@@ -75,12 +75,12 @@ public abstract class j extends Observable implements SensorEventListener {
         return true;
     }
 
-    public Matrixf4x4 dE() {
-        return this.rm;
+    public Matrixf4x4 dU() {
+        return this.rL;
     }
 
-    public float[] dF() {
-        return this.qJ;
+    public float[] dV() {
+        return this.ri;
     }
 
     @Override // android.hardware.SensorEventListener
@@ -89,15 +89,15 @@ public abstract class j extends Observable implements SensorEventListener {
 
     public void release() {
         deleteObservers();
-        for (Sensor sensor : this.rf) {
-            this.ri.unregisterListener(this, sensor);
+        for (Sensor sensor : this.rE) {
+            this.rH.unregisterListener(this, sensor);
         }
-        this.rf.clear();
+        this.rE.clear();
     }
 
     public void start() {
-        for (Sensor sensor : this.rf) {
-            this.ri.registerListener(this, sensor, 1);
+        for (Sensor sensor : this.rE) {
+            this.rH.registerListener(this, sensor, 1);
         }
     }
 }

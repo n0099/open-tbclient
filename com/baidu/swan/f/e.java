@@ -31,11 +31,11 @@ public class e {
     }
 
     public static boolean unzipFile(String str, String str2) {
-        return cR(str, str2) == null;
+        return cT(str, str2) == null;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [137=4] */
-    private static Exception cR(String str, String str2) {
+    private static Exception cT(String str, String str2) {
         ZipFile zipFile;
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream;
@@ -57,7 +57,7 @@ public class e {
                 while (entries.hasMoreElements()) {
                     try {
                         ZipEntry nextElement = entries.nextElement();
-                        if (!TextUtils.isEmpty(nextElement.getName()) && !tZ(nextElement.getName())) {
+                        if (!TextUtils.isEmpty(nextElement.getName()) && !uh(nextElement.getName())) {
                             File file = new File(str2 + "/" + nextElement.getName());
                             if (!nextElement.isDirectory()) {
                                 if (!file.exists()) {
@@ -157,7 +157,7 @@ public class e {
         }
     }
 
-    private static boolean tZ(String str) {
+    private static boolean uh(String str) {
         return str.contains("../");
     }
 

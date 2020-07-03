@@ -27,12 +27,12 @@ import java.util.regex.Pattern;
 /* loaded from: classes11.dex */
 public final class b {
     private static final String a;
-    private static SimpleDateFormat adf = null;
+    private static SimpleDateFormat adJ = null;
     private static final Pattern b;
     private static Handler c;
 
     static {
-        String str = "(((?<=[\\.])|^)((([a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef][a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef\\-]*)*[a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef]\\.)(" + f.a + "\\.)*" + f.a + ")|^" + f.adg + ")$";
+        String str = "(((?<=[\\.])|^)((([a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef][a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef\\-]*)*[a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef]\\.)(" + f.a + "\\.)*" + f.a + ")|^" + f.adK + ")$";
         a = str;
         b = Pattern.compile(str);
     }
@@ -143,7 +143,7 @@ public final class b {
 
     public static void a(Runnable runnable) {
         if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-            rn().post(runnable);
+            rE().post(runnable);
         } else {
             runnable.run();
         }
@@ -255,7 +255,7 @@ public final class b {
         return false;
     }
 
-    private static Handler rn() {
+    private static Handler rE() {
         synchronized (b.class) {
             if (c == null) {
                 c = new Handler(Looper.getMainLooper());

@@ -24,60 +24,61 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static a mF = null;
-    private AlgoHandleController bU;
-    private c mH;
-    private ByteBuffer mK;
-    private long mL;
-    private long nj;
-    private long nk;
-    private HandlerThread no;
-    private HandlerC0082a np;
-    private boolean mI = false;
-    private boolean mJ = false;
-    private boolean mM = true;
-    private boolean mN = false;
-    private long mO = 0;
-    private int mP = 0;
-    private int[] mQ = {3, 10, 10, 10, 10};
-    private Thread mR = null;
-    private Thread mS = null;
-    private Thread mT = null;
-    private boolean mU = true;
-    private boolean mV = true;
-    private boolean mW = true;
-    private boolean mX = true;
-    private boolean mY = true;
-    private boolean mZ = true;
-    private final List<b> na = Collections.synchronizedList(new ArrayList());
-    private final List<b> nb = Collections.synchronizedList(new ArrayList());
+    private static a nc = null;
+    private AlgoHandleController ch;
+    private long nG;
+    private long nH;
+    private HandlerThread nL;
+    private HandlerC0083a nM;
+    private c ne;
+    private ByteBuffer nh;
+    private long ni;
+    private boolean nf = false;
+    private boolean ng = false;
+    private boolean nj = true;
+    private boolean nk = false;
+    private long nl = 0;
+    private int nm = 0;
+    private int[] nn = {3, 10, 10, 10, 10};
+    private Thread no = null;
+    private Thread np = null;
+    private Thread nq = null;
+    private boolean nr = true;
+    private boolean ns = true;
+    private boolean nt = true;
+    private boolean nu = true;
+    private boolean nv = true;
+    private boolean nw = true;
+    private final List<b> nx = Collections.synchronizedList(new ArrayList());
+    private final List<b> ny = Collections.synchronizedList(new ArrayList());
     private int mPreviewWidth = 320;
     private int mPreviewHeight = 180;
-    private long nc = 0;
-    private long nd = 0;
-    private long ne = 0;
-    private int nf = 1;
-    private int ng = 0;
-    private volatile ArrayList<Long> nh = new ArrayList<>();
-    private f ni = new f();
-    private FaceAlgoConfig nl = new FaceAlgoConfig(180, 5, 0.03f, 1.0f);
-    private boolean nm = true;
-    private long nn = 0;
-    private FaceJniClient mG = new FaceJniClient();
+    private long nz = 0;
+    private long nA = 0;
+    private long nB = 0;
+    private int nC = 1;
+    private int nD = 0;
+    private volatile ArrayList<Long> nE = new ArrayList<>();
+    private int mOrientation = -1;
+    private f nF = new f();
+    private FaceAlgoConfig nI = new FaceAlgoConfig(180, 5, 0.03f, 1.0f);
+    private boolean nJ = true;
+    private long nK = 0;
+    private FaceJniClient nd = new FaceJniClient();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.face.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class HandlerC0082a extends Handler {
-        private boolean cs;
+    public static final class HandlerC0083a extends Handler {
+        private boolean cF;
 
-        public HandlerC0082a(Looper looper) {
+        public HandlerC0083a(Looper looper) {
             super(looper);
-            this.cs = false;
+            this.cF = false;
         }
 
         public void a(int i, Runnable runnable) {
-            if (this.cs) {
+            if (this.cF) {
                 return;
             }
             Message obtain = Message.obtain();
@@ -90,7 +91,7 @@ public class a {
         public void handleMessage(Message message) {
             super.handleMessage(message);
             if (message.what == 1004) {
-                this.cs = true;
+                this.cF = true;
             }
             Runnable runnable = (Runnable) message.obj;
             if (runnable != null) {
@@ -101,7 +102,7 @@ public class a {
 
     private a() {
         StringBuilder append = new StringBuilder().append("environment version= ").append(com.baidu.ar.f.c.getVersionCode()).append(", face = ");
-        FaceJniClient faceJniClient = this.mG;
+        FaceJniClient faceJniClient = this.nd;
         com.baidu.ar.f.b.b("algo", append.append(FaceJniClient.getFaceAlgoVersion()).toString());
     }
 
@@ -121,19 +122,19 @@ public class a {
                 hVar.setTracked(false);
             }
         }
-        if (this.mH != null) {
-            if (this.nj > 0 && this.ni != null) {
-                this.ni.f(System.currentTimeMillis() - this.nj);
+        if (this.ne != null) {
+            if (this.nG > 0 && this.nF != null) {
+                this.nF.f(System.currentTimeMillis() - this.nG);
             }
-            this.nj = System.currentTimeMillis();
-            if (this.no == null || !this.no.isAlive() || this.np == null) {
+            this.nG = System.currentTimeMillis();
+            if (this.nL == null || !this.nL.isAlive() || this.nM == null) {
                 return;
             }
-            this.np.a(1002, new Runnable() { // from class: com.baidu.ar.face.a.a.5
+            this.nM.a(1002, new Runnable() { // from class: com.baidu.ar.face.a.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.ar.f.b.h("bdar-face", "[FaceHandlerThread] Callback handle:" + hVar.bv());
-                    a.this.mH.g(hVar);
+                    com.baidu.ar.f.b.h("bdar-face", "[FaceHandlerThread] Callback handle:" + hVar.cz());
+                    a.this.ne.e(hVar);
                 }
             });
         }
@@ -143,17 +144,17 @@ public class a {
     public void a(FaceAlgoData faceAlgoData, long j) {
         long currentTimeMillis = System.currentTimeMillis();
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        FaceJniClient faceJniClient = this.mG;
-        FaceAlgoData trackFace = FaceJniClient.trackFace(this.nd, faceAlgoData, j);
+        FaceJniClient faceJniClient = this.nd;
+        FaceAlgoData trackFace = FaceJniClient.trackFace(this.nA, faceAlgoData, j);
         StatisticApi.getPerformanceApi().recordAlgoTimeCost("face", ARPScriptEnvironment.KEY_DATA_PIP_TRACK, SystemClock.elapsedRealtime() - elapsedRealtime, (trackFace == null || trackFace.getFaceFrame() == null || trackFace.getFaceFrame().getFaceBoxes() == null) ? 0 : trackFace.getFaceFrame().getFaceBoxes().size());
-        if (this.ni != null) {
-            this.ni.c(System.currentTimeMillis() - currentTimeMillis);
+        if (this.nF != null) {
+            this.nF.c(System.currentTimeMillis() - currentTimeMillis);
         }
         com.baidu.ar.f.b.h("bdar-face", "track cost:" + (System.currentTimeMillis() - currentTimeMillis) + " mFaceHandle = " + j);
-        if (trackFace == null || trackFace.getFaceFrame() == null || trackFace.getFaceFrame().getProcessResult() != 200 || trackFace.getFaceFrame().getTrackedPointsList().size() < this.nf) {
-            this.mJ = false;
+        if (trackFace == null || trackFace.getFaceFrame() == null || trackFace.getFaceFrame().getProcessResult() != 200 || trackFace.getFaceFrame().getTrackedPointsList().size() < this.nC) {
+            this.ng = false;
         } else {
-            this.mJ = true;
+            this.ng = true;
         }
     }
 
@@ -161,27 +162,30 @@ public class a {
     public void a(FaceAlgoData faceAlgoData, long j, long j2, long j3, ByteBuffer byteBuffer, boolean z, long j4) {
         long currentTimeMillis = System.currentTimeMillis();
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        FaceJniClient faceJniClient = this.mG;
-        FaceAlgoData animateFace = FaceJniClient.animateFace(this.ne, faceAlgoData, j);
+        FaceJniClient faceJniClient = this.nd;
+        FaceAlgoData animateFace = FaceJniClient.animateFace(this.nB, faceAlgoData, j);
         int i = 0;
         if (animateFace != null && animateFace.getFaceFrame() != null && animateFace.getFaceFrame().getFaceBoxes() != null) {
             i = animateFace.getFaceFrame().getFaceBoxes().size();
         }
         StatisticApi.getPerformanceApi().recordAlgoTimeCost("face", "animate", SystemClock.elapsedRealtime() - elapsedRealtime, i);
-        if (this.ni != null) {
-            this.ni.d(System.currentTimeMillis() - currentTimeMillis);
+        if (this.nF != null) {
+            this.nF.d(System.currentTimeMillis() - currentTimeMillis);
         }
         com.baidu.ar.f.b.h("bdar-face", "animate cost:" + (System.currentTimeMillis() - currentTimeMillis) + " mFaceHandle = " + j + " timestamp:" + j2);
-        long currentTimeMillis2 = this.mO > 0 ? System.currentTimeMillis() - this.mO : System.currentTimeMillis() - j3;
+        long currentTimeMillis2 = this.nl > 0 ? System.currentTimeMillis() - this.nl : System.currentTimeMillis() - j3;
         if (animateFace != null && animateFace.getFaceFrame() != null) {
             if (animateFace.getFaceFrame().getProcessResult() != 200) {
-                this.ng = 0;
+                this.nD = 0;
             }
             if (animateFace.getFaceFrame().getFaceBoxes() != null) {
-                this.ng = animateFace.getFaceFrame().getFaceBoxes().size();
+                this.nD = animateFace.getFaceFrame().getFaceBoxes().size();
+                if (this.nD > 4) {
+                    this.nD = 4;
+                }
             }
         }
-        this.mO = System.currentTimeMillis();
+        this.nl = System.currentTimeMillis();
         a(j2, animateFace, j, currentTimeMillis2, byteBuffer, z, j4);
     }
 
@@ -190,100 +194,100 @@ public class a {
         long createTrackCore;
         long createAnimateCore;
         if (z) {
-            FaceJniClient faceJniClient = this.mG;
+            FaceJniClient faceJniClient = this.nd;
             createDetectCore = FaceJniClient.createDetectCoreFromAssetDir(strArr);
         } else {
-            FaceJniClient faceJniClient2 = this.mG;
+            FaceJniClient faceJniClient2 = this.nd;
             createDetectCore = FaceJniClient.createDetectCore(strArr);
         }
-        this.nc = createDetectCore;
+        this.nz = createDetectCore;
         if (z2) {
-            FaceJniClient faceJniClient3 = this.mG;
+            FaceJniClient faceJniClient3 = this.nd;
             createTrackCore = FaceJniClient.createTrackCoreFromAssetDir(strArr2);
         } else {
-            FaceJniClient faceJniClient4 = this.mG;
+            FaceJniClient faceJniClient4 = this.nd;
             createTrackCore = FaceJniClient.createTrackCore(strArr2);
         }
-        this.nd = createTrackCore;
+        this.nA = createTrackCore;
         if (z3) {
-            FaceJniClient faceJniClient5 = this.mG;
+            FaceJniClient faceJniClient5 = this.nd;
             createAnimateCore = FaceJniClient.createAnimateCoreFromAssetDir(strArr3);
         } else {
-            FaceJniClient faceJniClient6 = this.mG;
+            FaceJniClient faceJniClient6 = this.nd;
             createAnimateCore = FaceJniClient.createAnimateCore(strArr3);
         }
-        this.ne = createAnimateCore;
-        com.baidu.ar.f.b.c("bdar-face", "face init mDetectHandle:" + this.nc + " mTrackHandle:" + this.nd + " mAnimateHandle:" + this.ne);
-        int i = (this.nc <= 0 || this.nd <= 0 || this.ne <= 0) ? 104 : 100;
+        this.nB = createAnimateCore;
+        com.baidu.ar.f.b.c("bdar-face", "face init mDetectHandle:" + this.nz + " mTrackHandle:" + this.nA + " mAnimateHandle:" + this.nB);
+        int i = (this.nz <= 0 || this.nA <= 0 || this.nB <= 0) ? 104 : 100;
         boolean z4 = i == 100;
-        this.mI = z4;
-        if (this.mH != null) {
-            this.mH.D(z4);
+        this.nf = z4;
+        if (this.ne != null) {
+            this.ne.C(z4);
         }
         if (!z4) {
             com.baidu.ar.f.b.b("bdar-face", "face init failed:" + i);
             return;
         }
-        cF();
-        cG();
-        cH();
+        cU();
+        cV();
+        cW();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(FaceAlgoData faceAlgoData, long j, long j2, ByteBuffer byteBuffer, boolean z, long j3) {
         boolean z2 = false;
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.mJ) {
-            this.mP = 0;
+        if (this.ng) {
+            this.nm = 0;
             com.baidu.ar.f.b.h("bdar-face", "skip detect");
             return false;
         }
-        if (this.mP != 0) {
-            com.baidu.ar.f.b.h("bdar-face", "detect rate: 1/" + this.mQ + " skip frame: mFaceHandle = " + j);
-            boolean z3 = this.ng < 1;
+        if (this.nm != 0) {
+            com.baidu.ar.f.b.h("bdar-face", "detect rate: 1/" + this.nn + " skip frame: mFaceHandle = " + j);
+            boolean z3 = this.nD < 1;
             if (z3) {
                 a(j2, faceAlgoData, j, System.currentTimeMillis() - currentTimeMillis, byteBuffer, z, j3);
             }
             z2 = z3;
-        } else if (!this.mV) {
+        } else if (!this.ns) {
             return true;
         } else {
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            FaceJniClient faceJniClient = this.mG;
-            FaceAlgoData detectFace = FaceJniClient.detectFace(this.nc, faceAlgoData, j);
+            FaceJniClient faceJniClient = this.nd;
+            FaceAlgoData detectFace = FaceJniClient.detectFace(this.nz, faceAlgoData, j);
             int i = 0;
             if (detectFace != null && detectFace.getFaceFrame() != null && detectFace.getFaceFrame().getFaceBoxes() != null) {
                 i = detectFace.getFaceFrame().getFaceBoxes().size();
             }
             StatisticApi.getPerformanceApi().recordAlgoTimeCost("face", "detect", SystemClock.elapsedRealtime() - elapsedRealtime, i);
-            if (this.ni != null) {
-                this.ni.a(System.currentTimeMillis() - currentTimeMillis);
+            if (this.nF != null) {
+                this.nF.a(System.currentTimeMillis() - currentTimeMillis);
             }
             com.baidu.ar.f.b.h("bdar-face", "detect cost:" + (System.currentTimeMillis() - currentTimeMillis) + " mFaceHandle = " + j);
-            if (detectFace != null && detectFace.getFaceFrame() != null && detectFace.getFaceFrame().getProcessResult() != 200 && this.ng <= 0) {
+            if (detectFace != null && detectFace.getFaceFrame() != null && detectFace.getFaceFrame().getProcessResult() != 200 && this.nD <= 0) {
                 com.baidu.ar.f.b.h("bdar-face", "detect fail，mFaceHandle = " + j);
-                this.ng = 0;
+                this.nD = 0;
                 a(j2, detectFace, j, System.currentTimeMillis() - currentTimeMillis, byteBuffer, z, j3);
                 z2 = true;
             }
         }
-        this.mP++;
-        if (this.mP >= this.mQ[this.ng]) {
-            this.mP = 0;
+        this.nm++;
+        if (this.nm >= this.nn[this.nD]) {
+            this.nm = 0;
             return z2;
         }
         return z2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean c(String str, String str2, String str3, String[] strArr, String str4, String str5, String str6) {
-        boolean a = com.baidu.ar.face.b.a(str, str2, str3, strArr, str4, str5, str6);
-        if (this.mG == null || a) {
+    public boolean c(String str, String str2, String str3, String[] strArr, String str4, String str5, String str6, String str7) {
+        boolean a = com.baidu.ar.face.b.a(str, str2, str3, strArr, str4, str5, str6, str7);
+        if (this.nd == null || a) {
             com.baidu.ar.f.b.b("bdar-face", "init error! check face model!");
             return false;
         }
         setAutoCalibrate(true);
-        com.baidu.ar.f.b.c("bdar-face", "imbin:" + str + "\nDetect:" + str2 + "\nTrack0:" + str3 + "\nTrack1:" + Arrays.toString(strArr) + "\nTrack2:" + str4 + "\nexpression:" + str5 + "\nmouth:" + str6);
+        com.baidu.ar.f.b.c("bdar-face", "imbin:" + str + "\nDetect:" + str2 + "\nTrack0:" + str3 + "\nTrack1:" + Arrays.toString(strArr) + "\nTrack2:" + str4 + "\nTrack3:" + str5 + "\nexpression:" + str6 + "\nmouth:" + str7);
         boolean z = false;
         if (str2.startsWith("file:///android_asset/")) {
             z = true;
@@ -297,72 +301,74 @@ public class a {
             strArr[1] = strArr[1].replace("file:///android_asset/", "");
             strArr[2] = strArr[2].replace("file:///android_asset/", "");
             str4 = str4.replace("file:///android_asset/", "");
-            str6 = str6.replace("file:///android_asset/", "");
+            str5 = str5.replace("file:///android_asset/", "");
+            str7 = str7.replace("file:///android_asset/", "");
         }
         boolean z3 = false;
         if (str.startsWith("file:///android_asset/")) {
             z3 = true;
             str = str.replace("file:///android_asset/", "");
-            str5 = str5.replace("file:///android_asset/", "");
+            str6 = str6.replace("file:///android_asset/", "");
         }
         com.baidu.ar.f.b.c("bdar-face", "loadDetectAssets:" + z + " loadTrackAssets:" + z2 + " loadAnimateAssets:" + z3);
-        a(z, z2, z3, new String[]{"detect", str2}, new String[]{"angle", str3, "heavy", strArr[0], "medium", strArr[1], "lite", strArr[2], LivenessStat.TYPE_LIVING_MOUTH, str6, "eyes", str4}, new String[]{"animate", str, "expression", str5});
+        a(z, z2, z3, new String[]{"detect", str2}, new String[]{"angle", str3, "heavy", strArr[0], "medium", strArr[1], "lite", strArr[2], LivenessStat.TYPE_LIVING_MOUTH, str7, "eyes", str4, "iris", str5}, new String[]{"animate", str, "expression", str6});
         return true;
     }
 
-    public static synchronized a cE() {
+    public static synchronized a cT() {
         a aVar;
         synchronized (a.class) {
-            if (mF == null) {
-                mF = new a();
+            if (nc == null) {
+                nc = new a();
             }
-            aVar = mF;
+            aVar = nc;
         }
         return aVar;
     }
 
-    private void cF() {
-        if (this.mR == null) {
-            this.mR = new Thread(new Runnable() { // from class: com.baidu.ar.face.a.a.2
+    private void cU() {
+        if (this.no == null) {
+            this.no = new Thread(new Runnable() { // from class: com.baidu.ar.face.a.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    while (a.this.mU) {
-                        if (!a.this.mX || a.this.mK == null || !a.this.mI || a.this.na.size() > 0) {
+                    while (a.this.nr) {
+                        if (!a.this.nu || a.this.nh == null || !a.this.nf || a.this.nx.size() > 0) {
                             try {
                                 Thread.sleep(3L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         } else {
-                            a.this.mX = false;
-                            long j = a.this.mL;
-                            if (a.this.mN) {
-                                a.this.nl.setForceLost(true);
-                                a.this.mN = false;
+                            a.this.nu = false;
+                            long j = a.this.ni;
+                            if (a.this.nk) {
+                                a.this.nI.setForceLost(true);
+                                a.this.nk = false;
                             }
-                            ByteBuffer byteBuffer = a.this.mK;
-                            long j2 = a.this.nn;
-                            boolean z = a.this.mM;
-                            a.this.nl.setMirror(false);
-                            a.this.mK = null;
-                            a.this.nn = 0L;
+                            ByteBuffer byteBuffer = a.this.nh;
+                            long j2 = a.this.nK;
+                            boolean z = a.this.nj;
+                            a.this.nI.setMirror(false);
+                            a.this.nI.setTrackingRT(com.baidu.ar.face.b.B(a.this.mOrientation));
+                            a.this.nh = null;
+                            a.this.nK = 0L;
                             FAUImage fAUImage = new FAUImage(byteBuffer, a.this.mPreviewWidth, a.this.mPreviewHeight, 2);
                             long currentTimeMillis = System.currentTimeMillis();
                             long elapsedRealtime = SystemClock.elapsedRealtime();
-                            FaceJniClient unused = a.this.mG;
+                            FaceJniClient unused = a.this.nd;
                             long createFrame = FaceJniClient.createFrame(fAUImage);
                             StatisticApi.getPerformanceApi().recordAlgoTimeCost("face", "create", SystemClock.elapsedRealtime() - elapsedRealtime, 1);
-                            if (a.this.ni != null) {
-                                a.this.ni.b(System.currentTimeMillis() - currentTimeMillis);
+                            if (a.this.nF != null) {
+                                a.this.nF.b(System.currentTimeMillis() - currentTimeMillis);
                             }
                             com.baidu.ar.f.b.h("bdar-face", "create cost:" + (System.currentTimeMillis() - currentTimeMillis) + " mFaceHandle = " + createFrame);
                             if (createFrame <= 0) {
                                 com.baidu.ar.f.b.b("bdar-face", "create handle illegal:" + createFrame);
-                                a.this.mX = true;
+                                a.this.nu = true;
                             } else {
                                 boolean z2 = false;
                                 try {
-                                    Iterator it = a.this.nh.iterator();
+                                    Iterator it = a.this.nE.iterator();
                                     while (it.hasNext()) {
                                         z2 = ((Long) it.next()).longValue() == createFrame ? true : z2;
                                     }
@@ -372,18 +378,18 @@ public class a {
                                 }
                                 if (z2) {
                                     com.baidu.ar.f.b.i("bdar-face", "handle exist, not add to mCreateHandleList:" + createFrame);
-                                    a.this.mX = true;
+                                    a.this.nu = true;
                                 } else {
-                                    a.this.nh.add(Long.valueOf(createFrame));
+                                    a.this.nE.add(Long.valueOf(createFrame));
                                     FaceAlgoData faceAlgoData = new FaceAlgoData();
-                                    faceAlgoData.setAlgoConfig(a.this.nl.cloneInstance());
+                                    faceAlgoData.setAlgoConfig(a.this.nI.cloneInstance());
                                     faceAlgoData.setFaceFrame(new FaceFrame());
-                                    if (a.this.bU != null && j2 > 0) {
-                                        a.this.bU.setHandleFaceHandle(j2, createFrame);
+                                    if (a.this.ch != null && j2 > 0) {
+                                        a.this.ch.setHandleFaceHandle(j2, createFrame);
                                     }
-                                    a.this.nl.setForceLost(false);
-                                    a.this.na.add(new b(faceAlgoData, createFrame, j, currentTimeMillis, byteBuffer, z, j2));
-                                    a.this.mX = true;
+                                    a.this.nI.setForceLost(false);
+                                    a.this.nx.add(new b(faceAlgoData, createFrame, j, currentTimeMillis, byteBuffer, z, j2));
+                                    a.this.nu = true;
                                 }
                             }
                         }
@@ -391,40 +397,40 @@ public class a {
                 }
             });
         }
-        this.mR.setName("FaceCreateThread");
-        if (!this.mR.isAlive()) {
-            this.mR.start();
+        this.no.setName("FaceCreateThread");
+        if (!this.no.isAlive()) {
+            this.no.start();
         }
-        this.mU = true;
+        this.nr = true;
     }
 
-    private void cG() {
-        if (this.mS == null) {
-            this.mS = new Thread(new Runnable() { // from class: com.baidu.ar.face.a.a.3
+    private void cV() {
+        if (this.np == null) {
+            this.np = new Thread(new Runnable() { // from class: com.baidu.ar.face.a.a.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    while (a.this.mV) {
-                        if (a.this.mY && a.this.na.size() > 0 && a.this.mI) {
-                            a.this.mY = false;
+                    while (a.this.ns) {
+                        if (a.this.nv && a.this.nx.size() > 0 && a.this.nf) {
+                            a.this.nv = false;
                             try {
-                                FaceAlgoData cN = ((b) a.this.na.get(0)).cN();
-                                long handle = ((b) a.this.na.get(0)).getHandle();
-                                long timestamp = ((b) a.this.na.get(0)).getTimestamp();
-                                long cO = ((b) a.this.na.get(0)).cO();
-                                long cP = ((b) a.this.na.get(0)).cP();
-                                ByteBuffer cM = ((b) a.this.na.get(0)).cM();
-                                boolean isFrontCamera = ((b) a.this.na.get(0)).isFrontCamera();
-                                a.this.na.remove(0);
-                                if (a.this.a(cN, handle, timestamp, cM, isFrontCamera, cP) || !a.this.mV) {
-                                    a.this.mY = true;
+                                FaceAlgoData dc = ((b) a.this.nx.get(0)).dc();
+                                long handle = ((b) a.this.nx.get(0)).getHandle();
+                                long timestamp = ((b) a.this.nx.get(0)).getTimestamp();
+                                long dd = ((b) a.this.nx.get(0)).dd();
+                                long de2 = ((b) a.this.nx.get(0)).de();
+                                ByteBuffer db = ((b) a.this.nx.get(0)).db();
+                                boolean isFrontCamera = ((b) a.this.nx.get(0)).isFrontCamera();
+                                a.this.nx.remove(0);
+                                if (a.this.a(dc, handle, timestamp, db, isFrontCamera, de2) || !a.this.ns) {
+                                    a.this.nv = true;
                                 } else {
-                                    a.this.a(cN, handle);
-                                    a.this.nb.add(new b(cN, handle, timestamp, cO, cM, isFrontCamera, cP));
-                                    a.this.mY = true;
+                                    a.this.a(dc, handle);
+                                    a.this.ny.add(new b(dc, handle, timestamp, dd, db, isFrontCamera, de2));
+                                    a.this.nv = true;
                                 }
                             } catch (IndexOutOfBoundsException e) {
                                 com.baidu.ar.f.b.b("bdar-face", "FaceTrackThread IndexOutOfBoundsException:" + e.getMessage());
-                                a.this.mY = true;
+                                a.this.nv = true;
                             }
                         } else {
                             try {
@@ -437,39 +443,39 @@ public class a {
                 }
             });
         }
-        this.mS.setName("FaceTrackThread");
-        if (!this.mS.isAlive()) {
-            this.mS.start();
+        this.np.setName("FaceTrackThread");
+        if (!this.np.isAlive()) {
+            this.np.start();
         }
-        this.mV = true;
+        this.ns = true;
     }
 
-    private void cH() {
-        if (this.mT == null) {
-            this.mT = new Thread(new Runnable() { // from class: com.baidu.ar.face.a.a.4
+    private void cW() {
+        if (this.nq == null) {
+            this.nq = new Thread(new Runnable() { // from class: com.baidu.ar.face.a.a.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    while (a.this.mW) {
-                        if (a.this.nb.size() > 0 && a.this.mI && a.this.mZ) {
-                            a.this.mZ = false;
+                    while (a.this.nt) {
+                        if (a.this.ny.size() > 0 && a.this.nf && a.this.nw) {
+                            a.this.nw = false;
                             try {
-                                FaceAlgoData cN = ((b) a.this.nb.get(0)).cN();
-                                long handle = ((b) a.this.nb.get(0)).getHandle();
-                                long timestamp = ((b) a.this.nb.get(0)).getTimestamp();
-                                long cO = ((b) a.this.nb.get(0)).cO();
-                                long cP = ((b) a.this.nb.get(0)).cP();
-                                ByteBuffer cM = ((b) a.this.nb.get(0)).cM();
-                                boolean isFrontCamera = ((b) a.this.nb.get(0)).isFrontCamera();
-                                a.this.nb.remove(0);
-                                if (a.this.mW) {
-                                    a.this.a(cN, handle, timestamp, cO, cM, isFrontCamera, cP);
-                                    a.this.mZ = true;
+                                FaceAlgoData dc = ((b) a.this.ny.get(0)).dc();
+                                long handle = ((b) a.this.ny.get(0)).getHandle();
+                                long timestamp = ((b) a.this.ny.get(0)).getTimestamp();
+                                long dd = ((b) a.this.ny.get(0)).dd();
+                                long de2 = ((b) a.this.ny.get(0)).de();
+                                ByteBuffer db = ((b) a.this.ny.get(0)).db();
+                                boolean isFrontCamera = ((b) a.this.ny.get(0)).isFrontCamera();
+                                a.this.ny.remove(0);
+                                if (a.this.nt) {
+                                    a.this.a(dc, handle, timestamp, dd, db, isFrontCamera, de2);
+                                    a.this.nw = true;
                                 } else {
-                                    a.this.mZ = true;
+                                    a.this.nw = true;
                                 }
                             } catch (IndexOutOfBoundsException e) {
                                 com.baidu.ar.f.b.i("bdar-face", "FaceAnimateThread IndexOutOfBoundsException:" + e.getMessage());
-                                a.this.mZ = true;
+                                a.this.nw = true;
                             }
                         } else {
                             try {
@@ -482,67 +488,67 @@ public class a {
                 }
             });
         }
-        this.mT.setName("FaceAnimateThread");
-        if (!this.mT.isAlive()) {
-            this.mT.start();
+        this.nq.setName("FaceAnimateThread");
+        if (!this.nq.isAlive()) {
+            this.nq.start();
         }
-        this.mW = true;
+        this.nt = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cJ() {
-        this.mU = false;
-        this.mV = false;
-        this.mW = false;
-        this.mI = false;
-        this.mX = false;
-        this.mY = false;
-        this.mZ = false;
+    public boolean cY() {
+        this.nr = false;
+        this.ns = false;
+        this.nt = false;
+        this.nf = false;
+        this.nu = false;
+        this.nv = false;
+        this.nw = false;
         try {
-            if (this.na.size() > 0) {
-                this.na.clear();
+            if (this.nx.size() > 0) {
+                this.nx.clear();
             }
-            if (this.nb.size() > 0) {
-                this.nb.clear();
+            if (this.ny.size() > 0) {
+                this.ny.clear();
             }
         } catch (Exception e) {
             com.baidu.ar.f.b.i("bdar-face", "Results.clear Exception：" + e.getMessage());
             e.printStackTrace();
         }
-        this.mR = null;
-        this.mS = null;
-        this.mT = null;
-        cK();
-        cL();
-        if (this.np != null) {
-            this.np = null;
+        this.no = null;
+        this.np = null;
+        this.nq = null;
+        cZ();
+        da();
+        if (this.nM != null) {
+            this.nM = null;
         }
-        if (this.no != null) {
-            this.no.quit();
-            this.no = null;
+        if (this.nL != null) {
+            this.nL.quit();
+            this.nL = null;
         }
-        mF = null;
-        if (this.mH != null) {
-            this.mH.E(true);
+        nc = null;
+        if (this.ne != null) {
+            this.ne.D(true);
         }
-        this.mK = null;
-        if (this.ni != null) {
-            this.ni.dd();
-            this.ni = null;
+        this.nh = null;
+        if (this.nF != null) {
+            this.nF.dt();
+            this.nF = null;
         }
-        this.nk = 0L;
-        this.nj = 0L;
+        this.nH = 0L;
+        this.nG = 0L;
         return true;
     }
 
-    private void cK() {
+    private void cZ() {
         try {
-            if (this.nh.size() > 0) {
-                Iterator<Long> it = this.nh.iterator();
+            if (this.nE.size() > 0) {
+                Iterator<Long> it = this.nE.iterator();
                 while (it.hasNext()) {
                     long longValue = it.next().longValue();
                     com.baidu.ar.f.b.i("bdar-face", "releaseHandleList, release handle:" + longValue);
-                    FaceJniClient faceJniClient = this.mG;
+                    FaceJniClient faceJniClient = this.nd;
                     FaceJniClient.destoryFrame(longValue);
                 }
             }
@@ -550,99 +556,108 @@ public class a {
             e.printStackTrace();
             com.baidu.ar.f.b.i("bdar-face", "release mCreateHandleList Exception:" + e.getMessage());
         }
-        this.nh.clear();
+        this.nE.clear();
     }
 
-    private void cL() {
+    private void da() {
         try {
-            if (this.nc > 0) {
-                FaceJniClient faceJniClient = this.mG;
-                FaceJniClient.releaseDetectCore(this.nc);
+            if (this.nz > 0) {
+                FaceJniClient faceJniClient = this.nd;
+                FaceJniClient.releaseDetectCore(this.nz);
             }
-            if (this.nd > 0) {
-                FaceJniClient faceJniClient2 = this.mG;
-                FaceJniClient.releaseTrackCore(this.nd);
+            if (this.nA > 0) {
+                FaceJniClient faceJniClient2 = this.nd;
+                FaceJniClient.releaseTrackCore(this.nA);
             }
-            if (this.ne > 0) {
-                FaceJniClient faceJniClient3 = this.mG;
-                FaceJniClient.releaseAnimateCore(this.ne);
+            if (this.nB > 0) {
+                FaceJniClient faceJniClient3 = this.nd;
+                FaceJniClient.releaseAnimateCore(this.nB);
             }
-            this.nc = 0L;
-            this.nd = 0L;
-            this.ne = 0L;
-            this.mG = null;
+            this.nz = 0L;
+            this.nA = 0L;
+            this.nB = 0L;
+            this.nd = null;
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void setAutoCalibrate(boolean z) {
-        if (this.nl != null) {
-            this.nl.setAutoCalibrate(z);
+        if (this.nI != null) {
+            this.nI.setAutoCalibrate(z);
         }
     }
 
     public void A(boolean z) {
-        if (this.nl != null) {
-            com.baidu.ar.f.b.c("bdar-face", "setAnimojiMode:" + z);
-            this.nl.setIsAnimojiMode(z);
+        if (this.nI != null) {
+            com.baidu.ar.f.b.c("bdar-face", "setNeedRefineMouth:" + z);
+            this.nI.setNeedRefineMouth(z);
         }
     }
 
     public void B(boolean z) {
-        if (this.nl != null) {
-            com.baidu.ar.f.b.c("bdar-face", "setNeedRefineMouth:" + z);
-            this.nl.setNeedRefineMouth(z);
+        if (this.nI != null) {
+            com.baidu.ar.f.b.c("bdar-face", "setNeedExpression:" + z);
+            this.nI.setNeedExpression(z);
         }
     }
 
-    public void C(boolean z) {
-        if (this.nl != null) {
-            com.baidu.ar.f.b.c("bdar-face", "setNeedExpression:" + z);
-            this.nl.setNeedExpression(z);
+    public void C(int i) {
+        if (this.nI != null) {
+            com.baidu.ar.f.b.c("bdar-face", "trackMode:" + i);
+            this.nI.setRunningMode(i);
+        }
+    }
+
+    public void D(int i) {
+        this.nC = i;
+        if (this.nI != null) {
+            com.baidu.ar.f.b.c("bdar-face", "setMaxTrackingFace:" + i);
+            this.nI.setMaxTrackingFace(this.nC);
         }
     }
 
     public void a(float f, float f2) {
-        if (this.nl != null) {
+        if (this.nI != null) {
             com.baidu.ar.f.b.c("bdar-face", "mTrackingSmoothAlpha:" + f + " mTrackingSmoothThreshold:" + f2);
-            this.nl.setTrackingSmoothAlpha(f);
-            this.nl.setTrackingSmoothThreshold(f2);
+            this.nI.setTrackingSmoothAlpha(f);
+            this.nI.setTrackingSmoothThreshold(f2);
         }
     }
 
     public void a(AlgoHandleController algoHandleController) {
-        this.bU = algoHandleController;
+        this.ch = algoHandleController;
     }
 
     public void a(c cVar) {
-        this.mH = cVar;
+        this.ne = cVar;
     }
 
     public void a(boolean z, boolean z2, boolean z3) {
-        if (this.nl != null) {
+        if (this.nI != null) {
             com.baidu.ar.f.b.c("bdar-face", "setAnimateMode needHeadPose:" + z + " needSkeleton:" + z2 + " needTriggers:" + z3);
-            this.nl.setAnimateRunningMode(z, z2, z3);
+            this.nI.setAnimateRunningMode(z, z2, z3);
         }
     }
 
     public boolean a(ByteBuffer byteBuffer, long j, int i, int i2, boolean z, int i3, boolean z2) {
-        if (this.mI) {
-            if (this.nk > 0 && this.ni != null && this.mI) {
-                this.ni.e(System.currentTimeMillis() - this.nk);
+        if (this.nf) {
+            if (this.nH > 0 && this.nF != null && this.nf) {
+                this.nF.e(System.currentTimeMillis() - this.nH);
             }
-            this.nk = System.currentTimeMillis();
-            if (this.mK == null) {
-                if (this.nm && this.bU != null) {
-                    this.nn = this.bU.createHandle();
-                    this.bU.setHandleInput(this.nn, 10, j, 2, i, i2, z, i3, z2, byteBuffer);
+            this.nH = System.currentTimeMillis();
+            if (this.nh == null) {
+                if (this.nJ && this.ch != null) {
+                    this.nK = this.ch.createHandle();
+                    this.ch.setHandleInput(this.nK, 10, j, 2, i, i2, z, i3, z2, byteBuffer);
                 }
-                this.mK = byteBuffer;
-                if (this.mM != z) {
-                    this.mN = true;
+                this.nh = byteBuffer;
+                this.mOrientation = i3;
+                if (this.nj != z) {
+                    this.nk = true;
                 }
-                this.mM = z;
-                this.mL = j;
+                this.nj = z;
+                this.ni = j;
                 this.mPreviewWidth = i;
                 this.mPreviewHeight = i2;
                 return true;
@@ -653,22 +668,22 @@ public class a {
     }
 
     public void b(final long j) {
-        if (this.no == null || !this.no.isAlive() || this.np == null) {
+        if (this.nL == null || !this.nL.isAlive() || this.nM == null) {
             return;
         }
-        this.np.a(1003, new Runnable() { // from class: com.baidu.ar.face.a.a.6
+        this.nM.a(1003, new Runnable() { // from class: com.baidu.ar.face.a.a.6
             @Override // java.lang.Runnable
             public void run() {
                 int i;
-                if (a.this.nh.size() > 0) {
+                if (a.this.nE.size() > 0) {
                     int i2 = 0;
                     i = -1;
                     while (true) {
                         int i3 = i2;
-                        if (i3 >= a.this.nh.size()) {
+                        if (i3 >= a.this.nE.size()) {
                             break;
                         }
-                        if (a.this.nh.get(i3) != null && ((Long) a.this.nh.get(i3)).longValue() == j) {
+                        if (a.this.nE.get(i3) != null && ((Long) a.this.nE.get(i3)).longValue() == j) {
                             i = i3;
                         }
                         i2 = i3 + 1;
@@ -676,11 +691,11 @@ public class a {
                 } else {
                     i = -1;
                 }
-                if (i >= 0 && a.this.nh.size() > 0) {
-                    a.this.nh.remove(i);
+                if (i >= 0 && a.this.nE.size() > 0) {
+                    a.this.nE.remove(i);
                 }
                 com.baidu.ar.f.b.h("bdar-face", "[FaceHandlerThread] destroy handle:" + j);
-                FaceJniClient unused = a.this.mG;
+                FaceJniClient unused = a.this.nd;
                 FaceJniClient.destoryFrame(j);
             }
         });
@@ -690,56 +705,56 @@ public class a {
         if (iArr != null) {
             com.baidu.ar.f.b.c("bdar-face", "setDetectRate:" + Arrays.toString(iArr));
         }
-        this.mQ = iArr;
+        this.nn = iArr;
     }
 
-    public boolean b(final String str, final String str2, final String str3, final String[] strArr, final String str4, final String str5, final String str6) {
-        if (this.no == null) {
-            this.no = new HandlerThread("FaceHandlerThread");
-            this.no.start();
+    public boolean b(final String str, final String str2, final String str3, final String[] strArr, final String str4, final String str5, final String str6, final String str7) {
+        if (this.nL == null) {
+            this.nL = new HandlerThread("FaceHandlerThread");
+            this.nL.start();
         }
-        if (this.np == null) {
-            this.np = new HandlerC0082a(this.no.getLooper());
+        if (this.nM == null) {
+            this.nM = new HandlerC0083a(this.nL.getLooper());
         }
-        if (this.no == null || !this.no.isAlive() || this.np == null) {
+        if (this.nL == null || !this.nL.isAlive() || this.nM == null) {
             return false;
         }
-        this.np.a(1001, new Runnable() { // from class: com.baidu.ar.face.a.a.1
+        this.nM.a(1001, new Runnable() { // from class: com.baidu.ar.face.a.a.1
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.ar.f.b.h("bdar-face", "[FaceHandlerThread] init");
-                a.this.c(str, str2, str3, strArr, str4, str5, str6);
+                a.this.c(str, str2, str3, strArr, str4, str5, str6, str7);
             }
         });
         return true;
     }
 
-    public void c(float f) {
-        if (this.nl != null) {
+    public boolean cX() {
+        return this.nf && this.nh == null;
+    }
+
+    public void e(float f) {
+        if (this.nI != null) {
             com.baidu.ar.f.b.c("bdar-face", "mTrackingMouthThreshold:" + f);
-            this.nl.setTrackingMouthThreshold(f);
+            this.nI.setTrackingMouthThreshold(f);
         }
     }
 
-    public boolean cI() {
-        return this.mI && this.mK == null;
-    }
-
     public void r(long j) {
-        if (this.bU != null) {
-            this.bU.destroyHandle(j);
+        if (this.ch != null) {
+            this.ch.destroyHandle(j);
         }
     }
 
     public boolean release() {
-        if (this.no == null || !this.no.isAlive() || this.np == null) {
+        if (this.nL == null || !this.nL.isAlive() || this.nM == null) {
             return false;
         }
-        this.np.a(1004, new Runnable() { // from class: com.baidu.ar.face.a.a.7
+        this.nM.a(1004, new Runnable() { // from class: com.baidu.ar.face.a.a.7
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.ar.f.b.c("bdar-face", "[FaceHandlerThread] release");
-                a.this.cJ();
+                a.this.cY();
             }
         });
         return true;
@@ -747,53 +762,45 @@ public class a {
 
     public void setContext(Context context) {
         Context context2 = (Context) new WeakReference(context).get();
-        if (context2 == null || this.mG == null) {
+        if (context2 == null || this.nd == null) {
             return;
         }
-        FaceJniClient faceJniClient = this.mG;
+        FaceJniClient faceJniClient = this.nd;
         FaceJniClient.setAssetManager(context2.getApplicationContext().getAssets());
     }
 
     public void setNeedHeadPose(boolean z) {
-        if (this.nl != null) {
+        if (this.nI != null) {
             com.baidu.ar.f.b.c("bdar-face", "setNeedHeadPose:" + z);
-            this.nl.setNeedHeadPose(z);
+            this.nI.setNeedHeadPose(z);
         }
     }
 
     public void setNeedSkeleton(boolean z) {
-        if (this.nl != null) {
+        if (this.nI != null) {
             com.baidu.ar.f.b.c("bdar-face", "setNeedSkeleton:" + z);
-            this.nl.setNeedSkeleton(z);
+            this.nI.setNeedSkeleton(z);
         }
     }
 
     public void setNeedTriggers(boolean z) {
-        if (this.nl != null) {
+        if (this.nI != null) {
             com.baidu.ar.f.b.c("bdar-face", "setNeedTriggers:" + z);
-            this.nl.setNeedTriggers(z);
+            this.nI.setNeedTriggers(z);
         }
     }
 
-    public void x(int i) {
-        if (this.nl != null) {
-            com.baidu.ar.f.b.c("bdar-face", "trackMode:" + i);
-            this.nl.setRunningMode(i);
-        }
-    }
-
-    public void y(int i) {
-        this.nf = i;
-        if (this.nl != null) {
-            com.baidu.ar.f.b.c("bdar-face", "setMaxTrackingFace:" + i);
-            this.nl.setMaxTrackingFace(this.nf);
+    public void y(boolean z) {
+        if (this.nI != null) {
+            com.baidu.ar.f.b.c("bdar-face", "setNeedRefineEyes:" + z);
+            this.nI.setNeedRefineEyes(z);
         }
     }
 
     public void z(boolean z) {
-        if (this.nl != null) {
-            com.baidu.ar.f.b.c("bdar-face", "setNeedRefineEyes:" + z);
-            this.nl.setNeedRefineEyes(z);
+        if (this.nI != null) {
+            com.baidu.ar.f.b.c("bdar-face", "setAnimojiMode:" + z);
+            this.nI.setIsAnimojiMode(z);
         }
     }
 }

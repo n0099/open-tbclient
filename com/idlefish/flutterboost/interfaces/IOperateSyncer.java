@@ -6,7 +6,7 @@ import java.util.Map;
 public interface IOperateSyncer {
     void onActivityResult(int i, int i2, Intent intent);
 
-    void onAppear();
+    void onAppear(boolean z);
 
     void onBackPressed();
 
@@ -16,7 +16,7 @@ public interface IOperateSyncer {
 
     void onDestroy();
 
-    void onDisappear();
+    void onDisappear(boolean z);
 
     void onLowMemory();
 

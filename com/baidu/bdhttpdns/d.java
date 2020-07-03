@@ -5,21 +5,21 @@ import com.baidu.bdhttpdns.BDHttpDnsResult;
 import com.baidu.bdhttpdns.h;
 /* loaded from: classes.dex */
 class d implements Runnable {
-    final /* synthetic */ BDHttpDns.a abg;
-    final /* synthetic */ BDHttpDnsResult.ResolveType abi;
-    final /* synthetic */ h.a abj;
-    final /* synthetic */ BDHttpDns abk;
+    final /* synthetic */ BDHttpDns.a abL;
+    final /* synthetic */ BDHttpDnsResult.ResolveType abN;
+    final /* synthetic */ h.a abO;
+    final /* synthetic */ BDHttpDns abP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(BDHttpDns bDHttpDns, BDHttpDns.a aVar, BDHttpDnsResult.ResolveType resolveType, h.a aVar2) {
-        this.abk = bDHttpDns;
-        this.abg = aVar;
-        this.abi = resolveType;
-        this.abj = aVar2;
+        this.abP = bDHttpDns;
+        this.abL = aVar;
+        this.abN = resolveType;
+        this.abO = aVar2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.abg.a(new BDHttpDnsResult(this.abi, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.abj.b(), this.abj.c()));
+        this.abL.a(new BDHttpDnsResult(this.abN, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.abO.b(), this.abO.c()));
     }
 }

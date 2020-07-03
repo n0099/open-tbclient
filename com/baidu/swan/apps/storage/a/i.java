@@ -30,8 +30,8 @@ public class i extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
             return false;
         }
-        eVar.aoQ().ary().remove(optString);
-        com.baidu.swan.apps.an.e.cJd.update();
+        eVar.apX().asF().remove(optString);
+        com.baidu.swan.apps.an.e.cNN.update();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

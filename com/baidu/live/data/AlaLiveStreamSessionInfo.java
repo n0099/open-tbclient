@@ -1,8 +1,8 @@
 package com.baidu.live.data;
 
 import android.text.TextUtils;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.u.a;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -16,7 +16,7 @@ public class AlaLiveStreamSessionInfo implements Serializable {
     public static final String STREAM_LEVEL_LOW = "L1";
     public static final String STREAM_LEVEL_MEDIUM = "L2";
     public static final String STREAM_LEVEL_SUPER_HIGH = "L4";
-    private static aq iReplaceUrl;
+    private static au iReplaceUrl;
     public String defaultLine;
     public String flvUrl;
     public String hlsUrl;
@@ -216,11 +216,11 @@ public class AlaLiveStreamSessionInfo implements Serializable {
         return iReplaceUrl != null ? iReplaceUrl.replacePushUrl(this.pushUrl) : this.pushUrl;
     }
 
-    public static aq getIReplaceUrl() {
+    public static au getIReplaceUrl() {
         return iReplaceUrl;
     }
 
-    public static void setIReplaceUrl(aq aqVar) {
-        iReplaceUrl = aqVar;
+    public static void setIReplaceUrl(au auVar) {
+        iReplaceUrl = auVar;
     }
 }

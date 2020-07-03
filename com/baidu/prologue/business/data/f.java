@@ -26,7 +26,7 @@ public class f {
             if (jSONArray.length() > 0) {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (TextUtils.equals(optJSONObject.optString("k"), eVar.bzX)) {
+                    if (TextUtils.equals(optJSONObject.optString("k"), eVar.bEL)) {
                         optJSONObject.put("t", TextUtils.concat(valueOf, PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, optJSONObject.optString("t")).toString());
                         jSONArray.put(i, optJSONObject);
                         break;
@@ -36,7 +36,7 @@ public class f {
             z = true;
             if (z) {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("k", eVar.bzX);
+                jSONObject.put("k", eVar.bEL);
                 jSONObject.put("t", valueOf);
                 jSONArray.put(jSONObject);
             }
@@ -46,7 +46,7 @@ public class f {
         }
     }
 
-    public static JSONArray Ol() {
+    public static JSONArray Pr() {
         int i = 0;
         String string = j.getString("today_show_list", "");
         JSONArray jSONArray = new JSONArray();

@@ -4,29 +4,29 @@ import android.view.View;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes10.dex */
 public interface a {
-    void El();
+    void EO();
 
-    void GS(String str);
+    void Hu(String str);
 
     void b(a.b bVar);
 
     void c(a.b bVar);
 
-    View ckF();
+    boolean coV();
 
-    boolean clg();
+    View cou();
 
-    View clq();
+    View cpf();
 
-    String cpI();
+    int ctA();
 
-    View cpJ();
+    boolean ctB();
 
-    void cpK();
+    String ctx();
 
-    int cpL();
+    View cty();
 
-    boolean cpM();
+    void ctz();
 
     long getGroupId();
 

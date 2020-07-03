@@ -9,4 +9,8 @@ public interface a {
     void a(q qVar);
 
     void onDestory();
+
+    void refreshUI();
+
+    void setCanVisible(boolean z);
 }

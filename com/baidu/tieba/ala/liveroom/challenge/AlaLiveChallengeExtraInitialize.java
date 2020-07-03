@@ -4,22 +4,22 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
-import com.baidu.live.challenge.g;
+import com.baidu.live.challenge.f;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class AlaLiveChallengeExtraInitialize {
     static {
-        bzA();
+        bCs();
     }
 
-    private static void bzA() {
+    private static void bCs() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913114, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.liveroom.challenge.AlaLiveChallengeExtraInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<g> run(CustomMessage<TbPageContext> customMessage) {
+            public CustomResponsedMessage<f> run(CustomMessage<TbPageContext> customMessage) {
                 if (customMessage == null || customMessage.getData() == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2913114, new b(customMessage.getData().getPageActivity()));
+                return new CustomResponsedMessage<>(2913114, new b(customMessage.getData()));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -28,7 +28,7 @@ public class AlaLiveChallengeExtraInitialize {
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.challenge.c> run(CustomMessage<com.baidu.live.challenge.c> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    com.baidu.tieba.ala.liveroom.challenge.rewarddialog.e.bAw().a(customMessage.getData());
+                    com.baidu.tieba.ala.liveroom.challenge.rewarddialog.e.bDv().a(customMessage.getData());
                 }
                 return null;
             }

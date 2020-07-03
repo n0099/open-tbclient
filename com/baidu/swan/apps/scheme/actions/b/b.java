@@ -15,8 +15,8 @@ import com.baidu.swan.apps.setting.oauth.h;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class b extends aa {
-    protected String cCs;
-    protected boolean cCt;
+    protected String cHc;
+    protected boolean cHd;
     protected String mCallback;
 
     protected abstract void b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str);
@@ -26,8 +26,8 @@ public abstract class b extends aa {
     public b(j jVar, String str) {
         super(jVar, str);
         this.mCallback = null;
-        this.cCs = null;
-        this.cCt = false;
+        this.cHc = null;
+        this.cHd = false;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
@@ -57,12 +57,12 @@ public abstract class b extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "the context is not an activity");
             return false;
         } else {
-            this.cCt = parseString.optBoolean("isFavorButton", false);
+            this.cHd = parseString.optBoolean("isFavorButton", false);
             if (!b(eVar, unitedSchemeEntity)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "params error");
                 return false;
             }
-            eVar.aoR().b(context, this.cCt ? "scope_favorite_button" : "mapp_favorite", new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.1
+            eVar.apY().b(context, this.cHd ? "scope_favorite_button" : "mapp_favorite", new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.aq.e.b
                 /* renamed from: a */

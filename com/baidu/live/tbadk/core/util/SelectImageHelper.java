@@ -7,12 +7,12 @@ import android.graphics.Bitmap;
 import android.media.ExifInterface;
 import android.net.Uri;
 import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
-import com.baidu.live.u.a;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class SelectImageHelper {

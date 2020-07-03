@@ -9,31 +9,31 @@ import java.util.Set;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class g implements d {
-    public c<com.baidu.swan.pms.model.f> ZT() {
+    public c<com.baidu.swan.pms.model.f> aaZ() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.g> ZU() {
+    public c<com.baidu.swan.pms.model.g> aba() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.d> ZV() {
+    public c<com.baidu.swan.pms.model.d> abb() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.b> ZW() {
+    public c<com.baidu.swan.pms.model.b> abc() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.h> alR() {
+    public c<com.baidu.swan.pms.model.h> amX() {
         return null;
     }
 
-    public a<a.C0456a> ZQ() {
+    public a<a.C0462a> aaW() {
         return null;
     }
 
-    public f ZX() {
+    public f abd() {
         return null;
     }
 
@@ -42,47 +42,47 @@ public abstract class g implements d {
     public Bundle a(@NonNull Bundle bundle, Set<String> set) {
         Bundle bundle2 = new Bundle();
         if (set.contains("event_performance_ubc")) {
-            aU(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
+            aW(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
             set.remove("event_performance_ubc");
         }
         return bundle2;
     }
 
-    public void Xw() {
+    public void YC() {
     }
 
-    public void ZP() {
+    public void aaV() {
     }
 
     public void b(com.baidu.swan.pms.model.a aVar) {
     }
 
-    public void ZL() {
+    public void aaR() {
     }
 
     public void a(com.baidu.swan.pms.f.e eVar) {
     }
 
     @Override // com.baidu.swan.pms.a.d
-    public void ZK() {
+    public void aaQ() {
     }
 
     @Override // com.baidu.swan.pms.a.d
-    public void aU(@Nullable String str, @Nullable String str2) {
+    public void aW(@Nullable String str, @Nullable String str2) {
     }
 
     public void b(String str, String str2, JSONObject jSONObject) {
     }
 
-    public Map<String, String> aFS() {
+    public Map<String, String> aGY() {
         return null;
     }
 
-    public Map<String, String> aFT() {
+    public Map<String, String> aGZ() {
         return null;
     }
 
-    public Map<String, String> aFU() {
+    public Map<String, String> aHa() {
         return null;
     }
 }

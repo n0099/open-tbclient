@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.FeedForumData;
 import com.baidu.tbadk.core.data.RecommendForumData;
 import com.baidu.tbadk.core.data.SignData;
-import com.baidu.tbadk.core.data.al;
-import com.baidu.tbadk.core.data.ba;
-import com.baidu.tbadk.core.data.bj;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.data.bn;
+import com.baidu.tbadk.core.data.aq;
+import com.baidu.tbadk.core.data.bf;
+import com.baidu.tbadk.core.data.bt;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ import tbclient.FrsTabInfo;
 import tbclient.SmartApp;
 import tbclient.User;
 /* loaded from: classes8.dex */
-public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializable {
+public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.m, Serializable {
     public ForumActiveInfo forumActiveInfo;
     public int frsCurrentTabId;
     public boolean isBrandForum;
@@ -55,8 +55,8 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         if (dVar != null) {
             u uVar = new u();
             uVar.setLike(1);
-            uVar.DA(dVar.level);
-            uVar.setLevelName(dVar.ljD);
+            uVar.EC(dVar.level);
+            uVar.setLevelName(dVar.lDy);
             uVar.setCurScore(dVar.cur_score);
             uVar.setLevelupScore(dVar.levelup_score);
             updateLikeData(uVar);
@@ -68,7 +68,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
             this.forum.setCurScore(uVar.getCurScore());
             this.forum.setLevelupScore(uVar.getLevelupScore());
             this.forum.setLike(uVar.isLike());
-            this.forum.setUser_level(uVar.dba());
+            this.forum.setUser_level(uVar.dfq());
             this.forum.setLevelName(uVar.getLevelName());
         }
     }
@@ -91,39 +91,39 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
     }
 
     public void addNoticeThreadToThreadList() {
-        bn top_notice_data;
-        com.baidu.adp.widget.ListView.o oVar;
+        bx top_notice_data;
+        com.baidu.adp.widget.ListView.q qVar;
         if (getForum() != null && this.threadList != null && (top_notice_data = getForum().getTop_notice_data()) != null && top_notice_data.getTitle() != null) {
-            while (!this.threadList.isEmpty() && (oVar = this.threadList.get(0)) != null && (oVar instanceof bj) && ((bk) oVar).aQs() == 2) {
+            while (!this.threadList.isEmpty() && (qVar = this.threadList.get(0)) != null && (qVar instanceof bt) && ((bu) qVar).aSk() == 2) {
                 this.threadList.remove(0);
             }
-            bk bkVar = new bk();
-            bkVar.setTitle(top_notice_data.getTitle());
-            bkVar.setTid(top_notice_data.aSJ());
-            bkVar.ku(2);
-            bkVar.aRw();
-            bj bjVar = new bj();
-            bjVar.dEA = bkVar;
-            this.threadList.add(0, bjVar);
+            bu buVar = new bu();
+            buVar.setTitle(top_notice_data.getTitle());
+            buVar.setTid(top_notice_data.aUD());
+            buVar.kI(2);
+            buVar.aTn();
+            bt btVar = new bt();
+            btVar.dLi = buVar;
+            this.threadList.add(0, btVar);
         }
     }
 
-    public void addMyNewThread(al alVar) {
-        if (alVar != null && !StringUtils.isNull(alVar.getId()) && this.threadList != null) {
+    public void addMyNewThread(aq aqVar) {
+        if (aqVar != null && !StringUtils.isNull(aqVar.getId()) && this.threadList != null) {
             int topThreadSize = getTopThreadSize();
-            ArrayList<com.baidu.adp.widget.ListView.o> threadList = getThreadList();
+            ArrayList<com.baidu.adp.widget.ListView.q> threadList = getThreadList();
             if (threadList != null && threadList.size() > 0) {
                 int size = threadList.size();
                 for (int i = 0; i < size; i++) {
-                    com.baidu.adp.widget.ListView.o oVar = threadList.get(i);
-                    if ((oVar instanceof bj) && alVar.getId().equals(((bj) oVar).dEA.getId())) {
+                    com.baidu.adp.widget.ListView.q qVar = threadList.get(i);
+                    if ((qVar instanceof bt) && aqVar.getId().equals(((bt) qVar).dLi.getId())) {
                         return;
                     }
                 }
             }
-            alVar.dHx = this.isBrandForum;
+            aqVar.dOj = this.isBrandForum;
             this.postThreadCount++;
-            this.threadList.add(topThreadSize, alVar);
+            this.threadList.add(topThreadSize, aqVar);
         }
     }
 
@@ -137,12 +137,12 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
 
     public int getMyNewThreadNum() {
         int i = 0;
-        ArrayList<com.baidu.adp.widget.ListView.o> threadList = getThreadList();
+        ArrayList<com.baidu.adp.widget.ListView.q> threadList = getThreadList();
         if (threadList != null && threadList.size() > 0) {
             int size = threadList.size();
             int i2 = 0;
             while (i2 < size) {
-                int i3 = threadList.get(i2) instanceof al ? i + 1 : i;
+                int i3 = threadList.get(i2) instanceof aq ? i + 1 : i;
                 i2++;
                 i = i3;
             }
@@ -151,11 +151,11 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
     }
 
     private int getOperatorFlag() {
-        Iterator<com.baidu.adp.widget.ListView.o> it = this.threadList.iterator();
+        Iterator<com.baidu.adp.widget.ListView.q> it = this.threadList.iterator();
         while (it.hasNext()) {
-            com.baidu.adp.widget.ListView.o next = it.next();
-            if ((next instanceof bk) && ((bk) next).aQu() == 1) {
-                return ((bk) next).getOperatorFlag();
+            com.baidu.adp.widget.ListView.q next = it.next();
+            if ((next instanceof bu) && ((bu) next).aSm() == 1) {
+                return ((bu) next).getOperatorFlag();
             }
         }
         return -1;
@@ -187,7 +187,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
             while (true) {
                 int i2 = i;
                 if (i2 < this.threadList.size()) {
-                    if (this.threadList.get(i2).getType() == bk.dEW || this.threadList.get(i2).getType() == bk.dEX || this.threadList.get(i2).getType() == bk.dEY) {
+                    if (this.threadList.get(i2).getType() == bu.dLI || this.threadList.get(i2).getType() == bu.dLJ || this.threadList.get(i2).getType() == bu.dLK) {
                         this.threadList.remove(i2);
                     }
                     i = i2 + 1;
@@ -200,7 +200,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
 
     public void checkLiveStageInThreadList() {
         int i;
-        if (this.threadList != null && this.threadList.size() > 0 && this.page != null && this.page.aPr() == 1 && this.threadList != null && this.threadList.size() > 0) {
+        if (this.threadList != null && this.threadList.size() > 0 && this.page != null && this.page.aRd() == 1 && this.threadList != null && this.threadList.size() > 0) {
             int size = this.threadList.size();
             int i2 = 0;
             while (true) {
@@ -208,14 +208,14 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
                     i2 = -1;
                     break;
                 }
-                com.baidu.adp.widget.ListView.o oVar = this.threadList.get(i2);
-                if (oVar instanceof bj) {
-                    if (((bj) oVar).dEA.getType() == bk.dEW && ((bj) oVar).dEA.aQS() != null && ((bk) oVar).aQS().user_info != null && ((bj) oVar).dEA.aQS().user_info.is_official == 2 && ((bj) oVar).dEA.aQS().liveStageForceTop) {
+                com.baidu.adp.widget.ListView.q qVar = this.threadList.get(i2);
+                if (qVar instanceof bt) {
+                    if (((bt) qVar).dLi.getType() == bu.dLI && ((bt) qVar).dLi.aSJ() != null && ((bu) qVar).aSJ().user_info != null && ((bt) qVar).dLi.aSJ().user_info.is_official == 2 && ((bt) qVar).dLi.aSJ().liveStageForceTop) {
                         break;
                     }
                     i2++;
                 } else {
-                    if ((oVar instanceof bk) && ((bk) oVar).getType() == bk.dEW && ((bk) oVar).aQS() != null && ((bk) oVar).aQS().user_info != null && ((bk) oVar).aQS().user_info.is_official == 2 && ((bk) oVar).aQS().liveStageForceTop) {
+                    if ((qVar instanceof bu) && ((bu) qVar).getType() == bu.dLI && ((bu) qVar).aSJ() != null && ((bu) qVar).aSJ().user_info != null && ((bu) qVar).aSJ().user_info.is_official == 2 && ((bu) qVar).aSJ().liveStageForceTop) {
                         break;
                     }
                     i2++;
@@ -223,14 +223,14 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
             }
             if (i2 < 0) {
                 for (int i3 = 0; i3 < size; i3++) {
-                    com.baidu.adp.widget.ListView.o oVar2 = this.threadList.get(i3);
-                    if (oVar2 instanceof bj) {
-                        if (((bj) oVar2).dEA.getType() == bk.dGz) {
+                    com.baidu.adp.widget.ListView.q qVar2 = this.threadList.get(i3);
+                    if (qVar2 instanceof bt) {
+                        if (((bt) qVar2).dLi.getType() == bu.dNk) {
                             i = i3;
                             break;
                         }
                     } else {
-                        if ((oVar2 instanceof bk) && ((bk) oVar2).getType() == bk.dGz) {
+                        if ((qVar2 instanceof bu) && ((bu) qVar2).getType() == bu.dNk) {
                             i = i3;
                             break;
                         }
@@ -242,8 +242,8 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
             if (i > topThreadSize) {
                 this.threadList.add(topThreadSize, this.threadList.remove(i));
             }
-            List<com.baidu.adp.widget.ListView.o> headLineDataInThreadList = getHeadLineDataInThreadList();
-            if (!com.baidu.tbadk.core.util.v.isEmpty(headLineDataInThreadList)) {
+            List<com.baidu.adp.widget.ListView.q> headLineDataInThreadList = getHeadLineDataInThreadList();
+            if (!com.baidu.tbadk.core.util.w.isEmpty(headLineDataInThreadList)) {
                 this.threadList.removeAll(headLineDataInThreadList);
                 if (topThreadSize >= 0 && topThreadSize <= this.threadList.size()) {
                     this.threadList.addAll(topThreadSize, headLineDataInThreadList);
@@ -252,21 +252,21 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         }
     }
 
-    private List<com.baidu.adp.widget.ListView.o> getHeadLineDataInThreadList() {
+    private List<com.baidu.adp.widget.ListView.q> getHeadLineDataInThreadList() {
         ArrayList arrayList = new ArrayList();
         if (this.threadList == null || this.threadList.size() <= 0) {
             return arrayList;
         }
-        if (this.page != null && this.page.aPr() == 1 && this.threadList != null && this.threadList.size() > 0) {
+        if (this.page != null && this.page.aRd() == 1 && this.threadList != null && this.threadList.size() > 0) {
             int size = this.threadList.size();
             for (int i = 0; i < size; i++) {
-                com.baidu.adp.widget.ListView.o oVar = this.threadList.get(i);
-                if (oVar instanceof bj) {
-                    if (((bj) oVar).dEA.dHI) {
-                        arrayList.add(oVar);
+                com.baidu.adp.widget.ListView.q qVar = this.threadList.get(i);
+                if (qVar instanceof bt) {
+                    if (((bt) qVar).dLi.dOu) {
+                        arrayList.add(qVar);
                     }
-                } else if ((oVar instanceof bk) && ((bk) oVar).dHI) {
-                    arrayList.add(oVar);
+                } else if ((qVar instanceof bu) && ((bu) qVar).dOu) {
+                    arrayList.add(qVar);
                 }
             }
         }
@@ -275,31 +275,31 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
 
     public void addRecommendBarsToThreadList() {
         if (this.forum != null && this.threadList != null && this.threadList.size() > 0) {
-            Iterator<com.baidu.adp.widget.ListView.o> it = this.threadList.iterator();
+            Iterator<com.baidu.adp.widget.ListView.q> it = this.threadList.iterator();
             while (it.hasNext()) {
-                if (it.next() instanceof ba) {
+                if (it.next() instanceof bf) {
                     it.remove();
                 }
             }
-            if (this.page != null && this.page.aPr() == 1) {
+            if (this.page != null && this.page.aRd() == 1) {
                 ArrayList<RecommendForumData> recommendForumData = this.forum.getRecommendForumData();
-                ba baVar = new ba();
+                bf bfVar = new bf();
                 if (recommendForumData != null) {
-                    baVar.aPG().addAll(recommendForumData);
+                    bfVar.aRs().addAll(recommendForumData);
                 }
-                if (isShowRecommendBars(baVar.aPG())) {
+                if (isShowRecommendBars(bfVar.aRs())) {
                     int i = 0;
-                    Iterator<com.baidu.adp.widget.ListView.o> it2 = this.threadList.iterator();
+                    Iterator<com.baidu.adp.widget.ListView.q> it2 = this.threadList.iterator();
                     while (true) {
                         int i2 = i;
                         if (it2.hasNext()) {
-                            com.baidu.adp.widget.ListView.o next = it2.next();
-                            if ((next instanceof bj) && ((bj) next).dEA.isTop()) {
+                            com.baidu.adp.widget.ListView.q next = it2.next();
+                            if ((next instanceof bt) && ((bt) next).dLi.isTop()) {
                                 i2++;
                             }
                             i = i2;
                         } else {
-                            this.threadList.add(i2 + 1, baVar);
+                            this.threadList.add(i2 + 1, bfVar);
                             return;
                         }
                     }
@@ -312,11 +312,11 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         addRecommendAppToThreadList(bVar, false, this.threadList, null, false);
     }
 
-    public void addRecommendAppToThreadList(com.baidu.tieba.InjectPlugin.a.b bVar, ArrayList<com.baidu.adp.widget.ListView.o> arrayList) {
+    public void addRecommendAppToThreadList(com.baidu.tieba.InjectPlugin.a.b bVar, ArrayList<com.baidu.adp.widget.ListView.q> arrayList) {
         addRecommendAppToThreadList(bVar, false, arrayList, null, false);
     }
 
-    public void addRecommendAppToThreadList(com.baidu.tieba.InjectPlugin.a.b bVar, boolean z, ArrayList<com.baidu.adp.widget.ListView.o> arrayList, ArrayList<com.baidu.adp.widget.ListView.o> arrayList2, boolean z2) {
+    public void addRecommendAppToThreadList(com.baidu.tieba.InjectPlugin.a.b bVar, boolean z, ArrayList<com.baidu.adp.widget.ListView.q> arrayList, ArrayList<com.baidu.adp.widget.ListView.q> arrayList2, boolean z2) {
         BannerListData bannerListData;
         if (!this.isLoadMore) {
             if (this.forum != null) {
@@ -334,26 +334,26 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
             Iterator<AdvertAppInfo> it = bannerListData.getAllAdvertList().iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
-                next.gV(true);
+                next.he(true);
                 next.setSortType(getSortType());
                 arrayList3.add(next);
             }
-            bVar2.aZ(arrayList3);
+            bVar2.bj(arrayList3);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_FEED_AD_PLUGIN_OPERATE, bVar2));
             com.baidu.tieba.InjectPlugin.b.b bVar3 = new com.baidu.tieba.InjectPlugin.b.b(bVar, 3);
-            bVar3.iP(z);
-            bVar3.aY(arrayList);
-            bVar3.ba(arrayList2);
-            bVar3.iQ(z2);
-            bVar3.setCurrentPage(getPage().aPr());
+            bVar3.jb(z);
+            bVar3.bi(arrayList);
+            bVar3.bk(arrayList2);
+            bVar3.jc(z2);
+            bVar3.setCurrentPage(getPage().aRd());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_FEED_AD_PLUGIN_OPERATE, bVar3));
         }
     }
 
     public void addOfficialBarToThreadList() {
         boolean z = true;
-        if (this.forum != null && this.threadList != null && bk.dFj.get() && this.page != null && this.page.aPr() == 1) {
-            if (this.gconAccount == null || !this.gconAccount.dcY()) {
+        if (this.forum != null && this.threadList != null && bu.dLV.get() && this.page != null && this.page.aRd() == 1) {
+            if (this.gconAccount == null || !this.gconAccount.dhn()) {
                 z = false;
             }
             if (this.fortuneBag || z || (getUserData() != null && getUserData().isBawu())) {
@@ -361,12 +361,12 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
                     this.threadList.remove(0);
                 }
                 v vVar = new v();
-                vVar.uo(this.fortuneBag);
-                vVar.Mv(this.fortuneDesc);
+                vVar.uD(this.fortuneBag);
+                vVar.MX(this.fortuneDesc);
                 vVar.a(this.gconAccount);
-                vVar.ku(1003);
+                vVar.kI(1003);
                 if (this.threadList != null && this.threadList.size() > 0) {
-                    com.baidu.tbadk.core.util.v.add(this.threadList, getTopThreadSize(), vVar);
+                    com.baidu.tbadk.core.util.w.add(this.threadList, getTopThreadSize(), vVar);
                 }
             }
         }
@@ -375,22 +375,22 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
     public void addU9DataToThreadList() {
         int i;
         if (this.forum != null) {
-            if (((this.forum.getTopCode() != null && !StringUtils.isNull(this.forum.getTopCode().getSummary())) || (this.forum.getNewsInfo() != null && !StringUtils.isNull(this.forum.getNewsInfo().getSummary()))) && this.page != null && this.page.aPr() == 1) {
+            if (((this.forum.getTopCode() != null && !StringUtils.isNull(this.forum.getTopCode().getSummary())) || (this.forum.getNewsInfo() != null && !StringUtils.isNull(this.forum.getNewsInfo().getSummary()))) && this.page != null && this.page.aRd() == 1) {
                 ab abVar = new ab();
                 abVar.a(this.forum.getTopCode());
                 abVar.a(this.forum.getNewsInfo());
-                abVar.ku(3);
-                abVar.up(true);
-                if (!com.baidu.tbadk.core.util.v.isEmpty(this.threadList)) {
-                    Iterator<com.baidu.adp.widget.ListView.o> it = this.threadList.iterator();
+                abVar.kI(3);
+                abVar.uE(true);
+                if (!com.baidu.tbadk.core.util.w.isEmpty(this.threadList)) {
+                    Iterator<com.baidu.adp.widget.ListView.q> it = this.threadList.iterator();
                     int i2 = 0;
                     while (it.hasNext()) {
-                        com.baidu.adp.widget.ListView.o next = it.next();
-                        if (!(next instanceof bk)) {
+                        com.baidu.adp.widget.ListView.q next = it.next();
+                        if (!(next instanceof bu)) {
                             i = i2;
-                        } else if (((bk) next).aQs() != 0) {
-                            if (((bk) next).aQs() == 1003) {
-                                abVar.up(false);
+                        } else if (((bu) next).aSk() != 0) {
+                            if (((bu) next).aSk() == 1003) {
+                                abVar.uE(false);
                             }
                             i = i2 + 1;
                         }
@@ -411,7 +411,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         return this.isBrandForum;
     }
 
-    public com.baidu.tieba.frs.b getBrandAdData() {
+    public com.baidu.tieba.frs.d getBrandAdData() {
         return this.brandAdData;
     }
 
@@ -422,9 +422,9 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
     public void addStageLiveDataToThreadList() {
         h frsStageLiveData;
         if (this.threadList != null && getForum() != null && MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) != null && (frsStageLiveData = getFrsStageLiveData()) != null) {
-            ArrayList<com.baidu.adp.widget.ListView.o> threadList = getThreadList();
+            ArrayList<com.baidu.adp.widget.ListView.q> threadList = getThreadList();
             removeTopSameClassDataFromList(h.class, threadList);
-            if (!com.baidu.tbadk.core.util.v.isEmpty(frsStageLiveData.ljK)) {
+            if (!com.baidu.tbadk.core.util.w.isEmpty(frsStageLiveData.lDF)) {
                 threadList.add(getAlaLiveThreadCardInsertPos(1, threadList.size()), frsStageLiveData);
             }
         }
@@ -437,9 +437,9 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
     public void addInsertLiveDataToThreadList() {
         g frsInsertLiveData;
         if (this.threadList != null && getForum() != null && MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) != null && (frsInsertLiveData = getFrsInsertLiveData()) != null) {
-            ArrayList<com.baidu.adp.widget.ListView.o> threadList = getThreadList();
+            ArrayList<com.baidu.adp.widget.ListView.q> threadList = getThreadList();
             removeTopSameClassDataFromList(g.class, threadList);
-            threadList.add(getAlaLiveThreadCardInsertPos(frsInsertLiveData.ljI, threadList.size()), frsInsertLiveData);
+            threadList.add(getAlaLiveThreadCardInsertPos(frsInsertLiveData.lDD, threadList.size()), frsInsertLiveData);
         }
     }
 
@@ -451,7 +451,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         return Math.min((getTopThreadSize() + i) - 1, i2);
     }
 
-    private void removeTopSameClassDataFromList(Class cls, ArrayList<com.baidu.adp.widget.ListView.o> arrayList) {
+    private void removeTopSameClassDataFromList(Class cls, ArrayList<com.baidu.adp.widget.ListView.q> arrayList) {
         if (arrayList != null && !arrayList.isEmpty()) {
             ArrayList arrayList2 = new ArrayList();
             int size = arrayList.size();
@@ -460,11 +460,11 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
                 if (i >= size) {
                     break;
                 }
-                com.baidu.adp.widget.ListView.o oVar = arrayList.get(i);
-                if (oVar.getClass() != cls) {
+                com.baidu.adp.widget.ListView.q qVar = arrayList.get(i);
+                if (qVar.getClass() != cls) {
                     i++;
                 } else {
-                    arrayList2.add(oVar);
+                    arrayList2.add(qVar);
                     break;
                 }
             }
@@ -475,10 +475,10 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
     }
 
     public void addCardVideoInfoToThreadList() {
-        bk cardVideoInfo;
+        bu cardVideoInfo;
         if (getForum() != null && (cardVideoInfo = getCardVideoInfo()) != null) {
             Log.e("FrsActivity", "addCardVideoInfoToThreadList cardVideoInfo:" + cardVideoInfo.getTid());
-            ArrayList<com.baidu.adp.widget.ListView.o> threadList = getThreadList();
+            ArrayList<com.baidu.adp.widget.ListView.q> threadList = getThreadList();
             if (threadList != null && threadList.size() > 0) {
                 threadList.add(getPhotoliveCardInsertPos(threadList.size()), cardVideoInfo);
             }
@@ -487,18 +487,18 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
 
     public void addVideoInfoToThreadListInTenAndFifteenFloor() {
         if (getForum() != null) {
-            List<com.baidu.adp.widget.ListView.o> cardShipinNew = getCardShipinNew();
+            List<com.baidu.adp.widget.ListView.q> cardShipinNew = getCardShipinNew();
             List<Integer> cardShipinPos = getCardShipinPos();
-            ArrayList<com.baidu.adp.widget.ListView.o> threadList = getThreadList();
+            ArrayList<com.baidu.adp.widget.ListView.q> threadList = getThreadList();
             if (cardShipinPos != null && cardShipinPos.size() > 0 && cardShipinNew != null && cardShipinNew.size() > 0 && threadList != null) {
                 int size = cardShipinPos.size();
                 int size2 = threadList.size();
                 for (int i = 0; i < size; i++) {
                     if (i < cardShipinNew.size()) {
-                        com.baidu.adp.widget.ListView.o oVar = cardShipinNew.get(i);
+                        com.baidu.adp.widget.ListView.q qVar = cardShipinNew.get(i);
                         int videoThreadInserPos = getVideoThreadInserPos(cardShipinPos.get(i).intValue(), size2);
-                        Log.e("FrsActivity", "addVideoInfoToThreadListInTenAndFifteenFloor  insertPos:" + videoThreadInserPos + "  Title:" + oVar.getType());
-                        threadList.add(videoThreadInserPos, oVar);
+                        Log.e("FrsActivity", "addVideoInfoToThreadListInTenAndFifteenFloor  insertPos:" + videoThreadInserPos + "  Title:" + qVar.getType());
+                        threadList.add(videoThreadInserPos, qVar);
                     }
                 }
             }
@@ -509,15 +509,15 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         return Math.min((getTopThreadSize() + i) - 1, i2);
     }
 
-    public bk getThreadDataById(String str) {
+    public bu getThreadDataById(String str) {
         if (this.threadList == null) {
             return null;
         }
-        Iterator<com.baidu.adp.widget.ListView.o> it = this.threadList.iterator();
+        Iterator<com.baidu.adp.widget.ListView.q> it = this.threadList.iterator();
         while (it.hasNext()) {
-            com.baidu.adp.widget.ListView.o next = it.next();
-            if (next != null && (next instanceof bj) && TextUtils.equals(str, ((bj) next).dEA.getId())) {
-                return ((bj) next).dEA;
+            com.baidu.adp.widget.ListView.q next = it.next();
+            if (next != null && (next instanceof bt) && TextUtils.equals(str, ((bt) next).dLi.getId())) {
+                return ((bt) next).dLi;
             }
         }
         return null;
@@ -527,28 +527,28 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         if (this.threadList != null && lVar != null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
-                Iterator<com.baidu.adp.widget.ListView.o> it = this.threadList.iterator();
+                Iterator<com.baidu.adp.widget.ListView.q> it = this.threadList.iterator();
                 while (it.hasNext()) {
-                    com.baidu.adp.widget.ListView.o next = it.next();
-                    if (next != null && (next instanceof bj) && ((bj) next).dEA.aQx() != null && currentAccount.equals(((bj) next).dEA.aQx().getUserId()) && ((bj) next).dEA.aQx().getPendantData() != null) {
-                        ((bj) next).dEA.aQx().getPendantData().cr(lVar.bcC());
-                        ((bj) next).dEA.aQx().getPendantData().vx(lVar.aOP());
+                    com.baidu.adp.widget.ListView.q next = it.next();
+                    if (next != null && (next instanceof bt) && ((bt) next).dLi.aSp() != null && currentAccount.equals(((bt) next).dLi.aSp().getUserId()) && ((bt) next).dLi.aSp().getPendantData() != null) {
+                        ((bt) next).dLi.aSp().getPendantData().ct(lVar.beE());
+                        ((bt) next).dLi.aSp().getPendantData().vN(lVar.aQl());
                     }
                 }
             }
         }
     }
 
-    public void removeThreadData(bk bkVar) {
-        this.threadList.remove(bkVar);
+    public void removeThreadData(bu buVar) {
+        this.threadList.remove(buVar);
     }
 
     public void removeThread(String str) {
         if (this.threadList != null) {
-            Iterator<com.baidu.adp.widget.ListView.o> it = this.threadList.iterator();
+            Iterator<com.baidu.adp.widget.ListView.q> it = this.threadList.iterator();
             while (it.hasNext()) {
-                com.baidu.adp.widget.ListView.o next = it.next();
-                if (next != null && (next instanceof bj) && TextUtils.equals(str, ((bj) next).dEA.getId())) {
+                com.baidu.adp.widget.ListView.q next = it.next();
+                if (next != null && (next instanceof bt) && TextUtils.equals(str, ((bt) next).dLi.getId())) {
                     it.remove();
                 }
             }
@@ -623,9 +623,15 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         this.brandAdData = mVar.brandAdData;
         this.oriForumInfoList = mVar.oriForumInfoList;
         this.bottomMenuList = mVar.bottomMenuList;
-        com.baidu.tieba.frs.a.bTZ().b(getAnti());
-        com.baidu.tieba.frs.a.bTZ().setForumId(mVar.getForum().getId());
-        setRedpacketRainData(mVar.getRedpacketRainData());
+        com.baidu.tieba.frs.b.bXc().b(getAnti());
+        com.baidu.tieba.frs.b.bXc().setForumId(mVar.getForum().getId());
+        com.baidu.tieba.frs.a.bWV().setForumId(mVar.getForum().getId());
+        if (mVar.getEntelechyTabInfo() != null) {
+            com.baidu.tieba.frs.a.bWV().cu(mVar.getEntelechyTabInfo().tab);
+        }
+        if (mVar.getUserData() != null) {
+            com.baidu.tieba.frs.c.bXg().a(mVar.getUserData().bawuThrones);
+        }
         setPrivateForumTotalInfo(mVar.getPrivateForumTotalInfo());
         this.isFrsVideoAutoPlay = mVar.isFrsVideoAutoPlay;
         this.smartAppAvatar = mVar.smartAppAvatar;
@@ -637,6 +643,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         this.serviceAreaData = mVar.serviceAreaData;
         setHotUserRankData(mVar.getHotUserRankData());
         this.itemInfo = mVar.itemInfo;
+        this.is_get_horse_race_lamp = mVar.is_get_horse_race_lamp;
         return true;
     }
 
@@ -653,10 +660,10 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         if (this.threadList != null && this.forum != null && this.forum.getBannerListData() != null && MessageManager.getInstance().findTask(CmdConfigCustom.CMD_FRS_EXTRA_LOADED) != null) {
             int i = 0;
             for (int i2 = 0; i2 < this.threadList.size(); i2++) {
-                com.baidu.adp.widget.ListView.o oVar = this.threadList.get(i2);
-                if (oVar instanceof bj) {
-                    bk bkVar = ((bj) oVar).dEA;
-                    if (bkVar == null || (!bkVar.isTop() && bkVar.aQu() != 1)) {
+                com.baidu.adp.widget.ListView.q qVar = this.threadList.get(i2);
+                if (qVar instanceof bt) {
+                    bu buVar = ((bt) qVar).dLi;
+                    if (buVar == null || (!buVar.isTop() && buVar.aSm() != 1)) {
                         break;
                     }
                     i++;
@@ -665,7 +672,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
             if (this.threadList.size() - i > 7 && (feedForumList = this.forum.getBannerListData().getFeedForumList()) != null && feedForumList.size() > 0) {
                 l lVar = new l();
                 lVar.setForumId(this.forum.getId());
-                lVar.eB(feedForumList);
+                lVar.eP(feedForumList);
                 this.threadList.add(i + 6, lVar);
             }
         }
@@ -679,38 +686,38 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
     public void addGameRankListToThreadList(boolean z) {
         boolean z2;
         boolean z3 = false;
-        if (!com.baidu.tbadk.core.util.v.isEmpty(this.threadList)) {
+        if (!com.baidu.tbadk.core.util.w.isEmpty(this.threadList)) {
             removeGameRankListFromThreadList();
             if (getGameRankListData() != null) {
                 int i = 0;
                 for (int i2 = 0; i2 < this.threadList.size(); i2++) {
-                    com.baidu.adp.widget.ListView.o oVar = this.threadList.get(i2);
-                    if (oVar instanceof bj) {
-                        bk bkVar = ((bj) oVar).dEA;
-                        if (bkVar == null || (!bkVar.isTop() && bkVar.aQu() != 1)) {
+                    com.baidu.adp.widget.ListView.q qVar = this.threadList.get(i2);
+                    if (qVar instanceof bt) {
+                        bu buVar = ((bt) qVar).dLi;
+                        if (buVar == null || (!buVar.isTop() && buVar.aSm() != 1)) {
                             break;
                         }
                         i++;
                     }
                 }
-                if ((getGameRankListData().cdu() + i) - 1 < this.threadList.size()) {
-                    String string = com.baidu.tbadk.core.sharedPref.b.aTX().getString(SharedPrefConfig.GAME_RANK_LIST_INFO, "");
+                if ((getGameRankListData().cgR() + i) - 1 < this.threadList.size()) {
+                    String string = com.baidu.tbadk.core.sharedPref.b.aVP().getString(SharedPrefConfig.GAME_RANK_LIST_INFO, "");
                     if (StringUtils.isNull(string) || string.split(Constants.ACCEPT_TIME_SEPARATOR_SP).length != 2) {
                         z2 = true;
                     } else {
                         z2 = UtilHelper.getDayBetweenTime(com.baidu.adp.lib.f.b.toLong(string.split(Constants.ACCEPT_TIME_SEPARATOR_SP)[0], 0L), System.currentTimeMillis()) >= ((long) com.baidu.adp.lib.f.b.toInt(string.split(Constants.ACCEPT_TIME_SEPARATOR_SP)[1], 0));
                     }
                     if (z2) {
-                        int i3 = com.baidu.tbadk.core.sharedPref.b.aTX().getInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, 0);
+                        int i3 = com.baidu.tbadk.core.sharedPref.b.aVP().getInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, 0);
                         if (!z) {
                             i3++;
                         }
-                        com.baidu.tbadk.core.sharedPref.b.aTX().putInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, i3);
+                        com.baidu.tbadk.core.sharedPref.b.aVP().putInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, i3);
                         if (i3 > 3) {
-                            com.baidu.tbadk.core.sharedPref.b.aTX().putString(SharedPrefConfig.GAME_RANK_LIST_INFO, System.currentTimeMillis() + ",1");
-                            com.baidu.tbadk.core.sharedPref.b.aTX().putInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, 0);
+                            com.baidu.tbadk.core.sharedPref.b.aVP().putString(SharedPrefConfig.GAME_RANK_LIST_INFO, System.currentTimeMillis() + ",1");
+                            com.baidu.tbadk.core.sharedPref.b.aVP().putInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, 0);
                             if (!z3) {
-                                this.threadList.add((getGameRankListData().cdu() + i) - 1, getGameRankListData());
+                                this.threadList.add((getGameRankListData().cgR() + i) - 1, getGameRankListData());
                                 return;
                             }
                             return;
@@ -725,11 +732,11 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
     }
 
     public void removeGameRankListFromThreadList() {
-        if (!com.baidu.tbadk.core.util.v.isEmpty(this.threadList)) {
-            Iterator<com.baidu.adp.widget.ListView.o> it = this.threadList.iterator();
+        if (!com.baidu.tbadk.core.util.w.isEmpty(this.threadList)) {
+            Iterator<com.baidu.adp.widget.ListView.q> it = this.threadList.iterator();
             while (it.hasNext()) {
-                com.baidu.adp.widget.ListView.o next = it.next();
-                if (next != null && next.getType() == com.baidu.tieba.h.b.hSm) {
+                com.baidu.adp.widget.ListView.q next = it.next();
+                if (next != null && next.getType() == com.baidu.tieba.h.b.igG) {
                     it.remove();
                 }
             }
@@ -743,20 +750,20 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         }
         int i = 0;
         for (int i2 = 0; i2 < this.threadList.size(); i2++) {
-            com.baidu.adp.widget.ListView.o oVar = this.threadList.get(i2);
-            if (oVar instanceof bj) {
-                bk bkVar = ((bj) oVar).dEA;
-                if (bkVar == null || (!bkVar.isTop() && bkVar.aQu() != 1)) {
+            com.baidu.adp.widget.ListView.q qVar = this.threadList.get(i2);
+            if (qVar instanceof bt) {
+                bu buVar = ((bt) qVar).dLi;
+                if (buVar == null || (!buVar.isTop() && buVar.aSm() != 1)) {
                     break;
                 }
                 i++;
             }
         }
-        if (this.threadList.size() - i <= 7 || (recomTopicData = this.forum.getBannerListData().getRecomTopicData()) == null || com.baidu.tbadk.core.util.v.getCount(recomTopicData.gIe) < 4) {
+        if (this.threadList.size() - i <= 7 || (recomTopicData = this.forum.getBannerListData().getRecomTopicData()) == null || com.baidu.tbadk.core.util.w.getCount(recomTopicData.gVe) < 4) {
             return false;
         }
         this.threadList.add(i + 6, recomTopicData);
-        TiebaStatic.log(new an(TbadkCoreStatisticKey.FRS_HOT_TOPIC_CARD_SHOW).dh("uid", TbadkCoreApplication.getCurrentAccount()));
+        TiebaStatic.log(new ao(TbadkCoreStatisticKey.FRS_HOT_TOPIC_CARD_SHOW).dk("uid", TbadkCoreApplication.getCurrentAccount()));
         return true;
     }
 
@@ -770,11 +777,11 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
     }
 
     public void addUserRecommendToThreadList() {
-        int aRM;
+        int aTD;
         if (getUserRecommend() != null) {
-            com.baidu.tieba.frs.u userRecommend = getUserRecommend();
-            if (com.baidu.tbadk.core.util.v.getCount(userRecommend.getUserInfo()) >= 3 && (aRM = userRecommend.aRM()) > 0) {
-                int topThreadSize = aRM + getTopThreadSize();
+            com.baidu.tieba.frs.x userRecommend = getUserRecommend();
+            if (com.baidu.tbadk.core.util.w.getCount(userRecommend.getUserInfo()) >= 3 && (aTD = userRecommend.aTD()) > 0) {
+                int topThreadSize = aTD + getTopThreadSize();
                 if (topThreadSize > this.threadList.size()) {
                     this.threadList.add(userRecommend);
                 } else {
@@ -785,13 +792,13 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
     }
 
     public void removeRedundantUserRecommendData() {
-        if (!com.baidu.tbadk.core.util.v.isEmpty(this.threadList)) {
+        if (!com.baidu.tbadk.core.util.w.isEmpty(this.threadList)) {
             boolean z = false;
-            Iterator<com.baidu.adp.widget.ListView.o> it = this.threadList.iterator();
+            Iterator<com.baidu.adp.widget.ListView.q> it = this.threadList.iterator();
             while (true) {
                 boolean z2 = z;
                 if (it.hasNext()) {
-                    if (it.next() instanceof com.baidu.tieba.frs.u) {
+                    if (it.next() instanceof com.baidu.tieba.frs.x) {
                         if (z2) {
                             it.remove();
                         } else {
@@ -807,14 +814,14 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
     }
 
     public void addVideoActivityToTop() {
-        if (getFrsVideoActivityData() != null && !com.baidu.tbadk.core.util.v.isEmpty(this.threadList)) {
-            Iterator<com.baidu.adp.widget.ListView.o> it = this.threadList.iterator();
+        if (getFrsVideoActivityData() != null && !com.baidu.tbadk.core.util.w.isEmpty(this.threadList)) {
+            Iterator<com.baidu.adp.widget.ListView.q> it = this.threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                com.baidu.adp.widget.ListView.o next = it.next();
-                if (next != null && next.getType() == o.lkF) {
+                com.baidu.adp.widget.ListView.q next = it.next();
+                if (next != null && next.getType() == o.lEz) {
                     this.threadList.remove(next);
                     break;
                 }
@@ -823,11 +830,11 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         }
     }
 
-    public List<com.baidu.adp.widget.ListView.o> getTopThreadList() {
+    public List<com.baidu.adp.widget.ListView.q> getTopThreadList() {
         return this.topThreadList;
     }
 
-    public void setTopThreadList(List<com.baidu.adp.widget.ListView.o> list) {
+    public void setTopThreadList(List<com.baidu.adp.widget.ListView.q> list) {
         this.topThreadList = list;
     }
 
@@ -836,14 +843,14 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         if (this.threadList == null || this.threadList.size() <= 0) {
             return 0;
         }
-        Iterator<com.baidu.adp.widget.ListView.o> it = this.threadList.iterator();
+        Iterator<com.baidu.adp.widget.ListView.q> it = this.threadList.iterator();
         while (true) {
             int i2 = i;
             if (it.hasNext()) {
-                com.baidu.adp.widget.ListView.o next = it.next();
-                if (!(next instanceof bk)) {
+                com.baidu.adp.widget.ListView.q next = it.next();
+                if (!(next instanceof bu)) {
                     i = i2;
-                } else if (((bk) next).aQs() != 0) {
+                } else if (((bu) next).aSk() != 0) {
                     i = i2 + 1;
                 } else {
                     return i2;
@@ -862,7 +869,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
                 if (next == null) {
                     it.remove();
                 } else if (StringUtils.isNull(next.getUrl()) || StringUtils.isNull(next.getTitle())) {
-                    if (next.dcQ() != 1) {
+                    if (next.dhf() != 1) {
                         it.remove();
                     }
                 }
@@ -870,33 +877,33 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         }
     }
 
-    public List<com.baidu.adp.widget.ListView.o> getShowTopThreadList() {
+    public List<com.baidu.adp.widget.ListView.q> getShowTopThreadList() {
         List<k> list;
         int i;
         ArrayList arrayList = new ArrayList();
-        if (com.baidu.tbadk.core.util.v.isEmpty(getStarEnter())) {
+        if (com.baidu.tbadk.core.util.w.isEmpty(getStarEnter())) {
             list = null;
         } else {
             List<k> starEnter = getStarEnter();
             filterEnterList(starEnter);
             list = starEnter;
         }
-        if (!com.baidu.tbadk.core.util.v.isEmpty(list)) {
+        if (!com.baidu.tbadk.core.util.w.isEmpty(list)) {
             for (int i2 = 0; i2 < list.size(); i2++) {
-                if (list.get(i2).dcQ() == 1) {
+                if (list.get(i2).dhf() == 1) {
                     arrayList.add(list.get(i2));
                 }
             }
         }
-        List<com.baidu.adp.widget.ListView.o> topThreadList = getTopThreadList();
+        List<com.baidu.adp.widget.ListView.q> topThreadList = getTopThreadList();
         if (topThreadList != null) {
             int i3 = 3;
             int i4 = 0;
-            while (i4 < com.baidu.tbadk.core.util.v.getCount(topThreadList) && arrayList.size() < i3) {
-                com.baidu.adp.widget.ListView.o oVar = (com.baidu.adp.widget.ListView.o) com.baidu.tbadk.core.util.v.getItem(topThreadList, i4);
-                if (oVar instanceof bj) {
-                    arrayList.add(((bj) oVar).dEA);
-                    if (((bj) oVar).dEA.aQr() == 1) {
+            while (i4 < com.baidu.tbadk.core.util.w.getCount(topThreadList) && arrayList.size() < i3) {
+                com.baidu.adp.widget.ListView.q qVar = (com.baidu.adp.widget.ListView.q) com.baidu.tbadk.core.util.w.getItem(topThreadList, i4);
+                if (qVar instanceof bt) {
+                    arrayList.add(((bt) qVar).dLi);
+                    if (((bt) qVar).dLi.aSj() == 1) {
                         i3 = 4;
                     } else if (getForum() != null && getForum().isShowAllTopThread == 0 && arrayList.size() >= 1) {
                         break;
@@ -905,9 +912,9 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
                     i4++;
                     i3 = i;
                 } else {
-                    if (oVar instanceof bk) {
-                        arrayList.add(oVar);
-                        if (((bk) oVar).aQr() == 1) {
+                    if (qVar instanceof bu) {
+                        arrayList.add(qVar);
+                        if (((bu) qVar).aSj() == 1) {
                             i = 4;
                             i4++;
                             i3 = i;
@@ -921,9 +928,9 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
                 }
             }
         }
-        if (!com.baidu.tbadk.core.util.v.isEmpty(list)) {
+        if (!com.baidu.tbadk.core.util.w.isEmpty(list)) {
             for (int i5 = 0; i5 < list.size(); i5++) {
-                if (list.get(i5).dcQ() != 1) {
+                if (list.get(i5).dhf() != 1) {
                     arrayList.add(list.get(i5));
                 }
             }
@@ -935,11 +942,11 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         if (getStar() == null) {
             return false;
         }
-        return getStar().dcW() == 1;
+        return getStar().dhl() == 1;
     }
 
     public boolean hasTab() {
-        return (getEntelechyTabInfo() == null || com.baidu.tbadk.core.util.v.isEmpty(getEntelechyTabInfo().tab)) ? false : true;
+        return (getEntelechyTabInfo() == null || com.baidu.tbadk.core.util.w.isEmpty(getEntelechyTabInfo().tab)) ? false : true;
     }
 
     public void updateLoadMoreBannerListData(BannerListData bannerListData) {

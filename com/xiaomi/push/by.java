@@ -24,7 +24,7 @@ public class by extends cb.e {
         contentValues.put("messageItemId", hqVar.d());
         contentValues.put("messageItem", a);
         contentValues.put("appId", bp.a(context).b());
-        contentValues.put("packageName", bp.a(context).m172a());
+        contentValues.put("packageName", bp.a(context).m169a());
         contentValues.put("createTimeStamp", Long.valueOf(System.currentTimeMillis()));
         contentValues.put("uploadTimestamp", (Integer) 0);
         return new by(str, contentValues, "a job build to insert message to db");

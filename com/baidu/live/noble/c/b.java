@@ -9,48 +9,48 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes3.dex */
 public class b implements a {
-    private c aXV;
-    private HttpMessageListener aXW;
+    private c baD;
+    private HttpMessageListener baE;
 
     public b() {
-        Fv();
+        xp();
         registerListener();
     }
 
     @Override // com.baidu.live.noble.c.a
     public void a(c cVar) {
-        this.aXV = cVar;
+        this.baD = cVar;
     }
 
     @Override // com.baidu.live.noble.c.a
-    public void FF() {
+    public void Go() {
         MessageManager.getInstance().sendMessage(new HttpMessage(1021195));
     }
 
     @Override // com.baidu.live.noble.c.a
     public void release() {
-        this.aXV = null;
-        FG();
+        this.baD = null;
+        Gp();
         unregisterListener();
     }
 
-    private void Fv() {
-        FH();
+    private void xp() {
+        Gq();
     }
 
-    private void FG() {
+    private void Gp() {
         MessageManager.getInstance().unRegisterTask(1021195);
     }
 
     private void registerListener() {
-        FI();
+        Gr();
     }
 
     private void unregisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.aXW);
+        MessageManager.getInstance().unRegisterListener(this.baE);
     }
 
-    private void FH() {
+    private void Gq() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021195, TbConfig.SERVER_HOST + "liveserver/noble/user");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -59,16 +59,16 @@ public class b implements a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void FI() {
-        this.aXW = new HttpMessageListener(1021195) { // from class: com.baidu.live.noble.c.b.1
+    private void Gr() {
+        this.baE = new HttpMessageListener(1021195) { // from class: com.baidu.live.noble.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (b.this.aXV != null && (httpResponsedMessage instanceof NobleUserInfoHttpResponseMessage)) {
-                    b.this.aXV.b(((NobleUserInfoHttpResponseMessage) httpResponsedMessage).FE());
+                if (b.this.baD != null && (httpResponsedMessage instanceof NobleUserInfoHttpResponseMessage)) {
+                    b.this.baD.b(((NobleUserInfoHttpResponseMessage) httpResponsedMessage).Gn());
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aXW);
+        MessageManager.getInstance().registerListener(this.baE);
     }
 }

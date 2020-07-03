@@ -16,7 +16,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean f(@NonNull com.baidu.swan.apps.component.b.b bVar) {
-        return (bVar instanceof com.baidu.swan.apps.component.components.e.c.b) && TextUtils.equals(((com.baidu.swan.apps.component.components.e.c.b) bVar).bQc, "scroll");
+        return (bVar instanceof com.baidu.swan.apps.component.components.e.c.b) && TextUtils.equals(((com.baidu.swan.apps.component.components.e.c.b) bVar).bUQ, "scroll");
     }
 
     @Nullable
@@ -43,7 +43,7 @@ public class b {
         swanAppComponentContainerView.postDelayed(new Runnable() { // from class: com.baidu.swan.apps.component.container.b.2
             @Override // java.lang.Runnable
             public void run() {
-                scrollView.smoothScrollTo(0, bVar2.bQb);
+                scrollView.smoothScrollTo(0, bVar2.bUP);
             }
         }, 100L);
         swanAppComponentContainerView.setScrollView(scrollView);
@@ -54,18 +54,18 @@ public class b {
     public static boolean a(@NonNull c cVar, @NonNull com.baidu.swan.apps.component.b.b bVar, @NonNull SwanAppComponentContainerView swanAppComponentContainerView) {
         boolean z = true;
         com.baidu.swan.apps.console.c.e("Component-Container-Scroll", "insert component（scroll）");
-        if (bVar.bPJ == null) {
-            com.baidu.swan.apps.component.e.a.aS("Component-Container-Scroll", "insert component（scroll） with a null position");
+        if (bVar.bUx == null) {
+            com.baidu.swan.apps.component.e.a.aU("Component-Container-Scroll", "insert component（scroll） with a null position");
             return false;
-        } else if (TextUtils.isEmpty(bVar.bPH)) {
+        } else if (TextUtils.isEmpty(bVar.bUv)) {
             ScrollView b = b(swanAppComponentContainerView, bVar);
-            if (b == null || !cVar.bQN.a(b, bVar.bPJ)) {
+            if (b == null || !cVar.bVB.a(b, bVar.bUx)) {
                 z = false;
             }
             return z;
         } else {
-            SwanAppComponentContainerView iI = cVar.iI(bVar.bPH);
-            if (iI == null) {
+            SwanAppComponentContainerView iQ = cVar.iQ(bVar.bUv);
+            if (iQ == null) {
                 com.baidu.swan.apps.console.c.e("Component-Container-Scroll", "insert component（scroll） to parent with a null parent container view");
                 return false;
             }
@@ -74,7 +74,7 @@ public class b {
                 com.baidu.swan.apps.console.c.e("Component-Container-Scroll", "insert component（scroll） to parent with a null scroll view");
                 return false;
             }
-            iI.addView(b2, bVar.Vp());
+            iQ.addView(b2, bVar.Wv());
             return true;
         }
     }
@@ -84,21 +84,21 @@ public class b {
         if (DEBUG) {
             Log.d("Component-Container-Scroll", "update component（scroll）position");
         }
-        String str = bVar.bPH;
+        String str = bVar.bUv;
         if (TextUtils.isEmpty(str)) {
-            return cVar.bQN.b(swanAppComponentContainerView, bVar.bPJ);
+            return cVar.bVB.b(swanAppComponentContainerView, bVar.bUx);
         }
-        SwanAppComponentContainerView iI = cVar.iI(str);
-        if (iI == null) {
+        SwanAppComponentContainerView iQ = cVar.iQ(str);
+        if (iQ == null) {
             com.baidu.swan.apps.console.c.e("Component-Container-Scroll", "update component（scroll）to parent with a null parent container view");
             return false;
         }
         ScrollView scrollView = swanAppComponentContainerView.getScrollView();
-        if (scrollView != null && scrollView.getParent() == iI) {
-            iI.updateViewLayout(scrollView, bVar.Vp());
+        if (scrollView != null && scrollView.getParent() == iQ) {
+            iQ.updateViewLayout(scrollView, bVar.Wv());
             return true;
         }
-        com.baidu.swan.apps.component.e.a.aS("Component-Container-Scroll", "update component（scroll）to parent with a illegal parent view (Scroll) " + (scrollView == null));
+        com.baidu.swan.apps.component.e.a.aU("Component-Container-Scroll", "update component（scroll）to parent with a illegal parent view (Scroll) " + (scrollView == null));
         return false;
     }
 
@@ -106,7 +106,7 @@ public class b {
     public static boolean a(@NonNull c cVar, @NonNull com.baidu.swan.apps.component.b.a aVar, @NonNull com.baidu.swan.apps.component.b.b bVar, @NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull com.baidu.swan.apps.component.d.b bVar2) {
         if (bVar instanceof com.baidu.swan.apps.component.components.e.c.b) {
             ScrollView scrollView = swanAppComponentContainerView.getScrollView();
-            if (bVar2.ez(7)) {
+            if (bVar2.eK(7)) {
                 if (DEBUG) {
                     Log.d("Component-Container-Scroll", "update component（scroll）overflow_y");
                 }
@@ -123,7 +123,7 @@ public class b {
                 if (cVar.e(aVar)) {
                     return true;
                 }
-                com.baidu.swan.apps.component.e.a.aS("Component-Container-Scroll", "update component（scroll） overflow_y fail");
+                com.baidu.swan.apps.component.e.a.aU("Component-Container-Scroll", "update component（scroll） overflow_y fail");
             }
             return false;
         }
@@ -134,12 +134,12 @@ public class b {
     public static void b(@NonNull c cVar, @NonNull com.baidu.swan.apps.component.b.a aVar, @NonNull com.baidu.swan.apps.component.b.b bVar, @NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull com.baidu.swan.apps.component.d.b bVar2) {
         if (bVar instanceof com.baidu.swan.apps.component.components.e.c.b) {
             ScrollView scrollView = swanAppComponentContainerView.getScrollView();
-            if (bVar2.ez(8)) {
+            if (bVar2.eK(8)) {
                 if (DEBUG) {
                     Log.d("Component-Container-Scroll", "update component（scroll） scroll_top");
                 }
                 if (scrollView != null) {
-                    scrollView.smoothScrollTo(0, ((com.baidu.swan.apps.component.components.e.c.b) bVar).bQb);
+                    scrollView.smoothScrollTo(0, ((com.baidu.swan.apps.component.components.e.c.b) bVar).bUP);
                 }
             }
         }
@@ -147,20 +147,20 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean c(@NonNull c cVar, @NonNull com.baidu.swan.apps.component.b.b bVar, @NonNull SwanAppComponentContainerView swanAppComponentContainerView) {
-        if (TextUtils.isEmpty(bVar.bPH)) {
-            return cVar.bQN.av(swanAppComponentContainerView.getScrollView());
+        if (TextUtils.isEmpty(bVar.bUv)) {
+            return cVar.bVB.av(swanAppComponentContainerView.getScrollView());
         }
-        SwanAppComponentContainerView iI = cVar.iI(bVar.bPH);
-        if (iI == null) {
+        SwanAppComponentContainerView iQ = cVar.iQ(bVar.bUv);
+        if (iQ == null) {
             com.baidu.swan.apps.console.c.e("Component-Container-Scroll", "remove component（scroll） to parent with a null parent container view");
             return false;
         }
         ScrollView scrollView = swanAppComponentContainerView.getScrollView();
-        if (scrollView != null && scrollView.getParent() == iI) {
-            iI.removeView(scrollView);
+        if (scrollView != null && scrollView.getParent() == iQ) {
+            iQ.removeView(scrollView);
             return true;
         }
-        com.baidu.swan.apps.component.e.a.aS("Component-Container-Scroll", "remove component（scroll）to parent with a illegal parent view" + (scrollView == null));
+        com.baidu.swan.apps.component.e.a.aU("Component-Container-Scroll", "remove component（scroll）to parent with a illegal parent view" + (scrollView == null));
         return false;
     }
 

@@ -5,33 +5,33 @@ import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
 /* loaded from: classes.dex */
 public class ContextUtils {
-    private static Context mcn;
+    private static Context myc;
 
     private static native void nativeInitNativeSideApplicationContext(Context context);
 
     public static Context getApplicationContext() {
-        return mcn;
+        return myc;
     }
 
-    public static void fB(Context context) {
-        if (mcn != null && mcn != context) {
+    public static void fC(Context context) {
+        if (myc != null && myc != context) {
             a.d("ContextUtils", "Multiple contexts detected, ignoring new application context.");
         } else {
-            fC(context);
+            fD(context);
         }
     }
 
-    public static void dqd() {
-        if (mcn == null) {
+    public static void duI() {
+        if (myc == null) {
             throw new RuntimeException("Cannot have native global application context be null.");
         }
-        nativeInitNativeSideApplicationContext(mcn);
+        nativeInitNativeSideApplicationContext(myc);
     }
 
-    private static void fC(Context context) {
+    private static void fD(Context context) {
         if (context == null) {
             throw new RuntimeException("Global application context cannot be set to null.");
         }
-        mcn = context;
+        myc = context;
     }
 }

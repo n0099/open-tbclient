@@ -4,13 +4,13 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes3.dex */
 public class p {
-    private static Handler wu = new Handler(Looper.getMainLooper());
+    private static Handler wU = new Handler(Looper.getMainLooper());
 
     public static void a(Runnable runnable, long j) {
-        wu.postDelayed(runnable, j);
+        wU.postDelayed(runnable, j);
     }
 
-    public static boolean fi() {
+    public static boolean fy() {
         return Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 
@@ -18,10 +18,10 @@ public class p {
         if (runnable == null) {
             return;
         }
-        if (fi()) {
+        if (fy()) {
             runnable.run();
         } else {
-            wu.post(runnable);
+            wU.post(runnable);
         }
     }
 }

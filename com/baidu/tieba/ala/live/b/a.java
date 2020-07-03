@@ -8,31 +8,31 @@ import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public abstract class a extends BdBaseModel {
-    private InterfaceC0549a fDu;
-    private HashMap<String, String> fDv;
-    private String fDw;
+    private InterfaceC0557a fOD;
+    private HashMap<String, String> fOE;
+    private String fOF;
     protected TbPageContext mPageContext;
     private PayChannelType mPayChannelType;
 
     /* renamed from: com.baidu.tieba.ala.live.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0549a {
+    public interface InterfaceC0557a {
         void a(PayChannelType payChannelType, int i, String str, int i2, HttpResponsedMessage httpResponsedMessage);
 
         void a(PayChannelType payChannelType, int i, String str, HashMap<String, String> hashMap, String str2, boolean z);
     }
 
-    public abstract void BZ(String str);
+    public abstract void Cx(String str);
 
     public abstract void a(PayConfig payConfig);
 
-    public abstract void bvG();
+    public abstract void byB();
 
-    public a(TbPageContext tbPageContext, PayChannelType payChannelType, InterfaceC0549a interfaceC0549a) {
+    public a(TbPageContext tbPageContext, PayChannelType payChannelType, InterfaceC0557a interfaceC0557a) {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         this.mPayChannelType = payChannelType;
-        this.fDu = interfaceC0549a;
+        this.fOD = interfaceC0557a;
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -47,32 +47,32 @@ public abstract class a extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i, String str, String str2, HashMap<String, String> hashMap, String str3, boolean z) {
-        if (this.fDu != null) {
-            this.fDw = str2;
-            this.fDv = hashMap;
-            this.fDu.a(this.mPayChannelType, i, str, hashMap, str3, z);
+        if (this.fOD != null) {
+            this.fOF = str2;
+            this.fOE = hashMap;
+            this.fOD.a(this.mPayChannelType, i, str, hashMap, str3, z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i, String str, int i2, HttpResponsedMessage httpResponsedMessage) {
-        if (this.fDu != null) {
-            this.fDu.a(this.mPayChannelType, i, str, i2, httpResponsedMessage);
+        if (this.fOD != null) {
+            this.fOD.a(this.mPayChannelType, i, str, i2, httpResponsedMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dE(String str, String str2) {
-        if (this.fDv != null && str != null) {
-            this.fDv.put(str, str2);
+    public void dI(String str, String str2) {
+        if (this.fOE != null && str != null) {
+            this.fOE.put(str, str2);
         }
     }
 
-    public HashMap<String, String> bvE() {
-        return this.fDv;
+    public HashMap<String, String> byz() {
+        return this.fOE;
     }
 
-    public String bvH() {
-        return this.fDw;
+    public String byC() {
+        return this.fOF;
     }
 }

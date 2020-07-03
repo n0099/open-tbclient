@@ -10,7 +10,7 @@ import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes11.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static a cGK;
+    public static a cLu;
 
     public static synchronized void a(SearchFlowEvent searchFlowEvent) {
         synchronized (b.class) {
@@ -19,23 +19,23 @@ public final class b {
                     Log.d("SwanAppSearchFlowUBC", "Event is null...");
                 }
             } else {
-                switch (searchFlowEvent.cGJ) {
+                switch (searchFlowEvent.cLt) {
                     case START:
-                        aru();
-                        if (cGK != null) {
-                            cGK.a(searchFlowEvent);
+                        asB();
+                        if (cLu != null) {
+                            cLu.a(searchFlowEvent);
                             break;
                         }
                         break;
                     case END:
-                        if (cGK != null) {
-                            cGK.a(searchFlowEvent);
+                        if (cLu != null) {
+                            cLu.a(searchFlowEvent);
                         }
-                        Wi();
+                        Xo();
                         break;
                     case NORMAL:
-                        if (cGK != null) {
-                            cGK.a(searchFlowEvent);
+                        if (cLu != null) {
+                            cLu.a(searchFlowEvent);
                             break;
                         }
                         break;
@@ -50,10 +50,10 @@ public final class b {
     public static synchronized void q(com.baidu.swan.apps.v.b.b bVar) {
         synchronized (b.class) {
             if (bVar != null) {
-                e(bVar.agP(), bVar.agK());
-                if (cGK != null) {
-                    cGK.setAppId(bVar.getAppId());
-                    cGK.setSource(bVar.agK());
+                e(bVar.ahV(), bVar.ahQ());
+                if (cLu != null) {
+                    cLu.setAppId(bVar.getAppId());
+                    cLu.setSource(bVar.ahQ());
                 }
             }
         }
@@ -62,26 +62,26 @@ public final class b {
     public static synchronized void e(e eVar) {
         synchronized (b.class) {
             if (eVar != null) {
-                e(eVar.agQ(), eVar.agK());
-                if (cGK != null) {
-                    cGK.setAppId(eVar.getAppId());
-                    cGK.setSource(eVar.agK());
+                e(eVar.ahW(), eVar.ahQ());
+                if (cLu != null) {
+                    cLu.setAppId(eVar.getAppId());
+                    cLu.setSource(eVar.ahQ());
                 }
             }
         }
     }
 
-    private static void aru() {
-        if (cGK != null) {
-            cGK.destroy();
-            cGK = null;
+    private static void asB() {
+        if (cLu != null) {
+            cLu.destroy();
+            cLu = null;
         }
-        cGK = new a("772");
+        cLu = new a("772");
     }
 
-    private static void Wi() {
-        if (cGK != null) {
-            cGK.send();
+    private static void Xo() {
+        if (cLu != null) {
+            cLu.send();
         }
     }
 
@@ -96,9 +96,9 @@ public final class b {
                 return;
             }
             a(new SearchFlowEvent("dom_click", bundle.getLong("search_dom_click_timestamp"), "", "", SearchFlowEvent.EventType.START));
-            if (cGK != null) {
-                cGK.addExt(ETAG.KEY_SEARCH_ID, string == null ? "" : string);
-                cGK.addExt("url", bundle.getString("search_url"));
+            if (cLu != null) {
+                cLu.addExt(ETAG.KEY_SEARCH_ID, string == null ? "" : string);
+                cLu.addExt("url", bundle.getString("search_url"));
             }
         }
     }

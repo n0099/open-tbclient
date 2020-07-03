@@ -20,7 +20,7 @@ public interface c<T> extends e {
 
     void a(T t, com.baidu.swan.pms.model.a aVar);
 
-    Map<String, Object> aFR();
+    Map<String, Object> aGX();
 
     void ae(T t);
 }

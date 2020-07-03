@@ -15,51 +15,51 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
-    private static volatile c cOV;
-    private volatile boolean cOX = false;
-    private a cOW = new a();
+    private static volatile c cTF;
+    private volatile boolean cTH = false;
+    private a cTG = new a();
 
-    public static c auZ() {
-        if (cOV == null) {
+    public static c awf() {
+        if (cTF == null) {
             synchronized (c.class) {
-                if (cOV == null) {
-                    cOV = new c();
+                if (cTF == null) {
+                    cTF = new c();
                 }
             }
         }
-        return cOV;
+        return cTF;
     }
 
     private c() {
     }
 
     public String getHostName() {
-        String qf = qf("hostName");
-        if (TextUtils.isEmpty(qf)) {
+        String qn = qn("hostName");
+        if (TextUtils.isEmpty(qn)) {
             if (com.baidu.swan.config.c.DEBUG) {
                 throw new IllegalStateException("获取 HostName-宿主名称 失败");
             }
             return "";
         }
-        return qf;
+        return qn;
     }
 
-    public String sz() {
-        String qf = qf("schemeHead");
-        if (TextUtils.isEmpty(qf)) {
+    public String sU() {
+        String qn = qn("schemeHead");
+        if (TextUtils.isEmpty(qn)) {
             if (com.baidu.swan.config.c.DEBUG) {
                 throw new IllegalStateException("获取 SchemeHead-协议头 失败");
             }
             return "";
         }
-        return qf;
+        return qn;
     }
 
-    public Set<String> ava() {
-        Set<String> stringSet = this.cOW.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+    public Set<String> awg() {
+        Set<String> stringSet = this.cTG.getStringSet(SocialOperation.GAME_SIGNATURE, null);
         if (stringSet == null) {
-            if (avb()) {
-                return this.cOW.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+            if (awh()) {
+                return this.cTG.getStringSet(SocialOperation.GAME_SIGNATURE, null);
             }
             return null;
         }
@@ -70,9 +70,9 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String qf = qf("shareCallBackUrl");
-        if (!TextUtils.isEmpty(qf)) {
-            String addParam = i.addParam(i.addParam(qf, "type", String.valueOf(i)), "appKey", str);
+        String qn = qn("shareCallBackUrl");
+        if (!TextUtils.isEmpty(qn)) {
+            String addParam = i.addParam(i.addParam(qn, "type", String.valueOf(i)), "appKey", str);
             if (!TextUtils.isEmpty(str2)) {
                 return i.addParam(addParam, "path", str2);
             }
@@ -83,7 +83,7 @@ public class c {
 
     private void a(String str, String str2, String str3, int i, Set<String> set) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && i >= 0) {
-            SharedPreferences.Editor putInt = this.cOW.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallBackUrl", str3).putInt("version", i);
+            SharedPreferences.Editor putInt = this.cTG.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallBackUrl", str3).putInt("version", i);
             if (set != null && !set.isEmpty()) {
                 putInt.putStringSet(SocialOperation.GAME_SIGNATURE, set);
             }
@@ -91,14 +91,14 @@ public class c {
         }
     }
 
-    private String qf(String str) {
+    private String qn(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String string = this.cOW.getString(str, "");
+        String string = this.cTG.getString(str, "");
         if (TextUtils.isEmpty(string)) {
-            if (avb()) {
-                String string2 = this.cOW.getString(str, "");
+            if (awh()) {
+                String string2 = this.cTG.getString(str, "");
                 if (TextUtils.isEmpty(string2)) {
                     return null;
                 }
@@ -109,11 +109,11 @@ public class c {
         return string;
     }
 
-    private synchronized boolean avb() {
+    private synchronized boolean awh() {
         boolean z;
         HashSet hashSet = null;
         synchronized (this) {
-            if (this.cOX) {
+            if (this.cTH) {
                 z = true;
             } else {
                 String readAssetData = d.readAssetData(AppRuntime.getAppContext(), "config/union-cfg.json");
@@ -138,7 +138,7 @@ public class c {
                             }
                         }
                         a(optString, optString2, optString3, optInt, hashSet);
-                        this.cOX = true;
+                        this.cTH = true;
                         z = true;
                     } catch (JSONException e) {
                         if (com.baidu.swan.config.c.DEBUG) {

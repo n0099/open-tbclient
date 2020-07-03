@@ -9,7 +9,7 @@ public class g {
         this.a = context;
     }
 
-    public com.baidu.helios.bridge.a tV() {
-        return com.baidu.helios.a.ad(this.a);
+    public com.baidu.helios.bridge.a un() {
+        return com.baidu.helios.a.ae(this.a);
     }
 }

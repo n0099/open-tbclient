@@ -9,10 +9,12 @@ import android.media.MediaCrypto;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
+import android.os.Build;
 import android.text.TextUtils;
 import android.view.Surface;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.video.editvideo.b.b;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -22,27 +24,27 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 @TargetApi(18)
 /* loaded from: classes10.dex */
 class f extends Thread {
-    private b.a lCO;
-    private String lCP;
-    private e lCS;
+    private e lWB;
+    private b.a lWx;
+    private String lWy;
     private Context mContext;
     private String mFilterName;
 
     public f(Context context, String str, String str2, e eVar, b.a aVar) {
         super("FilterVideoThread");
         this.mContext = context;
-        this.lCP = str;
+        this.lWy = str;
         this.mFilterName = str2;
-        this.lCS = eVar;
-        this.lCO = aVar;
+        this.lWB = eVar;
+        this.lWx = aVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         try {
-            diL();
-            if (diN()) {
-                com.baidu.adp.lib.f.e.ld().post(new Runnable() { // from class: com.baidu.tieba.video.editvideo.b.f.1
+            dmU();
+            if (dmW()) {
+                com.baidu.adp.lib.f.e.lt().post(new Runnable() { // from class: com.baidu.tieba.video.editvideo.b.f.1
                     @Override // java.lang.Runnable
                     public void run() {
                         f.this.onPostExecute();
@@ -56,364 +58,361 @@ class f extends Thread {
     public void onPostExecute() {
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:172:0x01c1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:180:0x0147 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:182:0x01bb A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:184:0x01d6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:190:0x0142 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:192:0x014f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:194:0x01ce A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:196:0x01c9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:200:0x013a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:215:? A[RETURN, SYNTHETIC] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:176:0x0292 */
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0277: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:167:0x0276 */
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0278: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:167:0x0276 */
+    /* JADX WARN: Removed duplicated region for block: B:180:0x0163 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:182:0x0170 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:186:0x01ef A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:188:0x01ea A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:190:0x015b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:197:0x01e2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:209:0x01f7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:211:0x0168 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:223:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:27:0x00bd  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void diL() throws Exception {
-        Throwable th;
-        g gVar;
+    private void dmU() throws Exception {
+        MediaExtractor mediaExtractor;
+        MediaExtractor mediaExtractor2;
         MediaCodec mediaCodec;
         MediaCodec mediaCodec2;
+        Throwable th;
         h hVar;
-        MediaExtractor mediaExtractor;
+        g gVar;
         MediaCodec mediaCodec3;
-        MediaExtractor mediaExtractor2;
         Exception exc;
         Exception exc2;
+        MediaCodec mediaCodec4;
+        MediaCodec mediaCodec5;
+        MediaExtractor mediaExtractor3;
         Exception exc3;
         int i;
         MediaCodecInfo selectCodec = selectCodec(com.baidu.fsg.face.liveness.video.f.b);
-        if (selectCodec != null) {
-            try {
-                mediaExtractor2 = diM();
+        try {
+            if (selectCodec != null) {
                 try {
-                    MediaFormat trackFormat = mediaExtractor2.getTrackFormat(getAndSelectVideoTrackIndex(mediaExtractor2));
-                    int integer = trackFormat.getInteger("width");
-                    int integer2 = trackFormat.getInteger("height");
-                    MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                    mediaMetadataRetriever.setDataSource(this.lCP);
-                    if (TextUtils.equals(mediaMetadataRetriever.extractMetadata(24), "90")) {
-                        i = integer2;
-                        integer2 = integer;
-                    } else {
-                        i = integer;
-                    }
-                    MediaFormat createVideoFormat = MediaFormat.createVideoFormat(com.baidu.fsg.face.liveness.video.f.b, i, integer2);
-                    createVideoFormat.setInteger("color-format", 2130708361);
-                    a(trackFormat, createVideoFormat, IjkMediaMeta.IJKM_KEY_BITRATE, 2097152);
-                    a(trackFormat, createVideoFormat, "frame-rate", 20);
-                    a(trackFormat, createVideoFormat, "i-frame-interval", 1);
-                    AtomicReference<Surface> atomicReference = new AtomicReference<>();
-                    mediaCodec = createVideoEncoder(selectCodec, createVideoFormat, atomicReference);
+                    mediaExtractor3 = dmV();
                     try {
-                        gVar = new g(atomicReference.get());
+                        MediaFormat trackFormat = mediaExtractor3.getTrackFormat(getAndSelectVideoTrackIndex(mediaExtractor3));
+                        int integer = trackFormat.getInteger("width");
+                        int integer2 = trackFormat.getInteger("height");
+                        MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+                        mediaMetadataRetriever.setDataSource(this.lWy);
+                        if (TextUtils.equals(mediaMetadataRetriever.extractMetadata(24), "90")) {
+                            i = integer2;
+                            integer2 = integer;
+                        } else {
+                            i = integer;
+                        }
+                        MediaFormat createVideoFormat = MediaFormat.createVideoFormat(com.baidu.fsg.face.liveness.video.f.b, i, integer2);
+                        createVideoFormat.setInteger("color-format", 2130708361);
+                        a(trackFormat, createVideoFormat, IjkMediaMeta.IJKM_KEY_BITRATE, 2097152);
+                        a(trackFormat, createVideoFormat, "frame-rate", 20);
+                        a(trackFormat, createVideoFormat, "i-frame-interval", 1);
+                        AtomicReference<Surface> atomicReference = new AtomicReference<>();
+                        mediaCodec4 = createVideoEncoder(selectCodec, createVideoFormat, atomicReference);
                         try {
-                            gVar.makeCurrent();
-                            hVar = new h(this.mContext, this.mFilterName, i, integer2);
+                            gVar = new g(atomicReference.get());
                             try {
-                                mediaCodec3 = createVideoDecoder(trackFormat, hVar.getSurface());
-                                try {
+                                gVar.makeCurrent();
+                                hVar = new h(this.mContext, this.mFilterName, i, integer2);
+                            } catch (Exception e) {
+                                e = e;
+                                mediaCodec5 = null;
+                                hVar = null;
+                            } catch (Throwable th2) {
+                                th = th2;
+                                hVar = null;
+                                mediaExtractor2 = mediaExtractor3;
+                                mediaCodec2 = null;
+                                mediaCodec3 = mediaCodec4;
+                            }
+                        } catch (Exception e2) {
+                            e = e2;
+                            gVar = null;
+                            mediaCodec5 = null;
+                            hVar = null;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            gVar = null;
+                            hVar = null;
+                            mediaExtractor2 = mediaExtractor3;
+                            mediaCodec2 = null;
+                            mediaCodec3 = mediaCodec4;
+                        }
+                        try {
+                            mediaCodec5 = createVideoDecoder(trackFormat, hVar.getSurface());
+                            try {
+                                a(mediaExtractor3, mediaCodec5, mediaCodec4, gVar, hVar);
+                                if (mediaExtractor3 != null) {
                                     try {
-                                        a(mediaExtractor2, mediaCodec3, mediaCodec, gVar, hVar);
-                                        if (mediaExtractor2 != null) {
-                                            try {
-                                                mediaExtractor2.release();
-                                            } catch (Exception e) {
-                                                exc3 = 0 == 0 ? e : null;
-                                                if (this.lCO != null) {
-                                                    this.lCO.bA(225, com.baidu.tieba.k.a.t(e));
-                                                }
-                                            }
+                                        mediaExtractor3.release();
+                                    } catch (Exception e3) {
+                                        exc3 = 0 == 0 ? e3 : null;
+                                        if (this.lWx != null) {
+                                            this.lWx.bH(225, com.baidu.tieba.k.a.t(e3));
                                         }
-                                        exc3 = null;
-                                        if (mediaCodec3 != null) {
+                                    }
+                                }
+                                exc3 = null;
+                                if (mediaCodec5 != null) {
+                                    try {
+                                        mediaCodec5.stop();
+                                        mediaCodec5.release();
+                                    } catch (Exception e4) {
+                                        if (exc3 == null) {
+                                            exc3 = e4;
+                                        }
+                                        if (this.lWx != null) {
+                                            this.lWx.bH(Constants.METHOD_MEDIA_NOTIFY, com.baidu.tieba.k.a.t(e4));
+                                        }
+                                    }
+                                }
+                                if (hVar != null) {
+                                    try {
+                                        hVar.release();
+                                    } catch (Exception e5) {
+                                        if (exc3 == null) {
+                                            exc3 = e5;
+                                        }
+                                        if (this.lWx != null) {
+                                            this.lWx.bH(227, com.baidu.tieba.k.a.t(e5));
+                                        }
+                                    }
+                                }
+                                if (mediaCodec4 != null) {
+                                    try {
+                                        mediaCodec4.stop();
+                                        mediaCodec4.release();
+                                    } catch (Exception e6) {
+                                        if (exc3 == null) {
+                                            exc3 = e6;
+                                        }
+                                        if (this.lWx != null) {
+                                            this.lWx.bH(228, com.baidu.tieba.k.a.t(e6));
+                                        }
+                                    }
+                                }
+                                if (gVar != null) {
+                                    try {
+                                        gVar.release();
+                                    } catch (Exception e7) {
+                                        if (exc3 == null) {
+                                            exc3 = e7;
+                                        }
+                                        if (this.lWx != null) {
+                                            this.lWx.bH(229, com.baidu.tieba.k.a.t(e7));
+                                        }
+                                    }
+                                }
+                            } catch (Exception e8) {
+                                e = e8;
+                                e.printStackTrace();
+                                if ((Build.VERSION.SDK_INT < 21 || !(e instanceof MediaCodec.CodecException) || ar.isEmpty(e.getMessage()) || !e.getMessage().contains("0xfffffff3")) && this.lWx != null) {
+                                    this.lWx.bH(224, com.baidu.tieba.k.a.t(e));
+                                }
+                                if (mediaExtractor3 != null) {
+                                    try {
+                                        mediaExtractor3.release();
+                                    } catch (Exception e9) {
+                                        exc = 0 == 0 ? e9 : null;
+                                        if (this.lWx != null) {
+                                            this.lWx.bH(225, com.baidu.tieba.k.a.t(e9));
+                                        }
+                                        exc3 = exc;
+                                        if (mediaCodec5 != null) {
                                             try {
-                                                mediaCodec3.stop();
-                                                mediaCodec3.release();
-                                            } catch (Exception e2) {
+                                                mediaCodec5.stop();
+                                                mediaCodec5.release();
+                                            } catch (Exception e10) {
                                                 if (exc3 == null) {
-                                                    exc3 = e2;
+                                                    exc3 = e10;
                                                 }
-                                                if (this.lCO != null) {
-                                                    this.lCO.bA(Constants.METHOD_MEDIA_NOTIFY, com.baidu.tieba.k.a.t(e2));
+                                                if (this.lWx != null) {
+                                                    this.lWx.bH(Constants.METHOD_MEDIA_NOTIFY, com.baidu.tieba.k.a.t(e10));
                                                 }
                                             }
                                         }
                                         if (hVar != null) {
                                             try {
                                                 hVar.release();
-                                            } catch (Exception e3) {
+                                            } catch (Exception e11) {
                                                 if (exc3 == null) {
-                                                    exc3 = e3;
+                                                    exc3 = e11;
                                                 }
-                                                if (this.lCO != null) {
-                                                    this.lCO.bA(227, com.baidu.tieba.k.a.t(e3));
+                                                if (this.lWx != null) {
+                                                    this.lWx.bH(227, com.baidu.tieba.k.a.t(e11));
                                                 }
                                             }
                                         }
-                                        if (mediaCodec != null) {
+                                        if (mediaCodec4 != null) {
                                             try {
-                                                mediaCodec.stop();
-                                                mediaCodec.release();
-                                            } catch (Exception e4) {
+                                                mediaCodec4.stop();
+                                                mediaCodec4.release();
+                                            } catch (Exception e12) {
                                                 if (exc3 == null) {
-                                                    exc3 = e4;
+                                                    exc3 = e12;
                                                 }
-                                                if (this.lCO != null) {
-                                                    this.lCO.bA(228, com.baidu.tieba.k.a.t(e4));
+                                                if (this.lWx != null) {
+                                                    this.lWx.bH(228, com.baidu.tieba.k.a.t(e12));
                                                 }
                                             }
                                         }
                                         if (gVar != null) {
                                             try {
                                                 gVar.release();
-                                            } catch (Exception e5) {
+                                            } catch (Exception e13) {
                                                 if (exc3 == null) {
-                                                    exc3 = e5;
+                                                    exc3 = e13;
                                                 }
-                                                if (this.lCO != null) {
-                                                    this.lCO.bA(229, com.baidu.tieba.k.a.t(e5));
-                                                }
-                                            }
-                                        }
-                                    } catch (Exception e6) {
-                                        e = e6;
-                                        e.printStackTrace();
-                                        if (this.lCO != null) {
-                                            this.lCO.bA(224, com.baidu.tieba.k.a.t(e));
-                                        }
-                                        if (mediaExtractor2 != null) {
-                                            try {
-                                                mediaExtractor2.release();
-                                            } catch (Exception e7) {
-                                                exc = 0 == 0 ? e7 : null;
-                                                if (this.lCO != null) {
-                                                    this.lCO.bA(225, com.baidu.tieba.k.a.t(e7));
-                                                }
-                                                exc3 = exc;
-                                                if (mediaCodec3 != null) {
-                                                    try {
-                                                        mediaCodec3.stop();
-                                                        mediaCodec3.release();
-                                                    } catch (Exception e8) {
-                                                        if (exc3 == null) {
-                                                            exc3 = e8;
-                                                        }
-                                                        if (this.lCO != null) {
-                                                            this.lCO.bA(Constants.METHOD_MEDIA_NOTIFY, com.baidu.tieba.k.a.t(e8));
-                                                        }
-                                                    }
-                                                }
-                                                if (hVar != null) {
-                                                    try {
-                                                        hVar.release();
-                                                    } catch (Exception e9) {
-                                                        if (exc3 == null) {
-                                                            exc3 = e9;
-                                                        }
-                                                        if (this.lCO != null) {
-                                                            this.lCO.bA(227, com.baidu.tieba.k.a.t(e9));
-                                                        }
-                                                    }
-                                                }
-                                                if (mediaCodec != null) {
-                                                    try {
-                                                        mediaCodec.stop();
-                                                        mediaCodec.release();
-                                                    } catch (Exception e10) {
-                                                        if (exc3 == null) {
-                                                            exc3 = e10;
-                                                        }
-                                                        if (this.lCO != null) {
-                                                            this.lCO.bA(228, com.baidu.tieba.k.a.t(e10));
-                                                        }
-                                                    }
-                                                }
-                                                if (gVar != null) {
-                                                    try {
-                                                        gVar.release();
-                                                    } catch (Exception e11) {
-                                                        if (exc3 == null) {
-                                                            exc3 = e11;
-                                                        }
-                                                        if (this.lCO != null) {
-                                                            this.lCO.bA(229, com.baidu.tieba.k.a.t(e11));
-                                                        }
-                                                    }
-                                                }
-                                                if (exc3 != null) {
+                                                if (this.lWx != null) {
+                                                    this.lWx.bH(229, com.baidu.tieba.k.a.t(e13));
                                                 }
                                             }
-                                        }
-                                        exc3 = null;
-                                        if (mediaCodec3 != null) {
-                                        }
-                                        if (hVar != null) {
-                                        }
-                                        if (mediaCodec != null) {
-                                        }
-                                        if (gVar != null) {
                                         }
                                         if (exc3 != null) {
                                         }
                                     }
-                                } catch (Throwable th2) {
-                                    mediaExtractor = mediaExtractor2;
-                                    mediaCodec2 = mediaCodec3;
-                                    th = th2;
-                                    if (mediaExtractor != null) {
-                                        try {
-                                            mediaExtractor.release();
-                                        } catch (Exception e12) {
-                                            exc = 0 == 0 ? e12 : null;
-                                            if (this.lCO != null) {
-                                                this.lCO.bA(225, com.baidu.tieba.k.a.t(e12));
-                                            }
-                                            exc2 = exc;
-                                            if (mediaCodec2 != null) {
-                                                try {
-                                                    mediaCodec2.stop();
-                                                    mediaCodec2.release();
-                                                } catch (Exception e13) {
-                                                    if (exc2 == null) {
-                                                        exc2 = e13;
-                                                    }
-                                                    if (this.lCO != null) {
-                                                        this.lCO.bA(Constants.METHOD_MEDIA_NOTIFY, com.baidu.tieba.k.a.t(e13));
-                                                    }
-                                                }
-                                            }
-                                            if (hVar != null) {
-                                                try {
-                                                    hVar.release();
-                                                } catch (Exception e14) {
-                                                    if (exc2 == null) {
-                                                        exc2 = e14;
-                                                    }
-                                                    if (this.lCO != null) {
-                                                        this.lCO.bA(227, com.baidu.tieba.k.a.t(e14));
-                                                    }
-                                                }
-                                            }
-                                            if (mediaCodec != null) {
-                                                try {
-                                                    mediaCodec.stop();
-                                                    mediaCodec.release();
-                                                } catch (Exception e15) {
-                                                    if (exc2 == null) {
-                                                        exc2 = e15;
-                                                    }
-                                                    if (this.lCO != null) {
-                                                        this.lCO.bA(228, com.baidu.tieba.k.a.t(e15));
-                                                    }
-                                                }
-                                            }
-                                            if (gVar != null) {
-                                                try {
-                                                    gVar.release();
-                                                } catch (Exception e16) {
-                                                    if (exc2 == null) {
-                                                    }
-                                                    if (this.lCO != null) {
-                                                        this.lCO.bA(229, com.baidu.tieba.k.a.t(e16));
-                                                    }
-                                                }
-                                            }
-                                            throw th;
-                                        }
-                                    }
-                                    exc2 = null;
-                                    if (mediaCodec2 != null) {
-                                    }
-                                    if (hVar != null) {
-                                    }
-                                    if (mediaCodec != null) {
-                                    }
-                                    if (gVar != null) {
-                                    }
-                                    throw th;
                                 }
-                            } catch (Exception e17) {
-                                e = e17;
-                                mediaCodec3 = null;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                mediaExtractor = mediaExtractor2;
-                                mediaCodec2 = null;
-                                if (mediaExtractor != null) {
-                                }
-                                exc2 = null;
-                                if (mediaCodec2 != null) {
+                                exc3 = null;
+                                if (mediaCodec5 != null) {
                                 }
                                 if (hVar != null) {
                                 }
-                                if (mediaCodec != null) {
+                                if (mediaCodec4 != null) {
                                 }
                                 if (gVar != null) {
                                 }
-                                throw th;
+                                if (exc3 != null) {
+                                }
                             }
-                        } catch (Exception e18) {
-                            e = e18;
-                            mediaCodec3 = null;
-                            hVar = null;
+                        } catch (Exception e14) {
+                            e = e14;
+                            mediaCodec5 = null;
                         } catch (Throwable th4) {
                             th = th4;
-                            hVar = null;
-                            mediaExtractor = mediaExtractor2;
+                            mediaExtractor2 = mediaExtractor3;
                             mediaCodec2 = null;
+                            mediaCodec3 = mediaCodec4;
+                            if (mediaExtractor2 != null) {
+                                try {
+                                    mediaExtractor2.release();
+                                } catch (Exception e15) {
+                                    exc = 0 == 0 ? e15 : null;
+                                    if (this.lWx != null) {
+                                        this.lWx.bH(225, com.baidu.tieba.k.a.t(e15));
+                                    }
+                                    exc2 = exc;
+                                    if (mediaCodec2 != null) {
+                                        try {
+                                            mediaCodec2.stop();
+                                            mediaCodec2.release();
+                                        } catch (Exception e16) {
+                                            if (exc2 == null) {
+                                                exc2 = e16;
+                                            }
+                                            if (this.lWx != null) {
+                                                this.lWx.bH(Constants.METHOD_MEDIA_NOTIFY, com.baidu.tieba.k.a.t(e16));
+                                            }
+                                        }
+                                    }
+                                    if (hVar != null) {
+                                        try {
+                                            hVar.release();
+                                        } catch (Exception e17) {
+                                            if (exc2 == null) {
+                                                exc2 = e17;
+                                            }
+                                            if (this.lWx != null) {
+                                                this.lWx.bH(227, com.baidu.tieba.k.a.t(e17));
+                                            }
+                                        }
+                                    }
+                                    if (mediaCodec3 != null) {
+                                        try {
+                                            mediaCodec3.stop();
+                                            mediaCodec3.release();
+                                        } catch (Exception e18) {
+                                            if (exc2 == null) {
+                                                exc2 = e18;
+                                            }
+                                            if (this.lWx != null) {
+                                                this.lWx.bH(228, com.baidu.tieba.k.a.t(e18));
+                                            }
+                                        }
+                                    }
+                                    if (gVar != null) {
+                                        try {
+                                            gVar.release();
+                                        } catch (Exception e19) {
+                                            if (exc2 == null) {
+                                            }
+                                            if (this.lWx != null) {
+                                                this.lWx.bH(229, com.baidu.tieba.k.a.t(e19));
+                                            }
+                                        }
+                                    }
+                                    throw th;
+                                }
+                            }
+                            exc2 = null;
+                            if (mediaCodec2 != null) {
+                            }
+                            if (hVar != null) {
+                            }
+                            if (mediaCodec3 != null) {
+                            }
+                            if (gVar != null) {
+                            }
+                            throw th;
                         }
-                    } catch (Exception e19) {
-                        e = e19;
+                    } catch (Exception e20) {
+                        e = e20;
                         gVar = null;
-                        mediaCodec3 = null;
+                        mediaCodec4 = null;
+                        mediaCodec5 = null;
                         hVar = null;
                     } catch (Throwable th5) {
                         th = th5;
                         gVar = null;
+                        mediaCodec3 = null;
                         hVar = null;
-                        mediaExtractor = mediaExtractor2;
+                        mediaExtractor2 = mediaExtractor3;
                         mediaCodec2 = null;
                     }
-                } catch (Exception e20) {
-                    e = e20;
+                } catch (Exception e21) {
+                    e = e21;
                     gVar = null;
-                    mediaCodec = null;
-                    mediaCodec3 = null;
+                    mediaCodec4 = null;
+                    mediaCodec5 = null;
                     hVar = null;
+                    mediaExtractor3 = null;
                 } catch (Throwable th6) {
                     th = th6;
                     gVar = null;
-                    mediaCodec = null;
-                    hVar = null;
-                    mediaExtractor = mediaExtractor2;
+                    mediaCodec3 = null;
                     mediaCodec2 = null;
+                    hVar = null;
+                    mediaExtractor2 = null;
                 }
-            } catch (Exception e21) {
-                e = e21;
-                gVar = null;
-                mediaCodec = null;
-                mediaCodec3 = null;
-                hVar = null;
-                mediaExtractor2 = null;
-            } catch (Throwable th7) {
-                th = th7;
-                gVar = null;
-                mediaCodec = null;
-                mediaCodec2 = null;
-                hVar = null;
-                mediaExtractor = null;
+                if (exc3 != null) {
+                    throw exc3;
+                }
             }
-            if (exc3 != null) {
-                throw exc3;
-            }
+        } catch (Throwable th7) {
+            mediaExtractor2 = mediaExtractor;
+            mediaCodec2 = mediaCodec;
+            th = th7;
+            mediaCodec3 = selectCodec;
         }
     }
 
-    private MediaExtractor diM() throws IOException {
+    private MediaExtractor dmV() throws IOException {
         MediaExtractor mediaExtractor = new MediaExtractor();
-        mediaExtractor.setDataSource(this.lCP);
+        mediaExtractor.setDataSource(this.lWy);
         return mediaExtractor;
     }
 
@@ -467,8 +466,8 @@ class f extends Thread {
         MediaFormat mediaFormat2 = null;
         ByteBuffer[] byteBufferArr3 = outputBuffers2;
         boolean z7 = false;
-        while (!z4 && diN()) {
-            if (z7 || !((mediaFormat2 == null || this.lCS.isStarted()) && diN())) {
+        while (!z4 && dmW()) {
+            if (z7 || !((mediaFormat2 == null || this.lWB.isStarted()) && dmW())) {
                 z = z7;
             } else {
                 int dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L);
@@ -489,7 +488,7 @@ class f extends Thread {
                     }
                 }
             }
-            if (!z6 && ((mediaFormat2 == null || this.lCS.isStarted()) && diN())) {
+            if (!z6 && ((mediaFormat2 == null || this.lWB.isStarted()) && dmW())) {
                 int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L);
                 if (dequeueOutputBuffer == -1) {
                     z2 = z6;
@@ -523,7 +522,7 @@ class f extends Thread {
                         }
                     }
                 }
-                if (z4 && ((mediaFormat2 == null || this.lCS.isStarted()) && diN())) {
+                if (z4 && ((mediaFormat2 == null || this.lWB.isStarted()) && dmW())) {
                     int dequeueOutputBuffer2 = mediaCodec2.dequeueOutputBuffer(bufferInfo2, 10000L);
                     if (dequeueOutputBuffer2 == -1) {
                         mediaFormat = mediaFormat2;
@@ -546,7 +545,7 @@ class f extends Thread {
                             byteBufferArr2 = byteBufferArr3;
                         } else {
                             if (bufferInfo2.size != 0) {
-                                this.lCS.c(i2, byteBuffer2, bufferInfo2);
+                                this.lWB.c(i2, byteBuffer2, bufferInfo2);
                             }
                             boolean z10 = (bufferInfo2.flags & 4) != 0 ? true : z4;
                             mediaCodec2.releaseOutputBuffer(dequeueOutputBuffer2, false);
@@ -564,16 +563,16 @@ class f extends Thread {
                     i = i2;
                 } else {
                     D("InnerVideoProcessor", "muxer: adding video track.");
-                    i = this.lCS.c(mediaFormat);
+                    i = this.lWB.c(mediaFormat);
                     z3 = true;
                 }
-                if (!this.lCS.isStarted() && z3) {
-                    this.lCS.diO();
-                    if (this.lCS.start()) {
-                        synchronized (this.lCS) {
-                            while (!this.lCS.isStarted()) {
+                if (!this.lWB.isStarted() && z3) {
+                    this.lWB.dmX();
+                    if (this.lWB.start()) {
+                        synchronized (this.lWB) {
+                            while (!this.lWB.isStarted()) {
                                 try {
-                                    this.lCS.wait(100L);
+                                    this.lWB.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
@@ -606,9 +605,9 @@ class f extends Thread {
             }
             z3 = z5;
             i = i2;
-            if (!this.lCS.isStarted()) {
-                this.lCS.diO();
-                if (this.lCS.start()) {
+            if (!this.lWB.isStarted()) {
+                this.lWB.dmX();
+                if (this.lWB.start()) {
                 }
             }
             z5 = z3;
@@ -621,7 +620,7 @@ class f extends Thread {
         }
     }
 
-    private boolean diN() {
+    private boolean dmW() {
         return !Thread.currentThread().isInterrupted();
     }
 

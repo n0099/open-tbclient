@@ -7,44 +7,44 @@ import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.g;
 import com.baidu.tieba.ala.alasquare.subtablist.c.h;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.b.e, g> {
-    private String feQ;
-    private com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f fil;
-    private h fim;
+    private String fqb;
+    private h ftA;
+    private com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f ftz;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.fcL);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.fnV);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Q */
+    /* renamed from: S */
     public g b(ViewGroup viewGroup) {
-        this.fil = new com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f(this.mPageContext, viewGroup);
-        if (this.fim != null) {
-            this.fil.c(this.fim);
+        this.ftz = new com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f(this.mPageContext, viewGroup);
+        if (this.ftA != null) {
+            this.ftz.c(this.ftA);
         }
-        return new g(this.fil);
+        return new g(this.ftz);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.b.e eVar, g gVar) {
-        gVar.fil.a(eVar, this.feQ);
+        gVar.ftz.a(eVar, this.fqb);
         return gVar.getView();
     }
 
     public void a(h hVar) {
-        this.fim = hVar;
-        if (this.fil != null) {
-            this.fil.c(this.fim);
+        this.ftA = hVar;
+        if (this.ftz != null) {
+            this.ftz.c(this.ftA);
         }
     }
 
     public void setEntryName(String str) {
-        this.feQ = str;
+        this.fqb = str;
     }
 }

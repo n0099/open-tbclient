@@ -8,42 +8,42 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forumsearch.controller.e;
 /* loaded from: classes11.dex */
 public class d extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.b> {
-    private View.OnClickListener hln;
-    private BarImageView hme;
-    private TextView hmf;
-    private TextView hmg;
-    private TextView hmh;
-    private com.baidu.tieba.forumsearch.b.b hmi;
+    private View.OnClickListener hxu;
+    private BarImageView hyl;
+    private TextView hym;
+    private TextView hyn;
+    private TextView hyo;
+    private com.baidu.tieba.forumsearch.b.b hyp;
     private int mSkinType;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.hme = (BarImageView) getView().findViewById(R.id.forum_avatar);
-        this.hmf = (TextView) getView().findViewById(R.id.forum_name);
-        this.hmg = (TextView) getView().findViewById(R.id.forum_attention);
-        this.hmh = (TextView) getView().findViewById(R.id.forum_thread_count);
+        this.hyl = (BarImageView) getView().findViewById(R.id.forum_avatar);
+        this.hym = (TextView) getView().findViewById(R.id.forum_name);
+        this.hyn = (TextView) getView().findViewById(R.id.forum_attention);
+        this.hyo = (TextView) getView().findViewById(R.id.forum_thread_count);
         getView().setOnClickListener(this);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void x(View.OnClickListener onClickListener) {
-        this.hln = onClickListener;
+    public void y(View.OnClickListener onClickListener) {
+        this.hxu = onClickListener;
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setViewTextColor(this.hmf, (int) R.color.cp_cont_b);
-            am.setViewTextColor(this.hmg, (int) R.color.cp_cont_d);
-            am.setViewTextColor(this.hmh, (int) R.color.cp_cont_d);
-            am.setBackgroundResource(getView(), R.drawable.square_search_item_bg);
+            an.setViewTextColor(this.hym, (int) R.color.cp_cont_b);
+            an.setViewTextColor(this.hyn, (int) R.color.cp_cont_d);
+            an.setViewTextColor(this.hyo, (int) R.color.cp_cont_d);
+            an.setBackgroundResource(getView(), R.drawable.square_search_item_bg);
             this.mSkinType = i;
         }
     }
@@ -58,21 +58,21 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.b> {
     /* renamed from: c */
     public void a(com.baidu.tieba.forumsearch.b.b bVar) {
         if (bVar != null) {
-            this.hmi = bVar;
-            this.hme.startLoad(bVar.getAvatar(), 10, false);
-            this.hmf.setText(ec(bVar.getForumName(), bVar.bTV()));
-            this.hmg.setText(String.format(this.mTbPageContext.getString(R.string.concern), bVar.bTT()));
-            this.hmh.setText(String.format(this.mTbPageContext.getString(R.string.search_bar_thread), bVar.bTU()));
+            this.hyp = bVar;
+            this.hyl.startLoad(bVar.getAvatar(), 10, false);
+            this.hym.setText(eh(bVar.getForumName(), bVar.bWR()));
+            this.hyn.setText(String.format(this.mTbPageContext.getString(R.string.concern), bVar.bWP()));
+            this.hyo.setText(String.format(this.mTbPageContext.getString(R.string.search_bar_thread), bVar.bWQ()));
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public SpannableStringBuilder ec(String str, String str2) {
+    public SpannableStringBuilder eh(String str, String str2) {
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return null;
         }
         String trim = str2.trim();
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(am.getColor(R.color.cp_cont_h));
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(an.getColor(R.color.cp_cont_h));
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         int indexOf = str.indexOf(trim);
         if (indexOf != -1) {
@@ -84,12 +84,12 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.b> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.hmi != null) {
+        if (this.hyp != null) {
             TiebaStatic.log("c12261");
-            e.EA(this.hmi.bTV());
-            view.setTag(this.hmi);
-            if (this.hln != null) {
-                this.hln.onClick(view);
+            e.Fb(this.hyp.bWR());
+            view.setTag(this.hyp);
+            if (this.hxu != null) {
+                this.hxu.onClick(view);
             }
         }
     }

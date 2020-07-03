@@ -20,21 +20,15 @@ public interface d extends e.b {
 
     SwanAppPropertyWindow J(Activity activity);
 
-    void QK();
+    void RQ();
 
-    void SQ();
+    void TW();
 
-    void SR();
+    void TX();
 
-    String YB();
+    String ZH();
 
-    com.baidu.swan.apps.core.d.d YQ();
-
-    com.baidu.swan.apps.runtime.e Zc();
-
-    com.baidu.swan.games.view.d Zr();
-
-    com.baidu.swan.games.view.d Zs();
+    com.baidu.swan.apps.core.d.d ZW();
 
     void a(int i, @NonNull String[] strArr, c.a aVar);
 
@@ -46,49 +40,55 @@ public interface d extends e.b {
 
     void a(String str, com.baidu.swan.apps.event.a.a aVar);
 
-    SwanAppConfigData ahA();
+    com.baidu.swan.apps.runtime.e aai();
 
-    @NonNull
-    com.baidu.swan.apps.storage.b.c ahB();
+    com.baidu.swan.games.view.d aax();
 
-    String ahC();
+    com.baidu.swan.games.view.d aay();
 
-    String ahD();
+    void aiA();
 
-    String ahE();
+    void aiB();
 
-    SwanAppActivity ahF();
+    void aiC();
 
-    com.baidu.swan.apps.adaptation.b.d ahG();
-
-    @NonNull
-    Pair<Integer, Integer> ahH();
-
-    @NonNull
-    Pair<Integer, Integer> ahI();
-
-    com.baidu.swan.games.q.a ahJ();
-
-    boolean ahL();
-
-    void ahu();
-
-    void ahv();
-
-    void ahw();
-
-    SwanCoreVersion ahx();
+    SwanCoreVersion aiD();
 
     @DebugTrace
-    com.baidu.swan.apps.adaptation.b.a ahy();
+    com.baidu.swan.apps.adaptation.b.a aiE();
 
-    boolean ahz();
+    boolean aiF();
+
+    SwanAppConfigData aiG();
+
+    @NonNull
+    com.baidu.swan.apps.storage.b.c aiH();
+
+    String aiI();
+
+    String aiJ();
+
+    String aiK();
+
+    SwanAppActivity aiL();
+
+    com.baidu.swan.apps.adaptation.b.d aiM();
+
+    @NonNull
+    Pair<Integer, Integer> aiN();
+
+    @NonNull
+    Pair<Integer, Integer> aiO();
+
+    com.baidu.swan.games.q.a aiP();
+
+    boolean aiR();
 
     void b(com.baidu.swan.apps.v.b.b bVar, com.baidu.swan.apps.r.b bVar2);
 
-    void bS(Context context);
-
     void bT(Context context);
+
+    void bU(Context context);
 
     void doRelease();
 
@@ -96,15 +96,15 @@ public interface d extends e.b {
 
     void h(SwanAppActivity swanAppActivity);
 
-    com.baidu.swan.apps.adaptation.b.e jO(String str);
+    com.baidu.swan.apps.adaptation.b.e jW(String str);
+
+    AbsoluteLayout lA(String str);
 
     @NonNull
-    com.baidu.swan.apps.runtime.config.c lq(String str);
+    com.baidu.swan.apps.runtime.config.c ly(String str);
 
     @NonNull
-    com.baidu.swan.apps.runtime.config.c lr(String str);
-
-    AbsoluteLayout ls(String str);
+    com.baidu.swan.apps.runtime.config.c lz(String str);
 
     void showLoadingView();
 

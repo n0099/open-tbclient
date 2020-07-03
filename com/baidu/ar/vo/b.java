@@ -12,89 +12,89 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class b {
-    private d wI;
-    private c wJ;
-    private com.baidu.ar.vo.b.d wK;
-    private volatile boolean wM;
-    private volatile boolean wL = false;
-    private volatile boolean wN = false;
+    private d xi;
+    private c xj;
+    private com.baidu.ar.vo.b.d xk;
+    private volatile boolean xm;
+    private volatile boolean xl = false;
+    private volatile boolean xn = false;
 
     public b(d dVar, com.baidu.ar.vo.a.b bVar, com.baidu.ar.vo.b.a aVar, com.baidu.ar.vo.b.d dVar2) {
-        this.wM = true;
-        this.wI = dVar;
-        this.wK = dVar2;
+        this.xm = true;
+        this.xi = dVar;
+        this.xk = dVar2;
         if (bVar != null) {
-            this.wM = bVar.fC();
+            this.xm = bVar.fS();
         }
-        this.wJ = a(bVar, aVar);
+        this.xj = a(bVar, aVar);
     }
 
     private c a(com.baidu.ar.vo.a.b bVar, com.baidu.ar.vo.b.a aVar) {
         if (bVar == null) {
-            return new com.baidu.ar.vo.c.a(this.wI, this.wK.xc, this.wK.xd);
+            return new com.baidu.ar.vo.c.a(this.xi, this.xk.xC, this.xk.xD);
         }
-        if (bVar.fy() == 1) {
-            f fVar = new f(this.wI, bVar, this.wK.xc, this.wK.xd);
+        if (bVar.fO() == 1) {
+            f fVar = new f(this.xi, bVar, this.xk.xC, this.xk.xD);
             fVar.a(aVar);
             return fVar;
-        } else if (bVar.fy() == 0) {
-            return new e(this.wI, bVar, this.wK.xc, this.wK.xd);
+        } else if (bVar.fO() == 0) {
+            return new e(this.xi, bVar, this.xk.xC, this.xk.xD);
         } else {
             return null;
         }
     }
 
     private float[] a(g gVar) {
-        ArrayList<TrackModel> fF = gVar.fF();
-        return (fF == null || fF.isEmpty()) ? new float[0] : fF.get(0).getPose();
+        ArrayList<TrackModel> fV = gVar.fV();
+        return (fV == null || fV.isEmpty()) ? new float[0] : fV.get(0).getPose();
     }
 
-    public void V(boolean z) {
-        this.wN = z;
+    public void W(boolean z) {
+        this.xn = z;
     }
 
     public void a(com.baidu.ar.vo.b.f fVar, float[] fArr) {
         float[] a;
-        if (!this.wM || this.wN) {
+        if (!this.xm || this.xn) {
             return;
         }
-        g fE = fVar.fE();
-        if (this.wL) {
-            if (fE == null || (a = a(fE)) == null || a.length <= 0) {
+        g fU = fVar.fU();
+        if (this.xl) {
+            if (fU == null || (a = a(fU)) == null || a.length <= 0) {
                 return;
             }
-            this.wI.q(a);
-        } else if (this.wJ != null) {
-            this.wL = this.wJ.p(fArr);
-            if (this.wL) {
-                this.wI.fJ();
+            this.xi.r(a);
+        } else if (this.xj != null) {
+            this.xl = this.xj.q(fArr);
+            if (this.xl) {
+                this.xi.fZ();
                 StatisticApi.onEvent(StatisticConstants.SLAM_TRACK_ON);
             }
         }
     }
 
     public void a(com.baidu.ar.vo.c.b bVar) {
-        this.wI.a(bVar);
+        this.xi.a(bVar);
     }
 
     public void c(float f, float f2, float f3) {
         com.baidu.ar.vo.c.b bVar = new com.baidu.ar.vo.c.b();
         bVar.x = f;
         bVar.y = f2;
-        bVar.xl = f3;
+        bVar.xL = f3;
         bVar.type = 2;
         a(bVar);
     }
 
     public void release() {
-        if (this.wI != null) {
-            this.wI.release();
-            this.wI = null;
+        if (this.xi != null) {
+            this.xi.release();
+            this.xi = null;
         }
-        this.wJ = null;
+        this.xj = null;
     }
 
     public void start() {
-        this.wM = true;
+        this.xm = true;
     }
 }

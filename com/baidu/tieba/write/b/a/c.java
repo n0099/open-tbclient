@@ -8,15 +8,15 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c implements CookieManager {
-    private static String lUC;
-    private boolean lPH;
-    private boolean lUD;
+    private static String moW;
+    private boolean mjO;
+    private boolean moX;
 
     public c(boolean z, boolean z2) {
-        this.lPH = true;
-        this.lUD = false;
-        this.lPH = z;
-        this.lUD = z2;
+        this.mjO = true;
+        this.moX = false;
+        this.mjO = z;
+        this.moX = z2;
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -24,7 +24,7 @@ public class c implements CookieManager {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.lUD || !Op(str2);
+        return this.moX || !OW(str2);
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -41,7 +41,7 @@ public class c implements CookieManager {
                 for (String str2 : list) {
                     cookieManager.setCookie(str, str2);
                 }
-                if (this.lPH && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
+                if (this.mjO && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
                     cookieSyncManager.sync();
                 }
             } catch (Exception e) {
@@ -52,18 +52,18 @@ public class c implements CookieManager {
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
-        return lUC;
+        return moW;
     }
 
-    public static void bJ(String str) {
-        lUC = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
+    public static void bK(String str) {
+        moW = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
     }
 
-    public static void dnt() {
-        lUC = "";
+    public static void drF() {
+        moW = "";
     }
 
-    public static boolean Op(String str) {
+    public static boolean OW(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

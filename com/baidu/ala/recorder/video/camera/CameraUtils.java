@@ -3,6 +3,9 @@ package com.baidu.ala.recorder.video.camera;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
@@ -161,6 +164,20 @@ public class CameraUtils {
         }
     }
 
+    public static int clamp(int i, int i2, int i3) {
+        if (i > i3) {
+            return i3;
+        }
+        return i < i2 ? i2 : i;
+    }
+
+    public static void rectFToRect(RectF rectF, Rect rect) {
+        rect.left = Math.round(rectF.left);
+        rect.top = Math.round(rectF.top);
+        rect.right = Math.round(rectF.right);
+        rect.bottom = Math.round(rectF.bottom);
+    }
+
     public static Map<String, String> getFullCameraParameters(Camera camera) {
         HashMap hashMap = new HashMap(64);
         try {
@@ -207,6 +224,48 @@ public class CameraUtils {
             parameters.setFocusMode("continuous-picture");
         } else if (supportedFocusModes.contains("auto")) {
             parameters.setFocusMode("auto");
+        }
+    }
+
+    public static void prepareMatrix(Activity activity, int i, Matrix matrix, int i2, int i3) {
+        matrix.setScale(1 == i ? -1.0f : 1.0f, 1.0f);
+        matrix.postRotate(determineDisplayOrientation(activity, i));
+        matrix.postScale(i2 / 2000.0f, i3 / 2000.0f);
+        matrix.postTranslate(i2 / 2.0f, i3 / 2.0f);
+    }
+
+    public static int determineDisplayOrientation(Activity activity, int i) {
+        int i2;
+        int i3 = 0;
+        try {
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            Camera.getCameraInfo(i, cameraInfo);
+            int rotationAngle = getRotationAngle(activity);
+            if (cameraInfo.facing == 1) {
+                i3 = (cameraInfo.orientation + rotationAngle) % 360;
+                i2 = (360 - i3) % 360;
+            } else {
+                i2 = ((cameraInfo.orientation - rotationAngle) + 360) % 360;
+            }
+            return i2;
+        } catch (RuntimeException e) {
+            int i4 = i3;
+            BdLog.e(e);
+            return i4;
+        }
+    }
+
+    public static int getRotationAngle(Activity activity) {
+        switch (activity.getWindowManager().getDefaultDisplay().getRotation()) {
+            case 0:
+            default:
+                return 0;
+            case 1:
+                return 90;
+            case 2:
+                return 180;
+            case 3:
+                return 270;
         }
     }
 

@@ -7,20 +7,20 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class k {
-    private Context dJh;
-    private ViewGroup dJi;
-    private LinearLayout dJj;
-    private View dJk;
-    private TextView dJl;
-    private c dJm;
-    private a dJn;
-    private TextView dyo;
+    private TextView dDu;
+    private Context dPX;
+    private ViewGroup dPY;
+    private LinearLayout dPZ;
+    private View dQa;
+    private TextView dQb;
+    private c dQc;
+    private a dQd;
     private List<? extends j> mItems;
     private String titleText;
 
@@ -41,27 +41,27 @@ public class k {
 
     public k(Context context) {
         if (context != null) {
-            this.dJh = context;
-            this.dJi = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
-            this.dJj = (LinearLayout) this.dJi.findViewById(R.id.content_view);
-            this.dyo = (TextView) this.dJi.findViewById(R.id.title);
-            this.dJk = this.dJi.findViewById(R.id.title_divide_line);
-            this.dJk.setVisibility(8);
+            this.dPX = context;
+            this.dPY = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
+            this.dPZ = (LinearLayout) this.dPY.findViewById(R.id.content_view);
+            this.dDu = (TextView) this.dPY.findViewById(R.id.title);
+            this.dQa = this.dPY.findViewById(R.id.title_divide_line);
+            this.dQa.setVisibility(8);
             this.mItems = new ArrayList();
-            this.dJl = (TextView) this.dJi.findViewById(R.id.dialog_bottom_cancel_button);
+            this.dQb = (TextView) this.dPY.findViewById(R.id.dialog_bottom_cancel_button);
         }
     }
 
     public Context getContext() {
-        return this.dJh;
+        return this.dPX;
     }
 
     public ViewGroup getView() {
-        return this.dJj;
+        return this.dPZ;
     }
 
     public View getRootView() {
-        return this.dJi;
+        return this.dPY;
     }
 
     public void setTitleText(String str) {
@@ -69,24 +69,24 @@ public class k {
     }
 
     public void a(c cVar) {
-        this.dJm = cVar;
+        this.dQc = cVar;
     }
 
-    public c aTg() {
-        return this.dJm;
+    public c aVa() {
+        return this.dQc;
     }
 
-    public void aD(List<? extends j> list) {
+    public void aL(List<? extends j> list) {
         if (list != null) {
             this.mItems = list;
-            this.dJj.removeAllViews();
+            this.dPZ.removeAllViews();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < list.size()) {
                     j jVar = list.get(i2);
                     if (jVar != null) {
-                        this.dJj.addView(jVar.getView());
+                        this.dPZ.addView(jVar.getView());
                     }
                     i = i2 + 1;
                 } else {
@@ -97,15 +97,15 @@ public class k {
     }
 
     public void a(a aVar) {
-        this.dJn = aVar;
+        this.dQd = aVar;
     }
 
     public void onChangeSkinType() {
-        am.setBackgroundResource(this.dyo, R.color.cp_bg_line_k);
-        am.setViewTextColor(this.dyo, (int) R.color.cp_cont_c);
-        am.setBackgroundColor(this.dJk, R.color.cp_bg_line_c);
-        am.setBackgroundResource(this.dJl, R.color.cp_bg_line_k);
-        am.setViewTextColor(this.dJl, (int) R.color.cp_cont_j);
+        an.setBackgroundResource(this.dDu, R.color.cp_bg_line_k);
+        an.setViewTextColor(this.dDu, (int) R.color.cp_cont_c);
+        an.setBackgroundColor(this.dQa, R.color.cp_bg_line_c);
+        an.setBackgroundResource(this.dQb, R.color.cp_bg_line_k);
+        an.setViewTextColor(this.dQb, (int) R.color.cp_cont_j);
         if (this.mItems != null) {
             for (j jVar : this.mItems) {
                 jVar.onChangeSkinType();
@@ -113,21 +113,21 @@ public class k {
         }
     }
 
-    public View aTh() {
+    public View aVb() {
         if (!StringUtils.isNull(this.titleText)) {
-            this.dyo.setText(this.titleText);
+            this.dDu.setText(this.titleText);
         } else {
-            this.dyo.setVisibility(8);
+            this.dDu.setVisibility(8);
         }
-        if (this.dJn != null) {
-            this.dJl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.k.1
+        if (this.dQd != null) {
+            this.dQb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.k.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    k.this.dJn.onClick();
+                    k.this.dQd.onClick();
                 }
             });
         }
         onChangeSkinType();
-        return this.dJi;
+        return this.dPY;
     }
 }

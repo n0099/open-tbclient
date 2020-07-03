@@ -24,7 +24,7 @@ public abstract class Lifecycle {
 
     @NonNull
     @MainThread
-    public abstract State fQ();
+    public abstract State gh();
 
     /* loaded from: classes7.dex */
     public enum State {

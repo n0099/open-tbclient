@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ListUtils;
@@ -19,7 +20,6 @@ import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.tbadk.pay.PayConfig;
 import com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.live.u.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -27,11 +27,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    private BaseActivity bjI;
-    private TBLottieAnimationView fDn;
-    private PayConfig fDo;
+    private BaseActivity boL;
+    private TBLottieAnimationView fOw;
+    private PayConfig fOx;
     private boolean isPaying;
-    private InterfaceC0550b mCallback;
+    private InterfaceC0558b mCallback;
     private View mChannelLayout;
     private LinearLayout mChannelList;
     private ImageView mCloseBtn;
@@ -61,27 +61,27 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.ala.live.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0550b {
+    public interface InterfaceC0558b {
         void doFinish();
 
         void doPay(String str);
     }
 
-    public b(BaseActivity baseActivity, InterfaceC0550b interfaceC0550b, PayConfig payConfig) {
-        this.bjI = baseActivity;
+    public b(BaseActivity baseActivity, InterfaceC0558b interfaceC0558b, PayConfig payConfig) {
+        this.boL = baseActivity;
         this.mContext = baseActivity.getPageContext().getPageActivity();
-        this.mCallback = interfaceC0550b;
-        this.fDo = payConfig;
+        this.mCallback = interfaceC0558b;
+        this.fOx = payConfig;
         initView();
     }
 
     private void initView() {
-        if (this.bjI instanceof AlaSdkWalletOpaqueActivity) {
+        if (this.boL instanceof AlaSdkWalletOpaqueActivity) {
             this.mRootView = (RelativeLayout) LayoutInflater.from(this.mContext).inflate(a.h.sdk_wallet_pay_opaque_layout, (ViewGroup) null);
         } else {
             this.mRootView = (RelativeLayout) LayoutInflater.from(this.mContext).inflate(a.h.sdk_wallet_pay_layout, (ViewGroup) null);
         }
-        this.bjI.setContentView(this.mRootView);
+        this.boL.setContentView(this.mRootView);
         this.mTitle = (TextView) this.mRootView.findViewById(a.g.pay_channel_title);
         this.mChannelLayout = this.mRootView.findViewById(a.g.pay_channel_layout);
         this.mTopSpaceView = this.mRootView.findViewById(a.g.pay_channel_top_space_view);
@@ -131,11 +131,11 @@ public class b {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (StringUtils.isNull(b.this.mChosenChannel) || "NaN".equals(b.this.mChosenChannel)) {
-                    b.this.bjI.showToast(a.i.sdk_pay_choose_one_channel_tip);
+                    b.this.boL.showToast(a.i.sdk_pay_choose_one_channel_tip);
                     return;
                 }
-                b.this.fDn.setVisibility(0);
-                b.this.fDn.playAnimation();
+                b.this.fOw.setVisibility(0);
+                b.this.fOw.playAnimation();
                 b.this.updatePayBtnText(b.this.mContext.getString(a.i.sdk_pay_loading));
                 if (b.this.mCallback != null) {
                     b.this.mCallback.doPay(b.this.mChosenChannel);
@@ -143,25 +143,25 @@ public class b {
                 }
             }
         });
-        this.fDn = (TBLottieAnimationView) this.mRootView.findViewById(a.g.pay_channel_pay_anim_view);
-        this.fDn.setAnimation("sdk_wallet_pay_anim.json");
-        this.fDn.loop(true);
+        this.fOw = (TBLottieAnimationView) this.mRootView.findViewById(a.g.pay_channel_pay_anim_view);
+        this.fOw.setAnimation("sdk_wallet_pay_anim.json");
+        this.fOw.loop(true);
         onChangeSkinType();
     }
 
     private void refreshView() {
-        String format = String.format("%.2f", Float.valueOf(JavaTypesHelper.toFloat(this.fDo.getMoney(), 0.0f)));
+        String format = String.format("%.2f", Float.valueOf(JavaTypesHelper.toFloat(this.fOx.getMoney(), 0.0f)));
         this.mMoneyTv.setText("￥" + format);
-        if (this.fDo.getPayType() == 2) {
+        if (this.fOx.getPayType() == 2) {
             this.mGoodDesc.setVisibility(0);
             this.mGoodCount.setVisibility(0);
             this.mGoodDivider.setVisibility(0);
             Drawable drawable = this.mContext.getResources().getDrawable(a.f.sdk_icon_huobi_tdou);
             drawable.setBounds(0, 0, this.ds20, this.ds22);
             this.mGoodCount.setCompoundDrawables(drawable, null, null, null);
-            this.mGoodCount.setText(this.fDo.getTBeanNum() + "");
+            this.mGoodCount.setText(this.fOx.getTBeanNum() + "");
         }
-        this.mGoodName.setText(this.fDo.getTitle());
+        this.mGoodName.setText(this.fOx.getTitle());
         handleChannelListView();
         this.mPayBtnStr = String.format(this.mContext.getResources().getString(a.i.sdk_pay_total_pay_confirm_tip), format);
         updatePayBtnText(this.mPayBtnStr);
@@ -271,12 +271,12 @@ public class b {
     }
 
     public void hideLoadingView() {
-        this.bjI.hideLoadingView(this.mContentLayout);
+        this.boL.hideLoadingView(this.mContentLayout);
     }
 
     public void payResult(boolean z) {
-        this.fDn.cancelAnimation();
-        this.fDn.setVisibility(8);
+        this.fOw.cancelAnimation();
+        this.fOw.setVisibility(8);
         if (z) {
             updatePayBtnText(this.mContext.getString(a.i.sdk_pay_succ));
         } else {
@@ -288,7 +288,7 @@ public class b {
     private void onChangeSkinType() {
         SkinManager.setBackgroundColor(this.mRootView, a.d.sdk_black_alpha0);
         SkinManager.setImageResource(this.mCloseBtn, a.f.sdk_icon_wallet_close);
-        if (this.bjI instanceof AlaSdkWalletOpaqueActivity) {
+        if (this.boL instanceof AlaSdkWalletOpaqueActivity) {
             SkinManager.setBackgroundResource(this.mChannelLayout, a.d.sdk_cp_bg_line_d);
         } else {
             SkinManager.setBackgroundResource(this.mChannelLayout, a.f.sdk_wallet_pay_content_bg);
@@ -308,7 +308,7 @@ public class b {
     /* loaded from: classes3.dex */
     public class a {
         public String curChannel;
-        public HeadImageView fDq;
+        public HeadImageView fOz;
         private boolean mChosen;
         public TextView promptTv;
         public View rootView;
@@ -318,11 +318,11 @@ public class b {
 
         public a(View view) {
             this.rootView = view;
-            this.fDq = (HeadImageView) view.findViewById(a.g.channel_icon);
-            this.fDq.setIsRound(true);
-            this.fDq.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.fDq.setDefaultResource(a.d.sdk_cp_cont_e);
-            this.fDq.setAutoChangeStyle(false);
+            this.fOz = (HeadImageView) view.findViewById(a.g.channel_icon);
+            this.fOz.setIsRound(true);
+            this.fOz.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.fOz.setDefaultResource(a.d.sdk_cp_cont_e);
+            this.fOz.setAutoChangeStyle(false);
             this.titleTv = (TextView) view.findViewById(a.g.channel_title);
             this.promptTv = (TextView) view.findViewById(a.g.channel_prompt);
             this.tagTv = (TextView) view.findViewById(a.g.channel_tag);
@@ -339,7 +339,7 @@ public class b {
 
         public void b(com.baidu.tieba.ala.live.a.a aVar) {
             this.curChannel = aVar.channel;
-            this.fDq.startLoad(aVar.iconUrl, 10, false);
+            this.fOz.startLoad(aVar.iconUrl, 10, false);
             this.titleTv.setText(aVar.title);
             if (!StringUtils.isNull(aVar.prompt)) {
                 this.promptTv.setVisibility(0);

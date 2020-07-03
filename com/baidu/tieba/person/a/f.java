@@ -1,19 +1,19 @@
 package com.baidu.tieba.person.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import java.util.List;
 /* loaded from: classes11.dex */
-public class f implements o {
-    public static final BdUniqueId kkR = BdUniqueId.gen();
-    private List<o> mPhotoAlbum;
+public class f implements q {
+    public static final BdUniqueId kED = BdUniqueId.gen();
+    private List<q> mPhotoAlbum;
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return kkR;
+        return kED;
     }
 
-    public List<o> getPhotoAlbum() {
+    public List<q> getPhotoAlbum() {
         return this.mPhotoAlbum;
     }
 }

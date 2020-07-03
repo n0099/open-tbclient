@@ -8,6 +8,6 @@ public class b {
     public static final void addSuppressed(Throwable th, Throwable th2) {
         q.m(th, "receiver$0");
         q.m(th2, "exception");
-        kotlin.internal.b.ntQ.addSuppressed(th, th2);
+        kotlin.internal.b.nPD.addSuppressed(th, th2);
     }
 }

@@ -3,41 +3,41 @@ package com.baidu.live.videochat.b;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    private long bgn;
-    private int bgo;
-    private long bgp;
-    private long bgq;
-    private long bgr;
-    private long bgt;
+    private long blu;
+    private int blv;
+    private long blw;
+    private long blx;
+    private long bly;
+    private long blz;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.bgn = jSONObject.optLong("chat_id");
-            this.bgo = jSONObject.optInt("chat_status");
-            this.bgp = jSONObject.optLong("user_id1");
-            this.bgq = jSONObject.optLong("live_id1");
-            this.bgr = jSONObject.optLong("user_id2");
-            this.bgt = jSONObject.optLong("live_id2");
+            this.blu = jSONObject.optLong("chat_id");
+            this.blv = jSONObject.optInt("chat_status");
+            this.blw = jSONObject.optLong("user_id1");
+            this.blx = jSONObject.optLong("live_id1");
+            this.bly = jSONObject.optLong("user_id2");
+            this.blz = jSONObject.optLong("live_id2");
         }
     }
 
-    public boolean IG() {
-        return this.bgo == 2;
+    public boolean JT() {
+        return this.blv == 2;
     }
 
-    public boolean IH() {
-        return this.bgo == 3 || this.bgo == 4;
+    public boolean JU() {
+        return this.blv == 3 || this.blv == 4;
     }
 
-    public long II() {
-        return this.bgn;
+    public long JV() {
+        return this.blu;
     }
 
-    public int IJ() {
-        return this.bgo;
+    public int JW() {
+        return this.blv;
     }
 
-    public long IK() {
-        return this.bgp;
+    public long JX() {
+        return this.blw;
     }
 }

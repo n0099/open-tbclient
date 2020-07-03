@@ -4,74 +4,74 @@ import android.animation.ObjectAnimator;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.live.u.a;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 /* loaded from: classes3.dex */
 public class f extends i {
-    private TbImageView eZh;
-    public ImageView eZi;
-    private ObjectAnimator eZj;
-    public ImageView eZk;
+    private TbImageView fke;
+    public ImageView fkf;
+    private ObjectAnimator fkg;
+    public ImageView fkh;
 
     public f(View view) {
         this.mRootView = view;
-        this.eZh = (TbImageView) this.mRootView.findViewById(a.g.sticker_img);
-        this.eZh.setDefaultBgResource(a.f.icon_live_gift_default);
-        this.eZh.setDefaultErrorResource(a.f.icon_live_gift_default);
-        this.eZh.setAutoChangeStyle(false);
-        this.eZi = (ImageView) this.mRootView.findViewById(a.g.sticker_unload);
-        this.eZn = (MaskStrokeView) this.mRootView.findViewById(a.g.sticker_bg);
-        this.eZk = (ImageView) this.mRootView.findViewById(a.g.sticker_cancel);
+        this.fke = (TbImageView) this.mRootView.findViewById(a.g.sticker_img);
+        this.fke.setDefaultBgResource(a.f.icon_live_gift_default);
+        this.fke.setDefaultErrorResource(a.f.icon_live_gift_default);
+        this.fke.setAutoChangeStyle(false);
+        this.fkf = (ImageView) this.mRootView.findViewById(a.g.sticker_unload);
+        this.fkk = (MaskStrokeView) this.mRootView.findViewById(a.g.sticker_bg);
+        this.fkh = (ImageView) this.mRootView.findViewById(a.g.sticker_cancel);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.view.i
-    public void c(FuFaceItem fuFaceItem) {
+    public void d(FuFaceItem fuFaceItem) {
         if (fuFaceItem.isCancelItem) {
-            this.eZk.setVisibility(0);
-            this.eZh.setVisibility(8);
-            this.eZi.setVisibility(8);
-            this.eZn.setVisibility(8);
+            this.fkh.setVisibility(0);
+            this.fke.setVisibility(8);
+            this.fkf.setVisibility(8);
+            this.fkk.setVisibility(8);
             return;
         }
-        this.eZk.setVisibility(8);
-        this.eZh.setVisibility(0);
+        this.fkh.setVisibility(8);
+        this.fke.setVisibility(0);
         if (fuFaceItem.isResLoaded()) {
-            this.eZi.setVisibility(4);
-            bqc();
-        } else if (!TextUtils.isEmpty(fuFaceItem.file) && com.baidu.tieba.ala.alaar.sticker.download.b.bpE().isRunning(fuFaceItem.file)) {
-            this.eZi.setVisibility(0);
+            this.fkf.setVisibility(4);
+            bsT();
+        } else if (!TextUtils.isEmpty(fuFaceItem.file) && com.baidu.tieba.ala.alaar.sticker.download.b.bsn().isRunning(fuFaceItem.file)) {
+            this.fkf.setVisibility(0);
             startLoadingAnim();
         } else {
-            this.eZi.setVisibility(0);
-            this.eZi.setRotation(0.0f);
-            this.eZi.setImageResource(a.f.sticker_unload);
-            bqc();
+            this.fkf.setVisibility(0);
+            this.fkf.setRotation(0.0f);
+            this.fkf.setImageResource(a.f.sticker_unload);
+            bsT();
         }
-        d(fuFaceItem);
+        e(fuFaceItem);
     }
 
-    public void d(FuFaceItem fuFaceItem) {
+    public void e(FuFaceItem fuFaceItem) {
         if (fuFaceItem != null) {
-            this.eZh.startLoad(fuFaceItem.bgurl, 10, false);
+            this.fke.startLoad(fuFaceItem.bgurl, 10, false);
         }
     }
 
     public void startLoadingAnim() {
-        if (this.eZj == null) {
-            this.eZj = ObjectAnimator.ofFloat(this.eZi, "rotation", 0.0f, 359.0f);
-            this.eZj.setRepeatCount(-1);
-            this.eZj.setDuration(1000L);
+        if (this.fkg == null) {
+            this.fkg = ObjectAnimator.ofFloat(this.fkf, "rotation", 0.0f, 359.0f);
+            this.fkg.setRepeatCount(-1);
+            this.fkg.setDuration(1000L);
         }
-        if (!this.eZj.isRunning()) {
-            this.eZi.setImageResource(a.f.sticker_loading);
-            this.eZj.start();
+        if (!this.fkg.isRunning()) {
+            this.fkf.setImageResource(a.f.sticker_loading);
+            this.fkg.start();
         }
     }
 
-    public void bqc() {
-        if (this.eZj != null && this.eZj.isRunning()) {
-            this.eZj.cancel();
+    public void bsT() {
+        if (this.fkg != null && this.fkg.isRunning()) {
+            this.fkg.cancel();
         }
     }
 }

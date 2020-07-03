@@ -7,11 +7,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.live.data.g;
-import com.baidu.live.u.a;
+import com.baidu.live.sdk.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private List<g> aHr;
+    private List<g> aJP;
     private Context mContext;
     private int mType;
 
@@ -20,26 +20,26 @@ public class b extends BaseAdapter {
         this.mType = i;
     }
 
-    public void x(List<g> list) {
-        this.aHr = list;
+    public void B(List<g> list) {
+        this.aJP = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aHr == null) {
+        if (this.aJP == null) {
             return 1;
         }
-        return this.aHr.size() + 1;
+        return this.aJP.size() + 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: bV */
+    /* renamed from: cb */
     public g getItem(int i) {
-        if (this.aHr == null || i < 0 || i >= getCount() - 1) {
+        if (this.aJP == null || i < 0 || i >= getCount() - 1) {
             return null;
         }
-        return this.aHr.get(i);
+        return this.aJP.get(i);
     }
 
     @Override // android.widget.Adapter

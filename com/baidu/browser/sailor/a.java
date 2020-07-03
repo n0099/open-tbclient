@@ -9,11 +9,11 @@ import com.baidu.webkit.sdk.WebViewFactory;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public final class a implements Runnable {
-    final /* synthetic */ BdSailor acB;
+    final /* synthetic */ BdSailor adg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BdSailor bdSailor) {
-        this.acB = bdSailor;
+        this.adg = bdSailor;
     }
 
     @Override // java.lang.Runnable
@@ -28,14 +28,14 @@ public final class a implements Runnable {
             strArr[2] = WebKitFactory.getCUIDString();
             strArr[3] = BdZeusUtil.checkEmulator();
             strArr[4] = WebKitFactory.getCrashCallback();
-            strArr[5] = BdZeusUtil.getTnNumbersFromApk(this.acB.getAppContext());
+            strArr[5] = BdZeusUtil.getTnNumbersFromApk(this.adg.getAppContext());
             strArr[6] = WebKitFactory.getProcessTypeString();
             strArr[7] = z ? "true" : "false";
-            strArr[8] = this.acB.getAppContext().getExternalFilesDir("").getAbsolutePath();
+            strArr[8] = this.adg.getAppContext().getExternalFilesDir("").getAbsolutePath();
             strArr[9] = WebKitFactory.getSdkVersionCode();
             strArr[10] = "0";
-            strArr[11] = this.acB.getAppContext() != null ? this.acB.getAppContext().getApplicationInfo().nativeLibraryDir : "0";
-            ZwCrashpad.doInit(this.acB.getAppContext(), strArr);
+            strArr[11] = this.adg.getAppContext() != null ? this.adg.getAppContext().getApplicationInfo().nativeLibraryDir : "0";
+            ZwCrashpad.doInit(this.adg.getAppContext(), strArr);
         } catch (Throwable th) {
             Log.e("CRASHPAD", "bdsailor.initWebkit->zwcrashpad doInit fail");
             th.printStackTrace();

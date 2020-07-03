@@ -3,16 +3,16 @@ package com.baidu.swan.apps.ao;
 import android.text.TextUtils;
 /* loaded from: classes11.dex */
 public final class a {
-    private static String cJl;
+    private static String cNV;
 
-    public static String pu(String str) {
-        return String.format("%s %s", str, asS());
+    public static String pC(String str) {
+        return String.format("%s %s", str, atY());
     }
 
-    public static String asS() {
-        if (TextUtils.isEmpty(cJl)) {
-            cJl = b.asS();
+    public static String atY() {
+        if (TextUtils.isEmpty(cNV)) {
+            cNV = b.atY();
         }
-        return cJl;
+        return cNV;
     }
 }

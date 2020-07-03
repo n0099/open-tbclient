@@ -10,7 +10,7 @@ import android.graphics.RectF;
 import android.util.TypedValue;
 /* loaded from: classes3.dex */
 class g {
-    public static Bitmap l(Context context) {
+    public static Bitmap n(Context context) {
         Paint paint = new Paint();
         paint.setColor(Color.parseColor("#ffffff"));
         paint.setTextSize(TypedValue.applyDimension(1, 14.0f, context.getResources().getDisplayMetrics()));

@@ -26,9 +26,9 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
-    private static a bzQ;
+    private static a bEE;
 
-    public static File aI(String str, String str2) {
+    public static File aK(String str, String str2) {
         StringBuffer stringBuffer = new StringBuffer();
         if (str2 == null) {
             return null;
@@ -40,55 +40,55 @@ public class d {
             return null;
         }
         stringBuffer.append(str.substring(lastIndexOf));
-        return new File(Od(), stringBuffer.toString());
+        return new File(Pj(), stringBuffer.toString());
     }
 
-    public static File Od() {
+    public static File Pj() {
         File file = new File(com.baidu.prologue.a.b.b.getAppContext().getFilesDir(), "splash");
         file.mkdirs();
         return file;
     }
 
-    public static File Oe() {
-        return new File(Od(), "splash.dat");
+    public static File Pk() {
+        return new File(Pj(), "splash.dat");
     }
 
-    public static File gB(String str) {
+    public static File gJ(String str) {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(str);
         stringBuffer.append(".tmp");
-        return new File(Od(), stringBuffer.toString());
+        return new File(Pj(), stringBuffer.toString());
     }
 
     public static void c(final e eVar) {
         final String str = eVar.url;
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str.startsWith("https")) {
-                final File aI = aI(eVar.url, eVar.md5);
-                if (!aI.exists()) {
-                    final File gB = gB(eVar.md5);
-                    if (gB.exists()) {
-                        gB.delete();
+                final File aK = aK(eVar.url, eVar.md5);
+                if (!aK.exists()) {
+                    final File gJ = gJ(eVar.md5);
+                    if (gJ.exists()) {
+                        gJ.delete();
                     }
                     com.baidu.prologue.service.network.a.execute(new Runnable() { // from class: com.baidu.prologue.business.data.d.1
                         @Override // java.lang.Runnable
                         public void run() {
                             try {
-                                com.baidu.prologue.a.c.e.a(gB, str, new e.a() { // from class: com.baidu.prologue.business.data.d.1.1
+                                com.baidu.prologue.a.c.e.a(gJ, str, new e.a() { // from class: com.baidu.prologue.business.data.d.1.1
                                     @Override // com.baidu.prologue.a.c.e.a
-                                    public void NR() {
-                                        if (!g.o(gB).equals(eVar.md5)) {
+                                    public void OX() {
+                                        if (!g.o(gJ).equals(eVar.md5)) {
                                             if (d.DEBUG) {
                                                 Log.d("SourceManager", "md5 check fail  url:" + eVar.url);
                                                 return;
                                             }
                                             return;
                                         }
-                                        d.c(gB, aI);
+                                        d.c(gJ, aK);
                                     }
                                 });
                             } catch (Exception e) {
-                                if (com.baidu.prologue.a.b.a.bzx.get().ND()) {
+                                if (com.baidu.prologue.a.b.a.bEl.get().OJ()) {
                                     Log.e("SourceManager", e.toString());
                                 }
                             }
@@ -105,23 +105,23 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void R(List<e> list) {
-        a(list, Oe());
+    public static void V(List<e> list) {
+        a(list, Pk());
     }
 
     public static void d(e eVar) {
         ArrayList arrayList = new ArrayList();
-        File Oe = Oe();
-        List<e> Og = Og();
-        if (Og != null && Og.size() != 0) {
+        File Pk = Pk();
+        List<e> Pm = Pm();
+        if (Pm != null && Pm.size() != 0) {
             if (DEBUG) {
-                Log.d("SourceManager", "updateSplashDataItem--->getSplashDataItemList:" + Og.size());
+                Log.d("SourceManager", "updateSplashDataItem--->getSplashDataItemList:" + Pm.size());
             }
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < Og.size()) {
-                    e eVar2 = Og.get(i2);
+                if (i2 < Pm.size()) {
+                    e eVar2 = Pm.get(i2);
                     if (TextUtils.equals(eVar.id, eVar2.id)) {
                         e.a(eVar2, eVar);
                         arrayList.add(eVar2);
@@ -130,7 +130,7 @@ public class d {
                     }
                     i = i2 + 1;
                 } else {
-                    a(arrayList, Oe);
+                    a(arrayList, Pk);
                     return;
                 }
             }
@@ -138,9 +138,9 @@ public class d {
     }
 
     public static void e(final e eVar) {
-        if (eVar.bAf >= 1) {
-            if (eVar.bAg < Integer.MAX_VALUE) {
-                eVar.bAg++;
+        if (eVar.bET >= 1) {
+            if (eVar.bEU < Integer.MAX_VALUE) {
+                eVar.bEU++;
             }
             com.baidu.prologue.service.network.a.execute(new Runnable() { // from class: com.baidu.prologue.business.data.d.2
                 @Override // java.lang.Runnable
@@ -152,8 +152,8 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void Of() {
-        com.baidu.prologue.a.c.e.n(Od());
+    public static void Pl() {
+        com.baidu.prologue.a.c.e.n(Pj());
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [313=4] */
@@ -173,9 +173,9 @@ public class d {
                 stringBuffer.append("[");
                 int length = eVarArr.length;
                 for (int i = 0; i < length - 1; i++) {
-                    stringBuffer.append(eVarArr[i].Ok()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    stringBuffer.append(eVarArr[i].Pq()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
-                stringBuffer.append(eVarArr[length - 1].Ok());
+                stringBuffer.append(eVarArr[length - 1].Pq());
                 stringBuffer.append("]");
                 if (DEBUG) {
                     Log.d("SourceManager", "persistListToFile:" + stringBuffer.toString());
@@ -235,11 +235,11 @@ public class d {
         }
     }
 
-    public static List<e> Og() {
+    public static List<e> Pm() {
         String p;
         ArrayList arrayList = new ArrayList();
-        File Oe = Oe();
-        if (Oe.exists() && (p = p(Oe)) != null) {
+        File Pk = Pk();
+        if (Pk.exists() && (p = p(Pk)) != null) {
             if (DEBUG) {
                 Log.d("SourceManager", "from local content:" + p);
             }
@@ -254,7 +254,7 @@ public class d {
                     if (i2 >= jSONArray.length()) {
                         break;
                     }
-                    arrayList.add(e.V((JSONObject) jSONArray.get(i2)));
+                    arrayList.add(e.ac((JSONObject) jSONArray.get(i2)));
                     i = i2 + 1;
                 }
             } catch (JSONException e) {
@@ -268,22 +268,22 @@ public class d {
         return null;
     }
 
-    public static HashMap<String, e> Oh() {
+    public static HashMap<String, e> Pn() {
         HashMap<String, e> hashMap = new HashMap<>();
-        File Oe = Oe();
-        if (!Oe.exists()) {
+        File Pk = Pk();
+        if (!Pk.exists()) {
             return null;
         }
         try {
-            JSONArray jSONArray = new JSONArray(p(Oe));
+            JSONArray jSONArray = new JSONArray(p(Pk));
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 >= jSONArray.length()) {
                     break;
                 }
-                e V = e.V((JSONObject) jSONArray.get(i2));
-                hashMap.put(V.id, V);
+                e ac = e.ac((JSONObject) jSONArray.get(i2));
+                hashMap.put(ac.id, ac);
                 i = i2 + 1;
             }
         } catch (JSONException e) {
@@ -362,7 +362,7 @@ public class d {
         return sb.toString();
     }
 
-    public static void S(final List<e> list) {
+    public static void W(final List<e> list) {
         com.baidu.prologue.service.network.a.execute(new Runnable() { // from class: com.baidu.prologue.business.data.d.3
             @Override // java.lang.Runnable
             public void run() {
@@ -381,19 +381,19 @@ public class d {
                             if (d.DEBUG) {
                                 Log.d("SourceManager", "SourceManager scheduleDownloadSplashSource() dataItem == null");
                             }
-                        } else if (h.dS(eVar.preloadType)) {
+                        } else if (h.ed(eVar.preloadType)) {
                             d.c(eVar);
                         } else {
                             arrayList.add(eVar);
                         }
                     }
                     if (arrayList.size() > 0) {
-                        if (d.bzQ == null) {
-                            a unused = d.bzQ = new a(arrayList);
-                            com.baidu.prologue.a.b.a.bzx.get().Nt().registerReceiver(d.bzQ, d.bzQ.getIntentFilter());
+                        if (d.bEE == null) {
+                            a unused = d.bEE = new a(arrayList);
+                            com.baidu.prologue.a.b.a.bEl.get().Oz().registerReceiver(d.bEE, d.bEE.getIntentFilter());
                             return;
                         }
-                        d.bzQ.setNeedDownloadList(arrayList);
+                        d.bEE.setNeedDownloadList(arrayList);
                     }
                 }
             }
@@ -402,14 +402,14 @@ public class d {
 
     public static int f(e eVar) {
         int i = 0;
-        if (!eVar.bAh) {
+        if (!eVar.bEV) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             long lastShowTime = f.getLastShowTime();
             i = (currentTimeMillis < eVar.start || currentTimeMillis > eVar.end) ? 2 : 2;
-            if (eVar.bAg >= eVar.bAf && eVar.bAf >= 1) {
+            if (eVar.bEU >= eVar.bET && eVar.bET >= 1) {
                 i |= 8;
             }
-            if (currentTimeMillis - lastShowTime < eVar.bAe * 60000) {
+            if (currentTimeMillis - lastShowTime < eVar.bES * 60000) {
                 i |= 16;
             }
             if (eVar.advisible == 0) {
@@ -418,8 +418,8 @@ public class d {
                     throw new IllegalStateException("空订单有ukey了 ～～～～～");
                 }
             }
-            File aI = aI(eVar.url, eVar.md5);
-            if (aI == null || !aI.exists()) {
+            File aK = aK(eVar.url, eVar.md5);
+            if (aK == null || !aK.exists()) {
                 i |= 4;
             }
             if (DEBUG) {
@@ -443,7 +443,7 @@ public class d {
             if (TextUtils.equals(intent.getAction(), "android.net.conn.CONNECTIVITY_CHANGE")) {
                 ArrayList arrayList = new ArrayList();
                 for (e eVar : this.mNeedDownloadList) {
-                    if (h.dS(eVar.preloadType)) {
+                    if (h.ed(eVar.preloadType)) {
                         Log.d("SourceManager", "onReceive: " + eVar);
                         d.c(eVar);
                     } else {

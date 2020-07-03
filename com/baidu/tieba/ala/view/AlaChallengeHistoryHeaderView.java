@@ -7,12 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.u.a;
+import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.data.k;
 /* loaded from: classes3.dex */
 public class AlaChallengeHistoryHeaderView extends LinearLayout {
-    private TextView guJ;
-    private TextView guK;
+    private TextView gHx;
+    private TextView gHy;
 
     public AlaChallengeHistoryHeaderView(Context context) {
         super(context);
@@ -31,14 +31,14 @@ public class AlaChallengeHistoryHeaderView extends LinearLayout {
 
     private void init() {
         View inflate = LayoutInflater.from(getContext()).inflate(a.h.ala_challenge_list_header_layout, this);
-        this.guJ = (TextView) inflate.findViewById(a.g.challenge_success_rate);
-        this.guK = (TextView) inflate.findViewById(a.g.challenge_success_num);
+        this.gHx = (TextView) inflate.findViewById(a.g.challenge_success_rate);
+        this.gHy = (TextView) inflate.findViewById(a.g.challenge_success_num);
     }
 
     public void setData(k kVar) {
         if (kVar != null) {
-            this.guJ.setText(String.format("%s%s", kVar.fsR, "%"));
-            this.guK.setText(kVar.fsQ);
+            this.gHx.setText(String.format("%s%s", kVar.fEc, "%"));
+            this.gHy.setText(kVar.fEb);
         }
     }
 }

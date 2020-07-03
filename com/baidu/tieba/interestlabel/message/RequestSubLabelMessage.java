@@ -2,7 +2,7 @@ package com.baidu.tieba.interestlabel.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.util.t;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import tbclient.SubTagList.SubTagListReqIdl;
 public class RequestSubLabelMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f1021common;
+    private CommonReq f1030common;
     private List<Integer> labelList;
 
     public RequestSubLabelMessage() {
@@ -21,11 +21,11 @@ public class RequestSubLabelMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f1021common = commonReq;
+        this.f1030common = commonReq;
     }
 
     public void setLabelList(List<Integer> list) {
-        if (v.isEmpty(list)) {
+        if (w.isEmpty(list)) {
             list = new ArrayList<>();
         }
         this.labelList = list;
@@ -34,7 +34,7 @@ public class RequestSubLabelMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1254common = this.f1021common;
+        builder.f1273common = this.f1030common;
         builder.arr_tag_id = this.labelList;
         if (z) {
             t.a(builder, true);

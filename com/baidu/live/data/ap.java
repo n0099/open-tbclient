@@ -1,22 +1,22 @@
 package com.baidu.live.data;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ap {
-    public int aAi;
-    public int aAj;
-    public int aAk;
-    public String aAl;
+    public List<Long> aBY;
 
-    public static ap x(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return null;
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.aBY = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("id");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.aBY.add(Long.valueOf(optJSONArray.optLong(i)));
+                }
+            }
         }
-        ap apVar = new ap();
-        apVar.aAi = jSONObject.optInt("supernatant_time") * 1000;
-        apVar.aAj = jSONObject.optInt("suoernatant_shownum");
-        apVar.aAk = jSONObject.optInt("pop_window_time") * 1000;
-        apVar.aAl = jSONObject.optString("guide_follow_text");
-        return apVar;
     }
 }

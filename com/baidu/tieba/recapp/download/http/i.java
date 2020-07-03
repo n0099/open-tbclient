@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes13.dex */
 public class i {
-    public Map<String, List<String>> KF;
+    public Map<String, List<String>> Lf;
     public int downSize;
     public byte[] retBytes;
-    public volatile boolean KE = false;
+    public volatile boolean Le = false;
     public int responseCode = -1;
     public int mNetErrorCode = -1;
     public String contentEncoding = "";
@@ -22,7 +22,7 @@ public class i {
             this.contentEncoding = httpURLConnection.getContentEncoding();
             this.contentType = httpURLConnection.getContentType();
             this.contentLength = httpURLConnection.getContentLength() + "";
-            this.KF = httpURLConnection.getHeaderFields();
+            this.Lf = httpURLConnection.getHeaderFields();
         }
     }
 }

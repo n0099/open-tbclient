@@ -383,10 +383,8 @@ public class ARPFilter {
         int outputHeight = pixelReadParams.getOutputHeight();
         PixelRotation pixelRotate = pixelReadParams.getPixelRotate();
         PixelType pixelType = pixelReadParams.getPixelType();
-        int inputWidth = getInputWidth(pixelReadParams);
-        int inputHeight = getInputHeight(pixelReadParams);
-        float f = outputWidth / inputWidth;
-        float f2 = outputHeight / inputHeight;
+        float inputWidth = outputWidth / getInputWidth(pixelReadParams);
+        float inputHeight = outputHeight / getInputHeight(pixelReadParams);
         String pixelReadParamHash = getPixelReadParamHash(pixelReadParams);
         synchronized (this.mPipelineLock) {
             if (this.mPixelListenerHash.containsKey(pixelReadParamHash)) {
@@ -395,7 +393,7 @@ public class ARPFilter {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(pixelReadListener);
                 this.mPixelListenerHash.put(pixelReadParamHash, arrayList);
-                nativeCreatePixelReaderByPreFilterID(inputWidth, inputHeight, pixelRotate.getValue(), pixelType.getValue(), f, f2, pixelReadParams.getPreFilterID());
+                nativeCreatePixelReaderByPreFilterID(outputWidth, outputHeight, pixelRotate.getValue(), pixelType.getValue(), inputWidth, inputHeight, pixelReadParams.getPreFilterID());
             }
         }
     }
@@ -448,9 +446,7 @@ public class ARPFilter {
                     this.mPixelListenerHash.remove(pixelReadParamHash);
                     int outputWidth = pixelReadParams.getOutputWidth();
                     int outputHeight = pixelReadParams.getOutputHeight();
-                    int inputWidth = getInputWidth(pixelReadParams);
-                    int inputHeight = getInputHeight(pixelReadParams);
-                    nativeDestroyPixelReaderByPreFilterID(inputWidth, inputHeight, pixelReadParams.getPixelRotate().getValue(), pixelReadParams.getPixelType().getValue(), outputWidth / inputWidth, outputHeight / inputHeight, pixelReadParams.getPreFilterID());
+                    nativeDestroyPixelReaderByPreFilterID(outputWidth, outputHeight, pixelReadParams.getPixelRotate().getValue(), pixelReadParams.getPixelType().getValue(), outputWidth / getInputWidth(pixelReadParams), outputHeight / getInputHeight(pixelReadParams), pixelReadParams.getPreFilterID());
                 }
             }
         }
@@ -695,9 +691,7 @@ public class ARPFilter {
             if (this.mPixelListenerHash.containsKey(pixelReadParamHash)) {
                 int outputWidth = pixelReadParams.getOutputWidth();
                 int outputHeight = pixelReadParams.getOutputHeight();
-                int inputWidth = getInputWidth(pixelReadParams);
-                int inputHeight = getInputHeight(pixelReadParams);
-                nativeSetPixelReaderRotationByPixelInfo(inputWidth, inputHeight, pixelReadParams.getPixelRotate().getValue(), pixelReadParams.getPixelType().getValue(), outputWidth / inputWidth, outputHeight / inputHeight, pixelReadParams.getPreFilterID(), pixelRotation.getValue());
+                nativeSetPixelReaderRotationByPixelInfo(outputWidth, outputHeight, pixelReadParams.getPixelRotate().getValue(), pixelReadParams.getPixelType().getValue(), outputWidth / getInputWidth(pixelReadParams), outputHeight / getInputHeight(pixelReadParams), pixelReadParams.getPreFilterID(), pixelRotation.getValue());
             }
         }
     }

@@ -25,17 +25,17 @@ public class a extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b hi(String str) {
+    public com.baidu.swan.apps.api.c.b hq(String str) {
         Uri fromFile;
         if (DEBUG) {
             Log.d("Api-Base", "handle: " + str);
         }
-        if (TU()) {
+        if (Va()) {
             c.e("Api-Base", "Api-Base does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.c.b(1001, "Api-Base does not supported when app is invisible.");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aP = com.baidu.swan.apps.api.d.b.aP("Api-Base", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aP.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aR = com.baidu.swan.apps.api.d.b.aR("Api-Base", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aR.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 c.e("Api-Base", "parse fail");
@@ -43,10 +43,10 @@ public class a extends d {
             }
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) aP.second;
+        JSONObject jSONObject = (JSONObject) aR.second;
         String optString = jSONObject.optString("filePath");
-        String bT = com.baidu.swan.apps.storage.b.bT(optString, e.aoH());
-        if (TextUtils.isEmpty(optString) || com.baidu.swan.apps.storage.b.oQ(optString) != PathType.BD_FILE || TextUtils.isEmpty(bT)) {
+        String bV = com.baidu.swan.apps.storage.b.bV(optString, e.apO());
+        if (TextUtils.isEmpty(optString) || com.baidu.swan.apps.storage.b.oY(optString) != PathType.BD_FILE || TextUtils.isEmpty(bV)) {
             c.e("Api-Base", "a valid filePath is required");
             return new com.baidu.swan.apps.api.c.b(202, "a valid filePath is required");
         }
@@ -55,27 +55,27 @@ public class a extends d {
             c.e("Api-Base", "cb is required");
             return new com.baidu.swan.apps.api.c.b(202, "cb is required");
         }
-        File file = new File(bT);
+        File file = new File(bV);
         if (!file.exists() || file.isDirectory()) {
             c.e("Api-Base", "file not exists");
             return new com.baidu.swan.apps.api.c.b(1001, "file not exists");
         }
-        SwanAppActivity ahF = f.ahV().ahF();
-        if (ahF == null) {
+        SwanAppActivity aiL = f.ajb().aiL();
+        if (aiL == null) {
             c.e("Api-Base", "activity null");
             return new com.baidu.swan.apps.api.c.b(1001, "activity null");
         }
-        ActivityResultDispatcher resultDispatcher = ahF.getResultDispatcher();
+        ActivityResultDispatcher resultDispatcher = aiL.getResultDispatcher();
         Intent intent = new Intent();
         if (com.baidu.swan.apps.aq.b.hasNougat()) {
-            fromFile = FileProvider.getUriForFile(ahF, ahF.getPackageName() + ".swan.fileprovider", file);
+            fromFile = FileProvider.getUriForFile(aiL, aiL.getPackageName() + ".swan.fileprovider", file);
             intent.setFlags(3);
         } else {
             fromFile = Uri.fromFile(file);
         }
         intent.setAction("android.intent.action.SEND");
         intent.putExtra("android.intent.extra.STREAM", fromFile);
-        intent.setType(hj(bT));
+        intent.setType(hr(bV));
         resultDispatcher.addConsumer(new ActivityResultConsumer() { // from class: com.baidu.swan.apps.api.module.c.a.1
             @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
             public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent2) {
@@ -90,7 +90,7 @@ public class a extends d {
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    private String hj(String str) {
+    private String hr(String str) {
         int lastIndexOf = str.lastIndexOf("/");
         if (lastIndexOf > 0) {
             String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str.substring(lastIndexOf + 1));

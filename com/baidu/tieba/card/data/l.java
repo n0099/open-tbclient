@@ -2,182 +2,204 @@ package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.util.ao;
 /* loaded from: classes8.dex */
 public class l extends c implements com.baidu.tbadk.core.util.f.a {
-    public static final BdUniqueId dEV = BdUniqueId.gen();
-    public static String gHA = "";
-    public static String gHB = "";
-    public static String gHU = "";
-    public static String gHz = "";
-    public static String gHV = "";
-    public static String gHW = "";
-    public static String gHX = "";
-    public boolean gHT = false;
-    public boolean gHY = true;
-    public boolean dEo = false;
-    public boolean gHZ = false;
-    public boolean dEu = false;
-    public boolean dEv = false;
-    public boolean gHS = false;
-    public boolean gHQ = false;
+    public static final BdUniqueId dLH = BdUniqueId.gen();
+    public static String gUA = "";
+    public static String gUB = "";
+    public static String gUU = "";
+    public static String gUz = "";
+    public static String gUV = "";
+    public static String gUW = "";
+    public static String gUX = "";
+    public boolean gUT = false;
+    public boolean gUY = true;
+    public boolean dKS = false;
+    public boolean gUZ = false;
+    public boolean dKY = false;
+    public boolean dKZ = false;
+    public boolean gUS = false;
+    public boolean gUQ = false;
+    public boolean dLe = false;
+    public boolean dLg = false;
+    public boolean dLh = false;
     public int sourceType = 0;
 
-    public l(bk bkVar) {
-        this.dEA = bkVar;
+    public l(bu buVar) {
+        this.dLi = buVar;
     }
 
-    public static boolean ac(bk bkVar) {
-        return (bkVar == null || bkVar.aQQ() == null) ? false : true;
+    public static boolean ad(bu buVar) {
+        return (buVar == null || buVar.aSH() == null) ? false : true;
     }
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        if (this.dEA == null) {
+        if (this.dLi == null) {
             return k.TYPE;
         }
-        if (this.dEo) {
-            return k.gHF;
+        if (this.dKS) {
+            return k.gUF;
         }
-        if (this.gHZ) {
-            return dEV;
+        if (this.gUZ) {
+            return dLH;
         }
-        if (this.dEu) {
-            return k.gHL;
+        if (this.dKY) {
+            return k.gUL;
         }
-        if (this.dEv) {
-            return k.gHN;
+        if (this.dKZ) {
+            return k.gUN;
         }
-        if (this.gHS) {
-            return k.gHM;
+        if (this.gUS) {
+            return k.gUM;
         }
-        if (this.gHQ) {
-            return k.gHG;
+        if (this.gUQ) {
+            return k.gUG;
         }
-        return dEV;
+        if (this.dLe) {
+            return k.dLB;
+        }
+        if (this.dLg) {
+            return k.dLD;
+        }
+        if (this.dLh) {
+            return k.dLE;
+        }
+        return dLH;
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bk aOi() {
-        if (this.dEA == null) {
+    public bu aPS() {
+        if (this.dLi == null) {
             return null;
         }
-        if (this.dEA.aQl() != 5) {
-            this.dEA.kr(1);
+        if (this.dLi.aSd() != 5) {
+            this.dLi.kF(1);
         }
-        return this.dEA;
+        return this.dLi;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public String aOj() {
-        if (this.dEA == null) {
+    public String aPT() {
+        if (this.dLi == null) {
             return null;
         }
-        return this.dEA.dGS;
+        return this.dLi.dND;
     }
 
-    public an Dt(String str) {
-        an anVar = new an(str);
-        if (this.dEA != null) {
-            anVar.s("fid", this.dEA.getFid());
-            anVar.dh("tid", this.dEA.getTid());
-            if (this.dEA.aPn()) {
-                anVar.ag("obj_type", 8);
-            } else if (this.dEA.aSw()) {
-                anVar.ag("obj_type", 9);
-            } else if (this.dEA.aPk()) {
-                anVar.ag("obj_type", 2);
+    public ao DU(String str) {
+        ao aoVar = new ao(str);
+        if (this.dLi != null) {
+            aoVar.s("fid", this.dLi.getFid());
+            aoVar.dk("tid", this.dLi.getTid());
+            if (this.dLi.aQY()) {
+                aoVar.ag("obj_type", 8);
+            } else if (this.dLi.aUm()) {
+                aoVar.ag("obj_type", 9);
+            } else if (this.dLi.aQV()) {
+                aoVar.ag("obj_type", 2);
             }
-            anVar.ag("obj_param1", bLG() ? 2 : 1);
-            if (this.dEA.aQx() != null) {
-                anVar.dh("obj_id", this.dEA.aQx().getUserId());
+            aoVar.ag("obj_param1", bOQ() ? 2 : 1);
+            if (this.dLi.aSp() != null) {
+                aoVar.dk("obj_id", this.dLi.aSp().getUserId());
             }
         }
-        return anVar;
+        return aoVar;
     }
 
-    public an bLN() {
-        an ay = ay(gHU, true);
-        if (ay != null && aOi() != null) {
-            bk aOi = aOi();
-            ay.ag("obj_name", aOi.aSb() != null && (aOi.aSb().ddL() != null || aOi.aSb().biA() != null) ? 1 : 0);
-            if (aOi.aQx() != null) {
-                ay.ag(TiebaInitialize.Params.AB_TYPE, aOi.aQx().hadConcerned() ? 1 : 0);
+    public ao bOX() {
+        ao aA = aA(gUU, true);
+        if (aA != null && aPS() != null) {
+            bu aPS = aPS();
+            aA.ag("obj_name", aPS.aTS() != null && (aPS.aTS().dia() != null || aPS.aTS().bkW() != null) ? 1 : 0);
+            if (aPS.aSp() != null) {
+                aA.ag(TiebaInitialize.Params.AB_TYPE, aPS.aSp().hadConcerned() ? 1 : 0);
             }
-            if (aOi.getBaijiahaoData() != null) {
-                ay.dh("obj_param4", aOi.getBaijiahaoData().oriUgcNid);
-                ay.dh("obj_param6", aOi.getBaijiahaoData().oriUgcVid);
+            if (aPS.getBaijiahaoData() != null) {
+                aA.dk("obj_param4", aPS.getBaijiahaoData().oriUgcNid);
+                aA.dk("obj_param6", aPS.getBaijiahaoData().oriUgcVid);
             }
-            ay.ag("obj_param5", ag(aOi));
+            aA.ag("obj_param5", ah(aPS));
+            if (aPS.aUt()) {
+                aA.ag(TiebaInitialize.Params.OBJ_TO, 2);
+            } else {
+                aA.ag(TiebaInitialize.Params.OBJ_TO, 1);
+            }
         }
-        return ay;
+        return aA;
     }
 
-    public an b(bk bkVar, int i) {
-        an ay = ay(gHz, true);
-        if (ay != null) {
+    public ao b(bu buVar, int i) {
+        ao aA = aA(gUz, true);
+        if (aA != null) {
             if (i != -1) {
-                ay.ag("click_locate", i);
+                aA.ag("click_locate", i);
             }
-            if (aOi() != null) {
-                bk aOi = aOi();
-                if (aOi.getBaijiahaoData() != null) {
-                    ay.dh("obj_param4", aOi.getBaijiahaoData().oriUgcNid);
-                    ay.dh("obj_param6", aOi.getBaijiahaoData().oriUgcVid);
+            if (aPS() != null) {
+                bu aPS = aPS();
+                if (aPS.getBaijiahaoData() != null) {
+                    aA.dk("obj_param4", aPS.getBaijiahaoData().oriUgcNid);
+                    aA.dk("obj_param6", aPS.getBaijiahaoData().oriUgcVid);
                 }
-                ay.ag("obj_param5", ag(aOi));
+                aA.ag("obj_param5", ah(aPS));
             }
         }
-        return ay;
+        return aA;
     }
 
-    public an ah(bk bkVar) {
-        return b(bkVar, -1);
+    public ao ai(bu buVar) {
+        return b(buVar, -1);
     }
 
-    public an bLU() {
-        an ay = ay(gHX, true);
-        if (ay != null && aOi() != null) {
-            bk aOi = aOi();
-            if (aOi.getBaijiahaoData() != null) {
-                ay.dh("obj_param4", aOi.getBaijiahaoData().oriUgcNid);
-                ay.dh("obj_param6", aOi.getBaijiahaoData().oriUgcVid);
+    public ao bPe() {
+        ao aA = aA(gUX, true);
+        if (aA != null && aPS() != null) {
+            bu aPS = aPS();
+            if (aPS.getBaijiahaoData() != null) {
+                aA.dk("obj_param4", aPS.getBaijiahaoData().oriUgcNid);
+                aA.dk("obj_param6", aPS.getBaijiahaoData().oriUgcVid);
             }
-            ay.ag("obj_param5", ag(aOi));
-            ay.dh("nid", aOi.getNid());
+            aA.ag("obj_param5", ah(aPS));
+            aA.dk("nid", aPS.getNid());
         }
-        return ay;
+        return aA;
     }
 
-    public an ai(bk bkVar) {
-        an ay = ay(gHA, true);
-        if (ay != null && aOi() != null) {
-            bk aOi = aOi();
-            if (aOi.getBaijiahaoData() != null) {
-                ay.dh("obj_param4", aOi.getBaijiahaoData().oriUgcNid);
-                ay.dh("obj_param6", aOi.getBaijiahaoData().oriUgcVid);
+    public ao aj(bu buVar) {
+        ao aA = aA(gUA, true);
+        if (aA != null && aPS() != null) {
+            bu aPS = aPS();
+            if (aPS.getBaijiahaoData() != null) {
+                aA.dk("obj_param4", aPS.getBaijiahaoData().oriUgcNid);
+                aA.dk("obj_param6", aPS.getBaijiahaoData().oriUgcVid);
+                if (aPS.aUt()) {
+                    aA.ag(TiebaInitialize.Params.OBJ_PARAM2, 2);
+                } else {
+                    aA.ag(TiebaInitialize.Params.OBJ_PARAM2, 1);
+                }
             }
-            ay.ag("obj_param5", ag(aOi));
+            aA.ag("obj_param5", ah(aPS));
         }
-        return ay;
+        return aA;
     }
 
     @Override // com.baidu.tbadk.core.util.f.a
     public String getVideoUrl() {
-        if (this.dEA == null || this.dEA.aQQ() == null || this.dEA.aQQ().video_url == null) {
+        if (this.dLi == null || this.dLi.aSH() == null || this.dLi.aSH().video_url == null) {
             return null;
         }
-        return this.dEA.aQQ().video_url;
+        return this.dLi.aSH().video_url;
     }
 
-    public int ag(bk bkVar) {
-        if (bkVar == null) {
+    public int ah(bu buVar) {
+        if (buVar == null) {
             return 1;
         }
-        if (bkVar.aSw() || bkVar.aSv()) {
+        if (buVar.aUm() || buVar.aUl()) {
             return 2;
         }
-        return (bkVar.aPm() || bkVar.aPn()) ? 3 : 1;
+        return (buVar.aQX() || buVar.aQY()) ? 3 : 1;
     }
 }

@@ -1,29 +1,29 @@
 package org.aspectj.a.b;
 /* loaded from: classes7.dex */
 abstract class a extends d implements org.aspectj.lang.reflect.a {
-    String[] nBC;
-    Class[] nBD;
+    String[] nXn;
+    Class[] nXo;
     Class[] parameterTypes;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(int i, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2) {
         super(i, str, cls);
         this.parameterTypes = clsArr;
-        this.nBC = strArr;
-        this.nBD = clsArr2;
+        this.nXn = strArr;
+        this.nXo = clsArr2;
     }
 
-    public Class[] dOD() {
+    public Class[] dTj() {
         if (this.parameterTypes == null) {
-            this.parameterTypes = Kg(3);
+            this.parameterTypes = Ln(3);
         }
         return this.parameterTypes;
     }
 
-    public Class[] dOE() {
-        if (this.nBD == null) {
-            this.nBD = Kg(5);
+    public Class[] dTk() {
+        if (this.nXo == null) {
+            this.nXo = Ln(5);
         }
-        return this.nBD;
+        return this.nXo;
     }
 }

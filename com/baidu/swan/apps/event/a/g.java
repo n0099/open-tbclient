@@ -6,22 +6,22 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class g<T> extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public boolean ccQ = true;
+    public boolean chE = true;
     public T mData;
 
     public g() {
-        this.bMG = "message";
+        this.bRu = "message";
     }
 
     @Override // com.baidu.swan.apps.event.a.a
-    public String kd(String str) {
+    public String kl(String str) {
         if (this.mData instanceof String) {
-            String encode = this.ccQ ? Uri.encode((String) this.mData) : (String) this.mData;
+            String encode = this.chE ? Uri.encode((String) this.mData) : (String) this.mData;
             if (DEBUG) {
                 Log.d("SwanAppWebMessage", "mData: " + this.mData);
                 Log.d("SwanAppWebMessage", "encode mData: " + encode);
             }
-            return com.baidu.swan.apps.event.a.x(str, "message", encode);
+            return com.baidu.swan.apps.event.a.y(str, "message", encode);
         } else if (!(this.mData instanceof JSONObject)) {
             return "";
         } else {

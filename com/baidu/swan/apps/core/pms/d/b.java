@@ -10,19 +10,19 @@ import java.util.HashSet;
 /* loaded from: classes11.dex */
 public class b extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a.InterfaceC0331a bYB;
+    private a.InterfaceC0337a cdr;
 
-    public b(String str, a.InterfaceC0331a interfaceC0331a) {
+    public b(String str, a.InterfaceC0337a interfaceC0337a) {
         super(str);
-        this.bYB = interfaceC0331a;
+        this.cdr = interfaceC0337a;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void ZL() {
-        super.ZL();
-        if (this.bXH != null) {
-            aab();
-            a.jy(this.mAppId);
+    public void aaR() {
+        super.aaR();
+        if (this.ccw != null) {
+            abh();
+            a.jG(this.mAppId);
         }
     }
 
@@ -32,49 +32,49 @@ public class b extends f {
         if (DEBUG) {
             Log.e("SwanAppPkgPreDownloadCallback", "onFetchError: " + aVar.toString());
         }
-        if (this.bYB != null) {
+        if (this.cdr != null) {
             if (aVar.errorNo == 1010) {
-                this.bYB.Xz();
+                this.cdr.YF();
             } else {
-                this.bYB.eG(0);
+                this.cdr.eR(0);
             }
         }
-        eX(aVar.errorNo);
+        fi(aVar.errorNo);
         if (a.c(aVar)) {
-            a.jy(this.mAppId);
+            a.jG(this.mAppId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.pms.f
-    public void ZR() {
-        super.ZR();
-        this.bXI.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.an.a aaa = aaa();
-        this.bXI.add(new UbcFlowEvent("na_end_update_db"));
-        if (aaa == null) {
-            a.jy(this.mAppId);
-            if (this.bYB != null) {
-                this.bYB.Xz();
+    public void aaX() {
+        super.aaX();
+        this.ccx.add(new UbcFlowEvent("na_start_update_db"));
+        com.baidu.swan.apps.an.a abg = abg();
+        this.ccx.add(new UbcFlowEvent("na_end_update_db"));
+        if (abg == null) {
+            a.jG(this.mAppId);
+            if (this.cdr != null) {
+                this.cdr.YF();
             }
-        } else if (this.bYB != null) {
-            this.bYB.eG(5);
+        } else if (this.cdr != null) {
+            this.cdr.eR(5);
         }
-        ba("main_pre_download", this.bXJ);
+        bc("main_pre_download", this.ccy);
         HashSet hashSet = new HashSet();
         hashSet.add(this.mAppId);
-        e.acv().acw().d(hashSet);
+        e.adB().adC().d(hashSet);
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
     protected void p(Throwable th) {
-        if (this.bYB != null) {
-            this.bYB.eG(0);
+        if (this.cdr != null) {
+            this.cdr.eR(0);
         }
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType ZS() {
+    protected PMSDownloadType aaY() {
         return PMSDownloadType.PRE;
     }
 }

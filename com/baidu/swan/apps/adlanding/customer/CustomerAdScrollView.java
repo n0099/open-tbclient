@@ -5,16 +5,16 @@ import android.view.MotionEvent;
 import android.widget.ScrollView;
 /* loaded from: classes11.dex */
 public class CustomerAdScrollView extends ScrollView {
-    private boolean bII;
-    private boolean bIJ;
-    private a bIK;
+    private boolean bNw;
+    private boolean bNx;
+    private a bNy;
     private float mDownY;
 
     public CustomerAdScrollView(Context context) {
         super(context);
-        this.bII = false;
-        this.bIJ = false;
-        this.bIK = null;
+        this.bNw = false;
+        this.bNx = false;
+        this.bNy = null;
         setVerticalScrollBarEnabled(false);
     }
 
@@ -27,10 +27,10 @@ public class CustomerAdScrollView extends ScrollView {
                 break;
             case 2:
                 if (y - this.mDownY < 0.0f) {
-                    if (!this.bII || this.bIJ) {
+                    if (!this.bNw || this.bNx) {
                         return false;
                     }
-                } else if (!this.bIJ) {
+                } else if (!this.bNx) {
                     return false;
                 }
                 break;
@@ -41,20 +41,20 @@ public class CustomerAdScrollView extends ScrollView {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.bIK != null) {
-            this.bIK.onScrollChanged(i, i2, i3, i4);
+        if (this.bNy != null) {
+            this.bNy.onScrollChanged(i, i2, i3, i4);
         }
     }
 
     public void setScrollViewListener(a aVar) {
-        this.bIK = aVar;
+        this.bNy = aVar;
     }
 
     public void setIsWebViewOnBottom(boolean z) {
-        this.bII = z;
+        this.bNw = z;
     }
 
     public void setIsFooterLayoutShow(boolean z) {
-        this.bIJ = z;
+        this.bNx = z;
     }
 }

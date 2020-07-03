@@ -3,8 +3,9 @@ package com.baidu.platform.comapi.walknavi.d.a.d;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import java.io.File;
 import java.io.FileFilter;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-class c implements FileFilter {
+public class c implements FileFilter {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -19,10 +19,10 @@ import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.gift.g;
 import com.baidu.live.gift.v;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.live.u.a;
 import com.tb.airbnb.lottie.LottieAnimationView;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -31,40 +31,40 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private static SimpleDateFormat aGT;
-    private int aGU;
-    private int aGV;
-    private int aGW;
-    private int aGX;
-    private int aGY;
-    private boolean aGZ;
+    private static SimpleDateFormat aJr;
+    private int aJs;
+    private int aJt;
+    private int aJu;
+    private int aJv;
+    private int aJw;
+    private boolean aJx;
     private TbPageContext mContext;
     private int mType;
-    private int aGQ = -1;
+    private int aJo = -1;
     private int mSelectedPosition = -1;
-    private boolean aGS = false;
+    private boolean aJq = false;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.live.gift.container.a.1
-        private void a(g gVar, C0163a c0163a) {
-            com.baidu.live.gift.c fi;
-            if (gVar.xx() && !com.baidu.live.gift.b.b.Ah().eJ(gVar.xl()) && (fi = com.baidu.live.gift.b.b.Ah().fi(gVar.xl())) != null) {
-                com.baidu.live.gift.b.a.a(fi.aDK, true);
+        private void a(g gVar, C0165a c0165a) {
+            com.baidu.live.gift.c fo;
+            if (gVar.xX() && !com.baidu.live.gift.b.b.AH().eP(gVar.xM()) && (fo = com.baidu.live.gift.b.b.AH().fo(gVar.xM())) != null) {
+                com.baidu.live.gift.b.a.a(fo.aGg, true);
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if ((view.getTag(a.g.TAG_GIFT_ITEM) instanceof g) && (view.getTag(a.g.TAG_GIFT_VIEW_HOLDER) instanceof C0163a)) {
-                C0163a c0163a = (C0163a) view.getTag(a.g.TAG_GIFT_VIEW_HOLDER);
+            if ((view.getTag(a.g.TAG_GIFT_ITEM) instanceof g) && (view.getTag(a.g.TAG_GIFT_VIEW_HOLDER) instanceof C0165a)) {
+                C0165a c0165a = (C0165a) view.getTag(a.g.TAG_GIFT_VIEW_HOLDER);
                 g gVar = (g) view.getTag(a.g.TAG_GIFT_ITEM);
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
                     BdUtilHelper.showToast(a.this.mContext.getPageActivity(), a.this.mContext.getString(a.i.sdk_neterror));
                 } else {
-                    a(gVar, c0163a);
+                    a(gVar, c0165a);
                 }
             }
         }
     };
-    private List<g> aGR = Collections.synchronizedList(new ArrayList());
+    private List<g> aJp = Collections.synchronizedList(new ArrayList());
 
     public a(TbPageContext tbPageContext, int i) {
         this.mContext = tbPageContext;
@@ -72,33 +72,33 @@ public class a extends BaseAdapter {
     }
 
     public void setGiftItems(List<g> list) {
-        if (this.aGR == null) {
-            this.aGR = Collections.synchronizedList(new ArrayList());
+        if (this.aJp == null) {
+            this.aJp = Collections.synchronizedList(new ArrayList());
         } else {
-            this.aGR.clear();
+            this.aJp.clear();
         }
         if (list != null) {
-            this.aGR.addAll(list);
+            this.aJp.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     public void z(String str, int i) {
-        if (this.aGR != null) {
-            for (g gVar : this.aGR) {
-                if (gVar.aEl != null && gVar.xl().equals(str)) {
-                    gVar.aEl.aEs = i;
+        if (this.aJp != null) {
+            for (g gVar : this.aJp) {
+                if (gVar.aGH != null && gVar.xM().equals(str)) {
+                    gVar.aGH.aGO = i;
                 }
             }
             notifyDataSetChanged();
         }
     }
 
-    public void bR(int i) {
-        this.aGQ = i;
+    public void bX(int i) {
+        this.aJo = i;
     }
 
-    public void bS(int i) {
+    public void bY(int i) {
         this.mSelectedPosition = i;
     }
 
@@ -107,30 +107,30 @@ public class a extends BaseAdapter {
     }
 
     public void bf(boolean z) {
-        this.aGS = z;
+        this.aJq = z;
     }
 
-    public void bT(int i) {
-        this.aGU = i;
+    public void bZ(int i) {
+        this.aJs = i;
         float dimensionPixelOffset = (i * 1.0f) / this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds192);
-        this.aGV = (int) (this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds100) * dimensionPixelOffset);
-        this.aGW = (int) (this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds12) * dimensionPixelOffset);
-        this.aGX = (int) (this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds8) * dimensionPixelOffset);
-        this.aGY = (int) (dimensionPixelOffset * this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds4));
+        this.aJt = (int) (this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds100) * dimensionPixelOffset);
+        this.aJu = (int) (this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds12) * dimensionPixelOffset);
+        this.aJv = (int) (this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds8) * dimensionPixelOffset);
+        this.aJw = (int) (dimensionPixelOffset * this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds4));
     }
 
-    public void aQ(boolean z) {
-        this.aGZ = z;
+    public void aR(boolean z) {
+        this.aJx = z;
     }
 
     public void a(AbsListView absListView, boolean z) {
         int firstVisiblePosition;
         View childAt;
-        this.aGZ = z;
+        this.aJx = z;
         int count = getCount();
         if (count != 0) {
             for (int i = 0; i < count; i++) {
-                if (getItem(i).xK() && i >= (firstVisiblePosition = absListView.getFirstVisiblePosition()) && i <= absListView.getLastVisiblePosition() && (childAt = absListView.getChildAt(i - firstVisiblePosition)) != null) {
+                if (getItem(i).yk() && i >= (firstVisiblePosition = absListView.getFirstVisiblePosition()) && i <= absListView.getLastVisiblePosition() && (childAt = absListView.getChildAt(i - firstVisiblePosition)) != null) {
                     getView(i, childAt, absListView);
                 }
             }
@@ -141,7 +141,7 @@ public class a extends BaseAdapter {
         int count;
         int firstVisiblePosition;
         View childAt;
-        com.baidu.live.gift.c fi;
+        com.baidu.live.gift.c fo;
         if (!TextUtils.isEmpty(str) && (count = getCount()) != 0) {
             int i = 0;
             while (true) {
@@ -150,7 +150,7 @@ public class a extends BaseAdapter {
                     break;
                 }
                 g item = getItem(i);
-                if (item != null && !TextUtils.isEmpty(item.xl()) && (fi = com.baidu.live.gift.b.b.Ah().fi(item.xl())) != null && !TextUtils.isEmpty(fi.getDynamicGiftId()) && fi.getDynamicGiftId().equals(str) && v.eS(item.xl()).equals(str2)) {
+                if (item != null && !TextUtils.isEmpty(item.xM()) && (fo = com.baidu.live.gift.b.b.AH().fo(item.xM())) != null && !TextUtils.isEmpty(fo.getDynamicGiftId()) && fo.getDynamicGiftId().equals(str) && v.eY(item.xM()).equals(str2)) {
                     break;
                 }
                 i++;
@@ -163,20 +163,20 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aGR == null) {
+        if (this.aJp == null) {
             return 0;
         }
-        return this.aGR.size();
+        return this.aJp.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: bU */
+    /* renamed from: ca */
     public g getItem(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return this.aGR.get(i);
+        return this.aJp.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -186,313 +186,313 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0163a c0163a;
+        C0165a c0165a;
         g.a aVar;
         String formatGiftNumForTDouDisPlay;
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.h.ala_gift_list_item, viewGroup, false);
             view.setBackgroundResource(a.f.sdk_transparent_bg);
-            C0163a c0163a2 = new C0163a();
-            c0163a2.aHb = (TbImageView) view.findViewById(a.g.gift_thumbnail);
-            c0163a2.aHb.setDefaultBgResource(a.f.icon_live_gift_default);
-            c0163a2.aHb.setDefaultErrorResource(a.f.icon_live_gift_default);
-            c0163a2.aHb.setAutoChangeStyle(false);
-            c0163a2.aHe = (TextView) view.findViewById(a.g.gift_name);
-            c0163a2.aHf = (TextView) view.findViewById(a.g.gift_price);
-            c0163a2.aHc = (RelativeLayout) view.findViewById(a.g.llCarom);
-            c0163a2.aHg = (TextView) view.findViewById(a.g.gift_carom_txt);
-            c0163a2.aHi = view.findViewById(a.g.in_progress);
-            c0163a2.aHj = (LottieAnimationView) view.findViewById(a.g.lottie_downloading);
-            c0163a2.aHj.loop(true);
-            c0163a2.aHj.setAnimation("live_gift_panel_downloading.json");
-            c0163a2.aHk = view.findViewById(a.g.selected_bg);
-            c0163a2.aHh = (TextView) view.findViewById(a.g.tv_privilege);
-            c0163a2.aHd = (LinearLayout) view.findViewById(a.g.ll_privilege);
-            c0163a2.aHl = (FrameLayout) view.findViewById(a.g.layout_pkg_count);
-            c0163a2.aHm = (ImageView) view.findViewById(a.g.iv_pkg_count);
-            c0163a2.aHn = (TextView) view.findViewById(a.g.tv_pkg_count);
-            c0163a2.aHo = (FrameLayout) view.findViewById(a.g.layout_script);
-            c0163a2.aHp = (TextView) view.findViewById(a.g.tv_script);
-            view.setTag(c0163a2);
-            if (this.aGU <= 0 || this.aGV <= 0) {
-                c0163a = c0163a2;
+            C0165a c0165a2 = new C0165a();
+            c0165a2.aJz = (TbImageView) view.findViewById(a.g.gift_thumbnail);
+            c0165a2.aJz.setDefaultBgResource(a.f.icon_live_gift_default);
+            c0165a2.aJz.setDefaultErrorResource(a.f.icon_live_gift_default);
+            c0165a2.aJz.setAutoChangeStyle(false);
+            c0165a2.aJC = (TextView) view.findViewById(a.g.gift_name);
+            c0165a2.aJD = (TextView) view.findViewById(a.g.gift_price);
+            c0165a2.aJA = (RelativeLayout) view.findViewById(a.g.llCarom);
+            c0165a2.aJE = (TextView) view.findViewById(a.g.gift_carom_txt);
+            c0165a2.aJG = view.findViewById(a.g.in_progress);
+            c0165a2.aJH = (LottieAnimationView) view.findViewById(a.g.lottie_downloading);
+            c0165a2.aJH.loop(true);
+            c0165a2.aJH.setAnimation("live_gift_panel_downloading.json");
+            c0165a2.aJI = view.findViewById(a.g.selected_bg);
+            c0165a2.aJF = (TextView) view.findViewById(a.g.tv_privilege);
+            c0165a2.aJB = (LinearLayout) view.findViewById(a.g.ll_privilege);
+            c0165a2.aJJ = (FrameLayout) view.findViewById(a.g.layout_pkg_count);
+            c0165a2.aJK = (ImageView) view.findViewById(a.g.iv_pkg_count);
+            c0165a2.aJL = (TextView) view.findViewById(a.g.tv_pkg_count);
+            c0165a2.aJM = (FrameLayout) view.findViewById(a.g.layout_script);
+            c0165a2.aJN = (TextView) view.findViewById(a.g.tv_script);
+            view.setTag(c0165a2);
+            if (this.aJs <= 0 || this.aJt <= 0) {
+                c0165a = c0165a2;
             } else {
-                view.getLayoutParams().height = this.aGU;
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) c0163a2.aHb.getLayoutParams();
-                layoutParams.width = this.aGV;
-                layoutParams.height = this.aGV;
-                layoutParams.topMargin = this.aGW;
-                ((RelativeLayout.LayoutParams) c0163a2.aHe.getLayoutParams()).topMargin = this.aGX;
-                ((RelativeLayout.LayoutParams) c0163a2.aHf.getLayoutParams()).topMargin = this.aGY;
-                c0163a = c0163a2;
+                view.getLayoutParams().height = this.aJs;
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) c0165a2.aJz.getLayoutParams();
+                layoutParams.width = this.aJt;
+                layoutParams.height = this.aJt;
+                layoutParams.topMargin = this.aJu;
+                ((RelativeLayout.LayoutParams) c0165a2.aJC.getLayoutParams()).topMargin = this.aJv;
+                ((RelativeLayout.LayoutParams) c0165a2.aJD.getLayoutParams()).topMargin = this.aJw;
+                c0165a = c0165a2;
             }
         } else {
-            c0163a = (C0163a) view.getTag();
+            c0165a = (C0165a) view.getTag();
         }
-        c0163a.yV();
+        c0165a.zv();
         if (i == this.mSelectedPosition) {
-            c0163a.yU();
+            c0165a.zu();
         }
         g item = getItem(i);
         if (this.mType != 1) {
             aVar = null;
         } else {
-            aVar = item.aEl;
+            aVar = item.aGH;
         }
         if (item != null) {
             if (item.isRed()) {
-                c0163a.aHb.setImageResource(a.f.live_gift_red_enter);
-                c0163a.aHe.setText(this.mContext.getPageActivity().getString(a.i.sdk_red_pkt_send));
-                c0163a.aHf.setText("");
+                c0165a.aJz.setImageResource(a.f.live_gift_red_enter);
+                c0165a.aJC.setText(this.mContext.getPageActivity().getString(a.i.sdk_red_pkt_send));
+                c0165a.aJD.setText("");
             } else {
-                c0163a.aHb.startLoad(item.xo(), 10, false);
-                c0163a.aHe.setText(item.xm());
+                c0165a.aJz.startLoad(item.getThumbnail_url(), 10, false);
+                c0165a.aJC.setText(item.xN());
                 if (this.mType == 0) {
                     double d = JavaTypesHelper.toDouble(String.valueOf(item.getPrice()), 0.0d);
-                    if (d >= 100.0d && ((this.aGS || com.baidu.live.v.a.Ge().aWF.axV) && !item.xw())) {
+                    if (d >= 100.0d && ((this.aJq || com.baidu.live.v.a.Hm().aZp.aAk) && !item.xW())) {
                         formatGiftNumForTDouDisPlay = new DecimalFormat("0.###K").format(d / 1000.0d);
                     } else {
                         formatGiftNumForTDouDisPlay = StringHelper.formatGiftNumForTDouDisPlay(Long.parseLong(item.getPrice()));
                     }
-                    c0163a.aHf.setText(formatGiftNumForTDouDisPlay);
-                    if (item.xw()) {
-                        c0163a.aHf.setText(this.mContext.getPageActivity().getString(a.i.ala_gift_price_flower_label, new Object[]{formatGiftNumForTDouDisPlay}));
+                    c0165a.aJD.setText(formatGiftNumForTDouDisPlay);
+                    if (item.xW()) {
+                        c0165a.aJD.setText(this.mContext.getPageActivity().getString(a.i.ala_gift_price_flower_label, new Object[]{formatGiftNumForTDouDisPlay}));
                     } else {
-                        c0163a.aHf.setText(this.mContext.getPageActivity().getString(a.i.ala_gift_price_tdou_label, new Object[]{formatGiftNumForTDouDisPlay}));
+                        c0165a.aJD.setText(this.mContext.getPageActivity().getString(a.i.ala_gift_price_tdou_label, new Object[]{formatGiftNumForTDouDisPlay}));
                     }
                 } else if (this.mType == 1) {
                     if (aVar != null) {
-                        c0163a.aHf.setText(aa(aVar.aEt) + " 失效");
+                        c0165a.aJD.setText(aa(aVar.aGP) + " 失效");
                     } else {
-                        c0163a.aHf.setText("");
+                        c0165a.aJD.setText("");
                     }
                 }
-                c0163a.aHc.setClickable(false);
-                c0163a.aHc.setVisibility(8);
-                c0163a.aHg.setBackgroundColor(0);
-                c0163a.aHd.setVisibility(8);
-                c0163a.aHb.setAlpha(1.0f);
-                c0163a.aHf.setAlpha(1.0f);
-                c0163a.aHe.setAlpha(1.0f);
-                c0163a.aHl.setVisibility(8);
-                c0163a.aHi.setVisibility(4);
-                c0163a.aHj.cancelAnimation();
+                c0165a.aJA.setClickable(false);
+                c0165a.aJA.setVisibility(8);
+                c0165a.aJE.setBackgroundColor(0);
+                c0165a.aJB.setVisibility(8);
+                c0165a.aJz.setAlpha(1.0f);
+                c0165a.aJD.setAlpha(1.0f);
+                c0165a.aJC.setAlpha(1.0f);
+                c0165a.aJJ.setVisibility(8);
+                c0165a.aJG.setVisibility(4);
+                c0165a.aJH.cancelAnimation();
                 if (this.mType == 0) {
-                    if (item.xI()) {
-                        c0163a.aHb.setAlpha(0.5f);
-                        c0163a.aHf.setAlpha(0.5f);
-                        c0163a.aHe.setAlpha(0.5f);
-                        c0163a.aHc.setVisibility(8);
-                        c0163a.aHd.setVisibility(0);
-                        if (!TextUtils.isEmpty(item.xJ())) {
-                            c0163a.aHh.setText(item.xJ());
+                    if (item.yi()) {
+                        c0165a.aJz.setAlpha(0.5f);
+                        c0165a.aJD.setAlpha(0.5f);
+                        c0165a.aJC.setAlpha(0.5f);
+                        c0165a.aJA.setVisibility(8);
+                        c0165a.aJB.setVisibility(0);
+                        if (!TextUtils.isEmpty(item.yj())) {
+                            c0165a.aJF.setText(item.yj());
                         } else {
-                            c0163a.aHh.setText("");
+                            c0165a.aJF.setText("");
                         }
-                        String xJ = item.xJ();
-                        if (item.xz()) {
-                            if (item.xB()) {
-                                c0163a.aHd.setBackgroundResource(a.f.live_gift_item_script_lock_activity);
-                            } else if (item.xC()) {
-                                c0163a.aHd.setBackgroundResource(a.f.live_gift_item_script_lock_power);
+                        String yj = item.yj();
+                        if (item.xZ()) {
+                            if (item.yb()) {
+                                c0165a.aJB.setBackgroundResource(a.f.live_gift_item_script_lock_activity);
+                            } else if (item.yc()) {
+                                c0165a.aJB.setBackgroundResource(a.f.live_gift_item_script_lock_power);
                             } else {
-                                c0163a.aHd.setBackgroundResource(a.f.live_gift_item_script_lock_level);
+                                c0165a.aJB.setBackgroundResource(a.f.live_gift_item_script_lock_level);
                             }
-                        } else if (xJ.equals("活动")) {
-                            c0163a.aHd.setBackgroundResource(a.f.live_gift_item_script_lock_activity);
+                        } else if (yj.equals("活动")) {
+                            c0165a.aJB.setBackgroundResource(a.f.live_gift_item_script_lock_activity);
                         } else {
-                            c0163a.aHd.setBackgroundResource(a.f.live_gift_item_script_lock_level);
+                            c0165a.aJB.setBackgroundResource(a.f.live_gift_item_script_lock_level);
                         }
-                    } else if (item.xx()) {
-                        c0163a.aHc.setVisibility(0);
-                        if (!com.baidu.live.gift.b.b.Ah().eJ(item.xl())) {
-                            c0163a.aHg.setText(" ");
-                            c0163a.aHg.setBackgroundResource(a.f.live_gift_panel_item_script_download);
-                            c0163a.aHc.setTag(a.g.TAG_GIFT_ITEM, item);
-                            c0163a.aHc.setTag(a.g.TAG_GIFT_VIEW_HOLDER, c0163a);
-                            c0163a.aHc.setClickable(true);
-                            c0163a.aHc.setOnClickListener(this.mOnClickListener);
-                            if (com.baidu.live.gift.b.a.an(item.xl(), v.eS(item.xl()))) {
-                                c0163a.aHb.setAlpha(0.5f);
-                                c0163a.aHf.setAlpha(0.5f);
-                                c0163a.aHe.setAlpha(0.5f);
-                                c0163a.aHi.setVisibility(0);
-                                c0163a.aHj.playAnimation();
-                                c0163a.aHc.setVisibility(4);
+                    } else if (item.xX()) {
+                        c0165a.aJA.setVisibility(0);
+                        if (!com.baidu.live.gift.b.b.AH().eP(item.xM())) {
+                            c0165a.aJE.setText(" ");
+                            c0165a.aJE.setBackgroundResource(a.f.live_gift_panel_item_script_download);
+                            c0165a.aJA.setTag(a.g.TAG_GIFT_ITEM, item);
+                            c0165a.aJA.setTag(a.g.TAG_GIFT_VIEW_HOLDER, c0165a);
+                            c0165a.aJA.setClickable(true);
+                            c0165a.aJA.setOnClickListener(this.mOnClickListener);
+                            if (com.baidu.live.gift.b.a.ao(item.xM(), v.eY(item.xM()))) {
+                                c0165a.aJz.setAlpha(0.5f);
+                                c0165a.aJD.setAlpha(0.5f);
+                                c0165a.aJC.setAlpha(0.5f);
+                                c0165a.aJG.setVisibility(0);
+                                c0165a.aJH.playAnimation();
+                                c0165a.aJA.setVisibility(4);
                             } else {
-                                c0163a.aHi.setVisibility(4);
-                                c0163a.aHj.cancelAnimation();
-                                c0163a.aHc.setVisibility(0);
+                                c0165a.aJG.setVisibility(4);
+                                c0165a.aJH.cancelAnimation();
+                                c0165a.aJA.setVisibility(0);
                             }
                         } else {
-                            a(c0163a, item);
+                            a(c0165a, item);
                         }
                     } else {
-                        a(c0163a, item);
+                        a(c0165a, item);
                     }
                 } else if (this.mType == 1 && aVar != null) {
-                    if (aVar.aEs > 999) {
-                        c0163a.aHm.setImageResource(a.f.live_icon_gift_panel_package_count_large);
-                        c0163a.aHn.setText("999+");
+                    if (aVar.aGO > 999) {
+                        c0165a.aJK.setImageResource(a.f.live_icon_gift_panel_package_count_large);
+                        c0165a.aJL.setText("999+");
                     } else {
-                        c0163a.aHm.setImageResource(a.f.live_icon_gift_panel_package_count_small);
-                        c0163a.aHn.setText(String.valueOf(aVar.aEs));
+                        c0165a.aJK.setImageResource(a.f.live_icon_gift_panel_package_count_small);
+                        c0165a.aJL.setText(String.valueOf(aVar.aGO));
                     }
-                    c0163a.aHl.setVisibility(0);
+                    c0165a.aJJ.setVisibility(0);
                 }
             }
         }
         return view;
     }
 
-    private void a(C0163a c0163a, g gVar) {
-        c0163a.aHi.setVisibility(4);
-        c0163a.aHj.cancelAnimation();
-        if (gVar.xz()) {
-            c0163a.aHc.setVisibility(0);
-            String xJ = gVar.xJ();
-            c0163a.aHg.setText(xJ);
-            if (gVar.xB()) {
-                if (TextUtils.isEmpty(xJ)) {
-                    c0163a.aHg.setText(a.i.ala_gift_type_activity);
+    private void a(C0165a c0165a, g gVar) {
+        c0165a.aJG.setVisibility(4);
+        c0165a.aJH.cancelAnimation();
+        if (gVar.xZ()) {
+            c0165a.aJA.setVisibility(0);
+            String yj = gVar.yj();
+            c0165a.aJE.setText(yj);
+            if (gVar.yb()) {
+                if (TextUtils.isEmpty(yj)) {
+                    c0165a.aJE.setText(a.i.ala_gift_type_activity);
                 }
-                c0163a.aHg.setBackgroundResource(a.f.live_gift_panel_item_script_activity);
-            } else if (gVar.xA()) {
-                if (TextUtils.isEmpty(xJ)) {
-                    c0163a.aHg.setText(a.i.ala_gift_type_discount);
+                c0165a.aJE.setBackgroundResource(a.f.live_gift_panel_item_script_activity);
+            } else if (gVar.ya()) {
+                if (TextUtils.isEmpty(yj)) {
+                    c0165a.aJE.setText(a.i.ala_gift_type_discount);
                 }
-                c0163a.aHg.setBackgroundResource(a.f.live_gift_panel_item_script_discount);
-            } else if (gVar.xC()) {
-                if (TextUtils.isEmpty(xJ)) {
-                    c0163a.aHg.setText(a.i.ala_gift_type_privilege);
+                c0165a.aJE.setBackgroundResource(a.f.live_gift_panel_item_script_discount);
+            } else if (gVar.yc()) {
+                if (TextUtils.isEmpty(yj)) {
+                    c0165a.aJE.setText(a.i.ala_gift_type_privilege);
                 }
-                c0163a.aHg.setBackgroundResource(a.f.live_gift_panel_item_script_power);
-            } else if (gVar.xE()) {
-                if (TextUtils.isEmpty(xJ)) {
-                    c0163a.aHg.setText(a.i.ala_gift_broadcast_txt);
+                c0165a.aJE.setBackgroundResource(a.f.live_gift_panel_item_script_power);
+            } else if (gVar.ye()) {
+                if (TextUtils.isEmpty(yj)) {
+                    c0165a.aJE.setText(a.i.ala_gift_broadcast_txt);
                 }
-                c0163a.aHg.setBackgroundResource(a.f.live_gift_panel_item_script_broadcast);
-            } else if (gVar.xD()) {
-                if (TextUtils.isEmpty(xJ)) {
-                    c0163a.aHg.setText(a.i.ala_gift_draw_txt);
+                c0165a.aJE.setBackgroundResource(a.f.live_gift_panel_item_script_broadcast);
+            } else if (gVar.yd()) {
+                if (TextUtils.isEmpty(yj)) {
+                    c0165a.aJE.setText(a.i.ala_gift_draw_txt);
                 }
-                c0163a.aHg.setBackgroundResource(a.f.live_gift_panel_item_script_graffiti);
-            } else if (gVar.xF()) {
-                if (TextUtils.isEmpty(xJ)) {
-                    xJ = this.mContext.getPageActivity().getString(a.i.ala_gift_type_new);
-                    c0163a.aHg.setText(a.i.ala_gift_type_new);
+                c0165a.aJE.setBackgroundResource(a.f.live_gift_panel_item_script_graffiti);
+            } else if (gVar.yf()) {
+                if (TextUtils.isEmpty(yj)) {
+                    yj = this.mContext.getPageActivity().getString(a.i.ala_gift_type_new);
+                    c0165a.aJE.setText(a.i.ala_gift_type_new);
                 }
-                if (xJ != null && xJ.length() == 1) {
-                    c0163a.aHg.setBackgroundResource(a.f.live_gift_panel_item_script_new);
+                if (yj != null && yj.length() == 1) {
+                    c0165a.aJE.setBackgroundResource(a.f.live_gift_panel_item_script_new);
                 } else {
-                    c0163a.aHg.setBackgroundResource(a.f.live_gift_panel_item_script_new_wide);
+                    c0165a.aJE.setBackgroundResource(a.f.live_gift_panel_item_script_new_wide);
                 }
             } else {
-                c0163a.aHc.setVisibility(8);
+                c0165a.aJA.setVisibility(8);
             }
-        } else if (gVar.xL()) {
-            c0163a.aHc.setVisibility(0);
-            String xJ2 = gVar.xJ();
-            if (TextUtils.isEmpty(xJ2)) {
-                c0163a.aHg.setText(a.i.ala_gift_privilege_level);
+        } else if (gVar.yl()) {
+            c0165a.aJA.setVisibility(0);
+            String yj2 = gVar.yj();
+            if (TextUtils.isEmpty(yj2)) {
+                c0165a.aJE.setText(a.i.ala_gift_privilege_level);
             } else {
-                c0163a.aHg.setText(xJ2);
+                c0165a.aJE.setText(yj2);
             }
-            c0163a.aHg.setBackgroundResource(a.f.live_gift_panel_item_script_level);
-        } else if (gVar.xK() && !this.aGZ) {
-            c0163a.aHb.setAlpha(0.5f);
-            c0163a.aHf.setAlpha(0.5f);
-            c0163a.aHe.setAlpha(0.5f);
-            c0163a.aHc.setVisibility(8);
-            c0163a.aHd.setBackgroundResource(a.f.live_gift_item_script_lock_level);
-            c0163a.aHd.setVisibility(0);
-            c0163a.aHh.setText(a.i.ala_gift_privilege_throne);
-        } else if (gVar.xt()) {
-            c0163a.aHc.setVisibility(0);
-            String xJ3 = gVar.xJ();
-            if (TextUtils.isEmpty(xJ3)) {
-                c0163a.aHg.setText(a.i.ala_gift_draw_txt);
+            c0165a.aJE.setBackgroundResource(a.f.live_gift_panel_item_script_level);
+        } else if (gVar.yk() && !this.aJx) {
+            c0165a.aJz.setAlpha(0.5f);
+            c0165a.aJD.setAlpha(0.5f);
+            c0165a.aJC.setAlpha(0.5f);
+            c0165a.aJA.setVisibility(8);
+            c0165a.aJB.setBackgroundResource(a.f.live_gift_item_script_lock_level);
+            c0165a.aJB.setVisibility(0);
+            c0165a.aJF.setText(a.i.ala_gift_privilege_throne);
+        } else if (gVar.xT()) {
+            c0165a.aJA.setVisibility(0);
+            String yj3 = gVar.yj();
+            if (TextUtils.isEmpty(yj3)) {
+                c0165a.aJE.setText(a.i.ala_gift_draw_txt);
             } else {
-                c0163a.aHg.setText(xJ3);
+                c0165a.aJE.setText(yj3);
             }
-            c0163a.aHg.setBackgroundResource(a.f.live_gift_panel_item_script_graffiti);
-        } else if (gVar.xu()) {
-            c0163a.aHc.setVisibility(0);
-            String xJ4 = gVar.xJ();
-            if (TextUtils.isEmpty(xJ4)) {
-                c0163a.aHg.setText(a.i.ala_gift_combo_txt);
+            c0165a.aJE.setBackgroundResource(a.f.live_gift_panel_item_script_graffiti);
+        } else if (gVar.xU()) {
+            c0165a.aJA.setVisibility(0);
+            String yj4 = gVar.yj();
+            if (TextUtils.isEmpty(yj4)) {
+                c0165a.aJE.setText(a.i.ala_gift_combo_txt);
             } else {
-                c0163a.aHg.setText(xJ4);
+                c0165a.aJE.setText(yj4);
             }
-            c0163a.aHg.setBackgroundResource(a.f.live_gift_panel_item_script_graffiti);
-        } else if (gVar.xG()) {
-            String xJ5 = gVar.xJ();
-            if (TextUtils.isEmpty(xJ5)) {
-                c0163a.aHg.setText(a.i.ala_gift_broadcast_txt);
+            c0165a.aJE.setBackgroundResource(a.f.live_gift_panel_item_script_graffiti);
+        } else if (gVar.yg()) {
+            String yj5 = gVar.yj();
+            if (TextUtils.isEmpty(yj5)) {
+                c0165a.aJE.setText(a.i.ala_gift_broadcast_txt);
             } else {
-                c0163a.aHg.setText(xJ5);
+                c0165a.aJE.setText(yj5);
             }
-            c0163a.aHg.setBackgroundResource(a.f.live_gift_panel_item_script_broadcast);
-        } else if (!TextUtils.isEmpty(gVar.xJ())) {
-            String xJ6 = gVar.xJ();
-            c0163a.aHc.setVisibility(0);
-            c0163a.aHg.setText(xJ6);
-            if ("活动".equals(xJ6)) {
-                c0163a.aHg.setBackgroundResource(a.f.live_gift_panel_item_script_activity);
-            } else if ("折扣".equals(xJ6)) {
-                c0163a.aHg.setBackgroundResource(a.f.live_gift_panel_item_script_discount);
-            } else if (xJ6 != null && xJ6.length() == 1) {
-                c0163a.aHg.setBackgroundResource(a.f.live_gift_panel_item_script_new);
+            c0165a.aJE.setBackgroundResource(a.f.live_gift_panel_item_script_broadcast);
+        } else if (!TextUtils.isEmpty(gVar.yj())) {
+            String yj6 = gVar.yj();
+            c0165a.aJA.setVisibility(0);
+            c0165a.aJE.setText(yj6);
+            if ("活动".equals(yj6)) {
+                c0165a.aJE.setBackgroundResource(a.f.live_gift_panel_item_script_activity);
+            } else if ("折扣".equals(yj6)) {
+                c0165a.aJE.setBackgroundResource(a.f.live_gift_panel_item_script_discount);
+            } else if (yj6 != null && yj6.length() == 1) {
+                c0165a.aJE.setBackgroundResource(a.f.live_gift_panel_item_script_new);
             } else {
-                c0163a.aHg.setBackgroundResource(a.f.live_gift_panel_item_script_new_wide);
+                c0165a.aJE.setBackgroundResource(a.f.live_gift_panel_item_script_new_wide);
             }
         } else {
-            c0163a.aHc.setVisibility(8);
+            c0165a.aJA.setVisibility(8);
         }
     }
 
     /* renamed from: com.baidu.live.gift.container.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0163a {
-        public TbImageView aHb;
-        public RelativeLayout aHc;
-        public LinearLayout aHd;
-        public TextView aHe;
-        public TextView aHf;
-        public TextView aHg;
-        public TextView aHh;
-        public View aHi;
-        public LottieAnimationView aHj;
-        public View aHk;
-        public FrameLayout aHl;
-        public ImageView aHm;
-        public TextView aHn;
-        public FrameLayout aHo;
-        public TextView aHp;
-        public AnimatorSet aHq;
+    public static class C0165a {
+        public RelativeLayout aJA;
+        public LinearLayout aJB;
+        public TextView aJC;
+        public TextView aJD;
+        public TextView aJE;
+        public TextView aJF;
+        public View aJG;
+        public LottieAnimationView aJH;
+        public View aJI;
+        public FrameLayout aJJ;
+        public ImageView aJK;
+        public TextView aJL;
+        public FrameLayout aJM;
+        public TextView aJN;
+        public AnimatorSet aJO;
+        public TbImageView aJz;
 
         public void recycle() {
-            if (this.aHj != null) {
-                this.aHj.cancelAnimation();
+            if (this.aJH != null) {
+                this.aJH.cancelAnimation();
             }
-            yW();
+            zw();
         }
 
-        public void yU() {
-            if (this.aHk != null) {
-                this.aHk.setVisibility(0);
+        public void zu() {
+            if (this.aJI != null) {
+                this.aJI.setVisibility(0);
             }
-            M(this.aHb);
+            K(this.aJz);
         }
 
-        public void yV() {
-            if (this.aHk != null) {
-                this.aHk.setVisibility(8);
+        public void zv() {
+            if (this.aJI != null) {
+                this.aJI.setVisibility(8);
             }
-            yW();
+            zw();
         }
 
-        private void M(View view) {
+        private void K(View view) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "scaleX", 1.0f, 0.9f);
             ofFloat.setDuration(500);
             ofFloat.setInterpolator(new AccelerateDecelerateInterpolator());
@@ -503,23 +503,23 @@ public class a extends BaseAdapter {
             ofFloat2.setInterpolator(new AccelerateDecelerateInterpolator());
             ofFloat2.setRepeatCount(-1);
             ofFloat2.setRepeatMode(2);
-            this.aHq = new AnimatorSet();
-            this.aHq.play(ofFloat).with(ofFloat2);
-            this.aHq.start();
+            this.aJO = new AnimatorSet();
+            this.aJO.play(ofFloat).with(ofFloat2);
+            this.aJO.start();
         }
 
-        public void yW() {
-            if (this.aHq != null) {
-                this.aHq.cancel();
-                this.aHq = null;
+        public void zw() {
+            if (this.aJO != null) {
+                this.aJO.cancel();
+                this.aJO = null;
             }
         }
     }
 
     private static String aa(long j) {
-        if (aGT == null) {
-            aGT = new SimpleDateFormat("MM.dd");
+        if (aJr == null) {
+            aJr = new SimpleDateFormat("MM.dd");
         }
-        return aGT.format(Long.valueOf(1000 * j));
+        return aJr.format(Long.valueOf(1000 * j));
     }
 }

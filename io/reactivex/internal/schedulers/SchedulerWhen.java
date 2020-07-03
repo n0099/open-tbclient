@@ -7,29 +7,29 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public class SchedulerWhen extends v implements io.reactivex.disposables.b {
-    static final io.reactivex.disposables.b nry = new d();
-    static final io.reactivex.disposables.b nrz = io.reactivex.disposables.c.dKO();
-    private final v nrv;
-    private final io.reactivex.processors.a<io.reactivex.g<io.reactivex.a>> nrw;
-    private io.reactivex.disposables.b nrx;
+    static final io.reactivex.disposables.b nNl = new d();
+    static final io.reactivex.disposables.b nNm = io.reactivex.disposables.c.dPu();
+    private final v nNi;
+    private final io.reactivex.processors.a<io.reactivex.g<io.reactivex.a>> nNj;
+    private io.reactivex.disposables.b nNk;
 
     @Override // io.reactivex.disposables.b
     public void dispose() {
-        this.nrx.dispose();
+        this.nNk.dispose();
     }
 
     @Override // io.reactivex.disposables.b
     public boolean isDisposed() {
-        return this.nrx.isDisposed();
+        return this.nNk.isDisposed();
     }
 
     @Override // io.reactivex.v
-    public v.c dKL() {
-        v.c dKL = this.nrv.dKL();
-        io.reactivex.processors.a<T> dLo = UnicastProcessor.dLp().dLo();
-        io.reactivex.g<io.reactivex.a> a2 = dLo.a(new a(dKL));
-        c cVar = new c(dLo, dKL);
-        this.nrw.onNext(a2);
+    public v.c dPr() {
+        v.c dPr = this.nNi.dPr();
+        io.reactivex.processors.a<T> dPU = UnicastProcessor.dPV().dPU();
+        io.reactivex.g<io.reactivex.a> a2 = dPU.a(new a(dPr));
+        c cVar = new c(dPU, dPr);
+        this.nNj.onNext(a2);
         return cVar;
     }
 
@@ -39,14 +39,14 @@ public class SchedulerWhen extends v implements io.reactivex.disposables.b {
         protected abstract io.reactivex.disposables.b callActual(v.c cVar, io.reactivex.c cVar2);
 
         ScheduledAction() {
-            super(SchedulerWhen.nry);
+            super(SchedulerWhen.nNl);
         }
 
         void call(v.c cVar, io.reactivex.c cVar2) {
             io.reactivex.disposables.b bVar = get();
-            if (bVar != SchedulerWhen.nrz && bVar == SchedulerWhen.nry) {
+            if (bVar != SchedulerWhen.nNm && bVar == SchedulerWhen.nNl) {
                 io.reactivex.disposables.b callActual = callActual(cVar, cVar2);
-                if (!compareAndSet(SchedulerWhen.nry, callActual)) {
+                if (!compareAndSet(SchedulerWhen.nNl, callActual)) {
                     callActual.dispose();
                 }
             }
@@ -60,14 +60,14 @@ public class SchedulerWhen extends v implements io.reactivex.disposables.b {
         @Override // io.reactivex.disposables.b
         public void dispose() {
             io.reactivex.disposables.b bVar;
-            io.reactivex.disposables.b bVar2 = SchedulerWhen.nrz;
+            io.reactivex.disposables.b bVar2 = SchedulerWhen.nNm;
             do {
                 bVar = get();
-                if (bVar == SchedulerWhen.nrz) {
+                if (bVar == SchedulerWhen.nNm) {
                     return;
                 }
             } while (!compareAndSet(bVar, bVar2));
-            if (bVar != SchedulerWhen.nry) {
+            if (bVar != SchedulerWhen.nNl) {
                 bVar.dispose();
             }
         }
@@ -108,11 +108,11 @@ public class SchedulerWhen extends v implements io.reactivex.disposables.b {
     /* loaded from: classes7.dex */
     static class b implements Runnable {
         final Runnable action;
-        final io.reactivex.c nrD;
+        final io.reactivex.c nNq;
 
         b(Runnable runnable, io.reactivex.c cVar) {
             this.action = runnable;
-            this.nrD = cVar;
+            this.nNq = cVar;
         }
 
         @Override // java.lang.Runnable
@@ -120,79 +120,79 @@ public class SchedulerWhen extends v implements io.reactivex.disposables.b {
             try {
                 this.action.run();
             } finally {
-                this.nrD.onComplete();
+                this.nNq.onComplete();
             }
         }
     }
 
     /* loaded from: classes7.dex */
     static final class a implements io.reactivex.c.h<ScheduledAction, io.reactivex.a> {
-        final v.c nrA;
+        final v.c nNn;
 
         a(v.c cVar) {
-            this.nrA = cVar;
+            this.nNn = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.c.h
         /* renamed from: a */
         public io.reactivex.a apply(ScheduledAction scheduledAction) {
-            return new C0873a(scheduledAction);
+            return new C0892a(scheduledAction);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: io.reactivex.internal.schedulers.SchedulerWhen$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public final class C0873a extends io.reactivex.a {
-            final ScheduledAction nrB;
+        public final class C0892a extends io.reactivex.a {
+            final ScheduledAction nNo;
 
-            C0873a(ScheduledAction scheduledAction) {
-                this.nrB = scheduledAction;
+            C0892a(ScheduledAction scheduledAction) {
+                this.nNo = scheduledAction;
             }
 
             @Override // io.reactivex.a
             protected void b(io.reactivex.c cVar) {
-                cVar.onSubscribe(this.nrB);
-                this.nrB.call(a.this.nrA, cVar);
+                cVar.onSubscribe(this.nNo);
+                this.nNo.call(a.this.nNn, cVar);
             }
         }
     }
 
     /* loaded from: classes7.dex */
     static final class c extends v.c {
-        private final v.c nrA;
-        private final AtomicBoolean nrE = new AtomicBoolean();
-        private final io.reactivex.processors.a<ScheduledAction> nrF;
+        private final v.c nNn;
+        private final AtomicBoolean nNr = new AtomicBoolean();
+        private final io.reactivex.processors.a<ScheduledAction> nNs;
 
         c(io.reactivex.processors.a<ScheduledAction> aVar, v.c cVar) {
-            this.nrF = aVar;
-            this.nrA = cVar;
+            this.nNs = aVar;
+            this.nNn = cVar;
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
-            if (this.nrE.compareAndSet(false, true)) {
-                this.nrF.onComplete();
-                this.nrA.dispose();
+            if (this.nNr.compareAndSet(false, true)) {
+                this.nNs.onComplete();
+                this.nNn.dispose();
             }
         }
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return this.nrE.get();
+            return this.nNr.get();
         }
 
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b c(Runnable runnable, long j, TimeUnit timeUnit) {
             DelayedAction delayedAction = new DelayedAction(runnable, j, timeUnit);
-            this.nrF.onNext(delayedAction);
+            this.nNs.onNext(delayedAction);
             return delayedAction;
         }
 
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b K(Runnable runnable) {
             ImmediateAction immediateAction = new ImmediateAction(runnable);
-            this.nrF.onNext(immediateAction);
+            this.nNs.onNext(immediateAction);
             return immediateAction;
         }
     }

@@ -8,10 +8,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.b;
+import com.baidu.adp.widget.ListView.c;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
-public class NormalSkinPbListView extends b {
+public class NormalSkinPbListView extends c {
     private ImageView lineView;
     private LinearLayout mContainer;
     private Context mContext;
@@ -29,7 +29,7 @@ public class NormalSkinPbListView extends b {
         ICON_UP_WARD
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
+    @Override // com.baidu.adp.widget.ListView.c
     public View createView() {
         this.mRoot = LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         this.mContainer = (LinearLayout) this.mRoot.findViewById(R.id.pb_more_view);
@@ -46,7 +46,7 @@ public class NormalSkinPbListView extends b {
         return this.mRoot;
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
+    @Override // com.baidu.adp.widget.ListView.c
     public void onClick() {
         if (this.mOnClickListener != null) {
             this.mOnClickListener.onClick(this.mRoot);

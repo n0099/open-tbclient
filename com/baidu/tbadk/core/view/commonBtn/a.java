@@ -2,105 +2,122 @@ package com.baidu.tbadk.core.view.commonBtn;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.support.annotation.ColorRes;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class a {
-    boolean dIG;
-    protected InterfaceC0478a dYA;
-    protected int dYn;
-    int dYo;
-    int dYp;
-    private int dYs;
-    boolean dYt;
-    boolean dYy = true;
-    GradientDrawable.Orientation dYz = GradientDrawable.Orientation.LEFT_RIGHT;
-    final int[] dYq = new int[2];
-    int dYu = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-    int dYv = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-    int dYw = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds4);
-    int dYx = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
-    int bQI = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-    int dYr = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+    boolean dPw;
+    protected InterfaceC0484a egC;
+    protected int ego;
+    int egp;
+    int egq;
+    private int egt;
+    boolean egu;
+    boolean egA = true;
+    GradientDrawable.Orientation egB = GradientDrawable.Orientation.LEFT_RIGHT;
+    final int[] egr = new int[2];
+    int egv = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+    int egw = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+    int egx = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+    int egy = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds4);
+    int egz = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
+    int bVw = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
+    int egs = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tbadk.core.view.commonBtn.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0478a {
-        void aWV();
+    public interface InterfaceC0484a {
+        void aYP();
 
-        void aWW();
+        void aYQ();
 
-        void aWX();
+        void aYR();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract Drawable T(float f);
+    public abstract Drawable V(float f);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable aWY() {
-        return mg(this.dYq[0]);
+    public Drawable aYS() {
+        return mx(this.egr[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable aWZ() {
-        return mg(this.dYq[1]);
+    public Drawable aYT() {
+        return mx(this.egr[1]);
     }
 
-    private Drawable mg(int i) {
+    private Drawable mx(int i) {
         Drawable drawable;
-        if (this.dIG) {
-            drawable = SvgManager.aUW().a(i, this.dYs > 0 ? this.dYs : this.dYn, SvgManager.SvgResourceStateType.NORMAL);
+        if (this.dPw) {
+            drawable = SvgManager.aWQ().a(i, this.egt > 0 ? this.egt : this.ego, SvgManager.SvgResourceStateType.NORMAL);
         } else {
-            drawable = am.getDrawable(i);
+            drawable = an.getDrawable(i);
         }
         if (drawable != null) {
-            drawable.setBounds(0, 0, this.dYr, this.dYr);
+            drawable.setBounds(0, 0, this.egs, this.egs);
         }
         return drawable;
     }
 
     public void k(int i, int i2, boolean z) {
-        if (this.dYq[0] != i || this.dYq[1] != i2 || this.dIG != z) {
-            this.dYq[0] = i;
-            this.dYq[1] = i2;
-            this.dIG = z;
-            if (this.dYA != null) {
-                this.dYA.aWW();
+        if (this.egr[0] != i || this.egr[1] != i2 || this.dPw != z) {
+            this.egr[0] = i;
+            this.egr[1] = i2;
+            this.dPw = z;
+            if (this.egC != null) {
+                this.egC.aYQ();
             }
         }
     }
 
-    public void mh(int i) {
-        if (i > 0 && this.dYr != i) {
-            this.dYr = i;
-            if (this.dYA != null) {
-                this.dYA.aWV();
+    public void my(int i) {
+        if (i > 0 && this.egs != i) {
+            this.egs = i;
+            if (this.egC != null) {
+                this.egC.aYP();
             }
         }
     }
 
-    public void aN(int i, int i2) {
+    public void mz(@ColorRes int i) {
+        if (this.egt != i) {
+            this.egt = i;
+            if (this.egC != null) {
+                this.egC.aYQ();
+            }
+        }
+    }
+
+    public void aQ(int i, int i2) {
         if (i > 0) {
-            this.dYx = i;
+            this.egz = i;
         }
         if (i2 > 0) {
-            this.bQI = i2;
+            this.bVw = i2;
         }
     }
 
-    public void mi(int i) {
-        this.dYu = i;
+    public void mA(int i) {
+        this.egv = i;
+        this.egw = i;
     }
 
-    public void mj(int i) {
-        this.dYv = i;
+    public void aR(int i, int i2) {
+        this.egv = i;
+        this.egw = i2;
+    }
+
+    public void mB(int i) {
+        this.egx = i;
     }
 
     public void a(GradientDrawable.Orientation orientation) {
-        this.dYz = orientation;
+        this.egB = orientation;
     }
 }

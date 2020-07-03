@@ -1,5 +1,6 @@
 package com.baidu.tieba.tbadkCore;
 
+import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.TbConfig;
 import java.util.HashMap;
@@ -27,9 +28,9 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int dataSize;
     private int isGood;
     private String kw;
+    private String lEg;
+    private String lEh;
     private String lastId;
-    private String lkm;
-    private String lkn;
     private int loadCount;
     private long mLastClickTid;
     private boolean needCache;
@@ -45,14 +46,14 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int updateType;
     private int withGroup;
     private int rn = 90;
-    private int lkl = 30;
-    private String dWx = "";
+    private int lEf = 30;
+    private String edT = "";
     private int mSortType = -1;
-    private int eBL = 1;
-    private int lko = 0;
+    private int eLu = 1;
+    private int lEi = 0;
     private int callFrom = 0;
     private HashMap<String, String> headers = null;
-    private long lkp = 0;
+    private long lEj = 0;
     private int isDefaultNavTab = 0;
     private String mSchemeUrl = "";
 
@@ -133,11 +134,11 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public int getLoadType() {
-        return this.eBL;
+        return this.eLu;
     }
 
     public void setLoadType(int i) {
-        this.eBL = i;
+        this.eLu = i;
     }
 
     public boolean isNeedCache() {
@@ -157,7 +158,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void setYuelaouLocate(String str) {
-        this.dWx = str;
+        this.edT = str;
     }
 
     public void setLastId(String str) {
@@ -184,23 +185,23 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.refreshCount = i;
     }
 
-    public void Ms(String str) {
-        this.lkm = str;
+    public void MU(String str) {
+        this.lEg = str;
     }
 
     public void setObjSource(String str) {
-        this.lkn = str;
+        this.lEh = str;
     }
 
-    public void DO(int i) {
-        this.lko = i;
+    public void EQ(int i) {
+        this.lEi = i;
     }
 
     public void setCallFrom(int i) {
         this.callFrom = i;
     }
 
-    public void DP(int i) {
+    public void ER(int i) {
         this.isDefaultNavTab = i;
     }
 
@@ -209,29 +210,31 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> beP() {
+    public HashMap<String, Object> bgU() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> beQ() {
+    public HashMap<String, String> bgV() {
         return this.headers;
     }
 
-    public void fp(String str, String str2) {
+    public void fw(String str, String str2) {
         if (this.headers == null) {
             this.headers = new HashMap<>();
         }
-        this.headers.put(str, str2);
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            this.headers.put(str, str2);
+        }
     }
 
-    @Override // com.baidu.tbadk.mvc.b.k
-    public Object ii(boolean z) {
+    @Override // com.baidu.tbadk.mvc.b.l
+    public Object ir(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.kw = this.kw;
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
-        builder.rn_need = Integer.valueOf(this.lkl);
+        builder.rn_need = Integer.valueOf(this.lEf);
         builder.with_group = Integer.valueOf(this.withGroup);
         builder.is_good = Integer.valueOf(this.isGood);
         builder.cid = Integer.valueOf(this.cid);
@@ -246,23 +249,23 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.dWx;
+        builder.yuelaou_locate = this.edT;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.cVp().cVs();
-        builder.load_type = Integer.valueOf(this.eBL);
-        builder.obj_locate = this.lkm;
-        builder.obj_source = this.lkn;
-        builder.is_selection = Integer.valueOf(this.lko);
+        builder.app_pos = com.baidu.tieba.recapp.d.a.cZF().cZI();
+        builder.load_type = Integer.valueOf(this.eLu);
+        builder.obj_locate = this.lEg;
+        builder.obj_source = this.lEh;
+        builder.is_selection = Integer.valueOf(this.lEi);
         builder.call_from = Integer.valueOf(this.callFrom);
-        builder.hot_thread_id = Long.valueOf(this.lkp);
+        builder.hot_thread_id = Long.valueOf(this.lEj);
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder2.yoga_lib_version = TbConfig.getCriusLibVersion();
         builder.ad_param = builder2.build(false);
         builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.cVu().cVw();
+        builder.ad_context_list = com.baidu.tieba.recapp.report.b.cZK().cZM();
         builder.up_schema = this.mSchemeUrl;
         com.baidu.tbadk.util.t.a(builder, true, false, true);
         FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();
@@ -271,16 +274,16 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String beM() {
+    public String bgR() {
         return null;
     }
 
-    public void fq(long j) {
-        this.lkp = j;
+    public void fu(long j) {
+        this.lEj = j;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean beN() {
+    public boolean bgS() {
         return false;
     }
 

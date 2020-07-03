@@ -14,34 +14,34 @@ public class a implements b {
     }
 
     @Override // org.java_websocket.b.b
-    public boolean RS(String str) {
+    public boolean SE(String str) {
         return true;
     }
 
     @Override // org.java_websocket.b.b
-    public boolean RT(String str) {
+    public boolean SF(String str) {
         return true;
     }
 
     @Override // org.java_websocket.b.b
     public void e(Framedata framedata) throws InvalidDataException {
-        if (framedata.dPh() || framedata.dPi() || framedata.dPj()) {
-            throw new InvalidFrameException("bad rsv RSV1: " + framedata.dPh() + " RSV2: " + framedata.dPi() + " RSV3: " + framedata.dPj());
+        if (framedata.dTN() || framedata.dTO() || framedata.dTP()) {
+            throw new InvalidFrameException("bad rsv RSV1: " + framedata.dTN() + " RSV2: " + framedata.dTO() + " RSV3: " + framedata.dTP());
         }
     }
 
     @Override // org.java_websocket.b.b
-    public String dPb() {
+    public String dTH() {
         return "";
     }
 
     @Override // org.java_websocket.b.b
-    public String dPc() {
+    public String dTI() {
         return "";
     }
 
     @Override // org.java_websocket.b.b
-    public b dPd() {
+    public b dTJ() {
         return new a();
     }
 

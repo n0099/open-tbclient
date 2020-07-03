@@ -5,16 +5,16 @@ import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class v implements h {
-    private final g yI;
+    private final g zi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(g gVar) {
-        this.yI = gVar;
+        this.zi = gVar;
     }
 
     @Override // android.arch.lifecycle.h
     public void a(j jVar, Lifecycle.Event event) {
-        this.yI.a(jVar, event, false, null);
-        this.yI.a(jVar, event, true, null);
+        this.zi.a(jVar, event, false, null);
+        this.zi.a(jVar, event, true, null);
     }
 }

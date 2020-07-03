@@ -11,8 +11,8 @@ public class v implements an {
     private v() {
     }
 
-    public static v Sx() {
-        return a.bHL;
+    public static v TD() {
+        return a.bMz;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.an
@@ -28,6 +28,6 @@ public class v implements an {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a {
-        private static final v bHL = new v();
+        private static final v bMz = new v();
     }
 }

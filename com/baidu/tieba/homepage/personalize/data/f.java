@@ -3,49 +3,49 @@ package com.baidu.tieba.homepage.personalize.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.ak;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.data.ap;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.w;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.Personalized.UserFollowLive;
 /* loaded from: classes9.dex */
 public class f extends AbsThreadDataSupport {
-    public static final BdUniqueId ifK = BdUniqueId.gen();
-    private List<AlaLiveInfo> ifL = new ArrayList();
+    public static final BdUniqueId iuV = BdUniqueId.gen();
+    private List<AlaLiveInfo> iuW = new ArrayList();
 
     public void a(UserFollowLive userFollowLive) {
-        this.ifL.clear();
-        if (userFollowLive != null && userFollowLive._switch.intValue() != 0 && !v.isEmpty(userFollowLive.user_follow_live)) {
-            this.ifL.addAll(userFollowLive.user_follow_live);
+        this.iuW.clear();
+        if (userFollowLive != null && userFollowLive._switch.intValue() != 0 && !w.isEmpty(userFollowLive.user_follow_live)) {
+            this.iuW.addAll(userFollowLive.user_follow_live);
         }
     }
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return ifK;
+        return iuV;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bk aOi() {
+    public bu aPS() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ak aOk() {
+    public ap aPU() {
         return null;
     }
 
-    public List<AlaLiveInfo> cgz() {
-        return this.ifL;
+    public List<AlaLiveInfo> cjZ() {
+        return this.iuW;
     }
 
-    public an cgA() {
-        an anVar = new an("c13620");
-        anVar.s("uid", TbadkApplication.getCurrentAccountId());
-        anVar.ag("fid", 0);
-        return anVar;
+    public ao cka() {
+        ao aoVar = new ao("c13620");
+        aoVar.s("uid", TbadkApplication.getCurrentAccountId());
+        aoVar.ag("fid", 0);
+        return aoVar;
     }
 }

@@ -15,9 +15,9 @@ import tv.chushou.basis.d.a.a.c;
 @h
 /* loaded from: classes5.dex */
 public final class b {
-    public static final a mYA = new a(null);
-    private static final b mYz = new b();
-    private final UploadManager mYy = new UploadManager();
+    private final UploadManager nup = new UploadManager();
+    public static final a nur = new a(null);
+    private static final b nuq = new b();
 
     private b() {
     }
@@ -25,32 +25,32 @@ public final class b {
     @h
     /* renamed from: com.kascend.chushou.toolkit.c.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    static final class C0818b implements UpCompletionHandler {
-        final /* synthetic */ c.a mYw;
+    static final class C0837b implements UpCompletionHandler {
+        final /* synthetic */ c.a nun;
 
-        C0818b(c.a aVar) {
-            this.mYw = aVar;
+        C0837b(c.a aVar) {
+            this.nun = aVar;
         }
 
         @Override // com.qiniu.android.storage.UpCompletionHandler
         public final void a(String str, ResponseInfo responseInfo, JSONObject jSONObject) {
             if (responseInfo != null) {
-                if (responseInfo.dHW() && jSONObject != null) {
-                    c.a aVar = this.mYw;
+                if (responseInfo.dMC() && jSONObject != null) {
+                    c.a aVar = this.nun;
                     if (aVar != null) {
                         aVar.onSuccess(jSONObject.toString());
                         return;
                     }
                     return;
                 }
-                c.a aVar2 = this.mYw;
+                c.a aVar2 = this.nun;
                 if (aVar2 != null) {
                     aVar2.onFailure(-1, responseInfo.error, null);
                     return;
                 }
                 return;
             }
-            c.a aVar3 = this.mYw;
+            c.a aVar3 = this.nun;
             if (aVar3 != null) {
                 aVar3.onFailure(-1, null, null);
             }
@@ -61,21 +61,21 @@ public final class b {
         q.m(file, "f");
         q.m(str, "key");
         q.m(str2, "token");
-        this.mYy.a(file, str, str2, new C0818b(aVar), new UploadOptions(null, null, false, new c(aVar), d.mYB));
+        this.nup.a(file, str, str2, new C0837b(aVar), new UploadOptions(null, null, false, new c(aVar), d.nus));
     }
 
     @h
     /* loaded from: classes5.dex */
     static final class c implements UpProgressHandler {
-        final /* synthetic */ c.a mYw;
+        final /* synthetic */ c.a nun;
 
         c(c.a aVar) {
-            this.mYw = aVar;
+            this.nun = aVar;
         }
 
         @Override // com.qiniu.android.storage.UpProgressHandler
         public final void b(String str, double d) {
-            c.a aVar = this.mYw;
+            c.a aVar = this.nun;
             if (aVar != null) {
                 aVar.onProgress((int) (100 * d));
             }
@@ -85,7 +85,7 @@ public final class b {
     @h
     /* loaded from: classes5.dex */
     static final class d implements UpCancellationSignal {
-        public static final d mYB = new d();
+        public static final d nus = new d();
 
         d() {
         }
@@ -106,8 +106,8 @@ public final class b {
             this();
         }
 
-        public final b dGo() {
-            return b.mYz;
+        public final b dKU() {
+            return b.nuq;
         }
     }
 }

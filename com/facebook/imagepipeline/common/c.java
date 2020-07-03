@@ -4,46 +4,46 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class c {
-    private boolean mwl;
-    private boolean mwm;
-    private boolean mwn;
-    private boolean mwo;
+    private boolean mSk;
+    private boolean mSl;
+    private boolean mSm;
+    private boolean mSn;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b mwp;
-    private int mwk = 100;
+    private com.facebook.imagepipeline.decoder.b mSo;
+    private int mSj = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int dyp() {
-        return this.mwk;
+    public int dCR() {
+        return this.mSj;
     }
 
-    public boolean dyq() {
-        return this.mwl;
+    public boolean dCS() {
+        return this.mSk;
     }
 
-    public boolean dyr() {
-        return this.mwm;
+    public boolean dCT() {
+        return this.mSl;
     }
 
-    public boolean dys() {
-        return this.mwn;
+    public boolean dCU() {
+        return this.mSm;
     }
 
-    public c wi(boolean z) {
-        this.mwo = z;
+    public c wE(boolean z) {
+        this.mSn = z;
         return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b dyt() {
-        return this.mwp;
+    public com.facebook.imagepipeline.decoder.b dCV() {
+        return this.mSo;
     }
 
-    public boolean dyu() {
-        return this.mwo;
+    public boolean dCW() {
+        return this.mSn;
     }
 
-    public Bitmap.Config dyv() {
+    public Bitmap.Config dCX() {
         return this.mBitmapConfig;
     }
 
@@ -52,7 +52,7 @@ public class c {
         return this;
     }
 
-    public b dyw() {
+    public b dCY() {
         return new b(this);
     }
 }

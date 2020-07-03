@@ -4,54 +4,54 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.data.AlaLiveInfoData;
-import com.baidu.live.data.am;
+import com.baidu.live.data.ar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class m {
-    private static Map<Long, Long> bfk = new HashMap();
-    private static Map<Long, Set<Long>> bfl = new HashMap();
+    private static Map<Long, Long> bku = new HashMap();
+    private static Map<Long, Set<Long>> bkv = new HashMap();
 
     public static Long au(long j) {
-        if (bfk.containsKey(Long.valueOf(j))) {
-            return bfk.get(Long.valueOf(j));
+        if (bku.containsKey(Long.valueOf(j))) {
+            return bku.get(Long.valueOf(j));
         }
         return 0L;
     }
 
     public static void h(long j, long j2) {
-        bfk.put(Long.valueOf(j), Long.valueOf(j2));
+        bku.put(Long.valueOf(j), Long.valueOf(j2));
     }
 
     public static boolean i(long j, long j2) {
         Set<Long> set;
-        if (bfl.containsKey(Long.valueOf(j)) && (set = bfl.get(Long.valueOf(j))) != null) {
+        if (bkv.containsKey(Long.valueOf(j)) && (set = bkv.get(Long.valueOf(j))) != null) {
             return set.contains(Long.valueOf(j2));
         }
         return false;
     }
 
     public static void j(long j, long j2) {
-        if (!bfl.containsKey(Long.valueOf(j))) {
+        if (!bkv.containsKey(Long.valueOf(j))) {
             HashSet hashSet = new HashSet();
             hashSet.add(Long.valueOf(j2));
-            bfl.put(Long.valueOf(j), hashSet);
+            bkv.put(Long.valueOf(j), hashSet);
             return;
         }
-        Set<Long> set = bfl.get(Long.valueOf(j));
+        Set<Long> set = bkv.get(Long.valueOf(j));
         if (set != null) {
             set.add(Long.valueOf(j2));
             return;
         }
         HashSet hashSet2 = new HashSet();
         hashSet2.add(Long.valueOf(j2));
-        bfl.put(Long.valueOf(j), hashSet2);
+        bkv.put(Long.valueOf(j), hashSet2);
     }
 
-    public static void HZ() {
-        bfl.clear();
+    public static void Jm() {
+        bkv.clear();
     }
 
     public static void k(long j, long j2) {
@@ -63,13 +63,6 @@ public class m {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public static void a(am amVar, AlaLiveInfoData alaLiveInfoData, boolean z) {
-        switch (amVar.eventType) {
-            case 1001:
-                o.a(alaLiveInfoData.feed_id, alaLiveInfoData.live_id, z, false);
-                return;
-            default:
-                return;
-        }
+    public static void a(ar arVar, AlaLiveInfoData alaLiveInfoData, boolean z) {
     }
 }

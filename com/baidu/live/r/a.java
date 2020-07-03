@@ -1,24 +1,18 @@
 package com.baidu.live.r;
+
+import android.view.ViewGroup;
+import com.baidu.live.data.q;
 /* loaded from: classes3.dex */
-public class a {
-    private b aYL;
-    private c aYM;
+public interface a {
+    void cA(int i);
 
-    public static a Ga() {
-        return C0173a.aYN;
-    }
+    void n(ViewGroup viewGroup);
 
-    public void a(c cVar) {
-        this.aYM = cVar;
-    }
+    boolean o(q qVar);
 
-    public b Gb() {
-        return this.aYL;
-    }
+    void release();
 
-    /* renamed from: com.baidu.live.r.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0173a {
-        private static final a aYN = new a();
-    }
+    void setCanVisible(boolean z);
+
+    void yW();
 }

@@ -1,40 +1,40 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes.dex */
-public class m implements o {
-    public static final BdUniqueId afZ = BdUniqueId.gen();
-    private String eka;
-    private String ekb;
-    private boolean ekc = false;
+public class m implements q {
+    public static final BdUniqueId agK = BdUniqueId.gen();
+    private String esL;
+    private String esM;
+    private boolean esN = false;
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return afZ;
+        return agK;
     }
 
-    public String bcD() {
-        return this.eka;
+    public String beF() {
+        return this.esL;
     }
 
-    public void xQ(String str) {
-        this.eka = str;
+    public void yj(String str) {
+        this.esL = str;
     }
 
     public String getSmallUrl() {
-        return this.ekb;
+        return this.esM;
     }
 
-    public void xR(String str) {
-        this.ekb = str;
+    public void yk(String str) {
+        this.esM = str;
     }
 
-    public boolean bcE() {
-        return this.ekc;
+    public boolean beG() {
+        return this.esN;
     }
 
-    public void hP(boolean z) {
-        this.ekc = z;
+    public void hY(boolean z) {
+        this.esN = z;
     }
 }

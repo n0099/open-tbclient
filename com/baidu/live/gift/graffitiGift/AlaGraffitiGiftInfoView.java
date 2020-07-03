@@ -5,14 +5,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.live.u.a;
 import com.baidu.live.utils.k;
 /* loaded from: classes3.dex */
 public class AlaGraffitiGiftInfoView extends LinearLayout {
-    private TbImageView aLS;
-    private HeadImageView aLT;
+    private TbImageView aOy;
+    private HeadImageView aOz;
     private TextView mTitle;
 
     public AlaGraffitiGiftInfoView(Context context) {
@@ -33,21 +33,21 @@ public class AlaGraffitiGiftInfoView extends LinearLayout {
     private void init() {
         View.inflate(getContext(), a.h.popup_graffiti_gift_info_layout, this);
         setBackgroundResource(a.f.ala_small_gift_bg_alpha_shape);
-        this.aLS = (TbImageView) findViewById(a.g.graffiti_sender_img);
-        this.aLS.setIsNight(false);
-        this.aLS.setAutoChangeStyle(false);
-        this.aLT = (HeadImageView) findViewById(a.g.graffiti_sender_avatar);
-        this.aLT.setIsRound(true);
-        this.aLT.setAutoChangeStyle(false);
-        this.aLT.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.aLT.setIsNight(false);
-        this.aLT.setAutoChangeStyle(false);
+        this.aOy = (TbImageView) findViewById(a.g.graffiti_sender_img);
+        this.aOy.setIsNight(false);
+        this.aOy.setAutoChangeStyle(false);
+        this.aOz = (HeadImageView) findViewById(a.g.graffiti_sender_avatar);
+        this.aOz.setIsRound(true);
+        this.aOz.setAutoChangeStyle(false);
+        this.aOz.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.aOz.setIsNight(false);
+        this.aOz.setAutoChangeStyle(false);
         this.mTitle = (TextView) findViewById(a.g.graffiti_sender_info_txt);
     }
 
     public void setGiftInfo(String str, String str2, String str3) {
-        this.aLT.setUrl(str);
-        k.a(this.aLT, str, false, false);
+        this.aOz.setUrl(str);
+        k.a(this.aOz, str, false, false);
         this.mTitle.setText(str3);
     }
 }

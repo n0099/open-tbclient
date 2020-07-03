@@ -11,8 +11,8 @@ import java.util.TreeMap;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, Object> cVW;
-    private Map<String, Integer> cVX;
+    private Map<String, Object> daI;
+    private Map<String, Integer> daJ;
 
     public static c e(JsObject jsObject) {
         if (jsObject == null) {
@@ -26,35 +26,35 @@ public class c {
         for (int i = 0; i < jsObject.length(); i++) {
             int propertyType = jsObject.getPropertyType(i);
             String propertyName = jsObject.getPropertyName(i);
-            cVar.azb().put(propertyName, Integer.valueOf(propertyType));
+            cVar.aAh().put(propertyName, Integer.valueOf(propertyType));
             switch (propertyType) {
                 case 1:
-                    cVar.aza().put(propertyName, Boolean.valueOf(jsObject.toBoolean(i)));
+                    cVar.aAg().put(propertyName, Boolean.valueOf(jsObject.toBoolean(i)));
                     break;
                 case 2:
-                    cVar.aza().put(propertyName, Integer.valueOf(jsObject.toInteger(i)));
+                    cVar.aAg().put(propertyName, Integer.valueOf(jsObject.toInteger(i)));
                     break;
                 case 3:
-                    cVar.aza().put(propertyName, Long.valueOf(jsObject.toLong(i)));
+                    cVar.aAg().put(propertyName, Long.valueOf(jsObject.toLong(i)));
                     break;
                 case 5:
-                    cVar.aza().put(propertyName, Double.valueOf(jsObject.toDouble(i)));
+                    cVar.aAg().put(propertyName, Double.valueOf(jsObject.toDouble(i)));
                     break;
                 case 6:
-                    cVar.aza().put(propertyName, new d(i, jsObject));
+                    cVar.aAg().put(propertyName, new d(i, jsObject));
                     z = true;
                     break;
                 case 7:
-                    cVar.aza().put(propertyName, jsObject.toString(i));
+                    cVar.aAg().put(propertyName, jsObject.toString(i));
                     break;
                 case 8:
-                    cVar.aza().put(propertyName, jsObject.toJsFunction(i));
+                    cVar.aAg().put(propertyName, jsObject.toJsFunction(i));
                     break;
                 case 9:
-                    cVar.aza().put(propertyName, e(jsObject.toJsObject(i)));
+                    cVar.aAg().put(propertyName, e(jsObject.toJsObject(i)));
                     break;
                 case 10:
-                    cVar.aza().put(propertyName, jsObject.toJsArrayBuffer(i));
+                    cVar.aAg().put(propertyName, jsObject.toJsArrayBuffer(i));
                     break;
             }
         }
@@ -64,44 +64,44 @@ public class c {
         return cVar;
     }
 
-    private Map<String, Object> aza() {
-        if (this.cVW == null) {
-            this.cVW = new TreeMap();
+    private Map<String, Object> aAg() {
+        if (this.daI == null) {
+            this.daI = new TreeMap();
         }
-        return this.cVW;
+        return this.daI;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Map<String, Integer> azb() {
-        if (this.cVX == null) {
-            this.cVX = new TreeMap();
+    public Map<String, Integer> aAh() {
+        if (this.daJ == null) {
+            this.daJ = new TreeMap();
         }
-        return this.cVX;
+        return this.daJ;
     }
 
     public Set<String> keySet() {
-        return aza().keySet();
+        return aAg().keySet();
     }
 
-    public int rm(String str) {
-        Integer num = azb().get(str);
+    public int ru(String str) {
+        Integer num = aAh().get(str);
         if (num == null) {
             num = 12;
         }
         return num.intValue();
     }
 
-    public boolean rn(String str) {
-        return azb().containsKey(str);
+    public boolean rv(String str) {
+        return aAh().containsKey(str);
     }
 
     public int length() {
-        return aza().size();
+        return aAg().size();
     }
 
     public void put(String str, Object obj) {
         if (!TextUtils.isEmpty(str) && obj != null) {
-            aza().put(str, obj);
+            aAg().put(str, obj);
         }
     }
 
@@ -110,12 +110,12 @@ public class c {
     }
 
     public boolean optBoolean(String str, boolean z) {
-        Boolean bool = a.toBoolean(aza().get(str));
+        Boolean bool = a.toBoolean(aAg().get(str));
         return bool != null ? bool.booleanValue() : z;
     }
 
     public int getInt(String str) throws JSTypeMismatchException {
-        Integer integer = a.toInteger(aza().get(str));
+        Integer integer = a.toInteger(aAg().get(str));
         if (integer == null) {
             throw a.a(this, str, 2);
         }
@@ -127,17 +127,17 @@ public class c {
     }
 
     public int optInt(String str, int i) {
-        Integer integer = a.toInteger(aza().get(str));
+        Integer integer = a.toInteger(aAg().get(str));
         return integer != null ? integer.intValue() : i;
     }
 
     public long optLong(String str, long j) {
-        Long l = a.toLong(aza().get(str));
+        Long l = a.toLong(aAg().get(str));
         return l != null ? l.longValue() : j;
     }
 
     public double getDouble(String str) throws JSTypeMismatchException {
-        Double d = a.toDouble(aza().get(str));
+        Double d = a.toDouble(aAg().get(str));
         if (d == null) {
             throw a.a(this, str, 5);
         }
@@ -145,55 +145,55 @@ public class c {
     }
 
     public double optDouble(String str, double d) {
-        Double d2 = a.toDouble(aza().get(str));
+        Double d2 = a.toDouble(aAg().get(str));
         return d2 != null ? d2.doubleValue() : d;
     }
 
-    public String[] ro(String str) throws JSTypeMismatchException {
-        d Z = a.Z(aza().get(str));
+    public String[] rw(String str) throws JSTypeMismatchException {
+        d Z = a.Z(aAg().get(str));
         if (Z == null) {
             throw a.a(this, str, 6);
         }
-        return Z.cVY.toStringArray(Z.index);
+        return Z.daK.toStringArray(Z.index);
     }
 
-    public String[] rp(String str) {
+    public String[] rx(String str) {
         return f(str, null);
     }
 
     public String[] f(String str, String[] strArr) {
-        d Z = a.Z(aza().get(str));
-        return Z != null ? Z.cVY.toStringArray(Z.index) : strArr;
+        d Z = a.Z(aAg().get(str));
+        return Z != null ? Z.daK.toStringArray(Z.index) : strArr;
     }
 
-    public JsObject[] rq(String str) throws JSTypeMismatchException {
-        d Z = a.Z(aza().get(str));
+    public JsObject[] ry(String str) throws JSTypeMismatchException {
+        d Z = a.Z(aAg().get(str));
         if (Z == null) {
             throw a.a(this, str, 6);
         }
-        return Z.cVY.toObjectArray(Z.index);
+        return Z.daK.toObjectArray(Z.index);
     }
 
-    public JsObject[] rr(String str) {
+    public JsObject[] rz(String str) {
         return a(str, (JsObject[]) null);
     }
 
     public JsObject[] a(String str, JsObject[] jsObjectArr) {
-        d Z = a.Z(aza().get(str));
-        return Z != null ? Z.cVY.toObjectArray(Z.index) : jsObjectArr;
+        d Z = a.Z(aAg().get(str));
+        return Z != null ? Z.daK.toObjectArray(Z.index) : jsObjectArr;
     }
 
-    public double[] rs(String str) {
+    public double[] rA(String str) {
         return a(str, (double[]) null);
     }
 
     public double[] a(String str, double[] dArr) {
-        d Z = a.Z(aza().get(str));
-        return Z != null ? Z.cVY.toDoubleArray(Z.index) : dArr;
+        d Z = a.Z(aAg().get(str));
+        return Z != null ? Z.daK.toDoubleArray(Z.index) : dArr;
     }
 
     public String getString(String str) throws JSTypeMismatchException {
-        String aVar = a.toString(aza().get(str));
+        String aVar = a.toString(aAg().get(str));
         if (aVar == null) {
             throw a.a(this, str, 7);
         }
@@ -205,34 +205,34 @@ public class c {
     }
 
     public String optString(String str, String str2) {
-        String aVar = a.toString(aza().get(str));
+        String aVar = a.toString(aAg().get(str));
         return aVar != null ? aVar : str2;
     }
 
     public String toString(String str) {
-        return String.valueOf(aza().get(str));
+        return String.valueOf(aAg().get(str));
     }
 
-    public JsFunction rt(String str) {
+    public JsFunction rB(String str) {
         return a(str, (JsFunction) null);
     }
 
     public JsFunction a(String str, JsFunction jsFunction) {
-        JsFunction aa = a.aa(aza().get(str));
+        JsFunction aa = a.aa(aAg().get(str));
         return aa != null ? aa : jsFunction;
     }
 
-    public c ru(String str) {
+    public c rC(String str) {
         return a(str, (c) null);
     }
 
     public c a(String str, c cVar) {
-        c ac = a.ac(aza().get(str));
+        c ac = a.ac(aAg().get(str));
         return ac != null ? ac : cVar;
     }
 
     public JsArrayBuffer a(String str, JsArrayBuffer jsArrayBuffer) {
-        JsArrayBuffer ab = a.ab(aza().get(str));
+        JsArrayBuffer ab = a.ab(aAg().get(str));
         return ab != null ? ab : jsArrayBuffer;
     }
 
@@ -313,8 +313,8 @@ public class c {
 
         static JSTypeMismatchException a(c cVar, String str, int i) {
             int i2;
-            if (cVar.azb().containsKey(str)) {
-                i2 = ((Integer) cVar.azb().get(str)).intValue();
+            if (cVar.aAh().containsKey(str)) {
+                i2 = ((Integer) cVar.aAh().get(str)).intValue();
             } else {
                 i2 = 12;
             }
@@ -323,6 +323,6 @@ public class c {
     }
 
     public String toString() {
-        return aza().toString();
+        return aAg().toString();
     }
 }

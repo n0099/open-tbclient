@@ -5,35 +5,35 @@ import com.baidu.swan.apps.aq.s;
 import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes11.dex */
 public class d implements com.baidu.swan.apps.console.debugger.a {
-    private static String Oh;
+    private static String OJ;
 
-    public static String Wv() {
-        return Oh;
+    public static String XB() {
+        return OJ;
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
-    public String VS() {
-        return b.VZ().getPath();
+    public String WY() {
+        return b.Xf().getPath();
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
     public void p(Bundle bundle) {
-        Oh = s.f(bundle, "extraWSUrl");
-        com.baidu.swan.apps.console.debugger.b.iN(s.f(bundle, "masterPreload"));
-        com.baidu.swan.apps.console.debugger.b.iO(s.f(bundle, "slavePreload"));
+        OJ = s.f(bundle, "extraWSUrl");
+        com.baidu.swan.apps.console.debugger.b.iV(s.f(bundle, "masterPreload"));
+        com.baidu.swan.apps.console.debugger.b.iW(s.f(bundle, "slavePreload"));
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
     public void q(Bundle bundle) {
-        bundle.putString("extraWSUrl", Oh);
-        bundle.putString("slavePreload", com.baidu.swan.apps.console.debugger.b.VU());
-        bundle.putString("masterPreload", com.baidu.swan.apps.console.debugger.b.VT());
+        bundle.putString("extraWSUrl", OJ);
+        bundle.putString("slavePreload", com.baidu.swan.apps.console.debugger.b.Xa());
+        bundle.putString("masterPreload", com.baidu.swan.apps.console.debugger.b.WZ());
     }
 
-    public static void Ww() {
-        e aoF = e.aoF();
-        if (aoF != null) {
-            com.baidu.swan.apps.aq.d.N(aoF.getActivity());
+    public static void XC() {
+        e apM = e.apM();
+        if (apM != null) {
+            com.baidu.swan.apps.aq.d.N(apM.getActivity());
             System.exit(0);
         }
     }

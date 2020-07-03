@@ -202,27 +202,27 @@ public class TextSampleEntry extends AbstractSampleEntry {
         int right;
 
         /* renamed from: top  reason: collision with root package name */
-        int f1031top;
+        int f1040top;
 
         public BoxRecord() {
         }
 
         public BoxRecord(int i, int i2, int i3, int i4) {
-            this.f1031top = i;
+            this.f1040top = i;
             this.left = i2;
             this.bottom = i3;
             this.right = i4;
         }
 
         public void parse(ByteBuffer byteBuffer) {
-            this.f1031top = IsoTypeReader.readUInt16(byteBuffer);
+            this.f1040top = IsoTypeReader.readUInt16(byteBuffer);
             this.left = IsoTypeReader.readUInt16(byteBuffer);
             this.bottom = IsoTypeReader.readUInt16(byteBuffer);
             this.right = IsoTypeReader.readUInt16(byteBuffer);
         }
 
         public void getContent(ByteBuffer byteBuffer) {
-            IsoTypeWriter.writeUInt16(byteBuffer, this.f1031top);
+            IsoTypeWriter.writeUInt16(byteBuffer, this.f1040top);
             IsoTypeWriter.writeUInt16(byteBuffer, this.left);
             IsoTypeWriter.writeUInt16(byteBuffer, this.bottom);
             IsoTypeWriter.writeUInt16(byteBuffer, this.right);
@@ -240,11 +240,11 @@ public class TextSampleEntry extends AbstractSampleEntry {
                 return false;
             }
             BoxRecord boxRecord = (BoxRecord) obj;
-            return this.bottom == boxRecord.bottom && this.left == boxRecord.left && this.right == boxRecord.right && this.f1031top == boxRecord.f1031top;
+            return this.bottom == boxRecord.bottom && this.left == boxRecord.left && this.right == boxRecord.right && this.f1040top == boxRecord.f1040top;
         }
 
         public int hashCode() {
-            return (((((this.f1031top * 31) + this.left) * 31) + this.bottom) * 31) + this.right;
+            return (((((this.f1040top * 31) + this.left) * 31) + this.bottom) * 31) + this.right;
         }
     }
 

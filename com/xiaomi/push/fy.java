@@ -17,13 +17,13 @@ public final class fy {
     private static int d = 330000;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Vector<String> f376a = new Vector<>();
+    private static Vector<String> f382a = new Vector<>();
 
     static {
         a = 5000;
         b = 330000;
         try {
-            for (ClassLoader classLoader : m302a()) {
+            for (ClassLoader classLoader : m299a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
                 while (resources.hasMoreElements()) {
                     InputStream inputStream = null;
@@ -42,7 +42,7 @@ public final class fy {
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
                                     b = a(newPullParser, b);
                                 } else if (newPullParser.getName().equals("mechName")) {
-                                    f376a.add(newPullParser.nextText());
+                                    f382a.add(newPullParser.nextText());
                                 }
                             }
                             eventType = newPullParser.next();
@@ -82,7 +82,7 @@ public final class fy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m301a() {
+    public static String m298a() {
         return "3.1.0";
     }
 
@@ -96,7 +96,7 @@ public final class fy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static ClassLoader[] m302a() {
+    private static ClassLoader[] m299a() {
         ClassLoader[] classLoaderArr = {fy.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (ClassLoader classLoader : classLoaderArr) {

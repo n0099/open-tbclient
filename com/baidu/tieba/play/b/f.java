@@ -8,16 +8,16 @@ import org.json.JSONObject;
 public class f {
     private List<a> mList = new ArrayList();
 
-    public void av(String str, String str2, String str3) {
+    public void aw(String str, String str2, String str3) {
         this.mList.add(new a(str, str2, str3));
     }
 
-    public String cSi() {
+    public String cWy() {
         JSONObject jSONObject = new JSONObject();
         try {
             int size = this.mList.size();
             for (int i = 0; i < size; i++) {
-                jSONObject.put(i + "", this.mList.get(i).cSj());
+                jSONObject.put(i + "", this.mList.get(i).cWz());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -28,21 +28,21 @@ public class f {
     /* loaded from: classes.dex */
     private static class a {
         public final String error;
-        public final String kEa;
+        public final String kXW;
         public final String uuid;
 
         public a(String str, String str2, String str3) {
             this.uuid = str;
             this.error = str2;
-            this.kEa = str3;
+            this.kXW = str3;
         }
 
-        public JSONObject cSj() {
+        public JSONObject cWz() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("uuid", this.uuid);
                 jSONObject.put(BdStatsConstant.StatsType.ERROR, this.error);
-                jSONObject.put("sub_error", this.kEa);
+                jSONObject.put("sub_error", this.kXW);
             } catch (Exception e) {
                 e.printStackTrace();
             }

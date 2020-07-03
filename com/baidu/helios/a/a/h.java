@@ -6,7 +6,7 @@ import org.json.JSONArray;
 interface h {
     String a(Context context);
 
-    JSONArray ai(Context context);
+    JSONArray aj(Context context);
 
     String c(Context context);
 

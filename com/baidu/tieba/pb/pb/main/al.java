@@ -9,17 +9,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.ak;
 /* loaded from: classes9.dex */
 public class al extends m<ai, ak> {
-    private com.baidu.tieba.pb.data.e jIA;
-    private ak.a jQZ;
+    private com.baidu.tieba.pb.data.e kck;
+    private ak.a kkP;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public al(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
-        this.jQZ = new ak.a() { // from class: com.baidu.tieba.pb.pb.main.al.1
+        this.kkP = new ak.a() { // from class: com.baidu.tieba.pb.pb.main.al.1
             @Override // com.baidu.tieba.pb.pb.main.ak.a
             public void b(ai aiVar) {
                 if (aiVar != null) {
-                    com.baidu.tieba.pb.c.a.a(al.this.jIA, aiVar, aiVar.locate, 5);
+                    com.baidu.tieba.pb.c.a.a(al.this.kck, aiVar, aiVar.locate, 5);
                 }
             }
         };
@@ -28,9 +28,9 @@ public class al extends m<ai, ak> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bX */
+    /* renamed from: cj */
     public ak b(ViewGroup viewGroup) {
-        return new ak(this.jHL.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_page_news, viewGroup, false), this.jQZ);
+        return new ak(this.kbv.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_page_news, viewGroup, false), this.kkP);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +40,7 @@ public class al extends m<ai, ak> {
         super.a(i, view, viewGroup, (ViewGroup) aiVar, (ai) akVar);
         if (aiVar != null) {
             aiVar.locate = i + 1;
-            com.baidu.tieba.pb.c.a.a(this.jHL.getUniqueId(), this.jIA, aiVar, aiVar.locate, 5);
+            com.baidu.tieba.pb.c.a.a(this.kbv.getUniqueId(), this.kck, aiVar, aiVar.locate, 5);
             akVar.a(aiVar);
             akVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -48,6 +48,6 @@ public class al extends m<ai, ak> {
     }
 
     public void setData(com.baidu.tieba.pb.data.e eVar) {
-        this.jIA = eVar;
+        this.kck = eVar;
     }
 }

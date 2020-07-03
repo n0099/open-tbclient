@@ -3,42 +3,42 @@ package com.baidu.mario.gldraw2d.params;
 import android.opengl.Matrix;
 /* loaded from: classes11.dex */
 public class b implements Cloneable {
-    private float[] bnc;
-    private boolean bnd;
-    private boolean bne;
+    private float[] bsc;
+    private boolean bsd;
+    private boolean bse;
     private float[] mMVPMatrix = new float[16];
     private long mTimestamp;
 
     public b() {
         Matrix.setIdentityM(this.mMVPMatrix, 0);
-        this.bnc = new float[16];
-        Matrix.setIdentityM(this.bnc, 0);
-        this.bnd = false;
-        this.bne = false;
+        this.bsc = new float[16];
+        Matrix.setIdentityM(this.bsc, 0);
+        this.bsd = false;
+        this.bse = false;
     }
 
-    public float[] Kt() {
+    public float[] LC() {
         return this.mMVPMatrix;
     }
 
-    public void s(float[] fArr) {
+    public void t(float[] fArr) {
         this.mMVPMatrix = fArr;
     }
 
-    public float[] Ku() {
-        return this.bnc;
+    public float[] LD() {
+        return this.bsc;
     }
 
-    public void t(float[] fArr) {
-        this.bnc = fArr;
+    public void u(float[] fArr) {
+        this.bsc = fArr;
     }
 
-    public boolean Kv() {
-        return this.bnd;
+    public boolean LE() {
+        return this.bsd;
     }
 
-    public boolean Kw() {
-        return this.bne;
+    public boolean LF() {
+        return this.bse;
     }
 
     public void setTimestamp(long j) {
@@ -46,7 +46,7 @@ public class b implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: Kx */
+    /* renamed from: LG */
     public b clone() {
         b bVar = null;
         try {
@@ -55,8 +55,8 @@ public class b implements Cloneable {
             e.printStackTrace();
         }
         if (bVar != null) {
-            bVar.s((float[]) this.mMVPMatrix.clone());
-            bVar.t((float[]) this.bnc.clone());
+            bVar.t((float[]) this.mMVPMatrix.clone());
+            bVar.u((float[]) this.bsc.clone());
         }
         return bVar;
     }

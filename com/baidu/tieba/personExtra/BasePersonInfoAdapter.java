@@ -7,45 +7,45 @@ import com.baidu.tbadk.core.BaseFragment;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
-    private int[] fwl;
-    private ArrayList<BaseFragment> kod;
+    private int[] fHv;
+    private ArrayList<BaseFragment> kHZ;
 
-    protected abstract BaseFragment cNZ();
+    protected abstract BaseFragment cSq();
 
     public BasePersonInfoAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         super(basePersonInfoActivity.getSupportFragmentManager());
-        this.kod = new ArrayList<>();
+        this.kHZ = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
-        BaseFragment cNZ = cNZ();
-        cNZ.setArguments(bundle);
-        this.kod.add(cNZ);
+        BaseFragment cSq = cSq();
+        cSq.setArguments(bundle);
+        this.kHZ.add(cSq);
         if (!z) {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
-            BaseFragment cNZ2 = cNZ();
-            cNZ2.setArguments(bundle2);
-            this.kod.add(cNZ2);
-            this.fwl = new int[]{0, 1};
+            BaseFragment cSq2 = cSq();
+            cSq2.setArguments(bundle2);
+            this.kHZ.add(cSq2);
+            this.fHv = new int[]{0, 1};
             return;
         }
-        this.fwl = new int[]{0};
+        this.fHv = new int[]{0};
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (i >= this.fwl.length || i < 0) {
+        if (i >= this.fHv.length || i < 0) {
             return null;
         }
-        return this.kod.get(i);
+        return this.kHZ.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.fwl.length;
+        return this.fHv.length;
     }
 
-    public int yd(int i) {
-        return this.fwl[i];
+    public int yN(int i) {
+        return this.fHv[i];
     }
 }

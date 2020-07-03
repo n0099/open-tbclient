@@ -5,10 +5,10 @@ import java.util.NoSuchElementException;
 @kotlin.h
 /* loaded from: classes7.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State ntp = State.NotReady;
-    private T ntq;
+    private State nPc = State.NotReady;
+    private T nPd;
 
-    protected abstract void dLE();
+    protected abstract void dQk();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -17,14 +17,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (this.ntp != State.Failed) {
-            switch (this.ntp) {
+        if (this.nPc != State.Failed) {
+            switch (this.nPc) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return dLD();
+                    return dQj();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -33,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.ntp = State.NotReady;
-            return this.ntq;
+            this.nPc = State.NotReady;
+            return this.nPd;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean dLD() {
-        this.ntp = State.Failed;
-        dLE();
-        return this.ntp == State.Ready;
+    private final boolean dQj() {
+        this.nPc = State.Failed;
+        dQk();
+        return this.nPc == State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void bH(T t) {
-        this.ntq = t;
-        this.ntp = State.Ready;
+    public final void bI(T t) {
+        this.nPd = t;
+        this.nPc = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.ntp = State.Done;
+        this.nPc = State.Done;
     }
 }

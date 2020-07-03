@@ -36,34 +36,34 @@ public class h {
         }
         switch (c) {
             case 0:
-                jv(str2);
+                jD(str2);
                 return;
             case 1:
-                jw(str2);
+                jE(str2);
                 return;
             case 2:
-                G(str2, z);
+                I(str2, z);
                 return;
             default:
                 return;
         }
     }
 
-    private static void jv(String str) {
+    private static void jD(String str) {
         if (DEBUG) {
             Log.d("SwanAppPkgUpdateManager", "send update ready msg");
         }
         c("updateReady", str, null);
     }
 
-    private static void jw(String str) {
+    private static void jE(String str) {
         if (DEBUG) {
             Log.d("SwanAppPkgUpdateManager", "send update failed msg");
         }
         c("updateFailed", str, null);
     }
 
-    private static void G(String str, boolean z) {
+    private static void I(String str, boolean z) {
         if (DEBUG) {
             Log.d("SwanAppPkgUpdateManager", "send checkForUpdate msg, hasUpdate=" + z);
         }
@@ -84,7 +84,7 @@ public class h {
             bundle = new Bundle();
         }
         bundle.putString("eventType", str);
-        com.baidu.swan.apps.process.messaging.a.amG().a(new com.baidu.swan.apps.process.messaging.c(107, bundle).u(str2));
+        com.baidu.swan.apps.process.messaging.a.anM().a(new com.baidu.swan.apps.process.messaging.c(107, bundle).t(str2));
     }
 
     public static void l(Message message) {
@@ -105,11 +105,11 @@ public class h {
             }
             hashMap.put("data", jSONObject.toString());
             com.baidu.swan.apps.event.a.b bVar = new com.baidu.swan.apps.event.a.b("updateStatusChange", hashMap);
-            SwanAppActivity ahF = com.baidu.swan.apps.w.f.ahV().ahF();
-            if (ahF != null && ahF.Qz() == 1) {
-                com.baidu.swan.games.aa.a.aBY().ag(string, bundle.getBoolean("hasUpdate"));
+            SwanAppActivity aiL = com.baidu.swan.apps.w.f.ajb().aiL();
+            if (aiL != null && aiL.RF() == 1) {
+                com.baidu.swan.games.aa.a.aDe().ai(string, bundle.getBoolean("hasUpdate"));
             } else {
-                com.baidu.swan.apps.w.f.ahV().a(bVar);
+                com.baidu.swan.apps.w.f.ajb().a(bVar);
             }
         }
     }

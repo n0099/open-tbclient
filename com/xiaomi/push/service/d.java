@@ -19,7 +19,7 @@ public class d {
     private p a = new p();
 
     public static String a(ap.b bVar) {
-        return !"9".equals(bVar.g) ? bVar.f858a + ".permission.MIPUSH_RECEIVE" : bVar.f858a + ".permission.MIMC_RECEIVE";
+        return !"9".equals(bVar.g) ? bVar.f864a + ".permission.MIPUSH_RECEIVE" : bVar.f864a + ".permission.MIMC_RECEIVE";
     }
 
     private static void a(Context context, Intent intent, ap.b bVar) {
@@ -31,18 +31,18 @@ public class d {
     }
 
     ap.b a(fl flVar) {
-        Collection<ap.b> m542a = ap.a().m542a(Integer.toString(flVar.a()));
-        if (m542a.isEmpty()) {
+        Collection<ap.b> m539a = ap.a().m539a(Integer.toString(flVar.a()));
+        if (m539a.isEmpty()) {
             return null;
         }
-        Iterator<ap.b> it = m542a.iterator();
-        if (m542a.size() == 1) {
+        Iterator<ap.b> it = m539a.iterator();
+        if (m539a.size() == 1) {
             return it.next();
         }
         String g = flVar.g();
         while (it.hasNext()) {
             ap.b next = it.next();
-            if (TextUtils.equals(g, next.f861b)) {
+            if (TextUtils.equals(g, next.f867b)) {
                 return next;
             }
         }
@@ -54,19 +54,19 @@ public class d {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     ap.b a(gj gjVar) {
-        Collection<ap.b> m542a = ap.a().m542a(gjVar.k());
-        if (m542a.isEmpty()) {
+        Collection<ap.b> m539a = ap.a().m539a(gjVar.k());
+        if (m539a.isEmpty()) {
             return null;
         }
-        Iterator<ap.b> it = m542a.iterator();
-        if (m542a.size() == 1) {
+        Iterator<ap.b> it = m539a.iterator();
+        if (m539a.size() == 1) {
             return it.next();
         }
         String m = gjVar.m();
         String l = gjVar.l();
         while (it.hasNext()) {
             ap.b next = it.next();
-            if (TextUtils.equals(m, next.f861b) || TextUtils.equals(l, next.f861b)) {
+            if (TextUtils.equals(m, next.f867b) || TextUtils.equals(l, next.f867b)) {
                 return next;
             }
             while (it.hasNext()) {
@@ -91,20 +91,20 @@ public class d {
         }
         Intent intent = new Intent();
         intent.setAction("com.xiaomi.push.channel_closed");
-        intent.setPackage(bVar.f858a);
+        intent.setPackage(bVar.f864a);
         intent.putExtra(at.r, bVar.g);
         intent.putExtra("ext_reason", i);
-        intent.putExtra(at.p, bVar.f861b);
+        intent.putExtra(at.p, bVar.f867b);
         intent.putExtra(at.C, bVar.i);
-        if (bVar.f852a == null || !"9".equals(bVar.g)) {
+        if (bVar.f858a == null || !"9".equals(bVar.g)) {
             a(context, intent, bVar);
             return;
         }
         try {
-            bVar.f852a.send(Message.obtain(null, 17, intent));
+            bVar.f858a.send(Message.obtain(null, 17, intent));
         } catch (RemoteException e) {
-            bVar.f852a = null;
-            com.xiaomi.channel.commonutils.logger.b.m51a("peer may died: " + bVar.f861b.substring(bVar.f861b.lastIndexOf(64)));
+            bVar.f858a = null;
+            com.xiaomi.channel.commonutils.logger.b.m48a("peer may died: " + bVar.f867b.substring(bVar.f867b.lastIndexOf(64)));
         }
     }
 
@@ -115,11 +115,11 @@ public class d {
         }
         Intent intent = new Intent();
         intent.setAction("com.xiaomi.push.kicked");
-        intent.setPackage(bVar.f858a);
+        intent.setPackage(bVar.f864a);
         intent.putExtra("ext_kick_type", str);
         intent.putExtra("ext_kick_reason", str2);
         intent.putExtra("ext_chid", bVar.g);
-        intent.putExtra(at.p, bVar.f861b);
+        intent.putExtra(at.p, bVar.f867b);
         intent.putExtra(at.C, bVar.i);
         a(context, intent, bVar);
     }
@@ -131,7 +131,7 @@ public class d {
         }
         Intent intent = new Intent();
         intent.setAction("com.xiaomi.push.channel_opened");
-        intent.setPackage(bVar.f858a);
+        intent.setPackage(bVar.f864a);
         intent.putExtra("ext_succeeded", z);
         if (!z) {
             intent.putExtra("ext_reason", i);
@@ -140,7 +140,7 @@ public class d {
             intent.putExtra("ext_reason_msg", str);
         }
         intent.putExtra("ext_chid", bVar.g);
-        intent.putExtra(at.p, bVar.f861b);
+        intent.putExtra(at.p, bVar.f867b);
         intent.putExtra(at.C, bVar.i);
         a(context, intent, bVar);
     }
@@ -152,21 +152,21 @@ public class d {
         } else if ("5".equalsIgnoreCase(str)) {
             this.a.a(xMPushService, flVar, a);
         } else {
-            String str2 = a.f858a;
+            String str2 = a.f864a;
             Intent intent = new Intent();
             intent.setAction("com.xiaomi.push.new_msg");
             intent.setPackage(str2);
             intent.putExtra("ext_chid", str);
-            intent.putExtra("ext_raw_packet", flVar.m282a(a.h));
+            intent.putExtra("ext_raw_packet", flVar.m279a(a.h));
             intent.putExtra(at.C, a.i);
             intent.putExtra(at.v, a.h);
-            if (a.f852a != null) {
+            if (a.f858a != null) {
                 try {
-                    a.f852a.send(Message.obtain(null, 17, intent));
+                    a.f858a.send(Message.obtain(null, 17, intent));
                     return;
                 } catch (RemoteException e) {
-                    a.f852a = null;
-                    com.xiaomi.channel.commonutils.logger.b.m51a("peer may died: " + a.f861b.substring(a.f861b.lastIndexOf(64)));
+                    a.f858a = null;
+                    com.xiaomi.channel.commonutils.logger.b.m48a("peer may died: " + a.f867b.substring(a.f867b.lastIndexOf(64)));
                 }
             }
             if ("com.xiaomi.xmsf".equals(str2)) {
@@ -184,7 +184,7 @@ public class d {
         } else if ("5".equalsIgnoreCase(str)) {
             this.a.a(xMPushService, gjVar, a);
         } else {
-            String str3 = a.f858a;
+            String str3 = a.f864a;
             if (gjVar instanceof gi) {
                 str2 = "com.xiaomi.push.new_msg";
             } else if (gjVar instanceof gh) {

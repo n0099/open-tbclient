@@ -11,6 +11,7 @@ public class CmdConfigHttp {
     public static final int CMD_ADD_EXPERIENCED = 1003332;
     public static final int CMD_ADD_LINK = 1003324;
     public static final int CMD_ADD_MSG_RECORD = 1003071;
+    public static final int CMD_ADD_POLL_POST = 1003468;
     public static final int CMD_ADD_SUB_COMMENT = 1003380;
     public static final int CMD_ADD_USER_ATTR_URL = 1003018;
     public static final int CMD_AD_CLOSE = 1003322;
@@ -19,6 +20,7 @@ public class CmdConfigHttp {
     public static final int CMD_AGREE = 1003426;
     public static final int CMD_ALA_HTTP_BASE_CMD = 1021000;
     public static final int CMD_ALA_HTTP_MAX_CMD = 1030999;
+    public static final int CMD_ALA_LIVE_ROOM_CLOSED = 1003466;
     public static final int CMD_ALA_VERIFY_STRATEGY = 1003303;
     public static final int CMD_ALL_THEME_LIST = 1003032;
     public static final int CMD_APPLY_COPY_THREAD = 1003066;
@@ -29,6 +31,7 @@ public class CmdConfigHttp {
     public static final int CMD_BUBBLE_CATEGORY = 1003039;
     public static final int CMD_BUBBLE_LIST = 1003055;
     public static final int CMD_BUBBLE_SET = 1003056;
+    public static final int CMD_CALL_FANS = 1003464;
     public static final int CMD_CANDIDATE_SEARCH = 1003435;
     public static final int CMD_CHANGE_FLOOR_AGREE = 1001604;
     public static final int CMD_CHANGE_PORTRAIT = 1003063;
@@ -59,6 +62,7 @@ public class CmdConfigHttp {
     public static final int CMD_DELETE_EMOTION_PACKAGE = 1003347;
     public static final int CMD_DELETE_HISTORY_FORUM = 1003395;
     public static final int CMD_DELETE_SUB_COMMENT = 1003381;
+    public static final int CMD_DEL_REPLY_AT_MSG = 1003469;
     public static final int CMD_DO_DAILY_TASK = 1003173;
     public static final int CMD_DRESSUP_CENTER = 1003030;
     public static final int CMD_EMOTION_DETAIL = 1003361;
@@ -75,6 +79,9 @@ public class CmdConfigHttp {
     public static final int CMD_FRS_COMMON_TAB = 1003418;
     public static final int CMD_FRS_DYNAMIC = 1003398;
     public static final int CMD_FRS_GAME_STRATEGY = 1003362;
+    public static final int CMD_FRS_LIVE_HORSE_RACE_LIST = 1003462;
+    public static final int CMD_FRS_MOVE_AREA = 1003467;
+    public static final int CMD_FRS_RECOMMEND = 1003465;
     public static final int CMD_FRS_STAGE_FEED_BACK = 1003390;
     public static final int CMD_FRS_TALK_BALL = 1003403;
     public static final int CMD_FRS_VIDEO_TOPIC = 1003405;
@@ -144,9 +151,11 @@ public class CmdConfigHttp {
     public static final int CMD_GUIDE_INTERESTED_FORUM = 1003457;
     public static final int CMD_GUIDE_INTEREST_COMMIT = 1003458;
     public static final int CMD_HISTORY_SWAN = 1003434;
+    public static final int CMD_HOME_TAB_ACTIVITY_LIST = 1003461;
     public static final int CMD_HOT_THREAD_UNLIKE = 1003017;
     public static final int CMD_HOT_TOPIC = 1003041;
     public static final int CMD_HOT_TOPIC_RANKLIST = 1003078;
+    public static final int CMD_HOT_TOPIC_TAB = 1003463;
     public static final int CMD_HOT_USER_RANK = 1003455;
     public static final int CMD_HTTP_DECRYPT_CODE = 1003421;
     public static final int CMD_HTTP_FRS_TAB_AD = 1003411;

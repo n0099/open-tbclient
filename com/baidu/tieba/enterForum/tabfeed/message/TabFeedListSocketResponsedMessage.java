@@ -1,11 +1,14 @@
 package com.baidu.tieba.enterForum.tabfeed.message;
 
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
+import com.baidu.tbadk.mvc.b.k;
 import com.baidu.tieba.enterForum.tabfeed.b.a;
 import com.squareup.wire.Wire;
+import java.util.ArrayList;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
 /* loaded from: classes9.dex */
-public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage {
+public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements k {
     public a enterForumTabFeedData;
 
     public TabFeedListSocketResponsedMessage() {
@@ -26,5 +29,13 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage {
             this.enterForumTabFeedData = new a();
             this.enterForumTabFeedData.a(tabfeedlistResIdl.data);
         }
+    }
+
+    public ArrayList<q> getThreadList() {
+        return this.enterForumTabFeedData.bSV();
+    }
+
+    public Object getExtra() {
+        return this.enterForumTabFeedData.bSX();
     }
 }

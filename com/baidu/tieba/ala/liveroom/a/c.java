@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.liveroom.a;
 public interface c {
     void aA(String str, int i);
 
-    void cu(int i);
+    void cA(int i);
 
-    void g(long j, String str);
+    void e(long j, String str, String str2);
 
     void pause();
 

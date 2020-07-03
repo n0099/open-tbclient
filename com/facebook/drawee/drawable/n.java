@@ -10,12 +10,12 @@ public class n extends m {
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!dww()) {
+        if (!dAZ()) {
             super.draw(canvas);
             return;
         }
-        dwy();
-        dwx();
+        dBb();
+        dBa();
         canvas.clipPath(this.mPath);
         super.draw(canvas);
     }

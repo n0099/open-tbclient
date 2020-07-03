@@ -6,17 +6,17 @@ import com.baidu.swan.apps.b;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a ccY;
+    private static volatile a chM;
 
-    public static a acI() {
-        if (ccY == null) {
+    public static a adO() {
+        if (chM == null) {
             synchronized (a.class) {
-                if (ccY == null) {
-                    ccY = new a();
+                if (chM == null) {
+                    chM = new a();
                 }
             }
         }
-        return ccY;
+        return chM;
     }
 
     public void a(@Nullable final com.baidu.swan.apps.aq.e.b<Exception> bVar, final int i) {
@@ -54,7 +54,7 @@ public class a {
     }
 
     public void b(@Nullable final com.baidu.swan.apps.aq.e.b<Exception> bVar, final int i) {
-        com.baidu.swan.apps.swancore.c.b.asb().c(new com.baidu.swan.apps.aq.e.b<Exception>() { // from class: com.baidu.swan.apps.extcore.cores.a.2
+        com.baidu.swan.apps.swancore.c.b.ati().c(new com.baidu.swan.apps.aq.e.b<Exception>() { // from class: com.baidu.swan.apps.extcore.cores.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.aq.e.b
             /* renamed from: p */
@@ -77,18 +77,18 @@ public class a {
         }, i);
     }
 
-    public void acJ() {
-        com.baidu.swan.apps.swancore.c.b.asb().c(null, 0);
-        com.baidu.swan.apps.swancore.c.b.asb().c(null, 1);
+    public void adP() {
+        com.baidu.swan.apps.swancore.c.b.ati().c(null, 0);
+        com.baidu.swan.apps.swancore.c.b.ati().c(null, 1);
         com.baidu.swan.apps.extcore.b.a(0, (com.baidu.swan.apps.aq.e.b<Exception>) null);
         com.baidu.swan.apps.extcore.b.a(1, (com.baidu.swan.apps.aq.e.b<Exception>) null);
     }
 
-    public void af(int i, int i2) {
+    public void ah(int i, int i2) {
         if (DEBUG) {
             Log.d("SwanAppCoresManager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
         }
-        com.baidu.swan.apps.swancore.b.af(i, i2);
-        com.baidu.swan.apps.extcore.b.af(i, i2);
+        com.baidu.swan.apps.swancore.b.ah(i, i2);
+        com.baidu.swan.apps.extcore.b.ah(i, i2);
     }
 }

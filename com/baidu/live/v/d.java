@@ -1,61 +1,50 @@
 package com.baidu.live.v;
 
 import android.text.TextUtils;
-import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.data.i;
-import com.baidu.live.message.g;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d {
-    private long aZa;
-    private i.a aZb;
-    private List<String> aZc;
+    private long beh;
+    private i.a bei;
+    private List<String> bej;
 
-    public static d Gl() {
-        return a.aZd;
-    }
-
-    public void a(long j, long j2, int i) {
-        g gVar = new g();
-        gVar.setId(i);
-        gVar.addParam("benefit_userid", j);
-        gVar.addParam("live_id", j2);
-        gVar.addParam("activity_id", i);
-        MessageManager.getInstance().sendMessage(gVar);
+    public static d Ht() {
+        return a.bek;
     }
 
     public void b(i.a aVar) {
-        if (this.aZc != null) {
-            this.aZc.clear();
+        if (this.bej != null) {
+            this.bej.clear();
         }
         ap(0L);
-        this.aZb = aVar;
-        if (this.aZb != null) {
-            List<String> list = aVar.avg;
+        this.bei = aVar;
+        if (this.bei != null) {
+            List<String> list = aVar.axm;
             if (list != null && !list.isEmpty()) {
-                if (this.aZc == null) {
-                    this.aZc = new ArrayList();
+                if (this.bej == null) {
+                    this.bej = new ArrayList();
                 }
-                this.aZc.addAll(list);
+                this.bej.addAll(list);
             }
             ap(aVar.endTime - aVar.currentTime);
         }
     }
 
-    public double f(boolean z, String str) {
+    public double g(boolean z, String str) {
         double a2;
-        if (this.aZb == null || this.aZb.avd != 1) {
+        if (this.bei == null || this.bei.axj != 1) {
             return 0.0d;
         }
         if (z) {
-            if (Gm()) {
-                a2 = Math.max(a(str, this.aZb.avf), a(str, this.aZb.ave));
+            if (Hu()) {
+                a2 = Math.max(a(str, this.bei.axl), a(str, this.bei.axk));
             } else {
-                a2 = a(str, this.aZb.ave);
+                a2 = a(str, this.bei.axk);
             }
         } else {
-            a2 = Gm() ? a(str, this.aZb.avf) : 0.0d;
+            a2 = Hu() ? a(str, this.bei.axl) : 0.0d;
         }
         if (a2 == 1.0d || a2 < 0.0d) {
             return 0.0d;
@@ -64,9 +53,9 @@ public class d {
     }
 
     private double a(String str, double d) {
-        if (!TextUtils.isEmpty(str) && this.aZb != null) {
-            if (this.aZb.avh != null && !this.aZb.avh.isEmpty()) {
-                for (String str2 : this.aZb.avh) {
+        if (!TextUtils.isEmpty(str) && this.bei != null) {
+            if (this.bei.axn != null && !this.bei.axn.isEmpty()) {
+                for (String str2 : this.bei.axn) {
                     if (str.equals(str2)) {
                         return d;
                     }
@@ -78,31 +67,31 @@ public class d {
         return 0.0d;
     }
 
-    public boolean Gm() {
-        return this.aZa > 0;
+    public boolean Hu() {
+        return this.beh > 0;
     }
 
-    public void Gn() {
-        this.aZa = 0L;
+    public void Hv() {
+        this.beh = 0L;
     }
 
     public void ap(long j) {
-        this.aZa = j;
+        this.beh = j;
     }
 
-    public boolean fC(String str) {
-        if (this.aZc == null || this.aZc.isEmpty()) {
+    public boolean fK(String str) {
+        if (this.bej == null || this.bej.isEmpty()) {
             return false;
         }
-        return this.aZc.contains(str);
+        return this.bej.contains(str);
     }
 
     public void release() {
-        this.aZa = 0L;
-        if (this.aZc != null) {
-            this.aZc.clear();
+        this.beh = 0L;
+        if (this.bej != null) {
+            this.bej.clear();
         }
-        this.aZb = null;
+        this.bei = null;
     }
 
     private d() {
@@ -110,6 +99,6 @@ public class d {
 
     /* loaded from: classes3.dex */
     private static class a {
-        private static final d aZd = new d();
+        private static final d bek = new d();
     }
 }

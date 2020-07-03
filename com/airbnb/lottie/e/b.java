@@ -3,23 +3,23 @@ package com.airbnb.lottie.e;
 import android.support.annotation.RestrictTo;
 /* loaded from: classes6.dex */
 public class b<T> {
-    private T FO;
-    private T FP;
-    private float FX;
-    private float FY;
-    private float FZ;
-    private float zN;
-    private float zO;
+    private float Ao;
+    private float Ap;
+    private T Gp;
+    private T Gq;
+    private float Gx;
+    private float Gy;
+    private float Gz;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public b<T> a(float f, float f2, T t, T t2, float f3, float f4, float f5) {
-        this.zN = f;
-        this.zO = f2;
-        this.FO = t;
-        this.FP = t2;
-        this.FX = f3;
-        this.FY = f4;
-        this.FZ = f5;
+        this.Ao = f;
+        this.Ap = f2;
+        this.Gp = t;
+        this.Gq = t2;
+        this.Gx = f3;
+        this.Gy = f4;
+        this.Gz = f5;
         return this;
     }
 }

@@ -7,36 +7,36 @@ import com.baidu.ar.arplay.representation.Quaternion;
 /* loaded from: classes3.dex */
 public class e extends j {
     private static final String TAG = e.class.getSimpleName();
-    private final Quaternion qf;
-    private int qg;
-    private double qh;
-    private Quaternion qo;
-    private Quaternion qp;
-    private boolean qq;
-    private int qr;
+    private final Quaternion qE;
+    private int qF;
+    private double qG;
+    private Quaternion qN;
+    private Quaternion qO;
+    private boolean qP;
+    private int qQ;
     private long timestamp;
 
     public e(SensorManager sensorManager) {
         super(sensorManager);
-        this.qf = new Quaternion();
-        this.qo = new Quaternion();
-        this.qp = new Quaternion();
-        this.qh = 0.0d;
-        this.qq = false;
-        this.qg = 0;
-        this.rf.add(sensorManager.getDefaultSensor(4));
-        this.rf.add(sensorManager.getDefaultSensor(11));
+        this.qE = new Quaternion();
+        this.qN = new Quaternion();
+        this.qO = new Quaternion();
+        this.qG = 0.0d;
+        this.qP = false;
+        this.qF = 0;
+        this.rE.add(sensorManager.getDefaultSensor(4));
+        this.rE.add(sensorManager.getDefaultSensor(11));
     }
 
     private void a(Quaternion quaternion) {
-        Quaternion m18clone = quaternion.m18clone();
-        m18clone.w(-m18clone.w());
-        synchronized (this.re) {
-            this.rh.copyVec4(quaternion);
-            SensorManager.getRotationMatrixFromVector(this.rg.matrix, m18clone.toArray());
-            this.qg++;
-            if (this.qg > 20) {
-                dr();
+        Quaternion m17clone = quaternion.m17clone();
+        m17clone.w(-m17clone.w());
+        synchronized (this.rD) {
+            this.rG.copyVec4(quaternion);
+            SensorManager.getRotationMatrixFromVector(this.rF.matrix, m17clone.toArray());
+            this.qF++;
+            if (this.qF > 20) {
+                dH();
                 setChanged();
                 notifyObservers();
             }
@@ -55,23 +55,23 @@ public class e extends j {
         fArr[3] = fArr2[2];
     }
 
-    protected void dr() {
-        if (this.rj) {
-            a(this.rm.matrix, this.rg.matrix, this.rk.matrix);
+    protected void dH() {
+        if (this.rI) {
+            a(this.rL.matrix, this.rF.matrix, this.rJ.matrix);
             return;
         }
-        this.rj = true;
-        System.arraycopy(this.rg.matrix, 0, this.rk.matrix, 0, this.rg.matrix.length);
-        Matrix.setIdentityM(this.rm.matrix, 0);
+        this.rI = true;
+        System.arraycopy(this.rF.matrix, 0, this.rJ.matrix, 0, this.rF.matrix.length);
+        Matrix.setIdentityM(this.rL.matrix, 0);
     }
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
         if (sensorEvent.sensor.getType() == 11) {
-            synchronized (this.rc) {
+            synchronized (this.rB) {
                 for (int i = 0; i < sensorEvent.values.length; i++) {
                     if (Float.isNaN(sensorEvent.values[i])) {
-                        this.rd = false;
+                        this.rC = false;
                         return;
                     }
                 }
@@ -81,59 +81,59 @@ public class e extends j {
                 } catch (Exception e) {
                     getQuaternionFromVector(fArr, sensorEvent.values);
                 }
-                this.qp.setXYZW(fArr[1], fArr[2], fArr[3], -fArr[0]);
-                if (this.qq) {
+                this.qO.setXYZW(fArr[1], fArr[2], fArr[3], -fArr[0]);
+                if (this.qP) {
                     return;
                 }
-                this.qo.set(this.qp);
-                this.qq = true;
+                this.qN.set(this.qO);
+                this.qP = true;
             }
         } else if (sensorEvent.sensor.getType() == 4) {
-            synchronized (this.rc) {
-                if (this.rd.booleanValue()) {
+            synchronized (this.rB) {
+                if (this.rC.booleanValue()) {
                     if (this.timestamp != 0) {
                         float f = ((float) (sensorEvent.timestamp - this.timestamp)) * 1.0E-9f;
                         float f2 = sensorEvent.values[0];
                         float f3 = sensorEvent.values[1];
                         float f4 = sensorEvent.values[2];
-                        this.qh = Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4));
-                        if (this.qh > 0.10000000149011612d) {
-                            f2 = (float) (f2 / this.qh);
-                            f3 = (float) (f3 / this.qh);
-                            f4 = (float) (f4 / this.qh);
+                        this.qG = Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4));
+                        if (this.qG > 0.10000000149011612d) {
+                            f2 = (float) (f2 / this.qG);
+                            f3 = (float) (f3 / this.qG);
+                            f4 = (float) (f4 / this.qG);
                         } else {
-                            this.qh = 0.0d;
+                            this.qG = 0.0d;
                         }
-                        double d = (f * this.qh) / 2.0d;
+                        double d = (f * this.qG) / 2.0d;
                         double sin = Math.sin(d);
                         double cos = Math.cos(d);
-                        this.qf.setX((float) (f2 * sin));
-                        this.qf.setY((float) (f3 * sin));
-                        this.qf.setZ((float) (sin * f4));
-                        this.qf.setW(-((float) cos));
-                        this.qf.multiplyByQuat(this.qo, this.qo);
-                        float dotProduct = this.qo.dotProduct(this.qp);
+                        this.qE.setX((float) (f2 * sin));
+                        this.qE.setY((float) (f3 * sin));
+                        this.qE.setZ((float) (sin * f4));
+                        this.qE.setW(-((float) cos));
+                        this.qE.multiplyByQuat(this.qN, this.qN);
+                        float dotProduct = this.qN.dotProduct(this.qO);
                         if (Math.abs(dotProduct) < 0.0f) {
                             if (Math.abs(dotProduct) < 0.0f) {
-                                this.qr++;
+                                this.qQ++;
                             }
-                            a(this.qo);
+                            a(this.qN);
                         } else {
                             Quaternion quaternion = new Quaternion();
-                            this.qo.slerp(this.qp, quaternion, (float) (0.009999999776482582d * this.qh));
+                            this.qN.slerp(this.qO, quaternion, (float) (0.009999999776482582d * this.qG));
                             a(quaternion);
-                            this.qo.copyVec4(quaternion);
-                            this.qr = 0;
+                            this.qN.copyVec4(quaternion);
+                            this.qQ = 0;
                         }
-                        if (this.qr > 60) {
+                        if (this.qQ > 60) {
                             com.baidu.ar.f.b.c(TAG, "Rotation VectorPanic counter is bigger than threshold; this indicates a Gyroscope failure. Panic reset is imminent.");
-                            if (this.qh < 3.0d) {
+                            if (this.qG < 3.0d) {
                                 com.baidu.ar.f.b.c(TAG, "Rotation VectorPerforming Panic-reset. Resetting orientation to rotation-vector value.");
-                                a(this.qp);
-                                this.qo.copyVec4(this.qp);
-                                this.qr = 0;
+                                a(this.qO);
+                                this.qN.copyVec4(this.qO);
+                                this.qQ = 0;
                             } else {
-                                com.baidu.ar.f.b.c(TAG, "Rotation Vector" + String.format("Panic reset delayed due to ongoing motion (user is still shaking the device). Gyroscope Velocity: %.2f > 3", Double.valueOf(this.qh)));
+                                com.baidu.ar.f.b.c(TAG, "Rotation Vector" + String.format("Panic reset delayed due to ongoing motion (user is still shaking the device). Gyroscope Velocity: %.2f > 3", Double.valueOf(this.qG)));
                             }
                         }
                     }

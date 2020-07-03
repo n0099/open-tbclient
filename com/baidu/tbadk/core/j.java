@@ -16,7 +16,7 @@ public class j implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
         if (activity != null && !activity.getClass().getSimpleName().equals("LogoActivity")) {
-            com.baidu.tbadk.BdToken.d.aLs().Z(activity);
+            com.baidu.tbadk.BdToken.d.aMD().Z(activity);
         }
     }
 

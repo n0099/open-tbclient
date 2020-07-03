@@ -1,4 +1,5 @@
 package com.baidu.live.tbadk.core.util;
+@Deprecated
 /* loaded from: classes3.dex */
 public abstract class TbEnum {
 

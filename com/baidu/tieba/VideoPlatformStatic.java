@@ -26,22 +26,22 @@ import org.apache.http.HttpHost;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class VideoPlatformStatic {
-    private static CustomMessageListener eMO = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
+    private static CustomMessageListener eXa = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.u.e.dhG().dhC();
-            com.baidu.tieba.u.b.dhB().dhC();
+            com.baidu.tieba.u.e.dlO().dlK();
+            com.baidu.tieba.u.b.dlJ().dlK();
         }
     };
 
     static {
-        blV();
-        MessageManager.getInstance().registerListener(eMO);
-        blW();
+        bou();
+        MessageManager.getInstance().registerListener(eXa);
+        bov();
     }
 
-    private static void blV() {
+    private static void bou() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, new CustomMessageTask.CustomRunnable<l>() { // from class: com.baidu.tieba.VideoPlatformStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -53,7 +53,7 @@ public class VideoPlatformStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void blW() {
+    private static void bov() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003388, TbConfig.SERVER_ADDRESS + TbConfig.URL_MOOV_REPORT);
         tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
@@ -61,7 +61,7 @@ public class VideoPlatformStatic {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static int oX(int i) {
+    public static int pw(int i) {
         switch (i) {
             case -400:
                 return 4;
@@ -74,7 +74,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static int zH(String str) {
+    public static int Aa(String str) {
         if (str.contains("127.0.0.1")) {
             return 1;
         }
@@ -84,7 +84,7 @@ public class VideoPlatformStatic {
         return 0;
     }
 
-    public static String oY(int i) {
+    public static String px(int i) {
         switch (i) {
             case Integer.MIN_VALUE:
                 return TbadkCoreApplication.getInst().getString(R.string.error_extra_system_system);
@@ -169,7 +169,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static String zI(String str) {
+    public static String Ab(String str) {
         if (TextUtils.equals(str, "1")) {
             return "index";
         }
@@ -197,14 +197,14 @@ public class VideoPlatformStatic {
         return str;
     }
 
-    public static JSONObject blX() {
+    public static JSONObject bow() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appVer", TbConfig.getVersion());
             jSONObject.put("clientIp", com.baidu.tbadk.core.util.d.getIp());
             jSONObject.put("clientTimestamp", String.valueOf(System.currentTimeMillis()));
             jSONObject.put("deviceId", UtilHelper.getDeviceId());
-            jSONObject.put("network", lu());
+            jSONObject.put("network", lK());
             jSONObject.put(HttpConstants.HTTP_OS_TYPE_OLD, AlaLiveBaseInfo.mOSType);
             jSONObject.put("osVer", Build.VERSION.RELEASE);
             if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
@@ -224,7 +224,7 @@ public class VideoPlatformStatic {
         return jSONObject;
     }
 
-    public static String lu() {
+    public static String lK() {
         if (j.isWifiNet()) {
             return "WIFI";
         }
@@ -240,7 +240,7 @@ public class VideoPlatformStatic {
         return "4G";
     }
 
-    public static String oZ(int i) {
+    public static String py(int i) {
         switch (i) {
             case 101:
                 return TbadkCoreApplication.getInst().getString(R.string.post_error_compress_success);

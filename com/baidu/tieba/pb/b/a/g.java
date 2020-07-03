@@ -7,26 +7,26 @@ import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes10.dex */
 public class g implements c {
     private String color;
-    private SpannableStringBuilder kbD;
-    private int kbE;
+    private SpannableStringBuilder kvq;
+    private int kvr;
     private int textSize;
 
     public g() {
-        this.kbE = 0;
+        this.kvr = 0;
         this.textSize = -1;
-        this.kbD = new SpannableStringBuilder();
+        this.kvq = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.kbE = 0;
+        this.kvr = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.kbD = new SpannableStringBuilder();
+            this.kvq = new SpannableStringBuilder();
             if (excContent != null) {
-                this.kbD.append((CharSequence) excContent.text);
+                this.kvq.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
-                this.kbE = excContent.align.intValue();
+                this.kvr = excContent.align.intValue();
             }
             if (!StringUtils.isNull(excContent.color)) {
                 this.color = excContent.color;
@@ -40,9 +40,9 @@ public class g implements c {
         }
     }
 
-    public void n(CharSequence charSequence) {
+    public void r(CharSequence charSequence) {
         if (charSequence != null) {
-            this.kbD.append(charSequence);
+            this.kvq.append(charSequence);
         }
     }
 
@@ -52,21 +52,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence cKu() {
-        return this.kbD;
+    public CharSequence cOL() {
+        return this.kvq;
     }
 
-    public int cKw() {
-        return this.kbE;
+    public int cON() {
+        return this.kvr;
     }
 
-    public String cKx() {
+    public String cOO() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean cKv() {
-        return (this.kbE > 0 && this.kbE < 3) || !StringUtils.isNull(this.color);
+    public boolean cOM() {
+        return (this.kvr > 0 && this.kvr < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

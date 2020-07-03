@@ -5,8 +5,8 @@ import android.content.ContextWrapper;
 import android.content.SharedPreferences;
 /* loaded from: classes11.dex */
 public class b extends ContextWrapper {
-    private static b abA;
-    private h abB;
+    private static b ace;
+    private h acf;
 
     public b() {
         super(null);
@@ -14,12 +14,12 @@ public class b extends ContextWrapper {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.content.ContextWrapper, android.content.Context
-    /* renamed from: qU */
+    /* renamed from: rl */
     public h getResources() {
-        if (this.abB == null) {
-            this.abB = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+        if (this.acf == null) {
+            this.acf = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
         }
-        return this.abB;
+        return this.acf;
     }
 
     @Override // android.content.ContextWrapper
@@ -27,13 +27,13 @@ public class b extends ContextWrapper {
         super.attachBaseContext(context);
     }
 
-    public static synchronized b qV() {
+    public static synchronized b rm() {
         b bVar;
         synchronized (b.class) {
-            if (abA == null) {
-                abA = new b();
+            if (ace == null) {
+                ace = new b();
             }
-            bVar = abA;
+            bVar = ace;
         }
         return bVar;
     }

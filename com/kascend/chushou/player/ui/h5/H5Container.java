@@ -32,12 +32,12 @@ public class H5Container extends FrameLayout {
     private Context a;
     private String b;
     private final List<a> c;
-    private c mVD;
-    private b mVE;
-    private com.kascend.chushou.player.ui.h5.b.a mVF;
-    private com.kascend.chushou.player.ui.h5.redpacket.b mVG;
-    private com.kascend.chushou.player.b mVH;
-    private io.reactivex.disposables.a mVI;
+    private c nru;
+    private b nrv;
+    private com.kascend.chushou.player.ui.h5.b.a nrw;
+    private com.kascend.chushou.player.ui.h5.redpacket.b nrx;
+    private com.kascend.chushou.player.b nry;
+    private io.reactivex.disposables.a nrz;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
@@ -81,40 +81,40 @@ public class H5Container extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        if (this.mVI != null) {
-            this.mVI.dispose();
-            this.mVI = null;
+        if (this.nrz != null) {
+            this.nrz.dispose();
+            this.nrz = null;
         }
-        tv.chushou.zues.a.a.ch(this);
+        tv.chushou.zues.a.a.ci(this);
         super.onDetachedFromWindow();
     }
 
     public void setPlayerViewHelper(com.kascend.chushou.player.b bVar) {
-        this.mVH = bVar;
+        this.nry = bVar;
     }
 
     public void a(int i, com.kascend.chushou.player.ui.h5.d.a aVar) {
-        if (this.mVD != null) {
-            this.mVD.setVisibility(0);
+        if (this.nru != null) {
+            this.nru.setVisibility(0);
             return;
         }
-        H5Positon Jg = aVar.Jg(i);
-        if (Jg != null) {
-            this.mVD = new c(this.a);
-            this.mVD.setCloseH5Listener(new e() { // from class: com.kascend.chushou.player.ui.h5.H5Container.1
+        H5Positon Kn = aVar.Kn(i);
+        if (Kn != null) {
+            this.nru = new c(this.a);
+            this.nru.setCloseH5Listener(new e() { // from class: com.kascend.chushou.player.ui.h5.H5Container.1
                 @Override // com.kascend.chushou.widget.cswebview.e, com.kascend.chushou.widget.cswebview.d
                 public void a(Object obj) {
                     H5Container.this.a();
                 }
             });
-            com.kascend.chushou.player.ui.h5.c.c dGe = aVar.dGe();
-            a(this.mVD, dGe.l, aVar);
-            this.mVD.a(i, Jg, dGe);
-            if (dGe.d > 0) {
-                if (this.mVI == null) {
-                    this.mVI = new io.reactivex.disposables.a();
+            com.kascend.chushou.player.ui.h5.c.c dKK = aVar.dKK();
+            a(this.nru, dKK.l, aVar);
+            this.nru.a(i, Kn, dKK);
+            if (dKK.d > 0) {
+                if (this.nrz == null) {
+                    this.nrz = new io.reactivex.disposables.a();
                 }
-                RxExecutor.postDelayed(this.mVI, EventThread.MAIN_THREAD, dGe.d, TimeUnit.SECONDS, new Runnable() { // from class: com.kascend.chushou.player.ui.h5.H5Container.4
+                RxExecutor.postDelayed(this.nrz, EventThread.MAIN_THREAD, dKK.d, TimeUnit.SECONDS, new Runnable() { // from class: com.kascend.chushou.player.ui.h5.H5Container.4
                     @Override // java.lang.Runnable
                     public void run() {
                         if (ViewCompat.isAttachedToWindow(H5Container.this)) {
@@ -129,31 +129,31 @@ public class H5Container extends FrameLayout {
     public void a(int i, Object obj) {
         H5Positon h5Positon;
         if (obj instanceof com.kascend.chushou.player.ui.h5.c.b) {
-            if (this.mVE != null) {
-                this.mVE.setVisibility(0);
+            if (this.nrv != null) {
+                this.nrv.setVisibility(0);
                 return;
             }
             com.kascend.chushou.player.ui.h5.c.b bVar = (com.kascend.chushou.player.ui.h5.c.b) obj;
             if (i == 1) {
-                h5Positon = bVar.mWs;
+                h5Positon = bVar.nsj;
             } else {
-                h5Positon = bVar.mWt;
+                h5Positon = bVar.nsk;
             }
             if (h5Positon != null) {
-                this.mVE = new b(this.a);
-                this.mVE.setCloseH5Listener(new e() { // from class: com.kascend.chushou.player.ui.h5.H5Container.5
+                this.nrv = new b(this.a);
+                this.nrv.setCloseH5Listener(new e() { // from class: com.kascend.chushou.player.ui.h5.H5Container.5
                     @Override // com.kascend.chushou.widget.cswebview.e, com.kascend.chushou.widget.cswebview.d
                     public void a(Object obj2) {
                         H5Container.this.b();
                     }
                 });
-                a(this.mVE, bVar.l, bVar);
-                this.mVE.a(i, h5Positon, bVar);
+                a(this.nrv, bVar.l, bVar);
+                this.nrv.a(i, h5Positon, bVar);
                 if (bVar.c > 0) {
-                    if (this.mVI == null) {
-                        this.mVI = new io.reactivex.disposables.a();
+                    if (this.nrz == null) {
+                        this.nrz = new io.reactivex.disposables.a();
                     }
-                    RxExecutor.postDelayed(this.mVI, EventThread.MAIN_THREAD, bVar.c, TimeUnit.SECONDS, new Runnable() { // from class: com.kascend.chushou.player.ui.h5.H5Container.6
+                    RxExecutor.postDelayed(this.nrz, EventThread.MAIN_THREAD, bVar.c, TimeUnit.SECONDS, new Runnable() { // from class: com.kascend.chushou.player.ui.h5.H5Container.6
                         @Override // java.lang.Runnable
                         public void run() {
                             if (ViewCompat.isAttachedToWindow(H5Container.this)) {
@@ -167,31 +167,31 @@ public class H5Container extends FrameLayout {
     }
 
     public void a() {
-        if (this.mVD != null) {
-            a(this.mVD);
-            this.mVD = null;
+        if (this.nru != null) {
+            a(this.nru);
+            this.nru = null;
         }
     }
 
     public void b() {
-        if (this.mVE != null) {
-            a(this.mVE);
-            this.mVE = null;
+        if (this.nrv != null) {
+            a(this.nrv);
+            this.nrv = null;
         }
     }
 
     public void a(int i, com.kascend.chushou.player.ui.h5.b.b bVar) {
-        H5Positon Jg;
-        if (this.mVF != null) {
-            this.mVF.a();
+        H5Positon Kn;
+        if (this.nrw != null) {
+            this.nrw.a();
             f();
             return;
         }
         List<com.kascend.chushou.player.ui.h5.c.c> d = bVar.d();
-        if (!h.isEmpty(d) && (Jg = bVar.Jg(i)) != null) {
-            this.mVF = new com.kascend.chushou.player.ui.h5.b.a(this.a);
-            a(this.mVF, d.get(d.size() - 1).l, bVar);
-            this.mVF.setCloseH5Listener(new com.kascend.chushou.widget.cswebview.d() { // from class: com.kascend.chushou.player.ui.h5.H5Container.7
+        if (!h.isEmpty(d) && (Kn = bVar.Kn(i)) != null) {
+            this.nrw = new com.kascend.chushou.player.ui.h5.b.a(this.a);
+            a(this.nrw, d.get(d.size() - 1).l, bVar);
+            this.nrw.setCloseH5Listener(new com.kascend.chushou.widget.cswebview.d() { // from class: com.kascend.chushou.player.ui.h5.H5Container.7
                 @Override // com.kascend.chushou.widget.cswebview.d
                 public void a(Object obj) {
                     H5Container.this.c();
@@ -201,29 +201,29 @@ public class H5Container extends FrameLayout {
                 public void a(String str) {
                 }
             });
-            this.mVF.a(i, Jg, bVar);
+            this.nrw.a(i, Kn, bVar);
         }
     }
 
     public void c() {
-        if (this.mVF != null) {
-            a(this.mVF);
-            this.mVF = null;
+        if (this.nrw != null) {
+            a(this.nrw);
+            this.nrw = null;
         }
     }
 
     public void a(int i, com.kascend.chushou.player.ui.h5.redpacket.a aVar) {
-        H5Positon Jg;
-        if (this.mVG != null) {
-            this.mVG.a();
+        H5Positon Kn;
+        if (this.nrx != null) {
+            this.nrx.a();
             f();
             return;
         }
         List<com.kascend.chushou.player.ui.h5.c.e> a2 = aVar.a();
-        if (!h.isEmpty(a2) && (Jg = aVar.Jg(i)) != null) {
-            this.mVG = new com.kascend.chushou.player.ui.h5.redpacket.b(this.a);
-            a(this.mVG, a2.get(a2.size() - 1).l, aVar);
-            this.mVG.setCloseH5Listener(new com.kascend.chushou.widget.cswebview.d() { // from class: com.kascend.chushou.player.ui.h5.H5Container.8
+        if (!h.isEmpty(a2) && (Kn = aVar.Kn(i)) != null) {
+            this.nrx = new com.kascend.chushou.player.ui.h5.redpacket.b(this.a);
+            a(this.nrx, a2.get(a2.size() - 1).l, aVar);
+            this.nrx.setCloseH5Listener(new com.kascend.chushou.widget.cswebview.d() { // from class: com.kascend.chushou.player.ui.h5.H5Container.8
                 @Override // com.kascend.chushou.widget.cswebview.d
                 public void a(Object obj) {
                     H5Container.this.d();
@@ -233,14 +233,14 @@ public class H5Container extends FrameLayout {
                 public void a(String str) {
                 }
             });
-            this.mVG.a(i, Jg, aVar);
+            this.nrx.a(i, Kn, aVar);
         }
     }
 
     public void d() {
-        if (this.mVG != null) {
-            a(this.mVG);
-            this.mVG = null;
+        if (this.nrx != null) {
+            a(this.nrx);
+            this.nrx = null;
         }
     }
 
@@ -267,9 +267,9 @@ public class H5Container extends FrameLayout {
                     return;
                 }
             }
-            H5Positon h5Positon = aVar.mWt;
+            H5Positon h5Positon = aVar.nsk;
             if (i == 1) {
-                h5Positon = aVar.mWs;
+                h5Positon = aVar.nsj;
             }
             if (h5Positon != null) {
                 CommonH5View commonH5View = new CommonH5View(this.a);
@@ -284,8 +284,8 @@ public class H5Container extends FrameLayout {
                     }
                 });
                 boolean a3 = a(commonH5View, aVar.l, aVar);
-                if (this.mVH != null) {
-                    this.mVH.a(aVar);
+                if (this.nry != null) {
+                    this.nry.a(aVar);
                 }
                 commonH5View.a(i, h5Positon, aVar);
                 if (aVar.o.contains("m/quest/pay-first.htm")) {
@@ -293,23 +293,23 @@ public class H5Container extends FrameLayout {
                     this.b = aVar.p;
                 }
                 if (aVar.c == 2) {
-                    Set<String> dEq = com.kascend.chushou.d.h.dEn().dEq();
-                    if (dEq == null) {
-                        dEq = new HashSet<>();
+                    Set<String> dIS = com.kascend.chushou.d.h.dIP().dIS();
+                    if (dIS == null) {
+                        dIS = new HashSet<>();
                     }
-                    dEq.add(aVar.b);
-                    com.kascend.chushou.d.h.dEn().a(dEq);
+                    dIS.add(aVar.b);
+                    com.kascend.chushou.d.h.dIP().a(dIS);
                 }
                 if (a3) {
-                    Animation loadAnimation = AnimationUtils.loadAnimation(this.a, a.C0795a.flake_show);
+                    Animation loadAnimation = AnimationUtils.loadAnimation(this.a, a.C0814a.flake_show);
                     commonH5View.setVisibility(0);
                     commonH5View.startAnimation(loadAnimation);
                 }
                 if (aVar.a > 0) {
-                    if (this.mVI == null) {
-                        this.mVI = new io.reactivex.disposables.a();
+                    if (this.nrz == null) {
+                        this.nrz = new io.reactivex.disposables.a();
                     }
-                    RxExecutor.postDelayed(this.mVI, EventThread.MAIN_THREAD, aVar.a, TimeUnit.SECONDS, new Runnable() { // from class: com.kascend.chushou.player.ui.h5.H5Container.10
+                    RxExecutor.postDelayed(this.nrz, EventThread.MAIN_THREAD, aVar.a, TimeUnit.SECONDS, new Runnable() { // from class: com.kascend.chushou.player.ui.h5.H5Container.10
                         @Override // java.lang.Runnable
                         public void run() {
                             if (ViewCompat.isAttachedToWindow(H5Container.this)) {
@@ -336,8 +336,8 @@ public class H5Container extends FrameLayout {
                 }
                 if (!h.isEmpty(str2) && str.equals(str2)) {
                     removeView(next.a);
-                    if (this.mVH != null) {
-                        this.mVH.a(str);
+                    if (this.nry != null) {
+                        this.nry.a(str);
                     }
                     it.remove();
                 }
@@ -393,10 +393,10 @@ public class H5Container extends FrameLayout {
                 @Override // tv.chushou.zues.widget.sweetalert.b.a
                 public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
                     bVar.dismiss();
-                    com.kascend.chushou.d.h.dEn().b(str);
+                    com.kascend.chushou.d.h.dIP().b(str);
                     H5Container.this.a(str2);
                 }
-            }).SD(this.a.getResources().getString(a.i.alert_dialog_cancel)).SF(this.a.getResources().getString(a.i.quit_str)).SC(this.a.getResources().getString(a.i.str_dialog_tip_title)).x(this.a.getResources().getString(a.i.quit_answer)).show();
+            }).Tp(this.a.getResources().getString(a.i.alert_dialog_cancel)).Tr(this.a.getResources().getString(a.i.quit_str)).To(this.a.getResources().getString(a.i.str_dialog_tip_title)).B(this.a.getResources().getString(a.i.quit_answer)).show();
         }
     }
 
@@ -451,13 +451,13 @@ public class H5Container extends FrameLayout {
                 Object obj = aVar.c;
                 if (obj instanceof com.kascend.chushou.player.ui.h5.redpacket.a) {
                     ((com.kascend.chushou.player.ui.h5.redpacket.a) obj).b();
-                    this.mVG = null;
+                    this.nrx = null;
                 } else if (obj instanceof com.kascend.chushou.player.ui.h5.b.b) {
-                    this.mVF = null;
+                    this.nrw = null;
                 } else if (obj instanceof com.kascend.chushou.player.ui.h5.d.a) {
-                    this.mVD = null;
+                    this.nru = null;
                 } else if (obj instanceof com.kascend.chushou.player.ui.h5.c.b) {
-                    this.mVE = null;
+                    this.nrv = null;
                 }
             }
             a(true);

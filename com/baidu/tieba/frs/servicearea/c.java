@@ -11,9 +11,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.y;
@@ -24,14 +24,14 @@ import java.util.List;
 public class c implements b {
     private RecyclerView mRecyclerView;
     private List<z> mDataList = new ArrayList();
-    private boolean hII = false;
+    private boolean hVU = false;
     private RecyclerView.Adapter mAdapter = new RecyclerView.Adapter<a>() { // from class: com.baidu.tieba.frs.servicearea.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.support.v7.widget.RecyclerView.Adapter
-        /* renamed from: u */
+        /* renamed from: v */
         public a onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             int i2 = 0;
-            if (c.this.hII) {
+            if (c.this.hVU) {
                 i2 = l.getEquipmentWidth(viewGroup.getContext()) / getItemCount();
             }
             return new a(new LinearLayout(viewGroup.getContext()), i2);
@@ -60,11 +60,11 @@ public class c implements b {
 
     @Override // com.baidu.tieba.frs.servicearea.b
     public void setData(y yVar) {
-        if (yVar != null && !v.isEmpty(yVar.dataList)) {
+        if (yVar != null && !w.isEmpty(yVar.dataList)) {
             this.mDataList = yVar.dataList;
             this.mAdapter.notifyDataSetChanged();
-            this.hII = yVar.lkX == 4 || yVar.lkX == 5;
-            if (!this.hII) {
+            this.hVU = yVar.lER == 4 || yVar.lER == 5;
+            if (!this.hVU) {
                 this.mRecyclerView.setPadding(l.getDimens(this.mRecyclerView.getContext(), R.dimen.tbds3), 0, 0, 0);
                 this.mRecyclerView.setClipToPadding(false);
             }
@@ -78,67 +78,67 @@ public class c implements b {
 
     /* loaded from: classes9.dex */
     public static class a extends RecyclerView.ViewHolder {
-        private LinearLayout ezZ;
-        private FrameLayout hIK;
-        private TbClipImageView hIL;
-        private View hIM;
-        private z hIN;
-        private List<String> hIO;
+        private LinearLayout eJo;
+        private FrameLayout hVW;
+        private TbClipImageView hVX;
+        private View hVY;
+        private z hVZ;
+        private List<String> hWa;
         private View.OnClickListener mOnClickListener;
         private TextView mTextView;
 
         public a(View view, int i) {
             super(view);
-            this.hIO = new ArrayList();
+            this.hWa = new ArrayList();
             this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.servicearea.c.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    e.a(view2.getContext(), a.this.hIN, a.this.hIM);
-                    e.c(a.this.hIN);
+                    e.a(view2.getContext(), a.this.hVZ, a.this.hVY);
+                    e.c(a.this.hVZ);
                 }
             };
             Context context = view.getContext();
-            this.ezZ = (LinearLayout) view;
-            this.ezZ.setGravity(1);
-            this.ezZ.setOrientation(1);
-            this.hIK = new FrameLayout(context);
-            this.hIL = new TbClipImageView(context);
+            this.eJo = (LinearLayout) view;
+            this.eJo.setGravity(1);
+            this.eJo.setOrientation(1);
+            this.hVW = new FrameLayout(context);
+            this.hVX = new TbClipImageView(context);
             int dimens = l.getDimens(context, R.dimen.tbds94);
             int dimens2 = i > 0 ? (i - dimens) / 2 : l.getDimens(context, R.dimen.tbds53);
-            this.hIL.setDrawerType(1);
-            this.hIL.setIsRound(true);
-            this.hIL.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.hIL.setPlaceHolder(1);
-            this.hIK.addView(this.hIL, new FrameLayout.LayoutParams(dimens, dimens));
-            this.hIM = new View(context);
+            this.hVX.setDrawerType(1);
+            this.hVX.setIsRound(true);
+            this.hVX.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.hVX.setPlaceHolder(1);
+            this.hVW.addView(this.hVX, new FrameLayout.LayoutParams(dimens, dimens));
+            this.hVY = new View(context);
             int dimens3 = l.getDimens(context, R.dimen.tbds20);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimens3, dimens3);
             layoutParams.gravity = 5;
-            this.hIK.addView(this.hIM, layoutParams);
+            this.hVW.addView(this.hVY, layoutParams);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams2.leftMargin = dimens2;
             layoutParams2.rightMargin = dimens2;
-            this.ezZ.addView(this.hIK, layoutParams2);
+            this.eJo.addView(this.hVW, layoutParams2);
             this.mTextView = new TextView(context);
             this.mTextView.setTextSize(0, l.getDimens(context, R.dimen.tbfontsize31));
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams3.topMargin = l.getDimens(context, R.dimen.tbds16);
-            this.ezZ.addView(this.mTextView, layoutParams3);
+            this.eJo.addView(this.mTextView, layoutParams3);
             view.setOnClickListener(this.mOnClickListener);
         }
 
         public void a(z zVar) {
             if (zVar != null) {
-                this.hIN = zVar;
-                this.hIL.startLoad(zVar.imageUrl, 10, false);
-                this.mTextView.setText(aq.cutChineseAndEnglishWithSuffix(zVar.name, 8, ""));
-                am.setViewTextColor(this.mTextView, (int) R.color.cp_cont_b);
-                am.setBackgroundColor(this.itemView, R.color.cp_bg_line_d);
-                this.hIM.setBackground(am.getDrawable(R.drawable.frs_service_red_dot));
-                this.hIM.setVisibility(zVar.gQs ? 0 : 8);
-                if (!this.hIO.contains(zVar.name)) {
+                this.hVZ = zVar;
+                this.hVX.startLoad(zVar.imageUrl, 10, false);
+                this.mTextView.setText(ar.cutChineseAndEnglishWithSuffix(zVar.name, 8, ""));
+                an.setViewTextColor(this.mTextView, (int) R.color.cp_cont_b);
+                an.setBackgroundColor(this.itemView, R.color.cp_bg_line_d);
+                this.hVY.setBackground(an.getDrawable(R.drawable.frs_service_red_dot));
+                this.hVY.setVisibility(zVar.hdb ? 0 : 8);
+                if (!this.hWa.contains(zVar.name)) {
                     e.b(zVar);
-                    this.hIO.add(zVar.name);
+                    this.hWa.add(zVar.name);
                 }
             }
         }

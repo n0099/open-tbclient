@@ -9,38 +9,39 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    public static final float eCR = l.getEquipmentDensity(TbadkCoreApplication.getInst());
-    protected TbImageView.c ahi;
-    protected boolean eDf;
-    public int eDp;
-    public int eDq;
-    public int eDr;
+    public static final float eNa = l.getEquipmentDensity(TbadkCoreApplication.getInst());
+    protected TbImageView.c ais;
+    public int eNA;
+    public int eNB;
+    protected boolean eNo;
+    public int eNz;
     public boolean mIsFromCDN;
-    protected float eCS = 0.0f;
-    protected float eCT = 0.0f;
-    protected int dSp = 0;
-    protected int eCU = 0;
+    protected float eNb = 0.0f;
+    protected float eNc = 0.0f;
+    protected int dZh = 0;
+    protected int eNd = 0;
     protected float mTextSize = 15.0f;
-    protected int eCV = -1;
-    protected int eCW = -1;
+    protected int eNe = -1;
+    protected int eNf = -1;
     protected int mTextColor = ViewCompat.MEASURED_STATE_MASK;
-    protected int eCX = 200;
-    protected int eCY = 200;
-    protected int eCZ = 0;
-    protected int eDa = 0;
-    protected boolean eDb = false;
-    protected int eDc = -9989158;
-    protected ImageView.ScaleType eDd = ImageView.ScaleType.CENTER_CROP;
-    public boolean eDe = false;
-    public int eDg = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds16);
-    public int eDh = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-    public int eDi = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
-    protected int eDj = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-    protected int eDk = 0;
-    protected int eDl = -1;
-    protected int eDm = -1;
-    protected int eDn = -1;
-    protected boolean eDo = false;
+    protected int eNg = 200;
+    protected int eNh = 200;
+    protected int eNi = 0;
+    protected int eNj = 0;
+    protected boolean eNk = false;
+    protected int eNl = -9989158;
+    protected ImageView.ScaleType eNm = ImageView.ScaleType.CENTER_CROP;
+    public boolean eNn = false;
+    public int eNp = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds16);
+    public int eNq = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+    public int eNr = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
+    protected int eNs = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+    protected int eNt = 0;
+    protected int eNu = -1;
+    protected int eNv = -1;
+    protected int eNw = -1;
+    protected int eNx = 0;
+    protected boolean eNy = false;
 
     public a() {
     }
@@ -52,101 +53,105 @@ public class a {
     }
 
     public void b(TypedArray typedArray) {
-        this.eCU = typedArray.getDimensionPixelSize(5, 0);
-        this.dSp = typedArray.getDimensionPixelSize(2, 0);
-        this.eCS = typedArray.getFloat(12, 1.12f);
+        this.eNd = typedArray.getDimensionPixelSize(5, 0);
+        this.dZh = typedArray.getDimensionPixelSize(2, 0);
+        this.eNb = typedArray.getFloat(12, 1.12f);
         this.mTextSize = typedArray.getDimensionPixelSize(1, (int) this.mTextSize);
         this.mTextColor = typedArray.getColor(0, this.mTextColor);
-        this.eCX = typedArray.getDimensionPixelSize(8, this.eCX);
-        this.eCY = typedArray.getDimensionPixelSize(11, this.eCY);
-        this.eCZ = typedArray.getResourceId(3, 0);
-        this.eCV = typedArray.getDimensionPixelSize(10, this.eCV);
-        this.eCW = typedArray.getDimensionPixelSize(4, this.eCW);
-        this.eDa = typedArray.getResourceId(9, 0);
-        this.eDb = typedArray.getBoolean(6, false);
-        this.eDm = this.eCU;
+        this.eNg = typedArray.getDimensionPixelSize(8, this.eNg);
+        this.eNh = typedArray.getDimensionPixelSize(11, this.eNh);
+        this.eNi = typedArray.getResourceId(3, 0);
+        this.eNe = typedArray.getDimensionPixelSize(10, this.eNe);
+        this.eNf = typedArray.getDimensionPixelSize(4, this.eNf);
+        this.eNj = typedArray.getResourceId(9, 0);
+        this.eNk = typedArray.getBoolean(6, false);
+        this.eNv = this.eNd;
     }
 
     public void release() {
     }
 
-    public void bb(int i, int i2) {
-        this.eCV = i;
-        this.eCW = i2;
+    public void bf(int i, int i2) {
+        this.eNe = i;
+        this.eNf = i2;
     }
 
-    public void oa(int i) {
-        this.eDa = i;
+    public void ox(int i) {
+        this.eNj = i;
     }
 
-    public void ob(int i) {
-        this.eCX = i;
+    public void oy(int i) {
+        this.eNg = i;
     }
 
-    public void oc(int i) {
-        this.eCY = i;
+    public void oz(int i) {
+        this.eNh = i;
     }
 
-    public void od(int i) {
-        this.eCZ = i;
+    public void oA(int i) {
+        this.eNi = i;
     }
 
     public void setSupportNoImage() {
-        this.eDe = true;
+        this.eNn = true;
     }
 
     public void setLineSpacing(float f, float f2) {
-        this.eCS = f2;
-        this.eCT = f;
+        this.eNb = f2;
+        this.eNc = f;
     }
 
-    public void bc(int i, int i2) {
-        this.eDg = i;
-        this.eDh = i2;
+    public void bg(int i, int i2) {
+        this.eNp = i;
+        this.eNq = i2;
     }
 
-    public void oe(int i) {
-        this.eDi = i;
+    public void oB(int i) {
+        this.eNr = i;
     }
 
-    public void of(int i) {
-        this.eDj = i;
+    public void oC(int i) {
+        this.eNs = i;
     }
 
-    public void og(int i) {
-        this.eCU = i;
+    public void oD(int i) {
+        this.eNd = i;
     }
 
-    public void oh(int i) {
-        this.eDk = i;
+    public void oE(int i) {
+        this.eNt = i;
     }
 
-    public void oi(int i) {
-        this.eDl = i;
+    public void oF(int i) {
+        this.eNu = i;
     }
 
-    public void oj(int i) {
-        this.eDm = i;
+    public void oG(int i) {
+        this.eNv = i;
     }
 
-    public void ok(int i) {
-        this.eDn = i;
+    public void oH(int i) {
+        this.eNw = i;
     }
 
     public void setTextSize(int i) {
         this.mTextSize = i;
     }
 
-    public boolean bir() {
-        return this.eDo;
+    public boolean bkN() {
+        return this.eNy;
     }
 
-    public void iG(boolean z) {
-        this.eDo = z;
+    public void iS(boolean z) {
+        this.eNy = z;
     }
 
-    public void iH(boolean z) {
-        this.eDf = z;
+    public void iT(boolean z) {
+        this.eNo = z;
+    }
+
+    public void oI(int i) {
+        this.eNx = i;
     }
 
     public int[] u(int i, int i2, int i3, int i4) {
@@ -157,14 +162,14 @@ public class a {
         int[] iArr = {imageResize[0], imageResize[1]};
         int i5 = iArr[0];
         int i6 = iArr[1];
-        if (!this.eDf || i3 <= i5 || eCR <= 1.0f) {
+        if (!this.eNo || i3 <= i5 || eNa <= 1.0f) {
             i3 = i5;
         } else {
-            if (i5 * eCR <= i3) {
-                if (i5 * eCR > i3 * 0.68f) {
+            if (i5 * eNa <= i3) {
+                if (i5 * eNa > i3 * 0.68f) {
                     i3 = (int) (i3 * 0.68f);
                 } else {
-                    i3 = (int) (i5 * eCR);
+                    i3 = (int) (i5 * eNa);
                 }
             }
             if (iArr[0] > 0) {
@@ -175,30 +180,30 @@ public class a {
     }
 
     public void a(a aVar) {
-        this.eCS = aVar.eCS;
-        this.eCT = aVar.eCT;
-        this.dSp = aVar.dSp;
-        this.eCU = aVar.eCU;
+        this.eNb = aVar.eNb;
+        this.eNc = aVar.eNc;
+        this.dZh = aVar.dZh;
+        this.eNd = aVar.eNd;
         this.mTextSize = aVar.mTextSize;
-        this.eCV = aVar.eCV;
-        this.eCW = aVar.eCW;
+        this.eNe = aVar.eNe;
+        this.eNf = aVar.eNf;
         this.mTextColor = aVar.mTextColor;
-        this.eCX = aVar.eCX;
-        this.eCY = aVar.eCY;
-        this.eCZ = aVar.eCZ;
-        this.eDa = aVar.eDa;
-        this.eDb = aVar.eDb;
+        this.eNg = aVar.eNg;
+        this.eNh = aVar.eNh;
+        this.eNi = aVar.eNi;
+        this.eNj = aVar.eNj;
+        this.eNk = aVar.eNk;
         this.mIsFromCDN = aVar.mIsFromCDN;
-        this.eDc = aVar.eDc;
-        this.eDe = aVar.eDe;
-        this.eDf = aVar.eDf;
-        this.eDg = aVar.eDg;
-        this.eDh = aVar.eDh;
-        this.eDj = aVar.eDj;
-        this.eDk = aVar.eDk;
-        this.eDl = aVar.eDl;
-        this.eDm = aVar.eCU;
-        this.eDn = aVar.eDn;
-        this.eDo = aVar.eDo;
+        this.eNl = aVar.eNl;
+        this.eNn = aVar.eNn;
+        this.eNo = aVar.eNo;
+        this.eNp = aVar.eNp;
+        this.eNq = aVar.eNq;
+        this.eNs = aVar.eNs;
+        this.eNt = aVar.eNt;
+        this.eNu = aVar.eNu;
+        this.eNv = aVar.eNd;
+        this.eNw = aVar.eNw;
+        this.eNy = aVar.eNy;
     }
 }

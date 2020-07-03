@@ -15,7 +15,7 @@ public class MediaModel implements Parcelable, Comparable<Object> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fQ */
+        /* renamed from: gb */
         public MediaModel[] newArray(int i) {
             return new MediaModel[i];
         }
@@ -61,14 +61,14 @@ public class MediaModel implements Parcelable, Comparable<Object> {
 
     @Override // java.lang.Comparable
     public int compareTo(Object obj) {
-        return Long.valueOf(((MediaModel) obj).ajb()).compareTo(Long.valueOf(this.addDate));
+        return Long.valueOf(((MediaModel) obj).akh()).compareTo(Long.valueOf(this.addDate));
     }
 
     public String getPath() {
         return this.path;
     }
 
-    public long ajb() {
+    public long akh() {
         return this.addDate;
     }
 
@@ -84,11 +84,11 @@ public class MediaModel implements Parcelable, Comparable<Object> {
         this.type = str;
     }
 
-    public String ajc() {
+    public String aki() {
         return this.tempPath;
     }
 
-    public void lK(String str) {
+    public void lS(String str) {
         this.tempPath = str;
     }
 
