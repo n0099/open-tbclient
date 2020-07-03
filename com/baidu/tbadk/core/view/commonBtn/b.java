@@ -4,43 +4,43 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.support.annotation.ColorRes;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b extends a {
     public b() {
-        this.dYn = R.color.cp_cont_a;
-        this.dYp = R.color.cp_link_tip_a;
+        this.ego = R.color.cp_cont_a;
+        this.egq = R.color.cp_link_tip_a;
     }
 
-    public void mk(@ColorRes int i) {
-        this.dYp = i;
-        this.dYn = R.color.cp_cont_a;
-        this.dYy = true;
-        if (this.dYA != null) {
-            this.dYA.aWX();
+    public void mC(@ColorRes int i) {
+        this.egq = i;
+        this.ego = R.color.cp_cont_a;
+        this.egA = true;
+        if (this.egC != null) {
+            this.egC.aYR();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.core.view.commonBtn.a
-    public Drawable T(float f) {
-        return U(f);
+    public Drawable V(float f) {
+        return W(f);
     }
 
-    private Drawable U(float f) {
+    private Drawable W(float f) {
         GradientDrawable gradientDrawable;
-        if (!this.dYy) {
-            this.dYn = am.getColor(R.color.cp_cont_a);
+        if (!this.egA) {
+            this.ego = an.getColor(R.color.cp_cont_a);
         }
-        int color = this.dYy ? am.getColor(this.dYp) : this.dYp;
-        int[] iArr = {com.baidu.tieba.tbadkCore.c.DK(color), color};
+        int color = this.egA ? an.getColor(this.egq) : this.egq;
+        int[] iArr = {com.baidu.tieba.tbadkCore.c.EM(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();
-            gradientDrawable.setOrientation(this.dYz);
+            gradientDrawable.setOrientation(this.egB);
             gradientDrawable.setColors(iArr);
         } else {
-            gradientDrawable = new GradientDrawable(this.dYz, iArr);
+            gradientDrawable = new GradientDrawable(this.egB, iArr);
         }
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);

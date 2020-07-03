@@ -47,7 +47,7 @@ import com.baidu.adp.plugin.a.b;
 import com.baidu.adp.plugin.d;
 import com.baidu.adp.plugin.pluginBase.PluginBaseFragmentActivity;
 import com.baidu.adp.plugin.util.d;
-import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.t;
 import com.baidu.megapp.ma.MAFragmentActivity;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.io.FileDescriptor;
@@ -301,7 +301,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
                 return this.mEntity.getResources();
             }
         } else {
-            Resources resources = g.jo().getResources();
+            Resources resources = g.jE().getResources();
             if (resources != null) {
                 return resources;
             }
@@ -1571,18 +1571,18 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
         d.a aVar = null;
         if (stringExtra != null) {
-            aVar = com.baidu.adp.plugin.d.nm().cf(stringExtra);
+            aVar = com.baidu.adp.plugin.d.nC().cg(stringExtra);
         }
-        if (aVar == null || aVar.Qp == null) {
+        if (aVar == null || aVar.QS == null) {
             BdLog.d("service stop error!" + intent.toString());
             return false;
-        } else if (com.baidu.adp.plugin.d.nm().nn() == 1) {
-            com.baidu.adp.plugin.d.nm().cg(stringExtra);
-            aVar.Qp.stopSelf();
+        } else if (com.baidu.adp.plugin.d.nC().nD() == 1) {
+            com.baidu.adp.plugin.d.nC().ch(stringExtra);
+            aVar.QS.stopSelf();
             return true;
         } else {
-            aVar.Qp.onDestroy();
-            com.baidu.adp.plugin.d.nm().cg(stringExtra);
+            aVar.QS.onDestroy();
+            com.baidu.adp.plugin.d.nC().ch(stringExtra);
             return true;
         }
     }
@@ -1638,9 +1638,9 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // com.baidu.adp.base.h
-    public void onPreLoad(r rVar) {
+    public void onPreLoad(t tVar) {
         if (this.mEntity != null) {
-            this.mEntity.onPreLoad(rVar);
+            this.mEntity.onPreLoad(tVar);
         }
     }
 

@@ -12,14 +12,12 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-
-    /* renamed from: com  reason: collision with root package name */
-    protected String f1000com;
+    protected String csZ;
 
     public abstract boolean a(com.baidu.swan.apps.media.c.a aVar, com.baidu.swan.apps.media.c.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar);
 
     public c(@NonNull String str) {
-        this.f1000com = str;
+        this.csZ = str;
     }
 
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
@@ -38,7 +36,7 @@ public abstract class c {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.media.c.c a = com.baidu.swan.apps.media.c.c.a(optParamsAsJo, b.ajD());
+        com.baidu.swan.apps.media.c.c a = com.baidu.swan.apps.media.c.c.a(optParamsAsJo, b.akJ());
         if (!a.isValid()) {
             com.baidu.swan.apps.console.c.e("vrvideo", "param is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -49,10 +47,10 @@ public abstract class c {
 
     @Nullable
     protected com.baidu.swan.apps.media.c.a b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        com.baidu.swan.apps.media.a E;
-        if (TextUtils.isEmpty(str3) || (E = com.baidu.swan.apps.media.b.E(str, str2, str3)) == null || !(E.aii() instanceof com.baidu.swan.apps.media.c.a)) {
+        com.baidu.swan.apps.media.a F;
+        if (TextUtils.isEmpty(str3) || (F = com.baidu.swan.apps.media.b.F(str, str2, str3)) == null || !(F.ajo() instanceof com.baidu.swan.apps.media.c.a)) {
             return null;
         }
-        return (com.baidu.swan.apps.media.c.a) E.aii();
+        return (com.baidu.swan.apps.media.c.a) F.ajo();
     }
 }

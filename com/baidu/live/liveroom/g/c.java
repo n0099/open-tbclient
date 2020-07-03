@@ -1,7 +1,7 @@
 package com.baidu.live.liveroom.g;
 /* loaded from: classes3.dex */
 public interface c {
-    void Fi();
+    void FS();
 
-    void bT(boolean z);
+    void bV(boolean z);
 }

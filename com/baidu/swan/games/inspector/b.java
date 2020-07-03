@@ -11,40 +11,40 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.games.l.a;
 /* loaded from: classes11.dex */
 public class b {
-    private FullScreenFloatView cYY;
+    private FullScreenFloatView ddM;
 
     public void a(a.b bVar, Activity activity) {
-        if (activity != null && this.cYY == null) {
-            if (a.a((bVar == null || bVar.cZy == null) ? null : bVar.cZy.dbv).isEnabled()) {
+        if (activity != null && this.ddM == null) {
+            if (a.a((bVar == null || bVar.dem == null) ? null : bVar.dem.dgi).isEnabled()) {
                 V(activity);
             }
         }
     }
 
     private void V(final Activity activity) {
-        this.cYY = com.baidu.swan.apps.res.ui.b.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
-        this.cYY.setFloatButtonText(activity.getString(a.h.aiapps_swan_inspector_info_button));
-        this.cYY.setFloatImageBackground(a.e.aiapps_float_view_button_shape);
-        this.cYY.setAutoAttachEnable(false);
-        this.cYY.setDragImageListener(new FullScreenFloatView.b() { // from class: com.baidu.swan.games.inspector.b.1
+        this.ddM = com.baidu.swan.apps.res.ui.b.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
+        this.ddM.setFloatButtonText(activity.getString(a.h.aiapps_swan_inspector_info_button));
+        this.ddM.setFloatImageBackground(a.e.aiapps_float_view_button_shape);
+        this.ddM.setAutoAttachEnable(false);
+        this.ddM.setDragImageListener(new FullScreenFloatView.b() { // from class: com.baidu.swan.games.inspector.b.1
             @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.b
             public void onClick() {
                 b.this.W(activity);
             }
 
             @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.b
-            public void ahK() {
+            public void aiQ() {
             }
         });
-        this.cYY.setVisibility(0);
+        this.ddM.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void W(Activity activity) {
-        e aoF = e.aoF();
-        if (aoF != null && aoF.QJ() != null) {
+        e apM = e.apM();
+        if (apM != null && apM.RP() != null) {
             Resources resources = activity.getResources();
-            new g.a(activity).e(resources.getString(a.h.aiapps_swan_inspector_info_title)).nq(SwanInspectorEndpoint.aAK().a(resources).toString()).a(new com.baidu.swan.apps.view.c.a()).eT(false).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null).aon();
+            new g.a(activity).e(resources.getString(a.h.aiapps_swan_inspector_info_title)).ny(SwanInspectorEndpoint.aBQ().a(resources).toString()).a(new com.baidu.swan.apps.view.c.a()).eY(false).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null).apu();
         }
     }
 }

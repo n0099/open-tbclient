@@ -2,58 +2,58 @@ package com.baidu.tieba.InjectPlugin.FrsFeedAd;
 
 import android.util.SparseArray;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class b implements o, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> eIk = new SparseArray<>();
-    private Object eIl;
-    private int eIm;
+public class b implements q, com.baidu.tieba.InjectPlugin.a {
+    private static SparseArray<BdUniqueId> eSw = new SparseArray<>();
+    private Object eSx;
+    private int eSy;
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return eIk.get(this.eIm);
+        return eSw.get(this.eSy);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object bjW() {
-        return this.eIl;
+    public Object bmv() {
+        return this.eSx;
     }
 
-    public void as(Object obj) {
-        this.eIl = obj;
+    public void at(Object obj) {
+        this.eSx = obj;
     }
 
-    public int bjX() {
-        return this.eIm;
+    public int bmw() {
+        return this.eSy;
     }
 
-    public void oN(int i) {
-        this.eIm = i;
+    public void pl(int i) {
+        this.eSy = i;
     }
 
-    public static void aU(List<Integer> list) {
-        if (eIk.size() <= 0 && list != null) {
+    public static void be(List<Integer> list) {
+        if (eSw.size() <= 0 && list != null) {
             for (Integer num : list) {
-                eIk.put(num.intValue(), BdUniqueId.gen());
+                eSw.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> bjY() {
+    public static List<BdUniqueId> bmx() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < eIk.size(); i++) {
-            arrayList.add(eIk.valueAt(i));
+        for (int i = 0; i < eSw.size(); i++) {
+            arrayList.add(eSw.valueAt(i));
         }
         return arrayList;
     }
 
     public static int n(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (eIk.size() == 0 || (indexOfValue = eIk.indexOfValue(bdUniqueId)) == -1 || eIk.size() <= indexOfValue) {
+        if (eSw.size() == 0 || (indexOfValue = eSw.indexOfValue(bdUniqueId)) == -1 || eSw.size() <= indexOfValue) {
             return -1;
         }
-        return eIk.keyAt(indexOfValue);
+        return eSw.keyAt(indexOfValue);
     }
 }

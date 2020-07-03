@@ -19,6 +19,7 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
     public static final String PERSON_LIVE_OWNER_UID = "PERSON_LIVE_OWNER_UID";
     public static final String PERSON_LIVE_VID = "vid";
     public static final String PERSON_LOCATION = "PERSON_LOCATION";
+    public static final String PERSON_NAV_LIVEROOM_ENABLED = "PERSON_NAV_LIVEROOMP_ENABLED";
     public static final String PERSON_PORTRAIT_URL = "PERSON_PORTRAIT_URL";
     public static final String PERSON_SEND_COUNT = "PERSON_SEND_COUNT";
     public static final String PERSON_SEX = "PERSON_SEX";
@@ -85,5 +86,9 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
         getIntent().putExtra(PERSON_SHOW_NAME, str10);
         setRequestCode(RequestResponseCode.REQUEST_ALA_PERSON_CARD);
         setIntentAction(IntentAction.ActivityForResult);
+    }
+
+    public void enableNavLiveroom() {
+        getIntent().putExtra(PERSON_NAV_LIVEROOM_ENABLED, true);
     }
 }

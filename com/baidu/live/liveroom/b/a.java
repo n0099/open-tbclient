@@ -1,12 +1,12 @@
 package com.baidu.live.liveroom.b;
 
-import android.view.ViewGroup;
 import com.baidu.live.data.q;
+import com.baidu.live.pendantview.PendantParentView;
 /* loaded from: classes3.dex */
 public interface a {
-    void a(int i, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
+    void a(int i, PendantParentView pendantParentView);
 
-    void h(q qVar);
+    void j(q qVar);
 
     void setHost(boolean z);
 }

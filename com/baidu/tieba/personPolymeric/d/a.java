@@ -8,37 +8,37 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ColumnLayout;
-import com.baidu.adp.widget.ListView.aa;
+import com.baidu.adp.widget.ListView.ad;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.personPolymeric.view.ReplyLinearLayout;
 /* loaded from: classes11.dex */
-public class a extends aa.a implements View.OnClickListener {
-    private static com.baidu.adp.widget.ImageView.a kuU;
-    private static String kuV;
-    public TextView agw;
-    public TextView dVT;
-    public TextView dWR;
-    private final LinearLayout juM;
-    public ReplyLinearLayout kuP;
-    public TextView kuQ;
-    protected final LinearLayout kuR;
-    protected final ColumnLayout kuS;
-    protected final ColumnLayout kuT;
-    private int kuW;
-    public LinearLayout kuX;
-    public HeadImageView kuY;
-    public TextView kuZ;
+public class a extends ad.a implements View.OnClickListener {
+    private static com.baidu.adp.widget.ImageView.a kOR;
+    private static String kOS;
+    public TextView ahA;
+    public TextView edq;
+    public TextView een;
+    private final LinearLayout jMd;
+    public ReplyLinearLayout kOM;
+    public TextView kON;
+    protected final LinearLayout kOO;
+    protected final ColumnLayout kOP;
+    protected final ColumnLayout kOQ;
+    private int kOT;
+    public LinearLayout kOU;
+    public HeadImageView kOV;
+    public TextView kOW;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
@@ -46,51 +46,51 @@ public class a extends aa.a implements View.OnClickListener {
         super(view);
         this.mPageContext = tbPageContext;
         this.mIsHost = z;
-        this.kuP = (ReplyLinearLayout) view.findViewById(R.id.content_container);
-        this.kuP.setIsHost(this.mIsHost);
-        this.kuQ = (TextView) view.findViewById(R.id.original_post_title);
-        this.kuX = (LinearLayout) view.findViewById(R.id.top_line);
-        this.kuY = (HeadImageView) view.findViewById(R.id.portrait);
-        this.agw = (TextView) view.findViewById(R.id.username);
-        this.dVT = (TextView) view.findViewById(R.id.reply_time);
-        this.dWR = (TextView) view.findViewById(R.id.forum_name);
-        this.kuZ = (TextView) view.findViewById(R.id.reply_count);
-        this.juM = (LinearLayout) view.findViewById(R.id.item_content);
-        this.kuS = (ColumnLayout) view.findViewById(R.id.item_header);
-        this.kuT = (ColumnLayout) view.findViewById(R.id.item_footer);
-        this.kuR = (LinearLayout) view.findViewById(R.id.person_child);
-        this.kuW = l.dip2px(view.getContext(), 42.0f);
-        if (this.juM != null) {
-            this.juM.setOnClickListener(this);
+        this.kOM = (ReplyLinearLayout) view.findViewById(R.id.content_container);
+        this.kOM.setIsHost(this.mIsHost);
+        this.kON = (TextView) view.findViewById(R.id.original_post_title);
+        this.kOU = (LinearLayout) view.findViewById(R.id.top_line);
+        this.kOV = (HeadImageView) view.findViewById(R.id.portrait);
+        this.ahA = (TextView) view.findViewById(R.id.username);
+        this.edq = (TextView) view.findViewById(R.id.reply_time);
+        this.een = (TextView) view.findViewById(R.id.forum_name);
+        this.kOW = (TextView) view.findViewById(R.id.reply_count);
+        this.jMd = (LinearLayout) view.findViewById(R.id.item_content);
+        this.kOP = (ColumnLayout) view.findViewById(R.id.item_header);
+        this.kOQ = (ColumnLayout) view.findViewById(R.id.item_footer);
+        this.kOO = (LinearLayout) view.findViewById(R.id.person_child);
+        this.kOT = l.dip2px(view.getContext(), 42.0f);
+        if (this.jMd != null) {
+            this.jMd.setOnClickListener(this);
         }
-        this.kuY.setOnClickListener(this);
-        this.agw.setOnClickListener(this);
-        this.dWR.setOnClickListener(this);
-        this.kuZ.setOnClickListener(this);
-        this.kuS.setOnClickListener(this);
-        this.kuT.setOnClickListener(this);
-        this.kuQ.setOnClickListener(this);
+        this.kOV.setOnClickListener(this);
+        this.ahA.setOnClickListener(this);
+        this.een.setOnClickListener(this);
+        this.kOW.setOnClickListener(this);
+        this.kOP.setOnClickListener(this);
+        this.kOQ.setOnClickListener(this);
+        this.kON.setOnClickListener(this);
     }
 
     public void changeSkin(int i) {
-        am.setBackgroundResource(this.kuQ, R.color.cp_bg_line_e);
-        am.setBackgroundColor(getView(), R.color.cp_bg_line_c);
-        am.setBackgroundResource(this.kuR, R.drawable.daily_recommend_item_selector);
-        am.setViewTextColor(this.agw, R.color.cp_cont_d, 1);
-        am.setViewTextColor(this.dVT, R.color.cp_cont_d, 1);
-        am.setViewTextColor(this.dWR, R.color.cp_cont_d, 1);
-        am.setViewTextColor(this.kuZ, R.color.cp_cont_d, 1);
+        an.setBackgroundResource(this.kON, R.color.cp_bg_line_e);
+        an.setBackgroundColor(getView(), R.color.cp_bg_line_c);
+        an.setBackgroundResource(this.kOO, R.drawable.daily_recommend_item_selector);
+        an.setViewTextColor(this.ahA, R.color.cp_cont_d, 1);
+        an.setViewTextColor(this.edq, R.color.cp_cont_d, 1);
+        an.setViewTextColor(this.een, R.color.cp_cont_d, 1);
+        an.setViewTextColor(this.kOW, R.color.cp_cont_d, 1);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String[] strArr;
-        TiebaStatic.log(new an("c12043").ag("obj_type", this.mIsHost ? 1 : 2));
-        if (view == this.dWR) {
+        TiebaStatic.log(new ao("c12043").ag("obj_type", this.mIsHost ? 1 : 2));
+        if (view == this.een) {
             if (this.mPageContext != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-        } else if (view == this.kuQ && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
+        } else if (view == this.kON && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
             if ("0".equals(strArr[2]) || strArr[1] == null) {
                 PbActivityConfig createNormalCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
                 createNormalCfg.setStartFrom(4);
@@ -132,7 +132,7 @@ public class a extends aa.a implements View.OnClickListener {
                             str6 = TextUtils.isEmpty(postInfoList.name_show) ? postInfoList.user_name : postInfoList.name_show;
                             strArr[0] = String.valueOf(postInfoList.thread_id);
                             strArr[1] = String.valueOf(postInfoList.post_id);
-                            formatTime = aq.getFormatTime(postInfoList.create_time * 1000);
+                            formatTime = ar.getFormatTime(postInfoList.create_time * 1000);
                             str7 = postInfoList.forum_name;
                             valueOf = String.valueOf(postInfoList.reply_num);
                             strArr[3] = String.valueOf(postInfoList.thread_type);
@@ -142,7 +142,7 @@ public class a extends aa.a implements View.OnClickListener {
                             strArr[1] = String.valueOf(postInfoList.content[0].post_id);
                             strArr[2] = String.valueOf(postInfoList.content[0].post_type);
                             strArr[3] = String.valueOf(postInfoList.thread_type);
-                            formatTime = aq.getFormatTime(postInfoList.create_time * 1000);
+                            formatTime = ar.getFormatTime(postInfoList.create_time * 1000);
                             str7 = postInfoList.forum_name;
                             valueOf = String.valueOf(postInfoList.reply_num);
                         }
@@ -195,30 +195,30 @@ public class a extends aa.a implements View.OnClickListener {
             }
         }
         if (str8 != null) {
-            this.agw.setText(str4);
-            this.dVT.setText(str3);
-            this.dWR.setText(str2);
-            this.dWR.setTag(str2);
-            this.kuZ.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), str5));
-            this.dWR.setOnClickListener(this);
-            Kt(str);
-            if (this.juM != null) {
-                this.juM.setTag(strArr);
+            this.ahA.setText(str4);
+            this.edq.setText(str3);
+            this.een.setText(str2);
+            this.een.setTag(str2);
+            this.kOW.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), str5));
+            this.een.setOnClickListener(this);
+            KU(str);
+            if (this.jMd != null) {
+                this.jMd.setTag(strArr);
             }
-            this.kuS.setTag(strArr);
-            this.kuT.setTag(strArr);
+            this.kOP.setTag(strArr);
+            this.kOQ.setTag(strArr);
         }
     }
 
-    private void Kt(String str) {
-        if (kuV != null && !kuV.equals(str)) {
-            kuU = null;
+    private void KU(String str) {
+        if (kOS != null && !kOS.equals(str)) {
+            kOR = null;
         }
-        if (kuU != null) {
-            this.kuY.setImageBitmap(kuU.getRawBitmap());
-            kuV = str;
+        if (kOR != null) {
+            this.kOV.setImageBitmap(kOR.getRawBitmap());
+            kOS = str;
             return;
         }
-        this.kuY.a(str, 12, this.kuW, this.kuW, false);
+        this.kOV.a(str, 12, this.kOT, this.kOT, false);
     }
 }

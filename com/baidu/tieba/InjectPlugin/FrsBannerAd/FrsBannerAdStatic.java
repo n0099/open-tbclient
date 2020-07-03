@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.s;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.InjectPlugin.FrsBannerAd.a;
@@ -32,16 +32,16 @@ public class FrsBannerAdStatic {
             TbPageContext pageContext;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.InjectPlugin.b.a) && (pageContext = (aVar = (com.baidu.tieba.InjectPlugin.b.a) customResponsedMessage.getData()).getPageContext()) != null && (pageContext.getPageActivity() instanceof b)) {
                 b bVar = (b) pageContext.getPageActivity();
-                com.baidu.tieba.InjectPlugin.a.a oO = bVar.oO(2);
-                if (oO == null) {
-                    d oP = e.bkc().oP(2);
-                    if (oP != null) {
-                        oO = oP.bkb();
-                        bVar.a(2, oO);
-                        oO.init(new c(pageContext));
-                        if (oO instanceof com.baidu.tieba.InjectPlugin.FrsBannerAd.a) {
-                            ((com.baidu.tieba.InjectPlugin.FrsBannerAd.a) oO).a(new a.InterfaceC0501a() { // from class: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic.a.1
-                                @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a.InterfaceC0501a
+                com.baidu.tieba.InjectPlugin.a.a pm = bVar.pm(2);
+                if (pm == null) {
+                    d po = e.bmB().po(2);
+                    if (po != null) {
+                        pm = po.bmA();
+                        bVar.a(2, pm);
+                        pm.init(new c(pageContext));
+                        if (pm instanceof com.baidu.tieba.InjectPlugin.FrsBannerAd.a) {
+                            ((com.baidu.tieba.InjectPlugin.FrsBannerAd.a) pm).a(new a.InterfaceC0509a() { // from class: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic.a.1
+                                @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a.InterfaceC0509a
                                 public void a(c cVar, View view) {
                                     b a = h.a(cVar);
                                     if (a != null) {
@@ -52,7 +52,7 @@ public class FrsBannerAdStatic {
                                     }
                                 }
 
-                                @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a.InterfaceC0501a
+                                @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a.InterfaceC0509a
                                 public void b(c cVar, View view) {
                                     b a = h.a(cVar);
                                     if (a != null) {
@@ -70,21 +70,21 @@ public class FrsBannerAdStatic {
                         return;
                     }
                 }
-                com.baidu.tieba.InjectPlugin.a.a aVar2 = oO;
+                com.baidu.tieba.InjectPlugin.a.a aVar2 = pm;
                 if (aVar2 instanceof com.baidu.tieba.InjectPlugin.FrsBannerAd.a) {
                     com.baidu.tieba.InjectPlugin.FrsBannerAd.a aVar3 = (com.baidu.tieba.InjectPlugin.FrsBannerAd.a) aVar2;
-                    if (aVar.bke() == 1) {
+                    if (aVar.bmD() == 1) {
                         aVar3.setParams(aVar.getParams());
-                        aVar3.setData(aVar.bkg());
-                        aVar3.bjV();
-                    } else if (aVar.bke() == 2) {
+                        aVar3.setData(aVar.bmF());
+                        aVar3.bmu();
+                    } else if (aVar.bmD() == 2) {
                         aVar3.setBannerMaskColor(aVar.getMaskColor());
-                    } else if (aVar.bke() == 3) {
-                        q bkf = aVar.bkf();
-                        if (bkf != null && aVar3.getView() != null) {
-                            bkf.removeHeaderView(aVar3.getView());
+                    } else if (aVar.bmD() == 3) {
+                        s bmE = aVar.bmE();
+                        if (bmE != null && aVar3.getView() != null) {
+                            bmE.removeHeaderView(aVar3.getView());
                         }
-                    } else if (aVar.bke() == 4) {
+                    } else if (aVar.bmD() == 4) {
                         aVar3.changeSkinType(aVar.getSkinType());
                     }
                 }

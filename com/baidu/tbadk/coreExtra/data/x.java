@@ -1,35 +1,30 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class x extends com.baidu.tbadk.core.data.j {
-    private long mStartTime = Long.MAX_VALUE;
-    private long mEndTime = 0;
-    private String ebx = null;
+public class x {
+    public boolean ejZ;
+    public boolean eka;
+    public int ekb;
+    public int ekc;
+    public String ekd;
+    public String eke;
+    public String ekf;
+    public int ekg;
+    public String ekh;
 
-    @Override // com.baidu.tbadk.core.data.j
-    public void parserJson(JSONObject jSONObject) {
+    public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            try {
-                this.mStartTime = jSONObject.optLong("start_time", Long.MAX_VALUE);
-                this.mEndTime = jSONObject.optLong("end_time", 0L);
-                this.ebx = jSONObject.optString("dest_url", "");
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
+            this.ejZ = jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1;
+            this.eka = jSONObject.optInt("isActivateNaniApp", 1) == 1;
+            this.ekb = jSONObject.optInt("downloadNaniShowPosition", 3);
+            this.ekc = jSONObject.optInt("downloadNaniShowRate", 2);
+            this.ekd = jSONObject.optString("downloadNaniLinkUrl", null);
+            this.eke = jSONObject.optString("downloadNaniTxt", null);
+            this.ekf = jSONObject.optString("showNaniTailTxt", null);
+            this.ekg = jSONObject.optInt("showNaniTailVideoType", 0);
+            this.ekh = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
         }
-    }
-
-    public long getStartTime() {
-        return this.mStartTime;
-    }
-
-    public long getEndTime() {
-        return this.mEndTime;
-    }
-
-    public String aYg() {
-        return this.ebx;
     }
 }

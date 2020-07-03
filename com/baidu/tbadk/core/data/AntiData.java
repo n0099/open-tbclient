@@ -23,6 +23,7 @@ public class AntiData implements Serializable {
     private int ifposta;
     public BlockPopInfoData mFrsForbidenDialogInfo;
     private int need_vcode;
+    private int pollLevel;
     private String poll_message;
     private String tbs;
     private String user_id;
@@ -31,13 +32,12 @@ public class AntiData implements Serializable {
     private String vcode_pic_url;
     private int vcode_stat;
     private String video_message;
-    private String voice_message;
+    public String voice_message;
     private boolean has_chance = true;
     private int days_tofree = 0;
     private int ifvoice = 1;
     private int ifaddition = 0;
     public int replyPrivateFlag = 1;
-    private boolean isMultiDeleteEnable = false;
 
     public boolean isIfvoice() {
         return this.ifvoice == 1;
@@ -184,7 +184,6 @@ public class AntiData implements Serializable {
             this.days_tofree = anti.days_tofree.intValue();
             this.has_chance = anti.has_chance.intValue() == 1;
             this.ifaddition = anti.ifaddition.intValue();
-            this.isMultiDeleteEnable = anti.multi_delthread.intValue() == 1;
             this.delThreadInfoList = new ArrayList();
             for (int i = 0; i < anti.del_thread_text.size(); i++) {
                 DeleteThreadInfo deleteThreadInfo = new DeleteThreadInfo();
@@ -204,6 +203,7 @@ public class AntiData implements Serializable {
                 this.mFrsForbidenDialogInfo.ahead_type = anti.block_pop_info.ahead_type;
             }
             this.replyPrivateFlag = anti.reply_private_flag.intValue();
+            this.pollLevel = anti.poll_level.intValue();
         }
     }
 
@@ -239,7 +239,6 @@ public class AntiData implements Serializable {
                 this.ifaddition = jSONObject.optInt("ifaddition", 0);
                 this.poll_message = jSONObject.optString("poll_message");
                 this.video_message = jSONObject.optString("video_message");
-                this.isMultiDeleteEnable = jSONObject.optInt("multi_delthread", 0) == 1;
                 JSONObject optJSONObject = jSONObject.optJSONObject("block_pop_info");
                 if (optJSONObject != null) {
                     this.mFrsForbidenDialogInfo = new BlockPopInfoData();
@@ -251,6 +250,7 @@ public class AntiData implements Serializable {
                     this.mFrsForbidenDialogInfo.ahead_type = Integer.valueOf(optJSONObject.optInt("ahead_type"));
                 }
                 this.replyPrivateFlag = jSONObject.optInt("reply_private_flag", 1);
+                this.pollLevel = jSONObject.optInt("poll_level", 0);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -278,7 +278,6 @@ public class AntiData implements Serializable {
             jSONObject.put("ifaddition", this.ifaddition);
             jSONObject.put("poll_message", this.poll_message);
             jSONObject.put("video_message", this.video_message);
-            jSONObject.put("multi_delthread", this.isMultiDeleteEnable ? 1 : 0);
             if (this.mFrsForbidenDialogInfo != null) {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("ahead_info", this.mFrsForbidenDialogInfo.ahead_info);
@@ -290,6 +289,7 @@ public class AntiData implements Serializable {
                 jSONObject.put("block_pop_info", jSONObject2);
             }
             jSONObject.put("reply_private_flag", this.replyPrivateFlag);
+            jSONObject.put("poll_level", this.pollLevel);
             return jSONObject.toString();
         } catch (JSONException e) {
             BdLog.e(e.getMessage());
@@ -313,11 +313,15 @@ public class AntiData implements Serializable {
         return this.poll_message;
     }
 
-    public boolean isMultiDeleteEnable() {
-        return this.isMultiDeleteEnable;
-    }
-
     public List<DeleteThreadInfo> getDelThreadInfoList() {
         return this.delThreadInfoList;
+    }
+
+    public int getPollLevel() {
+        return this.pollLevel;
+    }
+
+    public void setPollLevel(int i) {
+        this.pollLevel = i;
     }
 }

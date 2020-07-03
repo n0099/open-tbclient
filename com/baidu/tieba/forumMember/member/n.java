@@ -6,64 +6,64 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.aa;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.adp.widget.ListView.ad;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tieba.R;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes10.dex */
-public class n extends aa.a {
-    public LinearLayout hkg;
-    public LinearLayout hkh;
-    public LinearLayout hki;
-    public LinearLayout hkj;
-    public HeadImageView hkk;
-    public HeadImageView hkl;
-    public HeadImageView hkm;
-    public HeadImageView hkn;
-    public TextView hko;
-    public TextView hkp;
-    public TextView hkq;
-    public TextView hkr;
-    public NoPressedLinearLayout hks;
+public class n extends ad.a {
+    public LinearLayout hwn;
+    public LinearLayout hwo;
+    public LinearLayout hwp;
+    public LinearLayout hwq;
+    public HeadImageView hwr;
+    public HeadImageView hws;
+    public HeadImageView hwt;
+    public HeadImageView hwu;
+    public TextView hwv;
+    public TextView hww;
+    public TextView hwx;
+    public TextView hwy;
+    public NoPressedLinearLayout hwz;
     public TextView mTitleView;
 
     public n(View view, View.OnClickListener onClickListener) {
         super(view);
         int dimens = com.baidu.adp.lib.util.l.getDimens(BdBaseApplication.getInst().getApp(), R.dimen.ds1);
-        int color = am.getColor(R.color.black_alpha10);
+        int color = an.getColor(R.color.black_alpha10);
         this.mTitleView = (TextView) view.findViewById(R.id.title_text_view);
         this.mTitleView.setOnClickListener(onClickListener);
-        this.hkg = (LinearLayout) view.findViewById(R.id.member1);
-        this.hkk = (HeadImageView) view.findViewById(R.id.imageview_user_photo1);
-        this.hko = (TextView) view.findViewById(R.id.textview_user_name1);
-        this.hkk.setIsRound(true);
-        this.hkk.setBorderColor(color);
-        this.hkk.setBorderWidth(dimens);
-        this.hkk.setOnClickListener(onClickListener);
-        this.hkh = (LinearLayout) view.findViewById(R.id.member2);
-        this.hkl = (HeadImageView) view.findViewById(R.id.imageview_user_photo2);
-        this.hkp = (TextView) view.findViewById(R.id.textview_user_name2);
-        this.hkl.setIsRound(true);
-        this.hkl.setBorderColor(color);
-        this.hkl.setBorderWidth(dimens);
-        this.hkl.setOnClickListener(onClickListener);
-        this.hki = (LinearLayout) view.findViewById(R.id.member3);
-        this.hkm = (HeadImageView) view.findViewById(R.id.imageview_user_photo3);
-        this.hkq = (TextView) view.findViewById(R.id.textview_user_name3);
-        this.hkm.setIsRound(true);
-        this.hkm.setBorderColor(color);
-        this.hkm.setBorderWidth(dimens);
-        this.hkm.setOnClickListener(onClickListener);
-        this.hkj = (LinearLayout) view.findViewById(R.id.member4);
-        this.hkn = (HeadImageView) view.findViewById(R.id.imageview_user_photo4);
-        this.hkr = (TextView) view.findViewById(R.id.textview_user_name4);
-        this.hkn.setIsRound(true);
-        this.hkn.setBorderColor(color);
-        this.hkn.setBorderWidth(dimens);
-        this.hkn.setOnClickListener(onClickListener);
-        this.hks = (NoPressedLinearLayout) view.findViewById(R.id.forum_member_team_item_view);
+        this.hwn = (LinearLayout) view.findViewById(R.id.member1);
+        this.hwr = (HeadImageView) view.findViewById(R.id.imageview_user_photo1);
+        this.hwv = (TextView) view.findViewById(R.id.textview_user_name1);
+        this.hwr.setIsRound(true);
+        this.hwr.setBorderColor(color);
+        this.hwr.setBorderWidth(dimens);
+        this.hwr.setOnClickListener(onClickListener);
+        this.hwo = (LinearLayout) view.findViewById(R.id.member2);
+        this.hws = (HeadImageView) view.findViewById(R.id.imageview_user_photo2);
+        this.hww = (TextView) view.findViewById(R.id.textview_user_name2);
+        this.hws.setIsRound(true);
+        this.hws.setBorderColor(color);
+        this.hws.setBorderWidth(dimens);
+        this.hws.setOnClickListener(onClickListener);
+        this.hwp = (LinearLayout) view.findViewById(R.id.member3);
+        this.hwt = (HeadImageView) view.findViewById(R.id.imageview_user_photo3);
+        this.hwx = (TextView) view.findViewById(R.id.textview_user_name3);
+        this.hwt.setIsRound(true);
+        this.hwt.setBorderColor(color);
+        this.hwt.setBorderWidth(dimens);
+        this.hwt.setOnClickListener(onClickListener);
+        this.hwq = (LinearLayout) view.findViewById(R.id.member4);
+        this.hwu = (HeadImageView) view.findViewById(R.id.imageview_user_photo4);
+        this.hwy = (TextView) view.findViewById(R.id.textview_user_name4);
+        this.hwu.setIsRound(true);
+        this.hwu.setBorderColor(color);
+        this.hwu.setBorderWidth(dimens);
+        this.hwu.setOnClickListener(onClickListener);
+        this.hwz = (NoPressedLinearLayout) view.findViewById(R.id.forum_member_team_item_view);
     }
 
     public void a(BawuRoleInfoPub bawuRoleInfoPub, int i) {
@@ -76,32 +76,32 @@ public class n extends aa.a {
             }
             switch (i) {
                 case 0:
-                    this.hkk.startLoad(str, 12, false);
-                    this.hkk.setTag(bawuRoleInfoPub);
-                    this.hkk.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.hko.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.hkg.setVisibility(0);
+                    this.hwr.startLoad(str, 12, false);
+                    this.hwr.setTag(bawuRoleInfoPub);
+                    this.hwr.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.hwv.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.hwn.setVisibility(0);
                     return;
                 case 1:
-                    this.hkl.startLoad(str, 12, false);
-                    this.hkl.setTag(bawuRoleInfoPub);
-                    this.hkl.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.hkp.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.hkh.setVisibility(0);
+                    this.hws.startLoad(str, 12, false);
+                    this.hws.setTag(bawuRoleInfoPub);
+                    this.hws.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.hww.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.hwo.setVisibility(0);
                     return;
                 case 2:
-                    this.hkm.startLoad(str, 12, false);
-                    this.hkm.setTag(bawuRoleInfoPub);
-                    this.hkm.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.hkq.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.hki.setVisibility(0);
+                    this.hwt.startLoad(str, 12, false);
+                    this.hwt.setTag(bawuRoleInfoPub);
+                    this.hwt.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.hwx.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.hwp.setVisibility(0);
                     return;
                 case 3:
-                    this.hkn.startLoad(str, 12, false);
-                    this.hkn.setTag(bawuRoleInfoPub);
-                    this.hkn.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.hkr.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.hkj.setVisibility(0);
+                    this.hwu.startLoad(str, 12, false);
+                    this.hwu.setTag(bawuRoleInfoPub);
+                    this.hwu.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.hwy.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.hwq.setVisibility(0);
                     return;
                 default:
                     return;
@@ -109,22 +109,22 @@ public class n extends aa.a {
         }
     }
 
-    public void mC(boolean z) {
-        if (this.hkk.getVisibility() == 0) {
-            this.hkk.setIsNight(z);
-            this.hkk.refresh();
+    public void mN(boolean z) {
+        if (this.hwr.getVisibility() == 0) {
+            this.hwr.setIsNight(z);
+            this.hwr.refresh();
         }
-        if (this.hkl.getVisibility() == 0) {
-            this.hkl.setIsNight(z);
-            this.hkl.refresh();
+        if (this.hws.getVisibility() == 0) {
+            this.hws.setIsNight(z);
+            this.hws.refresh();
         }
-        if (this.hkm.getVisibility() == 0) {
-            this.hkm.setIsNight(z);
-            this.hkm.refresh();
+        if (this.hwt.getVisibility() == 0) {
+            this.hwt.setIsNight(z);
+            this.hwt.refresh();
         }
-        if (this.hkn.getVisibility() == 0) {
-            this.hkn.setIsNight(z);
-            this.hkn.refresh();
+        if (this.hwu.getVisibility() == 0) {
+            this.hwu.setIsNight(z);
+            this.hwu.refresh();
         }
     }
 }

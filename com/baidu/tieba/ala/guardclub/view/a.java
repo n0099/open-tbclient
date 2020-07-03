@@ -16,23 +16,23 @@ import android.view.WindowManager;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a extends Dialog implements View.OnClickListener {
-    private TextView aTU;
-    private View bGw;
-    private ImageView bif;
-    private TextView bih;
-    private TextView bii;
-    private AnimatorSet bij;
-    private InterfaceC0540a fAA;
-    private TbImageView fAz;
+    private TextView aWB;
+    private View bLk;
+    private ImageView bnl;
+    private TextView bnm;
+    private TextView bnn;
+    private AnimatorSet bno;
+    private TbImageView fLI;
+    private InterfaceC0548a fLJ;
     private TextView mTitleTextView;
 
     /* renamed from: com.baidu.tieba.ala.guardclub.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0540a {
+    public interface InterfaceC0548a {
         void onCancel();
 
         void onConfirm();
@@ -43,52 +43,52 @@ public class a extends Dialog implements View.OnClickListener {
         init();
     }
 
-    public void a(InterfaceC0540a interfaceC0540a) {
-        this.fAA = interfaceC0540a;
+    public void a(InterfaceC0548a interfaceC0548a) {
+        this.fLJ = interfaceC0548a;
     }
 
-    public void aE(int i, String str) {
+    public void aG(int i, String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.fAz.startLoad(str, 10, false);
+            this.fLI.startLoad(str, 10, false);
         }
         switch (i) {
             case 0:
                 this.mTitleTextView.setText("您已超过30天未活跃");
-                this.aTU.setText("已自动退团真的不再爱了吗？");
-                this.bih.setText("继续支持TA");
-                this.bii.setText("我不爱了");
+                this.aWB.setText("已自动退团真的不再爱了吗？");
+                this.bnm.setText("继续支持TA");
+                this.bnn.setText("我不爱了");
                 break;
             case 1:
                 this.mTitleTextView.setText("您已进入真爱值衰减期");
-                this.aTU.setText("再不努力就来不及啦！");
-                this.bih.setText("去提升");
-                this.bii.setText("衰减规则");
+                this.aWB.setText("再不努力就来不及啦！");
+                this.bnm.setText("去提升");
+                this.bnn.setText("衰减规则");
                 break;
         }
-        DX();
+        Ez();
         show();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bGw || view == this.bif) {
+        if (view == this.bLk || view == this.bnl) {
             dismiss();
-        } else if (this.fAA != null) {
-            if (view == this.bih) {
-                this.fAA.onConfirm();
-            } else if (view == this.bii) {
-                this.fAA.onCancel();
+        } else if (this.fLJ != null) {
+            if (view == this.bnm) {
+                this.fLJ.onConfirm();
+            } else if (view == this.bnn) {
+                this.fLJ.onCancel();
             }
         }
     }
 
     private void init() {
-        EF();
+        Fj();
         initView();
-        xT();
+        yt();
     }
 
-    private void EF() {
+    private void Fj() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
         Window window = getWindow();
@@ -110,21 +110,21 @@ public class a extends Dialog implements View.OnClickListener {
 
     private void initView() {
         setContentView(a.h.live_guard_club_attenuat);
-        this.bGw = findViewById(a.g.layout_root);
-        this.bif = (ImageView) findViewById(a.g.iv_close);
-        this.fAz = (TbImageView) findViewById(a.g.iv_flag);
+        this.bLk = findViewById(a.g.layout_root);
+        this.bnl = (ImageView) findViewById(a.g.iv_close);
+        this.fLI = (TbImageView) findViewById(a.g.iv_flag);
         this.mTitleTextView = (TextView) findViewById(a.g.tv_title);
-        this.aTU = (TextView) findViewById(a.g.tv_content);
-        this.bii = (TextView) findViewById(a.g.tv_cancel);
-        this.bih = (TextView) findViewById(a.g.tv_confirm);
-        this.fAz.setDefaultBgResource(a.d.sdk_transparent);
-        this.fAz.setDefaultErrorResource(a.f.sdk_shape_transparent);
+        this.aWB = (TextView) findViewById(a.g.tv_content);
+        this.bnn = (TextView) findViewById(a.g.tv_cancel);
+        this.bnm = (TextView) findViewById(a.g.tv_confirm);
+        this.fLI.setDefaultBgResource(a.d.sdk_transparent);
+        this.fLI.setDefaultErrorResource(a.f.sdk_shape_transparent);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
         gradientDrawable.setColor(0);
         gradientDrawable.setCornerRadius(getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds40));
         gradientDrawable.setStroke(getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds1), -56990);
-        this.bii.setBackgroundDrawable(gradientDrawable);
+        this.bnn.setBackgroundDrawable(gradientDrawable);
         GradientDrawable gradientDrawable2 = new GradientDrawable();
         gradientDrawable2.setShape(0);
         if (Build.VERSION.SDK_INT >= 16) {
@@ -132,36 +132,36 @@ public class a extends Dialog implements View.OnClickListener {
             gradientDrawable2.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
         }
         gradientDrawable2.setCornerRadius(getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds40));
-        this.bih.setBackgroundDrawable(gradientDrawable2);
-        this.bGw.setOnClickListener(this);
-        this.bif.setOnClickListener(this);
-        this.bih.setOnClickListener(this);
-        this.bii.setOnClickListener(this);
+        this.bnm.setBackgroundDrawable(gradientDrawable2);
+        this.bLk.setOnClickListener(this);
+        this.bnl.setOnClickListener(this);
+        this.bnm.setOnClickListener(this);
+        this.bnn.setOnClickListener(this);
     }
 
-    private void xT() {
+    private void yt() {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.guardclub.view.a.1
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (a.this.fAz != null) {
-                    a.this.fAz.stopLoad();
+                if (a.this.fLI != null) {
+                    a.this.fLI.stopLoad();
                 }
-                if (a.this.bij != null) {
-                    a.this.bij.cancel();
+                if (a.this.bno != null) {
+                    a.this.bno.cancel();
                 }
             }
         });
     }
 
-    private void DX() {
-        if (this.bij == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.bGw, "ScaleX", 0.5f, 1.2f, 1.0f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.bGw, "ScaleY", 0.5f, 1.2f, 1.0f);
-            this.bij = new AnimatorSet();
-            this.bij.playTogether(ofFloat, ofFloat2);
-            this.bij.setDuration(300L);
-            this.bij.setInterpolator(new LinearInterpolator());
+    private void Ez() {
+        if (this.bno == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.bLk, "ScaleX", 0.5f, 1.2f, 1.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.bLk, "ScaleY", 0.5f, 1.2f, 1.0f);
+            this.bno = new AnimatorSet();
+            this.bno.playTogether(ofFloat, ofFloat2);
+            this.bno.setDuration(300L);
+            this.bno.setInterpolator(new LinearInterpolator());
         }
-        this.bij.start();
+        this.bno.start();
     }
 }

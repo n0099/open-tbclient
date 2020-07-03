@@ -14,15 +14,15 @@ import android.view.Window;
 @RequiresApi(api = 23)
 /* loaded from: classes6.dex */
 public final class PermissionActivity extends Activity {
-    private static a nml;
+    private static a nIa;
 
     /* loaded from: classes6.dex */
     interface a {
-        void Z(@NonNull String[] strArr);
+        void Y(@NonNull String[] strArr);
     }
 
     public static void a(Context context, String[] strArr, a aVar) {
-        nml = aVar;
+        nIa = aVar;
         Intent intent = new Intent(context, PermissionActivity.class);
         intent.setFlags(268435456);
         intent.putExtra("KEY_INPUT_PERMISSIONS", strArr);
@@ -34,7 +34,7 @@ public final class PermissionActivity extends Activity {
         super.onCreate(bundle);
         au(this);
         String[] stringArrayExtra = getIntent().getStringArrayExtra("KEY_INPUT_PERMISSIONS");
-        if (stringArrayExtra != null && nml != null) {
+        if (stringArrayExtra != null && nIa != null) {
             requestPermissions(stringArrayExtra, 1);
         } else {
             finish();
@@ -43,8 +43,8 @@ public final class PermissionActivity extends Activity {
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (nml != null) {
-            nml.Z(strArr);
+        if (nIa != null) {
+            nIa.Y(strArr);
         }
         finish();
     }
@@ -52,7 +52,7 @@ public final class PermissionActivity extends Activity {
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        nml = null;
+        nIa = null;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback

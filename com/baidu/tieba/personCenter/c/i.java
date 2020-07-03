@@ -1,14 +1,14 @@
 package com.baidu.tieba.personCenter.c;
 
-import android.graphics.drawable.Drawable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes9.dex */
-public class i {
-    public boolean isShowRedTip = false;
-    public String kmG;
-    public Drawable kmH;
-    public Drawable kmI;
-    public Drawable kmJ;
-    public boolean kmK;
-    public String linkUrl;
-    public String text;
+public class i extends com.baidu.tieba.card.data.b {
+    public static BdUniqueId kGw = BdUniqueId.gen();
+    public UserData userData;
+
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return kGw;
+    }
 }

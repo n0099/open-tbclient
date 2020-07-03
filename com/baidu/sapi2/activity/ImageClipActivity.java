@@ -191,7 +191,7 @@ public class ImageClipActivity extends Activity {
             clipBoxView.aa = ClipBoxView.a;
             clipBoxView.ba = false;
         }
-        setPendingTransition(a.C0114a.sapi_sdk_slide_right_in, a.C0114a.sapi_sdk_slide_left_out, a.C0114a.sapi_sdk_slide_left_in, a.C0114a.sapi_sdk_slide_right_out);
+        setPendingTransition(a.C0116a.sapi_sdk_slide_right_in, a.C0116a.sapi_sdk_slide_left_out, a.C0116a.sapi_sdk_slide_left_in, a.C0116a.sapi_sdk_slide_right_out);
         Button button = (Button) findViewById(a.e.sure_clip_btn);
         Button button2 = (Button) findViewById(a.e.cancel_clip_btn);
         if (Build.VERSION.SDK_INT >= 19) {

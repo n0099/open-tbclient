@@ -17,18 +17,18 @@ import kotlin.l;
 @SuppressLint({"SwanCommentErr"})
 /* loaded from: classes11.dex */
 public final class SwanLoadingTipsView extends RelativeLayout {
-    private kotlin.jvm.a.a<l> dac;
-    private TextView dad;
-    private ObjectAnimator dae;
-    private ObjectAnimator daf;
-    private Runnable dag;
+    private kotlin.jvm.a.a<l> deR;
+    private TextView deS;
+    private ObjectAnimator deT;
+    private ObjectAnimator deU;
+    private Runnable deV;
 
     public final kotlin.jvm.a.a<l> getTipsAnimationFinishCallback() {
-        return this.dac;
+        return this.deR;
     }
 
     public final void setTipsAnimationFinishCallback(kotlin.jvm.a.a<l> aVar) {
-        this.dac = aVar;
+        this.deR = aVar;
     }
 
     @h
@@ -39,7 +39,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
 
         @Override // java.lang.Runnable
         public final void run() {
-            SwanLoadingTipsView.this.aAV();
+            SwanLoadingTipsView.this.aCb();
         }
     }
 
@@ -47,7 +47,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     public SwanLoadingTipsView(Context context) {
         super(context);
         q.m(context, "context");
-        this.dag = new c();
+        this.deV = new c();
         init(context);
     }
 
@@ -56,47 +56,47 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         super(context, attributeSet);
         q.m(context, "context");
         q.m(attributeSet, "attrs");
-        this.dag = new c();
+        this.deV = new c();
         init(context);
     }
 
     private final void init(Context context) {
         View.inflate(context, a.g.aiapps_games_loading_tips_view, this);
-        this.dad = (TextView) findViewById(a.f.aiapps_games_loading_tips_message);
+        this.deS = (TextView) findViewById(a.f.aiapps_games_loading_tips_message);
     }
 
-    public final void se(String str) {
+    public final void sm(String str) {
         String str2 = str;
         if (!(str2 == null || str2.length() == 0)) {
-            TextView textView = this.dad;
+            TextView textView = this.deS;
             if (textView != null) {
                 textView.setText(str);
             }
             setVisibility(8);
-            if (this.dae != null) {
-                ObjectAnimator objectAnimator = this.dae;
+            if (this.deT != null) {
+                ObjectAnimator objectAnimator = this.deT;
                 if (objectAnimator != null) {
                     objectAnimator.removeAllListeners();
                 }
-                ObjectAnimator objectAnimator2 = this.dae;
+                ObjectAnimator objectAnimator2 = this.deT;
                 if (objectAnimator2 != null) {
                     objectAnimator2.cancel();
                 }
             }
-            this.dae = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 1.0f);
-            ObjectAnimator objectAnimator3 = this.dae;
+            this.deT = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 1.0f);
+            ObjectAnimator objectAnimator3 = this.deT;
             if (objectAnimator3 != null) {
                 objectAnimator3.setDuration(500L);
             }
-            ObjectAnimator objectAnimator4 = this.dae;
+            ObjectAnimator objectAnimator4 = this.deT;
             if (objectAnimator4 != null) {
                 objectAnimator4.setStartDelay(1000L);
             }
-            ObjectAnimator objectAnimator5 = this.dae;
+            ObjectAnimator objectAnimator5 = this.deT;
             if (objectAnimator5 != null) {
                 objectAnimator5.addListener(new a());
             }
-            ObjectAnimator objectAnimator6 = this.dae;
+            ObjectAnimator objectAnimator6 = this.deT;
             if (objectAnimator6 != null) {
                 objectAnimator6.start();
             }
@@ -120,7 +120,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            aj.c(SwanLoadingTipsView.this.dag, 2000L);
+            aj.c(SwanLoadingTipsView.this.deV, 2000L);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -130,27 +130,27 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void aAV() {
-        if (this.daf != null) {
-            ObjectAnimator objectAnimator = this.daf;
+    public final void aCb() {
+        if (this.deU != null) {
+            ObjectAnimator objectAnimator = this.deU;
             if (objectAnimator != null) {
                 objectAnimator.removeAllListeners();
             }
-            ObjectAnimator objectAnimator2 = this.daf;
+            ObjectAnimator objectAnimator2 = this.deU;
             if (objectAnimator2 != null) {
                 objectAnimator2.cancel();
             }
         }
-        this.daf = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f);
-        ObjectAnimator objectAnimator3 = this.daf;
+        this.deU = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f);
+        ObjectAnimator objectAnimator3 = this.deU;
         if (objectAnimator3 != null) {
             objectAnimator3.setDuration(500L);
         }
-        ObjectAnimator objectAnimator4 = this.daf;
+        ObjectAnimator objectAnimator4 = this.deU;
         if (objectAnimator4 != null) {
             objectAnimator4.addListener(new b());
         }
-        ObjectAnimator objectAnimator5 = this.daf;
+        ObjectAnimator objectAnimator5 = this.deU;
         if (objectAnimator5 != null) {
             objectAnimator5.start();
         }
@@ -186,31 +186,31 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     }
 
     public final void doDestroy() {
-        this.dac = null;
-        if (this.dag != null) {
-            aj.o(this.dag);
+        this.deR = null;
+        if (this.deV != null) {
+            aj.o(this.deV);
         }
-        if (this.dae != null) {
-            ObjectAnimator objectAnimator = this.dae;
+        if (this.deT != null) {
+            ObjectAnimator objectAnimator = this.deT;
             if (objectAnimator != null) {
                 objectAnimator.removeAllListeners();
             }
-            ObjectAnimator objectAnimator2 = this.dae;
+            ObjectAnimator objectAnimator2 = this.deT;
             if (objectAnimator2 != null) {
                 objectAnimator2.cancel();
             }
-            this.dae = null;
+            this.deT = null;
         }
-        if (this.daf != null) {
-            ObjectAnimator objectAnimator3 = this.daf;
+        if (this.deU != null) {
+            ObjectAnimator objectAnimator3 = this.deU;
             if (objectAnimator3 != null) {
                 objectAnimator3.removeAllListeners();
             }
-            ObjectAnimator objectAnimator4 = this.daf;
+            ObjectAnimator objectAnimator4 = this.deU;
             if (objectAnimator4 != null) {
                 objectAnimator4.cancel();
             }
-            this.daf = null;
+            this.deU = null;
         }
     }
 }

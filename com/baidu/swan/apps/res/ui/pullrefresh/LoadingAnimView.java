@@ -14,7 +14,7 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.aq.ag;
 /* loaded from: classes11.dex */
 public class LoadingAnimView extends View {
-    private float cwn;
+    private float cAX;
     private ValueAnimator mAnimator;
     private Bitmap mBitmap;
     private Camera mCamera;
@@ -24,19 +24,19 @@ public class LoadingAnimView extends View {
 
     public LoadingAnimView(Context context) {
         super(context);
-        this.cwn = 0.0f;
+        this.cAX = 0.0f;
         init();
     }
 
     public LoadingAnimView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cwn = 0.0f;
+        this.cAX = 0.0f;
         init();
     }
 
     public LoadingAnimView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cwn = 0.0f;
+        this.cAX = 0.0f;
         init();
     }
 
@@ -50,7 +50,7 @@ public class LoadingAnimView extends View {
 
     public void startAnim() {
         if (this.mAnimator != null) {
-            anK();
+            aoQ();
         }
         this.mAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
         this.mAnimator.setDuration(750L);
@@ -62,11 +62,11 @@ public class LoadingAnimView extends View {
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (floatValue < 0.4f) {
-                    LoadingAnimView.this.cwn = (floatValue / 0.4f) * 0.25f;
+                    LoadingAnimView.this.cAX = (floatValue / 0.4f) * 0.25f;
                 } else if (floatValue < 0.6f) {
-                    LoadingAnimView.this.cwn = (((floatValue - 0.4f) / 0.2f) * 0.5f) + 0.25f;
+                    LoadingAnimView.this.cAX = (((floatValue - 0.4f) / 0.2f) * 0.5f) + 0.25f;
                 } else {
-                    LoadingAnimView.this.cwn = (((floatValue - 0.6f) / 0.4f) * 0.25f) + 0.75f;
+                    LoadingAnimView.this.cAX = (((floatValue - 0.6f) / 0.4f) * 0.25f) + 0.75f;
                 }
                 LoadingAnimView.this.postInvalidate();
             }
@@ -77,7 +77,7 @@ public class LoadingAnimView extends View {
     }
 
     public void stopAnim() {
-        anK();
+        aoQ();
         clearAnimation();
     }
 
@@ -91,12 +91,12 @@ public class LoadingAnimView extends View {
             this.mBitmap.eraseColor(0);
             this.mPaint.setStyle(Paint.Style.FILL);
             this.mPaint.setColor(getResources().getColor(a.c.aiapps_pull_load_footer_image_color));
-            this.mPaint.setAlpha((int) (255.0d * (((1.0d - (2.0d * Math.abs(this.cwn - 0.5d))) * 0.3d) + 0.3d)));
+            this.mPaint.setAlpha((int) (255.0d * (((1.0d - (2.0d * Math.abs(this.cAX - 0.5d))) * 0.3d) + 0.3d)));
             this.mCanvas.drawCircle(measuredWidth / 2.0f, measuredHeight / 2.0f, dip2px, this.mPaint);
             this.mMatrix.reset();
             this.mCamera.save();
             this.mCamera.setLocation(0.0f, 0.0f, -100.0f);
-            this.mCamera.rotateY(this.cwn * 360.0f);
+            this.mCamera.rotateY(this.cAX * 360.0f);
             this.mCamera.getMatrix(this.mMatrix);
             this.mCamera.restore();
             this.mMatrix.preTranslate((-measuredWidth) / 2.0f, (-measuredHeight) / 2.0f);
@@ -112,7 +112,7 @@ public class LoadingAnimView extends View {
         this.mCanvas = new Canvas(this.mBitmap);
     }
 
-    private void anK() {
+    private void aoQ() {
         if (this.mAnimator != null) {
             this.mAnimator.setRepeatCount(0);
             this.mAnimator.removeAllUpdateListeners();

@@ -13,10 +13,10 @@ import java.io.FileOutputStream;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f extends a {
-    private int bOQ;
-    private int bOR;
-    private String bOS;
-    private float bOT;
+    private int bTE;
+    private int bTF;
+    private String bTG;
+    private float bTH;
     public int mHeight;
     private int mWidth;
     private int mX;
@@ -24,18 +24,18 @@ public class f extends a {
 
     public f(String str) {
         super(str);
-        this.bOS = "png";
-        this.bOT = 1.0f;
+        this.bTG = "png";
+        this.bTH = 1.0f;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.mX = ag.B((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
-            this.mY = ag.B((float) jSONObject.optDouble("y"));
-            this.mWidth = ag.B((float) jSONObject.optDouble("width"));
-            this.mHeight = ag.B((float) jSONObject.optDouble("height"));
-            this.bOQ = ag.B((float) jSONObject.optDouble("destWidth"));
-            this.bOR = ag.B((float) jSONObject.optDouble("destHeight"));
-            this.bOS = jSONObject.optString("fileType");
-            this.bOT = (float) jSONObject.optDouble("quality");
+            this.mX = ag.D((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
+            this.mY = ag.D((float) jSONObject.optDouble("y"));
+            this.mWidth = ag.D((float) jSONObject.optDouble("width"));
+            this.mHeight = ag.D((float) jSONObject.optDouble("height"));
+            this.bTE = ag.D((float) jSONObject.optDouble("destWidth"));
+            this.bTF = ag.D((float) jSONObject.optDouble("destHeight"));
+            this.bTG = jSONObject.optString("fileType");
+            this.bTH = (float) jSONObject.optDouble("quality");
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
@@ -56,11 +56,11 @@ public class f extends a {
             this.mY = (this.mY < 0 || this.mY >= height) ? 0 : this.mY;
             this.mWidth = (this.mWidth <= 0 || this.mX + this.mWidth > width) ? width - this.mX : this.mWidth;
             this.mHeight = (this.mHeight <= 0 || this.mY + this.mHeight > height) ? height - this.mY : this.mHeight;
-            this.bOQ = this.bOQ <= 0 ? this.mWidth : this.bOQ;
-            this.bOR = this.bOR <= 0 ? this.mHeight : this.bOR;
-            Bitmap createBitmap = Bitmap.createBitmap(this.bOQ, this.bOR, c.getConfig());
-            new Canvas(createBitmap).drawBitmap(c, new Rect(this.mX, this.mY, this.mX + this.mWidth, this.mY + this.mHeight), new Rect(0, 0, this.bOQ, this.bOR), new Paint());
-            Bitmap.CompressFormat compressFormat = UY() ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG;
+            this.bTE = this.bTE <= 0 ? this.mWidth : this.bTE;
+            this.bTF = this.bTF <= 0 ? this.mHeight : this.bTF;
+            Bitmap createBitmap = Bitmap.createBitmap(this.bTE, this.bTF, c.getConfig());
+            new Canvas(createBitmap).drawBitmap(c, new Rect(this.mX, this.mY, this.mX + this.mWidth, this.mY + this.mHeight), new Rect(0, 0, this.bTE, this.bTF), new Paint());
+            Bitmap.CompressFormat compressFormat = We() ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG;
             File file = new File(str);
             if (file.exists()) {
                 file.delete();
@@ -70,7 +70,7 @@ public class f extends a {
             }
             file.createNewFile();
             FileOutputStream fileOutputStream = new FileOutputStream(file);
-            createBitmap.compress(compressFormat, (int) (this.bOT * 100.0f), fileOutputStream);
+            createBitmap.compress(compressFormat, (int) (this.bTH * 100.0f), fileOutputStream);
             fileOutputStream.flush();
             com.baidu.swan.e.d.closeSafely(fileOutputStream);
             z = true;
@@ -90,8 +90,8 @@ public class f extends a {
         }
     }
 
-    public boolean UY() {
-        return TextUtils.equals(this.bOS, "jpg");
+    public boolean We() {
+        return TextUtils.equals(this.bTG, "jpg");
     }
 
     @Override // com.baidu.swan.apps.canvas.b.a, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a

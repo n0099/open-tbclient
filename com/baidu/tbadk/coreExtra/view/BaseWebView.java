@@ -19,7 +19,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
@@ -135,7 +135,7 @@ public class BaseWebView extends WebView {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
         getSettings().setUseWideViewPort(true);
-        getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + am.aUQ());
+        getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + an.aWK());
         com.baidu.tbadk.browser.a.WebViewNoDataBase(getSettings());
         this.mWebViewClient = new a();
         this.mWebChromeClient = new h();
@@ -357,7 +357,7 @@ public class BaseWebView extends WebView {
 
     public void onChangeSkinType() {
         if (this.mCommonJsBridge != null) {
-            this.mCommonJsBridge.aNp();
+            this.mCommonJsBridge.aOS();
         }
     }
 }

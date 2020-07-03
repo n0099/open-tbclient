@@ -4,9 +4,9 @@ import android.view.View;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 /* loaded from: classes3.dex */
 public abstract class i {
-    public MaskStrokeView eZn;
+    public MaskStrokeView fkk;
     public View mRootView;
 
-    public void c(FuFaceItem fuFaceItem) {
+    public void d(FuFaceItem fuFaceItem) {
     }
 }

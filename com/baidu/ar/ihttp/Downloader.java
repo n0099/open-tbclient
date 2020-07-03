@@ -10,11 +10,11 @@ import java.io.RandomAccessFile;
 import org.apache.http.client.methods.HttpHead;
 /* loaded from: classes3.dex */
 public final class Downloader {
-    private String pY;
-    private int pZ = 0;
+    private String qx;
+    private int qy = 0;
 
     public Downloader(String str) {
-        this.pY = str;
+        this.qx = str;
     }
 
     private static void a(InputStream inputStream, String str, int i, IProgressCallback iProgressCallback) {
@@ -64,7 +64,7 @@ public final class Downloader {
 
     public int download(String str, IProgressCallback iProgressCallback) {
         int fileSize = getFileSize();
-        IHttpResponse execute = HttpFactory.newRequest().setUrl(this.pY).setMethod("GET").execute();
+        IHttpResponse execute = HttpFactory.newRequest().setUrl(this.qx).setMethod("GET").execute();
         if (execute.isSuccess()) {
             a(execute.getStream(), str, fileSize, iProgressCallback);
             return fileSize;
@@ -74,7 +74,7 @@ public final class Downloader {
 
     public IHttpRequest downloadAsync(final String str, final ICallbackWith<Integer> iCallbackWith, final ICallbackWith<Exception> iCallbackWith2) {
         IHttpRequest newRequest = HttpFactory.newRequest();
-        newRequest.setUrl(this.pY).setMethod(HttpHead.METHOD_NAME).enqueue(new a() { // from class: com.baidu.ar.ihttp.Downloader.1
+        newRequest.setUrl(this.qx).setMethod(HttpHead.METHOD_NAME).enqueue(new a() { // from class: com.baidu.ar.ihttp.Downloader.1
             @Override // com.baidu.ar.ihttp.a
             public void a(HttpException httpException) {
                 iCallbackWith2.run(httpException);
@@ -82,10 +82,10 @@ public final class Downloader {
 
             @Override // com.baidu.ar.ihttp.a
             public void a(IHttpResponse iHttpResponse) {
-                Downloader.this.pZ = iHttpResponse.getContentLength();
+                Downloader.this.qy = iHttpResponse.getContentLength();
                 try {
                     Downloader.this.download(str, null);
-                    iCallbackWith.run(Integer.valueOf(Downloader.this.pZ));
+                    iCallbackWith.run(Integer.valueOf(Downloader.this.qy));
                 } catch (Exception e) {
                     e.printStackTrace();
                     iCallbackWith2.run(e);
@@ -96,9 +96,9 @@ public final class Downloader {
     }
 
     public int getFileSize() {
-        if (this.pZ == 0) {
-            this.pZ = getNetFileSize(this.pY);
+        if (this.qy == 0) {
+            this.qy = getNetFileSize(this.qx);
         }
-        return this.pZ;
+        return this.qy;
     }
 }

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
@@ -40,8 +40,8 @@ public class c {
         this.tipView = LayoutInflater.from(this.mContext).inflate(R.layout.image_toast_view, (ViewGroup) null);
         this.tipText = (TextView) this.tipView.findViewById(R.id.tip_text);
         this.tipImage = (ImageView) this.tipView.findViewById(R.id.tip_iamge);
-        this.tipView.setBackgroundDrawable(am.aE(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32), am.getColor(R.color.cp_hud_a)));
-        am.setViewTextColor(this.tipText, (int) R.color.cp_cont_a);
+        this.tipView.setBackgroundDrawable(an.aG(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32), an.getColor(R.color.cp_hud_a)));
+        an.setViewTextColor(this.tipText, (int) R.color.cp_cont_a);
         this.mToastHandler = new Handler();
     }
 

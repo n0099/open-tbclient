@@ -32,27 +32,27 @@ import java.util.List;
 public class c implements com.baidu.swan.bdprivate.a.a.a {
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(Context context, Bundle bundle, com.baidu.swan.apps.a.a aVar) {
-        a.bnZ().a(context, bundle, aVar);
+        a.bqz().a(context, bundle, aVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public boolean isLogin(Context context) {
-        return a.bnZ().isLogin();
+        return a.bqz().isLogin();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getBduss(Context context) {
-        return a.bnZ().getBduss();
+        return a.bqz().getBduss();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(String str, ArrayList<String> arrayList, b.a aVar) {
-        a.bnZ().b(str, arrayList, aVar);
+        a.bqz().b(str, arrayList, aVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getUid(Context context) {
-        return a.bnZ().getUid();
+        return a.bqz().getUid();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -70,16 +70,16 @@ public class c implements com.baidu.swan.bdprivate.a.a.a {
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public z cT(Context context) {
+    public z cU(Context context) {
         z zVar = new z();
-        zVar.displayName = a.bnZ().getDisplayName();
-        zVar.aOX = a.bnZ().bob();
+        zVar.displayName = a.bqz().getDisplayName();
+        zVar.aRD = a.bqz().bqB();
         return zVar;
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void b(com.baidu.swan.apps.a.c cVar) {
-        a.bnZ().a(cVar);
+        a.bqz().a(cVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -136,8 +136,8 @@ public class c implements com.baidu.swan.bdprivate.a.a.a {
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public String cQ(Context context) {
-        return h.arO().getString("bd_box_ptoken", "");
+    public String cR(Context context) {
+        return h.asV().getString("bd_box_ptoken", "");
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -199,12 +199,12 @@ public class c implements com.baidu.swan.bdprivate.a.a.a {
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public void a(Context context, a.InterfaceC0408a interfaceC0408a) {
-        a.bnZ().a(context, "1", interfaceC0408a);
+    public void a(Context context, a.InterfaceC0414a interfaceC0414a) {
+        a.bqz().a(context, "1", interfaceC0414a);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public void a(Context context, a.InterfaceC0412a interfaceC0412a) {
-        a.bnZ().a(context, "1", interfaceC0412a);
+    public void a(Context context, a.InterfaceC0418a interfaceC0418a) {
+        a.bqz().a(context, "1", interfaceC0418a);
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PbPostShareDialogConfig;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bu;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.pb.data.e;
 import com.baidu.tieba.pb.data.k;
@@ -21,51 +21,51 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class c {
-    public a jXA = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
+    public a krq = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
         @Override // com.baidu.tieba.pb.pb.main.b.c.a
-        public void a(e eVar, bk bkVar, PostData postData, View view) {
+        public void a(e eVar, bu buVar, PostData postData, View view) {
             String A;
             String tid;
             String str;
-            if ((eVar != null || bkVar != null) && postData != null && view != null && c.this.mPageContext != null) {
+            if ((eVar != null || buVar != null) && postData != null && view != null && c.this.mPageContext != null) {
                 if (eVar == null) {
-                    A = c.this.A(bkVar);
+                    A = c.this.A(buVar);
                 } else {
                     A = eVar.o(c.this.mPageContext.getPageActivity(), false)[0];
                     if (!StringUtils.isNull(A) && A.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
                         A = A.substring(TbConfig.URL_IMAGE_PREFIX.length());
                     }
-                    bkVar = eVar.cCy();
-                    if (bkVar == null) {
+                    buVar = eVar.cGN();
+                    if (buVar == null) {
                         return;
                     }
                 }
-                Bitmap cK = c.this.cK(view);
+                Bitmap cL = c.this.cL(view);
                 k kVar = new k();
-                kVar.B(cK);
-                kVar.setContent(bkVar.getAbstract());
-                if (bkVar.aQQ() != null) {
-                    kVar.rc(true);
-                    kVar.Jf(StringUtils.translateSecondsToString(bkVar.aQQ().video_duration.intValue()));
+                kVar.B(cL);
+                kVar.setContent(buVar.getAbstract());
+                if (buVar.aSH() != null) {
+                    kVar.rp(true);
+                    kVar.JH(StringUtils.translateSecondsToString(buVar.aSH().video_duration.intValue()));
                 } else {
-                    kVar.rc(false);
+                    kVar.rp(false);
                 }
                 if (!StringUtils.isNull(A)) {
-                    kVar.Jg(A);
+                    kVar.JI(A);
                 }
-                String title = bkVar.getTitle();
+                String title = buVar.getTitle();
                 if (StringUtils.isNull(title)) {
-                    title = bkVar.getAbstract();
+                    title = buVar.getAbstract();
                 }
                 kVar.setContent(title);
-                if (bkVar.aSx()) {
-                    tid = bkVar.getBaijiahaoData().oriUgcTid;
-                    str = "?share=9105&fr=dshare&dtype=" + bkVar.getBaijiahaoData().oriUgcType + "&dvid=" + bkVar.getBaijiahaoData().oriUgcVid + "&nid=" + bkVar.getBaijiahaoData().oriUgcNid;
+                if (buVar.aQZ()) {
+                    tid = buVar.getBaijiahaoData().oriUgcTid;
+                    str = "?share=9105&fr=dshare&dtype=" + buVar.getBaijiahaoData().oriUgcType + "&dvid=" + buVar.getBaijiahaoData().oriUgcVid + "&nid=" + buVar.getBaijiahaoData().oriUgcNid;
                 } else {
-                    tid = bkVar.getTid();
+                    tid = buVar.getTid();
                     str = "?share=9105&fr=share";
                 }
-                kVar.C(c.this.JM("http://tieba.baidu.com/p/" + tid + str));
+                kVar.C(c.this.Ko("http://tieba.baidu.com/p/" + tid + str));
                 ShareItem shareItem = new ShareItem();
                 shareItem.shareType = 1;
                 PbPostShareDialogConfig pbPostShareDialogConfig = new PbPostShareDialogConfig(c.this.mPageContext.getPageActivity(), shareItem, true, kVar);
@@ -79,7 +79,7 @@ public class c {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void a(e eVar, bk bkVar, PostData postData, View view);
+        void a(e eVar, bu buVar, PostData postData, View view);
     }
 
     public c(TbPageContext tbPageContext) {
@@ -87,14 +87,14 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Bitmap cK(View view) {
+    public Bitmap cL(View view) {
         Bitmap createBitmap = Bitmap.createBitmap((view.getWidth() - view.getPaddingLeft()) - view.getPaddingRight(), (view.getHeight() - view.getPaddingTop()) - view.getPaddingBottom(), Bitmap.Config.ARGB_8888);
         view.draw(new Canvas(createBitmap));
         return createBitmap;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Bitmap JM(String str) {
+    public Bitmap Ko(String str) {
         CustomResponsedMessage runTask;
         if (str == null || str.length() == 0 || (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) == null || runTask.getData() == null) {
             return null;
@@ -103,26 +103,26 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String A(bk bkVar) {
+    public String A(bu buVar) {
         String str;
-        if (bkVar == null) {
+        if (buVar == null) {
             return null;
         }
-        if (bkVar.aQS() != null && !TextUtils.isEmpty(bkVar.aQS().cover)) {
-            return bkVar.aQS().cover;
+        if (buVar.aSJ() != null && !TextUtils.isEmpty(buVar.aSJ().cover)) {
+            return buVar.aSJ().cover;
         }
-        if (bkVar.aQH() == null) {
+        if (buVar.aSy() == null) {
             return null;
         }
-        ArrayList<MediaData> aQH = bkVar.aQH();
-        int size = aQH.size();
+        ArrayList<MediaData> aSy = buVar.aSy();
+        int size = aSy.size();
         int i = 0;
         while (true) {
             if (i >= size) {
                 str = null;
                 break;
             }
-            MediaData mediaData = aQH.get(i);
+            MediaData mediaData = aSy.get(i);
             if (mediaData != null && (mediaData.getType() == 3 || mediaData.getType() == 5)) {
                 if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
                     str = mediaData.getThumbnails_url();
@@ -134,8 +134,8 @@ public class c {
             }
             i++;
         }
-        if (str == null && bkVar.aQQ() != null && !TextUtils.isEmpty(bkVar.aQQ().thumbnail_url)) {
-            return bkVar.aQQ().thumbnail_url;
+        if (str == null && buVar.aSH() != null && !TextUtils.isEmpty(buVar.aSH().thumbnail_url)) {
+            return buVar.aSH().thumbnail_url;
         }
         return str;
     }

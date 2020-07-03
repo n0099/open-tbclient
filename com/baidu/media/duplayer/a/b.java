@@ -13,8 +13,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class b {
     private static final Object b = new Object();
-    a bpE;
-    private c bpF;
+    a buF;
+    private c buG;
     private ArrayList<com.baidu.media.duplayer.a.a> c;
     private ArrayList<com.baidu.media.duplayer.a.a> d;
 
@@ -31,7 +31,7 @@ public class b {
             this.c = 5;
         }
 
-        public com.baidu.media.duplayer.a.a LE() {
+        public com.baidu.media.duplayer.a.a MN() {
             com.baidu.media.duplayer.a.a aVar = new com.baidu.media.duplayer.a.a(this.b + this.a.getAndIncrement());
             aVar.setPriority(this.c);
             return aVar;
@@ -41,8 +41,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.media.duplayer.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0204b {
-        private static b bpG = new b();
+    public static class C0210b {
+        private static b buH = new b();
     }
 
     /* loaded from: classes.dex */
@@ -55,10 +55,10 @@ public class b {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 100:
-                    b.LB().c();
+                    b.MK().c();
                     return;
                 case 101:
-                    b.LB().f();
+                    b.MK().f();
                     return;
                 default:
                     return;
@@ -69,18 +69,18 @@ public class b {
     private b() {
         this.c = new ArrayList<>();
         this.d = new ArrayList<>();
-        this.bpE = new a("duplayer-t");
-        this.bpF = new c(Looper.getMainLooper());
+        this.buF = new a("duplayer-t");
+        this.buG = new c(Looper.getMainLooper());
     }
 
-    public static b LB() {
-        return C0204b.bpG;
+    public static b MK() {
+        return C0210b.buH;
     }
 
-    private com.baidu.media.duplayer.a.a LC() {
-        com.baidu.media.duplayer.a.a LE = this.bpE.LE();
-        LE.start();
-        return LE;
+    private com.baidu.media.duplayer.a.a ML() {
+        com.baidu.media.duplayer.a.a MN = this.buF.MN();
+        MN.start();
+        return MN;
     }
 
     private void b(com.baidu.media.duplayer.a.a aVar) {
@@ -128,27 +128,27 @@ public class b {
         }
     }
 
-    public com.baidu.media.duplayer.a.a LD() {
+    public com.baidu.media.duplayer.a.a MM() {
         com.baidu.media.duplayer.a.a aVar;
         synchronized (b) {
             if (this.c.size() == 0) {
-                aVar = LC();
+                aVar = ML();
             } else {
                 int size = this.c.size() - 1;
                 aVar = this.c.get(size);
                 this.c.remove(size);
                 if (aVar == null) {
-                    aVar = LC();
+                    aVar = ML();
                 }
             }
             aVar.a(1);
             aVar.a(-1L);
             this.d.add(aVar);
             if (this.c.size() <= 0) {
-                this.bpF.removeMessages(100);
+                this.buG.removeMessages(100);
             }
             if (this.c.size() <= 3) {
-                this.bpF.removeMessages(101);
+                this.buG.removeMessages(101);
             }
             CyberLog.d("DuplayerHandlerThreadPool", " obtain handlerThread:" + aVar);
             d();
@@ -167,10 +167,10 @@ public class b {
             this.d.remove(aVar);
             this.c.add(aVar);
             if (this.c.size() > 0) {
-                this.bpF.sendEmptyMessageDelayed(100, 900000L);
+                this.buG.sendEmptyMessageDelayed(100, 900000L);
             }
             if (this.c.size() > 3) {
-                this.bpF.sendEmptyMessageDelayed(101, 120000L);
+                this.buG.sendEmptyMessageDelayed(101, 120000L);
             }
             d();
         }

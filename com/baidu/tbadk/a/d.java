@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class d {
-    private static Boolean dxb = null;
+    private static Boolean dCh = null;
 
     public static boolean a(e eVar, String... strArr) {
-        if (eVar == null || TextUtils.isEmpty(eVar.dxc)) {
+        if (eVar == null || TextUtils.isEmpty(eVar.dCi)) {
             return false;
         }
         for (String str : strArr) {
-            if (eVar.dxc.equalsIgnoreCase(str)) {
+            if (eVar.dCi.equalsIgnoreCase(str)) {
                 return true;
             }
         }
@@ -19,57 +19,57 @@ public class d {
     }
 
     public static e j(BdUniqueId bdUniqueId) {
-        return c.aMf().j(bdUniqueId);
+        return c.aNI().j(bdUniqueId);
     }
 
-    public static boolean aMi() {
-        return com.baidu.tbadk.a.a.c.B("70_2");
+    public static boolean aNL() {
+        return com.baidu.tbadk.a.a.c.A("70_2");
     }
 
-    public static boolean aMj() {
-        return com.baidu.tbadk.a.a.c.B("70_3");
+    public static boolean aNM() {
+        return com.baidu.tbadk.a.a.c.A("70_3");
     }
 
-    public static boolean aMk() {
-        return com.baidu.tbadk.a.a.c.B("70_4");
+    public static boolean aNN() {
+        return com.baidu.tbadk.a.a.c.A("70_4");
     }
 
-    public static boolean aMl() {
-        return com.baidu.tbadk.a.a.c.B("70_6");
+    public static boolean aNO() {
+        return com.baidu.tbadk.a.a.c.A("70_6");
     }
 
-    public static boolean aMm() {
-        return com.baidu.tbadk.a.a.c.B("71_2");
+    public static boolean aNP() {
+        return com.baidu.tbadk.a.a.c.A("71_2");
     }
 
-    public static boolean aMn() {
-        return aMk() || aMl();
+    public static boolean aNQ() {
+        return aNN() || aNO();
     }
 
-    public static boolean aMo() {
-        return aMk() || aMl();
+    public static boolean aNR() {
+        return aNN() || aNO();
     }
 
-    public static boolean aMp() {
-        return aMk() || aMl();
+    public static boolean aNS() {
+        return aNN() || aNO();
     }
 
-    public static boolean aMq() {
-        return aMi() || aMl();
+    public static boolean aNT() {
+        return aNL() || aNO();
     }
 
-    public static boolean aMr() {
-        return aMi() || aMl();
+    public static boolean aNU() {
+        return aNL() || aNO();
     }
 
-    public static boolean aMs() {
-        if (dxb == null) {
-            dxb = Boolean.valueOf(aMm());
+    public static boolean aNV() {
+        if (dCh == null) {
+            dCh = Boolean.valueOf(aNP());
         }
-        return dxb.booleanValue();
+        return dCh.booleanValue();
     }
 
-    public static boolean aMt() {
-        return aMk() || aMl();
+    public static boolean aNW() {
+        return aNN() || aNO();
     }
 }

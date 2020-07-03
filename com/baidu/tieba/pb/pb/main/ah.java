@@ -7,14 +7,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes9.dex */
 public class ah {
-    private NavigationBarCoverTip hOn;
-    private int hOo;
+    private int ibA;
+    private NavigationBarCoverTip ibz;
     private com.baidu.adp.base.e mContext;
     private TextView mTipView;
 
     public ah(com.baidu.adp.base.e eVar, NavigationBarCoverTip navigationBarCoverTip) {
         this.mContext = eVar;
-        this.hOn = navigationBarCoverTip;
+        this.ibz = navigationBarCoverTip;
         init();
     }
 
@@ -28,26 +28,26 @@ public class ah {
         this.mTipView.setLineSpacing(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
     }
 
-    public void Jx(String str) {
-        if (this.hOn != null) {
-            if (com.baidu.tbadk.core.util.aq.isEmpty(str) || this.hOo > 0) {
+    public void JZ(String str) {
+        if (this.ibz != null) {
+            if (com.baidu.tbadk.core.util.ar.isEmpty(str) || this.ibA > 0) {
                 onDestory();
-                this.hOn.setVisibility(8);
+                this.ibz.setVisibility(8);
                 return;
             }
-            this.hOn.setVisibility(0);
-            this.hOo++;
+            this.ibz.setVisibility(0);
+            this.ibA++;
             this.mTipView.setText(str);
-            com.baidu.tbadk.core.util.am.setViewTextColor(this.mTipView, (int) R.color.cp_cont_a);
-            this.hOn.removeAllViews();
-            this.hOn.addView(this.mTipView);
-            this.hOn.j(this.mContext.getPageActivity(), 5000);
+            com.baidu.tbadk.core.util.an.setViewTextColor(this.mTipView, (int) R.color.cp_cont_a);
+            this.ibz.removeAllViews();
+            this.ibz.addView(this.mTipView);
+            this.ibz.i(this.mContext.getPageActivity(), 5000);
         }
     }
 
     public void onDestory() {
-        if (this.hOn != null) {
-            this.hOn.onDestroy();
+        if (this.ibz != null) {
+            this.ibz.onDestroy();
         }
     }
 }

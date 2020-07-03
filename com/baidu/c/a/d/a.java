@@ -7,16 +7,16 @@ public interface a {
 
     /* renamed from: com.baidu.c.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0096a {
+    public interface InterfaceC0097a {
         void b(int i, View view);
     }
 
     /* loaded from: classes6.dex */
     public interface b {
-        void L(int i, int i2);
+        void N(int i, int i2);
     }
 
-    void a(Activity activity, InterfaceC0096a interfaceC0096a);
+    void a(Activity activity, InterfaceC0097a interfaceC0097a);
 
     void e(View view, int i);
 }

@@ -12,38 +12,44 @@ import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class HeadSegAR extends c {
     private static final String TAG = HeadSegAR.class.getSimpleName();
-    private a pc;
-    private String bx = "ability_head_segmentation";
-    private AlgoHandleController bU = null;
-    private e pd = new e() { // from class: com.baidu.ar.headseg.HeadSegAR.1
+    private a pC;
+    private String bJ = "ability_head_segmentation";
+    private AlgoHandleController ch = null;
+    private e pD = new e() { // from class: com.baidu.ar.headseg.HeadSegAR.1
         @Override // com.baidu.ar.c.e
         public void a(com.baidu.ar.c.b bVar) {
-            long cn = bVar.cn();
+            long cF = bVar.cF();
             j r = HeadSegAR.this.r();
-            if (r == null || cn <= 0 || HeadSegAR.this.bU == null) {
+            if (r == null || cF <= 0 || HeadSegAR.this.ch == null) {
                 return;
             }
-            HeadSegAR.this.bU.sendHandleToRenderer(cn, r, "ability_head_segmentation");
+            HeadSegAR.this.ch.sendHandleToRenderer(cF, r, "ability_head_segmentation");
+            HeadSegAR.this.a(cF);
         }
 
         @Override // com.baidu.ar.c.e
         public void a(l lVar) {
+            j r = HeadSegAR.this.r();
+            if (r == null || HeadSegAR.this.pC == null || lVar == null) {
+                return;
+            }
+            r.a(lVar.cL(), HeadSegAR.this.pC.cK());
         }
 
         @Override // com.baidu.ar.c.e
         public void b(l lVar) {
         }
     };
-    private e pe = new e() { // from class: com.baidu.ar.headseg.HeadSegAR.2
+    private e kG = new e() { // from class: com.baidu.ar.headseg.HeadSegAR.2
         @Override // com.baidu.ar.c.e
         public void a(com.baidu.ar.c.b bVar) {
-            long cn = bVar.cn();
-            if (HeadSegAR.this.bU == null) {
+            long cF = bVar.cF();
+            if (HeadSegAR.this.ch == null) {
                 ARMdlInterfaceJNI.updateLastFaceInfo(0L);
-            } else if (HeadSegAR.this.bU.getHandleType(cn) == 10) {
-                ARMdlInterfaceJNI.updateLastFaceInfo(cn);
+            } else if (HeadSegAR.this.ch.getHandleType(cF) == 10) {
+                ARMdlInterfaceJNI.updateLastFaceInfo(cF);
             }
-            AlgoHandleAdapter.destroyHandle(cn);
+            AlgoHandleAdapter.destroyHandle(cF);
         }
 
         @Override // com.baidu.ar.c.e
@@ -56,21 +62,21 @@ public class HeadSegAR extends c {
     };
 
     private void b(long j) {
-        if (this.bU == null || j <= 0) {
+        if (this.ch == null || j <= 0) {
             return;
         }
-        long handleType = this.bU.getHandleType(j);
-        if (this.pc == null || handleType != 22) {
+        long handleType = this.ch.getHandleType(j);
+        if (this.pC == null || handleType != 22) {
             return;
         }
-        this.pc.b(j);
+        this.pC.b(j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.ar.c
     public void a(long j) {
         super.a(j);
-        if (j <= 0 || this.bU == null || this.bU.getHandleType(j) != 22) {
+        if (j <= 0 || this.ch == null || this.ch.getHandleType(j) != 22) {
             return;
         }
         b(j);
@@ -79,14 +85,18 @@ public class HeadSegAR extends c {
     @Override // com.baidu.ar.c
     public void release() {
         b(false);
-        if (this.pc != null) {
-            this.pc.a((AlgoHandleController) null);
-            this.pc.ai();
-            a(this.pc);
+        if (this.pC != null) {
+            this.pC.a((AlgoHandleController) null);
+            this.pC.aw();
+            a(this.pC);
         }
-        if (this.bU != null) {
-            this.bU.release();
-            this.bU = null;
+        if (this.ch != null) {
+            this.ch.release();
+            this.ch = null;
+        }
+        j r = r();
+        if (r != null) {
+            r.r(22);
         }
         super.release();
     }
@@ -94,17 +104,17 @@ public class HeadSegAR extends c {
     @Override // com.baidu.ar.c
     public void setup(HashMap<String, Object> hashMap) {
         super.setup(hashMap);
-        if (this.bU == null) {
-            this.bU = new AlgoHandleController();
+        if (this.ch == null) {
+            this.ch = new AlgoHandleController();
         }
-        this.pc = new a();
-        this.pc.a(this.bU);
+        this.pC = new a();
+        this.pC.a(this.ch);
         HashMap<String, Object> hashMap2 = new HashMap<>();
-        hashMap2.put("ability_name", this.bx);
-        a("FaceDetector", this.pe, hashMap2);
+        hashMap2.put("ability_name", this.bJ);
+        a("FaceDetector", this.kG, hashMap2);
         b(true);
-        a(this.pc, this.pd);
-        com.baidu.ar.b.a.ac().a(getContext(), getMdlConfigs());
-        this.pc.c((Bundle) null);
+        a(this.pC, this.pD);
+        com.baidu.ar.b.a.aq().a(getContext(), getMdlConfigs());
+        this.pC.c((Bundle) null);
     }
 }

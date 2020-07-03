@@ -2,7 +2,7 @@ package com.baidu.tieba.VideoCache;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.File;
@@ -14,26 +14,26 @@ import java.util.Collections;
 /* loaded from: classes9.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private a eLK = new a();
+    private a eVW = new a();
 
     public b() {
-        blt();
+        bnS();
     }
 
-    private void blt() {
+    private void bnS() {
         File[] listFiles;
-        File file = new File(i.eMu);
+        File file = new File(i.eWG);
         if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {
                     d dVar = new d();
                     dVar.setFileName(file2.getName());
-                    dVar.cU(zl(file2.getAbsolutePath()));
-                    dVar.cV(m.zx(file2.getName()));
-                    this.eLK.a(dVar);
+                    dVar.cW(zE(file2.getAbsolutePath()));
+                    dVar.cX(m.zQ(file2.getName()));
+                    this.eVW.a(dVar);
                 }
             }
-            Collections.sort(this.eLK.blq(), new AccessTimeComparator());
+            Collections.sort(this.eVW.bnP(), new AccessTimeComparator());
         }
     }
 
@@ -42,7 +42,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long zl(String str) {
+    private long zE(String str) {
         DataInputStream dataInputStream;
         FileInputStream fileInputStream;
         long j = 0;
@@ -90,7 +90,7 @@ public class b {
                     e = e5;
                     fileInputStream2 = fileInputStream;
                     try {
-                        TiebaStatic.log(new an("c12028").dh("errormsg", "获取缓存文件的Access时间出现异常").dh(BdStatsConstant.StatsType.ERROR, e.getMessage()).dh("name", file.getAbsolutePath()));
+                        TiebaStatic.log(new ao("c12028").dk("errormsg", "获取缓存文件的Access时间出现异常").dk(BdStatsConstant.StatsType.ERROR, e.getMessage()).dk("name", file.getAbsolutePath()));
                         e.printStackTrace();
                         if (fileInputStream2 != null) {
                             try {
@@ -139,61 +139,61 @@ public class b {
         return j;
     }
 
-    public void zm(String str) {
+    public void zF(String str) {
         d dVar;
-        String zz = m.zz(str);
-        if (zz != null && !zz.isEmpty()) {
-            zn(zz);
-            if (this.eLK != null) {
+        String zS = m.zS(str);
+        if (zS != null && !zS.isEmpty()) {
+            zG(zS);
+            if (this.eVW != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i = 0;
                 while (true) {
-                    if (i >= this.eLK.bls()) {
+                    if (i >= this.eVW.bnR()) {
                         dVar = null;
                         break;
                     }
-                    d oV = this.eLK.oV((this.eLK.bls() - 1) - i);
-                    if (oV != null && oV.getFileName() != null && oV.getFileName().equals(zz)) {
-                        dVar = oV;
+                    d pu = this.eVW.pu((this.eVW.bnR() - 1) - i);
+                    if (pu != null && pu.getFileName() != null && pu.getFileName().equals(zS)) {
+                        dVar = pu;
                         break;
                     }
                     i++;
                 }
                 if (dVar != null) {
-                    this.eLK.b(dVar);
+                    this.eVW.b(dVar);
                 } else {
                     dVar = new d();
-                    dVar.setFileName(zz);
+                    dVar.setFileName(zS);
                 }
                 long currentTimeMillis2 = System.currentTimeMillis();
-                t(zz, currentTimeMillis2);
-                dVar.cU(currentTimeMillis2);
-                dVar.cV(m.zx(zz));
-                this.eLK.a(dVar);
-                j.D(TAG, "total cache size: " + ((this.eLK.blr() / 1024) / 1024) + "M list size " + this.eLK.bls());
-                if (this.eLK.blr() > 629145600) {
-                    while (this.eLK.blr() > 524288000 && this.eLK.bls() > 2 && blu()) {
+                t(zS, currentTimeMillis2);
+                dVar.cW(currentTimeMillis2);
+                dVar.cX(m.zQ(zS));
+                this.eVW.a(dVar);
+                j.D(TAG, "total cache size: " + ((this.eVW.bnQ() / 1024) / 1024) + "M list size " + this.eVW.bnR());
+                if (this.eVW.bnQ() > 629145600) {
+                    while (this.eVW.bnQ() > 524288000 && this.eVW.bnR() > 2 && bnT()) {
                     }
-                    blw();
+                    bnV();
                 }
-                if (m.blL() < 314572800) {
-                    while (m.blL() < 419430400 && this.eLK.bls() > 2 && blu()) {
+                if (m.bok() < 314572800) {
+                    while (m.bok() < 419430400 && this.eVW.bnR() > 2 && bnT()) {
                     }
-                    blw();
+                    bnV();
                 }
                 j.D(TAG, "adjust coast time " + (System.currentTimeMillis() - currentTimeMillis));
             }
         }
     }
 
-    private boolean blu() {
-        d oV = this.eLK.oV(0);
-        if (oV == null || !(e.blB().zo(oV.getFileName()) || e.blB().zq(oV.getFileName()))) {
-            this.eLK.remove(0);
-            if (oV != null) {
-                File file = new File(i.eMv + oV.getFileName());
+    private boolean bnT() {
+        d pu = this.eVW.pu(0);
+        if (pu == null || !(e.boa().zH(pu.getFileName()) || e.boa().zJ(pu.getFileName()))) {
+            this.eVW.remove(0);
+            if (pu != null) {
+                File file = new File(i.eWH + pu.getFileName());
                 j.D(TAG, "delete file " + file.getName());
-                m.N(file);
+                m.O(file);
             }
             return true;
         }
@@ -201,7 +201,7 @@ public class b {
     }
 
     private void t(String str, long j) {
-        File file = new File(i.eMv + str);
+        File file = new File(i.eWH + str);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -212,46 +212,46 @@ public class b {
             bufferedWriter.flush();
             bufferedWriter.close();
         } catch (Exception e) {
-            TiebaStatic.log(new an("c12028").dh("errormsg", "修改缓存文件的Access时间出现异常").dh(BdStatsConstant.StatsType.ERROR, e.getMessage()).dh("name", file2.getAbsolutePath()));
+            TiebaStatic.log(new ao("c12028").dk("errormsg", "修改缓存文件的Access时间出现异常").dk(BdStatsConstant.StatsType.ERROR, e.getMessage()).dk("name", file2.getAbsolutePath()));
             e.printStackTrace();
         }
     }
 
-    public void blv() {
-        if (this.eLK != null) {
+    public void bnU() {
+        if (this.eVW != null) {
             long currentTimeMillis = System.currentTimeMillis();
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.eLK.bls() - 2; i++) {
-                d oV = this.eLK.oV(i);
-                if (oV != null) {
-                    if (currentTimeMillis - oV.blz() < 86400000) {
+            for (int i = 0; i < this.eVW.bnR() - 2; i++) {
+                d pu = this.eVW.pu(i);
+                if (pu != null) {
+                    if (currentTimeMillis - pu.bnY() < 86400000) {
                         break;
                     }
-                    arrayList.add(oV);
+                    arrayList.add(pu);
                 }
             }
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 d dVar = (d) arrayList.get(i2);
-                if (dVar == null || (!e.blB().zo(dVar.getFileName()) && !e.blB().zq(dVar.getFileName()))) {
-                    this.eLK.b(dVar);
+                if (dVar == null || (!e.boa().zH(dVar.getFileName()) && !e.boa().zJ(dVar.getFileName()))) {
+                    this.eVW.b(dVar);
                     if (dVar != null) {
-                        File file = new File(i.eMv + dVar.getFileName());
+                        File file = new File(i.eWH + dVar.getFileName());
                         j.D(TAG, "delete expired file " + dVar.getFileName());
-                        m.N(file);
+                        m.O(file);
                     }
                 }
             }
-            blw();
+            bnV();
         }
     }
 
-    private void zn(String str) {
+    private void zG(String str) {
         File[] listFiles;
         if (str != null) {
             try {
                 if (!str.isEmpty()) {
-                    File file = new File(i.eMv + str + "/completed");
-                    File file2 = new File(i.eMv + str + "/segments");
+                    File file = new File(i.eWH + str + "/completed");
+                    File file2 = new File(i.eWH + str + "/segments");
                     if (file.exists()) {
                         j.D(TAG, "delete segments");
                         if (file2 != null && file2.exists() && file2.listFiles() != null) {
@@ -271,23 +271,23 @@ public class b {
     }
 
     public void clearCache() {
-        if (this.eLK != null) {
-            while (this.eLK.bls() > 0 && blu()) {
+        if (this.eVW != null) {
+            while (this.eVW.bnR() > 0 && bnT()) {
             }
-            blw();
+            bnV();
         }
     }
 
-    private void blw() {
+    private void bnV() {
         File[] listFiles;
-        File file = new File(i.eMu);
+        File file = new File(i.eWG);
         if (file.exists() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {
                     if (!file2.isDirectory()) {
-                        m.N(file2);
+                        m.O(file2);
                     } else if (!new File(file2.getAbsolutePath() + "/accesstime").exists()) {
-                        m.N(file2);
+                        m.O(file2);
                     }
                 }
             }

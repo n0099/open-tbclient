@@ -1,26 +1,42 @@
 package com.baidu.tbadk.core.data;
-/* loaded from: classes8.dex */
+
+import java.util.ArrayList;
+import tbclient.ForumPresentInfo;
+import tbclient.UserRankPresentInfo;
+/* loaded from: classes.dex */
 public class aa {
-    public int aFE;
-    public int accountType;
-    public int auY;
-    public long beginTime;
-    public long dCB;
-    public String dCC;
-    public long dCD;
-    public long dCE;
-    public int dCF;
-    public int dCG;
-    public int dCH;
-    public String desc;
-    public long endTime;
-    public int id;
-    public String name;
-    public long postId;
-    public long price;
-    public int sendCount;
-    public long threadId;
-    public String thumbnailUrl;
-    public long toUserId;
-    public String toUserName;
+    public String dIE;
+    public ArrayList<a> users;
+
+    public void a(ForumPresentInfo forumPresentInfo) {
+        if (forumPresentInfo != null) {
+            this.dIE = forumPresentInfo.content;
+            this.users = new ArrayList<>();
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < forumPresentInfo.user_list.size()) {
+                    this.users.add(new a(forumPresentInfo.user_list.get(i2)));
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class a {
+        public Integer dIF;
+        public String userName;
+        public String userPortrait;
+
+        public a(UserRankPresentInfo userRankPresentInfo) {
+            if (userRankPresentInfo != null) {
+                this.dIF = userRankPresentInfo.user_id;
+                this.userName = userRankPresentInfo.user_name;
+                this.userPortrait = userRankPresentInfo.portrait;
+            }
+        }
+    }
 }

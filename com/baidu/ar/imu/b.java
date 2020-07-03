@@ -4,13 +4,13 @@ public enum b {
     WORLD(0),
     RELATIVE(1);
     
-    private int qk;
+    private int qJ;
 
     b(int i) {
-        this.qk = i;
+        this.qJ = i;
     }
 
-    public static b B(int i) {
+    public static b H(int i) {
         b[] values;
         for (b bVar : values()) {
             if (bVar.getTypeValue() == i) {
@@ -21,6 +21,6 @@ public enum b {
     }
 
     public int getTypeValue() {
-        return this.qk;
+        return this.qJ;
     }
 }

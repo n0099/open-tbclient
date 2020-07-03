@@ -2,127 +2,123 @@ package com.baidu.tieba.pb.videopb;
 
 import android.arch.lifecycle.p;
 import android.graphics.Rect;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.util.w;
 import java.util.LinkedList;
 /* loaded from: classes9.dex */
 public class d {
-    private boolean aha;
-    private com.baidu.tieba.pb.data.e jIA;
-    private com.baidu.tieba.pb.data.e kdU;
-    private Rect kdW;
-    private boolean kdX;
-    private p<bk> kdV = new p<>();
-    private LinkedList<com.baidu.tieba.pb.data.e> kdY = new LinkedList<>();
-    private p<bk> kdZ = new p<>();
-    private p<bk> kea = new p<>();
-    private p<Boolean> keb = new p<>();
-    private p<Boolean> kec = new p<>();
-    private p<Boolean> ked = new p<>();
-    private p<Integer> kee = new p<>();
+    private boolean aik;
+    private com.baidu.tieba.pb.data.e kck;
+    private com.baidu.tieba.pb.data.e kxJ;
+    private Rect kxL;
+    private boolean kxM;
+    private p<bu> kxK = new p<>();
+    private LinkedList<com.baidu.tieba.pb.data.e> kxN = new LinkedList<>();
+    private p<bu> kxO = new p<>();
+    private p<bu> kxP = new p<>();
+    private p<Boolean> kxQ = new p<>();
+    private p<Boolean> kxR = new p<>();
+    private p<Boolean> kxS = new p<>();
+    private p<Integer> kxT = new p<>();
 
-    public void K(com.baidu.tieba.pb.data.e eVar) {
-        this.kdU = eVar;
+    public void L(com.baidu.tieba.pb.data.e eVar) {
+        this.kxJ = eVar;
         setData(eVar);
-        this.kdZ.setValue(null);
-        this.kdV.setValue(eVar.cCy());
+        this.kxO.setValue(null);
+        this.kxK.setValue(eVar.cGN());
     }
 
-    public com.baidu.tieba.pb.data.e cLr() {
-        return this.kdU;
+    public com.baidu.tieba.pb.data.e cPI() {
+        return this.kxJ;
     }
 
-    public com.baidu.tieba.pb.data.e cLs() {
-        return this.jIA;
+    public com.baidu.tieba.pb.data.e cPJ() {
+        return this.kck;
     }
 
     public void setData(com.baidu.tieba.pb.data.e eVar) {
-        this.jIA = eVar;
+        this.kck = eVar;
         if (eVar != null) {
-            this.kdV.setValue(eVar.cCy());
-            if (!v.isEmpty(eVar.cCY())) {
-                aQ(eVar.cCY().get(0));
+            this.kxK.setValue(eVar.cGN());
+            if (!w.isEmpty(eVar.cHo())) {
+                aR(eVar.cHo().get(0));
             }
         }
     }
 
-    public p<bk> cLt() {
-        return this.kdV;
+    public p<bu> cPK() {
+        return this.kxK;
     }
 
     public boolean isFromCDN() {
-        return this.aha;
+        return this.aik;
     }
 
     public void setFromCDN(boolean z) {
-        this.aha = z;
+        this.aik = z;
     }
 
     public void i(Rect rect) {
-        this.kdW = rect;
+        this.kxL = rect;
     }
 
-    public Rect cLu() {
-        return this.kdW;
+    public Rect cPL() {
+        return this.kxL;
     }
 
-    public void sC(boolean z) {
-        this.kdX = z;
+    public void sQ(boolean z) {
+        this.kxM = z;
     }
 
-    public boolean cLv() {
-        return this.kdX;
+    public boolean cPM() {
+        return this.kxM;
     }
 
-    public LinkedList<com.baidu.tieba.pb.data.e> cLw() {
-        return this.kdY;
+    public LinkedList<com.baidu.tieba.pb.data.e> cPN() {
+        return this.kxN;
     }
 
-    public void aP(bk bkVar) {
-        this.kdZ.setValue(bkVar);
+    public void aQ(bu buVar) {
+        this.kxO.setValue(buVar);
     }
 
-    public void aQ(bk bkVar) {
-        this.kea.setValue(bkVar);
+    public void aR(bu buVar) {
+        this.kxP.setValue(buVar);
     }
 
-    public p<bk> cLx() {
-        return this.kdZ;
+    public p<bu> cPO() {
+        return this.kxO;
     }
 
-    public p<bk> cLy() {
-        return this.kea;
+    public p<bu> cPP() {
+        return this.kxP;
     }
 
-    public p<Boolean> cLz() {
-        return this.keb;
+    public p<Boolean> cPQ() {
+        return this.kxQ;
     }
 
-    public void sD(boolean z) {
-        this.keb.setValue(Boolean.valueOf(z));
+    public void sR(boolean z) {
+        this.kxQ.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> cLA() {
-        return this.kec;
+    public p<Boolean> cPR() {
+        return this.kxR;
     }
 
-    public void sE(boolean z) {
-        this.kec.postValue(Boolean.valueOf(z));
+    public void sS(boolean z) {
+        this.kxR.postValue(Boolean.valueOf(z));
     }
 
     public void setIsLoading(boolean z) {
-        this.ked.setValue(Boolean.valueOf(z));
+        this.kxS.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> cLB() {
-        return this.ked;
+    public p<Boolean> cPS() {
+        return this.kxS;
     }
 
-    public void setCurrentTab(int i) {
-        this.kee.setValue(Integer.valueOf(i));
-    }
-
-    public p<Integer> cLC() {
-        return this.kee;
+    public p<Integer> cPT() {
+        return this.kxT;
     }
 }

@@ -1,32 +1,24 @@
 package com.baidu.live.data;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class x {
-    public String auL;
-    public int avZ;
-    public int awa;
-    public String awb;
-    public String awc;
-    public int duration;
-    public String iconUrl;
-    public int limit;
-    public String picUrl;
+    public int ayf;
+    public int ayg;
+    public String mAppid;
+    public int mOpenType;
 
-    public void parseJson(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.avZ = optJSONObject.optInt("interval");
-            this.picUrl = optJSONObject.optString("pic_url");
-            this.awa = optJSONObject.optInt("is_super_customer");
-            this.auL = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
-            this.limit = optJSONObject.optInt(Constants.EXTRA_CONFIG_LIMIT);
-            this.duration = optJSONObject.optInt("duration");
-            this.awb = optJSONObject.optString("toast_text");
-            this.iconUrl = optJSONObject.optString("icon_url");
-            this.awc = optJSONObject.optString("btn_url");
+    public String toJsonString() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.putOpt("live_type", Integer.valueOf(this.ayf));
+            jSONObject.putOpt("open_type", Integer.valueOf(this.mOpenType));
+            jSONObject.putOpt(AlaLiveRoomActivityConfig.SDK_EXTRA_SCREEN_DIRECTION, Integer.valueOf(this.ayg));
+            jSONObject.putOpt("appid", this.mAppid);
+            return jSONObject.toString();
+        } catch (Exception e) {
+            return "";
         }
     }
 }

@@ -6,13 +6,13 @@ import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class e implements ICaptureResult {
-    byte[] jO;
-    byte[] jP;
-    private Bitmap jQ;
-    private Bitmap jR;
-    int jS;
-    int jT;
-    IFaceResultData jU;
+    byte[] kg;
+    byte[] kh;
+    private Bitmap ki;
+    private Bitmap kj;
+    int kk;
+    int kl;
+    IFaceResultData km;
     long timestamp;
 
     private Bitmap a(byte[] bArr, int i, int i2) {
@@ -23,33 +23,33 @@ public class e implements ICaptureResult {
 
     @Override // com.baidu.ar.capture.ICaptureResult
     public IFaceResultData getFaceData() {
-        return this.jU;
+        return this.km;
     }
 
     @Override // com.baidu.ar.capture.ICaptureResult
     public Bitmap getOriginPhoto() {
-        if (this.jQ == null && this.jO != null) {
-            this.jQ = a(this.jO, this.jS, this.jT);
+        if (this.ki == null && this.kg != null) {
+            this.ki = a(this.kg, this.kk, this.kl);
         }
-        return this.jQ;
+        return this.ki;
     }
 
     @Override // com.baidu.ar.capture.ICaptureResult
     public Bitmap getOutputPhoto() {
-        if (this.jR == null && this.jP != null) {
-            this.jR = a(this.jP, this.jS, this.jT);
+        if (this.kj == null && this.kh != null) {
+            this.kj = a(this.kh, this.kk, this.kl);
         }
-        return this.jR;
+        return this.kj;
     }
 
     @Override // com.baidu.ar.capture.ICaptureResult
     public int getPhotoHeight() {
-        return this.jT;
+        return this.kl;
     }
 
     @Override // com.baidu.ar.capture.ICaptureResult
     public int getPhotoWidth() {
-        return this.jS;
+        return this.kk;
     }
 
     @Override // com.baidu.ar.capture.ICaptureResult
@@ -59,14 +59,14 @@ public class e implements ICaptureResult {
 
     @Override // com.baidu.ar.capture.ICaptureResult
     public void release() {
-        if (this.jQ != null && !this.jQ.isRecycled()) {
-            this.jQ.recycle();
-            this.jQ = null;
+        if (this.ki != null && !this.ki.isRecycled()) {
+            this.ki.recycle();
+            this.ki = null;
         }
-        if (this.jR == null || this.jR.isRecycled()) {
+        if (this.kj == null || this.kj.isRecycled()) {
             return;
         }
-        this.jR.recycle();
-        this.jR = null;
+        this.kj.recycle();
+        this.kj = null;
     }
 }

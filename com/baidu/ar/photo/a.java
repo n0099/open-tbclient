@@ -8,28 +8,28 @@ import com.baidu.ar.f.g;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class a implements TakePictureCallback {
-    private String rK;
-    private PhotoCallback rL;
+    private String sj;
+    private PhotoCallback sk;
 
     public void a(j jVar, String str, PhotoCallback photoCallback) {
         if (jVar == null || TextUtils.isEmpty(str) || photoCallback == null) {
             return;
         }
-        this.rK = str;
-        this.rL = photoCallback;
+        this.sj = str;
+        this.sk = photoCallback;
         jVar.a(this);
     }
 
     @Override // com.baidu.ar.arplay.core.filter.TakePictureCallback
     public void onPictureTake(boolean z, Bitmap bitmap, long j) {
-        if (this.rL == null || TextUtils.isEmpty(this.rK)) {
+        if (this.sk == null || TextUtils.isEmpty(this.sj)) {
             return;
         }
-        g.d(new File(this.rK));
-        g.a(this.rK, bitmap, 100);
+        g.d(new File(this.sj));
+        g.a(this.sj, bitmap, 100);
         if (bitmap != null) {
             bitmap.recycle();
         }
-        this.rL.onPictureTake(z, this.rK);
+        this.sk.onPictureTake(z, this.sj);
     }
 }

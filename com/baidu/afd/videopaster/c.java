@@ -4,19 +4,19 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class c implements a {
-    private final int WR;
-    private int WV;
-    private HashMap WW;
+    private int XA;
+    private HashMap XB;
+    private final int Xx;
     private final int height;
     private final String pid;
     private final int refreshCount;
     private final int width;
 
     private c(int i, int i2, String str, int i3, int i4, int i5) {
-        this.WR = i;
+        this.Xx = i;
         this.refreshCount = i2;
         this.pid = str;
-        this.WV = i3;
+        this.XA = i3;
         this.width = i4;
         this.height = i5;
     }
@@ -36,27 +36,27 @@ public class c implements a {
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public String pC() {
+    public String pT() {
         return this.pid;
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public int pp() {
-        return this.WR;
+    public int pG() {
+        return this.Xx;
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public int pr() {
-        return this.WV;
+    public int pI() {
+        return this.XA;
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public Map<String, String> ps() {
-        return this.WW;
+    public Map<String, String> pJ() {
+        return this.XB;
     }
 
     @Override // com.baidu.afd.videopaster.a
     public void w(HashMap hashMap) {
-        this.WW = hashMap;
+        this.XB = hashMap;
     }
 }

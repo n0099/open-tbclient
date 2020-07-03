@@ -24,22 +24,22 @@ import java.util.TreeSet;
 import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public final class a implements AREngineDelegate {
-    public static PermissionProxy bED = null;
-    public static int bEE = 0;
-    private ArBridge bEF;
-    private GLSurfaceView.Renderer bEI;
-    private Object bEL;
-    private C0274a bEM;
+    public static PermissionProxy bJr = null;
+    public static int bJs = 0;
+    private C0280a bJA;
+    private ArBridge bJt;
+    private GLSurfaceView.Renderer bJw;
+    private Object bJz;
     private Context mContext;
     private boolean mDetached;
     private SurfaceHolder mSurfaceHolder;
     private ArrayList<DebugConsole> mConsoles = null;
     private int mFPS = 0;
     private long mCurrentGLThreadID = -1;
-    private float bEG = 0.0f;
-    private float bEH = 0.0f;
-    private boolean bEJ = false;
-    private final c bEK = new c();
+    private float bJu = 0.0f;
+    private float bJv = 0.0f;
+    private boolean bJx = false;
+    private final c bJy = new c();
 
     public Context getContext() {
         return this.mContext;
@@ -52,16 +52,16 @@ public final class a implements AREngineDelegate {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a() {
         Log.setMinLogLevel(6, false);
-        this.bEF = new ArBridge();
+        this.bJt = new ArBridge();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void startEngine() {
-        if (this.bEI == null) {
+        if (this.bJw == null) {
             throw new NullPointerException("start render engine failed. because renderer is not set");
         }
-        this.bEM = new C0274a(this);
-        this.bEM.start();
+        this.bJA = new C0280a(this);
+        this.bJA.start();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
@@ -80,7 +80,7 @@ public final class a implements AREngineDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void L(int i, String str) {
+    public void N(int i, String str) {
         if (this.mConsoles != null) {
             for (DebugConsole debugConsole : new ArrayList(this.mConsoles)) {
                 debugConsole.onReceiveInfo(i, str);
@@ -88,16 +88,16 @@ public final class a implements AREngineDelegate {
         }
     }
 
-    public ArBridge Qb() {
-        return this.bEF;
+    public ArBridge Rh() {
+        return this.bJt;
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public Thread getGLThread() {
-        return this.bEM;
+        return this.bJA;
     }
 
-    void eb(int i) {
+    void em(int i) {
         int i2 = i < 0 ? 0 : i;
         this.mFPS = i2 <= 60 ? i2 : 60;
     }
@@ -110,9 +110,9 @@ public final class a implements AREngineDelegate {
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void updateSurfaceViewSize(float f, float f2) {
         Log.w("EngineLogger", "[ARDispose] updateSurfaceViewSize, width=" + f + ", height=" + f2);
-        this.bEG = f;
-        this.bEH = f2;
-        this.bEF.setSize(f, f2);
+        this.bJu = f;
+        this.bJv = f2;
+        this.bJt.setSize(f, f2);
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
@@ -125,14 +125,14 @@ public final class a implements AREngineDelegate {
         ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
         float f = displayMetrics.widthPixels;
         float f2 = displayMetrics.heightPixels;
-        if (this.bEG != 0.0f) {
-            f = this.bEG;
+        if (this.bJu != 0.0f) {
+            f = this.bJu;
         }
-        if (this.bEH != 0.0f) {
-            f2 = this.bEH;
+        if (this.bJv != 0.0f) {
+            f2 = this.bJv;
         }
-        if (this.bEF != null) {
-            this.bEF.setDisplayMetrics(f, f2, displayMetrics.xdpi, displayMetrics.ydpi, displayMetrics.density);
+        if (this.bJt != null) {
+            this.bJt.setDisplayMetrics(f, f2, displayMetrics.xdpi, displayMetrics.ydpi, displayMetrics.density);
         } else {
             Log.e("EngineLogger", "[RenderError] error init render display, because arbridge is null");
         }
@@ -144,96 +144,96 @@ public final class a implements AREngineDelegate {
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setRenderer(GLSurfaceView.Renderer renderer) {
-        this.bEI = renderer;
+        this.bJw = renderer;
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setRenderMode(int i) {
-        if (this.bEM != null) {
-            this.bEM.setRenderMode(i);
+        if (this.bJA != null) {
+            this.bJA.setRenderMode(i);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public int getRenderMode() {
-        if (this.bEM != null) {
-            return this.bEM.getRenderMode();
+        if (this.bJA != null) {
+            return this.bJA.getRenderMode();
         }
         return 1;
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void requestRender() {
-        if (this.bEM != null) {
-            this.bEM.requestRender();
+        if (this.bJA != null) {
+            this.bJA.requestRender();
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void surfaceCreated() {
         Log.w("EngineLogger", "[V8Dispose][AREngine] surfaceCreated.");
-        this.bEM.surfaceCreated();
+        this.bJA.surfaceCreated();
         Context appContext = V8Engine.getAppContext();
         if (appContext != null) {
-            bEE = ((WindowManager) appContext.getSystemService("window")).getDefaultDisplay().getRotation();
+            bJs = ((WindowManager) appContext.getSystemService("window")).getDefaultDisplay().getRotation();
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void surfaceDestroyed() {
         Log.w("EngineLogger", "[V8Dispose][AREngine] surfaceDestroyed.");
-        this.bEM.surfaceDestroyed();
+        this.bJA.surfaceDestroyed();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void surfaceChanged(int i, int i2) {
         Log.w("EngineLogger", "[V8Dispose][AREngine] surfaceChanged. width=" + i + ", height=" + i2);
-        this.bEM.onWindowResize(i, i2);
-        this.bEF.setEglContextToRecorder(getEGLContext(), i, i2);
+        this.bJA.onWindowResize(i, i2);
+        this.bJt.setEglContextToRecorder(getEGLContext(), i, i2);
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void requestRenderAndWait() {
-        if (this.bEM != null) {
-            this.bEM.requestRenderAndWait();
+        if (this.bJA != null) {
+            this.bJA.requestRenderAndWait();
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void smallGameOnPause() {
-        this.bEF.smallGameOnPause();
+        this.bJt.smallGameOnPause();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void runOnGLThread(Runnable runnable) {
-        if (this.bEM != null) {
-            this.bEM.runOnGLThread(runnable);
+        if (this.bJA != null) {
+            this.bJA.runOnGLThread(runnable);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void queueEvent(Runnable runnable) {
-        if (this.bEM != null) {
-            this.bEM.queueEvent(runnable);
+        if (this.bJA != null) {
+            this.bJA.queueEvent(runnable);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void queueEvent(Runnable runnable, long j) {
-        if (this.bEM != null) {
-            this.bEM.b(runnable, j);
+        if (this.bJA != null) {
+            this.bJA.b(runnable, j);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void onAttachedToWindow() {
-        if (this.mDetached && this.bEI != null) {
-            int renderMode = this.bEM != null ? this.bEM.getRenderMode() : 1;
-            this.bEM = new C0274a(this);
+        if (this.mDetached && this.bJw != null) {
+            int renderMode = this.bJA != null ? this.bJA.getRenderMode() : 1;
+            this.bJA = new C0280a(this);
             if (renderMode != 1) {
-                this.bEM.setRenderMode(renderMode);
+                this.bJA.setRenderMode(renderMode);
             }
-            this.bEM.start();
+            this.bJA.start();
         }
         this.mDetached = false;
         Log.w("EngineLogger", "[V8Dispose][AREngine] onAttachedToWindow");
@@ -241,8 +241,8 @@ public final class a implements AREngineDelegate {
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void onDetachedFromWindow() {
-        if (!this.mDetached && this.bEM != null) {
-            this.bEM.requestExitAndWait();
+        if (!this.mDetached && this.bJA != null) {
+            this.bJA.requestExitAndWait();
         }
         this.mDetached = true;
         Log.w("EngineLogger", "[V8Dispose][AREngine] onDetachedFromWindow");
@@ -250,120 +250,120 @@ public final class a implements AREngineDelegate {
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void clearOldEvents() {
-        if (this.bEM != null) {
-            this.bEM.clearOldEvents();
+        if (this.bJA != null) {
+            this.bJA.clearOldEvents();
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void onPause() {
-        if (this.bEM != null) {
-            this.bEM.onPause();
+        if (this.bJA != null) {
+            this.bJA.onPause();
         }
-        if (this.bEF.getGameRecorder() != null) {
-            this.bEF.getGameRecorder().KJ();
+        if (this.bJt.getGameRecorder() != null) {
+            this.bJt.getGameRecorder().LS();
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void onResume() {
-        if (this.bEM != null) {
-            this.bEM.onResume();
+        if (this.bJA != null) {
+            this.bJA.onResume();
         }
-        if (this.bEF.getGameRecorder() != null) {
-            this.bEF.getGameRecorder().KK();
+        if (this.bJt.getGameRecorder() != null) {
+            this.bJt.getGameRecorder().LT();
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void pauseRecord() {
-        if (this.bEF.getGameRecorder() != null) {
-            this.bEF.getGameRecorder().pauseRecord();
+        if (this.bJt.getGameRecorder() != null) {
+            this.bJt.getGameRecorder().pauseRecord();
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void resumeRecord() {
-        if (this.bEF.getGameRecorder() != null) {
-            this.bEF.getGameRecorder().resumeRecord();
+        if (this.bJt.getGameRecorder() != null) {
+            this.bJt.getGameRecorder().resumeRecord();
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void stopRecord() {
-        if (this.bEF.getGameRecorder() != null) {
-            this.bEF.getGameRecorder().stopRecord();
-            this.bEF.nativeUpdateRecordingStatus(false);
+        if (this.bJt.getGameRecorder() != null) {
+            this.bJt.getGameRecorder().stopRecord();
+            this.bJt.nativeUpdateRecordingStatus(false);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void startRecord(boolean z, int i, String str, boolean z2) {
-        if (this.bEF.getGameRecorder() != null) {
-            this.bEF.nativeUpdateRecordingStatus(true);
-            this.bEF.getGameRecorder().startRecord(z, i, str, z2);
+        if (this.bJt.getGameRecorder() != null) {
+            this.bJt.nativeUpdateRecordingStatus(true);
+            this.bJt.getGameRecorder().startRecord(z, i, str, z2);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setGameRecordCallback(com.baidu.mario.a.c cVar) {
-        if (this.bEF.getGameRecorder() != null) {
-            this.bEF.getGameRecorder().setGameRecordCallback(cVar);
+        if (this.bJt.getGameRecorder() != null) {
+            this.bJt.getGameRecorder().setGameRecordCallback(cVar);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setAudioEngineProxy(com.baidu.mario.a.a aVar) {
-        if (this.bEF.getGameRecorder() != null) {
-            this.bEF.getGameRecorder().setAudioEngineProxy(aVar);
+        if (this.bJt.getGameRecorder() != null) {
+            this.bJt.getGameRecorder().setAudioEngineProxy(aVar);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public long getCurrentRecordProcess() {
-        if (this.bEF.getGameRecorder() != null) {
-            return this.bEF.getGameRecorder().KI();
+        if (this.bJt.getGameRecorder() != null) {
+            return this.bJt.getGameRecorder().LR();
         }
         return 0L;
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setPermissionProxy(PermissionProxy permissionProxy) {
-        bED = permissionProxy;
+        bJr = permissionProxy;
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setOnStuckScreenListener(com.baidu.smallgame.sdk.b.a aVar) {
-        if (this.bEF != null) {
-            this.bEF.setOnStuckScreenListener(aVar);
+        if (this.bJt != null) {
+            this.bJt.setOnStuckScreenListener(aVar);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setStuckScreenLimitTime(long j) {
-        if (this.bEF != null) {
-            this.bEF.setStuckScreenLimitTime(j);
+        if (this.bJt != null) {
+            this.bJt.setStuckScreenLimitTime(j);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public com.baidu.smallgame.sdk.b.c getStuckScreenHandler() {
-        if (this.bEF == null) {
+        if (this.bJt == null) {
             return null;
         }
-        return this.bEF.getStuckScreenHandler();
+        return this.bJt.getStuckScreenHandler();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void smallGameDestroy() {
-        if (this.bEM == null) {
+        if (this.bJA == null) {
             Log.e("EngineLogger", "Destroy AREngine fail. Because GLThread is null");
         } else {
-            this.bEM.runOnGLThread(new Runnable() { // from class: com.baidu.smallgame.sdk.a.1
+            this.bJA.runOnGLThread(new Runnable() { // from class: com.baidu.smallgame.sdk.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.bEM.mShouldExit = true;
-                    a.this.bEF.smallGameDestroy();
+                    a.this.bJA.mShouldExit = true;
+                    a.this.bJt.smallGameDestroy();
                 }
             });
         }
@@ -371,59 +371,59 @@ public final class a implements AREngineDelegate {
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public boolean ableToDraw() {
-        return this.bEM != null && this.bEM.ableToDraw();
+        return this.bJA != null && this.bJA.ableToDraw();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void exitGLThread() {
-        if (this.bEM != null) {
-            this.bEM.requestExitAndWait();
+        if (this.bJA != null) {
+            this.bJA.requestExitAndWait();
         }
         Log.e("EngineLogger", "[V8Dispose][AREngine] exitGLThread.");
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void smallGameUpdate() {
-        this.bEF.smallGameUpdate();
+        this.bJt.smallGameUpdate();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setScreenShotStatus(boolean z) {
-        this.bEF.setScreenShotStatus(z);
+        this.bJt.setScreenShotStatus(z);
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public JSONArray getPerformanceJson() {
-        return this.bEF == null ? new JSONArray() : this.bEF.getPerformanceJson();
+        return this.bJt == null ? new JSONArray() : this.bJt.getPerformanceJson();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public PerformanceJsonBean getPerformanceJsonBean() {
-        return this.bEF == null ? new PerformanceJsonBean() : this.bEF.getPerformanceJsonBean();
+        return this.bJt == null ? new PerformanceJsonBean() : this.bJt.getPerformanceJsonBean();
     }
 
-    public void gS(String str) {
-        if (this.bEF != null) {
-            this.bEF.getPerformanceJsonBean().put(str);
+    public void ha(String str) {
+        if (this.bJt != null) {
+            this.bJt.getPerformanceJsonBean().put(str);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener) {
-        this.bEF.setFirstFrameListener(firstFrameListener);
+        this.bJt.setFirstFrameListener(firstFrameListener);
     }
 
     public EGLContext getEGLContext() {
-        if (this.bEM == null || this.bEM.bFb == null) {
+        if (this.bJA == null || this.bJA.bJP == null) {
             return null;
         }
-        return this.bEM.bFb.mEglContext;
+        return this.bJA.bJP.mEglContext;
     }
 
     protected void finalize() throws Throwable {
         try {
-            if (this.bEM != null) {
-                this.bEM.requestExitAndWait();
+            if (this.bJA != null) {
+                this.bJA.requestExitAndWait();
             }
         } finally {
             super.finalize();
@@ -433,11 +433,11 @@ public final class a implements AREngineDelegate {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.smallgame.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0274a extends Thread {
-        private c bEK;
-        private boolean bEW;
-        private b bFb;
-        private a bFc;
+    public static class C0280a extends Thread {
+        private boolean bJK;
+        private b bJP;
+        private a bJQ;
+        private c bJy;
         private boolean mHasSurface;
         private boolean mHaveEglContext;
         private boolean mHaveEglSurface;
@@ -447,42 +447,42 @@ public final class a implements AREngineDelegate {
         private boolean mShouldReleaseEglContext;
         private boolean mSurfaceIsBad;
         private boolean mWaitingForSurface;
-        private int bEO = 0;
-        private long bEP = 0;
-        private long bEQ = 0;
-        private long bER = 0;
-        private long bES = 0;
-        private boolean bET = false;
-        private boolean bEU = false;
-        private boolean bEV = false;
+        private int bJC = 0;
+        private long bJD = 0;
+        private long bJE = 0;
+        private long bJF = 0;
+        private long bJG = 0;
+        private boolean bJH = false;
+        private boolean bJI = false;
+        private boolean bJJ = false;
         private volatile boolean mShouldExit = false;
         private volatile boolean mExited = false;
-        private LinkedList<Runnable> bEY = new LinkedList<>();
-        private LinkedList<Runnable> bEZ = new LinkedList<>();
-        private TreeSet<d> bFa = new TreeSet<>();
+        private LinkedList<Runnable> bJM = new LinkedList<>();
+        private LinkedList<Runnable> bJN = new LinkedList<>();
+        private TreeSet<d> bJO = new TreeSet<>();
         private boolean mSizeChanged = true;
         private V8Engine mV8Engine = null;
         private int mWidth = 0;
         private int mHeight = 0;
         private boolean mRequestRender = true;
         private int mRenderMode = 1;
-        private boolean bEX = false;
+        private boolean bJL = false;
 
-        C0274a(a aVar) {
-            this.bFc = aVar;
-            this.bEK = aVar.bEK;
+        C0280a(a aVar) {
+            this.bJQ = aVar;
+            this.bJy = aVar.bJy;
         }
 
         /* JADX WARN: Type inference failed for: r4v0, types: [com.baidu.smallgame.sdk.a, com.baidu.searchbox.v8engine.V8Engine, com.baidu.smallgame.sdk.a$b] */
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             setName("ARGLThread " + getId());
-            if (this.bFc != null) {
-                ArBridge Qb = this.bFc.Qb();
-                if (Qb != null) {
-                    Qb.setGLThreadID(getId());
-                    Qb.smallGameOnInit();
-                    this.bFc.initDisplayMetrics();
+            if (this.bJQ != null) {
+                ArBridge Rh = this.bJQ.Rh();
+                if (Rh != null) {
+                    Rh.setGLThreadID(getId());
+                    Rh.smallGameOnInit();
+                    this.bJQ.initDisplayMetrics();
                 } else {
                     Log.e("EngineLogger", "Render Engine Init Failed. ArBridge is null");
                 }
@@ -494,10 +494,10 @@ public final class a implements AREngineDelegate {
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
-                this.bEK.b(this);
-                this.bFb.reset();
-                this.bFb = null;
-                this.bFc = null;
+                this.bJy.b(this);
+                this.bJP.reset();
+                this.bJP = null;
+                this.bJQ = null;
                 this.mV8Engine = null;
             }
         }
@@ -520,20 +520,20 @@ public final class a implements AREngineDelegate {
         private void stopEglSurfaceLocked() {
             if (this.mHaveEglSurface) {
                 this.mHaveEglSurface = false;
-                this.bFb.destroySurface();
+                this.bJP.destroySurface();
             }
         }
 
         private void stopEglContextLocked() {
             if (this.mHaveEglContext) {
-                this.bFb.finish();
+                this.bJP.finish();
                 this.mHaveEglContext = false;
-                this.bEK.c(this);
+                this.bJy.c(this);
             }
         }
 
-        public boolean Qc() {
-            return this.bFc.bEF.mFirstFrameFinished && ((float) (System.currentTimeMillis() - this.bER)) > minFramesInterval();
+        public boolean Ri() {
+            return this.bJQ.bJt.mFirstFrameFinished && ((float) (System.currentTimeMillis() - this.bJF)) > minFramesInterval();
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1087=4] */
@@ -548,17 +548,17 @@ public final class a implements AREngineDelegate {
             if (r10 == false) goto L98;
          */
         /* JADX WARN: Code restructure failed: missing block: B:137:0x0300, code lost:
-            if (r26.bFb.createSurface() == false) goto L24;
+            if (r26.bJP.createSurface() == false) goto L24;
          */
         /* JADX WARN: Code restructure failed: missing block: B:138:0x0302, code lost:
-            r10 = r26.bEK;
+            r10 = r26.bJy;
          */
         /* JADX WARN: Code restructure failed: missing block: B:139:0x0306, code lost:
             monitor-enter(r10);
          */
         /* JADX WARN: Code restructure failed: missing block: B:141:0x0308, code lost:
-            r26.bEW = true;
-            r26.bEK.notifyAll();
+            r26.bJK = true;
+            r26.bJy.notifyAll();
          */
         /* JADX WARN: Code restructure failed: missing block: B:142:0x0313, code lost:
             monitor-exit(r10);
@@ -576,13 +576,13 @@ public final class a implements AREngineDelegate {
             if (r8 == false) goto L96;
          */
         /* JADX WARN: Code restructure failed: missing block: B:147:0x031c, code lost:
-            r8 = r26.bFc;
+            r8 = r26.bJQ;
          */
         /* JADX WARN: Code restructure failed: missing block: B:148:0x0320, code lost:
             if (r8 == null) goto L46;
          */
         /* JADX WARN: Code restructure failed: missing block: B:149:0x0322, code lost:
-            r8.bEI.onSurfaceCreated(null, null);
+            r8.bJw.onSurfaceCreated(null, null);
          */
         /* JADX WARN: Code restructure failed: missing block: B:150:0x032b, code lost:
             r10 = false;
@@ -591,68 +591,68 @@ public final class a implements AREngineDelegate {
             if (r7 == false) goto L95;
          */
         /* JADX WARN: Code restructure failed: missing block: B:152:0x032f, code lost:
-            r7 = r26.bFc;
+            r7 = r26.bJQ;
          */
         /* JADX WARN: Code restructure failed: missing block: B:153:0x0333, code lost:
             if (r7 == null) goto L51;
          */
         /* JADX WARN: Code restructure failed: missing block: B:154:0x0335, code lost:
-            r7.bEI.onSurfaceChanged(null, r15, r14);
+            r7.bJw.onSurfaceChanged(null, r15, r14);
             r7.updateSurfaceViewSize(r15, r14);
          */
         /* JADX WARN: Code restructure failed: missing block: B:155:0x0342, code lost:
             r9 = false;
          */
         /* JADX WARN: Code restructure failed: missing block: B:156:0x0344, code lost:
-            r0 = r26.bFc;
+            r0 = r26.bJQ;
             r18 = java.lang.System.currentTimeMillis();
-            r20 = r18 - r26.bEQ;
+            r20 = r18 - r26.bJE;
          */
         /* JADX WARN: Code restructure failed: missing block: B:157:0x035a, code lost:
-            if (r0.bEJ == false) goto L93;
+            if (r0.bJx == false) goto L93;
          */
         /* JADX WARN: Code restructure failed: missing block: B:159:0x0365, code lost:
             if (((float) r20) < minFramesInterval()) goto L93;
          */
         /* JADX WARN: Code restructure failed: missing block: B:160:0x0367, code lost:
-            r26.bEQ = java.lang.System.currentTimeMillis();
+            r26.bJE = java.lang.System.currentTimeMillis();
          */
         /* JADX WARN: Code restructure failed: missing block: B:161:0x0375, code lost:
-            if (r26.bET != false) goto L61;
+            if (r26.bJH != false) goto L61;
          */
         /* JADX WARN: Code restructure failed: missing block: B:163:0x037b, code lost:
-            if (r26.bFc == null) goto L61;
+            if (r26.bJQ == null) goto L61;
          */
         /* JADX WARN: Code restructure failed: missing block: B:164:0x037d, code lost:
-            r26.bET = true;
-            r26.bFc.gS("first_frame");
+            r26.bJH = true;
+            r26.bJQ.ha("first_frame");
          */
         /* JADX WARN: Code restructure failed: missing block: B:165:0x038c, code lost:
-            r0.bEI.onDrawFrame(null);
-            Qd();
+            r0.bJw.onDrawFrame(null);
+            Rj();
          */
         /* JADX WARN: Code restructure failed: missing block: B:166:0x03a3, code lost:
-            if ((r18 - r26.bES) <= 33) goto L64;
+            if ((r18 - r26.bJG) <= 33) goto L64;
          */
         /* JADX WARN: Code restructure failed: missing block: B:167:0x03a5, code lost:
-            r0.bEF.notifyFrameUpdated();
-            r26.bES = r18;
+            r0.bJt.notifyFrameUpdated();
+            r26.bJG = r18;
          */
         /* JADX WARN: Code restructure failed: missing block: B:169:0x03b6, code lost:
-            if (r26.bEV == false) goto L67;
+            if (r26.bJJ == false) goto L67;
          */
         /* JADX WARN: Code restructure failed: missing block: B:170:0x03b8, code lost:
-            r26.bFc.bEF.smallGameOnResume();
-            r26.bEV = false;
+            r26.bJQ.bJt.smallGameOnResume();
+            r26.bJJ = false;
          */
         /* JADX WARN: Code restructure failed: missing block: B:171:0x03c8, code lost:
-            r8 = r0.bEF.shouldSwapBuffer();
+            r8 = r0.bJt.shouldSwapBuffer();
          */
         /* JADX WARN: Code restructure failed: missing block: B:172:0x03d0, code lost:
             if (r8 == false) goto L92;
          */
         /* JADX WARN: Code restructure failed: missing block: B:173:0x03d2, code lost:
-            r7 = r26.bFb.swap();
+            r7 = r26.bJP.swap();
          */
         /* JADX WARN: Code restructure failed: missing block: B:174:0x03da, code lost:
             switch(r7) {
@@ -663,14 +663,14 @@ public final class a implements AREngineDelegate {
          */
         /* JADX WARN: Code restructure failed: missing block: B:175:0x03dd, code lost:
             com.baidu.smallgame.sdk.a.b.logEglErrorAsWarning("EngineLogger", "eglSwapBuffers", r7);
-            r7 = r26.bEK;
+            r7 = r26.bJy;
          */
         /* JADX WARN: Code restructure failed: missing block: B:176:0x03ee, code lost:
             monitor-enter(r7);
          */
         /* JADX WARN: Code restructure failed: missing block: B:178:0x03f1, code lost:
             r26.mSurfaceIsBad = true;
-            r26.bEK.notifyAll();
+            r26.bJy.notifyAll();
          */
         /* JADX WARN: Code restructure failed: missing block: B:179:0x0400, code lost:
             monitor-exit(r7);
@@ -679,10 +679,10 @@ public final class a implements AREngineDelegate {
             r7 = r4;
          */
         /* JADX WARN: Code restructure failed: missing block: B:181:0x0402, code lost:
-            r26.bER = java.lang.System.currentTimeMillis();
+            r26.bJF = java.lang.System.currentTimeMillis();
          */
         /* JADX WARN: Code restructure failed: missing block: B:182:0x0418, code lost:
-            if (r26.bFc.bEF.isRenderCallbackQueueEmpty() != false) goto L89;
+            if (r26.bJQ.bJt.isRenderCallbackQueueEmpty() != false) goto L89;
          */
         /* JADX WARN: Code restructure failed: missing block: B:183:0x041a, code lost:
             if (r8 == false) goto L89;
@@ -691,10 +691,10 @@ public final class a implements AREngineDelegate {
             r8 = true;
          */
         /* JADX WARN: Code restructure failed: missing block: B:186:0x0428, code lost:
-            if ((r0.bEF.getStuckScreenHandler() instanceof com.baidu.smallgame.sdk.b) == false) goto L84;
+            if ((r0.bJt.getStuckScreenHandler() instanceof com.baidu.smallgame.sdk.b) == false) goto L84;
          */
         /* JADX WARN: Code restructure failed: missing block: B:187:0x042a, code lost:
-            ((com.baidu.smallgame.sdk.b) r0.bEF.getStuckScreenHandler()).b(r8, r26.bER);
+            ((com.baidu.smallgame.sdk.b) r0.bJt.getStuckScreenHandler()).b(r8, r26.bJF);
          */
         /* JADX WARN: Code restructure failed: missing block: B:188:0x043f, code lost:
             if (r6 == false) goto L88;
@@ -718,15 +718,15 @@ public final class a implements AREngineDelegate {
             r9 = r24;
          */
         /* JADX WARN: Code restructure failed: missing block: B:194:0x0457, code lost:
-            r11 = r26.bEK;
+            r11 = r26.bJy;
          */
         /* JADX WARN: Code restructure failed: missing block: B:195:0x045b, code lost:
             monitor-enter(r11);
          */
         /* JADX WARN: Code restructure failed: missing block: B:197:0x045d, code lost:
-            r26.bEW = true;
+            r26.bJK = true;
             r26.mSurfaceIsBad = true;
-            r26.bEK.notifyAll();
+            r26.bJy.notifyAll();
          */
         /* JADX WARN: Code restructure failed: missing block: B:198:0x046d, code lost:
             monitor-exit(r11);
@@ -755,7 +755,7 @@ public final class a implements AREngineDelegate {
             r8 = false;
          */
         /* JADX WARN: Code restructure failed: missing block: B:209:0x048f, code lost:
-            r0.bEJ = true;
+            r0.bJx = true;
          */
         /* JADX WARN: Code restructure failed: missing block: B:210:0x0495, code lost:
             r7 = r4;
@@ -783,23 +783,23 @@ public final class a implements AREngineDelegate {
             if (r13 == null) goto L20;
          */
         /* JADX WARN: Code restructure failed: missing block: B:31:0x009b, code lost:
-            if (r26.bEU != false) goto L106;
+            if (r26.bJI != false) goto L106;
          */
         /* JADX WARN: Code restructure failed: missing block: B:33:0x00a1, code lost:
-            if (r26.bFc == null) goto L106;
+            if (r26.bJQ == null) goto L106;
          */
         /* JADX WARN: Code restructure failed: missing block: B:34:0x00a3, code lost:
-            r26.bEU = true;
-            r26.bFc.gS("first_event");
+            r26.bJI = true;
+            r26.bJQ.ha("first_event");
          */
         /* JADX WARN: Code restructure failed: missing block: B:36:0x00b6, code lost:
             if (com.baidu.searchbox.v8engine.V8Engine.isDebug() == false) goto L111;
          */
         /* JADX WARN: Code restructure failed: missing block: B:38:0x00bc, code lost:
-            if (r26.bFc == null) goto L111;
+            if (r26.bJQ == null) goto L111;
          */
         /* JADX WARN: Code restructure failed: missing block: B:39:0x00be, code lost:
-            r26.bFc.L(1, r13.toString());
+            r26.bJQ.N(1, r13.toString());
          */
         /* JADX WARN: Code restructure failed: missing block: B:40:0x00cc, code lost:
             r13.run();
@@ -822,10 +822,10 @@ public final class a implements AREngineDelegate {
             boolean z9;
             boolean z10;
             boolean z11;
-            this.bFb = new b(this.bFc);
+            this.bJP = new b(this.bJQ);
             this.mHaveEglContext = false;
             this.mHaveEglSurface = false;
-            this.bEX = false;
+            this.bJL = false;
             boolean z12 = false;
             boolean z13 = false;
             boolean z14 = false;
@@ -839,7 +839,7 @@ public final class a implements AREngineDelegate {
             Runnable runnable2 = null;
             while (true) {
                 try {
-                    synchronized (this.bEK) {
+                    synchronized (this.bJy) {
                         z = z19;
                         boolean z20 = z18;
                         boolean z21 = z16;
@@ -848,9 +848,9 @@ public final class a implements AREngineDelegate {
                         boolean z24 = z13;
                         runnable = runnable2;
                         while (!this.mShouldExit) {
-                            if (this.bEZ.isEmpty()) {
+                            if (this.bJN.isEmpty()) {
                                 if (ableToDraw()) {
-                                    if (Qc()) {
+                                    if (Ri()) {
                                         i = i3;
                                         z3 = z22;
                                         z2 = z17;
@@ -862,7 +862,7 @@ public final class a implements AREngineDelegate {
                                         z7 = z12;
                                         i2 = i5;
                                     } else {
-                                        runnable = Qe();
+                                        runnable = Rk();
                                         if (runnable != null) {
                                             i = i3;
                                             z3 = z22;
@@ -882,12 +882,12 @@ public final class a implements AREngineDelegate {
                                     z25 = this.mRequestPaused;
                                     this.mPaused = this.mRequestPaused;
                                     if (this.mRequestPaused) {
-                                        this.bEV = false;
-                                        this.bFc.bEF.smallGameOnPauseOnGLThrad();
+                                        this.bJJ = false;
+                                        this.bJQ.bJt.smallGameOnPauseOnGLThrad();
                                     } else {
-                                        this.bEV = true;
+                                        this.bJJ = true;
                                     }
-                                    this.bEK.notifyAll();
+                                    this.bJy.notifyAll();
                                     Log.i("EngineLogger", "mPaused is now " + this.mPaused + " tid=" + getId());
                                 }
                                 if (this.mShouldReleaseEglContext) {
@@ -912,17 +912,17 @@ public final class a implements AREngineDelegate {
                                     }
                                     this.mWaitingForSurface = true;
                                     this.mSurfaceIsBad = false;
-                                    this.bEK.notifyAll();
+                                    this.bJy.notifyAll();
                                 }
                                 if (this.mHasSurface && this.mWaitingForSurface) {
                                     this.mWaitingForSurface = false;
-                                    this.bEK.notifyAll();
+                                    this.bJy.notifyAll();
                                 }
                                 if (z20) {
-                                    this.bEX = false;
+                                    this.bJL = false;
                                     z9 = false;
                                     this.mRenderComplete = true;
-                                    this.bEK.notifyAll();
+                                    this.bJy.notifyAll();
                                 } else {
                                     z9 = z20;
                                 }
@@ -932,13 +932,13 @@ public final class a implements AREngineDelegate {
                                             z = false;
                                         } else {
                                             try {
-                                                this.bFb.start();
-                                                this.bFc.bEF.setEglContextToRecorder(this.bFc.getEGLContext(), 0, 0);
+                                                this.bJP.start();
+                                                this.bJQ.bJt.setEglContextToRecorder(this.bJQ.getEGLContext(), 0, 0);
                                                 this.mHaveEglContext = true;
                                                 z12 = true;
-                                                this.bEK.notifyAll();
+                                                this.bJy.notifyAll();
                                             } catch (RuntimeException e) {
-                                                this.bEK.c(this);
+                                                this.bJy.c(this);
                                                 throw e;
                                             }
                                         }
@@ -957,15 +957,15 @@ public final class a implements AREngineDelegate {
                                             z6 = true;
                                             i3 = this.mWidth;
                                             i4 = this.mHeight;
-                                            this.bEX = true;
+                                            this.bJL = true;
                                             z11 = true;
                                             this.mSizeChanged = false;
                                         } else {
                                             z11 = z24;
                                         }
                                         this.mRequestRender = false;
-                                        this.bEK.notifyAll();
-                                        if (this.bEX) {
+                                        this.bJy.notifyAll();
+                                        if (this.bJL) {
                                             i = i3;
                                             z2 = true;
                                             z4 = z10;
@@ -989,10 +989,10 @@ public final class a implements AREngineDelegate {
                                         z21 = z6;
                                     }
                                 }
-                                this.bEK.wait();
+                                this.bJy.wait();
                                 z20 = z9;
                             } else {
-                                runnable = this.bEZ.pollFirst();
+                                runnable = this.bJN.pollFirst();
                                 i = i3;
                                 z2 = z17;
                                 z3 = z22;
@@ -1006,9 +1006,9 @@ public final class a implements AREngineDelegate {
                             }
                         }
                     }
-                    synchronized (this.bEK) {
-                        if (this.bFc != null) {
-                            this.bFc.bEF.smallGameDestroy();
+                    synchronized (this.bJy) {
+                        if (this.bJQ != null) {
+                            this.bJQ.bJt.smallGameDestroy();
                         }
                         V8Engine v8Engine = V8Engine.getInstance();
                         if (v8Engine != null && !v8Engine.isDestroyed()) {
@@ -1019,9 +1019,9 @@ public final class a implements AREngineDelegate {
                     }
                     return;
                 } catch (Throwable th) {
-                    synchronized (this.bEK) {
-                        if (this.bFc != null) {
-                            this.bFc.bEF.smallGameDestroy();
+                    synchronized (this.bJy) {
+                        if (this.bJQ != null) {
+                            this.bJQ.bJt.smallGameDestroy();
                         }
                         V8Engine v8Engine2 = V8Engine.getInstance();
                         if (v8Engine2 != null && !v8Engine2.isDestroyed()) {
@@ -1033,8 +1033,8 @@ public final class a implements AREngineDelegate {
                     }
                 }
             }
-            if (V8Engine.isDebug() && this.bFc != null) {
-                this.bFc.L(2, runnable.toString());
+            if (V8Engine.isDebug() && this.bJQ != null) {
+                this.bJQ.N(2, runnable.toString());
             }
             z14 = z4;
             z13 = z5;
@@ -1050,19 +1050,19 @@ public final class a implements AREngineDelegate {
             runnable2 = null;
         }
 
-        private void Qd() {
-            this.bEO++;
-            if (this.bEP != 0) {
-                float currentTimeMillis = ((float) (System.currentTimeMillis() - this.bEP)) / 1000.0f;
+        private void Rj() {
+            this.bJC++;
+            if (this.bJD != 0) {
+                float currentTimeMillis = ((float) (System.currentTimeMillis() - this.bJD)) / 1000.0f;
                 if (currentTimeMillis > 1.0f) {
-                    this.bFc.eb((int) (this.bEO / currentTimeMillis));
-                    this.bEO = 0;
-                    this.bEP = System.currentTimeMillis();
+                    this.bJQ.em((int) (this.bJC / currentTimeMillis));
+                    this.bJC = 0;
+                    this.bJD = System.currentTimeMillis();
                     return;
                 }
                 return;
             }
-            this.bEP = System.currentTimeMillis();
+            this.bJD = System.currentTimeMillis();
         }
 
         public boolean ableToDraw() {
@@ -1077,37 +1077,37 @@ public final class a implements AREngineDelegate {
             if (i < 0 || i > 1) {
                 throw new IllegalArgumentException("renderMode");
             }
-            synchronized (this.bEK) {
+            synchronized (this.bJy) {
                 this.mRenderMode = i;
-                this.bEK.notifyAll();
+                this.bJy.notifyAll();
             }
         }
 
         public int getRenderMode() {
             int i;
-            synchronized (this.bEK) {
+            synchronized (this.bJy) {
                 i = this.mRenderMode;
             }
             return i;
         }
 
         public void requestRender() {
-            synchronized (this.bEK) {
+            synchronized (this.bJy) {
                 this.mRequestRender = true;
-                this.bEK.notifyAll();
+                this.bJy.notifyAll();
             }
         }
 
         public void requestRenderAndWait() {
-            synchronized (this.bEK) {
+            synchronized (this.bJy) {
                 if (Thread.currentThread() != this) {
-                    this.bEX = true;
+                    this.bJL = true;
                     this.mRequestRender = true;
                     this.mRenderComplete = false;
-                    this.bEK.notifyAll();
+                    this.bJy.notifyAll();
                     while (!this.mExited && !this.mPaused && !this.mRenderComplete && ableToDraw()) {
                         try {
-                            this.bEK.wait();
+                            this.bJy.wait();
                         } catch (InterruptedException e) {
                             Thread.currentThread().interrupt();
                         }
@@ -1117,13 +1117,13 @@ public final class a implements AREngineDelegate {
         }
 
         public void surfaceCreated() {
-            synchronized (this.bEK) {
+            synchronized (this.bJy) {
                 this.mHasSurface = true;
-                this.bEW = false;
-                this.bEK.notifyAll();
-                while (this.mWaitingForSurface && !this.bEW && !this.mExited) {
+                this.bJK = false;
+                this.bJy.notifyAll();
+                while (this.mWaitingForSurface && !this.bJK && !this.mExited) {
                     try {
-                        this.bEK.wait();
+                        this.bJy.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -1132,12 +1132,12 @@ public final class a implements AREngineDelegate {
         }
 
         public void surfaceDestroyed() {
-            synchronized (this.bEK) {
+            synchronized (this.bJy) {
                 this.mHasSurface = false;
-                this.bEK.notifyAll();
+                this.bJy.notifyAll();
                 while (!this.mWaitingForSurface && !this.mExited) {
                     try {
-                        this.bEK.wait();
+                        this.bJy.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -1146,17 +1146,17 @@ public final class a implements AREngineDelegate {
         }
 
         public void onPause() {
-            synchronized (this.bEK) {
+            synchronized (this.bJy) {
                 Log.i("EngineLogger", "onPause tid=" + getId());
                 this.mRequestPaused = true;
-                if (this.bFc != null && (this.bFc.bEF.getStuckScreenHandler() instanceof com.baidu.smallgame.sdk.b)) {
-                    ((com.baidu.smallgame.sdk.b) this.bFc.bEF.getStuckScreenHandler()).Qi();
+                if (this.bJQ != null && (this.bJQ.bJt.getStuckScreenHandler() instanceof com.baidu.smallgame.sdk.b)) {
+                    ((com.baidu.smallgame.sdk.b) this.bJQ.bJt.getStuckScreenHandler()).Ro();
                 }
-                this.bEK.notifyAll();
+                this.bJy.notifyAll();
                 while (!this.mExited && !this.mPaused) {
                     Log.i("Main thread", "onPause waiting for mPaused.");
                     try {
-                        this.bEK.wait(500L);
+                        this.bJy.wait(500L);
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -1165,16 +1165,16 @@ public final class a implements AREngineDelegate {
         }
 
         public void onResume() {
-            synchronized (this.bEK) {
+            synchronized (this.bJy) {
                 Log.i("EngineLogger", "onResume tid=" + getId());
                 this.mRequestPaused = false;
                 this.mRequestRender = true;
                 this.mRenderComplete = false;
-                this.bEK.notifyAll();
+                this.bJy.notifyAll();
                 while (!this.mExited && this.mPaused && !this.mRenderComplete) {
                     Log.i("Main thread", "onResume waiting for !mPaused.");
                     try {
-                        this.bEK.wait();
+                        this.bJy.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -1183,17 +1183,17 @@ public final class a implements AREngineDelegate {
         }
 
         public void onWindowResize(int i, int i2) {
-            synchronized (this.bEK) {
+            synchronized (this.bJy) {
                 this.mWidth = i;
                 this.mHeight = i2;
                 this.mSizeChanged = true;
                 this.mRequestRender = true;
                 this.mRenderComplete = false;
                 if (Thread.currentThread() != this) {
-                    this.bEK.notifyAll();
+                    this.bJy.notifyAll();
                     while (!this.mExited && !this.mPaused && !this.mRenderComplete && ableToDraw()) {
                         try {
-                            this.bEK.wait();
+                            this.bJy.wait();
                         } catch (InterruptedException e) {
                             Thread.currentThread().interrupt();
                         }
@@ -1203,12 +1203,12 @@ public final class a implements AREngineDelegate {
         }
 
         public void requestExitAndWait() {
-            synchronized (this.bEK) {
+            synchronized (this.bJy) {
                 this.mShouldExit = true;
-                this.bEK.notifyAll();
+                this.bJy.notifyAll();
                 while (!this.mExited) {
                     try {
-                        this.bEK.wait();
+                        this.bJy.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -1229,16 +1229,16 @@ public final class a implements AREngineDelegate {
                 throw new IllegalArgumentException("r must not be null");
             }
             if (!this.mShouldExit && !this.mExited) {
-                synchronized (this.bEK) {
-                    if (V8Engine.isDebug() && this.bFc != null) {
-                        this.bFc.L(0, runnable.toString());
+                synchronized (this.bJy) {
+                    if (V8Engine.isDebug() && this.bJQ != null) {
+                        this.bJQ.N(0, runnable.toString());
                     }
                     if (z || ableToDraw()) {
-                        this.bEY.add(runnable);
+                        this.bJM.add(runnable);
                     } else {
-                        this.bEZ.add(runnable);
+                        this.bJN.add(runnable);
                     }
-                    this.bEK.notifyAll();
+                    this.bJy.notifyAll();
                 }
             }
         }
@@ -1248,29 +1248,29 @@ public final class a implements AREngineDelegate {
                 throw new IllegalArgumentException("r must not be null");
             }
             if (!this.mShouldExit && !this.mExited) {
-                synchronized (this.bEK) {
-                    TreeSet<d> treeSet = this.bFa;
+                synchronized (this.bJy) {
+                    TreeSet<d> treeSet = this.bJO;
                     if (j <= 0) {
                         j = 0;
                     }
                     treeSet.add(new d(runnable, j));
-                    this.bEK.notifyAll();
+                    this.bJy.notifyAll();
                 }
             }
         }
 
         public void clearOldEvents() {
-            synchronized (this.bEK) {
-                this.bEY.clear();
-                this.bEZ.clear();
-                this.bFa.clear();
+            synchronized (this.bJy) {
+                this.bJM.clear();
+                this.bJN.clear();
+                this.bJO.clear();
             }
         }
 
-        private Runnable Qe() {
+        private Runnable Rk() {
             Runnable pollFirst;
-            synchronized (this.bEK) {
-                pollFirst = (this.bFa.isEmpty() || !this.bFa.first().isTimeout()) ? this.bEY.pollFirst() : this.bFa.pollFirst();
+            synchronized (this.bJy) {
+                pollFirst = (this.bJO.isEmpty() || !this.bJO.first().isTimeout()) ? this.bJM.pollFirst() : this.bJO.pollFirst();
             }
             return pollFirst;
         }
@@ -1278,17 +1278,17 @@ public final class a implements AREngineDelegate {
 
     /* loaded from: classes11.dex */
     public static class d implements Comparable<d>, Runnable {
-        private final Runnable bFh;
+        private final Runnable bJV;
         private final long mTimestamp;
 
         d(Runnable runnable, long j) {
-            this.bFh = runnable;
+            this.bJV = runnable;
             this.mTimestamp = System.currentTimeMillis() + j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.bFh.run();
+            this.bJV.run();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1307,22 +1307,22 @@ public final class a implements AREngineDelegate {
     /* loaded from: classes11.dex */
     public static class c {
         private static String TAG = "GLThreadManager";
-        private C0274a bFg;
+        private C0280a bJU;
 
         private c() {
         }
 
-        public synchronized void b(C0274a c0274a) {
-            c0274a.mExited = true;
-            if (this.bFg == c0274a) {
-                this.bFg = null;
+        public synchronized void b(C0280a c0280a) {
+            c0280a.mExited = true;
+            if (this.bJU == c0280a) {
+                this.bJU = null;
             }
             notifyAll();
         }
 
-        public void c(C0274a c0274a) {
-            if (this.bFg == c0274a) {
-                this.bFg = null;
+        public void c(C0280a c0280a) {
+            if (this.bJU == c0280a) {
+                this.bJU = null;
             }
             synchronized (this) {
                 notifyAll();
@@ -1333,44 +1333,44 @@ public final class a implements AREngineDelegate {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class b {
-        private a bFc;
-        EGLDisplay bFd;
-        EGLSurface bFe;
-        EGLConfig bFf;
+        private a bJQ;
+        EGLDisplay bJR;
+        EGLSurface bJS;
+        EGLConfig bJT;
         EGLContext mEglContext;
 
         public b(a aVar) {
-            this.bFc = aVar;
+            this.bJQ = aVar;
         }
 
         public void reset() {
-            this.bFc = null;
+            this.bJQ = null;
         }
 
         public void start() {
-            this.bFd = EGL14.eglGetDisplay(0);
-            if (this.bFd == EGL14.EGL_NO_DISPLAY) {
+            this.bJR = EGL14.eglGetDisplay(0);
+            if (this.bJR == EGL14.EGL_NO_DISPLAY) {
                 throw new RuntimeException("unable to get EGL14 display");
             }
             int[] iArr = new int[2];
-            if (!EGL14.eglInitialize(this.bFd, iArr, 0, iArr, 1)) {
-                this.bFd = null;
+            if (!EGL14.eglInitialize(this.bJR, iArr, 0, iArr, 1)) {
+                this.bJR = null;
                 throw new RuntimeException("unable to initialize EGL14");
             }
-            a aVar = this.bFc;
-            this.bFf = g(0, 0, false);
-            this.mEglContext = EGL14.eglCreateContext(this.bFd, this.bFf, EGL14.EGL_NO_CONTEXT, new int[]{12440, 2, 12344}, 0);
-            this.bFc.mCurrentGLThreadID = Thread.currentThread().getId();
+            a aVar = this.bJQ;
+            this.bJT = g(0, 0, false);
+            this.mEglContext = EGL14.eglCreateContext(this.bJR, this.bJT, EGL14.EGL_NO_CONTEXT, new int[]{12440, 2, 12344}, 0);
+            this.bJQ.mCurrentGLThreadID = Thread.currentThread().getId();
             if (this.mEglContext == null || this.mEglContext == EGL14.EGL_NO_CONTEXT) {
                 this.mEglContext = null;
                 throwEglException("createContext");
             }
-            this.bFe = null;
+            this.bJS = null;
         }
 
         private EGLConfig g(int i, int i2, boolean z) {
             EGLConfig[] eGLConfigArr = new EGLConfig[1];
-            if (EGL14.eglChooseConfig(this.bFd, new int[]{12324, 8, 12323, 8, 12322, 8, 12321, 8, 12325, z ? 16 : 0, 12326, 0, 12352, 4, 12344, 0, 12344}, 0, eGLConfigArr, 0, eGLConfigArr.length, new int[1], 0)) {
+            if (EGL14.eglChooseConfig(this.bJR, new int[]{12324, 8, 12323, 8, 12322, 8, 12321, 8, 12325, z ? 16 : 0, 12326, 0, 12352, 4, 12344, 0, 12344}, 0, eGLConfigArr, 0, eGLConfigArr.length, new int[1], 0)) {
                 return eGLConfigArr[0];
             }
             Log.w("EngineLogger", "unable to find RGB8888 / " + i2 + " EGLConfig");
@@ -1378,54 +1378,54 @@ public final class a implements AREngineDelegate {
         }
 
         public boolean createSurface() {
-            if (this.bFd == null) {
+            if (this.bJR == null) {
                 throw new RuntimeException("eglDisplay not initialized");
             }
-            if (this.bFf == null) {
+            if (this.bJT == null) {
                 throw new RuntimeException("mEglConfig not initialized");
             }
             destroySurface();
-            Object obj = this.bFc.mSurfaceHolder;
+            Object obj = this.bJQ.mSurfaceHolder;
             if (obj == null) {
-                obj = this.bFc.bEL;
+                obj = this.bJQ.bJz;
             }
             if (obj != null) {
-                this.bFe = EGL14.eglCreateWindowSurface(this.bFd, this.bFf, obj, new int[]{12344}, 0);
+                this.bJS = EGL14.eglCreateWindowSurface(this.bJR, this.bJT, obj, new int[]{12344}, 0);
             } else {
-                this.bFe = null;
+                this.bJS = null;
             }
-            if (this.bFe == null || this.bFe == EGL14.EGL_NO_SURFACE) {
+            if (this.bJS == null || this.bJS == EGL14.EGL_NO_SURFACE) {
                 if (EGL14.eglGetError() == 12299) {
                     Log.e("EglHelper", "createWindowSurface returned EGL_BAD_NATIVE_WINDOW.");
                     return false;
                 }
                 return false;
             }
-            return EGL14.eglMakeCurrent(this.bFd, this.bFe, this.bFe, this.mEglContext);
+            return EGL14.eglMakeCurrent(this.bJR, this.bJS, this.bJS, this.mEglContext);
         }
 
         public int swap() {
-            return !EGL14.eglSwapBuffers(this.bFd, this.bFe) ? EGL14.eglGetError() : CommandMessage.COMMAND_BASE;
+            return !EGL14.eglSwapBuffers(this.bJR, this.bJS) ? EGL14.eglGetError() : CommandMessage.COMMAND_BASE;
         }
 
         public void destroySurface() {
-            if (this.bFe != null && this.bFe != EGL14.EGL_NO_SURFACE) {
-                EGL14.eglMakeCurrent(this.bFd, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_CONTEXT);
-                EGL14.eglDestroySurface(this.bFd, this.bFe);
-                this.bFe = null;
+            if (this.bJS != null && this.bJS != EGL14.EGL_NO_SURFACE) {
+                EGL14.eglMakeCurrent(this.bJR, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_CONTEXT);
+                EGL14.eglDestroySurface(this.bJR, this.bJS);
+                this.bJS = null;
             }
         }
 
         public void finish() {
             if (this.mEglContext != null) {
-                EGL14.eglDestroyContext(this.bFd, this.mEglContext);
+                EGL14.eglDestroyContext(this.bJR, this.mEglContext);
                 this.mEglContext = null;
             }
-            if (this.bFd != null) {
-                EGL14.eglTerminate(this.bFd);
-                this.bFd = null;
+            if (this.bJR != null) {
+                EGL14.eglTerminate(this.bJR);
+                this.bJR = null;
             }
-            this.bFc.mCurrentGLThreadID = -1L;
+            this.bJQ.mCurrentGLThreadID = -1L;
         }
 
         private void throwEglException(String str) {
@@ -1447,6 +1447,6 @@ public final class a implements AREngineDelegate {
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public boolean isDestroyed() {
-        return this.bEF.isDestroyed();
+        return this.bJt.isDestroyed();
     }
 }

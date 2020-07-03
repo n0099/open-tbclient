@@ -28,11 +28,11 @@ import com.baidu.tieba.ala.personcenter.privilege.entereffect.b;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 /* loaded from: classes3.dex */
 public class AlaEffectPreviewView extends LinearLayout {
-    private int aKk;
-    private TextView bWU;
-    private LinearLayout eTM;
-    private b.a gra;
-    private ImageView grb;
+    private int aMQ;
+    private TextView cbI;
+    private LinearLayout fdX;
+    private b.a gDP;
+    private ImageView gDQ;
     private ImageView mIconView;
     private ObjectAnimator mObjectAnimator;
     private View mRootView;
@@ -56,13 +56,13 @@ public class AlaEffectPreviewView extends LinearLayout {
     private void initView() {
         this.mRootView = inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
         this.mIconView = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
-        this.bWU = (TextView) findViewById(R.id.ala_im_user_enter_content);
-        this.eTM = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
-        this.grb = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
+        this.cbI = (TextView) findViewById(R.id.ala_im_user_enter_content);
+        this.fdX = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
+        this.gDQ = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
     }
 
     public void setAnimCompleteCallback(b.a aVar) {
-        this.gra = aVar;
+        this.gDP = aVar;
     }
 
     public void setData(AlaEnterEffectData alaEnterEffectData) {
@@ -92,7 +92,7 @@ public class AlaEffectPreviewView extends LinearLayout {
                 this.mIconView.setVisibility(8);
             } else {
                 this.mIconView.setVisibility(0);
-                c.kX().a(str3, 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView.1
+                c.ln().a(str3, 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView.1
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.e.b
@@ -124,7 +124,7 @@ public class AlaEffectPreviewView extends LinearLayout {
                             }
                             if (copy != null) {
                                 try {
-                                    Bitmap resizeBitmap = d.mm().resizeBitmap(copy, l.getEquipmentWidth(AlaEffectPreviewView.this.getContext()), AlaEffectPreviewView.this.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
+                                    Bitmap resizeBitmap = d.mC().resizeBitmap(copy, l.getEquipmentWidth(AlaEffectPreviewView.this.getContext()), AlaEffectPreviewView.this.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
                                     if (resizeBitmap != copy) {
                                         copy.recycle();
                                     }
@@ -140,7 +140,7 @@ public class AlaEffectPreviewView extends LinearLayout {
                     }
                 }, null);
             }
-            this.bWU.setText(spannableStringBuilder);
+            this.cbI.setText(spannableStringBuilder);
             String str4 = alaEnterEffectData.color;
             if (StringUtils.isNull(str4)) {
                 str4 = "#B2FF5460";
@@ -161,19 +161,19 @@ public class AlaEffectPreviewView extends LinearLayout {
                 gradientDrawable.setColor(-1291889568);
             }
             gradientDrawable.setCornerRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds10));
-            this.eTM.setBackgroundDrawable(gradientDrawable);
+            this.fdX.setBackgroundDrawable(gradientDrawable);
             if (3 == alaEnterEffectData.categoryType) {
-                this.grb.setVisibility(0);
+                this.gDQ.setVisibility(0);
             }
         }
     }
 
-    public void bIK() {
+    public void bLP() {
         if (getMeasuredWidth() <= 0) {
             measure(0, 0);
         }
         this.mScreenWidth = l.getEquipmentWidth(getContext());
-        this.aKk = (this.mScreenWidth - getMeasuredWidth()) / 2;
+        this.aMQ = (this.mScreenWidth - getMeasuredWidth()) / 2;
         this.mObjectAnimator = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.mScreenWidth, -this.mScreenWidth);
         this.mObjectAnimator.setDuration(3500L);
         this.mObjectAnimator.setInterpolator(new TimeInterpolator() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView.2
@@ -189,8 +189,8 @@ public class AlaEffectPreviewView extends LinearLayout {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (AlaEffectPreviewView.this.gra != null) {
-                    AlaEffectPreviewView.this.gra.bIM();
+                if (AlaEffectPreviewView.this.gDP != null) {
+                    AlaEffectPreviewView.this.gDP.bLR();
                 }
             }
 
@@ -225,11 +225,11 @@ public class AlaEffectPreviewView extends LinearLayout {
             float f2;
             float f3 = f * 3500.0f;
             if (f3 <= 500.0f) {
-                f2 = (((f3 / 500.0f) - 1.0f) * AlaEffectPreviewView.this.mScreenWidth) + AlaEffectPreviewView.this.aKk;
+                f2 = (((f3 / 500.0f) - 1.0f) * AlaEffectPreviewView.this.mScreenWidth) + AlaEffectPreviewView.this.aMQ;
             } else if (3500.0f - f3 > 500.0f) {
-                f2 = AlaEffectPreviewView.this.aKk;
+                f2 = AlaEffectPreviewView.this.aMQ;
             } else {
-                f2 = ((1.0f - ((3500.0f - f3) / 500.0f)) * AlaEffectPreviewView.this.mScreenWidth) + AlaEffectPreviewView.this.aKk;
+                f2 = ((1.0f - ((3500.0f - f3) / 500.0f)) * AlaEffectPreviewView.this.mScreenWidth) + AlaEffectPreviewView.this.aMQ;
             }
             return Float.valueOf(f2);
         }

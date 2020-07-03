@@ -17,11 +17,11 @@ import java.util.List;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean qU(String str) {
-        return X(str, false);
+    public static boolean rc(String str) {
+        return Z(str, false);
     }
 
-    public static boolean X(String str, boolean z) {
+    public static boolean Z(String str, boolean z) {
         if (DEBUG) {
             Log.e("GameCenterApkUtil", "call installApk filePath = " + str);
         }
@@ -129,7 +129,7 @@ public class a {
     private static boolean processFileUriIntent(Context context, File file, Intent intent) {
         if (Build.VERSION.SDK_INT >= 24) {
             try {
-                Uri uriForFile = FileProvider.getUriForFile(context, dk(context), file);
+                Uri uriForFile = FileProvider.getUriForFile(context, dl(context), file);
                 if (uriForFile == null) {
                     return false;
                 }
@@ -153,7 +153,7 @@ public class a {
         return true;
     }
 
-    private static String dk(Context context) {
-        return d.aJo() ? d.aJp() + ".fileprovider" : context.getPackageName() + ".swan.fileprovider";
+    private static String dl(Context context) {
+        return d.aKu() ? d.aKv() + ".fileprovider" : context.getPackageName() + ".swan.fileprovider";
     }
 }

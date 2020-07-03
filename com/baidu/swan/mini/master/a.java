@@ -9,10 +9,10 @@ import com.baidu.swan.games.f.h;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.f.a bSB;
-    private com.baidu.swan.games.binding.a bXf = new com.baidu.swan.games.binding.a();
-    private b dkF;
-    private String dkG;
+    private com.baidu.swan.games.f.a bXp;
+    private com.baidu.swan.games.binding.a cbT = new com.baidu.swan.games.binding.a();
+    private b dpq;
+    private String dpr;
 
     /* loaded from: classes11.dex */
     public interface b {
@@ -20,49 +20,49 @@ public class a {
     }
 
     public a(@NonNull String str, @NonNull String str2, @Nullable Object obj) {
-        this.bSB = g.a(ZG(), new C0455a(str, str2, obj), null);
+        this.bXp = g.a(aaM(), new C0461a(str, str2, obj), null);
     }
 
     public void setCodeCacheSetting(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
-        this.bSB.setCodeCacheSetting(codeCacheSetting);
+        this.bXp.setCodeCacheSetting(codeCacheSetting);
     }
 
     public com.baidu.swan.games.f.a getV8Engine() {
-        return this.bSB;
+        return this.bXp;
     }
 
     public void finish() {
-        this.bSB.finish();
+        this.bXp.finish();
     }
 
-    private h ZG() {
-        return new h.a().iq(1).rx("master").azJ();
+    private h aaM() {
+        return new h.a().iB(1).rF("master").aAP();
     }
 
     public void a(b bVar) {
-        this.dkF = bVar;
+        this.dpq = bVar;
     }
 
     @Nullable
-    public String aFo() {
-        return this.dkG;
+    public String aGu() {
+        return this.dpr;
     }
 
-    public void sY(@NonNull String str) {
-        this.dkG = str;
+    public void tg(@NonNull String str) {
+        this.dpr = str;
     }
 
     /* renamed from: com.baidu.swan.mini.master.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private class C0455a extends com.baidu.swan.games.f.d.a {
-        private Object dkH;
+    private class C0461a extends com.baidu.swan.games.f.d.a {
+        private Object dps;
         private String mBasePath;
         private String mFileName;
 
-        C0455a(@NonNull String str, @NonNull String str2, @Nullable Object obj) {
+        C0461a(@NonNull String str, @NonNull String str2, @Nullable Object obj) {
             this.mBasePath = str;
             this.mFileName = str2;
-            this.dkH = obj;
+            this.dps = obj;
             if (a.DEBUG) {
                 Log.d("SwanAppV8Master", "basePath: " + str + ", jsFile: " + str2);
             }
@@ -70,12 +70,12 @@ public class a {
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
         @Nullable
-        public V8EngineConfiguration.CodeCacheSetting ZH() {
-            if (com.baidu.swan.apps.u.a.aeU().eg(0)) {
+        public V8EngineConfiguration.CodeCacheSetting aaN() {
+            if (com.baidu.swan.apps.u.a.aga().er(0)) {
                 if (a.DEBUG) {
                     Log.d("SwanAppV8Master", "pathList item: " + this.mBasePath);
                 }
-                return com.baidu.swan.apps.core.b.a.aV("appframe", this.mBasePath);
+                return com.baidu.swan.apps.core.b.a.aX("appframe", this.mBasePath);
             }
             return null;
         }
@@ -86,21 +86,21 @@ public class a {
         }
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
-        public String ZI() {
+        public String aaO() {
             return this.mFileName;
         }
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
         public void a(com.baidu.swan.games.f.a aVar) {
-            if (this.dkH != null) {
-                aVar.addJavascriptInterface(this.dkH, "___NA_SWAN_MINI___");
+            if (this.dps != null) {
+                aVar.addJavascriptInterface(this.dps, "___NA_SWAN_MINI___");
             }
         }
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
         public void b(com.baidu.swan.games.f.a aVar) {
-            if (a.this.dkF != null) {
-                a.this.dkF.c(aVar);
+            if (a.this.dpq != null) {
+                a.this.dpq.c(aVar);
             }
             aVar.onLoad();
         }

@@ -28,7 +28,7 @@ public class i {
         return !TextUtils.isEmpty(this.mType);
     }
 
-    public boolean UT() {
+    public boolean VZ() {
         return TextUtils.equals(this.mType, "linearGradient") || TextUtils.equals(this.mType, "circularGradient");
     }
 
@@ -36,7 +36,7 @@ public class i {
         return this.mColor;
     }
 
-    public Shader UU() {
+    public Shader Wa() {
         return this.mShader;
     }
 
@@ -69,11 +69,11 @@ public class i {
                 if (iArr != null && fArr != null && iArr.length >= 2 && iArr.length == fArr.length) {
                     JSONObject optJSONObject2 = jSONArray.optJSONObject(2);
                     if (TextUtils.equals(optString, "linearGradient")) {
-                        this.mShader = new LinearGradient(com.baidu.swan.apps.aq.ag.B(optJSONObject2.optInt("x0")), com.baidu.swan.apps.aq.ag.B(optJSONObject2.optInt("y0")), com.baidu.swan.apps.aq.ag.B(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1)), com.baidu.swan.apps.aq.ag.B(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1)), iArr, fArr, Shader.TileMode.CLAMP);
+                        this.mShader = new LinearGradient(com.baidu.swan.apps.aq.ag.D(optJSONObject2.optInt("x0")), com.baidu.swan.apps.aq.ag.D(optJSONObject2.optInt("y0")), com.baidu.swan.apps.aq.ag.D(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1)), com.baidu.swan.apps.aq.ag.D(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1)), iArr, fArr, Shader.TileMode.CLAMP);
                         this.mType = "linearGradient";
                         return;
                     }
-                    this.mShader = new RadialGradient(com.baidu.swan.apps.aq.ag.B(optJSONObject2.optInt(Config.EVENT_HEAT_X)), com.baidu.swan.apps.aq.ag.B(optJSONObject2.optInt("y")), com.baidu.swan.apps.aq.ag.B(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
+                    this.mShader = new RadialGradient(com.baidu.swan.apps.aq.ag.D(optJSONObject2.optInt(Config.EVENT_HEAT_X)), com.baidu.swan.apps.aq.ag.D(optJSONObject2.optInt("y")), com.baidu.swan.apps.aq.ag.D(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
                     this.mType = "circularGradient";
                 }
             }

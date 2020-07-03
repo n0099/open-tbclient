@@ -23,5 +23,7 @@ public interface IDuMix extends View.OnTouchListener {
 
     void resumeScene();
 
+    void setStateListener(DuMixStateListener duMixStateListener);
+
     void setup(DuMixInput duMixInput, DuMixOutput duMixOutput, DuMixCallback duMixCallback);
 }

@@ -1,24 +1,14 @@
 package com.baidu.tbadk.p;
 
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.util.n;
+import android.content.Context;
+import android.support.v4.app.NotificationManagerCompat;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.framework.b.c {
-    public a() {
-        super(0);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.b.g
-    /* renamed from: b */
-    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        if (httpResponsedMessage == null) {
-            return null;
+public class a {
+    public static boolean cB(Context context) {
+        try {
+            return NotificationManagerCompat.from(context.getApplicationContext()).areNotificationsEnabled();
+        } catch (Exception e) {
+            return false;
         }
-        if (httpResponsedMessage.getError() == 2260104) {
-            n.bgy();
-            return httpResponsedMessage;
-        }
-        return httpResponsedMessage;
     }
 }

@@ -5,31 +5,31 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes11.dex */
 public class a {
-    private static final ReentrantLock dcQ = new ReentrantLock();
-    private static volatile a dcR;
-    private d cVJ;
-    private List<c> cWB = new ArrayList(3);
+    private static final ReentrantLock dhC = new ReentrantLock();
+    private static volatile a dhD;
+    private d dau;
+    private List<c> dbn = new ArrayList(3);
 
     private a() {
     }
 
-    public static a aBY() {
-        if (dcR == null) {
+    public static a aDe() {
+        if (dhD == null) {
             synchronized (a.class) {
-                if (dcR == null) {
-                    dcR = new a();
+                if (dhD == null) {
+                    dhD = new a();
                 }
             }
         }
-        return dcR;
+        return dhD;
     }
 
     public void a(d dVar) {
-        this.cVJ = dVar;
-        aBZ();
+        this.dau = dVar;
+        aDf();
     }
 
-    public void ag(String str, boolean z) {
+    public void ai(String str, boolean z) {
         com.baidu.swan.apps.console.c.d("SwanGameBundleUpdateManager", String.format("sendJSMessage : eventType = %s; hasUpdate = %s", str, Boolean.valueOf(z)));
         c cVar = new c(str);
         cVar.hasUpdate = z;
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.cVJ = null;
-        this.cWB.clear();
+        this.dau = null;
+        this.dbn.clear();
     }
 
     private void a(c cVar) {
-        dcQ.lock();
+        dhC.lock();
         try {
-            if (this.cVJ != null) {
-                this.cVJ.c(cVar);
+            if (this.dau != null) {
+                this.dau.c(cVar);
             } else {
-                this.cWB.add(cVar);
+                this.dbn.add(cVar);
             }
         } finally {
-            dcQ.unlock();
+            dhC.unlock();
         }
     }
 
-    private void aBZ() {
-        if (!this.cWB.isEmpty() && this.cVJ != null) {
-            dcQ.lock();
+    private void aDf() {
+        if (!this.dbn.isEmpty() && this.dau != null) {
+            dhC.lock();
             try {
-                for (c cVar : this.cWB) {
-                    this.cVJ.c(cVar);
+                for (c cVar : this.dbn) {
+                    this.dau.c(cVar);
                 }
-                this.cWB.clear();
+                this.dbn.clear();
             } finally {
-                dcQ.unlock();
+                dhC.unlock();
             }
         }
     }

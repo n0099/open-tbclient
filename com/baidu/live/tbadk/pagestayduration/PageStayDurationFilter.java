@@ -3,6 +3,7 @@ package com.baidu.live.tbadk.pagestayduration;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
+@Deprecated
 /* loaded from: classes3.dex */
 public abstract class PageStayDurationFilter {
     private static final int FIX_MAX_COST = 5;

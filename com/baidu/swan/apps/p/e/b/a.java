@@ -9,18 +9,18 @@ public interface a extends d {
 
     /* renamed from: com.baidu.swan.apps.p.e.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0364a {
-        void aex();
+    public interface InterfaceC0370a {
+        void afD();
 
-        void eV(String str);
+        void fG(int i);
 
-        void fv(int i);
+        void fb(String str);
 
-        void kA(String str);
+        void kH(String str);
 
-        void kB(@NonNull String str);
+        void kI(String str);
 
-        void kz(String str);
+        void kJ(@NonNull String str);
 
         void onEnded();
 
@@ -31,27 +31,27 @@ public interface a extends d {
         void onStateChange(int i);
     }
 
-    void a(@NonNull InterfaceC0364a interfaceC0364a);
+    void a(@NonNull InterfaceC0370a interfaceC0370a);
 
-    void aeA();
+    String afE();
 
-    InterfaceC0364a aeB();
+    void afF();
 
-    boolean aeC();
+    void afG();
 
-    int aeD();
+    InterfaceC0370a afH();
 
-    String aey();
+    boolean afI();
 
-    void aez();
+    int afJ();
 
     boolean c(String str, String str2, String str3, boolean z);
 
-    void dT(boolean z);
+    void dY(boolean z);
 
-    void fw(int i);
+    void fH(int i);
 
-    void fx(int i);
+    void fI(int i);
 
     Context getContext();
 

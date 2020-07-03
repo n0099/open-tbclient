@@ -3,19 +3,19 @@ package kotlin.b;
 @kotlin.h
 /* loaded from: classes7.dex */
 public class o extends n {
-    public static final f dN(int i, int i2) {
-        return f.nuy.ao(i, i2, -1);
+    public static final f dW(int i, int i2) {
+        return f.nQk.ao(i, i2, -1);
     }
 
-    public static final h dO(int i, int i2) {
-        return i2 <= Integer.MIN_VALUE ? h.nuA.dMp() : new h(i, i2 - 1);
+    public static final h dX(int i, int i2) {
+        return i2 <= Integer.MIN_VALUE ? h.nQm.dQV() : new h(i, i2 - 1);
     }
 
-    public static final int dP(int i, int i2) {
+    public static final int dY(int i, int i2) {
         return i < i2 ? i2 : i;
     }
 
-    public static final int dQ(int i, int i2) {
+    public static final int dZ(int i, int i2) {
         return i > i2 ? i2 : i;
     }
 

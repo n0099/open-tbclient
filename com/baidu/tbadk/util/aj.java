@@ -34,7 +34,7 @@ public class aj {
     private static Bitmap photoResult(int i) {
         Exception e;
         try {
-            int readPictureDegree = readPictureDegree(com.baidu.tbadk.core.util.m.getFileDireciory(SelectImageHelper.TMP_IMAGE_NAME));
+            int readPictureDegree = readPictureDegree(com.baidu.tbadk.core.util.n.getFileDireciory(SelectImageHelper.TMP_IMAGE_NAME));
             Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(SelectImageHelper.TMP_IMAGE_NAME, i);
             if (readPictureDegree != 0 && subSampleBitmap != null) {
                 try {

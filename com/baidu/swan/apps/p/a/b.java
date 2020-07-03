@@ -6,10 +6,10 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes11.dex */
 public class b implements ZeusPluginFactory {
-    private String bIH;
+    private String bNv;
 
     public b(@NonNull String str) {
-        this.bIH = str;
+        this.bNv = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
@@ -19,7 +19,7 @@ public class b implements ZeusPluginFactory {
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        c cVar = new c(invoker, this.bIH);
+        c cVar = new c(invoker, this.bNv);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.i("【InlineInputFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline input「Hash:" + cVar.hashCode() + "」");
         }

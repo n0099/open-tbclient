@@ -11,14 +11,14 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.g.feh);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.g.fpr);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: M */
+    /* renamed from: O */
     public n.a b(ViewGroup viewGroup) {
         return new n.a(new n(this.mPageContext, viewGroup));
     }
@@ -27,11 +27,11 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.special_forum.data.g gVar, n.a aVar) {
-        if (aVar == null || aVar.ffv == null) {
+        if (aVar == null || aVar.fqG == null) {
             return null;
         }
-        aVar.ffv.a(gVar);
-        aVar.ffv.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.fqG.a(gVar);
+        aVar.fqG.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 }

@@ -5,8 +5,8 @@ import com.baidu.ar.libloader.b;
 /* loaded from: classes3.dex */
 public class FaceJniClient {
     static {
-        b.an("anakin_lite");
-        b.an("FaceAlgoSDK2");
+        b.ao("anakin_lite");
+        b.ao("FaceAlgoSDK2");
     }
 
     public static native FaceAlgoData animateFace(long j, FaceAlgoData faceAlgoData, long j2);

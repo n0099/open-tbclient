@@ -17,6 +17,7 @@ public class PbPageRequestMessage extends NetMessage {
     private Context context;
     private Long forumId;
     private Integer fromSmartFrs;
+    private int from_push;
     private boolean isFromMark;
     private boolean isJumpFloor;
     private Integer isReqAd;
@@ -288,6 +289,10 @@ public class PbPageRequestMessage extends NetMessage {
         this.mSchemeUrl = str;
     }
 
+    public void setFrom_push(int i) {
+        this.from_push = i;
+    }
+
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         try {
@@ -330,7 +335,7 @@ public class PbPageRequestMessage extends NetMessage {
             builder.obj_param1 = this.objParam1;
             builder.obj_source = this.obj_source;
             builder.from_smart_frs = this.fromSmartFrs;
-            builder.app_pos = com.baidu.tieba.recapp.d.a.cVp().cVs();
+            builder.app_pos = com.baidu.tieba.recapp.d.a.cZF().cZI();
             builder.forum_id = this.forumId;
             builder.need_repost_recommend_forum = this.needRepostRecommendForum;
             AdParam.Builder builder2 = new AdParam.Builder();
@@ -343,8 +348,9 @@ public class PbPageRequestMessage extends NetMessage {
             builder.ori_ugc_type = Integer.valueOf(this.oriUgcType);
             builder.ori_ugc_vid = this.oriUgcVid;
             builder.after_ad_thread_count = Integer.valueOf(this.mAfterAdThreadCount);
-            builder.ad_context_list = com.baidu.tieba.recapp.report.b.cVu().cVx();
+            builder.ad_context_list = com.baidu.tieba.recapp.report.b.cZK().cZN();
             builder.up_schema = this.mSchemeUrl;
+            builder.from_push = Integer.valueOf(this.from_push);
             com.baidu.tbadk.util.t.a(builder, true, false, true);
             PbPageReqIdl.Builder builder3 = new PbPageReqIdl.Builder();
             builder3.data = builder.build(false);

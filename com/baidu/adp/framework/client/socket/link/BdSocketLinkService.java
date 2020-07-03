@@ -52,7 +52,7 @@ public class BdSocketLinkService extends BdBaseService {
                 case 1:
                     BdLog.w("tcp建立和握手超时");
                     BdSocketLinkService.close(9, "connect timeout");
-                    BdSocketLinkService.reConnStra.bk("tcp or websocket handshake timeout");
+                    BdSocketLinkService.reConnStra.bl("tcp or websocket handshake timeout");
                     return;
                 default:
                     return;
@@ -105,7 +105,7 @@ public class BdSocketLinkService extends BdBaseService {
                 z = BdSocketLinkService.connStateCallBack.onClose(i, null);
             }
             if (!z && i != 1 && l.isNetOk()) {
-                BdSocketLinkService.reConnStra.bk("onClose:" + i + ":" + str);
+                BdSocketLinkService.reConnStra.bl("onClose:" + i + ":" + str);
             }
         }
     };
@@ -133,9 +133,9 @@ public class BdSocketLinkService extends BdBaseService {
         i.debug(MODULE_NAME, 0, 0, "open", 0, str);
         BdLog.w("启动连接");
         mHandler.removeMessages(1);
-        mHandler.sendEmptyMessageDelayed(1, com.baidu.adp.framework.d.c.jL().jM().getTimeOutAuto());
+        mHandler.sendEmptyMessageDelayed(1, com.baidu.adp.framework.d.c.kb().kc().getTimeOutAuto());
         try {
-            return h.mH().mI();
+            return h.mX().mY();
         } catch (Throwable th) {
             connCallback.d(-1001, "open error");
             BdLog.e(th.getMessage());
@@ -144,8 +144,8 @@ public class BdSocketLinkService extends BdBaseService {
     }
 
     public static void init() {
-        h.mH().a(com.baidu.adp.framework.client.socket.h.getUrl(), com.baidu.adp.framework.client.socket.h.getExtensions(), null, com.baidu.adp.framework.client.socket.h.getHeader());
-        h.mH().a(connCallback);
+        h.mX().a(com.baidu.adp.framework.client.socket.h.getUrl(), com.baidu.adp.framework.client.socket.h.getExtensions(), null, com.baidu.adp.framework.client.socket.h.getHeader());
+        h.mX().a(connCallback);
     }
 
     public static void close(String str) {
@@ -157,27 +157,27 @@ public class BdSocketLinkService extends BdBaseService {
             i.debug(MODULE_NAME, 0, 0, "close", i, str);
             i.debugWebSocketInfo();
             mHandler.removeMessages(1);
-            h.mH().close(i, str);
+            h.mX().close(i, str);
         }
     }
 
     public boolean isIdle() {
-        return h.mH().getIsIdle();
+        return h.mX().getIsIdle();
     }
 
     public static boolean sendMessage(com.baidu.adp.lib.webSocket.c cVar) {
-        if (cVar != null && h.mH().mJ() && h.mH().getIsIdle()) {
-            return h.mH().sendMessage(cVar);
+        if (cVar != null && h.mX().mZ() && h.mX().getIsIdle()) {
+            return h.mX().sendMessage(cVar);
         }
         return false;
     }
 
     public static boolean isClose() {
-        return (h.mH().mJ() || h.mH().isConnecting()) ? false : true;
+        return (h.mX().mZ() || h.mX().isConnecting()) ? false : true;
     }
 
     public static boolean isOpen() {
-        return h.mH().mJ();
+        return h.mX().mZ();
     }
 
     public static boolean isAvailable() {
@@ -224,7 +224,7 @@ public class BdSocketLinkService extends BdBaseService {
                 BdLog.w("进行重连" + stringExtra);
                 close(stringExtra);
                 open(stringExtra);
-            } else if (!h.mH().mJ() && !h.mH().isConnecting()) {
+            } else if (!h.mX().mZ() && !h.mX().isConnecting()) {
                 BdLog.w("进行连接" + stringExtra);
                 close(stringExtra);
                 open(stringExtra);
@@ -260,9 +260,9 @@ public class BdSocketLinkService extends BdBaseService {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            com.baidu.adp.framework.client.socket.b jC;
-            if (intent != null && "android.intent.action.SCREEN_ON".equals(intent.getAction()) && (jC = MessageManager.getInstance().getSocketClient().jC()) != null) {
-                jC.Ping("Screen on");
+            com.baidu.adp.framework.client.socket.b jS;
+            if (intent != null && "android.intent.action.SCREEN_ON".equals(intent.getAction()) && (jS = MessageManager.getInstance().getSocketClient().jS()) != null) {
+                jS.Ping("Screen on");
             }
         }
     }
@@ -281,7 +281,7 @@ public class BdSocketLinkService extends BdBaseService {
 
     public static void stopReConnStrategy(String str) {
         if (reConnStra != null) {
-            reConnStra.bl(str);
+            reConnStra.bm(str);
         }
     }
 

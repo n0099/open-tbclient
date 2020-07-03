@@ -5,7 +5,7 @@ import com.baidu.swan.pms.model.e;
 /* loaded from: classes11.dex */
 public class c extends e {
     @Override // com.baidu.swan.pms.model.e
-    public boolean aaF() {
-        return (TextUtils.isEmpty(this.dlx) || this.versionCode <= 0 || this.size <= 0 || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.downloadUrl)) ? false : true;
+    public boolean abL() {
+        return (TextUtils.isEmpty(this.dqi) || this.versionCode <= 0 || this.size <= 0 || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.downloadUrl)) ? false : true;
     }
 }

@@ -4,7 +4,7 @@ import android.view.ViewGroup;
 import com.baidu.live.data.q;
 /* loaded from: classes3.dex */
 public interface h {
-    void BL();
+    void Cl();
 
     void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, q qVar);
 

@@ -11,7 +11,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.m;
+import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.util.aj;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
@@ -116,7 +116,7 @@ public class TiebaPrepareImageService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, Boolean> {
-        String bcp = null;
+        String bhz = null;
         String mFileName;
         int mRequestCode;
         Uri mUri;
@@ -148,23 +148,23 @@ public class TiebaPrepareImageService extends BdBaseService {
                 throw th;
             }
             if (ImageResult != null) {
-                if (m.a(null, TbConfig.IMAGE_RESIZED_FILE, ImageResult, 85) != null) {
+                if (n.a(null, TbConfig.IMAGE_RESIZED_FILE, ImageResult, 85) != null) {
                     int i = 100;
                     if (TiebaPrepareImageService.this.mDisplaySize > 0) {
                         i = TiebaPrepareImageService.this.mDisplaySize;
                     }
                     Bitmap resizeBitmap = BitmapHelper.resizeBitmap(ImageResult, i);
-                    if (resizeBitmap == null || m.a(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) == null) {
-                        this.bcp = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
+                    if (resizeBitmap == null || n.a(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) == null) {
+                        this.bhz = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
                     }
                 } else {
-                    this.bcp = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
+                    this.bhz = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
                     z = false;
                 }
                 TiebaPrepareImageService.IS_DECODING = false;
                 return Boolean.valueOf(z);
             }
-            this.bcp = TiebaPrepareImageService.this.getString(R.string.pic_parser_error);
+            this.bhz = TiebaPrepareImageService.this.getString(R.string.pic_parser_error);
             z = false;
             TiebaPrepareImageService.IS_DECODING = false;
             return Boolean.valueOf(z);
@@ -183,8 +183,8 @@ public class TiebaPrepareImageService extends BdBaseService {
             super.onPostExecute((a) bool);
             Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
             intent.putExtra("result", bool);
-            if (this.bcp != null) {
-                intent.putExtra(BdStatsConstant.StatsType.ERROR, this.bcp);
+            if (this.bhz != null) {
+                intent.putExtra(BdStatsConstant.StatsType.ERROR, this.bhz);
             }
             TiebaPrepareImageService.this.sendBroadcast(intent);
         }

@@ -3,7 +3,7 @@ package com.airbnb.lottie.model.content;
 import android.support.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class MergePaths implements b {
-    private final MergePathsMode DW;
+    private final MergePathsMode Ew;
     private final String name;
 
     /* loaded from: classes6.dex */
@@ -34,21 +34,21 @@ public class MergePaths implements b {
 
     public MergePaths(String str, MergePathsMode mergePathsMode) {
         this.name = str;
-        this.DW = mergePathsMode;
+        this.Ew = mergePathsMode;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public MergePathsMode ik() {
-        return this.DW;
+    public MergePathsMode iB() {
+        return this.Ew;
     }
 
     @Override // com.airbnb.lottie.model.content.b
     @Nullable
     public com.airbnb.lottie.a.a.b a(com.airbnb.lottie.g gVar, com.airbnb.lottie.model.layer.a aVar) {
-        if (gVar.gN()) {
+        if (gVar.hd()) {
             return new com.airbnb.lottie.a.a.k(this);
         }
         com.airbnb.lottie.d.warn("Animation contains merge paths but they are disabled.");
@@ -56,6 +56,6 @@ public class MergePaths implements b {
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.DW + '}';
+        return "MergePaths{mode=" + this.Ew + '}';
     }
 }

@@ -5,7 +5,7 @@ import com.squareup.wire.Wire;
 import tbclient.GetToken.GetTokenResIdl;
 /* loaded from: classes.dex */
 public class GetTokenSocketResponsedMessage extends SocketResponsedMessage {
-    private v mData;
+    private x mData;
 
     public GetTokenSocketResponsedMessage() {
         super(309608);
@@ -21,13 +21,13 @@ public class GetTokenSocketResponsedMessage extends SocketResponsedMessage {
                 setErrorString(getTokenResIdl.error.usermsg);
             }
             if (getTokenResIdl.data != null) {
-                this.mData = new v();
+                this.mData = new x();
                 this.mData.a(getTokenResIdl.data);
             }
         }
     }
 
-    public v getData() {
+    public x getData() {
         return this.mData;
     }
 }

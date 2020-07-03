@@ -1,16 +1,16 @@
 package com.baidu.l;
 /* loaded from: classes6.dex */
 public class d {
-    private boolean mjY;
-    private int mjZ;
+    private boolean mFU;
+    private int mFV;
 
-    public d vS(boolean z) {
-        this.mjY = z;
+    public d wo(boolean z) {
+        this.mFU = z;
         return this;
     }
 
-    public d GD(int i) {
-        this.mjZ = i;
+    public d HK(int i) {
+        this.mFV = i;
         return this;
     }
 }

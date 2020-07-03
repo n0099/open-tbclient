@@ -12,9 +12,9 @@ import java.util.List;
 public abstract class a<T> extends BaseAdapter {
     protected Context context;
     protected List<T> data;
-    protected final int nbO;
+    protected final int nxF;
 
-    public abstract void a(C0920a c0920a, T t);
+    public abstract void a(C0939a c0939a, T t);
 
     public a(Context context, List<T> list, int i) {
         this.context = context;
@@ -23,7 +23,7 @@ public abstract class a<T> extends BaseAdapter {
         } else {
             this.data = list;
         }
-        this.nbO = i;
+        this.nxF = i;
     }
 
     @Override // android.widget.Adapter
@@ -49,38 +49,38 @@ public abstract class a<T> extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0920a c0920a;
+        C0939a c0939a;
         if (view == null) {
-            view = LayoutInflater.from(this.context).inflate(Jm(getItemViewType(i)), viewGroup, false);
-            c0920a = new C0920a(view);
-            view.setTag(c0920a);
+            view = LayoutInflater.from(this.context).inflate(Kt(getItemViewType(i)), viewGroup, false);
+            c0939a = new C0939a(view);
+            view.setTag(c0939a);
         } else {
-            c0920a = (C0920a) view.getTag();
+            c0939a = (C0939a) view.getTag();
         }
-        a(c0920a, this.data.get(i));
+        a(c0939a, this.data.get(i));
         return view;
     }
 
-    protected int Jm(int i) {
-        return this.nbO;
+    protected int Kt(int i) {
+        return this.nxF;
     }
 
     /* renamed from: tv.chushou.zues.widget.adapterview.abslistview.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0920a {
-        public View iRO;
-        private final SparseArray<View> nbY = new SparseArray<>();
+    public static class C0939a {
+        public View jja;
+        private final SparseArray<View> nxP = new SparseArray<>();
 
-        public C0920a(View view) {
-            this.iRO = view;
+        public C0939a(View view) {
+            this.jja = view;
         }
 
         /* JADX WARN: Incorrect return type in method signature: <T:Landroid/view/View;>(I)TT; */
-        public View KD(int i) {
-            View view = this.nbY.get(i);
+        public View or(int i) {
+            View view = this.nxP.get(i);
             if (view == null) {
-                View findViewById = this.iRO.findViewById(i);
-                this.nbY.put(i, findViewById);
+                View findViewById = this.jja.findViewById(i);
+                this.nxP.put(i, findViewById);
                 return findViewById;
             }
             return view;

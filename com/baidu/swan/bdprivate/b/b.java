@@ -11,7 +11,7 @@ public class b implements n {
     public void a(Context context, String str, String str2, com.baidu.swan.apps.b.a.b bVar) {
         if (bVar != null) {
             if (!(context instanceof Activity)) {
-                bVar.ek(0);
+                bVar.ev(0);
             } else {
                 com.baidu.swan.bdprivate.a.a.a((Activity) context, bVar);
             }

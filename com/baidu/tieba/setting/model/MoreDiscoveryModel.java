@@ -26,9 +26,9 @@ import tbclient.Profile.ProfileResIdl;
 public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public static final int GET_DATA_FROM_DB = 2;
     public static final int GET_DATA_FROM_NET = 1;
-    private b gSP;
-    private a kVA;
-    private NicknameInfo ktF;
+    private b hfy;
+    private NicknameInfo kNC;
+    private a lpx;
     private final Context mContext;
     private String mId;
     private boolean mIsLoading;
@@ -38,26 +38,26 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public MoreDiscoveryModel(MoreActivity moreActivity) {
         super(moreActivity.getPageContext());
         this.mUIHandler = null;
-        this.gSP = null;
+        this.hfy = null;
         this.mIsLoading = false;
-        this.kVA = new a(1002700, CmdConfigSocket.CMD_PROFILE) { // from class: com.baidu.tieba.setting.model.MoreDiscoveryModel.1
+        this.lpx = new a(1002700, CmdConfigSocket.CMD_PROFILE) { // from class: com.baidu.tieba.setting.model.MoreDiscoveryModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if ((responsedMessage instanceof ProfileSocketResponseMessage) || (responsedMessage instanceof ProfileHttpResponseMessage)) {
                     if (responsedMessage.getOrginalMessage() == null || MoreDiscoveryModel.this.getUniqueId() == null || MoreDiscoveryModel.this.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
                         if (responsedMessage instanceof ProfileSocketResponseMessage) {
                             ProfileSocketResponseMessage profileSocketResponseMessage = (ProfileSocketResponseMessage) responsedMessage;
-                            if (MoreDiscoveryModel.this.gSP != null) {
-                                MoreDiscoveryModel.this.gSP.a(false, !responsedMessage.hasError(), profileSocketResponseMessage.getError(), profileSocketResponseMessage.getErrorString(), profileSocketResponseMessage.getDownSize(), 0L, profileSocketResponseMessage.getCostTime());
-                                MoreDiscoveryModel.this.gSP = null;
+                            if (MoreDiscoveryModel.this.hfy != null) {
+                                MoreDiscoveryModel.this.hfy.a(false, !responsedMessage.hasError(), profileSocketResponseMessage.getError(), profileSocketResponseMessage.getErrorString(), profileSocketResponseMessage.getDownSize(), 0L, profileSocketResponseMessage.getCostTime());
+                                MoreDiscoveryModel.this.hfy = null;
                             }
                             MoreDiscoveryModel.this.a(profileSocketResponseMessage);
                         }
                         if (responsedMessage instanceof ProfileHttpResponseMessage) {
                             ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
-                            if (MoreDiscoveryModel.this.gSP != null) {
-                                MoreDiscoveryModel.this.gSP.a(true, !responsedMessage.hasError(), profileHttpResponseMessage.getError(), profileHttpResponseMessage.getErrorString(), profileHttpResponseMessage.getDownSize(), profileHttpResponseMessage.getCostTime(), 0L);
-                                MoreDiscoveryModel.this.gSP = null;
+                            if (MoreDiscoveryModel.this.hfy != null) {
+                                MoreDiscoveryModel.this.hfy.a(true, !responsedMessage.hasError(), profileHttpResponseMessage.getError(), profileHttpResponseMessage.getErrorString(), profileHttpResponseMessage.getDownSize(), profileHttpResponseMessage.getCostTime(), 0L);
+                                MoreDiscoveryModel.this.hfy = null;
                             }
                             MoreDiscoveryModel.this.a(profileHttpResponseMessage);
                         }
@@ -68,12 +68,12 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.mUser = null;
         this.mContext = moreActivity.getPageContext().getContext();
         this.mUIHandler = new Handler(Looper.getMainLooper());
-        this.gSP = new b("profileStat");
-        registerListener(this.kVA);
+        this.hfy = new b("profileStat");
+        registerListener(this.lpx);
     }
 
     public NicknameInfo getNicknameInfo() {
-        return this.ktF;
+        return this.kNC;
     }
 
     public UserData getUser() {
@@ -88,12 +88,12 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.mId = str;
     }
 
-    public void aq(boolean z, boolean z2) {
+    public void ar(boolean z, boolean z2) {
         cancelMessage();
-        ar(z, z2);
+        as(z, z2);
     }
 
-    public void ar(boolean z, boolean z2) {
+    public void as(boolean z, boolean z2) {
         if (!this.mIsLoading) {
             this.mIsLoading = true;
             ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
@@ -101,7 +101,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
                 profileRequestMessage.set_uid(Long.valueOf(com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L)));
             }
             if (z) {
-                aOa();
+                aPK();
                 return;
             }
             profileRequestMessage.set_need_post_count(1);
@@ -113,7 +113,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             profileRequestMessage.setSelf(true);
             profileRequestMessage.setIs_from_usercenter(1);
             profileRequestMessage.setPage(2);
-            cXq();
+            dbF();
             sendMessage(profileRequestMessage);
         }
     }
@@ -124,7 +124,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             if (user != null) {
                 setUser(user);
             }
-            com.baidu.tbadk.getUserInfo.b.ben().a(getUser());
+            com.baidu.tbadk.getUserInfo.b.bgs().a(getUser());
             this.mLoadDataMode = 1;
             this.mLoadDataCallBack.callback(true);
             return;
@@ -159,7 +159,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             try {
                 this.mUser = new UserData();
                 this.mUser.parserProtobuf(profileSocketResponseMessage.GetUser());
-                this.ktF = profileSocketResponseMessage.getNicknameInfo();
+                this.kNC = profileSocketResponseMessage.getNicknameInfo();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -172,7 +172,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             try {
                 this.mUser = new UserData();
                 this.mUser.parserProtobuf(profileHttpResponseMessage.GetUser());
-                this.ktF = profileHttpResponseMessage.getNicknameInfo();
+                this.kNC = profileHttpResponseMessage.getNicknameInfo();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -180,8 +180,8 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         }
     }
 
-    public void aOa() {
-        cXp().a("profile_cache_key", new l.a<byte[]>() { // from class: com.baidu.tieba.setting.model.MoreDiscoveryModel.2
+    public void aPK() {
+        dbE().a("profile_cache_key", new l.a<byte[]>() { // from class: com.baidu.tieba.setting.model.MoreDiscoveryModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.cache.l.a
             /* renamed from: o */
@@ -215,21 +215,21 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             try {
                 this.mUser = new UserData();
                 this.mUser.parserProtobuf(dataRes.user);
-                this.ktF = dataRes.nickname_info;
+                this.kNC = dataRes.nickname_info;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    private l<byte[]> cXp() {
-        return com.baidu.tbadk.core.c.a.aSS().cZ("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+    private l<byte[]> dbE() {
+        return com.baidu.tbadk.core.c.a.aUM().dc("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
     }
 
-    private void cXq() {
-        if (this.gSP == null) {
-            this.gSP = new b("profileStat");
-            this.gSP.start();
+    private void dbF() {
+        if (this.hfy == null) {
+            this.hfy = new b("profileStat");
+            this.hfy.start();
         }
     }
 

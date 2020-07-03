@@ -1,15 +1,15 @@
 package com.baidu.ar.pose;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.ar.c.b {
-    private float[] sa;
+    private float[] sA;
 
     public b(String str, float[] fArr, long j) {
-        this.sa = fArr;
+        this.sA = fArr;
         S(str);
         setTimestamp(j);
     }
 
-    public float[] dQ() {
-        return this.sa;
+    public float[] eg() {
+        return this.sA;
     }
 }

@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
 public class f {
-    private static final f nLo = new f();
-    static final b nLt = new b() { // from class: rx.c.f.1
+    private static final f ohc = new f();
+    static final b ohh = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> nLp = new AtomicReference<>();
-    private final AtomicReference<d> nLq = new AtomicReference<>();
-    private final AtomicReference<h> nLr = new AtomicReference<>();
-    private final AtomicReference<a> nLs = new AtomicReference<>();
-    private final AtomicReference<g> nFn = new AtomicReference<>();
+    private final AtomicReference<b> ohd = new AtomicReference<>();
+    private final AtomicReference<d> ohe = new AtomicReference<>();
+    private final AtomicReference<h> ohf = new AtomicReference<>();
+    private final AtomicReference<a> ohg = new AtomicReference<>();
+    private final AtomicReference<g> oaY = new AtomicReference<>();
 
     @Deprecated
-    public static f dQE() {
-        return nLo;
+    public static f dVk() {
+        return ohc;
     }
 
     f() {
     }
 
-    public b dQF() {
-        if (this.nLp.get() == null) {
+    public b dVl() {
+        if (this.ohd.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
-                this.nLp.compareAndSet(null, nLt);
+                this.ohd.compareAndSet(null, ohh);
             } else {
-                this.nLp.compareAndSet(null, (b) a);
+                this.ohd.compareAndSet(null, (b) a);
             }
         }
-        return this.nLp.get();
+        return this.ohd.get();
     }
 
-    public d dQG() {
-        if (this.nLq.get() == null) {
+    public d dVm() {
+        if (this.ohe.get() == null) {
             Object a = a(d.class, System.getProperties());
             if (a == null) {
-                this.nLq.compareAndSet(null, e.dQD());
+                this.ohe.compareAndSet(null, e.dVj());
             } else {
-                this.nLq.compareAndSet(null, (d) a);
+                this.ohe.compareAndSet(null, (d) a);
             }
         }
-        return this.nLq.get();
+        return this.ohe.get();
     }
 
-    public h dQH() {
-        if (this.nLr.get() == null) {
+    public h dVn() {
+        if (this.ohf.get() == null) {
             Object a = a(h.class, System.getProperties());
             if (a == null) {
-                this.nLr.compareAndSet(null, i.dQR());
+                this.ohf.compareAndSet(null, i.dVx());
             } else {
-                this.nLr.compareAndSet(null, (h) a);
+                this.ohf.compareAndSet(null, (h) a);
             }
         }
-        return this.nLr.get();
+        return this.ohf.get();
     }
 
-    public a dQI() {
-        if (this.nLs.get() == null) {
+    public a dVo() {
+        if (this.ohg.get() == null) {
             Object a = a(a.class, System.getProperties());
             if (a == null) {
-                this.nLs.compareAndSet(null, new a() { // from class: rx.c.f.2
+                this.ohg.compareAndSet(null, new a() { // from class: rx.c.f.2
                 });
             } else {
-                this.nLs.compareAndSet(null, (a) a);
+                this.ohg.compareAndSet(null, (a) a);
             }
         }
-        return this.nLs.get();
+        return this.ohg.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g dQJ() {
-        if (this.nFn.get() == null) {
+    public g dVp() {
+        if (this.oaY.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.nFn.compareAndSet(null, g.dQQ());
+                this.oaY.compareAndSet(null, g.dVw());
             } else {
-                this.nFn.compareAndSet(null, (g) a);
+                this.oaY.compareAndSet(null, (g) a);
             }
         }
-        return this.nFn.get();
+        return this.oaY.get();
     }
 }

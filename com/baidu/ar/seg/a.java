@@ -5,6 +5,7 @@ import android.os.SystemClock;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.engine.pixel.PixelType;
 import com.baidu.ar.arrender.m;
+import com.baidu.ar.c.l;
 import com.baidu.ar.databasic.AlgoHandleAdapter;
 import com.baidu.ar.databasic.ReserveHandleData;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
@@ -15,33 +16,44 @@ import java.util.HashMap;
 public class a extends com.baidu.ar.b.a.b {
     private static final String TAG = a.class.getSimpleName();
     protected boolean mIsFrontCamera;
-    protected int tW;
-    private int tK = 192;
-    private int tL = 192;
-    private int tM = 192;
-    private int tN = 192;
-    private int tO = 256;
-    private int tP = 144;
-    private int tQ = 128;
-    private int tR = 224;
-    private int tS = 192;
-    private int tT = 192;
-    private int tU = 160;
-    private int tV = 160;
-    private int cF = 2;
-    private float pi = 0.0f;
-    private boolean mn = true;
-    private boolean nm = true;
+    protected int uw;
+    private int uk = 192;
+    private int ul = 192;
+    private int um = 192;
+    private int un = 192;
+    private int uo = 256;
+    private int up = 144;
+    private int uq = 128;
+    private int ur = 224;
+    private int us = 192;
+    private int ut = 192;
+    private int uu = 160;
+    private int uv = 160;
+    private int cS = 2;
+    private float pH = 0.0f;
+    private boolean mK = true;
+    private boolean nJ = true;
 
     public a() {
-        this.lP = new PixelReadParams(PixelType.BGR);
-        this.lP.setOutputWidth(this.tK);
-        this.lP.setOutputHeight(this.tL);
+        this.mm = new PixelReadParams(PixelType.BGR);
+        this.mm.setOutputWidth(this.uk);
+        this.mm.setOutputHeight(this.ul);
+    }
+
+    private int cL() {
+        switch (this.cS) {
+            case 4:
+                return 13;
+            case 5:
+                return 12;
+            default:
+                return 11;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int ev() {
-        switch (this.tW) {
+    public int eL() {
+        switch (this.uw) {
             case -90:
                 return 0;
             case 0:
@@ -56,8 +68,8 @@ public class a extends com.baidu.ar.b.a.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int ew() {
-        switch (this.tW) {
+    public int eM() {
+        switch (this.uw) {
             case -90:
                 return this.mIsFrontCamera ? 2 : 0;
             case 90:
@@ -70,8 +82,8 @@ public class a extends com.baidu.ar.b.a.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int ex() {
-        switch (this.tW) {
+    public int eN() {
+        switch (this.uw) {
             case -90:
                 if (this.mIsFrontCamera) {
                 }
@@ -87,15 +99,15 @@ public class a extends com.baidu.ar.b.a.b {
         }
     }
 
-    public void S(boolean z) {
-        this.mn = z;
+    public void T(boolean z) {
+        this.mK = z;
     }
 
     @Override // com.baidu.ar.b.a.b
     public com.baidu.ar.b.b.b a(final ByteBuffer byteBuffer, final int i, final int i2, final long j, final boolean z, final int i3, final int i4) {
-        return new com.baidu.ar.b.b.b(this.cC.af()) { // from class: com.baidu.ar.seg.a.3
+        return new com.baidu.ar.b.b.b(this.cP.at()) { // from class: com.baidu.ar.seg.a.3
             @Override // com.baidu.ar.b.b.b
-            public HashMap am() {
+            public HashMap aA() {
                 byte[] bArr;
                 byte[] bArr2 = null;
                 int i5 = 0;
@@ -103,29 +115,29 @@ public class a extends com.baidu.ar.b.a.b {
                 HashMap hashMap = new HashMap();
                 hashMap.put("timestamp", Long.valueOf(j));
                 a.this.mIsFrontCamera = z;
-                a.this.tW = i3;
+                a.this.uw = i3;
                 int i7 = i3;
-                switch (af()) {
+                switch (at()) {
                     case 2:
                         int[] iArr = new int[2];
-                        byte[] bArr3 = new byte[a.this.tM * a.this.tN];
-                        int i8 = a.this.tM;
-                        int i9 = a.this.tN;
-                        int ev = a.this.ev();
+                        byte[] bArr3 = new byte[a.this.um * a.this.un];
+                        int i8 = a.this.um;
+                        int i9 = a.this.un;
+                        int eL = a.this.eL();
                         long elapsedRealtime = SystemClock.elapsedRealtime();
-                        if (!a.this.nm) {
-                            ARMdlInterfaceJNI.predictHumanSeg(byteBuffer, i, i2, ev, z, bArr3, iArr, 0L);
+                        if (!a.this.nJ) {
+                            ARMdlInterfaceJNI.predictHumanSeg(byteBuffer, i, i2, eL, z, bArr3, iArr, 0L);
                             bArr = bArr3;
-                        } else if (a.this.bU != null) {
+                        } else if (a.this.ch != null) {
                             try {
-                                long createHandle = a.this.bU.createHandle();
-                                a.this.bU.setHandleInput(createHandle, 11, j, 2, i, i2, z, i4, a.this.mn, byteBuffer);
-                                a.this.bU.setUsingHandle(createHandle);
-                                ARMdlInterfaceJNI.predictHumanSeg(null, i, i2, ev, z, null, iArr, createHandle);
-                                if (a.this.bU != null) {
-                                    a.this.bU.setUsingHandle(0L);
+                                long createHandle = a.this.ch.createHandle();
+                                a.this.ch.setHandleInput(createHandle, 11, j, 2, i, i2, z, i4, a.this.mK, byteBuffer);
+                                a.this.ch.setUsingHandle(createHandle);
+                                ARMdlInterfaceJNI.predictHumanSeg(null, i, i2, eL, z, null, iArr, createHandle);
+                                if (a.this.ch != null) {
+                                    a.this.ch.setUsingHandle(0L);
                                     ReserveHandleData reserveHandleData = new ReserveHandleData();
-                                    a.this.bU.getHandleReserveData(createHandle, reserveHandleData);
+                                    a.this.ch.getHandleReserveData(createHandle, reserveHandleData);
                                     if (reserveHandleData.getByteArrayListData() != null && reserveHandleData.getByteArrayListData().size() > 0) {
                                         bArr3 = reserveHandleData.getByteArrayListData().get(0);
                                     }
@@ -137,7 +149,7 @@ public class a extends com.baidu.ar.b.a.b {
                             } catch (Exception e) {
                                 bArr2 = bArr3;
                                 e.printStackTrace();
-                                i7 = ev;
+                                i7 = eL;
                                 i6 = i9;
                                 i5 = i8;
                                 break;
@@ -146,29 +158,29 @@ public class a extends com.baidu.ar.b.a.b {
                             bArr = bArr3;
                         }
                         StatisticApi.getPerformanceApi().recordAlgoTimeCost("bg_seg", "predict", SystemClock.elapsedRealtime() - elapsedRealtime, 0);
-                        i7 = ev;
+                        i7 = eL;
                         i5 = i8;
                         bArr2 = bArr;
                         i6 = i9;
                         break;
                     case 4:
-                        bArr2 = new byte[a.this.tQ * a.this.tR];
-                        int i10 = a.this.tQ;
-                        i6 = a.this.tR;
-                        i7 = a.this.ex();
+                        bArr2 = new byte[a.this.uq * a.this.ur];
+                        int i10 = a.this.uq;
+                        i6 = a.this.ur;
+                        i7 = a.this.eN();
                         long elapsedRealtime2 = SystemClock.elapsedRealtime();
-                        if (!a.this.nm) {
-                            ARMdlInterfaceJNI.predictHairSeg(byteBuffer, i, i2, a.this.tQ, a.this.tR, 1, i7, false, bArr2, 0L);
-                        } else if (a.this.bU != null) {
+                        if (!a.this.nJ) {
+                            ARMdlInterfaceJNI.predictHairSeg(byteBuffer, i, i2, a.this.uq, a.this.ur, 1, i7, false, bArr2, 0L);
+                        } else if (a.this.ch != null) {
                             try {
-                                long createHandle2 = a.this.bU.createHandle();
-                                a.this.bU.setHandleInput(createHandle2, 13, j, 0, i, i2, z, i4, a.this.mn, byteBuffer);
-                                a.this.bU.setUsingHandle(createHandle2);
-                                a.this.bU.setHandleMaskThreshold(createHandle2, a.this.pi);
-                                ARMdlInterfaceJNI.predictHairSeg(null, i, i2, a.this.tQ, a.this.tR, 1, i7, false, null, createHandle2);
-                                if (a.this.bU != null) {
-                                    a.this.bU.setUsingHandle(0L);
-                                    bArr2 = a.this.bU.getHandleMaskData(createHandle2);
+                                long createHandle2 = a.this.ch.createHandle();
+                                a.this.ch.setHandleInput(createHandle2, 13, j, 0, i, i2, z, i4, a.this.mK, byteBuffer);
+                                a.this.ch.setUsingHandle(createHandle2);
+                                a.this.ch.setHandleMaskThreshold(createHandle2, a.this.pH);
+                                ARMdlInterfaceJNI.predictHairSeg(null, i, i2, a.this.uq, a.this.ur, 1, i7, false, null, createHandle2);
+                                if (a.this.ch != null) {
+                                    a.this.ch.setUsingHandle(0L);
+                                    bArr2 = a.this.ch.getHandleMaskData(createHandle2);
                                     hashMap.put("handle", Long.valueOf(createHandle2));
                                 } else {
                                     AlgoHandleAdapter.destroyHandle(createHandle2);
@@ -183,22 +195,22 @@ public class a extends com.baidu.ar.b.a.b {
                         i5 = i10;
                         break;
                     case 5:
-                        bArr2 = new byte[a.this.tU * a.this.tV];
-                        int i11 = a.this.tU;
-                        i6 = a.this.tV;
-                        i7 = a.this.ew();
+                        bArr2 = new byte[a.this.uu * a.this.uv];
+                        int i11 = a.this.uu;
+                        i6 = a.this.uv;
+                        i7 = a.this.eM();
                         long elapsedRealtime3 = SystemClock.elapsedRealtime();
-                        if (!a.this.nm) {
-                            ARMdlInterfaceJNI.predictSkySeg(byteBuffer, i, i2, a.this.tU, a.this.tV, 1, i7, false, bArr2, 0L);
-                        } else if (a.this.bU != null) {
+                        if (!a.this.nJ) {
+                            ARMdlInterfaceJNI.predictSkySeg(byteBuffer, i, i2, a.this.uu, a.this.uv, 1, i7, false, bArr2, 0L);
+                        } else if (a.this.ch != null) {
                             try {
-                                long createHandle3 = a.this.bU.createHandle();
-                                a.this.bU.setHandleInput(createHandle3, 12, j, 0, i, i2, z, i4, a.this.mn, byteBuffer);
-                                a.this.bU.setUsingHandle(createHandle3);
-                                ARMdlInterfaceJNI.predictSkySeg(null, i, i2, a.this.tU, a.this.tV, 1, i7, false, null, createHandle3);
-                                if (a.this.bU != null) {
-                                    a.this.bU.setUsingHandle(0L);
-                                    bArr2 = a.this.bU.getHandleMaskData(createHandle3);
+                                long createHandle3 = a.this.ch.createHandle();
+                                a.this.ch.setHandleInput(createHandle3, 12, j, 0, i, i2, z, i4, a.this.mK, byteBuffer);
+                                a.this.ch.setUsingHandle(createHandle3);
+                                ARMdlInterfaceJNI.predictSkySeg(null, i, i2, a.this.uu, a.this.uv, 1, i7, false, null, createHandle3);
+                                if (a.this.ch != null) {
+                                    a.this.ch.setUsingHandle(0L);
+                                    bArr2 = a.this.ch.getHandleMaskData(createHandle3);
                                     hashMap.put("handle", Long.valueOf(createHandle3));
                                 } else {
                                     AlgoHandleAdapter.destroyHandle(createHandle3);
@@ -227,46 +239,60 @@ public class a extends com.baidu.ar.b.a.b {
     public void a(com.baidu.ar.b.a.c cVar) {
         super.a(cVar);
         if (cVar != null) {
-            this.cF = cVar.af();
-            switch (this.cF) {
+            this.cS = cVar.at();
+            switch (this.cS) {
                 case 4:
-                    this.lP.setPixelType(PixelType.NV21);
-                    this.lP.setOutputWidth(this.tO);
-                    this.lP.setOutputHeight(this.tP);
+                    this.mm.setPixelType(PixelType.NV21);
+                    this.mm.setOutputWidth(this.uo);
+                    this.mm.setOutputHeight(this.up);
                     return;
                 case 5:
-                    this.lP.setPixelType(PixelType.NV21);
-                    this.lP.setOutputWidth(this.tS);
-                    this.lP.setOutputHeight(this.tT);
+                    this.mm.setPixelType(PixelType.NV21);
+                    this.mm.setOutputWidth(this.us);
+                    this.mm.setOutputHeight(this.ut);
                     return;
                 default:
-                    this.lP.setPixelType(PixelType.BGR);
-                    this.lP.setOutputWidth(this.tK);
-                    this.lP.setOutputHeight(this.tL);
+                    this.mm.setPixelType(PixelType.BGR);
+                    this.mm.setOutputWidth(this.uk);
+                    this.mm.setOutputHeight(this.ul);
                     return;
             }
         }
     }
 
-    @Override // com.baidu.ar.b.a.a
-    public void ad() {
+    @Override // com.baidu.ar.b.a.b, com.baidu.ar.c.j
+    protected void al() {
+        if (this.ly != null) {
+            this.ly.a(new l(getName(), true, cL()));
+        }
+    }
+
+    @Override // com.baidu.ar.b.a.b, com.baidu.ar.c.j
+    protected void an() {
+        if (this.ly != null) {
+            this.ly.b(new l(getName(), true, cL()));
+        }
     }
 
     @Override // com.baidu.ar.b.a.a
-    public void ae() {
+    public void ar() {
+    }
+
+    @Override // com.baidu.ar.b.a.a
+    public void as() {
     }
 
     @Override // com.baidu.ar.b.a.b
-    protected int af() {
-        return this.cF;
+    protected int at() {
+        return this.cS;
     }
 
     @Override // com.baidu.ar.b.a.b
-    public com.baidu.ar.b.b.a ah() {
-        return new com.baidu.ar.b.b.a(this.cC.af()) { // from class: com.baidu.ar.seg.a.2
+    public com.baidu.ar.b.b.a av() {
+        return new com.baidu.ar.b.b.a(this.cP.at()) { // from class: com.baidu.ar.seg.a.2
             @Override // com.baidu.ar.b.b.a
-            public boolean al() {
-                switch (af()) {
+            public boolean az() {
+                switch (at()) {
                     case 2:
                         ARMdlInterfaceJNI.releaseHumanSeg();
                         return true;
@@ -286,28 +312,24 @@ public class a extends com.baidu.ar.b.a.b {
 
     @Override // com.baidu.ar.b.a.b
     public com.baidu.ar.b.b.c b(Bundle bundle) {
-        return new com.baidu.ar.b.b.c(this.cC.af()) { // from class: com.baidu.ar.seg.a.1
+        return new com.baidu.ar.b.b.c(this.cP.at()) { // from class: com.baidu.ar.seg.a.1
             @Override // com.baidu.ar.b.b.c
             public int a(com.baidu.ar.mdl.a aVar) {
-                String str = aVar.rF[0];
-                switch (af()) {
+                String str = aVar.se[0];
+                switch (at()) {
                     case 2:
                         int[] iArr = new int[2];
-                        return aVar.rE ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
+                        return aVar.sd ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
                     case 3:
                     default:
                         return -1;
                     case 4:
-                        return aVar.rE ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
+                        return aVar.sd ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
                     case 5:
-                        return aVar.rE ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
+                        return aVar.sd ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
                 }
             }
         };
-    }
-
-    public void e(float f) {
-        this.pi = f;
     }
 
     @Override // com.baidu.ar.b.a.a
@@ -319,7 +341,7 @@ public class a extends com.baidu.ar.b.a.b {
         int intValue3 = ((Integer) hashMap.get("orientation")).intValue();
         c cVar = new c(getName(), new b(bArr, intValue, intValue2, intValue3, ((Boolean) hashMap.get("frontCamera")).booleanValue()), ((Long) hashMap.get("timestamp")).longValue(), hashMap.get("handle") != null ? ((Long) hashMap.get("handle")).longValue() : 0L);
         if (intValue > 0 && intValue2 > 0 && bArr != null && bArr.length > 0) {
-            switch (this.cF) {
+            switch (this.cS) {
                 case 4:
                     str = "ability_hair_segmentation";
                     break;
@@ -341,9 +363,13 @@ public class a extends com.baidu.ar.b.a.b {
             mVar.a(bArr);
             cVar.a(mVar);
         }
-        if (this.lb != null) {
-            this.lb.a(cVar);
+        if (this.ly != null) {
+            this.ly.a(cVar);
         }
+    }
+
+    public void g(float f) {
+        this.pH = f;
     }
 
     @Override // com.baidu.ar.c.k

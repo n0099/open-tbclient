@@ -6,20 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class g {
-    private final List<a<com.tb.airbnb.lottie.model.content.h, Path>> Cm;
-    private final List<a<Integer, Integer>> Cn;
-    private final List<Mask> Co;
+    private final List<a<com.tb.airbnb.lottie.model.content.h, Path>> CO;
+    private final List<a<Integer, Integer>> CP;
+    private final List<Mask> CQ;
 
     public g(List<Mask> list) {
-        this.Co = list;
-        this.Cm = new ArrayList(list.size());
-        this.Cn = new ArrayList(list.size());
+        this.CQ = list;
+        this.CO = new ArrayList(list.size());
+        this.CP = new ArrayList(list.size());
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < list.size()) {
-                this.Cm.add(list.get(i2).dJq().dIW());
-                this.Cn.add(list.get(i2).dJc().dIW());
+                this.CO.add(list.get(i2).dNW().dNC());
+                this.CP.add(list.get(i2).dNI().dNC());
                 i = i2 + 1;
             } else {
                 return;
@@ -27,15 +27,15 @@ public class g {
         }
     }
 
-    public List<Mask> hu() {
-        return this.Co;
+    public List<Mask> hK() {
+        return this.CQ;
     }
 
-    public List<a<com.tb.airbnb.lottie.model.content.h, Path>> hv() {
-        return this.Cm;
+    public List<a<com.tb.airbnb.lottie.model.content.h, Path>> hL() {
+        return this.CO;
     }
 
-    public List<a<Integer, Integer>> hw() {
-        return this.Cn;
+    public List<a<Integer, Integer>> hM() {
+        return this.CP;
     }
 }

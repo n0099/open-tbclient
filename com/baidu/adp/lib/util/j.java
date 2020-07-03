@@ -15,7 +15,7 @@ import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    private static j Nu;
+    private static j NY;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
     private static boolean mSupportWap = true;
     private long mNetChangedTime;
@@ -29,14 +29,14 @@ public class j {
     private String mProxyHost = null;
     private int mProxyPort = -1;
     private boolean isOpenNetChangedMessage = true;
-    private Runnable Nv = new Runnable() { // from class: com.baidu.adp.lib.util.j.1
+    private Runnable NZ = new Runnable() { // from class: com.baidu.adp.lib.util.j.1
         @Override // java.lang.Runnable
         public void run() {
             try {
                 int netType = j.netType();
                 long netChangedTime = j.getNetChangedTime();
-                j.mp();
-                if (j.mq()) {
+                j.mF();
+                if (j.mG()) {
                     NetworkState networkState = new NetworkState();
                     networkState.mLastNetState = netType;
                     networkState.mCurNetState = j.netType();
@@ -62,7 +62,7 @@ public class j {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        Nu = null;
+        NY = null;
     }
 
     private void getCurNetState() {
@@ -255,13 +255,13 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static synchronized j mo() {
+    public static synchronized j mE() {
         j jVar;
         synchronized (j.class) {
-            if (Nu == null) {
-                Nu = new j();
+            if (NY == null) {
+                NY = new j();
             }
-            jVar = Nu;
+            jVar = NY;
         }
         return jVar;
     }
@@ -273,7 +273,7 @@ public class j {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            AsyncService.INSTANCE.sendRunnable(j.mo().Nv);
+            AsyncService.INSTANCE.sendRunnable(j.mE().NZ);
         }
     }
 
@@ -282,44 +282,44 @@ public class j {
     }
 
     public static void init(boolean z) {
-        mo().setOpenNetChangedMessage(z);
-        mo().getCurNetState();
+        mE().setOpenNetChangedMessage(z);
+        mE().getCurNetState();
     }
 
-    public static void mp() {
-        mo().getCurNetState();
+    public static void mF() {
+        mE().getCurNetState();
     }
 
-    public static boolean mq() {
-        return mo().isOpenNetChangedMessage();
+    public static boolean mG() {
+        return mE().isOpenNetChangedMessage();
     }
 
     public static void N(long j) {
-        mo().setNetworkChangedTime(j);
+        mE().setNetworkChangedTime(j);
     }
 
     public static boolean isNetWorkAvailable() {
-        return mo().isNetAvailable();
+        return mE().isNetAvailable();
     }
 
     public static boolean isWifiNet() {
-        return mo().isWifi();
+        return mE().isWifi();
     }
 
     public static boolean isMobileNet() {
-        return mo().isMobile();
+        return mE().isMobile();
     }
 
     public static boolean is4GNet() {
-        return 3 == mo().getCurMobileNetClassify();
+        return 3 == mE().getCurMobileNetClassify();
     }
 
     public static boolean is3GNet() {
-        return 2 == mo().getCurMobileNetClassify();
+        return 2 == mE().getCurMobileNetClassify();
     }
 
     public static boolean is2GNet() {
-        return 1 == mo().getCurMobileNetClassify();
+        return 1 == mE().getCurMobileNetClassify();
     }
 
     public static int netType() {
@@ -359,15 +359,15 @@ public class j {
     }
 
     public static int curOperatorType() {
-        return mo().getOperatorType();
+        return mE().getOperatorType();
     }
 
     public static String curMobileProxyHost() {
-        return mo().getProxyHost();
+        return mE().getProxyHost();
     }
 
     public static int curMobileProxyPort() {
-        return mo().getProxyPort();
+        return mE().getProxyPort();
     }
 
     public static boolean isSupportWap() {
@@ -382,11 +382,11 @@ public class j {
     }
 
     public static boolean isWap() {
-        NetworkInfo activeNetworkInfo = mo().getActiveNetworkInfo();
+        NetworkInfo activeNetworkInfo = mE().getActiveNetworkInfo();
         return (activeNetworkInfo == null || activeNetworkInfo.getExtraInfo() == null || !activeNetworkInfo.getExtraInfo().contains("wap")) ? false : true;
     }
 
     public static long getNetChangedTime() {
-        return mo().geNetworkChangedTime();
+        return mE().geNetworkChangedTime();
     }
 }

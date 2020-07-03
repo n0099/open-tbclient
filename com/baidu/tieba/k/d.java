@@ -1,6 +1,7 @@
 package com.baidu.tieba.k;
 
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.n;
 import com.baidu.tieba.k.g;
 import java.io.File;
 import java.io.FileInputStream;
@@ -48,7 +49,7 @@ public class d {
         }
     }
 
-    public static void Io(String str) {
+    public static void IQ(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -57,7 +58,7 @@ public class d {
         }
     }
 
-    public static String S(File file) {
+    public static String T(File file) {
         FileInputStream fileInputStream;
         StringBuilder sb = new StringBuilder();
         try {
@@ -96,23 +97,23 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray Ip(String str) {
+    public static JSONArray IR(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
         }
         File file = new File(str);
         if (file.exists()) {
-            String S = S(file);
-            String[] split = S.split("\n");
+            String T = T(file);
+            String[] split = T.split("\n");
             if (split.length > 0) {
                 for (String str2 : split) {
                     b(str2, jSONArray);
                 }
             } else {
-                b(S, jSONArray);
+                b(T, jSONArray);
             }
-            com.baidu.tbadk.core.util.m.deleteFile(file);
+            n.deleteFile(file);
             return jSONArray;
         }
         return jSONArray;
@@ -131,9 +132,9 @@ public class d {
         }
     }
 
-    public static void Iq(String str) {
+    public static void IS(String str) {
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.m.deleteFileOrDir(new File(g.a.jrU + g.a.jrL + str));
+            n.deleteFileOrDir(new File(g.a.jJl + g.a.jJc + str));
         }
     }
 }

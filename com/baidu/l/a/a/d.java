@@ -4,12 +4,12 @@ import android.content.Context;
 /* loaded from: classes6.dex */
 public abstract class d implements c {
     protected Context mCtx;
+    protected boolean mFM;
+    protected String mFO;
+    protected String mFP;
+    protected String mFQ;
+    protected boolean mGp;
     protected int mStatusCode = -200;
-    protected boolean mjQ;
-    protected String mjS;
-    protected String mjT;
-    protected String mjU;
-    protected boolean mkt;
 
     public d(Context context) {
         if (context != null) {
@@ -18,28 +18,28 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.l.a.a.c
-    public boolean dtd() {
-        return this.mjQ;
+    public boolean dxG() {
+        return this.mFM;
     }
 
     @Override // com.baidu.l.a.a.c
     public boolean isSupport() {
-        return this.mkt;
+        return this.mGp;
     }
 
     @Override // com.baidu.l.a.a.c
     public String getOAID() {
-        return this.mjS;
+        return this.mFO;
     }
 
     @Override // com.baidu.l.a.a.c
     public String getAAID() {
-        return this.mjT;
+        return this.mFP;
     }
 
     @Override // com.baidu.l.a.a.c
     public String getVAID() {
-        return this.mjU;
+        return this.mFQ;
     }
 
     @Override // com.baidu.l.a.a.c
@@ -48,32 +48,32 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.l.a.a.c
-    public void vT(boolean z) {
-        this.mjQ = z;
+    public void wp(boolean z) {
+        this.mFM = z;
     }
 
     @Override // com.baidu.l.a.a.c
-    public void vU(boolean z) {
-        this.mkt = z;
+    public void wq(boolean z) {
+        this.mGp = z;
     }
 
     @Override // com.baidu.l.a.a.c
-    public void PC(String str) {
-        this.mjS = str;
+    public void Qo(String str) {
+        this.mFO = str;
     }
 
     @Override // com.baidu.l.a.a.c
-    public void PD(String str) {
-        this.mjT = str;
+    public void Qp(String str) {
+        this.mFP = str;
     }
 
     @Override // com.baidu.l.a.a.c
-    public void PE(String str) {
-        this.mjU = str;
+    public void Qq(String str) {
+        this.mFQ = str;
     }
 
     @Override // com.baidu.l.a.a.c
-    public void GG(int i) {
+    public void HN(int i) {
         this.mStatusCode = i;
     }
 }

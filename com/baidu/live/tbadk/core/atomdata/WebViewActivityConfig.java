@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static final String IS_SHOW_RIGHT_ICON = "is_show_right_icon";

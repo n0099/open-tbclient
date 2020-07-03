@@ -16,15 +16,15 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class d extends BaseAdapter {
-    private View.OnClickListener ivC = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.d.1
+    private View.OnClickListener iMI = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue = ((Integer) view.getTag()).intValue();
             if (intValue >= 0 && intValue < d.this.mList.size()) {
                 ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) d.this.mList.get(intValue);
-                String aH = com.baidu.tieba.im.util.e.aH("[" + aVar.content + "]", true);
-                if (aH != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new OfficialHistoryImageActivityConfig(d.this.mContext, aH, String.valueOf(aVar.id))));
+                String aJ = com.baidu.tieba.im.util.e.aJ("[" + aVar.content + "]", true);
+                if (aJ != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new OfficialHistoryImageActivityConfig(d.this.mContext, aJ, String.valueOf(aVar.id))));
                 }
             }
         }
@@ -123,15 +123,15 @@ public class d extends BaseAdapter {
                     chatMessage2.setMsgType(aVar.type);
                     j.a(this.mContext, historyItemView3, historyItemView4.getImageView(), chatMessage2, 0L, "official_history_adapter");
                     historyItemView4.getImageView().setTag(Integer.valueOf(i));
-                    historyItemView4.getImageView().setOnClickListener(this.ivC);
+                    historyItemView4.getImageView().setOnClickListener(this.iMI);
                     return historyItemView3;
                 case 2:
                     View historyItemView5 = view == null ? new HistoryItemView(this.mContext) : view;
                     MultiContentView multiContentView = new MultiContentView(this.mContext);
                     multiContentView.setNeedNightMode(true);
                     multiContentView.setTime(aVar.time);
-                    multiContentView.setData(this.mActivity.getPageContext(), c.g(aVar.content, "", 0L), viewGroup);
-                    ((HistoryItemView) historyItemView5).cl(multiContentView);
+                    multiContentView.setData(this.mActivity.getPageContext(), c.h(aVar.content, "", 0L), viewGroup);
+                    ((HistoryItemView) historyItemView5).cm(multiContentView);
                     return historyItemView5;
                 default:
                     return view;

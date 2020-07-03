@@ -34,6 +34,8 @@ public class AlaNdkAdapter {
 
     public static native void setLibraryPrintLogNative(int i);
 
+    public static native void setPushOptTimestamp(int i);
+
     public static long getMediaStreamTS(boolean z) {
         return z ? System.nanoTime() : System.nanoTime() / TimeUtils.NANOS_PER_MS;
     }

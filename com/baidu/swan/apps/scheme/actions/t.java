@@ -15,7 +15,7 @@ public class t extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (com.baidu.swan.apps.performance.b.b.alL() && !com.baidu.swan.apps.w.f.ahV().ahz() && !DEBUG) {
+        if (com.baidu.swan.apps.performance.b.b.amR() && !com.baidu.swan.apps.w.f.ajb().aiF() && !DEBUG) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not debug app model");
             return false;
         } else if (eVar == null) {
@@ -41,7 +41,7 @@ public class t extends aa {
                     if (DEBUG) {
                         Log.i("performancePanel", "slaveId: " + optString + ", actionName: " + optString2 + ", timestamp: " + optLong);
                     }
-                    com.baidu.swan.apps.performance.d.d.alM().b(optString, optString2, optLong);
+                    com.baidu.swan.apps.performance.d.d.amS().c(optString, optString2, optLong);
                 }
             }
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);

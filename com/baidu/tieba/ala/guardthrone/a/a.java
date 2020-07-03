@@ -4,15 +4,15 @@ import android.content.res.Configuration;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.live.h.b;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a implements b {
-    private String aWr;
-    private String ayw;
-    private com.baidu.tieba.ala.guardthrone.view.a fBW;
-    private com.baidu.tieba.ala.guardthrone.view.a fBX;
+    private String aAL;
+    private String aZa;
+    private com.baidu.tieba.ala.guardthrone.view.a fNf;
+    private com.baidu.tieba.ala.guardthrone.view.a fNg;
     private boolean mIsHost;
     private String mLiveId;
     private RelativeLayout mRootView;
@@ -23,8 +23,8 @@ public class a implements b {
     public void a(TbPageContext tbPageContext, String str, String str2, String str3, int i, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.aWr = str2;
-        this.ayw = str3;
+        this.aZa = str2;
+        this.aAL = str3;
         this.mTabId = i;
         this.mIsHost = z;
         initView();
@@ -32,21 +32,21 @@ public class a implements b {
 
     private void initView() {
         this.mRootView = new RelativeLayout(this.mTbPageContext.getPageActivity());
-        this.fBW = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, false, this.mIsHost);
-        this.fBW.d(this.mLiveId, this.aWr, this.ayw, this.mTabId);
-        this.fBX = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, true, this.mIsHost);
-        this.fBX.d(this.mLiveId, this.aWr, this.ayw, this.mTabId);
+        this.fNf = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, false, this.mIsHost);
+        this.fNf.d(this.mLiveId, this.aZa, this.aAL, this.mTabId);
+        this.fNg = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, true, this.mIsHost);
+        this.fNg.d(this.mLiveId, this.aZa, this.aAL, this.mTabId);
         if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) == 2) {
-            this.fBX.getRootView().setVisibility(0);
-            this.fBW.getRootView().setVisibility(8);
+            this.fNg.getRootView().setVisibility(0);
+            this.fNf.getRootView().setVisibility(8);
         } else {
-            this.fBX.getRootView().setVisibility(8);
-            this.fBW.getRootView().setVisibility(0);
+            this.fNg.getRootView().setVisibility(8);
+            this.fNf.getRootView().setVisibility(0);
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        this.mRootView.addView(this.fBW.getRootView(), layoutParams);
-        this.mRootView.addView(this.fBX.getRootView(), layoutParams);
+        this.mRootView.addView(this.fNf.getRootView(), layoutParams);
+        this.mRootView.addView(this.fNg.getRootView(), layoutParams);
     }
 
     @Override // com.baidu.live.h.b
@@ -60,28 +60,28 @@ public class a implements b {
 
     @Override // com.baidu.live.h.b
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.fBW != null && this.fBX != null) {
+        if (this.fNf != null && this.fNg != null) {
             if (configuration.orientation == 2) {
-                this.fBX.getRootView().setVisibility(0);
-                this.fBW.getRootView().setVisibility(8);
+                this.fNg.getRootView().setVisibility(0);
+                this.fNf.getRootView().setVisibility(8);
             } else {
-                this.fBX.getRootView().setVisibility(8);
-                this.fBW.getRootView().setVisibility(0);
+                this.fNg.getRootView().setVisibility(8);
+                this.fNf.getRootView().setVisibility(0);
             }
-            this.fBW.aNc();
-            this.fBX.aNc();
+            this.fNf.aOF();
+            this.fNg.aOF();
         }
     }
 
     @Override // com.baidu.live.h.b
     public void onDestroy() {
-        if (this.fBW != null) {
-            this.fBW.bvB();
-            this.fBW.onDestroy();
+        if (this.fNf != null) {
+            this.fNf.byw();
+            this.fNf.onDestroy();
         }
-        if (this.fBX != null) {
-            this.fBX.bvB();
-            this.fBX.onDestroy();
+        if (this.fNg != null) {
+            this.fNg.byw();
+            this.fNg.onDestroy();
         }
     }
 

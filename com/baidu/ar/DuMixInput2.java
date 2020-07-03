@@ -3,34 +3,34 @@ package com.baidu.ar;
 import com.baidu.ar.arrender.Texture;
 /* loaded from: classes3.dex */
 public class DuMixInput2 extends DuMixInput {
-    private Texture aT;
-    private boolean aU;
+    private Texture bf;
+    private boolean bg;
 
     public DuMixInput2(int i, int i2) {
         super(null, i, i2);
-        this.aU = false;
+        this.bg = false;
         setCameraInput(false);
         setFrontCamera(false);
     }
 
     public DuMixInput2(Texture texture, int i, int i2) {
         this(i, i2);
-        this.aT = texture;
+        this.bf = texture;
     }
 
     public Texture getInputTexture() {
-        return this.aT;
+        return this.bf;
     }
 
     public boolean isSyncInputContent() {
-        return this.aU;
+        return this.bg;
     }
 
     public void setInputTexture(Texture texture) {
-        this.aT = texture;
+        this.bf = texture;
     }
 
     public void setSyncInputContent(boolean z) {
-        this.aU = z;
+        this.bg = z;
     }
 }

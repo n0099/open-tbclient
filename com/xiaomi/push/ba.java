@@ -14,7 +14,7 @@ public class ba {
         public final Class<? extends T> a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final T f119a;
+        public final T f125a;
     }
 
     static {
@@ -75,7 +75,7 @@ public class ba {
     }
 
     public static <T> T a(Class<?> cls, String str, Object... objArr) {
-        return (T) a(cls, str, a(objArr)).invoke(null, m155a(objArr));
+        return (T) a(cls, str, a(objArr)).invoke(null, m152a(objArr));
     }
 
     public static <T> T a(Object obj, String str) {
@@ -186,7 +186,7 @@ public class ba {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static Object[] m155a(Object... objArr) {
+    private static Object[] m152a(Object... objArr) {
         if (objArr == null || objArr.length <= 0) {
             return null;
         }
@@ -201,13 +201,13 @@ public class ba {
             if (obj == null || !(obj instanceof a)) {
                 objArr2[i2] = obj;
             } else {
-                objArr2[i2] = ((a) obj).f119a;
+                objArr2[i2] = ((a) obj).f125a;
             }
             i = i2 + 1;
         }
     }
 
     public static <T> T b(Object obj, String str, Object... objArr) {
-        return (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m155a(objArr));
+        return (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m152a(objArr));
     }
 }

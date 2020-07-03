@@ -1,7 +1,7 @@
 package com.baidu.tbadk.a.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.a.d;
 import com.baidu.tbadk.a.e;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
@@ -9,44 +9,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends a {
-    public static final BdUniqueId dxd = BdUniqueId.gen();
-    public final ArrayList<String> dxe = new ArrayList<>();
-    public e dxf;
+    public static final BdUniqueId dCj = BdUniqueId.gen();
+    public final ArrayList<String> dCk = new ArrayList<>();
+    public e dCl;
 
     public c() {
-        this.dxe.add("70_2");
-        this.dxe.add("70_3");
-        this.dxe.add("70_4");
-        this.dxe.add("70_5");
-        this.dxe.add("70_6");
-        this.dxe.add("71_2");
+        this.dCk.add("70_2");
+        this.dCk.add("70_3");
+        this.dCk.add("70_4");
+        this.dCk.add("70_5");
+        this.dCk.add("70_6");
+        this.dCk.add("71_2");
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public BdUniqueId aMu() {
-        return dxd;
+    public BdUniqueId aNX() {
+        return dCj;
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public ArrayList<String> aMv() {
-        return this.dxe;
+    public ArrayList<String> aNY() {
+        return this.dCk;
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public e aMw() {
-        return this.dxf;
+    public e aNZ() {
+        return this.dCl;
     }
 
     @Override // com.baidu.tbadk.a.a.a
     public void a(e eVar) {
-        this.dxf = eVar;
+        this.dCl = eVar;
     }
 
-    public static void a(e eVar, List<o> list) {
+    public static void a(e eVar, List<q> list) {
         if (list != null) {
-            for (o oVar : list) {
-                if (oVar instanceof AbsThreadDataSupport) {
-                    ((AbsThreadDataSupport) oVar).b(eVar);
+            for (q qVar : list) {
+                if (qVar instanceof AbsThreadDataSupport) {
+                    ((AbsThreadDataSupport) qVar).b(eVar);
                 }
             }
         }
@@ -62,12 +62,12 @@ public class c extends a {
         }
     }
 
-    public static e aMx() {
-        return d.j(dxd);
+    public static e aOa() {
+        return d.j(dCj);
     }
 
-    public static boolean B(String... strArr) {
-        return b(aMx(), strArr);
+    public static boolean A(String... strArr) {
+        return b(aOa(), strArr);
     }
 
     public static boolean b(e eVar, String... strArr) {

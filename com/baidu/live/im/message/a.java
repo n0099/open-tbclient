@@ -4,7 +4,7 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.util.TbEnum;
 /* loaded from: classes3.dex */
 public class a extends HttpMessage {
-    private boolean aTH;
+    private boolean aWo;
     private String appId;
     private com.baidu.live.im.data.b barrageCardInfo;
     private String barrageId;
@@ -20,7 +20,7 @@ public class a extends HttpMessage {
 
     public a(String str, short s, int i, String str2) {
         super(1021013);
-        this.aTH = false;
+        this.aWo = false;
         this.content = str;
         this.msgType = s;
         this.groupId = i;
@@ -35,19 +35,19 @@ public class a extends HttpMessage {
         return this.content;
     }
 
-    public short DM() {
+    public short Eo() {
         return this.msgType;
     }
 
-    public void fs(String str) {
+    public void eI(String str) {
         this.liveId = str;
     }
 
-    public void ft(String str) {
+    public void fy(String str) {
         this.roomId = str;
     }
 
-    public String DN() {
+    public String Ep() {
         return this.otherParams;
     }
 
@@ -55,7 +55,7 @@ public class a extends HttpMessage {
         this.otherParams = str;
     }
 
-    public long DO() {
+    public long Eq() {
         return this.price;
     }
 
@@ -63,23 +63,23 @@ public class a extends HttpMessage {
         this.price = j;
     }
 
-    public int DF() {
+    public int Eh() {
         return this.barrageType;
     }
 
-    public void cv(int i) {
+    public void cB(int i) {
         this.barrageType = i;
     }
 
-    public String DG() {
+    public String Ei() {
         return this.barrageId;
     }
 
-    public void fr(String str) {
+    public void fx(String str) {
         this.barrageId = str;
     }
 
-    public com.baidu.live.im.data.b DH() {
+    public com.baidu.live.im.data.b Ej() {
         return this.barrageCardInfo;
     }
 
@@ -87,7 +87,7 @@ public class a extends HttpMessage {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] DI() {
+    public String[] Ek() {
         return this.imEffect;
     }
 
@@ -96,10 +96,10 @@ public class a extends HttpMessage {
     }
 
     public void bJ(boolean z) {
-        this.aTH = z;
+        this.aWo = z;
     }
 
-    public boolean DP() {
-        return this.aTH;
+    public boolean Er() {
+        return this.aWo;
     }
 }

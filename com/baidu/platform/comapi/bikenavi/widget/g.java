@@ -22,9 +22,9 @@ public class g extends com.baidu.platform.comapi.walknavi.g.b.b {
     }
 
     private void a(View view) {
-        this.c = (ImageView) view.findViewById(R.raw.lottie_refresh_dark);
-        this.d = (TextView) view.findViewById(R.raw.lottie_refresh_light);
-        this.e = view.findViewById(R.raw.lottie_pull_refresh_1);
+        this.c = (ImageView) view.findViewById(R.raw.lottie_full_screen_refresh_1);
+        this.d = (TextView) view.findViewById(R.raw.lottie_full_screen_refresh_2);
+        this.e = view.findViewById(R.raw.lottie_full_screen_refresh);
         this.e.setVisibility(8);
     }
 

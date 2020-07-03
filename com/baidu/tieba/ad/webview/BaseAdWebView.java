@@ -25,11 +25,11 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public abstract class BaseAdWebView extends WebView {
     private static final String TAG = BaseAdWebView.class.getSimpleName();
-    protected DownloadCacheKey eOp;
-    protected BaseAdWebView ePk;
-    protected String ePl;
-    protected boolean ePm;
-    private b ePn;
+    protected DownloadCacheKey eYA;
+    protected BaseAdWebView eZv;
+    protected String eZw;
+    protected boolean eZx;
+    private b eZy;
     protected Context mContext;
     protected ValueCallback<Uri> mUploadMessage;
 
@@ -44,37 +44,37 @@ public abstract class BaseAdWebView extends WebView {
 
     public BaseAdWebView(Context context) {
         super(context);
-        this.ePm = true;
-        this.ePk = this;
+        this.eZx = true;
+        this.eZv = this;
         this.mContext = context;
         init();
     }
 
     public BaseAdWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ePm = true;
-        this.ePk = this;
+        this.eZx = true;
+        this.eZv = this;
         this.mContext = context;
         init();
     }
 
     public BaseAdWebView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ePm = true;
-        this.ePk = this;
+        this.eZx = true;
+        this.eZv = this;
         this.mContext = context;
         init();
     }
 
     private void init() {
         try {
-            this.ePk.removeJavascriptInterface("searchBoxJavaBridge_");
-            this.ePk.removeJavascriptInterface("accessibility");
-            this.ePk.removeJavascriptInterface("accessibilityTraversal");
+            this.eZv.removeJavascriptInterface("searchBoxJavaBridge_");
+            this.eZv.removeJavascriptInterface("accessibility");
+            this.eZv.removeJavascriptInterface("accessibilityTraversal");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        ej(this.mContext);
+        ek(this.mContext);
         setScrollbarFadingEnabled(true);
         setVerticalScrollBarEnabled(true);
         setHorizontalScrollBarEnabled(false);
@@ -113,7 +113,7 @@ public abstract class BaseAdWebView extends WebView {
         setDownloadListener(new DownloadListener() { // from class: com.baidu.tieba.ad.webview.BaseAdWebView.2
             @Override // android.webkit.DownloadListener
             public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-                if (BaseAdWebView.this.ePk != null) {
+                if (BaseAdWebView.this.eZv != null) {
                     BaseAdWebView.this.b(str, str3, str4, j);
                 }
             }
@@ -129,7 +129,7 @@ public abstract class BaseAdWebView extends WebView {
 
     @Override // android.webkit.WebView
     public void loadUrl(String str) {
-        if (!this.ePm) {
+        if (!this.eZx) {
             getSettings().setBlockNetworkImage(true);
         }
         super.loadUrl(str);
@@ -137,7 +137,7 @@ public abstract class BaseAdWebView extends WebView {
 
     @Override // android.webkit.WebView
     public void loadUrl(String str, Map<String, String> map) {
-        if (!this.ePm) {
+        if (!this.eZx) {
             getSettings().setBlockNetworkImage(true);
         }
         super.loadUrl(str, map);
@@ -145,7 +145,7 @@ public abstract class BaseAdWebView extends WebView {
 
     @Override // android.webkit.WebView
     public void loadData(String str, String str2, String str3) {
-        if (!this.ePm) {
+        if (!this.eZx) {
             getSettings().setBlockNetworkImage(true);
         }
         super.loadData(str, str2, str3);
@@ -153,14 +153,14 @@ public abstract class BaseAdWebView extends WebView {
 
     @Override // android.webkit.WebView
     public void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5) {
-        if (!this.ePm) {
+        if (!this.eZx) {
             getSettings().setBlockNetworkImage(true);
         }
         super.loadDataWithBaseURL(str, str2, str3, str4, str5);
     }
 
     public void h(@NonNull DownloadCacheKey downloadCacheKey) {
-        this.eOp = downloadCacheKey;
+        this.eYA = downloadCacheKey;
     }
 
     public void setLightTouchEnabled() {
@@ -169,14 +169,14 @@ public abstract class BaseAdWebView extends WebView {
     }
 
     public void setWebViewScrollListener(b bVar) {
-        this.ePn = bVar;
+        this.eZy = bVar;
     }
 
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.ePn != null) {
-            this.ePn.onScrollChanged(i, i2, i3, i4);
+        if (this.eZy != null) {
+            this.eZy.onScrollChanged(i, i2, i3, i4);
         }
     }
 
@@ -194,7 +194,7 @@ public abstract class BaseAdWebView extends WebView {
         }
     }
 
-    private void ej(Context context) {
+    private void ek(Context context) {
         if (Build.VERSION.SDK_INT == 17 && context != null) {
             try {
                 AccessibilityManager accessibilityManager = (AccessibilityManager) context.getSystemService("accessibility");
@@ -212,30 +212,30 @@ public abstract class BaseAdWebView extends WebView {
     }
 
     public void setDownloadPicOnLoad(boolean z) {
-        this.ePm = z;
+        this.eZx = z;
     }
 
     /* loaded from: classes8.dex */
     public static class a extends WebViewClient {
-        private BaseAdWebView ePk;
+        private BaseAdWebView eZv;
         private Activity mActivity;
 
         public a(BaseAdWebView baseAdWebView, Activity activity) {
-            this.ePk = baseAdWebView;
+            this.eZv = baseAdWebView;
             this.mActivity = activity;
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            this.ePk.ePl = str;
+            this.eZv.eZw = str;
             super.onPageStarted(webView, str, bitmap);
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
-            this.ePk.setLightTouchEnabled();
-            if (!this.ePk.ePm) {
-                this.ePk.getSettings().setBlockNetworkImage(false);
+            this.eZv.setLightTouchEnabled();
+            if (!this.eZv.eZx) {
+                this.eZv.getSettings().setBlockNetworkImage(false);
             }
             super.onPageFinished(webView, str);
         }
@@ -266,24 +266,24 @@ public abstract class BaseAdWebView extends WebView {
 
     protected void b(String str, String str2, String str3, long j) {
         String str4;
-        if (!TextUtils.isEmpty(str) && this.eOp != null) {
-            this.eOp.mDownloadUrl = str;
-            String ae = com.baidu.tieba.ad.webview.a.ae(str, str2, str3);
-            boolean z = com.baidu.tieba.ad.webview.a.dw(com.baidu.tieba.ad.webview.a.pC(ae), str3) == 3;
-            if (TextUtils.isEmpty(ae)) {
+        if (!TextUtils.isEmpty(str) && this.eYA != null) {
+            this.eYA.mDownloadUrl = str;
+            String af = com.baidu.tieba.ad.webview.a.af(str, str2, str3);
+            boolean z = com.baidu.tieba.ad.webview.a.dA(com.baidu.tieba.ad.webview.a.pK(af), str3) == 3;
+            if (TextUtils.isEmpty(af)) {
                 String[] split = str.split("/");
                 str4 = split.length > 1 ? split[split.length - 1] : str;
                 if (str4 != null && str4.length() > 50) {
                     str4 = str4.substring(0, 50);
                 }
             } else {
-                str4 = ae;
+                str4 = af;
             }
-            this.eOp.mPackageName = str4;
-            AdDownloadData d = d.bmF().d(this.eOp);
+            this.eYA.mPackageName = str4;
+            AdDownloadData d = d.bpf().d(this.eYA);
             d.setupPkgName(str4);
             d.setupDownloadUrl(str);
-            a(this.eOp, z);
+            a(this.eYA, z);
         }
     }
 }

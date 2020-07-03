@@ -4,32 +4,32 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 /* loaded from: classes11.dex */
 public final class c {
-    private static final b bYS = new a();
+    private static final b cdI = new a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
     public interface b {
-        boolean jG(@NonNull String str);
+        boolean jO(@NonNull String str);
     }
 
-    public static boolean jG(String str) {
-        return aas().jG(str);
+    public static boolean jO(String str) {
+        return aby().jO(str);
     }
 
-    private static b aas() {
-        return bYS;
+    private static b aby() {
+        return cdI;
     }
 
     /* loaded from: classes11.dex */
     public static class a implements b {
-        private static final String[] bYT = {"Gz7Grjwr0GhpGSDIhtUk6RB1EiBCRmHK"};
+        private static final String[] cdJ = {"Gz7Grjwr0GhpGSDIhtUk6RB1EiBCRmHK"};
 
         @Override // com.baidu.swan.apps.core.prefetch.c.b
-        public boolean jG(@NonNull String str) {
+        public boolean jO(@NonNull String str) {
             if (TextUtils.isEmpty(str)) {
                 return true;
             }
-            for (String str2 : bYT) {
+            for (String str2 : cdJ) {
                 if (str.startsWith(str2)) {
                     return false;
                 }

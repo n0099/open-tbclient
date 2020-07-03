@@ -13,11 +13,11 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes7.dex */
 public class DescriptionBox extends AbstractFullBox {
     public static final String TYPE = "dscp";
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0889a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_4 = null;
     private String description;
     private String language;
 

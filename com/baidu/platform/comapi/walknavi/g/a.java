@@ -74,7 +74,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     private com.baidu.platform.comapi.walknavi.g.b.a n = null;
     private Handler o = new Handler();
     private boolean p = true;
-    private CountDownTimerC0224a q = null;
+    private CountDownTimerC0230a q = null;
     private int v = 0;
     private boolean w = false;
     private boolean z = false;
@@ -457,7 +457,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
         H();
         com.baidu.platform.comapi.walknavi.b.a().G().a().getMap().addOverlay(new MarkerOptions().position(C()).icon(this.L).zIndex(9).draggable(false));
         com.baidu.platform.comapi.walknavi.b.a().G().a().getMap().addOverlay(new MarkerOptions().position(B()).icon(this.N).zIndex(9).draggable(false));
-        this.F = this.j.findViewById(R.raw.sapi_camera_blink);
+        this.F = this.j.findViewById(R.raw.pb_lottie_disagree);
         this.k = new com.baidu.platform.comapi.walknavi.g.b.c(this.i, this, this.j);
         this.k.h().setOnClickListener(new u(this));
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -469,14 +469,14 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
             this.k.a(cVar);
         }
         this.G = new com.baidu.platform.comapi.walknavi.widget.d(this.i, this, this.j);
-        this.r = (FrameLayout) this.j.findViewById(R.raw.pb_lottie_disagree_2);
-        this.x = (TestLinearLayout) this.j.findViewById(R.raw.release_date);
-        this.y = (TestLinearLayout) this.j.findViewById(R.raw.rim_video_lrc_tip);
-        this.A = (LinearLayout) this.j.findViewById(R.raw.lottie_video_guide);
-        this.B = (TextView) this.j.findViewById(R.raw.pb_lottie_agree);
-        this.C = (TextView) this.j.findViewById(R.raw.pb_lottie_agree_1);
-        this.D = (TextView) this.j.findViewById(R.raw.pb_lottie_agree_2);
-        this.E = (TestScaleView) this.j.findViewById(R.raw.pb_lottie_disagree);
+        this.r = (FrameLayout) this.j.findViewById(R.raw.lottie_video_guide);
+        this.x = (TestLinearLayout) this.j.findViewById(R.raw.lottie_watch);
+        this.y = (TestLinearLayout) this.j.findViewById(R.raw.lottie_watch_1);
+        this.A = (LinearLayout) this.j.findViewById(R.raw.lottie_use_refresh_home_n);
+        this.B = (TextView) this.j.findViewById(R.raw.lottie_use_refresh_home_n_1);
+        this.C = (TextView) this.j.findViewById(R.raw.lottie_use_refresh_home_n_2);
+        this.D = (TextView) this.j.findViewById(R.raw.lottie_use_refresh_n);
+        this.E = (TestScaleView) this.j.findViewById(R.raw.lottie_use_refresh_n_1);
         Bundle U = com.baidu.platform.comapi.walknavi.b.a().U();
         if (U != null) {
             this.C.setText(U.getString("distance"));
@@ -539,7 +539,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
             }
             this.l = b3.a(b2).d(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.string.abc_action_bar_home_description)).b().b(new e(this)).c(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.string.abc_activitychooserview_choose_application)).a(new d(this));
             if (z) {
-                this.q = new CountDownTimerC0224a(7000L, 1000L, this.i, this.l);
+                this.q = new CountDownTimerC0230a(7000L, 1000L, this.i, this.l);
                 this.q.start();
             }
             if (!this.l.isShowing() && this.i != null && !this.i.isFinishing()) {
@@ -951,11 +951,11 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
 
     /* renamed from: com.baidu.platform.comapi.walknavi.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class CountDownTimerC0224a extends CountDownTimer {
+    public class CountDownTimerC0230a extends CountDownTimer {
         Activity a;
         com.baidu.platform.comapi.walknavi.widget.a b;
 
-        public CountDownTimerC0224a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
+        public CountDownTimerC0230a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
             super(j, j2);
             this.a = activity;
             this.b = aVar;

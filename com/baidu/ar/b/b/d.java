@@ -3,21 +3,21 @@ package com.baidu.ar.b.b;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public abstract class d implements Runnable {
-    int cK;
-    protected WeakReference<com.baidu.ar.b.a.a> cL;
+    int cX;
+    protected WeakReference<com.baidu.ar.b.a.a> cY;
     int level;
     long timestamp = System.currentTimeMillis();
 
     public d(int i) {
-        this.cK = i;
+        this.cX = i;
     }
 
     public void a(com.baidu.ar.b.a.a aVar) {
-        this.cL = new WeakReference<>(aVar);
+        this.cY = new WeakReference<>(aVar);
     }
 
-    public int af() {
-        return this.cK;
+    public int at() {
+        return this.cX;
     }
 
     protected abstract void execute();

@@ -9,8 +9,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    public C0544a fBY;
-    public b fBZ;
+    public C0552a fNh;
+    public b fNi;
     public int status;
 
     public void parserJson(JSONObject jSONObject) {
@@ -18,87 +18,87 @@ public class a {
             this.status = jSONObject.optInt("status");
             JSONObject optJSONObject = jSONObject.optJSONObject("config");
             if (optJSONObject != null) {
-                this.fBY = new C0544a();
-                this.fBY.cP(optJSONObject);
+                this.fNh = new C0552a();
+                this.fNh.cY(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("rank");
             if (optJSONObject2 != null) {
-                this.fBZ = new b();
-                this.fBZ.cR(optJSONObject2);
+                this.fNi = new b();
+                this.fNi.da(optJSONObject2);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0544a {
-        public String fCa;
-        public String fCb;
-        public String fCc;
-        public String fCd;
-        public String fCe;
-        public long fCf;
-        public long fCg;
-        public long fCh;
-        public List<C0545a> fCi;
+    public static class C0552a {
+        public String fNj;
+        public String fNk;
+        public String fNl;
+        public String fNm;
+        public String fNn;
+        public long fNo;
+        public long fNp;
+        public long fNq;
+        public List<C0553a> fNr;
         public long startTime;
         public String username;
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C0545a {
+        public static class C0553a {
             public String pic;
             public String text;
 
-            public void cQ(JSONObject jSONObject) {
+            public void cZ(JSONObject jSONObject) {
                 this.pic = jSONObject.optString(UgcUBCUtils.UGC_TYPE_PIC_BTN);
                 this.text = jSONObject.optString("text");
             }
         }
 
-        public void cP(JSONObject jSONObject) {
+        public void cY(JSONObject jSONObject) {
             JSONArray optJSONArray = jSONObject.optJSONArray(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.fCi = new ArrayList();
+                this.fNr = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    C0545a c0545a = new C0545a();
-                    c0545a.cQ(optJSONArray.optJSONObject(i));
-                    this.fCi.add(c0545a);
+                    C0553a c0553a = new C0553a();
+                    c0553a.cZ(optJSONArray.optJSONObject(i));
+                    this.fNr.add(c0553a);
                 }
             }
             if (!jSONObject.isNull("portrait")) {
-                this.fCa = jSONObject.optString("portrait");
+                this.fNj = jSONObject.optString("portrait");
             }
             if (!jSONObject.isNull("user_name")) {
                 this.username = jSONObject.optString("user_name");
             }
             if (!jSONObject.isNull("guard_seat_user")) {
-                this.fCe = jSONObject.optString("guard_seat_user");
+                this.fNn = jSONObject.optString("guard_seat_user");
             }
-            this.fCb = jSONObject.optString("frame_pic");
-            this.fCc = jSONObject.optString("time_text");
-            this.fCd = jSONObject.optString("rule_url");
+            this.fNk = jSONObject.optString("frame_pic");
+            this.fNl = jSONObject.optString("time_text");
+            this.fNm = jSONObject.optString("rule_url");
             this.startTime = jSONObject.optLong("start_time");
-            this.fCf = jSONObject.optLong("count_down");
-            this.fCg = jSONObject.optLong("effect_time");
-            this.fCh = jSONObject.optLong("polling_time");
+            this.fNo = jSONObject.optLong("count_down");
+            this.fNp = jSONObject.optLong("effect_time");
+            this.fNq = jSONObject.optLong("polling_time");
         }
     }
 
     /* loaded from: classes3.dex */
     public static class b {
-        public C0546a fCj;
-        public List<C0547b> fCk;
+        public C0554a fNs;
+        public List<C0555b> fNt;
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C0547b {
+        public static class C0555b {
             public String nickname;
             public String portrait;
             public String rank;
             public String score;
 
-            public void cT(JSONObject jSONObject) {
+            public void dc(JSONObject jSONObject) {
                 this.rank = jSONObject.optString("rank");
                 this.nickname = jSONObject.optString("user_nickname");
                 this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
@@ -108,31 +108,31 @@ public class a {
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C0546a {
+        public static class C0554a {
             public int rank;
             public String text;
 
-            public void cS(JSONObject jSONObject) {
+            public void db(JSONObject jSONObject) {
                 this.rank = jSONObject.optInt("rank");
                 this.text = jSONObject.optString("bottom_text");
             }
         }
 
-        public void cR(JSONObject jSONObject) {
+        public void da(JSONObject jSONObject) {
             if (jSONObject != null) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("list");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    this.fCk = new ArrayList();
+                    this.fNt = new ArrayList();
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        C0547b c0547b = new C0547b();
-                        c0547b.cT(optJSONArray.optJSONObject(i));
-                        this.fCk.add(c0547b);
+                        C0555b c0555b = new C0555b();
+                        c0555b.dc(optJSONArray.optJSONObject(i));
+                        this.fNt.add(c0555b);
                     }
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject != null) {
-                    this.fCj = new C0546a();
-                    this.fCj.cS(optJSONObject);
+                    this.fNs = new C0554a();
+                    this.fNs.db(optJSONObject);
                 }
             }
         }

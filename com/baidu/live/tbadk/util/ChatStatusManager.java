@@ -1,6 +1,7 @@
 package com.baidu.live.tbadk.util;
 
 import android.util.SparseArray;
+@Deprecated
 /* loaded from: classes3.dex */
 public class ChatStatusManager {
     public static final int GROUP_CHAT = 2;

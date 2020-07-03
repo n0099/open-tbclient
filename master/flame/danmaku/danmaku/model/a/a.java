@@ -4,50 +4,50 @@ import master.flame.danmaku.danmaku.model.a.c;
 /* loaded from: classes5.dex */
 class a<T extends c<T>> implements b<T> {
     private final boolean mInfinite;
-    private int nAa;
-    private final d<T> nzX;
-    private final int nzY;
-    private T nzZ;
+    private final d<T> nVI;
+    private final int nVJ;
+    private T nVK;
+    private int nVL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(d<T> dVar, int i) {
         if (i <= 0) {
             throw new IllegalArgumentException("The pool limit must be > 0");
         }
-        this.nzX = dVar;
-        this.nzY = i;
+        this.nVI = dVar;
+        this.nVJ = i;
         this.mInfinite = false;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
-    public T dOn() {
-        T dOm;
-        if (this.nzZ != null) {
-            T t = this.nzZ;
-            this.nzZ = (T) t.dOj();
-            this.nAa--;
-            dOm = t;
+    public T dST() {
+        T dSS;
+        if (this.nVK != null) {
+            T t = this.nVK;
+            this.nVK = (T) t.dSP();
+            this.nVL--;
+            dSS = t;
         } else {
-            dOm = this.nzX.dOm();
+            dSS = this.nVI.dSS();
         }
-        if (dOm != null) {
-            dOm.bN(null);
-            dOm.xc(false);
-            this.nzX.b(dOm);
+        if (dSS != null) {
+            dSS.bO(null);
+            dSS.xx(false);
+            this.nVI.b(dSS);
         }
-        return dOm;
+        return dSS;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
     public void c(T t) {
-        if (!t.dOh()) {
-            if (this.mInfinite || this.nAa < this.nzY) {
-                this.nAa++;
-                t.bN(this.nzZ);
-                t.xc(true);
-                this.nzZ = t;
+        if (!t.dSN()) {
+            if (this.mInfinite || this.nVL < this.nVJ) {
+                this.nVL++;
+                t.bO(this.nVK);
+                t.xx(true);
+                this.nVK = t;
             }
-            this.nzX.a(t);
+            this.nVI.a(t);
         }
     }
 }

@@ -15,18 +15,18 @@ import java.util.zip.DeflaterOutputStream;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class c {
-    private static SimpleDateFormat alo;
-    private static PackageManager alp;
+    private static SimpleDateFormat amI;
+    private static PackageManager amJ;
 
     public static String Q(long j) {
         return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / TimeUtils.NANOS_PER_MS > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
     }
 
     public static String a(Date date) {
-        if (alo == null) {
-            alo = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (amI == null) {
+            amI = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return alo.format(date);
+        return amI.format(date);
     }
 
     public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -131,7 +131,11 @@ public final class c {
         return bArr2;
     }
 
-    public static byte[] dj(String str) {
+    public static String ak() {
+        return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
+    }
+
+    public static byte[] dl(String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -139,11 +143,11 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (alp == null) {
-            alp = context.getPackageManager();
+        if (amJ == null) {
+            amJ = context.getPackageManager();
         }
         try {
-            return alp.checkPermission(str, context.getPackageName()) == 0;
+            return amJ.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }
@@ -174,9 +178,5 @@ public final class c {
             }
         }
         return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
-    }
-
-    public static String sT() {
-        return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
     }
 }

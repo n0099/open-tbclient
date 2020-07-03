@@ -4,11 +4,11 @@ import com.facebook.common.internal.i;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public interface d extends e {
-    public static final Set<String> csa = i.O("getAppInfoSync", "performancePanel", "openStatisticEvent", "ubcEvent", "getSlaveIdSync", "ubcFlowJar");
+    public static final Set<String> cwO = i.O("getAppInfoSync", "performancePanel", "openStatisticEvent", "ubcEvent", "getSlaveIdSync", "ubcFlowJar");
 
     String format();
 
-    void iq(String str);
+    void iy(String str);
 
-    void ir(String str);
+    void iz(String str);
 }

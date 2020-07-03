@@ -6,27 +6,27 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class e {
-    private static e ery = null;
+    private static e eAq = null;
     private int maxCost;
     private boolean isSmallFlowOpen = false;
-    private boolean erz = false;
+    private boolean eAr = false;
 
     private e() {
     }
 
-    public static e bfv() {
-        if (ery == null) {
+    public static e bhB() {
+        if (eAq == null) {
             synchronized (e.class) {
-                if (ery == null) {
-                    ery = new e();
+                if (eAq == null) {
+                    eAq = new e();
                 }
             }
         }
-        return ery;
+        return eAq;
     }
 
     public void a(Context context, d dVar, b bVar) {
@@ -46,14 +46,15 @@ public class e {
                     };
                 }
                 if (bVar.a(dVar)) {
-                    an anVar = new an(PageStayDurationConstants.ROUTE_URL_KEY);
-                    anVar.dh("obj_source", c.toSourceTraceString(dVar.getSorceKeyList()));
-                    anVar.dh("obj_locate", dVar.getCurrentPageKey());
-                    anVar.dh("obj_type", "0");
+                    ao aoVar = new ao(PageStayDurationConstants.ROUTE_URL_KEY);
+                    aoVar.dk("obj_source", c.toSourceTraceString(dVar.getSorceKeyList()));
+                    aoVar.dk("obj_locate", dVar.getCurrentPageKey());
+                    aoVar.dk("obj_type", "0");
                     if (!StringUtils.isNull(dVar.objID)) {
-                        anVar.dh("obj_id", dVar.objID);
+                        aoVar.dk("obj_id", dVar.objID);
                     }
-                    TiebaStatic.log(anVar);
+                    com.baidu.tbadk.l.e.a(context, aoVar, dVar);
+                    TiebaStatic.log(aoVar);
                     return;
                 }
                 return;
@@ -72,63 +73,64 @@ public class e {
                 };
             }
             if (bVar.isSwitchOpen() && bVar.a(dVar)) {
-                an anVar2 = new an(PageStayDurationConstants.URL_KEY);
-                anVar2.dh("obj_source", c.toSourceTraceString(dVar.getSorceKeyList()));
-                anVar2.dh("obj_type", dVar.getCurrentPageKey());
-                anVar2.dh("obj_duration", String.valueOf(dVar.getStayDurationTime()));
+                ao aoVar2 = new ao(PageStayDurationConstants.URL_KEY);
+                aoVar2.dk("obj_source", c.toSourceTraceString(dVar.getSorceKeyList()));
+                aoVar2.dk("obj_type", dVar.getCurrentPageKey());
+                aoVar2.dk("obj_duration", String.valueOf(dVar.getStayDurationTime()));
                 if (dVar.getFid() > 0) {
-                    anVar2.dh("fid", String.valueOf(dVar.getFid()));
+                    aoVar2.dk("fid", String.valueOf(dVar.getFid()));
                 }
                 if (dVar.getTid() > 0) {
-                    anVar2.dh("tid", String.valueOf(dVar.getTid()));
+                    aoVar2.dk("tid", String.valueOf(dVar.getTid()));
                 }
                 if (!StringUtils.isNull(dVar.getNid())) {
-                    anVar2.dh("nid", dVar.getNid());
+                    aoVar2.dk("nid", dVar.getNid());
                 }
                 if (dVar.getPid() > 0) {
-                    anVar2.dh("pid", String.valueOf(dVar.getPid()));
+                    aoVar2.dk("pid", String.valueOf(dVar.getPid()));
                 }
                 if (!StringUtils.isNull(dVar.objParam1)) {
-                    anVar2.dh("obj_param1", dVar.objParam1);
+                    aoVar2.dk("obj_param1", dVar.objParam1);
                 }
                 if (!StringUtils.isNull(dVar.isVertical)) {
-                    anVar2.dh("is_vertical", dVar.isVertical);
+                    aoVar2.dk("is_vertical", dVar.isVertical);
                 }
-                if (!StringUtils.isNull(dVar.erx)) {
-                    anVar2.dh("is_dynamic", dVar.erx);
+                if (!StringUtils.isNull(dVar.eAo)) {
+                    aoVar2.dk("is_dynamic", dVar.eAo);
                 }
                 if (!StringUtils.isNull(dVar.resourceId)) {
-                    anVar2.dh("resource_id", dVar.resourceId);
+                    aoVar2.dk("resource_id", dVar.resourceId);
                 }
-                if (!aq.isEmpty(dVar.getTaskId())) {
-                    anVar2.dh("task_id", String.valueOf(dVar.getTaskId()));
+                if (!ar.isEmpty(dVar.getTaskId())) {
+                    aoVar2.dk("task_id", String.valueOf(dVar.getTaskId()));
                 }
-                if (!aq.isEmpty(dVar.bft())) {
-                    anVar2.dh("ab_tag", dVar.bft());
+                if (!ar.isEmpty(dVar.bhz())) {
+                    aoVar2.dk("ab_tag", dVar.bhz());
                 }
-                if (bfw()) {
+                if (bhC()) {
                     if (!StringUtils.isNull(dVar.objID)) {
-                        anVar2.dh("obj_id", dVar.objID);
+                        aoVar2.dk("obj_id", dVar.objID);
                     }
-                    if (!StringUtils.isNull(dVar.erv)) {
-                        anVar2.dh("obj_name", dVar.erv);
+                    if (!StringUtils.isNull(dVar.eAm)) {
+                        aoVar2.dk("obj_name", dVar.eAm);
                     }
-                    anVar2.dh("obj_source", PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
+                    aoVar2.dk("obj_source", PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
                 }
-                if (!StringUtils.isNull(dVar.bfu())) {
-                    anVar2.dh("obj_location", dVar.bfu());
+                if (!StringUtils.isNull(dVar.bhA())) {
+                    aoVar2.dk("obj_location", dVar.bhA());
                 }
-                TiebaStatic.log(anVar2);
+                com.baidu.tbadk.l.e.a(context, aoVar2, dVar);
+                TiebaStatic.log(aoVar2);
             }
         }
     }
 
-    public boolean bfw() {
-        return this.erz;
+    public boolean bhC() {
+        return this.eAr;
     }
 
-    public void in(boolean z) {
-        this.erz = z;
+    public void iw(boolean z) {
+        this.eAr = z;
     }
 
     public boolean isSmallFlowOpen() {
@@ -140,11 +142,11 @@ public class e {
     }
 
     public int getMaxCostFromServer() {
-        return !TbadkCoreApplication.getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.aTX().getInt(SharedPrefConfig.PAGE_STY_MAX_COST, 0) : this.maxCost;
+        return !TbadkCoreApplication.getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.aVP().getInt(SharedPrefConfig.PAGE_STY_MAX_COST, 0) : this.maxCost;
     }
 
     public void setMaxCostFromServer(int i) {
         this.maxCost = i;
-        com.baidu.tbadk.core.sharedPref.b.aTX().putInt(SharedPrefConfig.PAGE_STY_MAX_COST, this.maxCost);
+        com.baidu.tbadk.core.sharedPref.b.aVP().putInt(SharedPrefConfig.PAGE_STY_MAX_COST, this.maxCost);
     }
 }

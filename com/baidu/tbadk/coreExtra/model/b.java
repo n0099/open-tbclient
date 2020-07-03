@@ -8,16 +8,16 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.m;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.n;
+import com.baidu.tbadk.core.util.y;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    public void cG(JSONObject jSONObject) {
+    public void cN(JSONObject jSONObject) {
         JSONArray jSONArray;
         JSONObject optJSONObject;
         String str;
@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        xq(str2);
+                        xJ(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        xq(str2);
+                        xJ(str2);
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bar() {
+    public void bct() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
@@ -79,28 +79,29 @@ public class b {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void xq(String str) {
+    public void xJ(String str) {
         String localUrl = getLocalUrl();
         if (!TextUtils.equals(localUrl, str) || !isFileExist(localUrl)) {
-            dl(str, localUrl);
+            m30do(str, localUrl);
         }
     }
 
     private boolean isFileExist(String str) {
-        File GetFile = m.GetFile(as.getNameMd5FromUrl(str));
+        File GetFile = n.GetFile(at.getNameMd5FromUrl(str));
         return GetFile != null && GetFile.exists() && GetFile.isFile();
     }
 
-    private void dl(String str, String str2) {
+    /* renamed from: do  reason: not valid java name */
+    private void m30do(String str, String str2) {
         if (j.isWifiNet()) {
-            new a(str, as.getNameMd5FromUrl(str), str2).execute(new String[0]);
+            new a(str, at.getNameMd5FromUrl(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private x bth = null;
+        private y byb = null;
         private final String mFile;
         private final String mLocalUrl;
         private final String mRemoteUrl;
@@ -117,14 +118,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.bth = new x(this.mRemoteUrl);
-                bool = Boolean.valueOf(this.bth.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), 900002));
+                this.byb = new y(this.mRemoteUrl);
+                bool = Boolean.valueOf(this.byb.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), 900002));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(m.renameTo(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.mRemoteUrl) && !this.mRemoteUrl.equals(this.mLocalUrl)) {
-                        m.DelFile(as.getNameMd5FromUrl(this.mLocalUrl));
+                    if (!StringUtils.isNull(n.renameTo(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.mRemoteUrl) && !this.mRemoteUrl.equals(this.mLocalUrl)) {
+                        n.DelFile(at.getNameMd5FromUrl(this.mLocalUrl));
                     }
                 } else {
-                    m.DelFile(this.mFile + ".tmp");
+                    n.DelFile(this.mFile + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -137,7 +138,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new b().bar();
+                new b().bct();
             }
         }
     }

@@ -8,12 +8,12 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.u.a;
+import com.baidu.live.sdk.a;
 import com.baidu.mobstat.Config;
 /* loaded from: classes3.dex */
 public class TurnTableLuckyBubbleView extends LinearLayout {
-    private TextView aTU;
-    private String gfm;
+    private TextView aWB;
+    private String gsi;
     private String mName;
 
     public TurnTableLuckyBubbleView(Context context) {
@@ -22,21 +22,21 @@ public class TurnTableLuckyBubbleView extends LinearLayout {
     }
 
     public void setContent(String str) {
-        this.aTU.setText(str);
+        this.aWB.setText(str);
     }
 
     public void setContent(String str, String str2) {
-        if (TextUtils.isEmpty(this.mName) || TextUtils.isEmpty(this.gfm) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.mName.equals(str) || !this.gfm.equals(str2)) {
+        if (TextUtils.isEmpty(this.mName) || TextUtils.isEmpty(this.gsi) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.mName.equals(str) || !this.gsi.equals(str2)) {
             this.mName = str;
-            this.gfm = str2;
-            this.aTU.setText(!TextUtils.isEmpty(this.gfm) ? this.mName + Config.EVENT_HEAT_X + this.gfm : this.mName);
+            this.gsi = str2;
+            this.aWB.setText(!TextUtils.isEmpty(this.gsi) ? this.mName + Config.EVENT_HEAT_X + this.gsi : this.mName);
         }
     }
 
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.turn_table_widget_lucky_bubble, (ViewGroup) this, true);
-        this.aTU = (TextView) findViewById(a.g.tv_content);
+        this.aWB = (TextView) findViewById(a.g.tv_content);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds40));
         gradientDrawable.setShape(0);
@@ -46,6 +46,6 @@ public class TurnTableLuckyBubbleView extends LinearLayout {
         } else {
             gradientDrawable.setColor(-2199);
         }
-        this.aTU.setBackgroundDrawable(gradientDrawable);
+        this.aWB.setBackgroundDrawable(gradientDrawable);
     }
 }

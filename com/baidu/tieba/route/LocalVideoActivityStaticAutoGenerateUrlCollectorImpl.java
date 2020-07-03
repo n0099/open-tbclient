@@ -23,6 +23,7 @@ public final class LocalVideoActivityStaticAutoGenerateUrlCollectorImpl implemen
         HashMap hashMap = new HashMap();
         new ArrayList();
         hashMap.put("2002001", "com.baidu.tieba.video.localvideo.LocalVideoActivityStatic");
+        hashMap.put("2921466", "com.baidu.tieba.video.localvideo.LocalVideoActivityStatic");
         return hashMap;
     }
 }

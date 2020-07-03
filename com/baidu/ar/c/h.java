@@ -1,9 +1,9 @@
 package com.baidu.ar.c;
 /* loaded from: classes3.dex */
 public class h {
-    private i lD;
+    private i ma;
 
     public h(i iVar) {
-        this.lD = iVar;
+        this.ma = iVar;
     }
 }

@@ -28,7 +28,7 @@ public class ef extends ed {
         if (this.a) {
             try {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
-                ((WindowManager) this.f230a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+                ((WindowManager) this.f236a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                 return displayMetrics.heightPixels + Constants.ACCEPT_TIME_SEPARATOR_SP + displayMetrics.widthPixels;
             } catch (Throwable th) {
                 return "";
@@ -62,7 +62,7 @@ public class ef extends ed {
     private String e() {
         if (this.d) {
             try {
-                return Settings.Secure.getString(this.f230a.getContentResolver(), "android_id");
+                return Settings.Secure.getString(this.f236a.getContentResolver(), "android_id");
             } catch (Throwable th) {
                 return "";
             }
@@ -73,7 +73,7 @@ public class ef extends ed {
     private String f() {
         if (this.e) {
             try {
-                return ((TelephonyManager) this.f230a.getSystemService("phone")).getSimOperator();
+                return ((TelephonyManager) this.f236a.getSystemService("phone")).getSimOperator();
             } catch (Throwable th) {
                 return "";
             }
@@ -83,19 +83,19 @@ public class ef extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo163a() {
+    public int mo160a() {
         return 3;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo163a() {
+    public ho mo160a() {
         return ho.DeviceInfoV2;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo163a() {
+    public String mo160a() {
         return b() + "|" + c() + "|" + d() + "|" + e() + "|" + f();
     }
 }

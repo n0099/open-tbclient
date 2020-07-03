@@ -10,33 +10,33 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class g {
-    private static g eqk = null;
-    private d eqn;
-    private boolean aSa = false;
-    private final c eqg = new c() { // from class: com.baidu.tbadk.mutiprocess.g.1
+    private static g ezc = null;
+    private d ezf;
+    private boolean aUG = false;
+    private final c eyY = new c() { // from class: com.baidu.tbadk.mutiprocess.g.1
         @Override // com.baidu.tbadk.mutiprocess.c
         public void b(a aVar) {
             g.this.d(aVar);
         }
     };
     private Handler mUIHandler = new Handler(Looper.getMainLooper());
-    private final com.baidu.tbadk.h.e eqo = new com.baidu.tbadk.h.e() { // from class: com.baidu.tbadk.mutiprocess.g.3
-        @Override // com.baidu.tbadk.h.e, android.app.Application.ActivityLifecycleCallbacks
+    private final com.baidu.tbadk.h.g ezg = new com.baidu.tbadk.h.g() { // from class: com.baidu.tbadk.mutiprocess.g.3
+        @Override // com.baidu.tbadk.h.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             if (activity instanceof TbPageContextSupport) {
                 g.this.m(((TbPageContextSupport) activity).getPageContext().getUniqueId());
             }
         }
     };
-    private final Map<Class<? extends a>, b> eql = new HashMap();
-    private final Map<Class<? extends a>, LinkedList<h>> eqm = new HashMap();
+    private final Map<Class<? extends a>, b> ezd = new HashMap();
+    private final Map<Class<? extends a>, LinkedList<h>> eze = new HashMap();
 
     private g() {
     }
@@ -45,33 +45,33 @@ public class g {
         int myPid = Process.myPid();
         int pid = aVar.getPid();
         if (aVar.getType() == 2 && myPid == pid) {
-            beK().d(aVar);
+            bgP().d(aVar);
         } else {
-            beK().f(aVar);
+            bgP().f(aVar);
         }
     }
 
-    public static g beK() {
-        if (eqk == null) {
+    public static g bgP() {
+        if (ezc == null) {
             synchronized (g.class) {
-                if (eqk == null) {
-                    eqk = new g();
+                if (ezc == null) {
+                    ezc = new g();
                 }
             }
         }
-        return eqk;
+        return ezc;
     }
 
     public void init(Application application) {
-        if (!this.aSa) {
+        if (!this.aUG) {
             if (application == null) {
                 throw new NullPointerException("MutiProcessManager Initialized, application is null");
             }
             e(application);
-            this.eqn = new e(application);
-            this.eqn.a(this.eqg);
-            this.eqn.startService();
-            this.aSa = true;
+            this.ezf = new e(application);
+            this.ezf.a(this.eyY);
+            this.ezf.startService();
+            this.aUG = true;
         }
     }
 
@@ -94,7 +94,7 @@ public class g {
         if (aVar != null) {
             Class<?> cls = aVar.getClass();
             try {
-                b bVar = this.eql.get(cls);
+                b bVar = this.ezd.get(cls);
                 if (bVar != null) {
                     bVar.a(aVar);
                 }
@@ -102,8 +102,8 @@ public class g {
                 BdLog.detailException(cls.getName(), e);
             }
             try {
-                LinkedList<h> linkedList = this.eqm.get(cls);
-                if (!v.isEmpty(linkedList)) {
+                LinkedList<h> linkedList = this.eze.get(cls);
+                if (!w.isEmpty(linkedList)) {
                     int myPid = Process.myPid();
                     for (h hVar : linkedList) {
                         if (hVar != null && (!hVar.isSelfListener() || (aVar.getPid() == myPid && hVar.getTag() != null && hVar.getTag().getId() == aVar.getTag()))) {
@@ -122,8 +122,8 @@ public class g {
     }
 
     private void f(a aVar) {
-        if (this.eqn != null) {
-            this.eqn.publishEvent(aVar);
+        if (this.ezf != null) {
+            this.ezf.publishEvent(aVar);
         }
     }
 
@@ -134,10 +134,10 @@ public class g {
         if (cls == null) {
             throw new NullPointerException("register IEvent class is null");
         }
-        if (this.eql.containsKey(cls)) {
+        if (this.ezd.containsKey(cls)) {
             BdLog.e(cls + " has existed, Please unRegister old listener first！");
         } else {
-            this.eql.put(cls, bVar);
+            this.ezd.put(cls, bVar);
         }
     }
 
@@ -148,10 +148,10 @@ public class g {
         if (cls == null) {
             throw new NullPointerException("register IEvent class is null");
         }
-        LinkedList<h> linkedList = this.eqm.get(cls);
+        LinkedList<h> linkedList = this.eze.get(cls);
         if (linkedList == null) {
             linkedList = new LinkedList<>();
-            this.eqm.put(cls, linkedList);
+            this.eze.put(cls, linkedList);
         }
         if (linkedList.contains(hVar)) {
             BdLog.e("listener has existed, Please unRegister old listener first！");
@@ -163,9 +163,9 @@ public class g {
 
     public void m(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            for (Map.Entry<Class<? extends a>, LinkedList<h>> entry : this.eqm.entrySet()) {
+            for (Map.Entry<Class<? extends a>, LinkedList<h>> entry : this.eze.entrySet()) {
                 LinkedList<h> value = entry.getValue();
-                if (!v.isEmpty(value)) {
+                if (!w.isEmpty(value)) {
                     Iterator<h> it = value.iterator();
                     while (it.hasNext()) {
                         h next = it.next();
@@ -180,7 +180,7 @@ public class g {
 
     private void e(Application application) {
         try {
-            application.registerActivityLifecycleCallbacks(this.eqo);
+            application.registerActivityLifecycleCallbacks(this.ezg);
         } catch (Exception e) {
             e.printStackTrace();
         }

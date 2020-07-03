@@ -19,7 +19,7 @@ final class KotlinRandom extends Random {
 
     @Override // java.util.Random
     protected int next(int i) {
-        return this.impl.JT(i);
+        return this.impl.La(i);
     }
 
     @Override // java.util.Random
@@ -55,7 +55,7 @@ final class KotlinRandom extends Random {
     @Override // java.util.Random
     public void nextBytes(byte[] bArr) {
         q.m(bArr, "bytes");
-        this.impl.aw(bArr);
+        this.impl.ay(bArr);
     }
 
     @Override // java.util.Random

@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.live.adp.widget.listview.BdIListPullView;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.PullViewHelper;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class TbListCommonPullView extends BdIListPullView {
     public static final long COMPLETE_ANIM_TIME = 2000;

@@ -13,6 +13,7 @@ public class FaceAlgoConfig {
     boolean needExpression;
     boolean needHeadPose;
     boolean needRefineEyes;
+    boolean needRefineIris;
     boolean needRefineMouth;
     boolean needSkeleton;
     boolean needTriggers;
@@ -27,7 +28,7 @@ public class FaceAlgoConfig {
     public FaceAlgoConfig(int i) {
         this.runningMode = 0;
         this.maxTrackingFace = 1;
-        this.trackingRotation = 0;
+        this.trackingRotation = -1;
         this.failureThreshold = 5;
         this.minDetectionWidth = 100.0f;
         this.trackingSmoothAlpha = 0.1f;
@@ -38,6 +39,7 @@ public class FaceAlgoConfig {
         this.mirror = true;
         this.isAnimojiMode = false;
         this.needRefineEyes = false;
+        this.needRefineIris = false;
         this.needHeadPose = true;
         this.needSkeleton = true;
         this.needTriggers = true;
@@ -51,7 +53,7 @@ public class FaceAlgoConfig {
     public FaceAlgoConfig(int i, int i2, float f, float f2) {
         this.runningMode = 0;
         this.maxTrackingFace = 1;
-        this.trackingRotation = 0;
+        this.trackingRotation = -1;
         this.failureThreshold = 5;
         this.minDetectionWidth = 100.0f;
         this.trackingSmoothAlpha = 0.1f;
@@ -62,6 +64,7 @@ public class FaceAlgoConfig {
         this.mirror = true;
         this.isAnimojiMode = false;
         this.needRefineEyes = false;
+        this.needRefineIris = false;
         this.needHeadPose = true;
         this.needSkeleton = true;
         this.needTriggers = true;
@@ -140,6 +143,7 @@ public class FaceAlgoConfig {
 
     public void setNeedRefineEyes(boolean z) {
         this.needRefineEyes = z;
+        this.needRefineIris = z;
     }
 
     public void setNeedRefineMouth(boolean z) {

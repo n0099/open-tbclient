@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes6.dex */
 public class EmotionLinearLayout extends LinearLayout {
-    private View eoh;
+    private View ewV;
     private boolean visible;
 
     public EmotionLinearLayout(Context context) {
@@ -21,8 +21,8 @@ public class EmotionLinearLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.eoh != null) {
-            this.eoh.measure(getChildMeasureSpec(i, 0, this.eoh.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.eoh.getLayoutParams().height));
+        if (this.ewV != null) {
+            this.ewV.measure(getChildMeasureSpec(i, 0, this.ewV.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.ewV.getLayoutParams().height));
         }
     }
 
@@ -30,14 +30,14 @@ public class EmotionLinearLayout extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         View childAt = getChildAt(0);
-        if (this.eoh != null && childAt != null) {
-            int measuredWidth = childAt.getMeasuredWidth() - this.eoh.getMeasuredWidth();
-            this.eoh.layout(measuredWidth, 0, this.eoh.getMeasuredWidth() + measuredWidth, this.eoh.getMeasuredHeight());
+        if (this.ewV != null && childAt != null) {
+            int measuredWidth = childAt.getMeasuredWidth() - this.ewV.getMeasuredWidth();
+            this.ewV.layout(measuredWidth, 0, this.ewV.getMeasuredWidth() + measuredWidth, this.ewV.getMeasuredHeight());
         }
     }
 
     public void setNewView(View view) {
-        this.eoh = view;
+        this.ewV = view;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -45,8 +45,8 @@ public class EmotionLinearLayout extends LinearLayout {
         super.dispatchDraw(canvas);
         if (this.visible) {
             canvas.save();
-            canvas.translate(this.eoh.getLeft(), this.eoh.getTop());
-            this.eoh.draw(canvas);
+            canvas.translate(this.ewV.getLeft(), this.ewV.getTop());
+            this.ewV.draw(canvas);
             canvas.restore();
         }
     }

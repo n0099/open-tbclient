@@ -3,6 +3,7 @@ package com.baidu.live.tbadk.pagestayduration;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationFilter;
 import java.util.List;
+@Deprecated
 /* loaded from: classes3.dex */
 public class PageStayDurationItem implements PageStayDurationFilter.IDirtyData {
     private String currentPageKey;

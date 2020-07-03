@@ -14,7 +14,7 @@ public class bq extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo163a() {
+    public int mo160a() {
         return 10052;
     }
 
@@ -24,10 +24,10 @@ public class bq extends ai.a {
         cf cfVar2;
         Context context;
         com.xiaomi.channel.commonutils.logger.b.c("exec== mUploadJob");
-        cfVar = this.a.f136a;
+        cfVar = this.a.f142a;
         if (cfVar != null) {
-            cfVar2 = this.a.f136a;
-            context = this.a.f133a;
+            cfVar2 = this.a.f142a;
+            context = this.a.f139a;
             cfVar2.a(context);
             this.a.b("upload_time");
         }

@@ -1,74 +1,74 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes11.dex */
 public class c extends f {
-    private String dmC;
-    private int dmD;
-    private long dmE;
-    private String dmF;
-    private String dmG;
-    private int dmH;
+    private String drn;
+    private int dro;
+    private long drp;
+    private String drq;
+    private String drr;
+    private int drt;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.dmD = -1;
-        this.dmE = -1L;
-        this.dmH = -1;
-        this.dmC = str;
+        this.dro = -1;
+        this.drp = -1L;
+        this.drt = -1;
+        this.drn = str;
     }
 
-    public c ji(int i) {
-        this.dmH = i;
+    public c jt(int i) {
+        this.drt = i;
         return this;
     }
 
-    public int aGQ() {
-        return this.dmH;
+    public int aHW() {
+        return this.drt;
     }
 
-    public c tn(String str) {
-        this.dmF = str;
+    public c tv(String str) {
+        this.drq = str;
         return this;
     }
 
-    public c jj(int i) {
-        this.dmD = i;
+    public c ju(int i) {
+        this.dro = i;
         return this;
     }
 
     public c bO(long j) {
-        this.dmE = j;
+        this.drp = j;
         return this;
     }
 
-    public c to(String str) {
-        this.dmG = str;
+    public c tw(String str) {
+        this.drr = str;
         return this;
     }
 
-    public c tp(String str) {
+    public c tx(String str) {
         this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.dmC;
+        return this.drn;
     }
 
-    public int aGO() {
-        return this.dmD;
+    public int aHU() {
+        return this.dro;
     }
 
-    public long aGP() {
-        return this.dmE;
+    public long aHV() {
+        return this.drp;
     }
 
-    public String aGR() {
-        return this.dmF;
+    public String aHX() {
+        return this.drq;
     }
 
-    public String aGS() {
-        return this.dmG;
+    public String aHY() {
+        return this.drr;
     }
 
     public String getPath() {

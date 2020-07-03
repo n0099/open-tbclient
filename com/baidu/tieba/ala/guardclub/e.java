@@ -28,7 +28,8 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.data.ao;
+import com.baidu.live.data.as;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.browser.BrowserHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atom.GuardClubRankActivityConfig;
@@ -42,54 +43,55 @@ import com.baidu.live.tbadk.core.util.ViewCommonUtil;
 import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.tbadk.widget.CommonEmptyView;
 import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.live.u.a;
-import com.baidu.live.utils.r;
+import com.baidu.live.utils.q;
 import com.baidu.tieba.ala.guardclub.view.GuardClubInfoHeaderView;
 import com.compatible.menukey.MenuKeyUtils;
 /* loaded from: classes3.dex */
 public class e implements View.OnClickListener {
-    private String aEX;
-    private com.baidu.live.k.c aLm;
-    private com.baidu.live.guardclub.a aOG;
-    private String aOH;
-    private boolean aOJ;
-    private View aYn;
+    private String aBT;
+    private String aBU;
+    private String aHt;
+    private com.baidu.live.l.c aNS;
+    private com.baidu.live.guardclub.a aRm;
+    private String aRn;
+    private boolean aRp;
     private Activity activity;
-    private long aul;
-    private boolean avR;
-    private int cOy;
-    private RelativeLayout fxA;
-    private RelativeLayout fxB;
-    private TextView fxC;
-    private LinearLayout fxD;
-    private FrameLayout fxE;
-    private RelativeLayout fxF;
-    private ImageView fxG;
-    private j fxH;
-    private Bitmap fxI;
-    private Bitmap fxJ;
-    private EditText fxK;
-    private TextView fxL;
-    private TextView fxM;
-    private CommonEmptyView fxN;
-    private LinearLayout fxO;
-    private LinearLayout fxP;
-    private String fxc;
-    private boolean fxi;
-    private View.OnClickListener fxk;
-    private GuardClubInfoActivity fxn;
-    private View fxo;
-    private View fxp;
-    private View fxq;
-    private int fxr;
-    private int fxs;
-    private View fxt;
-    private LinearLayout fxu;
-    private RelativeLayout fxv;
-    private ImageView fxw;
-    private ImageView fxx;
-    private LinearLayout fxy;
-    private GuardClubInfoHeaderView fxz;
+    private long awn;
+    private boolean axZ;
+    private View baV;
+    private int cTi;
+    private View fIA;
+    private View fIB;
+    private int fIC;
+    private int fID;
+    private View fIE;
+    private LinearLayout fIF;
+    private RelativeLayout fIG;
+    private ImageView fIH;
+    private ImageView fII;
+    private LinearLayout fIJ;
+    private GuardClubInfoHeaderView fIK;
+    private RelativeLayout fIL;
+    private RelativeLayout fIM;
+    private TextView fIN;
+    private LinearLayout fIO;
+    private FrameLayout fIP;
+    private RelativeLayout fIQ;
+    private ImageView fIR;
+    private j fIS;
+    private Bitmap fIT;
+    private Bitmap fIU;
+    private EditText fIV;
+    private TextView fIW;
+    private TextView fIX;
+    private CommonEmptyView fIY;
+    private LinearLayout fIZ;
+    private String fIn;
+    private boolean fIt;
+    private View.OnClickListener fIv;
+    private GuardClubInfoActivity fIy;
+    private View fIz;
+    private LinearLayout fJa;
     private ViewTreeObserver.OnGlobalLayoutListener globalListener;
     private boolean isFullScreen;
     private boolean isTranslucent;
@@ -97,33 +99,35 @@ public class e implements View.OnClickListener {
     private View mRootView;
     private String otherParams;
     private long roomId;
-    private boolean eVu = true;
+    private boolean ffF = true;
     private boolean mIsKeyboardOpen = false;
 
-    public e(GuardClubInfoActivity guardClubInfoActivity, long j, long j2, long j3, String str, boolean z, String str2, boolean z2, boolean z3, boolean z4, String str3, boolean z5, View.OnClickListener onClickListener) {
-        this.fxn = guardClubInfoActivity;
+    public e(GuardClubInfoActivity guardClubInfoActivity, long j, long j2, long j3, String str, boolean z, String str2, boolean z2, boolean z3, boolean z4, String str3, boolean z5, String str4, String str5, View.OnClickListener onClickListener) {
+        this.fIy = guardClubInfoActivity;
         this.activity = guardClubInfoActivity.getPageContext().getPageActivity();
-        this.aul = j;
+        this.awn = j;
         this.liveId = j2;
         this.roomId = j3;
-        this.aEX = str;
-        this.avR = z;
+        this.aHt = str;
+        this.axZ = z;
         this.otherParams = str2;
         this.isFullScreen = z2;
-        this.aOJ = z3;
-        this.fxi = z4;
-        this.fxc = str3;
+        this.aRp = z3;
+        this.fIt = z4;
+        this.fIn = str3;
         this.isTranslucent = z5;
-        this.fxk = onClickListener;
+        this.aBT = str4;
+        this.aBU = str5;
+        this.fIv = onClickListener;
         if (!z3) {
-            if (this.aLm == null) {
-                this.aLm = new com.baidu.live.k.c();
+            if (this.aNS == null) {
+                this.aNS = new com.baidu.live.l.c();
             }
-            this.aLm.initListener();
-            this.aLm.refreshCurUserScores();
+            this.aNS.initListener();
+            this.aNS.refreshCurUserScores();
         }
-        this.fxr = guardClubInfoActivity.getResources().getColor(a.d.live_gcb_primary);
-        this.fxs = guardClubInfoActivity.getResources().getColor(a.d.live_gcb_primary_alpha90);
+        this.fIC = guardClubInfoActivity.getResources().getColor(a.d.live_gcb_primary);
+        this.fID = guardClubInfoActivity.getResources().getColor(a.d.live_gcb_primary_alpha90);
         initView();
         initListener();
     }
@@ -133,10 +137,10 @@ public class e implements View.OnClickListener {
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 Rect rect = new Rect();
-                e.this.fxn.getPageContext().getPageActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-                int statusBarHeight = BdUtilHelper.getStatusBarHeight(e.this.fxn.getPageContext().getPageActivity());
-                int[] screenFullSize = ViewCommonUtil.getScreenFullSize(e.this.fxn.getPageContext().getPageActivity());
-                if (screenFullSize[1] - rect.bottom > screenFullSize[1] / 4 && !e.this.mIsKeyboardOpen && e.this.eVu) {
+                e.this.fIy.getPageContext().getPageActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+                int statusBarHeight = BdUtilHelper.getStatusBarHeight(e.this.fIy.getPageContext().getPageActivity());
+                int[] screenFullSize = ViewCommonUtil.getScreenFullSize(e.this.fIy.getPageContext().getPageActivity());
+                if (screenFullSize[1] - rect.bottom > screenFullSize[1] / 4 && !e.this.mIsKeyboardOpen && e.this.ffF) {
                     e.this.mIsKeyboardOpen = true;
                     TbadkCoreApplication.getInst().setKeyboardHeight(screenFullSize[1] - rect.bottom);
                     e.this.onKeyboardVisibilityChanged(true);
@@ -146,42 +150,42 @@ public class e implements View.OnClickListener {
                 }
             }
         };
-        this.fxn.getPageContext().getPageActivity().getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.globalListener);
+        this.fIy.getPageContext().getPageActivity().getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.globalListener);
     }
 
-    public void yL() {
+    public void zl() {
         boolean z = UtilHelper.getRealScreenOrientation(this.activity) == 2;
         if (this.mRootView != null) {
             if (z) {
-                com.baidu.live.utils.h.T(this.mRootView);
-                r.d(this.activity, false);
-            } else {
                 com.baidu.live.utils.h.U(this.mRootView);
-                r.d(this.activity, true);
+                q.e(this.activity, false);
+            } else {
+                com.baidu.live.utils.h.V(this.mRootView);
+                q.e(this.activity, true);
             }
         }
         int[] screenDimensions = BdUtilHelper.getScreenDimensions(this.activity);
         int min = z ? Math.min(screenDimensions[0], screenDimensions[1]) : -1;
-        if (this.fxu != null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fxu.getLayoutParams();
+        if (this.fIF != null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fIF.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new FrameLayout.LayoutParams(-1, -1);
             }
             layoutParams.width = min;
-            this.fxu.setLayoutParams(layoutParams);
+            this.fIF.setLayoutParams(layoutParams);
         }
-        if (this.fxp != null) {
-            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.fxp.getLayoutParams();
+        if (this.fIA != null) {
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.fIA.getLayoutParams();
             if (layoutParams2 == null) {
                 layoutParams2 = new FrameLayout.LayoutParams(-1, -1);
             }
             layoutParams2.width = min;
-            this.fxp.setLayoutParams(layoutParams2);
+            this.fIA.setLayoutParams(layoutParams2);
         }
-        if (this.fxo != null) {
+        if (this.fIz != null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            ViewGroup.LayoutParams layoutParams3 = this.fxo.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams3 = this.fIz.getLayoutParams();
             float dimensionPixelOffset = this.activity.getResources().getDimensionPixelOffset(a.e.sdk_ds26);
             if (UtilHelper.getRealScreenOrientation(this.activity) == 1) {
                 if (this.isFullScreen) {
@@ -195,30 +199,30 @@ public class e implements View.OnClickListener {
                 gradientDrawable.setCornerRadii(new float[]{dimensionPixelOffset, dimensionPixelOffset, 0.0f, 0.0f, 0.0f, 0.0f, dimensionPixelOffset, dimensionPixelOffset});
             }
             if (this.isTranslucent) {
-                gradientDrawable.setColor(this.fxr);
+                gradientDrawable.setColor(this.fIC);
             } else {
-                gradientDrawable.setColor(this.fxs);
+                gradientDrawable.setColor(this.fID);
             }
-            this.fxo.setBackgroundDrawable(gradientDrawable);
+            this.fIz.setBackgroundDrawable(gradientDrawable);
         }
-        if (this.fxx != null) {
+        if (this.fII != null) {
             if (UtilHelper.getRealScreenOrientation(this.activity) == 2) {
-                this.fxx.setImageBitmap(this.fxJ);
+                this.fII.setImageBitmap(this.fIU);
             } else {
-                this.fxx.setImageBitmap(this.fxI);
+                this.fII.setImageBitmap(this.fIT);
             }
         }
-        if (this.fxH != null) {
-            this.fxH.yL();
+        if (this.fIS != null) {
+            this.fIS.zl();
         }
     }
 
     private void initView() {
         String str;
         this.mRootView = LayoutInflater.from(this.activity).inflate(a.h.view_guardclub_info, (ViewGroup) null);
-        bsj();
-        yL();
-        this.fxt.setOnClickListener(this);
+        bve();
+        zl();
+        this.fIE.setOnClickListener(this);
         WindowManager windowManager = (WindowManager) this.activity.getSystemService("window");
         if (windowManager != null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -227,37 +231,37 @@ public class e implements View.OnClickListener {
             } else {
                 windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             }
-            this.cOy = displayMetrics.heightPixels;
+            this.cTi = displayMetrics.heightPixels;
         }
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
         if (this.isFullScreen) {
-            this.fxt.setVisibility(8);
+            this.fIE.setVisibility(8);
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                this.fxw.setVisibility(8);
-                this.fxG.setVisibility(8);
+                this.fIH.setVisibility(8);
+                this.fIR.setVisibility(8);
             } else {
-                this.fxw.setVisibility(0);
-                this.fxG.setVisibility(0);
+                this.fIH.setVisibility(0);
+                this.fIR.setVisibility(0);
             }
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 int statusBarHeight = BdUtilHelper.getStatusBarHeight(this.activity);
                 if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                    ((RelativeLayout.LayoutParams) this.fxy.getLayoutParams()).topMargin = statusBarHeight;
+                    ((RelativeLayout.LayoutParams) this.fIJ.getLayoutParams()).topMargin = statusBarHeight;
                 } else {
-                    ((LinearLayout.LayoutParams) this.fxw.getLayoutParams()).topMargin = statusBarHeight;
+                    ((LinearLayout.LayoutParams) this.fIH.getLayoutParams()).topMargin = statusBarHeight;
                 }
-                ((RelativeLayout.LayoutParams) this.fxG.getLayoutParams()).topMargin = statusBarHeight;
+                ((RelativeLayout.LayoutParams) this.fIR.getLayoutParams()).topMargin = statusBarHeight;
             }
-            this.fxx.setImageResource(a.f.gcb_bg_info_top);
-            gradientDrawable.setColor(this.fxr);
+            this.fII.setImageResource(a.f.gcb_bg_info_top);
+            gradientDrawable.setColor(this.fIC);
         } else {
-            this.fxt.setVisibility(0);
-            this.fxw.setVisibility(8);
-            this.fxG.setVisibility(8);
-            ViewGroup.LayoutParams layoutParams = this.fxo.getLayoutParams();
+            this.fIE.setVisibility(0);
+            this.fIH.setVisibility(8);
+            this.fIR.setVisibility(8);
+            ViewGroup.LayoutParams layoutParams = this.fIz.getLayoutParams();
             float dimensionPixelOffset = this.activity.getResources().getDimensionPixelOffset(a.e.sdk_ds26);
-            if (UtilHelper.getRealScreenOrientation(this.fxn.getPageContext().getPageActivity()) != 2) {
+            if (UtilHelper.getRealScreenOrientation(this.fIy.getPageContext().getPageActivity()) != 2) {
                 layoutParams.height = this.activity.getResources().getDimensionPixelOffset(a.e.sdk_ds854);
                 gradientDrawable.setCornerRadii(new float[]{dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset, 0.0f, 0.0f, 0.0f, 0.0f});
             } else {
@@ -265,60 +269,60 @@ public class e implements View.OnClickListener {
                 gradientDrawable.setCornerRadii(new float[]{dimensionPixelOffset, dimensionPixelOffset, 0.0f, 0.0f, 0.0f, 0.0f, dimensionPixelOffset, dimensionPixelOffset});
             }
             if (this.isTranslucent) {
-                gradientDrawable.setColor(this.fxr);
+                gradientDrawable.setColor(this.fIC);
             } else {
-                gradientDrawable.setColor(this.fxs);
+                gradientDrawable.setColor(this.fID);
             }
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.fxP.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.fJa.getLayoutParams();
             layoutParams2.addRule(8, a.g.notJoin_layout);
-            this.fxP.setLayoutParams(layoutParams2);
+            this.fJa.setLayoutParams(layoutParams2);
         }
-        this.fxo.setBackgroundDrawable(gradientDrawable);
-        if (this.avR) {
-            jW(false);
+        this.fIz.setBackgroundDrawable(gradientDrawable);
+        if (this.axZ) {
+            kk(false);
         } else {
-            jW(this.aOJ);
+            kk(this.aRp);
         }
-        if (this.fxi) {
-            this.fxz.fAW.setVisibility(8);
+        if (this.fIt) {
+            this.fIK.fMf.setVisibility(8);
         }
-        ao BJ = com.baidu.live.guardclub.g.BH().BJ();
-        if (BJ != null && BJ.aAa > 0) {
-            this.fxC.setText(BJ.aAa + "T豆加入");
+        as Cj = com.baidu.live.guardclub.g.Ch().Cj();
+        if (Cj != null && Cj.aCl > 0) {
+            this.fIN.setText(Cj.aCl + "T豆加入");
         } else {
-            this.fxC.setText("1000T豆加入");
+            this.fIN.setText("1000T豆加入");
         }
-        this.fxw.setOnClickListener(this);
-        this.fxz.fAT.setOnClickListener(this);
-        this.fxC.setOnClickListener(this);
-        this.fxG.setOnClickListener(this);
-        this.fxz.fAP.setOnClickListener(this);
-        this.fxz.fAW.setOnClickListener(this);
-        this.fxz.fAO.setOnClickListener(this);
-        this.fxL.setOnClickListener(this);
+        this.fIH.setOnClickListener(this);
+        this.fIK.fMc.setOnClickListener(this);
+        this.fIN.setOnClickListener(this);
+        this.fIR.setOnClickListener(this);
+        this.fIK.fLY.setOnClickListener(this);
+        this.fIK.fMf.setOnClickListener(this);
+        this.fIK.fLX.setOnClickListener(this);
+        this.fIW.setOnClickListener(this);
         this.mRootView.setOnClickListener(this);
-        this.fxz.fAM.setIsRound(true);
-        this.fxz.fAM.setDrawBorder(false);
-        this.fxz.fAM.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fxz.fAM.setAutoChangeStyle(false);
-        this.fxz.fAM.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.fxz.fAN.setDefaultBgResource(a.f.sdk_transparent_bg);
-        if (!this.avR) {
-            if (this.aOJ) {
+        this.fIK.fLV.setIsRound(true);
+        this.fIK.fLV.setDrawBorder(false);
+        this.fIK.fLV.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fIK.fLV.setAutoChangeStyle(false);
+        this.fIK.fLV.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.fIK.fLW.setDefaultBgResource(a.f.sdk_transparent_bg);
+        if (!this.axZ) {
+            if (this.aRp) {
                 str = "guard";
             } else {
                 str = "no_guard";
             }
-            LogManager.getGuardClubLogger().doDisplayLiveGuardLog(this.liveId + "", this.roomId + "", this.aEX, str, this.otherParams);
+            LogManager.getGuardClubLogger().doDisplayLiveGuardLog(this.liveId + "", this.roomId + "", this.aHt, str, this.otherParams);
         }
-        this.fxK.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.guardclub.e.2
+        this.fIV.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.guardclub.e.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                e.this.bur();
+                e.this.bxm();
             }
 
             @Override // android.text.TextWatcher
@@ -328,59 +332,59 @@ public class e implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bur() {
-        if (this.fxL != null) {
-            if (TextUtils.isEmpty(this.fxK.getText())) {
-                this.fxL.setEnabled(false);
-                this.fxM.setText(String.valueOf(0));
+    public void bxm() {
+        if (this.fIW != null) {
+            if (TextUtils.isEmpty(this.fIV.getText())) {
+                this.fIW.setEnabled(false);
+                this.fIX.setText(String.valueOf(0));
             } else {
-                this.fxL.setEnabled(true);
-                this.fxM.setText(String.valueOf(this.fxK.getText().length()));
+                this.fIW.setEnabled(true);
+                this.fIX.setText(String.valueOf(this.fIV.getText().length()));
             }
         }
-        if (this.fxK.getText().length() > 10) {
+        if (this.fIV.getText().length() > 10) {
             BdUtilHelper.showToast(this.activity, String.format(this.activity.getResources().getString(a.i.sdk_send_im_over_max), 10));
-            this.fxK.setText(this.fxK.getText().subSequence(0, 10));
-            this.fxK.setSelection(this.fxK.getText().length());
+            this.fIV.setText(this.fIV.getText().subSequence(0, 10));
+            this.fIV.setSelection(this.fIV.getText().length());
         }
     }
 
-    private void bsj() {
-        this.fxu = (LinearLayout) this.mRootView.findViewById(a.g.layout_guard_club_info);
-        this.fxt = this.mRootView.findViewById(a.g.space_view);
-        this.fxo = this.mRootView.findViewById(a.g.layout_guard_info);
-        this.aYn = this.mRootView.findViewById(a.g.info_layout);
-        this.fxK = (EditText) this.mRootView.findViewById(a.g.edit_guard_rename);
-        this.fxp = this.mRootView.findViewById(a.g.input_name_layout);
-        this.fxq = this.mRootView.findViewById(a.g.input_name);
-        this.fxL = (TextView) this.mRootView.findViewById(a.g.tv_send);
-        this.fxM = (TextView) this.mRootView.findViewById(a.g.tv_input_name_length);
-        this.fxv = (RelativeLayout) this.mRootView.findViewById(a.g.info_layout);
-        this.fxw = (ImageView) this.mRootView.findViewById(a.g.back_imageView);
-        this.fxx = (ImageView) this.mRootView.findViewById(a.g.infoHeadBg_imageView);
-        this.fxy = (LinearLayout) this.mRootView.findViewById(a.g.infoHead_layout);
-        this.fxz = (GuardClubInfoHeaderView) this.mRootView.findViewById(a.g.infoHeadInner_layout);
-        this.fxA = (RelativeLayout) this.mRootView.findViewById(a.g.memberInfo_layout);
-        this.fxB = (RelativeLayout) this.mRootView.findViewById(a.g.notJoin_layout);
-        this.fxC = (TextView) this.mRootView.findViewById(a.g.toJoin_textView);
-        this.fxD = (LinearLayout) this.mRootView.findViewById(a.g.privilege_layout);
-        this.fxE = (FrameLayout) this.mRootView.findViewById(a.g.memberList_layout);
-        this.fxF = (RelativeLayout) this.mRootView.findViewById(a.g.noData_layout);
-        this.fxN = (CommonEmptyView) this.mRootView.findViewById(a.g.noData_view);
-        this.fxG = (ImageView) this.mRootView.findViewById(a.g.back2_imageView);
-        this.fxO = (LinearLayout) this.mRootView.findViewById(a.g.joinPrivilegeIcons_layout);
-        this.fxP = (LinearLayout) this.mRootView.findViewById(a.g.hasJoin_layout);
+    private void bve() {
+        this.fIF = (LinearLayout) this.mRootView.findViewById(a.g.layout_guard_club_info);
+        this.fIE = this.mRootView.findViewById(a.g.space_view);
+        this.fIz = this.mRootView.findViewById(a.g.layout_guard_info);
+        this.baV = this.mRootView.findViewById(a.g.info_layout);
+        this.fIV = (EditText) this.mRootView.findViewById(a.g.edit_guard_rename);
+        this.fIA = this.mRootView.findViewById(a.g.input_name_layout);
+        this.fIB = this.mRootView.findViewById(a.g.input_name);
+        this.fIW = (TextView) this.mRootView.findViewById(a.g.tv_send);
+        this.fIX = (TextView) this.mRootView.findViewById(a.g.tv_input_name_length);
+        this.fIG = (RelativeLayout) this.mRootView.findViewById(a.g.info_layout);
+        this.fIH = (ImageView) this.mRootView.findViewById(a.g.back_imageView);
+        this.fII = (ImageView) this.mRootView.findViewById(a.g.infoHeadBg_imageView);
+        this.fIJ = (LinearLayout) this.mRootView.findViewById(a.g.infoHead_layout);
+        this.fIK = (GuardClubInfoHeaderView) this.mRootView.findViewById(a.g.infoHeadInner_layout);
+        this.fIL = (RelativeLayout) this.mRootView.findViewById(a.g.memberInfo_layout);
+        this.fIM = (RelativeLayout) this.mRootView.findViewById(a.g.notJoin_layout);
+        this.fIN = (TextView) this.mRootView.findViewById(a.g.toJoin_textView);
+        this.fIO = (LinearLayout) this.mRootView.findViewById(a.g.privilege_layout);
+        this.fIP = (FrameLayout) this.mRootView.findViewById(a.g.memberList_layout);
+        this.fIQ = (RelativeLayout) this.mRootView.findViewById(a.g.noData_layout);
+        this.fIY = (CommonEmptyView) this.mRootView.findViewById(a.g.noData_view);
+        this.fIR = (ImageView) this.mRootView.findViewById(a.g.back2_imageView);
+        this.fIZ = (LinearLayout) this.mRootView.findViewById(a.g.joinPrivilegeIcons_layout);
+        this.fJa = (LinearLayout) this.mRootView.findViewById(a.g.hasJoin_layout);
     }
 
-    private void jW(boolean z) {
+    private void kk(boolean z) {
         Resources resources = this.mRootView.getResources();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fxx.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fII.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         }
         if (this.isFullScreen) {
-            if (z || this.avR) {
-                this.fxx.setImageResource(a.f.gcb_bg_info_top);
+            if (z || this.axZ) {
+                this.fII.setImageResource(a.f.gcb_bg_info_top);
                 layoutParams.height = resources.getDimensionPixelOffset(a.e.sdk_ds266);
                 if (Build.VERSION.SDK_INT >= 17) {
                     layoutParams.removeRule(8);
@@ -388,62 +392,62 @@ public class e implements View.OnClickListener {
             } else {
                 GradientDrawable gradientDrawable = new GradientDrawable();
                 gradientDrawable.setShape(0);
-                gradientDrawable.setColor(this.fxr);
-                this.fxx.setImageDrawable(gradientDrawable);
+                gradientDrawable.setColor(this.fIC);
+                this.fII.setImageDrawable(gradientDrawable);
                 layoutParams.height = -1;
                 layoutParams.addRule(8, a.g.infoHead_layout);
             }
-        } else if (z || this.avR) {
-            if (this.fxI == null) {
+        } else if (z || this.axZ) {
+            if (this.fIT == null) {
                 Bitmap decodeResource = BitmapFactory.decodeResource(this.activity.getResources(), a.f.gcb_bg_info_top);
-                this.fxI = com.baidu.live.utils.l.b(decodeResource, this.activity.getResources().getDimensionPixelSize(a.e.sdk_ds26), 3);
-                if (decodeResource != this.fxI) {
+                this.fIT = com.baidu.live.utils.l.b(decodeResource, this.activity.getResources().getDimensionPixelSize(a.e.sdk_ds26), 3);
+                if (decodeResource != this.fIT) {
                     decodeResource.recycle();
                 }
             }
-            if (this.fxJ == null) {
+            if (this.fIU == null) {
                 Bitmap decodeResource2 = BitmapFactory.decodeResource(this.activity.getResources(), a.f.gcb_bg_info_top);
-                this.fxJ = com.baidu.live.utils.l.b(decodeResource2, this.activity.getResources().getDimensionPixelSize(a.e.sdk_ds26), 1);
-                if (decodeResource2 != this.fxJ) {
+                this.fIU = com.baidu.live.utils.l.b(decodeResource2, this.activity.getResources().getDimensionPixelSize(a.e.sdk_ds26), 1);
+                if (decodeResource2 != this.fIU) {
                     decodeResource2.recycle();
                 }
             }
             if (UtilHelper.getRealScreenOrientation(this.activity) == 2) {
-                this.fxx.setImageBitmap(this.fxJ);
+                this.fII.setImageBitmap(this.fIU);
             } else {
-                this.fxx.setImageBitmap(this.fxI);
+                this.fII.setImageBitmap(this.fIT);
             }
             layoutParams.height = resources.getDimensionPixelOffset(a.e.sdk_ds176);
             if (Build.VERSION.SDK_INT >= 17) {
                 layoutParams.removeRule(8);
             }
         } else {
-            this.fxx.setImageDrawable(new ColorDrawable(0));
+            this.fII.setImageDrawable(new ColorDrawable(0));
             layoutParams.height = -1;
             layoutParams.addRule(8, a.g.infoHead_layout);
         }
-        this.fxx.setLayoutParams(layoutParams);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.fxz.getLayoutParams();
-        if (z || this.avR) {
-            this.fxz.setStyle(1);
+        this.fII.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.fIK.getLayoutParams();
+        if (z || this.axZ) {
+            this.fIK.setStyle(1);
             layoutParams2.leftMargin = resources.getDimensionPixelOffset(a.e.sdk_ds4);
             layoutParams2.topMargin = resources.getDimensionPixelOffset(a.e.sdk_ds4);
             layoutParams2.rightMargin = resources.getDimensionPixelOffset(a.e.sdk_ds4);
             layoutParams2.bottomMargin = 0;
-            this.fxB.setVisibility(8);
-            this.fxP.setVisibility(0);
-            this.fxC.setVisibility(8);
+            this.fIM.setVisibility(8);
+            this.fJa.setVisibility(0);
+            this.fIN.setVisibility(8);
         } else {
-            this.fxz.setStyle(0);
+            this.fIK.setStyle(0);
             layoutParams2.leftMargin = resources.getDimensionPixelOffset(a.e.sdk_ds12);
             layoutParams2.topMargin = resources.getDimensionPixelOffset(a.e.sdk_ds8);
             layoutParams2.rightMargin = resources.getDimensionPixelOffset(a.e.sdk_ds32);
             layoutParams2.bottomMargin = 0;
-            this.fxB.setVisibility(0);
-            this.fxP.setVisibility(8);
-            this.fxC.setVisibility(0);
+            this.fIM.setVisibility(0);
+            this.fJa.setVisibility(8);
+            this.fIN.setVisibility(0);
         }
-        this.fxz.setLayoutParams(layoutParams2);
+        this.fIK.setLayoutParams(layoutParams2);
     }
 
     public void a(com.baidu.live.guardclub.a aVar, String str, String[] strArr, boolean z, com.baidu.live.guardclub.d[] dVarArr) {
@@ -452,90 +456,90 @@ public class e implements View.OnClickListener {
         View view;
         TbImageView tbImageView;
         TextView textView;
-        this.aOG = aVar;
-        this.aOH = str;
+        this.aRm = aVar;
+        this.aRn = str;
         if (aVar == null || aVar.id <= 0) {
-            this.fxv.setVisibility(8);
-            this.fxA.setVisibility(8);
-            this.fxN.reset();
-            this.fxN.setTitle(a.i.guard_club_no_create);
-            this.fxN.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-            this.fxF.setVisibility(0);
+            this.fIG.setVisibility(8);
+            this.fIL.setVisibility(8);
+            this.fIY.reset();
+            this.fIY.setTitle(a.i.guard_club_no_create);
+            this.fIY.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
+            this.fIQ.setVisibility(0);
             return;
         }
-        this.fxv.setVisibility(0);
-        this.fxA.setVisibility(0);
-        this.fxF.setVisibility(8);
-        jW(z);
-        this.fxz.fAM.startLoad(aVar.aOB, 12, false);
-        this.fxz.fAN.startLoad(com.baidu.live.guardclub.g.BH().cq(aVar.aOz), 10, false);
+        this.fIG.setVisibility(0);
+        this.fIL.setVisibility(0);
+        this.fIQ.setVisibility(8);
+        kk(z);
+        this.fIK.fLV.startLoad(aVar.aRh, 12, false);
+        this.fIK.fLW.startLoad(com.baidu.live.guardclub.g.Ch().cw(aVar.aRf), 10, false);
         boolean z2 = false;
-        if (this.avR && aVar.aOD != null) {
-            z2 = aVar.aOD.optInt("can_update_name", 0) == 1;
+        if (this.axZ && aVar.aRj != null) {
+            z2 = aVar.aRj.optInt("can_update_name", 0) == 1;
         }
-        int width = this.fxz.fyb.getWidth();
+        int width = this.fIK.fJl.getWidth();
         if (width <= 0) {
-            this.fxz.fyb.measure(0, 0);
-            width = this.fxz.fyb.getMeasuredWidth();
+            this.fIK.fJl.measure(0, 0);
+            width = this.fIK.fJl.getMeasuredWidth();
         }
-        String str3 = aVar.aOu;
+        String str3 = aVar.aRa;
         int i2 = 0;
         if (z2) {
-            this.fxz.fAO.setVisibility(0);
+            this.fIK.fLX.setVisibility(0);
             i2 = this.activity.getResources().getDimensionPixelSize(a.e.sdk_ds36);
         } else {
-            this.fxz.fAO.setVisibility(8);
+            this.fIK.fLX.setVisibility(8);
         }
         if (str3 != null && str3.endsWith("的真爱团")) {
             str2 = str3.substring(0, str3.lastIndexOf("的真爱团"));
-            this.fxz.aVs.setPadding(0, 0, width + i2, 0);
-            this.fxz.fyb.setPadding(0, 0, i2, 0);
-            this.fxz.fyb.setVisibility(0);
+            this.fIK.aXZ.setPadding(0, 0, width + i2, 0);
+            this.fIK.fJl.setPadding(0, 0, i2, 0);
+            this.fIK.fJl.setVisibility(0);
         } else {
-            this.fxz.aVs.setPadding(0, 0, i2, 0);
-            this.fxz.fyb.setPadding(0, 0, i2, 0);
-            this.fxz.fyb.setVisibility(4);
+            this.fIK.aXZ.setPadding(0, 0, i2, 0);
+            this.fIK.fJl.setPadding(0, 0, i2, 0);
+            this.fIK.fJl.setVisibility(4);
             str2 = str3;
         }
-        this.fxz.aVs.setText(str2);
-        String cs = com.baidu.live.guardclub.g.BH().cs(aVar.aOz);
-        String str4 = (cs == null || "null".equals(cs)) ? "" : cs;
-        Resources resources = this.fxz.getResources();
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fxz.getLayoutParams();
-        if (z || this.avR) {
-            this.fxz.setStyle(1);
+        this.fIK.aXZ.setText(str2);
+        String cy = com.baidu.live.guardclub.g.Ch().cy(aVar.aRf);
+        String str4 = (cy == null || "null".equals(cy)) ? "" : cy;
+        Resources resources = this.fIK.getResources();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fIK.getLayoutParams();
+        if (z || this.axZ) {
+            this.fIK.setStyle(1);
             layoutParams.leftMargin = resources.getDimensionPixelOffset(a.e.sdk_ds4);
             layoutParams.topMargin = resources.getDimensionPixelOffset(a.e.sdk_ds4);
             layoutParams.rightMargin = resources.getDimensionPixelOffset(a.e.sdk_ds4);
             layoutParams.bottomMargin = 0;
-            String str5 = "总真爱值 " + aVar.aOw;
-            if (aVar.aOA > 0) {
-                str5 = str5 + " / " + aVar.aOA;
+            String str5 = "总真爱值 " + aVar.aRc;
+            if (aVar.aRg > 0) {
+                str5 = str5 + " / " + aVar.aRg;
             }
-            this.fxz.fAQ.setText(str5);
-            this.fxz.fAS.setText(Html.fromHtml("<font color='#CDFFFFFF'>" + str4 + "</font>"));
-            this.fxB.setVisibility(8);
-            this.fxP.setVisibility(0);
-            this.fxC.setVisibility(8);
-            jX(this.fxi);
+            this.fIK.fLZ.setText(str5);
+            this.fIK.fMb.setText(Html.fromHtml("<font color='#CDFFFFFF'>" + str4 + "</font>"));
+            this.fIM.setVisibility(8);
+            this.fJa.setVisibility(0);
+            this.fIN.setVisibility(8);
+            kl(this.fIt);
         } else {
-            this.fxz.setStyle(0);
+            this.fIK.setStyle(0);
             layoutParams.leftMargin = resources.getDimensionPixelOffset(a.e.sdk_ds12);
             layoutParams.topMargin = resources.getDimensionPixelOffset(a.e.sdk_ds8);
             layoutParams.rightMargin = resources.getDimensionPixelOffset(a.e.sdk_ds32);
             layoutParams.bottomMargin = 0;
-            String str6 = "总真爱值 " + aVar.aOw;
-            if (aVar.aOA > 0) {
-                str6 = str6 + " / " + aVar.aOA;
+            String str6 = "总真爱值 " + aVar.aRc;
+            if (aVar.aRg > 0) {
+                str6 = str6 + " / " + aVar.aRg;
             }
-            this.fxz.fAQ.setText(str6);
-            this.fxz.fAS.setText(Html.fromHtml("<font color='#9AFFFFFF'>" + str4 + "</font>"));
-            this.fxB.setVisibility(0);
-            this.fxP.setVisibility(8);
-            this.fxC.setVisibility(0);
+            this.fIK.fLZ.setText(str6);
+            this.fIK.fMb.setText(Html.fromHtml("<font color='#9AFFFFFF'>" + str4 + "</font>"));
+            this.fIM.setVisibility(0);
+            this.fJa.setVisibility(8);
+            this.fIN.setVisibility(0);
             if (dVarArr != null) {
-                this.fxD.setVisibility(0);
-                this.fxO.removeAllViews();
+                this.fIO.setVisibility(0);
+                this.fIZ.removeAllViews();
                 int i3 = 0;
                 View view2 = null;
                 while (i3 < dVarArr.length) {
@@ -543,7 +547,7 @@ public class e implements View.OnClickListener {
                         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, 0);
                         layoutParams2.weight = 1.0f;
                         view = this.activity.getLayoutInflater().inflate(a.h.layout_guardclub_join_privilege_row, (ViewGroup) null);
-                        this.fxO.addView(view, layoutParams2);
+                        this.fIZ.addView(view, layoutParams2);
                     } else {
                         view = view2;
                     }
@@ -565,28 +569,28 @@ public class e implements View.OnClickListener {
                     }
                     com.baidu.live.guardclub.d dVar = dVarArr[i3];
                     if (dVar != null) {
-                        tbImageView.startLoad(dVar.aOS, 10, false);
-                        textView.setText(dVar.aOT + "");
+                        tbImageView.startLoad(dVar.aRy, 10, false);
+                        textView.setText(dVar.aRz + "");
                     }
                     i3++;
                     view2 = view;
                 }
             } else {
-                this.fxD.setVisibility(8);
+                this.fIO.setVisibility(8);
             }
         }
-        this.fxz.setLayoutParams(layoutParams);
-        if (aVar.aOw == aVar.aOA) {
+        this.fIK.setLayoutParams(layoutParams);
+        if (aVar.aRc == aVar.aRg) {
             i = 100;
-        } else if (aVar.aOw <= 0) {
+        } else if (aVar.aRc <= 0) {
             i = 0;
-        } else if (aVar.aOA <= 0) {
+        } else if (aVar.aRg <= 0) {
             i = 100;
-        } else if (aVar.aOw >= aVar.aOA) {
+        } else if (aVar.aRc >= aVar.aRg) {
             i = 100;
         } else {
             try {
-                i = (int) ((aVar.aOw * 100) / aVar.aOA);
+                i = (int) ((aVar.aRc * 100) / aVar.aRg);
             } catch (Exception e) {
                 e.printStackTrace();
                 i = 0;
@@ -598,37 +602,39 @@ public class e implements View.OnClickListener {
         if (i > 100) {
             i = 100;
         }
-        this.fxz.fAR.setProgress(i);
-        this.fxz.fAV.setText(aVar.aOy < 10000 ? aVar.aOy + "" : String.format("%.1f", Float.valueOf(((float) aVar.aOy) / 10000.0f)) + "万");
-        String str7 = aVar.aOC;
-        this.fxz.fqb.setText((str7 == null || TextUtils.equals(str7, "null")) ? "" : "");
+        this.fIK.fMa.setProgress(i);
+        this.fIK.fMe.setText(aVar.aRe < 10000 ? aVar.aRe + "" : String.format("%.1f", Float.valueOf(((float) aVar.aRe) / 10000.0f)) + "万");
+        String str7 = aVar.aRi;
+        this.fIK.fBm.setText((str7 == null || TextUtils.equals(str7, "null")) ? "" : "");
     }
 
-    public void bus() {
-        this.fxv.setVisibility(8);
-        this.fxA.setVisibility(8);
-        this.fxN.reset();
-        this.fxN.setTitle(a.i.sdk_net_fail_tip_rank);
-        this.fxN.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.e.3
+    public void bxn() {
+        this.fIG.setVisibility(8);
+        this.fIL.setVisibility(8);
+        this.fIY.reset();
+        this.fIY.setTitle(a.i.sdk_net_fail_tip_rank);
+        this.fIY.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.e.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.fxk != null) {
-                    e.this.fxk.onClick(view);
+                if (e.this.fIv != null) {
+                    e.this.fIv.onClick(view);
                 }
             }
         });
-        this.fxN.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.fxF.setVisibility(0);
+        this.fIY.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+        this.fIQ.setVisibility(0);
     }
 
-    public void jX(boolean z) {
-        this.fxH = new j(this.fxn, this.liveId, this.roomId, this.aul, this.aEX, this.avR, true, false, this.isFullScreen, this.otherParams, this.fxn.getUniqueId(), null);
-        this.fxH.jY(z);
-        View view = this.fxH.getView();
+    public void kl(boolean z) {
+        if (this.fIS == null) {
+            this.fIS = new j(this.fIy, this.liveId, this.roomId, this.awn, this.aHt, this.axZ, true, false, this.isFullScreen, this.otherParams, this.fIy.getUniqueId(), null);
+        }
+        this.fIS.km(z);
+        View view = this.fIS.getView();
         if (view != null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.fxE.removeAllViews();
-            this.fxE.addView(view, layoutParams);
+            this.fIP.removeAllViews();
+            this.fIP.addView(view, layoutParams);
         }
     }
 
@@ -637,149 +643,150 @@ public class e implements View.OnClickListener {
     }
 
     public void onDestory() {
-        if (this.aLm != null) {
-            this.aLm.onDestroy();
+        if (this.aNS != null) {
+            this.aNS.onDestroy();
         }
-        if (this.fxI != null) {
-            this.fxI.recycle();
+        if (this.fIT != null) {
+            this.fIT.recycle();
         }
-        if (this.fxJ != null) {
-            this.fxJ.recycle();
+        if (this.fIU != null) {
+            this.fIU.recycle();
         }
-        if (this.fxH != null) {
-            this.fxH.aCE();
+        if (this.fIS != null) {
+            this.fIS.aDK();
         }
-        this.fxn.getPageContext().getPageActivity().getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.globalListener);
+        this.fIy.getPageContext().getPageActivity().getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.globalListener);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         long j;
         String str;
-        if (view == this.fxt || view == this.fxw || view == this.fxG) {
+        if (view == this.fIE || view == this.fIH || view == this.fIR) {
             this.activity.finish();
-        } else if (view == this.fxz.fAP) {
-            if (!TextUtils.isEmpty(this.aOH)) {
-                BrowserHelper.startInternalWebActivity(this.activity, this.aOH);
+        } else if (view == this.fIK.fLY) {
+            if (!TextUtils.isEmpty(this.aRn)) {
+                BrowserHelper.startInternalWebActivity(this.activity, this.aRn);
             }
-            if (!this.avR) {
-                if (this.aOJ) {
+            if (!this.axZ) {
+                if (this.aRp) {
                     str = "guard";
                 } else {
                     str = "no_guard";
                 }
-                LogManager.getGuardClubLogger().doClickLiveRuleLog(this.liveId + "", this.roomId + "", this.aEX, str, this.otherParams);
+                LogManager.getGuardClubLogger().doClickLiveRuleLog(this.liveId + "", this.roomId + "", this.aHt, str, this.otherParams);
             }
-        } else if (view == this.fxz.fAT) {
-            GuardClubMemberListActivityConfig guardClubMemberListActivityConfig = new GuardClubMemberListActivityConfig(this.activity, this.aul, this.liveId, this.avR, this.otherParams);
+        } else if (view == this.fIK.fMc) {
+            GuardClubMemberListActivityConfig guardClubMemberListActivityConfig = new GuardClubMemberListActivityConfig(this.activity, this.awn, this.liveId, this.axZ, this.otherParams);
             guardClubMemberListActivityConfig.setRoomId(this.roomId);
-            guardClubMemberListActivityConfig.setFeedId(this.aEX);
+            guardClubMemberListActivityConfig.setFeedId(this.aHt);
             guardClubMemberListActivityConfig.setRequestCode(RequestResponseCode.REQUEST_GUARD_CLUB_MEMBER_LIST);
             guardClubMemberListActivityConfig.setIntentAction(IntentAction.ActivityForResult);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, guardClubMemberListActivityConfig));
-        } else if (view == this.fxz.fAW) {
-            GuardClubRankActivityConfig guardClubRankActivityConfig = new GuardClubRankActivityConfig(this.activity, this.aul, this.liveId, this.avR, this.otherParams);
+        } else if (view == this.fIK.fMf) {
+            GuardClubRankActivityConfig guardClubRankActivityConfig = new GuardClubRankActivityConfig(this.activity, this.awn, this.liveId, this.axZ, this.otherParams);
             guardClubRankActivityConfig.setRoomId(this.roomId);
-            guardClubRankActivityConfig.setFeedId(this.aEX);
+            guardClubRankActivityConfig.setFeedId(this.aHt);
+            guardClubRankActivityConfig.setAnchorInfo(this.aBT, this.aBU);
             guardClubRankActivityConfig.setRequestCode(RequestResponseCode.REQUEST_GUARD_CLUB_RANK);
             guardClubRankActivityConfig.setIntentAction(IntentAction.ActivityForResult);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, guardClubRankActivityConfig));
-        } else if (view == this.fxC) {
-            if (this.aOG != null) {
-                ao BJ = com.baidu.live.guardclub.g.BH().BJ();
-                if (BJ == null || BJ.aAa <= 0) {
+        } else if (view == this.fIN) {
+            if (this.aRm != null) {
+                as Cj = com.baidu.live.guardclub.g.Ch().Cj();
+                if (Cj == null || Cj.aCl <= 0) {
                     j = 1000;
                 } else {
-                    j = BJ.aAa;
+                    j = Cj.aCl;
                 }
                 if (TbadkCoreApplication.getInst().currentAccountTdouNum >= j) {
-                    qn(this.aOG.id);
-                } else if (this.fxi) {
+                    qM(this.aRm.id);
+                } else if (this.fIt) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(this.activity, 0L, this.otherParams, true, "", true)));
                 } else {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913105, this.aOG));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913105, this.aRm));
                     this.activity.finish();
                 }
             }
-            if (!this.avR) {
-                if (TextUtils.isEmpty(this.fxc)) {
-                    this.fxc = "guard";
+            if (!this.axZ) {
+                if (TextUtils.isEmpty(this.fIn)) {
+                    this.fIn = "guard";
                 }
-                LogManager.getGuardClubLogger().doClickLiveGuardJoinLog(this.liveId + "", this.roomId + "", this.aEX, this.fxc, this.otherParams);
+                LogManager.getGuardClubLogger().doClickLiveGuardJoinLog(this.liveId + "", this.roomId + "", this.aHt, this.fIn, this.otherParams);
             }
         } else if (view == this.mRootView) {
             if (this.mIsKeyboardOpen) {
-                this.fxK.clearFocus();
-                this.fxK.setText("");
-                BdUtilHelper.hideSoftKeyPad(this.fxn.getActivity(), this.fxK);
+                this.fIV.clearFocus();
+                this.fIV.setText("");
+                BdUtilHelper.hideSoftKeyPad(this.fIy.getActivity(), this.fIV);
                 return;
             }
             this.activity.finish();
-        } else if (view == this.fxL) {
-            String obj = this.fxK.getText().toString();
+        } else if (view == this.fIW) {
+            String obj = this.fIV.getText().toString();
             if (!TextUtils.isEmpty(obj)) {
-                g(this.aOG.id, obj, "");
+                g(this.aRm.id, obj, "");
             }
-        } else if (view == this.fxz.fAO) {
-            this.fxK.requestFocus();
-            BdUtilHelper.showSoftKeyPad(this.fxn.getActivity(), this.fxK);
+        } else if (view == this.fIK.fLX) {
+            this.fIV.requestFocus();
+            BdUtilHelper.showSoftKeyPad(this.fIy.getActivity(), this.fIV);
         }
     }
 
-    public void BO(String str) {
+    public void Cm(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.fxz.aVs.setText(str);
-            this.fxK.setText("");
-            this.fxK.clearFocus();
-            BdUtilHelper.hideSoftKeyPad(this.fxn.getActivity(), this.fxK);
+            this.fIK.aXZ.setText(str);
+            this.fIV.setText("");
+            this.fIV.clearFocus();
+            BdUtilHelper.hideSoftKeyPad(this.fIy.getActivity(), this.fIV);
         }
     }
 
     protected void onKeyboardVisibilityChanged(boolean z) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fxq.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fIB.getLayoutParams();
         if (z) {
-            this.fxo.setVisibility(this.isFullScreen ? 0 : 8);
-            this.fxp.setVisibility(0);
-            String charSequence = this.fxz.aVs.getText().toString();
+            this.fIz.setVisibility(this.isFullScreen ? 0 : 8);
+            this.fIA.setVisibility(0);
+            String charSequence = this.fIK.aXZ.getText().toString();
             if (!TextUtils.isEmpty(charSequence)) {
-                this.fxK.setText(charSequence);
-                this.fxK.setSelection(charSequence.length() > 10 ? 10 : charSequence.length());
+                this.fIV.setText(charSequence);
+                this.fIV.setSelection(charSequence.length() > 10 ? 10 : charSequence.length());
             } else {
-                this.fxK.setText("");
+                this.fIV.setText("");
             }
-            layoutParams.bottomMargin = but();
+            layoutParams.bottomMargin = bxo();
         } else {
             layoutParams.bottomMargin = 0;
-            this.fxp.setVisibility(8);
-            this.fxo.setVisibility(0);
+            this.fIA.setVisibility(8);
+            this.fIz.setVisibility(0);
         }
-        this.fxq.setLayoutParams(layoutParams);
+        this.fIB.setLayoutParams(layoutParams);
     }
 
-    protected int but() {
+    protected int bxo() {
         Rect rect = new Rect();
         this.mRootView.getWindowVisibleDisplayFrame(rect);
-        int i = ViewCommonUtil.getScreenFullSize(this.fxn.getPageContext().getPageActivity())[1] - rect.bottom;
+        int i = ViewCommonUtil.getScreenFullSize(this.fIy.getPageContext().getPageActivity())[1] - rect.bottom;
         int i2 = 0;
         if (MenuKeyUtils.hasSmartBar()) {
-            i2 = BdUtilHelper.dip2px(this.fxn.getPageContext().getPageActivity(), 48.0f);
+            i2 = BdUtilHelper.dip2px(this.fIy.getPageContext().getPageActivity(), 48.0f);
         }
         return i - i2;
     }
 
-    public void qn(int i) {
+    public void qM(int i) {
         com.baidu.live.guardclub.c cVar = new com.baidu.live.guardclub.c();
-        cVar.co(i);
-        cVar.a(this.aOG);
+        cVar.cu(i);
+        cVar.a(this.aRm);
         cVar.setParams();
         MessageManager.getInstance().sendMessage(cVar);
     }
 
     public void g(int i, String str, String str2) {
         com.baidu.tieba.ala.guardclub.model.c cVar = new com.baidu.tieba.ala.guardclub.model.c();
-        cVar.dw(i);
-        cVar.BQ(str);
-        cVar.BR(str2);
+        cVar.dz(i);
+        cVar.Co(str);
+        cVar.Cp(str2);
         cVar.setParams();
         MessageManager.getInstance().sendMessage(cVar);
     }

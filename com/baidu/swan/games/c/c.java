@@ -4,20 +4,20 @@ import android.support.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c extends com.baidu.swan.apps.event.a.b {
-    private String cWa;
+    private String daM;
     private String data;
     private String logType;
 
     public c(@NonNull String str, String str2, String str3, String str4) {
         super(str);
-        this.cWa = str2;
+        this.daM = str2;
         this.logType = str3;
         this.data = str4;
     }
 
     @Override // com.baidu.swan.apps.event.a.b, com.baidu.swan.apps.event.a.a
-    public String kd(String str) {
-        String str2 = this.cWa;
+    public String kl(String str) {
+        String str2 = this.daM;
         char c = 65535;
         switch (str2.hashCode()) {
             case -2011830027:
@@ -41,7 +41,7 @@ public class c extends com.baidu.swan.apps.event.a.b {
         }
         switch (c) {
             case 0:
-                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.logType, JSONObject.quote(com.baidu.swan.apps.aq.i.a(com.baidu.swan.apps.aq.i.atq(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.data));
+                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.logType, JSONObject.quote(com.baidu.swan.apps.aq.i.a(com.baidu.swan.apps.aq.i.auw(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.data));
             case 1:
                 return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.logType, JSONObject.quote(this.data));
             case 2:
@@ -51,15 +51,15 @@ public class c extends com.baidu.swan.apps.event.a.b {
         }
     }
 
-    public static com.baidu.swan.apps.event.a.b fK(boolean z) {
+    public static com.baidu.swan.apps.event.a.b fP(boolean z) {
         return new c("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, z ? "show" : "hide");
     }
 
-    public static com.baidu.swan.apps.event.a.b cg(String str, String str2) {
+    public static com.baidu.swan.apps.event.a.b ci(String str, String str2) {
         return new c("sconsole_console", "%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, str2);
     }
 
-    public static com.baidu.swan.apps.event.a.b ch(String str, String str2) {
+    public static com.baidu.swan.apps.event.a.b cj(String str, String str2) {
         return new c("sconsole_system", "%s.message = { type:'log',logType:'%s',logs:[%s] };", str, str2);
     }
 }

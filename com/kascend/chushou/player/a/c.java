@@ -8,7 +8,7 @@ public class c {
     public boolean e;
     public boolean g;
     public boolean h;
-    public a mJR;
+    public a nfP;
 
     /* loaded from: classes5.dex */
     interface a {
@@ -22,7 +22,7 @@ public class c {
         this.b = i2;
         this.c = i3;
         this.e = z;
-        this.mJR = aVar;
+        this.nfP = aVar;
         this.d = 0;
         this.h = true;
     }
@@ -37,6 +37,6 @@ public class c {
         this.e = z;
         this.h = z2;
         this.g = z3;
-        this.mJR = aVar;
+        this.nfP = aVar;
     }
 }

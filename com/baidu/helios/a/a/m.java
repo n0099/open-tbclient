@@ -8,13 +8,13 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class m implements i {
-    private a aqn;
+    private a arF;
 
     /* loaded from: classes6.dex */
     private class a {
-        private a.C0141a aqo;
-        private JSONObject aqp;
-        private JSONObject aqq;
+        private a.C0143a arG;
+        private JSONObject arH;
+        private JSONObject arI;
         private Context i;
         private boolean k;
         private boolean l;
@@ -26,7 +26,7 @@ public class m implements i {
             if (context == null) {
                 throw new NullPointerException("context should not be null");
             }
-            this.aqo = new com.baidu.helios.common.c.a(context.getApplicationContext()).us().eb("cloud").eb("cstore");
+            this.arG = new com.baidu.helios.common.c.a(context.getApplicationContext()).uK().ed("cloud").ed("cstore");
         }
 
         private boolean a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -46,12 +46,12 @@ public class m implements i {
 
         private synchronized boolean b() {
             boolean a;
-            if (this.aqp == null) {
+            if (this.arH == null) {
                 a = true;
-            } else if (this.aqq == null) {
+            } else if (this.arI == null) {
                 throw new IllegalArgumentException("you forgot invoke methond :IMatchConditions.setComparedCStoreParams before ");
             } else {
-                a = a(this.aqp, this.aqq);
+                a = a(this.arH, this.arI);
             }
             return a;
         }
@@ -61,15 +61,15 @@ public class m implements i {
         }
 
         private long d() {
-            if (this.aqp == null) {
+            if (this.arH == null) {
                 return 0L;
             }
-            return this.aqp.optLong("ctime", 0L);
+            return this.arH.optLong("ctime", 0L);
         }
 
         private void e() {
             try {
-                this.aqp = l.a(this.aqo.q("cs.dat", true));
+                this.arH = l.a(this.arG.q("cs.dat", true));
                 this.q = d();
             } catch (Exception e) {
                 this.q = 0L;
@@ -78,7 +78,7 @@ public class m implements i {
 
         private void f() {
             try {
-                JSONObject a = l.a(this.aqo.q("ct.dat", true));
+                JSONObject a = l.a(this.arG.q("ct.dat", true));
                 if (a == null) {
                     this.n = 172800L;
                 } else {
@@ -91,7 +91,7 @@ public class m implements i {
 
         private void g() {
             try {
-                JSONObject a = l.a(this.aqo.q("ci.dat", true));
+                JSONObject a = l.a(this.arG.q("ci.dat", true));
                 if (a == null) {
                     this.k = true;
                 } else {
@@ -104,7 +104,7 @@ public class m implements i {
 
         private boolean h() {
             try {
-                this.aqo.d("cs.dat", this.aqp.toString(), true);
+                this.arG.d("cs.dat", this.arH.toString(), true);
                 return true;
             } catch (Exception e) {
                 return false;
@@ -115,7 +115,7 @@ public class m implements i {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("isOn", this.k);
-                this.aqo.d("ci.dat", jSONObject.toString(), true);
+                this.arG.d("ci.dat", jSONObject.toString(), true);
                 return true;
             } catch (Exception e) {
                 return false;
@@ -126,7 +126,7 @@ public class m implements i {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("TIME_OUT", this.n);
-                this.aqo.d("ct.dat", jSONObject.toString(), true);
+                this.arG.d("ct.dat", jSONObject.toString(), true);
                 return true;
             } catch (Exception e) {
                 return false;
@@ -157,7 +157,7 @@ public class m implements i {
         }
 
         public void a(JSONObject jSONObject) {
-            this.aqq = jSONObject;
+            this.arI = jSONObject;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:15:0x002a, code lost:
@@ -171,9 +171,9 @@ public class m implements i {
             synchronized (this) {
                 k();
                 m();
-                boolean tQ = com.baidu.helios.b.ae(this.i).tQ();
-                if (this.k && tQ) {
-                    if (this.aqp == null) {
+                boolean ui = com.baidu.helios.b.af(this.i).ui();
+                if (this.k && ui) {
+                    if (this.arH == null) {
                         z = true;
                     } else {
                         if (!c()) {
@@ -186,7 +186,7 @@ public class m implements i {
         }
 
         public void b(JSONObject jSONObject) {
-            this.aqp = jSONObject;
+            this.arH = jSONObject;
             h();
         }
     }
@@ -195,8 +195,8 @@ public class m implements i {
         if (context == null) {
             throw new NullPointerException("context should not be null");
         }
-        if (this.aqn == null) {
-            this.aqn = new a(context.getApplicationContext());
+        if (this.arF == null) {
+            this.arF = new a(context.getApplicationContext());
         }
     }
 
@@ -217,22 +217,22 @@ public class m implements i {
 
     @Override // com.baidu.helios.a.a.i
     public boolean a() {
-        return this.aqn.a();
+        return this.arF.a();
     }
 
     @Override // com.baidu.helios.a.a.i
     public void b() {
-        this.aqn.l();
+        this.arF.l();
     }
 
     @Override // com.baidu.helios.a.a.i
     public void b(JSONObject jSONObject) {
-        this.aqn.b(jSONObject);
+        this.arF.b(jSONObject);
     }
 
     @Override // com.baidu.helios.a.a.i
-    public i q(JSONObject jSONObject) {
-        this.aqn.a(jSONObject);
+    public i r(JSONObject jSONObject) {
+        this.arF.a(jSONObject);
         return this;
     }
 }

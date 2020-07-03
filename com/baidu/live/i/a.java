@@ -5,9 +5,9 @@ import com.baidu.live.data.k;
 import com.baidu.live.data.q;
 /* loaded from: classes3.dex */
 public interface a {
-    void BL();
+    void Cl();
 
-    void BO();
+    void Co();
 
     void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
 

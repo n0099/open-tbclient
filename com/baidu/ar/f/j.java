@@ -5,12 +5,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes3.dex */
 public class j {
-    private static char[] wq = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-    private static MessageDigest wr;
+    private static char[] wQ = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static MessageDigest wR;
 
     static {
         try {
-            wr = MessageDigest.getInstance("MD5");
+            wR = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException e) {
             System.err.println(j.class.getName() + "初始化失败，MessageDigest不支持MD5Util。");
             e.printStackTrace();
@@ -18,21 +18,21 @@ public class j {
     }
 
     private static void a(byte b, StringBuffer stringBuffer) {
-        char c = wq[(b & 240) >> 4];
-        char c2 = wq[b & 15];
+        char c = wQ[(b & 240) >> 4];
+        char c2 = wQ[b & 15];
         stringBuffer.append(c);
         stringBuffer.append(c2);
     }
 
-    public static synchronized String aL(String str) {
-        String f;
+    public static synchronized String aM(String str) {
+        String h;
         synchronized (j.class) {
-            f = f(str.getBytes(Charset.forName("utf-8")));
+            h = h(str.getBytes(Charset.forName("utf-8")));
         }
-        return f;
+        return h;
     }
 
-    public static String aM(String str) {
+    public static String aN(String str) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             char[] charArray = str.toCharArray();
@@ -66,12 +66,12 @@ public class j {
         return stringBuffer.toString();
     }
 
-    public static String f(byte[] bArr) {
-        wr.update(bArr);
-        return g(wr.digest());
+    public static String h(byte[] bArr) {
+        wR.update(bArr);
+        return i(wR.digest());
     }
 
-    private static String g(byte[] bArr) {
+    private static String i(byte[] bArr) {
         return e(bArr, 0, bArr.length);
     }
 }

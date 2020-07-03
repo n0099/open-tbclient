@@ -10,10 +10,10 @@ public class b extends j {
 
     /* loaded from: classes11.dex */
     private static final class a {
-        private static final b cOU = new b();
+        private static final b cTE = new b();
     }
 
-    public static b auW() {
-        return a.cOU;
+    public static b awc() {
+        return a.cTE;
     }
 }

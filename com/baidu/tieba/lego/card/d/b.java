@@ -1,5 +1,5 @@
 package com.baidu.tieba.lego.card.d;
 /* loaded from: classes.dex */
 public class b {
-    public static int iZV = 1;
+    public static int jrf = 1;
 }

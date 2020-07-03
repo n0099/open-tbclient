@@ -9,7 +9,7 @@ public final class FlowableSingle<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.noe.a((j) new SingleElementSubscriber(cVar, this.defaultValue));
+        this.nJT.a((j) new SingleElementSubscriber(cVar, this.defaultValue));
     }
 
     /* loaded from: classes7.dex */

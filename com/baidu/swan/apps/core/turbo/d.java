@@ -35,64 +35,64 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class d implements h {
-    private static volatile d caF;
-    private com.baidu.swan.apps.core.container.a.b caG;
-    private com.baidu.swan.apps.core.g.a caI;
-    private boolean caJ;
-    private com.baidu.swan.apps.adaptation.b.c caK;
-    private boolean caL;
-    private boolean caM;
-    private boolean caN;
-    private HashMap<String, e> caO;
-    private String caR;
-    private as caW;
-    private i caX;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static int cfH = 10150;
+    public static boolean cfI = false;
+    private static PreloadState cfJ = PreloadState.UNKNOWN;
+    private static boolean cfK = false;
+    private static volatile d cfu;
+    private boolean cfA;
+    private boolean cfB;
+    private boolean cfC;
+    private HashMap<String, e> cfD;
+    private String cfG;
+    private as cfL;
+    private i cfM;
+    private com.baidu.swan.apps.core.container.a.b cfv;
+    private com.baidu.swan.apps.core.g.a cfx;
+    private boolean cfy;
+    private com.baidu.swan.apps.adaptation.b.c cfz;
     @Nullable
     private ExtensionCore mExtensionCore;
     private SwanCoreVersion mSwanCoreVersion;
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int caS = 10150;
-    public static boolean caT = false;
-    private static PreloadState caU = PreloadState.UNKNOWN;
-    private static boolean caV = false;
-    private List<a> caH = new CopyOnWriteArrayList();
-    private LinkedList<com.baidu.swan.apps.event.a.a> caP = new LinkedList<>();
-    private final Object caQ = new Object();
-    private volatile boolean caY = false;
+    private List<a> cfw = new CopyOnWriteArrayList();
+    private LinkedList<com.baidu.swan.apps.event.a.a> cfE = new LinkedList<>();
+    private final Object cfF = new Object();
+    private volatile boolean cfN = false;
 
     /* loaded from: classes11.dex */
     public interface a {
         void onReady();
     }
 
-    public static PreloadState abj() {
-        return caU;
+    public static PreloadState acp() {
+        return cfJ;
     }
 
-    public static int abk() {
-        return abj().statsCode(caV);
+    public static int acq() {
+        return acp().statsCode(cfK);
     }
 
     private d() {
         com.baidu.swan.apps.w.i.a(this);
-        this.caO = new HashMap<>();
-        this.caW = new com.baidu.swan.apps.adaptation.b.a.b();
-        this.caX = com.baidu.swan.apps.adaptation.b.a.c.Tq().Tr().To();
+        this.cfD = new HashMap<>();
+        this.cfL = new com.baidu.swan.apps.adaptation.b.a.b();
+        this.cfM = com.baidu.swan.apps.adaptation.b.a.c.Uw().Ux().Uu();
     }
 
-    public static d abl() {
-        if (caF == null) {
+    public static d acr() {
+        if (cfu == null) {
             synchronized (d.class) {
-                if (caF == null) {
-                    caF = new d();
+                if (cfu == null) {
+                    cfu = new d();
                 }
             }
         }
-        return caF;
+        return cfu;
     }
 
-    public as abm() {
-        return this.caW;
+    public as acs() {
+        return this.cfL;
     }
 
     private static Context getContext() {
@@ -104,73 +104,73 @@ public final class d implements h {
             if (DEBUG) {
                 Log.d("SwanAppCoreRuntime", "release");
             }
-            if (caF != null) {
-                caU = PreloadState.UNKNOWN;
-                caF.caM = true;
-                caT = false;
-                if (caF.caG != null) {
-                    caF.caX.b(caF.caG);
+            if (cfu != null) {
+                cfJ = PreloadState.UNKNOWN;
+                cfu.cfB = true;
+                cfI = false;
+                if (cfu.cfv != null) {
+                    cfu.cfM.b(cfu.cfv);
                 }
-                com.baidu.swan.apps.api.module.l.d.UF();
-                com.baidu.swan.apps.swancore.a.a.arU();
-                abn();
-                com.baidu.swan.apps.w.i.b(caF);
-                caF = null;
-                if (a.b.aaU()) {
-                    com.baidu.swan.apps.core.slave.a.aaQ().clear();
+                com.baidu.swan.apps.api.module.l.d.VL();
+                com.baidu.swan.apps.swancore.a.a.atb();
+                act();
+                com.baidu.swan.apps.w.i.b(cfu);
+                cfu = null;
+                if (a.b.aca()) {
+                    com.baidu.swan.apps.core.slave.a.abW().clear();
                 }
-                com.baidu.swan.apps.core.h.b.aaz().reset();
-                caV = z;
-                abl().abo();
+                com.baidu.swan.apps.core.h.b.abF().reset();
+                cfK = z;
+                acr().acu();
             }
         }
     }
 
-    private static void abn() {
-        if (caF.caO != null) {
-            for (e eVar : ((HashMap) caF.caO.clone()).values()) {
+    private static void act() {
+        if (cfu.cfD != null) {
+            for (e eVar : ((HashMap) cfu.cfD.clone()).values()) {
                 if (eVar != null) {
                     eVar.destroy();
                 }
             }
         }
-        if (caF.caI != null) {
-            if (caF.caI instanceof com.baidu.swan.apps.core.g.e) {
-                caF.caI.destroy();
+        if (cfu.cfx != null) {
+            if (cfu.cfx instanceof com.baidu.swan.apps.core.g.e) {
+                cfu.cfx.destroy();
             }
-            caF.caI = null;
+            cfu.cfx = null;
         }
-        if (caF.caK != null) {
-            caF.caK = null;
+        if (cfu.cfz != null) {
+            cfu.cfz = null;
         }
     }
 
-    private void abo() {
+    private void acu() {
         p(null);
     }
 
     public void p(Intent intent) {
         SwanCoreVersion swanCoreVersion;
         ExtensionCore extensionCore;
-        if (abr()) {
+        if (acx()) {
             if (DEBUG) {
                 Log.d("SwanAppCoreRuntime", "preloadCoreRuntime runtime is ready.");
                 return;
             }
             return;
         }
-        caT = true;
+        cfI = true;
         if (DEBUG) {
             Log.d("SwanAppCoreRuntime", "preloadCoreRuntime start.");
         }
         if (intent == null) {
-            swanCoreVersion = com.baidu.swan.apps.swancore.b.hc(0);
-            extensionCore = com.baidu.swan.apps.extcore.b.fg(0);
+            swanCoreVersion = com.baidu.swan.apps.swancore.b.hn(0);
+            extensionCore = com.baidu.swan.apps.extcore.b.fr(0);
         } else {
             intent.setExtrasClassLoader(SwanCoreVersion.class.getClassLoader());
             swanCoreVersion = (SwanCoreVersion) intent.getParcelableExtra("bundle_key_swan_core");
             extensionCore = (ExtensionCore) intent.getParcelableExtra("bundle_key_extension_core");
-            com.baidu.swan.apps.u.a.afn().ef(intent.getIntExtra("bundle_key_preload_switch", caS));
+            com.baidu.swan.apps.u.a.agt().eq(intent.getIntExtra("bundle_key_preload_switch", cfH));
         }
         if (swanCoreVersion == null) {
             if (DEBUG) {
@@ -184,24 +184,24 @@ public final class d implements h {
             Log.w("SwanAppCoreRuntime", "preloadCoreRuntime with null extensionCore");
         }
         a(extensionCore);
-        b.abN();
+        b.acT();
         n.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.core.turbo.d.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.aq.h.atm();
+                com.baidu.swan.apps.aq.h.aus();
             }
         }, "prepare ab description");
-        if (!abD() || com.baidu.swan.games.utils.so.d.aCo()) {
+        if (!acJ() || com.baidu.swan.games.utils.so.d.aDu()) {
             a(new a() { // from class: com.baidu.swan.apps.core.turbo.d.2
                 @Override // com.baidu.swan.apps.core.turbo.d.a
                 public void onReady() {
                     aj.p(new Runnable() { // from class: com.baidu.swan.apps.core.turbo.d.2.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            d.this.abM();
+                            d.this.acS();
                         }
                     });
-                    com.baidu.swan.apps.process.messaging.client.a.amQ().sendMessage(14);
+                    com.baidu.swan.apps.process.messaging.client.a.anW().sendMessage(14);
                 }
             });
             if (DEBUG) {
@@ -214,32 +214,32 @@ public final class d implements h {
         if (this.mSwanCoreVersion != null) {
             bVar.b(this.mSwanCoreVersion);
         } else {
-            this.mSwanCoreVersion = bVar.abG();
+            this.mSwanCoreVersion = bVar.acM();
         }
     }
 
     public void a(final com.baidu.swan.apps.v.b.b bVar, final e.f fVar) {
         if (DEBUG) {
             Log.d("SwanAppCoreRuntime", "startFirstPage cur swanCoreVersion: " + this.mSwanCoreVersion);
-            Log.d("SwanAppCoreRuntime", "startFirstPage launchInfo coreVersion: " + bVar.abG());
+            Log.d("SwanAppCoreRuntime", "startFirstPage launchInfo coreVersion: " + bVar.acM());
         }
         e(bVar);
         f(bVar);
-        g.alx().f(new UbcFlowEvent("na_pre_load_check"));
-        com.baidu.swan.apps.al.a.aqT().oo("na_pre_load_check");
+        g.amD().f(new UbcFlowEvent("na_pre_load_check"));
+        com.baidu.swan.apps.al.a.arZ().ow("na_pre_load_check");
         a(new a() { // from class: com.baidu.swan.apps.core.turbo.d.3
             @Override // com.baidu.swan.apps.core.turbo.d.a
             public void onReady() {
                 aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.core.turbo.d.3.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (!d.this.caM) {
-                            g.mp("startup").f(new UbcFlowEvent("na_pre_load_ok"));
-                            com.baidu.swan.apps.al.a.aqT().oo("na_pre_load_ok");
-                            g.bF("preload", "startup");
-                            if (d.this.caI != null && d.this.caK != null) {
-                                com.baidu.swan.apps.scheme.actions.k.c.a(d.this.caI, d.this.caK, bVar, fVar);
-                                d.this.caK = null;
+                        if (!d.this.cfB) {
+                            g.mx("startup").f(new UbcFlowEvent("na_pre_load_ok"));
+                            com.baidu.swan.apps.al.a.arZ().ow("na_pre_load_ok");
+                            g.bH("preload", "startup");
+                            if (d.this.cfx != null && d.this.cfz != null) {
+                                com.baidu.swan.apps.scheme.actions.k.c.a(d.this.cfx, d.this.cfz, bVar, fVar);
+                                d.this.cfz = null;
                             }
                             g.i(bVar);
                         }
@@ -249,16 +249,16 @@ public final class d implements h {
         });
     }
 
-    public void abp() {
+    public void acv() {
         aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.core.turbo.d.4
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.runtime.e aoG;
-                if (d.this.caK != null && (aoG = com.baidu.swan.apps.runtime.e.aoG()) != null) {
-                    String a2 = com.baidu.swan.apps.scheme.actions.k.c.a(f.ahV(), aoG.QJ(), aoG.aoO());
-                    SwanAppConfigData aoO = aoG.aoO();
-                    if (TextUtils.equals(aoO != null ? aoO.nz(a2) : null, "main")) {
-                        com.baidu.swan.apps.core.h.b.aaz().a(d.this.caI, d.this.caK, aoG.QJ(), aoG.aoO(), null);
+                com.baidu.swan.apps.runtime.e apN;
+                if (d.this.cfz != null && (apN = com.baidu.swan.apps.runtime.e.apN()) != null) {
+                    String a2 = com.baidu.swan.apps.scheme.actions.k.c.a(f.ajb(), apN.RP(), apN.apV());
+                    SwanAppConfigData apV = apN.apV();
+                    if (TextUtils.equals(apV != null ? apV.nH(a2) : null, "main")) {
+                        com.baidu.swan.apps.core.h.b.abF().a(d.this.cfx, d.this.cfz, apN.RP(), apN.apV(), null);
                     }
                 }
             }
@@ -266,54 +266,54 @@ public final class d implements h {
     }
 
     public void a(a aVar) {
-        if (aVar != null && !this.caH.contains(aVar)) {
-            this.caH.add(aVar);
+        if (aVar != null && !this.cfw.contains(aVar)) {
+            this.cfw.add(aVar);
         }
-        boolean abr = abr();
-        g.alx().bD("preload", abr ? "1" : "0");
-        if (abr) {
-            abu();
+        boolean acx = acx();
+        g.amD().bF("preload", acx ? "1" : "0");
+        if (acx) {
+            acA();
             return;
         }
-        caU = PreloadState.LOADING;
-        g.mp("preload").f(new UbcFlowEvent("na_pre_load_start"));
-        abF();
-        if (a.b.aaU()) {
-            com.baidu.swan.apps.core.slave.a.aaQ().a(aby(), (a.InterfaceC0345a) null);
+        cfJ = PreloadState.LOADING;
+        g.mx("preload").f(new UbcFlowEvent("na_pre_load_start"));
+        acL();
+        if (a.b.aca()) {
+            com.baidu.swan.apps.core.slave.a.abW().a(acE(), (a.InterfaceC0351a) null);
         }
-        if (abD()) {
-            abC();
+        if (acJ()) {
+            acI();
         }
-        if (this.caG == null) {
-            this.caG = new com.baidu.swan.apps.core.container.a.b() { // from class: com.baidu.swan.apps.core.turbo.d.5
+        if (this.cfv == null) {
+            this.cfv = new com.baidu.swan.apps.core.container.a.b() { // from class: com.baidu.swan.apps.core.turbo.d.5
                 @Override // com.baidu.swan.apps.core.container.a.b
-                public void Rf() {
+                public void Sl() {
                     if (d.DEBUG) {
                         Log.d("SwanAppCoreRuntime", "prepareRuntime addBlinkInitListener blink loaded.");
                     }
-                    g.mp("preload").f(new UbcFlowEvent("na_pre_load_blink_init_ok"));
+                    g.mx("preload").f(new UbcFlowEvent("na_pre_load_blink_init_ok"));
                     aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.core.turbo.d.5.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (d.DEBUG) {
-                                Log.d("SwanAppCoreRuntime", "prepareRuntime addBlinkInitListener do prepare. isReleased: " + d.this.caM);
+                                Log.d("SwanAppCoreRuntime", "prepareRuntime addBlinkInitListener do prepare. isReleased: " + d.this.cfB);
                             }
-                            if (d.this.caM) {
+                            if (d.this.cfB) {
                                 if (d.DEBUG) {
                                     Log.d("SwanAppCoreRuntime", Log.getStackTraceString(new Exception("runtime object is release.")));
                                     return;
                                 }
                                 return;
                             }
-                            d.this.abF();
-                            d.this.abI();
+                            d.this.acL();
+                            d.this.acO();
                             if (d.this.mSwanCoreVersion != null) {
-                                d.this.abC();
-                                d.this.abE();
+                                d.this.acI();
+                                d.this.acK();
                                 return;
                             }
-                            PreloadState unused = d.caU = PreloadState.LOAD_FAILED;
-                            d.this.abq();
+                            PreloadState unused = d.cfJ = PreloadState.LOAD_FAILED;
+                            d.this.acw();
                         }
                     });
                 }
@@ -321,167 +321,167 @@ public final class d implements h {
             if (DEBUG) {
                 Log.d("SwanAppCoreRuntime", "prepareRuntime addBlinkInitListener.");
             }
-            this.caX.a(this.caG);
+            this.cfM.a(this.cfv);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abq() {
-        synchronized (this.caQ) {
-            this.caJ = false;
-            this.caI = null;
+    public void acw() {
+        synchronized (this.cfF) {
+            this.cfy = false;
+            this.cfx = null;
         }
-        this.caL = false;
-        this.caK = null;
+        this.cfA = false;
+        this.cfz = null;
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("swanjs version", com.baidu.swan.apps.swancore.d.a.hs(0));
+            jSONObject.put("swanjs version", com.baidu.swan.apps.swancore.d.a.hD(0));
             jSONObject.put("system model", Build.MODEL);
-            jSONObject.put("is V8", abA());
+            jSONObject.put("is V8", acG());
             jSONObject.put("in main", ProcessUtils.isMainProcess());
-            SwanCoreVersion hc = com.baidu.swan.apps.swancore.b.hc(0);
-            jSONObject.put("swan app core", hc == null ? "null" : Long.valueOf(hc.swanCoreVersion));
-            SwanCoreVersion hc2 = com.baidu.swan.apps.swancore.b.hc(1);
-            jSONObject.put("swan game core", hc2 == null ? "null" : Long.valueOf(hc2.swanCoreVersion));
+            SwanCoreVersion hn = com.baidu.swan.apps.swancore.b.hn(0);
+            jSONObject.put("swan app core", hn == null ? "null" : Long.valueOf(hn.swanCoreVersion));
+            SwanCoreVersion hn2 = com.baidu.swan.apps.swancore.b.hn(1);
+            jSONObject.put("swan game core", hn2 == null ? "null" : Long.valueOf(hn2.swanCoreVersion));
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        new c.a(10001).or(com.baidu.swan.apps.runtime.e.aoF() == null ? "null appKey" : com.baidu.swan.apps.runtime.e.aoF().getAppKey()).os(jSONObject.toString()).ahn();
+        new c.a(10001).oz(com.baidu.swan.apps.runtime.e.apM() == null ? "null appKey" : com.baidu.swan.apps.runtime.e.apM().getAppKey()).oA(jSONObject.toString()).ait();
     }
 
-    public boolean abr() {
+    public boolean acx() {
         boolean z;
-        synchronized (this.caQ) {
-            z = this.caJ && this.caL;
+        synchronized (this.cfF) {
+            z = this.cfy && this.cfA;
         }
         return z;
     }
 
-    public boolean abs() {
+    public boolean acy() {
         boolean z;
-        synchronized (this.caQ) {
-            z = this.caJ;
+        synchronized (this.cfF) {
+            z = this.cfy;
         }
         return z;
     }
 
-    public boolean abt() {
+    public boolean acz() {
         boolean z;
-        synchronized (this.caQ) {
-            z = this.caL;
+        synchronized (this.cfF) {
+            z = this.cfA;
         }
         return z;
     }
 
-    public void abu() {
-        if (!this.caH.isEmpty() && abr()) {
-            caU = PreloadState.LOADED;
-            g.mp("preload").f(new UbcFlowEvent("na_pre_load_end"));
-            for (a aVar : this.caH) {
+    public void acA() {
+        if (!this.cfw.isEmpty() && acx()) {
+            cfJ = PreloadState.LOADED;
+            g.mx("preload").f(new UbcFlowEvent("na_pre_load_end"));
+            for (a aVar : this.cfw) {
                 if (aVar != null) {
                     aVar.onReady();
                 }
             }
-            this.caH.clear();
+            this.cfw.clear();
         }
     }
 
-    private String I(String str, boolean z) {
+    private String K(String str, boolean z) {
         String str2 = z ? "slave" : "master";
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.swan.apps.core.a.t(str, "<title>", "        <script type=\"text/javascript\" src=\"file:///sdcard/socket.io.js\"></script>\n        <script type=\"text/javascript\" src=\"file:///sdcard/" + str2 + "_socket.js\"></script>");
+            com.baidu.swan.apps.core.a.u(str, "<title>", "        <script type=\"text/javascript\" src=\"file:///sdcard/socket.io.js\"></script>\n        <script type=\"text/javascript\" src=\"file:///sdcard/" + str2 + "_socket.js\"></script>");
         }
         return str;
     }
 
-    public String abv() {
-        return !TextUtils.isEmpty(abw()) ? abw() + "runtime/index.js" : "";
+    public String acB() {
+        return !TextUtils.isEmpty(acC()) ? acC() + "runtime/index.js" : "";
     }
 
-    public String abw() {
+    public String acC() {
         return this.mSwanCoreVersion == null ? "" : this.mSwanCoreVersion.swanCorePath + File.separator;
     }
 
-    public String abx() {
+    public String acD() {
         String str;
-        abF();
-        if (abA()) {
-            str = abv();
+        acL();
+        if (acG()) {
+            str = acB();
         } else {
             str = this.mSwanCoreVersion.swanCorePath + File.separator + "master/master.html";
         }
-        if (com.baidu.swan.apps.core.a.RN()) {
-            I(str, false);
-        } else if (com.baidu.swan.apps.console.debugger.a.e.Wm()) {
-            com.baidu.swan.apps.console.debugger.a.d.Wj();
-            com.baidu.swan.apps.console.debugger.a.d.Wf().iQ("loadmaster");
-            return com.baidu.swan.apps.console.debugger.a.e.Wp();
+        if (com.baidu.swan.apps.core.a.ST()) {
+            K(str, false);
+        } else if (com.baidu.swan.apps.console.debugger.a.e.Xs()) {
+            com.baidu.swan.apps.console.debugger.a.d.Xp();
+            com.baidu.swan.apps.console.debugger.a.d.Xl().iY("loadmaster");
+            return com.baidu.swan.apps.console.debugger.a.e.Xv();
         } else {
-            com.baidu.swan.apps.core.a.iZ(str);
+            com.baidu.swan.apps.core.a.jh(str);
         }
         return ah.toFileUriString(str);
     }
 
-    public String aby() {
-        abF();
+    public String acE() {
+        acL();
         String str = this.mSwanCoreVersion.swanCorePath + File.separator + "slaves/slaves.html";
-        if (com.baidu.swan.apps.core.a.RN()) {
-            I(str, true);
-        } else if (com.baidu.swan.apps.console.debugger.a.e.Wm()) {
-            return com.baidu.swan.apps.console.debugger.a.e.Wq();
+        if (com.baidu.swan.apps.core.a.ST()) {
+            K(str, true);
+        } else if (com.baidu.swan.apps.console.debugger.a.e.Xs()) {
+            return com.baidu.swan.apps.console.debugger.a.e.Xw();
         } else {
-            com.baidu.swan.apps.core.a.iZ(str);
+            com.baidu.swan.apps.core.a.jh(str);
         }
         return ah.toFileUriString(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abz() {
-        if (!this.caP.isEmpty()) {
-            Iterator<com.baidu.swan.apps.event.a.a> it = this.caP.iterator();
+    public void acF() {
+        if (!this.cfE.isEmpty()) {
+            Iterator<com.baidu.swan.apps.event.a.a> it = this.cfE.iterator();
             while (it.hasNext()) {
                 com.baidu.swan.apps.event.a.a next = it.next();
                 if (DEBUG) {
-                    Log.d("SwanAppCoreRuntime", "dispatchPendingEvents event: " + next.bMG);
+                    Log.d("SwanAppCoreRuntime", "dispatchPendingEvents event: " + next.bRu);
                 }
                 a(next);
             }
-            this.caP.clear();
+            this.cfE.clear();
         }
     }
 
-    public boolean abA() {
-        return this.caI instanceof com.baidu.swan.apps.core.g.e;
+    public boolean acG() {
+        return this.cfx instanceof com.baidu.swan.apps.core.g.e;
     }
 
-    public com.baidu.swan.apps.core.g.a abB() {
-        return this.caI;
+    public com.baidu.swan.apps.core.g.a acH() {
+        return this.cfx;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abC() {
-        synchronized (this.caQ) {
-            if (!this.caJ && this.caI == null) {
+    public void acI() {
+        synchronized (this.cfF) {
+            if (!this.cfy && this.cfx == null) {
                 if (DEBUG) {
                     Log.d("SwanAppCoreRuntime", "prepareMaster start.");
                 }
-                g.mp("preload").f(new UbcFlowEvent("na_pre_load_master_start"));
-                this.caI = this.caW.h(getContext(), abD() ? 1 : 0);
-                g.mp("preload").f(new UbcFlowEvent("na_pre_load_master_created"));
-                this.caI.loadUrl(abx());
-                this.caI.a(new com.baidu.swan.apps.core.b() { // from class: com.baidu.swan.apps.core.turbo.d.6
+                g.mx("preload").f(new UbcFlowEvent("na_pre_load_master_start"));
+                this.cfx = this.cfL.h(getContext(), acJ() ? 1 : 0);
+                g.mx("preload").f(new UbcFlowEvent("na_pre_load_master_created"));
+                this.cfx.loadUrl(acD());
+                this.cfx.a(new com.baidu.swan.apps.core.b() { // from class: com.baidu.swan.apps.core.turbo.d.6
                     @Override // com.baidu.swan.apps.core.b
-                    public void fQ(String str) {
+                    public void fJ(String str) {
                         if (d.DEBUG) {
                             Log.d("SwanAppCoreRuntime", "prepareMaster finish. url: " + str);
                         }
-                        g.mp("preload").f(new UbcFlowEvent("na_pre_load_master_ok"));
-                        synchronized (d.this.caQ) {
-                            d.this.caJ = true;
-                            d.this.abz();
-                            d.this.abu();
+                        g.mx("preload").f(new UbcFlowEvent("na_pre_load_master_ok"));
+                        synchronized (d.this.cfF) {
+                            d.this.cfy = true;
+                            d.this.acF();
+                            d.this.acA();
                         }
                     }
                 });
@@ -489,54 +489,54 @@ public final class d implements h {
         }
     }
 
-    private boolean abD() {
-        if (com.baidu.swan.apps.console.debugger.a.e.Wm() || com.baidu.swan.apps.u.a.afd().RN()) {
+    private boolean acJ() {
+        if (com.baidu.swan.apps.console.debugger.a.e.Xs() || com.baidu.swan.apps.u.a.agj().ST()) {
             return false;
         }
-        return b.Rq() && new File(abv()).exists();
+        return b.Sw() && new File(acB()).exists();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abE() {
-        if (!this.caL && this.caK == null) {
+    public void acK() {
+        if (!this.cfA && this.cfz == null) {
             if (DEBUG) {
                 Log.d("SwanAppCoreRuntime", "prepareSlave start.");
             }
-            g.mp("preload").f(new UbcFlowEvent("na_pre_load_slave_start"));
-            this.caK = a(getContext(), new com.baidu.swan.apps.core.b() { // from class: com.baidu.swan.apps.core.turbo.d.7
+            g.mx("preload").f(new UbcFlowEvent("na_pre_load_slave_start"));
+            this.cfz = a(getContext(), new com.baidu.swan.apps.core.b() { // from class: com.baidu.swan.apps.core.turbo.d.7
                 @Override // com.baidu.swan.apps.core.b
-                public void fQ(String str) {
+                public void fJ(String str) {
                     if (d.DEBUG) {
                         Log.d("SwanAppCoreRuntime", "prepareSlave finish. url: " + str);
                     }
-                    g.mp("preload").f(new UbcFlowEvent("na_pre_load_slave_ok"));
-                    d.this.caL = true;
-                    d.this.abu();
+                    g.mx("preload").f(new UbcFlowEvent("na_pre_load_slave_ok"));
+                    d.this.cfA = true;
+                    d.this.acA();
                 }
             });
-            abK();
+            acQ();
         }
     }
 
     public com.baidu.swan.apps.adaptation.b.c a(Context context, com.baidu.swan.apps.core.b bVar) {
         try {
-            final com.baidu.swan.apps.adaptation.b.c bf = this.caW.bf(context);
-            g.mp("preload").f(new UbcFlowEvent("na_pre_load_slave_created"));
-            if (a.b.aaU()) {
+            final com.baidu.swan.apps.adaptation.b.c bg = this.cfL.bg(context);
+            g.mx("preload").f(new UbcFlowEvent("na_pre_load_slave_created"));
+            if (a.b.aca()) {
                 if (DEBUG) {
                     Log.d("SwanAppCoreRuntime", "prepareSlave loadData");
                 }
-                final String aby = aby();
-                com.baidu.swan.apps.core.slave.a.aaQ().a(aby, new a.InterfaceC0345a() { // from class: com.baidu.swan.apps.core.turbo.d.8
-                    @Override // com.baidu.swan.apps.core.slave.a.InterfaceC0345a
-                    public void jK(final String str) {
+                final String acE = acE();
+                com.baidu.swan.apps.core.slave.a.abW().a(acE, new a.InterfaceC0351a() { // from class: com.baidu.swan.apps.core.turbo.d.8
+                    @Override // com.baidu.swan.apps.core.slave.a.InterfaceC0351a
+                    public void jS(final String str) {
                         aj.p(new Runnable() { // from class: com.baidu.swan.apps.core.turbo.d.8.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 if (d.DEBUG) {
                                     Log.d("SwanAppCoreRuntime", "prepareSlave loadData start");
                                 }
-                                bf.loadDataWithBaseURL(aby, str, "text/html", "utf-8", aby);
+                                bg.loadDataWithBaseURL(acE, str, "text/html", "utf-8", acE);
                                 if (d.DEBUG) {
                                     Log.d("SwanAppCoreRuntime", "prepareSlave loadData end");
                                 }
@@ -548,12 +548,12 @@ public final class d implements h {
                 if (DEBUG) {
                     Log.d("SwanAppCoreRuntime", "prepareSlave loadUrl");
                 }
-                bf.loadUrl(aby());
+                bg.loadUrl(acE());
             }
-            bf.a(bVar);
-            return bf;
+            bg.a(bVar);
+            return bg;
         } catch (NullPointerException e) {
-            com.baidu.swan.apps.core.a.bE(context);
+            com.baidu.swan.apps.core.a.bF(context);
             throw e;
         }
     }
@@ -577,21 +577,21 @@ public final class d implements h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abF() {
+    public void acL() {
         if (this.mSwanCoreVersion == null || !this.mSwanCoreVersion.isAvailable()) {
             if (DEBUG) {
                 Log.e("SwanAppCoreRuntime", Log.getStackTraceString(new Exception("mSwanCoreVersion is invalid.")));
             }
-            a(com.baidu.swan.apps.swancore.b.hc(0));
+            a(com.baidu.swan.apps.swancore.b.hn(0));
         }
     }
 
-    public SwanCoreVersion abG() {
+    public SwanCoreVersion acM() {
         return this.mSwanCoreVersion;
     }
 
     @Nullable
-    public ExtensionCore abH() {
+    public ExtensionCore acN() {
         return this.mExtensionCore;
     }
 
@@ -618,12 +618,12 @@ public final class d implements h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abI() {
+    public void acO() {
         if (this.mExtensionCore == null || !this.mExtensionCore.isAvailable()) {
             if (DEBUG) {
                 Log.w("SwanAppCoreRuntime", "updateExtensionCoreIfNeeded: ExtensionCore is invalid");
             }
-            a(com.baidu.swan.apps.extcore.b.fg(0));
+            a(com.baidu.swan.apps.extcore.b.fr(0));
         }
     }
 
@@ -631,13 +631,13 @@ public final class d implements h {
         if (this.mExtensionCore != null) {
             bVar.c(this.mExtensionCore);
         } else {
-            this.mExtensionCore = bVar.abH();
+            this.mExtensionCore = bVar.acN();
         }
     }
 
     @Override // com.baidu.swan.apps.w.h
     public void a(com.baidu.swan.apps.adaptation.b.e eVar) {
-        this.caO.put(eVar.Tj(), eVar);
+        this.cfD.put(eVar.Up(), eVar);
     }
 
     @Override // com.baidu.swan.apps.w.h
@@ -650,37 +650,37 @@ public final class d implements h {
 
     @Override // com.baidu.swan.apps.w.h
     public void d(com.baidu.swan.apps.adaptation.b.e eVar) {
-        String Tj = eVar.Tj();
-        this.caO.remove(Tj);
+        String Up = eVar.Up();
+        this.cfD.remove(Up);
         if (eVar instanceof com.baidu.swan.apps.adaptation.b.c) {
             HashMap hashMap = new HashMap();
             hashMap.put("lcType", "onUnload");
-            hashMap.put("wvID", Tj);
+            hashMap.put("wvID", Up);
             a(new com.baidu.swan.apps.event.a.c(hashMap));
             com.baidu.swan.apps.console.c.d("SwanApp", "onUnload");
         }
         com.baidu.swan.apps.res.widget.loadingview.a.clearCachedLoadingViews();
     }
 
-    public com.baidu.swan.apps.adaptation.b.e jO(String str) {
-        if (this.caO.isEmpty() || TextUtils.isEmpty(str)) {
+    public com.baidu.swan.apps.adaptation.b.e jW(String str) {
+        if (this.cfD.isEmpty() || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.caO.get(str);
+        return this.cfD.get(str);
     }
 
     public void a(com.baidu.swan.apps.event.a.a aVar) {
         if (aVar == null) {
             throw new IllegalArgumentException("message must be non-null.");
         }
-        synchronized (this.caQ) {
-            if (!this.caJ) {
+        synchronized (this.cfF) {
+            if (!this.cfy) {
                 if (DEBUG) {
-                    Log.e("SwanAppCoreRuntime", Log.getStackTraceString(new Exception("message:" + aVar.bMG)));
+                    Log.e("SwanAppCoreRuntime", Log.getStackTraceString(new Exception("message:" + aVar.bRu)));
                 }
-                this.caP.add(aVar);
-            } else if (this.caI != null) {
-                com.baidu.swan.apps.event.a.a(this.caI.TR(), aVar);
+                this.cfE.add(aVar);
+            } else if (this.cfx != null) {
+                com.baidu.swan.apps.event.a.a(this.cfx.UX(), aVar);
             }
         }
     }
@@ -690,7 +690,7 @@ public final class d implements h {
             a(aVar);
             return;
         }
-        com.baidu.swan.apps.adaptation.b.e eVar = this.caO.get(str);
+        com.baidu.swan.apps.adaptation.b.e eVar = this.cfD.get(str);
         if (eVar == null) {
             if (DEBUG) {
                 Log.e("SwanAppCoreRuntime", "can't find view manager. webviewId: " + str + " message: " + aVar);
@@ -698,119 +698,119 @@ public final class d implements h {
             }
             return;
         }
-        com.baidu.swan.apps.event.a.a(eVar.Th(), aVar);
+        com.baidu.swan.apps.event.a.a(eVar.Un(), aVar);
     }
 
     @Nullable
-    public String abJ() {
-        abK();
-        return this.caR;
+    public String acP() {
+        acQ();
+        return this.cfG;
     }
 
-    private void abK() {
-        if (TextUtils.isEmpty(this.caR)) {
-            this.caR = this.caK != null ? this.caK.getUserAgent() : "";
+    private void acQ() {
+        if (TextUtils.isEmpty(this.cfG)) {
+            this.cfG = this.cfz != null ? this.cfz.getUserAgent() : "";
             if (DEBUG) {
-                Log.d("SwanAppCoreRuntime", "initWebViewUa ua: " + this.caR);
+                Log.d("SwanAppCoreRuntime", "initWebViewUa ua: " + this.cfG);
             }
         }
     }
 
-    public void dM(boolean z) {
-        if (z && this.caI != null) {
+    public void dR(boolean z) {
+        if (z && this.cfx != null) {
             if (DEBUG) {
                 Log.d("SwanAppCoreRuntime", "onJSLoaded -- master");
             }
-            g.mp("preload").f(new UbcFlowEvent("na_pre_load_master_js_ok"));
-            synchronized (this.caQ) {
-                this.caJ = true;
-                abz();
-                abu();
+            g.mx("preload").f(new UbcFlowEvent("na_pre_load_master_js_ok"));
+            synchronized (this.cfF) {
+                this.cfy = true;
+                acF();
+                acA();
             }
-        } else if (!z && this.caK != null) {
+        } else if (!z && this.cfz != null) {
             if (DEBUG) {
                 Log.d("SwanAppCoreRuntime", "onJSLoaded -- slave");
             }
-            g.mp("preload").f(new UbcFlowEvent("na_pre_load_slave_js_ok"));
-            this.caL = true;
-            abu();
+            g.mx("preload").f(new UbcFlowEvent("na_pre_load_slave_js_ok"));
+            this.cfA = true;
+            acA();
         }
     }
 
-    public void dN(boolean z) {
-        this.caN = z;
+    public void dS(boolean z) {
+        this.cfC = z;
     }
 
-    public boolean abL() {
-        return this.caN;
+    public boolean acR() {
+        return this.cfC;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abM() {
+    public void acS() {
         boolean z = true;
-        if (this.caY) {
+        if (this.cfN) {
             if (DEBUG) {
                 Log.i("SwanAppCoreRuntime", "Cancel preload additional slave, already tried");
                 return;
             }
             return;
         }
-        this.caY = true;
-        com.baidu.swan.apps.runtime.d aoB = com.baidu.swan.apps.runtime.d.aoB();
-        z = (aoB == null || !aoB.ane()) ? false : false;
-        boolean RI = com.baidu.swan.apps.u.a.aeU().RI();
-        if (!z && RI) {
+        this.cfN = true;
+        com.baidu.swan.apps.runtime.d apI = com.baidu.swan.apps.runtime.d.apI();
+        z = (apI == null || !apI.aok()) ? false : false;
+        boolean SO = com.baidu.swan.apps.u.a.aga().SO();
+        if (!z && SO) {
             if (DEBUG) {
                 Log.i("SwanAppCoreRuntime", "Start preload additional slave manager");
             }
-            com.baidu.swan.apps.core.slave.b.bJ(getContext());
+            com.baidu.swan.apps.core.slave.b.bK(getContext());
         } else if (DEBUG) {
-            Log.i("SwanAppCoreRuntime", "Can't preload additional slave manager, isOccupied: " + z + ", ab: " + RI);
+            Log.i("SwanAppCoreRuntime", "Can't preload additional slave manager, isOccupied: " + z + ", ab: " + SO);
         }
     }
 
     /* loaded from: classes11.dex */
     public static class b {
-        private static boolean cbi = com.baidu.swan.apps.u.a.aeU().Rq();
-        private static boolean cbj = cbi;
+        private static boolean cfX = com.baidu.swan.apps.u.a.aga().Sw();
+        private static boolean cfY = cfX;
 
         public static void q(Intent intent) {
             if (intent != null && intent.hasExtra("bundle_key_v8_ab")) {
-                cbi = intent.getBooleanExtra("bundle_key_v8_ab", cbi);
+                cfX = intent.getBooleanExtra("bundle_key_v8_ab", cfX);
             }
         }
 
-        public static void abN() {
-            cbj = cbi;
+        public static void acT() {
+            cfY = cfX;
         }
 
-        public static String abO() {
+        public static String acU() {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("aiapps_v8_master_switch", "AB");
         }
 
-        public static void jP(String str) {
+        public static void jX(String str) {
             PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).edit().putString("aiapps_v8_master_switch", str).apply();
         }
 
-        public static boolean Rq() {
+        public static boolean Sw() {
             if (d.DEBUG) {
-                String abO = abO();
+                String acU = acU();
                 char c = 65535;
-                switch (abO.hashCode()) {
+                switch (acU.hashCode()) {
                     case -1406842887:
-                        if (abO.equals("WebView")) {
+                        if (acU.equals("WebView")) {
                             c = 1;
                             break;
                         }
                         break;
                     case 2081:
-                        if (abO.equals("AB")) {
+                        if (acU.equals("AB")) {
                             c = 2;
                             break;
                         }
                         break;
                     case 2722:
-                        if (abO.equals("V8")) {
+                        if (acU.equals("V8")) {
                             c = 0;
                             break;
                         }
@@ -823,21 +823,21 @@ public final class d implements h {
                         return false;
                 }
             }
-            return cbj;
+            return cfY;
         }
 
-        public static boolean abP() {
-            String abO = abO();
-            if (abO.equals("V8")) {
+        public static boolean acV() {
+            String acU = acU();
+            if (acU.equals("V8")) {
                 return true;
             }
-            if (abO.equals("AB")) {
-                return com.baidu.swan.apps.u.a.aeU().Rq();
+            if (acU.equals("AB")) {
+                return com.baidu.swan.apps.u.a.aga().Sw();
             }
             return false;
         }
 
-        public static String fc(int i) {
+        public static String fn(int i) {
             if (i == 1) {
                 return "V8";
             }

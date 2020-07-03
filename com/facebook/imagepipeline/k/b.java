@@ -1,8 +1,8 @@
 package com.facebook.imagepipeline.k;
 /* loaded from: classes13.dex */
 public class b {
-    public static final a mBW = new C0787b();
-    private static volatile c mBX = null;
+    public static final a mYd = new C0806b();
+    private static volatile c mYe = null;
 
     /* loaded from: classes13.dex */
     public interface a {
@@ -19,28 +19,28 @@ public class b {
     }
 
     public static void beginSection(String str) {
-        dCA().beginSection(str);
+        dHc().beginSection(str);
     }
 
     public static void endSection() {
-        dCA().endSection();
+        dHc().endSection();
     }
 
-    private static c dCA() {
-        if (mBX == null) {
+    private static c dHc() {
+        if (mYe == null) {
             synchronized (b.class) {
-                if (mBX == null) {
-                    mBX = new com.facebook.imagepipeline.k.a();
+                if (mYe == null) {
+                    mYe = new com.facebook.imagepipeline.k.a();
                 }
             }
         }
-        return mBX;
+        return mYe;
     }
 
     /* renamed from: com.facebook.imagepipeline.k.b$b  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    private static final class C0787b implements a {
-        private C0787b() {
+    private static final class C0806b implements a {
+        private C0806b() {
         }
     }
 }

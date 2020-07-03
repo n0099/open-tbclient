@@ -11,12 +11,12 @@ public class a {
         this.b = i2;
     }
 
-    public a Qy(String str) {
+    public a Rk(String str) {
         this.d = str;
         return this;
     }
 
-    public a wG(boolean z) {
+    public a xb(boolean z) {
         this.c = z;
         return this;
     }

@@ -11,9 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
-    private static a Gc;
+    private static a GD;
     private static ArrayList<SoftReference<Activity>> sActivityStack;
-    private InterfaceC0016a Gd;
+    private InterfaceC0016a GF;
     private int mActivityStackMaxSize = 0;
 
     /* renamed from: com.baidu.adp.base.a$a  reason: collision with other inner class name */
@@ -23,7 +23,7 @@ public final class a {
     }
 
     public void a(InterfaceC0016a interfaceC0016a) {
-        this.Gd = interfaceC0016a;
+        this.GF = interfaceC0016a;
     }
 
     private a() {
@@ -32,11 +32,11 @@ public final class a {
         }
     }
 
-    public static a jm() {
-        if (Gc == null) {
-            Gc = new a();
+    public static a jC() {
+        if (GD == null) {
+            GD = new a();
         }
-        return Gc;
+        return GD;
     }
 
     public int getSize() {
@@ -69,8 +69,8 @@ public final class a {
         if (activity != null) {
             int size = sActivityStack.size();
             if (size == 0) {
-                if (this.Gd != null) {
-                    this.Gd.onActivityClosed();
+                if (this.GF != null) {
+                    this.GF.onActivityClosed();
                     return;
                 }
                 return;
@@ -81,13 +81,13 @@ public final class a {
                     sActivityStack.remove(i);
                 } else if (activity.equals(softReference.get())) {
                     sActivityStack.remove(i);
-                    if (sActivityStack.size() == 0 && this.Gd != null) {
-                        this.Gd.onActivityClosed();
+                    if (sActivityStack.size() == 0 && this.GF != null) {
+                        this.GF.onActivityClosed();
                         return;
                     }
                     return;
-                } else if (sActivityStack.size() == 0 && this.Gd != null) {
-                    this.Gd.onActivityClosed();
+                } else if (sActivityStack.size() == 0 && this.GF != null) {
+                    this.GF.onActivityClosed();
                 }
             }
         }
@@ -102,7 +102,7 @@ public final class a {
         return null;
     }
 
-    public boolean bi(String str) {
+    public boolean bj(String str) {
         if (sActivityStack.size() == 0) {
             return false;
         }
@@ -136,8 +136,8 @@ public final class a {
                 }
             }
         }
-        if (this.Gd != null) {
-            this.Gd.onActivityClosed();
+        if (this.GF != null) {
+            this.GF.onActivityClosed();
         }
     }
 
@@ -147,10 +147,10 @@ public final class a {
 
     private void checkAndMaintainActivityStack(int i) {
         if (i != 0) {
-            int size = jm().getSize();
+            int size = jC().getSize();
             while (size > i) {
                 size--;
-                Activity popActivity = jm().popActivity(1);
+                Activity popActivity = jC().popActivity(1);
                 if (popActivity != null) {
                     popActivity.finish();
                 }
@@ -158,7 +158,7 @@ public final class a {
         }
     }
 
-    public String jn() {
+    public String jD() {
         ActivityManager activityManager;
         List<ActivityManager.RunningTaskInfo> runningTasks;
         String str;

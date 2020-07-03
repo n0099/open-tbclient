@@ -7,27 +7,27 @@ import java.io.InputStream;
 import java.nio.charset.Charset;
 /* loaded from: classes3.dex */
 class b implements k {
-    private Charset po;
-    private StringBuilder pp = new StringBuilder();
+    private Charset pN;
+    private StringBuilder pO = new StringBuilder();
 
     @Override // com.baidu.ar.http.k
     public void a(Charset charset) {
-        this.po = charset;
+        this.pN = charset;
     }
 
     public void d(String str, String str2) {
         if (TextUtils.isEmpty(str) || str2 == null) {
             return;
         }
-        if (this.pp.length() > 0) {
-            this.pp.append(ETAG.ITEM_SEPARATOR);
+        if (this.pO.length() > 0) {
+            this.pO.append(ETAG.ITEM_SEPARATOR);
         }
-        this.pp.append(j.a(str, this.po)).append(ETAG.EQUAL).append(j.a(str2, this.po));
+        this.pO.append(j.a(str, this.pN)).append(ETAG.EQUAL).append(j.a(str2, this.pN));
     }
 
     @Override // com.baidu.ar.http.k
-    public InputStream[] dj() {
-        return this.pp.length() > 0 ? new InputStream[]{new ByteArrayInputStream(this.pp.toString().getBytes(this.po))} : new InputStream[0];
+    public InputStream[] dz() {
+        return this.pO.length() > 0 ? new InputStream[]{new ByteArrayInputStream(this.pO.toString().getBytes(this.pN))} : new InputStream[0];
     }
 
     @Override // com.baidu.ar.http.k

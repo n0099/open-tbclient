@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class StretchAR extends c {
-    private e lb;
-    private a vX;
+    private e ly;
+    private a wx;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap l(float[] fArr) {
+    public HashMap m(float[] fArr) {
         HashMap hashMap = new HashMap();
         hashMap.put(LuaMessageHelper.KEY_EVENT_NAME, "body_tracking_data");
         if (fArr != null && fArr.length > 0) {
@@ -31,9 +31,9 @@ public class StretchAR extends c {
 
     @Override // com.baidu.ar.c
     public void release() {
-        if (this.vX != null) {
-            this.vX.ai();
-            a(this.vX);
+        if (this.wx != null) {
+            this.wx.aw();
+            a(this.wx);
         }
         super.release();
     }
@@ -41,11 +41,11 @@ public class StretchAR extends c {
     @Override // com.baidu.ar.c
     public void setup(HashMap<String, Object> hashMap) {
         super.setup(hashMap);
-        this.vX = new a();
-        this.lb = new e() { // from class: com.baidu.ar.stretch.StretchAR.1
+        this.wx = new a();
+        this.ly = new e() { // from class: com.baidu.ar.stretch.StretchAR.1
             @Override // com.baidu.ar.c.e
             public void a(com.baidu.ar.c.b bVar) {
-                StretchAR.this.d(StretchAR.this.l(((b) bVar).dQ()));
+                StretchAR.this.d(StretchAR.this.m(((b) bVar).eg()));
             }
 
             @Override // com.baidu.ar.c.e
@@ -56,8 +56,8 @@ public class StretchAR extends c {
             public void b(l lVar) {
             }
         };
-        a(this.vX, this.lb);
-        com.baidu.ar.b.a.ac().a(getContext(), getMdlConfigs());
-        this.vX.c((Bundle) null);
+        a(this.wx, this.ly);
+        com.baidu.ar.b.a.aq().a(getContext(), getMdlConfigs());
+        this.wx.c((Bundle) null);
     }
 }

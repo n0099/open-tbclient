@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.img.effect.FilterImageAction;
 import com.baidu.live.tbadk.img.effect.ResizeImageAction;
 import com.baidu.live.tbadk.img.effect.RotateImageAction;
 import com.baidu.tbadk.album.MediaFileInfo;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import java.util.Iterator;
@@ -47,14 +47,14 @@ public class ImageFileInfo extends MediaFileInfo {
 
     public String toCachedKey(boolean z) {
         if (getImageType() == 1) {
-            return com.baidu.adp.lib.e.c.kX().genCacheKey(this.filePath, 20);
+            return com.baidu.adp.lib.e.c.ln().genCacheKey(this.filePath, 20);
         }
         if (z) {
             if (this._cacheKey_all == null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("persist_");
                 sb.append(this.filePath);
-                if (v.getCount(this.persistActionsList) > 0) {
+                if (w.getCount(this.persistActionsList) > 0) {
                     Iterator<ImageOperation> it = this.persistActionsList.iterator();
                     while (it.hasNext()) {
                         ImageOperation next = it.next();
@@ -63,7 +63,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         }
                     }
                 }
-                if (v.getCount(this.pageActionsList) > 0) {
+                if (w.getCount(this.pageActionsList) > 0) {
                     Iterator<ImageOperation> it2 = this.pageActionsList.iterator();
                     while (it2.hasNext()) {
                         ImageOperation next2 = it2.next();

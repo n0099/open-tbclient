@@ -12,44 +12,44 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes13.dex */
 public class d {
-    private static d eKj;
-    private IQuickMediaPlayerService eKl;
-    private Set<b> eKn;
-    private Set<b> eKo;
-    private Set<b> eKp;
-    private boolean eKq;
-    private a eKr;
+    private static d eUv;
+    private Set<b> eUA;
+    private Set<b> eUB;
+    private boolean eUC;
+    private a eUD;
+    private IQuickMediaPlayerService eUx;
+    private Set<b> eUz;
     private Context mContext = TbadkCoreApplication.getInst();
-    private boolean eKk = false;
-    private boolean eKm = false;
+    private boolean eUw = false;
+    private boolean eUy = false;
     private ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.baidu.tieba.QuickPlayer.d.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            d.this.eKk = true;
-            com.baidu.adp.lib.f.e.ld().removeCallbacks(d.this.eKs);
-            d.this.eKl = IQuickMediaPlayerService.Stub.asInterface(iBinder);
-            if (d.this.eKm) {
-                d.this.eKm = false;
-                d.this.bkY();
+            d.this.eUw = true;
+            com.baidu.adp.lib.f.e.lt().removeCallbacks(d.this.eUE);
+            d.this.eUx = IQuickMediaPlayerService.Stub.asInterface(iBinder);
+            if (d.this.eUy) {
+                d.this.eUy = false;
+                d.this.bnx();
             }
-            if (d.this.eKr != null) {
-                d.this.eKr.a(d.this.eKl);
+            if (d.this.eUD != null) {
+                d.this.eUD.a(d.this.eUx);
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            d.this.eKk = false;
-            d.this.eKm = true;
-            com.baidu.adp.lib.f.e.ld().postDelayed(d.this.eKs, 1000L);
+            d.this.eUw = false;
+            d.this.eUy = true;
+            com.baidu.adp.lib.f.e.lt().postDelayed(d.this.eUE, 1000L);
         }
     };
-    private Runnable eKs = new Runnable() { // from class: com.baidu.tieba.QuickPlayer.d.2
+    private Runnable eUE = new Runnable() { // from class: com.baidu.tieba.QuickPlayer.d.2
         @Override // java.lang.Runnable
         public void run() {
-            if (!d.this.eKk) {
-                d.this.bkX();
-                com.baidu.adp.lib.f.e.ld().postDelayed(d.this.eKs, 1000L);
+            if (!d.this.eUw) {
+                d.this.bnw();
+                com.baidu.adp.lib.f.e.lt().postDelayed(d.this.eUE, 1000L);
             }
         }
     };
@@ -61,30 +61,30 @@ public class d {
 
     /* loaded from: classes13.dex */
     public interface b {
-        void bkZ();
+        void bny();
     }
 
     private d() {
-        bkX();
-        com.baidu.adp.lib.f.e.ld().postDelayed(this.eKs, 1000L);
-        this.eKn = new HashSet();
-        this.eKo = new HashSet();
-        this.eKp = new HashSet();
+        bnw();
+        com.baidu.adp.lib.f.e.lt().postDelayed(this.eUE, 1000L);
+        this.eUz = new HashSet();
+        this.eUA = new HashSet();
+        this.eUB = new HashSet();
     }
 
-    public static d bkW() {
-        if (eKj == null) {
+    public static d bnv() {
+        if (eUv == null) {
             synchronized (d.class) {
-                if (eKj == null) {
-                    eKj = new d();
+                if (eUv == null) {
+                    eUv = new d();
                 }
             }
         }
-        return eKj;
+        return eUv;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bkX() {
+    public void bnw() {
         try {
             this.mContext.bindService(new Intent(this.mContext, QuickMediaPlayerService.class), this.mServiceConnection, 1);
         } catch (Exception e) {
@@ -93,50 +93,50 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bkY() {
-        this.eKq = true;
-        for (b bVar : this.eKn) {
+    public void bnx() {
+        this.eUC = true;
+        for (b bVar : this.eUz) {
             if (bVar != null) {
-                bVar.bkZ();
+                bVar.bny();
             }
         }
-        this.eKq = false;
-        this.eKn.addAll(this.eKp);
-        this.eKp.clear();
-        this.eKn.removeAll(this.eKo);
-        this.eKo.clear();
+        this.eUC = false;
+        this.eUz.addAll(this.eUB);
+        this.eUB.clear();
+        this.eUz.removeAll(this.eUA);
+        this.eUA.clear();
     }
 
     public IQuickMediaPlayer createPlayer() {
-        if (this.eKk && this.eKl != null) {
+        if (this.eUw && this.eUx != null) {
             try {
-                return this.eKl.createPlayer();
+                return this.eUx.createPlayer();
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
         } else {
-            com.baidu.adp.lib.f.e.ld().postDelayed(this.eKs, 1000L);
+            com.baidu.adp.lib.f.e.lt().postDelayed(this.eUE, 1000L);
         }
         return null;
     }
 
     public void a(a aVar) {
-        this.eKr = aVar;
+        this.eUD = aVar;
     }
 
     public void a(b bVar) {
-        if (this.eKq) {
-            this.eKp.add(bVar);
+        if (this.eUC) {
+            this.eUB.add(bVar);
         } else {
-            this.eKn.add(bVar);
+            this.eUz.add(bVar);
         }
     }
 
     public void b(b bVar) {
-        if (this.eKq) {
-            this.eKp.remove(bVar);
+        if (this.eUC) {
+            this.eUB.remove(bVar);
         } else {
-            this.eKn.remove(bVar);
+            this.eUz.remove(bVar);
         }
     }
 }

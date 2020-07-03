@@ -8,46 +8,46 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public class c {
-    public static final String deo = null;
-    private List<String> dep = new ArrayList();
+    public static final String djb = null;
+    private List<String> djc = new ArrayList();
 
     public void f(int i, String str, String str2) {
-        String iE = iE(i);
-        String R = R(iE, str, str2);
-        if (!this.dep.contains(R)) {
-            String appKey = com.baidu.swan.apps.runtime.e.aoF() == null ? null : com.baidu.swan.apps.runtime.e.aoF().getAppKey();
+        String iP = iP(i);
+        String S = S(iP, str, str2);
+        if (!this.djc.contains(S)) {
+            String appKey = com.baidu.swan.apps.runtime.e.apM() == null ? null : com.baidu.swan.apps.runtime.e.apM().getAppKey();
             com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
             eVar.mType = "click";
-            eVar.mPage = iE;
+            eVar.mPage = iP;
             eVar.mValue = str;
             if (str2 != null) {
                 eVar.v("target_appkey", str2);
             }
             eVar.v("current_appkey", appKey);
             h.e(eVar);
-            this.dep.add(R);
+            this.djc.add(S);
         }
     }
 
     public void a(int i, com.baidu.swan.games.view.recommend.model.a aVar) {
-        String iE = iE(i);
+        String iP = iP(i);
         JSONArray b = b(aVar);
         com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
         eVar.mType = "show";
-        eVar.mPage = iE;
+        eVar.mPage = iP;
         if (b != null) {
             eVar.v("game_list", b);
         }
         h.e(eVar);
-        this.dep.clear();
+        this.djc.clear();
     }
 
     public void c(int i, String str, String str2, String str3) {
-        String iE = iE(i);
-        String appKey = com.baidu.swan.apps.runtime.e.aoF() == null ? null : com.baidu.swan.apps.runtime.e.aoF().getAppKey();
+        String iP = iP(i);
+        String appKey = com.baidu.swan.apps.runtime.e.apM() == null ? null : com.baidu.swan.apps.runtime.e.apM().getAppKey();
         com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
         eVar.mType = "click";
-        eVar.mPage = iE;
+        eVar.mPage = iP;
         eVar.mValue = str;
         if (str2 != null) {
             eVar.v("target_appkey", str2);
@@ -60,18 +60,18 @@ public class c {
     }
 
     public void b(int i, com.baidu.swan.games.view.recommend.model.a aVar) {
-        String iE = iE(i);
+        String iP = iP(i);
         JSONArray b = b(aVar);
         com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
         eVar.mType = "show";
-        eVar.mPage = iE;
+        eVar.mPage = iP;
         if (b != null) {
             eVar.v("game_list", b);
         }
         h.e(eVar);
     }
 
-    private String iE(int i) {
+    private String iP(int i) {
         switch (i) {
             case 1:
                 return "carousel";
@@ -85,17 +85,17 @@ public class c {
     }
 
     private JSONArray b(com.baidu.swan.games.view.recommend.model.a aVar) {
-        if (aVar == null || aVar.deM == null) {
+        if (aVar == null || aVar.djy == null) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        for (RecommendItemModel recommendItemModel : aVar.deM) {
+        for (RecommendItemModel recommendItemModel : aVar.djy) {
             jSONArray.put(recommendItemModel.appKey);
         }
         return jSONArray;
     }
 
-    private String R(String str, String str2, String str3) {
+    private String S(String str, String str2, String str3) {
         return String.format("%s_%s:%s", str, str2, str3);
     }
 }

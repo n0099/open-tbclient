@@ -6,88 +6,88 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes11.dex */
 public class d implements b {
-    private List<b> ceA = new CopyOnWriteArrayList();
+    private List<b> cjo = new CopyOnWriteArrayList();
 
     public void c(@NonNull b bVar) {
-        this.ceA.add(bVar);
+        this.cjo.add(bVar);
     }
 
     public void d(@NonNull b bVar) {
-        this.ceA.remove(bVar);
+        this.cjo.remove(bVar);
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void adh() {
-        if (this.ceA != null && this.ceA.size() > 0) {
-            for (b bVar : this.ceA) {
-                bVar.adh();
+    public void aen() {
+        if (this.cjo != null && this.cjo.size() > 0) {
+            for (b bVar : this.cjo) {
+                bVar.aen();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void adi() {
-        if (this.ceA != null && this.ceA.size() > 0) {
-            for (b bVar : this.ceA) {
-                bVar.adi();
+    public void aeo() {
+        if (this.cjo != null && this.cjo.size() > 0) {
+            for (b bVar : this.cjo) {
+                bVar.aeo();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void Ua() {
-        if (this.ceA != null && this.ceA.size() > 0) {
-            for (b bVar : this.ceA) {
-                bVar.Ua();
+    public void Vg() {
+        if (this.cjo != null && this.cjo.size() > 0) {
+            for (b bVar : this.cjo) {
+                bVar.Vg();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void Vr() {
-        if (this.ceA != null && this.ceA.size() > 0) {
-            for (b bVar : this.ceA) {
-                bVar.Vr();
+    public void Wx() {
+        if (this.cjo != null && this.cjo.size() > 0) {
+            for (b bVar : this.cjo) {
+                bVar.Wx();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void adj() {
-        if (this.ceA != null && this.ceA.size() > 0) {
-            for (b bVar : this.ceA) {
-                bVar.adj();
+    public void aep() {
+        if (this.cjo != null && this.cjo.size() > 0) {
+            for (b bVar : this.cjo) {
+                bVar.aep();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void TZ() {
-        if (this.ceA != null && this.ceA.size() > 0) {
-            for (b bVar : this.ceA) {
-                bVar.TZ();
+    public void Vf() {
+        if (this.cjo != null && this.cjo.size() > 0) {
+            for (b bVar : this.cjo) {
+                bVar.Vf();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.ceA == null || this.ceA.size() <= 0) {
+        if (this.cjo == null || this.cjo.size() <= 0) {
             return false;
         }
         boolean z = false;
-        for (b bVar : this.ceA) {
+        for (b bVar : this.cjo) {
             z = z || bVar.onKeyDown(i, keyEvent);
         }
         return z;
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void Ub() {
-        if (this.ceA != null && this.ceA.size() > 0) {
-            for (b bVar : this.ceA) {
+    public void Vh() {
+        if (this.cjo != null && this.cjo.size() > 0) {
+            for (b bVar : this.cjo) {
                 if (bVar != null) {
-                    bVar.Ub();
+                    bVar.Vh();
                 }
             }
         }

@@ -6,9 +6,9 @@ import org.json.JSONObject;
 public class d extends com.baidu.swan.pms.node.a {
     @Override // com.baidu.swan.pms.node.a, com.baidu.swan.pms.node.c
     public void a(JSONObject jSONObject, g gVar, g gVar2) {
-        a cf;
-        if (jSONObject != null && (cf = b.aHc().cf(jSONObject)) != null) {
-            com.baidu.swan.pms.d.aFP().a(cf);
+        a cm;
+        if (jSONObject != null && (cm = b.aIi().cm(jSONObject)) != null) {
+            com.baidu.swan.pms.d.aGV().a(cm);
         }
     }
 }

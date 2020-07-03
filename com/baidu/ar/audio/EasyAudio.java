@@ -8,90 +8,90 @@ import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes3.dex */
 public class EasyAudio implements IEasyAudio, VolumeListener, a {
     private static final String TAG = EasyAudio.class.getSimpleName();
-    private static volatile EasyAudio iI;
-    private b iD;
-    private ArrayList<EasyAudioCallback> iE;
-    private ArrayList<VolumeListener> iF;
-    private final Lock iG = new ReentrantLock(true);
-    private final Lock iH = new ReentrantLock(true);
+    private static volatile EasyAudio iX;
+    private b iS;
+    private ArrayList<EasyAudioCallback> iT;
+    private ArrayList<VolumeListener> iU;
+    private final Lock iV = new ReentrantLock(true);
+    private final Lock iW = new ReentrantLock(true);
 
     private EasyAudio() {
     }
 
-    private synchronized void bO() {
-        if (this.iD != null) {
-            this.iD.bC();
-            this.iD.bD();
-            this.iD = null;
+    private synchronized void cc() {
+        if (this.iS != null) {
+            this.iS.bQ();
+            this.iS.bR();
+            this.iS = null;
         }
     }
 
-    private synchronized void bP() {
-        this.iG.lock();
-        if (this.iE != null) {
-            this.iE.clear();
-            this.iE = null;
+    private synchronized void cd() {
+        this.iV.lock();
+        if (this.iT != null) {
+            this.iT.clear();
+            this.iT = null;
         }
-        this.iG.unlock();
-        if (this.iF != null) {
-            this.iF.clear();
-            this.iF = null;
+        this.iV.unlock();
+        if (this.iU != null) {
+            this.iU.clear();
+            this.iU = null;
         }
         releaseInstance();
     }
 
     public static EasyAudio getInstance() {
-        if (iI == null) {
+        if (iX == null) {
             synchronized (EasyAudio.class) {
-                if (iI == null) {
-                    iI = new EasyAudio();
+                if (iX == null) {
+                    iX = new EasyAudio();
                 }
             }
         }
-        return iI;
+        return iX;
     }
 
     private static void releaseInstance() {
-        iI = null;
+        iX = null;
     }
 
     @Override // com.baidu.ar.audio.a
     public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j) {
-        this.iG.lock();
+        this.iV.lock();
         try {
-            if (this.iE != null) {
-                Iterator<EasyAudioCallback> it = this.iE.iterator();
+            if (this.iT != null) {
+                Iterator<EasyAudioCallback> it = this.iT.iterator();
                 while (it.hasNext()) {
                     it.next().onAudioFrameAvailable(byteBuffer, i, j);
                 }
             }
         } finally {
-            this.iG.unlock();
+            this.iV.unlock();
         }
     }
 
     @Override // com.baidu.ar.audio.a
     public void onAudioRelease() {
-        bP();
+        cd();
     }
 
     @Override // com.baidu.ar.audio.a
     public void onAudioSetup(boolean z) {
         if (z) {
-            if (this.iD != null) {
-                this.iD.startAudio();
+            if (this.iS != null) {
+                this.iS.startAudio();
             }
-        } else if (this.iE == null || this.iE.get(0) == null) {
+        } else if (this.iT == null || this.iT.get(0) == null) {
         } else {
-            this.iE.get(0).onAudioStart(false, null);
+            this.iT.get(0).onAudioStart(false, null);
             release();
         }
     }
 
     @Override // com.baidu.ar.audio.a
     public void onAudioStart(boolean z) {
-        if (this.iE != null && this.iE.get(0) != null && this.iD != null) {
-            this.iE.get(0).onAudioStart(z, this.iD.bE());
+        if (this.iT != null && this.iT.get(0) != null && this.iS != null) {
+            this.iT.get(0).onAudioStart(z, this.iS.bS());
         }
         if (z) {
             return;
@@ -101,31 +101,31 @@ public class EasyAudio implements IEasyAudio, VolumeListener, a {
 
     @Override // com.baidu.ar.audio.a
     public void onAudioStop(boolean z) {
-        if (this.iE == null || this.iE.get(0) == null) {
+        if (this.iT == null || this.iT.get(0) == null) {
             return;
         }
-        this.iE.get(0).onAudioStop(z);
+        this.iT.get(0).onAudioStop(z);
     }
 
     @Override // com.baidu.ar.audio.VolumeListener
     public void onRealtimeVolume(int i) {
-        this.iH.lock();
+        this.iW.lock();
         try {
-            if (this.iF != null) {
-                Iterator<VolumeListener> it = this.iF.iterator();
+            if (this.iU != null) {
+                Iterator<VolumeListener> it = this.iU.iterator();
                 while (it.hasNext()) {
                     it.next().onRealtimeVolume(i);
                 }
             }
         } finally {
-            this.iH.unlock();
+            this.iW.unlock();
         }
     }
 
     @Override // com.baidu.ar.audio.IEasyAudio
     public void release() {
-        bO();
-        bP();
+        cc();
+        cd();
     }
 
     @Override // com.baidu.ar.audio.IEasyAudio
@@ -134,13 +134,13 @@ public class EasyAudio implements IEasyAudio, VolumeListener, a {
             com.baidu.ar.f.b.b(TAG, "VolumeListener can not be null!!!");
             return;
         }
-        this.iH.lock();
+        this.iW.lock();
         try {
-            if (this.iF != null && this.iF.size() > 0 && this.iF.contains(volumeListener)) {
-                this.iF.remove(volumeListener);
+            if (this.iU != null && this.iU.size() > 0 && this.iU.contains(volumeListener)) {
+                this.iU.remove(volumeListener);
             }
         } finally {
-            this.iH.unlock();
+            this.iW.unlock();
         }
     }
 
@@ -150,24 +150,24 @@ public class EasyAudio implements IEasyAudio, VolumeListener, a {
             com.baidu.ar.f.b.b(TAG, "VolumeListener can not be null!!!");
             return;
         }
-        if (this.iF == null) {
-            this.iF = new ArrayList<>();
+        if (this.iU == null) {
+            this.iU = new ArrayList<>();
         }
-        if (this.iF.contains(volumeListener)) {
+        if (this.iU.contains(volumeListener)) {
             com.baidu.ar.f.b.b(TAG, "setVolumeListener volumeListener has been added!!!");
             return;
         }
-        if (this.iD == null) {
-            this.iD = b.bA();
+        if (this.iS == null) {
+            this.iS = b.bO();
         }
-        this.iH.lock();
+        this.iW.lock();
         try {
-            if (this.iF.size() == 0) {
-                this.iD.setVolumeListener(this);
+            if (this.iU.size() == 0) {
+                this.iS.setVolumeListener(this);
             }
-            this.iF.add(volumeListener);
+            this.iU.add(volumeListener);
         } finally {
-            this.iH.unlock();
+            this.iW.unlock();
         }
     }
 
@@ -177,29 +177,29 @@ public class EasyAudio implements IEasyAudio, VolumeListener, a {
             com.baidu.ar.f.b.b(TAG, "AudioParams && EasyAudioCallback can not be null!!!");
             return;
         }
-        if (this.iD == null) {
-            this.iD = b.bA();
+        if (this.iS == null) {
+            this.iS = b.bO();
         }
-        if (this.iE == null) {
-            this.iE = new ArrayList<>();
+        if (this.iT == null) {
+            this.iT = new ArrayList<>();
         }
-        if (this.iE.contains(easyAudioCallback)) {
+        if (this.iT.contains(easyAudioCallback)) {
             com.baidu.ar.f.b.b(TAG, "EasyAudio has been started!!!");
             return;
         }
-        if (this.iD.isRunning()) {
-            easyAudioCallback.onAudioStart(true, this.iD.bE());
+        if (this.iS.isRunning()) {
+            easyAudioCallback.onAudioStart(true, this.iS.bS());
         } else {
-            this.iE.clear();
-            this.iD.a(audioParams, this);
+            this.iT.clear();
+            this.iS.a(audioParams, this);
         }
-        this.iG.lock();
+        this.iV.lock();
         try {
-            if (this.iE != null) {
-                this.iE.add(easyAudioCallback);
+            if (this.iT != null) {
+                this.iT.add(easyAudioCallback);
             }
         } finally {
-            this.iG.unlock();
+            this.iV.unlock();
         }
     }
 
@@ -207,18 +207,18 @@ public class EasyAudio implements IEasyAudio, VolumeListener, a {
     public void stopAudio(EasyAudioCallback easyAudioCallback) {
         if (easyAudioCallback == null) {
             com.baidu.ar.f.b.b(TAG, "EasyAudioCallback can not be null!!!");
-        } else if (this.iE == null || !this.iE.contains(easyAudioCallback)) {
+        } else if (this.iT == null || !this.iT.contains(easyAudioCallback)) {
             com.baidu.ar.f.b.b(TAG, "Please confirm EasyAudio has been started!!!");
-        } else if (this.iE.size() <= 1) {
-            bO();
+        } else if (this.iT.size() <= 1) {
+            cc();
         } else {
-            this.iG.lock();
+            this.iV.lock();
             try {
-                boolean remove = this.iE.remove(easyAudioCallback);
-                this.iG.unlock();
+                boolean remove = this.iT.remove(easyAudioCallback);
+                this.iV.unlock();
                 easyAudioCallback.onAudioStop(remove);
             } catch (Throwable th) {
-                this.iG.unlock();
+                this.iV.unlock();
                 throw th;
             }
         }

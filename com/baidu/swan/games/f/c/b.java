@@ -11,22 +11,22 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b cWM;
-    private HashMap<String, c> cTZ = new HashMap<>();
+    private static volatile b dby;
+    private HashMap<String, c> cYJ = new HashMap<>();
     private HashMap<String, ArrayList<ValueCallback<String>>> mCallbackMap = new HashMap<>();
     private final Object mObject = new Object();
-    private com.baidu.swan.games.network.b cUb = com.baidu.swan.games.network.b.aAY();
-    private String cUa = f.axz();
+    private com.baidu.swan.games.network.b cYL = com.baidu.swan.games.network.b.aCe();
+    private String cYK = f.ayF();
 
-    public static b azM() {
-        if (cWM == null) {
+    public static b aAS() {
+        if (dby == null) {
             synchronized (b.class) {
-                if (cWM == null) {
-                    cWM = new b();
+                if (dby == null) {
+                    dby = new b();
                 }
             }
         }
-        return cWM;
+        return dby;
     }
 
     public void a(String str, ValueCallback<String> valueCallback) {
@@ -35,18 +35,18 @@ public class b implements a {
             return;
         }
         try {
-            String re = re(str);
-            File file = new File(re(str));
+            String rm = rm(str);
+            File file = new File(rm(str));
             if (file.exists() && !file.isDirectory()) {
                 if (valueCallback != null) {
-                    valueCallback.onReceiveValue(re);
+                    valueCallback.onReceiveValue(rm);
                     return;
                 }
                 return;
             }
             synchronized (this.mObject) {
-                if (!rc(str)) {
-                    rd(str);
+                if (!rk(str)) {
+                    rl(str);
                 }
                 b(str, valueCallback);
             }
@@ -57,16 +57,16 @@ public class b implements a {
         }
     }
 
-    private boolean rc(String str) {
-        return this.cTZ.containsKey(str);
+    private boolean rk(String str) {
+        return this.cYJ.containsKey(str);
     }
 
-    private void rd(String str) {
+    private void rl(String str) {
         if (DEBUG) {
             Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
         }
-        c cVar = new c(this.cUb, this.cUa, str, this);
-        this.cTZ.put(str, cVar);
+        c cVar = new c(this.cYL, this.cYK, str, this);
+        this.cYJ.put(str, cVar);
         cVar.load();
     }
 
@@ -81,10 +81,10 @@ public class b implements a {
     }
 
     @Override // com.baidu.swan.games.f.c.a
-    public void ce(String str, String str2) {
+    public void cg(String str, String str2) {
         ArrayList<ValueCallback<String>> arrayList;
         synchronized (this.mObject) {
-            if (rc(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (rk(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
                     arrayList.get(i).onReceiveValue(str2);
@@ -92,26 +92,26 @@ public class b implements a {
                         Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.cTZ.remove(str);
+                this.cYJ.remove(str);
             }
         }
     }
 
     @Override // com.baidu.swan.games.f.c.a
-    public void ab(int i, String str) {
+    public void ad(int i, String str) {
         ArrayList<ValueCallback<String>> arrayList;
         synchronized (this.mObject) {
-            if (rc(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (rk(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     arrayList.get(i2).onReceiveValue("");
                 }
-                this.cTZ.remove(str);
+                this.cYJ.remove(str);
             }
         }
     }
 
-    private String re(String str) throws MalformedURLException {
-        return this.cUa + f.qZ(str);
+    private String rm(String str) throws MalformedURLException {
+        return this.cYK + f.rh(str);
     }
 }

@@ -6,59 +6,59 @@ import android.support.annotation.NonNull;
 /* loaded from: classes6.dex */
 public class u {
     private final Handler mHandler = new Handler();
-    private a yF;
-    private final k yx;
+    private final k yX;
+    private a zf;
 
     public u(@NonNull j jVar) {
-        this.yx = new k(jVar);
+        this.yX = new k(jVar);
     }
 
     private void d(Lifecycle.Event event) {
-        if (this.yF != null) {
-            this.yF.run();
+        if (this.zf != null) {
+            this.zf.run();
         }
-        this.yF = new a(this.yx, event);
-        this.mHandler.postAtFrontOfQueue(this.yF);
+        this.zf = new a(this.yX, event);
+        this.mHandler.postAtFrontOfQueue(this.zf);
     }
 
-    public void ge() {
+    public void gu() {
         d(Lifecycle.Event.ON_CREATE);
     }
 
-    public void gf() {
+    public void gv() {
         d(Lifecycle.Event.ON_START);
     }
 
-    public void gg() {
+    public void gw() {
         d(Lifecycle.Event.ON_START);
     }
 
-    public void gh() {
+    public void gx() {
         d(Lifecycle.Event.ON_STOP);
         d(Lifecycle.Event.ON_DESTROY);
     }
 
     public Lifecycle getLifecycle() {
-        return this.yx;
+        return this.yX;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static class a implements Runnable {
-        final Lifecycle.Event yG;
-        private boolean yH = false;
-        private final k yx;
+        private final k yX;
+        final Lifecycle.Event zg;
+        private boolean zh = false;
 
         a(@NonNull k kVar, Lifecycle.Event event) {
-            this.yx = kVar;
-            this.yG = event;
+            this.yX = kVar;
+            this.zg = event;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!this.yH) {
-                this.yx.b(this.yG);
-                this.yH = true;
+            if (!this.zh) {
+                this.yX.b(this.zg);
+                this.zh = true;
             }
         }
     }

@@ -6,14 +6,14 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class p extends com.baidu.swan.apps.p.a<com.baidu.swan.apps.p.e.b.a> {
     @Override // com.baidu.swan.apps.p.a
     @NonNull
-    public String aek() {
+    public String afq() {
         return "setUseFreeFlow";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.p.a
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.p.e.b.a aVar) {
-        aVar.dT(command.arg1 == 1);
+        aVar.dY(command.arg1 == 1);
         a(aVar, command.what, null, false);
     }
 }

@@ -5,25 +5,25 @@ import android.graphics.Bitmap;
 public class k {
     private String content;
     private String duringTime;
-    private Bitmap jGk;
-    private Bitmap jGl;
-    private String jGm;
-    private boolean jGn;
+    private Bitmap jZU;
+    private Bitmap jZV;
+    private String jZW;
+    private boolean jZX;
 
-    public Bitmap cDl() {
-        return this.jGk;
+    public Bitmap cHB() {
+        return this.jZU;
     }
 
     public void B(Bitmap bitmap) {
-        this.jGk = bitmap;
+        this.jZU = bitmap;
     }
 
-    public Bitmap cDm() {
-        return this.jGl;
+    public Bitmap cHC() {
+        return this.jZV;
     }
 
     public void C(Bitmap bitmap) {
-        this.jGl = bitmap;
+        this.jZV = bitmap;
     }
 
     public String getContent() {
@@ -34,27 +34,27 @@ public class k {
         this.content = str;
     }
 
-    public String cDn() {
+    public String cHD() {
         return this.duringTime;
     }
 
-    public void Jf(String str) {
+    public void JH(String str) {
         this.duringTime = str;
     }
 
     public String getThreadImgUrl() {
-        return this.jGm;
+        return this.jZW;
     }
 
-    public void Jg(String str) {
-        this.jGm = str;
+    public void JI(String str) {
+        this.jZW = str;
     }
 
-    public boolean cDo() {
-        return this.jGn;
+    public boolean cHE() {
+        return this.jZX;
     }
 
-    public void rc(boolean z) {
-        this.jGn = z;
+    public void rp(boolean z) {
+        this.jZX = z;
     }
 }

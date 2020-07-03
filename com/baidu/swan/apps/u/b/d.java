@@ -13,9 +13,9 @@ public interface d {
 
     void a(String str, boolean z, boolean z2, a aVar);
 
-    com.baidu.swan.apps.scheme.actions.f.b agi();
+    com.baidu.swan.apps.scheme.actions.f.b aho();
 
-    void agj();
+    void ahp();
 
     double[] b(@NonNull com.baidu.swan.apps.scheme.actions.f.b bVar, @NonNull String str);
 }

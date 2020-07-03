@@ -7,53 +7,53 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 /* loaded from: classes.dex */
 public class z {
-    private View aHz;
-    private int evt;
-    private boolean evu;
+    private View aKd;
+    private boolean eEA;
+    private int eEz;
     private final Handler mHandler;
 
-    public void bgK() {
+    public void biX() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void bgL() {
+    public void biY() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void iy(boolean z) {
-        if (this.aHz != null) {
-            if (z || this.aHz.getVisibility() != 8) {
-                bgL();
+    public void iJ(boolean z) {
+        if (this.aKd != null) {
+            if (z || this.aKd.getVisibility() != 8) {
+                biY();
             }
         }
     }
 
-    public void iz(boolean z) {
-        if (this.aHz != null) {
-            if (z || this.aHz.getVisibility() != 0) {
-                bgK();
+    public void iK(boolean z) {
+        if (this.aKd != null) {
+            if (z || this.aKd.getVisibility() != 0) {
+                biX();
             }
         }
     }
 
     public void onScroll(int i, int i2) {
-        if (this.aHz != null) {
-            if (i != 0 && i2 > i && this.aHz.getVisibility() != 8) {
-                iy(false);
-            } else if ((i == 0 || i2 < i) && this.aHz.getVisibility() != 0) {
-                iz(false);
+        if (this.aKd != null) {
+            if (i != 0 && i2 > i && this.aKd.getVisibility() != 8) {
+                iJ(false);
+            } else if ((i == 0 || i2 < i) && this.aKd.getVisibility() != 0) {
+                iK(false);
             }
-            this.evt = i;
+            this.eEz = i;
         }
     }
 
-    public void j(ViewGroup viewGroup, int i) {
+    public void k(ViewGroup viewGroup, int i) {
         int firstVisiblePosition;
         if (viewGroup != null && i == 0) {
             if (viewGroup instanceof BdRecyclerView) {
@@ -63,15 +63,15 @@ public class z {
             } else {
                 return;
             }
-            if (firstVisiblePosition > this.evt) {
-                iy(true);
-            } else if (firstVisiblePosition < this.evt) {
-                iz(true);
-            } else if (firstVisiblePosition == this.evt) {
-                if (firstVisiblePosition == 0 || !this.evu) {
-                    iz(true);
+            if (firstVisiblePosition > this.eEz) {
+                iJ(true);
+            } else if (firstVisiblePosition < this.eEz) {
+                iK(true);
+            } else if (firstVisiblePosition == this.eEz) {
+                if (firstVisiblePosition == 0 || !this.eEA) {
+                    iK(true);
                 } else {
-                    iy(true);
+                    iJ(true);
                 }
             }
         }

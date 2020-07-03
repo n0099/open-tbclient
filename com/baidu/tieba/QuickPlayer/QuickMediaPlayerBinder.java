@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import android.view.Surface;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.QuickPlayer.IQuickMediaPlayer;
 import java.util.HashMap;
 import java.util.List;
@@ -180,7 +180,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
                     } else if (MODEL_MX4.equals(Build.MODEL)) {
                         i = 2;
                     }
-                    TiebaStatic.log(new an("c12200").ag("obj_type", i).dh("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new ao("c12200").ag("obj_type", i).dk("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
                 if (this.mContext instanceof a) {
                     ((a) this.mContext).addPlayer(this.mMediaPlayer, this.mUri);

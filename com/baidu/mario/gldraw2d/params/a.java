@@ -3,11 +3,11 @@ package com.baidu.mario.gldraw2d.params;
 public class a implements Cloneable {
     private float mTranslateX = 0.0f;
     private float mTranslateY = 0.0f;
-    private MirrorType bmX = MirrorType.NO_MIRROR;
-    private int bmY = 0;
-    private ScaleType bmZ = ScaleType.FIT_XY;
-    private float bna = 1.0f;
-    private int bnb = -90;
+    private MirrorType brX = MirrorType.NO_MIRROR;
+    private int brY = 0;
+    private ScaleType brZ = ScaleType.FIT_XY;
+    private float bsa = 1.0f;
+    private int bsb = -90;
 
     public float getTranslateX() {
         return this.mTranslateX;
@@ -17,36 +17,36 @@ public class a implements Cloneable {
         return this.mTranslateY;
     }
 
-    public MirrorType Kn() {
-        return this.bmX;
+    public MirrorType Lw() {
+        return this.brX;
     }
 
     public void a(MirrorType mirrorType) {
-        this.bmX = mirrorType;
+        this.brX = mirrorType;
     }
 
-    public ScaleType Ko() {
-        return this.bmZ;
+    public ScaleType Lx() {
+        return this.brZ;
     }
 
-    public float Kp() {
-        return this.bna;
+    public float Ly() {
+        return this.bsa;
     }
 
-    public int Kq() {
-        return this.bmY;
+    public int Lz() {
+        return this.brY;
     }
 
-    public void dz(int i) {
-        this.bmY = i;
+    public void dJ(int i) {
+        this.brY = i;
     }
 
-    public int Kr() {
-        return this.bnb;
+    public int LA() {
+        return this.bsb;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: Ks */
+    /* renamed from: LB */
     public a clone() {
         try {
             return (a) super.clone();

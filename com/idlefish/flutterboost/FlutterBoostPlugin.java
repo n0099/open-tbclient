@@ -1,7 +1,8 @@
 package com.idlefish.flutterboost;
 
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.idlefish.flutterboost.FlutterViewContainerManager;
 import com.idlefish.flutterboost.interfaces.IContainerRecord;
 import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
@@ -21,6 +22,28 @@ public class FlutterBoostPlugin {
     private final MethodChannel mMethodChannel;
     private final Set<MethodChannel.MethodCallHandler> mMethodCallHandlers = new HashSet();
     private final Map<String, Set<EventListener>> mEventListeners = new HashMap();
+    private final EventListener splashEventListener = new EventListener() { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.2
+        @Override // com.idlefish.flutterboost.FlutterBoostPlugin.EventListener
+        public void onEvent(String str, Map map) {
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -253456115:
+                    if (str.equals("dataInitFinish")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    FlutterBoost.instance().isReady = true;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921459));
+                    return;
+                default:
+                    return;
+            }
+        }
+    };
 
     /* loaded from: classes6.dex */
     public interface ActionAfterRegistered {
@@ -74,11 +97,12 @@ public class FlutterBoostPlugin {
                 }
             }
         });
+        addEventListener("dataInitFinish", this.splashEventListener);
         addMethodCallHandler(new BoostMethodHandler());
     }
 
     public void invokeMethodUnsafe(final String str, Serializable serializable) {
-        invokeMethod(str, serializable, new MethodChannel.Result() { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.2
+        invokeMethod(str, serializable, new MethodChannel.Result() { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.3
             public void success(@Nullable Object obj) {
             }
 
@@ -93,7 +117,7 @@ public class FlutterBoostPlugin {
     }
 
     public void invokeMethod(final String str, Serializable serializable) {
-        invokeMethod(str, serializable, new MethodChannel.Result() { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.3
+        invokeMethod(str, serializable, new MethodChannel.Result() { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.4
             public void success(@Nullable Object obj) {
             }
 
@@ -151,6 +175,12 @@ public class FlutterBoostPlugin {
                 case -2029879373:
                     if (str.equals("closeFlutterPage")) {
                         c = 5;
+                        break;
+                    }
+                    break;
+                case -1224756544:
+                    if (str.equals("disablePopGesture")) {
+                        c = 6;
                         break;
                     }
                     break;
@@ -237,18 +267,17 @@ public class FlutterBoostPlugin {
                         return;
                     }
                 case 4:
-                    IFlutterViewContainer findContainerById = flutterViewContainerManager.findContainerById((String) methodCall.argument("uniqueId"));
-                    if (findContainerById != null) {
-                        findContainerById.onFlutterContainerOpen();
-                        return;
-                    }
+                    String str2 = (String) methodCall.argument("uniqueId");
                     return;
                 case 5:
-                    String str2 = (String) methodCall.argument("uniqueId");
-                    String str3 = (String) methodCall.argument("flutterUniqueId");
-                    IFlutterViewContainer findContainerById2 = flutterViewContainerManager.findContainerById(str2);
-                    if (findContainerById2 != null && TextUtils.equals(str2, str3)) {
-                        findContainerById2.onFlutterContainerClose();
+                    String str3 = (String) methodCall.argument("uniqueId");
+                    String str4 = (String) methodCall.argument("flutterUniqueId");
+                    return;
+                case 6:
+                    boolean booleanValue = ((Boolean) methodCall.arguments).booleanValue();
+                    IFlutterViewContainer container = flutterViewContainerManager.getLastGenerateRecord().getContainer();
+                    if (container != null) {
+                        container.setSwipeBackEnable(!booleanValue);
                         return;
                     }
                     return;

@@ -1,56 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import java.util.LinkedList;
-import java.util.List;
+import android.text.TextUtils;
+import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class ah {
-    private String forumGameLabel;
-    private String forumId;
-    private String forumName;
-    private final List<com.baidu.tbadk.mainTab.b> hmF = new LinkedList();
-    private Context mContext;
+    private static ah hDX = new ah();
+    private final SparseArray<String> hDW = new SparseArray<>();
 
-    public ah(Context context) {
-        this.mContext = context;
+    private ah() {
     }
 
-    public void b(com.baidu.tbadk.mainTab.b bVar) {
-        if (bVar != null && bVar.getFragmentTabStructure() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.hmF) {
-                if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().type == bVar.getFragmentTabStructure().type) {
-                    return;
-                }
-            }
-            this.hmF.add(bVar);
+    public static ah bZY() {
+        return hDX;
+    }
+
+    public void uM(int i) {
+        this.hDW.put(i, "1");
+    }
+
+    public boolean uN(int i) {
+        if (i > 100) {
+            i = 100;
         }
-    }
-
-    public List<com.baidu.tbadk.mainTab.b> bUy() {
-        return this.hmF;
-    }
-
-    public void setForumName(String str) {
-        this.forumName = str;
-    }
-
-    public String getForumName() {
-        return this.forumName;
-    }
-
-    public void setForumId(String str) {
-        this.forumId = str;
-    }
-
-    public String getForumId() {
-        return this.forumId;
-    }
-
-    public void setForumGameLabel(String str) {
-        this.forumGameLabel = str;
-    }
-
-    public String getForumGameLabel() {
-        return this.forumGameLabel;
+        return !TextUtils.isEmpty(this.hDW.get(i));
     }
 }

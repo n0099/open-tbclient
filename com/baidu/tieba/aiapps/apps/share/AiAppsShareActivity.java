@@ -15,7 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public class AiAppsShareActivity extends Activity {
-    private CustomMessageListener dVL = new CustomMessageListener(2921376) { // from class: com.baidu.tieba.aiapps.apps.share.AiAppsShareActivity.1
+    private CustomMessageListener listener = new CustomMessageListener(2921376) { // from class: com.baidu.tieba.aiapps.apps.share.AiAppsShareActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,9 +39,9 @@ public class AiAppsShareActivity extends Activity {
         }
         a aVar = new a();
         try {
-            aVar.cK(new JSONObject(stringExtra));
+            aVar.cR(new JSONObject(stringExtra));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this, aVar, false)));
-            MessageManager.getInstance().registerListener(this.dVL);
+            MessageManager.getInstance().registerListener(this.listener);
         } catch (JSONException e) {
             finish();
         }
@@ -50,7 +50,7 @@ public class AiAppsShareActivity extends Activity {
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.dVL);
+        MessageManager.getInstance().unRegisterListener(this.listener);
     }
 
     @Override // android.app.Activity

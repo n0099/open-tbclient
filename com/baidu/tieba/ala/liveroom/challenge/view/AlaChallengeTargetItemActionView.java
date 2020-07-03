@@ -1,0 +1,54 @@
+package com.baidu.tieba.ala.liveroom.challenge.view;
+
+import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
+import android.widget.TextView;
+import com.baidu.live.sdk.a;
+/* loaded from: classes3.dex */
+public class AlaChallengeTargetItemActionView extends TextView {
+    private int mStyle;
+
+    public AlaChallengeTargetItemActionView(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.mStyle = 0;
+        init();
+    }
+
+    public void setStyle(int i) {
+        if (this.mStyle != i) {
+            this.mStyle = i;
+            switch (i) {
+                case 1:
+                    GradientDrawable gradientDrawable = new GradientDrawable();
+                    gradientDrawable.setShape(0);
+                    gradientDrawable.setColor(getResources().getColor(a.d.ala_challenge_latest_primary));
+                    gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds12));
+                    setBackgroundDrawable(gradientDrawable);
+                    setText("邀请");
+                    setTextColor(-1);
+                    return;
+                case 2:
+                    setBackgroundColor(0);
+                    setText("挑战中");
+                    setTextColor(getResources().getColor(a.d.ala_challenge_latest_primary));
+                    return;
+                case 3:
+                    setBackgroundColor(0);
+                    setText("未直播");
+                    setTextColor(-2130706433);
+                    return;
+                default:
+                    setBackgroundColor(0);
+                    setText("");
+                    return;
+            }
+        }
+    }
+
+    private void init() {
+        setGravity(17);
+        setIncludeFontPadding(false);
+    }
+}

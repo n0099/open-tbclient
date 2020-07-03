@@ -10,8 +10,8 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 /* loaded from: classes3.dex */
 public class CommonWebView extends WebView {
-    private boolean bkd;
-    private boolean bke;
+    private boolean bpe;
+    private boolean bpf;
 
     public CommonWebView(Context context) {
         super(context);
@@ -19,11 +19,11 @@ public class CommonWebView extends WebView {
     }
 
     public void setVerticalScrollEnabled(boolean z) {
-        this.bkd = z;
+        this.bpe = z;
     }
 
     public void setHorizontalScrollEnabled(boolean z) {
-        this.bke = z;
+        this.bpf = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -35,11 +35,11 @@ public class CommonWebView extends WebView {
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (!this.bkd && !this.bke) {
+        if (!this.bpe && !this.bpf) {
             scrollTo(0, 0);
-        } else if (!this.bkd) {
+        } else if (!this.bpe) {
             scrollTo(i, 0);
-        } else if (!this.bke) {
+        } else if (!this.bpf) {
             scrollTo(0, i2);
         }
     }
@@ -52,8 +52,8 @@ public class CommonWebView extends WebView {
     }
 
     private void init() {
-        this.bkd = true;
-        this.bke = true;
+        this.bpe = true;
+        this.bpf = true;
         setBackgroundColor(0);
         setHorizontalScrollBarEnabled(false);
         setVerticalScrollBarEnabled(false);

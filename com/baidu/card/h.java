@@ -21,11 +21,11 @@ public abstract class h extends b<AbsThreadDataSupport> {
         this.topMargin = i;
     }
 
-    public int rz() {
+    public int rQ() {
         return this.bottomMargin;
     }
 
-    public void ba(int i) {
+    public void bg(int i) {
         this.bottomMargin = i;
     }
 }

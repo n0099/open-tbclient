@@ -7,12 +7,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bu;
 import com.baidu.tbadk.core.view.userLike.c;
 import com.baidu.tieba.view.FollowUserButton;
 /* loaded from: classes8.dex */
 public class FollowUserDecorView extends FollowUserButton {
-    private c agS;
+    private c ahX;
     private BdUniqueId mBdUniqueId;
 
     public FollowUserDecorView(Context context) {
@@ -27,27 +27,27 @@ public class FollowUserDecorView extends FollowUserButton {
         super(context, attributeSet, i);
     }
 
-    public void setData(bk bkVar) {
-        if (bkVar == null || bkVar.aQx() == null) {
+    public void setData(bu buVar) {
+        if (buVar == null || buVar.aSp() == null) {
             setVisibility(8);
             return;
         }
-        if (this.agS == null) {
-            this.agS = new c(S(getContext()), this);
-            this.agS.l(this.mBdUniqueId);
+        if (this.ahX == null) {
+            this.ahX = new c(T(getContext()), this);
+            this.ahX.l(this.mBdUniqueId);
         }
         setVisibility(0);
-        this.agS.a(bkVar.aQx());
+        this.ahX.a(buVar.aSp());
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        if (this.agS != null) {
-            this.agS.l(this.mBdUniqueId);
+        if (this.ahX != null) {
+            this.ahX.l(this.mBdUniqueId);
         }
     }
 
-    private TbPageContext S(Context context) {
+    private TbPageContext T(Context context) {
         if (context instanceof BaseActivity) {
             return ((BaseActivity) context).getPageContext();
         }

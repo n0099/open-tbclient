@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
 import com.idlefish.flutterboost.FlutterBoost;
@@ -170,9 +170,9 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.sendReumeToDart && !this.isResumedOrVisibleToUser) {
+        if (!this.isResumedOrVisibleToUser) {
             this.isResumedOrVisibleToUser = true;
-            this.delegate.onResume();
+            this.delegate.onResume(true);
         }
     }
 
@@ -183,12 +183,12 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
                 if (!this.isResumedOrVisibleToUser) {
                     this.sendReumeToDart = true;
                     this.isResumedOrVisibleToUser = true;
-                    this.delegate.onResume();
+                    this.delegate.onResume(true);
                 }
             } else if (this.isResumedOrVisibleToUser) {
                 this.sendReumeToDart = false;
                 this.isResumedOrVisibleToUser = false;
-                this.delegate.onPause();
+                this.delegate.onPause(true);
             }
         }
     }
@@ -200,9 +200,9 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.sendReumeToDart && this.isResumedOrVisibleToUser) {
+        if (this.isResumedOrVisibleToUser) {
             this.isResumedOrVisibleToUser = false;
-            this.delegate.onPause();
+            this.delegate.onPause(true);
         }
     }
 
@@ -226,7 +226,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         this.delegate = null;
     }
 
-    @Override // android.support.v4.app.Fragment, com.baidu.h.a.a.InterfaceC0125a
+    @Override // android.support.v4.app.Fragment, com.baidu.h.a.a.InterfaceC0127a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         this.delegate.onRequestPermissionsResult(i, strArr, iArr);
     }
@@ -291,7 +291,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         FrameLayout frameLayout = new FrameLayout(getActivity());
         frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         ContinuousAnimationView continuousAnimationView = new ContinuousAnimationView(getActivity());
-        am.a(continuousAnimationView, R.raw.lottie_full_screen_refresh);
+        an.a(continuousAnimationView, R.raw.lottie_full_screen_refresh);
         continuousAnimationView.setSpeed(1.2f);
         continuousAnimationView.setLayoutParams(new FrameLayout.LayoutParams(290, 304, 17));
         frameLayout.addView(continuousAnimationView);
@@ -345,10 +345,6 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     }
 
     @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
-    public void onFlutterContainerOpen() {
-    }
-
-    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
-    public void onFlutterContainerClose() {
+    public void setSwipeBackEnable(boolean z) {
     }
 }

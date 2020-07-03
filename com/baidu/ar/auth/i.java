@@ -6,9 +6,9 @@ import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class i {
-    private volatile a jx = a.RUNNING;
-    private volatile List<Integer> jy;
-    private String jz;
+    private volatile a jP = a.RUNNING;
+    private volatile List<Integer> jQ;
+    private String jR;
 
     /* loaded from: classes3.dex */
     public enum a {
@@ -18,72 +18,72 @@ public class i {
     }
 
     public i(List<Integer> list) {
-        this.jy = list;
-        bU();
-    }
-
-    private void bU() {
-        if (this.jy != null) {
-            int[] iArr = new int[this.jy.size()];
-            int size = this.jy.size();
-            for (int i = 0; i < size; i++) {
-                iArr[i] = this.jy.get(i).intValue();
-            }
-            AuthJni.setGrantedFeatures(iArr);
-        }
+        this.jQ = list;
+        ck();
     }
 
     public void Q(String str) {
         synchronized (this) {
-            this.jx = a.FAIL;
-            this.jz = str;
+            this.jP = a.FAIL;
+            this.jR = str;
         }
         b(null);
     }
 
     public void b(Set<Integer> set) {
         synchronized (this) {
-            if (this.jy == null) {
-                this.jy = new ArrayList();
+            if (this.jQ == null) {
+                this.jQ = new ArrayList();
             }
-            this.jy.clear();
+            this.jQ.clear();
             if (set != null && !set.isEmpty()) {
-                this.jy.addAll(set);
+                this.jQ.addAll(set);
             }
-            bU();
+            ck();
         }
     }
 
-    public void bS() {
+    public void ci() {
         synchronized (this) {
-            this.jx = a.PASS;
+            this.jP = a.PASS;
         }
     }
 
-    public String bT() {
-        return this.jz;
+    public String cj() {
+        return this.jR;
     }
 
-    public List<Integer> bV() {
+    public final void ck() {
+        if (this.jQ != null) {
+            int[] iArr = new int[this.jQ.size()];
+            int size = this.jQ.size();
+            for (int i = 0; i < size; i++) {
+                iArr[i] = this.jQ.get(i).intValue();
+            }
+            AuthJni.setGrantedFeatures(iArr);
+        }
+    }
+
+    public List<Integer> cl() {
         ArrayList arrayList;
         synchronized (this) {
             arrayList = new ArrayList();
-            if (this.jy != null) {
-                arrayList.addAll(this.jy);
+            if (this.jQ != null) {
+                arrayList.addAll(this.jQ);
             }
         }
         return arrayList;
     }
 
     public boolean isFailed() {
-        return this.jx == a.FAIL;
+        return this.jP == a.FAIL;
     }
 
     public boolean isRunning() {
-        return this.jx == a.RUNNING;
+        return this.jP == a.RUNNING;
     }
 
-    public boolean u(int i) {
-        return (isFailed() || this.jy == null || !this.jy.contains(Integer.valueOf(i))) ? false : true;
+    public boolean w(int i) {
+        return (isFailed() || this.jQ == null || !this.jQ.contains(Integer.valueOf(i))) ? false : true;
     }
 }

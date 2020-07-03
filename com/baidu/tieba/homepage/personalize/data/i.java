@@ -1,67 +1,44 @@
 package com.baidu.tieba.homepage.personalize.data;
+
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.cache.l;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import tbclient.Personalized.DataRes;
 /* loaded from: classes9.dex */
 public class i {
-    private long ifO;
-    private long liveId;
-    private int liveType;
-    private String portrait;
-    private long threadId;
-    private int type = 0;
-    private String username;
+    public static boolean iuY = false;
 
-    public int getType() {
-        return this.type;
+    public static DataRes ckb() {
+        l<byte[]> dc = com.baidu.tbadk.core.c.a.aUM().dc("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+        if (dc == null) {
+            return null;
+        }
+        byte[] bArr = dc.get("0");
+        if (bArr == null || bArr.length == 0) {
+            return null;
+        }
+        try {
+            return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
+        } catch (IOException e) {
+            BdLog.e(e);
+            return null;
+        }
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public static void ckc() {
+        l<byte[]> dc = com.baidu.tbadk.core.c.a.aUM().dc("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+        if (dc != null) {
+            dc.set("0", new byte[0], 0L);
+        }
     }
 
-    public String getPortrait() {
-        return this.portrait;
-    }
-
-    public void setPortrait(String str) {
-        this.portrait = str;
-    }
-
-    public String getUsername() {
-        return this.username;
-    }
-
-    public void setUsername(String str) {
-        this.username = str;
-    }
-
-    public long getLiveId() {
-        return this.liveId;
-    }
-
-    public void setLiveId(long j) {
-        this.liveId = j;
-    }
-
-    public long getThreadId() {
-        return this.threadId;
-    }
-
-    public void setThreadId(long j) {
-        this.threadId = j;
-    }
-
-    public long cgD() {
-        return this.ifO;
-    }
-
-    public void eo(long j) {
-        this.ifO = j;
-    }
-
-    public int bBi() {
-        return this.liveType;
-    }
-
-    public void wH(int i) {
-        this.liveType = i;
+    public static boolean g(ResponsedMessage responsedMessage) {
+        if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof RecPersonalizeRequest)) {
+            return false;
+        }
+        return ((RecPersonalizeRequest) responsedMessage.getOrginalMessage().getExtra()).getLoadType() == 2;
     }
 }

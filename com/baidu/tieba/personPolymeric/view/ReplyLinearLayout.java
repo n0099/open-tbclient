@@ -12,15 +12,15 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class ReplyLinearLayout extends LinearLayout {
-    private static ViewGroup.LayoutParams kxW;
-    private List<TextView> kxV;
+    private static ViewGroup.LayoutParams kRT;
+    private List<TextView> kRS;
     private boolean mIsHost;
     private View.OnClickListener mOnItemClickListener;
 
@@ -34,7 +34,7 @@ public class ReplyLinearLayout extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String[] strArr = (String[]) view.getTag();
-                TiebaStatic.log(new an("c12043").ag("obj_type", ReplyLinearLayout.this.mIsHost ? 1 : 2));
+                TiebaStatic.log(new ao("c12043").ag("obj_type", ReplyLinearLayout.this.mIsHost ? 1 : 2));
                 if (strArr != null) {
                     Context context2 = ReplyLinearLayout.this.getContext();
                     if ("0".equals(strArr[3])) {
@@ -49,24 +49,24 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
             }
         };
-        this.kxV = new ArrayList();
+        this.kRS = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
         int i;
-        if (kxW == null) {
-            kxW = new LinearLayout.LayoutParams(-1, -2);
+        if (kRT == null) {
+            kRT = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.kxV.size();
+        int size2 = size - this.kRS.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.kxV.add(textView);
+            this.kRS.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.kxV.size(); i3++) {
-            TextView textView2 = this.kxV.get(i3);
+        for (int i3 = 0; i3 < this.kRS.size(); i3++) {
+            TextView textView2 = this.kRS.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;
@@ -83,24 +83,24 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
                 textView2.setTag(charSequenceArr);
                 textView2.setOnClickListener(this.mOnItemClickListener);
-                h(textView2, i3);
+                i(textView2, i3);
                 if (i3 == 0) {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
-                    textView2.setLayoutParams(kxW);
-                    am.setViewTextColor(textView2, R.color.cp_cont_b, 1);
+                    textView2.setLayoutParams(kRT);
+                    an.setViewTextColor(textView2, R.color.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
-                    am.setBackgroundResource(textView2, R.color.cp_bg_line_c);
+                    an.setBackgroundResource(textView2, R.color.cp_bg_line_c);
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
-                    textView2.setLayoutParams(kxW);
-                    am.setViewTextColor(textView2, R.color.cp_cont_f, 1);
+                    textView2.setLayoutParams(kRT);
+                    an.setViewTextColor(textView2, R.color.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
-                    textView2.setLayoutParams(kxW);
-                    am.setViewTextColor(textView2, R.color.cp_cont_d, 1);
+                    textView2.setLayoutParams(kRT);
+                    an.setViewTextColor(textView2, R.color.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);
             } else {
@@ -109,16 +109,16 @@ public class ReplyLinearLayout extends LinearLayout {
         }
     }
 
-    private void h(TextView textView, int i) {
+    private void i(TextView textView, int i) {
         if (i == 0) {
-            am.setViewTextColor(textView, R.color.common_color_10039, 1);
+            an.setViewTextColor(textView, R.color.common_color_10039, 1);
             textView.setPadding(0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f), 0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f));
         } else if (i % 3 == 2) {
-            am.setViewTextColor(textView, R.color.common_color_10081, 1);
+            an.setViewTextColor(textView, R.color.common_color_10081, 1);
             textView.setBackgroundResource(R.color.cp_bg_line_d);
             textView.setPadding(0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f), 0, com.baidu.adp.lib.util.l.dip2px(getContext(), 2.0f));
         } else if (i % 3 == 0) {
-            am.setViewTextColor(textView, R.color.common_color_10005, 1);
+            an.setViewTextColor(textView, R.color.common_color_10005, 1);
             textView.setPadding(0, com.baidu.adp.lib.util.l.dip2px(getContext(), 2.0f), 0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f));
         }
     }

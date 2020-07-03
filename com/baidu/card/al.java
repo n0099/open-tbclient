@@ -3,203 +3,170 @@ package com.baidu.card;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.card.b;
-import com.baidu.card.view.VideoImageNoPlayerLayout;
+import android.widget.TextView;
+import com.baidu.card.a.a;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tieba.R;
-import tbclient.VideoInfo;
+import com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class al extends h {
-    private static final int afP = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds88);
-    private static int afQ = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
-    private static int afR = afQ;
-    private static int afS = afR / 2;
-    private static int afT = afR / 3;
-    private AbsThreadDataSupport adw;
-    private VideoImageNoPlayerLayout afU;
-    private com.baidu.card.view.a afV;
-    private Context mContext;
-    private String mFrom;
-    private int mLastScreenWidth;
-    private int mSkinType;
+public class al extends b<AbsThreadDataSupport> {
+    private int agl;
+    private int agm;
+    private ThreadCommentAndPraiseInfoLayout agn;
+    private AbsThreadDataSupport ago;
+    private a.C0098a agp;
+    private Runnable agq;
 
     public al(Context context) {
         super(context);
-        this.mLastScreenWidth = 0;
-        this.mSkinType = 3;
-        this.mContext = context;
-        this.afU = new VideoImageNoPlayerLayout(context);
-        b((Boolean) true);
-    }
-
-    @Override // com.baidu.card.b
-    public View getView() {
-        return this.afU;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x00bc, code lost:
-        if (r4 == r5.width) goto L20;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x017e, code lost:
-        if (r4 == r5.width) goto L20;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x0180, code lost:
-        r3 = false;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x00c0  */
-    @Override // com.baidu.card.n
-    /* renamed from: b */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void D(AbsThreadDataSupport absThreadDataSupport) {
-        boolean z;
-        boolean z2 = true;
-        int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
-        if (equipmentWidth != this.mLastScreenWidth) {
-            afQ = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
-            afR = afQ;
-            afS = afR / 2;
-            afT = afR / 3;
-            this.mLastScreenWidth = equipmentWidth;
-        }
-        this.adw = absThreadDataSupport;
-        if (this.adw == null || this.adw.aOi() == null || this.adw.aOi().dHm == null || this.adw.aOi().dHm.dCi) {
-            this.afU.setVisibility(8);
-            return;
-        }
-        this.afU.setVisibility(0);
-        this.afU.D(absThreadDataSupport);
-        ViewGroup.LayoutParams layoutParams = this.afU.getLayoutParams();
-        ViewGroup.LayoutParams layoutParams2 = this.afU.aip.getLayoutParams();
-        int i = layoutParams.width;
-        int i2 = layoutParams.height;
-        int homePageStyleAbTest = TbSingleton.getInstance().getHomePageStyleAbTest();
-        if ("index".equals(this.mFrom) && (homePageStyleAbTest & 4) != 0) {
-            layoutParams.width = afR;
-            layoutParams.height = ((afR / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-            layoutParams2.width = afR;
-            layoutParams2.height = ((afR / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-            if (i2 == layoutParams.height) {
+        this.agl = 11;
+        this.agm = this.agl;
+        this.agp = new a.C0098a(5);
+        this.agq = new Runnable() { // from class: com.baidu.card.al.1
+            @Override // java.lang.Runnable
+            public void run() {
+                al.this.agp.setExtraData(Integer.valueOf(al.this.agn.getCommentContainer().getRight() + al.this.adV.sc().afZ));
+                al.this.adV.b(al.this.agp);
             }
-            if (z2) {
-            }
-            this.afU.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.al.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (al.this.adu != null) {
-                        al.this.adu.a(al.this.adw);
-                    }
-                }
-            });
-            this.afU.setData(this.adw);
-            if (rs() == null) {
-            }
-        }
-        if (this.adw.aOi().dHm.videoInfo.is_vertical.intValue() == 1) {
-            VideoInfo videoInfo = this.adw.aOi().dHm.videoInfo;
-            if (videoInfo != null) {
-                int i3 = (afS / 9) * 16;
-                int i4 = afT;
-                int intValue = videoInfo.video_width.intValue();
-                int intValue2 = videoInfo.video_height.intValue();
-                layoutParams.width = afR;
-                layoutParams2.width = afS;
-                boolean z3 = i != layoutParams.width;
-                if (intValue == 0 || intValue2 == 0) {
-                    layoutParams.height = i3;
-                    layoutParams2.height = i3;
-                    if (i2 != layoutParams.height) {
-                        z = true;
-                        z2 = z;
-                    }
-                    z = z3;
-                    z2 = z;
-                } else {
-                    int i5 = (int) (((1.0f * intValue2) / intValue) * afS);
-                    if (i5 >= i4) {
-                        i4 = i5 > i3 ? i3 : i5;
-                    }
-                    layoutParams.height = i4;
-                    layoutParams2.height = i4;
-                    if (i2 != layoutParams.height) {
-                        z = true;
-                        z2 = z;
-                    }
-                    z = z3;
-                    z2 = z;
-                }
-            } else {
-                return;
-            }
-        } else {
-            layoutParams.width = afR;
-            layoutParams2.width = afR;
-            layoutParams.height = ((afR / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-            layoutParams2.height = ((afR / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-            if (i2 == layoutParams.height) {
-            }
-        }
-        if (z2) {
-            this.afU.setLayoutParams(layoutParams);
-            this.afU.aip.setLayoutParams(layoutParams2);
-        }
-        this.afU.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.al.1
+        };
+        this.agn = new ThreadCardBottomOpSegmentLayout(context);
+        this.agn.setReplyTimeVisible(false);
+        this.agn.setShowPraiseNum(true);
+        this.agn.setNeedAddPraiseIcon(true);
+        this.agn.setNeedAddReplyIcon(true);
+        this.agn.setShareVisible(true);
+        this.agn.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.al.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (al.this.adu != null) {
-                    al.this.adu.a(al.this.adw);
+                if (al.this.rJ() != null) {
+                    al.this.rJ().a(view, al.this.ago);
                 }
             }
         });
-        this.afU.setData(this.adw);
-        if (rs() == null) {
+    }
+
+    public void setOnCommentClickCallback(ThreadCommentAndPraiseInfoLayout.a aVar) {
+        if (this.agn != null) {
+            this.agn.setOnCommentClickCallback(aVar);
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
-    public void setOnCardSubClickListener(com.baidu.tieba.card.aa<AbsThreadDataSupport> aaVar) {
-        super.setOnCardSubClickListener(aaVar);
-        this.afU.setOnCardSubClickListener(aaVar);
+    public void rI() {
+        this.adV.a(4, new a.b() { // from class: com.baidu.card.al.3
+            @Override // com.baidu.card.a.a.b
+            public boolean a(a.C0098a c0098a) {
+                if (c0098a.sk() instanceof Boolean) {
+                    if (((Boolean) c0098a.sk()).booleanValue()) {
+                        al.this.agl = al.this.agm;
+                    } else {
+                        al.this.agl &= -5;
+                        al.this.agl |= 64;
+                    }
+                    al.this.agn.setShowFlag(al.this.agl);
+                }
+                return false;
+            }
+        });
+    }
+
+    @Override // com.baidu.card.b
+    public void bd(int i) {
+        this.agl |= i;
+        this.agn.setShowFlag(this.agl);
+        this.agm = this.agl;
+    }
+
+    @Override // com.baidu.card.b
+    public void be(int i) {
+        this.agl &= i ^ (-1);
+        this.agn.setShowFlag(this.agl);
+        this.agm = this.agl;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.card.b
+    public View getView() {
+        return this.agn;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.card.n
+    /* renamed from: b */
+    public void D(AbsThreadDataSupport absThreadDataSupport) {
+        this.ago = absThreadDataSupport;
+        this.agn.setData(absThreadDataSupport.aPS());
+        if ((this.agl & 4) > 0 || (this.agl & 64) > 0) {
+            this.agn.post(this.agq);
+        }
+        sh();
+    }
+
+    private void sh() {
+        boolean z;
+        setMarginsTop(this.agn, 0);
+        b rX = this.adV.rX();
+        if (rX != null) {
+            ViewGroup viewGroup = (ViewGroup) rX.getView();
+            int childCount = viewGroup.getChildCount();
+            int i = 0;
+            while (true) {
+                if (i >= childCount) {
+                    z = true;
+                    break;
+                } else if (!(viewGroup.getChildAt(i) instanceof TextView) && viewGroup.getChildAt(i).getVisibility() == 0) {
+                    z = false;
+                    break;
+                } else {
+                    i++;
+                }
+            }
+            if (z) {
+                List<h> rZ = this.adV.rZ();
+                if (!com.baidu.tbadk.core.util.w.isEmpty(rZ)) {
+                    for (h hVar : rZ) {
+                        if (hVar != null && hVar.getView() != null && hVar.getView().getVisibility() == 0) {
+                            return;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     @Override // com.baidu.card.o
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.mSkinType != i) {
-            this.afU.onChangeSkinType(tbPageContext, i);
-        }
-        this.mSkinType = i;
+        this.agn.onChangeSkinType();
     }
 
-    public void setFrom(String str) {
-        this.mFrom = str;
+    public void setFromForPb(int i) {
+        this.agn.edR = i;
     }
 
-    public void a(b.a aVar) {
-        this.adu = aVar;
+    public void setFrom(int i) {
+        this.agn.setFrom(i);
     }
 
-    public void setVideoAreaClickListener(com.baidu.card.view.a aVar) {
-        this.afV = aVar;
-        if (aVar != null) {
-            rQ();
-        }
+    public void setStType(String str) {
+        this.agn.setStType(str);
     }
 
-    private void rQ() {
-        if (this.afU != null) {
-            this.afU.setVideoAreaClickListener(new com.baidu.card.view.a() { // from class: com.baidu.card.al.2
-                @Override // com.baidu.card.view.a
-                public void a(AbsThreadDataSupport absThreadDataSupport) {
-                    if (al.this.afV != null) {
-                        al.this.afV.a(al.this.adw);
-                    }
-                }
-            });
-        }
+    public void setAgreeStatisticData(com.baidu.tbadk.core.data.c cVar) {
+        this.agn.setAgreeStatisticData(cVar);
+    }
+
+    public void setShareReportFrom(int i) {
+        this.agn.setShareReportFrom(i);
+    }
+
+    public void setGameId(int i) {
+        this.agn.setGameId(i);
+    }
+
+    public void setTabName(String str) {
+        this.agn.setTabName(str);
     }
 }

@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bu;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.o;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.p;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.PbActivity;
@@ -18,9 +18,9 @@ import com.baidu.tieba.pb.pb.main.at;
 import org.apache.http.HttpHost;
 /* loaded from: classes9.dex */
 public class PbVideoFullscreenAttentionLayout extends FrameLayout {
-    private HeadImageView kfR;
-    private PbVideoFullscreenLikeBtn kfS;
-    private at kfT;
+    private HeadImageView kzF;
+    private PbVideoFullscreenLikeBtn kzG;
+    private at kzH;
     private BdUniqueId uniqueId;
 
     public PbVideoFullscreenAttentionLayout(Context context) {
@@ -40,13 +40,13 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
 
     private void init(Context context) {
         inflate(context, R.layout.pb_video_attention, this);
-        this.kfR = (HeadImageView) findViewById(R.id.attention_img);
-        this.kfS = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
-        this.kfR.setIsRound(true);
-        this.kfR.setBorderWidth(l.getDimens(context, R.dimen.tbds3));
-        this.kfR.setBorderColor(context.getResources().getColor(R.color.cp_border_b));
-        this.kfR.setAutoChangeStyle(false);
-        this.kfS.setConfig(new com.baidu.tbadk.core.view.commonBtn.b());
+        this.kzF = (HeadImageView) findViewById(R.id.attention_img);
+        this.kzG = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
+        this.kzF.setIsRound(true);
+        this.kzF.setBorderWidth(l.getDimens(context, R.dimen.tbds3));
+        this.kzF.setBorderColor(context.getResources().getColor(R.color.cp_border_b));
+        this.kzF.setAutoChangeStyle(false);
+        this.kzG.setConfig(new com.baidu.tbadk.core.view.commonBtn.b());
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
@@ -54,62 +54,62 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     }
 
     public void setOnClickEvent(View.OnClickListener onClickListener) {
-        this.kfS.setOnclickEvent(onClickListener);
+        this.kzG.setOnclickEvent(onClickListener);
     }
 
-    public void setData(bk bkVar) {
-        if (bkVar != null && bkVar.aQx() != null) {
-            String wj = o.wj(bkVar.aQx().getAvater());
-            if (wj.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                this.kfR.startLoad(wj, 10, false);
+    public void setData(bu buVar) {
+        if (buVar != null && buVar.aSp() != null) {
+            String wz = p.wz(buVar.aSp().getAvater());
+            if (wz.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                this.kzF.startLoad(wz, 10, false);
             } else {
-                this.kfR.startLoad(wj, 25, false);
+                this.kzF.startLoad(wz, 25, false);
             }
-            if (bkVar.aQx().getBaijiahaoInfo() != null && bkVar.aQx().getBaijiahaoInfo().auth_id.intValue() > 0) {
-                this.kfR.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(bkVar.aQx().getBaijiahaoInfo().auth_id.intValue(), 1));
-                this.kfR.setShowV(true);
-                this.kfR.setGodIconWidth(R.dimen.tbds31);
+            if (buVar.aSp().getBaijiahaoInfo() != null && buVar.aSp().getBaijiahaoInfo().auth_id.intValue() > 0) {
+                this.kzF.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(buVar.aSp().getBaijiahaoInfo().auth_id.intValue(), 1));
+                this.kzF.setShowV(true);
+                this.kzF.setGodIconWidth(R.dimen.tbds31);
             } else {
-                this.kfR.setBjhAuthIconRes(0);
-                this.kfR.setIsBigV(bkVar.aQx().isBigV());
-                this.kfR.setShowV(bkVar.aQx().isBigV());
+                this.kzF.setBjhAuthIconRes(0);
+                this.kzF.setIsBigV(buVar.aSp().isBigV());
+                this.kzF.setShowV(buVar.aSp().isBigV());
             }
-            aU(bkVar);
+            aV(buVar);
         }
     }
 
-    public void aU(bk bkVar) {
-        if (bkVar != null && bkVar.aQx() != null) {
-            String str = bkVar.tid;
-            int aV = aV(bkVar);
-            if (this.kfT == null) {
+    public void aV(bu buVar) {
+        if (buVar != null && buVar.aSp() != null) {
+            String str = buVar.tid;
+            int aW = aW(buVar);
+            if (this.kzH == null) {
                 if (getContext() instanceof PbActivity) {
-                    this.kfT = new at(((PbActivity) getContext()).getPageContext(), this.kfS, -1);
-                    this.kfT.vA("11");
-                    this.kfT.l(this.uniqueId);
+                    this.kzH = new at(((PbActivity) getContext()).getPageContext(), this.kzG, -1);
+                    this.kzH.vQ("11");
+                    this.kzH.l(this.uniqueId);
                 } else {
                     return;
                 }
             }
-            this.kfT.a(bkVar.aQx());
-            this.kfT.setTid(str);
-            this.kfT.setThreadData(bkVar);
-            this.kfT.jSd = true;
-            this.kfT.Ay(aV);
+            this.kzH.a(buVar.aSp());
+            this.kzH.setTid(str);
+            this.kzH.setThreadData(buVar);
+            this.kzH.klT = true;
+            this.kzH.BA(aW);
         }
     }
 
-    public int aV(bk bkVar) {
-        if (bkVar == null) {
+    public int aW(bu buVar) {
+        if (buVar == null) {
             return 0;
         }
-        if (bkVar.aRV()) {
-            return !aq.isEmpty(bkVar.aQC()) ? 2 : 0;
+        if (buVar.aTM()) {
+            return !ar.isEmpty(buVar.aSt()) ? 2 : 0;
         }
         return 1;
     }
 
-    public boolean cMm() {
-        return (this.kfT == null || this.kfT.aXc() == null || !this.kfT.aXc().getIsLike()) ? false : true;
+    public boolean cQD() {
+        return (this.kzH == null || this.kzH.aZi() == null || !this.kzH.aZi().getIsLike()) ? false : true;
     }
 }

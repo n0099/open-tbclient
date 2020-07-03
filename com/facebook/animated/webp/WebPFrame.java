@@ -69,11 +69,11 @@ public class WebPFrame implements c {
         return nativeGetYOffset();
     }
 
-    public boolean dtM() {
+    public boolean dyp() {
         return nativeShouldDisposeToBackgroundColor();
     }
 
-    public boolean dtN() {
+    public boolean dyq() {
         return nativeIsBlendWithPreviousFrame();
     }
 }

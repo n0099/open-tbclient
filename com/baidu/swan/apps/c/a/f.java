@@ -8,13 +8,13 @@ import kotlin.jvm.internal.q;
 /* loaded from: classes11.dex */
 public final class f {
     private static final String TAG;
-    private static com.baidu.swan.apps.a.a bIN;
-    private static com.baidu.swan.apps.a.c bIO;
-    private static boolean bIP;
-    public static final f bIQ = new f();
+    private static com.baidu.swan.apps.a.a bNB;
+    private static com.baidu.swan.apps.a.c bNC;
+    private static boolean bND;
+    public static final f bNE = new f();
 
     static {
-        String simpleName = bIQ.getClass().getSimpleName();
+        String simpleName = bNE.getClass().getSimpleName();
         q.l((Object) simpleName, "SwanAppAllianceLoginHelper.javaClass.simpleName");
         TAG = simpleName;
     }
@@ -22,46 +22,47 @@ public final class f {
     private f() {
     }
 
-    public final com.baidu.swan.apps.a.a TF() {
-        return bIN;
+    public final com.baidu.swan.apps.a.a UL() {
+        return bNB;
     }
 
-    public final com.baidu.swan.apps.a.c TG() {
-        return bIO;
+    public final com.baidu.swan.apps.a.c UM() {
+        return bNC;
     }
 
-    public final boolean TH() {
-        return bIP;
+    public final boolean UN() {
+        return bND;
     }
 
-    public final void dj(boolean z) {
-        bIP = z;
+    /* renamed from: do  reason: not valid java name */
+    public final void m26do(boolean z) {
+        bND = z;
     }
 
-    public final void TI() {
-        d.bIL.TB();
-        h.bIT.TM();
-        db(false);
+    public final void UO() {
+        d.bNz.UH();
+        h.bNH.US();
+        dg(false);
     }
 
-    public final boolean TJ() {
-        if (g.TL() == null) {
-            TK();
+    public final boolean UP() {
+        if (g.UR() == null) {
+            UQ();
         }
-        Boolean TL = g.TL();
-        if (TL == null) {
-            q.dMa();
+        Boolean UR = g.UR();
+        if (UR == null) {
+            q.dQG();
         }
-        return TL.booleanValue();
+        return UR.booleanValue();
     }
 
-    public final void db(boolean z) {
+    public final void dg(boolean z) {
         Bundle bundle = new Bundle();
         bundle.putBoolean("status", z);
         DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, bundle);
     }
 
-    private final void TK() {
+    private final void UQ() {
         boolean z;
         try {
             Class.forName("com.baidu.sapi2.SapiAccountManager");

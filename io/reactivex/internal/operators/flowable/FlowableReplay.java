@@ -15,11 +15,11 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.reactivex.disposables.b {
-    static final Callable noV = new a();
+    static final Callable nKI = new a();
     final AtomicReference<ReplaySubscriber<T>> current;
-    final org.a.b<T> noI;
-    final Callable<? extends b<T>> noU;
-    final io.reactivex.g<T> noe;
+    final io.reactivex.g<T> nJT;
+    final Callable<? extends b<T>> nKH;
+    final org.a.b<T> nKv;
 
     /* loaded from: classes7.dex */
     interface b<T> {
@@ -34,7 +34,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.noI.subscribe(cVar);
+        this.nKv.subscribe(cVar);
     }
 
     @Override // io.reactivex.disposables.b
@@ -57,7 +57,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                 break;
             }
             try {
-                ReplaySubscriber<T> replaySubscriber2 = new ReplaySubscriber<>(this.noU.call());
+                ReplaySubscriber<T> replaySubscriber2 = new ReplaySubscriber<>(this.nKH.call());
                 if (this.current.compareAndSet(replaySubscriber, replaySubscriber2)) {
                     replaySubscriber = replaySubscriber2;
                     break;
@@ -71,7 +71,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
         try {
             gVar.accept(replaySubscriber);
             if (z) {
-                this.noe.a((j) replaySubscriber);
+                this.nJT.a((j) replaySubscriber);
             }
         } catch (Throwable th) {
             if (z) {
@@ -286,7 +286,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                     } else {
                         return;
                     }
-                } while (!compareAndSet(j2, io.reactivex.internal.util.b.M(j2, j)));
+                } while (!compareAndSet(j2, io.reactivex.internal.util.b.N(j2, j)));
                 io.reactivex.internal.util.b.a(this.totalRequested, j);
                 this.parent.manageRequests();
                 this.parent.buffer.replay(this);
@@ -654,7 +654,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.BoundedReplayBuffer
         Object leaveTransform(Object obj) {
-            return ((io.reactivex.f.b) obj).dLv();
+            return ((io.reactivex.f.b) obj).dQb();
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.BoundedReplayBuffer
@@ -670,7 +670,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                     this.size--;
                     node2 = node3;
                     node3 = node3.get();
-                } else if (((io.reactivex.f.b) node3.value).alB() > a) {
+                } else if (((io.reactivex.f.b) node3.value).amH() > a) {
                     break;
                 } else {
                     i++;
@@ -699,7 +699,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
             Node node = (Node) get();
             Node node2 = node;
             int i = 0;
-            for (Node node3 = node.get(); node3 != null && this.size > 1 && ((io.reactivex.f.b) node3.value).alB() <= a; node3 = node3.get()) {
+            for (Node node3 = node.get(); node3 != null && this.size > 1 && ((io.reactivex.f.b) node3.value).amH() <= a; node3 = node3.get()) {
                 i++;
                 this.size--;
                 node2 = node3;
@@ -713,7 +713,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
             Node node2 = node;
             for (Node node3 = node.get(); node3 != null; node3 = node3.get()) {
                 io.reactivex.f.b bVar = (io.reactivex.f.b) node3.value;
-                if (NotificationLite.isComplete(bVar.dLv()) || NotificationLite.isError(bVar.dLv()) || bVar.alB() > a) {
+                if (NotificationLite.isComplete(bVar.dQb()) || NotificationLite.isError(bVar.dQb()) || bVar.amH() > a) {
                     break;
                 }
                 node2 = node3;

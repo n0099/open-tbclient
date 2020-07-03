@@ -4,38 +4,38 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 /* loaded from: classes13.dex */
 public class a implements e {
-    private final Executor mwx;
-    private final Executor mwy;
-    private final Executor mww = Executors.newFixedThreadPool(2, new k(10, "FrescoIoBoundExecutor", true));
-    private final Executor mwz = Executors.newFixedThreadPool(1, new k(10, "FrescoLightWeightBackgroundExecutor", true));
+    private final Executor mSx;
+    private final Executor mSy;
+    private final Executor mSw = Executors.newFixedThreadPool(2, new k(10, "FrescoIoBoundExecutor", true));
+    private final Executor mSz = Executors.newFixedThreadPool(1, new k(10, "FrescoLightWeightBackgroundExecutor", true));
 
     public a(int i) {
-        this.mwx = Executors.newFixedThreadPool(i, new k(10, "FrescoDecodeExecutor", true));
-        this.mwy = Executors.newFixedThreadPool(i, new k(10, "FrescoBackgroundExecutor", true));
+        this.mSx = Executors.newFixedThreadPool(i, new k(10, "FrescoDecodeExecutor", true));
+        this.mSy = Executors.newFixedThreadPool(i, new k(10, "FrescoBackgroundExecutor", true));
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor dyE() {
-        return this.mww;
+    public Executor dDg() {
+        return this.mSw;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor dyF() {
-        return this.mww;
+    public Executor dDh() {
+        return this.mSw;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor dyG() {
-        return this.mwx;
+    public Executor dDi() {
+        return this.mSx;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor dyH() {
-        return this.mwy;
+    public Executor dDj() {
+        return this.mSy;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor dyI() {
-        return this.mwz;
+    public Executor dDk() {
+        return this.mSz;
     }
 }

@@ -9,11 +9,11 @@ import java.io.IOException;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public abstract class Linker {
-    private static Linker mcV = null;
-    private static Object mcW = new Object();
-    protected int mcT = 0;
+    private static Linker myK = null;
+    private static Object myL = new Object();
+    protected int myI = 0;
     protected final Object mLock = new Object();
-    private String mcU = null;
+    private String myJ = null;
 
     private static native long nativeGetRandomBaseLoadAddress();
 
@@ -22,14 +22,14 @@ public abstract class Linker {
         public static final Parcelable.Creator<LibInfo> CREATOR = new Parcelable.Creator<LibInfo>() { // from class: com.baidu.turbonet.base.library_loader.Linker.LibInfo.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: ac */
+            /* renamed from: af */
             public LibInfo createFromParcel(Parcel parcel) {
                 return new LibInfo(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: Ga */
+            /* renamed from: Hh */
             public LibInfo[] newArray(int i) {
                 return new LibInfo[i];
             }

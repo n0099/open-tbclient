@@ -12,7 +12,7 @@ import com.xiaomi.mipush.sdk.Constants;
 public class a extends c {
     public a(@NonNull Context context) {
         super("BaiduMap", context.getString(R.string.openlocation_bottommenu_baidumap), "com.baidu.BaiduMap");
-        this.dio = true;
+        this.dmZ = true;
     }
 
     @Override // com.baidu.swan.impl.map.d.c

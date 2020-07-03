@@ -17,13 +17,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
-    public static String bve;
-    public static String bvf;
-    public static String bvg;
-    public static String bvh;
-    public static String bvi;
-    private static List<com.baidu.poly.a.g.b> bvj;
-    private static Object bvk = new Object();
+    private static List<com.baidu.poly.a.g.b> bAa;
+    private static Object bAb = new Object();
+    public static String bzV;
+    public static String bzW;
+    public static String bzX;
+    public static String bzY;
+    public static String bzZ;
 
     /* loaded from: classes11.dex */
     static class a implements Runnable {
@@ -39,12 +39,12 @@ public class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
     public static class b extends com.baidu.poly.a.a.a {
-        final /* synthetic */ com.baidu.poly.a.a.c btV;
-        final /* synthetic */ com.baidu.poly.a.a.b btW;
+        final /* synthetic */ com.baidu.poly.a.a.c byO;
+        final /* synthetic */ com.baidu.poly.a.a.b byP;
 
         b(com.baidu.poly.a.a.c cVar, com.baidu.poly.a.a.b bVar) {
-            this.btV = cVar;
-            this.btW = bVar;
+            this.byO = cVar;
+            this.byP = bVar;
         }
 
         @Override // com.baidu.poly.a.a.a
@@ -53,19 +53,19 @@ public class d {
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            d.b(this.btV.getMap(), this.btW.getMap());
+            d.b(this.byO.getMap(), this.byP.getMap());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
     public static class c extends com.baidu.poly.a.a.a {
-        final /* synthetic */ JSONArray bvc;
-        final /* synthetic */ JSONObject bvd;
+        final /* synthetic */ JSONArray bzT;
+        final /* synthetic */ JSONObject bzU;
 
         c(JSONArray jSONArray, JSONObject jSONObject) {
-            this.bvc = jSONArray;
-            this.bvd = jSONObject;
+            this.bzT = jSONArray;
+            this.bzU = jSONObject;
         }
 
         @Override // com.baidu.poly.a.a.a
@@ -74,21 +74,21 @@ public class d {
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            this.bvc.put(this.bvd);
+            this.bzT.put(this.bzU);
         }
     }
 
-    private static void MY() {
-        JSONArray Nb = Nb();
-        if (Nb != null && Nb.length() != 0) {
+    private static void Oh() {
+        JSONArray Ok = Ok();
+        if (Ok != null && Ok.length() != 0) {
             try {
                 JSONArray jSONArray = new JSONArray();
-                for (int i = 0; i < Nb.length(); i++) {
-                    JSONObject jSONObject = Nb.getJSONObject(i);
+                for (int i = 0; i < Ok.length(); i++) {
+                    JSONObject jSONObject = Ok.getJSONObject(i);
                     com.baidu.poly.a.a.c cVar = new com.baidu.poly.a.a.c();
-                    cVar.b(e.T(jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER)));
+                    cVar.b(e.aa(jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER)));
                     com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
-                    bVar.b(e.T(jSONObject.optJSONObject("body")));
+                    bVar.b(e.aa(jSONObject.optJSONObject("body")));
                     new com.baidu.poly.a.g.c().a(cVar, bVar, new c(jSONArray, jSONObject));
                 }
                 a(jSONArray);
@@ -97,38 +97,38 @@ public class d {
         }
     }
 
-    private static com.baidu.poly.a.a.c MZ() {
+    private static com.baidu.poly.a.a.c Oi() {
         com.baidu.poly.a.a.c cVar = new com.baidu.poly.a.a.c();
-        if (!TextUtils.isEmpty(bve)) {
-            cVar.g(SM.COOKIE, "BDUSS=" + bve);
+        if (!TextUtils.isEmpty(bzV)) {
+            cVar.g(SM.COOKIE, "BDUSS=" + bzV);
         }
         return cVar;
     }
 
-    private static com.baidu.poly.a.a.b Na() {
+    private static com.baidu.poly.a.a.b Oj() {
         com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
         bVar.g("dm", "cashier");
         bVar.g("os", "android");
         bVar.g("v", "2.6.3");
         bVar.g("id", UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, ""));
-        if (!TextUtils.isEmpty(bvi)) {
-            bVar.g("n", bvi);
+        if (!TextUtils.isEmpty(bzZ)) {
+            bVar.g("n", bzZ);
         }
-        if (!TextUtils.isEmpty(bvf)) {
-            bVar.g("d", bvf);
+        if (!TextUtils.isEmpty(bzW)) {
+            bVar.g("d", bzW);
         }
-        if (!TextUtils.isEmpty(bvg)) {
-            bVar.g(SuspensionBallUbc.VALUE_DT, bvg);
+        if (!TextUtils.isEmpty(bzX)) {
+            bVar.g(SuspensionBallUbc.VALUE_DT, bzX);
         }
-        if (!TextUtils.isEmpty(bvh)) {
-            bVar.g("dp", bvh);
+        if (!TextUtils.isEmpty(bzY)) {
+            bVar.g("dp", bzY);
         }
         return bVar;
     }
 
-    private static JSONArray Nb() {
+    private static JSONArray Ok() {
         JSONArray jSONArray;
-        File file = new File(g.Nj().getFilesDir(), "poly_cashier_statistics.json");
+        File file = new File(g.Os().getFilesDir(), "poly_cashier_statistics.json");
         if (file.exists()) {
             try {
                 jSONArray = new JSONArray(com.baidu.poly.util.c.m(file));
@@ -145,7 +145,7 @@ public class d {
     }
 
     private static void clear() {
-        List<com.baidu.poly.a.g.b> list = bvj;
+        List<com.baidu.poly.a.g.b> list = bAa;
         if (list != null) {
             list.clear();
         }
@@ -154,26 +154,26 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public static synchronized void doFlush() {
         synchronized (d.class) {
-            List<com.baidu.poly.a.g.b> list = bvj;
+            List<com.baidu.poly.a.g.b> list = bAa;
             if (list != null && !list.isEmpty()) {
-                com.baidu.poly.a.a.b Na = Na();
-                synchronized (bvk) {
+                com.baidu.poly.a.a.b Oj = Oj();
+                synchronized (bAb) {
                     JSONArray jSONArray = new JSONArray();
-                    for (com.baidu.poly.a.g.b bVar : bvj) {
-                        JSONObject MX = bVar.MX();
-                        if (MX != null) {
-                            jSONArray.put(MX);
+                    for (com.baidu.poly.a.g.b bVar : bAa) {
+                        JSONObject Og = bVar.Og();
+                        if (Og != null) {
+                            jSONArray.put(Og);
                         }
                     }
-                    Na.g("data", jSONArray.toString());
+                    Oj.g("data", jSONArray.toString());
                     clear();
                 }
-                com.baidu.poly.a.a.c MZ = MZ();
+                com.baidu.poly.a.a.c Oi = Oi();
                 if (f.A()) {
-                    MY();
-                    new com.baidu.poly.a.g.c().a(MZ, Na, new b(MZ, Na));
+                    Oh();
+                    new com.baidu.poly.a.g.c().a(Oi, Oj, new b(Oi, Oj));
                 } else {
-                    b(MZ.getMap(), Na.getMap());
+                    b(Oi.getMap(), Oj.getMap());
                 }
             }
         }
@@ -184,20 +184,20 @@ public class d {
     }
 
     public static void y() {
-        bve = null;
-        bvf = null;
-        bvg = null;
-        bvh = null;
-        bvi = null;
+        bzV = null;
+        bzW = null;
+        bzX = null;
+        bzY = null;
+        bzZ = null;
     }
 
     public static void a(com.baidu.poly.a.g.b bVar) {
-        if (bvj == null) {
-            bvj = new ArrayList();
+        if (bAa == null) {
+            bAa = new ArrayList();
         }
         if (bVar != null) {
-            synchronized (bvk) {
-                bvj.add(bVar);
+            synchronized (bAb) {
+                bAa.add(bVar);
             }
         }
     }
@@ -212,7 +212,7 @@ public class d {
             bVar = new com.baidu.poly.a.g.b("3");
         }
         if (bVar != null) {
-            bVar.gx(str);
+            bVar.gF(str);
             a(bVar);
         }
     }
@@ -220,28 +220,28 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Map map, Map map2) {
         try {
-            JSONArray Nb = Nb();
-            if (Nb != null) {
-                if (Nb.length() >= 20) {
-                    Nb.remove(0);
+            JSONArray Ok = Ok();
+            if (Ok != null) {
+                if (Ok.length() >= 20) {
+                    Ok.remove(0);
                 }
             } else {
-                Nb = new JSONArray();
+                Ok = new JSONArray();
             }
             JSONObject jSONObject = new JSONObject();
             JSONObject k = e.k(map);
             JSONObject k2 = e.k(map2);
             jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, k);
             jSONObject.put("body", k2);
-            Nb.put(jSONObject);
-            a(Nb);
+            Ok.put(jSONObject);
+            a(Ok);
         } catch (Exception e) {
         }
     }
 
     private static void a(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() != 0) {
-            com.baidu.poly.util.c.a(jSONArray.toString(), new File(g.Nj().getFilesDir(), "poly_cashier_statistics.json"));
+            com.baidu.poly.util.c.a(jSONArray.toString(), new File(g.Os().getFilesDir(), "poly_cashier_statistics.json"));
         }
     }
 }

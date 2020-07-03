@@ -5,21 +5,21 @@ public interface e extends c {
 
     void B(int i, String str);
 
-    void In();
+    void C(int i, String str);
 
-    void Io();
+    void D(int i, String str);
 
-    void Ip();
+    void JA();
 
-    void Iq();
+    void JB();
 
-    void Ir();
+    void JC();
+
+    void JD();
+
+    void JE();
 
     void a(com.baidu.live.videochat.b.a aVar);
-
-    void w(int i, String str);
-
-    void x(int i, String str);
 
     void y(int i, String str);
 

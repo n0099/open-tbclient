@@ -13,8 +13,11 @@ import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -62,6 +65,7 @@ public class AlaLiveInfoData implements Serializable {
     public String guardPortrait;
     public boolean hasRead;
     public String[] imEffect;
+    public String introducegoods;
     public int isAudioOnPrivate;
     public int isOnPrivate;
     public int join_count;
@@ -71,6 +75,7 @@ public class AlaLiveInfoData implements Serializable {
     public int live_status;
     public int live_type;
     public String location;
+    public List<AlaLiveStickerInfo> mAlaLiveStickerList;
     public AlaLiveSwitchData mAlaLiveSwitchData;
     public String mRecommendTabSwitch;
     public String media_id;
@@ -239,6 +244,7 @@ public class AlaLiveInfoData implements Serializable {
             this.session_default = jSONObject.optInt("session_default");
             this.clarity = jSONObject.optInt("clarity");
             this.goodsList = jSONObject.optInt(UbcStatConstant.ContentType.UBC_TYPE_GOODS_LIST);
+            this.introducegoods = jSONObject.optString("introduce_goods");
             this.game_id = jSONObject.optString("game_id");
             this.game_label = jSONObject.optString("game_label");
             this.game_icon = jSONObject.optString("game_icon");
@@ -299,6 +305,19 @@ public class AlaLiveInfoData implements Serializable {
             }
             this.chat_count = jSONObject.optInt("chat_count", 0);
             this.mRecommendTabSwitch = jSONObject.optString("recommend_tab_switch", "0");
+            JSONArray optJSONArray = jSONObject.optJSONArray("sticker_info");
+            if (optJSONArray != null) {
+                this.mAlaLiveStickerList = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    try {
+                        this.mAlaLiveStickerList.add(AlaLiveStickerInfo.parse(optJSONArray.getJSONObject(i)));
+                    } catch (JSONException e) {
+                        return;
+                    }
+                }
+                return;
+            }
+            this.mAlaLiveStickerList = null;
         }
     }
 
@@ -354,6 +373,8 @@ public class AlaLiveInfoData implements Serializable {
             jSONObject.put("user_name", this.user_name);
             jSONObject.put("user_nickname", this.user_nickname);
             jSONObject.put("group_id", this.group_id);
+            jSONObject.put("introduce_goods", this.introducegoods);
+            jSONObject.put(UbcStatConstant.ContentType.UBC_TYPE_GOODS_LIST, this.goodsList);
             jSONObject.put("last_msg_id", this.last_msg_id);
             jSONObject.put("session_id", this.session_id);
             jSONObject.put("description", this.description);

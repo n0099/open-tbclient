@@ -9,13 +9,13 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 class m implements l {
-    private final List<String> jE = new ArrayList();
+    private final List<String> jW = new ArrayList();
 
     public m(f fVar) {
-        if (fVar == null || fVar.jo == null) {
+        if (fVar == null || fVar.jF == null) {
             return;
         }
-        this.jE.addAll(fVar.jo);
+        this.jW.addAll(fVar.jF);
     }
 
     @Override // com.baidu.ar.auth.l
@@ -24,8 +24,8 @@ class m implements l {
 
     @Override // com.baidu.ar.auth.l
     public void doAuth(Context context, final j jVar) {
-        final String aL = com.baidu.ar.f.j.aL(context.getPackageName());
-        final boolean contains = this.jE.contains(aL);
+        final String aM = com.baidu.ar.f.j.aM(context.getPackageName());
+        final boolean contains = this.jW.contains(aM);
         p.a(new Runnable() { // from class: com.baidu.ar.auth.m.1
             @Override // java.lang.Runnable
             public void run() {
@@ -35,11 +35,11 @@ class m implements l {
                         return;
                     }
                     StringBuilder sb = new StringBuilder();
-                    Iterator it = m.this.jE.iterator();
+                    Iterator it = m.this.jW.iterator();
                     while (it.hasNext()) {
                         sb.append(((String) it.next()) + Constants.ACCEPT_TIME_SEPARATOR_SP);
                     }
-                    jVar.onError(String.format("包名不符，正确值：%s 现为：%s", sb.toString(), aL), 0);
+                    jVar.onError(String.format("包名不符，正确值：%s 现为：%s", sb.toString(), aM), 0);
                 }
             }
         }, 0L);

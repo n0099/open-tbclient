@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 import com.baidu.tbadk.core.view.ThreadUserInfoLayout;
 import com.baidu.tieba.R;
@@ -17,21 +17,21 @@ import com.baidu.tieba.card.ala.AlaVideoContainer;
 import com.baidu.tieba.card.m;
 /* loaded from: classes3.dex */
 public class d implements View.OnClickListener {
-    private bk aee;
-    private final View.OnClickListener agI = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.a.d.1
+    private bu aeK;
+    private final View.OnClickListener ahM = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.a.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.this.fGC != null) {
-                d.this.fGC.d(view, d.this.aee);
+            if (d.this.fRL != null) {
+                d.this.fRL.d(view, d.this.aeK);
             }
         }
     };
-    public View fGA;
-    public AlaVideoContainer fGB;
-    private com.baidu.tieba.ala.livecard.vc.c fGC;
-    public RelativeLayout fGx;
-    public ThreadUserInfoLayout fGy;
-    public ThreadCommentAndPraiseInfoLayout fGz;
+    public RelativeLayout fRG;
+    public ThreadUserInfoLayout fRH;
+    public ThreadCommentAndPraiseInfoLayout fRI;
+    public View fRJ;
+    public AlaVideoContainer fRK;
+    private com.baidu.tieba.ala.livecard.vc.c fRL;
     public View mDivider;
     private String mForumName;
     public TextView mTextTitle;
@@ -39,18 +39,18 @@ public class d implements View.OnClickListener {
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.rootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_ala_stage_live_item, (ViewGroup) null);
-        this.fGx = (RelativeLayout) this.rootView.findViewById(R.id.layout_root);
-        this.fGy = (ThreadUserInfoLayout) this.rootView.findViewById(R.id.card_frs_ala_video_user_info_layout);
-        this.fGy.setFrom(3);
+        this.fRG = (RelativeLayout) this.rootView.findViewById(R.id.layout_root);
+        this.fRH = (ThreadUserInfoLayout) this.rootView.findViewById(R.id.card_frs_ala_video_user_info_layout);
+        this.fRH.setFrom(3);
         this.mTextTitle = (TextView) this.rootView.findViewById(R.id.text_title);
-        this.fGB = (AlaVideoContainer) this.rootView.findViewById(R.id.ala_video_container);
-        this.fGA = this.rootView.findViewById(R.id.divider_below_reply_number_layout);
-        this.fGz = (ThreadCommentAndPraiseInfoLayout) this.rootView.findViewById(R.id.text_bottom);
+        this.fRK = (AlaVideoContainer) this.rootView.findViewById(R.id.ala_video_container);
+        this.fRJ = this.rootView.findViewById(R.id.divider_below_reply_number_layout);
+        this.fRI = (ThreadCommentAndPraiseInfoLayout) this.rootView.findViewById(R.id.text_bottom);
         this.mDivider = this.rootView.findViewById(R.id.divider_line);
-        this.fGx.setOnClickListener(this);
-        this.fGz.setOnClickListener(this);
-        this.fGz.getCommentContainer().setOnClickListener(this);
-        this.fGB.setOnVideoClickListener(this);
+        this.fRG.setOnClickListener(this);
+        this.fRI.setOnClickListener(this);
+        this.fRI.getCommentContainer().setOnClickListener(this);
+        this.fRK.setOnVideoClickListener(this);
     }
 
     public View getRootView() {
@@ -58,78 +58,78 @@ public class d implements View.OnClickListener {
     }
 
     public void refreshView() {
-        if (this.aee != null && this.aee.aQx() != null) {
-            d(this.aee, this.mForumName);
+        if (this.aeK != null && this.aeK.aSp() != null) {
+            k(this.aeK, this.mForumName);
         }
     }
 
-    public void d(bk bkVar, String str) {
-        if (bkVar != null && bkVar.aQx() != null) {
-            this.aee = bkVar;
+    public void k(bu buVar, String str) {
+        if (buVar != null && buVar.aSp() != null) {
+            this.aeK = buVar;
             this.mForumName = str;
-            this.fGx.setVisibility(0);
-            this.fGy.setData(bkVar);
-            if (this.fGy.getHeaderImg() != null) {
-                this.fGy.getHeaderImg().setData(bkVar);
+            this.fRG.setVisibility(0);
+            this.fRH.setData(buVar);
+            if (this.fRH.getHeaderImg() != null) {
+                this.fRH.getHeaderImg().setData(buVar);
             }
-            this.fGy.setUserAfterClickListener(this.agI);
-            bkVar.v(false, true);
-            this.mTextTitle.setText(bkVar.aRi());
-            this.fGB.getController().a(bkVar, str, "", false);
-            this.fGB.getController().startPlayAnimation();
-            this.fGz.setReplyTimeVisible(false);
-            this.fGz.setNeedAddReplyIcon(true);
-            this.fGz.setIsBarViewVisible(false);
-            this.fGz.setCommentNumEnable(false);
-            this.fGz.setOnClickListener(this);
-            this.fGz.setLiveShareEnable(false);
-            this.fGz.setShareVisible(true);
-            this.fGz.setShowPraiseNum(true);
-            this.fGz.setNeedAddPraiseIcon(true);
-            this.fGz.setFrom(2);
-            if (this.fGz.setData(bkVar)) {
-                this.fGA.setVisibility(8);
+            this.fRH.setUserAfterClickListener(this.ahM);
+            buVar.v(false, true);
+            this.mTextTitle.setText(buVar.aSZ());
+            this.fRK.getController().a(buVar, str, "", false);
+            this.fRK.getController().startPlayAnimation();
+            this.fRI.setReplyTimeVisible(false);
+            this.fRI.setNeedAddReplyIcon(true);
+            this.fRI.setIsBarViewVisible(false);
+            this.fRI.setCommentNumEnable(false);
+            this.fRI.setOnClickListener(this);
+            this.fRI.setLiveShareEnable(false);
+            this.fRI.setShareVisible(true);
+            this.fRI.setShowPraiseNum(true);
+            this.fRI.setNeedAddPraiseIcon(true);
+            this.fRI.setFrom(2);
+            if (this.fRI.setData(buVar)) {
+                this.fRJ.setVisibility(8);
             } else {
-                this.fGA.setVisibility(0);
+                this.fRJ.setVisibility(0);
             }
-            V(bkVar);
+            W(buVar);
         }
     }
 
     public void o(BdUniqueId bdUniqueId) {
-        if (bdUniqueId != null && this.fGz != null && this.fGy != null) {
-            this.fGy.setPageUniqueId(bdUniqueId);
+        if (bdUniqueId != null && this.fRI != null && this.fRH != null) {
+            this.fRH.setPageUniqueId(bdUniqueId);
         }
     }
 
-    private void V(bk bkVar) {
-        this.fGz.onChangeSkinType();
-        this.fGy.onChangeSkinType();
-        this.fGB.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.fGx.setBackgroundDrawable(am.le(R.color.cp_bg_line_e));
-        am.setBackgroundColor(this.mDivider, R.color.cp_bg_line_c);
-        if (bkVar != null && m.Do(bkVar.getId())) {
-            am.setViewTextColor(this.mTextTitle, (int) R.color.cp_cont_d);
+    private void W(bu buVar) {
+        this.fRI.onChangeSkinType();
+        this.fRH.onChangeSkinType();
+        this.fRK.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.fRG.setBackgroundDrawable(an.ls(R.color.cp_bg_line_e));
+        an.setBackgroundColor(this.mDivider, R.color.cp_bg_line_c);
+        if (buVar != null && m.DP(buVar.getId())) {
+            an.setViewTextColor(this.mTextTitle, (int) R.color.cp_cont_d);
         } else {
-            am.setViewTextColor(this.mTextTitle, (int) R.color.cp_cont_b);
+            an.setViewTextColor(this.mTextTitle, (int) R.color.cp_cont_b);
         }
     }
 
     public void a(com.baidu.tieba.ala.livecard.vc.c cVar) {
-        this.fGC = cVar;
+        this.fRL = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fGx || view == this.fGz.getCommentContainer()) {
-            if (this.aee != null) {
-                m.Dn(this.aee.getId());
+        if (view == this.fRG || view == this.fRI.getCommentContainer()) {
+            if (this.aeK != null) {
+                m.DO(this.aeK.getId());
             }
-            if (this.fGC != null) {
-                this.fGC.c(view, this.aee);
+            if (this.fRL != null) {
+                this.fRL.c(view, this.aeK);
             }
-        } else if (view.getId() == R.id.video_container && this.fGC != null) {
-            this.fGC.c(view, this.aee);
+        } else if (view.getId() == R.id.video_container && this.fRL != null) {
+            this.fRL.c(view, this.aeK);
         }
     }
 }

@@ -4,9 +4,9 @@ import android.view.View;
 import java.util.List;
 /* loaded from: classes5.dex */
 interface a {
-    View Is(int i);
+    View JA(int i);
 
-    View It(int i);
+    View Jz(int i);
 
     void a(View view, int i, int i2, b bVar);
 
@@ -16,9 +16,9 @@ interface a {
 
     int ah(int i, int i2, int i3);
 
-    boolean dCE();
+    boolean dHg();
 
-    int dk(View view);
+    int dl(View view);
 
     int getAlignContent();
 
@@ -50,7 +50,7 @@ interface a {
 
     int getSumOfCrossSize();
 
-    int j(View view, int i, int i2);
+    int i(View view, int i, int i2);
 
     void l(int i, View view);
 

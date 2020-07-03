@@ -12,6 +12,7 @@ import android.view.SurfaceHolder;
 import android.view.View;
 import com.baidu.ar.DuMixInput;
 import com.baidu.ar.DuMixOutput;
+import com.baidu.ar.DuMixStateListener;
 import com.baidu.ar.arplay.core.engine.ARPEngine;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadListener;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
@@ -33,35 +34,38 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public abstract class e implements SurfaceTexture.OnFrameAvailableListener, View.OnTouchListener, OnRenderFinishedListener, OnRenderStartedListener, IRenderer {
-    private f B;
-    String aB;
-    DuMixInput aa;
-    DuMixOutput ab;
-    com.baidu.ar.lua.b e;
-    ARPFilter hA;
-    ARPEngine hB;
-    boolean hC;
-    com.baidu.ar.arplay.core.engine.a hD;
-    private WeakReference<View> hE;
-    a hF;
-    com.baidu.ar.arplay.a.c hG;
-    com.baidu.ar.arplay.d.b hH;
-    boolean hI;
-    private float[] hJ;
-    boolean hK;
-    private String hL;
-    private int hM;
-    private Size hN;
-    private EGLContext hO;
-    private g hP;
-    private n hs;
-    private boolean ht;
-    private boolean hu;
-    private long hv;
-    private HashMap<DuMixOutput, n> hw;
-    private com.baidu.ar.steploading.d hx;
-    private com.baidu.ar.e.c hy;
-    private com.baidu.ar.lua.a hz;
+    private f C;
+    DuMixInput W;
+    DuMixOutput aa;
+    com.baidu.ar.lua.b f;
+    private n hG;
+    private boolean hH;
+    private boolean hI;
+    private long hJ;
+    private HashMap<DuMixOutput, n> hK;
+    private com.baidu.ar.steploading.d hL;
+    private com.baidu.ar.e.c hM;
+    private com.baidu.ar.lua.a hN;
+    ARPFilter hO;
+    ARPEngine hP;
+    boolean hQ;
+    com.baidu.ar.arplay.core.engine.a hR;
+    private WeakReference<View> hS;
+    a hT;
+    com.baidu.ar.arplay.a.c hU;
+    com.baidu.ar.arplay.d.b hV;
+    boolean hW;
+    private float[] hX;
+    boolean hY;
+    private String hZ;
+    private int ia;
+    private Size ib;
+    protected EGLContext ic;
+    private DuMixStateListener ie;
+
+    /* renamed from: if  reason: not valid java name */
+    private g f2if;
+    String mCasePath;
     private Context mContext;
     private OnRenderFinishedListener mOnRenderFinishedListener;
     private OnRenderStartedListener mOnRenderStartedListener;
@@ -72,45 +76,42 @@ public abstract class e implements SurfaceTexture.OnFrameAvailableListener, View
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(Context context, com.baidu.ar.lua.b bVar, EGLContext eGLContext) {
-        this.ht = false;
-        this.hu = false;
-        this.hv = 0L;
-        this.hC = false;
-        this.aB = null;
-        this.hJ = new float[16];
-        this.hK = false;
-        this.hO = null;
-        com.baidu.ar.libloader.b.an("EglCore2");
-        this.hO = eGLContext;
+        this.hH = false;
+        this.hI = false;
+        this.hJ = 0L;
+        this.hQ = false;
+        this.mCasePath = null;
+        this.hX = new float[16];
+        this.hY = false;
+        this.ic = null;
+        com.baidu.ar.f.b.c("AbstractRenderer", "create start!!!");
+        com.baidu.ar.libloader.b.ao("EglCore2");
         this.mContext = context;
-        this.e = bVar;
-        this.hD = new com.baidu.ar.arplay.core.engine.a(Looper.getMainLooper());
-        this.hD.setScreenOrientationLandscape(com.baidu.ar.f.n.w(context));
-        this.hG = new com.baidu.ar.arplay.a.c(context);
-        this.hH = com.baidu.ar.arplay.d.b.aT();
-        this.hw = new HashMap<>();
-        this.hF = new a(context);
-        this.hx = new com.baidu.ar.steploading.d(this.mContext);
-        this.hx.b(this.e);
-        this.hy = new com.baidu.ar.e.c(this.mContext);
-        this.hy.b(this.e);
-        this.hz = new com.baidu.ar.lua.a();
-        this.hz.b(this.e);
-        p.b(this.e);
-        Matrix.setIdentityM(this.hJ, 0);
-        if (this.hB == null) {
-            this.hB = ARPEngine.getInstance();
-        }
-        if (this.hA == null) {
-            this.hA = ARPFilter.getInstance();
-            this.hA.setContext(new SoftReference<>(this.mContext));
-        }
-        this.hA.setUpEGLEnv(this.hO);
+        this.f = bVar;
+        this.ic = eGLContext;
+        this.hR = new com.baidu.ar.arplay.core.engine.a(Looper.getMainLooper());
+        this.hR.setScreenOrientationLandscape(com.baidu.ar.f.n.y(context));
+        this.hU = new com.baidu.ar.arplay.a.c(context);
+        this.hV = com.baidu.ar.arplay.d.b.bh();
+        this.hK = new HashMap<>();
+        this.hT = new a(context);
+        this.hL = new com.baidu.ar.steploading.d(context);
+        this.hL.b(this.f);
+        this.hM = new com.baidu.ar.e.c(context);
+        this.hM.b(this.f);
+        this.hN = new com.baidu.ar.lua.a();
+        this.hN.b(this.f);
+        p.b(this.f);
+        Matrix.setIdentityM(this.hX, 0);
+        this.hP = ARPEngine.getInstance();
+        this.hO = ARPFilter.getInstance();
+        this.hO.setContext(new SoftReference<>(context));
+        com.baidu.ar.f.b.c("AbstractRenderer", "create end!!!");
     }
 
     private void J(String str) {
-        if (this.hH != null) {
-            this.hH.G(str);
+        if (this.hV != null) {
+            this.hV.G(str);
             File file = new File(str, "res/webview");
             if (file.exists()) {
                 File file2 = new File(this.mContext.getFilesDir(), "ar/res/webview");
@@ -121,14 +122,14 @@ public abstract class e implements SurfaceTexture.OnFrameAvailableListener, View
     }
 
     private void a(final SurfaceTexture surfaceTexture, int i, int i2, int i3) {
-        final int textureId = this.hA.getTextureId(this.hA.createTexture(i, i2, i3));
-        this.hA.setInputTexture(i, textureId, i2, i3);
+        final int textureId = this.hO.getTextureId(this.hO.createTexture(i, i2, i3));
+        this.hO.setInputTexture(i, textureId, i2, i3);
         try {
             surfaceTexture.detachFromGLContext();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.hA.runSyncOnRenderContext(new Runnable() { // from class: com.baidu.ar.arrender.e.3
+        this.hO.runSyncOnRenderContext(new Runnable() { // from class: com.baidu.ar.arrender.e.3
             @Override // java.lang.Runnable
             public void run() {
                 try {
@@ -139,10 +140,13 @@ public abstract class e implements SurfaceTexture.OnFrameAvailableListener, View
             }
         });
         surfaceTexture.setDefaultBufferSize(i2, i3);
+        if (this.ie != null) {
+            this.ie.onInputSurfaceTextureAttach(surfaceTexture);
+        }
     }
 
     private void a(boolean z, PixelReadParams pixelReadParams) {
-        if (o.fg()) {
+        if (o.fw()) {
             if (pixelReadParams.getIsPortrait()) {
                 if (z) {
                     pixelReadParams.setPixelRotate(PixelRotation.RotateRightFlipVertical);
@@ -154,7 +158,7 @@ public abstract class e implements SurfaceTexture.OnFrameAvailableListener, View
             } else {
                 pixelReadParams.setPixelRotate(PixelRotation.NoRotation);
             }
-        } else if (o.fh()) {
+        } else if (o.fx()) {
             if (pixelReadParams.getIsPortrait()) {
                 if (z) {
                     pixelReadParams.setPixelRotate(PixelRotation.RotateRightFlipHorizontal);
@@ -169,91 +173,75 @@ public abstract class e implements SurfaceTexture.OnFrameAvailableListener, View
         }
     }
 
-    private void bn() {
-        this.hA.runLuaScriptStr("filter_pipeline = function()\n\n    fm = ae.FilterManager:get_instance();\n\n    global_copy_filter = fm:create_filter(\"Tex2DFilter\", \"globalTex2DFilter\", true);\n    gl_makeup_filer = fm:create_filter(\"BeautyMakeupFilter\",\"globalBeautyMakeupFilter\",true);\n\n    skin_filter = fm:create_filter(\"SkinFilter\", \"globalSkinFilter\", true);\n    engine_filter = fm:create_filter(\"EngineFilter\", \"globalEngineFilter\", true);\n    fm:update_property_int(engine_filter, \"is_enable\", 0);\n    face_filter = fm:create_filter(\"FaceFilter\", \"globalFaceFilter\", true);\n    lut_filter = fm:create_filter(\"LUTFilter\", \"globalLutFilter\", true);\n    tune_color_filter = fm:create_filter(\"TuneColorFilter\", \"globalTuneColorFilter\", true);\n    fm:reset_pipeline();\n\n    fm:connect_filters_by_id(skin_filter, gl_makeup_filer);\n    fm:connect_filters_by_id(skin_filter, global_copy_filter);\n    fm:connect_filters_by_id(global_copy_filter, gl_makeup_filer);\n    fm:connect_filters_by_id(gl_makeup_filer, face_filter);\n    fm:connect_filters_by_id(face_filter, tune_color_filter);\n    fm:connect_filters_by_id(tune_color_filter, engine_filter);\n    fm:connect_filters_by_id(engine_filter, lut_filter);\n\n    fm:connect_filter_to_camera(skin_filter);\n    fm:connect_filter_to_output(lut_filter);\n\nend\n\nfilter_pipeline()\n\n");
+    private void bC() {
+        this.hO.runLuaScriptStr("filter_pipeline = function()\n\n    fm = ae.FilterManager:get_instance();\n\n    global_copy_filter = fm:create_filter(\"Tex2DFilter\", \"globalTex2DFilter\", true);\n    gl_makeup_filer = fm:create_filter(\"BeautyMakeupFilter\",\"globalBeautyMakeupFilter\",true);\n\n    skin_filter = fm:create_filter(\"SkinFilter\", \"globalSkinFilter\", true);\n    engine_filter = fm:create_filter(\"EngineFilter\", \"globalEngineFilter\", true);\n    fm:update_property_int(engine_filter, \"is_enable\", 0);\n    face_filter = fm:create_filter(\"FaceFilter\", \"globalFaceFilter\", true);\n    lut_filter = fm:create_filter(\"LUTFilter\", \"globalLutFilter\", true);\n    tune_color_filter = fm:create_filter(\"TuneColorFilter\", \"globalTuneColorFilter\", true);\n    fm:reset_pipeline();\n\n    fm:connect_filters_by_id(skin_filter, gl_makeup_filer);\n    fm:connect_filters_by_id(skin_filter, global_copy_filter);\n    fm:connect_filters_by_id(global_copy_filter, gl_makeup_filer);\n    fm:connect_filters_by_id(gl_makeup_filer, face_filter);\n    fm:connect_filters_by_id(face_filter, tune_color_filter);\n    fm:connect_filters_by_id(tune_color_filter, engine_filter);\n    fm:connect_filters_by_id(engine_filter, lut_filter);\n\n    fm:connect_filter_to_camera(skin_filter);\n    fm:connect_filter_to_output(lut_filter);\n\nend\n\nfilter_pipeline()\n\n");
     }
 
-    private void bo() {
-        this.hA.runSyncOnRenderContext(new Runnable() { // from class: com.baidu.ar.arrender.e.4
+    private void bD() {
+        this.hO.runSyncOnRenderContext(new Runnable() { // from class: com.baidu.ar.arrender.e.4
             @Override // java.lang.Runnable
             public void run() {
-                int createTexture = (int) e.this.hA.createTexture(3553, e.this.ab.getOutputWidth(), e.this.ab.getOutputHeight());
+                int createTexture = (int) e.this.hO.createTexture(3553, e.this.aa.getOutputWidth(), e.this.aa.getOutputHeight());
                 com.baidu.ar.f.b.c("AbstractRenderer", "setup outputTextureId = " + createTexture);
-                e.this.ab.setOutputSurface(new SurfaceTexture(createTexture));
+                e.this.aa.setOutputSurface(new SurfaceTexture(createTexture));
             }
         });
     }
 
-    private void bp() {
-        if (this.aa != null && this.aa.getInputSurface() != null) {
-            this.aa.getInputSurface().setOnFrameAvailableListener(null);
-            if (this.ht) {
-                this.aa.getInputSurface().release();
+    private void bE() {
+        if (this.W != null && this.W.getInputSurface() != null) {
+            this.W.getInputSurface().setOnFrameAvailableListener(null);
+            if (this.hH) {
+                this.W.getInputSurface().release();
             }
         }
-        if (this.hA != null && this.hv > 0) {
-            this.hA.destroyTexture(this.hv);
+        if (this.hO != null && this.hJ > 0) {
+            this.hO.destroyTexture(this.hJ);
+        }
+        this.W = null;
+        if (this.aa != null && this.aa.getOutputSurface() != null && this.hI) {
+            ((SurfaceTexture) this.aa.getOutputSurface()).release();
         }
         this.aa = null;
-        if (this.ab != null && this.ab.getOutputSurface() != null && this.hu) {
-            ((SurfaceTexture) this.ab.getOutputSurface()).release();
-        }
-        this.ab = null;
-        this.hs = null;
+        this.hG = null;
     }
 
     private SurfaceTexture c(int i, int i2, int i3) {
-        this.hv = this.hA.createTexture(i, i2, i3);
-        int textureId = this.hA.getTextureId(this.hv);
+        this.hJ = this.hO.createTexture(i, i2, i3);
+        int textureId = this.hO.getTextureId(this.hJ);
         SurfaceTexture surfaceTexture = new SurfaceTexture(textureId);
         surfaceTexture.setDefaultBufferSize(i2, i3);
-        this.hA.setInputTexture(i, textureId, i2, i3);
+        this.hO.setInputTexture(i, textureId, i2, i3);
         return surfaceTexture;
     }
 
-    private void s(boolean z) {
+    private void r(boolean z) {
         if (z) {
             return;
         }
         float[] fArr = new float[16];
         Matrix.setIdentityM(fArr, 0);
-        this.hA.setInputMatrix(fArr);
-    }
-
-    public void F() {
-        com.baidu.ar.f.b.c("AbstractRenderer", "destroyCase()");
-        if (this.hB != null) {
-            this.hB.unloadCase();
-        }
-        bn();
-        this.hA.purgeMemory();
-        this.aB = null;
-        if (this.hH != null) {
-            this.hH.G(null);
-        }
-        if (this.hy != null) {
-            this.hy.reset();
-        }
+        this.hO.setInputMatrix(fArr);
     }
 
     public void I(String str) {
         com.baidu.ar.f.b.c("AbstractRenderer", "createCase() casePath = " + str);
-        if (this.hF != null) {
-            this.hF.aX();
+        if (this.hT != null) {
+            this.hT.bl();
         }
-        if (this.hx != null) {
-            this.hx.switchCase(str);
+        if (this.hL != null) {
+            this.hL.switchCase(str);
         }
-        if (this.hz != null) {
-            this.hz.dI();
+        if (this.hN != null) {
+            this.hN.dY();
         }
-        if (this.hB != null) {
-            this.hB.loadCaseWithResPath(str);
-            if (this.ab != null) {
-                changeOutputSize(this.ab.getOutputWidth(), this.ab.getOutputHeight());
+        if (this.hP != null) {
+            this.hP.loadCaseWithResPath(str);
+            if (this.aa != null) {
+                changeOutputSize(this.aa.getOutputWidth(), this.aa.getOutputHeight());
             }
         }
-        this.aB = str;
+        this.mCasePath = str;
         J(str);
     }
 
@@ -262,7 +250,7 @@ public abstract class e implements SurfaceTexture.OnFrameAvailableListener, View
         if (duMixInput == null) {
             com.baidu.ar.f.b.b("AbstractRenderer", "getEngineInputSize duMixInput is null!!!");
             return null;
-        } else if (this.hN == null || this.hN.getWidth() == 0 || this.hN.getHeight() == 0) {
+        } else if (this.ib == null || this.ib.getWidth() == 0 || this.ib.getHeight() == 0) {
             Size size = new Size(duMixInput.getInputHeight(), duMixInput.getInputWidth());
             if (duMixInput.isCameraInput()) {
                 return size;
@@ -274,36 +262,37 @@ public abstract class e implements SurfaceTexture.OnFrameAvailableListener, View
             }
             return size;
         } else {
-            return this.hN;
+            return this.ib;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Size a(Size size) {
-        return b.b(size.getWidth(), size.getHeight(), this.ab.getOutputWidth(), this.ab.getOutputHeight());
+        return b.b(size.getWidth(), size.getHeight(), this.aa.getOutputWidth(), this.aa.getOutputHeight());
     }
 
     public void a(DuMixInput duMixInput, DuMixOutput duMixOutput) {
-        com.baidu.ar.f.b.c("AbstractRenderer", "setup()");
-        if (duMixInput == null || duMixOutput == null || this.hA == null) {
+        com.baidu.ar.f.b.c("AbstractRenderer", "setup() start");
+        if (duMixInput == null || duMixOutput == null || this.hO == null) {
             return;
         }
-        this.aa = duMixInput;
-        this.ab = duMixOutput;
-        this.hA.setCameraFace(duMixInput.isFrontCamera());
-        this.hA.createInputSource(b.a(duMixInput.isCameraInput(), duMixInput.getInputDegree()), com.baidu.ar.arplay.core.engine.b.INTERNAL_OES_TEX);
+        this.W = duMixInput;
+        this.aa = duMixOutput;
+        this.hO.setUpEGLEnv(this.ic);
+        this.hO.setCameraFace(duMixInput.isFrontCamera());
+        this.hO.createInputSource(b.a(duMixInput.isCameraInput(), duMixInput.getInputDegree()), com.baidu.ar.arplay.core.engine.b.INTERNAL_OES_TEX);
         a(duMixInput);
-        s(duMixInput.isCameraInput());
+        r(duMixInput.isCameraInput());
         if (duMixInput.getInputSurface() == null) {
             duMixInput.setInputSurface(c(36197, duMixInput.getInputWidth(), duMixInput.getInputHeight()));
-            this.ht = true;
+            this.hH = true;
         } else {
             a(duMixInput.getInputSurface(), 36197, duMixInput.getInputWidth(), duMixInput.getInputHeight());
         }
         duMixInput.getInputSurface().setOnFrameAvailableListener(this);
         if (duMixOutput.getOutputSurface() == null) {
-            bo();
-            this.hu = true;
+            bD();
+            this.hI = true;
         }
         Surface surface = null;
         if (duMixOutput.getOutputSurface() instanceof SurfaceHolder) {
@@ -316,210 +305,226 @@ public abstract class e implements SurfaceTexture.OnFrameAvailableListener, View
             surface = (Surface) duMixOutput.getOutputSurface();
         }
         if (surface != null) {
-            String addOutputSurface = this.hA.addOutputSurface(surface, duMixOutput.getOutputWidth(), duMixOutput.getOutputHeight());
-            this.hs = new n(duMixOutput);
-            this.hs.setSurface(surface);
-            this.hs.N(addOutputSurface);
-            this.hA.setOnRenderStartedListener(this);
-            this.hA.setOnRenderFinishedListener(this);
-            this.hA.connectCameraWithTarget();
-            this.hK = duMixInput.isFrontCamera();
-            if (this.ab.getOutputFPS() > 0) {
-                this.hP = new g(this.ab.getOutputFPS());
+            String addOutputSurface = this.hO.addOutputSurface(surface, duMixOutput.getOutputWidth(), duMixOutput.getOutputHeight());
+            this.hG = new n(duMixOutput);
+            this.hG.setSurface(surface);
+            this.hG.N(addOutputSurface);
+            this.hO.setOnRenderStartedListener(this);
+            this.hO.setOnRenderFinishedListener(this);
+            this.hO.connectCameraWithTarget();
+            this.hY = duMixInput.isFrontCamera();
+            if (this.aa.getOutputFPS() > 0) {
+                this.f2if = new g(this.aa.getOutputFPS());
             }
-            bl();
+            bA();
+            com.baidu.ar.f.b.c("AbstractRenderer", "setup() end");
         }
     }
 
     public void a(PixelReadParams pixelReadParams, PixelReadListener pixelReadListener) {
-        if (this.hA != null) {
-            this.hA.destroyPixelReaderByPreFilterID(pixelReadParams, pixelReadListener);
+        if (this.hO != null) {
+            this.hO.destroyPixelReaderByPreFilterID(pixelReadParams, pixelReadListener);
         }
     }
 
     public void a(PixelReadParams pixelReadParams, PixelRotation pixelRotation) {
-        if (this.hA != null) {
-            a(this.hK, pixelReadParams);
-            this.hA.setPixelReaderRotation(pixelReadParams, pixelReadParams.getPixelRotate());
+        if (this.hO != null) {
+            a(this.hY, pixelReadParams);
+            this.hO.setPixelReaderRotation(pixelReadParams, pixelReadParams.getPixelRotate());
         }
     }
 
     public void a(JSONObject jSONObject) {
-        if (this.hB == null || jSONObject == null) {
+        if (this.hP == null || jSONObject == null) {
             return;
         }
-        this.hL = jSONObject.toString();
+        this.hZ = jSONObject.toString();
         try {
-            this.hB.setConfig("grading", this.hL);
+            this.hP.setConfig("grading", this.hZ);
         } catch (Throwable th) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(boolean z) {
-        if (this.B != null) {
-            this.B.a(z);
+        if (this.C != null) {
+            this.C.a(z);
         }
     }
 
     public void addOutputSurface(DuMixOutput duMixOutput) {
-        if (duMixOutput == null || duMixOutput.getOutputSurface() == null || this.hA == null || !(duMixOutput.getOutputSurface() instanceof Surface)) {
+        if (duMixOutput == null || duMixOutput.getOutputSurface() == null || this.hO == null || !(duMixOutput.getOutputSurface() instanceof Surface)) {
             com.baidu.ar.f.b.b("AbstractRenderer", "addOutputSurface duMixOutput is error!!!");
             return;
         }
         com.baidu.ar.f.b.c("AbstractRenderer", "addOutputSurface() surface = " + duMixOutput.getOutputSurface().hashCode() + " & width*height = " + duMixOutput.getOutputWidth() + "*" + duMixOutput.getOutputHeight() + " & rotation = " + duMixOutput.getRotationType() + " & mode = " + duMixOutput.getScaleType());
-        String addOutputSurface = this.hA.addOutputSurface((Surface) duMixOutput.getOutputSurface(), duMixOutput.getOutputWidth(), duMixOutput.getOutputHeight(), b.a(duMixOutput.getRotationType(), duMixOutput.getMirriorType()), b.a(duMixOutput.getScaleType()));
+        String addOutputSurface = this.hO.addOutputSurface((Surface) duMixOutput.getOutputSurface(), duMixOutput.getOutputWidth(), duMixOutput.getOutputHeight(), b.a(duMixOutput.getRotationType(), duMixOutput.getMirriorType()), b.a(duMixOutput.getScaleType()));
         n nVar = new n(duMixOutput);
         nVar.N(addOutputSurface);
-        if (this.hw != null) {
-            this.hw.put(duMixOutput, nVar);
+        if (this.hK != null) {
+            this.hK.put(duMixOutput, nVar);
         }
     }
 
-    public void bh() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void bA() {
+        com.baidu.ar.libloader.b.ao("AREngineCpp2");
+        com.baidu.ar.libloader.b.a("AREngineCpp", new a.c() { // from class: com.baidu.ar.arrender.e.1
+            @Override // com.baidu.ar.libloader.a.c
+            public void onReady() {
+                e.this.bB();
+            }
+        });
+    }
+
+    protected void bB() {
+        if (this.hP != null) {
+            if (TextUtils.isEmpty(this.hZ)) {
+                try {
+                    this.hP.setLocalDeviceGrade(this.ia);
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                }
+            } else {
+                try {
+                    this.hP.setConfig("grading", this.hZ);
+                } catch (Throwable th2) {
+                    th2.printStackTrace();
+                }
+            }
+        }
+        bC();
+        bx();
+        a(this.hY);
+    }
+
+    public void bv() {
+        com.baidu.ar.f.b.c("AbstractRenderer", "destroyCase()");
+        if (this.hP != null) {
+            this.hP.unloadCase();
+        }
+        bC();
+        this.hO.purgeMemory();
+        this.mCasePath = null;
+        if (this.hV != null) {
+            this.hV.G(null);
+        }
+        if (this.hM != null) {
+            this.hM.reset();
+        }
+    }
+
+    public void bw() {
         com.baidu.ar.f.b.c("AbstractRenderer", "stopARPEngine()");
-        if (this.hB != null && this.hC) {
-            this.hB.setFaceCallBack(null);
-            this.hB.pause();
-            this.hB.destroyEngine();
-            this.hB = null;
-            this.hC = false;
+        if (this.hP != null && this.hQ) {
+            this.hP.pause();
+            this.hP.destroyEngine();
+            this.hP = null;
+            this.hQ = false;
         }
-        this.hF = null;
-        if (this.hG != null) {
-            this.hG.release();
+        this.hT = null;
+        if (this.hU != null) {
+            this.hU.release();
         }
     }
 
-    public void bi() {
+    public void bx() {
         com.baidu.ar.f.b.c("AbstractRenderer", "startARPEngine()");
-        if (this.hB == null) {
-            this.hB = ARPEngine.getInstance();
+        if (this.hP == null) {
+            this.hP = ARPEngine.getInstance();
         }
-        if (this.hD != null) {
-            this.hD.j(true);
+        if (this.hR != null) {
+            this.hR.i(true);
         }
-        if (this.hB != null && this.aa != null && this.ab != null) {
-            Size a = a(this.aa);
+        if (this.hP != null && this.W != null && this.aa != null) {
+            Size a = a(this.W);
             Size a2 = a(a);
-            this.hB.createEngine(a.getWidth(), a.getHeight(), a2.getWidth(), a2.getHeight(), com.baidu.ar.f.n.v(this.mContext));
+            this.hP.createEngine(a.getWidth(), a.getHeight(), a2.getWidth(), a2.getHeight(), com.baidu.ar.f.n.x(this.mContext));
         }
-        if (this.hB != null && this.aa != null && this.aa.isCameraInput()) {
-            this.hB.setIsFrontCamera(this.aa.isFrontCamera());
+        if (this.hP != null && this.W != null && this.W.isCameraInput()) {
+            this.hP.setIsFrontCamera(this.W.isFrontCamera());
         }
-        if (this.hB != null) {
-            this.hB.resume();
+        if (this.hP != null) {
+            this.hP.resume();
         }
-        if (this.hF != null) {
-            this.hF.aX();
+        if (this.hT != null) {
+            this.hT.bl();
         }
         try {
-            if (this.hG != null) {
-                this.hG.start();
+            if (this.hU != null) {
+                this.hU.start();
             }
         } catch (RuntimeException e) {
             e.printStackTrace();
         }
     }
 
-    public com.baidu.ar.steploading.d bj() {
-        return this.hx;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void bl() {
-        com.baidu.ar.libloader.b.an("AREngineCpp2");
-        com.baidu.ar.libloader.b.a("AREngineCpp2", new a.c() { // from class: com.baidu.ar.arrender.e.1
-            @Override // com.baidu.ar.libloader.a.c
-            public void onReady() {
-                e.this.bm();
-            }
-        });
-    }
-
-    protected void bm() {
-        if (this.hB != null) {
-            if (TextUtils.isEmpty(this.hL)) {
-                try {
-                    this.hB.setLocalDeviceGrade(this.hM);
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            } else {
-                try {
-                    this.hB.setConfig("grading", this.hL);
-                } catch (Throwable th2) {
-                    th2.printStackTrace();
-                }
-            }
-        }
-        bn();
-        bi();
-        a(this.hK);
+    public com.baidu.ar.steploading.d by() {
+        return this.hL;
     }
 
     public void cancelAysncRenderTask(Runnable runnable) {
-        if (this.hA == null || runnable == null) {
+        if (this.hO == null || runnable == null) {
             return;
         }
-        this.hA.cancelAysncRenderTask(runnable);
+        this.hO.cancelAysncRenderTask(runnable);
     }
 
     public void changeOutput(DuMixOutput duMixOutput) {
     }
 
     public void changeOutputSize(int i, int i2) {
-        if (this.aa == null || this.ab == null) {
+        if (this.W == null || this.aa == null) {
             return;
         }
-        if (this.ab.getOutputHeight() == i2 && this.ab.getOutputWidth() == i) {
+        if (this.aa.getOutputHeight() == i2 && this.aa.getOutputWidth() == i) {
             return;
         }
         com.baidu.ar.f.b.c("AbstractRenderer", "changeOutputSize() size = " + i + Config.EVENT_HEAT_X + i2);
-        Object outputSurface = this.ab.getOutputSurface();
+        Object outputSurface = this.aa.getOutputSurface();
         if (outputSurface instanceof SurfaceTexture) {
             ((SurfaceTexture) outputSurface).setDefaultBufferSize(i, i2);
         }
-        this.ab.setOutputWidth(i);
-        this.ab.setOutputHeight(i2);
-        if (this.hA != null && this.hs != null && !TextUtils.isEmpty(this.hs.bz())) {
-            this.hA.addOutputSurface(this.hs.getSurface(), i, i2);
+        this.aa.setOutputWidth(i);
+        this.aa.setOutputHeight(i2);
+        if (this.hO != null && this.hG != null && !TextUtils.isEmpty(this.hG.bN())) {
+            this.hO.addOutputSurface(this.hG.getSurface(), i, i2);
         }
-        if (this.hB != null) {
-            Size a = a(a(this.aa));
-            this.hB.setWindowSize(a.getWidth(), a.getHeight());
-            if (this.hD != null) {
-                this.hD.d(i, i2);
+        if (this.hP != null) {
+            Size a = a(a(this.W));
+            this.hP.setWindowSize(a.getWidth(), a.getHeight());
+            if (this.hR != null) {
+                this.hR.d(i, i2);
             }
         }
     }
 
     public void createPixelReader(PixelReadParams pixelReadParams, PixelReadListener pixelReadListener) {
-        if (this.hA != null) {
-            a(this.hK, pixelReadParams);
-            this.hA.createPixelReaderByPreFilterID(pixelReadParams, pixelReadListener);
+        if (this.hO != null) {
+            a(this.hY, pixelReadParams);
+            this.hO.createPixelReaderByPreFilterID(pixelReadParams, pixelReadListener);
         }
     }
 
     @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
     public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-        if (this.hA == null) {
+        if (this.hO == null) {
             return;
         }
-        if (this.hP != null && !this.hP.bq()) {
-            this.hA.runSyncOnRenderContext(new Runnable() { // from class: com.baidu.ar.arrender.e.2
+        if (this.f2if != null && !this.f2if.bF()) {
+            this.hO.runSyncOnRenderContext(new Runnable() { // from class: com.baidu.ar.arrender.e.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (e.this.aa == null || e.this.aa.getInputSurface() == null) {
+                    if (e.this.W == null || e.this.W.getInputSurface() == null) {
                         return;
                     }
-                    e.this.aa.getInputSurface().updateTexImage();
+                    e.this.W.getInputSurface().updateTexImage();
                 }
             });
             return;
         }
         StatisticApi.getPerformanceApi().onFrameIn();
-        this.hA.render();
+        this.hO.render();
         StatisticApi.getPerformanceApi().onFrameOut();
     }
 
@@ -533,163 +538,164 @@ public abstract class e implements SurfaceTexture.OnFrameAvailableListener, View
         if (this.mOnRenderStartedListener != null) {
             this.mOnRenderStartedListener.onRenderStarted();
         }
-        if (this.aa == null || this.aa.getInputSurface() == null || !this.aa.isCameraInput() || this.hA == null) {
+        if (this.W == null || this.W.getInputSurface() == null || !this.W.isCameraInput() || this.hO == null) {
             return;
         }
-        this.aa.getInputSurface().updateTexImage();
-        this.aa.getInputSurface().getTransformMatrix(this.hJ);
-        this.hA.setInputMatrix(this.hJ);
-        if (this.aa == null || !this.aa.isCameraInput()) {
+        this.W.getInputSurface().updateTexImage();
+        this.W.getInputSurface().getTransformMatrix(this.hX);
+        this.hO.setInputMatrix(this.hX);
+        if (this.W == null || !this.W.isCameraInput()) {
             return;
         }
-        this.hK = this.hJ[1] * this.hJ[4] < 0.0f;
-        if (this.aa.isFrontCamera() != this.hK) {
-            a(this.hK);
+        this.hY = this.hX[1] * this.hX[4] < 0.0f;
+        if (this.W.isFrontCamera() != this.hY) {
+            a(this.hY);
         }
     }
 
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (this.hD == null || view == null) {
+        if (this.hR == null || view == null) {
             return false;
         }
-        if (this.hE == null || this.hE.get() == null || !view.equals(this.hE.get())) {
-            this.hE = new WeakReference<>(view);
-            this.hD.d(view.getWidth(), view.getHeight());
+        if (this.hS == null || this.hS.get() == null || !view.equals(this.hS.get())) {
+            this.hS = new WeakReference<>(view);
+            this.hR.d(view.getWidth(), view.getHeight());
         }
-        this.hD.onTouchEvent(motionEvent);
+        this.hR.onTouchEvent(motionEvent);
         return true;
+    }
+
+    public void p(boolean z) {
+        this.hQ = z;
     }
 
     public void pause() {
         com.baidu.ar.f.b.c("AbstractRenderer", "pause()");
-        if (this.hG != null) {
-            this.hG.release();
+        if (this.hU != null) {
+            this.hU.release();
         }
-        if (this.hD != null) {
-            this.hD.onPause();
+        if (this.hR != null) {
+            this.hR.onPause();
         }
-        if (this.hB != null) {
-            this.hB.pause();
+        if (this.hP != null) {
+            this.hP.pause();
         }
     }
 
     public void q(boolean z) {
-        this.hC = z;
-    }
-
-    public void r(boolean z) {
         if (z) {
-            this.hN = b.a(this.ab.getOutputHeight(), this.ab.getOutputWidth(), this.aa.getInputHeight(), this.aa.getInputWidth());
-            this.hB.setPreviewSize(this.hN.getWidth(), this.hN.getHeight());
-            this.hB.setWindowSize(this.ab.getOutputWidth(), this.ab.getOutputHeight());
+            this.ib = b.a(this.aa.getOutputHeight(), this.aa.getOutputWidth(), this.W.getInputHeight(), this.W.getInputWidth());
+            this.hP.setPreviewSize(this.ib.getWidth(), this.ib.getHeight());
+            this.hP.setWindowSize(this.aa.getOutputWidth(), this.aa.getOutputHeight());
             return;
         }
-        this.hN = null;
-        Size a = a(this.aa);
+        this.ib = null;
+        Size a = a(this.W);
         Size a2 = a(a);
-        this.hB.setPreviewSize(a.getWidth(), a.getHeight());
-        this.hB.setWindowSize(a2.getWidth(), a2.getHeight());
+        this.hP.setPreviewSize(a.getWidth(), a.getHeight());
+        this.hP.setWindowSize(a2.getWidth(), a2.getHeight());
     }
 
     public void release() {
-        com.baidu.ar.f.b.c("AbstractRenderer", "release()");
-        if (this.hH != null) {
-            this.hH.release();
-            this.hH = null;
+        com.baidu.ar.f.b.c("AbstractRenderer", "release() start!!!");
+        if (this.hV != null) {
+            this.hV.release();
+            this.hV = null;
         }
-        if (this.hE != null) {
-            this.hE.clear();
-            this.hE = null;
+        if (this.hS != null) {
+            this.hS.clear();
+            this.hS = null;
         }
-        this.hD = null;
-        p.c(this.e);
-        bh();
+        this.hR = null;
+        p.c(this.f);
+        bw();
         this.mOnRenderStartedListener = null;
         this.mOnRenderFinishedListener = null;
-        this.B = null;
-        this.hJ = null;
-        bp();
-        if (this.hA != null) {
-            this.hA.removeAllOutputTarget();
-            this.hA.destroy();
-            this.hA = null;
+        this.C = null;
+        this.ie = null;
+        this.hX = null;
+        bE();
+        if (this.hO != null) {
+            this.hO.removeAllOutputTarget();
+            this.hO.destroy();
+            this.hO = null;
         }
         ARPFilter.releaseInstance();
-        this.hP = null;
-        if (this.hw != null) {
-            this.hw.clear();
-            this.hw = null;
+        if (this.hK != null) {
+            this.hK.clear();
+            this.hK = null;
         }
-        if (this.hx != null) {
-            this.hx.release();
-            this.hx = null;
+        if (this.hL != null) {
+            this.hL.release();
+            this.hL = null;
         }
-        if (this.hy != null) {
-            this.hy.release();
-            this.hy = null;
+        if (this.hM != null) {
+            this.hM.release();
+            this.hM = null;
         }
-        if (this.hz != null) {
-            this.hz.release();
-            this.hz = null;
+        if (this.hN != null) {
+            this.hN.release();
+            this.hN = null;
         }
         this.mContext = null;
-        this.hO = null;
+        this.ic = null;
+        com.baidu.ar.f.b.c("AbstractRenderer", "release() end!!!");
     }
 
     public void removeOutputSurface(DuMixOutput duMixOutput) {
         if (duMixOutput == null || duMixOutput.getOutputSurface() == null || !(duMixOutput.getOutputSurface() instanceof Surface)) {
             com.baidu.ar.f.b.b("AbstractRenderer", "removeOutputSurface duMixOutput is error!!!");
-        } else if (this.hw != null) {
+        } else if (this.hK != null) {
             com.baidu.ar.f.b.c("AbstractRenderer", "removeOutputSurface() surface = " + duMixOutput.getOutputSurface().hashCode());
-            n remove = this.hw.remove(duMixOutput);
-            if (this.hA == null || remove == null || TextUtils.isEmpty(remove.bz())) {
+            n remove = this.hK.remove(duMixOutput);
+            if (this.hO == null || remove == null || TextUtils.isEmpty(remove.bN())) {
                 return;
             }
-            this.hA.removeOutputTargetByAddr(remove.bz());
+            this.hO.removeOutputTargetByAddr(remove.bN());
         }
     }
 
     public void resume() {
         com.baidu.ar.f.b.c("AbstractRenderer", "resume()");
-        if (this.hD != null) {
-            this.hD.onResume();
+        if (this.hR != null) {
+            this.hR.onResume();
         }
         try {
-            if (this.hG != null) {
-                this.hG.start();
+            if (this.hU != null) {
+                this.hU.start();
             }
         } catch (RuntimeException e) {
             e.printStackTrace();
         }
-        if (this.hB == null || this.hI) {
+        if (this.hP == null || this.hW) {
             return;
         }
-        this.hB.resume();
+        this.hP.resume();
     }
 
     public void runAsyncOnRenderContext(Runnable runnable) {
-        if (this.hA == null || runnable == null) {
+        if (this.hO == null || runnable == null) {
             return;
         }
-        this.hA.runAsyncOnRenderContext(runnable);
+        this.hO.runAsyncOnRenderContext(runnable);
     }
 
     public void runSyncOnRenderContext(Runnable runnable) {
-        if (this.hA == null || runnable == null) {
+        if (this.hO == null || runnable == null) {
             return;
         }
-        this.hA.runSyncOnRenderContext(runnable);
+        this.hO.runSyncOnRenderContext(runnable);
     }
 
     public void setCameraSwitchListener(f fVar) {
-        this.B = fVar;
+        this.C = fVar;
     }
 
     public void setLocalDeviceGrade(int i) {
-        this.hM = i;
-        if (this.hB != null) {
+        this.ia = i;
+        if (this.hP != null) {
             try {
-                this.hB.setLocalDeviceGrade(i);
+                this.hP.setLocalDeviceGrade(i);
             } catch (Throwable th) {
             }
         }
@@ -701,5 +707,9 @@ public abstract class e implements SurfaceTexture.OnFrameAvailableListener, View
 
     public void setRenderStartedListener(OnRenderStartedListener onRenderStartedListener) {
         this.mOnRenderStartedListener = onRenderStartedListener;
+    }
+
+    public void setStateListener(DuMixStateListener duMixStateListener) {
+        this.ie = duMixStateListener;
     }
 }

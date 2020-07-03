@@ -11,7 +11,7 @@ public class cw {
     private String a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final ArrayList<cv> f184a = new ArrayList<>();
+    private final ArrayList<cv> f190a = new ArrayList<>();
 
     public cw() {
     }
@@ -24,21 +24,21 @@ public class cw {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x001a, code lost:
-        com.xiaomi.push.cz.a().m216a(r0.a());
+        com.xiaomi.push.cz.a().m213a(r0.a());
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized cv a() {
         cv cvVar;
-        int size = this.f184a.size() - 1;
+        int size = this.f190a.size() - 1;
         while (true) {
             if (size < 0) {
                 cvVar = null;
                 break;
             }
-            cvVar = this.f184a.get(size);
-            if (cvVar.m206a()) {
+            cvVar = this.f190a.get(size);
+            if (cvVar.m203a()) {
                 break;
             }
             size--;
@@ -50,30 +50,30 @@ public class cw {
         this.a = jSONObject.getString("host");
         JSONArray jSONArray = jSONObject.getJSONArray("fbs");
         for (int i = 0; i < jSONArray.length(); i++) {
-            this.f184a.add(new cv(this.a).a(jSONArray.getJSONObject(i)));
+            this.f190a.add(new cv(this.a).a(jSONArray.getJSONObject(i)));
         }
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m207a() {
+    public String m204a() {
         return this.a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ArrayList<cv> m208a() {
-        return this.f184a;
+    public ArrayList<cv> m205a() {
+        return this.f190a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m209a() {
+    public synchronized JSONObject m206a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
         jSONObject.put("host", this.a);
         JSONArray jSONArray = new JSONArray();
-        Iterator<cv> it = this.f184a.iterator();
+        Iterator<cv> it = this.f190a.iterator();
         while (it.hasNext()) {
-            jSONArray.put(it.next().m204a());
+            jSONArray.put(it.next().m201a());
         }
         jSONObject.put("fbs", jSONArray);
         return jSONObject;
@@ -84,29 +84,29 @@ public class cw {
         int i2 = 0;
         while (true) {
             i = i2;
-            if (i >= this.f184a.size()) {
+            if (i >= this.f190a.size()) {
                 break;
-            } else if (this.f184a.get(i).a(cvVar)) {
-                this.f184a.set(i, cvVar);
+            } else if (this.f190a.get(i).a(cvVar)) {
+                this.f190a.set(i, cvVar);
                 break;
             } else {
                 i2 = i + 1;
             }
         }
-        if (i >= this.f184a.size()) {
-            this.f184a.add(cvVar);
+        if (i >= this.f190a.size()) {
+            this.f190a.add(cvVar);
         }
     }
 
     public synchronized void a(boolean z) {
-        for (int size = this.f184a.size() - 1; size >= 0; size--) {
-            cv cvVar = this.f184a.get(size);
+        for (int size = this.f190a.size() - 1; size >= 0; size--) {
+            cv cvVar = this.f190a.get(size);
             if (z) {
                 if (cvVar.c()) {
-                    this.f184a.remove(size);
+                    this.f190a.remove(size);
                 }
             } else if (!cvVar.b()) {
-                this.f184a.remove(size);
+                this.f190a.remove(size);
             }
         }
     }
@@ -115,7 +115,7 @@ public class cw {
         StringBuilder sb = new StringBuilder();
         sb.append(this.a);
         sb.append("\n");
-        Iterator<cv> it = this.f184a.iterator();
+        Iterator<cv> it = this.f190a.iterator();
         while (it.hasNext()) {
             sb.append(it.next());
         }

@@ -8,7 +8,7 @@ public class a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.imagepipeline.c.v
             /* renamed from: e */
-            public int be(com.facebook.imagepipeline.g.c cVar2) {
+            public int bf(com.facebook.imagepipeline.g.c cVar2) {
                 return cVar2.getSizeInBytes();
             }
         }, aVar, jVar);

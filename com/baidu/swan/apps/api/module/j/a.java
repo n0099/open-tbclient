@@ -20,7 +20,7 @@ public class a extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b ic(String str) {
+    public com.baidu.swan.apps.api.c.b ik(String str) {
         if (DEBUG) {
             Log.d("Api-Subscription", "subscribe with json string:  " + str);
         }
@@ -48,7 +48,7 @@ public class a extends d {
         if (b == null) {
             return new Pair<>(null, 202);
         }
-        return new Pair<>(new Request.Builder().url(com.baidu.swan.apps.u.a.afu().Si()).post(b).build(), 0);
+        return new Pair<>(new Request.Builder().url(com.baidu.swan.apps.u.a.agA().To()).post(b).build(), 0);
     }
 
     private void a(@NonNull Request request, final String str) {
@@ -65,14 +65,14 @@ public class a extends d {
 
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
-                a.this.aO(str, exc == null ? "" : exc.getMessage());
+                a.this.aQ(str, exc == null ? "" : exc.getMessage());
             }
         });
         aVar.tag = request.tag();
-        aVar.dld = true;
-        aVar.dle = true;
-        aVar.dlf = true;
-        com.baidu.swan.c.c.a.aFx().b(aVar);
+        aVar.dpO = true;
+        aVar.dpP = true;
+        aVar.dpQ = true;
+        com.baidu.swan.c.c.a.aGD().b(aVar);
     }
 
     private RequestBody b(@NonNull e eVar, @NonNull JSONObject jSONObject) {
@@ -110,7 +110,7 @@ public class a extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aO(@NonNull String str, String str2) {
+    public void aQ(@NonNull String str, String str2) {
         a(str, new com.baidu.swan.apps.api.c.b(500106, str2));
     }
 }

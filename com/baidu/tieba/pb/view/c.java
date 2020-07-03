@@ -8,76 +8,76 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.coreExtra.share.e;
 /* loaded from: classes9.dex */
 public class c {
-    private ImageView khz;
-    private boolean dVd = false;
-    private Runnable khA = new Runnable() { // from class: com.baidu.tieba.pb.view.c.1
+    private ImageView kBm;
+    private boolean ecu = false;
+    private Runnable kBn = new Runnable() { // from class: com.baidu.tieba.pb.view.c.1
         @Override // java.lang.Runnable
         public void run() {
-            c.this.dVd = true;
-            int bbh = e.bbh();
-            if (bbh > 0) {
-                SvgManager.aUW().a(c.this.khz, bbh, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                if (c.this.gYW != null) {
-                    c.this.gYW.start();
+            c.this.ecu = true;
+            int bdj = e.bdj();
+            if (bdj > 0) {
+                SvgManager.aWQ().a(c.this.kBm, bdj, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                if (c.this.eJX != null) {
+                    c.this.eJX.start();
                 }
             }
         }
     };
-    private ValueAnimator gYW = new ValueAnimator();
+    private ValueAnimator eJX = new ValueAnimator();
 
     public c(ImageView imageView) {
-        this.khz = imageView;
-        this.gYW.setDuration(4000L);
-        this.gYW.setFloatValues(0.0f, 1.0f);
-        this.gYW.setInterpolator(new Interpolator() { // from class: com.baidu.tieba.pb.view.c.2
+        this.kBm = imageView;
+        this.eJX.setDuration(4000L);
+        this.eJX.setFloatValues(0.0f, 1.0f);
+        this.eJX.setInterpolator(new Interpolator() { // from class: com.baidu.tieba.pb.view.c.2
             @Override // android.animation.TimeInterpolator
             public float getInterpolation(float f) {
                 return (float) (1.075d + (0.075d * Math.sin((18.84955592153876d * f) - 1.5707963267948966d)));
             }
         });
-        this.gYW.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.view.c.3
+        this.eJX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.view.c.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (c.this.khz != null) {
-                    c.this.khz.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                    c.this.khz.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (c.this.kBm != null) {
+                    c.this.kBm.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    c.this.kBm.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
     }
 
-    public void cMv() {
-        if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().aYh()) {
-            com.baidu.adp.lib.f.e.ld().removeCallbacks(this.khA);
-            long aYi = TbSingleton.getInstance().getSharePanelConfData().aYi() * 1000;
-            if (aYi <= 0) {
-                aYi = 3000;
+    public void cQM() {
+        if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().bam()) {
+            com.baidu.adp.lib.f.e.lt().removeCallbacks(this.kBn);
+            long ban = TbSingleton.getInstance().getSharePanelConfData().ban() * 1000;
+            if (ban <= 0) {
+                ban = 3000;
             }
-            com.baidu.adp.lib.f.e.ld().postDelayed(this.khA, aYi);
+            com.baidu.adp.lib.f.e.lt().postDelayed(this.kBn, ban);
         }
     }
 
     public void setEnable(boolean z) {
-        this.dVd = z;
+        this.ecu = z;
     }
 
     public boolean isEnable() {
-        return this.dVd;
+        return this.ecu;
     }
 
     public void onDestroy() {
-        com.baidu.adp.lib.f.e.ld().removeCallbacks(this.khA);
-        if (this.gYW != null) {
-            this.gYW.removeAllListeners();
-            this.gYW.removeAllUpdateListeners();
-            this.gYW.cancel();
+        com.baidu.adp.lib.f.e.lt().removeCallbacks(this.kBn);
+        if (this.eJX != null) {
+            this.eJX.removeAllListeners();
+            this.eJX.removeAllUpdateListeners();
+            this.eJX.cancel();
         }
     }
 
     public void onChangeSkinType() {
-        int bbh;
-        if (this.dVd && TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().aYh() && (bbh = e.bbh()) > 0) {
-            SvgManager.aUW().a(this.khz, bbh, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        int bdj;
+        if (this.ecu && TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().bam() && (bdj = e.bdj()) > 0) {
+            SvgManager.aWQ().a(this.kBm, bdj, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 }

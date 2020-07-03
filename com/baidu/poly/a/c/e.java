@@ -14,7 +14,7 @@ public class e extends Handler {
     public void handleMessage(Message message) {
         super.handleMessage(message);
         f fVar = (f) message.obj;
-        ImageView imageView = fVar.buq;
+        ImageView imageView = fVar.bzi;
         if (((String) imageView.getTag()).equals(fVar.url)) {
             imageView.setImageBitmap(fVar.bitmap);
         } else {

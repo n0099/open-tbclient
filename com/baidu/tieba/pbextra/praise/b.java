@@ -6,16 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class b {
-    private View kjX;
-    private HeadImageView kjY;
-    private TextView kjZ;
-    private TextView kka;
-    private ImageView kkb;
+    private View kDJ;
+    private HeadImageView kDK;
+    private TextView kDL;
+    private TextView kDM;
+    private ImageView kDN;
 
     public static b b(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.kjX = null;
-        this.kjY = null;
-        this.kjZ = null;
-        this.kka = null;
-        this.kkb = null;
-        this.kjX = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
-        this.kjY = (HeadImageView) this.kjX.findViewById(R.id.zan_list_item_head);
-        this.kjZ = (TextView) this.kjX.findViewById(R.id.zan_list_item_name);
-        this.kka = (TextView) this.kjX.findViewById(R.id.zan_list_item_time);
-        this.kkb = (ImageView) this.kjX.findViewById(R.id.zan_list_item_line_bottom);
-        this.kkb.setVisibility(0);
-        this.kjX.setTag(this);
+        this.kDJ = null;
+        this.kDK = null;
+        this.kDL = null;
+        this.kDM = null;
+        this.kDN = null;
+        this.kDJ = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
+        this.kDK = (HeadImageView) this.kDJ.findViewById(R.id.zan_list_item_head);
+        this.kDL = (TextView) this.kDJ.findViewById(R.id.zan_list_item_name);
+        this.kDM = (TextView) this.kDJ.findViewById(R.id.zan_list_item_time);
+        this.kDN = (ImageView) this.kDJ.findViewById(R.id.zan_list_item_line_bottom);
+        this.kDN.setVisibility(0);
+        this.kDJ.setTag(this);
     }
 
     public View getView() {
-        return this.kjX;
+        return this.kDJ;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.kjZ.setText(str);
-        this.kjY.setImageDrawable(null);
-        this.kka.setText(aq.getFormatTime(j));
-        this.kjY.startLoad(str2, 28, false);
+        this.kDL.setText(str);
+        this.kDK.setImageDrawable(null);
+        this.kDM.setText(ar.getFormatTime(j));
+        this.kDK.startLoad(str2, 28, false);
     }
 }

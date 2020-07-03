@@ -4,8 +4,8 @@ import com.baidu.adp.BdUniqueId;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fei = BdUniqueId.gen();
-    public String fej;
+    public static final BdUniqueId fpt = BdUniqueId.gen();
+    public String fpu;
     public String portrait;
     public String remark;
     public long start_time;
@@ -13,9 +13,9 @@ public class b extends com.baidu.tieba.card.data.b {
     public String user_name;
     public String user_nickname;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return fei;
+        return fpt;
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -24,7 +24,7 @@ public class b extends com.baidu.tieba.card.data.b {
             this.user_name = jSONObject.optString("user_name");
             this.user_nickname = jSONObject.optString("user_nickname");
             this.portrait = jSONObject.optString("portrait");
-            this.fej = jSONObject.optString("user_brief");
+            this.fpu = jSONObject.optString("user_brief");
             this.start_time = jSONObject.optLong("start_time");
             this.remark = jSONObject.optString("remark");
         }

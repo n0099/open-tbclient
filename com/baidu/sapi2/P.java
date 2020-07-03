@@ -14,15 +14,15 @@ public class P implements V.a {
     }
 
     @Override // com.baidu.sapi2.V.a
-    public void a(X.a.C0260a c0260a, String str) {
-        this.a.a(c0260a.a, str);
+    public void a(X.a.C0266a c0266a, String str) {
+        this.a.a(c0266a.a, str);
     }
 
     @Override // com.baidu.sapi2.V.a
-    public void a(X.a.C0260a c0260a) {
+    public void a(X.a.C0266a c0266a) {
         Context context;
         V v = this.a;
         context = v.d;
-        v.a(context, c0260a);
+        v.a(context, c0266a);
     }
 }

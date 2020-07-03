@@ -6,25 +6,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.live.data.AlaLiveInfoData;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
-import com.baidu.live.u.a;
 import com.baidu.tieba.ala.person.view.e;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
     private Context context;
-    private int fpC;
-    private InterfaceC0580a gkN;
-    private c gkO;
-    private b gkP;
+    private int fAN;
+    private InterfaceC0589a gxB;
+    private c gxC;
+    private b gxD;
     private List mList;
     private int mSkinType;
     private int type;
 
     /* renamed from: com.baidu.tieba.ala.person.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0580a {
+    public interface InterfaceC0589a {
         void a(com.baidu.tieba.ala.person.a.b bVar, View view);
     }
 
@@ -39,9 +39,9 @@ public class a extends BaseAdapter {
     }
 
     public a(Context context, int i) {
-        this.fpC = 2;
+        this.fAN = 2;
         this.context = context;
-        this.fpC = i;
+        this.fAN = i;
     }
 
     public void a(boolean z, List list, int i) {
@@ -81,22 +81,22 @@ public class a extends BaseAdapter {
         com.baidu.tieba.ala.person.view.c cVar = null;
         if (view == null) {
             if (this.mList.get(i) != null) {
-                if (this.fpC == 1) {
+                if (this.fAN == 1) {
                     if (this.type == 1 || this.type == 0) {
                         view = LayoutInflater.from(this.context).inflate(a.h.ala_person_list_item_layout, (ViewGroup) null);
-                        cVar = new com.baidu.tieba.ala.person.view.b(view, this.fpC);
+                        cVar = new com.baidu.tieba.ala.person.view.b(view, this.fAN);
                     } else if (this.type == 2) {
                         view = LayoutInflater.from(this.context).inflate(a.h.ala_playbacks_list_item_layout, (ViewGroup) null);
-                        cVar = new e(view, this.fpC);
+                        cVar = new e(view, this.fAN);
                     }
-                } else if (this.fpC == 2) {
+                } else if (this.fAN == 2) {
                     view = LayoutInflater.from(this.context).inflate(a.h.ala_person_card_list_item_layout, (ViewGroup) null);
-                    cVar = new com.baidu.tieba.ala.person.view.b(view, this.fpC);
+                    cVar = new com.baidu.tieba.ala.person.view.b(view, this.fAN);
                 }
                 if (cVar != null) {
-                    cVar.a(this.gkN);
-                    cVar.a(this.gkP);
-                    cVar.a(this.gkO);
+                    cVar.a(this.gxB);
+                    cVar.a(this.gxD);
+                    cVar.a(this.gxC);
                 }
                 if (view != null) {
                     view.setTag(cVar);
@@ -112,16 +112,16 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public void as(String str, boolean z) {
+    public void au(String str, boolean z) {
         if (str != null && !ListUtils.isEmpty(this.mList)) {
             for (Object obj : this.mList) {
                 if (this.type != 2 && (obj instanceof com.baidu.tieba.ala.person.a.b)) {
                     com.baidu.tieba.ala.person.a.b bVar = (com.baidu.tieba.ala.person.a.b) obj;
                     if (str.equals(bVar.id)) {
                         if (z) {
-                            bVar.fEM = 1;
+                            bVar.fPV = 1;
                         } else {
-                            bVar.fEM = 0;
+                            bVar.fPV = 0;
                         }
                         notifyDataSetChanged();
                         return;
@@ -135,15 +135,15 @@ public class a extends BaseAdapter {
         this.mSkinType = i;
     }
 
-    public void a(InterfaceC0580a interfaceC0580a) {
-        this.gkN = interfaceC0580a;
+    public void a(InterfaceC0589a interfaceC0589a) {
+        this.gxB = interfaceC0589a;
     }
 
     public void a(c cVar) {
-        this.gkO = cVar;
+        this.gxC = cVar;
     }
 
     public void a(b bVar) {
-        this.gkP = bVar;
+        this.gxD = bVar;
     }
 }

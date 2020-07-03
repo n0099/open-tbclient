@@ -1,31 +1,27 @@
 package com.baidu.ar.arrender;
 /* loaded from: classes3.dex */
 public class l extends com.baidu.ar.ability.c {
-    private long ii;
-    private int ij;
-    private int ik;
+    private long ix;
+    private int iy;
+    private int iz;
 
-    public long bv() {
-        return this.ii;
+    public int bK() {
+        return this.iy;
     }
 
-    public int bw() {
-        return this.ij;
-    }
-
-    public int bx() {
-        return this.ik;
+    public int bL() {
+        return this.iz;
     }
 
     public void i(long j) {
-        this.ii = j;
+        this.ix = j;
     }
 
-    public void r(int i) {
-        this.ij = i;
+    public void t(int i) {
+        this.iy = i;
     }
 
-    public void s(int i) {
-        this.ik = i;
+    public void u(int i) {
+        this.iz = i;
     }
 }

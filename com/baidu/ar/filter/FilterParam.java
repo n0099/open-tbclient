@@ -127,7 +127,9 @@ public interface FilterParam {
         smooth("intensity_smooth"),
         whiten("intensity_white"),
         enableFaceSmooth("use_face_mask_to_smooth"),
-        enableFaceWhiten("use_face_mask_to_whiten");
+        enableFaceWhiten("use_face_mask_to_whiten"),
+        blackEyeCircle("face_cover/intensity_red"),
+        laughLine("face_cover/intensity_green");
         
         private String mParamName;
 

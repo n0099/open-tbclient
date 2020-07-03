@@ -1,76 +1,89 @@
 package com.baidu.card;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.RelativeLayout;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.card.a.a;
+import com.baidu.card.b;
+import com.baidu.card.view.RichTextLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.data.AbsThreadDataSupport;
+import com.baidu.tbadk.core.data.bu;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
-public class ad extends d implements n<bk> {
-    private TbImageView aeJ;
-    private TbPageContext mPageContext;
-    private int mType = 0;
-    private boolean adI = true;
+public class ad extends h {
+    private AbsThreadDataSupport aea;
+    private RichTextLayout afm;
+    private String mFrom;
+    private int mSkinType;
 
-    public ad(TbPageContext tbPageContext) {
-        this.mPageContext = tbPageContext;
-        setInsertIndex(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds180), com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds50));
-        layoutParams.addRule(11);
-        layoutParams.topMargin = com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds30);
-        layoutParams.rightMargin = com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds30);
-        a(layoutParams);
-        this.aeJ = new TbImageView(tbPageContext.getPageActivity());
-        F(this.aeJ);
+    public ad(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
+        this.mSkinType = 3;
+        this.afm = new RichTextLayout(tbPageContext.getPageActivity());
+        this.afm.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
+    }
+
+    @Override // com.baidu.card.b
+    public View getView() {
+        return this.afm;
+    }
+
+    public void setFrom(String str) {
+        this.mFrom = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.n
-    /* renamed from: a */
-    public void D(bk bkVar) {
-        b(bkVar);
-    }
-
-    public void b(bk bkVar) {
-        MetaData aQx;
-        if (bkVar != null && this.aeJ != null && (aQx = bkVar.aQx()) != null) {
-            final ThemeCardInUserData themeCard = aQx.getThemeCard();
-            if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid()) || bkVar.dHI) {
-                this.aeJ.setVisibility(8);
-                return;
-            }
-            if (this.adI && (this.aeJ.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aeJ.getLayoutParams();
-                layoutParams.rightMargin = com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds106);
-                this.aeJ.setLayoutParams(layoutParams);
-            }
-            this.aeJ.setVisibility(0);
-            this.mType = 1;
-            this.aeJ.setImageDrawable(null);
-            this.aeJ.startLoad(themeCard.getCardImageUrlAndroid(), 10, false);
-            this.aeJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.ad.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(ad.this.mPageContext.getPageActivity(), themeCard.getCardId())));
+    /* renamed from: b */
+    public void D(AbsThreadDataSupport absThreadDataSupport) {
+        this.aea = absThreadDataSupport;
+        this.afm.setTransmit(rK().booleanValue());
+        this.afm.D(absThreadDataSupport);
+        this.afm.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.ad.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (ad.this.adY != null) {
+                    ad.this.adY.a(ad.this.aea);
                 }
-            });
+            }
+        });
+        this.afm.setFrom(this.mFrom);
+    }
+
+    public void e(int i, int i2, int i3, int i4) {
+        this.afm.setPadding(i, i2, i3, i4);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.card.b
+    public void rI() {
+        a(1, new a.b() { // from class: com.baidu.card.ad.2
+            @Override // com.baidu.card.a.a.b
+            public boolean a(a.C0098a c0098a) {
+                if (ad.this.aea != null && ad.this.aea.aPS() != null && !ad.this.rK().booleanValue()) {
+                    bu aPS = ad.this.aea.aPS();
+                    com.baidu.tieba.card.m.DO(aPS.getId());
+                    com.baidu.tieba.card.m.a(ad.this.afm.mTitle, aPS.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+                    com.baidu.tieba.card.m.a(ad.this.afm.aeA, aPS.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+                }
+                return false;
+            }
+        });
+    }
+
+    @Override // com.baidu.card.o
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        if (this.mSkinType != i && rK().booleanValue()) {
+            com.baidu.tbadk.core.util.an.setBackgroundColor(this.afm, R.color.cp_bg_line_g);
         }
+        this.mSkinType = i;
     }
 
-    public void aG(boolean z) {
-        this.adI = z;
+    public void a(b.a aVar) {
+        this.adY = aVar;
     }
 
-    public void setPageId(BdUniqueId bdUniqueId) {
-        this.aeJ.setPageId(bdUniqueId);
+    public void setNeedFrsTabName(boolean z) {
+        this.afm.setNeedFrsTabName(z);
     }
 }

@@ -4,81 +4,81 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes5.dex */
 public final class a implements b {
-    private static final a nNL = new a();
-    private volatile boolean miC = false;
-    private volatile boolean nNM = false;
+    private static final a ojz = new a();
+    private volatile boolean mEv = false;
+    private volatile boolean ojA = false;
 
-    public static b dRK() {
-        return nNL;
+    public static b dWq() {
+        return ojz;
     }
 
     @Override // tv.chushou.a.a.c.b
-    public boolean dRL() {
-        return this.miC;
+    public boolean dWr() {
+        return this.mEv;
     }
 
     @Override // tv.chushou.a.a.c.b
     public void showLog(boolean z) {
-        this.miC = z;
+        this.mEv = z;
     }
 
     @Override // tv.chushou.a.a.c.b
-    public void xp(boolean z) {
-        this.nNM = z;
+    public void xK(boolean z) {
+        this.ojA = z;
     }
 
-    public String dRM() {
+    public String dWs() {
         return "Router";
     }
 
     @Override // tv.chushou.a.a.c.b
     public void v(String str, String str2) {
-        if (this.miC) {
-            Log.v(Sl(str), Sm(str2));
+        if (this.mEv) {
+            Log.v(SX(str), SY(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void d(String str, String str2) {
-        if (this.miC) {
-            Log.d(Sl(str), Sm(str2));
+        if (this.mEv) {
+            Log.d(SX(str), SY(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void i(String str, String str2) {
-        if (this.miC) {
-            Log.i(Sl(str), Sm(str2));
+        if (this.mEv) {
+            Log.i(SX(str), SY(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void w(String str, String str2) {
-        if (this.miC) {
-            Log.w(Sl(str), Sm(str2));
+        if (this.mEv) {
+            Log.w(SX(str), SY(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2) {
-        if (this.miC) {
-            Log.e(Sl(str), Sm(str2));
+        if (this.mEv) {
+            Log.e(SX(str), SY(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2, Throwable th) {
-        if (this.miC) {
-            Log.e(Sl(str), Sm(str2), th);
+        if (this.mEv) {
+            Log.e(SX(str), SY(str2), th);
         }
     }
 
-    private String Sl(String str) {
-        return TextUtils.isEmpty(str) ? dRM() : str;
+    private String SX(String str) {
+        return TextUtils.isEmpty(str) ? dWs() : str;
     }
 
-    private String Sm(String str) {
-        if (this.nNM) {
+    private String SY(String str) {
+        if (this.ojA) {
             return str + a(Thread.currentThread().getStackTrace()[3]);
         }
         return str;

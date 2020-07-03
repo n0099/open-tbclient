@@ -1,24 +1,51 @@
 package com.baidu.live.utils;
 
-import android.app.Activity;
-import android.content.Context;
-import com.baidu.live.tbadk.util.ScreenHelper;
-import com.baidu.live.u.a;
+import android.text.TextUtils;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class p {
-    public static int ay(Context context) {
-        return context.getResources().getDimensionPixelOffset(a.e.sdk_ds176);
+    private static String bkB = "";
+
+    public static String yU() {
+        if (TbadkCoreApplication.getInst().isMobileBaidu()) {
+            return "ala_subapp_shoubai_android_consume";
+        }
+        if (TbadkCoreApplication.getInst().isHaokan()) {
+            return "ala_subapp_haokan_android_consume";
+        }
+        if (TbadkCoreApplication.getInst().isQuanmin()) {
+            return "ala_subapp_quanmin_android_consume";
+        }
+        if (TbadkCoreApplication.getInst().isTieba()) {
+            return "ala_tieba_android_consume";
+        }
+        return "";
     }
 
-    public static int r(Activity activity) {
-        return ScreenHelper.getRealScreenWidth(activity);
+    public static String Jq() {
+        if (TextUtils.isEmpty(bkB)) {
+            if (TbadkCoreApplication.getInst().isMobileBaidu()) {
+                return "ala_subapp_shoubai_android_consume";
+            }
+            if (TbadkCoreApplication.getInst().isHaokan()) {
+                return "ala_subapp_haokan_android_consume";
+            }
+            if (TbadkCoreApplication.getInst().isQuanmin()) {
+                return "ala_subapp_quanmin_android_consume";
+            }
+            if (TbadkCoreApplication.getInst().isTieba()) {
+                return "ala_tieba_android_consume";
+            }
+            return "";
+        }
+        return bkB;
     }
 
-    public static int s(Activity activity) {
-        return (r(activity) * 9) / 16;
+    public static void fV(String str) {
+        bkB = str;
     }
 
-    public static int t(Activity activity) {
-        return ay(activity) + s(activity);
+    public static String Jr() {
+        return bkB;
     }
 }

@@ -1,47 +1,47 @@
 package com.baidu.tieba.frs.game.strategy.view;
 
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.o;
-import com.baidu.adp.widget.ListView.x;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.z;
 import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class c {
-    private final List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
-    private com.baidu.adp.base.e dJb;
-    private BdTypeListView fbb;
-    private b hAR;
+    private final List<com.baidu.adp.widget.ListView.a> aUP = new ArrayList();
+    private com.baidu.adp.base.e dPR;
+    private BdTypeListView fml;
+    private b hNZ;
 
     public c(com.baidu.adp.base.e eVar, BdTypeListView bdTypeListView) {
-        this.dJb = eVar;
-        this.fbb = bdTypeListView;
-        CY();
+        this.dPR = eVar;
+        this.fml = bdTypeListView;
+        Dz();
     }
 
-    private void CY() {
-        this.hAR = new b((TbPageContext) this.dJb, com.baidu.tieba.frs.game.strategy.data.b.hzY);
-        this.aSj.add(this.hAR);
-        this.fbb.addAdapters(this.aSj);
+    private void Dz() {
+        this.hNZ = new b((TbPageContext) this.dPR, com.baidu.tieba.frs.game.strategy.data.b.hNg);
+        this.aUP.add(this.hNZ);
+        this.fml.addAdapters(this.aUP);
     }
 
-    public void setData(List<o> list) {
-        if (this.fbb != null) {
-            this.fbb.setData(list);
+    public void setData(List<q> list) {
+        if (this.fml != null) {
+            this.fml.setData(list);
         }
     }
 
-    public void b(x xVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.aSj) {
+    public void b(z zVar) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.aUP) {
             if (aVar != null) {
-                aVar.a(xVar);
+                aVar.a(zVar);
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.fbb.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.fbb.getAdapter().notifyDataSetChanged();
+        if (this.fml.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
+            this.fml.getAdapter().notifyDataSetChanged();
         }
     }
 }

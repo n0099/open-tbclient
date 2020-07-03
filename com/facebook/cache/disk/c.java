@@ -18,9 +18,9 @@ public interface c {
     public interface b {
         void a(com.facebook.cache.common.h hVar, Object obj) throws IOException;
 
-        com.facebook.a.a aL(Object obj) throws IOException;
+        com.facebook.a.a aM(Object obj) throws IOException;
 
-        boolean dtY();
+        boolean dyB();
     }
 
     b C(String str, Object obj) throws IOException;
@@ -29,13 +29,13 @@ public interface c {
 
     boolean E(String str, Object obj) throws IOException;
 
-    long PK(String str) throws IOException;
+    long Qw(String str) throws IOException;
 
     long a(a aVar) throws IOException;
 
-    void dtU();
+    void dyx();
 
-    Collection<a> dtV() throws IOException;
+    Collection<a> dyy() throws IOException;
 
     boolean isExternal();
 }

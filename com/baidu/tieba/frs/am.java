@@ -1,7 +1,11 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.view.NavigationBar;
+import tbclient.ItemInfo;
 /* loaded from: classes8.dex */
 public interface am {
-    NavigationBar bua();
+    void a(ItemInfo itemInfo);
+
+    ItemInfo bXp();
+
+    boolean bXq();
 }

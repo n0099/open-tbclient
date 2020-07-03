@@ -1,78 +1,47 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import java.util.LinkedList;
-import java.util.List;
-import tbclient.FrsTabInfo;
-/* loaded from: classes.dex */
-public class e {
-    private String dFA;
-    private String dFz;
-    private String forumGameLabel;
-    private String forumId;
-    private String forumName;
-    private List<FrsTabInfo> hmE;
-    private final List<com.baidu.tbadk.mainTab.b> hmF = new LinkedList();
-    private Context mContext;
-    private String mFrom;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.ad;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.bt;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import java.util.concurrent.atomic.AtomicReference;
+/* loaded from: classes9.dex */
+public class e implements an {
+    public static final AtomicReference<an> hyG = new AtomicReference<>(null);
+    private static final an hyH = new e();
 
-    public e(Context context, List<FrsTabInfo> list) {
-        this.hmE = list;
-        this.mContext = context;
+    private e() {
     }
 
-    public List<FrsTabInfo> bUx() {
-        return this.hmE;
+    public static an bXl() {
+        an anVar = hyG.get();
+        return anVar == null ? hyH : anVar;
     }
 
-    public void b(com.baidu.tbadk.mainTab.b bVar) {
-        if (bVar != null && bVar.getFragmentTabStructure() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.hmF) {
-                if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().type == bVar.getFragmentTabStructure().type) {
-                    return;
-                }
-            }
-            this.hmF.add(bVar);
-        }
+    @Override // com.baidu.tieba.frs.an
+    public j<ICardInfo, ? extends ad.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        BdLog.e("Frs extra project not loaded.");
+        return null;
     }
 
-    public List<com.baidu.tbadk.mainTab.b> bUy() {
-        return this.hmF;
+    @Override // com.baidu.tieba.frs.an
+    public com.baidu.adp.widget.ListView.a<? extends bu, ? extends ad.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        BdLog.e("Frs extra project not loaded.");
+        return null;
     }
 
-    public void setForumName(String str) {
-        this.forumName = str;
+    @Override // com.baidu.tieba.frs.an
+    public com.baidu.adp.widget.ListView.a<? extends bu, ? extends ad.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
+        BdLog.e("Frs extra project not loaded.");
+        return null;
     }
 
-    public String getForumName() {
-        return this.forumName;
-    }
-
-    public void setForumId(String str) {
-        this.forumId = str;
-    }
-
-    public String getForumId() {
-        return this.forumId;
-    }
-
-    public void setFrom(String str) {
-        this.mFrom = str;
-    }
-
-    public String getFrom() {
-        return this.mFrom;
-    }
-
-    public void setForumGameLabel(String str) {
-        this.forumGameLabel = str;
-    }
-
-    public void vH(String str) {
-        this.dFz = str;
-    }
-
-    public void vI(String str) {
-        this.dFA = str;
+    @Override // com.baidu.tieba.frs.an
+    public com.baidu.adp.widget.ListView.a<? extends bt, ? extends ad.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+        BdLog.e("Frs extra project not loaded.");
+        return null;
     }
 }

@@ -2,7 +2,8 @@ package com.baidu.tbadk.BdToken;
 
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
+import com.baidu.tbadk.core.util.ar;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -12,109 +13,109 @@ import org.json.JSONObject;
 import tbclient.MissionInfo;
 /* loaded from: classes.dex */
 public class b {
-    private final ArrayList<h> duA;
-    private int dug;
-    private int duh;
-    private long dui;
-    private String duj;
-    private int duk;
-    private long dul;
-    private String dum;
-    private String dun;
-    private String duo;
-    private String dup;
-    private long duq;
-    private int dur;
-    private long dus;
-    private int[] dut;
-    private long duu;
-    private volatile int duv;
-    private volatile int duw;
-    private boolean dux;
-    private int duy;
-    public boolean duz;
+    private int dyP;
+    private int dyQ;
+    private long dyR;
+    private String dyS;
+    private int dyT;
+    private long dyU;
+    private String dyV;
+    private String dyW;
+    private String dyX;
+    private String dyY;
+    private long dyZ;
+    private int dza;
+    private long dzb;
+    private int[] dzc;
+    private long dzd;
+    private volatile int dze;
+    private volatile int dzf;
+    private boolean dzg;
+    private int dzh;
+    public boolean dzi;
+    private final ArrayList<h> dzj;
     private long mFid;
     private String mSource;
     private volatile int mTag;
     private int mTaskType;
     private int mThreadNum;
     private String mToken;
-    private int xP;
+    private int yp;
     public static String ACTIVITY_ID = "activityid";
-    public static String dtC = "missionid";
-    public static String dtD = "activitysource";
+    public static String dyl = "missionid";
+    public static String dym = "activitysource";
     public static String SOURCE = "source";
-    public static String dtE = "tab";
-    public static String dtF = "calltype";
-    public static String dtG = DownloadDataConstants.Columns.COLUMN_TASK_TYPE;
-    public static String dtH = "browsetimepage";
-    public static String dtI = "browsetime";
-    public static String dtJ = "threadnum";
-    public static String dtK = "forumnum";
-    public static String dtL = "cleartype";
-    public static String dtM = "cleartime";
+    public static String dyn = "tab";
+    public static String dyo = "calltype";
+    public static String dyp = DownloadDataConstants.Columns.COLUMN_TASK_TYPE;
+    public static String dyq = "browsetimepage";
+    public static String dyr = "browsetime";
+    public static String dys = "threadnum";
+    public static String dyt = "forumnum";
+    public static String dyu = "cleartype";
+    public static String dyv = "cleartime";
     public static String TID = "tid";
     public static String FID = "fid";
-    public static String dtN = "threadtext";
-    public static String dtO = "threadimg";
-    public static String dtP = "threadforum";
-    public static String dtQ = "total_limit";
-    public static int dtR = -1;
-    public static int dtS = 1;
-    public static int dtT = 2;
-    public static int dtU = 3;
-    public static int dtV = 4;
-    public static int dtW = 5;
-    public static int dtX = 6;
-    public static int dtY = 7;
-    public static int dtZ = 8;
-    public static int dua = 9;
-    public static int dub = -1;
-    public static int duc = 0;
-    public static int dud = 1;
-    public static int due = 2;
-    public static int duf = 3;
+    public static String dyw = "threadtext";
+    public static String dyx = "threadimg";
+    public static String dyy = "threadforum";
+    public static String dyz = "total_limit";
+    public static int dyA = -1;
+    public static int dyB = 1;
+    public static int dyC = 2;
+    public static int dyD = 3;
+    public static int dyE = 4;
+    public static int dyF = 5;
+    public static int dyG = 6;
+    public static int dyH = 7;
+    public static int dyI = 8;
+    public static int dyJ = 9;
+    public static int dyK = -1;
+    public static int dyL = 0;
+    public static int dyM = 1;
+    public static int dyN = 2;
+    public static int dyO = 3;
 
     public void reset() {
-        this.duA.clear();
-        this.duv = 0;
-        this.duw = 0;
+        this.dzj.clear();
+        this.dze = 0;
+        this.dzf = 0;
         this.mTag = 0;
     }
 
     public void a(h hVar) {
         if (this.mTaskType == 7 && (hVar instanceof k)) {
-            if (!this.duA.contains(hVar)) {
-                this.duA.add(hVar);
+            if (!this.dzj.contains(hVar)) {
+                this.dzj.add(hVar);
             }
         } else if (this.mTaskType == 1 && (hVar instanceof m)) {
-            if (!this.duA.contains(hVar)) {
-                this.duA.add(hVar);
+            if (!this.dzj.contains(hVar)) {
+                this.dzj.add(hVar);
             }
         } else if (this.mTaskType == 2 && (hVar instanceof j)) {
-            if (!this.duA.contains(hVar)) {
-                this.duA.add(hVar);
+            if (!this.dzj.contains(hVar)) {
+                this.dzj.add(hVar);
             }
         } else if (this.mTaskType == 4 && (hVar instanceof i)) {
-            if (!this.duA.contains(hVar)) {
-                this.duA.add(hVar);
+            if (!this.dzj.contains(hVar)) {
+                this.dzj.add(hVar);
             }
-        } else if (this.mTaskType == 8 && (hVar instanceof l) && !this.duA.contains(hVar)) {
-            this.duA.add(hVar);
+        } else if (this.mTaskType == 8 && (hVar instanceof l) && !this.dzj.contains(hVar)) {
+            this.dzj.add(hVar);
         }
     }
 
-    public ArrayList<h> aKH() {
-        return this.duA;
+    public ArrayList<h> aLN() {
+        return this.dzj;
     }
 
-    public int aKI() {
+    public int aLO() {
         int i;
-        int size = this.duA.size();
+        int size = this.dzj.size();
         int i2 = 0;
         int i3 = 0;
         while (i2 < size) {
-            h hVar = (h) com.baidu.tbadk.core.util.v.getItem(this.duA, i2);
+            h hVar = (h) com.baidu.tbadk.core.util.w.getItem(this.dzj, i2);
             if (hVar instanceof k) {
                 i = ((k) hVar).getTag() == getTag() ? i3 + 1 : i3;
             } else {
@@ -142,22 +143,22 @@ public class b {
         return ((j) hVar).getFid();
     }
 
-    public void aKJ() {
-        int size = this.duA.size();
+    public void aLP() {
+        int size = this.dzj.size();
         for (int i = 0; i < size; i++) {
-            h hVar = (h) com.baidu.tbadk.core.util.v.getItem(this.duA, i);
+            h hVar = (h) com.baidu.tbadk.core.util.w.getItem(this.dzj, i);
             if (hVar != null) {
-                hVar.gz(true);
+                hVar.gE(true);
             }
         }
     }
 
     public boolean bS(long j) {
-        for (int i = 0; i < this.duA.size(); i++) {
-            h hVar = (h) com.baidu.tbadk.core.util.v.getItem(this.duA, i);
+        for (int i = 0; i < this.dzj.size(); i++) {
+            h hVar = (h) com.baidu.tbadk.core.util.w.getItem(this.dzj, i);
             if (hVar != null) {
                 long b = b(hVar);
-                if (b > 0 && b == j && hVar.gt()) {
+                if (b > 0 && b == j && hVar.gJ()) {
                     return true;
                 }
             }
@@ -165,7 +166,7 @@ public class b {
         return false;
     }
 
-    public void ai(int i, String str) {
+    public void ak(int i, String str) {
         try {
             JSONArray jSONArray = new JSONArray(str);
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
@@ -177,38 +178,38 @@ public class b {
                 if (i == 7) {
                     if (optLong > 0) {
                         k kVar = new k(this, optLong);
-                        kVar.gz(optBoolean);
+                        kVar.gE(optBoolean);
                         kVar.bX(optLong2);
-                        kVar.jS(optInt);
+                        kVar.kd(optInt);
                         a(kVar);
                     }
                 } else if (i == 1) {
                     if (optLong > 0) {
                         m mVar = new m(this, optLong);
-                        mVar.gz(optBoolean);
+                        mVar.gE(optBoolean);
                         mVar.bX(optLong2);
-                        mVar.jS(optInt);
+                        mVar.kd(optInt);
                         a(mVar);
                     }
                 } else if (i == 2) {
                     if (optLong > 0) {
                         j jVar = new j(this, optLong);
-                        jVar.gz(optBoolean);
+                        jVar.gE(optBoolean);
                         jVar.bX(optLong2);
-                        jVar.jS(optInt);
+                        jVar.kd(optInt);
                         a(jVar);
                     }
                 } else if (i == 4) {
                     i iVar = new i(this);
-                    iVar.gz(optBoolean);
+                    iVar.gE(optBoolean);
                     iVar.bX(optLong2);
-                    iVar.jS(optInt);
+                    iVar.kd(optInt);
                     a(iVar);
                 } else if (i == 8) {
                     l lVar = new l(this);
-                    lVar.gz(optBoolean);
+                    lVar.gE(optBoolean);
                     lVar.bX(optLong2);
-                    lVar.jS(optInt);
+                    lVar.kd(optInt);
                     a(lVar);
                 }
             }
@@ -217,16 +218,16 @@ public class b {
         }
     }
 
-    public String aKK() {
+    public String aLQ() {
         try {
-            ArrayList<h> arrayList = this.duA;
+            ArrayList<h> arrayList = this.dzj;
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < arrayList.size(); i++) {
-                h hVar = (h) com.baidu.tbadk.core.util.v.getItem(arrayList, i);
+                h hVar = (h) com.baidu.tbadk.core.util.w.getItem(arrayList, i);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("i", b(hVar));
-                jSONObject.put("t", hVar.aLC());
-                jSONObject.put("c", hVar.gt());
+                jSONObject.put("t", hVar.aMN());
+                jSONObject.put("c", hVar.gJ());
                 jSONObject.put(Config.APP_VERSION_CODE, hVar.getTag());
                 jSONArray.put(jSONObject);
             }
@@ -238,58 +239,69 @@ public class b {
     }
 
     public b() {
-        this.dur = dub;
-        this.duv = 0;
-        this.duw = 0;
-        this.dux = false;
-        this.duy = 1;
+        this.dza = dyK;
+        this.dze = 0;
+        this.dzf = 0;
+        this.dzg = false;
+        this.dzh = 1;
         this.mTag = 0;
-        this.duz = false;
-        this.duA = new ArrayList<>();
+        this.dzi = false;
+        this.dzj = new ArrayList<>();
     }
 
     public b(String str) {
-        this.dur = dub;
-        this.duv = 0;
-        this.duw = 0;
-        this.dux = false;
-        this.duy = 1;
+        this.dza = dyK;
+        this.dze = 0;
+        this.dzf = 0;
+        this.dzg = false;
+        this.dzh = 1;
         this.mTag = 0;
-        this.duz = false;
-        this.duA = new ArrayList<>();
-        uk(str);
+        this.dzi = false;
+        this.dzj = new ArrayList<>();
+        us(str);
     }
 
-    public boolean uk(String str) {
-        if (aq.isEmpty(str)) {
+    public void a(ActiveCenterData.ActiveCenterMissionData activeCenterMissionData) {
+        if (activeCenterMissionData != null) {
+            jX(activeCenterMissionData.mission_id);
+            kc(activeCenterMissionData.total_limit);
+            jZ(activeCenterMissionData.task_type);
+            setActivityId(activeCenterMissionData.active_id);
+            kb(activeCenterMissionData.cleartype);
+            bU(activeCenterMissionData.cleartime);
+        }
+    }
+
+    public boolean us(String str) {
+        if (ar.isEmpty(str)) {
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject != null) {
-                this.dug = jSONObject.optInt(ACTIVITY_ID);
-                this.duh = jSONObject.optInt(dtC);
-                this.dum = jSONObject.optString(dtD);
+                this.dyP = jSONObject.optInt(ACTIVITY_ID);
+                this.dyQ = jSONObject.optInt(dyl);
+                this.dyV = jSONObject.optString(dym);
                 this.mSource = jSONObject.optString(SOURCE);
-                this.dun = jSONObject.optString(dtE);
-                this.xP = jSONObject.optInt(dtF);
-                this.mTaskType = jSONObject.optInt(dtG);
-                this.duj = jSONObject.optString(dtH);
-                this.dut = ul(this.duj);
-                this.dui = jSONObject.optLong(dtI);
-                this.mThreadNum = jSONObject.optInt(dtJ);
-                this.duk = jSONObject.optInt(dtK);
-                this.dur = jSONObject.optInt(dtL);
-                this.dus = jSONObject.optLong(dtM);
-                this.duu = aKQ();
-                this.dul = jSONObject.optLong(TID);
+                this.dyW = jSONObject.optString(dyn);
+                this.yp = jSONObject.optInt(dyo);
+                this.mTaskType = jSONObject.optInt(dyp);
+                this.dyS = jSONObject.optString(dyq);
+                this.dzc = ut(this.dyS);
+                this.dyR = jSONObject.optLong(dyr);
+                this.mThreadNum = jSONObject.optInt(dys);
+                this.dyT = jSONObject.optInt(dyt);
+                this.dza = jSONObject.optInt(dyu);
+                this.dzb = jSONObject.optLong(dyv);
+                this.dzd = aLW();
+                this.dyU = jSONObject.optLong(TID);
                 this.mFid = jSONObject.optLong(FID);
-                this.duo = jSONObject.optString(dtN);
-                this.dup = jSONObject.optString(dtO);
-                this.duq = jSONObject.optLong(dtP);
-                int optInt = jSONObject.optInt(dtQ);
+                this.dyX = jSONObject.optString(dyw);
+                this.dyY = jSONObject.optString(dyx);
+                this.dyZ = jSONObject.optLong(dyy);
+                int optInt = jSONObject.optInt(dyz);
                 if (optInt > 0) {
-                    this.duy = optInt;
+                    this.dzh = optInt;
                 }
                 return true;
             }
@@ -301,66 +313,66 @@ public class b {
     }
 
     public b(MissionInfo missionInfo) {
-        this.dur = dub;
-        this.duv = 0;
-        this.duw = 0;
-        this.dux = false;
-        this.duy = 1;
+        this.dza = dyK;
+        this.dze = 0;
+        this.dzf = 0;
+        this.dzg = false;
+        this.dzh = 1;
         this.mTag = 0;
-        this.duz = false;
-        this.duA = new ArrayList<>();
+        this.dzi = false;
+        this.dzj = new ArrayList<>();
         if (missionInfo != null) {
-            this.dug = missionInfo.activityid.intValue();
-            this.duh = missionInfo.missionid.intValue();
+            this.dyP = missionInfo.activityid.intValue();
+            this.dyQ = missionInfo.missionid.intValue();
             this.mTaskType = missionInfo.tasktype.intValue();
-            this.dur = missionInfo.cleartype.intValue();
-            this.dus = missionInfo.cleartime.intValue();
-            this.duu = aKQ();
-            this.duj = missionInfo.browsetimepage;
-            this.dut = ul(this.duj);
+            this.dza = missionInfo.cleartype.intValue();
+            this.dzb = missionInfo.cleartime.intValue();
+            this.dzd = aLW();
+            this.dyS = missionInfo.browsetimepage;
+            this.dzc = ut(this.dyS);
             if (missionInfo.threadnum.intValue() > 0) {
                 this.mThreadNum = missionInfo.threadnum.intValue();
             }
             if (missionInfo.browsetime.intValue() > 0) {
-                this.dui = missionInfo.browsetime.intValue();
+                this.dyR = missionInfo.browsetime.intValue();
             }
             if (missionInfo.total_limit.intValue() > 0) {
-                this.duy = missionInfo.total_limit.intValue();
+                this.dzh = missionInfo.total_limit.intValue();
             }
         }
     }
 
-    public boolean aKL() {
-        return this.dug > 0 && this.duh > 0 && this.mTaskType > 0 && this.dui > 0;
+    public boolean aLR() {
+        return this.dyP > 0 && this.dyQ > 0 && this.mTaskType > 0 && this.dyR > 0;
     }
 
-    public synchronized int aKM() {
+    public synchronized int aLS() {
         int i;
-        i = this.duw + 1;
-        this.duw = i;
+        i = this.dzf + 1;
+        this.dzf = i;
         return i;
     }
 
-    public synchronized int aKN() {
+    public synchronized int aLT() {
         int i;
-        i = this.duv + 1;
-        this.duv = i;
+        i = this.dze + 1;
+        this.dze = i;
         return i;
     }
 
-    public synchronized int aKO() {
+    public synchronized int aLU() {
         int i;
         i = this.mTag + 1;
         this.mTag = i;
         return i;
     }
 
-    private int[] ul(String str) {
+    private int[] ut(String str) {
         if (this.mTaskType == 8) {
-            return new int[]{dtR};
+            return new int[]{dyA};
         }
         if (this.mTaskType == 7) {
-            return new int[]{dtS, dtZ, dua};
+            return new int[]{dyB, dyI, dyJ};
         }
         if (str == null) {
             return null;
@@ -376,34 +388,34 @@ public class b {
         return iArr;
     }
 
-    public boolean aKP() {
-        return System.currentTimeMillis() > aLc() * 1000;
+    public boolean aLV() {
+        return System.currentTimeMillis() > aMi() * 1000;
     }
 
-    public long aKQ() {
-        if (this.dur == dub) {
+    public long aLW() {
+        if (this.dza == dyK) {
             return 0L;
         }
-        if (this.dur == duc) {
-            return (System.currentTimeMillis() / 1000) + this.dus;
+        if (this.dza == dyL) {
+            return (System.currentTimeMillis() / 1000) + this.dzb;
         }
-        if (this.dur == dud) {
-            long aKR = (aKR() / 1000) + this.dus;
-            if (System.currentTimeMillis() > aKR) {
-                return aKR + 86400;
+        if (this.dza == dyM) {
+            long aLX = (aLX() / 1000) + this.dzb;
+            if (System.currentTimeMillis() > aLX) {
+                return aLX + 86400;
             }
-            return aKR;
-        } else if (this.dur == due) {
-            return l((int) this.dus, jL(4)) / 1000;
+            return aLX;
+        } else if (this.dza == dyN) {
+            return m((int) this.dzb, jW(4)) / 1000;
         } else {
-            if (this.dur == duf) {
-                return this.dus / 1000;
+            if (this.dza == dyO) {
+                return this.dzb / 1000;
             }
             return 0L;
         }
     }
 
-    private long aKR() {
+    private long aLX() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, 0);
         calendar.set(12, 0);
@@ -412,17 +424,17 @@ public class b {
         return calendar.getTimeInMillis();
     }
 
-    private long jL(int i) {
-        long aKR = aKR();
+    private long jW(int i) {
+        long aLX = aLX();
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, i);
         calendar.set(12, 0);
         calendar.set(13, 0);
         calendar.set(14, 0);
-        return calendar.getTimeInMillis() - aKR;
+        return calendar.getTimeInMillis() - aLX;
     }
 
-    private long l(int i, long j) {
+    private long m(int i, long j) {
         switch (i) {
             case 1:
                 i = 2;
@@ -462,72 +474,72 @@ public class b {
     }
 
     public int getActivityId() {
-        return this.dug;
+        return this.dyP;
     }
 
     public void setActivityId(int i) {
-        this.dug = i;
+        this.dyP = i;
     }
 
-    public int aKS() {
-        return this.duh;
+    public int aLY() {
+        return this.dyQ;
     }
 
-    public void jM(int i) {
-        this.duh = i;
+    public void jX(int i) {
+        this.dyQ = i;
     }
 
-    public String aKT() {
-        return this.dum;
+    public String aLZ() {
+        return this.dyV;
     }
 
-    public void um(String str) {
-        this.dum = str;
+    public void uu(String str) {
+        this.dyV = str;
     }
 
-    public String aKU() {
-        return this.dun;
+    public String aMa() {
+        return this.dyW;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public int aKV() {
-        return this.xP;
+    public int aMb() {
+        return this.yp;
     }
 
-    public void jN(int i) {
-        this.xP = i;
+    public void jY(int i) {
+        this.yp = i;
     }
 
     public int getTaskType() {
         return this.mTaskType;
     }
 
-    public void jO(int i) {
+    public void jZ(int i) {
         this.mTaskType = i;
     }
 
-    public String aKW() {
-        return this.duj;
+    public String aMc() {
+        return this.dyS;
     }
 
-    public void un(String str) {
-        this.duj = str;
-        this.dut = ul(str);
+    public void uv(String str) {
+        this.dyS = str;
+        this.dzc = ut(str);
     }
 
-    public int[] aKX() {
-        return this.dut;
+    public int[] aMd() {
+        return this.dzc;
     }
 
-    public long aKY() {
-        return this.dui;
+    public long aMe() {
+        return this.dyR;
     }
 
     public void bT(long j) {
-        this.dui = j;
+        this.dyR = j;
     }
 
     public int getThreadNum() {
@@ -538,44 +550,44 @@ public class b {
         this.mThreadNum = i;
     }
 
-    public int aKZ() {
-        return this.duk;
+    public int aMf() {
+        return this.dyT;
     }
 
-    public void jP(int i) {
-        this.duk = i;
+    public void ka(int i) {
+        this.dyT = i;
     }
 
-    public int aLa() {
-        return this.dur;
+    public int aMg() {
+        return this.dza;
     }
 
-    public void jQ(int i) {
-        this.dur = i;
+    public void kb(int i) {
+        this.dza = i;
     }
 
-    public long aLb() {
-        return this.dus;
+    public long aMh() {
+        return this.dzb;
     }
 
     public void bU(long j) {
-        this.dus = j;
+        this.dzb = j;
     }
 
-    public long aLc() {
-        return this.duu;
+    public long aMi() {
+        return this.dzd;
     }
 
     public void bV(long j) {
-        this.duu = j;
+        this.dzd = j;
     }
 
     public long getTid() {
-        return this.dul;
+        return this.dyU;
     }
 
     public void setTid(long j) {
-        this.dul = j;
+        this.dyU = j;
     }
 
     public long getFid() {
@@ -586,39 +598,39 @@ public class b {
         this.mFid = j;
     }
 
-    public String aLd() {
-        return this.duo;
+    public String aMj() {
+        return this.dyX;
     }
 
-    public void uo(String str) {
-        this.duo = str;
+    public void uw(String str) {
+        this.dyX = str;
     }
 
-    public String aLe() {
-        return this.dup;
+    public String aMk() {
+        return this.dyY;
     }
 
-    public void up(String str) {
-        this.dup = str;
+    public void ux(String str) {
+        this.dyY = str;
     }
 
-    public long aLf() {
-        return this.duq;
+    public long aMl() {
+        return this.dyZ;
     }
 
     public void bW(long j) {
-        this.duq = j;
+        this.dyZ = j;
     }
 
-    public int aLg() {
-        return this.duy;
+    public int aMm() {
+        return this.dzh;
     }
 
-    public void jR(int i) {
-        this.duy = i;
+    public void kc(int i) {
+        this.dzh = i;
     }
 
-    public void jS(int i) {
+    public void kd(int i) {
         this.mTag = i;
     }
 
@@ -626,12 +638,12 @@ public class b {
         return this.mTag;
     }
 
-    public boolean aLh() {
-        return this.dux;
+    public boolean aMn() {
+        return this.dzg;
     }
 
-    public void gy(boolean z) {
-        this.dux = z;
+    public void gD(boolean z) {
+        this.dzg = z;
     }
 
     public String getToken() {

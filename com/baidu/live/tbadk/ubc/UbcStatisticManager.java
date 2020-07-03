@@ -271,6 +271,7 @@ public class UbcStatisticManager {
     private void fillCommonParams(JSONObject jSONObject) {
         fillJson(jSONObject, SapiContext.KEY_SDK_VERSION, TbConfig.SDK_VERSION);
         fillJson(jSONObject, "client_ip", SharedPrefHelper.getInstance().getString(SharedPrefConfig.KEY_SYNC_CLIENT_IP, ""));
+        fillJson(jSONObject, "timestamp", "" + System.currentTimeMillis());
     }
 
     private void fillNetParams(HttpResponsedMessage httpResponsedMessage, JSONObject jSONObject) {

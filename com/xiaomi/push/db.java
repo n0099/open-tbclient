@@ -8,17 +8,17 @@ public class db extends cv {
     cv a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ cz f197a;
+    final /* synthetic */ cz f203a;
     final /* synthetic */ cv b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public db(cz czVar, String str, cv cvVar) {
         super(str);
-        this.f197a = czVar;
+        this.f203a = czVar;
         this.b = cvVar;
         this.a = this.b;
-        this.f183b = this.f183b;
+        this.f189b = this.f189b;
         if (this.b != null) {
             this.f = this.b.f;
         }
@@ -32,7 +32,7 @@ public class db extends cv {
             arrayList.addAll(this.a.a(true));
         }
         synchronized (cz.b) {
-            cv cvVar = cz.b.get(this.f183b);
+            cv cvVar = cz.b.get(this.f189b);
             if (cvVar != null) {
                 Iterator<String> it = cvVar.a(true).iterator();
                 while (it.hasNext()) {
@@ -41,8 +41,8 @@ public class db extends cv {
                         arrayList.add(next);
                     }
                 }
-                arrayList.remove(this.f183b);
-                arrayList.add(this.f183b);
+                arrayList.remove(this.f189b);
+                arrayList.add(this.f189b);
             }
         }
         return arrayList;

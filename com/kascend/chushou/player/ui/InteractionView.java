@@ -37,10 +37,10 @@ public class InteractionView extends RelativeLayout {
     private Animation g;
     private Animation h;
     private ArrayList<ConfigDetail> j;
-    private RecyclerView mTd;
-    private tv.chushou.zues.widget.adapterview.recyclerview.a.a mTe;
-    private final SparseArrayCompat<ConfigDetail> mTf;
-    private a mTg;
+    private RecyclerView noY;
+    private tv.chushou.zues.widget.adapterview.recyclerview.a.a noZ;
+    private final SparseArrayCompat<ConfigDetail> npa;
+    private a npb;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -60,7 +60,7 @@ public class InteractionView extends RelativeLayout {
         this.e = false;
         this.f = false;
         this.j = new ArrayList<>();
-        this.mTf = new SparseArrayCompat<>();
+        this.npa = new SparseArrayCompat<>();
         this.a = context;
         d();
     }
@@ -68,46 +68,46 @@ public class InteractionView extends RelativeLayout {
     private void d() {
         View inflate = LayoutInflater.from(this.a).inflate(a.h.view_interaction, (ViewGroup) this, true);
         this.d = (LinearLayout) inflate.findViewById(a.f.ll_interaction);
-        this.mTd = (RecyclerView) inflate.findViewById(a.f.recycleview);
+        this.noY = (RecyclerView) inflate.findViewById(a.f.recycleview);
         this.c = (TextView) inflate.findViewById(a.f.tv_interaction_title);
-        this.mTd.setPadding(0, this.a.getResources().getDimensionPixelSize(a.d.feed_back_10dp), 0, 0);
-        this.mTd.setClipToPadding(false);
-        this.mTd.setClipChildren(false);
-        this.mTd.setLayoutManager(new GridLayoutManager(this.a, 4));
-        this.mTe = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<ConfigDetail>(this.j, a.h.item_interaction, new d() { // from class: com.kascend.chushou.player.ui.InteractionView.1
+        this.noY.setPadding(0, this.a.getResources().getDimensionPixelSize(a.d.feed_back_10dp), 0, 0);
+        this.noY.setClipToPadding(false);
+        this.noY.setClipChildren(false);
+        this.noY.setLayoutManager(new GridLayoutManager(this.a, 4));
+        this.noZ = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<ConfigDetail>(this.j, a.h.item_interaction, new d() { // from class: com.kascend.chushou.player.ui.InteractionView.1
             @Override // tv.chushou.zues.widget.adapterview.d
             public void B(View view, int i) {
                 ConfigDetail configDetail;
-                if (i >= 0 && (configDetail = (ConfigDetail) InteractionView.this.j.get(i)) != null && InteractionView.this.mTg != null) {
-                    InteractionView.this.mTg.b(configDetail);
+                if (i >= 0 && (configDetail = (ConfigDetail) InteractionView.this.j.get(i)) != null && InteractionView.this.npb != null) {
+                    InteractionView.this.npb.b(configDetail);
                 }
             }
         }) { // from class: com.kascend.chushou.player.ui.InteractionView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // tv.chushou.zues.widget.adapterview.recyclerview.a.a
-            public void a(a.View$OnLongClickListenerC0921a view$OnLongClickListenerC0921a, ConfigDetail configDetail) {
+            public void a(a.View$OnLongClickListenerC0940a view$OnLongClickListenerC0940a, ConfigDetail configDetail) {
                 if (configDetail != null) {
-                    ((FrescoThumbnailView) view$OnLongClickListenerC0921a.KD(a.f.iv_icon)).i(configDetail.mCover, a.e.ic_default_item_interaction, tv.chushou.zues.utils.a.dip2px(InteractionView.this.a, 60.0f), tv.chushou.zues.utils.a.dip2px(InteractionView.this.a, 60.0f));
-                    view$OnLongClickListenerC0921a.a(a.f.tv_title, configDetail.mName);
+                    ((FrescoThumbnailView) view$OnLongClickListenerC0940a.or(a.f.iv_icon)).i(configDetail.mCover, a.e.ic_default_item_interaction, tv.chushou.zues.utils.a.dip2px(InteractionView.this.a, 60.0f), tv.chushou.zues.utils.a.dip2px(InteractionView.this.a, 60.0f));
+                    view$OnLongClickListenerC0940a.a(a.f.tv_title, configDetail.mName);
                     if (InteractionView.this.f) {
-                        view$OnLongClickListenerC0921a.dW(a.f.tv_title, Color.parseColor("#D6D8DD"));
+                        view$OnLongClickListenerC0940a.ef(a.f.tv_title, Color.parseColor("#D6D8DD"));
                     } else {
-                        view$OnLongClickListenerC0921a.dW(a.f.tv_title, Color.parseColor("#484848"));
+                        view$OnLongClickListenerC0940a.ef(a.f.tv_title, Color.parseColor("#484848"));
                     }
                     if (!h.isEmpty(configDetail.notifyIcon)) {
-                        view$OnLongClickListenerC0921a.a(true, a.f.ftv_recharge);
-                        view$OnLongClickListenerC0921a.a(false, a.f.iv_recharge_point);
-                        ((FrescoThumbnailView) view$OnLongClickListenerC0921a.KD(a.f.ftv_recharge)).a(configDetail.notifyIcon, c.dRP(), b.C0924b.small, b.C0924b.small, 1);
+                        view$OnLongClickListenerC0940a.a(true, a.f.ftv_recharge);
+                        view$OnLongClickListenerC0940a.a(false, a.f.iv_recharge_point);
+                        ((FrescoThumbnailView) view$OnLongClickListenerC0940a.or(a.f.ftv_recharge)).a(configDetail.notifyIcon, c.dWv(), b.C0943b.small, b.C0943b.small, 1);
                         return;
                     }
-                    view$OnLongClickListenerC0921a.a(false, a.f.ftv_recharge);
-                    view$OnLongClickListenerC0921a.a(configDetail.unreadCount > 0, a.f.iv_recharge_point);
+                    view$OnLongClickListenerC0940a.a(false, a.f.ftv_recharge);
+                    view$OnLongClickListenerC0940a.a(configDetail.unreadCount > 0, a.f.iv_recharge_point);
                 }
             }
         };
-        this.mTd.setAdapter(this.mTe);
-        this.g = AnimationUtils.loadAnimation(this.a, a.C0795a.slide_in_bottom_anim);
-        this.h = AnimationUtils.loadAnimation(this.a, a.C0795a.slide_out_bottom_anim);
+        this.noY.setAdapter(this.noZ);
+        this.g = AnimationUtils.loadAnimation(this.a, a.C0814a.slide_in_bottom_anim);
+        this.h = AnimationUtils.loadAnimation(this.a, a.C0814a.slide_out_bottom_anim);
     }
 
     public void a(boolean z) {
@@ -117,7 +117,7 @@ public class InteractionView extends RelativeLayout {
                 @Override // tv.chushou.zues.toolkit.c.a, android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     super.onAnimationEnd(animation);
-                    InteractionView.this.mTe.notifyDataSetChanged();
+                    InteractionView.this.noZ.notifyDataSetChanged();
                 }
             });
             if (z) {
@@ -163,11 +163,11 @@ public class InteractionView extends RelativeLayout {
     }
 
     public void setInterface(a aVar) {
-        this.mTg = aVar;
+        this.npb = aVar;
     }
 
     public void b(ConfigDetail configDetail) {
-        this.mTf.clear();
+        this.npa.clear();
         this.j.clear();
         this.j.addAll(configDetail.configDetails);
         if (!h.isEmpty(this.j)) {
@@ -180,28 +180,28 @@ public class InteractionView extends RelativeLayout {
                 ConfigDetail configDetail2 = this.j.get(i2);
                 if (configDetail2 != null) {
                     if (configDetail2.mNotifyType.equals(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR)) {
-                        this.mTf.put(2, configDetail2);
+                        this.npa.put(2, configDetail2);
                     } else if (configDetail2.mNotifyType.equals(SoUtils.SO_EVENT_ID_DEFAULT)) {
-                        this.mTf.put(4, configDetail2);
+                        this.npa.put(4, configDetail2);
                     } else if (configDetail2.mNotifyType.equals(SoUtils.SO_EVENT_ID_NEW_SO)) {
-                        this.mTf.put(3, configDetail2);
+                        this.npa.put(3, configDetail2);
                     } else if (configDetail2.mNotifyType.equals("26")) {
-                        this.mTf.put(5, configDetail2);
+                        this.npa.put(5, configDetail2);
                     }
                 }
                 i = i2 + 1;
             }
-            if (this.mTe != null) {
-                this.mTe.notifyDataSetChanged();
+            if (this.noZ != null) {
+                this.noZ.notifyDataSetChanged();
             }
         }
     }
 
     public void c() {
-        int size = this.mTf.size();
+        int size = this.npa.size();
         for (int i = 0; i < size; i++) {
-            int keyAt = this.mTf.keyAt(i);
-            ConfigDetail valueAt = this.mTf.valueAt(i);
+            int keyAt = this.npa.keyAt(i);
+            ConfigDetail valueAt = this.npa.valueAt(i);
             switch (keyAt) {
                 case 2:
                 case 3:
@@ -212,7 +212,7 @@ public class InteractionView extends RelativeLayout {
                     break;
             }
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mTd.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.noY.getLayoutParams();
         if (this.j.size() > 8) {
             layoutParams.height = tv.chushou.zues.utils.a.dip2px(this.a, 240.0f);
         } else if (this.j.size() > 4) {
@@ -220,9 +220,9 @@ public class InteractionView extends RelativeLayout {
         } else {
             layoutParams.height = tv.chushou.zues.utils.a.dip2px(this.a, 122.0f);
         }
-        this.mTd.setLayoutParams(layoutParams);
-        if (this.mTe != null) {
-            this.mTe.notifyDataSetChanged();
+        this.noY.setLayoutParams(layoutParams);
+        if (this.noZ != null) {
+            this.noZ.notifyDataSetChanged();
         }
     }
 }

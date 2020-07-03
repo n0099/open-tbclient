@@ -230,8 +230,8 @@ public class AlaLiveVideoConfig {
                 if (alaLiveVideoConfig.getCurrentBitRateConfig() != null) {
                     currentBitRate = alaLiveVideoConfig.getCurrentBitRateConfig().getCurrentBitRate();
                     int currentBitRate2 = (alaLiveVideoConfig2 != null || alaLiveVideoConfig2.getCurrentBitRateConfig() == null) ? 0 : alaLiveVideoConfig2.getCurrentBitRateConfig().getCurrentBitRate();
-                    if (alaLiveVideoConfig == null && alaLiveVideoConfig2 != null && alaLiveVideoConfig.getVideoWidth() == alaLiveVideoConfig2.getVideoWidth() && alaLiveVideoConfig.getVideoHeight() == alaLiveVideoConfig2.getVideoHeight() && alaLiveVideoConfig.getPreviewWidth() == alaLiveVideoConfig2.getPreviewWidth()) {
-                        return alaLiveVideoConfig.getPreviewHeight() == alaLiveVideoConfig2.getPreviewHeight() && currentBitRate == currentBitRate2 && currentBitRate != 0 && currentBitRate2 != 0;
+                    if (alaLiveVideoConfig == null && alaLiveVideoConfig2 != null && alaLiveVideoConfig.getVideoWidth() == alaLiveVideoConfig2.getVideoWidth() && alaLiveVideoConfig.getVideoHeight() == alaLiveVideoConfig2.getVideoHeight() && alaLiveVideoConfig.getPreviewWidth() == alaLiveVideoConfig2.getPreviewWidth() && alaLiveVideoConfig.getPreviewHeight() == alaLiveVideoConfig2.getPreviewHeight()) {
+                        return alaLiveVideoConfig.isLandscape() == alaLiveVideoConfig2.isLandscape() && currentBitRate == currentBitRate2 && currentBitRate != 0 && currentBitRate2 != 0;
                     }
                     return false;
                 }

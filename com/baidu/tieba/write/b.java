@@ -3,8 +3,8 @@ package com.baidu.tieba.write;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.util.v;
-import com.baidu.tieba.c.a;
+import com.baidu.tbadk.core.util.w;
+import com.baidu.tieba.c.c;
 import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.tieba.write.transmit.model.a;
 import java.util.ArrayList;
@@ -12,39 +12,39 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 import tbclient.SimpleForum;
 /* loaded from: classes2.dex */
-public class b implements com.baidu.tieba.c.a {
-    private a.InterfaceC0596a gQO;
-    private com.baidu.tieba.write.transmit.model.a lRi;
-    private List<SimpleForum> lRj;
-    private boolean lRk;
+public class b implements com.baidu.tieba.c.c {
+    private c.a hdx;
     private int mPrivateThread;
-    private ArrayList<TransmitForumData> eVq = new ArrayList<>();
-    private a.InterfaceC0755a lRl = new a.InterfaceC0755a() { // from class: com.baidu.tieba.write.b.1
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0755a
+    private com.baidu.tieba.write.transmit.model.a mlr;
+    private List<SimpleForum> mls;
+    private boolean mlt;
+    private ArrayList<TransmitForumData> ffB = new ArrayList<>();
+    private a.InterfaceC0771a mlu = new a.InterfaceC0771a() { // from class: com.baidu.tieba.write.b.1
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0771a
         public void onError() {
-            b.this.dmu();
+            b.this.dqH();
         }
 
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0755a
-        public void g(List<SimpleForum> list, int i) {
-            b.this.lRj = list;
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0771a
+        public void h(List<SimpleForum> list, int i) {
+            b.this.mls = list;
             b.this.mPrivateThread = i;
-            b.this.bMC();
+            b.this.bPH();
         }
     };
 
     public b() {
         BdUniqueId gen = BdUniqueId.gen();
-        this.lRi = new com.baidu.tieba.write.transmit.model.a(gen);
-        this.lRi.a(this.lRl);
-        this.lRi.setRequestId(gen);
+        this.mlr = new com.baidu.tieba.write.transmit.model.a(gen);
+        this.mlr.a(this.mlu);
+        this.mlr.setRequestId(gen);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bMC() {
-        this.eVq.clear();
-        if (v.getCount(this.lRj) > 0) {
-            for (SimpleForum simpleForum : this.lRj) {
+    public void bPH() {
+        this.ffB.clear();
+        if (w.getCount(this.mls) > 0) {
+            for (SimpleForum simpleForum : this.mls) {
                 if (simpleForum != null && simpleForum.id != null && simpleForum.id.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
                     TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
                     transmitForumData.tabItemDatas = new ArrayList<>();
@@ -53,37 +53,37 @@ public class b implements com.baidu.tieba.c.a {
                             transmitForumData.tabItemDatas.add(new FrsTabItemData(frsTabInfo));
                         }
                     }
-                    this.eVq.add(transmitForumData);
+                    this.ffB.add(transmitForumData);
                 }
             }
         }
-        if (this.gQO != null) {
-            this.gQO.a(this.eVq, true, 2, this.mPrivateThread);
+        if (this.hdx != null) {
+            this.hdx.a(this.ffB, true, 2, this.mPrivateThread);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dmu() {
-        if (!this.lRk) {
-            if (this.gQO != null) {
-                this.gQO.a(null, false, 2, 0);
+    public void dqH() {
+        if (!this.mlt) {
+            if (this.hdx != null) {
+                this.hdx.a(null, false, 2, 0);
             }
-            this.lRk = true;
+            this.mlt = true;
         }
     }
 
-    @Override // com.baidu.tieba.c.a
-    public void bMq() {
-        if (this.gQO != null && this.lRi != null) {
-            this.lRk = false;
-            this.lRi.setThreadTitle(null);
-            this.lRi.setThreadContent(null);
-            this.lRi.loadData();
+    @Override // com.baidu.tieba.c.c
+    public void bPA() {
+        if (this.hdx != null && this.mlr != null) {
+            this.mlt = false;
+            this.mlr.setThreadTitle(null);
+            this.mlr.setThreadContent(null);
+            this.mlr.loadData();
         }
     }
 
-    @Override // com.baidu.tieba.c.a
-    public void a(a.InterfaceC0596a interfaceC0596a) {
-        this.gQO = interfaceC0596a;
+    @Override // com.baidu.tieba.c.c
+    public void a(c.a aVar) {
+        this.hdx = aVar;
     }
 }

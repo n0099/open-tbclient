@@ -7,32 +7,32 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d Sm;
-    private PluginNetConfigInfos Sn = new PluginNetConfigInfos();
-    private b So;
+    private static volatile d SR;
+    private PluginNetConfigInfos SS = new PluginNetConfigInfos();
+    private b ST;
 
-    public static d ou() {
-        if (Sm == null) {
+    public static d oK() {
+        if (SR == null) {
             synchronized (d.class) {
-                if (Sm == null) {
-                    Sm = new d();
+                if (SR == null) {
+                    SR = new d();
                 }
             }
         }
-        return Sm;
+        return SR;
     }
 
     public void a(PluginSettings pluginSettings, boolean z, final a aVar) {
         c b = b(pluginSettings);
-        if (this.So != null) {
-            this.So.a(z, b, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
+        if (this.ST != null) {
+            this.ST.a(z, b, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
                 @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.a
                 public void a(boolean z2, c cVar, PluginNetConfigInfos pluginNetConfigInfos, String str) {
                     if (z2) {
-                        d.this.Sn = pluginNetConfigInfos;
+                        d.this.SS = pluginNetConfigInfos;
                     }
                     if (aVar != null) {
-                        aVar.a(z2, cVar, d.this.Sn, str);
+                        aVar.a(z2, cVar, d.this.SS, str);
                     }
                 }
             });
@@ -50,15 +50,15 @@ public class d {
                 }
             }
         }
-        cVar.m(arrayList);
+        cVar.o(arrayList);
         return cVar;
     }
 
-    public PluginNetConfigInfos ov() {
-        return this.Sn;
+    public PluginNetConfigInfos oL() {
+        return this.SS;
     }
 
     public void a(b bVar) {
-        this.So = bVar;
+        this.ST = bVar;
     }
 }

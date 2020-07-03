@@ -1,30 +1,30 @@
 package com.baidu.ar.child;
 
-import com.baidu.ar.child.a.c;
+import com.baidu.ar.child.a.e;
 /* loaded from: classes3.dex */
 public class b {
-    private com.baidu.ar.child.a.a kD;
-    private c kE;
-    private float kF;
+    private com.baidu.ar.child.a.a kW;
+    private e kX;
+    private float kY;
 
     public b(com.baidu.ar.child.a.a aVar, float f) {
-        this.kD = aVar;
-        this.kF = f;
+        this.kW = aVar;
+        this.kY = f;
     }
 
-    public void a(c cVar) {
-        this.kE = cVar;
+    public void a(e eVar) {
+        this.kX = eVar;
     }
 
-    public com.baidu.ar.child.a.a cc() {
-        return this.kD;
+    public com.baidu.ar.child.a.a cs() {
+        return this.kW;
     }
 
-    public float cd() {
-        return this.kF;
+    public float ct() {
+        return this.kY;
     }
 
-    public c ce() {
-        return this.kE;
+    public e cu() {
+        return this.kX;
     }
 }

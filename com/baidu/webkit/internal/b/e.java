@@ -1,8 +1,9 @@
 package com.baidu.webkit.internal.b;
 
 import android.app.AlertDialog;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
-final class e implements Runnable {
+public final class e implements Runnable {
     final /* synthetic */ AlertDialog a;
     final /* synthetic */ b b;
 

@@ -18,13 +18,13 @@ public class dn extends al.b {
         List list;
         String str;
         String str2;
-        list = dm.f222a;
+        list = dm.f228a;
         if (list.isEmpty()) {
             return;
         }
         try {
             if (aa.d()) {
-                this.a.m227a();
+                this.a.m224a();
             } else {
                 str2 = this.a.b;
                 Log.w(str2, "SDCard is unavailable.");

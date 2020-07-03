@@ -8,41 +8,41 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Shader;
 import android.util.AttributeSet;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tieba.horizonallist.widget.HListView;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlphaGradientHListView extends HListView {
-    private Paint aUc;
-    private int bfp;
-    private int bhV;
-    private int bhW;
-    private int bhX;
-    private int bhY;
+    private Paint aWJ;
+    private int bkz;
+    private int bnc;
+    private int bnd;
+    private int bne;
+    private int bnf;
 
     public AlphaGradientHListView(Context context) {
         super(context);
-        this.bfp = 0;
-        this.bhW = 0;
-        this.bhX = -1;
-        this.bhY = -1;
+        this.bkz = 0;
+        this.bnd = 0;
+        this.bne = -1;
+        this.bnf = -1;
         init();
     }
 
     public AlphaGradientHListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bfp = 0;
-        this.bhW = 0;
-        this.bhX = -1;
-        this.bhY = -1;
+        this.bkz = 0;
+        this.bnd = 0;
+        this.bne = -1;
+        this.bnf = -1;
         init();
     }
 
     public AlphaGradientHListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bfp = 0;
-        this.bhW = 0;
-        this.bhX = -1;
-        this.bhY = -1;
+        this.bkz = 0;
+        this.bnd = 0;
+        this.bne = -1;
+        this.bnf = -1;
         init();
     }
 
@@ -51,25 +51,25 @@ public class AlphaGradientHListView extends HListView {
     }
 
     public void setColor(int i, int i2) {
-        this.bfp = i;
-        this.bhW = i2;
+        this.bkz = i;
+        this.bnd = i2;
     }
 
     public void setShadowWidth(int i) {
-        this.bhV = i;
+        this.bnc = i;
     }
 
     public void setNeedAlphaShade(boolean z) {
         if (z) {
-            if (this.bhV <= 0) {
-                this.bhV = getResources().getDimensionPixelSize(a.e.sdk_ds28);
+            if (this.bnc <= 0) {
+                this.bnc = getResources().getDimensionPixelSize(a.e.sdk_ds28);
             }
-            this.aUc = new Paint();
-            this.aUc.setStyle(Paint.Style.FILL_AND_STROKE);
-            this.aUc.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
+            this.aWJ = new Paint();
+            this.aWJ.setStyle(Paint.Style.FILL_AND_STROKE);
+            this.aWJ.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
         } else {
-            this.bhV = 0;
-            this.aUc = null;
+            this.bnc = 0;
+            this.aWJ = null;
         }
         invalidate();
     }
@@ -78,11 +78,11 @@ public class AlphaGradientHListView extends HListView {
     @Override // com.baidu.live.tieba.horizonallist.widget.HListView, com.baidu.live.tieba.horizonallist.widget.AbsHListView, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.aUc != null) {
-            if (this.bhX != getMeasuredWidth() || this.bhY != getMeasuredHeight()) {
-                this.aUc.setShader(new LinearGradient(getMeasuredWidth() - this.bhV, 0.0f, getMeasuredWidth(), 0.0f, this.bfp, this.bhW, Shader.TileMode.CLAMP));
-                this.bhX = getMeasuredWidth();
-                this.bhY = getMeasuredHeight();
+        if (this.aWJ != null) {
+            if (this.bne != getMeasuredWidth() || this.bnf != getMeasuredHeight()) {
+                this.aWJ.setShader(new LinearGradient(getMeasuredWidth() - this.bnc, 0.0f, getMeasuredWidth(), 0.0f, this.bkz, this.bnd, Shader.TileMode.CLAMP));
+                this.bne = getMeasuredWidth();
+                this.bnf = getMeasuredHeight();
             }
         }
     }
@@ -91,8 +91,8 @@ public class AlphaGradientHListView extends HListView {
     @Override // com.baidu.live.tieba.horizonallist.widget.HListView, com.baidu.live.tieba.horizonallist.widget.AbsHListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.aUc != null) {
-            canvas.drawRect(getMeasuredWidth() - this.bhV, 0.0f, getMeasuredWidth(), getMeasuredHeight(), this.aUc);
+        if (this.aWJ != null) {
+            canvas.drawRect(getMeasuredWidth() - this.bnc, 0.0f, getMeasuredWidth(), getMeasuredHeight(), this.aWJ);
         }
     }
 }

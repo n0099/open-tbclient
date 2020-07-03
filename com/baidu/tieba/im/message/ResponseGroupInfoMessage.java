@@ -45,13 +45,13 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
         setError(this.mResData.error.errorno.intValue());
         setErrorString(this.mResData.error.usermsg);
         if (getError() == 0) {
-            this.selfData.xX(this.mResData.data.canJoinGroupNum.intValue());
-            this.selfData.pu(this.mResData.data.isGroupManager.intValue() != 0);
-            this.selfData.pv(this.mResData.data.hideRecommendGroup.intValue() != 0);
-            this.selfData.pt(this.mResData.data.isJoin.intValue() != 0);
-            this.selfData.xW(this.mResData.data.joinGroupNum.intValue());
+            this.selfData.yH(this.mResData.data.canJoinGroupNum.intValue());
+            this.selfData.pE(this.mResData.data.isGroupManager.intValue() != 0);
+            this.selfData.pF(this.mResData.data.hideRecommendGroup.intValue() != 0);
+            this.selfData.pD(this.mResData.data.isJoin.intValue() != 0);
+            this.selfData.yG(this.mResData.data.joinGroupNum.intValue());
             this.selfData.setMemGroup(this.mResData.data.group.isMemberGroup.intValue() == 1);
-            this.selfData.pw(this.mResData.data.canCreateMember.intValue() == 1);
+            this.selfData.pG(this.mResData.data.canCreateMember.intValue() == 1);
             GroupInfo groupInfo = this.mResData.data.group;
             GroupData groupData = new GroupData();
             GroupInfo2GroupData(groupInfo, groupData);
@@ -65,7 +65,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
                     linkedList.add(memberData);
                 }
             }
-            this.selfData.dm(linkedList);
+            this.selfData.dA(linkedList);
             List<Photo> list2 = this.mResData.data.photo;
             LinkedList linkedList2 = new LinkedList();
             if (list2 != null) {
@@ -75,7 +75,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
                     linkedList2.add(photoUrlData);
                 }
             }
-            this.selfData.dn(linkedList2);
+            this.selfData.dB(linkedList2);
             ActivityInfo activityInfo = this.mResData.data.activity;
             if (activityInfo != null) {
                 GroupActivityData groupActivityData = new GroupActivityData();
@@ -142,7 +142,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.aSS().vL("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + this.selfData.getGroup().getGroupId(), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.aUM().wb("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + this.selfData.getGroup().getGroupId(), bArr);
         }
     }
 }

@@ -13,16 +13,16 @@ import com.baidu.helios.bridge.a;
 import com.baidu.helios.bridge.multiprocess.e;
 /* loaded from: classes6.dex */
 public abstract class BaseIPCProvider extends ContentProvider {
-    private e apm;
-    private UriMatcher apn = new UriMatcher(-1);
+    private e aqF;
+    private UriMatcher aqG = new UriMatcher(-1);
 
     private String a(String str) {
-        return str + tU();
+        return str + um();
     }
 
     private synchronized void a() {
-        if (this.apm == null) {
-            this.apm = new e.a() { // from class: com.baidu.helios.bridge.multiprocess.BaseIPCProvider.1
+        if (this.aqF == null) {
+            this.aqF = new e.a() { // from class: com.baidu.helios.bridge.multiprocess.BaseIPCProvider.1
                 private g e;
 
                 {
@@ -31,7 +31,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
 
                 @Override // com.baidu.helios.bridge.multiprocess.e
                 public Bundle a(String str, Bundle bundle) {
-                    a.d d = this.e.tV().d(str, bundle);
+                    a.d d = this.e.un().d(str, bundle);
                     if (d == null) {
                         return null;
                     }
@@ -40,7 +40,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
 
                 @Override // com.baidu.helios.bridge.multiprocess.e
                 public void a(String str, Bundle bundle, final f fVar) {
-                    this.e.tV().a(str, bundle, new a.c<String>() { // from class: com.baidu.helios.bridge.multiprocess.BaseIPCProvider.1.1
+                    this.e.un().a(str, bundle, new a.c<String>() { // from class: com.baidu.helios.bridge.multiprocess.BaseIPCProvider.1.1
                         @Override // com.baidu.helios.bridge.a.c
                         public void a(int i, Exception exc, Bundle bundle2) {
                             try {
@@ -62,7 +62,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
 
                 @Override // com.baidu.helios.bridge.multiprocess.e
                 public boolean a(String str) {
-                    return this.e.tV().dV(str);
+                    return this.e.un().dX(str);
                 }
             };
         }
@@ -85,7 +85,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
             switch (c) {
                 case 0:
                     a();
-                    h.a(bundle2, this.apm.asBinder());
+                    h.a(bundle2, this.aqF.asBinder());
                     return bundle2;
             }
         }
@@ -109,27 +109,27 @@ public abstract class BaseIPCProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        this.apn.addURI(a(getContext().getPackageName()), "ipc/method/get_bridge", 0);
+        this.aqG.addURI(a(getContext().getPackageName()), "ipc/method/get_bridge", 0);
         Log.i("Helios", "provider onCreate");
         return true;
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        int match = this.apn.match(uri);
+        int match = this.aqG.match(uri);
         Log.i("Helios", "provider query, code = " + match);
         switch (match) {
             case 0:
                 a();
                 Bundle bundle = new Bundle();
-                h.a(bundle, this.apm.asBinder());
+                h.a(bundle, this.aqF.asBinder());
                 return new d(bundle);
             default:
                 return null;
         }
     }
 
-    public abstract String tU();
+    public abstract String um();
 
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {

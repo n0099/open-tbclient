@@ -1,19 +1,19 @@
 package com.baidu.live.x;
 
-import android.view.View;
-import com.baidu.live.data.ab;
+import com.baidu.live.data.ac;
+import com.baidu.live.pendantview.PendantChildView;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public interface b {
-    void G(JSONObject jSONObject);
+    PendantChildView HD();
 
-    void Gr();
+    void HE();
 
-    void Gs();
+    void HF();
 
-    void a(ab abVar);
+    void L(JSONObject jSONObject);
 
-    View getView();
+    void a(ac acVar);
 
     void onDestroy();
 

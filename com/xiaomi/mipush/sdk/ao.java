@@ -9,29 +9,29 @@ public class ao implements Runnable {
     final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ an f46a;
+    final /* synthetic */ an f52a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String[] f47a;
+    final /* synthetic */ String[] f53a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(an anVar, String[] strArr, Context context) {
-        this.f46a = anVar;
-        this.f47a = strArr;
+        this.f52a = anVar;
+        this.f53a = strArr;
         this.a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        for (int i = 0; i < this.f47a.length; i++) {
+        for (int i = 0; i < this.f53a.length; i++) {
             try {
-                if (!TextUtils.isEmpty(this.f47a[i])) {
+                if (!TextUtils.isEmpty(this.f53a[i])) {
                     if (i > 0) {
                         Thread.sleep(((long) ((Math.random() * 2.0d) + 1.0d)) * 1000);
                     }
-                    PackageInfo packageInfo = this.a.getPackageManager().getPackageInfo(this.f47a[i], 4);
+                    PackageInfo packageInfo = this.a.getPackageManager().getPackageInfo(this.f53a[i], 4);
                     if (packageInfo != null) {
-                        this.f46a.a(this.a, packageInfo);
+                        this.f52a.a(this.a, packageInfo);
                     }
                 }
             } catch (Throwable th) {

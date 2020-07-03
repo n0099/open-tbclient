@@ -11,6 +11,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"WrongCall"})
+@Deprecated
 /* loaded from: classes3.dex */
 public class TbListTextView extends TextView {
     private boolean checkSelection;

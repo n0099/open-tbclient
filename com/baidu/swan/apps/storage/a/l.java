@@ -29,22 +29,22 @@ public class l extends aa {
         if (TextUtils.isEmpty(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
             return false;
-        } else if (com.baidu.swan.apps.storage.c.oW(optString)) {
+        } else if (com.baidu.swan.apps.storage.c.pe(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage key max length");
             return false;
         } else {
             String optString2 = optParamsAsJo.optString("data");
-            if (com.baidu.swan.apps.storage.c.oX(optString2)) {
+            if (com.baidu.swan.apps.storage.c.pf(optString2)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage item max length");
                 return false;
             }
-            com.baidu.swan.apps.storage.c aoQ = eVar.aoQ();
-            if (!aoQ.available() && aoQ.ary().getString(optString, "").length() < optString2.length()) {
+            com.baidu.swan.apps.storage.c apX = eVar.apX();
+            if (!apX.available() && apX.asF().getString(optString, "").length() < optString2.length()) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not available");
                 return false;
             }
-            aoQ.ary().putString(optString, optString2);
-            com.baidu.swan.apps.an.e.cJd.update();
+            apX.asF().putString(optString, optString2);
+            com.baidu.swan.apps.an.e.cNN.update();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

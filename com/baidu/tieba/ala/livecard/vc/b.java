@@ -1,110 +1,110 @@
 package com.baidu.tieba.ala.livecard.vc;
 
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bu;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private int dZp;
-    private List<bk> dZv;
-    private List<bk> dZw;
-    private boolean dZx;
-    private boolean dZy;
-    private int dZz = 2;
-    private int dZA = 1;
+    private int ehZ;
+    private List<bu> eif;
+    private List<bu> eig;
+    private boolean eih;
+    private boolean eii;
+    private int eij = 2;
+    private int eik = 1;
 
-    public b(List<bk> list, boolean z, int i) {
-        this.dZp = 2;
-        this.dZy = z;
-        this.dZp = i;
-        bE(list);
+    public b(List<bu> list, boolean z, int i) {
+        this.ehZ = 2;
+        this.eii = z;
+        this.ehZ = i;
+        bN(list);
     }
 
-    public void bE(List<bk> list) {
+    public void bN(List<bu> list) {
         if (list != null) {
-            this.dZv = list;
-            if (list != null && list.size() >= this.dZz && list.size() <= this.dZp) {
-                this.dZx = true;
-            } else if (list.size() > this.dZp && this.dZy) {
-                this.dZx = true;
+            this.eif = list;
+            if (list != null && list.size() >= this.eij && list.size() <= this.ehZ) {
+                this.eih = true;
+            } else if (list.size() > this.ehZ && this.eii) {
+                this.eih = true;
             } else {
-                this.dZx = false;
+                this.eih = false;
             }
-            this.dZw = aXi();
+            this.eig = aZo();
         }
     }
 
-    private List<bk> aXi() {
+    private List<bu> aZo() {
         ArrayList arrayList = new ArrayList();
-        if (this.dZv != null) {
-            if (this.dZx) {
-                if (this.dZv.size() > this.dZp && this.dZv.size() >= this.dZA) {
-                    arrayList.addAll(this.dZv.subList(0, this.dZp));
-                    arrayList.addAll(0, this.dZv.subList(this.dZp - this.dZA, this.dZp));
-                    arrayList.addAll(this.dZv.subList(0, this.dZA));
+        if (this.eif != null) {
+            if (this.eih) {
+                if (this.eif.size() > this.ehZ && this.eif.size() >= this.eik) {
+                    arrayList.addAll(this.eif.subList(0, this.ehZ));
+                    arrayList.addAll(0, this.eif.subList(this.ehZ - this.eik, this.ehZ));
+                    arrayList.addAll(this.eif.subList(0, this.eik));
                 } else {
-                    arrayList.addAll(this.dZv);
-                    arrayList.addAll(0, this.dZv.subList(this.dZv.size() - this.dZA, this.dZv.size()));
-                    arrayList.addAll(this.dZv.subList(0, this.dZA));
+                    arrayList.addAll(this.eif);
+                    arrayList.addAll(0, this.eif.subList(this.eif.size() - this.eik, this.eif.size()));
+                    arrayList.addAll(this.eif.subList(0, this.eik));
                 }
-            } else if (this.dZv != null && this.dZv.size() > 0 && this.dZv.size() >= this.dZA) {
-                arrayList.addAll(this.dZv.subList(0, this.dZA));
+            } else if (this.eif != null && this.eif.size() > 0 && this.eif.size() >= this.eik) {
+                arrayList.addAll(this.eif.subList(0, this.eik));
             }
         }
         return arrayList;
     }
 
-    public int mu(int i) {
-        if (this.dZx) {
-            int size = this.dZw.size();
+    public int mO(int i) {
+        if (this.eih) {
+            int size = this.eig.size();
             if (i == 0) {
-                return (size - 1) - this.dZA;
+                return (size - 1) - this.eik;
             }
-            if (i == size - this.dZA) {
-                return this.dZA;
+            if (i == size - this.eik) {
+                return this.eik;
             }
             return i;
         }
         return i;
     }
 
-    public int mv(int i) {
-        if (this.dZx) {
-            return i - this.dZA;
+    public int mP(int i) {
+        if (this.eih) {
+            return i - this.eik;
         }
         return i;
     }
 
-    public int aXj() {
-        if (this.dZv == null) {
+    public int aZp() {
+        if (this.eif == null) {
             return 0;
         }
-        return this.dZv.size();
+        return this.eif.size();
     }
 
-    public int aXk() {
-        if (this.dZx) {
-            return this.dZA;
+    public int aZq() {
+        if (this.eih) {
+            return this.eik;
         }
         return 0;
     }
 
-    public void mw(int i) {
-        this.dZp = i;
-        bE(this.dZv);
+    public void mQ(int i) {
+        this.ehZ = i;
+        bN(this.eif);
     }
 
-    public void mx(int i) {
-        this.dZz = i;
-        bE(this.dZv);
+    public void mR(int i) {
+        this.eij = i;
+        bN(this.eif);
     }
 
-    public List<bk> aXl() {
-        return this.dZw;
+    public List<bu> aZr() {
+        return this.eig;
     }
 
-    public void my(int i) {
-        this.dZA = i;
-        bE(this.dZv);
+    public void mS(int i) {
+        this.eik = i;
+        bN(this.eif);
     }
 }

@@ -8,11 +8,11 @@ import android.view.MenuItem;
 import com.baidu.swan.bdprivate.b;
 /* loaded from: classes11.dex */
 public class BaseActivity extends Activity {
-    private boolean cNJ = false;
+    private boolean cSt = false;
 
     @Override // android.app.Activity
     protected void onCreate(@Nullable Bundle bundle) {
-        if (this.cNJ) {
+        if (this.cSt) {
             overridePendingTransition(b.a.aiapps_slide_in_from_bottom, b.a.aiapps_hold);
         } else {
             overridePendingTransition(b.a.aiapps_slide_in_from_right, b.a.aiapps_hold);
@@ -22,7 +22,7 @@ public class BaseActivity extends Activity {
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
-        if (this.cNJ) {
+        if (this.cSt) {
             overridePendingTransition(b.a.aiapps_slide_in_from_bottom, b.a.aiapps_hold);
         } else {
             overridePendingTransition(b.a.aiapps_slide_in_from_right, b.a.aiapps_hold);
@@ -33,7 +33,7 @@ public class BaseActivity extends Activity {
     @Override // android.app.Activity
     public void finish() {
         super.finish();
-        if (this.cNJ) {
+        if (this.cSt) {
             overridePendingTransition(b.a.aiapps_hold, b.a.aiapps_slide_out_to_bottom_zadjustment_top);
         } else {
             overridePendingTransition(b.a.aiapps_hold, b.a.aiapps_slide_out_to_right_zadjustment_top);

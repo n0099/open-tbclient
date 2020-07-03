@@ -8,12 +8,12 @@ import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class f implements j<e> {
     private final Context mContext;
-    private final g mod;
-    private final com.facebook.imagepipeline.d.g mos;
-    private final Set<com.facebook.drawee.controller.c> mov;
+    private final g mKd;
+    private final com.facebook.imagepipeline.d.g mKr;
+    private final Set<com.facebook.drawee.controller.c> mKu;
 
     public f(Context context, @Nullable b bVar) {
-        this(context, com.facebook.imagepipeline.d.j.dzw(), bVar);
+        this(context, com.facebook.imagepipeline.d.j.dDY(), bVar);
     }
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, @Nullable b bVar) {
@@ -22,20 +22,20 @@ public class f implements j<e> {
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, Set<com.facebook.drawee.controller.c> set, @Nullable b bVar) {
         this.mContext = context;
-        this.mos = jVar.dvv();
-        if (bVar != null && bVar.dvr() != null) {
-            this.mod = bVar.dvr();
+        this.mKr = jVar.dzY();
+        if (bVar != null && bVar.dzU() != null) {
+            this.mKd = bVar.dzU();
         } else {
-            this.mod = new g();
+            this.mKd = new g();
         }
-        this.mod.a(context.getResources(), com.facebook.drawee.components.a.dvN(), jVar.fV(context), i.duB(), this.mos.dyK(), bVar != null ? bVar.dvq() : null, bVar != null ? bVar.dvs() : null);
-        this.mov = set;
+        this.mKd.a(context.getResources(), com.facebook.drawee.components.a.dAq(), jVar.fW(context), i.dze(), this.mKr.dDm(), bVar != null ? bVar.dzT() : null, bVar != null ? bVar.dzV() : null);
+        this.mKu = set;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: dvG */
+    /* renamed from: dAj */
     public e get() {
-        return new e(this.mContext, this.mod, this.mos, this.mov);
+        return new e(this.mContext, this.mKd, this.mKr, this.mKu);
     }
 }

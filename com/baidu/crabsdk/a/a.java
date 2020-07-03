@@ -9,23 +9,23 @@ import java.util.Map;
 public final class a {
     public static int W = 2000;
     public static int X = 1;
-    static a ajZ = null;
+    static a alw = null;
     private long Y;
     private long Z;
-    private long ajV;
-    private long ajW;
-    private StringBuilder ajX = new StringBuilder();
-    public ArrayList<String> ajY = new ArrayList<>();
+    private long als;
+    private long alt;
+    private StringBuilder alu = new StringBuilder();
+    public ArrayList<String> alv = new ArrayList<>();
 
     private a() {
     }
 
     private String g() {
-        Iterator<String> it = this.ajY.iterator();
+        Iterator<String> it = this.alv.iterator();
         while (it.hasNext()) {
             String next = it.next();
             com.baidu.crabsdk.c.a.v("===== stackEntry ===== \n" + next);
-            this.ajX.append(next);
+            this.alu.append(next);
             String[] split = next.split("\r\n");
             if (split != null && split.length > 0) {
                 for (String str : split) {
@@ -43,29 +43,29 @@ public final class a {
         return W * 0.6f;
     }
 
-    public static a sC() {
-        if (ajZ == null) {
+    public static a sX() {
+        if (alw == null) {
             synchronized (a.class) {
-                if (ajZ == null) {
-                    ajZ = new a();
+                if (alw == null) {
+                    alw = new a();
                 }
             }
         }
-        return ajZ;
+        return alw;
     }
 
     public final a a(long j, long j2, long j3, long j4) {
         this.Y = j2 - j;
         this.Z = j4 - j3;
-        this.ajV = j;
-        this.ajW = j2;
+        this.als = j;
+        this.alt = j2;
         return this;
     }
 
-    public final Map<String, Object> sD() {
+    public final Map<String, Object> sY() {
         HashMap hashMap = new HashMap();
-        long j = this.ajV;
-        long j2 = this.ajW;
+        long j = this.als;
+        long j2 = this.alt;
         long j3 = this.Y;
         long j4 = this.Z;
         String g = g();
@@ -78,10 +78,10 @@ public final class a {
         hashMap.put("blockEndTime", Long.valueOf(j2));
         hashMap.put("blockCostTime", Long.valueOf(j3));
         hashMap.put("blockThreadTime", Long.valueOf(j4));
-        hashMap.put("errorTrace", this.ajX.toString());
+        hashMap.put("errorTrace", this.alu.toString());
         hashMap.put("errorLine", g);
         hashMap.put("errorOriLine", g);
-        this.ajX.setLength(0);
+        this.alu.setLength(0);
         return hashMap;
     }
 }

@@ -14,8 +14,8 @@ import java.util.Collections;
 /* loaded from: classes6.dex */
 public class s {
     public static Layer d(com.tb.airbnb.lottie.d dVar) {
-        Rect gC = dVar.gC();
-        return new Layer(Collections.emptyList(), dVar, "__container", -1L, Layer.LayerType.PreComp, -1L, null, Collections.emptyList(), new com.tb.airbnb.lottie.model.a.l(), 0, 0, 0, 0.0f, 0.0f, gC.width(), gC.height(), null, null, Collections.emptyList(), Layer.MatteType.None, null);
+        Rect gS = dVar.gS();
+        return new Layer(Collections.emptyList(), dVar, "__container", -1L, Layer.LayerType.PreComp, -1L, null, Collections.emptyList(), new com.tb.airbnb.lottie.model.a.l(), 0, 0, 0, 0.0f, 0.0f, gS.width(), gS.height(), null, null, Collections.emptyList(), Layer.MatteType.None, null);
     }
 
     public static Layer q(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
@@ -226,14 +226,14 @@ public class s {
                     str = str2;
                     break;
                 case 5:
-                    i = (int) (jsonReader.nextInt() * com.tb.airbnb.lottie.d.f.jk());
+                    i = (int) (jsonReader.nextInt() * com.tb.airbnb.lottie.d.f.jA());
                     nextString = str4;
                     j = j2;
                     layerType = layerType2;
                     str = str2;
                     break;
                 case 6:
-                    i2 = (int) (jsonReader.nextInt() * com.tb.airbnb.lottie.d.f.jk());
+                    i2 = (int) (jsonReader.nextInt() * com.tb.airbnb.lottie.d.f.jA());
                     nextString = str4;
                     j = j2;
                     layerType = layerType2;
@@ -357,7 +357,7 @@ public class s {
                         jsonReader.endObject();
                     }
                     jsonReader.endArray();
-                    dVar.aW("Lottie doesn't support layer effects. If you are using them for  fills, strokes, trim paths etc. then try adding them directly as contents  in your shape. Found: " + arrayList3);
+                    dVar.aX("Lottie doesn't support layer effects. If you are using them for  fills, strokes, trim paths etc. then try adding them directly as contents  in your shape. Found: " + arrayList3);
                     nextString = str4;
                     j = j2;
                     layerType = layerType2;
@@ -378,14 +378,14 @@ public class s {
                     str = str2;
                     break;
                 case 16:
-                    i4 = (int) (jsonReader.nextInt() * com.tb.airbnb.lottie.d.f.jk());
+                    i4 = (int) (jsonReader.nextInt() * com.tb.airbnb.lottie.d.f.jA());
                     nextString = str4;
                     j = j2;
                     layerType = layerType2;
                     str = str2;
                     break;
                 case 17:
-                    i5 = (int) (jsonReader.nextInt() * com.tb.airbnb.lottie.d.f.jk());
+                    i5 = (int) (jsonReader.nextInt() * com.tb.airbnb.lottie.d.f.jA());
                     nextString = str4;
                     j = j2;
                     layerType = layerType2;
@@ -439,12 +439,12 @@ public class s {
             arrayList4.add(new com.tb.airbnb.lottie.e.a(dVar, Float.valueOf(0.0f), Float.valueOf(0.0f), null, 0.0f, Float.valueOf(f5)));
         }
         if (f6 <= 0.0f) {
-            f6 = dVar.gF();
+            f6 = dVar.gV();
         }
         arrayList4.add(new com.tb.airbnb.lottie.e.a(dVar, Float.valueOf(1.0f), Float.valueOf(1.0f), null, f5, Float.valueOf(f6)));
         arrayList4.add(new com.tb.airbnb.lottie.e.a(dVar, Float.valueOf(0.0f), Float.valueOf(0.0f), null, f6, Float.valueOf(Float.MAX_VALUE)));
         if (str2.endsWith(".ai") || "ai".equals(str4)) {
-            dVar.aW("Convert your Illustrator layers to shape layers.");
+            dVar.aX("Convert your Illustrator layers to shape layers.");
         }
         return new Layer(arrayList2, dVar, str2, j2, layerType2, j3, str3, arrayList, lVar, i, i2, i3, f, f2, i4, i5, jVar, kVar, arrayList4, matteType, bVar);
     }

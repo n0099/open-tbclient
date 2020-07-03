@@ -17,23 +17,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    private static String bub = "b249MzEuMTg1NjM0JTJDMTIxLjYxMjgzJg==";
-    private static String buc = "nop_method";
-    private static String bud = "nop_timestamp";
-    private static String bue = "payChannel";
-    private static volatile a bug = null;
+    private static String byU = "b249MzEuMTg1NjM0JTJDMTIxLjYxMjgzJg==";
+    private static String byV = "nop_method";
+    private static String byW = "nop_timestamp";
+    private static String byX = "payChannel";
+    private static volatile a byY = null;
     private static String rc = "payType";
-    private final String buh = MM();
-    private final int bui;
-    private e buj;
+    private final String byZ = NV();
+    private final int bza;
+    private e bzb;
 
     /* renamed from: com.baidu.poly.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    class C0234a extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.a.a.a btX;
+    class C0240a extends com.baidu.poly.a.a.a<String> {
+        final /* synthetic */ com.baidu.poly.a.a.a byQ;
 
-        C0234a(com.baidu.poly.a.a.a aVar) {
-            this.btX = aVar;
+        C0240a(com.baidu.poly.a.a.a aVar) {
+            this.byQ = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -48,33 +48,33 @@ public class a {
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
                     if (optJSONObject == null) {
                         com.baidu.poly.a.g.a.a("7", optInt2 + "", jSONObject.optString("msg"));
-                        this.btX.a(new com.baidu.poly.a.h.b("msg = " + jSONObject.optString("msg")), "data is empty");
+                        this.byQ.a(new com.baidu.poly.a.h.b("msg = " + jSONObject.optString("msg")), "data is empty");
                     } else {
-                        this.btX.a(optJSONObject);
+                        this.byQ.a(optJSONObject);
                     }
                 } else {
                     com.baidu.poly.a.g.a.a("7", optInt2 + "", jSONObject.optString(BaseJsonData.TAG_ERRMSG));
-                    this.btX.a(new com.baidu.poly.a.h.b("errmsg = " + jSONObject.optString(BaseJsonData.TAG_ERRMSG)), "errno is " + optInt2);
+                    this.byQ.a(new com.baidu.poly.a.h.b("errmsg = " + jSONObject.optString(BaseJsonData.TAG_ERRMSG)), "errno is " + optInt2);
                 }
             } catch (JSONException e) {
                 com.baidu.poly.a.g.a.a("7", null, null);
-                this.btX.a(e, BdStatsConstant.StatsType.ERROR);
+                this.byQ.a(e, BdStatsConstant.StatsType.ERROR);
             }
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
             com.baidu.poly.a.g.a.h("7");
-            this.btX.a(th, str);
+            this.byQ.a(th, str);
         }
     }
 
     /* loaded from: classes11.dex */
     class b extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.a.a.a btX;
+        final /* synthetic */ com.baidu.poly.a.a.a byQ;
 
         b(com.baidu.poly.a.a.a aVar) {
-            this.btX = aVar;
+            this.byQ = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -85,30 +85,30 @@ public class a {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1);
                 if (optInt == 0) {
-                    this.btX.a(a.this.T(jSONObject.optJSONObject("data")));
+                    this.byQ.a(a.this.aa(jSONObject.optJSONObject("data")));
                 } else {
                     com.baidu.poly.a.g.a.a("8", optInt + "", jSONObject.optString("msg"));
-                    this.btX.a(new com.baidu.poly.a.h.b("msg = " + jSONObject.optString("msg")), jSONObject.optString("msg"));
+                    this.byQ.a(new com.baidu.poly.a.h.b("msg = " + jSONObject.optString("msg")), jSONObject.optString("msg"));
                 }
             } catch (Throwable th) {
                 com.baidu.poly.a.g.a.a("8", null, null);
-                this.btX.a(th, g.Nj().getResources().getString(b.g.common_error_tips));
+                this.byQ.a(th, g.Os().getResources().getString(b.g.common_error_tips));
             }
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
             com.baidu.poly.a.g.a.h("8");
-            this.btX.a(th, g.Nj().getResources().getString(b.g.common_error_tips));
+            this.byQ.a(th, g.Os().getResources().getString(b.g.common_error_tips));
         }
     }
 
     /* loaded from: classes11.dex */
     class c extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.a.a.a btX;
+        final /* synthetic */ com.baidu.poly.a.a.a byQ;
 
         c(com.baidu.poly.a.a.a aVar) {
-            this.btX = aVar;
+            this.byQ = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -119,30 +119,30 @@ public class a {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1);
                 if (optInt == 0) {
-                    this.btX.a(a.this.T(jSONObject.optJSONObject("data")));
+                    this.byQ.a(a.this.aa(jSONObject.optJSONObject("data")));
                 } else {
                     com.baidu.poly.a.g.a.a("8", optInt + "", jSONObject.optString("msg"));
-                    this.btX.a(new com.baidu.poly.a.h.b("msg = " + jSONObject.optString("msg")), "errno is " + optInt);
+                    this.byQ.a(new com.baidu.poly.a.h.b("msg = " + jSONObject.optString("msg")), "errno is " + optInt);
                 }
             } catch (Throwable th) {
                 com.baidu.poly.a.g.a.a("8", null, null);
-                this.btX.a(th, BdStatsConstant.StatsType.ERROR);
+                this.byQ.a(th, BdStatsConstant.StatsType.ERROR);
             }
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
             com.baidu.poly.a.g.a.h("8");
-            this.btX.a(th, str);
+            this.byQ.a(th, str);
         }
     }
 
     /* loaded from: classes11.dex */
     class d extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.a.a.a btX;
+        final /* synthetic */ com.baidu.poly.a.a.a byQ;
 
         d(com.baidu.poly.a.a.a aVar) {
-            this.btX = aVar;
+            this.byQ = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -153,61 +153,61 @@ public class a {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1);
                 if (optInt == 0) {
-                    this.btX.a(jSONObject.optJSONObject("data"));
+                    this.byQ.a(jSONObject.optJSONObject("data"));
                 } else {
-                    this.btX.a(new com.baidu.poly.a.h.b("msg = " + jSONObject.optString("msg")), "errno is " + optInt);
+                    this.byQ.a(new com.baidu.poly.a.h.b("msg = " + jSONObject.optString("msg")), "errno is " + optInt);
                 }
             } catch (Throwable th) {
-                this.btX.a(th, BdStatsConstant.StatsType.ERROR);
+                this.byQ.a(th, BdStatsConstant.StatsType.ERROR);
             }
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            this.btX.a(th, str);
+            this.byQ.a(th, str);
         }
     }
 
     private a(e eVar, int i) {
-        this.buj = eVar;
-        this.bui = i;
-        com.baidu.poly.a.j.b.bvK = i;
+        this.bzb = eVar;
+        this.bza = i;
+        com.baidu.poly.a.j.b.bAB = i;
     }
 
-    public static a ML() {
-        if (bug == null) {
-            dH(1);
+    public static a NU() {
+        if (byY == null) {
+            dS(1);
         }
-        return bug;
+        return byY;
     }
 
-    private String MM() {
-        int i = this.bui;
+    private String NV() {
+        int i = this.bza;
         return i != 1 ? i != 3 ? "http://nj03-orp-app0650.nj03.baidu.com:8222/nop/server/rest" : "http://sh01-orp-app0763.sh01.baidu.com:8290/nop/server/rest" : "https://nop.nuomi.com/nop/server/rest";
     }
 
-    private com.baidu.poly.a.a.c MN() {
+    private com.baidu.poly.a.a.c NW() {
         return new com.baidu.poly.a.a.c();
     }
 
-    public static void dH(int i) {
-        if (bug == null) {
+    public static void dS(int i) {
+        if (byY == null) {
             synchronized (a.class) {
-                if (bug == null) {
-                    bug = new a(new f(), i);
+                if (byY == null) {
+                    byY = new a(new f(), i);
                 }
             }
         }
     }
 
     public void b(Bundle bundle, com.baidu.poly.a.a.a<Map<String, String>> aVar) {
-        com.baidu.poly.a.a.c MN = MN();
-        com.baidu.poly.a.a.b a = a(bundle, MN);
-        this.buj.a(this.buh, MN, a, new c(aVar));
+        com.baidu.poly.a.a.c NW = NW();
+        com.baidu.poly.a.a.b a = a(bundle, NW);
+        this.bzb.a(this.byZ, NW, a, new c(aVar));
     }
 
     public void c(Bundle bundle, com.baidu.poly.a.a.a<JSONObject> aVar) {
-        com.baidu.poly.a.a.c MN = MN();
+        com.baidu.poly.a.a.c NW = NW();
         Set<String> keySet = bundle.keySet();
         com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
         for (String str : keySet) {
@@ -215,14 +215,14 @@ public class a {
                 bVar.g(str, bundle.get(str).toString());
             }
         }
-        bVar.g(buc, "nuomi.pay_platform.sdkAdaptH5QueryPay");
-        bVar.g(bud, String.valueOf(System.currentTimeMillis()));
-        HttpSigner.a(bVar, this.bui);
-        this.buj.a(this.buh, MN, bVar, new d(aVar));
+        bVar.g(byV, "nuomi.pay_platform.sdkAdaptH5QueryPay");
+        bVar.g(byW, String.valueOf(System.currentTimeMillis()));
+        HttpSigner.a(bVar, this.bza);
+        this.bzb.a(this.byZ, NW, bVar, new d(aVar));
     }
 
     public void a(Bundle bundle, com.baidu.poly.a.a.a<JSONObject> aVar) {
-        com.baidu.poly.a.a.c MN = MN();
+        com.baidu.poly.a.a.c NW = NW();
         Set<String> keySet = bundle.keySet();
         com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
         for (String str : keySet) {
@@ -230,30 +230,30 @@ public class a {
                 bVar.g(str, bundle.get(str).toString());
             }
         }
-        bVar.g(buc, "nuomi.integration_cashier.gatewaylist");
-        bVar.g(bud, String.valueOf(System.currentTimeMillis()));
-        a(bundle, bVar, MN);
-        HttpSigner.a(bVar, this.bui);
-        this.buj.a(this.buh, MN, bVar, new C0234a(aVar));
+        bVar.g(byV, "nuomi.integration_cashier.gatewaylist");
+        bVar.g(byW, String.valueOf(System.currentTimeMillis()));
+        a(bundle, bVar, NW);
+        HttpSigner.a(bVar, this.bza);
+        this.bzb.a(this.byZ, NW, bVar, new C0240a(aVar));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Map<String, String> T(JSONObject jSONObject) {
-        Map<String, String> Ni = com.baidu.poly.util.e.Ni();
+    public Map<String, String> aa(JSONObject jSONObject) {
+        Map<String, String> Or = com.baidu.poly.util.e.Or();
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 if (!TextUtils.isEmpty(next)) {
-                    Ni.put(next, jSONObject.optString(next));
+                    Or.put(next, jSONObject.optString(next));
                 }
             }
         }
-        return Ni;
+        return Or;
     }
 
     public void a(Bundle bundle, com.baidu.poly.a.a.a<Map<String, String>> aVar, String str) {
-        com.baidu.poly.a.a.c MN = MN();
+        com.baidu.poly.a.a.c NW = NW();
         Set<String> keySet = bundle.keySet();
         com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
         for (String str2 : keySet) {
@@ -261,22 +261,22 @@ public class a {
                 bVar.g(str2, bundle.get(str2).toString());
             }
         }
-        bVar.g(buc, "nuomi.integration_cashier.launchpayment");
-        bVar.g(bud, String.valueOf(System.currentTimeMillis()));
-        bVar.g(bue, str);
-        a(bundle, bVar, MN);
-        HttpSigner.a(bVar, this.bui);
-        this.buj.a(this.buh, MN, bVar, new b(aVar));
+        bVar.g(byV, "nuomi.integration_cashier.launchpayment");
+        bVar.g(byW, String.valueOf(System.currentTimeMillis()));
+        bVar.g(byX, str);
+        a(bundle, bVar, NW);
+        HttpSigner.a(bVar, this.bza);
+        this.bzb.a(this.byZ, NW, bVar, new b(aVar));
     }
 
     public com.baidu.poly.a.a.b a(Bundle bundle, com.baidu.poly.a.a.c cVar) {
         com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
         a(bVar, bundle);
         bVar.g(rc, "android");
-        bVar.g(buc, "nuomi.pay_platform.pay");
-        bVar.g(bud, String.valueOf(System.currentTimeMillis()));
+        bVar.g(byV, "nuomi.pay_platform.pay");
+        bVar.g(byW, String.valueOf(System.currentTimeMillis()));
         a(bundle, bVar, cVar);
-        HttpSigner.a(bVar, this.bui);
+        HttpSigner.a(bVar, this.bza);
         return bVar;
     }
 
@@ -297,7 +297,7 @@ public class a {
     private void a(Bundle bundle, com.baidu.poly.a.a.b bVar, com.baidu.poly.a.a.c cVar) {
         String string = bundle.getString("bduss");
         if (!TextUtils.isEmpty(string)) {
-            bVar.g("bduss", bub);
+            bVar.g("bduss", byU);
             String str = cVar.get(SM.COOKIE);
             String str2 = "BDUSS=" + string;
             if (str == null) {

@@ -1,84 +1,74 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
-import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
-public class x extends com.baidu.tieba.horizonalList.widget.e {
-    private com.baidu.tbadk.core.view.userLike.c agS;
-    public HeadImageView hqM;
-    public TextView hqN;
-    public TextView hqO;
-    public EntelechyUserLikeButton hqP;
-    private at hqQ;
-    private View.OnClickListener mOnClickListener;
-    private TbPageContext mPageContext;
-    private BdUniqueId mPageId;
-    private int mSkinType;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.data.FeatureCardGod;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPageUserExtend;
+import tbclient.User;
+/* loaded from: classes.dex */
+public class x implements com.baidu.adp.widget.ListView.q {
+    public static final BdUniqueId hDv = BdUniqueId.gen();
+    private List<MetaData> hDs;
+    private int hDr = 0;
+    private String hDt = "本吧都在关注";
+    private boolean hDu = false;
 
-    public x(View view, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(view);
-        this.mSkinType = 3;
-        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.x.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (x.this.hqQ != null && !com.baidu.tbadk.core.util.aq.isEmpty(x.this.hqQ.metaData.getUserName()) && !com.baidu.tbadk.core.util.aq.isEmpty(x.this.hqQ.metaData.getUserId())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(x.this.getView().getContext(), x.this.hqQ.metaData.getUserId(), x.this.hqQ.metaData.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+    @Override // com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return hDv;
+    }
+
+    public void a(FrsPageUserExtend frsPageUserExtend) {
+        if (frsPageUserExtend != null && !com.baidu.tbadk.core.util.w.isEmpty(frsPageUserExtend.data)) {
+            List<User> list = frsPageUserExtend.data;
+            this.hDr = frsPageUserExtend.user_extend_storey.intValue();
+            this.hDs = new ArrayList(list.size());
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < list.size()) {
+                    User user = list.get(i2);
+                    if (user != null && user.id.longValue() != 0) {
+                        MetaData metaData = new MetaData();
+                        metaData.parserProtobuf(list.get(i2));
+                        this.hDs.add(metaData);
+                    }
+                    i = i2 + 1;
+                } else {
+                    this.hDt = frsPageUserExtend.tips;
+                    return;
                 }
             }
-        };
-        this.mPageId = bdUniqueId;
-        this.mPageContext = tbPageContext;
-        this.hqM = (HeadImageView) view.findViewById(R.id.rec_usr_header);
-        this.hqM.setPageId(this.mPageId);
-        this.hqM.setIsRound(true);
-        this.hqN = (TextView) view.findViewById(R.id.rec_user_name);
-        this.hqO = (TextView) view.findViewById(R.id.rec_user_describe);
-        this.hqP = (EntelechyUserLikeButton) view.findViewById(R.id.rec_user_like);
-        this.agS = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.hqP);
-        this.agS.vA("1");
-        this.agS.l(bdUniqueId);
-    }
-
-    @Override // com.baidu.tieba.horizonalList.widget.e
-    public com.baidu.tieba.horizonalList.widget.e bH(View view) {
-        return new x(view, this.mPageContext, this.mPageId);
-    }
-
-    @Override // com.baidu.tieba.horizonalList.widget.e
-    public void a(com.baidu.tieba.horizonalList.widget.c cVar) {
-        if (cVar instanceof at) {
-            this.hqQ = (at) cVar;
-            if (!StringUtils.isNull(this.hqQ.metaData.getUserId())) {
-                this.hqM.startLoad(this.hqQ.metaData.getPortrait(), 28, false);
-                String cutStringWithEllipsis = com.baidu.tbadk.core.util.aq.cutStringWithEllipsis(this.hqQ.metaData.getUserName(), 5);
-                this.hqO.setText(com.baidu.tbadk.core.util.aq.cutStringWithEllipsis(this.hqQ.metaData.getGodUserData().getIntro(), 6));
-                this.hqN.setText(cutStringWithEllipsis);
-                getView().setOnClickListener(this.mOnClickListener);
-                this.agS.a(this.hqQ.metaData);
-                onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            }
         }
     }
 
-    @Override // com.baidu.tieba.horizonalList.widget.e
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.am.setViewTextColor(this.hqN, (int) R.color.cp_cont_b);
-            com.baidu.tbadk.core.util.am.setViewTextColor(this.hqO, (int) R.color.cp_cont_d);
-            this.hqP.onChangeSkinType(i);
+    public void a(FeatureCardGod featureCardGod) {
+        if (featureCardGod != null && !com.baidu.tbadk.core.util.w.isEmpty(featureCardGod.sub_nodes)) {
+            this.hDr = featureCardGod.floor.intValue();
+            this.hDs = featureCardGod.sub_nodes;
+            this.hDt = featureCardGod.title;
         }
-        this.mSkinType = i;
+    }
+
+    public int aTD() {
+        return this.hDr;
+    }
+
+    public List<MetaData> getUserInfo() {
+        return this.hDs;
+    }
+
+    public String bZN() {
+        return this.hDt;
+    }
+
+    public boolean bZO() {
+        return this.hDu;
+    }
+
+    public void nk(boolean z) {
+        this.hDu = z;
     }
 }

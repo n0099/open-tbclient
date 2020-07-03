@@ -22,66 +22,66 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.coreExtra.data.y;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.coreExtra.data.aa;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class c implements View.OnClickListener, a {
-    private CustomMessageListener dJe = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tieba.transmitShare.c.1
+    private CustomMessageListener dPU = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tieba.transmitShare.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                c.this.cZT();
-                c.this.g(c.this.lzV);
+                c.this.dej();
+                c.this.g(c.this.lTA);
             }
         }
     };
-    private TextView lau;
-    private b lzT;
-    private boolean lzU;
-    private ShareDialogConfig lzV;
+    private ShareDialogConfig lTA;
+    private b lTy;
+    private boolean lTz;
+    private TextView lur;
     private Context mContext;
     private AlertDialog mDialog;
     private DialogInterface.OnDismissListener mOnDismissListener;
     private LinearLayout mRootView;
     private TextView mTitle;
-    private static final int lzW = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds130);
-    private static final int lzX = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds48);
-    private static final int lzY = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds34);
-    private static final int eDv = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44);
+    private static final int lTB = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds130);
+    private static final int lTC = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds48);
+    private static final int lTD = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds34);
+    private static final int eNF = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44);
 
     public c(Context context) {
         this.mContext = context;
         this.mRootView = new LinearLayout(context);
         this.mRootView.setOrientation(1);
         this.mTitle = new TextView(context);
-        this.mTitle.setTextSize(0, lzY);
-        this.mTitle.setPadding(lzX, 0, lzX, 0);
+        this.mTitle.setTextSize(0, lTD);
+        this.mTitle.setPadding(lTC, 0, lTC, 0);
         this.mTitle.setGravity(17);
-        this.mTitle.setLayoutParams(new LinearLayout.LayoutParams(-1, lzW));
+        this.mTitle.setLayoutParams(new LinearLayout.LayoutParams(-1, lTB));
         this.mRootView.addView(this.mTitle);
-        this.lzT = new b(context);
+        this.lTy = new b(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.leftMargin = ShareGridLayout.lzN;
-        layoutParams.rightMargin = ShareGridLayout.lzN;
-        this.mRootView.addView(this.lzT.dhx(), layoutParams);
-        this.lau = new TextView(context);
-        this.lau.setTextSize(0, eDv);
-        this.lau.setGravity(17);
-        this.lau.setText(R.string.cancel);
-        this.lau.setLayoutParams(new LinearLayout.LayoutParams(-1, lzW));
-        this.lau.setOnClickListener(this);
-        this.mRootView.addView(this.lau);
-        this.lzT.a(this);
+        layoutParams.leftMargin = ShareGridLayout.lTs;
+        layoutParams.rightMargin = ShareGridLayout.lTs;
+        this.mRootView.addView(this.lTy.dlF(), layoutParams);
+        this.lur = new TextView(context);
+        this.lur.setTextSize(0, eNF);
+        this.lur.setGravity(17);
+        this.lur.setText(R.string.cancel);
+        this.lur.setLayoutParams(new LinearLayout.LayoutParams(-1, lTB));
+        this.lur.setOnClickListener(this);
+        this.mRootView.addView(this.lur);
+        this.lTy.a(this);
     }
 
     public void g(ShareDialogConfig shareDialogConfig) {
-        if (!TextUtils.isEmpty(shareDialogConfig.shareItem.eeT)) {
-            shareDialogConfig.shareItem.content = shareDialogConfig.shareItem.eeT;
+        if (!TextUtils.isEmpty(shareDialogConfig.shareItem.enE)) {
+            shareDialogConfig.shareItem.content = shareDialogConfig.shareItem.enE;
         }
-        if (!shareDialogConfig.shareItem.efg) {
+        if (!shareDialogConfig.shareItem.enR) {
             this.mTitle.setText(R.string.transmit_share_no_outer);
         } else {
             String sharePanelText = TbSingleton.getInstance().getSharePanelText();
@@ -91,20 +91,20 @@ public class c implements View.OnClickListener, a {
                 this.mTitle.setText(R.string.transmit_share_not_add_experience);
             }
         }
-        this.lzT.a(shareDialogConfig, this.lzU);
-        this.lzV = shareDialogConfig;
+        this.lTy.a(shareDialogConfig, this.lTz);
+        this.lTA = shareDialogConfig;
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
         this.mOnDismissListener = onDismissListener;
     }
 
-    public void uO(boolean z) {
-        this.lzU = z;
+    public void vd(boolean z) {
+        this.lTz = z;
     }
 
     public void show() {
-        cZT();
+        dej();
         this.mDialog = new AlertDialog.Builder(this.mContext, R.style.DialogTheme).create();
         this.mDialog.setCanceledOnTouchOutside(true);
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.transmitShare.c.2
@@ -114,34 +114,34 @@ public class c implements View.OnClickListener, a {
                     c.this.mOnDismissListener.onDismiss(dialogInterface);
                 }
                 MessageManager.getInstance().unRegisterTask(CmdConfigCustom.CMD_TRANSMIT_SHARE_DIALOG_DISMISS);
-                if (c.this.lzT != null) {
-                    c.this.lzT.release();
+                if (c.this.lTy != null) {
+                    c.this.lTy.release();
                 }
             }
         });
         if (this.mContext instanceof Activity) {
             g.showDialog(this.mDialog, (Activity) this.mContext);
         }
-        am.setBackgroundResource(this.mRootView, R.drawable.transmit_share_dialog_background);
+        an.setBackgroundResource(this.mRootView, R.drawable.transmit_share_dialog_background);
         Window window = this.mDialog.getWindow();
         if (window != null) {
             window.setWindowAnimations(R.style.share_dialog_style);
             window.setGravity(80);
             window.setLayout(-1, -2);
             window.setContentView(this.mRootView);
-            bvC();
-            i.G(this.mContext).registerListener(this.dJe);
+            byx();
+            i.G(this.mContext).registerListener(this.dPU);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cZT() {
-        am.setBackgroundResource(this.mRootView, R.drawable.transmit_share_dialog_background);
-        am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_c);
-        am.setViewTextColor(this.lau, R.color.cp_cont_j, 1);
+    public void dej() {
+        an.setBackgroundResource(this.mRootView, R.drawable.transmit_share_dialog_background);
+        an.setViewTextColor(this.mTitle, (int) R.color.cp_cont_c);
+        an.setViewTextColor(this.lur, R.color.cp_cont_j, 1);
     }
 
-    private void bvC() {
+    private void byx() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_TRANSMIT_SHARE_DIALOG_DISMISS, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.transmitShare.c.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -159,13 +159,13 @@ public class c implements View.OnClickListener, a {
     public void dismiss() {
         if (this.mDialog != null && (this.mContext instanceof Activity)) {
             g.dismissDialog(this.mDialog, (Activity) this.mContext);
-            MessageManager.getInstance().unRegisterListener(this.dJe);
+            MessageManager.getInstance().unRegisterListener(this.dPU);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.lau) {
+        if (view == this.lur) {
             h("share_cancel", new Object[0]);
             dismiss();
         }
@@ -176,13 +176,13 @@ public class c implements View.OnClickListener, a {
     }
 
     @Override // com.baidu.tieba.transmitShare.a
-    public void de(View view) {
+    public void df(View view) {
         dismiss();
     }
 
     public void b(ShareDialogConfig.From from) {
-        y sharePanelConfData = TbSingleton.getInstance().getSharePanelConfData();
-        if (sharePanelConfData != null && sharePanelConfData.a(from) && sharePanelConfData.aYh() && !aq.isEmpty(sharePanelConfData.getText())) {
+        aa sharePanelConfData = TbSingleton.getInstance().getSharePanelConfData();
+        if (sharePanelConfData != null && sharePanelConfData.a(from) && sharePanelConfData.bam() && !ar.isEmpty(sharePanelConfData.getText())) {
             this.mTitle.setText(sharePanelConfData.getText());
         }
     }

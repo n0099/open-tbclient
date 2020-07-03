@@ -6,6 +6,6 @@ public interface b {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void a(boolean z, List<com.baidu.live.entereffect.a.a> list);
+        void b(boolean z, List<com.baidu.live.entereffect.a.a> list);
     }
 }

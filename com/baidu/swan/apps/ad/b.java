@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.ad;
 /* loaded from: classes11.dex */
 public interface b {
-    void M(int i, String str);
+    void O(int i, String str);
 
-    void gY(String str);
+    void hg(String str);
 }

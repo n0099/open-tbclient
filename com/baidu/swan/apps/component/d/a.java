@@ -5,20 +5,20 @@ import com.baidu.swan.apps.console.c;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int bQS = 5;
-    private int[] bQT;
+    private static int bVG = 5;
+    private int[] bVH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i) {
-        q(i, false);
+        r(i, false);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i, boolean z) {
-        q(i, z);
+        r(i, z);
     }
 
-    private void q(@IntRange(from = 1) int i, boolean z) {
+    private void r(@IntRange(from = 1) int i, boolean z) {
         if (i <= 0) {
             String str = "number <= 0: " + i;
             c.e("Component-DiffBitMap", str);
@@ -27,11 +27,11 @@ public class a {
             }
             i = 500;
         }
-        this.bQT = new int[ex(i - 1) + 1];
-        int length = this.bQT.length;
+        this.bVH = new int[eI(i - 1) + 1];
+        int length = this.bVH.length;
         if (z) {
             for (int i2 = 0; i2 < length; i2++) {
-                this.bQT[i2] = -1;
+                this.bVH[i2] = -1;
             }
         }
     }
@@ -44,7 +44,7 @@ public class a {
             }
             return;
         }
-        int length = (this.bQT.length << bQS) - 1;
+        int length = (this.bVH.length << bVG) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -53,9 +53,9 @@ public class a {
             }
             return;
         }
-        int[] iArr = this.bQT;
-        int ex = ex(i);
-        iArr[ex] = iArr[ex] | (1 << i);
+        int[] iArr = this.bVH;
+        int eI = eI(i);
+        iArr[eI] = iArr[eI] | (1 << i);
     }
 
     public boolean get(@IntRange(from = 0) int i) {
@@ -66,7 +66,7 @@ public class a {
             }
             return false;
         }
-        int length = (this.bQT.length << bQS) - 1;
+        int length = (this.bVH.length << bVG) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -75,10 +75,10 @@ public class a {
             }
             return false;
         }
-        return (this.bQT[ex(i)] & (1 << i)) != 0;
+        return (this.bVH[eI(i)] & (1 << i)) != 0;
     }
 
-    private int ex(int i) {
-        return i >> bQS;
+    private int eI(int i) {
+        return i >> bVG;
     }
 }

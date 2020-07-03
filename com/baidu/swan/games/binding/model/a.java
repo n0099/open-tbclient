@@ -3,59 +3,59 @@ package com.baidu.swan.games.binding.model;
 import com.baidu.searchbox.v8engine.JsFunction;
 /* loaded from: classes11.dex */
 public final class a {
-    public JsFunction cVT;
-    public JsFunction cVU;
-    public JsFunction cVV;
+    public JsFunction daF;
+    public JsFunction daG;
+    public JsFunction daH;
 
     public static a f(c cVar) {
         if (cVar == null) {
             return null;
         }
         a aVar = new a();
-        aVar.cVT = cVar.rt("success");
-        aVar.cVU = cVar.rt("fail");
-        aVar.cVV = cVar.rt(com.baidu.mobads.openad.c.b.COMPLETE);
+        aVar.daF = cVar.rB("success");
+        aVar.daG = cVar.rB("fail");
+        aVar.daH = cVar.rB(com.baidu.mobads.openad.c.b.COMPLETE);
         return aVar;
     }
 
     public void onSuccess(Object obj) {
-        if (this.cVT != null) {
-            this.cVT.call(obj);
+        if (this.daF != null) {
+            this.daF.call(obj);
         }
-        if (this.cVV != null) {
-            this.cVV.call(obj);
+        if (this.daH != null) {
+            this.daH.call(obj);
         }
-        a(this.cVU);
+        a(this.daG);
     }
 
     public void Y(Object obj) {
-        if (this.cVU != null) {
-            this.cVU.call(obj);
+        if (this.daG != null) {
+            this.daG.call(obj);
         }
-        if (this.cVV != null) {
-            this.cVV.call(obj);
+        if (this.daH != null) {
+            this.daH.call(obj);
         }
-        a(this.cVT);
+        a(this.daF);
     }
 
     public void onSuccess() {
-        if (this.cVT != null) {
-            this.cVT.call();
+        if (this.daF != null) {
+            this.daF.call();
         }
-        if (this.cVV != null) {
-            this.cVV.call();
+        if (this.daH != null) {
+            this.daH.call();
         }
-        a(this.cVU);
+        a(this.daG);
     }
 
     public void onFail() {
-        if (this.cVU != null) {
-            this.cVU.call();
+        if (this.daG != null) {
+            this.daG.call();
         }
-        if (this.cVV != null) {
-            this.cVV.call();
+        if (this.daH != null) {
+            this.daH.call();
         }
-        a(this.cVT);
+        a(this.daF);
     }
 
     private void a(JsFunction jsFunction) {

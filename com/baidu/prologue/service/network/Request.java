@@ -12,11 +12,11 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public final class Request {
-    protected final Map<String, String> bBG;
-    private final e bBH;
-    private final RequestError bBI;
-    protected boolean bBJ;
-    protected boolean bBK;
+    protected final Map<String, String> bGu;
+    private final e bGv;
+    private final RequestError bGw;
+    protected boolean bGx;
+    protected boolean bGy;
     private final Context context;
     private final Handler handler;
     protected final Map<String, String> headers;
@@ -25,17 +25,17 @@ public final class Request {
     protected final URL url;
 
     private Request(a aVar) {
-        this.bBI = aVar.bBI;
+        this.bGw = aVar.bGw;
         this.context = aVar.context;
         this.handler = new Handler(this.context.getMainLooper());
         this.url = aVar.url;
         this.method = aVar.method;
         this.headers = aVar.headers;
-        this.bBG = aVar.bBG;
-        this.bBJ = aVar.bBJ;
+        this.bGu = aVar.bGu;
+        this.bGx = aVar.bGx;
         this.tag = aVar.tag != null ? aVar.tag : this;
-        this.bBH = c.aM(this.context);
-        this.bBK = aVar.bBQ;
+        this.bGv = c.aN(this.context);
+        this.bGy = aVar.bGE;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,7 +54,7 @@ public final class Request {
                     }
                     byteArrayOutputStream.write(bArr, 0, read);
                 } catch (IOException e) {
-                    com.baidu.prologue.a.c.f.bzz.e("Request", "failed to read is", e);
+                    com.baidu.prologue.a.c.f.bEn.e("Request", "failed to read is", e);
                 }
             }
             return byteArrayOutputStream.toByteArray();
@@ -69,15 +69,15 @@ public final class Request {
     }
 
     public void a(final m mVar) {
-        if (this.bBI != null) {
+        if (this.bGw != null) {
             h(new Runnable() { // from class: com.baidu.prologue.service.network.Request.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    mVar.o(Request.this.bBI);
+                    mVar.o(Request.this.bGw);
                 }
             });
         } else {
-            this.bBH.a(this, new l() { // from class: com.baidu.prologue.service.network.Request.2
+            this.bGv.a(this, new l() { // from class: com.baidu.prologue.service.network.Request.2
                 @Override // com.baidu.prologue.service.network.l
                 public void a(long j, InputStream inputStream) {
                     final String str = new String(Request.h(inputStream));
@@ -103,16 +103,16 @@ public final class Request {
     }
 
     public void a(l lVar) {
-        this.bBH.a(this, lVar);
+        this.bGv.a(this, lVar);
     }
 
     /* loaded from: classes6.dex */
     public static class a {
-        private Map<String, String> bBG;
-        private RequestError bBI;
-        private boolean bBJ;
-        private final String bBP;
-        private boolean bBQ;
+        private final String bGD;
+        private boolean bGE;
+        private Map<String, String> bGu;
+        private RequestError bGw;
+        private boolean bGx;
         private final Context context;
         private Map<String, String> headers;
         private String method;
@@ -121,52 +121,52 @@ public final class Request {
 
         public a(Context context, String str) {
             this.context = context.getApplicationContext();
-            this.bBP = str;
+            this.bGD = str;
         }
 
-        public Request OM() {
+        public Request PS() {
             if (this.method == null) {
-                ON();
+                PT();
             }
             if ("GET".equals(this.method)) {
                 try {
-                    this.url = new URL(b.d(this.url.toString(), this.bBG));
+                    this.url = new URL(b.d(this.url.toString(), this.bGu));
                 } catch (MalformedURLException e) {
-                    this.bBI = new RequestError("Failed to create url", e);
+                    this.bGw = new RequestError("Failed to create url", e);
                 } catch (URISyntaxException e2) {
-                    this.bBI = new RequestError("Failed to add parameters to url", e2);
+                    this.bGw = new RequestError("Failed to add parameters to url", e2);
                 }
             }
             return new Request(this);
         }
 
-        public a ON() {
+        public a PT() {
             if (this.url != null) {
-                this.bBI = new RequestError("Method called twice");
+                this.bGw = new RequestError("Method called twice");
             }
             try {
-                this.url = new URL(this.bBP);
+                this.url = new URL(this.bGD);
             } catch (MalformedURLException e) {
-                this.bBI = new RequestError(e);
+                this.bGw = new RequestError(e);
             }
             this.method = "GET";
             return this;
         }
 
-        public a OO() {
+        public a PU() {
             if (this.url != null) {
-                this.bBI = new RequestError("Method called twice");
+                this.bGw = new RequestError("Method called twice");
             }
             try {
-                this.url = new URL(this.bBP);
+                this.url = new URL(this.bGD);
             } catch (MalformedURLException e) {
-                this.bBI = new RequestError(e);
+                this.bGw = new RequestError(e);
             }
             this.method = "POST";
             return this;
         }
 
-        public a aK(String str, String str2) {
+        public a aM(String str, String str2) {
             if (this.headers == null) {
                 this.headers = new HashMap();
             }
@@ -174,16 +174,16 @@ public final class Request {
             return this;
         }
 
-        public a aL(String str, String str2) {
-            if (this.bBG == null) {
-                this.bBG = new HashMap();
+        public a aN(String str, String str2) {
+            if (this.bGu == null) {
+                this.bGu = new HashMap();
             }
-            this.bBG.put(str, str2);
+            this.bGu.put(str, str2);
             return this;
         }
 
-        public a cY(boolean z) {
-            this.bBQ = z;
+        public a dd(boolean z) {
+            this.bGE = z;
             return this;
         }
     }

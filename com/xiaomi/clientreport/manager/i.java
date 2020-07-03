@@ -7,16 +7,16 @@ public class i implements Runnable {
     final /* synthetic */ a a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ bh f20a;
+    final /* synthetic */ bh f26a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(a aVar, bh bhVar) {
         this.a = aVar;
-        this.f20a = bhVar;
+        this.f26a = bhVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f20a.run();
+        this.f26a.run();
     }
 }

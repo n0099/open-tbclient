@@ -19,16 +19,16 @@ public class hi {
         private Context a;
 
         /* renamed from: a  reason: collision with other field name */
-        private hl f434a;
+        private hl f440a;
 
         public a(Context context, hl hlVar) {
-            this.f434a = hlVar;
+            this.f440a = hlVar;
             this.a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            hi.c(this.a, this.f434a);
+            hi.c(this.a, this.f440a);
         }
     }
 
@@ -116,7 +116,7 @@ public class hi {
             }
             hj.a(context, hlVar, arrayList);
             if (file != null && file.exists() && !file.delete()) {
-                com.xiaomi.channel.commonutils.logger.b.m51a("TinyData delete reading temp file failed");
+                com.xiaomi.channel.commonutils.logger.b.m48a("TinyData delete reading temp file failed");
             }
             y.a(bufferedInputStream);
         } catch (Exception e2) {
@@ -160,14 +160,14 @@ public class hi {
         FileLock fileLock = null;
         r1 = 0;
         if (a) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("TinyData extractTinyData is running");
+            com.xiaomi.channel.commonutils.logger.b.m48a("TinyData extractTinyData is running");
             return;
         }
         a = true;
         File file = new File(context.getFilesDir(), "tiny_data.data");
         ?? exists = file.exists();
         if (exists == 0) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("TinyData no ready file to get data.");
+            com.xiaomi.channel.commonutils.logger.b.m48a("TinyData no ready file to get data.");
             return;
         }
         a(context);
@@ -175,7 +175,7 @@ public class hi {
         try {
             try {
                 File file2 = new File(context.getFilesDir(), "tiny_data.lock");
-                y.m587a(file2);
+                y.m584a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -233,7 +233,7 @@ public class hi {
         File file32 = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
         r1 = file32.exists();
         if (r1 != 0) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("TinyData no ready file to get data.");
+            com.xiaomi.channel.commonutils.logger.b.m48a("TinyData no ready file to get data.");
             return;
         }
         a(context, hlVar, file32, a2);

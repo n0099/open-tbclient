@@ -5,11 +5,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.ala.alasquare.special_forum.data.d;
 import com.baidu.tieba.ala.alasquare.special_forum.data.e;
 import com.baidu.tieba.ala.alasquare.special_forum.data.f;
@@ -19,10 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SpecialConcernTabModel extends BdBaseModel {
-    private a fiN;
+    private a fua;
     private TbPageContext mTbPageContext;
     private int pn = 1;
-    private HttpMessageListener fiO = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.SpecialConcernTabModel.1
+    private HttpMessageListener fub = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.SpecialConcernTabModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -30,55 +30,55 @@ public class SpecialConcernTabModel extends BdBaseModel {
                 AlaSpecialConcernResponse alaSpecialConcernResponse = (AlaSpecialConcernResponse) httpResponsedMessage;
                 if (alaSpecialConcernResponse.isSuccess()) {
                     if (SpecialConcernTabModel.this.pn == 1) {
-                        SpecialConcernTabModel.this.feq.clear();
+                        SpecialConcernTabModel.this.fpB.clear();
                     }
                     boolean z = alaSpecialConcernResponse.hasMore;
-                    if (v.isEmpty(alaSpecialConcernResponse.followList)) {
+                    if (w.isEmpty(alaSpecialConcernResponse.followList)) {
                         if (SpecialConcernTabModel.this.pn == 1) {
-                            SpecialConcernTabModel.this.feq.add(new e());
+                            SpecialConcernTabModel.this.fpB.add(new e());
                         }
                     } else {
                         for (d dVar : alaSpecialConcernResponse.followList) {
                             f fVar = new f();
                             fVar.mUserData = dVar.mUserData;
-                            fVar.fiw = dVar.fiv;
-                            fVar.fiy = false;
-                            SpecialConcernTabModel.this.feq.add(fVar);
+                            fVar.ftK = dVar.ftJ;
+                            fVar.ftL = false;
+                            SpecialConcernTabModel.this.fpB.add(fVar);
                         }
                     }
-                    if (!v.isEmpty(alaSpecialConcernResponse.recommendList)) {
+                    if (!w.isEmpty(alaSpecialConcernResponse.recommendList)) {
                         g gVar = new g();
-                        if (!v.isEmpty(alaSpecialConcernResponse.followList)) {
-                            gVar.fiz = false;
+                        if (!w.isEmpty(alaSpecialConcernResponse.followList)) {
+                            gVar.ftM = false;
                         } else {
-                            gVar.fiz = true;
+                            gVar.ftM = true;
                         }
-                        SpecialConcernTabModel.this.feq.add(gVar);
+                        SpecialConcernTabModel.this.fpB.add(gVar);
                         for (d dVar2 : alaSpecialConcernResponse.recommendList) {
                             f fVar2 = new f();
                             fVar2.mUserData = dVar2.mUserData;
-                            fVar2.fiw = dVar2.fiv;
-                            fVar2.fiy = true;
-                            SpecialConcernTabModel.this.feq.add(fVar2);
+                            fVar2.ftK = dVar2.ftJ;
+                            fVar2.ftL = true;
+                            SpecialConcernTabModel.this.fpB.add(fVar2);
                         }
                     }
                     SpecialConcernTabModel.c(SpecialConcernTabModel.this);
-                    if (SpecialConcernTabModel.this.fiN != null) {
-                        SpecialConcernTabModel.this.fiN.d(SpecialConcernTabModel.this.feq, z, alaSpecialConcernResponse.totalFollowCount);
+                    if (SpecialConcernTabModel.this.fua != null) {
+                        SpecialConcernTabModel.this.fua.d(SpecialConcernTabModel.this.fpB, z, alaSpecialConcernResponse.totalFollowCount);
                     }
-                } else if (SpecialConcernTabModel.this.fiN != null) {
-                    SpecialConcernTabModel.this.fiN.ax(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (SpecialConcernTabModel.this.fua != null) {
+                    SpecialConcernTabModel.this.fua.az(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
-    private List<o> feq = new ArrayList();
+    private List<q> fpB = new ArrayList();
 
     /* loaded from: classes3.dex */
     public interface a {
-        void ax(int i, String str);
+        void az(int i, String str);
 
-        void d(List<o> list, boolean z, int i);
+        void d(List<q> list, boolean z, int i);
     }
 
     static /* synthetic */ int c(SpecialConcernTabModel specialConcernTabModel) {
@@ -89,30 +89,30 @@ public class SpecialConcernTabModel extends BdBaseModel {
 
     public SpecialConcernTabModel(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        MessageManager.getInstance().registerListener(this.fiO);
+        MessageManager.getInstance().registerListener(this.fub);
     }
 
-    public void Ho() {
+    public void IB() {
         this.pn = 1;
-        pD(1);
+        qc(1);
     }
 
-    public void bqZ() {
-        pD(this.pn + 1);
+    public void btW() {
+        qc(this.pn + 1);
     }
 
-    private void pD(int i) {
+    private void qc(int i) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB);
         httpMessage.addParam(Config.PACKAGE_NAME, i);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fiO);
+        MessageManager.getInstance().unRegisterListener(this.fub);
     }
 
     public void a(a aVar) {
-        this.fiN = aVar;
+        this.fua = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

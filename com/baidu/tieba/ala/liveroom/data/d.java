@@ -3,51 +3,51 @@ package com.baidu.tieba.ala.liveroom.data;
 import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class d extends com.baidu.live.ar.g {
-    public int fTE;
-    public int fTF;
+public class d extends com.baidu.live.ar.i {
+    public int ggk;
+    public int ggl;
     public String mFilterName = "delta";
-    public int fTx = 80;
-    public int fTy = 50;
-    public int fTz = 80;
-    public int fTA = 80;
-    public int fTB = 80;
-    public int fTC = 25;
-    public int fTD = 21;
+    public int ggd = 80;
+    public int gge = 50;
+    public int ggf = 80;
+    public int ggg = 80;
+    public int ggh = 80;
+    public int ggi = 25;
+    public int ggj = 21;
 
     public String toJsonString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("white_percent", this.fTx);
+            jSONObject.put("white_percent", this.ggd);
             jSONObject.put("filter_name", this.mFilterName);
-            jSONObject.put("blur_level", this.fTz);
-            jSONObject.put("red_level", this.fTy);
-            jSONObject.put("big_eye", this.fTA);
-            jSONObject.put("thin_face", this.fTB);
-            jSONObject.put("chin", this.fTC);
-            jSONObject.put("nose", this.fTD);
-            jSONObject.put("v_face", this.fTE);
-            jSONObject.put("face_three_counts", this.fTF);
+            jSONObject.put("blur_level", this.ggf);
+            jSONObject.put("red_level", this.gge);
+            jSONObject.put("big_eye", this.ggg);
+            jSONObject.put("thin_face", this.ggh);
+            jSONObject.put("chin", this.ggi);
+            jSONObject.put("nose", this.ggj);
+            jSONObject.put("v_face", this.ggk);
+            jSONObject.put("face_three_counts", this.ggl);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return jSONObject.toString();
     }
 
-    public d Cp(String str) {
+    public d CN(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.fTx = jSONObject.optInt("white_percent");
+                this.ggd = jSONObject.optInt("white_percent");
                 this.mFilterName = jSONObject.optString("filter_name");
-                this.fTz = jSONObject.optInt("blur_level");
-                this.fTA = jSONObject.optInt("big_eye");
-                this.fTB = jSONObject.optInt("thin_face");
-                this.fTy = jSONObject.getInt("red_level");
-                this.fTC = jSONObject.optInt("chin");
-                this.fTD = jSONObject.getInt("nose");
-                this.fTE = jSONObject.optInt("v_face");
-                this.fTF = jSONObject.getInt("face_three_counts");
+                this.ggf = jSONObject.optInt("blur_level");
+                this.ggg = jSONObject.optInt("big_eye");
+                this.ggh = jSONObject.optInt("thin_face");
+                this.gge = jSONObject.getInt("red_level");
+                this.ggi = jSONObject.optInt("chin");
+                this.ggj = jSONObject.getInt("nose");
+                this.ggk = jSONObject.optInt("v_face");
+                this.ggl = jSONObject.getInt("face_three_counts");
             } catch (Exception e) {
                 e.printStackTrace();
             }

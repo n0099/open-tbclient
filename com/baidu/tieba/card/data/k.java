@@ -3,437 +3,467 @@ package com.baidu.tieba.card.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.w;
 import tbclient.SmartApp;
 /* loaded from: classes8.dex */
 public class k extends c {
-    public static String gHm = "";
-    public static String gHn = "";
-    public static String gHo = "";
-    public static String gHp = "";
-    public static String gHq = "";
-    public static String gHr = "";
-    public static String gHs = "";
-    public static String gHt = "";
-    public static String gHu = "";
-    public static String gHv = "";
-    public static String gHw = "";
-    public static String gHx = "";
-    public static String gHy = "";
-    public static String gHz = "";
-    public static String gHA = "";
-    public static String gHB = "";
-    public static String gHC = "";
-    public static String gHD = "";
+    public static String gUm = "";
+    public static String gUn = "";
+    public static String gUo = "";
+    public static String gUp = "";
+    public static String gUq = "";
+    public static String gUr = "";
+    public static String gUs = "";
+    public static String gUt = "";
+    public static String gUu = "";
+    public static String gUv = "";
+    public static String gUw = "";
+    public static String gUx = "";
+    public static String gUy = "";
+    public static String gUz = "";
+    public static String gUA = "";
+    public static String gUB = "";
+    public static String gUC = "";
+    public static String gUD = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId gHE = BdUniqueId.gen();
-    public static final BdUniqueId dET = BdUniqueId.gen();
-    public static final BdUniqueId dEZ = BdUniqueId.gen();
-    public static final BdUniqueId dFa = BdUniqueId.gen();
-    public static final BdUniqueId dFb = BdUniqueId.gen();
-    public static final BdUniqueId dFc = BdUniqueId.gen();
-    public static final BdUniqueId dFg = BdUniqueId.gen();
-    public static final BdUniqueId dFh = BdUniqueId.gen();
-    public static final BdUniqueId gHF = BdUniqueId.gen();
-    public static final BdUniqueId gHG = BdUniqueId.gen();
-    public static final BdUniqueId gHH = BdUniqueId.gen();
-    public static final BdUniqueId gHI = BdUniqueId.gen();
-    public static final BdUniqueId gHJ = BdUniqueId.gen();
-    public static final BdUniqueId gHK = BdUniqueId.gen();
-    public static final BdUniqueId gHL = BdUniqueId.gen();
-    public static final BdUniqueId gHM = BdUniqueId.gen();
-    public static final BdUniqueId gHN = BdUniqueId.gen();
-    public boolean gHO = false;
+    public static final BdUniqueId gUE = BdUniqueId.gen();
+    public static final BdUniqueId dLF = BdUniqueId.gen();
+    public static final BdUniqueId dLL = BdUniqueId.gen();
+    public static final BdUniqueId dLM = BdUniqueId.gen();
+    public static final BdUniqueId dLN = BdUniqueId.gen();
+    public static final BdUniqueId dLO = BdUniqueId.gen();
+    public static final BdUniqueId dLS = BdUniqueId.gen();
+    public static final BdUniqueId dLT = BdUniqueId.gen();
+    public static final BdUniqueId gUF = BdUniqueId.gen();
+    public static final BdUniqueId gUG = BdUniqueId.gen();
+    public static final BdUniqueId gUH = BdUniqueId.gen();
+    public static final BdUniqueId gUI = BdUniqueId.gen();
+    public static final BdUniqueId gUJ = BdUniqueId.gen();
+    public static final BdUniqueId gUK = BdUniqueId.gen();
+    public static final BdUniqueId gUL = BdUniqueId.gen();
+    public static final BdUniqueId gUM = BdUniqueId.gen();
+    public static final BdUniqueId gUN = BdUniqueId.gen();
+    public static final BdUniqueId dLB = BdUniqueId.gen();
+    public static final BdUniqueId dLD = BdUniqueId.gen();
+    public static final BdUniqueId dLE = BdUniqueId.gen();
+    public boolean gUO = false;
     public boolean isLinkThread = false;
-    public boolean dEy = false;
-    public boolean gHP = false;
-    public boolean dEo = false;
-    public boolean gHQ = false;
-    public boolean dEu = false;
-    public boolean dEp = false;
-    public boolean gHR = false;
-    public boolean dEs = false;
-    public boolean dEt = false;
-    public boolean dEv = false;
-    public boolean gHS = false;
-    public boolean gHT = false;
-    public boolean emp = true;
+    public boolean dLc = false;
+    public boolean gUP = false;
+    public boolean dKS = false;
+    public boolean gUQ = false;
+    public boolean dLe = false;
+    public boolean dKY = false;
+    public boolean dKT = false;
+    public boolean gUR = false;
+    public boolean dKW = false;
+    public boolean dKX = false;
+    public boolean dKZ = false;
+    public boolean gUS = false;
+    public boolean dLg = false;
+    public boolean dLh = false;
+    public boolean gUT = false;
+    public boolean evf = true;
 
-    public static boolean ac(bk bkVar) {
-        if (bkVar == null) {
+    public static boolean ad(bu buVar) {
+        if (buVar == null) {
             return false;
         }
-        return bkVar.getType() == bk.dEE || bkVar.getType() == bk.dEU || bkVar.getType() == bk.dET || bkVar.getType() == bk.dEZ || bkVar.getType() == bk.dFe;
+        return buVar.getType() == bu.dLm || buVar.getType() == bu.dLG || buVar.getType() == bu.dLF || buVar.getType() == bu.dLL || buVar.getType() == bu.dLQ;
     }
 
-    public static boolean ae(bk bkVar) {
-        if (bkVar == null) {
+    public static boolean af(bu buVar) {
+        if (buVar == null) {
             return false;
         }
-        return bkVar.getType() == bk.dFg || bkVar.getType() == bk.dFh;
+        return buVar.getType() == bu.dLS || buVar.getType() == bu.dLT;
     }
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        if (this.dEA == null) {
+        if (this.dLi == null) {
             return TYPE;
         }
-        if (this.dEA.threadType == 63) {
-            return dFg;
+        if (this.dLi.threadType == 63) {
+            return dLS;
         }
-        if (this.dEA.threadType == 64) {
-            return dFh;
+        if (this.dLi.threadType == 64) {
+            return dLT;
         }
-        if (this.dEA.isShareThread && this.dEA.dHm != null) {
-            if (this.dEA.dHm.dDi) {
-                OriginalThreadInfo originalThreadInfo = this.dEA.dHm;
+        if (this.dLi.isShareThread && this.dLi.dNX != null) {
+            if (this.dLi.dNX.dJD) {
+                OriginalThreadInfo originalThreadInfo = this.dLi.dNX;
                 if (originalThreadInfo.videoInfo != null) {
-                    return dFc;
+                    return dLO;
                 }
-                if (originalThreadInfo.aPm()) {
-                    return dFb;
+                if (originalThreadInfo.aQX()) {
+                    return dLN;
                 }
-                return dFa;
+                return dLM;
             }
-            return dEZ;
-        } else if (this.dEo) {
-            return gHF;
+            return dLL;
+        } else if (this.dKS) {
+            return gUF;
         } else {
-            if (this.dEp) {
-                return gHH;
+            if (this.dKT) {
+                return gUH;
             }
-            if (this.gHR) {
-                return gHI;
+            if (this.gUR) {
+                return gUI;
             }
-            if (this.dEs) {
-                return gHJ;
+            if (this.dKW) {
+                return gUJ;
             }
-            if (this.dEt) {
-                return gHK;
+            if (this.dKX) {
+                return gUK;
             }
-            if (this.dEu) {
-                return gHL;
+            if (this.dKY) {
+                return gUL;
             }
-            if (this.dEv) {
-                return gHN;
+            if (this.dKZ) {
+                return gUN;
             }
-            if (this.gHS) {
-                return gHM;
+            if (this.gUS) {
+                return gUM;
             }
-            if (this.gHQ) {
-                return gHG;
+            if (this.gUQ) {
+                return gUG;
+            }
+            if (this.dLe) {
+                return dLB;
+            }
+            if (this.dLg) {
+                return dLD;
+            }
+            if (this.dLh) {
+                return dLE;
             }
             return TYPE;
         }
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bk aOi() {
-        if (this.dEA == null) {
+    public bu aPS() {
+        if (this.dLi == null) {
             return null;
         }
-        if (this.dEA.aQl() == 5) {
-            return this.dEA;
+        if (this.dLi.aSd() == 5) {
+            return this.dLi;
         }
-        this.dEA.kr(1);
-        return this.dEA;
+        this.dLi.kF(1);
+        return this.dLi;
     }
 
-    public boolean bLL() {
-        return (this.dEA == null || v.getCount(this.dEA.aQL()) == 0) ? false : true;
+    public boolean bOV() {
+        return (this.dLi == null || w.getCount(this.dLi.aSC()) == 0) ? false : true;
     }
 
-    public boolean bLM() {
-        return this.dEA == null || this.dEA.aRB();
+    public boolean bOW() {
+        return this.dLi == null || this.dLi.aTs();
     }
 
-    public boolean aPk() {
-        return this.dEA != null && this.dEA.aPk();
+    public boolean aQV() {
+        return this.dLi != null && this.dLi.aQV();
     }
 
-    public an bLN() {
-        SmartApp aRn;
-        if (bLL()) {
-            an Dr = Dr(gHr);
-            if (Dr != null) {
-                Dr.setPosition(this.position);
-                if (aOi() != null) {
-                    bk aOi = aOi();
-                    Dr.ag("obj_name", aOi.aSb() != null && (aOi.aSb().ddL() != null || aOi.aSb().biA() != null) ? 1 : 0);
-                    if (aOi.aQx() != null) {
-                        Dr.ag(TiebaInitialize.Params.AB_TYPE, aOi.aQx().hadConcerned() ? 1 : 0);
+    public ao bOX() {
+        SmartApp aTe;
+        if (bOV()) {
+            ao DS = DS(gUr);
+            if (DS != null) {
+                DS.setPosition(this.position);
+                if (aPS() != null) {
+                    bu aPS = aPS();
+                    DS.ag("obj_name", aPS.aTS() != null && (aPS.aTS().dia() != null || aPS.aTS().bkW() != null) ? 1 : 0);
+                    if (aPS.aSp() != null) {
+                        DS.ag(TiebaInitialize.Params.AB_TYPE, aPS.aSp().hadConcerned() ? 1 : 0);
                     }
-                    Dr.ag("is_full", aOi.aSo() ? 1 : 0);
+                    DS.ag("is_full", aPS.aUf() ? 1 : 0);
                 }
             }
-            return Dr;
-        } else if (bLM()) {
-            an Dr2 = Dr(gHx);
-            if (Dr2 != null) {
-                Dr2.setPosition(this.position);
-                if (aOi() != null && (aRn = aOi().aRn()) != null) {
-                    Dr2.dh("obj_type", aRn.id);
-                    Dr2.dh("obj_name", aRn.name);
-                    return Dr2;
+            return DS;
+        } else if (bOW()) {
+            ao DS2 = DS(gUx);
+            if (DS2 != null) {
+                DS2.setPosition(this.position);
+                if (aPS() != null && (aTe = aPS().aTe()) != null) {
+                    DS2.dk("obj_type", aTe.id);
+                    DS2.dk("obj_name", aTe.name);
+                    return DS2;
                 }
-                return Dr2;
+                return DS2;
             }
-            return Dr2;
-        } else if (aPk()) {
+            return DS2;
+        } else if (aQV()) {
             return null;
         } else {
-            an Dr3 = Dr(gHm);
-            if (Dr3 != null) {
-                Dr3.setPosition(this.position);
-                Dr3.dh("ab_tag", bLC()).dh(TiebaInitialize.Params.AB_ACTION, "show");
-                if (aOi() != null) {
-                    bk aOi2 = aOi();
-                    boolean z = (aOi2.aSb() == null || (aOi2.aSb().ddL() == null && aOi2.aSb().biA() == null)) ? false : true;
-                    Dr3.ag("obj_name", z ? 1 : 0);
-                    if (z && aOi2.aSb().ddL() != null && aOi2.aSb().ddL().bis() != null && aOi2.aSb().ddL().bis().size() > 0) {
-                        Dr3.ag(TiebaInitialize.Params.OBJ_TO, aOi2.aSb().lmA ? 2 : 1);
+            ao DS3 = DS(gUm);
+            if (DS3 != null) {
+                DS3.setPosition(this.position);
+                DS3.dk("ab_tag", bOM()).dk(TiebaInitialize.Params.AB_ACTION, "show");
+                if (aPS() != null) {
+                    bu aPS2 = aPS();
+                    boolean z = (aPS2.aTS() == null || (aPS2.aTS().dia() == null && aPS2.aTS().bkW() == null)) ? false : true;
+                    DS3.ag("obj_name", z ? 1 : 0);
+                    if (z && aPS2.aTS().dia() != null && aPS2.aTS().dia().bkO() != null && aPS2.aTS().dia().bkO().size() > 0) {
+                        DS3.ag(TiebaInitialize.Params.OBJ_TO, aPS2.aTS().lGt ? 2 : 1);
                     }
-                    if (aOi2.aQx() != null) {
-                        Dr3.ag(TiebaInitialize.Params.AB_TYPE, aOi2.aQx().hadConcerned() ? 1 : 0);
+                    if (aPS2.aSp() != null) {
+                        DS3.ag(TiebaInitialize.Params.AB_TYPE, aPS2.aSp().hadConcerned() ? 1 : 0);
                     }
-                    Dr3.ag("is_full", aOi2.aSo() ? 1 : 0);
-                    if (aOi2.getBaijiahaoData() != null) {
-                        Dr3.dh("obj_param4", aOi2.getBaijiahaoData().oriUgcNid);
+                    DS3.ag("is_full", aPS2.aUf() ? 1 : 0);
+                    if (aPS2.getBaijiahaoData() != null) {
+                        DS3.dk("obj_param4", aPS2.getBaijiahaoData().oriUgcNid);
                     }
-                    Dr3.ag("obj_param5", ag(aOi2));
-                    Dr3.dh("nid", aOi2.getNid());
+                    DS3.ag("obj_param5", ah(aPS2));
+                    DS3.dk("nid", aPS2.getNid());
+                    if (aPS2.aUt()) {
+                        DS3.ag("obj_param6", 2);
+                    } else {
+                        DS3.ag("obj_param6", 1);
+                    }
                 }
             }
-            return Dr3;
+            return DS3;
         }
     }
 
-    public an Dt(String str) {
+    public ao DU(String str) {
         int i;
-        an anVar = new an(str);
-        if (this.dEA != null) {
-            if (this.dEA.getBaijiahaoData() == null) {
-                anVar.s("fid", this.dEA.getFid());
-                anVar.dh("tid", this.dEA.getTid());
+        ao aoVar = new ao(str);
+        if (this.dLi != null) {
+            if (this.dLi.getBaijiahaoData() == null) {
+                aoVar.s("fid", this.dLi.getFid());
+                aoVar.dk("tid", this.dLi.getTid());
             } else {
-                anVar.dh("tid", this.dEA.getBaijiahaoData().oriUgcNid);
+                aoVar.dk("tid", this.dLi.getBaijiahaoData().oriUgcNid);
             }
-            if (this.dEA.aPk()) {
+            if (this.dLi.aQV()) {
                 i = 2;
-            } else if (this.dEA.isLinkThread()) {
+            } else if (this.dLi.isLinkThread()) {
                 i = 4;
-            } else if (this.dEA.isShareThread) {
+            } else if (this.dLi.isShareThread) {
                 i = 5;
-            } else if (this.dEA.aPm()) {
+            } else if (this.dLi.aQX()) {
                 i = 6;
-            } else if (this.dEA.aSv()) {
+            } else if (this.dLi.aUl()) {
                 i = 7;
-            } else if (this.dEA.aPn()) {
+            } else if (this.dLi.aQY()) {
                 i = 8;
             } else {
-                i = this.dEA.aSw() ? 9 : 1;
+                i = this.dLi.aUm() ? 9 : 1;
             }
-            anVar.ag("obj_type", i);
-            anVar.dh("obj_id", this.dEA.aQx().getUserId());
-            anVar.ag("obj_param1", bLG() ? 2 : 1);
+            aoVar.ag("obj_type", i);
+            aoVar.dk("obj_id", this.dLi.aSp().getUserId());
+            aoVar.ag("obj_param1", bOQ() ? 2 : 1);
         }
-        return anVar;
+        return aoVar;
     }
 
-    public an Du(String str) {
-        an Dr = Dr(str);
-        if (Dr != null) {
-            Dr.dh("ab_tag", bLC()).dh(TiebaInitialize.Params.AB_ACTION, "show");
-            if (aOi() != null) {
-                bk aOi = aOi();
-                boolean z = (aOi.aSb() == null || (aOi.aSb().ddL() == null && aOi.aSb().biA() == null)) ? false : true;
-                Dr.ag("obj_name", z ? 1 : 0);
-                if (z && aOi.aSb().ddL() != null && aOi.aSb().ddL().bis() != null && aOi.aSb().ddL().bis().size() > 0) {
-                    Dr.ag(TiebaInitialize.Params.OBJ_TO, aOi.aSb().lmA ? 2 : 1);
+    public ao DV(String str) {
+        ao DS = DS(str);
+        if (DS != null) {
+            DS.dk("ab_tag", bOM()).dk(TiebaInitialize.Params.AB_ACTION, "show");
+            if (aPS() != null) {
+                bu aPS = aPS();
+                boolean z = (aPS.aTS() == null || (aPS.aTS().dia() == null && aPS.aTS().bkW() == null)) ? false : true;
+                DS.ag("obj_name", z ? 1 : 0);
+                if (z && aPS.aTS().dia() != null && aPS.aTS().dia().bkO() != null && aPS.aTS().dia().bkO().size() > 0) {
+                    DS.ag(TiebaInitialize.Params.OBJ_TO, aPS.aTS().lGt ? 2 : 1);
                 }
             }
         }
-        return Dr;
+        return DS;
     }
 
-    public an bLO() {
-        an Dr;
-        SmartApp aRn;
-        if (bLL()) {
-            Dr = Dr(gHs);
-        } else if (bLM()) {
-            an Dr2 = Dr(gHy);
-            if (Dr2 != null && aOi() != null && (aRn = aOi().aRn()) != null) {
-                Dr2.dh("obj_type", aRn.id);
-                Dr2.dh("obj_name", aRn.name);
-                return Dr2;
+    public ao bOY() {
+        ao DS;
+        SmartApp aTe;
+        if (bOV()) {
+            DS = DS(gUs);
+        } else if (bOW()) {
+            ao DS2 = DS(gUy);
+            if (DS2 != null && aPS() != null && (aTe = aPS().aTe()) != null) {
+                DS2.dk("obj_type", aTe.id);
+                DS2.dk("obj_name", aTe.name);
+                return DS2;
             }
-            return Dr2;
+            return DS2;
         } else {
-            Dr = Dr(gHn);
-            if (Dr != null) {
-                Dr.dh("ab_tag", bLC()).dh(TiebaInitialize.Params.AB_ACTION, "click");
-                if (aOi() != null) {
-                    bk aOi = aOi();
-                    if (aOi.getBaijiahaoData() != null) {
-                        Dr.dh("obj_param4", aOi.getBaijiahaoData().oriUgcNid);
+            DS = DS(gUn);
+            if (DS != null) {
+                DS.dk("ab_tag", bOM()).dk(TiebaInitialize.Params.AB_ACTION, "click");
+                if (aPS() != null) {
+                    bu aPS = aPS();
+                    if (aPS.getBaijiahaoData() != null) {
+                        DS.dk("obj_param4", aPS.getBaijiahaoData().oriUgcNid);
                     }
-                    Dr.ag("obj_param5", ag(aOi));
-                    Dr.dh("nid", aOi.getNid());
+                    DS.ag("obj_param5", ah(aPS));
+                    DS.dk("nid", aPS.getNid());
                 }
             }
         }
-        if (Dr != null && aOi() != null) {
-            Dr.ag("is_full", aOi().aSo() ? 1 : 0);
+        if (DS != null && aPS() != null) {
+            DS.ag("is_full", aPS().aUf() ? 1 : 0);
         }
-        return Dr;
+        return DS;
     }
 
-    public an bLP() {
-        if (bLL()) {
-            return Dr(gHt);
+    public ao bOZ() {
+        if (bOV()) {
+            return DS(gUt);
         }
-        if (l.ac(this.dEA)) {
-            an ay = ay(gHB, true);
-            if (ay != null && aOi() != null) {
-                bk aOi = aOi();
-                if (aOi.getBaijiahaoData() != null) {
-                    ay.dh("obj_param4", aOi.getBaijiahaoData().oriUgcNid);
-                    ay.dh("obj_param6", aOi.getBaijiahaoData().oriUgcVid);
+        if (l.ad(this.dLi)) {
+            ao aA = aA(gUB, true);
+            if (aA != null && aPS() != null) {
+                bu aPS = aPS();
+                if (aPS.getBaijiahaoData() != null) {
+                    aA.dk("obj_param4", aPS.getBaijiahaoData().oriUgcNid);
+                    aA.dk("obj_param6", aPS.getBaijiahaoData().oriUgcVid);
                 }
-                ay.ag("obj_param5", ag(aOi));
-                ay.dh("nid", aOi.getNid());
-                return ay;
+                aA.ag("obj_param5", ah(aPS));
+                aA.dk("nid", aPS.getNid());
+                return aA;
             }
-            return ay;
+            return aA;
         }
-        an aI = aI(gHo, 0);
-        if (aI != null) {
-            aI.dh("ab_tag", bLC()).dh(TiebaInitialize.Params.AB_ACTION, "click");
-            if (aOi() != null) {
-                bk aOi2 = aOi();
-                if (aOi2.getBaijiahaoData() != null) {
-                    aI.dh("obj_param4", aOi2.getBaijiahaoData().oriUgcNid);
+        ao aH = aH(gUo, 0);
+        if (aH != null) {
+            aH.dk("ab_tag", bOM()).dk(TiebaInitialize.Params.AB_ACTION, "click");
+            if (aPS() != null) {
+                bu aPS2 = aPS();
+                if (aPS2.getBaijiahaoData() != null) {
+                    aH.dk("obj_param4", aPS2.getBaijiahaoData().oriUgcNid);
                 }
-                aI.ag("obj_param5", ag(aOi2));
-                aI.dh("nid", aOi2.getNid());
-                return aI;
+                aH.ag("obj_param5", ah(aPS2));
+                aH.dk("nid", aPS2.getNid());
+                return aH;
             }
-            return aI;
+            return aH;
         }
-        return aI;
+        return aH;
     }
 
-    public an bLQ() {
-        if (l.ac(this.dEA)) {
-            an ay = ay(gHA, true);
-            if (ay != null && aOi() != null) {
-                bk aOi = aOi();
-                if (aOi.getBaijiahaoData() != null) {
-                    ay.dh("obj_param4", aOi.getBaijiahaoData().oriUgcNid);
-                    ay.dh("obj_param6", aOi.getBaijiahaoData().oriUgcVid);
+    public ao bPa() {
+        if (l.ad(this.dLi)) {
+            ao aA = aA(gUA, true);
+            if (aA != null && aPS() != null) {
+                bu aPS = aPS();
+                if (aPS.getBaijiahaoData() != null) {
+                    aA.dk("obj_param4", aPS.getBaijiahaoData().oriUgcNid);
+                    aA.dk("obj_param6", aPS.getBaijiahaoData().oriUgcVid);
                 }
-                ay.ag("obj_param5", ag(aOi));
-                return ay;
+                aA.ag("obj_param5", ah(aPS));
+                if (aPS.aUt()) {
+                    aA.ag(TiebaInitialize.Params.OBJ_PARAM2, 2);
+                    return aA;
+                }
+                aA.ag(TiebaInitialize.Params.OBJ_PARAM2, 1);
+                return aA;
             }
-            return ay;
-        } else if (bLL()) {
-            return Dr(gHu);
+            return aA;
+        } else if (bOV()) {
+            return DS(gUu);
         } else {
-            an Dr = Dr(gHp);
-            if (Dr != null) {
-                Dr.dh("ab_tag", bLC()).dh(TiebaInitialize.Params.AB_ACTION, "click");
-                if (aOi() != null) {
-                    bk aOi2 = aOi();
-                    if (aOi2.getBaijiahaoData() != null) {
-                        Dr.dh("obj_param4", aOi2.getBaijiahaoData().oriUgcNid);
+            ao DS = DS(gUp);
+            if (DS != null) {
+                DS.dk("ab_tag", bOM()).dk(TiebaInitialize.Params.AB_ACTION, "click");
+                if (aPS() != null) {
+                    bu aPS2 = aPS();
+                    if (aPS2.getBaijiahaoData() != null) {
+                        DS.dk("obj_param4", aPS2.getBaijiahaoData().oriUgcNid);
                     }
-                    Dr.ag("obj_param5", ag(aOi2));
-                    Dr.dh("nid", aOi2.getNid());
-                    return Dr;
+                    DS.ag("obj_param5", ah(aPS2));
+                    DS.dk("nid", aPS2.getNid());
+                    if (aPS2.aUt()) {
+                        DS.ag(TiebaInitialize.Params.OBJ_PARAM2, 2);
+                        return DS;
+                    }
+                    DS.ag(TiebaInitialize.Params.OBJ_PARAM2, 1);
+                    return DS;
                 }
-                return Dr;
+                return DS;
             }
-            return Dr;
+            return DS;
         }
     }
 
-    public an bLR() {
-        if (bLL()) {
-            return Dr(gHv);
+    public ao bPb() {
+        if (bOV()) {
+            return DS(gUv);
         }
-        an Dr = Dr(gHq);
-        if (Dr != null) {
-            Dr.dh("ab_tag", bLC()).dh(TiebaInitialize.Params.AB_ACTION, "click");
-            if (aOi() != null) {
-                bk aOi = aOi();
-                if (aOi.getBaijiahaoData() != null) {
-                    Dr.dh("obj_param4", aOi.getBaijiahaoData().oriUgcNid);
+        ao DS = DS(gUq);
+        if (DS != null) {
+            DS.dk("ab_tag", bOM()).dk(TiebaInitialize.Params.AB_ACTION, "click");
+            if (aPS() != null) {
+                bu aPS = aPS();
+                if (aPS.getBaijiahaoData() != null) {
+                    DS.dk("obj_param4", aPS.getBaijiahaoData().oriUgcNid);
                 }
-                Dr.ag("obj_param5", ag(aOi));
-                Dr.dh("nid", aOi.getNid());
-                return Dr;
+                DS.ag("obj_param5", ah(aPS));
+                DS.dk("nid", aPS.getNid());
+                return DS;
             }
-            return Dr;
+            return DS;
         }
-        return Dr;
+        return DS;
     }
 
-    public an bLS() {
-        return Dr(gHw);
+    public ao bPc() {
+        return DS(gUw);
     }
 
-    public an bLT() {
-        an ay = ay(gHz, true);
-        if (aOi() != null) {
-            bk aOi = aOi();
-            if (aOi.getBaijiahaoData() != null) {
-                ay.dh("obj_param4", aOi.getBaijiahaoData().oriUgcNid);
-                ay.dh("obj_param6", aOi.getBaijiahaoData().oriUgcVid);
+    public ao bPd() {
+        ao aA = aA(gUz, true);
+        if (aPS() != null) {
+            bu aPS = aPS();
+            if (aPS.getBaijiahaoData() != null) {
+                aA.dk("obj_param4", aPS.getBaijiahaoData().oriUgcNid);
+                aA.dk("obj_param6", aPS.getBaijiahaoData().oriUgcVid);
             }
-            ay.ag("obj_param5", ag(aOi));
-            ay.dh("nid", aOi.getNid());
+            aA.ag("obj_param5", ah(aPS));
+            aA.dk("nid", aPS.getNid());
         }
-        return ay;
+        return aA;
     }
 
-    public an Dv(String str) {
-        an Dr = Dr(str);
-        if (this.dEA != null && this.dEA.aQx() != null) {
-            Dr.ag(TiebaInitialize.Params.AB_TYPE, this.dEA.aQx().hadConcerned() ? 1 : 0);
+    public ao DW(String str) {
+        ao DS = DS(str);
+        if (this.dLi != null && this.dLi.aSp() != null) {
+            DS.ag(TiebaInitialize.Params.AB_TYPE, this.dLi.aSp().hadConcerned() ? 1 : 0);
         }
-        return Dr;
+        return DS;
     }
 
-    public an Dw(String str) {
-        return Dr(str);
+    public ao DX(String str) {
+        return DS(str);
     }
 
-    public int af(bk bkVar) {
-        if (bkVar == null) {
+    public int ag(bu buVar) {
+        if (buVar == null) {
             return 0;
         }
-        if (bkVar.aPm()) {
+        if (buVar.aQX()) {
             return 1;
         }
-        if (bkVar.aPk()) {
+        if (buVar.aQV()) {
             return 2;
         }
-        if (bkVar.aSv()) {
+        if (buVar.aUl()) {
             return 3;
         }
-        return bkVar.aSw() ? 4 : 0;
+        return buVar.aUm() ? 4 : 0;
     }
 
-    public int ag(bk bkVar) {
-        if (bkVar == null) {
+    public int ah(bu buVar) {
+        if (buVar == null) {
             return 1;
         }
-        if (bkVar.aSw() || bkVar.aSv()) {
+        if (buVar.aUm() || buVar.aUl()) {
             return 2;
         }
-        return (bkVar.aPm() || bkVar.aPn()) ? 3 : 1;
+        return (buVar.aQX() || buVar.aQY()) ? 3 : 1;
     }
 }

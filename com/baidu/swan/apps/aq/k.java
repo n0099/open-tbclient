@@ -6,18 +6,18 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes11.dex */
 public class k {
-    private static String ajQ;
+    private static String aln;
 
-    public static String ats() {
-        if (TextUtils.isEmpty(ajQ)) {
+    public static String auy() {
+        if (TextUtils.isEmpty(aln)) {
             synchronized (k.class) {
-                ajQ = att();
+                aln = auz();
             }
         }
-        return ajQ;
+        return aln;
     }
 
-    private static String att() {
+    private static String auz() {
         String replace;
         String replace2;
         String replace3;

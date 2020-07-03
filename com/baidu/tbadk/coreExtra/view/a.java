@@ -8,81 +8,81 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class a {
-    private ImageViewerBottomLayout egM;
-    private AbsFloorImageTextView egN;
-    private LinearLayout egO;
-    private boolean egP = true;
-    private final ImageViewerBottomLayout.a egQ = new ImageViewerBottomLayout.a() { // from class: com.baidu.tbadk.coreExtra.view.a.1
+    private ImageViewerBottomLayout epw;
+    private AbsFloorImageTextView epx;
+    private LinearLayout epy;
+    private Context mContext;
+    private boolean epz = true;
+    private final ImageViewerBottomLayout.a epA = new ImageViewerBottomLayout.a() { // from class: com.baidu.tbadk.coreExtra.view.a.1
         @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.a
         public void a(ImageViewerBottomLayout imageViewerBottomLayout, boolean z) {
-            a.this.egP = z;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(a.this.egP)));
-            a.this.hJ(z);
+            a.this.epz = z;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(a.this.epz)));
+            a.this.hS(z);
         }
     };
-    private Context mContext;
 
     public a(@NonNull Context context, @NonNull RelativeLayout relativeLayout) {
         this.mContext = context;
-        this.egO = new LinearLayout(context);
-        this.egO.setOrientation(1);
-        this.egO.setVisibility(8);
-        am.a(this.egO, R.color.cp_mask_b_alpha66, GradientDrawable.Orientation.BOTTOM_TOP);
+        this.epy = new LinearLayout(context);
+        this.epy.setOrientation(1);
+        this.epy.setVisibility(8);
+        an.a(this.epy, R.color.cp_mask_b_alpha66, GradientDrawable.Orientation.BOTTOM_TOP);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        relativeLayout.addView(this.egO, layoutParams);
-        bbr();
-        bbq();
+        relativeLayout.addView(this.epy, layoutParams);
+        bdt();
+        bds();
     }
 
-    private void bbq() {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.egS);
-        this.egM = new ImageViewerBottomLayout(this.mContext);
-        this.egO.addView(this.egM, layoutParams);
-        this.egM.setExpandButtonListener(this.egQ);
+    private void bds() {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.epC);
+        this.epw = new ImageViewerBottomLayout(this.mContext);
+        this.epy.addView(this.epw, layoutParams);
+        this.epw.setExpandButtonListener(this.epA);
     }
 
-    private void bbr() {
+    private void bdt() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.egN = new FloorImageTextViewNew(this.mContext);
-        this.egO.addView(this.egN, layoutParams);
+        this.epx = new FloorImageTextViewNew(this.mContext);
+        this.epy.addView(this.epx, layoutParams);
     }
 
-    public void hJ(boolean z) {
-        if (this.egN != null) {
-            this.egN.hJ(z);
+    public void hS(boolean z) {
+        if (this.epx != null) {
+            this.epx.hS(z);
         }
-        if (this.egM != null) {
-            this.egM.hK(!z);
+        if (this.epw != null) {
+            this.epw.hT(!z);
         }
     }
 
     public void setUserId(String str) {
-        if (this.egN != null) {
-            this.egN.setUserId(str);
+        if (this.epx != null) {
+            this.epx.setUserId(str);
         }
-        if (this.egM != null) {
-            this.egM.setUserId(str);
+        if (this.epw != null) {
+            this.epw.setUserId(str);
         }
     }
 
     public void setIsBjhDynamic(boolean z) {
-        if (this.egM != null) {
-            this.egM.setIsBjhDynamic(z);
+        if (this.epw != null) {
+            this.epw.setIsBjhDynamic(z);
         }
     }
 
     public void setAssistUrl(ImageUrlData imageUrlData) {
-        if (this.egN != null) {
-            this.egN.a(imageUrlData);
+        if (this.epx != null) {
+            this.epx.a(imageUrlData);
         }
-        if (this.egM != null) {
-            this.egM.b(imageUrlData);
+        if (this.epw != null) {
+            this.epw.b(imageUrlData);
         }
     }
 
@@ -91,25 +91,25 @@ public class a {
     }
 
     public boolean isShown() {
-        return bf(this.egO);
+        return bf(this.epy);
     }
 
-    public boolean bbs() {
-        return this.egP;
+    public boolean bdu() {
+        return this.epz;
     }
 
     public void setVisibility(int i) {
-        if (this.egO != null) {
-            this.egO.clearAnimation();
-            this.egO.setVisibility(i);
+        if (this.epy != null) {
+            this.epy.clearAnimation();
+            this.epy.setVisibility(i);
         }
     }
 
-    public void aQ(int i, int i2) {
+    public void aU(int i, int i2) {
         if (i == 0) {
-            com.baidu.tieba.v.a.x(this.egO, i2);
+            com.baidu.tieba.v.a.x(this.epy, i2);
         } else {
-            com.baidu.tieba.v.a.w(this.egO, i2);
+            com.baidu.tieba.v.a.w(this.epy, i2);
         }
     }
 }

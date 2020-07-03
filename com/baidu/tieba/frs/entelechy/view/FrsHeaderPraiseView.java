@@ -14,7 +14,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
@@ -23,11 +23,11 @@ import tbclient.FrsPage.AgreeBanner;
 import tbclient.SimpleUser;
 /* loaded from: classes9.dex */
 public class FrsHeaderPraiseView extends RelativeLayout {
-    private View hyk;
-    private View hyl;
-    private TextView hym;
-    private FrameLayout hyn;
-    private ImageView hyo;
+    private View hLh;
+    private View hLi;
+    private TextView hLj;
+    private FrameLayout hLk;
+    private ImageView hLl;
 
     public FrsHeaderPraiseView(Context context) {
         this(context, null);
@@ -44,12 +44,12 @@ public class FrsHeaderPraiseView extends RelativeLayout {
     }
 
     private void initView() {
-        this.hyk = findViewById(R.id.divider_top);
-        this.hyl = findViewById(R.id.divider_bottom);
-        this.hym = (TextView) findViewById(R.id.frs_praise_title);
-        this.hyn = (FrameLayout) findViewById(R.id.frs_praise_portrait);
-        this.hyo = (ImageView) findViewById(R.id.frs_praise_more);
-        am.setImageResource(this.hyo, R.drawable.icon_arrow_more_gray_n);
+        this.hLh = findViewById(R.id.divider_top);
+        this.hLi = findViewById(R.id.divider_bottom);
+        this.hLj = (TextView) findViewById(R.id.frs_praise_title);
+        this.hLk = (FrameLayout) findViewById(R.id.frs_praise_portrait);
+        this.hLl = (ImageView) findViewById(R.id.frs_praise_more);
+        an.setImageResource(this.hLl, R.drawable.icon_arrow_more_gray_n);
     }
 
     public void setData(final AgreeBanner agreeBanner) {
@@ -58,9 +58,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             return;
         }
         setVisibility(0);
-        this.hym.setText(agreeBanner.text);
+        this.hLj.setText(agreeBanner.text);
         List<SimpleUser> list = agreeBanner.top_agree_user;
-        this.hyn.removeAllViews();
+        this.hLk.removeAllViews();
         if (list != null) {
             ArrayList arrayList = new ArrayList();
             if (list.size() > 5) {
@@ -70,21 +70,21 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             } else {
                 arrayList.addAll(list);
             }
-            for (int size = arrayList.size() - 1; size >= 0 && this.hyn.getChildCount() != 5; size--) {
+            for (int size = arrayList.size() - 1; size >= 0 && this.hLk.getChildCount() != 5; size--) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds40), getResources().getDimensionPixelSize(R.dimen.ds40));
                 HeadImageView headImageView = new HeadImageView(getContext());
                 headImageView.setDefaultResource(17170445);
                 headImageView.setDefaultErrorResource(R.drawable.icon_default_avatar100);
                 headImageView.setDefaultBgResource(R.color.cp_bg_line_e);
                 headImageView.setIsRound(true);
-                headImageView.setBorderColor(am.getColor(R.color.cp_bg_line_d));
+                headImageView.setBorderColor(an.getColor(R.color.cp_bg_line_d));
                 headImageView.setBorderWidth(l.getDimens(getContext(), R.dimen.ds2));
                 headImageView.startLoad(((SimpleUser) arrayList.get(size)).portrait, 12, false);
                 if (size != arrayList.size() - 1) {
                     layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.ds40)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.ds8));
                 }
                 layoutParams.gravity = 5;
-                this.hyn.addView(headImageView, layoutParams);
+                this.hLk.addView(headImageView, layoutParams);
             }
         }
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.FrsHeaderPraiseView.1

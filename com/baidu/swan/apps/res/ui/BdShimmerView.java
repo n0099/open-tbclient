@@ -40,7 +40,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.
             case 0:
                 this.mShimmerContent.setImageDrawable(getResources().getDrawable(a.e.aiapps_black_shimmer_loading));
                 ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
-                if (com.baidu.swan.apps.u.a.afm().getNightModeSwitcherState()) {
+                if (com.baidu.swan.apps.u.a.ags().getNightModeSwitcherState()) {
                     maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
                 }
                 setMaskShape(maskShape);
@@ -58,7 +58,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.
     @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.swan.apps.u.a.afm().a(this, new com.baidu.swan.apps.ak.a() { // from class: com.baidu.swan.apps.res.ui.BdShimmerView.1
+        com.baidu.swan.apps.u.a.ags().a(this, new com.baidu.swan.apps.ak.a() { // from class: com.baidu.swan.apps.res.ui.BdShimmerView.1
         });
     }
 
@@ -66,7 +66,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.
     @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.swan.apps.u.a.afm().unsubscribeNightModeChangedEvent(this);
+        com.baidu.swan.apps.u.a.ags().unsubscribeNightModeChangedEvent(this);
     }
 
     public void setPageResources() {

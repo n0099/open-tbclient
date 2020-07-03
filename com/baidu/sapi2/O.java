@@ -15,12 +15,12 @@ class O implements V.a {
     }
 
     @Override // com.baidu.sapi2.V.a
-    public void a(X.a.C0260a c0260a, String str) {
-        this.b.a(c0260a.a, str);
+    public void a(X.a.C0266a c0266a, String str) {
+        this.b.a(c0266a.a, str);
     }
 
     @Override // com.baidu.sapi2.V.a
-    public void a(X.a.C0260a c0260a) {
-        this.b.a(this.a, c0260a);
+    public void a(X.a.C0266a c0266a) {
+        this.b.a(this.a, c0266a);
     }
 }

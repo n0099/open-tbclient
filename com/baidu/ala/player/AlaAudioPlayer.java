@@ -2,6 +2,7 @@ package com.baidu.ala.player;
 
 import android.media.AudioTrack;
 import com.baidu.ala.helper.AlaAudioBuffer;
+import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.ndk.AudioProcessModule;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
@@ -9,6 +10,7 @@ import java.nio.ByteBuffer;
 public class AlaAudioPlayer {
     private static final int BUFFER_LENGTH = 4096;
     private static final boolean ENABLE_FRAGMENT = false;
+    private static final String TAG = "LIVE_SDK_JNI";
     private AlaAudioBuffer mAudioBuffer;
     private AudioTrack mAudioTrack;
     private int mChannels;
@@ -69,10 +71,18 @@ public class AlaAudioPlayer {
                 return;
             }
         }
+        BdLog.e("LIVE_SDK_JNIaudio stream type=" + i3);
         if (z2) {
             this.mFramesPerBuffer = (i / 100) * 2;
             this.mAudioTrack = new AudioTrack(i3, i, i2, 2, minBufferSize, 1);
         }
+    }
+
+    public int getCurAudioStreamType(boolean z) {
+        if (!z || StreamConfig.useOpenSLES()) {
+            return 3;
+        }
+        return 0;
     }
 
     public void writeData(byte[] bArr, int i, int i2) {

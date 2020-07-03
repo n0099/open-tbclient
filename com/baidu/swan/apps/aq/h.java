@@ -15,55 +15,55 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class h {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static List<String> cJK = new ArrayList();
-    private static List<String> cJL = new ArrayList();
-    private static final Object cJM = new Object();
-    private static int cJN = 0;
+    private static List<String> cOu = new ArrayList();
+    private static List<String> cOv = new ArrayList();
+    private static final Object cOw = new Object();
+    private static int cOx = 0;
 
-    public static boolean ati() {
-        SwanCoreVersion abG = com.baidu.swan.apps.core.turbo.d.abl().abG();
-        if (abG == null) {
+    public static boolean auo() {
+        SwanCoreVersion acM = com.baidu.swan.apps.core.turbo.d.acr().acM();
+        if (acM == null) {
             if (DEBUG) {
                 Log.d("Api-Base", "isSupportBindApi: false => null cur ver");
             }
         } else {
-            r0 = abG.swanCoreVersion >= 12892110851L;
+            r0 = acM.swanCoreVersion >= 12892110851L;
             if (DEBUG) {
-                Log.d("Api-Base", "isSupportBindApi: " + r0 + " => cur【" + com.baidu.swan.apps.swancore.b.bt(abG.swanCoreVersion) + "】support 【" + com.baidu.swan.apps.swancore.b.bt(12892110851L) + "】");
+                Log.d("Api-Base", "isSupportBindApi: " + r0 + " => cur【" + com.baidu.swan.apps.swancore.b.bt(acM.swanCoreVersion) + "】support 【" + com.baidu.swan.apps.swancore.b.bt(12892110851L) + "】");
             }
         }
         return r0;
     }
 
-    public static boolean atj() {
-        return !ae.pL("3.120.2");
+    public static boolean aup() {
+        return !ae.pT("3.120.2");
     }
 
-    public static boolean atk() {
-        return ae.pL("3.170.0");
+    public static boolean auq() {
+        return ae.pT("3.170.0");
     }
 
-    public static String z(int i, boolean z) {
+    public static String A(int i, boolean z) {
         List<String> list;
         String str = z ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
-        if (cJN == 1) {
+        if (cOx == 1) {
             if (DEBUG) {
                 Log.d("SwanAppCompat", "type support default");
             }
             return SchemeCollecter.getSchemesDes(str, i);
         }
-        if (atl()) {
-            synchronized (cJM) {
+        if (aur()) {
+            synchronized (cOw) {
                 if (z) {
-                    list = cJK;
+                    list = cOu;
                 } else {
-                    list = cJL;
+                    list = cOv;
                 }
                 if (list != null && list.size() > 0) {
                     if (DEBUG) {
                         Log.d("SwanAppCompat", "support ab js native descriptions");
                     }
-                    cJN = 2;
+                    cOx = 2;
                     return list.get(i);
                 }
             }
@@ -71,13 +71,13 @@ public class h {
         if (DEBUG) {
             Log.d("SwanAppCompat", "use default descriptions");
         }
-        cJN = 1;
+        cOx = 1;
         return SchemeCollecter.getSchemesDes(str, i);
     }
 
-    private static boolean atl() {
-        if (cJN != 2) {
-            return com.baidu.swan.apps.u.a.aeU().RB() && !com.baidu.swan.apps.storage.c.h.arO().getBoolean("swan_app_js_native_ab_update_key", false);
+    private static boolean aur() {
+        if (cOx != 2) {
+            return com.baidu.swan.apps.u.a.aga().SH() && !com.baidu.swan.apps.storage.c.h.asV().getBoolean("swan_app_js_native_ab_update_key", false);
         } else if (DEBUG) {
             Log.d("SwanAppCompat", "has used ab description");
             return true;
@@ -86,29 +86,29 @@ public class h {
         }
     }
 
-    public static void atm() {
+    public static void aus() {
         if (DEBUG) {
             Log.d("SwanAppCompat", "start prepare ab description");
         }
-        ft(true);
-        ft(false);
+        fy(true);
+        fy(false);
         if (DEBUG) {
             Log.d("SwanAppCompat", "end prepare ab description");
         }
     }
 
-    private static void ft(boolean z) {
+    private static void fy(boolean z) {
         if (DEBUG) {
             Log.d("SwanAppCompat", "start prepare ab description :" + (z ? V8Engine.TYPE_V8 : "webview"));
         }
-        String str = com.baidu.swan.apps.r.e.aeI().getPath() + File.separator + "js_native" + File.separator + (z ? "swan_js_native_v8_ab.txt" : "swan_js_native_webview_ab.txt");
+        String str = com.baidu.swan.apps.r.e.afO().getPath() + File.separator + "js_native" + File.separator + (z ? "swan_js_native_v8_ab.txt" : "swan_js_native_webview_ab.txt");
         if (com.baidu.swan.e.d.isExistFile(str)) {
-            if (com.baidu.swan.apps.storage.c.h.arO().getBoolean("swan_app_js_native_ab_update_key", false)) {
+            if (com.baidu.swan.apps.storage.c.h.asV().getBoolean("swan_app_js_native_ab_update_key", false)) {
                 if (DEBUG) {
                     Log.d("SwanAppCompat", "need delete file case update");
                 }
-                if (atn()) {
-                    com.baidu.swan.apps.storage.c.h.arO().putBoolean("swan_app_js_native_ab_update_key", false);
+                if (aut()) {
+                    com.baidu.swan.apps.storage.c.h.asV().putBoolean("swan_app_js_native_ab_update_key", false);
                 } else {
                     return;
                 }
@@ -120,24 +120,24 @@ public class h {
                 return;
             }
         }
-        j(z, str);
+        k(z, str);
     }
 
-    private static boolean atn() {
-        String str = com.baidu.swan.apps.r.e.aeI().getPath() + File.separator + "js_native" + File.separator;
-        return com.baidu.swan.e.d.tW(new StringBuilder().append(str).append("swan_js_native_v8_ab.txt").toString()) && com.baidu.swan.e.d.tW(new StringBuilder().append(str).append("swan_js_native_webview_ab.txt").toString());
+    private static boolean aut() {
+        String str = com.baidu.swan.apps.r.e.afO().getPath() + File.separator + "js_native" + File.separator;
+        return com.baidu.swan.e.d.ue(new StringBuilder().append(str).append("swan_js_native_v8_ab.txt").toString()) && com.baidu.swan.e.d.ue(new StringBuilder().append(str).append("swan_js_native_webview_ab.txt").toString());
     }
 
-    private static void j(boolean z, String str) {
+    private static void k(boolean z, String str) {
         String str2 = z ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
         String str3 = z ? "swan/v8_ab" : "swan/webview_ab";
-        List<JSONObject> pB = pB(str2);
-        List<JSONObject> pB2 = pB(str3);
-        if (pB != null && pB2 != null) {
+        List<JSONObject> pJ = pJ(str2);
+        List<JSONObject> pJ2 = pJ(str3);
+        if (pJ != null && pJ2 != null) {
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < pB2.size(); i++) {
+            for (int i = 0; i < pJ2.size(); i++) {
                 try {
-                    JSONArray jSONArray = pB2.get(i).getJSONArray("descriptions");
+                    JSONArray jSONArray = pJ2.get(i).getJSONArray("descriptions");
                     if (jSONArray != null) {
                         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                             arrayList.add(jSONArray.getJSONObject(i2));
@@ -151,10 +151,10 @@ public class h {
                     return;
                 }
             }
-            if (arrayList.size() != 0 && g(pB, arrayList)) {
+            if (arrayList.size() != 0 && g(pJ, arrayList)) {
                 File file = new File(str);
                 ArrayList arrayList2 = new ArrayList();
-                for (JSONObject jSONObject : pB) {
+                for (JSONObject jSONObject : pJ) {
                     if (jSONObject != null) {
                         arrayList2.add(jSONObject.toString());
                     }
@@ -171,12 +171,12 @@ public class h {
 
     private static void j(List<String> list, boolean z) {
         if (list != null) {
-            synchronized (cJM) {
-                if (cJN == 0) {
+            synchronized (cOw) {
+                if (cOx == 0) {
                     if (z) {
-                        cJK = list;
+                        cOu = list;
                     } else {
-                        cJL = list;
+                        cOv = list;
                     }
                     if (DEBUG) {
                         Log.d("SwanAppCompat", "has update descriptions, list :" + list.toString() + " type :" + (z ? V8Engine.TYPE_V8 : "webview"));
@@ -227,7 +227,7 @@ public class h {
     }
 
     @Nullable
-    private static List<JSONObject> pB(String str) {
+    private static List<JSONObject> pJ(String str) {
         String schemesDes = SchemeCollecter.getSchemesDes(str, 0);
         ArrayList arrayList = new ArrayList();
         try {
@@ -244,21 +244,21 @@ public class h {
         }
     }
 
-    public static void ato() {
+    public static void auu() {
         if (DEBUG) {
             Log.d("SwanAppCompat", "start release descriptions");
         }
-        synchronized (cJM) {
-            cJN = 0;
-            cJK = new ArrayList();
-            cJL = new ArrayList();
+        synchronized (cOw) {
+            cOx = 0;
+            cOu = new ArrayList();
+            cOv = new ArrayList();
         }
     }
 
-    public static void atp() {
+    public static void auv() {
         if (DEBUG) {
             Log.d("SwanAppCompat", "on App upgrade");
         }
-        com.baidu.swan.apps.storage.c.h.arO().putBoolean("swan_app_js_native_ab_update_key", true);
+        com.baidu.swan.apps.storage.c.h.asV().putBoolean("swan_app_js_native_ab_update_key", true);
     }
 }

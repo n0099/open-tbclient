@@ -15,13 +15,13 @@ import org.json.JSONObject;
 public class cv {
 
     /* renamed from: a  reason: collision with other field name */
-    private long f180a;
+    private long f186a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f181a;
+    public String f187a;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f183b;
+    public String f189b;
     public String c;
     public String d;
     public String e;
@@ -31,42 +31,42 @@ public class cv {
     private String i;
 
     /* renamed from: a  reason: collision with other field name */
-    private ArrayList<de> f182a = new ArrayList<>();
+    private ArrayList<de> f188a = new ArrayList<>();
     private double a = 0.1d;
     private String j = "s.mi1.cc";
     private long b = 86400000;
 
     public cv(String str) {
-        this.f181a = "";
+        this.f187a = "";
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
-        this.f180a = System.currentTimeMillis();
-        this.f182a.add(new de(str, -1));
-        this.f181a = cz.m212a();
-        this.f183b = str;
+        this.f186a = System.currentTimeMillis();
+        this.f188a.add(new de(str, -1));
+        this.f187a = cz.m209a();
+        this.f189b = str;
     }
 
     private synchronized void c(String str) {
-        Iterator<de> it = this.f182a.iterator();
+        Iterator<de> it = this.f188a.iterator();
         while (it.hasNext()) {
-            if (TextUtils.equals(it.next().f199a, str)) {
+            if (TextUtils.equals(it.next().f205a, str)) {
                 it.remove();
             }
         }
     }
 
     public synchronized cv a(JSONObject jSONObject) {
-        this.f181a = jSONObject.optString("net");
+        this.f187a = jSONObject.optString("net");
         this.b = jSONObject.getLong("ttl");
         this.a = jSONObject.getDouble("pct");
-        this.f180a = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
+        this.f186a = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
         this.d = jSONObject.optString("city");
         this.c = jSONObject.optString("prv");
         this.g = jSONObject.optString("cty");
         this.e = jSONObject.optString("isp");
         this.f = jSONObject.optString(TableDefine.UserInfoColumns.COLUMN_IP);
-        this.f183b = jSONObject.optString("host");
+        this.f189b = jSONObject.optString("host");
         this.h = jSONObject.optString("xf");
         JSONArray jSONArray = jSONObject.getJSONArray("fbs");
         for (int i = 0; i < jSONArray.length(); i++) {
@@ -89,7 +89,7 @@ public class cv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList<String> m203a() {
+    public synchronized ArrayList<String> m200a() {
         return a(false);
     }
 
@@ -98,12 +98,12 @@ public class cv {
             throw new IllegalArgumentException("the url is empty.");
         }
         URL url = new URL(str);
-        if (TextUtils.equals(url.getHost(), this.f183b)) {
+        if (TextUtils.equals(url.getHost(), this.f189b)) {
             ArrayList<String> arrayList = new ArrayList<>();
             Iterator<String> it = a(true).iterator();
             while (it.hasNext()) {
                 cx a = cx.a(it.next(), url.getPort());
-                arrayList.add(new URL(url.getProtocol(), a.m211a(), a.a(), url.getFile()).toString());
+                arrayList.add(new URL(url.getProtocol(), a.m208a(), a.a(), url.getFile()).toString());
             }
             return arrayList;
         }
@@ -113,19 +113,19 @@ public class cv {
     public synchronized ArrayList<String> a(boolean z) {
         ArrayList<String> arrayList;
         synchronized (this) {
-            de[] deVarArr = new de[this.f182a.size()];
-            this.f182a.toArray(deVarArr);
+            de[] deVarArr = new de[this.f188a.size()];
+            this.f188a.toArray(deVarArr);
             Arrays.sort(deVarArr);
             arrayList = new ArrayList<>();
             for (de deVar : deVarArr) {
                 if (z) {
-                    arrayList.add(deVar.f199a);
+                    arrayList.add(deVar.f205a);
                 } else {
-                    int indexOf = deVar.f199a.indexOf(":");
+                    int indexOf = deVar.f205a.indexOf(":");
                     if (indexOf != -1) {
-                        arrayList.add(deVar.f199a.substring(0, indexOf));
+                        arrayList.add(deVar.f205a.substring(0, indexOf));
                     } else {
-                        arrayList.add(deVar.f199a);
+                        arrayList.add(deVar.f205a);
                     }
                 }
             }
@@ -134,22 +134,22 @@ public class cv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m204a() {
+    public synchronized JSONObject m201a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
-        jSONObject.put("net", this.f181a);
+        jSONObject.put("net", this.f187a);
         jSONObject.put("ttl", this.b);
         jSONObject.put("pct", this.a);
-        jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f180a);
+        jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f186a);
         jSONObject.put("city", this.d);
         jSONObject.put("prv", this.c);
         jSONObject.put("cty", this.g);
         jSONObject.put("isp", this.e);
         jSONObject.put(TableDefine.UserInfoColumns.COLUMN_IP, this.f);
-        jSONObject.put("host", this.f183b);
+        jSONObject.put("host", this.f189b);
         jSONObject.put("xf", this.h);
         JSONArray jSONArray = new JSONArray();
-        Iterator<de> it = this.f182a.iterator();
+        Iterator<de> it = this.f188a.iterator();
         while (it.hasNext()) {
             jSONArray.put(it.next().a());
         }
@@ -170,12 +170,12 @@ public class cv {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(de deVar) {
-        c(deVar.f199a);
-        this.f182a.add(deVar);
+        c(deVar.f205a);
+        this.f188a.add(deVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m205a(String str) {
+    public synchronized void m202a(String str) {
         a(new de(str));
     }
 
@@ -204,33 +204,33 @@ public class cv {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void a(String str, cu cuVar) {
-        Iterator<de> it = this.f182a.iterator();
+        Iterator<de> it = this.f188a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             de next = it.next();
-            if (TextUtils.equals(str, next.f199a)) {
+            if (TextUtils.equals(str, next.f205a)) {
                 break;
             }
         }
     }
 
     public synchronized void a(String[] strArr) {
-        for (int size = this.f182a.size() - 1; size >= 0; size--) {
+        for (int size = this.f188a.size() - 1; size >= 0; size--) {
             int length = strArr.length;
             int i = 0;
             while (true) {
                 if (i < length) {
-                    if (TextUtils.equals(this.f182a.get(size).f199a, strArr[i])) {
-                        this.f182a.remove(size);
+                    if (TextUtils.equals(this.f188a.get(size).f205a, strArr[i])) {
+                        this.f188a.remove(size);
                         break;
                     }
                     i++;
                 }
             }
         }
-        Iterator<de> it = this.f182a.iterator();
+        Iterator<de> it = this.f188a.iterator();
         int i2 = 0;
         while (it.hasNext()) {
             de next = it.next();
@@ -242,12 +242,12 @@ public class cv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m206a() {
-        return TextUtils.equals(this.f181a, cz.m212a());
+    public boolean m203a() {
+        return TextUtils.equals(this.f187a, cz.m209a());
     }
 
     public boolean a(cv cvVar) {
-        return TextUtils.equals(this.f181a, cvVar.f181a);
+        return TextUtils.equals(this.f187a, cvVar.f187a);
     }
 
     public void b(String str) {
@@ -263,22 +263,22 @@ public class cv {
     }
 
     public boolean b() {
-        return System.currentTimeMillis() - this.f180a < this.b;
+        return System.currentTimeMillis() - this.f186a < this.b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean c() {
         long j = 864000000 < this.b ? this.b : 864000000L;
         long currentTimeMillis = System.currentTimeMillis();
-        return currentTimeMillis - this.f180a > j || (currentTimeMillis - this.f180a > this.b && this.f181a.startsWith("WIFI-"));
+        return currentTimeMillis - this.f186a > j || (currentTimeMillis - this.f186a > this.b && this.f187a.startsWith("WIFI-"));
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f181a);
+        sb.append(this.f187a);
         sb.append("\n");
         sb.append(a());
-        Iterator<de> it = this.f182a.iterator();
+        Iterator<de> it = this.f188a.iterator();
         while (it.hasNext()) {
             sb.append("\n");
             sb.append(it.next().toString());

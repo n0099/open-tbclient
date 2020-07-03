@@ -8,8 +8,8 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected JSONObject cGu;
-    protected JSONObject cGv;
+    protected JSONObject cLe;
+    protected JSONObject cLf;
     public String mAppId;
     public String mFrom = "swan";
     public String mPage;
@@ -34,16 +34,16 @@ public class e {
             }
             jSONObject.put("source", this.mSource);
             if (!TextUtils.isEmpty(this.mPage)) {
-                this.mPage = com.baidu.swan.apps.statistic.g.ov(this.mPage);
+                this.mPage = com.baidu.swan.apps.statistic.g.oD(this.mPage);
                 jSONObject.put("page", this.mPage);
             }
-            if (this.cGu == null) {
-                this.cGu = new JSONObject();
+            if (this.cLe == null) {
+                this.cLe = new JSONObject();
             }
             if (!TextUtils.isEmpty(this.mAppId)) {
-                this.cGu.put("appid", this.mAppId);
+                this.cLe.put("appid", this.mAppId);
             }
-            jSONObject.put("ext", this.cGu);
+            jSONObject.put("ext", this.cLe);
             return jSONObject;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -53,16 +53,16 @@ public class e {
         }
     }
 
-    public void bt(JSONObject jSONObject) {
+    public void bA(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.cGu == null) {
-                this.cGu = new JSONObject();
+            if (this.cLe == null) {
+                this.cLe = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.cGu.put(next, jSONObject.opt(next));
+                    this.cLe.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -72,30 +72,30 @@ public class e {
         }
     }
 
-    public void oG(String str) {
+    public void oO(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                bt(new JSONObject(str));
+                bA(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void bu(JSONObject jSONObject) {
+    public void bB(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.cGu == null) {
-                this.cGu = new JSONObject();
+            if (this.cLe == null) {
+                this.cLe = new JSONObject();
             }
-            this.cGv = this.cGu.optJSONObject("extlog");
-            if (this.cGv == null) {
-                this.cGv = new JSONObject();
+            this.cLf = this.cLe.optJSONObject("extlog");
+            if (this.cLf == null) {
+                this.cLf = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.cGv.put(next, jSONObject.opt(next));
+                    this.cLf.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -103,7 +103,7 @@ public class e {
                 }
             }
             try {
-                this.cGu.put("extlog", this.cGv);
+                this.cLe.put("extlog", this.cLf);
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
@@ -113,11 +113,11 @@ public class e {
     }
 
     public void v(@NonNull String str, Object obj) {
-        if (this.cGu == null) {
-            this.cGu = new JSONObject();
+        if (this.cLe == null) {
+            this.cLe = new JSONObject();
         }
         try {
-            this.cGu.put(str, obj);
+            this.cLe.put(str, obj);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -125,12 +125,12 @@ public class e {
         }
     }
 
-    public JSONObject arr() {
-        if (this.cGu == null) {
+    public JSONObject asy() {
+        if (this.cLe == null) {
             return null;
         }
         try {
-            return new JSONObject(this.cGu.toString());
+            return new JSONObject(this.cLe.toString());
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

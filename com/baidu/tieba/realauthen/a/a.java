@@ -12,34 +12,34 @@ import com.baidu.tieba.realauthen.message.RealAuthenCertifyInfoResponseMessage;
 import com.baidu.tieba.realauthen.message.RealAuthenSpResponseMessage;
 /* loaded from: classes3.dex */
 public class a extends BdBaseModel {
-    private b kJK;
-    private HttpMessageListener kJP = new HttpMessageListener(1021148) { // from class: com.baidu.tieba.realauthen.a.a.1
+    private b ldE;
+    private HttpMessageListener ldJ = new HttpMessageListener(1021148) { // from class: com.baidu.tieba.realauthen.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof RealAuthenSpResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && a.this.kJK != null) {
-                a.this.kJK.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof RealAuthenSpResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && a.this.ldE != null) {
+                a.this.ldE.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
-    private HttpMessageListener kJQ = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_USER_NOTIFY) { // from class: com.baidu.tieba.realauthen.a.a.2
+    private HttpMessageListener ldK = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_USER_NOTIFY) { // from class: com.baidu.tieba.realauthen.a.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof RealAuthenCertifyInfoResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && a.this.kJK != null) {
-                a.this.kJK.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof RealAuthenCertifyInfoResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && a.this.ldE != null) {
+                a.this.ldE.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
 
     public a(b bVar) {
-        this.kJK = bVar;
-        Fv();
-        registerListener(this.kJP);
-        registerListener(this.kJQ);
+        this.ldE = bVar;
+        xp();
+        registerListener(this.ldJ);
+        registerListener(this.ldK);
     }
 
-    private void Fv() {
+    private void xp() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021148, TbConfig.SERVER_HOST + "feedvideoui/ugc/getbaiduyunspparams");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -54,7 +54,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
-    public void cUm() {
+    public void cYC() {
         MessageManager.getInstance().sendMessage(new HttpMessage(1021148));
     }
 

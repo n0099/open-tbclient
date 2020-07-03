@@ -3,13 +3,13 @@ package com.baidu.tieba.horizonalList.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.aa;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.ad;
+import com.baidu.adp.widget.ListView.q;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class HTypeListView extends HListView {
-    aa mTypeAdapter;
+    ad mTypeAdapter;
 
     public HTypeListView(Context context) {
         super(context);
@@ -30,7 +30,7 @@ public class HTypeListView extends HListView {
 
     private void init() {
         if (this.mTypeAdapter == null) {
-            this.mTypeAdapter = new aa();
+            this.mTypeAdapter = new ad();
         }
     }
 
@@ -42,11 +42,11 @@ public class HTypeListView extends HListView {
         setAdapter((ListAdapter) this.mTypeAdapter);
     }
 
-    public void setData(List<? extends o> list) {
+    public void setData(List<? extends q> list) {
         this.mTypeAdapter.setData(list);
     }
 
-    public List<o> getData() {
+    public List<q> getData() {
         return this.mTypeAdapter.getData();
     }
 }

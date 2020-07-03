@@ -16,33 +16,33 @@ import com.baidu.live.tbadk.data.ShareEntity;
 import com.baidu.tieba.ala.liveroom.share.AlaLandscapeShareView;
 /* loaded from: classes3.dex */
 public class a extends Dialog {
-    private q aJj;
-    private b gee;
-    private View gef;
+    private q aLQ;
+    private b gqY;
+    private View gqZ;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public a(@NonNull Context context, TbPageContext tbPageContext, q qVar, b bVar) {
         super(context);
         this.mContext = context;
-        this.gee = bVar;
+        this.gqY = bVar;
         this.mPageContext = tbPageContext;
-        this.aJj = qVar;
+        this.aLQ = qVar;
         initView();
     }
 
     private void initView() {
-        ShareEntity v = v(this.aJj);
-        if (v != null) {
-            this.gef = new AlaLandscapeShareView(this.mPageContext, v, new AlaLandscapeShareView.a() { // from class: com.baidu.tieba.ala.liveroom.share.a.1
+        ShareEntity x = x(this.aLQ);
+        if (x != null) {
+            this.gqZ = new AlaLandscapeShareView(this.mPageContext, x, new AlaLandscapeShareView.a() { // from class: com.baidu.tieba.ala.liveroom.share.a.1
                 @Override // com.baidu.tieba.ala.liveroom.share.AlaLandscapeShareView.a
                 public void onClick(View view) {
-                    if (a.this.gee != null) {
-                        a.this.gee.dismiss();
+                    if (a.this.gqY != null) {
+                        a.this.gqY.dismiss();
                     }
                 }
             });
-            setContentView(this.gef);
+            setContentView(this.gqZ);
             int screenWidth = n.getScreenWidth(this.mContext);
             setCancelable(true);
             setCanceledOnTouchOutside(true);
@@ -55,23 +55,23 @@ public class a extends Dialog {
                 attributes.width = screenWidth;
                 window.setAttributes(attributes);
             }
-            zB();
+            Ab();
         }
     }
 
-    private void zB() {
+    private void Ab() {
         TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, BdUtilHelper.dip2px(this.mContext, 200.0f), 0.0f);
         translateAnimation.setDuration(250L);
-        this.gef.startAnimation(translateAnimation);
+        this.gqZ.startAnimation(translateAnimation);
     }
 
-    private ShareEntity v(q qVar) {
+    private ShareEntity x(q qVar) {
         if (qVar == null) {
             return null;
         }
         ShareEntity shareEntity = new ShareEntity();
-        shareEntity.userId = qVar.avj.userId;
-        shareEntity.userName = qVar.avj.userName;
+        shareEntity.userId = qVar.axp.userId;
+        shareEntity.userName = qVar.axp.userName;
         shareEntity.title = StringUtils.isNull(shareEntity.userName) ? "" : shareEntity.userName + "的直播";
         shareEntity.content = "精彩直播正在进行，邀请你速来围观。";
         String str = qVar.mLiveInfo.cover;

@@ -11,6 +11,7 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
@@ -19,7 +20,7 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.tbadk.util.CheckBaiduSimResponseMessage;
-import com.baidu.live.u.a;
+@Deprecated
 /* loaded from: classes3.dex */
 public class CheckBaiduSimController {
     private static CheckBaiduSimController mInstance = null;

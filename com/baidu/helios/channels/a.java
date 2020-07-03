@@ -9,7 +9,7 @@ import java.util.Comparator;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public abstract class a {
-    public static Comparator<a> apD = new Comparator<a>() { // from class: com.baidu.helios.channels.a.1
+    public static Comparator<a> aqV = new Comparator<a>() { // from class: com.baidu.helios.channels.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -18,46 +18,46 @@ public abstract class a {
             return priority != 0 ? priority > 0 ? -1 : 1 : aVar.getName().compareTo(aVar2.getName());
         }
     };
-    protected C0136a apB;
-    protected a.C0141a apC;
+    protected C0138a aqT;
+    protected a.C0143a aqU;
     private final String b;
     private long c;
 
     /* renamed from: com.baidu.helios.channels.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0136a {
-        public com.baidu.helios.common.c.a apE;
-        public com.baidu.helios.ids.b apF;
+    public static class C0138a {
         public Context applicationContext;
+        public com.baidu.helios.common.c.a aqW;
+        public com.baidu.helios.ids.b aqX;
     }
 
     /* loaded from: classes6.dex */
     public static abstract class b {
-        private a.C0141a apk;
+        private a.C0143a aqD;
         private String b;
         private String c;
         private boolean d = true;
 
-        public b(a.C0141a c0141a, String str) {
-            this.apk = c0141a;
+        public b(a.C0143a c0143a, String str) {
+            this.aqD = c0143a;
             this.b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
 
-        public void aK(boolean z) {
+        public void aL(boolean z) {
             this.d = z;
         }
 
-        public abstract void o(JSONObject jSONObject);
-
         public abstract void p(JSONObject jSONObject);
 
-        public boolean tW() {
-            String q = this.apk.q(this.c, true);
+        public abstract void q(JSONObject jSONObject);
+
+        public boolean uo() {
+            String q = this.aqD.q(this.c, true);
             if (!TextUtils.isEmpty(q)) {
                 try {
-                    o(new JSONObject(q));
-                    aK(false);
+                    p(new JSONObject(q));
+                    aL(false);
                     return true;
                 } catch (Exception e) {
                 }
@@ -65,13 +65,13 @@ public abstract class a {
             return false;
         }
 
-        public boolean tX() {
+        public boolean up() {
             if (this.d) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    p(jSONObject);
-                    this.apk.d(this.c, jSONObject.toString(), true);
-                    aK(false);
+                    q(jSONObject);
+                    this.aqD.d(this.c, jSONObject.toString(), true);
+                    aL(false);
                     return true;
                 } catch (Exception e) {
                 }
@@ -100,7 +100,7 @@ public abstract class a {
             this.exception = exc;
         }
 
-        public static e bv(int i) {
+        public static e bA(int i) {
             return new e(-1, i, null);
         }
 
@@ -108,18 +108,18 @@ public abstract class a {
             return new e(-1, 0, exc);
         }
 
-        public static e tY() {
+        public static e uq() {
             return new e(0, 0, null);
         }
 
-        public static e tZ() {
-            return bv(0);
+        public static e ur() {
+            return bA(0);
         }
     }
 
     /* loaded from: classes6.dex */
     public static class f {
-        public boolean apG;
+        public boolean aqY;
     }
 
     /* loaded from: classes6.dex */
@@ -134,16 +134,16 @@ public abstract class a {
             this.exception = exc;
         }
 
-        public static g bw(int i) {
+        public static g bB(int i) {
             return new g(i, null, null);
-        }
-
-        public static g dZ(String str) {
-            return new g(0, str, null);
         }
 
         public static g e(int i, Exception exc) {
             return new g(i, null, exc);
+        }
+
+        public static g eb(String str) {
+            return new g(0, str, null);
         }
 
         public static g j(Exception exc) {
@@ -164,9 +164,9 @@ public abstract class a {
 
     public abstract g a(String str, f fVar);
 
-    public final void a(C0136a c0136a) {
-        this.apB = c0136a;
-        this.apC = c0136a.apE.us().eb(IXAdRequestInfo.CS);
+    public final void a(C0138a c0138a) {
+        this.aqT = c0138a;
+        this.aqU = c0138a.aqW.uK().ed(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

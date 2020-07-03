@@ -1,71 +1,78 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-/* loaded from: classes8.dex */
+import android.content.Context;
+import java.util.LinkedList;
+import java.util.List;
+import tbclient.FrsTabInfo;
+/* loaded from: classes.dex */
 public class g {
-    private static UserData mUserData;
+    private String dMk;
+    private String dMl;
+    private String forumGameLabel;
+    private String forumId;
+    private String forumName;
+    private List<FrsTabInfo> hyV;
+    private final List<com.baidu.tbadk.mainTab.b> hyW = new LinkedList();
+    private Context mContext;
+    private String mFrom;
 
-    public static UserData bUD() {
-        return mUserData;
+    public g(Context context, List<FrsTabInfo> list) {
+        this.hyV = list;
+        this.mContext = context;
     }
 
-    private static UserData a(FrsViewData frsViewData) {
-        mUserData = frsViewData != null ? frsViewData.getUserData() : null;
-        return mUserData;
+    public List<FrsTabInfo> bXD() {
+        return this.hyV;
     }
 
-    public static void a(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, FrsViewData frsViewData) {
-        if (threadCommentAndPraiseInfoLayout != null) {
-            if (frsViewData != null && a(a(frsViewData))) {
-                threadCommentAndPraiseInfoLayout.setManageVisible(true);
-            } else {
-                threadCommentAndPraiseInfoLayout.setManageVisible(false);
+    public void b(com.baidu.tbadk.mainTab.b bVar) {
+        if (bVar != null && bVar.getFragmentTabStructure() != null) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.hyW) {
+                if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().type == bVar.getFragmentTabStructure().type) {
+                    return;
+                }
             }
+            this.hyW.add(bVar);
         }
     }
 
-    public static void a(com.baidu.card.b bVar, FrsViewData frsViewData) {
-        if (bVar != null) {
-            if (frsViewData != null && a(a(frsViewData))) {
-                bVar.aX(4);
-            } else {
-                bVar.aY(4);
-            }
-        }
+    public List<com.baidu.tbadk.mainTab.b> bXE() {
+        return this.hyW;
     }
 
-    public static boolean a(UserData userData) {
-        if (userData == null) {
-            return false;
-        }
-        switch (userData.getIs_manager()) {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-                return true;
-            default:
-                return false;
-        }
+    public void setForumName(String str) {
+        this.forumName = str;
     }
 
-    public static boolean bUE() {
-        UserData bUD = bUD();
-        if (bUD == null) {
-            return false;
-        }
-        switch (bUD.getIs_manager()) {
-            case 1:
-                return true;
-            default:
-                return false;
-        }
+    public String getForumName() {
+        return this.forumName;
     }
 
-    public static boolean bUF() {
-        UserData bUD = bUD();
-        return bUD != null && bUD.getIs_manager() == 3;
+    public void setForumId(String str) {
+        this.forumId = str;
+    }
+
+    public String getForumId() {
+        return this.forumId;
+    }
+
+    public void setFrom(String str) {
+        this.mFrom = str;
+    }
+
+    public String getFrom() {
+        return this.mFrom;
+    }
+
+    public void setForumGameLabel(String str) {
+        this.forumGameLabel = str;
+    }
+
+    public void vX(String str) {
+        this.dMk = str;
+    }
+
+    public void vY(String str) {
+        this.dMl = str;
     }
 }

@@ -9,7 +9,7 @@ import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes6.dex */
 public class ReportFragment extends Fragment {
-    private a yE;
+    private a ze;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
@@ -55,21 +55,21 @@ public class ReportFragment extends Fragment {
     @Override // android.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        a(this.yE);
+        a(this.ze);
         a(Lifecycle.Event.ON_CREATE);
     }
 
     @Override // android.app.Fragment
     public void onStart() {
         super.onStart();
-        b(this.yE);
+        b(this.ze);
         a(Lifecycle.Event.ON_START);
     }
 
     @Override // android.app.Fragment
     public void onResume() {
         super.onResume();
-        c(this.yE);
+        c(this.ze);
         a(Lifecycle.Event.ON_RESUME);
     }
 
@@ -89,13 +89,13 @@ public class ReportFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         a(Lifecycle.Event.ON_DESTROY);
-        this.yE = null;
+        this.ze = null;
     }
 
     private void a(Lifecycle.Event event) {
         Activity activity = getActivity();
         if (activity instanceof l) {
-            ((l) activity).fT().b(event);
+            ((l) activity).gk().b(event);
         } else if (activity instanceof j) {
             Lifecycle lifecycle = ((j) activity).getLifecycle();
             if (lifecycle instanceof k) {
@@ -106,6 +106,6 @@ public class ReportFragment extends Fragment {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(a aVar) {
-        this.yE = aVar;
+        this.ze = aVar;
     }
 }

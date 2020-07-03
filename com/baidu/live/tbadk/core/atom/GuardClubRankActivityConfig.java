@@ -19,4 +19,9 @@ public class GuardClubRankActivityConfig extends IntentConfig implements GuardCl
     public void setFeedId(String str) {
         getIntent().putExtra(GuardClubActivityConfig.FEED_ID, str);
     }
+
+    public void setAnchorInfo(String str, String str2) {
+        getIntent().putExtra(GuardClubActivityConfig.ANCHOR_NAME, str);
+        getIntent().putExtra(GuardClubActivityConfig.ANCHOR_PORTRAIT, str2);
+    }
 }

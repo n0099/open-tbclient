@@ -8,15 +8,15 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class c<T extends com.facebook.fresco.animation.a.a> extends b<T> {
-    private final com.facebook.common.time.b moR;
-    private final ScheduledExecutorService msH;
-    private boolean msI;
-    private long msJ;
-    private long msK;
-    private long msL;
+    private final com.facebook.common.time.b mKQ;
+    private final ScheduledExecutorService mOE;
+    private boolean mOF;
+    private long mOG;
+    private long mOH;
+    private long mOI;
     @Nullable
-    private a msM;
-    private final Runnable msN;
+    private a mOJ;
+    private final Runnable mOK;
 
     /* loaded from: classes13.dex */
     public interface a {
@@ -33,47 +33,47 @@ public class c<T extends com.facebook.fresco.animation.a.a> extends b<T> {
 
     private c(@Nullable T t, @Nullable a aVar, com.facebook.common.time.b bVar, ScheduledExecutorService scheduledExecutorService) {
         super(t);
-        this.msI = false;
-        this.msK = 2000L;
-        this.msL = 1000L;
-        this.msN = new Runnable() { // from class: com.facebook.fresco.animation.a.c.1
+        this.mOF = false;
+        this.mOH = 2000L;
+        this.mOI = 1000L;
+        this.mOK = new Runnable() { // from class: com.facebook.fresco.animation.a.c.1
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (c.this) {
-                    c.this.msI = false;
-                    if (c.this.dxo()) {
-                        if (c.this.msM != null) {
-                            c.this.msM.onInactive();
+                    c.this.mOF = false;
+                    if (c.this.dBQ()) {
+                        if (c.this.mOJ != null) {
+                            c.this.mOJ.onInactive();
                         }
                     } else {
-                        c.this.dxp();
+                        c.this.dBR();
                     }
                 }
             }
         };
-        this.msM = aVar;
-        this.moR = bVar;
-        this.msH = scheduledExecutorService;
+        this.mOJ = aVar;
+        this.mKQ = bVar;
+        this.mOE = scheduledExecutorService;
     }
 
     @Override // com.facebook.fresco.animation.a.b, com.facebook.fresco.animation.a.a
     public boolean a(Drawable drawable, Canvas canvas, int i) {
-        this.msJ = this.moR.now();
+        this.mOG = this.mKQ.now();
         boolean a2 = super.a(drawable, canvas, i);
-        dxp();
+        dBR();
         return a2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean dxo() {
-        return this.moR.now() - this.msJ > this.msK;
+    public boolean dBQ() {
+        return this.mKQ.now() - this.mOG > this.mOH;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void dxp() {
-        if (!this.msI) {
-            this.msI = true;
-            this.msH.schedule(this.msN, this.msL, TimeUnit.MILLISECONDS);
+    public synchronized void dBR() {
+        if (!this.mOF) {
+            this.mOF = true;
+            this.mOE.schedule(this.mOK, this.mOI, TimeUnit.MILLISECONDS);
         }
     }
 }

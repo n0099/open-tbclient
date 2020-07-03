@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.api.b;
 /* loaded from: classes11.dex */
 public interface a {
-    void iq(String str);
+    void iy(String str);
 
-    void ir(String str);
+    void iz(String str);
 }

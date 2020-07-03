@@ -1,44 +1,43 @@
 package com.baidu.tieba.homepage.personalize.data;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.cache.l;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.Personalized.DataRes;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.Personalized.LiveAnswer;
 /* loaded from: classes9.dex */
-public class h {
-    public static boolean ifN = false;
+public class h extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId TYPE = BdUniqueId.gen();
+    public int aiG;
+    public String awR;
+    public String imgUrl;
+    public int iuX;
 
-    public static DataRes cgB() {
-        l<byte[]> cZ = com.baidu.tbadk.core.c.a.aSS().cZ("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
-        if (cZ == null) {
-            return null;
+    public void a(LiveAnswer liveAnswer) {
+        if (liveAnswer != null) {
+            this.imgUrl = liveAnswer.banner_url;
+            this.iuX = liveAnswer.banner_high.intValue();
+            this.aiG = liveAnswer.banner_width.intValue();
+            this.awR = liveAnswer.jump_url;
         }
-        byte[] bArr = cZ.get("0");
-        if (bArr == null || bArr.length == 0) {
-            return null;
-        }
+    }
+
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return TYPE;
+    }
+
+    public String toString() {
         try {
-            return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-        } catch (IOException e) {
-            BdLog.e(e);
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("img_width", this.aiG);
+            jSONObject.put(BigdayActivityConfig.IMG_URL, this.imgUrl);
+            jSONObject.put("img_height", this.iuX);
+            jSONObject.put(BigdayActivityConfig.JUMP_URL, this.awR);
+            return jSONObject.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
             return null;
         }
-    }
-
-    public static void cgC() {
-        l<byte[]> cZ = com.baidu.tbadk.core.c.a.aSS().cZ("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
-        if (cZ != null) {
-            cZ.set("0", new byte[0], 0L);
-        }
-    }
-
-    public static boolean g(ResponsedMessage responsedMessage) {
-        if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof RecPersonalizeRequest)) {
-            return false;
-        }
-        return ((RecPersonalizeRequest) responsedMessage.getOrginalMessage().getExtra()).getLoadType() == 2;
     }
 }

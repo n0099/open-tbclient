@@ -6,5 +6,5 @@ import com.baidu.ar.callback.ICallbackWith;
 public interface b {
     void a(FramePixels framePixels, ICallbackWith<f> iCallbackWith);
 
-    void aH();
+    void aV();
 }

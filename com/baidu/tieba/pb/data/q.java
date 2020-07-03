@@ -1,13 +1,13 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bu;
 /* loaded from: classes9.dex */
-public class q implements com.baidu.adp.widget.ListView.o {
+public class q implements com.baidu.adp.widget.ListView.q {
     public static BdUniqueId TYPE = BdUniqueId.gen();
-    public bk dEA;
+    public bu dLi;
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
         return TYPE;
     }

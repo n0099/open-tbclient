@@ -17,13 +17,13 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes11.dex */
 public class c {
-    private static final String[] bQX = {"https://mbd.baidu.com", "https://ossapi.baidu.com", "https://ext.baidu.com"};
+    private static final String[] bVL = {"https://mbd.baidu.com", "https://ossapi.baidu.com", "https://ext.baidu.com"};
 
-    public static boolean iK(String str) {
+    public static boolean iS(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : bQX) {
+        for (String str2 : bVL) {
             if (str.startsWith(str2)) {
                 return true;
             }
@@ -32,45 +32,45 @@ public class c {
     }
 
     public static String processCommonParams(String str) {
-        return addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "uid", VE()), j.c, VF()), "ut", VD()), "osbranch", VH()), "pkgname", getPkgName()), "network", VG()), "appname", getAppName()), "hostname", getAppName()), "swan_sdk_version", VL()), "mnpunion", "0");
+        return addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "uid", WK()), j.c, WL()), "ut", WJ()), "osbranch", WN()), "pkgname", getPkgName()), "network", WM()), "appname", getAppName()), "hostname", getAppName()), "swan_sdk_version", WR()), "mnpunion", "0");
     }
 
-    public static String VD() {
-        return de(getDeviceInfo());
+    public static String WJ() {
+        return dg(getDeviceInfo());
     }
 
-    public static String VE() {
-        return de(getUid());
+    public static String WK() {
+        return dg(getUid());
     }
 
-    public static String VF() {
-        return de(sB());
+    public static String WL() {
+        return dg(sW());
     }
 
-    public static String VG() {
-        return VN() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + VM();
+    public static String WM() {
+        return WT() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + WS();
     }
 
-    public static String VH() {
+    public static String WN() {
         return "a0";
     }
 
     public static String getUid() {
-        return com.baidu.swan.apps.u.a.aeW().bc(AppRuntime.getAppContext());
+        return com.baidu.swan.apps.u.a.agc().bd(AppRuntime.getAppContext());
     }
 
-    public static String sB() {
+    public static String sW() {
         Context appContext = AppRuntime.getAppContext();
         int displayWidth = ag.getDisplayWidth(appContext);
         int displayHeight = ag.getDisplayHeight(appContext);
         int densityDpi = ag.getDensityDpi(appContext);
-        String VI = VI();
+        String WO = WO();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(displayWidth);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(displayHeight);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        stringBuffer.append(VI);
+        stringBuffer.append(WO);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(aj.getVersionName());
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
@@ -78,7 +78,7 @@ public class c {
         return stringBuffer.toString();
     }
 
-    public static String VI() {
+    public static String WO() {
         return "android";
     }
 
@@ -88,12 +88,12 @@ public class c {
 
     public static String getDeviceInfo() {
         String deviceModel = getDeviceModel();
-        String VK = VK();
+        String WQ = WQ();
         int i = Build.VERSION.SDK_INT;
-        return deviceModel + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + VK + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + VJ();
+        return deviceModel + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + WQ + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + WP();
     }
 
-    public static String VJ() {
+    public static String WP() {
         String str = Build.MANUFACTURER;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -101,7 +101,7 @@ public class c {
         return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String VK() {
+    public static String WQ() {
         String str = Build.VERSION.RELEASE;
         if (TextUtils.isEmpty(str)) {
             return "0.0";
@@ -161,7 +161,7 @@ public class c {
         return str;
     }
 
-    public static String de(String str) {
+    public static String dg(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -173,27 +173,27 @@ public class c {
         }
     }
 
-    private static String VL() {
+    private static String WR() {
         return com.baidu.swan.apps.c.getVersion();
     }
 
     private static String getAppName() {
-        return com.baidu.swan.apps.u.a.afB().getHostName();
+        return com.baidu.swan.apps.u.a.agH().getHostName();
     }
 
-    private static int VM() {
-        NetworkInfo activeNetworkInfo = SwanAppNetworkUtils.getActiveNetworkInfo(com.baidu.swan.apps.u.a.aeR());
+    private static int WS() {
+        NetworkInfo activeNetworkInfo = SwanAppNetworkUtils.getActiveNetworkInfo(com.baidu.swan.apps.u.a.afX());
         if (activeNetworkInfo == null) {
             return 0;
         }
         return activeNetworkInfo.getSubtype();
     }
 
-    private static int VN() {
+    private static int WT() {
         NetworkInfo networkInfo;
         String str = null;
         try {
-            networkInfo = ((ConnectivityManager) com.baidu.swan.apps.u.a.aeR().getSystemService("connectivity")).getActiveNetworkInfo();
+            networkInfo = ((ConnectivityManager) com.baidu.swan.apps.u.a.afX().getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (NullPointerException e) {
             networkInfo = null;
         }

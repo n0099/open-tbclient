@@ -7,6 +7,7 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.util.StatisticItem;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
+@Deprecated
 /* loaded from: classes3.dex */
 public class PageStayDurationStat {
     private static PageStayDurationStat stayDurationStat = new PageStayDurationStat();

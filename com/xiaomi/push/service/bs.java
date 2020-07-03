@@ -14,7 +14,7 @@ class bs implements ap.a {
     @Override // com.xiaomi.push.service.ap.a
     public void a() {
         this.a.e();
-        if (ap.a().m540a() <= 0) {
+        if (ap.a().m537a() <= 0) {
             this.a.a(new XMPushService.f(12, null));
         }
     }

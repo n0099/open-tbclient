@@ -7,55 +7,55 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 class a {
-    String vq;
-    double vr;
-    long vs;
-    long vt;
-    long vu;
-    BlockingQueue<C0086a> vv = new LinkedBlockingQueue();
+    String vQ;
+    double vR;
+    long vS;
+    long vT;
+    long vU;
+    BlockingQueue<C0087a> vV = new LinkedBlockingQueue();
 
     /* renamed from: com.baidu.ar.statistic.performance.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    static class C0086a {
-        int vw;
-        long vx;
-        long vy;
-        BlockingQueue<C0087a> vz = new LinkedBlockingQueue();
+    static class C0087a {
+        int vW;
+        long vX;
+        long vY;
+        BlockingQueue<C0088a> vZ = new LinkedBlockingQueue();
 
         /* renamed from: com.baidu.ar.statistic.performance.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        static class C0087a {
+        static class C0088a {
             int count;
             String name;
-            String vA;
-            long vB;
+            String wa;
+            long wb;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public JSONObject eP() {
+    public JSONObject ff() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("case_id", this.vq);
-            jSONObject.put("cpu_rate", String.valueOf(this.vr));
-            jSONObject.put("cpu_tc", String.valueOf(this.vs));
-            jSONObject.put("mem_total", String.valueOf(this.vt));
-            jSONObject.put("mem_used", String.valueOf(this.vu));
+            jSONObject.put("case_id", this.vQ);
+            jSONObject.put("cpu_rate", String.valueOf(this.vR));
+            jSONObject.put("cpu_tc", String.valueOf(this.vS));
+            jSONObject.put("mem_total", String.valueOf(this.vT));
+            jSONObject.put("mem_used", String.valueOf(this.vU));
             JSONArray jSONArray = new JSONArray();
-            for (C0086a c0086a : this.vv) {
+            for (C0087a c0087a : this.vV) {
                 try {
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("frame_index", c0086a.vw);
-                    jSONObject2.put("frame_in", c0086a.vx);
-                    jSONObject2.put("frame_out", c0086a.vy);
+                    jSONObject2.put("frame_index", c0087a.vW);
+                    jSONObject2.put("frame_in", c0087a.vX);
+                    jSONObject2.put("frame_out", c0087a.vY);
                     JSONArray jSONArray2 = new JSONArray();
-                    for (C0086a.C0087a c0087a : c0086a.vz) {
+                    for (C0087a.C0088a c0088a : c0087a.vZ) {
                         try {
                             JSONObject jSONObject3 = new JSONObject();
-                            jSONObject3.put("name", c0087a.name);
-                            jSONObject3.put("func", c0087a.vA);
-                            jSONObject3.put("time_cost", c0087a.vB);
-                            jSONObject3.put("count", c0087a.count);
+                            jSONObject3.put("name", c0088a.name);
+                            jSONObject3.put("func", c0088a.wa);
+                            jSONObject3.put("time_cost", c0088a.wb);
+                            jSONObject3.put("count", c0088a.count);
                             jSONArray2.put(jSONObject3);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -75,12 +75,12 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void eQ() {
-        this.vq = null;
-        this.vr = 0.0d;
-        this.vs = 0L;
-        this.vt = 0L;
-        this.vu = 0L;
-        this.vv = new LinkedBlockingQueue();
+    public void fg() {
+        this.vQ = null;
+        this.vR = 0.0d;
+        this.vS = 0L;
+        this.vT = 0L;
+        this.vU = 0L;
+        this.vV = new LinkedBlockingQueue();
     }
 }

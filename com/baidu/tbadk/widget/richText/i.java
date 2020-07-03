@@ -1,66 +1,42 @@
 package com.baidu.tbadk.widget.richText;
 
-import com.baidu.adp.lib.util.StringUtils;
-import tbclient.PbContent;
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-public class i {
-    private int duration;
-    private int eEm;
-    private String eEn;
-    private int eEo;
-    private int height;
-    private int playCount;
-    private String thumbUrl;
-    private String videoUrl;
-    private int width;
+public interface i {
+    void al(Context context, String str);
 
-    public void b(PbContent pbContent) {
-        if (pbContent != null) {
-            this.videoUrl = pbContent.link;
-            this.thumbUrl = pbContent.src;
-            this.width = pbContent.width.intValue();
-            this.height = pbContent.height.intValue();
-            this.eEm = pbContent.e_type.intValue();
-            this.eEn = pbContent.text;
-            this.duration = pbContent.during_time.intValue();
-            this.playCount = pbContent.count.intValue();
-            this.eEo = pbContent.origin_size.intValue();
-        }
-    }
+    void am(Context context, String str);
 
-    public String getVideoUrl() {
-        return this.videoUrl;
-    }
+    void an(Context context, String str);
 
-    public String getThumbUrl() {
-        return this.thumbUrl;
-    }
+    void ao(Context context, String str);
 
-    public int getWidth() {
-        return this.width;
-    }
+    void ap(Context context, String str);
 
-    public int getHeight() {
-        return this.height;
-    }
+    com.baidu.adp.lib.d.b<TextView> blA();
 
-    public String bjg() {
-        return this.eEn;
-    }
+    com.baidu.adp.lib.d.b<GifView> blB();
 
-    public boolean bjh() {
-        return this.eEm == 15;
-    }
+    com.baidu.adp.lib.d.b<View> blC();
 
-    public boolean isAvaliable() {
-        return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
-    }
+    com.baidu.adp.lib.d.b<LinearLayout> blD();
 
-    public int getDuration() {
-        return this.duration;
-    }
+    com.baidu.adp.lib.d.b<RelativeLayout> blE();
 
-    public int getFileSize() {
-        return this.eEo;
-    }
+    int bly();
+
+    com.baidu.adp.lib.d.b<ImageView> blz();
+
+    void f(Context context, String str, boolean z);
+
+    ListView getListView();
+
+    void s(Context context, String str, String str2);
 }

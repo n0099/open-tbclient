@@ -6,7 +6,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class e {
-    public static HashMap fT(String str) {
+    public static HashMap gb(String str) {
         HashMap hashMap = new HashMap();
         String replace = str.replace("?", ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         if (replace.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
@@ -26,7 +26,7 @@ public class e {
         return hashMap;
     }
 
-    public static boolean du(int i) {
+    public static boolean dF(int i) {
         return 1.0d - ((((0.299d * ((double) Color.red(i))) + (0.587d * ((double) Color.green(i)))) + (0.114d * ((double) Color.blue(i)))) / 255.0d) >= 0.5d;
     }
 }

@@ -13,7 +13,7 @@ public class c extends n<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lot
     }
 
     @Override // com.tb.airbnb.lottie.model.a.m
-    public com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> dIW() {
-        return new com.tb.airbnb.lottie.a.b.d(this.Ci);
+    public com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> dNC() {
+        return new com.tb.airbnb.lottie.a.b.d(this.CJ);
     }
 }

@@ -7,11 +7,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 final class e implements c.a {
-    final /* synthetic */ BdLightappKernelJsCallback ada;
+    final /* synthetic */ BdLightappKernelJsCallback adF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(BdLightappKernelJsCallback bdLightappKernelJsCallback) {
-        this.ada = bdLightappKernelJsCallback;
+        this.adF = bdLightappKernelJsCallback;
     }
 
     @Override // com.baidu.browser.sailor.util.c.a
@@ -20,11 +20,11 @@ final class e implements c.a {
             int i = jSONObject.getInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
             int i2 = jSONObject.getInt("scale");
             int i3 = jSONObject.getInt("plugged");
-            this.ada.addField(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, String.valueOf(i2 != 0 ? i / i2 : 0.0f));
-            this.ada.addField("plugged", String.valueOf(i3 != 0));
-            this.ada.sendSuccCallBack();
+            this.adF.addField(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, String.valueOf(i2 != 0 ? i / i2 : 0.0f));
+            this.adF.addField("plugged", String.valueOf(i3 != 0));
+            this.adF.sendSuccCallBack();
         } catch (JSONException e) {
-            this.ada.sendFailCallBack(e.getMessage());
+            this.adF.sendFailCallBack(e.getMessage());
             e.printStackTrace();
         }
     }

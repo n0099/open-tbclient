@@ -52,7 +52,7 @@ public class BdUploadHandler implements INoProGuard {
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra("request_code", 4099);
         intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
-        com.baidu.browser.core.permission.a.rk().a(4099, new b(this));
+        com.baidu.browser.core.permission.a.rB().a(4099, new b(this));
         return intent;
     }
 
@@ -105,7 +105,7 @@ public class BdUploadHandler implements INoProGuard {
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra("request_code", 4099);
         intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE"});
-        com.baidu.browser.core.permission.a.rk().a(4099, new a(this));
+        com.baidu.browser.core.permission.a.rB().a(4099, new a(this));
         return intent;
     }
 

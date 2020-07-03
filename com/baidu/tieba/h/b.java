@@ -2,54 +2,54 @@ package com.baidu.tieba.h;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.o;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.tbadk.core.util.w;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Esport;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
-public class b implements o {
-    public static final BdUniqueId hSm = BdUniqueId.gen();
-    private List<a> fCk;
-    private int gHb;
-    private String hSn;
-    private String hSo;
+public class b implements q {
+    public static final BdUniqueId igG = BdUniqueId.gen();
+    private List<a> fNt;
+    private int gUb;
+    private String igH;
+    private String igI;
 
     public void a(Esport esport) {
         if (esport != null) {
-            this.gHb = esport.floor_no.intValue();
+            this.gUb = esport.floor_no.intValue();
             if (esport._static != null) {
-                this.hSn = esport._static.img;
-                this.hSo = esport._static.url;
+                this.igH = esport._static.img;
+                this.igI = esport._static.url;
             }
-            this.fCk = new ArrayList();
-            if (!StringUtils.isNull(this.hSn)) {
+            this.fNt = new ArrayList();
+            if (!StringUtils.isNull(this.igH)) {
                 a aVar = new a();
-                aVar.Fp(this.hSn);
-                aVar.Fq(this.hSo);
-                this.fCk.add(aVar);
+                aVar.FP(this.igH);
+                aVar.FQ(this.igI);
+                this.fNt.add(aVar);
             }
-            if (!v.isEmpty(esport.billboard)) {
+            if (!w.isEmpty(esport.billboard)) {
                 for (EsportRank esportRank : esport.billboard) {
                     a aVar2 = new a();
                     aVar2.a(esportRank);
-                    this.fCk.add(aVar2);
+                    this.fNt.add(aVar2);
                 }
             }
         }
     }
 
-    public int cdu() {
-        return this.gHb;
+    public int cgR() {
+        return this.gUb;
     }
 
-    public List<a> cdv() {
-        return this.fCk;
+    public List<a> cgS() {
+        return this.fNt;
     }
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hSm;
+        return igG;
     }
 }

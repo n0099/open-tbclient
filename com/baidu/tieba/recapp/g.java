@@ -24,9 +24,9 @@ public interface g {
     public interface d {
     }
 
+    boolean Ai(String str);
+
     void a(Context context, String[] strArr, boolean z);
 
     boolean c(Context context, String[] strArr);
-
-    boolean zP(String str);
 }

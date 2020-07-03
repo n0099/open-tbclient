@@ -1,45 +1,45 @@
 package com.baidu.tieba.ala;
 
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.w;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private static c eVX;
-    private List<an> eMV;
+    private static c fgi;
+    private List<ao> eXh;
 
-    public static c bps() {
-        if (eVX == null) {
+    public static c brS() {
+        if (fgi == null) {
             synchronized (c.class) {
-                if (eVX == null) {
-                    eVX = new c();
+                if (fgi == null) {
+                    fgi = new c();
                 }
             }
         }
-        return eVX;
+        return fgi;
     }
 
-    public void e(an anVar) {
-        if (anVar != null) {
-            if (this.eMV == null) {
-                this.eMV = new ArrayList();
+    public void e(ao aoVar) {
+        if (aoVar != null) {
+            if (this.eXh == null) {
+                this.eXh = new ArrayList();
             }
-            if (this.eMV != null) {
-                this.eMV.add(anVar);
+            if (this.eXh != null) {
+                this.eXh.add(aoVar);
             }
         }
     }
 
-    public void bpt() {
-        if (v.getCount(this.eMV) != 0) {
-            for (an anVar : this.eMV) {
-                if (anVar != null) {
-                    TiebaStatic.log(anVar);
+    public void brT() {
+        if (w.getCount(this.eXh) != 0) {
+            for (ao aoVar : this.eXh) {
+                if (aoVar != null) {
+                    TiebaStatic.log(aoVar);
                 }
             }
-            this.eMV.clear();
+            this.eXh.clear();
         }
     }
 }

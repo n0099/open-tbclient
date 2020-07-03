@@ -5,17 +5,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 /* loaded from: classes3.dex */
 public final class k {
-    public static boolean p(Context context) {
-        NetworkInfo r = r(context);
-        return r != null && r.isAvailable();
+    public static boolean r(Context context) {
+        NetworkInfo t = t(context);
+        return t != null && t.isAvailable();
     }
 
-    public static boolean q(Context context) {
-        NetworkInfo r = r(context);
-        return r != null && r.isAvailable() && r.getType() == 1;
+    public static boolean s(Context context) {
+        NetworkInfo t = t(context);
+        return t != null && t.isAvailable() && t.getType() == 1;
     }
 
-    private static NetworkInfo r(Context context) {
+    private static NetworkInfo t(Context context) {
         ConnectivityManager connectivityManager;
         if (context != null && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null) {
             return connectivityManager.getActiveNetworkInfo();
@@ -23,14 +23,14 @@ public final class k {
         return null;
     }
 
-    public static int s(Context context) {
-        NetworkInfo r = r(context);
-        if (r == null) {
+    public static int u(Context context) {
+        NetworkInfo t = t(context);
+        if (t == null) {
             return Integer.MIN_VALUE;
         }
-        if (r.isAvailable() && r.getType() == 0) {
-            String subtypeName = r.getSubtypeName();
-            switch (r.getSubtype()) {
+        if (t.isAvailable() && t.getType() == 0) {
+            String subtypeName = t.getSubtypeName();
+            switch (t.getSubtype()) {
                 case 1:
                 case 2:
                 case 4:
@@ -56,14 +56,14 @@ public final class k {
         return Integer.MIN_VALUE;
     }
 
-    public static String t(Context context) {
-        if (!p(context) || context == null) {
+    public static String v(Context context) {
+        if (!r(context) || context == null) {
             return "not_Reachable";
         }
-        if (q(context)) {
+        if (s(context)) {
             return "wifi";
         }
-        int s = s(context);
-        return s == 2 ? "2G" : s == 3 ? "3G" : s == 4 ? "4G" : "other_network";
+        int u = u(context);
+        return u == 2 ? "2G" : u == 3 ? "3G" : u == 4 ? "4G" : "other_network";
     }
 }

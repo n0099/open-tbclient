@@ -13,61 +13,61 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    public static int bvK = 1;
-    private static String bvL;
+    public static int bAB = 1;
+    private static String bAC;
 
     /* loaded from: classes11.dex */
     static class a extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.a.j.a bvJ;
+        final /* synthetic */ com.baidu.poly.a.j.a bAA;
 
         a(com.baidu.poly.a.j.a aVar) {
-            this.bvJ = aVar;
+            this.bAA = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.poly.a.a.a
         /* renamed from: b */
         public void a(String str) {
-            a.C0240a c0240a = new a.C0240a();
+            a.C0246a c0246a = new a.C0246a();
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.optInt(BaseJsonData.TAG_ERRNO) == 0) {
-                    c0240a.statusCode = 0;
-                    c0240a.message = jSONObject.optString("msg");
+                    c0246a.statusCode = 0;
+                    c0246a.message = jSONObject.optString("msg");
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    c0240a.bvG = optJSONObject.optLong("totalAmount");
-                    c0240a.bvH = optJSONObject.optLong("userPayAmount");
-                    c0240a.bvI = optJSONObject.optString("usedhostMarketingDetail");
+                    c0246a.bAx = optJSONObject.optLong("totalAmount");
+                    c0246a.bAy = optJSONObject.optLong("userPayAmount");
+                    c0246a.bAz = optJSONObject.optString("usedhostMarketingDetail");
                 } else {
-                    c0240a.statusCode = jSONObject.optInt("errorLevel", 2);
-                    c0240a.message = jSONObject.optString("msg");
+                    c0246a.statusCode = jSONObject.optInt("errorLevel", 2);
+                    c0246a.message = jSONObject.optString("msg");
                 }
             } catch (Exception e) {
-                c0240a.statusCode = 2;
-                c0240a.message = g.Nj().getResources().getString(b.g.calculate_price_default_error);
+                c0246a.statusCode = 2;
+                c0246a.message = g.Os().getResources().getString(b.g.calculate_price_default_error);
             }
-            this.bvJ.a(c0240a);
+            this.bAA.a(c0246a);
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            a.C0240a c0240a = new a.C0240a();
-            c0240a.statusCode = 2;
-            c0240a.message = g.Nj().getResources().getString(b.g.calculate_price_default_error);
-            this.bvJ.a(c0240a);
+            a.C0246a c0246a = new a.C0246a();
+            c0246a.statusCode = 2;
+            c0246a.message = g.Os().getResources().getString(b.g.calculate_price_default_error);
+            this.bAA.a(c0246a);
         }
     }
 
-    private static void Nd() {
-        if (bvK == 1) {
-            bvL = "https://etrade.baidu.com/trade/order/calcMoney";
+    private static void Om() {
+        if (bAB == 1) {
+            bAC = "https://etrade.baidu.com/trade/order/calcMoney";
         } else {
-            bvL = "http://sandbox.y.nuomi.com/c/order/calcMoney";
+            bAC = "http://sandbox.y.nuomi.com/c/order/calcMoney";
         }
     }
 
     public static void a(String str, String str2, String str3, List<String> list, com.baidu.poly.a.j.a aVar) {
-        Nd();
+        Om();
         c cVar = new c();
         if (!TextUtils.isEmpty(str)) {
             cVar.g(SM.COOKIE, "BDUSS=" + str);
@@ -87,6 +87,6 @@ public class b {
             }
             bVar.g("hostMarketingDetail", jSONArray.toString());
         }
-        new f().a(bvL, cVar, bVar, new a(aVar));
+        new f().a(bAC, cVar, bVar, new a(aVar));
     }
 }

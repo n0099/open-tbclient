@@ -1,42 +1,35 @@
 package com.baidu.tbadk.widget.richText;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.gif.GifView;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.text.style.ReplacementSpan;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
-public interface h {
-    void al(Context context, String str);
+public class h extends ReplacementSpan {
+    private int eOx;
+    private int mPaddingRight;
 
-    void am(Context context, String str);
+    @Override // android.text.style.ReplacementSpan
+    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
+        this.eOx = (int) ((paint.getFontMetricsInt().descent - paint.getFontMetricsInt().ascent) * 0.8d);
+        return this.eOx + this.mPaddingRight;
+    }
 
-    void an(Context context, String str);
+    @Override // android.text.style.ReplacementSpan
+    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+        Drawable drawable = an.getDrawable(R.drawable.pic_post_link16);
+        drawable.setBounds(0, 0, this.eOx, this.eOx);
+        canvas.save();
+        canvas.translate(f, (((paint.getFontMetricsInt().descent - paint.getFontMetricsInt().ascent) / 2) - ((drawable.getBounds().top + drawable.getBounds().bottom) / 2)) + i3);
+        drawable.draw(canvas);
+        canvas.restore();
+    }
 
-    void ao(Context context, String str);
-
-    void ap(Context context, String str);
-
-    int biZ();
-
-    com.baidu.adp.lib.d.b<ImageView> bja();
-
-    com.baidu.adp.lib.d.b<TextView> bjb();
-
-    com.baidu.adp.lib.d.b<GifView> bjc();
-
-    com.baidu.adp.lib.d.b<View> bjd();
-
-    com.baidu.adp.lib.d.b<LinearLayout> bje();
-
-    com.baidu.adp.lib.d.b<RelativeLayout> bjf();
-
-    void f(Context context, String str, boolean z);
-
-    ListView getListView();
-
-    void s(Context context, String str, String str2);
+    public void setPaddingRight(int i) {
+        this.mPaddingRight = i;
+    }
 }

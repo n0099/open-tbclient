@@ -15,8 +15,8 @@ import tbclient.BawuTeam;
 import tbclient.GetBawuInfo.ManagerApplyInfo;
 /* loaded from: classes10.dex */
 public class e {
-    private a hjc = null;
-    private com.baidu.adp.framework.listener.a hjd = new com.baidu.adp.framework.listener.a(1001705, CmdConfigSocket.CMD_BAWU_TEAM_INFO) { // from class: com.baidu.tieba.forumMember.bawu.e.1
+    private a hvl = null;
+    private com.baidu.adp.framework.listener.a hvm = new com.baidu.adp.framework.listener.a(1001705, CmdConfigSocket.CMD_BAWU_TEAM_INFO) { // from class: com.baidu.tieba.forumMember.bawu.e.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -34,19 +34,19 @@ public class e {
                     }
                     p pVar = new p();
                     if (e.this.mManagerApplyInfo != null) {
-                        pVar.ty(e.this.mManagerApplyInfo.manager_left_num.intValue());
-                        pVar.Ev(e.this.mManagerApplyInfo.manager_apply_url);
-                        pVar.tA(e.this.mManagerApplyInfo.assist_left_num.intValue());
-                        pVar.Ew(e.this.mManagerApplyInfo.assist_apply_url);
+                        pVar.tZ(e.this.mManagerApplyInfo.manager_left_num.intValue());
+                        pVar.EW(e.this.mManagerApplyInfo.manager_apply_url);
+                        pVar.ub(e.this.mManagerApplyInfo.assist_left_num.intValue());
+                        pVar.EX(e.this.mManagerApplyInfo.assist_apply_url);
                     }
-                    if (e.this.hjc != null) {
-                        e.this.hjc.a(e.this.a(e.this.mBawuTeamInfo), pVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (e.this.hvl != null) {
+                        e.this.hvl.a(e.this.a(e.this.mBawuTeamInfo), pVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         }
     };
-    private CustomMessageListener hje = new CustomMessageListener(CmdConfigCustom.CMD_BAWU_TEAM_INFO_CACHE) { // from class: com.baidu.tieba.forumMember.bawu.e.2
+    private CustomMessageListener hvn = new CustomMessageListener(CmdConfigCustom.CMD_BAWU_TEAM_INFO_CACHE) { // from class: com.baidu.tieba.forumMember.bawu.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -57,13 +57,13 @@ public class e {
                 e.this.mManagerApplyInfo = bawuTeamReadCacheResponseMessage.getManagerApplyInfo();
                 p pVar = new p();
                 if (e.this.mManagerApplyInfo != null) {
-                    pVar.ty(e.this.mManagerApplyInfo.manager_left_num.intValue());
-                    pVar.Ev(e.this.mManagerApplyInfo.manager_apply_url);
-                    pVar.tA(e.this.mManagerApplyInfo.assist_left_num.intValue());
-                    pVar.Ew(e.this.mManagerApplyInfo.assist_apply_url);
+                    pVar.tZ(e.this.mManagerApplyInfo.manager_left_num.intValue());
+                    pVar.EW(e.this.mManagerApplyInfo.manager_apply_url);
+                    pVar.ub(e.this.mManagerApplyInfo.assist_left_num.intValue());
+                    pVar.EX(e.this.mManagerApplyInfo.assist_apply_url);
                 }
-                if (e.this.hjc != null) {
-                    e.this.hjc.a(e.this.a(e.this.mBawuTeamInfo), pVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
+                if (e.this.hvl != null) {
+                    e.this.hvl.a(e.this.a(e.this.mBawuTeamInfo), pVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
                 }
             }
         }
@@ -78,29 +78,29 @@ public class e {
     }
 
     public e() {
-        MessageManager.getInstance().registerListener(this.hje);
-        MessageManager.getInstance().registerListener(this.hjd);
+        MessageManager.getInstance().registerListener(this.hvn);
+        MessageManager.getInstance().registerListener(this.hvm);
     }
 
-    public void ed(long j) {
+    public void eg(long j) {
         BawuTeamInfoReadCacheRequestMessage bawuTeamInfoReadCacheRequestMessage = new BawuTeamInfoReadCacheRequestMessage();
         bawuTeamInfoReadCacheRequestMessage.setCacheKey("" + j);
         MessageManager.getInstance().sendMessage(bawuTeamInfoReadCacheRequestMessage);
     }
 
-    public void ee(long j) {
+    public void eh(long j) {
         BawuTeamRequestMessage bawuTeamRequestMessage = new BawuTeamRequestMessage();
         bawuTeamRequestMessage.setForumId(j);
         MessageManager.getInstance().sendMessage(bawuTeamRequestMessage);
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.hjd);
-        MessageManager.getInstance().unRegisterListener(this.hje);
+        MessageManager.getInstance().unRegisterListener(this.hvm);
+        MessageManager.getInstance().unRegisterListener(this.hvn);
     }
 
     public void a(a aVar) {
-        this.hjc = aVar;
+        this.hvl = aVar;
     }
 
     public ArrayList<i> a(BawuTeam bawuTeam) {
@@ -119,7 +119,7 @@ public class e {
                 int i2 = 0;
                 while (i2 < size2) {
                     b bVar = new b();
-                    bVar.Er(bawuRoleDes.role_name);
+                    bVar.ES(bawuRoleDes.role_name);
                     ArrayList<BawuRoleInfoPub> arrayList2 = new ArrayList<>();
                     arrayList2.add(bawuRoleDes.role_info.get(i2));
                     if (i2 + 1 < size2) {
@@ -128,13 +128,13 @@ public class e {
                     i2 += 2;
                     if (i2 >= size2) {
                         if (this.mIsPrivateForum) {
-                            bVar.mB(false);
+                            bVar.mM(false);
                         } else {
-                            bVar.mB(true);
+                            bVar.mM(true);
                         }
-                        bVar.mA(true);
+                        bVar.mL(true);
                     } else {
-                        bVar.mA(false);
+                        bVar.mL(false);
                     }
                     bVar.al(arrayList2);
                     arrayList.add(bVar);

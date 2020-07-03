@@ -4,20 +4,20 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import com.baidu.ala.widget.multicolumn.absView.AbsFragment;
 import com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class AlaPrivilegeFragmentAdapter extends AbsTabPagerAdapter {
-    private LinkedList<AbsFragment> gpm;
+    private LinkedList<AbsFragment> gCb;
 
     public AlaPrivilegeFragmentAdapter(FragmentManager fragmentManager, LinkedList<AbsFragment> linkedList) {
         super(fragmentManager);
-        this.gpm = new LinkedList<>();
-        if (!v.isEmpty(linkedList)) {
-            if (!v.isEmpty(this.gpm)) {
-                this.gpm.clear();
+        this.gCb = new LinkedList<>();
+        if (!w.isEmpty(linkedList)) {
+            if (!w.isEmpty(this.gCb)) {
+                this.gCb.clear();
             }
-            this.gpm.addAll(linkedList);
+            this.gCb.addAll(linkedList);
         }
     }
 
@@ -28,16 +28,16 @@ public class AlaPrivilegeFragmentAdapter extends AbsTabPagerAdapter {
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
     public String getTabTitle(int i) {
-        return (i < 0 || i >= this.gpm.size()) ? "" : this.gpm.get(i).getTabTitle();
+        return (i < 0 || i >= this.gCb.size()) ? "" : this.gCb.get(i).getTabTitle();
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return (AbsFragment) v.getItem(this.gpm, i);
+        return (AbsFragment) w.getItem(this.gCb, i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return v.getCount(this.gpm);
+        return w.getCount(this.gCb);
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.entelechy;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.o;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.frs.f.g;
-import com.baidu.tieba.frs.n;
+import com.baidu.tieba.frs.p;
 import com.baidu.tieba.frs.vc.h;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.tbadkCore.FrsViewData;
@@ -13,18 +13,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes9.dex */
 public class c implements com.baidu.tieba.frs.entelechy.b.b {
-    private float ega = 0.16875f;
+    private float eoL = 0.16875f;
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(h hVar, FrsViewData frsViewData) {
         if (hVar != null && frsViewData != null) {
-            ArrayList<o> threadList = frsViewData.getThreadList();
-            if (!v.isEmpty(threadList)) {
+            ArrayList<q> threadList = frsViewData.getThreadList();
+            if (!w.isEmpty(threadList)) {
                 ArrayList arrayList = new ArrayList();
-                Iterator<o> it = threadList.iterator();
+                Iterator<q> it = threadList.iterator();
                 while (it.hasNext()) {
-                    o next = it.next();
-                    if (next.getType() == bk.dED) {
+                    q next = it.next();
+                    if (next.getType() == bu.dLl) {
                         arrayList.add(next);
                     }
                 }
@@ -34,16 +34,16 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public boolean ut(int i) {
+    public boolean uY(int i) {
         return false;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public void a(h hVar, n nVar, FrsViewData frsViewData) {
-        if (hVar != null && nVar != null && frsViewData != null) {
-            hVar.cbY();
+    public void a(h hVar, p pVar, FrsViewData frsViewData) {
+        if (hVar != null && pVar != null && frsViewData != null) {
+            hVar.cfq();
             if (frsViewData != null && frsViewData.getForum() != null) {
-                nVar.a(frsViewData.getForum().getFrsBannerData());
+                pVar.a(frsViewData.getForum().getFrsBannerData());
             }
         }
     }
@@ -54,7 +54,7 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public void bX(View view) {
+    public void bY(View view) {
         view.setVisibility(8);
     }
 }

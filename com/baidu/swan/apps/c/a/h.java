@@ -5,8 +5,8 @@ import org.json.JSONObject;
 @kotlin.h
 /* loaded from: classes11.dex */
 public final class h {
-    private static String bIS;
-    public static final h bIT = new h();
+    private static String bNG;
+    public static final h bNH = new h();
 
     private h() {
     }
@@ -14,16 +14,16 @@ public final class h {
     public final void d(int i, JSONObject jSONObject) {
         q.m(jSONObject, "jsonObject");
         if (i == 0) {
-            ac(jSONObject);
+            aj(jSONObject);
         }
     }
 
-    private final void ac(JSONObject jSONObject) {
-        com.baidu.swan.apps.storage.c.h.arO().putString("alliance_login_uk", jSONObject.optString("uk"));
+    private final void aj(JSONObject jSONObject) {
+        com.baidu.swan.apps.storage.c.h.asV().putString("alliance_login_uk", jSONObject.optString("uk"));
     }
 
-    public final void TM() {
-        com.baidu.swan.apps.storage.c.h.arO().putString("alliance_login_uk", "");
-        bIS = null;
+    public final void US() {
+        com.baidu.swan.apps.storage.c.h.asV().putString("alliance_login_uk", "");
+        bNG = null;
     }
 }

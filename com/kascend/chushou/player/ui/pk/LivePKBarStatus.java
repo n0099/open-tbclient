@@ -22,9 +22,9 @@ public class LivePKBarStatus extends FrameLayout implements View.OnClickListener
     private TextView h;
     private TextView i;
     private TextView j;
-    private io.reactivex.disposables.b mWk;
-    private a mXv;
-    private LivePKBar.b mXw;
+    private io.reactivex.disposables.b nsb;
+    private a ntl;
+    private LivePKBar.b ntm;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -78,7 +78,7 @@ public class LivePKBarStatus extends FrameLayout implements View.OnClickListener
         this.f.setVisibility(8);
         this.h.setVisibility(8);
         this.i.setVisibility(0);
-        this.d = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dKM()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKBarStatus.1
+        this.d = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dPs()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKBarStatus.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.g
             /* renamed from: a */
@@ -88,8 +88,8 @@ public class LivePKBarStatus extends FrameLayout implements View.OnClickListener
                 if (longValue <= 0) {
                     LivePKBarStatus.this.g();
                 }
-                if (LivePKBarStatus.this.mXw != null) {
-                    LivePKBarStatus.this.mXw.b(longValue);
+                if (LivePKBarStatus.this.ntm != null) {
+                    LivePKBarStatus.this.ntm.b(longValue);
                 }
             }
         });
@@ -118,7 +118,7 @@ public class LivePKBarStatus extends FrameLayout implements View.OnClickListener
         setVisibility(0);
         e();
         this.b = j;
-        this.mWk = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dKM()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKBarStatus.2
+        this.nsb = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dPs()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKBarStatus.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.g
             /* renamed from: a */
@@ -166,8 +166,8 @@ public class LivePKBarStatus extends FrameLayout implements View.OnClickListener
         if (j <= 0) {
             f();
         }
-        if (this.mXw != null) {
-            this.mXw.a(j);
+        if (this.ntm != null) {
+            this.ntm.a(j);
         }
     }
 
@@ -186,9 +186,9 @@ public class LivePKBarStatus extends FrameLayout implements View.OnClickListener
     }
 
     private void f() {
-        if (this.mWk != null) {
-            this.mWk.dispose();
-            this.mWk = null;
+        if (this.nsb != null) {
+            this.nsb.dispose();
+            this.nsb = null;
             this.b = 0L;
         }
     }
@@ -204,16 +204,16 @@ public class LivePKBarStatus extends FrameLayout implements View.OnClickListener
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.j && this.mXv != null) {
-            this.mXv.a();
+        if (view == this.j && this.ntl != null) {
+            this.ntl.a();
         }
     }
 
     public void setClickListener(a aVar) {
-        this.mXv = aVar;
+        this.ntl = aVar;
     }
 
     public void setCounterListener(LivePKBar.b bVar) {
-        this.mXw = bVar;
+        this.ntm = bVar;
     }
 }

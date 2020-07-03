@@ -15,7 +15,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 /* loaded from: classes.dex */
 public final class e {
-    private static WeakReference<byte[]> Tc;
+    private static WeakReference<byte[]> TF;
     private static Object mSync = new Object();
 
     public static Signature[] a(String str, Util.a aVar) throws CertificateEncodingException, IOException {
@@ -29,9 +29,9 @@ public final class e {
             return null;
         }
         synchronized (mSync) {
-            WeakReference<byte[]> weakReference2 = Tc;
+            WeakReference<byte[]> weakReference2 = TF;
             if (weakReference2 != null) {
-                Tc = null;
+                TF = null;
                 bArr = weakReference2.get();
             } else {
                 bArr = null;
@@ -110,7 +110,7 @@ public final class e {
             aVar.step = 8;
             jarFile.close();
             synchronized (mSync) {
-                Tc = weakReference;
+                TF = weakReference;
             }
             aVar.step = 9;
             if (certificateArr2 != null && certificateArr2.length > 0) {

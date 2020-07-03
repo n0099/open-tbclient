@@ -1,45 +1,45 @@
 package com.baidu.ar.f;
 /* loaded from: classes3.dex */
 public class f<T> {
-    private volatile T wk;
-    private volatile int wl = 0;
-    private String wm;
+    private volatile T wK;
+    private volatile int wL = 0;
+    private String wM;
 
     public f(String str) {
-        this.wm = str;
+        this.wM = str;
     }
 
-    public T eW() {
-        if (this.wk != null) {
-            return this.wk;
+    public T fm() {
+        if (this.wK != null) {
+            return this.wK;
         }
         if (isAvailable()) {
             synchronized (this) {
-                if (this.wk == null) {
-                    this.wk = (T) l.aN(this.wm);
+                if (this.wK == null) {
+                    this.wK = (T) l.aO(this.wM);
                 }
             }
         }
-        return this.wk;
+        return this.wK;
     }
 
-    public T eX() {
-        return this.wk;
+    public T fn() {
+        return this.wK;
     }
 
     public boolean isAvailable() {
         boolean z = false;
-        if (this.wl == 1) {
+        if (this.wL == 1) {
             return true;
         }
-        if (this.wl != -1) {
+        if (this.wL != -1) {
             try {
-                Class.forName(this.wm);
+                Class.forName(this.wM);
                 z = true;
             } catch (ClassNotFoundException e) {
             }
             synchronized (this) {
-                this.wl = z ? 1 : -1;
+                this.wL = z ? 1 : -1;
             }
             return z;
         }
@@ -47,8 +47,8 @@ public class f<T> {
     }
 
     public void release() {
-        if (this.wk != null) {
-            this.wk = null;
+        if (this.wK != null) {
+            this.wK = null;
         }
     }
 }

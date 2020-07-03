@@ -62,7 +62,7 @@ public class a extends com.baidu.mobads.openad.c.c {
 
     public void a(c cVar, double d) {
         try {
-            k.execute(new RunnableC0209a(cVar, d));
+            k.execute(new RunnableC0215a(cVar, d));
         } catch (Exception e) {
         }
     }
@@ -70,11 +70,11 @@ public class a extends com.baidu.mobads.openad.c.c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mobads.openad.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class RunnableC0209a implements Runnable {
+    public class RunnableC0215a implements Runnable {
         private c b;
         private double c;
 
-        public RunnableC0209a(c cVar, double d) {
+        public RunnableC0215a(c cVar, double d) {
             this.b = cVar;
             this.c = d;
         }

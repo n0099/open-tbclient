@@ -18,10 +18,10 @@ public class ak extends ai.b {
     void b() {
         Object obj;
         SparseArray sparseArray;
-        obj = this.a.f95a;
+        obj = this.a.f101a;
         synchronized (obj) {
-            sparseArray = this.a.f94a;
-            sparseArray.remove(this.a.mo163a());
+            sparseArray = this.a.f100a;
+            sparseArray.remove(this.a.mo160a());
         }
     }
 }

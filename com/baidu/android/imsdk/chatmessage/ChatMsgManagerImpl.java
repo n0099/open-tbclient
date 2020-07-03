@@ -68,7 +68,6 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.imsdk.IMService;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
-import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -780,7 +779,7 @@ public class ChatMsgManagerImpl {
             return;
         }
         final ArrayList arrayList3 = new ArrayList(hashSet);
-        List<Long> notExpiredChatUserByBduids = ChatUserDBManager.getInstance(mContext).getNotExpiredChatUserByBduids(arrayList3, System.currentTimeMillis() - KeepJobService.JOB_CHECK_PERIODIC);
+        List<Long> notExpiredChatUserByBduids = ChatUserDBManager.getInstance(mContext).getNotExpiredChatUserByBduids(arrayList3, System.currentTimeMillis() - 600000);
         ArrayList arrayList4 = new ArrayList(arrayList3);
         arrayList4.removeAll(notExpiredChatUserByBduids);
         ChatUserManagerImpl.getInstance(mContext).updateUserIdentity(arrayList4, new IGetUserIdentityListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.8

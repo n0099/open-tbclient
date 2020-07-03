@@ -15,6 +15,7 @@ public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
     public static final String SHARE_ALA_SDK_CONTENT_KEY = "content";
     public static final String SHARE_ALA_SDK_IMAGEURI_KEY = "imageuri";
     public static final String SHARE_ALA_SDK_LINKURL_KEY = "linkurl";
+    public static final String SHARE_ALA_SDK_LIVE_EXT_INFO = "liveextInfo";
     public static final String SHARE_ALA_SDK_LIVE_ID = "liveid";
     public static final String SHARE_ALA_SDK_TITLE_KEY = "title";
 
@@ -27,5 +28,6 @@ public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
         getIntent().putExtra("channel", i);
         getIntent().putExtra("action", i2);
         getIntent().putExtra(SHARE_ALA_SDK_LIVE_ID, shareItem.extData);
+        getIntent().putExtra(SHARE_ALA_SDK_LIVE_EXT_INFO, shareItem.extLiveInfo);
     }
 }

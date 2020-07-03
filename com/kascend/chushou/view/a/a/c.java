@@ -13,18 +13,18 @@ public class c extends RecyclerView.ItemDecoration {
     private int d;
     private int e;
     private Paint f;
-    private GridLayoutManager mYS;
-    private GridLayoutManager.SpanSizeLookup mYT;
+    private GridLayoutManager nuJ;
+    private GridLayoutManager.SpanSizeLookup nuK;
 
     public c(GridLayoutManager gridLayoutManager, int i) {
         this(gridLayoutManager, i, -1);
     }
 
     public c(GridLayoutManager gridLayoutManager, int i, @ColorInt int i2) {
-        this.mYS = gridLayoutManager;
-        this.mYT = this.mYS.getSpanSizeLookup();
-        this.mYT.setSpanIndexCacheEnabled(true);
-        this.c = this.mYS.getSpanCount();
+        this.nuJ = gridLayoutManager;
+        this.nuK = this.nuJ.getSpanSizeLookup();
+        this.nuK.setSpanIndexCacheEnabled(true);
+        this.c = this.nuJ.getSpanCount();
         this.d = i;
         this.e = this.d / 2;
         this.f = new Paint();
@@ -34,10 +34,10 @@ public class c extends RecyclerView.ItemDecoration {
     @Override // android.support.v7.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
         int childAdapterPosition = recyclerView.getChildAdapterPosition(view);
-        int spanSize = this.mYT.getSpanSize(childAdapterPosition);
+        int spanSize = this.nuK.getSpanSize(childAdapterPosition);
         if (spanSize != this.c) {
             int i = this.d;
-            int spanIndex = this.mYT.getSpanIndex(childAdapterPosition, this.c);
+            int spanIndex = this.nuK.getSpanIndex(childAdapterPosition, this.c);
             int i2 = (this.c - spanIndex) - spanSize;
             int i3 = this.c / spanSize;
             int i4 = (int) (((i3 - 1) * (i * 1.0f)) / i3);
@@ -66,9 +66,9 @@ public class c extends RecyclerView.ItemDecoration {
             if (childAt != null) {
                 int i3 = this.d;
                 int childAdapterPosition = recyclerView.getChildAdapterPosition(childAt);
-                int spanSize = this.mYT.getSpanSize(childAdapterPosition);
+                int spanSize = this.nuK.getSpanSize(childAdapterPosition);
                 if (spanSize != this.c) {
-                    int spanIndex = this.mYT.getSpanIndex(childAdapterPosition, this.c);
+                    int spanIndex = this.nuK.getSpanIndex(childAdapterPosition, this.c);
                     int i4 = (this.c - spanIndex) - spanSize;
                     int i5 = this.c / spanSize;
                     int i6 = (int) (((i5 - 1) * (i3 * 1.0f)) / i5);

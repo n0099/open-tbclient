@@ -16,9 +16,9 @@ public class g extends EventTargetImpl implements a, b {
     public boolean autoplay;
     @V8JavascriptField
     public int buffered;
-    private AudioPlayer cTT;
-    private com.baidu.swan.games.f.b cTU;
-    String cjA;
+    private AudioPlayer cYD;
+    private com.baidu.swan.games.f.b cYE;
+    String cop;
     @V8JavascriptField
     public double currentTime;
     @V8JavascriptField
@@ -42,35 +42,35 @@ public class g extends EventTargetImpl implements a, b {
         this.volume = 1.0f;
         this.obeyMuteSwitch = true;
         this.paused = true;
-        this.cTU = bVar;
-        axC();
+        this.cYE = bVar;
+        ayI();
     }
 
     private void init() {
-        if (this.cTT != null) {
-            e eVar = new e(this, f.axy());
+        if (this.cYD != null) {
+            e eVar = new e(this, f.ayE());
             eVar.a(this);
-            this.cTT.a(eVar);
+            this.cYD.a(eVar);
         }
     }
 
-    private void axC() {
-        String valueOf = String.valueOf(c.axn());
-        this.cjA = valueOf;
-        this.cTT = ra(valueOf);
+    private void ayI() {
+        String valueOf = String.valueOf(c.ayt());
+        this.cop = valueOf;
+        this.cYD = ri(valueOf);
         init();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fH(final boolean z) {
-        if (this.cTT != null) {
-            com.baidu.swan.games.audio.b.b.axF().axH().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.1
+    public void fM(final boolean z) {
+        if (this.cYD != null) {
+            com.baidu.swan.games.audio.b.b.ayL().ayN().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (!z || g.this.cTT.axv()) {
-                        g.this.cTT.a(f.a(g.this));
+                    if (!z || g.this.cYD.ayB()) {
+                        g.this.cYD.a(f.a(g.this));
                         if (g.this.autoplay) {
-                            g.this.cTT.play();
+                            g.this.cYD.play();
                         }
                     }
                 }
@@ -81,11 +81,11 @@ public class g extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void play() {
-        if (this.cTT != null) {
-            com.baidu.swan.games.audio.b.b.axF().axH().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.2
+        if (this.cYD != null) {
+            com.baidu.swan.games.audio.b.b.ayL().ayN().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.this.cTT.play();
+                    g.this.cYD.play();
                 }
             });
         }
@@ -94,11 +94,11 @@ public class g extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void pause() {
-        if (this.cTT != null) {
-            com.baidu.swan.games.audio.b.b.axF().axH().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.3
+        if (this.cYD != null) {
+            com.baidu.swan.games.audio.b.b.ayL().ayN().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.this.cTT.pause();
+                    g.this.cYD.pause();
                 }
             });
         }
@@ -107,11 +107,11 @@ public class g extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void seek(final float f) {
-        if (this.cTT != null) {
-            com.baidu.swan.games.audio.b.b.axF().axH().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.4
+        if (this.cYD != null) {
+            com.baidu.swan.games.audio.b.b.ayL().ayN().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.this.cTT.I(f);
+                    g.this.cYD.K(f);
                 }
             });
         }
@@ -120,11 +120,11 @@ public class g extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void stop() {
-        if (this.cTT != null) {
-            com.baidu.swan.games.audio.b.b.axF().axH().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.5
+        if (this.cYD != null) {
+            com.baidu.swan.games.audio.b.b.ayL().ayN().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.this.cTT.stop();
+                    g.this.cYD.stop();
                 }
             });
         }
@@ -133,11 +133,11 @@ public class g extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void destroy() {
-        if (this.cTT != null) {
-            com.baidu.swan.games.audio.b.b.axF().axH().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.6
+        if (this.cYD != null) {
+            com.baidu.swan.games.audio.b.b.ayL().ayN().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.this.cTT.release();
+                    g.this.cYD.release();
                 }
             });
         }
@@ -145,51 +145,51 @@ public class g extends EventTargetImpl implements a, b {
 
     @JavascriptInterface
     public void setDataBuffer(JsArrayBuffer jsArrayBuffer) {
-        com.baidu.swan.games.audio.b.b.axF().a(jsArrayBuffer, new a.InterfaceC0421a() { // from class: com.baidu.swan.games.audio.g.7
-            @Override // com.baidu.swan.games.audio.b.a.InterfaceC0421a
-            public void hg(final String str) {
-                g.this.cTU.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.audio.g.7.1
+        com.baidu.swan.games.audio.b.b.ayL().a(jsArrayBuffer, new a.InterfaceC0427a() { // from class: com.baidu.swan.games.audio.g.7
+            @Override // com.baidu.swan.games.audio.b.a.InterfaceC0427a
+            public void ho(final String str) {
+                g.this.cYE.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.audio.g.7.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        g.this.src = com.baidu.swan.apps.w.f.ahV().ahB().pb(str);
+                        g.this.src = com.baidu.swan.apps.w.f.ajb().aiH().pj(str);
                         if (com.baidu.swan.apps.b.DEBUG) {
                             Log.d("Aigame AudioContext", "prepare path: " + g.this.src + " autoPlay: " + g.this.autoplay + " class: " + toString());
                         }
-                        g.this.fH(true);
+                        g.this.fM(true);
                     }
                 });
             }
 
-            @Override // com.baidu.swan.games.audio.b.a.InterfaceC0421a
-            public void axD() {
+            @Override // com.baidu.swan.games.audio.b.a.InterfaceC0427a
+            public void ayJ() {
             }
         });
     }
 
     @Override // com.baidu.swan.games.audio.a
     public int getDuration() {
-        if (this.cTT != null) {
-            return (int) this.cTT.getDuration();
+        if (this.cYD != null) {
+            return (int) this.cYD.getDuration();
         }
         return 0;
     }
 
     @Override // com.baidu.swan.games.audio.a
     public int getCurrentTime() {
-        if (this.cTT != null) {
-            return this.cTT.getCurrentPosition();
+        if (this.cYD != null) {
+            return this.cYD.getCurrentPosition();
         }
         return 0;
     }
 
-    public int axq() {
-        if (this.cTT != null) {
-            return this.cTT.axq();
+    public int ayw() {
+        if (this.cYD != null) {
+            return this.cYD.ayw();
         }
         return 0;
     }
 
-    private static AudioPlayer ra(String str) {
+    private static AudioPlayer ri(String str) {
         return new AudioPlayer(str);
     }
 
@@ -237,15 +237,15 @@ public class g extends EventTargetImpl implements a, b {
                 c(f.a(this));
                 return;
             case 2:
-                if (f.J(this.volume)) {
+                if (f.L(this.volume)) {
                     c(f.a(this));
                     return;
                 } else {
-                    this.volume = this.cTT.getVolume();
+                    this.volume = this.cYD.getVolume();
                     return;
                 }
             case 3:
-                fH(false);
+                fM(false);
                 return;
             case 4:
                 if (this.autoplay) {
@@ -259,7 +259,7 @@ public class g extends EventTargetImpl implements a, b {
     }
 
     private void c(d dVar) {
-        this.cTT.b(dVar);
+        this.cYD.b(dVar);
     }
 
     @Override // com.baidu.swan.games.audio.b
@@ -317,7 +317,7 @@ public class g extends EventTargetImpl implements a, b {
         }
         switch (c) {
             case 0:
-                this.buffered = axq();
+                this.buffered = ayw();
                 return;
             case 1:
                 if (jSONObject != null) {

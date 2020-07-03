@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.coreExtra.NoNetworkMoreActivity;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
@@ -190,7 +190,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
             ((TbPageContext) eVar).getLayoutMode().setNightMode(i == 1);
             ((TbPageContext) eVar).getLayoutMode().onModeChanged(this);
         }
-        am.setBackgroundResource(this, R.drawable.nonetworkview_bg_selector, i);
+        an.setBackgroundResource(this, R.drawable.nonetworkview_bg_selector, i);
     }
 
     public static void updateUI() {

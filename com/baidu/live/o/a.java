@@ -1,5 +1,14 @@
 package com.baidu.live.o;
+
+import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes3.dex */
-public interface a {
-    void bV(boolean z);
+public class a extends HttpMessage {
+    private int mType;
+
+    public a(int i) {
+        super(1021031);
+        this.mType = 1;
+        this.mType = i;
+        addParam("block_type", i);
+    }
 }

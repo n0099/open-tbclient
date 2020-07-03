@@ -28,7 +28,7 @@ public class a extends aa {
             c.e("chooseInvoiceTitle", "empty swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
-        } else if (eVar.TU()) {
+        } else if (eVar.Va()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -50,7 +50,7 @@ public class a extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                eVar.aoR().a(context, "mapp_choose_invoice", com.baidu.swan.apps.setting.oauth.c.bi(optParamsAsJo), new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.s.a.1
+                eVar.apY().a(context, "mapp_choose_invoice", com.baidu.swan.apps.setting.oauth.c.bp(optParamsAsJo), new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.s.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.aq.e.b
                     /* renamed from: a */
@@ -71,15 +71,15 @@ public class a extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, final CallbackHandler callbackHandler, final UnitedSchemeEntity unitedSchemeEntity, e eVar, final String str) {
-        com.baidu.swan.apps.u.a.aeY().a(context, eVar.id, eVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.s.a.2
+        com.baidu.swan.apps.u.a.age().a(context, eVar.id, eVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.s.a.2
             @Override // com.baidu.swan.apps.s.b
-            public void ab(JSONObject jSONObject) {
+            public void ai(JSONObject jSONObject) {
                 c.i("chooseInvoiceTitle", "choose success");
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), str);
             }
 
             @Override // com.baidu.swan.apps.s.b
-            public void ek(int i) {
+            public void ev(int i) {
                 String jSONObject;
                 if (i == 1) {
                     c.i("chooseInvoiceTitle", "choose invoice cancel");

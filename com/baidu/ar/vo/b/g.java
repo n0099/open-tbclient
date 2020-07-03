@@ -4,25 +4,25 @@ import com.baidu.ar.slam.TrackModel;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class g {
+    private boolean mR;
     private long mTimestamp;
-    private boolean mu;
-    private boolean oh;
-    private ArrayList<TrackModel> xj;
+    private boolean oG;
+    private ArrayList<TrackModel> xJ;
 
     public g(long j) {
         this.mTimestamp = j;
     }
 
     public void G(boolean z) {
-        this.oh = z;
+        this.oG = z;
     }
 
     public void b(ArrayList<TrackModel> arrayList) {
-        this.xj = arrayList;
+        this.xJ = arrayList;
     }
 
-    public ArrayList<TrackModel> fF() {
-        return this.xj;
+    public ArrayList<TrackModel> fV() {
+        return this.xJ;
     }
 
     public long getTimestamp() {
@@ -30,6 +30,6 @@ public class g {
     }
 
     public void setTracked(boolean z) {
-        this.mu = z;
+        this.mR = z;
     }
 }

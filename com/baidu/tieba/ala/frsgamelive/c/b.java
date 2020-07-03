@@ -2,16 +2,16 @@ package com.baidu.tieba.ala.frsgamelive.c;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.aa;
+import com.baidu.adp.widget.ListView.ad;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.b> {
-    private View fvH;
-    private TextView fvI;
-    private View fvJ;
+    private View fGR;
+    private TextView fGS;
+    private View fGT;
     private int mSkinType;
     private TbPageContext mTbPageContext;
 
@@ -19,18 +19,18 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.fvH = view.findViewById(R.id.frs_game_live_recommand_line1);
-        this.fvI = (TextView) view.findViewById(R.id.frs_game_live_recommand3);
-        this.fvJ = view.findViewById(R.id.frs_game_live_recommand_line2);
+        this.fGR = view.findViewById(R.id.frs_game_live_recommand_line1);
+        this.fGS = (TextView) view.findViewById(R.id.frs_game_live_recommand3);
+        this.fGT = view.findViewById(R.id.frs_game_live_recommand_line2);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundResource(this.fvH, R.color.cp_bg_line_c);
-            am.setViewTextColor(this.fvI, (int) R.color.cp_cont_d);
-            am.setBackgroundResource(this.fvJ, R.color.cp_bg_line_c);
+            an.setBackgroundResource(this.fGR, R.color.cp_bg_line_c);
+            an.setViewTextColor(this.fGS, (int) R.color.cp_cont_d);
+            an.setBackgroundResource(this.fGT, R.color.cp_bg_line_c);
             this.mSkinType = i;
         }
     }
@@ -51,12 +51,12 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     /* loaded from: classes3.dex */
-    public static class a extends aa.a {
-        public b fvK;
+    public static class a extends ad.a {
+        public b fGU;
 
         public a(b bVar) {
             super(bVar.getView());
-            this.fvK = bVar;
+            this.fGU = bVar;
         }
     }
 }

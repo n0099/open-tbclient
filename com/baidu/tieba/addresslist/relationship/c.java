@@ -15,18 +15,18 @@ public class c implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage == null || !(customMessage instanceof GetContactListRequestMessage)) {
             return null;
         }
-        List<com.baidu.tbadk.coreExtra.relationship.a> bnu = f.bnt().bnu();
-        if (bnu != null) {
-            Iterator<com.baidu.tbadk.coreExtra.relationship.a> it = bnu.iterator();
+        List<com.baidu.tbadk.coreExtra.relationship.a> bpU = f.bpT().bpU();
+        if (bpU != null) {
+            Iterator<com.baidu.tbadk.coreExtra.relationship.a> it = bpU.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.coreExtra.relationship.a next = it.next();
-                if ((k.isEmpty(next.getUserName()) && k.isEmpty(next.bba())) || next.getUserType() == 1) {
+                if ((k.isEmpty(next.getUserName()) && k.isEmpty(next.bdc())) || next.getUserType() == 1) {
                     it.remove();
                 }
             }
         }
         GetContactListResponsedMessage getContactListResponsedMessage = new GetContactListResponsedMessage();
-        getContactListResponsedMessage.setContacts(bnu);
+        getContactListResponsedMessage.setContacts(bpU);
         return getContactListResponsedMessage;
     }
 }

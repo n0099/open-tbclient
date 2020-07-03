@@ -7,17 +7,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes8.dex */
 public class h {
-    private static volatile SQLiteDatabase eRo;
+    private static volatile SQLiteDatabase fbz;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static synchronized void bnw() {
+    public static synchronized void bpW() {
         synchronized (h.class) {
-            n.close(eRo);
+            n.close(fbz);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static synchronized SQLiteDatabase bnx() {
+    public static synchronized SQLiteDatabase bpX() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (h.class) {
             try {
@@ -26,11 +26,11 @@ public class h {
             }
             if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                 sQLiteDatabase = null;
-            } else if (eRo != null && eRo.isOpen()) {
-                sQLiteDatabase = eRo;
+            } else if (fbz != null && fbz.isOpen()) {
+                sQLiteDatabase = fbz;
             } else {
-                eRo = new g(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
-                sQLiteDatabase = eRo;
+                fbz = new g(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
+                sQLiteDatabase = fbz;
             }
         }
         return sQLiteDatabase;

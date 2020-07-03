@@ -5,14 +5,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.a;
-import com.baidu.adp.widget.ListView.aa;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.ad;
+import com.baidu.adp.widget.ListView.q;
 import com.huewu.pla.lib.internal.PLA_AdapterView;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BdTypeMultiColumnListView extends BdMultiColumnListView {
-    aa mTypeAdapter;
+    ad mTypeAdapter;
 
     public BdTypeMultiColumnListView(Context context) {
         super(context);
@@ -34,7 +34,7 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
 
     private void init() {
         if (this.mTypeAdapter == null) {
-            this.mTypeAdapter = new aa();
+            this.mTypeAdapter = new ad();
         }
         super.setOnItemClickListener(new PLA_AdapterView.c() { // from class: com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView.1
             @Override // com.huewu.pla.lib.internal.PLA_AdapterView.c
@@ -65,7 +65,7 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
     public void setOnItemLongClickListener(PLA_AdapterView.d dVar) {
     }
 
-    public void addAdapter(a<o, aa.a> aVar) {
+    public void addAdapter(a<q, ad.a> aVar) {
         this.mTypeAdapter.addAdapter(aVar);
         setAdapter((ListAdapter) this.mTypeAdapter);
     }
@@ -78,15 +78,15 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
         setAdapter((ListAdapter) this.mTypeAdapter);
     }
 
-    public void setData(List<? extends o> list) {
+    public void setData(List<? extends q> list) {
         this.mTypeAdapter.setData(list);
     }
 
-    public List<o> getData() {
+    public List<q> getData() {
         return this.mTypeAdapter.getData();
     }
 
-    public o getItem(int i) {
+    public q getItem(int i) {
         return this.mTypeAdapter.getItem(i);
     }
 }

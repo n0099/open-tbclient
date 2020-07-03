@@ -22,46 +22,46 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private e bLN;
-    private String bLO;
-    private Callback cVt;
-    private JSONObject cVu;
-    private String cVv;
+    private e bQB;
+    private String bQC;
+    private Callback dad;
+    private JSONObject dae;
+    private String daf;
     private String mUrl;
     private int retryCount;
 
     public c(e eVar, JSONObject jSONObject, String str, Callback callback) {
-        this.bLN = eVar;
-        this.cVt = callback;
-        this.bLO = str;
-        this.cVu = jSONObject;
-        this.mUrl = this.cVu.optString("url");
-        rl(this.cVu.optString("method"));
+        this.bQB = eVar;
+        this.dad = callback;
+        this.bQC = str;
+        this.dae = jSONObject;
+        this.mUrl = this.dae.optString("url");
+        rt(this.dae.optString("method"));
     }
 
     private void retry() {
         this.retryCount++;
-        request(this.cVv);
+        request(this.daf);
     }
 
     public void request(String str) {
-        this.cVv = str;
+        this.daf = str;
         String str2 = "";
-        if (this.cVu != null) {
-            str2 = this.cVu.optString("data");
+        if (this.dae != null) {
+            str2 = this.dae.optString("data");
         }
-        rk(str2);
+        rs(str2);
     }
 
     @Override // com.baidu.swan.games.bdtls.b.b
-    public void V(byte[] bArr) {
+    public void X(byte[] bArr) {
         JSONObject jSONObject;
         JSONException e;
         HttpRequest httpRequest;
         String str;
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject = new JSONObject(this.cVu.toString());
+            jSONObject = new JSONObject(this.dae.toString());
         } catch (JSONException e2) {
             jSONObject = jSONObject2;
             e = e2;
@@ -70,7 +70,7 @@ public class c extends b {
             Uri parse = Uri.parse(this.mUrl);
             String path = parse.getPath();
             String query = parse.getQuery();
-            StringBuilder sb = new StringBuilder("https://mbd.baidu.com/bdtls/" + this.cVv);
+            StringBuilder sb = new StringBuilder("https://mbd.baidu.com/bdtls/" + this.daf);
             if (TextUtils.isEmpty(path)) {
                 path = "";
             }
@@ -79,7 +79,7 @@ public class c extends b {
                 Log.d("BdtlsRequestApi", "bdtls url is : " + sb.toString());
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER);
-            if (this.cVq) {
+            if (this.daa) {
                 if (TextUtils.equals(getMethod(), "GET")) {
                     str = Base64.encodeToString(bArr, 2);
                 } else {
@@ -96,15 +96,15 @@ public class c extends b {
             if (DEBUG) {
                 Log.e("BdtlsRequestApi", "Bdtls request data is invalid", e);
             }
-            httpRequest = (HttpRequest) com.baidu.swan.apps.api.module.network.b.q(jSONObject, this.bLO).first;
+            httpRequest = (HttpRequest) com.baidu.swan.apps.api.module.network.b.q(jSONObject, this.bQC).first;
             if (httpRequest == null) {
-                this.cVt.onFailure(null, new IOException("request build fail, maybe your mUrl is invalid"));
+                this.dad.onFailure(null, new IOException("request build fail, maybe your mUrl is invalid"));
             }
             a(httpRequest);
         }
-        httpRequest = (HttpRequest) com.baidu.swan.apps.api.module.network.b.q(jSONObject, this.bLO).first;
-        if (httpRequest == null && this.cVt != null) {
-            this.cVt.onFailure(null, new IOException("request build fail, maybe your mUrl is invalid"));
+        httpRequest = (HttpRequest) com.baidu.swan.apps.api.module.network.b.q(jSONObject, this.bQC).first;
+        if (httpRequest == null && this.dad != null) {
+            this.dad.onFailure(null, new IOException("request build fail, maybe your mUrl is invalid"));
         }
         a(httpRequest);
     }
@@ -127,11 +127,11 @@ public class c extends b {
                     if (com.baidu.swan.games.bdtls.a.DEBUG) {
                         Log.d("BDTLS", "Bdtls Request API onFailure = " + exc.getMessage());
                     }
-                    if (c.this.cVt != null) {
+                    if (c.this.dad != null) {
                         if (exc instanceof IOException) {
-                            c.this.cVt.onFailure(null, (IOException) exc);
+                            c.this.dad.onFailure(null, (IOException) exc);
                         } else {
-                            c.this.cVt.onFailure(null, new IOException(exc));
+                            c.this.dad.onFailure(null, new IOException(exc));
                         }
                     }
                 }
@@ -143,56 +143,56 @@ public class c extends b {
     public void a(Call call, Response response) throws IOException {
         Headers headers = response.headers();
         if (headers != null && TextUtils.equals(headers.get("Bdtls"), "recovery")) {
-            com.baidu.swan.games.bdtls.e.axN().axO().in(0);
-            if (com.baidu.swan.games.bdtls.e.axN().axO().ayP()) {
-                com.baidu.swan.games.bdtls.e.axN().axO().ayN();
-                fJ(true);
+            com.baidu.swan.games.bdtls.e.ayT().ayU().iy(0);
+            if (com.baidu.swan.games.bdtls.e.ayT().ayU().azV()) {
+                com.baidu.swan.games.bdtls.e.ayT().ayU().azT();
+                fO(true);
                 retry();
                 return;
             }
-            this.cVt.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
+            this.dad.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
             return;
         }
-        com.baidu.swan.games.bdtls.e.axN().axO().ayQ();
-        if (this.cVq) {
+        com.baidu.swan.games.bdtls.e.ayT().ayU().azW();
+        if (this.daa) {
             ResponseBody body = response.body();
-            String W = W(body.bytes());
+            String Y = Y(body.bytes());
             if (com.baidu.swan.games.bdtls.a.DEBUG) {
-                Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + W);
+                Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + Y);
             }
-            if (this.cVr == 1) {
+            if (this.dab == 1) {
                 Buffer buffer = new Buffer();
-                buffer.writeString(W, Charset.forName("utf-8"));
+                buffer.writeString(Y, Charset.forName("utf-8"));
                 Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
-                if (this.cVt != null) {
-                    this.cVt.onResponse(call, build);
+                if (this.dad != null) {
+                    this.dad.onResponse(call, build);
                 }
                 this.retryCount = 0;
             } else if (this.retryCount < 3) {
                 retry();
             } else {
-                this.cVt.onFailure(call, new IOException("Url or serviceId is invalid"));
+                this.dad.onFailure(call, new IOException("Url or serviceId is invalid"));
                 this.retryCount = 0;
             }
-        } else if (this.cVt != null) {
-            this.cVt.onResponse(call, response);
+        } else if (this.dad != null) {
+            this.dad.onResponse(call, response);
         }
     }
 
     @Override // com.baidu.swan.games.bdtls.b.b
-    public void io(int i) {
+    public void iz(int i) {
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BdtlsRequestApi", "onRequestError=" + i);
         }
-        if (this.cVt != null) {
-            this.cVt.onFailure(null, new IOException("request error  code : " + i));
+        if (this.dad != null) {
+            this.dad.onFailure(null, new IOException("request error  code : " + i));
         }
     }
 
     @Override // com.baidu.swan.games.bdtls.b.b
     public void b(IOException iOException) {
-        if (this.cVt != null) {
-            this.cVt.onFailure(null, iOException);
+        if (this.dad != null) {
+            this.dad.onFailure(null, iOException);
         }
     }
 }

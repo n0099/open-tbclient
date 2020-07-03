@@ -8,18 +8,18 @@ public interface c {
 
     /* loaded from: classes3.dex */
     public interface a {
-        boolean CC();
+        boolean Dd();
 
-        int CH();
+        int Di();
 
-        boolean DA();
+        boolean Ec();
 
-        void JA();
+        void KK();
 
-        void JB();
+        void KL();
     }
 
-    List<String> Dq();
+    List<String> DS();
 
     void a(q qVar, String str);
 
@@ -29,11 +29,11 @@ public interface c {
 
     void c(TbPageContext tbPageContext);
 
-    void cu(int i);
+    void cA(int i);
 
-    void eW(String str);
+    void fc(String str);
 
     void release();
 
-    void yw();
+    void yW();
 }

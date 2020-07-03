@@ -13,11 +13,11 @@ public class gq {
     private static gq a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, Object> f404a = new ConcurrentHashMap();
+    private Map<String, Object> f410a = new ConcurrentHashMap();
     private Map<String, Object> b = new ConcurrentHashMap();
 
     private gq() {
-        m319a();
+        m316a();
     }
 
     public static synchronized gq a() {
@@ -41,7 +41,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private ClassLoader[] m317a() {
+    private ClassLoader[] m314a() {
         ClassLoader[] classLoaderArr = {gq.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (ClassLoader classLoader : classLoaderArr) {
@@ -53,14 +53,14 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Object m318a(String str, String str2) {
-        return this.f404a.get(a(str, str2));
+    public Object m315a(String str, String str2) {
+        return this.f410a.get(a(str, str2));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    protected void m319a() {
+    protected void m316a() {
         try {
-            for (ClassLoader classLoader : m317a()) {
+            for (ClassLoader classLoader : m314a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack.providers");
                 while (resources.hasMoreElements()) {
                     InputStream openStream = resources.nextElement().openStream();
@@ -104,13 +104,13 @@ public class gq {
                                 newPullParser.next();
                                 String nextText6 = newPullParser.nextText();
                                 String a3 = a(nextText4, nextText5);
-                                if (!this.f404a.containsKey(a3)) {
+                                if (!this.f410a.containsKey(a3)) {
                                     try {
                                         Class<?> cls2 = Class.forName(nextText6);
                                         if (gp.class.isAssignableFrom(cls2)) {
-                                            this.f404a.put(a3, cls2.newInstance());
+                                            this.f410a.put(a3, cls2.newInstance());
                                         } else if (gk.class.isAssignableFrom(cls2)) {
-                                            this.f404a.put(a3, cls2);
+                                            this.f410a.put(a3, cls2);
                                         }
                                     } catch (ClassNotFoundException e2) {
                                         e2.printStackTrace();
@@ -135,6 +135,6 @@ public class gq {
         if (!(obj instanceof gp) && !(obj instanceof Class)) {
             throw new IllegalArgumentException("Provider must be a PacketExtensionProvider or a Class instance.");
         }
-        this.f404a.put(a(str, str2), obj);
+        this.f410a.put(a(str, str2), obj);
     }
 }

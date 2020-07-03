@@ -40,14 +40,14 @@ public class hj {
     public static void a(Context context, hl hlVar, List<hq> list) {
         HashMap<String, ArrayList<hq>> a = a(context, list);
         if (a == null || a.size() == 0) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
+            com.xiaomi.channel.commonutils.logger.b.m48a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
         } else {
             a(context, hlVar, a);
         }
     }
 
     private static void a(Context context, hq hqVar) {
-        if (hqVar.f450a) {
+        if (hqVar.f456a) {
             hqVar.a("push_sdk_channel");
         }
         if (TextUtils.isEmpty(hqVar.d())) {

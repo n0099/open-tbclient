@@ -1,68 +1,68 @@
 package com.baidu.tieba.im.frsgroup;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes10.dex */
-public class h implements o {
-    public static final BdUniqueId iBb = BdUniqueId.gen();
-    private Object agg;
-    private NoDataViewFactory.ImgType iBc;
-    private String iBd;
-    private String iBe;
-    private String iBf;
-    private int iBg;
+public class h implements q {
+    public static final BdUniqueId iSg = BdUniqueId.gen();
+    private Object agT;
+    private NoDataViewFactory.ImgType iSh;
+    private String iSi;
+    private String iSj;
+    private String iSk;
+    private int iSl;
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iBb;
+        return iSg;
     }
 
-    public String cmt() {
-        return this.iBd;
+    public String cqi() {
+        return this.iSi;
     }
 
-    public void Gx(String str) {
-        this.iBd = str;
+    public void GZ(String str) {
+        this.iSi = str;
     }
 
-    public String cmu() {
-        return this.iBe;
+    public String cqj() {
+        return this.iSj;
     }
 
-    public void Gy(String str) {
-        this.iBe = str;
+    public void Ha(String str) {
+        this.iSj = str;
     }
 
-    public String cmv() {
-        return this.iBf;
+    public String cqk() {
+        return this.iSk;
     }
 
-    public void Gz(String str) {
-        this.iBf = str;
+    public void Hb(String str) {
+        this.iSk = str;
     }
 
-    public int cmw() {
-        return this.iBg;
+    public int cql() {
+        return this.iSl;
     }
 
-    public void xG(int i) {
-        this.iBg = i;
+    public void yq(int i) {
+        this.iSl = i;
     }
 
-    public Object rS() {
-        return this.agg;
+    public Object sk() {
+        return this.agT;
     }
 
     public void setExtraData(Object obj) {
-        this.agg = obj;
+        this.agT = obj;
     }
 
-    public NoDataViewFactory.ImgType cmx() {
-        return this.iBc;
+    public NoDataViewFactory.ImgType cqm() {
+        return this.iSh;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.iBc = imgType;
+        this.iSh = imgType;
     }
 }

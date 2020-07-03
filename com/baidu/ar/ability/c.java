@@ -1,38 +1,38 @@
 package com.baidu.ar.ability;
 /* loaded from: classes3.dex */
 public class c {
-    private String bx;
+    private String bJ;
+    private boolean bK = false;
+    private boolean bL = false;
+    private boolean bM = false;
     private long mTimestamp;
-    private boolean by = false;
-    private boolean bz = false;
-    private boolean bA = false;
 
-    public String L() {
-        return this.bx;
+    public String Z() {
+        return this.bJ;
     }
 
-    public boolean M() {
-        return this.by;
+    public boolean aa() {
+        return this.bK;
     }
 
-    public boolean N() {
-        return this.bz;
+    public boolean ab() {
+        return this.bL;
     }
 
-    public boolean O() {
-        return this.bA;
+    public boolean ac() {
+        return this.bM;
     }
 
     public void c(boolean z) {
-        this.by = z;
+        this.bK = z;
     }
 
     public void d(boolean z) {
-        this.bz = z;
+        this.bL = z;
     }
 
     public void e(boolean z) {
-        this.bA = z;
+        this.bM = z;
     }
 
     public long getTimestamp() {
@@ -40,7 +40,7 @@ public class c {
     }
 
     public void o(String str) {
-        this.bx = str;
+        this.bJ = str;
     }
 
     public void setTimestamp(long j) {

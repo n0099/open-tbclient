@@ -15,9 +15,9 @@ import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
 /* loaded from: classes13.dex */
 public final class f {
-    private static final Map<String, byte[]> ajv = Collections.synchronizedMap(new HashMap());
-    private MessageDigest ajt;
-    private MessageDigest aju;
+    private static final Map<String, byte[]> akR = Collections.synchronizedMap(new HashMap());
+    private MessageDigest akP;
+    private MessageDigest akQ;
     private final int e;
     private final int f;
     private SecureRandom g;
@@ -61,9 +61,9 @@ public final class f {
                         throw new InvalidKeyException("Digest SHA-1 not available", e);
                     }
                 }
-                this.ajt = MessageDigest.getInstance(str);
-                this.aju = MessageDigest.getInstance(str2);
-                this.k = c(this.ajt, bArr);
+                this.akP = MessageDigest.getInstance(str);
+                this.akQ = MessageDigest.getInstance(str2);
+                this.k = c(this.akP, bArr);
                 this.h = (i2 - 2) - (this.k.length * 2);
                 if (this.h <= 0) {
                     throw new InvalidKeyException("Key is too short for encryption using OAEPPadding with " + str + " and MGF1" + str2);
@@ -88,10 +88,10 @@ public final class f {
         int i5 = i4;
         int i6 = i3;
         while (i5 > 0) {
-            this.aju.update(bArr, i, i2);
-            this.aju.update(bArr3);
+            this.akQ.update(bArr, i, i2);
+            this.akQ.update(bArr3);
             try {
-                this.aju.digest(bArr4, 0, bArr4.length);
+                this.akQ.digest(bArr4, 0, bArr4.length);
                 int i7 = i5;
                 int i8 = i6;
                 for (int i9 = 0; i9 < bArr4.length && i7 > 0; i9++) {
@@ -124,10 +124,10 @@ public final class f {
     private static byte[] c(MessageDigest messageDigest, byte[] bArr) {
         if (bArr == null || bArr.length == 0) {
             String algorithm = messageDigest.getAlgorithm();
-            byte[] bArr2 = ajv.get(algorithm);
+            byte[] bArr2 = akR.get(algorithm);
             if (bArr2 == null) {
                 byte[] digest = messageDigest.digest();
-                ajv.put(algorithm, digest);
+                akR.put(algorithm, digest);
                 return digest;
             }
             return bArr2;
@@ -147,7 +147,7 @@ public final class f {
         bArr2[1] = (byte) this.e;
         if (this.e != 1) {
             if (this.g == null) {
-                this.g = b.ajh;
+                this.g = b.akD;
             }
             byte[] bArr3 = new byte[64];
             int i5 = length;
@@ -188,7 +188,7 @@ public final class f {
         return bArr2;
     }
 
-    private byte[] r(byte[] bArr) {
+    private byte[] t(byte[] bArr) {
         if (bArr[0] != 0) {
             throw new BadPaddingException("Data must start with zero");
         }
@@ -218,9 +218,9 @@ public final class f {
         }
     }
 
-    private byte[] s(byte[] bArr) {
+    private byte[] u(byte[] bArr) {
         if (this.g == null) {
-            this.g = b.ajh;
+            this.g = b.akD;
         }
         int length = this.k.length;
         byte[] bArr2 = new byte[length];
@@ -238,7 +238,7 @@ public final class f {
         return bArr3;
     }
 
-    private byte[] t(byte[] bArr) {
+    private byte[] v(byte[] bArr) {
         int length = this.k.length;
         if (bArr[0] != 0) {
             throw new BadPaddingException("Data must start with zero");
@@ -284,7 +284,7 @@ public final class f {
             case 3:
                 return bArr;
             case 4:
-                return s(bArr);
+                return u(bArr);
             default:
                 throw new AssertionError();
         }
@@ -297,11 +297,11 @@ public final class f {
         switch (this.e) {
             case 1:
             case 2:
-                return r(bArr);
+                return t(bArr);
             case 3:
                 return bArr;
             case 4:
-                return t(bArr);
+                return v(bArr);
             default:
                 throw new AssertionError();
         }

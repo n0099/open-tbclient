@@ -5,5 +5,5 @@ public interface a {
 
     void a(b bVar);
 
-    void s(long j, String str);
+    void r(long j, String str);
 }

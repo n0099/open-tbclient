@@ -7,26 +7,26 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public final class Thread2GroupShareView extends LinearLayout {
-    private EditText hRK;
-    private ShareFromPBMsgData iLU;
-    private TbImageView iqA;
-    private TextView iqB;
+    private TbImageView iHH;
+    private TextView iHI;
+    private EditText ifm;
+    private ShareFromPBMsgData jcW;
     private LinearLayout mRootView;
     private TextView title;
 
     public EditText getChatMsgView() {
-        return this.hRK;
+        return this.ifm;
     }
 
-    public void aF(String str, boolean z) {
-        if (this.iqA != null) {
-            this.iqA.startLoad(str, z ? 17 : 18, false);
+    public void aH(String str, boolean z) {
+        if (this.iHH != null) {
+            this.iHH.startLoad(str, z ? 17 : 18, false);
         }
     }
 
@@ -45,26 +45,26 @@ public final class Thread2GroupShareView extends LinearLayout {
         setOrientation(1);
         this.mRootView = (LinearLayout) findViewById(R.id.share_content);
         this.title = (TextView) findViewById(R.id.share_title_view);
-        this.hRK = (EditText) findViewById(R.id.chat_msg);
-        this.iqA = (TbImageView) findViewById(R.id.chat_group_img);
-        this.iqB = (TextView) findViewById(R.id.chat_group_desc);
-        am.setViewTextColor(this.title, R.color.cp_cont_b, 1);
-        am.setViewTextColor(this.hRK, R.color.cp_cont_b, 2);
-        am.setViewTextColor(this.iqB, R.color.cp_cont_f, 1);
-        this.hRK.setHintTextColor(am.getColor(R.color.cp_cont_e));
-        this.hRK.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-        cdm();
+        this.ifm = (EditText) findViewById(R.id.chat_msg);
+        this.iHH = (TbImageView) findViewById(R.id.chat_group_img);
+        this.iHI = (TextView) findViewById(R.id.chat_group_desc);
+        an.setViewTextColor(this.title, R.color.cp_cont_b, 1);
+        an.setViewTextColor(this.ifm, R.color.cp_cont_b, 2);
+        an.setViewTextColor(this.iHI, R.color.cp_cont_f, 1);
+        this.ifm.setHintTextColor(an.getColor(R.color.cp_cont_e));
+        this.ifm.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        cgJ();
     }
 
-    public void cdm() {
+    public void cgJ() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.hRK != null) {
-            return k.charSequence2String(this.hRK.getText(), null);
+        if (this.ifm != null) {
+            return k.charSequence2String(this.ifm.getText(), null);
         }
         return null;
     }
@@ -77,13 +77,13 @@ public final class Thread2GroupShareView extends LinearLayout {
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.iLU = shareFromPBMsgData;
+        this.jcW = shareFromPBMsgData;
         updateUI();
     }
 
     private void updateUI() {
-        this.title.setText(this.iLU.getTitle());
-        this.iqA.setTag(this.iLU.getImageUrl());
-        this.iqB.setText(this.iLU.getContent());
+        this.title.setText(this.jcW.getTitle());
+        this.iHH.setTag(this.jcW.getImageUrl());
+        this.iHI.setText(this.jcW.getContent());
     }
 }

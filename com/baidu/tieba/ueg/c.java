@@ -2,41 +2,41 @@ package com.baidu.tieba.ueg;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String lAj;
-    private a lAk;
+    private String lTO;
+    private a lTP;
 
     /* loaded from: classes.dex */
     public interface a {
-        void csr();
+        void cwh();
 
-        void css();
+        void cwi();
 
-        void cst();
+        void cwj();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.lAj = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.lAk = aVar;
+        this.lTO = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.lTP = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: N */
+    /* renamed from: M */
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            x xVar = new x(this.lAj);
-            xVar.aUA().aVb().mIsNeedAddCommenParam = false;
-            xVar.aUA().aVb().mIsUseCurrentBDUSS = false;
-            JSONArray optJSONArray = new JSONObject(new String(xVar.getNetData())).optJSONArray("result");
+            y yVar = new y(this.lTO);
+            yVar.aWu().aWV().mIsNeedAddCommenParam = false;
+            yVar.aWu().aWV().mIsUseCurrentBDUSS = false;
+            JSONArray optJSONArray = new JSONObject(new String(yVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
             }
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.lAk != null && num != null) {
+        if (this.lTP != null && num != null) {
             if (num.intValue() == -1) {
-                this.lAk.onError(null);
+                this.lTP.onError(null);
             } else if (num.intValue() == 1) {
-                this.lAk.csr();
+                this.lTP.cwh();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.lAk.css();
+                this.lTP.cwi();
             } else {
-                this.lAk.cst();
+                this.lTP.cwj();
             }
         }
     }

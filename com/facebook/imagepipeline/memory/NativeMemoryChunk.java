@@ -61,26 +61,26 @@ public class NativeMemoryChunk implements Closeable {
     }
 
     public synchronized int d(int i, byte[] bArr, int i2, int i3) {
-        int m39do;
+        int dx;
         com.facebook.common.internal.g.checkNotNull(bArr);
         com.facebook.common.internal.g.checkState(!isClosed());
-        m39do = m39do(i, i3);
-        H(i, bArr.length, i2, m39do);
-        nativeCopyFromByteArray(this.mNativePtr + i, bArr, i2, m39do);
-        return m39do;
+        dx = dx(i, i3);
+        H(i, bArr.length, i2, dx);
+        nativeCopyFromByteArray(this.mNativePtr + i, bArr, i2, dx);
+        return dx;
     }
 
     public synchronized int c(int i, byte[] bArr, int i2, int i3) {
-        int m39do;
+        int dx;
         com.facebook.common.internal.g.checkNotNull(bArr);
         com.facebook.common.internal.g.checkState(!isClosed());
-        m39do = m39do(i, i3);
-        H(i, bArr.length, i2, m39do);
-        nativeCopyToByteArray(this.mNativePtr + i, bArr, i2, m39do);
-        return m39do;
+        dx = dx(i, i3);
+        H(i, bArr.length, i2, dx);
+        nativeCopyToByteArray(this.mNativePtr + i, bArr, i2, dx);
+        return dx;
     }
 
-    public synchronized byte GO(int i) {
+    public synchronized byte HV(int i) {
         byte nativeReadByte;
         synchronized (this) {
             com.facebook.common.internal.g.checkState(!isClosed());
@@ -112,7 +112,7 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
-    public long duL() {
+    public long dzo() {
         return this.mNativePtr;
     }
 
@@ -134,8 +134,7 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
-    /* renamed from: do  reason: not valid java name */
-    private int m39do(int i, int i2) {
+    private int dx(int i, int i2) {
         return Math.min(Math.max(0, this.mSize - i), i2);
     }
 

@@ -15,7 +15,7 @@ public interface a {
 
     void c(Uri uri);
 
-    void cD(int i);
+    void cJ(int i);
 
     void d(Context context, Uri uri);
 

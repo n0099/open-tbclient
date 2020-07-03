@@ -55,18 +55,18 @@ public class a {
         try {
             jSONObject.put("noncestr", uuid);
             jSONObject.put("timestamp", currentTimeMillis);
-            jSONObject.put(SocialOperation.GAME_SIGNATURE, c(uuid, currentTimeMillis, str));
+            jSONObject.put(SocialOperation.GAME_SIGNATURE, d(uuid, currentTimeMillis, str));
         } catch (JSONException e) {
             com.baidu.swan.apps.ae.d.a.print(Log.getStackTraceString(e));
         }
         return jSONObject.toString();
     }
 
-    private static String c(String str, long j, String str2) {
+    private static String d(String str, long j, String str2) {
         String str3 = "";
-        e aoF = e.aoF();
-        if (aoF != null) {
-            str3 = com.baidu.swan.apps.e.a.iv(aoF.getAppKey());
+        e apM = e.apM();
+        if (apM != null) {
+            str3 = com.baidu.swan.apps.e.a.iD(apM.getAppKey());
         }
         String[] strArr = {str3, str, String.valueOf(j), str2};
         Arrays.sort(strArr);

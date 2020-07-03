@@ -17,11 +17,11 @@ public class JpegTranscoder {
         a.load();
     }
 
-    public static boolean Id(int i) {
+    public static boolean Jk(int i) {
         return i >= 0 && i <= 270 && i % 90 == 0;
     }
 
-    public static boolean Ie(int i) {
+    public static boolean Jl(int i) {
         switch (i) {
             case 1:
             case 2:
@@ -43,7 +43,7 @@ public class JpegTranscoder {
         g.checkArgument(i2 <= 16);
         g.checkArgument(i3 >= 0);
         g.checkArgument(i3 <= 100);
-        g.checkArgument(Id(i));
+        g.checkArgument(Jk(i));
         if (i2 != 8 || i != 0) {
             z = true;
         }
@@ -57,7 +57,7 @@ public class JpegTranscoder {
         g.checkArgument(i2 <= 16);
         g.checkArgument(i3 >= 0);
         g.checkArgument(i3 <= 100);
-        g.checkArgument(Ie(i));
+        g.checkArgument(Jl(i));
         if (i2 != 8 || i != 1) {
             z = true;
         }

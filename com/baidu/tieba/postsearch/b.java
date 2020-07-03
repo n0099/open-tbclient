@@ -1,22 +1,22 @@
 package com.baidu.tieba.postsearch;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.ao;
+import com.baidu.tbadk.core.data.at;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    public List<a> kFL = new ArrayList();
-    public ao hiA = new ao();
+    public List<a> kZH = new ArrayList();
+    public at huJ = new at();
 
     /* loaded from: classes11.dex */
     public static class a {
         public String content;
         public String fname;
-        public int kFM;
-        public int kFN;
+        public int kZI;
+        public int kZJ;
         public String name;
         public String name_show;
         public long pid;
@@ -26,21 +26,21 @@ public class b {
         public String title;
     }
 
-    public boolean cpm() {
-        return (this.kFL == null || this.kFL.size() == 0) ? false : true;
+    public boolean ctb() {
+        return (this.kZH == null || this.kZH.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
-        return this.hiA != null && this.hiA.aPt() == 1;
+        return this.huJ != null && this.huJ.aRf() == 1;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.hiA.parserJson(jSONObject.getJSONObject("page"));
+                this.huJ.parserJson(jSONObject.getJSONObject("page"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.kFL.clear();
+                    this.kZH.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -64,12 +64,12 @@ public class b {
                                 aVar.content = optString4;
                                 aVar.fname = optString5;
                                 aVar.tid = optLong3;
-                                aVar.kFM = optInt;
-                                aVar.kFN = optInt2;
+                                aVar.kZI = optInt;
+                                aVar.kZJ = optInt2;
                                 aVar.name = optString2;
                                 aVar.name_show = optString;
                                 aVar.thread_type = optInt3;
-                                this.kFL.add(aVar);
+                                this.kZH.add(aVar);
                             }
                         }
                     }

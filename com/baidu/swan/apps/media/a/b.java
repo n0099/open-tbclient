@@ -11,26 +11,26 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String cnb;
-    public static String cnc;
-    public static String cnd;
-    public static String cne;
-    public static String cnf;
-    public static String cng;
-    public static String cnh;
-    private UnitedSchemeEntity ciH;
-    private CallbackHandler ciI;
+    public static String crP;
+    public static String crQ;
+    public static String crR;
+    public static String crS;
+    public static String crT;
+    public static String crU;
+    public static String crV;
+    private UnitedSchemeEntity cnw;
+    private CallbackHandler cnx;
 
     private b(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        this.ciI = callbackHandler;
-        this.ciH = unitedSchemeEntity;
-        cnb = str;
-        cnc = str2;
-        cnd = str3;
-        cne = str4;
-        cnf = str5;
-        cng = str6;
-        cnh = str7;
+        this.cnx = callbackHandler;
+        this.cnw = unitedSchemeEntity;
+        crP = str;
+        crQ = str2;
+        crR = str3;
+        crS = str4;
+        crT = str5;
+        crU = str6;
+        crV = str7;
     }
 
     public static b a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, b bVar) {
@@ -56,21 +56,21 @@ public class b {
         return bVar;
     }
 
-    public void lB(String str) {
+    public void lJ(String str) {
         e(str, null);
     }
 
     public void e(String str, JSONObject jSONObject) {
         if (!TextUtils.isEmpty(str)) {
             JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            UnitedSchemeUtility.safeCallback(this.ciI, this.ciH, wrapCallbackParams.toString(), str);
+            UnitedSchemeUtility.safeCallback(this.cnx, this.cnw, wrapCallbackParams.toString(), str);
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
             }
         }
     }
 
-    public void R(int i, String str) {
+    public void T(int i, String str) {
         if (!TextUtils.isEmpty(str)) {
             JSONObject jSONObject = new JSONObject();
             try {
@@ -79,7 +79,7 @@ public class b {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            e(cnf, jSONObject);
+            e(crT, jSONObject);
         }
     }
 }

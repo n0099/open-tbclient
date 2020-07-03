@@ -1,23 +1,18 @@
 package com.baidu.tieba.ala.liveroom.challenge;
 
-import android.content.Context;
-import com.baidu.live.challenge.g;
-import com.baidu.live.challenge.k;
+import com.baidu.live.challenge.f;
+import com.baidu.live.challenge.j;
+import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
-public class b implements g {
-    private Context mContext;
+public class b implements f {
+    private TbPageContext mPageContext;
 
-    public b(Context context) {
-        this.mContext = context;
+    public b(TbPageContext tbPageContext) {
+        this.mPageContext = tbPageContext;
     }
 
-    @Override // com.baidu.live.challenge.g
-    public k vq() {
-        return new com.baidu.tieba.ala.liveroom.challenge.panel.d(this.mContext);
-    }
-
-    @Override // com.baidu.live.challenge.g
-    public com.baidu.live.challenge.e vr() {
-        return new com.baidu.tieba.ala.liveroom.challenge.view.a(this.mContext);
+    @Override // com.baidu.live.challenge.f
+    public j vK() {
+        return new com.baidu.tieba.ala.liveroom.challenge.panel.f(this.mPageContext);
     }
 }

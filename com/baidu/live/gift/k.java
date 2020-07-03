@@ -11,30 +11,28 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.gift.AlaGiftShowPanel;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-import com.baidu.live.u.a;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class k implements w {
-    public boolean aDG;
-    private AlaGiftShowPanel aFc;
-    private com.baidu.live.gift.biggift.a aFd;
-    private com.baidu.live.gift.smallgift.a aFe;
-    private com.baidu.live.gift.graffitiGift.a aFf;
-    private boolean aFg = false;
-    private boolean aFh = false;
-    CustomMessageListener aFi = new CustomMessageListener(2913031) { // from class: com.baidu.live.gift.k.2
+    public boolean aGc;
+    private com.baidu.live.gift.smallgift.a aHA;
+    private com.baidu.live.gift.graffitiGift.a aHB;
+    private boolean aHC = false;
+    private boolean aHD = false;
+    CustomMessageListener aHE = new CustomMessageListener(2913031) { // from class: com.baidu.live.gift.k.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.live.gift.a.c)) {
                 com.baidu.live.gift.a.c cVar = (com.baidu.live.gift.a.c) customResponsedMessage.getData();
-                k.this.a(cVar, cVar.aJB);
+                k.this.a(cVar, cVar.aMh);
             }
         }
     };
-    CustomMessageListener aFj = new CustomMessageListener(2913138) { // from class: com.baidu.live.gift.k.3
+    CustomMessageListener aHF = new CustomMessageListener(2913138) { // from class: com.baidu.live.gift.k.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -44,28 +42,30 @@ public class k implements w {
             }
         }
     };
+    private AlaGiftShowPanel aHy;
+    private com.baidu.live.gift.biggift.a aHz;
     private Context mContext;
 
     public k(f fVar) {
         this.mContext = fVar.context;
-        this.aDG = fVar.aDG;
-        this.aFc = (AlaGiftShowPanel) LayoutInflater.from(fVar.context).inflate(a.h.gift_popshow_contain_layout, (ViewGroup) null);
-        this.aFd = new com.baidu.live.gift.biggift.a(this.mContext, this);
-        this.aFe = new com.baidu.live.gift.smallgift.a(this.mContext, this, fVar.aDP);
-        this.aFf = new com.baidu.live.gift.graffitiGift.a(this.mContext, this);
-        xT();
+        this.aGc = fVar.aGc;
+        this.aHy = (AlaGiftShowPanel) LayoutInflater.from(fVar.context).inflate(a.h.gift_popshow_contain_layout, (ViewGroup) null);
+        this.aHz = new com.baidu.live.gift.biggift.a(this.mContext, this);
+        this.aHA = new com.baidu.live.gift.smallgift.a(this.mContext, this, fVar.aGl);
+        this.aHB = new com.baidu.live.gift.graffitiGift.a(this.mContext, this);
+        yt();
     }
 
-    private void xT() {
-        MessageManager.getInstance().registerListener(this.aFi);
-        MessageManager.getInstance().registerListener(this.aFj);
-        this.aFc.setConfigurationChangedListener(new AlaGiftShowPanel.a() { // from class: com.baidu.live.gift.k.1
+    private void yt() {
+        MessageManager.getInstance().registerListener(this.aHE);
+        MessageManager.getInstance().registerListener(this.aHF);
+        this.aHy.setConfigurationChangedListener(new AlaGiftShowPanel.a() { // from class: com.baidu.live.gift.k.1
             @Override // com.baidu.live.gift.AlaGiftShowPanel.a
             public void onConfigurationChanged(Configuration configuration) {
-                k.this.aFd.yG();
-                k.this.aFd.yL();
-                k.this.aFe.yL();
-                k.this.aFf.Ao();
+                k.this.aHz.zg();
+                k.this.aHz.zl();
+                k.this.aHA.zl();
+                k.this.aHB.AO();
             }
         });
     }
@@ -73,12 +73,12 @@ public class k implements w {
     public void a(com.baidu.live.gift.a.c cVar, boolean z) {
         boolean z2 = false;
         if (cVar != null && !StringUtils.isNull(cVar.userId) && !StringUtils.isNull(cVar.giftId)) {
-            boolean z3 = a(cVar) || cVar.aJL;
-            if (!z3 || cVar.aJL || z || !this.aFh || UtilHelper.getRealScreenOrientation(this.mContext) != 2) {
+            boolean z3 = a(cVar) || cVar.aMr;
+            if (!z3 || cVar.aMr || z || !this.aHD || UtilHelper.getRealScreenOrientation(this.mContext) != 2) {
                 z2 = z3;
             }
             if (z2) {
-                if (!cVar.aJL || cVar.priority == 1) {
+                if (!cVar.aMr || cVar.priority == 1) {
                     if (z) {
                         cVar.priority = 9;
                     } else {
@@ -93,7 +93,7 @@ public class k implements w {
             if (z2) {
                 c(cVar);
                 r.g(cVar);
-            } else if (cVar.aJC.aEq != null && cVar.aJG >= 2 && !ListUtils.isEmpty(cVar.aJC.aEq.aFt)) {
+            } else if (cVar.aMi.aGM != null && cVar.aMm >= 2 && !ListUtils.isEmpty(cVar.aMi.aGM.aHP)) {
                 e(cVar);
                 r.g(cVar);
             } else {
@@ -110,51 +110,51 @@ public class k implements w {
     }
 
     private boolean b(com.baidu.live.gift.a.c cVar) {
-        if (cVar == null || cVar.aJC == null) {
+        if (cVar == null || cVar.aMi == null) {
             return false;
         }
-        return com.baidu.live.gift.b.b.Ah().eL(cVar.aJC.xl());
+        return com.baidu.live.gift.b.b.AH().eR(cVar.aMi.xM());
     }
 
     private void c(com.baidu.live.gift.a.c cVar) {
-        xU();
-        this.aFd.h(cVar);
-        this.aFd.yF();
+        yu();
+        this.aHz.h(cVar);
+        this.aHz.zf();
     }
 
-    public void xU() {
-        this.aFe.xU();
-        this.aFf.xU();
+    public void yu() {
+        this.aHA.yu();
+        this.aHB.yu();
     }
 
-    public void xV() {
-        this.aFe.xV();
-        this.aFf.xV();
+    public void yv() {
+        this.aHA.yv();
+        this.aHB.yv();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.live.gift.a.c cVar) {
-        this.aFe.d(cVar);
+        this.aHA.d(cVar);
     }
 
     private void e(com.baidu.live.gift.a.c cVar) {
-        this.aFf.e(cVar);
+        this.aHB.e(cVar);
     }
 
-    public void xW() {
+    public void yw() {
         int i = 0;
-        if (this.aFc != null) {
-            int childCount = this.aFc.getChildCount();
+        if (this.aHy != null) {
+            int childCount = this.aHy.getChildCount();
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < childCount; i2++) {
-                if (!(this.aFc.getChildAt(i2) instanceof com.baidu.live.gift.biggift.c)) {
-                    arrayList.add(this.aFc.getChildAt(i2));
+                if (!(this.aHy.getChildAt(i2) instanceof com.baidu.live.gift.biggift.c)) {
+                    arrayList.add(this.aHy.getChildAt(i2));
                 }
             }
             while (true) {
                 int i3 = i;
                 if (i3 < arrayList.size()) {
-                    this.aFc.removeView((View) arrayList.get(i3));
+                    this.aHy.removeView((View) arrayList.get(i3));
                     i = i3 + 1;
                 } else {
                     arrayList.clear();
@@ -164,20 +164,20 @@ public class k implements w {
         }
     }
 
-    public void xX() {
+    public void yx() {
         int i = 0;
-        if (this.aFc != null) {
-            int childCount = this.aFc.getChildCount();
+        if (this.aHy != null) {
+            int childCount = this.aHy.getChildCount();
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < childCount; i2++) {
-                if (this.aFc.getChildAt(i2) instanceof com.baidu.live.gift.biggift.c) {
-                    arrayList.add(this.aFc.getChildAt(i2));
+                if (this.aHy.getChildAt(i2) instanceof com.baidu.live.gift.biggift.c) {
+                    arrayList.add(this.aHy.getChildAt(i2));
                 }
             }
             while (true) {
                 int i3 = i;
                 if (i3 < arrayList.size()) {
-                    this.aFc.removeView((View) arrayList.get(i3));
+                    this.aHy.removeView((View) arrayList.get(i3));
                     i = i3 + 1;
                 } else {
                     arrayList.clear();
@@ -187,93 +187,93 @@ public class k implements w {
         }
     }
 
-    public void L(View view) {
-        if (this.aFc.indexOfChild(view) < 0) {
-            this.aFc.addView(view);
+    public void J(View view) {
+        if (this.aHy.indexOfChild(view) < 0) {
+            this.aHy.addView(view);
         }
     }
 
     public void a(View view, RelativeLayout.LayoutParams layoutParams) {
         if (layoutParams != null) {
-            if (this.aFc.indexOfChild(view) < 0) {
-                this.aFc.addView(view, layoutParams);
+            if (this.aHy.indexOfChild(view) < 0) {
+                this.aHy.addView(view, layoutParams);
                 return;
             }
             return;
         }
-        L(view);
+        J(view);
     }
 
     @Override // com.baidu.live.gift.w
     public void onDestroy() {
-        if (!this.aFg) {
-            this.aFg = true;
-            if (this.aFd != null) {
-                this.aFd.onDestroy();
+        if (!this.aHC) {
+            this.aHC = true;
+            if (this.aHz != null) {
+                this.aHz.onDestroy();
             }
-            if (this.aFe != null) {
-                this.aFe.onDestroy();
+            if (this.aHA != null) {
+                this.aHA.onDestroy();
             }
-            if (this.aFf != null) {
-                this.aFf.onDestroy();
+            if (this.aHB != null) {
+                this.aHB.onDestroy();
             }
-            if (this.aFc != null) {
-                this.aFc.clearAnimation();
-                this.aFc.setConfigurationChangedListener(null);
-                this.aFc.removeAllViews();
+            if (this.aHy != null) {
+                this.aHy.clearAnimation();
+                this.aHy.setConfigurationChangedListener(null);
+                this.aHy.removeAllViews();
             }
-            MessageManager.getInstance().unRegisterListener(this.aFi);
-            MessageManager.getInstance().unRegisterListener(this.aFj);
+            MessageManager.getInstance().unRegisterListener(this.aHE);
+            MessageManager.getInstance().unRegisterListener(this.aHF);
             this.mContext = null;
         }
     }
 
     @Override // com.baidu.live.gift.w
-    public View xY() {
-        return this.aFc;
+    public View yy() {
+        return this.aHy;
     }
 
     @Override // com.baidu.live.gift.w
     public void bb(boolean z) {
-        if (this.aFe != null) {
-            this.aFe.bb(z);
+        if (this.aHA != null) {
+            this.aHA.bb(z);
         }
     }
 
     @Override // com.baidu.live.gift.w
-    public void bN(int i) {
-        if (this.aFe != null) {
-            this.aFe.bN(i);
+    public void bT(int i) {
+        if (this.aHA != null) {
+            this.aHA.bT(i);
         }
     }
 
     @Override // com.baidu.live.gift.w
-    public View xZ() {
-        return this.aFe.xZ();
+    public View yz() {
+        return this.aHA.yz();
     }
 
     @Override // com.baidu.live.gift.w
-    public void ya() {
-        if (this.aFc != null) {
-            this.aFc.onConfigurationChanged(null);
+    public void yA() {
+        if (this.aHy != null) {
+            this.aHy.onConfigurationChanged(null);
         }
     }
 
     @Override // com.baidu.live.gift.w
     public void bc(boolean z) {
-        this.aFh = z;
-        if (this.aFf != null) {
-            this.aFf.bc(z);
+        this.aHD = z;
+        if (this.aHB != null) {
+            this.aHB.bc(z);
         }
-        if (this.aFd != null) {
-            this.aFd.bc(z);
+        if (this.aHz != null) {
+            this.aHz.bc(z);
         }
     }
 
     @Override // com.baidu.live.gift.w
-    public void yb() {
-        if (this.aFf != null) {
-            this.aFf.yb();
+    public void yB() {
+        if (this.aHB != null) {
+            this.aHB.yB();
         }
     }
 }

@@ -15,13 +15,13 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class a {
-    HashMap<String, b> gLF = new HashMap<>();
-    HashMap<String, b> gLG = new HashMap<>();
-    long gLH;
-    long gLI;
+    HashMap<String, b> gYC = new HashMap<>();
+    HashMap<String, b> gYD = new HashMap<>();
+    long gYE;
+    long gYF;
     String name;
 
-    public static final String bNh() {
+    public static final String bQm() {
         String str;
         WifiInfo connectionInfo;
         try {
@@ -37,11 +37,11 @@ public class a {
                         return typeName + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str;
                     }
                 }
-                com.baidu.tieba.dnsproxy.d.bMY().dR("get_connectpoint_null", typeName + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str);
+                com.baidu.tieba.dnsproxy.d.bQd().dW("get_connectpoint_null", typeName + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str);
             }
         } catch (Throwable th) {
             BdLog.detailException(th);
-            com.baidu.tieba.dnsproxy.d.bMY().dR("get_connectpoint_name", th.getMessage());
+            com.baidu.tieba.dnsproxy.d.bQd().dW("get_connectpoint_name", th.getMessage());
         }
         return null;
     }
@@ -52,18 +52,18 @@ public class a {
         }
         a aVar = new a();
         aVar.name = connectPointData.name;
-        aVar.gLH = connectPointData.last_connect_rate_update_time.longValue();
-        aVar.gLI = connectPointData.last_speed_data_update_time.longValue();
+        aVar.gYE = connectPointData.last_connect_rate_update_time.longValue();
+        aVar.gYF = connectPointData.last_speed_data_update_time.longValue();
         for (DnsIpData dnsIpData : connectPointData.dns_ip_connect_rate) {
             b a = b.a(dnsIpData);
             if (a != null) {
-                aVar.gLF.put(a.address, a);
+                aVar.gYC.put(a.address, a);
             }
         }
         for (DnsIpData dnsIpData2 : connectPointData.dns_ip_speed_data) {
             b a2 = b.a(dnsIpData2);
             if (a2 != null) {
-                aVar.gLG.put(a2.address, a2);
+                aVar.gYD.put(a2.address, a2);
             }
         }
         return aVar;
@@ -75,17 +75,17 @@ public class a {
         }
         ConnectPointData.Builder builder = new ConnectPointData.Builder();
         builder.name = aVar.name;
-        builder.last_connect_rate_update_time = Long.valueOf(aVar.gLH);
-        builder.last_speed_data_update_time = Long.valueOf(aVar.gLI);
+        builder.last_connect_rate_update_time = Long.valueOf(aVar.gYE);
+        builder.last_speed_data_update_time = Long.valueOf(aVar.gYF);
         builder.dns_ip_connect_rate = new ArrayList();
         builder.dns_ip_speed_data = new ArrayList();
-        for (Map.Entry<String, b> entry : aVar.gLF.entrySet()) {
+        for (Map.Entry<String, b> entry : aVar.gYC.entrySet()) {
             DnsIpData a = b.a(entry.getValue());
             if (a != null) {
                 builder.dns_ip_connect_rate.add(a);
             }
         }
-        for (Map.Entry<String, b> entry2 : aVar.gLG.entrySet()) {
+        for (Map.Entry<String, b> entry2 : aVar.gYD.entrySet()) {
             DnsIpData a2 = b.a(entry2.getValue());
             if (a2 != null) {
                 builder.dns_ip_speed_data.add(a2);

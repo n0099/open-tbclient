@@ -1,10 +1,21 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.aa;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-/* loaded from: classes9.dex */
-public class r extends aa.a {
-    public FrsCommonImageLayout hqw;
-    public HeadImageView hqx;
+import com.baidu.adp.BdUniqueId;
+/* loaded from: classes.dex */
+public class r implements com.baidu.adp.widget.ListView.q {
+    public static final BdUniqueId hCX = BdUniqueId.gen();
+    private int hCY;
+
+    public int bZL() {
+        return this.hCY;
+    }
+
+    public void uE(int i) {
+        this.hCY = i;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return hCX;
+    }
 }

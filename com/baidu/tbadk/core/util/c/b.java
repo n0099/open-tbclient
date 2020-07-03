@@ -3,22 +3,22 @@ package com.baidu.tbadk.core.util.c;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class b extends a {
-    private boolean aha;
-    private boolean dPA;
-    private boolean dPB;
+    private boolean aik;
+    private boolean dWs;
+    private boolean dWt;
     private int procType;
     private float scale = 0.43f;
     private int width;
 
     public b(boolean z, boolean z2, boolean z3, int i) {
         this.width = 0;
-        this.aha = true;
-        this.dPA = false;
-        this.dPB = false;
+        this.aik = true;
+        this.dWs = false;
+        this.dWt = false;
         this.procType = 0;
-        this.aha = z;
-        this.dPA = z2;
-        this.dPB = z3;
+        this.aik = z;
+        this.dWs = z2;
+        this.dWt = z3;
         this.procType = i;
         this.width = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
         if (this.width <= 0 || this.width > 644) {
@@ -41,21 +41,21 @@ public class b extends a {
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
-        return this.aha;
+        return this.aik;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aVo() {
-        return this.dPB;
+    public boolean aXi() {
+        return this.dWt;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aVp() {
-        return this.dPA;
+    public boolean aXj() {
+        return this.dWs;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int aVq() {
+    public int aXk() {
         return this.procType;
     }
 }

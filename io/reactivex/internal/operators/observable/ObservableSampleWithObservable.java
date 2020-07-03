@@ -7,13 +7,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ObservableSampleWithObservable<T> extends io.reactivex.internal.operators.observable.a<T, T> {
-    final boolean noW;
+    final boolean nKJ;
     final t<?> other;
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         io.reactivex.observers.b bVar = new io.reactivex.observers.b(uVar);
-        if (this.noW) {
+        if (this.nKJ) {
             this.source.subscribe(new SampleMainEmitLast(bVar, this.other));
         } else {
             this.source.subscribe(new SampleMainNoLast(bVar, this.other));
@@ -102,30 +102,30 @@ public final class ObservableSampleWithObservable<T> extends io.reactivex.intern
 
     /* loaded from: classes7.dex */
     static final class a<T> implements u<Object> {
-        final SampleMainObserver<T> npU;
+        final SampleMainObserver<T> nLH;
 
         a(SampleMainObserver<T> sampleMainObserver) {
-            this.npU = sampleMainObserver;
+            this.nLH = sampleMainObserver;
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.npU.setOther(bVar);
+            this.nLH.setOther(bVar);
         }
 
         @Override // io.reactivex.u
         public void onNext(Object obj) {
-            this.npU.run();
+            this.nLH.run();
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
-            this.npU.error(th);
+            this.nLH.error(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
-            this.npU.complete();
+            this.nLH.complete();
         }
     }
 

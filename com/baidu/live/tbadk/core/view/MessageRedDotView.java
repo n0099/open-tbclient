@@ -11,8 +11,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.SkinManager;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class MessageRedDotView extends FrameLayout {
     public static final int TYPE_PLUS = 2;

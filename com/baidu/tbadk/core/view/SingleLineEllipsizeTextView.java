@@ -7,26 +7,26 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.live.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes8.dex */
 public class SingleLineEllipsizeTextView extends TextView {
-    private String dVo;
+    private String ecL;
 
     public SingleLineEllipsizeTextView(Context context) {
         super(context);
-        this.dVo = StringHelper.STRING_MORE;
+        this.ecL = StringHelper.STRING_MORE;
         setSingleLine();
     }
 
     public SingleLineEllipsizeTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dVo = StringHelper.STRING_MORE;
+        this.ecL = StringHelper.STRING_MORE;
         setSingleLine();
     }
 
     public SingleLineEllipsizeTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dVo = StringHelper.STRING_MORE;
+        this.ecL = StringHelper.STRING_MORE;
         setSingleLine();
     }
 
@@ -34,9 +34,9 @@ public class SingleLineEllipsizeTextView extends TextView {
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         CharSequence text = getText();
-        if (!aq.isEmpty(text.toString())) {
+        if (!ar.isEmpty(text.toString())) {
             TextPaint paint = getPaint();
-            float measureText = paint.measureText(this.dVo);
+            float measureText = paint.measureText(this.ecL);
             float measureText2 = paint.measureText(text.toString());
             float paddingRight = getPaddingRight() + getPaddingLeft();
             Drawable[] compoundDrawables = getCompoundDrawables();
@@ -55,10 +55,10 @@ public class SingleLineEllipsizeTextView extends TextView {
                     length--;
                     measureText2 = paint.measureText(text, 0, length - 1);
                 }
-                if (paint.measureText(((Object) text.subSequence(0, length - 1)) + this.dVo) > measuredWidth) {
+                if (paint.measureText(((Object) text.subSequence(0, length - 1)) + this.ecL) > measuredWidth) {
                     length--;
                 }
-                String str = ((Object) text.subSequence(0, length - 1)) + this.dVo;
+                String str = ((Object) text.subSequence(0, length - 1)) + this.ecL;
                 float measureText3 = paint.measureText(str.toString());
                 setText(str);
                 setMeasuredDimension((int) (paddingRight + measureText3), getMeasuredHeight());
@@ -67,6 +67,6 @@ public class SingleLineEllipsizeTextView extends TextView {
     }
 
     public void setEllipsisSuffix(String str) {
-        this.dVo = str;
+        this.ecL = str;
     }
 }

@@ -1,10 +1,12 @@
 package com.baidu.ar.arrender;
 /* loaded from: classes3.dex */
 public class h extends com.baidu.ar.ability.c {
-    private String hW;
-    private String hX;
-    private Object hY;
-    private a hZ;
+    private String im;
+    private String in;
+
+    /* renamed from: io  reason: collision with root package name */
+    private Object f979io;
+    private a ip;
 
     /* loaded from: classes3.dex */
     public enum a {
@@ -15,46 +17,46 @@ public class h extends com.baidu.ar.ability.c {
     }
 
     public void K(String str) {
-        this.hX = str;
+        this.in = str;
     }
 
     public void L(String str) {
-        this.hY = str;
-        this.hZ = a.STRING;
+        this.f979io = str;
+        this.ip = a.STRING;
     }
 
     public void b(float f) {
-        this.hY = Float.valueOf(f);
-        this.hZ = a.FLOAT;
+        this.f979io = Float.valueOf(f);
+        this.ip = a.FLOAT;
     }
 
     public void b(float[] fArr) {
-        this.hY = fArr;
-        this.hZ = a.FLOAT_ARRAY;
+        this.f979io = fArr;
+        this.ip = a.FLOAT_ARRAY;
     }
 
-    public String br() {
-        return this.hX;
+    public String bG() {
+        return this.in;
     }
 
-    public Object bs() {
-        return this.hY;
+    public Object bH() {
+        return this.f979io;
     }
 
-    public a bt() {
-        return this.hZ;
+    public a bI() {
+        return this.ip;
     }
 
     public String getFilterName() {
-        return this.hW;
+        return this.im;
     }
 
-    public void q(int i) {
-        this.hY = Integer.valueOf(i);
-        this.hZ = a.INT;
+    public void s(int i) {
+        this.f979io = Integer.valueOf(i);
+        this.ip = a.INT;
     }
 
     public void setFilterName(String str) {
-        this.hW = str;
+        this.im = str;
     }
 }

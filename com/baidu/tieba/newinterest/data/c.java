@@ -8,13 +8,13 @@ import tbclient.Page;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes10.dex */
 public class c {
-    public List<a> jAT;
+    public List<a> jUm;
     private Page page;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (dataRes.class_foruminfo != null) {
-                this.jAT = new ArrayList();
+                this.jUm = new ArrayList();
                 for (ClassForumInfo classForumInfo : dataRes.class_foruminfo) {
                     a aVar = new a();
                     aVar.class_id = classForumInfo.class_id;
@@ -24,7 +24,7 @@ public class c {
                         arrayList.add(new d(recommendForumInfo, false));
                     }
                     aVar.forum_info = arrayList;
-                    this.jAT.add(aVar);
+                    this.jUm.add(aVar);
                 }
             }
             if (dataRes.page != null) {

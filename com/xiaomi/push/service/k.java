@@ -9,7 +9,7 @@ public class k {
     public final int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f914a;
+    public final String f920a;
     public final String b;
     public final String c;
     public final String d;
@@ -17,7 +17,7 @@ public class k {
     public final String f;
 
     public k(String str, String str2, String str3, String str4, String str5, String str6, int i) {
-        this.f914a = str;
+        this.f920a = str;
         this.b = str2;
         this.c = str3;
         this.d = str4;
@@ -49,19 +49,19 @@ public class k {
     }
 
     public ap.b a(ap.b bVar, Context context, d dVar, String str) {
-        bVar.f858a = context.getPackageName();
-        bVar.f861b = this.f914a;
+        bVar.f864a = context.getPackageName();
+        bVar.f867b = this.f920a;
         bVar.h = this.c;
         bVar.c = this.b;
         bVar.g = "5";
         bVar.d = "XMPUSH-PASS";
-        bVar.f860a = false;
+        bVar.f866a = false;
         bVar.e = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s:%7$s:%8$s,%9$s:%10$s,%11$s:%12$s", "sdk_ver", 39, "cpvn", "3_7_5", "cpvc", 30705, "aapn", b(context) ? com.xiaomi.push.g.b(context) : "", "country_code", a.a(context).b(), "region", a.a(context).a());
         bVar.f = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s,sync:1", "appid", b(context) ? "1000271" : this.d, "locale", Locale.getDefault().toString(), Constants.EXTRA_KEY_MIID, com.xiaomi.push.t.a(context));
         if (a(context)) {
             bVar.f += String.format(",%1$s:%2$s", "ab", str);
         }
-        bVar.f857a = dVar;
+        bVar.f863a = dVar;
         return bVar;
     }
 }

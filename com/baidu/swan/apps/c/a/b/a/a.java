@@ -42,17 +42,17 @@ public class a extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "data is empty");
             return false;
         }
-        ad(optJSONObject);
+        ak(optJSONObject);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
 
-    private void ad(JSONObject jSONObject) {
-        d.TN().ab(jSONObject);
+    private void ak(JSONObject jSONObject) {
+        d.UT().ai(jSONObject);
         aj.p(new Runnable() { // from class: com.baidu.swan.apps.c.a.b.a.a.1
             @Override // java.lang.Runnable
             public void run() {
-                c.Zg();
+                c.aam();
             }
         });
     }

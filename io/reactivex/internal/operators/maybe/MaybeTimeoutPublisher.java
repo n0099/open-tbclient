@@ -11,13 +11,13 @@ import org.a.d;
 /* loaded from: classes7.dex */
 public final class MaybeTimeoutPublisher<T, U> extends a<T, T> {
     final o<? extends T> fallback;
-    final org.a.b<U> noG;
+    final org.a.b<U> nKt;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         TimeoutMainMaybeObserver timeoutMainMaybeObserver = new TimeoutMainMaybeObserver(mVar, this.fallback);
         mVar.onSubscribe(timeoutMainMaybeObserver);
-        this.noG.subscribe(timeoutMainMaybeObserver.other);
+        this.nKt.subscribe(timeoutMainMaybeObserver.other);
         this.source.a(timeoutMainMaybeObserver);
     }
 

@@ -3,6 +3,7 @@ package com.baidu.live.tbadk.core.atomdata;
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
+@Deprecated
 /* loaded from: classes3.dex */
 public class RegisterActivityConfig extends IntentConfig {
     public static final String FAST_REG_USER_TYPE = "fast_reg_user_type";

@@ -1,47 +1,43 @@
 package com.baidu.tieba.homepage.topic.topictab.a;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.o;
-import com.baidu.adp.widget.ListView.t;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
+import com.baidu.tieba.homepage.topic.topictab.b.c;
 /* loaded from: classes9.dex */
-public class b {
-    private List<com.baidu.adp.widget.ListView.a> aSj;
-    private t gTb;
-    private c igW;
-    private a iiu;
-    private TbPageContext mPageContext;
+public class b extends com.baidu.adp.widget.ListView.a<c, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topictab.view.b>> {
+    private TbPageContext<?> mPageContext;
 
-    public b(TbPageContext tbPageContext, t tVar) {
+    public b(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), c.izN);
         this.mPageContext = tbPageContext;
-        this.gTb = tVar;
-        CY();
-        this.gTb.addAdapters(this.aSj);
     }
 
-    private void CY() {
-        this.aSj = new ArrayList();
-        this.iiu = new a(this.mPageContext);
-        this.igW = new c(this.mPageContext);
-        this.aSj.add(this.iiu);
-        this.aSj.add(this.igW);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: aK */
+    public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topictab.view.b> b(ViewGroup viewGroup) {
+        com.baidu.tieba.homepage.topic.topictab.view.b bVar = new com.baidu.tieba.homepage.topic.topictab.view.b(this.mPageContext);
+        bVar.setTag(this.mPageId);
+        com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topictab.view.b> aVar = new com.baidu.tieba.card.a.a<>(bVar);
+        int dimens = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds44);
+        aVar.getView().setPadding(dimens, 0, dimens, 0);
+        return aVar;
     }
 
-    public void notifyDataSetChanged() {
-        if (this.gTb != null) {
-            this.gTb.getListAdapter().notifyDataSetChanged();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, c cVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topictab.view.b> aVar) {
+        if (cVar == null || aVar == null || aVar.bPg() == null) {
+            return null;
         }
-    }
-
-    public void setData(List<o> list) {
-        this.gTb.setData(list);
-    }
-
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.aSj) {
-            aVar.setPageId(bdUniqueId);
-        }
+        aVar.bPg().a(cVar);
+        aVar.bPg().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return aVar.getView();
     }
 }

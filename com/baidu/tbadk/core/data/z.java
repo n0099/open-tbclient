@@ -1,31 +1,24 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.List;
-import tbclient.FrsPage.RecommendBook;
+import com.baidu.live.tbadk.data.Config;
+import tbclient.MultiForumPerm;
 /* loaded from: classes.dex */
-public class z extends bk {
-    public static final BdUniqueId dCy = BdUniqueId.gen();
-    public String dBx;
-    public List<String> dCA;
-    public int dCz;
-    public String image;
-    public String linkUrl;
-    public String title;
+public class z {
+    public boolean dIC;
+    public boolean dID;
+    public int type;
 
-    public void a(RecommendBook recommendBook) {
-        if (recommendBook != null) {
-            this.dCz = recommendBook.type.intValue();
-            this.dBx = recommendBook.book_id;
-            this.title = recommendBook.title;
-            this.image = recommendBook.image;
-            this.dCA = recommendBook.desc;
-            this.linkUrl = recommendBook.link_url;
+    public void a(MultiForumPerm multiForumPerm) {
+        int i;
+        if (multiForumPerm != null) {
+            this.dIC = multiForumPerm.is_bawu.intValue() == 1;
+            if (Config.BAWU_TYPE_MANAGER.equals(multiForumPerm.bawu_type)) {
+                i = 1;
+            } else {
+                i = Config.BAWU_TYPE_ASSIST.equals(multiForumPerm.bawu_type) ? 2 : 0;
+            }
+            this.type = i;
+            this.dID = multiForumPerm.is_deleted.intValue() == 1;
         }
-    }
-
-    @Override // com.baidu.tbadk.core.data.bk, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
-    public BdUniqueId getType() {
-        return dCy;
     }
 }

@@ -78,7 +78,7 @@ public class UgcSchemeModel implements Serializable {
         ugcSchemeModel.serverTopicsRule = jSONObject.optInt(UgcConstant.SERVER_TOPICS_RULE);
         ugcSchemeModel.placeTitle = jSONObject.optString(UgcConstant.PLACE_TITLE);
         ugcSchemeModel.placeContent = jSONObject.optString(UgcConstant.PLACE_CONTENT);
-        JSONObject optJSONObject = jSONObject.optJSONObject(UgcConstant.TOPIC);
+        JSONObject optJSONObject = jSONObject.optJSONObject("topic");
         if (optJSONObject != null) {
             ugcSchemeModel.topic = optJSONObject.toString();
         }

@@ -107,7 +107,7 @@ public class HttpRequestPublishModule {
     public void requestPublish(String str, Map<String, String> map, final PublishRequestListener publishRequestListener) {
         if (publishRequestListener != null) {
             try {
-                ?? cookieManager = ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(b.st().processUrl(UgcServerApiUtils.getHostAddress() + UgcServerApiUtils.PUBLISHER_ADDRESS_PATH))).addParams(map).cookieManager((CookieManager) UgcRuntime.getUgcInterface().newCookieManagerInstance(false, false));
+                ?? cookieManager = ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(b.sO().processUrl(UgcServerApiUtils.getHostAddress() + UgcServerApiUtils.PUBLISHER_ADDRESS_PATH))).addParams(map).cookieManager((CookieManager) UgcRuntime.getUgcInterface().newCookieManagerInstance(false, false));
                 String publisherUserAgent = UgcServerApiUtils.getPublisherUserAgent();
                 if (!TextUtils.isEmpty(publisherUserAgent)) {
                     cookieManager.addHeader("User-Agent", publisherUserAgent);
@@ -240,7 +240,7 @@ public class HttpRequestPublishModule {
             jSONObject.put("source_from", str3);
             jSONObject.put(UgcConstant.SOURCE_ID, i + "");
             jSONObject.put(UgcConstant.SOURCE_TYPE, i2 + "");
-            jSONObject.put(UgcConstant.TOPIC, jSONObject2);
+            jSONObject.put("topic", jSONObject2);
             jSONObject.put(UgcConstant.EXT_INFO, jSONObject3);
             jSONObject.put(UgcConstant.PUBLISH_TYPE, str4);
             JSONArray jSONArray = new JSONArray();

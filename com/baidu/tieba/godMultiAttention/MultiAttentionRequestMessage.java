@@ -2,7 +2,7 @@ package com.baidu.tieba.godMultiAttention;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.util.t;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ public class MultiAttentionRequestMessage extends NetMessage {
     }
 
     public void setPortraitList(List<String> list) {
-        if (!v.isEmpty(list)) {
+        if (!w.isEmpty(list)) {
             this.portraitList.clear();
             this.portraitList.addAll(list);
         }

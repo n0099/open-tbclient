@@ -30,7 +30,7 @@ class bq extends Handler {
                         Message obtain = Message.obtain((Handler) null, 0);
                         obtain.what = 18;
                         Bundle bundle = new Bundle();
-                        str = this.a.f810a;
+                        str = this.a.f816a;
                         bundle.putString("xmsf_region", str);
                         obtain.setData(bundle);
                         message.replyTo.send(obtain);

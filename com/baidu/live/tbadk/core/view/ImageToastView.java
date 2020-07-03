@@ -8,8 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.u.a;
+@Deprecated
 /* loaded from: classes3.dex */
 public class ImageToastView {
     private Context mContext;

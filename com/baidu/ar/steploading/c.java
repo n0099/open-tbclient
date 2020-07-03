@@ -12,25 +12,25 @@ import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
 import java.io.File;
 /* loaded from: classes3.dex */
 class c extends com.baidu.ar.d.a<String, Void> {
-    private IProgressCallback pt;
-    private ARCaseBundleInfo vG;
-    private String vH;
-    private a vI;
+    private IProgressCallback pS;
+    private ARCaseBundleInfo wg;
+    private String wh;
+    private a wi;
 
     public c(ARCaseBundleInfo aRCaseBundleInfo, String str, a aVar, IProgressCallback iProgressCallback) {
-        this.vG = aRCaseBundleInfo;
-        this.vH = str;
-        this.vI = aVar;
-        this.pt = iProgressCallback;
+        this.wg = aRCaseBundleInfo;
+        this.wh = str;
+        this.wi = aVar;
+        this.pS = iProgressCallback;
     }
 
     private String a(f fVar) {
-        String parent = new File(this.vG.caseDir).getParent();
-        if ("gzip".equalsIgnoreCase(fVar.vV)) {
-            return parent + String.format("/temp/%s.zip", fVar.vU);
+        String parent = new File(this.wg.caseDir).getParent();
+        if ("gzip".equalsIgnoreCase(fVar.wv)) {
+            return parent + String.format("/temp/%s.zip", fVar.wu);
         }
-        if ("identity".equalsIgnoreCase(fVar.vV)) {
-            return parent + File.separator + fVar.vT;
+        if ("identity".equalsIgnoreCase(fVar.wv)) {
+            return parent + File.separator + fVar.wt;
         }
         return null;
     }
@@ -38,8 +38,8 @@ class c extends com.baidu.ar.d.a<String, Void> {
     private boolean a(String str, f fVar, int i) {
         File file = new File(str);
         if (file.exists() && file.length() == i) {
-            if ("gzip".equalsIgnoreCase(fVar.vV)) {
-                return r.a(new File(str), new File(this.vG.caseDir).getParentFile());
+            if ("gzip".equalsIgnoreCase(fVar.wv)) {
+                return r.a(new File(str), new File(this.wg.caseDir).getParentFile());
             }
             return true;
         }
@@ -55,12 +55,12 @@ class c extends com.baidu.ar.d.a<String, Void> {
         } else if (RecentlyVisitedForumModel.LOCAL_ACCOUNT.equals(str)) {
             iCallbackWith.run(null);
         } else {
-            f aF = this.vI.aF(this.vH);
-            if (aF == null) {
+            f aG = this.wi.aG(this.wh);
+            if (aG == null) {
                 iError.onError(2, "res is not exists", null);
                 return;
             }
-            String a = a(aF);
+            String a = a(aG);
             if (a == null) {
                 iError.onError(2, "未知的资源encoding", null);
                 return;
@@ -68,13 +68,13 @@ class c extends com.baidu.ar.d.a<String, Void> {
             Downloader downloader = new Downloader(str);
             try {
                 int fileSize = downloader.getFileSize();
-                if (a(a, aF, fileSize)) {
+                if (a(a, aG, fileSize)) {
                     iCallbackWith.run(null);
                     return;
                 }
                 try {
-                    downloader.download(a, this.pt);
-                    if (a(a, aF, fileSize)) {
+                    downloader.download(a, this.pS);
+                    if (a(a, aG, fileSize)) {
                         iCallbackWith.run(null);
                     } else {
                         iError.onError(2, "download fail", null);
@@ -89,6 +89,6 @@ class c extends com.baidu.ar.d.a<String, Void> {
     }
 
     @Override // com.baidu.ar.d.a
-    protected void dO() {
+    protected void ee() {
     }
 }

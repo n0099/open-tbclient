@@ -23,106 +23,106 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes11.dex */
 final class a extends com.baidu.swan.apps.p.b<com.baidu.swan.apps.p.e.b.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final a.InterfaceC0364a cfX;
+    private final a.InterfaceC0370a ckL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@NonNull com.baidu.swan.apps.p.e.b.a aVar) {
         super(aVar);
-        this.cfX = new a.InterfaceC0364a() { // from class: com.baidu.swan.apps.p.e.a.1
-            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0364a
+        this.ckL = new a.InterfaceC0370a() { // from class: com.baidu.swan.apps.p.e.a.1
+            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0370a
             public void onPrepared() {
-                if (a.this.cfi != null) {
-                    a.this.cfi.onCallback(a.this, "onPrepared", null);
+                if (a.this.cjW != null) {
+                    a.this.cjW.onCallback(a.this, "onPrepared", null);
                 }
             }
 
-            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0364a
-            public void kz(String str) {
-                if (a.this.cfi != null) {
-                    a.this.cfi.onCallback(a.this, "onPlayed", null);
+            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0370a
+            public void kH(String str) {
+                if (a.this.cjW != null) {
+                    a.this.cjW.onCallback(a.this, "onPlayed", null);
                 }
-                h.Uv().B(str, true);
-                h.Uv().im(str);
+                h.VB().D(str, true);
+                h.VB().iu(str);
             }
 
-            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0364a
-            public void kA(String str) {
-                if (a.this.cfi != null) {
-                    a.this.cfi.onCallback(a.this, "onPaused", null);
+            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0370a
+            public void kI(String str) {
+                if (a.this.cjW != null) {
+                    a.this.cjW.onCallback(a.this, "onPaused", null);
                 }
                 if (!TextUtils.isEmpty(str)) {
-                    h.Uv().B(str, false);
+                    h.VB().D(str, false);
                 }
             }
 
-            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0364a
+            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0370a
             public void onEnded() {
-                if (a.this.cfi != null) {
-                    a.this.cfi.onCallback(a.this, "onEnded", null);
+                if (a.this.cjW != null) {
+                    a.this.cjW.onCallback(a.this, "onEnded", null);
                 }
             }
 
-            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0364a
+            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0370a
             public void onError(int i) {
-                if (a.this.cfi != null) {
-                    a.this.cfi.onCallback(a.this, "onError", Integer.valueOf(i));
+                if (a.this.cjW != null) {
+                    a.this.cjW.onCallback(a.this, "onError", Integer.valueOf(i));
                 }
             }
 
-            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0364a
-            public void fv(int i) {
-                if (a.this.cfi != null) {
-                    a.this.cfi.onCallback(a.this, "onInfo", Integer.valueOf(i));
+            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0370a
+            public void fG(int i) {
+                if (a.this.cjW != null) {
+                    a.this.cjW.onCallback(a.this, "onInfo", Integer.valueOf(i));
                 }
             }
 
-            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0364a
-            public void aex() {
-                if (a.this.cfi != null) {
-                    a.this.cfi.onCallback(a.this, "onVideoSizeChanged", null);
+            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0370a
+            public void afD() {
+                if (a.this.cjW != null) {
+                    a.this.cjW.onCallback(a.this, "onVideoSizeChanged", null);
                 }
             }
 
-            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0364a
+            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0370a
             public void onStateChange(int i) {
-                if (a.this.cfi != null) {
-                    a.this.cfi.onCallback(a.this, "onStateChange", Integer.valueOf(i));
+                if (a.this.cjW != null) {
+                    a.this.cjW.onCallback(a.this, "onStateChange", Integer.valueOf(i));
                 }
             }
 
-            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0364a
-            public void kB(@NonNull String str) {
-                if (a.this.cfi != null) {
-                    a.this.cfi.onCallback(a.this, "onNetStatus", str);
+            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0370a
+            public void kJ(@NonNull String str) {
+                if (a.this.cjW != null) {
+                    a.this.cjW.onCallback(a.this, "onNetStatus", str);
                 }
             }
 
-            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0364a
-            public void eV(String str) {
-                h.Uv().ik(str);
+            @Override // com.baidu.swan.apps.p.e.b.a.InterfaceC0370a
+            public void fb(String str) {
+                h.VB().is(str);
             }
         };
-        aVar.a(this.cfX);
-        h.Uv().a(aVar);
-        this.cfh.a(new com.baidu.swan.apps.p.e.a.a());
-        this.cfh.a(new com.baidu.swan.apps.p.e.a.b());
-        this.cfh.a(new com.baidu.swan.apps.p.e.a.c());
-        this.cfh.a(new com.baidu.swan.apps.p.e.a.d());
-        this.cfh.a(new e());
-        this.cfh.a(new f());
-        this.cfh.a(new g());
-        this.cfh.a(new com.baidu.swan.apps.p.e.a.h());
-        this.cfh.a(new j());
-        this.cfh.a(new k());
-        this.cfh.a(new l());
-        this.cfh.a(new m());
-        this.cfh.a(new o());
-        this.cfh.a(new p());
-        this.cfh.a(new s());
-        this.cfh.a(new t());
-        this.cfh.a(new n());
-        this.cfh.a(new i());
-        this.cfh.a(new r());
+        aVar.a(this.ckL);
+        h.VB().a(aVar);
+        this.cjV.a(new com.baidu.swan.apps.p.e.a.a());
+        this.cjV.a(new com.baidu.swan.apps.p.e.a.b());
+        this.cjV.a(new com.baidu.swan.apps.p.e.a.c());
+        this.cjV.a(new com.baidu.swan.apps.p.e.a.d());
+        this.cjV.a(new e());
+        this.cjV.a(new f());
+        this.cjV.a(new g());
+        this.cjV.a(new com.baidu.swan.apps.p.e.a.h());
+        this.cjV.a(new j());
+        this.cjV.a(new k());
+        this.cjV.a(new l());
+        this.cjV.a(new m());
+        this.cjV.a(new o());
+        this.cjV.a(new p());
+        this.cjV.a(new s());
+        this.cjV.a(new t());
+        this.cjV.a(new n());
+        this.cjV.a(new i());
+        this.cjV.a(new r());
     }
 
     @Override // com.baidu.swan.apps.p.b, com.baidu.webkit.sdk.plugin.ZeusPlugin
@@ -138,17 +138,17 @@ final class a extends com.baidu.swan.apps.p.b<com.baidu.swan.apps.p.e.b.a> {
     }
 
     private boolean b(ZeusPlugin.Command command) {
-        if (command != null && TextUtils.equals(command.what, k.cga)) {
+        if (command != null && TextUtils.equals(command.what, k.ckO)) {
             if (DEBUG) {
                 Log.d("LiveInlineController", "isRejectCommand: exempt release command");
                 return false;
             }
             return false;
         }
-        int aeD = ((com.baidu.swan.apps.p.e.b.a) this.cfj).aeD();
-        if (DEBUG && aeD != 1) {
-            Log.d("LiveInlineController", "isRejectCommand: authorize type => " + ((com.baidu.swan.apps.p.e.b.a) this.cfj).aeD() + " command=> " + (command == null ? "" : command.what));
+        int afJ = ((com.baidu.swan.apps.p.e.b.a) this.cjX).afJ();
+        if (DEBUG && afJ != 1) {
+            Log.d("LiveInlineController", "isRejectCommand: authorize type => " + ((com.baidu.swan.apps.p.e.b.a) this.cjX).afJ() + " command=> " + (command == null ? "" : command.what));
         }
-        return aeD == 2;
+        return afJ == 2;
     }
 }

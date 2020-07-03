@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class a extends com.baidu.swan.apps.p.a<com.baidu.swan.apps.p.c.c> {
     @Override // com.baidu.swan.apps.p.a
     @NonNull
-    public String aek() {
+    public String afq() {
         return "hideConfirmBar";
     }
 
@@ -14,6 +14,6 @@ public class a extends com.baidu.swan.apps.p.a<com.baidu.swan.apps.p.c.c> {
     @Override // com.baidu.swan.apps.p.a
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.p.c.c cVar) {
         a(cVar, command.what, null, true);
-        cVar.aev();
+        cVar.afB();
     }
 }

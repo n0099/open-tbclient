@@ -19,14 +19,14 @@ public class a extends aa {
         if (DEBUG) {
             Log.d("LongVibrateAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        if (eVar != null && eVar.TU()) {
+        if (eVar != null && eVar.Va()) {
             if (DEBUG) {
                 Log.d("LongVibrateAction", "LongVibrateAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
             return false;
         }
-        com.baidu.swan.apps.am.j.b.a.asy().asA();
+        com.baidu.swan.apps.am.j.b.a.atE().atG();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

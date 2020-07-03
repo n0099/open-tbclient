@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.a.c;
 import org.apache.http.message.BasicNameValuePair;
@@ -18,7 +18,7 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
     @Override // com.baidu.tieba.im.chat.a.c
     protected BasicNameValuePair a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         int i2 = 0;
-        if (!com.baidu.tbadk.coreExtra.messageCenter.d.aZT().ban()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bcp()) {
             str = "";
             i = 0;
         }
@@ -32,13 +32,13 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.iuG.setTag(null);
-        aVar.iuG.setDrawBorder(true);
-        aVar.iuG.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
-        aVar.iuG.setPlaceHolder(1);
+        aVar.iLM.setTag(null);
+        aVar.iLM.setDrawBorder(true);
+        aVar.iLM.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        aVar.iLM.setPlaceHolder(1);
         if (!TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
-            aVar.iuG.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            aVar.iuG.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+            aVar.iLM.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            aVar.iLM.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
         }
     }
 
@@ -54,14 +54,14 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void a(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.iuH.setText(this.mContext.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
+        aVar.iLN.setText(this.mContext.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
         if (imMessageCenterShowItemData.getUserType() == 1) {
-            BitmapDrawable bitmapDrawable = (BitmapDrawable) am.getDrawable(R.drawable.icon_v);
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) an.getDrawable(R.drawable.icon_v);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            aVar.iuH.setCompoundDrawables(null, null, bitmapDrawable, null);
-            aVar.iuH.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(R.dimen.ds8)));
+            aVar.iLN.setCompoundDrawables(null, null, bitmapDrawable, null);
+            aVar.iLN.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(R.dimen.ds8)));
             return;
         }
-        aVar.iuH.setCompoundDrawables(null, null, null, null);
+        aVar.iLN.setCompoundDrawables(null, null, null, null);
     }
 }

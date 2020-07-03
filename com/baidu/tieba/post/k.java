@@ -1,7 +1,7 @@
 package com.baidu.tieba.post;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.k.g;
 import java.io.File;
 import java.util.ArrayList;
@@ -13,9 +13,9 @@ import org.json.JSONObject;
 public class k {
     private String mUuid;
     private boolean isSuccess = true;
-    private int kFy = 0;
-    private boolean kEK = false;
-    private List<com.baidu.tieba.n.c> kFz = new ArrayList();
+    private int kZu = 0;
+    private boolean kYG = false;
+    private List<com.baidu.tieba.n.c> kZv = new ArrayList();
 
     static {
         if (com.baidu.adp.lib.util.f.checkSD()) {
@@ -24,9 +24,9 @@ public class k {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    com.baidu.tieba.k.d.Io(g.a.eMr);
-                    com.baidu.tieba.k.d.Io(g.a.jrS);
-                    com.baidu.tieba.k.d.Io(g.a.jrT);
+                    com.baidu.tieba.k.d.IQ(g.a.eWD);
+                    com.baidu.tieba.k.d.IQ(g.a.jJj);
+                    com.baidu.tieba.k.d.IQ(g.a.jJk);
                     return null;
                 }
             }.execute(new Void[0]);
@@ -37,35 +37,35 @@ public class k {
         this.mUuid = str;
     }
 
-    public void cSG() {
+    public void cWW() {
         this.isSuccess = false;
     }
 
-    public void cSH() {
+    public void cWX() {
         this.isSuccess = true;
     }
 
-    public void cSI() {
-        this.kFy++;
+    public void cWY() {
+        this.kZu++;
     }
 
-    public boolean cSJ() {
-        return this.kFy > 0;
+    public boolean cWZ() {
+        return this.kZu > 0;
     }
 
-    public void cSK() {
-        this.kEK = true;
+    public void cXa() {
+        this.kYG = true;
     }
 
-    public boolean cSL() {
-        return this.kEK;
+    public boolean cXb() {
+        return this.kYG;
     }
 
     public void a(com.baidu.tieba.n.c cVar) {
-        this.kFz.add(cVar);
-        cSN();
+        this.kZv.add(cVar);
+        cXd();
         b(cVar);
-        cSM();
+        cXc();
     }
 
     private void b(com.baidu.tieba.n.c cVar) {
@@ -79,7 +79,7 @@ public class k {
                     if (lVarArr != null && lVarArr.length == 1 && lVarArr[0] != null) {
                         l lVar = lVarArr[0];
                         synchronized ("debug") {
-                            com.baidu.tieba.k.d.a(new File(g.a.jrU + g.a.jrL + lVar.uuid + g.a.jrL + "debug"), lVar.kFC.cSh().toString() + "\n", true);
+                            com.baidu.tieba.k.d.a(new File(g.a.jJl + g.a.jJc + lVar.uuid + g.a.jJc + "debug"), lVar.kZy.cWx().toString() + "\n", true);
                         }
                     }
                     return null;
@@ -88,7 +88,7 @@ public class k {
         }
     }
 
-    private void cSM() {
+    private void cXc() {
         if (com.baidu.adp.lib.util.f.checkSD()) {
             new BdAsyncTask<e, Void, Void>() { // from class: com.baidu.tieba.post.k.3
                 /* JADX DEBUG: Method merged with bridge method */
@@ -99,26 +99,26 @@ public class k {
                     if (eVarArr != null && eVarArr.length == 1 && eVarArr[0] != null) {
                         e eVar = eVarArr[0];
                         synchronized ("kpi") {
-                            com.baidu.tieba.k.d.a(new File(g.a.jrU + g.a.jrL + eVar.uuid + g.a.jrL + "kpi"), k.b(eVar.isSuccess, eVar.kEJ, eVar.kEK).toString(), false);
+                            com.baidu.tieba.k.d.a(new File(g.a.jJl + g.a.jJc + eVar.uuid + g.a.jJc + "kpi"), k.b(eVar.isSuccess, eVar.kYF, eVar.kYG).toString(), false);
                         }
                     }
                     return null;
                 }
-            }.execute(new e(this.isSuccess, this.kFy, this.kEK, this.mUuid));
+            }.execute(new e(this.isSuccess, this.kZu, this.kYG, this.mUuid));
         }
     }
 
-    private void cSN() {
+    private void cXd() {
         if (com.baidu.adp.lib.util.f.checkSD()) {
-            File file = new File(g.a.jrU + g.a.jrL + this.mUuid + g.a.jrL);
+            File file = new File(g.a.jJl + g.a.jJc + this.mUuid + g.a.jJc);
             if (!file.exists()) {
                 file.mkdir();
             }
         }
     }
 
-    public JSONObject cyJ() {
-        return b(this.isSuccess, this.kFy, this.kEK);
+    public JSONObject cCG() {
+        return b(this.isSuccess, this.kZu, this.kYG);
     }
 
     public static final JSONObject b(boolean z, int i, boolean z2) {
@@ -133,14 +133,14 @@ public class k {
         return jSONObject;
     }
 
-    public JSONObject cyL() {
+    public JSONObject cCI() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
-            if (!v.isEmpty(this.kFz)) {
-                int size = this.kFz.size();
+            if (!w.isEmpty(this.kZv)) {
+                int size = this.kZv.size();
                 for (int i = 0; i < size; i++) {
-                    jSONArray.put(this.kFz.get(i).cSh());
+                    jSONArray.put(this.kZv.get(i).cWx());
                 }
             }
             jSONObject.put("running", jSONArray);

@@ -6,21 +6,21 @@ import com.facebook.common.internal.g;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class a implements c.a {
-    private static final byte[] mtL = {-1, -40, -1};
-    private static final int mtM = mtL.length;
-    private static final byte[] mtN = {-119, 80, 78, 71, 13, 10, 26, 10};
-    private static final int mtO = mtN.length;
-    private static final byte[] mtP = e.PU("GIF87a");
-    private static final byte[] mtQ = e.PU("GIF89a");
-    private static final byte[] mtR = e.PU("BM");
-    private static final int mtS = mtR.length;
-    private static final String[] mtT = {"heic", "heix", "hevc", "hevx"};
-    private static final int mtU = e.PU(FileTypeBox.TYPE + mtT[0]).length;
-    final int mtK = com.facebook.common.internal.e.m(21, 20, mtM, mtO, 6, mtS, mtU);
+    private static final byte[] mPK = {-1, -40, -1};
+    private static final int mPL = mPK.length;
+    private static final byte[] mPM = {-119, 80, 78, 71, 13, 10, 26, 10};
+    private static final int mPN = mPM.length;
+    private static final byte[] mPO = e.QG("GIF87a");
+    private static final byte[] mPP = e.QG("GIF89a");
+    private static final byte[] mPQ = e.QG("BM");
+    private static final int mPR = mPQ.length;
+    private static final String[] mPS = {"heic", "heix", "hevc", "hevx"};
+    private static final int mPT = e.QG(FileTypeBox.TYPE + mPS[0]).length;
+    final int mPJ = com.facebook.common.internal.e.m(21, 20, mPL, mPN, 6, mPR, mPT);
 
     @Override // com.facebook.c.c.a
     public int getHeaderSize() {
-        return this.mtK;
+        return this.mPJ;
     }
 
     @Override // com.facebook.c.c.a
@@ -31,71 +31,71 @@ public class a implements c.a {
             return p(bArr, i);
         }
         if (q(bArr, i)) {
-            return b.mtV;
+            return b.mPU;
         }
         if (r(bArr, i)) {
-            return b.mtW;
+            return b.mPV;
         }
         if (s(bArr, i)) {
-            return b.mtX;
+            return b.mPW;
         }
         if (t(bArr, i)) {
-            return b.mtY;
+            return b.mPX;
         }
         if (u(bArr, i)) {
-            return b.mue;
+            return b.mQd;
         }
-        return c.muf;
+        return c.mQe;
     }
 
     private static c p(byte[] bArr, int i) {
         g.checkArgument(com.facebook.common.g.c.t(bArr, 0, i));
         if (com.facebook.common.g.c.l(bArr, 0)) {
-            return b.mtZ;
+            return b.mPY;
         }
         if (com.facebook.common.g.c.m(bArr, 0)) {
-            return b.mua;
+            return b.mPZ;
         }
         if (com.facebook.common.g.c.s(bArr, 0, i)) {
             if (com.facebook.common.g.c.k(bArr, 0)) {
-                return b.mud;
+                return b.mQc;
             }
             if (com.facebook.common.g.c.n(bArr, 0)) {
-                return b.muc;
+                return b.mQb;
             }
-            return b.mub;
+            return b.mQa;
         }
-        return c.muf;
+        return c.mQe;
     }
 
     private static boolean q(byte[] bArr, int i) {
-        return i >= mtL.length && e.e(bArr, mtL);
+        return i >= mPK.length && e.e(bArr, mPK);
     }
 
     private static boolean r(byte[] bArr, int i) {
-        return i >= mtN.length && e.e(bArr, mtN);
+        return i >= mPM.length && e.e(bArr, mPM);
     }
 
     private static boolean s(byte[] bArr, int i) {
         if (i < 6) {
             return false;
         }
-        return e.e(bArr, mtP) || e.e(bArr, mtQ);
+        return e.e(bArr, mPO) || e.e(bArr, mPP);
     }
 
     private static boolean t(byte[] bArr, int i) {
-        if (i < mtR.length) {
+        if (i < mPQ.length) {
             return false;
         }
-        return e.e(bArr, mtR);
+        return e.e(bArr, mPQ);
     }
 
     private static boolean u(byte[] bArr, int i) {
         String[] strArr;
-        if (i >= mtU && bArr[3] >= 8) {
-            int length = mtT.length;
+        if (i >= mPT && bArr[3] >= 8) {
+            int length = mPS.length;
             for (int i2 = 0; i2 < length; i2++) {
-                if (e.c(bArr, bArr.length, e.PU(FileTypeBox.TYPE + strArr[i2]), mtU) > -1) {
+                if (e.c(bArr, bArr.length, e.QG(FileTypeBox.TYPE + strArr[i2]), mPT) > -1) {
                     return true;
                 }
             }

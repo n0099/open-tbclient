@@ -10,6 +10,8 @@ public class StatisticConstants {
     public static final String EVENT_CASE_END = "event_case_end";
     public static final String EVENT_CASE_FIRST = "event_case_first";
     public static final String EVENT_CASE_START = "event_case_start";
+    public static final String EVENT_FACE2ANIME_CASEUSE = "event_face2comic_caseuse";
+    public static final String EVENT_FACE2CHILD_CASEUSE = "event_face2kid_caseuse";
     public static final String EVENT_FACE_EXPRESSION = "event_face_expression";
     public static final String EVENT_FACE_MASKS_OFF = "event_face_masks_off";
     public static final String EVENT_FACE_MASKS_ON = "event_face_masks_on";

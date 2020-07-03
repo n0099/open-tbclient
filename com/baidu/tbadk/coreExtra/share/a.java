@@ -5,21 +5,21 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.y;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0485a eeC;
+    private InterfaceC0491a enm;
 
     /* renamed from: com.baidu.tbadk.coreExtra.share.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0485a {
-        void d(ShareItem shareItem);
+    public interface InterfaceC0491a {
+        void e(ShareItem shareItem);
     }
 
-    public void b(final ShareItem shareItem) {
+    public void c(final ShareItem shareItem) {
         new BdAsyncTask<ShareItem, Integer, ShareItem>() { // from class: com.baidu.tbadk.coreExtra.share.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -32,17 +32,17 @@ public class a {
                     return null;
                 }
                 String str2 = shareItem2.tid;
-                x xVar = new x();
-                xVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
+                y yVar = new y();
+                yVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
                 if (shareItem2.typeShareToSmallApp == 4) {
-                    xVar.addPostData("forum_id", shareItem.fid);
-                    xVar.addPostData("type", "2");
+                    yVar.addPostData("forum_id", shareItem.fid);
+                    yVar.addPostData("type", "2");
                 } else {
-                    xVar.addPostData("thread_id", str2);
-                    xVar.addPostData("type", "3");
+                    yVar.addPostData("thread_id", str2);
+                    yVar.addPostData("type", "3");
                 }
-                String postNetData = xVar.postNetData();
-                if (aq.isEmpty(postNetData)) {
+                String postNetData = yVar.postNetData();
+                if (ar.isEmpty(postNetData)) {
                     return shareItem2;
                 }
                 try {
@@ -51,7 +51,7 @@ public class a {
                     BdLog.e(e);
                 }
                 if (shareItem2.typeShareToSmallApp != 4) {
-                    shareItem2.efk = str;
+                    shareItem2.enV = str;
                     shareItem2.imageUri = Uri.parse(str);
                 }
                 return shareItem2;
@@ -60,17 +60,17 @@ public class a {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            /* renamed from: c */
+            /* renamed from: d */
             public void onPostExecute(ShareItem shareItem2) {
                 super.onPostExecute(shareItem2);
-                if (a.this.eeC != null) {
-                    a.this.eeC.d(shareItem2);
+                if (a.this.enm != null) {
+                    a.this.enm.e(shareItem2);
                 }
             }
         }.execute(shareItem);
     }
 
-    public void a(InterfaceC0485a interfaceC0485a) {
-        this.eeC = interfaceC0485a;
+    public void a(InterfaceC0491a interfaceC0491a) {
+        this.enm = interfaceC0491a;
     }
 }

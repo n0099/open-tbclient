@@ -3,76 +3,76 @@ package com.baidu.tbadk.core.view.commonBtn;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.ColorRes;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends a {
-    private boolean dYB;
+    private boolean egD;
 
     public c() {
-        this.dYn = R.color.cp_link_tip_a;
-        this.dYB = true;
+        this.ego = R.color.cp_link_tip_a;
+        this.egD = true;
     }
 
-    public void mk(@ColorRes int i) {
-        this.dYn = i;
-        this.dYB = true;
-        this.dYy = true;
-        if (this.dYA != null) {
-            this.dYA.aWX();
+    public void mC(@ColorRes int i) {
+        this.ego = i;
+        this.egD = true;
+        this.egA = true;
+        if (this.egC != null) {
+            this.egC.aYR();
         }
     }
 
-    public void ml(@ColorRes int i) {
-        this.dYn = i;
-        this.dYp = R.color.cp_btn_a;
-        this.dYB = false;
-        this.dYy = true;
-        if (this.dYA != null) {
-            this.dYA.aWX();
+    public void mD(@ColorRes int i) {
+        this.ego = i;
+        this.egq = R.color.cp_btn_a;
+        this.egD = false;
+        this.egA = true;
+        if (this.egC != null) {
+            this.egC.aYR();
         }
     }
 
-    public void aXa() {
-        this.dYn = R.color.cp_cont_a;
-        this.dYp = R.color.cp_btn_j;
-        this.dYB = false;
-        this.dYy = true;
-        if (this.dYA != null) {
-            this.dYA.aWX();
+    public void aYU() {
+        this.ego = R.color.cp_cont_a;
+        this.egq = R.color.cp_btn_j;
+        this.egD = false;
+        this.egA = true;
+        if (this.egC != null) {
+            this.egC.aYR();
         }
     }
 
-    public void mm(@ColorRes int i) {
-        this.dYn = i;
-        this.dYp = R.color.cp_btn_c;
-        this.dYB = false;
-        if (this.dYA != null) {
-            this.dYA.aWX();
+    public void mE(@ColorRes int i) {
+        this.ego = i;
+        this.egq = R.color.cp_btn_c;
+        this.egD = false;
+        if (this.egC != null) {
+            this.egC.aYR();
         }
     }
 
-    public void aO(@ColorRes int i, @ColorRes int i2) {
-        this.dYp = i;
-        this.dYn = i2;
-        this.dYB = false;
-        if (this.dYA != null) {
-            this.dYA.aWX();
+    public void aS(@ColorRes int i, @ColorRes int i2) {
+        this.egq = i;
+        this.ego = i2;
+        this.egD = false;
+        if (this.egC != null) {
+            this.egC.aYR();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.core.view.commonBtn.a
-    public Drawable T(float f) {
-        return V(f);
+    public Drawable V(float f) {
+        return X(f);
     }
 
-    private Drawable V(float f) {
+    private Drawable X(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        if (this.dYB) {
-            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.l(this.dYy ? am.getColor(this.dYn) : this.dYn, 0.08f));
+        if (this.egD) {
+            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.l(this.egA ? an.getColor(this.ego) : this.ego, 0.08f));
         } else {
-            gradientDrawable.setColor(am.getColor(this.dYp));
+            gradientDrawable.setColor(an.getColor(this.egq));
         }
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);

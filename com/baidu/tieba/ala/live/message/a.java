@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.live.message;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.bs;
+import com.baidu.live.data.bx;
 import com.baidu.live.tbadk.TbConfig;
 /* loaded from: classes3.dex */
 public class a extends HttpMessage {
@@ -25,14 +25,14 @@ public class a extends HttpMessage {
             i6 = 0;
         }
         addParam("no_wechat", i6);
-        bs bsVar = new bs();
-        bsVar.props_id = JavaTypesHelper.toInt(str, 0);
-        bsVar.new_props_id = str;
-        bsVar.money = i3;
-        bsVar.aCI = i4;
-        bsVar.wars_name = "";
-        bsVar.wars_item = "";
-        addParam("wares", bsVar.toJson());
+        bx bxVar = new bx();
+        bxVar.props_id = JavaTypesHelper.toInt(str, 0);
+        bxVar.new_props_id = str;
+        bxVar.money = i3;
+        bxVar.aFa = i4;
+        bxVar.wars_name = "";
+        bxVar.wars_item = "";
+        addParam("wares", bxVar.toJson());
         if (!StringUtils.isNull(str3)) {
             addParam("refer_page", str3);
         }

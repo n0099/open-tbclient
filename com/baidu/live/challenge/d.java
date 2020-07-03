@@ -5,11 +5,14 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d {
     public long alaId;
-    public boolean aum;
-    public long aun;
-    public long auo;
     public String avatar;
+    public int awo;
+    public boolean awp;
+    public long awq;
+    public long awr;
     public long charmCount;
+    public int liveStatus;
+    public String portrait;
     public long userId;
     public String userName;
 
@@ -18,11 +21,14 @@ public class d {
             this.userId = jSONObject.optLong("user_id");
             this.alaId = jSONObject.optLong("ala_id");
             this.userName = jSONObject.optString("user_name");
+            this.portrait = jSONObject.optString("bd_portrait");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
             this.charmCount = jSONObject.optLong("charm_count");
-            this.aum = jSONObject.optInt("can_challenge") == 1;
-            this.aun = jSONObject.optLong("challenge_end_time");
-            this.auo = jSONObject.optLong("challenge_time");
+            this.liveStatus = jSONObject.optInt("live_status");
+            this.awo = jSONObject.optInt("pk_status");
+            this.awp = jSONObject.optInt("can_challenge") == 1;
+            this.awq = jSONObject.optLong("challenge_end_time");
+            this.awr = jSONObject.optLong("challenge_time");
         }
     }
 

@@ -6,31 +6,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class c {
-    private static c dtc;
-    private boolean dtd = false;
+    private static c dxM;
+    private boolean dxN = false;
     private List<a> mListeners = new ArrayList();
 
     private c() {
     }
 
-    public static c aKk() {
-        if (dtc == null) {
+    public static c aLq() {
+        if (dxM == null) {
             synchronized (c.class) {
-                if (dtc == null) {
-                    dtc = new c();
+                if (dxM == null) {
+                    dxM = new c();
                 }
             }
         }
-        return dtc;
+        return dxM;
     }
 
-    public synchronized void aKl() {
-        if (!this.dtd) {
-            if (b.aKe()) {
-                aKm();
+    public synchronized void aLr() {
+        if (!this.dxN) {
+            if (b.aLk()) {
+                aLs();
             } else {
-                this.dtd = true;
-                com.baidu.swan.a.d.a(new com.baidu.swan.a.a.a(b.aKh(), b.aKg()), new com.baidu.swan.a.a.d(new com.baidu.swan.a.e<com.baidu.swan.a.a.c>() { // from class: com.baidu.swan.f.c.1
+                this.dxN = true;
+                com.baidu.swan.a.d.a(new com.baidu.swan.a.a.a(b.aLn(), b.aLm()), new com.baidu.swan.a.a.d(new com.baidu.swan.a.e<com.baidu.swan.a.a.c>() { // from class: com.baidu.swan.f.c.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.a.e
                     /* renamed from: j */
@@ -39,12 +39,12 @@ public class c {
                     }
 
                     @Override // com.baidu.swan.a.e
-                    public void W(int i, String str) {
-                        c.this.dtd = false;
+                    public void Y(int i, String str) {
+                        c.this.dxN = false;
                         if (i == 1010) {
-                            c.this.aKm();
+                            c.this.aLs();
                         } else {
-                            c.this.aKn();
+                            c.this.aLt();
                         }
                     }
 
@@ -71,7 +71,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void aKm() {
+    public synchronized void aLs() {
         for (a aVar : this.mListeners) {
             aVar.onSuccess();
         }
@@ -79,7 +79,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void aKn() {
+    public synchronized void aLt() {
         for (a aVar : this.mListeners) {
             aVar.onFail();
         }
@@ -96,10 +96,10 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void g(com.baidu.swan.a.a.c cVar) {
         if (e.k(cVar)) {
-            b.gx(true);
+            b.gC(true);
             h(cVar);
         } else {
-            b.gx(false);
+            b.gC(false);
             i(cVar);
         }
     }
@@ -112,31 +112,31 @@ public class c {
 
             @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
             public void onInstallFinish(int i, String str) {
-                if (!c.this.aKo()) {
-                    c.this.dtd = false;
-                    c.this.aKn();
+                if (!c.this.aLu()) {
+                    c.this.dxN = false;
+                    c.this.aLt();
                     return;
                 }
                 b.ad(cVar.versionName, cVar.versionCode);
-                c.this.dtd = false;
-                c.this.aKm();
+                c.this.dxN = false;
+                c.this.aLs();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized boolean aKo() {
-        return new d(AppRuntime.getAppContext()).aKq();
+    public synchronized boolean aLu() {
+        return new d(AppRuntime.getAppContext()).aLw();
     }
 
     private synchronized void i(com.baidu.swan.a.a.c cVar) {
-        if (e.unzipFile(cVar.filePath, b.bZt)) {
+        if (e.unzipFile(cVar.filePath, b.cej)) {
             b.ad(cVar.versionName, cVar.versionCode);
-            this.dtd = false;
-            aKm();
+            this.dxN = false;
+            aLs();
         } else {
-            this.dtd = false;
-            aKn();
+            this.dxN = false;
+            aLt();
         }
     }
 }

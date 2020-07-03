@@ -27,7 +27,7 @@ public final class StringMap {
         return this;
     }
 
-    public StringMap z(Map<String, String> map) {
+    public StringMap A(Map<String, String> map) {
         this.map.putAll(map);
         return this;
     }
@@ -45,17 +45,17 @@ public final class StringMap {
     /* renamed from: com.qiniu.android.utils.StringMap$1  reason: invalid class name */
     /* loaded from: classes5.dex */
     class AnonymousClass1 implements Consumer {
-        private boolean niS;
-        final /* synthetic */ StringBuilder niT;
+        private boolean nEH;
+        final /* synthetic */ StringBuilder nEI;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
         public void N(String str, Object obj) {
-            if (this.niS) {
-                this.niT.append(ETAG.ITEM_SEPARATOR);
+            if (this.nEH) {
+                this.nEI.append(ETAG.ITEM_SEPARATOR);
             }
             try {
-                this.niT.append(URLEncoder.encode(str, "UTF-8")).append('=').append(URLEncoder.encode(obj.toString(), "UTF-8"));
-                this.niS = true;
+                this.nEI.append(URLEncoder.encode(str, "UTF-8")).append('=').append(URLEncoder.encode(obj.toString(), "UTF-8"));
+                this.nEH = true;
             } catch (UnsupportedEncodingException e) {
                 throw new AssertionError(e);
             }

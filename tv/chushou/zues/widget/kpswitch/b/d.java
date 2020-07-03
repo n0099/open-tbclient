@@ -12,23 +12,23 @@ import android.view.inputmethod.InputMethodManager;
 import tv.chushou.zues.b;
 /* loaded from: classes5.dex */
 public class d {
-    private static int nRH = 0;
-    private static int nRI = 0;
-    private static int nRJ = 0;
+    private static int onw = 0;
+    private static int onx = 0;
+    private static int ony = 0;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void wC(boolean z);
+        void wY(boolean z);
     }
 
-    public static void dD(View view) {
+    public static void dE(View view) {
         if (view != null) {
             view.requestFocus();
             ((InputMethodManager) view.getContext().getSystemService("input_method")).showSoftInput(view, 0);
         }
     }
 
-    public static void dE(View view) {
+    public static void dF(View view) {
         if (view != null) {
             if (view.isFocused()) {
                 view.clearFocus();
@@ -50,34 +50,34 @@ public class d {
         if (i < 0) {
             return false;
         }
-        nRH = i;
+        onw = i;
         tv.chushou.zues.utils.e.m("KeyBordUtil", "%s%s", "save keyboard:", Integer.valueOf(i));
         return b.G(context, i);
     }
 
-    public static int gI(Context context) {
-        if (nRH == 0) {
-            nRH = b.H(context, d(context.getResources()));
+    public static int gJ(Context context) {
+        if (onw == 0) {
+            onw = b.H(context, d(context.getResources()));
         }
-        return nRH;
+        return onw;
     }
 
-    public static int gJ(Context context) {
-        return Math.min(c(context.getResources()), Math.max(d(context.getResources()), gI(context)));
+    public static int gK(Context context) {
+        return Math.min(c(context.getResources()), Math.max(d(context.getResources()), gJ(context)));
     }
 
     public static int c(Resources resources) {
-        if (nRI == 0) {
-            nRI = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_max_height);
+        if (onx == 0) {
+            onx = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_max_height);
         }
-        return nRI;
+        return onx;
     }
 
     public static int d(Resources resources) {
-        if (nRJ == 0) {
-            nRJ = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_min_height);
+        if (ony == 0) {
+            ony = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_min_height);
         }
-        return nRJ;
+        return ony;
     }
 
     public static c a(Activity activity, tv.chushou.zues.widget.kpswitch.b bVar, a aVar, boolean z) {
@@ -95,6 +95,6 @@ public class d {
         } else {
             viewGroup.getViewTreeObserver().removeGlobalOnLayoutListener(onGlobalLayoutListener);
         }
-        tv.chushou.zues.widget.kpswitch.b.a.nRs = null;
+        tv.chushou.zues.widget.kpswitch.b.a.onh = null;
     }
 }

@@ -11,14 +11,14 @@ public class Slot implements Parcelable {
     public static final Parcelable.Creator<Slot> CREATOR = new Parcelable.Creator<Slot>() { // from class: com.baidu.ubc.Slot.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ae */
+        /* renamed from: ah */
         public Slot createFromParcel(Parcel parcel) {
             return new Slot(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: GA */
+        /* renamed from: HH */
         public Slot[] newArray(int i) {
             return new Slot[i];
         }
@@ -70,19 +70,19 @@ public class Slot implements Parcelable {
         }
     }
 
-    public void cu(JSONObject jSONObject) {
+    public void cB(JSONObject jSONObject) {
         this.mOption = jSONObject;
     }
 
-    public boolean aIN() {
+    public boolean aJT() {
         return this.mStart > 0;
     }
 
-    public boolean aIO() {
+    public boolean aJU() {
         return this.mEnd > 0;
     }
 
-    public JSONObject aIP() {
+    public JSONObject aJV() {
         JSONObject jSONObject;
         JSONException e;
         if (TextUtils.isEmpty(this.mCategory) || this.mDuration <= 0.0f) {

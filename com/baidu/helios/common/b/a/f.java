@@ -23,7 +23,7 @@ public class f {
         }
     }
 
-    public static String z(byte[] bArr) {
+    public static String B(byte[] bArr) {
         return a.c(sha256(bArr), false);
     }
 }

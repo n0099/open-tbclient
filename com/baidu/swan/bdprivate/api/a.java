@@ -17,38 +17,38 @@ public class a extends d {
     }
 
     @SuppressLint({"SwanBindApiNote"})
-    public com.baidu.swan.apps.api.c.b pZ(String str) {
+    public com.baidu.swan.apps.api.c.b qh(String str) {
         return a(str, new c("getBDUSS") { // from class: com.baidu.swan.bdprivate.api.a.1
             @Override // com.baidu.swan.apps.api.a.c
-            protected boolean TT() {
-                return com.baidu.swan.apps.runtime.d.aoB().ane() && com.baidu.swan.apps.runtime.d.aoB().aox().aoR().ok("mapp_i_get_bduss");
+            protected boolean UZ() {
+                return com.baidu.swan.apps.runtime.d.apI().aok() && com.baidu.swan.apps.runtime.d.apI().apE().apY().ot("mapp_i_get_bduss");
             }
 
             @Override // com.baidu.swan.apps.api.a.c
             @NonNull
             protected com.baidu.swan.apps.api.c.b a(@NonNull JSONObject jSONObject, @NonNull final c.a aVar) {
-                e aoG = e.aoG();
-                if (aoG == null) {
+                e apN = e.apN();
+                if (apN == null) {
                     if (d.DEBUG) {
                         Log.e("Api-Base-getBduss", "getBduss failed: null swan runtime");
                     }
                     return new com.baidu.swan.apps.api.c.b(1001, "null swan runtime");
                 }
-                aoG.aoR().b(com.baidu.swan.apps.runtime.d.aoB(), "mapp_i_get_bduss", new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.a.1.1
+                apN.apY().b(com.baidu.swan.apps.runtime.d.apI(), "mapp_i_get_bduss", new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.a.1.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.aq.e.b
                     /* renamed from: a */
                     public void H(h<b.d> hVar) {
                         if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                            aVar.a(a.this.auO());
+                            aVar.a(a.this.avU());
                             return;
                         }
                         int errorCode = hVar.getErrorCode();
-                        String gO = com.baidu.swan.apps.setting.oauth.c.gO(errorCode);
+                        String gZ = com.baidu.swan.apps.setting.oauth.c.gZ(errorCode);
                         if (d.DEBUG) {
-                            Log.e("Api-Base-getBduss", "getBduss failed: auth fail(" + errorCode + ", " + gO + ")");
+                            Log.e("Api-Base-getBduss", "getBduss failed: auth fail(" + errorCode + ", " + gZ + ")");
                         }
-                        aVar.a(new com.baidu.swan.apps.api.c.b(errorCode, gO));
+                        aVar.a(new com.baidu.swan.apps.api.c.b(errorCode, gZ));
                     }
                 });
                 return new com.baidu.swan.apps.api.c.b(0);
@@ -56,19 +56,19 @@ public class a extends d {
 
             @Override // com.baidu.swan.apps.api.a.c
             @NonNull
-            protected com.baidu.swan.apps.api.c.b af(@NonNull JSONObject jSONObject) {
-                return a.this.auO();
+            protected com.baidu.swan.apps.api.c.b am(@NonNull JSONObject jSONObject) {
+                return a.this.avU();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @NonNull
-    public com.baidu.swan.apps.api.c.b auO() {
-        String cH = com.baidu.swan.bdprivate.a.a.cH(com.baidu.swan.apps.runtime.d.aoB());
+    public com.baidu.swan.apps.api.c.b avU() {
+        String cI = com.baidu.swan.bdprivate.a.a.cI(com.baidu.swan.apps.runtime.d.apI());
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("bduss", cH);
+            jSONObject.put("bduss", cI);
             if (DEBUG) {
                 Log.d("Api-Base-getBduss", "getBduss success: " + jSONObject.toString());
             }

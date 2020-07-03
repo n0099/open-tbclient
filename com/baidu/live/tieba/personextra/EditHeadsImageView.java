@@ -5,49 +5,49 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.DragImageView;
-import com.baidu.live.u.a;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes3.dex */
 public class EditHeadsImageView extends DragImageView {
-    private int bcs;
-    private int bct;
-    private float bcu;
-    private float bcv;
-    private int bcx;
+    private int bhC;
+    private int bhD;
+    private float bhE;
+    private float bhF;
+    private int bhH;
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bcs = 0;
-        this.bct = 0;
-        this.bcu = 0.42857143f;
-        this.bcx = 0;
-        this.bcv = 1.0f;
+        this.bhC = 0;
+        this.bhD = 0;
+        this.bhE = 0.42857143f;
+        this.bhH = 0;
+        this.bhF = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bcs = 0;
-        this.bct = 0;
-        this.bcu = 0.42857143f;
-        this.bcx = 0;
-        this.bcv = 1.0f;
+        this.bhC = 0;
+        this.bhD = 0;
+        this.bhE = 0.42857143f;
+        this.bhH = 0;
+        this.bhF = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context) {
         super(context);
-        this.bcs = 0;
-        this.bct = 0;
-        this.bcu = 0.42857143f;
-        this.bcx = 0;
-        this.bcv = 1.0f;
+        this.bhC = 0;
+        this.bhD = 0;
+        this.bhE = 0.42857143f;
+        this.bhH = 0;
+        this.bhF = 1.0f;
         init();
     }
 
     private void init() {
-        this.bcx = getResources().getColor(a.d.sdk_ph_common_color_10226);
+        this.bhH = getResources().getColor(a.d.sdk_ph_common_color_10226);
         setDrawingCacheEnabled(true);
         setImageMode(1);
         CompatibleUtile.getInstance().noneViewGpu(this);
@@ -62,30 +62,30 @@ public class EditHeadsImageView extends DragImageView {
     @Override // com.baidu.live.tbadk.widget.DragImageView, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.bcv * getWidth();
+        float width = this.bhF * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.bcs = (int) (((i4 - i2) - width) * this.bcu);
-        this.bct = (int) (((i4 - i2) - width) * (1.0f - this.bcu));
-        setOffset(0, this.bcs, 0, this.bct);
+        this.bhC = (int) (((i4 - i2) - width) * this.bhE);
+        this.bhD = (int) (((i4 - i2) - width) * (1.0f - this.bhE));
+        setOffset(0, this.bhC, 0, this.bhD);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         canvas.save();
-        canvas.drawColor(this.bcx);
+        canvas.drawColor(this.bhH);
         super.onDraw(canvas);
         canvas.restore();
     }
 
-    public Bitmap cb(boolean z) {
+    public Bitmap cg(boolean z) {
         Bitmap bitmap = null;
         try {
             Bitmap visableBitmap = getVisableBitmap();
             if (visableBitmap != null) {
-                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.bcs, getWidth(), (getHeight() - this.bct) - this.bcs);
+                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.bhC, getWidth(), (getHeight() - this.bhD) - this.bhC);
                 bitmap = z ? Bitmap.createScaledBitmap(createBitmap, 48, 48, false) : createBitmap;
                 if (bitmap != createBitmap) {
                     createBitmap.recycle();
@@ -98,7 +98,7 @@ public class EditHeadsImageView extends DragImageView {
     }
 
     public void setCutImageHeightScale(float f) {
-        this.bcv = f;
+        this.bhF = f;
         invalidate();
     }
 }

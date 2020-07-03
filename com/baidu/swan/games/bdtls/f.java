@@ -19,10 +19,10 @@ public class f {
         }
         try {
             String str = alert.getLevel() == 1 ? "warning" : "fatal_error";
-            int intValue = jVar.ayR() != null ? jVar.ayR().intValue() : -1;
-            int intValue2 = jVar.ayS() != null ? jVar.ayS().intValue() : -1;
-            int intValue3 = jVar.ayT() != null ? jVar.ayT().intValue() : -1;
-            int intValue4 = jVar.ayU() != null ? jVar.ayU().intValue() : -1;
+            int intValue = jVar.azX() != null ? jVar.azX().intValue() : -1;
+            int intValue2 = jVar.azY() != null ? jVar.azY().intValue() : -1;
+            int intValue3 = jVar.azZ() != null ? jVar.azZ().intValue() : -1;
+            int intValue4 = jVar.aAa() != null ? jVar.aAa().intValue() : -1;
             String str2 = alert.getDescription() != null ? new String(alert.getDescription().toByteArray()) : "";
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc get data");
@@ -47,12 +47,12 @@ public class f {
         }
     }
 
-    public static void ri(String str) {
+    public static void rq(String str) {
         if (a.DEBUG) {
             Log.d("BDTLS", "bdtls success");
         }
-        j axO = e.axN().axO();
-        if (axO == null) {
+        j ayU = e.ayT().ayU();
+        if (ayU == null) {
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc data is null");
                 return;
@@ -60,10 +60,10 @@ public class f {
             return;
         }
         try {
-            int intValue = axO.ayR() != null ? axO.ayR().intValue() : -1;
-            int intValue2 = axO.ayS() != null ? axO.ayS().intValue() : -1;
-            int intValue3 = axO.ayT() != null ? axO.ayT().intValue() : -1;
-            int intValue4 = axO.ayU() != null ? axO.ayU().intValue() : -1;
+            int intValue = ayU.azX() != null ? ayU.azX().intValue() : -1;
+            int intValue2 = ayU.azY() != null ? ayU.azY().intValue() : -1;
+            int intValue3 = ayU.azZ() != null ? ayU.azZ().intValue() : -1;
+            int intValue4 = ayU.aAa() != null ? ayU.aAa().intValue() : -1;
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc get data");
             }

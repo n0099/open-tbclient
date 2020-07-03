@@ -9,27 +9,27 @@ import com.baidu.tbadk.coreExtra.data.NewGodData;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class v {
-    private static v evn = null;
-    private String evm;
-    private Runnable evo = new Runnable() { // from class: com.baidu.tbadk.util.v.1
+    private static v eEt = null;
+    private String eEs;
+    private Runnable eEu = new Runnable() { // from class: com.baidu.tbadk.util.v.1
         @Override // java.lang.Runnable
         public void run() {
             HashMap hashMap = new HashMap();
             hashMap.put("from", String.valueOf(v.this.mFrom));
             hashMap.put("field_id", v.this.mFieldId);
             if (v.this.mFrom == 2) {
-                hashMap.put("fid", v.this.evm);
+                hashMap.put("fid", v.this.eEs);
             }
             hashMap.put("animated", false);
             hashMap.put("transparent", true);
             hashMap.put("swipeback", false);
-            if (PluginPackageManager.nX().cv("com.baidu.tieba.pluginFlutter")) {
+            if (PluginPackageManager.oo().cw("com.baidu.tieba.pluginFlutter")) {
                 if (MessageManager.getInstance().findTask(2002015) == null) {
-                    com.baidu.adp.lib.f.e.ld().postDelayed(v.this.evo, 0L);
+                    com.baidu.adp.lib.f.e.lt().postDelayed(v.this.eEu, 0L);
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new com.baidu.tieba.tbadkCore.data.m(TbadkApplication.getInst().getApplicationContext(), "GodDialog", hashMap)));
-                com.baidu.tbadk.core.sharedPref.b.aTX().putLong("key_new_god_dialog_showed_time", System.currentTimeMillis());
+                com.baidu.tbadk.core.sharedPref.b.aVP().putLong("key_new_god_dialog_showed_time", System.currentTimeMillis());
             }
         }
     };
@@ -39,20 +39,20 @@ public class v {
     private v() {
     }
 
-    public static synchronized v bgH() {
+    public static synchronized v biU() {
         v vVar;
         synchronized (v.class) {
-            if (evn == null) {
-                evn = new v();
+            if (eEt == null) {
+                eEt = new v();
             }
-            vVar = evn;
+            vVar = eEt;
         }
         return vVar;
     }
 
     private boolean a(int i, NewGodData newGodData) {
         if (i != 5) {
-            return (((((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.aTX().getLong("key_new_god_dialog_showed_time", 0L)) + 3000) > Config.THREAD_IMAGE_SAVE_MAX_TIME ? 1 : (((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.aTX().getLong("key_new_god_dialog_showed_time", 0L)) + 3000) == Config.THREAD_IMAGE_SAVE_MAX_TIME ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
+            return (((((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.aVP().getLong("key_new_god_dialog_showed_time", 0L)) + 3000) > Config.THREAD_IMAGE_SAVE_MAX_TIME ? 1 : (((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.aVP().getLong("key_new_god_dialog_showed_time", 0L)) + 3000) == Config.THREAD_IMAGE_SAVE_MAX_TIME ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
         }
         return true;
     }
@@ -66,15 +66,15 @@ public class v {
             removeCallbacks();
             this.mFrom = i;
             this.mFieldId = newGodData.getFieldId();
-            com.baidu.adp.lib.f.e.ld().postDelayed(this.evo, z ? 3000L : 0L);
+            com.baidu.adp.lib.f.e.lt().postDelayed(this.eEu, z ? 3000L : 0L);
         }
     }
 
     public void removeCallbacks() {
-        com.baidu.adp.lib.f.e.ld().removeCallbacks(this.evo);
+        com.baidu.adp.lib.f.e.lt().removeCallbacks(this.eEu);
     }
 
     public void setFid(String str) {
-        this.evm = str;
+        this.eEs = str;
     }
 }

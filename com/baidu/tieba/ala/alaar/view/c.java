@@ -1,87 +1,143 @@
 package com.baidu.tieba.ala.alaar.view;
 
-import android.animation.ObjectAnimator;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.live.ar.d;
-import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.live.u.a;
-import com.baidu.tieba.ala.alaar.sticker.a.e;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.core.util.ListUtils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class c {
-    private TextView eNp;
-    private TbImageView eZh;
-    public ImageView eZi;
-    private ObjectAnimator eZj;
-    public ImageView faf;
-    public View mRootView;
+public class c extends BaseAdapter {
+    private ViewGroup flb;
+    private a flw;
+    public List<com.baidu.live.ar.e> auD = new ArrayList();
+    private int fjj = -1;
+    private int fjk = -1;
+    private int fld = 0;
 
-    public c(View view) {
-        this.mRootView = view;
-        this.eZh = (TbImageView) this.mRootView.findViewById(a.g.filter_img);
-        this.eZh.setDefaultBgResource(a.f.filter_beauty_item_bg);
-        this.eZh.setIsRound(true);
-        this.eZh.setAutoChangeStyle(false);
-        this.eZh.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eZh.setDrawBorder(false);
-        this.eZi = (ImageView) this.mRootView.findViewById(a.g.filter_unload);
-        this.faf = (ImageView) this.mRootView.findViewById(a.g.filter_bg);
-        this.eNp = (TextView) this.mRootView.findViewById(a.g.filter_text);
+    /* loaded from: classes3.dex */
+    public interface a {
+        void b(int i, int[] iArr);
     }
 
-    public void b(d dVar) {
-        if (dVar != null) {
-            this.eZh.setVisibility(0);
-            if (this.mRootView.getContext().getString(a.i.beauty_yuantu).equals(dVar.getName()) || e.AH(dVar.uX())) {
-                this.eZi.setVisibility(4);
-                bqc();
-            } else if (!TextUtils.isEmpty(dVar.uX()) && e.cz(dVar.uX())) {
-                this.eZi.setVisibility(0);
-                startLoadingAnim();
-            } else {
-                this.eZi.setVisibility(0);
-                this.eZi.setRotation(0.0f);
-                this.eZi.setImageResource(a.f.sticker_unload);
-                bqc();
+    public c(ViewGroup viewGroup) {
+        this.flb = viewGroup;
+    }
+
+    public void a(a aVar) {
+        this.flw = aVar;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.auD == null) {
+            return 0;
+        }
+        return this.auD.size();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: pX */
+    public com.baidu.live.ar.e getItem(int i) {
+        return (com.baidu.live.ar.e) ListUtils.getItem(this.auD, i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    public void e(List<com.baidu.live.ar.e> list, int i) {
+        if (!ListUtils.isEmpty(list)) {
+            this.auD.clear();
+            this.auD.addAll(list);
+            this.fjj = i;
+            notifyDataSetChanged();
+        }
+    }
+
+    public List<com.baidu.live.ar.e> getDatas() {
+        return this.auD;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(final int i, View view, ViewGroup viewGroup) {
+        final d dVar;
+        if (view == null) {
+            view = LayoutInflater.from(this.flb.getContext()).inflate(a.h.face_feature_ar_item_layout, (ViewGroup) null);
+            dVar = new d(view);
+            view.setTag(dVar);
+        } else {
+            dVar = (d) view.getTag();
+        }
+        view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.view.c.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                int[] iArr = new int[2];
+                if (dVar != null && dVar.mRootView != null) {
+                    dVar.mRootView.getLocationOnScreen(iArr);
+                }
+                c.this.a(c.this.getItem(i), i, dVar, iArr);
             }
-            this.eNp.setText(dVar.getName());
-            c(dVar);
-        }
-    }
-
-    public void c(d dVar) {
+        });
         if (dVar != null) {
-            this.eZh.startLoad(dVar.uY(), 10, false);
+            dVar.a(getItem(i));
+            if (this.fjj == i) {
+                dVar.btf();
+            } else {
+                dVar.bte();
+            }
+        }
+        if (i == 0 && this.fld != 0) {
+            view.setPadding(this.fld, 0, 0, 0);
+        } else {
+            view.setPadding(0, 0, 0, 0);
+        }
+        return view;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(com.baidu.live.ar.e eVar, int i, d dVar, int[] iArr) {
+        if (eVar != null) {
+            this.fjk = i;
+            if (this.flw != null) {
+                this.flw.b(i, iArr);
+            }
+            this.fjj = i;
+            if (com.baidu.live.c.vf().getInt("beauty_subitem_redot", 0) == 1) {
+                com.baidu.live.c.vf().putBoolean(eVar.getType(), false);
+            }
+            notifyDataSetChanged();
         }
     }
 
-    public void bqh() {
-        this.eNp.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_cont_i));
-        this.faf.setVisibility(4);
+    public int Br(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return 0;
+        }
+        for (int i = 0; i < this.auD.size(); i++) {
+            if (TextUtils.equals(str, this.auD.get(i).getType())) {
+                return i;
+            }
+        }
+        return 0;
     }
 
-    public void bqi() {
-        this.eNp.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_other_b));
-        this.faf.setVisibility(0);
+    public String Bs(String str) {
+        int i = 0;
+        if (TextUtils.equals(str, "goddessFace")) {
+            i = 1;
+        } else if (TextUtils.equals(str, "babyFace")) {
+            i = 2;
+        }
+        return com.baidu.minivideo.arface.c.dO(i);
     }
 
-    public void startLoadingAnim() {
-        if (this.eZj == null) {
-            this.eZj = ObjectAnimator.ofFloat(this.eZi, "rotation", 0.0f, 359.0f);
-            this.eZj.setRepeatCount(-1);
-            this.eZj.setDuration(1000L);
-        }
-        if (!this.eZj.isRunning()) {
-            this.eZi.setImageResource(a.f.sticker_loading);
-            this.eZj.start();
-        }
-    }
-
-    public void bqc() {
-        if (this.eZj != null && this.eZj.isRunning()) {
-            this.eZj.cancel();
-        }
+    public void pW(int i) {
+        this.fld = i;
     }
 }

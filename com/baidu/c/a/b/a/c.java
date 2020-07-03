@@ -1,18 +1,18 @@
 package com.baidu.c.a.b.a;
 /* loaded from: classes6.dex */
 public class c {
-    public String blA;
-    public String blD;
-    public String blE;
-    public C0095c blF;
-    public a blG;
-    public String blH;
-    public String blq;
-    public String blr;
-    public String bls;
-    public String blv;
-    public C0095c blx;
-    public String bly;
+    public String bqB;
+    public String bqE;
+    public String bqF;
+    public C0096c bqG;
+    public a bqH;
+    public String bqI;
+    public String bqr;
+    public String bqs;
+    public String bqt;
+    public String bqw;
+    public C0096c bqy;
+    public String bqz;
     public String content;
     public long msgId;
     public String name;
@@ -20,31 +20,31 @@ public class c {
     public long time;
     public String uid;
     public String type = "0";
-    public String blt = "0";
-    public String blu = "1005";
-    public String blw = "0";
-    public String blz = "0";
-    public String blB = "0";
-    public String blC = "1005";
+    public String bqu = "0";
+    public String bqv = "1005";
+    public String bqx = "0";
+    public String bqA = "0";
+    public String bqC = "0";
+    public String bqD = "1005";
 
     /* loaded from: classes6.dex */
     public static class a {
-        public int blP;
-        public int blQ;
-        public c blR;
-        public long[] blS;
-        public int blT;
-        public String blU;
-        public String blV;
+        public int bqQ;
+        public int bqR;
+        public c bqS;
+        public long[] bqT;
+        public int bqU;
+        public String bqV;
+        public String bqW;
         public int feedback = 0;
-        public String blI = "";
-        public int blJ = 0;
+        public String bqJ = "";
+        public int bqK = 0;
         public String duration = "";
-        public String blK = "";
-        public String blL = "";
-        public String blM = "";
-        public String blN = "";
-        public String blO = "";
+        public String bqL = "";
+        public String bqM = "";
+        public String bqN = "";
+        public String bqO = "";
+        public String bqP = "";
     }
 
     /* loaded from: classes6.dex */
@@ -55,17 +55,17 @@ public class c {
 
     /* renamed from: com.baidu.c.a.b.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0095c {
-        public e blW;
-        public d blX;
-        public f blY;
-        public b blZ;
+    public static class C0096c {
+        public e bqX;
+        public d bqY;
+        public f bqZ;
+        public b bra;
     }
 
     /* loaded from: classes6.dex */
     public static class d {
-        public a bma;
-        public a bmb;
+        public a brb;
+        public a brc;
 
         /* loaded from: classes6.dex */
         public static class a {
@@ -89,6 +89,6 @@ public class c {
     }
 
     public String toString() {
-        return "LiveMessageBean:{" + this.blq + "}";
+        return "LiveMessageBean:{" + this.bqr + "}";
     }
 }

@@ -6,8 +6,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    public int fEL;
-    public int fEM;
+    public int fPU;
+    public int fPV;
     public String id;
     public String intro;
     public int live_status;
@@ -28,8 +28,8 @@ public class b {
             }
             this.intro = jSONObject.optString("intro");
             this.live_status = jSONObject.optInt("live_status");
-            this.fEL = jSONObject.optInt("live_id");
-            this.fEM = jSONObject.optInt("has_concerned");
+            this.fPU = jSONObject.optInt("live_id");
+            this.fPV = jSONObject.optInt("has_concerned");
         }
     }
 
@@ -46,8 +46,8 @@ public class b {
             jSONObject.put("portrait", this.portrait);
             jSONObject.put("intro", this.intro);
             jSONObject.put("live_status", this.live_status);
-            jSONObject.put("live_id", this.fEL);
-            jSONObject.put("has_concerned", this.fEM);
+            jSONObject.put("live_id", this.fPU);
+            jSONObject.put("has_concerned", this.fPV);
         } catch (JSONException e) {
             e.printStackTrace();
         }

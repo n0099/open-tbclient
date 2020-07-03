@@ -10,7 +10,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.kascend.cstvsdk.bean.LoginParam;
 import com.kascend.cstvsdk.bean.LoginResp;
 import com.kascend.cstvsdk.bean.ShareParam;
@@ -76,6 +76,6 @@ public class ChushouSdkThirdParty implements ThirdParty {
     }
 
     private void gotoLogin(Context context) {
-        bc.skipToLoginActivity(context);
+        be.skipToLoginActivity(context);
     }
 }

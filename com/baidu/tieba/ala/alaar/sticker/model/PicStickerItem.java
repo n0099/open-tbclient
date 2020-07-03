@@ -10,7 +10,7 @@ public class PicStickerItem extends FuFaceItem {
     public String max_version;
     public String min_version;
     public int resId;
-    public int sticker_type = 2;
+    public int sticker_type = 1;
     public String type;
     public String url;
 
@@ -36,9 +36,9 @@ public class PicStickerItem extends FuFaceItem {
             this.url = jSONObject.optString("url");
             this.type = jSONObject.optString("type");
             if ("1".equals(this.type)) {
-                this.sticker_type = 2;
-            } else if ("2".equals(this.type)) {
                 this.sticker_type = 1;
+            } else if ("2".equals(this.type)) {
+                this.sticker_type = 2;
             }
             this.min_version = jSONObject.optString("min_version");
             this.max_version = jSONObject.optString("max_version");

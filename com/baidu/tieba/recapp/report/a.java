@@ -1,25 +1,25 @@
 package com.baidu.tieba.recapp.report;
 
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class a {
-    private static final Map<String, Set<o>> kPF = new HashMap();
+    private static final Map<String, Set<q>> ljy = new HashMap();
 
-    public static void b(String str, Set<o> set) {
-        kPF.put(str, set);
+    public static void b(String str, Set<q> set) {
+        ljy.put(str, set);
     }
 
-    public static Set<o> Lu(String str) {
-        return kPF.get(str);
+    public static Set<q> LV(String str) {
+        return ljy.get(str);
     }
 
     public static void remove(String str) {
-        if (kPF.get(str) != null) {
-            kPF.get(str).clear();
-            kPF.remove(str);
+        if (ljy.get(str) != null) {
+            ljy.get(str).clear();
+            ljy.remove(str);
         }
     }
 }

@@ -4,58 +4,58 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.j;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a lnw;
-    private final int lnx = 10;
-    private final int lny = 3000;
+    private com.baidu.adp.lib.stats.a lHl;
+    private final int lHm = 10;
+    private final int lHn = 3000;
     public String mLogType = null;
     public boolean mIsJson = false;
 
     public b(String str) {
-        aU(str, false);
+        aW(str, false);
     }
 
-    public void aU(String str, boolean z) {
+    public void aW(String str, boolean z) {
         this.mLogType = str;
         this.mIsJson = z;
-        this.lnw = new com.baidu.adp.lib.stats.a("dbg");
-        c.C(str, getNetType(), z);
+        this.lHl = new com.baidu.adp.lib.stats.a("dbg");
+        c.D(str, getNetType(), z);
     }
 
     public void start() {
-        this.lnw.startTimer();
+        this.lHl.startTimer();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e dee;
-        if (this.lnw != null && (dee = dee()) != null) {
+        e diq;
+        if (this.lHl != null && (diq = diq()) != null) {
             if (z) {
-                if (dee.lnD != null) {
-                    dee.lnD.num++;
+                if (diq.lHs != null) {
+                    diq.lHs.num++;
                     if (z2) {
-                        dee.lnD.lnA += j2;
-                        dee.lnD.size += j;
+                        diq.lHs.lHp += j2;
+                        diq.lHs.size += j;
                     } else {
-                        dee.lnD.lnB++;
+                        diq.lHs.lHq++;
                     }
                 } else {
                     return;
                 }
-            } else if (dee.lnE != null) {
-                dee.lnE.num++;
+            } else if (diq.lHt != null) {
+                diq.lHt.num++;
                 if (z2) {
-                    dee.lnE.lnA += j3;
-                    dee.lnE.size += j;
+                    diq.lHt.lHp += j3;
+                    diq.lHt.size += j;
                     j2 = j3;
                 } else {
-                    dee.lnE.lnB++;
+                    diq.lHt.lHq++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.lnw = null;
+            this.lHl = null;
             if (z2) {
-                c.a(dee, 10);
+                c.a(diq, 10);
             }
             if (this.mLogType == "frsStat") {
                 if (!z2 || j2 > 3000) {
@@ -74,20 +74,20 @@ public class b {
     }
 
     public void destory() {
-        e dee;
-        if (this.lnw != null && (dee = dee()) != null && dee.lnF != null) {
-            long timeCost = this.lnw.getTimeCost();
+        e diq;
+        if (this.lHl != null && (diq = diq()) != null && diq.lHu != null) {
+            long timeCost = this.lHl.getTimeCost();
             if (timeCost > 3000) {
-                d dVar = dee.lnF;
-                dVar.lnA = timeCost + dVar.lnA;
-                dee.lnF.num++;
-                c.a(dee, 10);
+                d dVar = diq.lHu;
+                dVar.lHp = timeCost + dVar.lHp;
+                diq.lHu.num++;
+                c.a(diq, 10);
             }
         }
     }
 
-    private e dee() {
-        return c.D(this.mLogType, getNetType(), this.mIsJson);
+    private e diq() {
+        return c.E(this.mLogType, getNetType(), this.mIsJson);
     }
 
     private String getNetType() {

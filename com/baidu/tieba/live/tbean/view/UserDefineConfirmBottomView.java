@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.live.u.a;
+import com.baidu.live.sdk.a;
 /* loaded from: classes3.dex */
 public class UserDefineConfirmBottomView extends LinearLayout {
     private Context mContext;

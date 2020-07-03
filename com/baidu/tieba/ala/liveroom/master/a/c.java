@@ -20,37 +20,37 @@ public class c extends a {
         super.a(s, obj);
         switch (s) {
             case 1:
-                this.fZJ.g(obj instanceof g ? ((g) obj).fTT : null);
-                this.fNw.fTM.startRecord();
-                this.fNw.fTO.a((short) 2, null);
+                this.gmH.g(obj instanceof g ? ((g) obj).ggA : null);
+                this.fYL.ggs.startRecord();
+                this.fYL.ggv.a((short) 2, null);
                 return;
             case 2:
             default:
                 return;
             case 3:
                 if (i == 7 || i == 5) {
-                    this.fNw.fTO.a((short) 5, null);
+                    this.fYL.ggv.a((short) 5, null);
                     return;
                 } else {
-                    this.fNw.fTO.a((short) 2, null);
+                    this.fYL.ggv.a((short) 2, null);
                     return;
                 }
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bEx() {
-        if (this.fNw != null && this.fNw.fTO != null && this.mCurrentState != 4) {
-            this.fNw.fTO.a((short) 4, this.fYi);
+    public void bHD() {
+        if (this.fYL != null && this.fYL.ggv != null && this.mCurrentState != 4) {
+            this.fYL.ggv.a((short) 4, this.glk);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void aQ(int i, String str) {
+    public void aU(int i, String str) {
         if (i == 0) {
-            this.fNw.fTO.a((short) 3, null);
-        } else if (this.fZJ != null) {
-            this.fZJ.onError(i, str);
+            this.fYL.ggv.a((short) 3, null);
+        } else if (this.gmH != null) {
+            this.gmH.onError(i, str);
         }
     }
 
@@ -61,21 +61,21 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bEy() {
-        super.bEy();
-        if (TbadkCoreApplication.getInst().getResumeNum() <= 0 && this.fNw != null && this.fNw.fTM != null) {
-            this.fNw.fTM.enterBackground();
+    public void bHE() {
+        super.bHE();
+        if (TbadkCoreApplication.getInst().getResumeNum() <= 0 && this.fYL != null && this.fYL.ggs != null) {
+            this.fYL.ggs.enterBackground();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bEz() {
-        super.bEz();
+    public void bHF() {
+        super.bHF();
         this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.a.c.1
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.fNw != null && c.this.fNw.fTM != null) {
-                    c.this.fNw.fTM.enterForeground();
+                if (c.this.fYL != null && c.this.fYL.ggs != null) {
+                    c.this.fYL.ggs.enterForeground();
                 }
             }
         });

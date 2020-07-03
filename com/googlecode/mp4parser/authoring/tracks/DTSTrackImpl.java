@@ -1208,7 +1208,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r22.samplerate = 16000;
      */
     /* JADX WARN: Code restructure failed: missing block: B:73:0x014a, code lost:
-        r22.samplerate = com.baidu.ala.player.StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K;
+        r22.samplerate = com.baidu.ala.helper.StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K;
      */
     /* JADX WARN: Code restructure failed: missing block: B:74:0x0151, code lost:
         r22.samplerate = com.baidu.live.tbadk.core.data.RequestResponseCode.REQUEST_LOGIN_PB_AT;
@@ -1226,7 +1226,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r22.samplerate = 24000;
      */
     /* JADX WARN: Code restructure failed: missing block: B:79:0x0175, code lost:
-        r22.samplerate = com.baidu.ala.player.StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
+        r22.samplerate = com.baidu.ala.helper.StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
      */
     /* JADX WARN: Code restructure failed: missing block: B:80:0x017d, code lost:
         r22.bitrate = 32;

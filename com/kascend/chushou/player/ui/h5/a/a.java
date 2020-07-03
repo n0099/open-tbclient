@@ -8,33 +8,33 @@ import tv.chushou.zues.c;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a {
-    private InterfaceC0808a mVR;
-    private final c mVQ = new c(Looper.getMainLooper());
+    private InterfaceC0827a nrI;
+    private final c nrH = new c(Looper.getMainLooper());
     private final List<com.kascend.chushou.player.ui.h5.c.b> c = new ArrayList();
 
     /* renamed from: com.kascend.chushou.player.ui.h5.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0808a {
+    public interface InterfaceC0827a {
         void c(int i);
     }
 
     public a(Activity activity) {
         try {
-            this.mVR = (InterfaceC0808a) activity;
+            this.nrI = (InterfaceC0827a) activity;
         } catch (Exception e) {
-            this.mVR = null;
+            this.nrI = null;
         }
     }
 
     public void a() {
         this.c.clear();
-        this.mVQ.cg(null);
+        this.nrH.ch(null);
     }
 
     public void b() {
         this.c.clear();
-        this.mVQ.cg(null);
-        this.mVR = null;
+        this.nrH.ch(null);
+        this.nrI = null;
     }
 
     public void a(List<com.kascend.chushou.player.ui.h5.c.b> list) {
@@ -48,7 +48,7 @@ public class a {
             for (int i2 = 0; i2 < this.c.size(); i2++) {
                 final com.kascend.chushou.player.ui.h5.c.b bVar2 = this.c.get(i2);
                 if (bVar2.b > 0) {
-                    this.mVQ.e(new Runnable() { // from class: com.kascend.chushou.player.ui.h5.a.a.1
+                    this.nrH.e(new Runnable() { // from class: com.kascend.chushou.player.ui.h5.a.a.1
                         @Override // java.lang.Runnable
                         public void run() {
                             a.this.b(bVar2);
@@ -56,8 +56,8 @@ public class a {
                     }, bVar2.b * 1000);
                 }
             }
-            if (this.mVR != null) {
-                this.mVR.c(this.c.size());
+            if (this.nrI != null) {
+                this.nrI.c(this.c.size());
             }
         }
     }
@@ -88,8 +88,8 @@ public class a {
         if (bVar != null) {
             this.c.remove(bVar);
         }
-        if (this.mVR != null) {
-            this.mVR.c(this.c.size());
+        if (this.nrI != null) {
+            this.nrI.c(this.c.size());
         }
     }
 

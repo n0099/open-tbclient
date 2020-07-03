@@ -92,7 +92,7 @@ public class ac extends aa {
                 com.baidu.swan.apps.api.module.l.e.v(optParamsAsJo.optJSONArray("data"));
                 break;
             case 4:
-                com.baidu.swan.apps.api.module.l.e.ap(optParamsAsJo);
+                com.baidu.swan.apps.api.module.l.e.aw(optParamsAsJo);
                 break;
             case 5:
                 com.baidu.swan.apps.console.debugger.a.d.x(optParamsAsJo.optJSONArray("data"));
@@ -101,7 +101,7 @@ public class ac extends aa {
                 if (DEBUG) {
                     Log.d("SwanAppAction", "upload swan app render log");
                 }
-                com.baidu.swan.apps.performance.i.alA().aM(optParamsAsJo);
+                com.baidu.swan.apps.performance.i.amG().aT(optParamsAsJo);
                 break;
             default:
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");

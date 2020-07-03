@@ -1,8 +1,9 @@
 package com.baidu.webkit.internal.b;
 
 import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
-final class c implements DialogInterface.OnCancelListener {
+public final class c implements DialogInterface.OnCancelListener {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

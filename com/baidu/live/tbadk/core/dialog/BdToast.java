@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.SkinManager;
-import com.baidu.live.u.a;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 @SuppressLint({"ResourceAsColor"})

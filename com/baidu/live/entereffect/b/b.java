@@ -31,8 +31,8 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class b {
-    private boolean aDn;
-    private com.baidu.live.entereffect.a.a aDo;
+    private boolean aFF;
+    private com.baidu.live.entereffect.a.a aFG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final boolean z, final com.baidu.live.entereffect.a.a aVar, final String str, final String str2, final String str3) {
@@ -45,10 +45,10 @@ public class b {
                 if (aVar == null || TextUtils.isEmpty(aVar.id) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                     return null;
                 }
-                b.this.aDn = z;
-                b.this.aDo = aVar;
+                b.this.aFF = z;
+                b.this.aFG = aVar;
                 if (com.baidu.live.f.a.existFile(str2)) {
-                    b.this.ey(str2);
+                    b.this.eD(str2);
                 } else if (!new File(str2).mkdirs()) {
                     return null;
                 }
@@ -147,14 +147,14 @@ public class b {
                 public List<String> doInBackground(Void... voidArr) {
                     List<String> ai = b.this.ai(str, str2);
                     if (ai == null || ai.isEmpty()) {
-                        b.this.ey(str);
-                        b.this.ey(str2);
+                        b.this.eD(str);
+                        b.this.eD(str2);
                         JSONObject jSONObject = new JSONObject();
                         JSONObject jSONObject2 = new JSONObject();
                         try {
                             String str3 = "";
-                            if (b.this.aDo != null) {
-                                str3 = b.this.aDn ? b.this.aDo.videoUrl : b.this.aDo.aDd;
+                            if (b.this.aFG != null) {
+                                str3 = b.this.aFF ? b.this.aFG.videoUrl : b.this.aFG.aFv;
                             }
                             jSONObject2.put("step_error", 6);
                             jSONObject2.put("down_type", UbcStatConstant.ContentType.UBC_TYPE_ENTEREFFECT_DYNAMIC_LIST);
@@ -171,11 +171,11 @@ public class b {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
-                /* renamed from: r */
+                /* renamed from: v */
                 public void onPostExecute(List<String> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.wG().a(b.this.aDn, b.this.aDo, str2, list);
+                        c.xd().a(b.this.aFF, b.this.aFG, str2, list);
                     }
                 }
             }.execute(new Void[0]);
@@ -421,7 +421,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ey(String str) {
+    public void eD(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.live.f.a.cleanDir(new File(str));
         }

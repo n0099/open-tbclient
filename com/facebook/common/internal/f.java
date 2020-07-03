@@ -14,7 +14,7 @@ public final class f {
         return Arrays.hashCode(objArr);
     }
 
-    public static a aN(Object obj) {
+    public static a aO(Object obj) {
         return new a(z(obj.getClass()));
     }
 
@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes13.dex */
     public static final class a {
         private final String className;
-        private C0774a mmD;
-        private C0774a mmE;
-        private boolean mmF;
+        private C0793a mIC;
+        private C0793a mIE;
+        private boolean mIF;
 
         private a(String str) {
-            this.mmD = new C0774a();
-            this.mmE = this.mmD;
-            this.mmF = false;
+            this.mIC = new C0793a();
+            this.mIE = this.mIC;
+            this.mIF = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -45,56 +45,56 @@ public final class f {
             return G(str, obj);
         }
 
-        public a aX(String str, boolean z) {
+        public a aZ(String str, boolean z) {
             return G(str, String.valueOf(z));
         }
 
-        public a bN(String str, int i) {
+        public a bM(String str, int i) {
             return G(str, String.valueOf(i));
         }
 
         public String toString() {
-            boolean z = this.mmF;
+            boolean z = this.mIF;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0774a c0774a = this.mmD.mmG; c0774a != null; c0774a = c0774a.mmG) {
-                if (!z || c0774a.value != null) {
+            for (C0793a c0793a = this.mIC.mIG; c0793a != null; c0793a = c0793a.mIG) {
+                if (!z || c0793a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c0774a.name != null) {
-                        append.append(c0774a.name).append('=');
+                    if (c0793a.name != null) {
+                        append.append(c0793a.name).append('=');
                     }
-                    append.append(c0774a.value);
+                    append.append(c0793a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C0774a duC() {
-            C0774a c0774a = new C0774a();
-            this.mmE.mmG = c0774a;
-            this.mmE = c0774a;
-            return c0774a;
+        private C0793a dzf() {
+            C0793a c0793a = new C0793a();
+            this.mIE.mIG = c0793a;
+            this.mIE = c0793a;
+            return c0793a;
         }
 
         private a G(String str, @Nullable Object obj) {
-            C0774a duC = duC();
-            duC.value = obj;
-            duC.name = (String) g.checkNotNull(str);
+            C0793a dzf = dzf();
+            dzf.value = obj;
+            dzf.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes13.dex */
-        public static final class C0774a {
-            C0774a mmG;
+        public static final class C0793a {
+            C0793a mIG;
             @Nullable
             String name;
             @Nullable
             Object value;
 
-            private C0774a() {
+            private C0793a() {
             }
         }
     }

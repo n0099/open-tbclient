@@ -26,7 +26,7 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity;
-import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.t;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
@@ -34,8 +34,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.util.e;
 import com.baidu.tbadk.core.util.f.c;
 import com.baidu.tbadk.core.view.GuidPageView;
@@ -108,7 +108,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = e.aUf();
+        this.customToast = e.aVX();
         super.onCreate(bundle);
         this.mLayoutMode = new com.baidu.tbadk.core.c();
         this.mLayoutInflateFactory = new a();
@@ -121,7 +121,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
             this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        ay.setCurrentActivity(getClass().getName());
+        ba.setCurrentActivity(getClass().getName());
         registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
         this.mIsLogin = TbadkCoreApplication.isLogin();
@@ -361,19 +361,19 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.a((Context) getActivity(), (CharSequence) str, i, false).aSY();
+        BdToast.a((Context) getActivity(), (CharSequence) str, i, false).aUS();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2, false).aSY();
+        BdToast.a(getActivity(), str, i, i2, false).aUS();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).aSY();
+        BdToast.a(getActivity(), str, defaultIcon).aUS();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).aSY();
+        BdToast.a(getActivity(), str, defaultIcon, i).aUS();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity
@@ -491,7 +491,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TbadkCoreApplication.getInst().AddResumeNum();
-        ay.setCurrentActivity(getClass().getName());
+        ba.setCurrentActivity(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
@@ -588,10 +588,10 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.h
-    public void onPreLoad(r rVar) {
-        super.onPreLoad(rVar);
-        ad.a(rVar, getUniqueId());
-        com.baidu.tbadk.core.util.f.d.a(rVar, getUniqueId(), this);
+    public void onPreLoad(t tVar) {
+        super.onPreLoad(tVar);
+        ae.a(tVar, getUniqueId());
+        com.baidu.tbadk.core.util.f.d.a(tVar, getUniqueId(), this);
     }
 
     public boolean checkMessageIsBelongToCurPage(ResponsedMessage<?> responsedMessage) {

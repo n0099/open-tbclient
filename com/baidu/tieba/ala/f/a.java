@@ -12,32 +12,32 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
 /* loaded from: classes3.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0534a fuc;
-    private HttpMessageListener gjA;
+    private InterfaceC0542a fFm;
+    private HttpMessageListener gwn;
 
     /* renamed from: com.baidu.tieba.ala.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0534a {
+    public interface InterfaceC0542a {
         void a(int i, String str, Object obj);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0534a interfaceC0534a) {
+    public a(TbPageContext tbPageContext, InterfaceC0542a interfaceC0542a) {
         super(tbPageContext);
-        this.gjA = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.f.a.1
+        this.gwn = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.f.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetChallengeHistoryListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == a.this.unique_id) {
-                    a.this.fuc.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                    a.this.fFm.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
                 }
             }
         };
-        this.fuc = interfaceC0534a;
-        Fv();
-        registerListener(this.gjA);
+        this.fFm = interfaceC0542a;
+        xp();
+        registerListener(this.gwn);
     }
 
-    private void Fv() {
+    private void xp() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021118, TbConfig.SERVER_ADDRESS + "ala/web/pk/getPkHistory");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -46,7 +46,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void CP(String str) {
+    public void Dq(String str) {
         HttpMessage httpMessage = new HttpMessage(1021118);
         httpMessage.addParam("portrait", str);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);

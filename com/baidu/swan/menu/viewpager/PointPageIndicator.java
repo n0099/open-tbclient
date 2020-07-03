@@ -10,85 +10,85 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes11.dex */
 public class PointPageIndicator extends View {
-    protected Drawable dkc;
-    protected Drawable dkd;
-    protected Rect dke;
-    protected Rect dkf;
-    private int dkg;
-    private int dkh;
+    protected Drawable doN;
+    protected Drawable doO;
+    protected Rect doP;
+    protected Rect doQ;
+    private int doR;
+    private int doS;
     private int mPosition;
 
     public PointPageIndicator(Context context) {
         super(context);
-        this.dkc = null;
-        this.dkd = null;
-        this.dke = new Rect();
-        this.dkf = new Rect();
-        this.dkg = 0;
+        this.doN = null;
+        this.doO = null;
+        this.doP = new Rect();
+        this.doQ = new Rect();
+        this.doR = 0;
         this.mPosition = 0;
-        this.dkh = 0;
+        this.doS = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dkc = null;
-        this.dkd = null;
-        this.dke = new Rect();
-        this.dkf = new Rect();
-        this.dkg = 0;
+        this.doN = null;
+        this.doO = null;
+        this.doP = new Rect();
+        this.doQ = new Rect();
+        this.doR = 0;
         this.mPosition = 0;
-        this.dkh = 0;
+        this.doS = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dkc = null;
-        this.dkd = null;
-        this.dke = new Rect();
-        this.dkf = new Rect();
-        this.dkg = 0;
+        this.doN = null;
+        this.doO = null;
+        this.doP = new Rect();
+        this.doQ = new Rect();
+        this.doR = 0;
         this.mPosition = 0;
-        this.dkh = 0;
+        this.doS = 0;
         init(context);
     }
 
     private void init(Context context) {
     }
 
-    public PointPageIndicator iY(int i) {
-        if (this.dkh != i) {
-            this.dkh = i;
+    public PointPageIndicator jj(int i) {
+        if (this.doS != i) {
+            this.doS = i;
             invalidate();
         }
         return this;
     }
 
-    public PointPageIndicator iZ(int i) {
-        this.dkg = i;
+    public PointPageIndicator jk(int i) {
+        this.doR = i;
         return this;
     }
 
-    public PointPageIndicator ja(int i) {
+    public PointPageIndicator jl(int i) {
         this.mPosition = i;
         invalidate();
         return this;
     }
 
-    public PointPageIndicator au(int i, int i2) {
+    public PointPageIndicator aw(int i, int i2) {
         Resources resources = getResources();
         return b(resources.getDrawable(i), resources.getDrawable(i2));
     }
 
     public PointPageIndicator b(Drawable drawable, Drawable drawable2) {
-        this.dkc = drawable;
-        this.dkd = drawable2;
+        this.doN = drawable;
+        this.doO = drawable2;
         if (drawable instanceof BitmapDrawable) {
-            this.dke.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            this.doP.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         }
         if (drawable2 instanceof BitmapDrawable) {
-            this.dkf.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+            this.doQ.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         }
         return this;
     }
@@ -97,16 +97,16 @@ public class PointPageIndicator extends View {
     protected void onDraw(Canvas canvas) {
         int width;
         super.onDraw(canvas);
-        if (this.dkh > 0) {
-            int i = this.dkh;
-            int i2 = this.dkg;
+        if (this.doS > 0) {
+            int i = this.doS;
+            int i2 = this.doR;
             int height = getHeight();
             int width2 = getWidth();
             int i3 = this.mPosition;
-            Rect rect = this.dke;
-            Rect rect2 = this.dkf;
-            Drawable drawable = this.dkc;
-            Drawable drawable2 = this.dkd;
+            Rect rect = this.doP;
+            Rect rect2 = this.doQ;
+            Drawable drawable = this.doN;
+            Drawable drawable2 = this.doO;
             int width3 = (width2 - ((((i - 1) * i2) + (rect.width() * (i - 1))) + rect2.width())) / 2;
             for (int i4 = 0; i4 < i; i4++) {
                 if (i4 == i3) {

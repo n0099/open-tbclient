@@ -7,13 +7,13 @@ import java.io.File;
 import java.io.FileOutputStream;
 /* loaded from: classes11.dex */
 public final class BdLog {
-    private static FileOutputStream acq;
+    private static FileOutputStream acV;
     private static boolean sDebug = true;
-    private static boolean acr = false;
-    private static String acs = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
-    private static String act = acs + "baiduliulanqi_log.txt";
-    private static String acu = acs + "baiduliulanqi_lasttime_log.txt";
-    private static boolean acv = false;
+    private static boolean acW = false;
+    private static String acX = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
+    private static String acY = acX + "baiduliulanqi_log.txt";
+    private static String acZ = acX + "baiduliulanqi_lasttime_log.txt";
+    private static boolean ada = false;
 
     /* loaded from: classes11.dex */
     private enum LogLevel {
@@ -88,7 +88,7 @@ public final class BdLog {
                     break;
                 }
         }
-        if (acr) {
+        if (acW) {
             P(str, str2);
         }
     }
@@ -96,15 +96,15 @@ public final class BdLog {
     private static void P(String str, String str2) {
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
-                File file = new File(acs);
+                File file = new File(acX);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                if (acq == null) {
-                    acq = new FileOutputStream(act);
+                if (acV == null) {
+                    acV = new FileOutputStream(acY);
                 }
-                acq.write((str + " : " + str2).getBytes("UTF-8"));
-                acq.write("\n".getBytes());
+                acV.write((str + " : " + str2).getBytes("UTF-8"));
+                acV.write("\n".getBytes());
             } catch (Exception e) {
                 e.printStackTrace();
             }

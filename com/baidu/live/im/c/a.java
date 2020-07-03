@@ -1,12 +1,12 @@
 package com.baidu.live.im.c;
 /* loaded from: classes3.dex */
 public class a {
-    public boolean aTM = false;
-    public boolean aTN = true;
+    public boolean aWt = false;
+    public boolean aWu = true;
     public boolean isNormal = true;
-    public boolean aTO = false;
-    public boolean aTP = false;
-    public boolean aTQ = false;
-    public boolean aTR = false;
-    public boolean aTS = false;
+    public boolean aWv = false;
+    public boolean aWw = false;
+    public boolean aWx = false;
+    public boolean aWy = false;
+    public boolean aWz = false;
 }

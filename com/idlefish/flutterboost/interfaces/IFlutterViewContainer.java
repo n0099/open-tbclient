@@ -19,7 +19,5 @@ public interface IFlutterViewContainer {
 
     void onContainerShown();
 
-    void onFlutterContainerClose();
-
-    void onFlutterContainerOpen();
+    void setSwipeBackEnable(boolean z);
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.recapp.report;
 import android.os.Build;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -45,7 +45,7 @@ public class AdUploadHttpRequest extends HttpMessage {
     }
 
     private String toJSONString(ArrayList<c> arrayList) {
-        if (v.getCount(arrayList) <= 0) {
+        if (w.getCount(arrayList) <= 0) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
@@ -53,7 +53,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         while (it.hasNext()) {
             c next = it.next();
             if (next != null) {
-                jSONArray.put(next.cVz());
+                jSONArray.put(next.cZP());
             }
         }
         return jSONArray.toString();

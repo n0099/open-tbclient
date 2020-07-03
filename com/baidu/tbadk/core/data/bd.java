@@ -1,42 +1,47 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.StringUtils;
-import tbclient.SchoolRecomUserInfo;
+import android.content.Intent;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class bd {
-    private String uid = "";
-    private String uname = "";
-    private String portrait = "";
-    private String institute = "";
-    private int isLike = -1;
+    private String dKk;
+    private String recomExtra;
+    private String recomSource;
+    private String recomWeight;
 
-    public void a(SchoolRecomUserInfo schoolRecomUserInfo) {
-        if (schoolRecomUserInfo != null) {
-            this.uid = StringUtils.string(schoolRecomUserInfo.uid);
-            this.uname = schoolRecomUserInfo.uname;
-            this.portrait = schoolRecomUserInfo.portrait;
-            this.institute = schoolRecomUserInfo.institute;
-            this.isLike = schoolRecomUserInfo.is_liked.intValue();
+    public void s(bu buVar) {
+        if (buVar != null) {
+            this.recomWeight = buVar.mRecomWeight;
+            this.recomSource = buVar.mRecomSource;
+            this.dKk = buVar.mRecomAbTag;
+            this.recomExtra = buVar.mRecomExtra;
         }
     }
 
-    public String getUid() {
-        return this.uid;
+    public void A(Intent intent) {
+        if (intent != null) {
+            this.recomWeight = intent.getStringExtra("recom_weight");
+            this.recomSource = intent.getStringExtra(IntentConfig.RECOM_SOURCE);
+            this.dKk = intent.getStringExtra("recom_abtag");
+            this.recomExtra = intent.getStringExtra("recom_extra");
+        }
     }
 
-    public String aPL() {
-        return this.uname;
+    public void B(Intent intent) {
+        if (intent != null) {
+            intent.putExtra("recom_weight", this.recomWeight);
+            intent.putExtra(IntentConfig.RECOM_SOURCE, this.recomSource);
+            intent.putExtra("recom_abtag", this.dKk);
+            intent.putExtra("recom_extra", this.recomExtra);
+        }
     }
 
-    public String getPortrait() {
-        return this.portrait;
-    }
-
-    public String aPM() {
-        return this.institute;
-    }
-
-    public int getIsLike() {
-        return this.isLike;
+    public void b(com.baidu.tieba.play.y yVar) {
+        if (yVar != null) {
+            yVar.kVo = this.recomWeight;
+            yVar.mSource = this.recomSource;
+            yVar.kVs = this.dKk;
+            yVar.mExtra = this.recomExtra;
+        }
     }
 }

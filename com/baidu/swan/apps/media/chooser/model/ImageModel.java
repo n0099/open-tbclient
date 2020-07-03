@@ -14,7 +14,7 @@ public class ImageModel extends MediaModel {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fP */
+        /* renamed from: ga */
         public ImageModel[] newArray(int i) {
             return new ImageModel[i];
         }

@@ -20,6 +20,6 @@ class c {
     }
 
     public static String a(byte[] bArr) {
-        return new String(new b().y(bArr));
+        return new String(new b().A(bArr));
     }
 }

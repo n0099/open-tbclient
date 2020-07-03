@@ -52,7 +52,7 @@ public class WebPImage implements c, b {
     }
 
     public static WebPImage z(long j, int i) {
-        com.facebook.imagepipeline.nativecode.b.dtJ();
+        com.facebook.imagepipeline.nativecode.b.dym();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
@@ -78,7 +78,7 @@ public class WebPImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public int[] dtK() {
+    public int[] dyn() {
         return nativeGetFrameDurations();
     }
 
@@ -89,8 +89,8 @@ public class WebPImage implements c, b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.b
-    /* renamed from: GL */
-    public WebPFrame GK(int i) {
+    /* renamed from: HS */
+    public WebPFrame HR(int i) {
         return nativeGetFrame(i);
     }
 
@@ -100,17 +100,17 @@ public class WebPImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean dtL() {
+    public boolean dyo() {
         return true;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public AnimatedDrawableFrameInfo GI(int i) {
-        WebPFrame GK = GK(i);
+    public AnimatedDrawableFrameInfo HP(int i) {
+        WebPFrame HR = HR(i);
         try {
-            return new AnimatedDrawableFrameInfo(i, GK.getXOffset(), GK.getYOffset(), GK.getWidth(), GK.getHeight(), GK.dtN() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, GK.dtM() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
+            return new AnimatedDrawableFrameInfo(i, HR.getXOffset(), HR.getYOffset(), HR.getWidth(), HR.getHeight(), HR.dyq() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, HR.dyp() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
         } finally {
-            GK.dispose();
+            HR.dispose();
         }
     }
 }

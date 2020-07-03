@@ -1,43 +1,31 @@
 package com.baidu.ar.child.a;
-
-import com.baidu.ar.arplay.core.engine.pixel.FramePixels;
-import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
-import com.baidu.ar.arplay.core.engine.pixel.PixelType;
-import com.baidu.ar.c.j;
 /* loaded from: classes3.dex */
-public class e extends j {
-    public e() {
-        this.lP = new PixelReadParams(PixelType.RGBA);
-        this.lP.setOutputWidth(720);
-        this.lP.setOutputHeight(1280);
+public class e {
+    private float[] lb;
+    private long lh;
+    private float[] li;
+
+    public float[] cA() {
+        return this.li;
     }
 
-    @Override // com.baidu.ar.c.j
-    protected void X() {
+    public float[] cw() {
+        return this.lb;
     }
 
-    @Override // com.baidu.ar.c.j
-    protected void Z() {
+    public long cz() {
+        return this.lh;
     }
 
-    @Override // com.baidu.ar.c.j
-    protected boolean c(FramePixels framePixels) {
-        if (this.lb != null) {
-            d dVar = new d();
-            dVar.setTimestamp(framePixels.getTimestamp());
-            dVar.e(framePixels.getPixelData());
-            this.lb.a(dVar);
-            return false;
-        }
-        return false;
+    public void e(float[] fArr) {
+        this.lb = fArr;
     }
 
-    @Override // com.baidu.ar.c.k
-    public String getName() {
-        return "ChildFilterDetector";
+    public void f(float[] fArr) {
+        this.li = fArr;
     }
 
-    public void s(String str) {
-        this.lP.setPreFilterID(str);
+    public void i(long j) {
+        this.lh = j;
     }
 }

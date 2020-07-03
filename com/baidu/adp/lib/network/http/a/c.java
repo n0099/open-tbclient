@@ -1,69 +1,69 @@
 package com.baidu.adp.lib.network.http.a;
 /* loaded from: classes.dex */
 public class c {
-    private String KP;
-    private String KS;
-    private int KT;
-    private long KU;
-    private int Kl;
+    private int KM;
+    private String Lp;
+    private String Ls;
+    private int Lt;
+    private long Lu;
     private String exception;
-    private boolean KQ = false;
-    private boolean KR = false;
-    private int JZ = 0;
-
-    public void ak(boolean z) {
-        this.KQ = z;
-    }
-
-    public boolean kO() {
-        return this.KR;
-    }
+    private boolean Lq = false;
+    private boolean Lr = false;
+    private int Kz = 0;
 
     public void al(boolean z) {
-        this.KR = z;
+        this.Lq = z;
+    }
+
+    public boolean le() {
+        return this.Lr;
+    }
+
+    public void am(boolean z) {
+        this.Lr = z;
     }
 
     public void setException(String str) {
         this.exception = str;
     }
 
-    public void ae(int i) {
-        this.JZ = i;
+    public void ak(int i) {
+        this.Kz = i;
     }
 
-    public void kP() {
+    public void lf() {
         this.exception = "";
     }
 
-    public void bG(String str) {
-        this.KS = str;
+    public void bH(String str) {
+        this.Ls = str;
     }
 
-    public String kQ() {
-        return this.KS;
+    public String lg() {
+        return this.Ls;
     }
 
-    public void af(int i) {
-        this.KT = i;
+    public void al(int i) {
+        this.Lt = i;
     }
 
     public void G(long j) {
-        this.KU = j;
+        this.Lu = j;
     }
 
     public String toString() {
-        return "isFromNet_" + this.KQ + "-statType_" + this.KT + "-dnsErr_" + this.exception + "-hasRetry_" + this.JZ + "-cost_" + this.KU + "-ipIndex_" + this.Kl + "-ipResult_" + this.KP;
+        return "isFromNet_" + this.Lq + "-statType_" + this.Lt + "-dnsErr_" + this.exception + "-hasRetry_" + this.Kz + "-cost_" + this.Lu + "-ipIndex_" + this.KM + "-ipResult_" + this.Lp;
     }
 
-    public String kR() {
-        return this.KP;
+    public String lh() {
+        return this.Lp;
     }
 
-    public void bH(String str) {
-        this.KP = str;
+    public void bI(String str) {
+        this.Lp = str;
     }
 
-    public void ab(int i) {
-        this.Kl = i;
+    public void ah(int i) {
+        this.KM = i;
     }
 }

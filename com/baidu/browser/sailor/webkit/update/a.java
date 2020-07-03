@@ -26,7 +26,7 @@ import java.io.InputStream;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    private static a adm = null;
+    private static a adQ = null;
     protected String a;
     protected String b;
     protected String c;
@@ -35,10 +35,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.browser.sailor.webkit.update.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0093a extends BdNetTask implements INetListener {
-        protected ByteArrayOutputStream adn;
+    public class C0094a extends BdNetTask implements INetListener {
+        protected ByteArrayOutputStream adR;
 
-        public C0093a(Context context, String str) {
+        public C0094a(Context context, String str) {
             setUrl(a.a(str, context));
             setMethod(BdNet.HttpMethod.METHOD_GET);
         }
@@ -49,16 +49,16 @@ public class a {
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i) {
-            this.adn.reset();
+            this.adR.reset();
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i) {
-            if (this.adn == null) {
-                this.adn = new ByteArrayOutputStream();
+            if (this.adR == null) {
+                this.adR = new ByteArrayOutputStream();
             }
             if (i > 0) {
-                this.adn.write(bArr, 0, i);
+                this.adR.write(bArr, 0, i);
             }
         }
 
@@ -81,9 +81,9 @@ public class a {
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetTaskComplete(BdNet bdNet, BdNetTask bdNetTask) {
-            if (this.adn != null) {
+            if (this.adR != null) {
                 try {
-                    String byteArrayOutputStream = this.adn.toString("utf-8");
+                    String byteArrayOutputStream = this.adR.toString("utf-8");
                     Log.d(EngineManager.LOG_TAG, "received data = " + byteArrayOutputStream);
                     if (byteArrayOutputStream.length() > 0) {
                         JSONObject jSONObject = new JSONObject(byteArrayOutputStream);
@@ -121,15 +121,15 @@ public class a {
         }
 
         public void release() {
-            if (this.adn != null) {
+            if (this.adR != null) {
                 try {
-                    this.adn.reset();
-                    this.adn.close();
+                    this.adR.reset();
+                    this.adR.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            this.adn = null;
+            this.adR = null;
         }
     }
 
@@ -321,15 +321,15 @@ public class a {
         }
     }
 
-    public static a rp() {
-        if (adm == null) {
+    public static a rG() {
+        if (adQ == null) {
             synchronized (a.class) {
-                if (adm == null) {
-                    adm = new a();
+                if (adQ == null) {
+                    adQ = new a();
                 }
             }
         }
-        return adm;
+        return adQ;
     }
 
     public final void a(Context context) {
@@ -355,11 +355,11 @@ public class a {
             }
             if (z) {
                 try {
-                    float rl = com.baidu.browser.core.util.a.rl() / 1024.0f;
-                    if (rl < (TextUtils.isEmpty(WebSettingsGlobalBlink.GetCloudSettingsValue("update_zeus_mem_size_mb")) ? 1024 : Integer.valueOf(GetCloudSettingsValue).intValue())) {
+                    float rC = com.baidu.browser.core.util.a.rC() / 1024.0f;
+                    if (rC < (TextUtils.isEmpty(WebSettingsGlobalBlink.GetCloudSettingsValue("update_zeus_mem_size_mb")) ? 1024 : Integer.valueOf(GetCloudSettingsValue).intValue())) {
                         return;
                     }
-                    BdSailorPlatform.getStatic().b("MemMbSize", String.valueOf(rl));
+                    BdSailorPlatform.getStatic().b("MemMbSize", String.valueOf(rC));
                 } catch (Exception e) {
                 }
             }

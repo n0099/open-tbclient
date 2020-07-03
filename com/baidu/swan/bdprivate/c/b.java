@@ -37,12 +37,12 @@ public class b extends g {
             for (String str2 : list) {
                 CookieManager.getInstance().setCookie(str, str2);
             }
-            atW();
+            avc();
         } catch (Exception e) {
         }
     }
 
-    public void atW() {
+    public void avc() {
         if (com.baidu.swan.apps.aq.b.hasLollipop()) {
             CookieManager.getInstance().flush();
             return;

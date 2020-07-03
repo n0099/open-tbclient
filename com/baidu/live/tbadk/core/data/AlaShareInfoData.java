@@ -2,6 +2,7 @@ package com.baidu.live.tbadk.core.data;
 
 import com.baidu.live.adp.lib.util.BdLog;
 import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes3.dex */
 public class AlaShareInfoData {
     public String content;

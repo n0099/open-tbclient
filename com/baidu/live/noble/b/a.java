@@ -6,13 +6,13 @@ public interface a {
 
     /* renamed from: com.baidu.live.noble.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0171a {
+    public interface InterfaceC0173a {
         void a(NobleUserInfo nobleUserInfo);
     }
 
-    void Fz();
+    void Gi();
 
-    void a(InterfaceC0171a interfaceC0171a);
+    void a(InterfaceC0173a interfaceC0173a);
 
     void release();
 }

@@ -1,39 +1,39 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
-import tbclient.RecommendInfo;
-import tbclient.SchoolRecomUserInfo;
+import com.baidu.adp.lib.util.BdLog;
+import tbclient.FrsPage.PrivateForumShareinfo;
+import tbclient.FrsPage.PrivateForumTotalInfo;
+import tbclient.PrivateForumInfo;
+import tbclient.PrivatePopInfo;
 /* loaded from: classes.dex */
-public class bb extends bk {
-    public static final BdUniqueId dDS = BdUniqueId.gen();
-    private String title = "";
-    private ArrayList<bd> dDT = new ArrayList<>();
+public class bb {
+    private PrivateForumShareinfo dKb = null;
+    private PrivatePopInfo dKc = null;
+    private PrivateForumInfo dKd = null;
+    private Integer dKe = null;
 
-    public void a(RecommendInfo recommendInfo) {
-        if (recommendInfo != null) {
-            this.title = recommendInfo.title;
-            for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
-                if (schoolRecomUserInfo != null) {
-                    bd bdVar = new bd();
-                    bdVar.a(schoolRecomUserInfo);
-                    this.dDT.add(bdVar);
-                }
+    public PrivatePopInfo getPrivatePopInfo() {
+        return this.dKc;
+    }
+
+    public PrivateForumInfo aRm() {
+        return this.dKd;
+    }
+
+    public Integer aRn() {
+        return this.dKe;
+    }
+
+    public void a(PrivateForumTotalInfo privateForumTotalInfo) {
+        if (privateForumTotalInfo != null) {
+            try {
+                this.dKb = privateForumTotalInfo.private_forum_shareinfo;
+                this.dKd = privateForumTotalInfo.private_forum_info;
+                this.dKe = privateForumTotalInfo.private_forum_taskpercent;
+                this.dKc = privateForumTotalInfo.private_forum_popinfo;
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
-    }
-
-    @Override // com.baidu.tbadk.core.data.bk
-    public String getTitle() {
-        return this.title;
-    }
-
-    public ArrayList<bd> aPH() {
-        return this.dDT;
-    }
-
-    @Override // com.baidu.tbadk.core.data.bk, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
-    public BdUniqueId getType() {
-        return dDS;
     }
 }

@@ -6,8 +6,8 @@ public class i extends j {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.apps.scheme.j
-    protected void apO() {
-        this.cBF.clear();
+    protected void aqU() {
+        this.cGp.clear();
         a(new com.baidu.swan.apps.v.a(this));
         a(new com.baidu.swan.apps.console.debugger.a.a(this));
         a(new com.baidu.swan.apps.console.debugger.b.a(this));

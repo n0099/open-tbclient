@@ -3,9 +3,9 @@ package com.baidu.poly.a.a;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public abstract class d<K, V> {
-    private Map<K, V> map = com.baidu.poly.util.e.Ni();
+    private Map<K, V> map = com.baidu.poly.util.e.Or();
 
-    public Map<K, V> MK() {
+    public Map<K, V> NT() {
         return this.map;
     }
 

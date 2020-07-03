@@ -4,7 +4,7 @@ import android.content.Context;
 /* loaded from: classes11.dex */
 public class m implements com.baidu.swan.apps.adaptation.a.b {
     @Override // com.baidu.swan.apps.adaptation.a.b
-    public void aZ(Context context) {
-        x.cV(context);
+    public void ba(Context context) {
+        x.cW(context);
     }
 }

@@ -7,13 +7,13 @@ import java.util.Locale;
 /* loaded from: classes.dex */
 final class c {
     private static final Object sLock = new Object();
-    private static int mgB = 0;
+    private static int mCs = 0;
 
-    public static String fF(Context context) {
+    public static String fG(Context context) {
         StringBuilder sb = new StringBuilder();
         sb.append(context.getPackageName());
         sb.append('/');
-        sb.append(fG(context));
+        sb.append(fH(context));
         sb.append(" (Linux; U; Android ");
         sb.append(Build.VERSION.RELEASE);
         sb.append("; ");
@@ -34,17 +34,17 @@ final class c {
         return sb.toString();
     }
 
-    private static int fG(Context context) {
+    private static int fH(Context context) {
         int i;
         synchronized (sLock) {
-            if (mgB == 0) {
+            if (mCs == 0) {
                 try {
-                    mgB = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+                    mCs = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
                 } catch (PackageManager.NameNotFoundException e) {
                     throw new IllegalStateException("Cannot determine package version");
                 }
             }
-            i = mgB;
+            i = mCs;
         }
         return i;
     }

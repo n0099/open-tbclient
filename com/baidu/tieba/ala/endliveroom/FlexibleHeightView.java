@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.live.u.a;
+import com.baidu.live.sdk.a;
 /* loaded from: classes3.dex */
 public class FlexibleHeightView extends View {
     private int ds160;

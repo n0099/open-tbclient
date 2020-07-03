@@ -522,7 +522,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: clone */
-    public ChatSession m16clone() throws CloneNotSupportedException {
+    public ChatSession m15clone() throws CloneNotSupportedException {
         return (ChatSession) super.clone();
     }
 

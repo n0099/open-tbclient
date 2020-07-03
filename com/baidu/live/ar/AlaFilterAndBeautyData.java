@@ -14,62 +14,80 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaFilterAndBeautyData extends BaseData {
-    public static HashMap<BeautyAdjustKey, b> asN = new HashMap<>();
-    public String asH;
-    public a asI;
-    public List<d> asJ = new ArrayList();
-    public ConcurrentHashMap<String, Object> asK = new ConcurrentHashMap<>();
-    public String asL;
-    public String asM;
-    public BdUniqueId asO;
-    public boolean asP;
+    public static HashMap<BeautyAdjustKey, b> auH = new HashMap<>();
+    public String auA;
+    public a auB;
+    public List<f> auC = new ArrayList();
+    public List<e> auD = new ArrayList();
+    public ConcurrentHashMap<String, Object> auE = new ConcurrentHashMap<>();
+    public String auF;
+    public String auG;
+    public BdUniqueId auI;
+    public boolean auJ;
 
     /* loaded from: classes3.dex */
     public static class a {
-        public int asQ;
+        public int auK;
+        public int auL;
+        public int auM;
         public String mText;
     }
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.asH = jSONObject.optString("ar_token");
+            this.auA = jSONObject.optString("ar_token");
             JSONObject optJSONObject = jSONObject.optJSONObject("bubble");
             if (optJSONObject != null) {
-                this.asI = new a();
-                this.asI.asQ = optJSONObject.optInt("is_show");
-                this.asI.mText = optJSONObject.optString("text");
+                this.auB = new a();
+                this.auB.auK = optJSONObject.optInt("is_show");
+                this.auB.mText = optJSONObject.optString("text");
+                this.auB.auL = optJSONObject.optInt("subitem_red_dot");
+                this.auB.auM = optJSONObject.optInt("beauty_tab_red_dot");
             }
             JSONArray optJSONArray = jSONObject.optJSONArray(FilterImageAction.ACTION_NAME);
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
-                ListUtils.clear(this.asJ);
+                ListUtils.clear(this.auC);
                 for (int i = 0; i < length; i++) {
                     JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
                     if (jSONObject2 != null) {
-                        d dVar = new d();
-                        dVar.parseJson(jSONObject2);
-                        this.asJ.add(dVar);
+                        f fVar = new f();
+                        fVar.parseJson(jSONObject2);
+                        this.auC.add(fVar);
                     }
                 }
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("ARBeauty");
             if (optJSONObject2 != null) {
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject("default");
-                this.asL = optJSONObject3.optString("file");
-                this.asM = optJSONObject3.optString("file_token");
-                this.asK.clear();
-                this.asK.putAll(r(optJSONObject3));
+                this.auF = optJSONObject3.optString("file");
+                this.auG = optJSONObject3.optString("file_token");
+                this.auE.clear();
+                this.auE.putAll(t(optJSONObject3));
                 JSONObject optJSONObject4 = optJSONObject2.optJSONObject("adjust");
                 if (optJSONObject4 != null) {
-                    asN.clear();
+                    auH.clear();
                     int length2 = BeautyAdjustKey.values().length;
                     for (int i2 = 0; i2 < length2; i2++) {
                         JSONObject optJSONObject5 = optJSONObject4.optJSONObject(BeautyAdjustKey.values()[i2].getKey());
                         if (optJSONObject5 != null) {
                             b bVar = new b();
-                            bVar.bA(optJSONObject5.optInt("current"));
-                            bVar.x(r(optJSONObject5.optJSONObject("subitems")));
-                            asN.put(BeautyAdjustKey.values()[i2], bVar);
+                            bVar.bF(optJSONObject5.optInt("current"));
+                            bVar.x(t(optJSONObject5.optJSONObject("subitems")));
+                            auH.put(BeautyAdjustKey.values()[i2], bVar);
+                        }
+                    }
+                }
+                JSONArray optJSONArray2 = optJSONObject2.optJSONArray("face_feature");
+                if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                    int length3 = optJSONArray2.length();
+                    ListUtils.clear(this.auD);
+                    for (int i3 = 0; i3 < length3; i3++) {
+                        JSONObject jSONObject3 = (JSONObject) optJSONArray2.opt(i3);
+                        if (jSONObject3 != null) {
+                            e eVar = new e();
+                            eVar.parseJson(jSONObject3);
+                            this.auD.add(eVar);
                         }
                     }
                 }
@@ -77,7 +95,7 @@ public class AlaFilterAndBeautyData extends BaseData {
         }
     }
 
-    private static HashMap<String, Object> r(JSONObject jSONObject) {
+    private static HashMap<String, Object> t(JSONObject jSONObject) {
         HashMap<String, Object> hashMap = new HashMap<>();
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();
@@ -95,23 +113,23 @@ public class AlaFilterAndBeautyData extends BaseData {
 
     /* loaded from: classes3.dex */
     public static class b {
-        int asR;
-        HashMap<String, Object> asS;
+        int auN;
+        HashMap<String, Object> auO;
 
-        public int uU() {
-            return this.asR;
+        public int vn() {
+            return this.auN;
         }
 
-        public void bA(int i) {
-            this.asR = i;
+        public void bF(int i) {
+            this.auN = i;
         }
 
-        public HashMap<String, Object> uV() {
-            return this.asS;
+        public HashMap<String, Object> vo() {
+            return this.auO;
         }
 
         public void x(HashMap<String, Object> hashMap) {
-            this.asS = hashMap;
+            this.auO = hashMap;
         }
     }
 
@@ -119,10 +137,10 @@ public class AlaFilterAndBeautyData extends BaseData {
         if (hashMap == null || beautyAdjustKey == null || hashMap.get(beautyAdjustKey) == null) {
             return 0;
         }
-        return hashMap.get(beautyAdjustKey).asR;
+        return hashMap.get(beautyAdjustKey).auN;
     }
 
-    public static BeautyAdjustKey eg(String str) {
+    public static BeautyAdjustKey ei(String str) {
         BeautyAdjustKey[] values;
         for (BeautyAdjustKey beautyAdjustKey : BeautyAdjustKey.values()) {
             if (beautyAdjustKey.getJsonKey().equals(str)) {
@@ -143,7 +161,11 @@ public class AlaFilterAndBeautyData extends BaseData {
         vFace("vface_slider", "v_face"),
         threeCounts("threeCounts_slider", "face_three_counts"),
         cheekboneWidth("cheekbone_slider", "cheek_bone"),
-        mouthWidth("mouthWidth_slider", LivenessStat.TYPE_LIVING_MOUTH);
+        mouthWidth("mouthWidth_slider", LivenessStat.TYPE_LIVING_MOUTH),
+        faceWidth("faceWidth_slider", "face_width"),
+        noseLength("noseLength_slider", "nose_length"),
+        upCount("upCount_slider", "up_count"),
+        eyeDistance("eyeDistance_slider", "eye_distance");
         
         String mJsonKey;
         String mKey;

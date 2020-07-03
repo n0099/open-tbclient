@@ -114,14 +114,14 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
     public boolean canGoBack() {
         boolean canGoBack = super.canGoBack();
         if (this.mWebViewHookHandler != null) {
-            return this.mWebViewHookHandler.du(canGoBack);
+            return this.mWebViewHookHandler.dz(canGoBack);
         }
         return canGoBack;
     }
 
     @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.swan.apps.adaptation.b.d
     public void goBack() {
-        if (this.mWebViewHookHandler == null || !this.mWebViewHookHandler.Xp()) {
+        if (this.mWebViewHookHandler == null || !this.mWebViewHookHandler.Yv()) {
             super.goBack();
         }
     }
@@ -341,7 +341,7 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
 
     /* JADX INFO: Access modifiers changed from: private */
     public void calcPopWindowPos(@NonNull SwanAppSelectPopView swanAppSelectPopView) {
-        int B;
+        int D;
         int popLeftX = swanAppSelectPopView.getPopLeftX();
         int popRightX = swanAppSelectPopView.getPopRightX();
         int popTopY = swanAppSelectPopView.getPopTopY();
@@ -370,16 +370,16 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
         }
         int measuredHeight = swanAppSelectPopView.getMeasuredHeight();
         int height = getCurrentWebView().getHeight();
-        int B2 = ag.B(22.0f) + measuredHeight;
-        int i2 = popBottomY - B2;
+        int D2 = ag.D(22.0f) + measuredHeight;
+        int i2 = popBottomY - D2;
         if (i2 < 0) {
-            B = ag.B(22.0f) + popTopY;
+            D = ag.D(22.0f) + popTopY;
             swanAppSelectPopView.setBackgroundResource(a.e.swanapp_browser_select_menu_up_bg);
         } else {
-            B = i2 + ag.B(22.0f);
+            D = i2 + ag.D(22.0f);
             swanAppSelectPopView.setBackgroundResource(a.e.swanapp_browser_select_menu_down_bg);
         }
-        int i3 = B + B2 > height ? (popTopY - popBottomY) - B2 : B;
+        int i3 = D + D2 > height ? (popTopY - popBottomY) - D2 : D;
         swanAppSelectPopView.setPopX(i + scrollX);
         swanAppSelectPopView.setPopY(i3 + scrollY);
         if (DEBUG) {
@@ -389,6 +389,6 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
 
     @Override // com.baidu.swan.apps.core.container.a
     public String getContainerId() {
-        return this.mWebViewManager != null ? this.mWebViewManager.Tj() : "";
+        return this.mWebViewManager != null ? this.mWebViewManager.Up() : "";
     }
 }

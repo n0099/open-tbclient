@@ -4,56 +4,56 @@ import android.graphics.Path;
 import android.support.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class d implements b {
-    private final GradientType DE;
-    private final Path.FillType DG;
-    private final com.airbnb.lottie.model.a.c DH;
-    private final com.airbnb.lottie.model.a.f DI;
-    private final com.airbnb.lottie.model.a.f DJ;
+    private final com.airbnb.lottie.model.a.d Eb;
+    private final GradientType Eh;
+    private final Path.FillType Ei;
+    private final com.airbnb.lottie.model.a.c Ej;
+    private final com.airbnb.lottie.model.a.f Ek;
+    private final com.airbnb.lottie.model.a.f El;
     @Nullable
-    private final com.airbnb.lottie.model.a.b DK;
+    private final com.airbnb.lottie.model.a.b Em;
     @Nullable
-    private final com.airbnb.lottie.model.a.b DM;
-    private final com.airbnb.lottie.model.a.d Dx;
+    private final com.airbnb.lottie.model.a.b En;
     private final String name;
 
     public d(String str, GradientType gradientType, Path.FillType fillType, com.airbnb.lottie.model.a.c cVar, com.airbnb.lottie.model.a.d dVar, com.airbnb.lottie.model.a.f fVar, com.airbnb.lottie.model.a.f fVar2, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2) {
-        this.DE = gradientType;
-        this.DG = fillType;
-        this.DH = cVar;
-        this.Dx = dVar;
-        this.DI = fVar;
-        this.DJ = fVar2;
+        this.Eh = gradientType;
+        this.Ei = fillType;
+        this.Ej = cVar;
+        this.Eb = dVar;
+        this.Ek = fVar;
+        this.El = fVar2;
         this.name = str;
-        this.DK = bVar;
-        this.DM = bVar2;
+        this.Em = bVar;
+        this.En = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType hW() {
-        return this.DE;
+    public GradientType in() {
+        return this.Eh;
     }
 
-    public Path.FillType hX() {
-        return this.DG;
+    public Path.FillType ip() {
+        return this.Ei;
     }
 
-    public com.airbnb.lottie.model.a.c hY() {
-        return this.DH;
+    public com.airbnb.lottie.model.a.c iq() {
+        return this.Ej;
     }
 
-    public com.airbnb.lottie.model.a.d hQ() {
-        return this.Dx;
+    public com.airbnb.lottie.model.a.d ih() {
+        return this.Eb;
     }
 
-    public com.airbnb.lottie.model.a.f hZ() {
-        return this.DI;
+    public com.airbnb.lottie.model.a.f ir() {
+        return this.Ek;
     }
 
-    public com.airbnb.lottie.model.a.f ia() {
-        return this.DJ;
+    public com.airbnb.lottie.model.a.f is() {
+        return this.El;
     }
 
     @Override // com.airbnb.lottie.model.content.b

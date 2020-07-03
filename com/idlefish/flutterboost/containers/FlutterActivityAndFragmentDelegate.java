@@ -75,10 +75,6 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         @NonNull
         FlutterView.TransparencyMode getTransparencyMode();
 
-        void onFlutterContainerClose();
-
-        void onFlutterContainerOpen();
-
         @Nullable
         FlutterEngine provideFlutterEngine(@NonNull Context context);
 
@@ -87,6 +83,8 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
 
         @Nullable
         SplashScreen provideSplashScreen();
+
+        void setSwipeBackEnable(boolean z);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -197,9 +195,9 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void onResume() {
+    public void onResume(boolean z) {
         a.getInstance().setLastFlutterPage(getContainerUrl());
-        this.mSyncer.onAppear();
+        this.mSyncer.onAppear(z);
         Log.v(TAG, "onResume()");
         ensureAlive();
         this.flutterEngine.getLifecycleChannel().appIsResumed();
@@ -216,10 +214,10 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void onPause() {
+    public void onPause(boolean z) {
         Log.v(TAG, "onPause()");
         ensureAlive();
-        this.mSyncer.onDisappear();
+        this.mSyncer.onDisappear(z);
         this.flutterEngine.getLifecycleChannel().appIsInactive();
     }
 
@@ -284,37 +282,34 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         Log.w(TAG, "onNewIntent() invoked before NewFlutterFragment was attached to an Activity.");
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.idlefish.flutterboost.interfaces.IOperateSyncer */
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:11:0x0069  */
-    /* JADX WARN: Removed duplicated region for block: B:9:0x0021  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void onActivityResult(int i, int i2, Intent intent) {
-        Map map;
         this.mSyncer.onActivityResult(i, i2, intent);
+        HashMap hashMap = new HashMap();
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra("_flutter_result_");
             if (serializableExtra instanceof Map) {
-                map = (Map) serializableExtra;
-                this.mSyncer.onContainerResult(i, i2, map);
-                ensureAlive();
-                if (this.flutterEngine == null) {
-                    Log.v(TAG, "Forwarding onActivityResult() to FlutterEngine:\nrequestCode: " + i + "\nresultCode: " + i2 + "\ndata: " + intent);
-                    this.flutterEngine.getActivityControlSurface().onActivityResult(i, i2, intent);
-                    return;
+                hashMap.putAll((Map) serializableExtra);
+            }
+            try {
+                Bundle extras = intent.getExtras();
+                if (extras != null && extras.size() > 0) {
+                    for (String str : extras.keySet()) {
+                        hashMap.put(str, extras.get(str));
+                    }
                 }
-                Log.w(TAG, "onActivityResult() invoked before NewFlutterFragment was attached to an Activity.");
-                return;
+            } catch (Throwable th) {
+                BdLog.e(th);
             }
         }
-        map = null;
-        this.mSyncer.onContainerResult(i, i2, map);
+        this.mSyncer.onContainerResult(i, i2, hashMap);
         ensureAlive();
-        if (this.flutterEngine == null) {
+        if (this.flutterEngine != null) {
+            Log.v(TAG, "Forwarding onActivityResult() to FlutterEngine:\nrequestCode: " + i + "\nresultCode: " + i2 + "\ndata: " + intent);
+            this.flutterEngine.getActivityControlSurface().onActivityResult(i, i2, intent);
+            return;
         }
+        Log.w(TAG, "onActivityResult() invoked before NewFlutterFragment was attached to an Activity.");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -414,12 +409,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IFlutterViewContainer
-    public void onFlutterContainerOpen() {
-        this.host.onFlutterContainerOpen();
-    }
-
-    @Override // com.idlefish.flutterboost.interfaces.IFlutterViewContainer
-    public void onFlutterContainerClose() {
-        this.host.onFlutterContainerClose();
+    public void setSwipeBackEnable(boolean z) {
+        this.host.setSwipeBackEnable(z);
     }
 }

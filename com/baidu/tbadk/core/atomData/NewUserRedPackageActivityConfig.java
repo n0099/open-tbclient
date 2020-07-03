@@ -9,6 +9,6 @@ public class NewUserRedPackageActivityConfig extends IntentConfig {
 
     public NewUserRedPackageActivityConfig(Context context, NewUserRedPackageData newUserRedPackageData) {
         super(context);
-        getIntent().putExtra(KEY_DATA, newUserRedPackageData);
+        getIntent().putExtra("key_data", newUserRedPackageData);
     }
 }

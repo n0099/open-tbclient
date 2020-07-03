@@ -3,15 +3,15 @@ package com.baidu.ar.arrender;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class i extends com.baidu.ar.ability.c {
-    private HashMap<String, Object> ig;
+    private HashMap<String, Object> iv;
     private String mNodeName;
 
     public void M(String str) {
         this.mNodeName = str;
     }
 
-    public HashMap<String, Object> bu() {
-        return this.ig;
+    public HashMap<String, Object> bJ() {
+        return this.iv;
     }
 
     public String getNodeName() {
@@ -19,6 +19,6 @@ public class i extends com.baidu.ar.ability.c {
     }
 
     public void i(HashMap<String, Object> hashMap) {
-        this.ig = hashMap;
+        this.iv = hashMap;
     }
 }

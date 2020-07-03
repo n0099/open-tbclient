@@ -24,6 +24,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttenti
         public static final int SINGLE_ATTENTION = 1;
         public BlockPopInfoData blockData;
         public String blockUrl;
+        public int errorCode;
         public String errorString;
         public boolean hasShownForbiddenAlert;
         public boolean isAttention;
@@ -43,6 +44,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttenti
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     this.resultJson = jSONObject;
+                    this.errorCode = jSONObject.optInt("error_code", 0);
                     JSONObject optJSONObject = jSONObject.optJSONObject("info");
                     if (optJSONObject != null) {
                         this.status = jSONObject.optInt("status");

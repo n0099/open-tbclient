@@ -5,10 +5,10 @@ import kotlin.collections.ae;
 @kotlin.h
 /* loaded from: classes7.dex */
 public class i implements Iterable<Long> {
-    public static final a nuE = new a(null);
-    private final long nuB;
-    private final long nuC;
-    private final long nuD;
+    public static final a nQq = new a(null);
+    private final long nQn;
+    private final long nQo;
+    private final long nQp;
 
     public i(long j, long j2, long j3) {
         if (j3 == 0) {
@@ -17,43 +17,43 @@ public class i implements Iterable<Long> {
         if (j3 == Long.MIN_VALUE) {
             throw new IllegalArgumentException("Step must be greater than Long.MIN_VALUE to avoid overflow on negation.");
         }
-        this.nuB = j;
-        this.nuC = kotlin.internal.c.g(j, j2, j3);
-        this.nuD = j3;
+        this.nQn = j;
+        this.nQo = kotlin.internal.c.j(j, j2, j3);
+        this.nQp = j3;
     }
 
-    public final long dMq() {
-        return this.nuB;
+    public final long dQW() {
+        return this.nQn;
     }
 
-    public final long dMr() {
-        return this.nuC;
+    public final long dQX() {
+        return this.nQo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: dMs */
+    /* renamed from: dQY */
     public ae iterator() {
-        return new j(this.nuB, this.nuC, this.nuD);
+        return new j(this.nQn, this.nQo, this.nQp);
     }
 
     public boolean isEmpty() {
-        return this.nuD > 0 ? this.nuB > this.nuC : this.nuB < this.nuC;
+        return this.nQp > 0 ? this.nQn > this.nQo : this.nQn < this.nQo;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.nuB == ((i) obj).nuB && this.nuC == ((i) obj).nuC && this.nuD == ((i) obj).nuD));
+        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.nQn == ((i) obj).nQn && this.nQo == ((i) obj).nQo && this.nQp == ((i) obj).nQp));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * ((31 * (this.nuB ^ (this.nuB >>> 32))) + (this.nuC ^ (this.nuC >>> 32)))) + (this.nuD ^ (this.nuD >>> 32)));
+        return (int) ((31 * ((31 * (this.nQn ^ (this.nQn >>> 32))) + (this.nQo ^ (this.nQo >>> 32)))) + (this.nQp ^ (this.nQp >>> 32)));
     }
 
     public String toString() {
-        return this.nuD > 0 ? this.nuB + IStringUtil.TOP_PATH + this.nuC + " step " + this.nuD : this.nuB + " downTo " + this.nuC + " step " + (-this.nuD);
+        return this.nQp > 0 ? this.nQn + IStringUtil.TOP_PATH + this.nQo + " step " + this.nQp : this.nQn + " downTo " + this.nQo + " step " + (-this.nQp);
     }
 
     @kotlin.h

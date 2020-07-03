@@ -4,11 +4,11 @@ public final class R {
 
     /* loaded from: classes5.dex */
     public static final class color {
-        public static final int suspension_ball_anim_fg_mask_color = 0x7f0d0a02;
+        public static final int suspension_ball_anim_fg_mask_color = 0x7f0d0a33;
     }
 
     /* loaded from: classes5.dex */
     public static final class string {
-        public static final int app_name = 0x7f08042e;
+        public static final int app_name = 0x7f080442;
     }
 }

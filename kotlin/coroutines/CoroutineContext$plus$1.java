@@ -21,15 +21,15 @@ public final class CoroutineContext$plus$1 extends Lambda implements m<c, c.b, c
         CombinedContext combinedContext;
         q.m(cVar, "acc");
         q.m(bVar, "element");
-        c minusKey = cVar.minusKey(bVar.dLS());
+        c minusKey = cVar.minusKey(bVar.dQy());
         if (minusKey == EmptyCoroutineContext.INSTANCE) {
             return bVar;
         }
-        b bVar2 = (b) minusKey.get(b.ntC);
+        b bVar2 = (b) minusKey.get(b.nPp);
         if (bVar2 == null) {
             combinedContext = new CombinedContext(minusKey, bVar);
         } else {
-            c minusKey2 = minusKey.minusKey(b.ntC);
+            c minusKey2 = minusKey.minusKey(b.nPp);
             combinedContext = minusKey2 == EmptyCoroutineContext.INSTANCE ? new CombinedContext(bVar, bVar2) : new CombinedContext(new CombinedContext(minusKey2, bVar), bVar2);
         }
         return combinedContext;

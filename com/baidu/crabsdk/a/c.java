@@ -8,31 +8,31 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes8.dex */
 public class c {
-    private static c ake;
-    private static Context akf;
-    private static ExecutorService akg;
+    private static c alB;
+    private static Context alC;
+    private static ExecutorService alD;
     private static boolean an = false;
-    public l akc;
-    public p akd;
+    public p alA;
+    public l alz;
 
     private c(Context context) {
-        akf = context;
-        this.akd = new p(Looper.getMainLooper().getThread(), a.W);
-        this.akc = new l(new d(this), context);
-        if (akg == null) {
-            akg = Executors.newSingleThreadExecutor();
+        alC = context;
+        this.alA = new p(Looper.getMainLooper().getThread(), a.W);
+        this.alz = new l(new d(this), context);
+        if (alD == null) {
+            alD = Executors.newSingleThreadExecutor();
         }
     }
 
-    public static c X(Context context) {
-        if (ake == null) {
+    public static c Y(Context context) {
+        if (alB == null) {
             synchronized (c.class) {
-                if (ake == null) {
-                    ake = new c(context);
+                if (alB == null) {
+                    alB = new c(context);
                 }
             }
         }
-        return ake;
+        return alB;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,23 +42,23 @@ public class c {
         if (c.isEmpty()) {
             return;
         }
-        a sC = a.sC();
-        sC.ajY = c;
-        sC.a(j, j2, j3, j4);
+        a sX = a.sX();
+        sX.alv = c;
+        sX.a(j, j2, j3, j4);
     }
 
     public static void start() {
         an = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.aki.start();
-            com.baidu.crabsdk.c.a.dg("start FrameMonitor...");
+            e.alF.start();
+            com.baidu.crabsdk.c.a.di("start FrameMonitor...");
         }
     }
 
     public static void stop() {
         an = false;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.aki.stop();
+            e.alF.stop();
         }
     }
 }

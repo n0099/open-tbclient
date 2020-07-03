@@ -27,7 +27,7 @@ public class d extends com.baidu.swan.b.d.a {
                 bVar.onFail(31011, "app is not installed");
                 com.baidu.swan.b.a.f.c.a(optString, "openApp", "fail", String.valueOf(31011), null);
             } else if (com.baidu.swan.b.a.c.a.ac(AppRuntime.getAppContext(), optString)) {
-                bVar.aa(null);
+                bVar.ah(null);
                 com.baidu.swan.b.a.f.c.a(optString, "openApp", "success", null, null);
             } else {
                 bVar.onFail(31019, "open app fail");

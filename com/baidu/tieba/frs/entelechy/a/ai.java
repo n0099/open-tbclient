@@ -1,42 +1,28 @@
 package com.baidu.tieba.frs.entelechy.a;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.ad;
+import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
-public interface ai {
-    void a(com.baidu.adp.widget.ListView.x xVar);
+public class ai extends ad.a {
+    public TextView fdZ;
+    public ImageView hKe;
+    public TextView hKf;
+    public ImageView hKg;
+    public View hKh;
+    public View hKi;
 
-    void a(com.baidu.tieba.frs.d dVar);
-
-    void b(ArrayList<com.baidu.adp.widget.ListView.o> arrayList, FrsViewData frsViewData);
-
-    HashMap<Integer, bk> bYp();
-
-    int bYq();
-
-    void bYr();
-
-    int bYs();
-
-    int bYt();
-
-    void bYu();
-
-    List<com.baidu.adp.widget.ListView.o> getDatas();
-
-    void notifyDataSetChanged();
-
-    void ns(boolean z);
-
-    void onDestory();
-
-    boolean r(BdUniqueId bdUniqueId);
-
-    void setForumName(String str);
-
-    void setFromCDN(boolean z);
+    public ai(View view) {
+        super(view);
+        if (view != null) {
+            this.fdZ = (TextView) view.findViewById(R.id.video_activity_item_title);
+            this.hKe = (ImageView) view.findViewById(R.id.video_activity_item_tip);
+            this.hKf = (TextView) view.findViewById(R.id.video_activity_item_type);
+            this.hKg = (ImageView) view.findViewById(R.id.video_activity_item_more);
+            this.hKh = view.findViewById(R.id.top_divider_line);
+            this.hKi = view.findViewById(R.id.bottom_divider_line);
+        }
+    }
 }

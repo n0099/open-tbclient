@@ -9,17 +9,17 @@ import java.util.ArrayList;
 import java.util.Scanner;
 /* loaded from: classes3.dex */
 class d extends ArrayList<a> {
-    private boolean rr = false;
-    private String uI;
-    private int uJ;
-    private int uK;
-    private WeakReference<Context> uw;
+    private boolean rQ = false;
+    private WeakReference<Context> uW;
+    private String vi;
+    private int vj;
+    private int vk;
 
     public d(Context context, String str, int i, int i2) {
-        this.uw = new WeakReference<>(context);
-        this.uJ = i;
-        this.uI = str;
-        this.uK = i2;
+        this.uW = new WeakReference<>(context);
+        this.vj = i;
+        this.vi = str;
+        this.vk = i2;
     }
 
     private void a(Closeable closeable) {
@@ -31,24 +31,24 @@ class d extends ArrayList<a> {
         }
     }
 
-    private void eI() {
+    private void eY() {
         Context context;
         Scanner scanner;
         FileInputStream fileInputStream;
-        a ay;
+        a az;
         FileInputStream fileInputStream2 = null;
-        if (this.uK <= 0 || (context = this.uw.get()) == null || !context.getFileStreamPath(this.uI).exists()) {
+        if (this.vk <= 0 || (context = this.uW.get()) == null || !context.getFileStreamPath(this.vi).exists()) {
             return;
         }
         try {
-            fileInputStream = context.openFileInput(this.uI);
+            fileInputStream = context.openFileInput(this.vi);
             try {
                 scanner = new Scanner(fileInputStream, "utf-8");
                 while (scanner.hasNextLine()) {
                     try {
                         String nextLine = scanner.nextLine();
-                        if (nextLine != null && !nextLine.isEmpty() && (ay = a.ay(nextLine)) != null) {
-                            add(ay);
+                        if (nextLine != null && !nextLine.isEmpty() && (az = a.az(nextLine)) != null) {
+                            add(az);
                         }
                     } catch (Exception e) {
                         e = e;
@@ -92,7 +92,7 @@ class d extends ArrayList<a> {
         }
     }
 
-    public void H(int i) {
+    public void N(int i) {
         if (i > 0) {
             a[] aVarArr = new a[i];
             for (int i2 = 0; i2 < i; i2++) {
@@ -103,29 +103,29 @@ class d extends ArrayList<a> {
         }
     }
 
-    public void eH() {
-        if (this.rr) {
+    public void eX() {
+        if (this.rQ) {
             return;
         }
-        eI();
-        this.rr = true;
+        eY();
+        this.rQ = true;
     }
 
     public void flush() {
         Context context;
         Closeable closeable;
-        if (this.uK <= 0 || (context = this.uw.get()) == null) {
+        if (this.vk <= 0 || (context = this.uW.get()) == null) {
             return;
         }
         int size = size();
         Closeable closeable2 = null;
         try {
             try {
-                FileOutputStream openFileOutput = context.openFileOutput(this.uI, 0);
+                FileOutputStream openFileOutput = context.openFileOutput(this.vi, 0);
                 if (size > 0) {
                     try {
-                        if (size > this.uK) {
-                            size = this.uK;
+                        if (size > this.vk) {
+                            size = this.vk;
                         }
                         for (int i = 0; i < size; i++) {
                             openFileOutput.write((a.b((a) get(i)) + "\n").getBytes("utf-8"));
@@ -158,7 +158,7 @@ class d extends ArrayList<a> {
     }
 
     public void k(a aVar) {
-        if (size() < this.uJ) {
+        if (size() < this.vj) {
             add(aVar);
         }
     }

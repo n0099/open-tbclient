@@ -11,98 +11,98 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.view.PbGiftListView;
 /* loaded from: classes9.dex */
 public class s {
-    private View jKP;
-    private ViewStub jKR;
-    private PbGiftListView jKS;
-    private ViewStub jKT;
-    private LinearLayout jKU;
-    public View jKV;
-    public BaseWebView jKW;
-    private int jKO = 0;
-    private int jKQ = 0;
+    private View keA;
+    private ViewStub keC;
+    private PbGiftListView keD;
+    private ViewStub keE;
+    private LinearLayout keF;
+    public View keG;
+    public BaseWebView keH;
+    private int kez = 0;
+    private int keB = 0;
 
     public s(View view) {
-        this.jKP = view;
-        this.jKR = (ViewStub) view.findViewById(R.id.gift_list_viewStub);
-        this.jKT = (ViewStub) view.findViewById(R.id.link_thread_viewStub);
+        this.keA = view;
+        this.keC = (ViewStub) view.findViewById(R.id.gift_list_viewStub);
+        this.keE = (ViewStub) view.findViewById(R.id.link_thread_viewStub);
     }
 
-    public void Ag(int i) {
-        this.jKQ = i;
+    public void Bi(int i) {
+        this.keB = i;
     }
 
-    public void a(com.baidu.tbadk.core.data.aq aqVar, String str, String str2, long j, long j2, long j3) {
-        if (aqVar == null || com.baidu.tbadk.core.util.v.isEmpty(aqVar.aPv()) || this.jKR == null) {
-            if (this.jKS != null) {
-                this.jKS.setVisibility(8);
+    public void a(com.baidu.tbadk.core.data.av avVar, String str, String str2, long j, long j2, long j3) {
+        if (avVar == null || com.baidu.tbadk.core.util.w.isEmpty(avVar.aRh()) || this.keC == null) {
+            if (this.keD != null) {
+                this.keD.setVisibility(8);
                 return;
             }
             return;
         }
-        if (this.jKS == null) {
-            this.jKS = (PbGiftListView) this.jKR.inflate();
+        if (this.keD == null) {
+            this.keD = (PbGiftListView) this.keC.inflate();
         }
-        this.jKS.setVisibility(0);
-        this.jKS.a(aqVar, str, str2, j, j2, j3);
-        this.jKS.onChangeSkinType();
+        this.keD.setVisibility(0);
+        this.keD.a(avVar, str, str2, j, j2, j3);
+        this.keD.onChangeSkinType();
     }
 
-    public void a(com.baidu.tbadk.core.data.af afVar) {
-        if (afVar != null && !com.baidu.tbadk.core.util.aq.isEmpty(afVar.getLinkUrl())) {
-            if ((this.jKW == null || !this.jKW.getIsLoaded()) && afVar.aOZ() == com.baidu.tbadk.core.data.af.dCM && this.jKT != null) {
-                if (afVar.aPa()) {
-                    if (this.jKU != null) {
-                        this.jKU.setVisibility(8);
+    public void a(com.baidu.tbadk.core.data.ak akVar) {
+        if (akVar != null && !com.baidu.tbadk.core.util.ar.isEmpty(akVar.getLinkUrl())) {
+            if ((this.keH == null || !this.keH.getIsLoaded()) && akVar.aQK() == com.baidu.tbadk.core.data.ak.dJh && this.keE != null) {
+                if (akVar.aQL()) {
+                    if (this.keF != null) {
+                        this.keF.setVisibility(8);
                         return;
                     }
                     return;
                 }
-                if (this.jKU == null) {
-                    this.jKU = (LinearLayout) this.jKT.inflate();
-                    this.jKV = this.jKU.findViewById(R.id.link_thread_divider);
-                    this.jKW = (BaseWebView) this.jKU.findViewById(R.id.link_thread_webview);
+                if (this.keF == null) {
+                    this.keF = (LinearLayout) this.keE.inflate();
+                    this.keG = this.keF.findViewById(R.id.link_thread_divider);
+                    this.keH = (BaseWebView) this.keF.findViewById(R.id.link_thread_webview);
                 }
-                this.jKV.setVisibility(0);
-                com.baidu.tbadk.core.util.am.setBackgroundColor(this.jKV, R.color.cp_bg_line_c);
-                this.jKW.setVisibility(0);
-                this.jKW.setFocusable(false);
-                this.jKW.setBackgroundColor(0);
-                this.jKW.getSettings().setCacheMode(-1);
-                this.jKW.setVerticalScrollBarEnabled(false);
-                this.jKW.setHorizontalScrollBarEnabled(false);
-                this.jKW.getSettings().setAllowFileAccess(true);
-                this.jKW.getSettings().setAppCacheEnabled(true);
-                this.jKW.getSettings().setDomStorageEnabled(true);
-                this.jKW.getSettings().setDatabaseEnabled(true);
-                this.jKW.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.pb.pb.main.s.1
+                this.keG.setVisibility(0);
+                com.baidu.tbadk.core.util.an.setBackgroundColor(this.keG, R.color.cp_bg_line_c);
+                this.keH.setVisibility(0);
+                this.keH.setFocusable(false);
+                this.keH.setBackgroundColor(0);
+                this.keH.getSettings().setCacheMode(-1);
+                this.keH.setVerticalScrollBarEnabled(false);
+                this.keH.setHorizontalScrollBarEnabled(false);
+                this.keH.getSettings().setAllowFileAccess(true);
+                this.keH.getSettings().setAppCacheEnabled(true);
+                this.keH.getSettings().setDomStorageEnabled(true);
+                this.keH.getSettings().setDatabaseEnabled(true);
+                this.keH.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.pb.pb.main.s.1
                     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
                     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                         return true;
                     }
                 });
-                this.jKW.setOnPageFinishedListener(new BaseWebView.c() { // from class: com.baidu.tieba.pb.pb.main.s.2
+                this.keH.setOnPageFinishedListener(new BaseWebView.c() { // from class: com.baidu.tieba.pb.pb.main.s.2
                     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
                     public void onPageFinished(WebView webView, String str) {
                         webView.loadUrl("javascript:(function(){var iframe=document.getElementsByClassName(\"video_iframe\");if(iframe&&iframe.length>0){for(var i=iframe.length-1;i>=0;i--){iframe[i].contentWindow.document.getElementsByClassName(\"tvp_fullscreen_button\")[0].style.display=\"none\"}}})();");
                     }
                 });
-                this.jKW.loadUrl(afVar.getLinkUrl());
+                this.keH.loadUrl(akVar.getLinkUrl());
             }
         }
     }
 
     public void destroy() {
-        if (this.jKW != null) {
-            this.jKW.removeAllViews();
-            this.jKW.getSettings().setBuiltInZoomControls(true);
-            this.jKW.setVisibility(8);
-            com.baidu.adp.lib.f.e.ld().postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.main.s.3
+        if (this.keH != null) {
+            this.keH.removeAllViews();
+            this.keH.getSettings().setBuiltInZoomControls(true);
+            this.keH.setVisibility(8);
+            com.baidu.adp.lib.f.e.lt().postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.main.s.3
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        if (s.this.jKW != null) {
-                            s.this.jKW.destroy();
-                            s.this.jKW = null;
+                        if (s.this.keH != null) {
+                            s.this.keH.destroy();
+                            s.this.keH = null;
                         }
                     } catch (Throwable th) {
                         BdLog.e(th);
@@ -113,9 +113,9 @@ public class s {
     }
 
     public void resume() {
-        if (this.jKW != null) {
+        if (this.keH != null) {
             try {
-                this.jKW.onResume();
+                this.keH.onResume();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -123,9 +123,9 @@ public class s {
     }
 
     public void pause() {
-        if (this.jKW != null) {
+        if (this.keH != null) {
             try {
-                this.jKW.onPause();
+                this.keH.onPause();
             } catch (Exception e) {
                 e.printStackTrace();
             }

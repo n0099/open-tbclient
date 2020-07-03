@@ -8,10 +8,10 @@ import com.baidu.live.adp.framework.task.CustomMessageTask;
 /* loaded from: classes3.dex */
 public class LiveVideoChatInitialize {
     static {
-        Ij();
+        Jw();
     }
 
-    private static void Ij() {
+    private static void Jw() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913144, new CustomMessageTask.CustomRunnable<Activity>() { // from class: com.baidu.live.videochat.LiveVideoChatInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Object> run(CustomMessage<Activity> customMessage) {

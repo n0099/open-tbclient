@@ -2,6 +2,6 @@ package com.baidu.tieba.pb.data;
 /* loaded from: classes9.dex */
 public class d {
     public String forumName;
-    public String jEU;
+    public String jYE;
     public String source;
 }

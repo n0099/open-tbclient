@@ -6,91 +6,91 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class c {
-    public static String Jx = "_crashtime";
-    public static String Jy = "_crashtype";
-    private int JA;
-    private b JB;
-    private int Jz;
+    public static String JX = "_crashtime";
+    public static String JY = "_crashtype";
+    private int JZ;
+    private int Ka;
+    private b Kb;
 
     public c(b bVar) {
-        this.Jz = 0;
-        this.JA = 0;
-        this.JB = null;
+        this.JZ = 0;
+        this.Ka = 0;
+        this.Kb = null;
         if (bVar == null) {
             throw new InvalidParameterException("SwitchHolder data is null");
         }
-        this.JB = bVar;
-        if (this.JB.getMaxCrashTimes() > 0 && this.JB.kk() != null) {
-            this.Jz = kn();
-            if (this.Jz == -1) {
+        this.Kb = bVar;
+        if (this.Kb.getMaxCrashTimes() > 0 && this.Kb.kA() != null) {
+            this.JZ = kD();
+            if (this.JZ == -1) {
                 reset();
             }
         }
-        if (!bVar.kj()) {
-            this.JA = km();
+        if (!bVar.kz()) {
+            this.Ka = kC();
         }
-        this.JB.i(this.JA, true);
+        this.Kb.j(this.Ka, true);
     }
 
-    public b kl() {
-        return this.JB;
+    public b kB() {
+        return this.Kb;
     }
 
     public String getName() {
-        return this.JB.getName();
+        return this.Kb.getName();
     }
 
     public int getDefaultType() {
-        return this.JB.getDefaultType();
+        return this.Kb.getDefaultType();
     }
 
     public int getType() {
-        return this.JA;
+        return this.Ka;
     }
 
-    public boolean U(int i) {
-        if (this.JB.getMaxCrashTimes() >= 0 && this.Jz >= this.JB.getMaxCrashTimes() + 2) {
-            i = this.JB.getOffType();
+    public boolean aa(int i) {
+        if (this.Kb.getMaxCrashTimes() >= 0 && this.JZ >= this.Kb.getMaxCrashTimes() + 2) {
+            i = this.Kb.getOffType();
         }
-        if (i == this.JA) {
+        if (i == this.Ka) {
             return false;
         }
-        this.JA = i;
-        this.JB.i(this.JA, false);
-        V(i);
+        this.Ka = i;
+        this.Kb.j(this.Ka, false);
+        ab(i);
         return true;
     }
 
-    public boolean bz(String str) {
+    public boolean bA(String str) {
         String[] switchLibs;
-        String[] kk;
-        if (str == null || this.JB.getMaxCrashTimes() <= 0) {
+        String[] kA;
+        if (str == null || this.Kb.getMaxCrashTimes() <= 0) {
             return false;
         }
-        if (this.JB.kk() != null) {
-            for (String str2 : this.JB.kk()) {
+        if (this.Kb.kA() != null) {
+            for (String str2 : this.Kb.kA()) {
                 if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                    this.Jz++;
-                    W(this.Jz);
-                    if (this.Jz >= this.JB.getMaxCrashTimes()) {
-                        V(this.JB.getOffType());
-                        this.JA = this.JB.getOffType();
-                        this.JB.i(this.JB.getOffType(), false);
+                    this.JZ++;
+                    ac(this.JZ);
+                    if (this.JZ >= this.Kb.getMaxCrashTimes()) {
+                        ab(this.Kb.getOffType());
+                        this.Ka = this.Kb.getOffType();
+                        this.Kb.j(this.Kb.getOffType(), false);
                         return true;
                     }
                     return true;
                 }
             }
         }
-        if (this.JB.getSwitchLibs() != null) {
-            for (String str3 : this.JB.getSwitchLibs()) {
+        if (this.Kb.getSwitchLibs() != null) {
+            for (String str3 : this.Kb.getSwitchLibs()) {
                 if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                    this.Jz++;
-                    W(this.Jz);
-                    if (this.Jz >= this.JB.getMaxCrashTimes()) {
-                        V(this.JB.getOffType());
-                        this.JA = this.JB.getOffType();
-                        this.JB.i(this.JB.getOffType(), false);
+                    this.JZ++;
+                    ac(this.JZ);
+                    if (this.JZ >= this.Kb.getMaxCrashTimes()) {
+                        ab(this.Kb.getOffType());
+                        this.Ka = this.Kb.getOffType();
+                        this.Kb.j(this.Kb.getOffType(), false);
                         return true;
                     }
                     return true;
@@ -100,31 +100,31 @@ public class c {
         return false;
     }
 
-    private void V(int i) {
+    private void ab(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.JB.getName() + Jy, i);
+        edit.putInt(this.Kb.getName() + JY, i);
         edit.commit();
     }
 
-    private int km() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.JB.getName() + Jy, this.JB.getDefaultType());
+    private int kC() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.Kb.getName() + JY, this.Kb.getDefaultType());
     }
 
-    private int kn() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.JB.getName() + Jx, -1);
+    private int kD() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.Kb.getName() + JX, -1);
     }
 
-    private void W(int i) {
+    private void ac(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.JB.getName() + Jx, i);
+        edit.putInt(this.Kb.getName() + JX, i);
         edit.commit();
     }
 
     public void reset() {
-        this.Jz = 0;
+        this.JZ = 0;
     }
 
-    public void X(int i) {
-        this.Jz = i;
+    public void ad(int i) {
+        this.JZ = i;
     }
 }

@@ -10,13 +10,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
-public class r extends com.baidu.tieba.frs.h<s, t> {
-    private com.baidu.tbadk.coreExtra.view.b eap;
+public class r extends com.baidu.tieba.frs.j<s, t> {
+    private com.baidu.tbadk.coreExtra.view.b eiZ;
     private View.OnClickListener mClickListener;
 
     public r(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -30,7 +30,7 @@ public class r extends com.baidu.tieba.frs.h<s, t> {
                 }
                 Object tag = view.getTag(R.id.private_apply_tip);
                 if (tag != null && !tag.toString().equals("")) {
-                    ba.aVa().b((TbPageContext) com.baidu.adp.base.i.G(r.this.mContext), new String[]{tag.toString()});
+                    bc.aWU().b((TbPageContext) com.baidu.adp.base.i.G(r.this.mContext), new String[]{tag.toString()});
                 }
             }
         };
@@ -39,14 +39,14 @@ public class r extends com.baidu.tieba.frs.h<s, t> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ba */
+    /* renamed from: be */
     public t b(ViewGroup viewGroup) {
         return new t(LayoutInflater.from(this.mContext).inflate(R.layout.private_member_apply, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, s sVar, t tVar) {
         String string;
         boolean z = true;
@@ -56,53 +56,53 @@ public class r extends com.baidu.tieba.frs.h<s, t> {
                 tVar.mRootLayout.setVisibility(8);
             } else {
                 if (tVar.mSkinType != this.mSkinType) {
-                    am.setBackgroundColor(tVar.mLineView, R.color.cp_bg_line_c);
-                    am.setViewTextColor(tVar.hkB, R.color.cp_cont_d, 1);
-                    am.setViewTextColor(tVar.hkA, R.color.cp_cont_b, 1);
-                    am.setBackgroundResource(tVar.hkC, R.drawable.frs_member_manito_bg);
+                    an.setBackgroundColor(tVar.mLineView, R.color.cp_bg_line_c);
+                    an.setViewTextColor(tVar.hwI, R.color.cp_cont_d, 1);
+                    an.setViewTextColor(tVar.hwH, R.color.cp_cont_b, 1);
+                    an.setBackgroundResource(tVar.hwJ, R.drawable.frs_member_manito_bg);
                 }
-                int bTE = sVar.bTE();
+                int bWA = sVar.bWA();
                 String string2 = this.mContext.getResources().getString(R.string.tbtitle_quota_is_full);
-                if (bTE == -1) {
-                    int bTC = sVar.bTC();
-                    String numberUniformFormat = aq.numberUniformFormat(bTC);
-                    if (bTC > 0) {
+                if (bWA == -1) {
+                    int bWy = sVar.bWy();
+                    String numberUniformFormat = ar.numberUniformFormat(bWy);
+                    if (bWy > 0) {
                         string = String.format(this.mContext.getResources().getString(R.string.tbtitle_apply_assist_left_num_tip), numberUniformFormat);
-                        tVar.hkC.setOnClickListener(this.mClickListener);
-                        tVar.hkB.setText(string);
-                        tVar.hkC.setTag(R.id.private_apply_tip, sVar.bTD());
-                        tVar.hkC.setEnabled(z);
-                        tVar.hkC.setClickable(z);
-                        tVar.hkB.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                        tVar.hwJ.setOnClickListener(this.mClickListener);
+                        tVar.hwI.setText(string);
+                        tVar.hwJ.setTag(R.id.private_apply_tip, sVar.bWz());
+                        tVar.hwJ.setEnabled(z);
+                        tVar.hwJ.setClickable(z);
+                        tVar.hwI.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, an.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                         tVar.mSkinType = this.mSkinType;
                     }
                     z = false;
                     string = string2;
-                    tVar.hkC.setOnClickListener(this.mClickListener);
-                    tVar.hkB.setText(string);
-                    tVar.hkC.setTag(R.id.private_apply_tip, sVar.bTD());
-                    tVar.hkC.setEnabled(z);
-                    tVar.hkC.setClickable(z);
-                    tVar.hkB.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                    tVar.hwJ.setOnClickListener(this.mClickListener);
+                    tVar.hwI.setText(string);
+                    tVar.hwJ.setTag(R.id.private_apply_tip, sVar.bWz());
+                    tVar.hwJ.setEnabled(z);
+                    tVar.hwJ.setClickable(z);
+                    tVar.hwI.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, an.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                     tVar.mSkinType = this.mSkinType;
                 } else {
-                    if (bTE == 0) {
+                    if (bWA == 0) {
                         string = this.mContext.getResources().getString(R.string.tbtitle_is_assist);
-                    } else if (bTE == 1) {
+                    } else if (bWA == 1) {
                         string = this.mContext.getResources().getString(R.string.tbtitle_assist_applying);
                     } else {
-                        if (bTE == 2) {
+                        if (bWA == 2) {
                             string = this.mContext.getResources().getString(R.string.tbtitle_assist_apply_failed);
                         }
                         z = false;
                         string = string2;
                     }
-                    tVar.hkC.setOnClickListener(this.mClickListener);
-                    tVar.hkB.setText(string);
-                    tVar.hkC.setTag(R.id.private_apply_tip, sVar.bTD());
-                    tVar.hkC.setEnabled(z);
-                    tVar.hkC.setClickable(z);
-                    tVar.hkB.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                    tVar.hwJ.setOnClickListener(this.mClickListener);
+                    tVar.hwI.setText(string);
+                    tVar.hwJ.setTag(R.id.private_apply_tip, sVar.bWz());
+                    tVar.hwJ.setEnabled(z);
+                    tVar.hwJ.setClickable(z);
+                    tVar.hwI.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, an.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                     tVar.mSkinType = this.mSkinType;
                 }
             }
@@ -119,17 +119,17 @@ public class r extends com.baidu.tieba.frs.h<s, t> {
         } else {
             activity = ((TbPageContext) G).getPageActivity();
         }
-        if (this.eap == null) {
-            this.eap = new com.baidu.tbadk.coreExtra.view.b(activity);
+        if (this.eiZ == null) {
+            this.eiZ = new com.baidu.tbadk.coreExtra.view.b(activity);
         }
-        this.eap.bbx();
-        this.eap.setAccountData(accountData);
-        this.eap.mQ(1);
+        this.eiZ.bdz();
+        this.eiZ.setAccountData(accountData);
+        this.eiZ.nk(1);
     }
 
     public void onDestroy() {
-        if (this.eap != null) {
-            this.eap.onDestroy();
+        if (this.eiZ != null) {
+            this.eiZ.onDestroy();
         }
     }
 }

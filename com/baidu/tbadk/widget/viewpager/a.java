@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0500a eHN;
-    private long eHO;
-    private long eHP;
-    private boolean eHQ;
-    private boolean eHR;
+    private InterfaceC0508a eRZ;
+    private long eSa;
+    private long eSb;
+    private boolean eSc;
+    private boolean eSd;
     private float mDownX;
     private float mDownY;
     private int mMaximumVelocity;
@@ -21,10 +21,10 @@ public class a {
 
     /* renamed from: com.baidu.tbadk.widget.viewpager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0500a {
-        void bjL();
+    public interface InterfaceC0508a {
+        void bmk();
 
-        void bjM();
+        void bml();
 
         void t(float f, float f2);
     }
@@ -48,40 +48,40 @@ public class a {
             case 0:
                 this.mDownX = motionEvent.getX();
                 this.mDownY = motionEvent.getY();
-                this.eHO = System.currentTimeMillis();
-                this.eHQ = true;
+                this.eSa = System.currentTimeMillis();
+                this.eSc = true;
                 break;
             case 1:
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.eHO < 100 && currentTimeMillis - this.eHP < 500) {
-                    this.eHR = true;
+                if (currentTimeMillis - this.eSa < 100 && currentTimeMillis - this.eSb < 500) {
+                    this.eSd = true;
                 } else {
-                    this.eHR = false;
+                    this.eSd = false;
                 }
                 VelocityTracker velocityTracker = this.mVelocityTracker;
                 velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                 if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.mDownY - motionEvent.getY()) > 50.0f) {
-                    this.eHR = false;
-                    this.eHQ = false;
+                    this.eSd = false;
+                    this.eSc = false;
                 }
-                if (this.eHR) {
-                    if (this.eHN != null) {
-                        this.eHN.t(motionEvent.getRawX(), motionEvent.getRawY());
+                if (this.eSd) {
+                    if (this.eRZ != null) {
+                        this.eRZ.t(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.mDownY - motionEvent.getY()) && this.eHN != null) {
-                    this.eHN.bjM();
+                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.mDownY - motionEvent.getY()) && this.eRZ != null) {
+                    this.eRZ.bml();
                 }
-                if (!this.eHR && this.eHQ && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.mDownY - motionEvent.getY()) < 30.0f) {
+                if (!this.eSd && this.eSc && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.mDownY - motionEvent.getY()) < 30.0f) {
                     this.mView.postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.viewpager.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!a.this.eHR && a.this.eHQ && a.this.eHN != null) {
-                                a.this.eHN.bjL();
+                            if (!a.this.eSd && a.this.eSc && a.this.eRZ != null) {
+                                a.this.eRZ.bmk();
                             }
                         }
                     }, 300L);
                 }
-                this.eHP = currentTimeMillis;
+                this.eSb = currentTimeMillis;
                 releaseVelocityTracker();
                 break;
             case 3:
@@ -91,8 +91,8 @@ public class a {
         return true;
     }
 
-    public void setEventListener(InterfaceC0500a interfaceC0500a) {
-        this.eHN = interfaceC0500a;
+    public void setEventListener(InterfaceC0508a interfaceC0508a) {
+        this.eRZ = interfaceC0508a;
     }
 
     private void releaseVelocityTracker() {

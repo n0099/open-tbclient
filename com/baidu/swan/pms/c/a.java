@@ -13,19 +13,19 @@ import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes11.dex */
 public class a {
-    private static com.baidu.swan.c.c.a dlJ = com.baidu.swan.c.c.a.aFx();
-    private static CookieManager dlK = com.baidu.swan.pms.d.aFP().aga();
+    private static com.baidu.swan.c.c.a dqu = com.baidu.swan.c.c.a.aGD();
+    private static CookieManager dqv = com.baidu.swan.pms.d.aGV().ahg();
 
     @Deprecated
     public static void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, StatResponseCallback<String> statResponseCallback) {
         if (TextUtils.isEmpty(str)) {
             throw new InvalidParameterException("PMS request URL is empty");
         }
-        PostStringRequest.PostStringRequestBuilder mediaType = dlJ.postStringRequest().url(e.k(str, map)).content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE));
+        PostStringRequest.PostStringRequestBuilder mediaType = dqu.postStringRequest().url(e.k(str, map)).content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE));
         if (map2 != null) {
             mediaType.addHeaders(map2);
         }
-        mediaType.cookieManager(dlK).enableStat(true).build().executeStat(statResponseCallback);
+        mediaType.cookieManager(dqv).enableStat(true).build().executeStat(statResponseCallback);
     }
 
     @Deprecated
@@ -33,10 +33,10 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             throw new InvalidParameterException("PMS request URL is empty");
         }
-        GetRequest.GetRequestBuilder url = dlJ.getRequest().url(e.k(str, map));
+        GetRequest.GetRequestBuilder url = dqu.getRequest().url(e.k(str, map));
         if (map2 != null) {
             url.addHeaders(map2);
         }
-        url.cookieManager(dlK).enableStat(true).build().executeStat(statResponseCallback);
+        url.cookieManager(dqv).enableStat(true).build().executeStat(statResponseCallback);
     }
 }

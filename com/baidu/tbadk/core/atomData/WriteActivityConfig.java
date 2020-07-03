@@ -10,6 +10,8 @@ import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.data.PostTopicData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.FrsTabInfoData;
 /* loaded from: classes.dex */
@@ -34,6 +36,7 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String IS_ADDITION = "is_addition";
     public static final String IS_LIVE_POST = "is_live_post";
     public static final String IS_SAVE_DRAFTE = "need_save_draft";
+    public static final String KEY_ANTI_POLL_LEVEL = "key_anti_poll_level";
     public static final String KEY_CALL_FROM = "KEY_CALL_FROM";
     public static final String KEY_FORUM_AVATAR = "forum_avatar";
     public static final String KEY_PROFESSION_ZONE = "profession_zone";
@@ -94,6 +97,9 @@ public class WriteActivityConfig extends IntentConfig {
         } else {
             getIntent().putExtra(ENABLE_AUDIO, antiData.isIfvoice());
             getIntent().putExtra(DISABLE_AUDIO_MESSAGE, antiData.getVoice_message());
+        }
+        if (antiData != null) {
+            getIntent().putExtra(KEY_ANTI_POLL_LEVEL, antiData.getPollLevel());
         }
         if (str6 != null) {
             getIntent().putExtra("file_name", str6);
@@ -220,5 +226,18 @@ public class WriteActivityConfig extends IntentConfig {
 
     public void setShowHomepageTestBtn(boolean z) {
         getIntent().putExtra(KEY_SHOW_HOMEPAGE_TEST_BTN, z);
+    }
+
+    public void setShowVoteData(WriteVoteData writeVoteData) {
+        getIntent().putExtra(IntentConfig.WRITE_VOTE_DATA, writeVoteData);
+    }
+
+    public void setVideoInfo(VideoInfo videoInfo) {
+        getIntent().putExtra(WriteVideoActivityConfig.VIDEO_INFO, videoInfo);
+    }
+
+    public void setIntentActionActivityForwardResult() {
+        setIntentAction(IntentAction.Activity);
+        getIntent().addFlags(33554432);
     }
 }

@@ -8,11 +8,11 @@ import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 /* loaded from: classes10.dex */
 public class BaiduNativeH5AdView extends RelativeLayout {
-    IOAdEventListener bsg;
-    private BaiduNativeAdPlacement bsq;
-    private com.baidu.mobads.production.c.a bsr;
-    private BaiduNativeH5EventListner bss;
-    private RequestParameters bst;
+    IOAdEventListener bxa;
+    private BaiduNativeAdPlacement bxk;
+    private com.baidu.mobads.production.c.a bxl;
+    private BaiduNativeH5EventListner bxm;
+    private RequestParameters bxn;
     private boolean f;
     private boolean g;
 
@@ -42,32 +42,32 @@ public class BaiduNativeH5AdView extends RelativeLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     public BaiduNativeH5AdView(Context context, int i) {
         super(context);
-        this.bss = null;
+        this.bxm = null;
         this.f = false;
         this.g = false;
-        this.bsg = new h(this);
+        this.bxa = new h(this);
         a(context, i);
     }
 
     public BaiduNativeAdPlacement getAdPlacement() {
-        return this.bsq;
+        return this.bxk;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setAdPlacement(BaiduNativeAdPlacement baiduNativeAdPlacement) {
-        this.bsq = baiduNativeAdPlacement;
+        this.bxk = baiduNativeAdPlacement;
     }
 
     public void makeRequest(RequestParameters requestParameters) {
-        if (this.bsq != null) {
-            if (this.bsq.hasValidResponse()) {
+        if (this.bxk != null) {
+            if (this.bxk.hasValidResponse()) {
                 if (this.f) {
                     return;
                 }
             } else {
                 this.f = false;
-                if (!this.bsq.Mf()) {
-                    this.bsq.cM(true);
+                if (!this.bxk.No()) {
+                    this.bxk.cR(true);
                 } else {
                     return;
                 }
@@ -76,46 +76,46 @@ public class BaiduNativeH5AdView extends RelativeLayout {
         if (requestParameters == null) {
             requestParameters = new RequestParameters.Builder().build();
         }
-        this.bst = requestParameters;
-        if (this.bsr != null) {
+        this.bxn = requestParameters;
+        if (this.bxl != null) {
             b();
         }
-        this.bsr = new com.baidu.mobads.production.c.a(getContext(), this);
-        this.bsr.a(requestParameters);
-        this.bsr.addEventListener(IXAdEvent.AD_ERROR, this.bsg);
-        this.bsr.addEventListener(IXAdEvent.AD_STARTED, this.bsg);
-        this.bsr.addEventListener("AdUserClick", this.bsg);
-        this.bsr.addEventListener(IXAdEvent.AD_IMPRESSION, this.bsg);
-        this.bsr.addEventListener("AdLoadData", this.bsg);
-        if (this.bsq != null && this.bsq.Mh() != null) {
-            this.bsr.setAdResponseInfo(this.bsq.Mh());
+        this.bxl = new com.baidu.mobads.production.c.a(getContext(), this);
+        this.bxl.a(requestParameters);
+        this.bxl.addEventListener(IXAdEvent.AD_ERROR, this.bxa);
+        this.bxl.addEventListener(IXAdEvent.AD_STARTED, this.bxa);
+        this.bxl.addEventListener("AdUserClick", this.bxa);
+        this.bxl.addEventListener(IXAdEvent.AD_IMPRESSION, this.bxa);
+        this.bxl.addEventListener("AdLoadData", this.bxa);
+        if (this.bxk != null && this.bxk.Nq() != null) {
+            this.bxl.setAdResponseInfo(this.bxk.Nq());
         }
-        this.bsr.b(this.bsq.Mk());
-        this.bsr.c(this.bsq.Ml());
-        this.bsr.d(this.bsq.getSequenceId());
-        this.bsr.request();
+        this.bxl.b(this.bxk.Nt());
+        this.bxl.c(this.bxk.Nu());
+        this.bxl.d(this.bxk.getSequenceId());
+        this.bxl.request();
     }
 
     public void recordImpression() {
-        if (this.bsq != null && this.bsq.Mh() != null && !this.bsq.Mj()) {
-            this.bsr.a(this, this.bsq.Mh().getPrimaryAdInstanceInfo(), this.bst);
+        if (this.bxk != null && this.bxk.Nq() != null && !this.bxk.Ns()) {
+            this.bxl.a(this, this.bxk.Nq().getPrimaryAdInstanceInfo(), this.bxn);
         }
     }
 
     private void a() {
-        if (this.bsr != null) {
-            this.bsr.q();
+        if (this.bxl != null) {
+            this.bxl.q();
         }
     }
 
     private void b() {
         a();
-        if (this.bsr != null) {
-            this.bsr.p();
+        if (this.bxl != null) {
+            this.bxl.p();
         }
     }
 
     public void setEventListener(BaiduNativeH5EventListner baiduNativeH5EventListner) {
-        this.bss = baiduNativeH5EventListner;
+        this.bxm = baiduNativeH5EventListner;
     }
 }

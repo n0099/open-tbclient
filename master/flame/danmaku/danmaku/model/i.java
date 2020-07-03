@@ -1,22 +1,22 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes5.dex */
 public class i extends d {
-    private float nxN;
-    private float nxO;
-    private int nxP;
+    private int nTA;
+    private float nTy;
+    private float nTz;
     private float x = 0.0f;
     protected float y = -1.0f;
-    private float[] nxM = null;
+    private float[] nTx = null;
 
     public i(g gVar) {
-        this.nxs = gVar;
+        this.nTe = gVar;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
     public void a(m mVar, float f, float f2) {
-        if (this.nwQ != null) {
-            long dNy = this.nwQ.nxI - dNy();
-            if (dNy > 0 && dNy < this.nxs.value) {
+        if (this.nSC != null) {
+            long dSe = this.nSC.nTt - dSe();
+            if (dSe > 0 && dSe < this.nTe.value) {
                 if (!isShown()) {
                     this.x = b(mVar);
                     this.y = f2;
@@ -32,50 +32,50 @@ public class i extends d {
     }
 
     protected float b(m mVar) {
-        if (this.nxP == mVar.getWidth() && this.nxO == this.nxq) {
-            return this.nxN;
+        if (this.nTA == mVar.getWidth() && this.nTz == this.nTc) {
+            return this.nTy;
         }
-        float width = (mVar.getWidth() - this.nxq) / 2.0f;
-        this.nxP = mVar.getWidth();
-        this.nxO = this.nxq;
-        this.nxN = width;
+        float width = (mVar.getWidth() - this.nTc) / 2.0f;
+        this.nTA = mVar.getWidth();
+        this.nTz = this.nTc;
+        this.nTy = width;
         return width;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
     public float[] a(m mVar, long j) {
-        if (!dNn()) {
+        if (!dRT()) {
             return null;
         }
         float b = b(mVar);
-        if (this.nxM == null) {
-            this.nxM = new float[4];
+        if (this.nTx == null) {
+            this.nTx = new float[4];
         }
-        this.nxM[0] = b;
-        this.nxM[1] = this.y;
-        this.nxM[2] = b + this.nxq;
-        this.nxM[3] = this.y + this.nxr;
-        return this.nxM;
+        this.nTx[0] = b;
+        this.nTx[1] = this.y;
+        this.nTx[2] = b + this.nTc;
+        this.nTx[3] = this.y + this.nTd;
+        return this.nTx;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dNt() {
+    public float dRZ() {
         return this.x;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dNu() {
+    public float dSa() {
         return this.y;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dNv() {
-        return this.x + this.nxq;
+    public float dSb() {
+        return this.x + this.nTc;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dNw() {
-        return this.y + this.nxr;
+    public float dSc() {
+        return this.y + this.nTd;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d

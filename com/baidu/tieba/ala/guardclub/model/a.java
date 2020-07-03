@@ -5,11 +5,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    public String fzE = "";
-    public int fzF = 0;
+    public String date = "";
+    public int fKO = 0;
     public String id;
 
-    public static a cN(JSONObject jSONObject) {
+    public static a cW(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -19,8 +19,8 @@ public class a {
         }
         a aVar = new a();
         aVar.id = optString;
-        aVar.fzE = jSONObject.optString("date");
-        aVar.fzF = jSONObject.optInt("times");
+        aVar.date = jSONObject.optString("date");
+        aVar.fKO = jSONObject.optInt("times");
         return aVar;
     }
 
@@ -28,8 +28,8 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("id", this.id);
-            jSONObject.put("date", this.fzE);
-            jSONObject.put("times", this.fzF);
+            jSONObject.put("date", this.date);
+            jSONObject.put("times", this.fKO);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

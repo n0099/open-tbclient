@@ -1,43 +1,43 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes5.dex */
 public class j {
-    public int nxQ = 0;
-    public int nxR = 0;
-    public int nxS = 0;
-    public int nxT = 0;
-    public int nxU = 0;
-    public int nxV = 0;
+    public int nTB = 0;
+    public int nTC = 0;
+    public int nTD = 0;
+    public int nTE = 0;
+    public int nTF = 0;
+    public int nTG = 0;
 
     public void resetAll() {
-        this.nxR = 0;
-        this.nxQ = 0;
-        this.nxS = 0;
-        this.nxT = 0;
-        this.nxU = 0;
-        this.nxV = 0;
+        this.nTC = 0;
+        this.nTB = 0;
+        this.nTD = 0;
+        this.nTE = 0;
+        this.nTF = 0;
+        this.nTG = 0;
     }
 
-    public void dNA() {
-        this.nxR++;
+    public void dSg() {
+        this.nTC++;
     }
 
-    public void dNB() {
-        this.nxQ++;
+    public void dSh() {
+        this.nTB++;
     }
 
-    public void dNC() {
-        this.nxS++;
+    public void dSi() {
+        this.nTD++;
     }
 
-    public void dND() {
-        this.nxT++;
+    public void dSj() {
+        this.nTE++;
     }
 
-    public void dNE() {
-        this.nxU++;
+    public void dSk() {
+        this.nTF++;
     }
 
-    public void dNF() {
-        this.nxV++;
+    public void dSl() {
+        this.nTG++;
     }
 }

@@ -19,7 +19,7 @@ import java.nio.charset.Charset;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class o {
-    public static String wt = "";
+    public static String wT = "";
     public static String name = "";
     public static String value = "";
 
@@ -34,13 +34,23 @@ public class o {
         }
     }
 
-    public static long[] eY() {
+    public static long A(Context context) {
+        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+        ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
+        return memoryInfo.availMem / 1048576;
+    }
+
+    public static boolean B(Context context) {
+        return ((SensorManager) context.getSystemService("sensor")).getDefaultSensor(4) != null;
+    }
+
+    public static long[] fo() {
         StatFs statFs;
         long blockSize = new StatFs(Environment.getDataDirectory().getPath()).getBlockSize();
         return new long[]{(statFs.getBlockCount() * blockSize) / 1048576, (statFs.getAvailableBlocks() * blockSize) / 1048576};
     }
 
-    public static long eZ() {
+    public static long fp() {
         try {
             if ("mounted".equals(Environment.getExternalStorageState())) {
                 StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
@@ -53,7 +63,7 @@ public class o {
         }
     }
 
-    public static long fa() {
+    public static long fq() {
         if ("mounted".equals(Environment.getExternalStorageState())) {
             try {
                 StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
@@ -71,7 +81,7 @@ public class o {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String fb() {
+    public static String fr() {
         BufferedReader bufferedReader;
         InputStreamReader inputStreamReader;
         Throwable th;
@@ -161,7 +171,7 @@ public class o {
         return str;
     }
 
-    public static int fc() {
+    public static int fs() {
         try {
             File[] listFiles = new File("/sys/devices/system/cpu/").listFiles(new a());
             Log.d("bdar", "CPU Count: " + listFiles.length);
@@ -173,7 +183,7 @@ public class o {
         }
     }
 
-    public static String fd() {
+    public static String ft() {
         String str;
         byte[] bArr;
         String str2 = "";
@@ -190,7 +200,7 @@ public class o {
         return str.trim();
     }
 
-    public static String fe() {
+    public static String fu() {
         String str;
         byte[] bArr;
         String str2 = "";
@@ -208,7 +218,7 @@ public class o {
         return String.valueOf(str);
     }
 
-    public static String ff() {
+    public static String fv() {
         InputStreamReader inputStreamReader;
         Exception exc;
         String str;
@@ -300,11 +310,11 @@ public class o {
         return str;
     }
 
-    public static boolean fg() {
+    public static boolean fw() {
         return "Nexus 6P".equals(Build.MODEL) || "AOSP on angler".equals(Build.MODEL);
     }
 
-    public static boolean fh() {
+    public static boolean fx() {
         return "Nexus 5X".equals(Build.MODEL);
     }
 
@@ -313,7 +323,7 @@ public class o {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static long x(Context context) {
+    public static long z(Context context) {
         BufferedReader bufferedReader;
         InputStreamReader inputStreamReader;
         InputStreamReader inputStreamReader2 = null;
@@ -408,15 +418,5 @@ public class o {
             throw th;
         }
         return j / 1024;
-    }
-
-    public static long y(Context context) {
-        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
-        return memoryInfo.availMem / 1048576;
-    }
-
-    public static boolean z(Context context) {
-        return ((SensorManager) context.getSystemService("sensor")).getDefaultSensor(4) != null;
     }
 }

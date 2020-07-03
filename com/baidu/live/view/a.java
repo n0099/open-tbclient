@@ -14,6 +14,7 @@ import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.browser.BrowserHelper;
@@ -27,28 +28,27 @@ import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
-import com.baidu.live.u.a;
 import java.util.HashMap;
 import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    private static volatile a bhB;
+    private static volatile a bmI;
     private HashMap<String, LinkedList<com.baidu.live.data.d>> mUserAttentionRequestMap = new HashMap<>();
-    private HashMap<String, C0183a> mAttentionTaskMap = new HashMap<>();
+    private HashMap<String, C0189a> mAttentionTaskMap = new HashMap<>();
 
     private a() {
     }
 
-    public static a Jl() {
-        if (bhB == null) {
+    public static a Ky() {
+        if (bmI == null) {
             synchronized (a.class) {
-                if (bhB == null) {
-                    bhB = new a();
+                if (bmI == null) {
+                    bmI = new a();
                 }
             }
         }
-        return bhB;
+        return bmI;
     }
 
     public void a(String str, com.baidu.live.data.d dVar) {
@@ -94,19 +94,19 @@ public class a {
     public void executeAttentionTask(String str) {
         LinkedList<com.baidu.live.data.d> linkedList;
         if (!StringUtils.isNull(str) && this.mAttentionTaskMap.get(str) == null && (linkedList = this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
-            C0183a c0183a = new C0183a();
-            this.mAttentionTaskMap.put(str, c0183a);
-            c0183a.setPriority(2);
-            c0183a.a(linkedList.getFirst());
-            c0183a.execute(new Integer[0]);
+            C0189a c0189a = new C0189a();
+            this.mAttentionTaskMap.put(str, c0189a);
+            c0189a.setPriority(2);
+            c0189a.a(linkedList.getFirst());
+            c0189a.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0183a extends BdAsyncTask<Integer, Integer, String> {
-        private BdUniqueId bhG;
+    public class C0189a extends BdAsyncTask<Integer, Integer, String> {
+        private BdUniqueId bmN;
         private String forumId;
         private String from;
         private String inLive;
@@ -117,7 +117,7 @@ public class a {
         private boolean showToastAfterAttentionSuc;
         private String toUid;
 
-        private C0183a() {
+        private C0189a() {
             this.mNetwork = null;
             this.metaKey = "";
             this.isGod = false;
@@ -131,9 +131,9 @@ public class a {
             this.isAttention = dVar.isAttention();
             this.toUid = dVar.getUserId();
             this.inLive = dVar.getInLive();
-            this.bhG = dVar.vU();
+            this.bmN = dVar.ws();
             this.from = dVar.getFrom();
-            this.metaKey = dVar.vV();
+            this.metaKey = dVar.wt();
             if (this.forumId != null) {
                 this.showToastAfterAttentionSuc = true;
             }
@@ -170,7 +170,7 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0183a) str);
+            super.onPostExecute((C0189a) str);
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
                 updateAttentionData.isSucc = this.mNetwork.isRequestSuccess();
@@ -180,8 +180,12 @@ public class a {
                 updateAttentionData.isGod = this.isGod;
                 updateAttentionData.parserJson(str, this.showToastAfterAttentionSuc);
                 updateAttentionData.response = this.mNetwork.getHttpResponse();
+                updateAttentionData.response.mServerErrorCode = updateAttentionData.errorCode;
+                if (updateAttentionData.isSucc) {
+                    updateAttentionData.isSucc = updateAttentionData.response.mServerErrorCode == 0;
+                }
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bhG));
+                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bmN));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
                 a.this.a(updateAttentionData, this.from);
             }
@@ -231,11 +235,11 @@ public class a {
 
     public void a(TbPageContext tbPageContext, boolean z) {
         if (z) {
-            d(tbPageContext);
+            e(tbPageContext);
         }
     }
 
-    public void d(final TbPageContext<?> tbPageContext) {
+    public void e(final TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
             if (UtilHelper.getRealScreenOrientation(tbPageContext.getPageActivity()) == 2) {
                 tbPageContext.showToast(a.i.sdk_attention_success_toast);

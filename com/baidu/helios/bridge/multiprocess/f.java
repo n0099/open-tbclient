@@ -16,10 +16,10 @@ public interface f extends IInterface {
 
         /* renamed from: com.baidu.helios.bridge.multiprocess.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        private static class C0135a implements f {
+        private static class C0137a implements f {
             private IBinder a;
 
-            C0135a(IBinder iBinder) {
+            C0137a(IBinder iBinder) {
                 this.a = iBinder;
             }
 
@@ -84,7 +84,7 @@ public interface f extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface(c);
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof f)) ? new C0135a(iBinder) : (f) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof f)) ? new C0137a(iBinder) : (f) queryLocalInterface;
         }
 
         @Override // android.os.IInterface

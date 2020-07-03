@@ -2,78 +2,78 @@ package com.baidu.tieba.pb.pb.sub;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.o;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.z;
+import com.baidu.tbadk.core.data.bu;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class c {
-    private BdTypeListView fbb;
-    private NewSubPbActivity jZL;
-    private com.baidu.tieba.pb.pb.sub.a.b kaC;
-    private com.baidu.tieba.pb.pb.sub.a.d kaD;
-    private x kaE;
-    private List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
-    private View.OnClickListener aIH = null;
-    private boolean gJW = false;
-    private boolean kaF = true;
+    private BdTypeListView fml;
+    private NewSubPbActivity ktD;
+    private com.baidu.tieba.pb.pb.sub.a.b kut;
+    private com.baidu.tieba.pb.pb.sub.a.d kuu;
+    private z kuv;
+    private List<com.baidu.adp.widget.ListView.a> aUP = new ArrayList();
+    private View.OnClickListener aLl = null;
+    private boolean gWW = false;
+    private boolean kuw = true;
 
     public c(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
-        this.jZL = newSubPbActivity;
-        this.fbb = bdTypeListView;
+        this.ktD = newSubPbActivity;
+        this.fml = bdTypeListView;
     }
 
-    public void CY() {
-        this.kaC = new com.baidu.tieba.pb.pb.sub.a.b(this.jZL, PostData.llS);
-        this.kaC.y(this.aIH);
-        this.kaC.a(this.kaE);
-        this.kaC.setFromCDN(this.kaF);
-        this.aSj.add(this.kaC);
-        this.kaD = new com.baidu.tieba.pb.pb.sub.a.d(this.jZL, com.baidu.tieba.pb.pb.sub.b.b.kbw);
-        this.aSj.add(this.kaD);
-        this.aSj.add(new com.baidu.tieba.pb.pb.sub.a.c(this.jZL, com.baidu.tieba.pb.pb.sub.b.a.kbv));
-        this.fbb.addAdapters(this.aSj);
+    public void Dz() {
+        this.kut = new com.baidu.tieba.pb.pb.sub.a.b(this.ktD, PostData.lFM);
+        this.kut.z(this.aLl);
+        this.kut.a(this.kuv);
+        this.kut.setFromCDN(this.kuw);
+        this.aUP.add(this.kut);
+        this.kuu = new com.baidu.tieba.pb.pb.sub.a.d(this.ktD, com.baidu.tieba.pb.pb.sub.b.b.kvj);
+        this.aUP.add(this.kuu);
+        this.aUP.add(new com.baidu.tieba.pb.pb.sub.a.c(this.ktD, com.baidu.tieba.pb.pb.sub.b.a.kvi));
+        this.fml.addAdapters(this.aUP);
     }
 
-    public void b(bk bkVar, List<o> list) {
-        this.kaC.setThreadData(bkVar);
-        if (this.jZL.cJD().cGB()) {
-            this.kaC.JS(this.jZL.cJD().cFI());
+    public void b(bu buVar, List<q> list) {
+        this.kut.setThreadData(buVar);
+        if (this.ktD.cNU().cKR()) {
+            this.kut.Ku(this.ktD.cNU().cJY());
         }
-        this.fbb.setData(list);
-        this.fbb.getAdapter().notifyDataSetChanged();
+        this.fml.setData(list);
+        this.fml.getAdapter().notifyDataSetChanged();
     }
 
-    public boolean anV() {
-        return this.gJW;
+    public boolean apb() {
+        return this.gWW;
     }
 
     public void setHasMoreData(boolean z) {
-        this.gJW = z;
+        this.gWW = z;
     }
 
-    public void y(View.OnClickListener onClickListener) {
-        this.aIH = onClickListener;
+    public void z(View.OnClickListener onClickListener) {
+        this.aLl = onClickListener;
     }
 
     public void c(View.OnLongClickListener onLongClickListener) {
-        this.kaC.setOnLongClickListener(onLongClickListener);
+        this.kut.setOnLongClickListener(onLongClickListener);
     }
 
     public void setOnImageClickListener(TbRichTextView.i iVar) {
-        this.kaC.setOnImageClickListener(iVar);
+        this.kut.setOnImageClickListener(iVar);
     }
 
     public void setFromCDN(boolean z) {
-        this.kaF = z;
+        this.kuw = z;
     }
 
     public void notifyDataSetChanged() {
-        if (this.fbb.getAdapter() != null) {
-            this.fbb.getAdapter().notifyDataSetChanged();
+        if (this.fml.getAdapter() != null) {
+            this.fml.getAdapter().notifyDataSetChanged();
         }
     }
 }

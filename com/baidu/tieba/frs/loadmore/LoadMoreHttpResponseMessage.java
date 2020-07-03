@@ -3,12 +3,12 @@ package com.baidu.tieba.frs.loadmore;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ad;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.data.ai;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.recapp.report.b;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -21,14 +21,14 @@ import tbclient.User;
 /* loaded from: classes9.dex */
 public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     private BannerListData bannerListData;
-    private ArrayList<o> threadList;
+    private ArrayList<q> threadList;
     private HashMap<String, MetaData> userMap;
 
     public LoadMoreHttpResponseMessage(int i) {
         super(i);
     }
 
-    public ArrayList<o> getThreadList() {
+    public ArrayList<q> getThreadList() {
         return this.threadList;
     }
 
@@ -41,7 +41,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
             setError(threadListResIdl.error.errorno.intValue());
             setErrorString(threadListResIdl.error.usermsg);
             if (getError() == 0 && threadListResIdl.data != null) {
-                if (v.getCount(threadListResIdl.data.user_list) > 0) {
+                if (w.getCount(threadListResIdl.data.user_list) > 0) {
                     this.userMap = new HashMap<>();
                     List<User> list = threadListResIdl.data.user_list;
                     if (list != null) {
@@ -57,31 +57,31 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                 }
                 Message<?> orginalMessage2 = getOrginalMessage();
                 boolean isBrandForum = (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) ? false : ((LoadMoreRequestMessage) orginalMessage2.getExtra()).isBrandForum();
-                if (v.getCount(threadListResIdl.data.thread_list) > 0) {
+                if (w.getCount(threadListResIdl.data.thread_list) > 0) {
                     this.threadList = new ArrayList<>();
                     List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
                     if (list2 != null) {
                         ArrayList arrayList = new ArrayList();
                         for (int i3 = 0; i3 < list2.size(); i3++) {
                             ThreadInfo threadInfo = list2.get(i3);
-                            bk bkVar = new bk();
-                            bkVar.setUserMap(this.userMap);
-                            bkVar.a(threadInfo);
-                            bkVar.aRw();
-                            bkVar.dHx = isBrandForum;
-                            if (!TextUtils.isEmpty(bkVar.aRI())) {
-                                ad adVar = new ad();
-                                adVar.vt(bkVar.aRI());
-                                this.threadList.add(adVar);
+                            bu buVar = new bu();
+                            buVar.setUserMap(this.userMap);
+                            buVar.a(threadInfo);
+                            buVar.aTn();
+                            buVar.dOj = isBrandForum;
+                            if (!TextUtils.isEmpty(buVar.aTz())) {
+                                ai aiVar = new ai();
+                                aiVar.vG(buVar.aTz());
+                                this.threadList.add(aiVar);
                             } else {
-                                this.threadList.add(bkVar);
+                                this.threadList.add(buVar);
                                 JSONObject f = b.f(threadInfo);
                                 if (f != null) {
                                     arrayList.add(f);
                                 }
                             }
                         }
-                        b.cVu().ev(arrayList);
+                        b.cZK().eJ(arrayList);
                     }
                 }
                 this.bannerListData = null;

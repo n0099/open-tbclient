@@ -15,20 +15,20 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class ConcernUnreadTipView extends RelativeLayout {
-    private BdUniqueId afZ;
+    private BdUniqueId agK;
     private int ds94;
-    public ImageView gdY;
-    private TextView hcx;
-    private LinearLayout igt;
-    private TextView igu;
-    private ImageView igv;
-    private int igw;
+    public ImageView gqS;
+    private TextView hoI;
+    private LinearLayout ivF;
+    private TextView ivG;
+    private ImageView ivH;
+    private int ivI;
     private TextView mTitle;
 
     public ConcernUnreadTipView(Context context) {
@@ -48,57 +48,57 @@ public class ConcernUnreadTipView extends RelativeLayout {
 
     private void init(Context context) {
         this.ds94 = l.getDimens(getContext(), R.dimen.tbds94);
-        this.igw = 0 - l.getDimens(getContext(), R.dimen.tbds18);
+        this.ivI = 0 - l.getDimens(getContext(), R.dimen.tbds18);
         LayoutInflater.from(context).inflate(R.layout.concern_unread_tip_view_layout, (ViewGroup) this, true);
         this.mTitle = (TextView) findViewById(R.id.concern_unread_tip_title);
-        this.gdY = (ImageView) findViewById(R.id.concern_unread_tip_close);
-        this.igt = (LinearLayout) findViewById(R.id.concern_unread_tip_header_box);
-        this.hcx = (TextView) findViewById(R.id.concern_unread_tip_info);
-        this.igu = (TextView) findViewById(R.id.concern_unread_tip_show);
-        this.igv = (ImageView) findViewById(R.id.concern_unread_tip_show_arrow);
+        this.gqS = (ImageView) findViewById(R.id.concern_unread_tip_close);
+        this.ivF = (LinearLayout) findViewById(R.id.concern_unread_tip_header_box);
+        this.hoI = (TextView) findViewById(R.id.concern_unread_tip_info);
+        this.ivG = (TextView) findViewById(R.id.concern_unread_tip_show);
+        this.ivH = (ImageView) findViewById(R.id.concern_unread_tip_show_arrow);
         setPadding(0, 0, 0, l.getDimens(context, R.dimen.tbds44));
         onChangeSkinType();
     }
 
     public void setBdUniqueId(BdUniqueId bdUniqueId) {
-        this.afZ = bdUniqueId;
+        this.agK = bdUniqueId;
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
-        this.gdY.setOnClickListener(onClickListener);
+        this.gqS.setOnClickListener(onClickListener);
     }
 
     public void setData(com.baidu.tieba.homepage.personalize.data.e eVar) {
         if (eVar != null) {
-            if (!eVar.cgy()) {
+            if (!eVar.cjY()) {
                 setVisibility(8);
                 return;
             }
-            if (eVar.ifI > 0) {
-                com.baidu.tbadk.core.sharedPref.b.aTX().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_UNREAD_TIP_NEXT_SHOW_TIME), System.currentTimeMillis() + eVar.ifI);
+            if (eVar.iuT > 0) {
+                com.baidu.tbadk.core.sharedPref.b.aVP().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_UNREAD_TIP_NEXT_SHOW_TIME), System.currentTimeMillis() + eVar.iuT);
             }
-            if (this.hcx != null && !StringUtils.isNull(eVar.ifJ)) {
-                this.hcx.setText(eVar.ifJ);
+            if (this.hoI != null && !StringUtils.isNull(eVar.iuU)) {
+                this.hoI.setText(eVar.iuU);
             }
-            if (this.igt != null && eVar.ifH != null) {
-                this.igt.removeAllViews();
-                List<String> list = eVar.ifH;
+            if (this.ivF != null && eVar.iuS != null) {
+                this.ivF.removeAllViews();
+                List<String> list = eVar.iuS;
                 for (int i = 0; i < list.size(); i++) {
                     String str = list.get(i);
                     if (!StringUtils.isNull(str)) {
                         FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.concern_unread_tip_head_group, null);
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.ds94, this.ds94);
                         if (i > 0) {
-                            layoutParams.leftMargin = this.igw;
+                            layoutParams.leftMargin = this.ivI;
                         }
                         frameLayout.setLayoutParams(layoutParams);
                         HeadImageView headImageView = (HeadImageView) frameLayout.findViewById(R.id.inner_img);
                         headImageView.setIsRound(true);
                         headImageView.setDrawBorder(false);
-                        am.setImageResource((ImageView) frameLayout.findViewById(R.id.out_img), R.drawable.bg_unread_tip_head_border);
-                        this.igt.addView(frameLayout);
-                        headImageView.setPageId(this.afZ);
+                        an.setImageResource((ImageView) frameLayout.findViewById(R.id.out_img), R.drawable.bg_unread_tip_head_border);
+                        this.ivF.addView(frameLayout);
+                        headImageView.setPageId(this.agK);
                         headImageView.startLoad(str, 12, false);
                     }
                 }
@@ -107,11 +107,11 @@ public class ConcernUnreadTipView extends RelativeLayout {
     }
 
     public void onChangeSkinType() {
-        am.setBackgroundColor(this, R.color.cp_bg_line_d);
-        am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_b);
-        am.setImageResource(this.gdY, R.drawable.icon_home_card_delete);
-        am.setViewTextColor(this.hcx, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.igu, (int) R.color.cp_cont_d);
-        SvgManager.aUW().a(this.igv, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        an.setBackgroundColor(this, R.color.cp_bg_line_d);
+        an.setViewTextColor(this.mTitle, (int) R.color.cp_cont_b);
+        an.setImageResource(this.gqS, R.drawable.icon_home_card_delete);
+        an.setViewTextColor(this.hoI, (int) R.color.cp_cont_b);
+        an.setViewTextColor(this.ivG, (int) R.color.cp_cont_d);
+        SvgManager.aWQ().a(this.ivH, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
     }
 }

@@ -19,12 +19,15 @@ public class AlaLiveSwitchData extends BaseData {
     public String mFirstCharge;
     public String mFollowBtn;
     public String mGiftPanel;
+    public boolean mGiftPanelInvalid;
     public String mGmsgGetLiveStatus;
     public String mGuardFans;
     public String mGuardThrone;
     public String mLiveSwitch;
     public String mNobleInfo;
+    public boolean mPayBarrageInvalid;
     public String mPopupWindow;
+    public boolean mQuickChatInvalid;
     public String mQuickGift;
     public String mRankHour;
     public String mRedPkg;
@@ -58,6 +61,9 @@ public class AlaLiveSwitchData extends BaseData {
             this.mActivityTaskWatch = jSONObject.optString("f_activity_task_watch");
             this.mGmsgGetLiveStatus = jSONObject.optString("f_gmsg_getLiveStatus");
             this.mNobleInfo = jSONObject.optString("s_noble_info");
+            this.mPayBarrageInvalid = jSONObject.optInt("s_paid_barrage") == 0;
+            this.mQuickChatInvalid = jSONObject.optInt("s_quick_chat") == 0;
+            this.mGiftPanelInvalid = jSONObject.optInt("s_gift_panel") == 0;
         }
     }
 

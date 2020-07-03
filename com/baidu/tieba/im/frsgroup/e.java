@@ -10,19 +10,19 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.util.s;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupInfoData;
 /* loaded from: classes10.dex */
-public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
-    private View.OnClickListener dUl;
+public class e extends com.baidu.tieba.frs.j<GroupInfoData, f> {
+    private View.OnClickListener ebA;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dUl = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.e.1
+        this.ebA = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
@@ -31,11 +31,11 @@ public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
                         int intValue = ((Integer) tag).intValue();
                         if (e.this.getItem(intValue) instanceof GroupInfoData) {
                             GroupInfoData groupInfoData = (GroupInfoData) e.this.getItem(intValue);
-                            if (bc.checkUpIsLogin(e.this.mPageContext.getPageActivity()) && groupInfoData != null) {
+                            if (be.checkUpIsLogin(e.this.mPageContext.getPageActivity()) && groupInfoData != null) {
                                 long groupId = groupInfoData.getGroupId();
                                 int from = groupInfoData.getFrom();
                                 if (from == 4 || from == 5 || from == 6) {
-                                    TiebaStatic.log(new an("c10331").dh("obj_type", String.valueOf(groupId)));
+                                    TiebaStatic.log(new ao("c10331").dk("obj_type", String.valueOf(groupId)));
                                 }
                                 s.a(CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START, new GroupInfoActivityConfig(e.this.mPageContext.getPageActivity(), groupId, from));
                             }
@@ -48,36 +48,36 @@ public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bK */
+    /* renamed from: bT */
     public f b(ViewGroup viewGroup) {
-        return new f(LayoutInflater.from(this.mContext).inflate(R.layout.frs_group_item_view, (ViewGroup) null), this.dUl);
+        return new f(LayoutInflater.from(this.mContext).inflate(R.layout.frs_group_item_view, (ViewGroup) null), this.ebA);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, GroupInfoData groupInfoData, f fVar) {
         super.a(i, view, viewGroup, (ViewGroup) groupInfoData, (GroupInfoData) fVar);
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
-        if (fVar.agt != this.mSkinType) {
+        if (fVar.ahx != this.mSkinType) {
             this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
             this.mPageContext.getLayoutMode().onModeChanged(view);
-            fVar.agt = this.mSkinType;
+            fVar.ahx = this.mSkinType;
         }
         if (groupInfoData != null) {
             fVar.rootView.setTag(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Integer.valueOf(i));
             fVar.a(groupInfoData);
-            am.setBackgroundResource(fVar.rootView, R.drawable.frs_group_item_bg);
-            am.setViewTextColor(fVar.iAS, R.color.cp_cont_b, 1);
-            am.setViewTextColor(fVar.iAT, R.color.cp_cont_b, 1);
-            am.setBackgroundResource(fVar.iAT, R.drawable.bg_jinqun_meizi);
-            fVar.iAT.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
-            am.setViewTextColor(fVar.iAU, R.color.cp_cont_b, 1);
-            am.setBackgroundResource(fVar.iAW, R.drawable.icon_grade_small_star);
-            am.setBackgroundResource(fVar.iAX, R.drawable.icon_grade_small_star);
-            am.setBackgroundResource(fVar.iAY, R.drawable.icon_grade_small_star);
-            am.setViewTextColor(fVar.iAV, R.color.cp_cont_c, 1);
-            am.setBackgroundColor(fVar.dividerLine, R.color.cp_bg_line_c);
+            an.setBackgroundResource(fVar.rootView, R.drawable.frs_group_item_bg);
+            an.setViewTextColor(fVar.iRX, R.color.cp_cont_b, 1);
+            an.setViewTextColor(fVar.iRY, R.color.cp_cont_b, 1);
+            an.setBackgroundResource(fVar.iRY, R.drawable.bg_jinqun_meizi);
+            fVar.iRY.setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
+            an.setViewTextColor(fVar.iRZ, R.color.cp_cont_b, 1);
+            an.setBackgroundResource(fVar.iSb, R.drawable.icon_grade_small_star);
+            an.setBackgroundResource(fVar.iSc, R.drawable.icon_grade_small_star);
+            an.setBackgroundResource(fVar.iSd, R.drawable.icon_grade_small_star);
+            an.setViewTextColor(fVar.iSa, R.color.cp_cont_c, 1);
+            an.setBackgroundColor(fVar.dividerLine, R.color.cp_bg_line_c);
         }
         return view;
     }

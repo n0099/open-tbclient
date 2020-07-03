@@ -11,9 +11,9 @@ public class UbcFlowEvent {
     public final String id;
     private long mTime = System.currentTimeMillis();
     private String mValue = "";
-    private String crT = "NA";
-    private RecordType crU = RecordType.KEEP;
-    private boolean crV = false;
+    private String cwH = "NA";
+    private RecordType cwI = RecordType.KEEP;
+    private boolean cwJ = false;
 
     /* loaded from: classes11.dex */
     public enum RecordType {
@@ -35,7 +35,7 @@ public class UbcFlowEvent {
         return this;
     }
 
-    public long alB() {
+    public long amH() {
         return this.mTime;
     }
 
@@ -43,39 +43,39 @@ public class UbcFlowEvent {
         return this.mValue;
     }
 
-    public UbcFlowEvent mF(String str) {
-        this.crT = str;
+    public UbcFlowEvent mN(String str) {
+        this.cwH = str;
         return this;
     }
 
-    public String alC() {
-        return this.crT;
+    public String amI() {
+        return this.cwH;
     }
 
-    public UbcFlowEvent eu(boolean z) {
-        this.crV = z;
+    public UbcFlowEvent ez(boolean z) {
+        this.cwJ = z;
         return this;
     }
 
-    public boolean alD() {
-        return this.crV;
+    public boolean amJ() {
+        return this.cwJ;
     }
 
     public UbcFlowEvent a(RecordType recordType) {
-        this.crU = recordType;
+        this.cwI = recordType;
         return this;
     }
 
-    public RecordType alE() {
-        return this.crU;
+    public RecordType amK() {
+        return this.cwI;
     }
 
     public String toString() {
         Locale locale = Locale.getDefault();
         Object[] objArr = new Object[3];
-        objArr[0] = Long.valueOf(alB());
+        objArr[0] = Long.valueOf(amH());
         objArr[1] = this.id;
-        objArr[2] = alD() ? "(justLocalRecord)" : "";
+        objArr[2] = amJ() ? "(justLocalRecord)" : "";
         return String.format(locale, "Event at %d id = %s %s", objArr);
     }
 

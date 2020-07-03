@@ -4,26 +4,26 @@ import com.baidu.adp.BdUniqueId;
 import java.util.List;
 import tbclient.PbPage.PbSortType;
 /* loaded from: classes9.dex */
-public class l implements com.baidu.adp.widget.ListView.o {
-    public static final BdUniqueId jGo = BdUniqueId.gen();
-    public static final BdUniqueId jGp = BdUniqueId.gen();
-    public BdUniqueId TK;
+public class l implements com.baidu.adp.widget.ListView.q {
+    public static final BdUniqueId jZY = BdUniqueId.gen();
+    public static final BdUniqueId jZZ = BdUniqueId.gen();
+    public BdUniqueId Un;
     public boolean isDynamic;
-    public long jGq;
-    public String jGr;
-    public List<PbSortType> jGu;
+    public long kaa;
+    public String kab;
+    public List<PbSortType> kae;
     public boolean isNew = true;
     public int sortType = 0;
-    public String jGs = "";
-    public boolean jGt = false;
+    public String kac = "";
+    public boolean kad = false;
 
     public l(BdUniqueId bdUniqueId) {
-        this.TK = jGp;
-        this.TK = bdUniqueId;
+        this.Un = jZZ;
+        this.Un = bdUniqueId;
     }
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return this.TK;
+        return this.Un;
     }
 }

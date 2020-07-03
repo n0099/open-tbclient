@@ -16,7 +16,6 @@ import com.baidu.mobstat.Config;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.U;
 import com.baidu.sofire.rp.Report;
-import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.IOException;
@@ -1329,7 +1328,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                                                 }
                                             }
                                         }
-                                    }, KeepJobService.JOB_CHECK_PERIODIC);
+                                    }, 600000L);
                                     new StringBuilder().append(str).append("object=").append(com.baidu.sofire.i.d.a(invoke, "unload", (Class<?>[]) null, new Object[0]));
                                     com.baidu.sofire.b.a();
                                     a.b(str);

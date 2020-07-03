@@ -11,10 +11,10 @@ import android.widget.TextView;
 import com.baidu.swan.apps.a;
 /* loaded from: classes11.dex */
 public class SwanAppBottomTabIconView extends RelativeLayout {
-    private static int cIB = 5;
-    private static int cIC = 0;
-    private boolean cIA;
-    private TextView cIz;
+    private static int cNl = 5;
+    private static int cNm = 0;
+    private TextView cNj;
+    private boolean cNk;
     private ImageView mIconView;
     private ImageView mRedDot;
     private TextView mTextView;
@@ -25,7 +25,7 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         this.mIconView = (ImageView) findViewById(a.f.bottom_tab_icon);
         this.mTextView = (TextView) findViewById(a.f.bottom_tab_text);
         this.mRedDot = (ImageView) findViewById(a.f.bottom_tab_red_dot);
-        this.cIz = (TextView) findViewById(a.f.bottom_tab_badge);
+        this.cNj = (TextView) findViewById(a.f.bottom_tab_badge);
     }
 
     public void setIconView(int i) {
@@ -41,8 +41,8 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
     }
 
     public void setTextView(String str) {
-        if (str.length() > cIB) {
-            str = str.substring(cIC, cIB);
+        if (str.length() > cNl) {
+            str = str.substring(cNm, cNl);
         }
         this.mTextView.setText(str);
     }
@@ -51,16 +51,16 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         this.mTextView.setTextColor(i);
     }
 
-    public boolean asD() {
-        return this.cIA;
+    public boolean atJ() {
+        return this.cNk;
     }
 
     public void setmIsSelect(boolean z) {
-        this.cIA = z;
+        this.cNk = z;
     }
 
     public void setBadgeText(String str) {
-        this.cIz.setText(str);
+        this.cNj.setText(str);
     }
 
     public void setRedDotVisibleState(boolean z) {
@@ -73,9 +73,9 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
 
     public void setBadgeVisibleState(boolean z) {
         if (z) {
-            this.cIz.setVisibility(0);
+            this.cNj.setVisibility(0);
         } else {
-            this.cIz.setVisibility(8);
+            this.cNj.setVisibility(8);
         }
     }
 }

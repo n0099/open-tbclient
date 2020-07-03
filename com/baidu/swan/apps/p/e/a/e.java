@@ -6,14 +6,14 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class e extends com.baidu.swan.apps.p.a<com.baidu.swan.apps.p.e.b.a> {
     @Override // com.baidu.swan.apps.p.a
     @NonNull
-    public String aek() {
+    public String afq() {
         return "goBackground";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.p.a
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.p.e.b.a aVar) {
-        aVar.aez();
+        aVar.afF();
         a(aVar, command.what, null, true);
     }
 }

@@ -12,6 +12,6 @@ public class a {
             c.e("Component-Canvas-Utils", "get canvas view fail: find a null component");
             return null;
         }
-        return aVar2.bPO;
+        return aVar2.bUC;
     }
 }

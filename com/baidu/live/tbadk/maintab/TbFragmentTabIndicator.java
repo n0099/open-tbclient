@@ -6,9 +6,9 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.view.MessageRedDotView;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
     protected boolean mIsContentSelectBold;

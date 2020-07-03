@@ -5,7 +5,7 @@ import com.baidu.swan.apps.adaptation.a.al;
 /* loaded from: classes11.dex */
 public class u implements al {
     @Override // com.baidu.swan.apps.adaptation.a.al
-    public void Su() {
+    public void TA() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.al
@@ -14,7 +14,7 @@ public class u implements al {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.al
-    public al Sv() {
+    public al TB() {
         return null;
     }
 
@@ -40,7 +40,7 @@ public class u implements al {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.al
-    public void Sw() {
+    public void TC() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.al

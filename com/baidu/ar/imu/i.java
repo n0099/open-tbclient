@@ -1,50 +1,52 @@
 package com.baidu.ar.imu;
 /* loaded from: classes3.dex */
 public class i {
-    private b qW = b.WORLD;
-    private int qX = 0;
-    private boolean qY = false;
-    private boolean qZ = false;
-    private boolean ra = false;
-    private boolean rb = false;
+    private b rv = b.WORLD;
+    private int rw = 0;
 
-    public void D(int i) {
-        this.qX = i;
-    }
+    /* renamed from: rx  reason: collision with root package name */
+    private boolean f981rx = false;
+    private boolean ry = false;
+    private boolean rz = false;
+    private boolean rA = false;
 
     public void H(boolean z) {
-        this.qY = z;
+        this.f981rx = z;
     }
 
     public void I(boolean z) {
-        this.ra = z;
+        this.rz = z;
+    }
+
+    public void J(int i) {
+        this.rw = i;
     }
 
     public void b(b bVar) {
-        this.qW = bVar;
+        this.rv = bVar;
     }
 
-    public boolean dA() {
-        return this.qZ;
+    public b dN() {
+        return this.rv;
     }
 
-    public boolean dB() {
-        return this.ra;
+    public int dO() {
+        return this.rw;
     }
 
-    public boolean dC() {
-        return this.rb;
+    public boolean dP() {
+        return this.f981rx;
     }
 
-    public b dx() {
-        return this.qW;
+    public boolean dQ() {
+        return this.ry;
     }
 
-    public int dy() {
-        return this.qX;
+    public boolean dR() {
+        return this.rz;
     }
 
-    public boolean dz() {
-        return this.qY;
+    public boolean dS() {
+        return this.rA;
     }
 }

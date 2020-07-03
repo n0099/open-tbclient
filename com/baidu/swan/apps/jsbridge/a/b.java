@@ -18,21 +18,21 @@ public class b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(SuspensionBallEntity.KEY_SCHEME, SchemeConfig.getSchemeHead());
-            jSONObject.put("sdkExtension", b(d.abl().abH()));
-            jSONObject.put("gameSdkExtension", b(com.baidu.swan.games.j.a.aAd().abH()));
+            jSONObject.put("sdkExtension", b(d.acr().acN()));
+            jSONObject.put("gameSdkExtension", b(com.baidu.swan.games.j.a.aBj().acN()));
             jSONObject.put("isDebugSdk", DEBUG);
-            String string = h.arO().getString("ctsUrl", "");
-            if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.af.a.a.amp()) {
+            String string = h.asV().getString("ctsUrl", "");
+            if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.af.a.a.anv()) {
                 jSONObject.put("ctsJsAddress", new JSONObject(string));
             }
-            if (com.baidu.swan.apps.u.a.afd() != null) {
-                String Se = com.baidu.swan.apps.u.a.afd().Se();
-                if (!TextUtils.isEmpty(Se)) {
-                    jSONObject.put("hostName", Se);
+            if (com.baidu.swan.apps.u.a.agj() != null) {
+                String Tk = com.baidu.swan.apps.u.a.agj().Tk();
+                if (!TextUtils.isEmpty(Tk)) {
+                    jSONObject.put("hostName", Tk);
                 }
             }
             jSONObject.put("platform", "android");
-            jSONObject.put("abTestSwitch", com.baidu.swan.apps.swancore.a.a.arT());
+            jSONObject.put("abTestSwitch", com.baidu.swan.apps.swancore.a.a.ata());
             jSONObject.put("userDataPath", com.baidu.swan.games.i.a.USER_DATA_PATH);
         } catch (JSONException e) {
             if (DEBUG) {

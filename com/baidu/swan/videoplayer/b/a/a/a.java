@@ -26,68 +26,68 @@ import org.apache.http.cookie.SM;
 /* loaded from: classes11.dex */
 public abstract class a implements com.baidu.swan.apps.p.e.b.a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static boolean drN = true;
-    private AudioManager aYA;
-    private String bIH;
-    protected a.InterfaceC0364a cfX;
-    protected String cjA;
-    private ZeusPluginFactory.Invoker drP;
-    private CyberPlayer drQ;
+    private static boolean dwy = true;
+    private String bNv;
+    private AudioManager bbt;
+    protected a.InterfaceC0370a ckL;
+    protected String cop;
+    private ZeusPluginFactory.Invoker dwA;
+    private CyberPlayer dwB;
     protected Context mContext;
     protected String mCurrentUrl;
-    private int drO = -1;
-    private boolean cnH = false;
-    private boolean drR = false;
-    private boolean drS = false;
-    private com.baidu.swan.videoplayer.media.a.b.a drT = new com.baidu.swan.videoplayer.media.a.b.a();
-    private final CyberPlayerManager.OnPreparedListener drU = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.6
+    private int dwz = -1;
+    private boolean csu = false;
+    private boolean dwC = false;
+    private boolean dwD = false;
+    private com.baidu.swan.videoplayer.media.a.b.a dwE = new com.baidu.swan.videoplayer.media.a.b.a();
+    private final CyberPlayerManager.OnPreparedListener dwF = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.6
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
         public void onPrepared() {
             if (a.DEBUG) {
                 Log.d("【CyberCallback】", "CyberPlayer" + a.this.hashCode() + " - onPrepared()");
             }
-            a.this.drT.mVideoWidth = a.this.getVideoWidth();
-            a.this.drT.mVideoHeight = a.this.getVideoHeight();
-            if (a.this.cfX != null) {
-                a.this.cfX.onPrepared();
+            a.this.dwE.mVideoWidth = a.this.getVideoWidth();
+            a.this.dwE.mVideoHeight = a.this.getVideoHeight();
+            if (a.this.ckL != null) {
+                a.this.ckL.onPrepared();
             }
         }
     };
-    private final CyberPlayerManager.OnErrorListener drV = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.7
+    private final CyberPlayerManager.OnErrorListener dwG = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.7
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
         public boolean onError(int i, int i2, Object obj) {
             String obj2 = obj != null ? obj.toString() : "null";
             if (a.DEBUG) {
                 Log.d("【CyberCallback】", "CyberPlayer" + a.this.hashCode() + " - onError(" + i + ", " + i2 + ", " + obj2 + ")");
             }
-            a.this.FR();
+            a.this.GA();
             a.this.onStateChange(i);
             int i3 = i == -10000 ? 0 : i;
-            if (a.this.cfX != null) {
-                a.this.cfX.onError(i3);
+            if (a.this.ckL != null) {
+                a.this.ckL.onError(i3);
             }
             a.this.g(i, i2, obj2);
             return false;
         }
     };
-    private final CyberPlayerManager.OnCompletionListener drW = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.8
+    private final CyberPlayerManager.OnCompletionListener dwH = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.8
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
         public void onCompletion() {
             boolean z = a.this.getDuration() != 0 && a.this.getCurrentPosition() >= a.this.getDuration();
             if (a.DEBUG) {
                 Log.d("【CyberCallback】", "CyberPlayer" + a.this.hashCode() + " - onCompletion:(" + z + ")");
             }
-            a.this.FR();
-            if (a.this.cfX != null) {
+            a.this.GA();
+            if (a.this.ckL != null) {
                 if (z) {
-                    a.this.cfX.onEnded();
+                    a.this.ckL.onEnded();
                 } else {
-                    a.this.cfX.kA(a.this.aey());
+                    a.this.ckL.kI(a.this.afE());
                 }
             }
         }
     };
-    private final CyberPlayerManager.OnInfoListener drX = new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.9
+    private final CyberPlayerManager.OnInfoListener dwI = new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.9
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
         public boolean onInfo(int i, int i2, Object obj) {
             if (a.DEBUG) {
@@ -95,25 +95,25 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
             }
             switch (i) {
                 case CyberPlayerManager.MEDIA_INFO_AUDIO_BITRATE /* 938 */:
-                    a.this.drT.mAudioBitrate = i2;
+                    a.this.dwE.mAudioBitrate = i2;
                     break;
                 case CyberPlayerManager.MEDIA_INFO_VIDEO_BITRATE /* 939 */:
-                    a.this.drT.mVideoBitrate = i2;
+                    a.this.dwE.mVideoBitrate = i2;
                     break;
                 case CyberPlayerManager.MEDIA_INFO_VIDEO_FRAMERATE /* 940 */:
-                    a.this.drT.dsn = i2;
+                    a.this.dwE.dwY = i2;
                     break;
             }
             a.this.onStateChange(i);
-            a.this.cfX.fv(i);
+            a.this.ckL.fG(i);
             if (i == 904) {
-                a.this.aJD();
+                a.this.aKJ();
                 return false;
             }
             return false;
         }
     };
-    private final CyberPlayerManager.OnBufferingUpdateListener drY = new CyberPlayerManager.OnBufferingUpdateListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.10
+    private final CyberPlayerManager.OnBufferingUpdateListener dwJ = new CyberPlayerManager.OnBufferingUpdateListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.10
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
         public void onBufferingUpdate(int i) {
             if (a.DEBUG) {
@@ -121,7 +121,7 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
             }
         }
     };
-    private final CyberPlayerManager.OnSeekCompleteListener drZ = new CyberPlayerManager.OnSeekCompleteListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.11
+    private final CyberPlayerManager.OnSeekCompleteListener dwK = new CyberPlayerManager.OnSeekCompleteListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.11
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
         public void onSeekComplete() {
             if (a.DEBUG) {
@@ -129,20 +129,20 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
             }
         }
     };
-    private final CyberPlayerManager.OnVideoSizeChangedListener dsa = new CyberPlayerManager.OnVideoSizeChangedListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.2
+    private final CyberPlayerManager.OnVideoSizeChangedListener dwL = new CyberPlayerManager.OnVideoSizeChangedListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.2
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
         public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
             if (a.DEBUG) {
                 Log.d("【CyberCallback】", "CyberPlayer" + a.this.hashCode() + " - onVideoSizeChanged(" + i + ", " + i2 + ", " + i3 + ", " + i4 + ")");
             }
-            a.this.drT.mVideoWidth = i;
-            a.this.drT.mVideoHeight = i2;
-            if (a.this.cfX != null) {
-                a.this.cfX.aex();
+            a.this.dwE.mVideoWidth = i;
+            a.this.dwE.mVideoHeight = i2;
+            if (a.this.ckL != null) {
+                a.this.ckL.afD();
             }
         }
     };
-    private final AudioManager.OnAudioFocusChangeListener aYC = new AudioManager.OnAudioFocusChangeListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.3
+    private final AudioManager.OnAudioFocusChangeListener bbv = new AudioManager.OnAudioFocusChangeListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.3
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
         public void onAudioFocusChange(int i) {
             if (a.DEBUG) {
@@ -156,62 +156,62 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.videoplayer.b.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0463a {
-        void gu(boolean z);
+    public interface InterfaceC0469a {
+        void gz(boolean z);
     }
 
-    public abstract void aJD();
+    public abstract void aKJ();
 
     public abstract void g(int i, int i2, String str);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ZeusPluginFactory.Invoker invoker, String str) {
-        this.drP = invoker;
-        if (this.drP != null) {
-            Object obj = this.drP.get("id");
+        this.dwA = invoker;
+        if (this.dwA != null) {
+            Object obj = this.dwA.get("id");
             if (obj instanceof String) {
-                this.cjA = (String) obj;
+                this.cop = (String) obj;
             }
         }
-        this.mContext = com.baidu.swan.apps.u.a.aeR();
-        this.bIH = str;
+        this.mContext = com.baidu.swan.apps.u.a.afX();
+        this.bNv = str;
     }
 
     @Override // com.baidu.swan.apps.p.d
     public void a(@NonNull final d.a aVar) {
-        a(com.baidu.swan.apps.u.a.aeR(), new InterfaceC0463a() { // from class: com.baidu.swan.videoplayer.b.a.a.a.1
-            @Override // com.baidu.swan.videoplayer.b.a.a.a.InterfaceC0463a
-            public void gu(boolean z) {
-                aVar.dS(z);
+        a(com.baidu.swan.apps.u.a.afX(), new InterfaceC0469a() { // from class: com.baidu.swan.videoplayer.b.a.a.a.1
+            @Override // com.baidu.swan.videoplayer.b.a.a.a.InterfaceC0469a
+            public void gz(boolean z) {
+                aVar.dX(z);
             }
         });
     }
 
-    private synchronized CyberPlayer aJB() {
-        if (this.drQ == null) {
-            if (com.baidu.swan.apps.u.a.aeU().RE()) {
+    private synchronized CyberPlayer aKH() {
+        if (this.dwB == null) {
+            if (com.baidu.swan.apps.u.a.aga().SK()) {
                 if (DEBUG) {
                     Log.d("SwanInlineCyberWidget", "getPlayer: same process");
                 }
-                this.drQ = new CyberPlayer(0);
+                this.dwB = new CyberPlayer(0);
             } else {
                 if (DEBUG) {
                     Log.d("SwanInlineCyberWidget", "getPlayer: self process");
                 }
-                this.drQ = new CyberPlayer(0);
+                this.dwB = new CyberPlayer(0);
             }
-            this.drQ.setOnPreparedListener(this.drU);
-            this.drQ.setOnVideoSizeChangedListener(this.dsa);
-            this.drQ.setOnCompletionListener(this.drW);
-            this.drQ.setOnErrorListener(this.drV);
-            this.drQ.setOnInfoListener(this.drX);
-            this.drQ.setOnBufferingUpdateListener(this.drY);
-            this.drQ.setOnSeekCompleteListener(this.drZ);
+            this.dwB.setOnPreparedListener(this.dwF);
+            this.dwB.setOnVideoSizeChangedListener(this.dwL);
+            this.dwB.setOnCompletionListener(this.dwH);
+            this.dwB.setOnErrorListener(this.dwG);
+            this.dwB.setOnInfoListener(this.dwI);
+            this.dwB.setOnBufferingUpdateListener(this.dwJ);
+            this.dwB.setOnSeekCompleteListener(this.dwK);
             if (DEBUG) {
-                Log.d("SwanInlineCyberWidget", "create " + this.drQ.hashCode() + " player");
+                Log.d("SwanInlineCyberWidget", "create " + this.dwB.hashCode() + " player");
             }
         }
-        return this.drQ;
+        return this.dwB;
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
@@ -224,7 +224,7 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
         if (DEBUG) {
             Log.d("SwanInlineCyberWidget", "setDataSource: " + str + " ;userAgent: " + str3 + " ;cookies: " + str2);
         }
-        this.drS = true;
+        this.dwD = true;
         this.mCurrentUrl = str;
         if (TextUtils.isEmpty(str)) {
             return false;
@@ -232,15 +232,15 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
         if (str.startsWith("file:///")) {
             str = str.substring("file:///".length());
         }
-        String lS = lS(str);
-        if (this.drP != null) {
-            String str4 = (String) this.drP.get("Proxy");
+        String ma = ma(str);
+        if (this.dwA != null) {
+            String str4 = (String) this.dwA.get("Proxy");
             if (!TextUtils.isEmpty(str4)) {
-                aJB().setOption(CyberPlayerManager.OPT_HTTP_PROXY, str4);
-                aJB().setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, "true");
+                aKH().setOption(CyberPlayerManager.OPT_HTTP_PROXY, str4);
+                aKH().setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, "true");
             } else {
-                aJB().setOption(CyberPlayerManager.OPT_HTTP_PROXY, "");
-                aJB().setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, "false");
+                aKH().setOption(CyberPlayerManager.OPT_HTTP_PROXY, "");
+                aKH().setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, "false");
             }
         }
         HashMap hashMap = new HashMap();
@@ -253,167 +253,167 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
         if (!TextUtils.isEmpty(str3)) {
             hashMap.put("User-Agent", str3);
         }
-        String atD = z.atD();
-        if (!TextUtils.isEmpty(atD) && z.pI(lS)) {
+        String auJ = z.auJ();
+        if (!TextUtils.isEmpty(auJ) && z.pQ(ma)) {
             if (DEBUG) {
-                Log.d("SwanInlineCyberWidget", "set referer for InlineVideo; referer is " + atD);
+                Log.d("SwanInlineCyberWidget", "set referer for InlineVideo; referer is " + auJ);
             }
-            hashMap.put("Referer", atD);
+            hashMap.put("Referer", auJ);
         }
-        aJB().setDataSource(this.mContext, Uri.parse(lS), hashMap);
+        aKH().setDataSource(this.mContext, Uri.parse(ma), hashMap);
         return true;
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
     public void setSurface(Surface surface) {
-        aJB().setSurface(surface);
+        aKH().setSurface(surface);
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
     public boolean prepareAsync() {
-        FQ();
-        aJB().prepareAsync();
+        Gz();
+        aKH().prepareAsync();
         return true;
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
     public void start() {
         if (DEBUG) {
-            Log.d("SwanInlineCyberWidget", this.cjA + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " start()");
+            Log.d("SwanInlineCyberWidget", this.cop + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " start()");
         }
         if (isBackground()) {
             if (DEBUG) {
-                Log.e("SwanInlineCyberWidget", this.cjA + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " start ignored, widget is in background");
+                Log.e("SwanInlineCyberWidget", this.cop + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " start ignored, widget is in background");
             }
-            gs(true);
-            if (this.cfX != null) {
-                this.cfX.kA(aey());
+            gx(true);
+            if (this.ckL != null) {
+                this.ckL.kI(afE());
                 return;
             }
             return;
         }
-        FQ();
-        aJB().start();
-        gt(true);
-        if (this.cfX != null) {
-            this.cfX.kz(aey());
+        Gz();
+        aKH().start();
+        gy(true);
+        if (this.ckL != null) {
+            this.ckL.kH(afE());
         }
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
-    public String aey() {
-        return this.cjA + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode();
+    public String afE() {
+        return this.cop + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode();
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
     public void pause() {
         if (DEBUG) {
-            Log.d("SwanInlineCyberWidget", this.cjA + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " pause()");
+            Log.d("SwanInlineCyberWidget", this.cop + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " pause()");
         }
-        aJB().pause();
-        gt(false);
-        gs(false);
-        if (this.cfX != null) {
-            this.cfX.kA(aey());
+        aKH().pause();
+        gy(false);
+        gx(false);
+        if (this.ckL != null) {
+            this.ckL.kI(afE());
         }
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
     public void seekTo(int i) {
-        aJB().seekTo(i);
+        aKH().seekTo(i);
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
     public void setSpeed(float f) {
-        aJB().setSpeed(f);
+        aKH().setSpeed(f);
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
     public void release() {
         if (DEBUG) {
-            Log.d("SwanInlineCyberWidget", this.cjA + " release()");
+            Log.d("SwanInlineCyberWidget", this.cop + " release()");
         }
-        if (this.cfX != null) {
-            this.cfX.eV(aey());
+        if (this.ckL != null) {
+            this.ckL.fb(afE());
         }
-        FR();
-        h.Uv().il(aey());
-        aJB().release();
+        GA();
+        h.VB().it(afE());
+        aKH().release();
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
     public int getDuration() {
-        return aJB().getDuration();
+        return aKH().getDuration();
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
     public int getCurrentPosition() {
-        return aJB().getCurrentPosition();
+        return aKH().getCurrentPosition();
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
     public boolean isPlaying() {
-        return aJB().isPlaying();
+        return aKH().isPlaying();
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
     public int getVideoWidth() {
-        return aJB().getVideoWidth();
+        return aKH().getVideoWidth();
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
     public int getVideoHeight() {
-        return aJB().getVideoHeight();
+        return aKH().getVideoHeight();
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
-    public void dT(boolean z) {
+    public void dY(boolean z) {
         if (z) {
-            if (this.drP != null) {
-                aJB().changeProxyDynamic((String) this.drP.get("Proxy"), true);
+            if (this.dwA != null) {
+                aKH().changeProxyDynamic((String) this.dwA.get("Proxy"), true);
                 return;
             }
             return;
         }
-        aJB().changeProxyDynamic(null, false);
+        aKH().changeProxyDynamic(null, false);
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
     @CallSuper
-    public void aez() {
-        this.drO = 0;
+    public void afF() {
+        this.dwz = 0;
         boolean isPlaying = isPlaying();
         pause();
         if (isPlaying) {
-            gs(true);
+            gx(true);
         }
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
-    public void fx(int i) {
+    public void fI(int i) {
         if (DEBUG) {
             Log.d("SwanInlineCyberWidget", "setMaxCache (ignore) : " + i);
         }
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
-    public void fw(int i) {
+    public void fH(int i) {
         if (DEBUG) {
             Log.d("SwanInlineCyberWidget", "setMinCache (ignore) : " + i);
         }
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
-    public int aeD() {
+    public int afJ() {
         return 0;
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
     @CallSuper
-    public void aeA() {
-        this.drO = 1;
-        if (!isPlaying() && aJC()) {
-            gs(false);
+    public void afG() {
+        this.dwz = 1;
+        if (!isPlaying() && aKI()) {
+            gx(false);
             start();
         }
     }
@@ -423,13 +423,13 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
         if (DEBUG) {
             Log.i("SwanInlineCyberWidget", "setMuted: " + z);
         }
-        this.drR = z;
+        this.dwC = z;
         if (z) {
-            FR();
+            GA();
         } else {
-            FQ();
+            Gz();
         }
-        aJB().muteOrUnmuteAudio(z);
+        aKH().muteOrUnmuteAudio(z);
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
@@ -437,48 +437,48 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
-    public void a(@NonNull a.InterfaceC0364a interfaceC0364a) {
-        this.cfX = interfaceC0364a;
+    public void a(@NonNull a.InterfaceC0370a interfaceC0370a) {
+        this.ckL = interfaceC0370a;
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
-    public a.InterfaceC0364a aeB() {
-        return this.cfX;
+    public a.InterfaceC0370a afH() {
+        return this.ckL;
     }
 
     @Override // com.baidu.swan.apps.p.d
     @Nullable
-    public String aem() {
-        return this.cjA;
+    public String afs() {
+        return this.cop;
     }
 
     @Override // com.baidu.swan.apps.p.e.b.a
-    public boolean aeC() {
-        return this.drS;
+    public boolean afI() {
+        return this.dwD;
     }
 
-    private boolean aJC() {
-        return this.cnH;
+    private boolean aKI() {
+        return this.csu;
     }
 
-    private void gs(boolean z) {
-        this.cnH = z;
+    private void gx(boolean z) {
+        this.csu = z;
     }
 
-    private void FQ() {
-        if (this.drR) {
+    private void Gz() {
+        if (this.dwC) {
             if (DEBUG) {
                 Log.i("SwanInlineCyberWidget", "requestAudioFocus: abandon request audio focus. Muted video.");
                 return;
             }
             return;
         }
-        if (this.aYA == null) {
-            this.aYA = (AudioManager) this.mContext.getSystemService("audio");
+        if (this.bbt == null) {
+            this.bbt = (AudioManager) this.mContext.getSystemService("audio");
         }
-        if (this.aYA != null) {
+        if (this.bbt != null) {
             try {
-                this.aYA.requestAudioFocus(this.aYC, 3, 1);
+                this.bbt.requestAudioFocus(this.bbv, 3, 1);
             } catch (Exception e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -487,20 +487,20 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
         }
     }
 
-    private static void a(@NonNull Context context, @Nullable final InterfaceC0463a interfaceC0463a) {
-        if (drN) {
+    private static void a(@NonNull Context context, @Nullable final InterfaceC0469a interfaceC0469a) {
+        if (dwy) {
             if (DEBUG) {
                 Log.i("【CyberCallback】", "CyberPlayer播放内核开始安装 " + context.getApplicationContext());
             }
-            CyberPlayerManager.install(context.getApplicationContext(), com.baidu.swan.apps.u.a.aeW().bc(context), null, 7, null, null, new CyberPlayerManager.InstallListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.4
+            CyberPlayerManager.install(context.getApplicationContext(), com.baidu.swan.apps.u.a.agc().bd(context), null, 7, null, null, new CyberPlayerManager.InstallListener() { // from class: com.baidu.swan.videoplayer.b.a.a.a.4
                 @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
                 public void onInstallError(int i, int i2, String str) {
                     if (a.DEBUG) {
                         Log.i("【CyberCallback】", "CyberPlayer播放内核安装失败");
                     }
-                    boolean unused = a.drN = false;
-                    if (InterfaceC0463a.this != null) {
-                        InterfaceC0463a.this.gu(false);
+                    boolean unused = a.dwy = false;
+                    if (InterfaceC0469a.this != null) {
+                        InterfaceC0469a.this.gz(false);
                     }
                 }
 
@@ -509,9 +509,9 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
                     if (a.DEBUG) {
                         Log.i("【CyberCallback】", "CyberPlayer播放内核安装成功");
                     }
-                    boolean unused = a.drN = false;
-                    if (InterfaceC0463a.this != null) {
-                        InterfaceC0463a.this.gu(true);
+                    boolean unused = a.dwy = false;
+                    if (InterfaceC0469a.this != null) {
+                        InterfaceC0469a.this.gz(true);
                     }
                 }
 
@@ -524,29 +524,29 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
         if (DEBUG) {
             Log.v("【CyberCallback】", "CyberPlayer播放内核已安装，无需重复安装");
         }
-        if (interfaceC0463a != null) {
-            interfaceC0463a.gu(true);
+        if (interfaceC0469a != null) {
+            interfaceC0469a.gz(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FR() {
-        if (this.aYA == null) {
-            this.aYA = (AudioManager) this.mContext.getSystemService("audio");
+    public void GA() {
+        if (this.bbt == null) {
+            this.bbt = (AudioManager) this.mContext.getSystemService("audio");
         }
-        if (this.aYA != null) {
-            this.aYA.abandonAudioFocus(this.aYC);
+        if (this.bbt != null) {
+            this.bbt.abandonAudioFocus(this.bbv);
         }
     }
 
-    private void gt(final boolean z) {
+    private void gy(final boolean z) {
         aj.p(new Runnable() { // from class: com.baidu.swan.videoplayer.b.a.a.a.5
             @Override // java.lang.Runnable
             public void run() {
-                SwanAppActivity aoz;
+                SwanAppActivity apG;
                 Window window;
-                e aoF = e.aoF();
-                if (aoF != null && (aoz = aoF.aoz()) != null && (window = aoz.getWindow()) != null) {
+                e apM = e.apM();
+                if (apM != null && (apG = apM.apG()) != null && (window = apG.getWindow()) != null) {
                     try {
                         if (z) {
                             window.addFlags(128);
@@ -566,26 +566,26 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
         });
     }
 
-    private static String lS(String str) {
-        e aoF = e.aoF();
-        if (!com.baidu.swan.apps.storage.b.oH(str) || aoF == null) {
+    private static String ma(String str) {
+        e apM = e.apM();
+        if (!com.baidu.swan.apps.storage.b.oP(str) || apM == null) {
             return str;
         }
-        return com.baidu.swan.apps.storage.b.d(str, aoF);
+        return com.baidu.swan.apps.storage.b.d(str, apM);
     }
 
     private boolean isBackground() {
-        if (this.drO == -1) {
-            SwanAppActivity aoz = com.baidu.swan.apps.runtime.d.aoB().aoz();
-            if (aoz == null) {
+        if (this.dwz == -1) {
+            SwanAppActivity apG = com.baidu.swan.apps.runtime.d.apI().apG();
+            if (apG == null) {
                 if (DEBUG) {
                     Log.v("SwanInlineCyberWidget", "check background by activity null, background ? true");
                     return true;
                 }
                 return true;
             }
-            com.baidu.swan.apps.framework.c QA = aoz.QA();
-            if (QA == null) {
+            com.baidu.swan.apps.framework.c RG = apG.RG();
+            if (RG == null) {
                 if (DEBUG) {
                     Log.v("SwanInlineCyberWidget", "check background by frame null, background ? true");
                     return true;
@@ -593,41 +593,41 @@ public abstract class a implements com.baidu.swan.apps.p.e.b.a {
                 return true;
             }
             if (DEBUG) {
-                Log.v("SwanInlineCyberWidget", "check background by frame lifeState, background ? " + (!QA.adB().hasStarted()));
+                Log.v("SwanInlineCyberWidget", "check background by frame lifeState, background ? " + (!RG.aeH().hasStarted()));
             }
-            return !QA.adB().hasStarted();
+            return !RG.aeH().hasStarted();
         }
         if (DEBUG) {
-            Log.v("SwanInlineCyberWidget", "check background by kernel state, background ? " + (this.drO == 0));
+            Log.v("SwanInlineCyberWidget", "check background by kernel state, background ? " + (this.dwz == 0));
         }
-        return this.drO == 0;
+        return this.dwz == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onStateChange(int i) {
-        int jE = com.baidu.swan.videoplayer.media.a.a.a.jE(i);
+        int jP = com.baidu.swan.videoplayer.media.a.a.a.jP(i);
         if (DEBUG) {
-            Log.d("【CyberCallback】", "CyberPlayer" + hashCode() + " - send onStateChange(what " + i + ", statusCode " + jE + ")");
+            Log.d("【CyberCallback】", "CyberPlayer" + hashCode() + " - send onStateChange(what " + i + ", statusCode " + jP + ")");
         }
-        if (jE != 100) {
-            if (jE == 2101 && this.cfX != null) {
-                this.cfX.onStateChange(2102);
+        if (jP != 100) {
+            if (jP == 2101 && this.ckL != null) {
+                this.ckL.onStateChange(2102);
             }
-            if (this.cfX != null) {
-                this.cfX.onStateChange(jE);
+            if (this.ckL != null) {
+                this.ckL.onStateChange(jP);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aJE() {
-        String jSONString = this.drT.toJSONString();
+    public void aKK() {
+        String jSONString = this.dwE.toJSONString();
         if (!TextUtils.isEmpty(jSONString)) {
             if (DEBUG) {
                 Log.d("【CyberCallback】", "CyberPlayer" + hashCode() + " - send onNetStatus(" + jSONString + ")");
             }
-            if (this.cfX != null) {
-                this.cfX.kB(jSONString);
+            if (this.ckL != null) {
+                this.ckL.kJ(jSONString);
             }
         }
     }

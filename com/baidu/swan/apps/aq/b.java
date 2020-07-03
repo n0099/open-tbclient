@@ -47,7 +47,7 @@ public final class b {
         return Build.VERSION.SDK_INT >= 26;
     }
 
-    public static boolean ata() {
+    public static boolean aug() {
         return Build.VERSION.SDK_INT >= 29;
     }
 }

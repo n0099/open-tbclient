@@ -63,15 +63,15 @@ public final class ObservableSubscribeOn<T> extends io.reactivex.internal.operat
 
     /* loaded from: classes7.dex */
     final class a implements Runnable {
-        private final SubscribeOnObserver<T> npX;
+        private final SubscribeOnObserver<T> nLK;
 
         a(SubscribeOnObserver<T> subscribeOnObserver) {
-            this.npX = subscribeOnObserver;
+            this.nLK = subscribeOnObserver;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ObservableSubscribeOn.this.source.subscribe(this.npX);
+            ObservableSubscribeOn.this.source.subscribe(this.nLK);
         }
     }
 }

@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d {
-    public File fmH = null;
+    public File fxV = null;
     public String mLoadingFile;
     public String mMd5;
     public String mType;
@@ -18,26 +18,26 @@ public class d {
     public String mVersion;
 
     public boolean isLoaded() {
-        return bsu() != null && bsu().exists();
+        return bvp() != null && bvp().exists();
     }
 
     public String getName() {
         return this.mVersion + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMd5;
     }
 
-    public File bsu() {
-        if (this.fmH == null && !TextUtils.isEmpty(this.mVersion)) {
-            this.fmH = new File(bsv(), getName());
+    public File bvp() {
+        if (this.fxV == null && !TextUtils.isEmpty(this.mVersion)) {
+            this.fxV = new File(bvq(), getName());
         }
-        return this.fmH;
+        return this.fxV;
     }
 
     public String getFilePath() {
-        return bsu().getAbsolutePath();
+        return bvp().getAbsolutePath();
     }
 
-    public String bsv() {
-        return TextUtils.equals(this.mType, "so") ? c.bss().getAbsolutePath() : c.bst().getAbsolutePath();
+    public String bvq() {
+        return TextUtils.equals(this.mType, "so") ? c.bvn().getAbsolutePath() : c.bvo().getAbsolutePath();
     }
 
     public String getLoadingFile() {
@@ -69,21 +69,21 @@ public class d {
                 }
             }
             com.baidu.tieba.ala.a.b.a.unzipFile(file, file2.getAbsolutePath());
-            file2.renameTo(bsu());
+            file2.renameTo(bvp());
         } catch (Exception e3) {
             z = false;
             e = e3;
         }
         if (isLoaded()) {
-            if (bsw()) {
+            if (bvr()) {
                 z = true;
                 if (!z) {
                     try {
-                        com.baidu.tieba.ala.a.b.a.deleteDir(bsu());
+                        com.baidu.tieba.ala.a.b.a.deleteDir(bvp());
                     } catch (Exception e4) {
                         e = e4;
                         e.printStackTrace();
-                        com.baidu.tieba.ala.a.b.a.deleteDir(bsu());
+                        com.baidu.tieba.ala.a.b.a.deleteDir(bvp());
                         return z;
                     }
                 }
@@ -98,10 +98,10 @@ public class d {
         return z;
     }
 
-    public boolean bsw() {
+    public boolean bvr() {
         JSONArray optJSONArray;
         try {
-            File file = new File(bsu(), "files.json");
+            File file = new File(bvp(), "files.json");
             if (file == null || !file.exists()) {
                 return false;
             }
@@ -117,7 +117,7 @@ public class d {
             ArrayList<a> arrayList = new ArrayList<>();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                arrayList.add(a.Bb(optJSONArray.getString(i)));
+                arrayList.add(a.Bz(optJSONArray.getString(i)));
             }
             return S(arrayList);
         } catch (Exception e) {
@@ -154,16 +154,16 @@ public class d {
         }
     }
 
-    public static d dA(String str, String str2) {
+    public static d dE(String str, String str2) {
         d dVar = new d();
         dVar.mVersion = str;
         String str3 = "https://pic.rmb.bdstatic.com/baidu-ar-so-live-";
         if (TextUtils.equals(str2, "source")) {
-            str3 = "https://pic.rmb.bdstatic.com/baidu-ar-source-";
+            str3 = "https://pic.rmb.bdstatic.com/baidu-ar-source-live-";
         }
         String str4 = str3 + str + ".zip";
         dVar.mUrl = str4;
-        dVar.mMd5 = com.baidu.tieba.ala.a.b.b.dB(str4, "MD5");
+        dVar.mMd5 = com.baidu.tieba.ala.a.b.b.dF(str4, "MD5");
         dVar.mType = str2;
         return dVar;
     }
@@ -174,7 +174,7 @@ public class d {
         public String mName;
         public String mPath;
 
-        public static a Bb(String str) {
+        public static a Bz(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

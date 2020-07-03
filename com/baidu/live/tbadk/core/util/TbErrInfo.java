@@ -2,8 +2,8 @@ package com.baidu.live.tbadk.core.util;
 
 import android.content.res.Resources;
 import com.baidu.live.adp.lib.util.BdFileHelper;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class TbErrInfo {
     public static final int ERR_FILE_IO_SD = -25;

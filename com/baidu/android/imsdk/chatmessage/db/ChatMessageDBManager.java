@@ -100,7 +100,7 @@ public class ChatMessageDBManager extends DBBase {
             ArrayList<ChatMsg> fetchMsg = fetchMsg(entry.getKey(), 0L, 2L);
             if (fetchMsg.size() > 0) {
                 ChatMsg chatMsg = fetchMsg.get(0);
-                ChatMsg chatMsg2 = notSendButShowTipMsg(chatMsg) ? fetchMsg.get(1) : chatMsg;
+                ChatMsg chatMsg2 = (!notSendButShowTipMsg(chatMsg) || fetchMsg.size() <= 1) ? chatMsg : fetchMsg.get(1);
                 String localUrl = chatMsg2 instanceof HtmlMsg ? chatMsg2.getLocalUrl() : chatMsg2.getRecommendDescription();
                 long newMsgNum = getNewMsgNum(key);
                 int i = newMsgNum >= 0 ? (int) (newMsgNum + intValue) : intValue;
@@ -152,13 +152,13 @@ public class ChatMessageDBManager extends DBBase {
         updateChatSession(1, chatRecord);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00e8 A[Catch: all -> 0x006e, TryCatch #0 {, blocks: (B:10:0x0018, B:11:0x0024, B:13:0x003f, B:17:0x004b, B:19:0x0062, B:20:0x006c, B:27:0x009b, B:29:0x00a1, B:30:0x00ab, B:32:0x00ae, B:34:0x00bd, B:35:0x00c5, B:37:0x00ce, B:39:0x00de, B:41:0x00e8, B:42:0x00ec, B:58:0x019c, B:60:0x01c9, B:62:0x01cf, B:43:0x00f2, B:45:0x00f9, B:46:0x0109, B:48:0x0110, B:49:0x0114, B:51:0x011c, B:52:0x0120, B:54:0x0188, B:55:0x018c, B:56:0x0199, B:63:0x01dc, B:25:0x0071, B:26:0x0087), top: B:66:0x0018 }] */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00f9 A[Catch: all -> 0x006e, TryCatch #0 {, blocks: (B:10:0x0018, B:11:0x0024, B:13:0x003f, B:17:0x004b, B:19:0x0062, B:20:0x006c, B:27:0x009b, B:29:0x00a1, B:30:0x00ab, B:32:0x00ae, B:34:0x00bd, B:35:0x00c5, B:37:0x00ce, B:39:0x00de, B:41:0x00e8, B:42:0x00ec, B:58:0x019c, B:60:0x01c9, B:62:0x01cf, B:43:0x00f2, B:45:0x00f9, B:46:0x0109, B:48:0x0110, B:49:0x0114, B:51:0x011c, B:52:0x0120, B:54:0x0188, B:55:0x018c, B:56:0x0199, B:63:0x01dc, B:25:0x0071, B:26:0x0087), top: B:66:0x0018 }] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x0110 A[Catch: all -> 0x006e, TryCatch #0 {, blocks: (B:10:0x0018, B:11:0x0024, B:13:0x003f, B:17:0x004b, B:19:0x0062, B:20:0x006c, B:27:0x009b, B:29:0x00a1, B:30:0x00ab, B:32:0x00ae, B:34:0x00bd, B:35:0x00c5, B:37:0x00ce, B:39:0x00de, B:41:0x00e8, B:42:0x00ec, B:58:0x019c, B:60:0x01c9, B:62:0x01cf, B:43:0x00f2, B:45:0x00f9, B:46:0x0109, B:48:0x0110, B:49:0x0114, B:51:0x011c, B:52:0x0120, B:54:0x0188, B:55:0x018c, B:56:0x0199, B:63:0x01dc, B:25:0x0071, B:26:0x0087), top: B:66:0x0018 }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x011c A[Catch: all -> 0x006e, TryCatch #0 {, blocks: (B:10:0x0018, B:11:0x0024, B:13:0x003f, B:17:0x004b, B:19:0x0062, B:20:0x006c, B:27:0x009b, B:29:0x00a1, B:30:0x00ab, B:32:0x00ae, B:34:0x00bd, B:35:0x00c5, B:37:0x00ce, B:39:0x00de, B:41:0x00e8, B:42:0x00ec, B:58:0x019c, B:60:0x01c9, B:62:0x01cf, B:43:0x00f2, B:45:0x00f9, B:46:0x0109, B:48:0x0110, B:49:0x0114, B:51:0x011c, B:52:0x0120, B:54:0x0188, B:55:0x018c, B:56:0x0199, B:63:0x01dc, B:25:0x0071, B:26:0x0087), top: B:66:0x0018 }] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0188 A[Catch: all -> 0x006e, TryCatch #0 {, blocks: (B:10:0x0018, B:11:0x0024, B:13:0x003f, B:17:0x004b, B:19:0x0062, B:20:0x006c, B:27:0x009b, B:29:0x00a1, B:30:0x00ab, B:32:0x00ae, B:34:0x00bd, B:35:0x00c5, B:37:0x00ce, B:39:0x00de, B:41:0x00e8, B:42:0x00ec, B:58:0x019c, B:60:0x01c9, B:62:0x01cf, B:43:0x00f2, B:45:0x00f9, B:46:0x0109, B:48:0x0110, B:49:0x0114, B:51:0x011c, B:52:0x0120, B:54:0x0188, B:55:0x018c, B:56:0x0199, B:63:0x01dc, B:25:0x0071, B:26:0x0087), top: B:66:0x0018 }] */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x019c A[Catch: all -> 0x006e, TryCatch #0 {, blocks: (B:10:0x0018, B:11:0x0024, B:13:0x003f, B:17:0x004b, B:19:0x0062, B:20:0x006c, B:27:0x009b, B:29:0x00a1, B:30:0x00ab, B:32:0x00ae, B:34:0x00bd, B:35:0x00c5, B:37:0x00ce, B:39:0x00de, B:41:0x00e8, B:42:0x00ec, B:58:0x019c, B:60:0x01c9, B:62:0x01cf, B:43:0x00f2, B:45:0x00f9, B:46:0x0109, B:48:0x0110, B:49:0x0114, B:51:0x011c, B:52:0x0120, B:54:0x0188, B:55:0x018c, B:56:0x0199, B:63:0x01dc, B:25:0x0071, B:26:0x0087), top: B:66:0x0018 }] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x01dc A[Catch: all -> 0x006e, TRY_LEAVE, TryCatch #0 {, blocks: (B:10:0x0018, B:11:0x0024, B:13:0x003f, B:17:0x004b, B:19:0x0062, B:20:0x006c, B:27:0x009b, B:29:0x00a1, B:30:0x00ab, B:32:0x00ae, B:34:0x00bd, B:35:0x00c5, B:37:0x00ce, B:39:0x00de, B:41:0x00e8, B:42:0x00ec, B:58:0x019c, B:60:0x01c9, B:62:0x01cf, B:43:0x00f2, B:45:0x00f9, B:46:0x0109, B:48:0x0110, B:49:0x0114, B:51:0x011c, B:52:0x0120, B:54:0x0188, B:55:0x018c, B:56:0x0199, B:63:0x01dc, B:25:0x0071, B:26:0x0087), top: B:66:0x0018 }] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00ef A[Catch: all -> 0x006e, TryCatch #0 {, blocks: (B:10:0x0018, B:11:0x0024, B:13:0x003f, B:17:0x004b, B:19:0x0062, B:20:0x006c, B:27:0x009b, B:29:0x00a1, B:30:0x00ab, B:32:0x00ae, B:34:0x00bd, B:36:0x00c4, B:37:0x00cc, B:39:0x00d5, B:41:0x00e5, B:43:0x00ef, B:44:0x00f3, B:60:0x01a3, B:62:0x01d0, B:64:0x01d6, B:45:0x00f9, B:47:0x0100, B:48:0x0110, B:50:0x0117, B:51:0x011b, B:53:0x0123, B:54:0x0127, B:56:0x018f, B:57:0x0193, B:58:0x01a0, B:65:0x01e3, B:25:0x0071, B:26:0x0087), top: B:68:0x0018 }] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x0100 A[Catch: all -> 0x006e, TryCatch #0 {, blocks: (B:10:0x0018, B:11:0x0024, B:13:0x003f, B:17:0x004b, B:19:0x0062, B:20:0x006c, B:27:0x009b, B:29:0x00a1, B:30:0x00ab, B:32:0x00ae, B:34:0x00bd, B:36:0x00c4, B:37:0x00cc, B:39:0x00d5, B:41:0x00e5, B:43:0x00ef, B:44:0x00f3, B:60:0x01a3, B:62:0x01d0, B:64:0x01d6, B:45:0x00f9, B:47:0x0100, B:48:0x0110, B:50:0x0117, B:51:0x011b, B:53:0x0123, B:54:0x0127, B:56:0x018f, B:57:0x0193, B:58:0x01a0, B:65:0x01e3, B:25:0x0071, B:26:0x0087), top: B:68:0x0018 }] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0117 A[Catch: all -> 0x006e, TryCatch #0 {, blocks: (B:10:0x0018, B:11:0x0024, B:13:0x003f, B:17:0x004b, B:19:0x0062, B:20:0x006c, B:27:0x009b, B:29:0x00a1, B:30:0x00ab, B:32:0x00ae, B:34:0x00bd, B:36:0x00c4, B:37:0x00cc, B:39:0x00d5, B:41:0x00e5, B:43:0x00ef, B:44:0x00f3, B:60:0x01a3, B:62:0x01d0, B:64:0x01d6, B:45:0x00f9, B:47:0x0100, B:48:0x0110, B:50:0x0117, B:51:0x011b, B:53:0x0123, B:54:0x0127, B:56:0x018f, B:57:0x0193, B:58:0x01a0, B:65:0x01e3, B:25:0x0071, B:26:0x0087), top: B:68:0x0018 }] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0123 A[Catch: all -> 0x006e, TryCatch #0 {, blocks: (B:10:0x0018, B:11:0x0024, B:13:0x003f, B:17:0x004b, B:19:0x0062, B:20:0x006c, B:27:0x009b, B:29:0x00a1, B:30:0x00ab, B:32:0x00ae, B:34:0x00bd, B:36:0x00c4, B:37:0x00cc, B:39:0x00d5, B:41:0x00e5, B:43:0x00ef, B:44:0x00f3, B:60:0x01a3, B:62:0x01d0, B:64:0x01d6, B:45:0x00f9, B:47:0x0100, B:48:0x0110, B:50:0x0117, B:51:0x011b, B:53:0x0123, B:54:0x0127, B:56:0x018f, B:57:0x0193, B:58:0x01a0, B:65:0x01e3, B:25:0x0071, B:26:0x0087), top: B:68:0x0018 }] */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x018f A[Catch: all -> 0x006e, TryCatch #0 {, blocks: (B:10:0x0018, B:11:0x0024, B:13:0x003f, B:17:0x004b, B:19:0x0062, B:20:0x006c, B:27:0x009b, B:29:0x00a1, B:30:0x00ab, B:32:0x00ae, B:34:0x00bd, B:36:0x00c4, B:37:0x00cc, B:39:0x00d5, B:41:0x00e5, B:43:0x00ef, B:44:0x00f3, B:60:0x01a3, B:62:0x01d0, B:64:0x01d6, B:45:0x00f9, B:47:0x0100, B:48:0x0110, B:50:0x0117, B:51:0x011b, B:53:0x0123, B:54:0x0127, B:56:0x018f, B:57:0x0193, B:58:0x01a0, B:65:0x01e3, B:25:0x0071, B:26:0x0087), top: B:68:0x0018 }] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x01a3 A[Catch: all -> 0x006e, TryCatch #0 {, blocks: (B:10:0x0018, B:11:0x0024, B:13:0x003f, B:17:0x004b, B:19:0x0062, B:20:0x006c, B:27:0x009b, B:29:0x00a1, B:30:0x00ab, B:32:0x00ae, B:34:0x00bd, B:36:0x00c4, B:37:0x00cc, B:39:0x00d5, B:41:0x00e5, B:43:0x00ef, B:44:0x00f3, B:60:0x01a3, B:62:0x01d0, B:64:0x01d6, B:45:0x00f9, B:47:0x0100, B:48:0x0110, B:50:0x0117, B:51:0x011b, B:53:0x0123, B:54:0x0127, B:56:0x018f, B:57:0x0193, B:58:0x01a0, B:65:0x01e3, B:25:0x0071, B:26:0x0087), top: B:68:0x0018 }] */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x01e3 A[Catch: all -> 0x006e, TRY_LEAVE, TryCatch #0 {, blocks: (B:10:0x0018, B:11:0x0024, B:13:0x003f, B:17:0x004b, B:19:0x0062, B:20:0x006c, B:27:0x009b, B:29:0x00a1, B:30:0x00ab, B:32:0x00ae, B:34:0x00bd, B:36:0x00c4, B:37:0x00cc, B:39:0x00d5, B:41:0x00e5, B:43:0x00ef, B:44:0x00f3, B:60:0x01a3, B:62:0x01d0, B:64:0x01d6, B:45:0x00f9, B:47:0x0100, B:48:0x0110, B:50:0x0117, B:51:0x011b, B:53:0x0123, B:54:0x0127, B:56:0x018f, B:57:0x0193, B:58:0x01a0, B:65:0x01e3, B:25:0x0071, B:26:0x0087), top: B:68:0x0018 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -196,7 +196,7 @@ public class ChatMessageDBManager extends DBBase {
                     return 0L;
                 } else {
                     draftMsg = fetchMsg.get(0);
-                    if (notSendButShowTipMsg(draftMsg)) {
+                    if (notSendButShowTipMsg(draftMsg) && fetchMsg.size() > 1) {
                         chatMsg = fetchMsg.get(1);
                         str8 = "";
                         if (chatObject.getCategory() == 0 && (chatObject.getContacter() & Constants.PAFLAG) != 0) {
@@ -2223,7 +2223,7 @@ public class ChatMessageDBManager extends DBBase {
                         chatMsg = null;
                     } else {
                         chatMsg = fetchMsg.get(0);
-                        if (notSendButShowTipMsg(chatMsg)) {
+                        if (notSendButShowTipMsg(chatMsg) && fetchMsg.size() > 1) {
                             chatMsg = fetchMsg.get(1);
                         }
                     }
@@ -2835,11 +2835,11 @@ public class ChatMessageDBManager extends DBBase {
                 z = true;
             } else {
                 ChatMsg chatMsg2 = fetchMsg.get(0);
-                if (notSendButShowTipMsg(chatMsg2)) {
-                    chatMsg = fetchMsg.get(1);
+                if (!notSendButShowTipMsg(chatMsg2) || fetchMsg.size() <= 1) {
+                    chatMsg = chatMsg2;
                     z = true;
                 } else {
-                    chatMsg = chatMsg2;
+                    chatMsg = fetchMsg.get(1);
                     z = true;
                 }
             }

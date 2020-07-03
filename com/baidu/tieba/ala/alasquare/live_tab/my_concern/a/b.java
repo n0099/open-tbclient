@@ -9,14 +9,14 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.e.feh);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.e.fpr);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: H */
+    /* renamed from: J */
     public com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.c b(ViewGroup viewGroup) {
         return new com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.c(new com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.b(this.mPageContext, viewGroup));
     }
@@ -25,10 +25,10 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.special_forum.data.e eVar, com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.c cVar) {
-        if (cVar == null || cVar.feE == null) {
+        if (cVar == null || cVar.fpP == null) {
             return null;
         }
-        cVar.feE.a(eVar);
+        cVar.fpP.a(eVar);
         return cVar.getView();
     }
 }

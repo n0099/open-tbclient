@@ -1,6 +1,7 @@
 package com.baidu.tieba.forumMember.member.a;
 
 import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.widget.ListView.f;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.forumMember.a.d;
 import com.baidu.tieba.forumMember.a.e;
@@ -13,42 +14,41 @@ import com.baidu.tieba.forumMember.member.o;
 import com.baidu.tieba.forumMember.member.p;
 import com.baidu.tieba.forumMember.member.r;
 import com.baidu.tieba.forumMember.member.s;
-import com.baidu.tieba.frs.k;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
-    private BdTypeListView fbb;
-    private o hkG;
-    private r hkH;
+    private List<com.baidu.adp.widget.ListView.a> aUP = new ArrayList();
+    private BdTypeListView fml;
+    private o hwN;
+    private r hwO;
 
-    public List<com.baidu.adp.widget.ListView.a> bqY() {
-        return this.aSj;
+    public List<com.baidu.adp.widget.ListView.a> btV() {
+        return this.aUP;
     }
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
-        this.fbb = bdTypeListView;
-        this.aSj.add(new i(baseActivity.getPageContext(), j.hjS));
-        this.aSj.add(new l(baseActivity.getPageContext(), m.hke));
-        this.aSj.add(new g(baseActivity.getPageContext(), k.hnc));
-        this.aSj.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.hjv));
-        this.aSj.add(new d(baseActivity.getPageContext(), e.hjy));
-        this.aSj.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
-        this.hkG = new o(baseActivity.getPageContext(), p.hku);
-        this.aSj.add(this.hkG);
-        this.hkH = new r(baseActivity.getPageContext(), s.hkE);
-        this.aSj.add(this.hkH);
+        this.fml = bdTypeListView;
+        this.aUP.add(new i(baseActivity.getPageContext(), j.hwa));
+        this.aUP.add(new l(baseActivity.getPageContext(), m.hwl));
+        this.aUP.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.m.hzt));
+        this.aUP.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.hvD));
+        this.aUP.add(new d(baseActivity.getPageContext(), e.hvG));
+        this.aUP.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
+        this.hwN = new o(baseActivity.getPageContext(), p.hwB);
+        this.aUP.add(this.hwN);
+        this.hwO = new r(baseActivity.getPageContext(), s.hwL);
+        this.aUP.add(this.hwO);
     }
 
     public void notifyDataSetChanged() {
-        if (this.fbb != null && (this.fbb.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
-            this.fbb.getAdapter().notifyDataSetChanged();
+        if (this.fml != null && (this.fml.getAdapter() instanceof f)) {
+            this.fml.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.hkG.onDestroy();
-        this.hkH.onDestroy();
+        this.hwN.onDestroy();
+        this.hwO.onDestroy();
     }
 }

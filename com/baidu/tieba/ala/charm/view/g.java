@@ -6,13 +6,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.live.data.AlaLiveUserInfoData;
 import com.baidu.live.data.j;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.u.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class g extends BaseAdapter {
-    private ArrayList<j> dJp = new ArrayList<>();
+    private ArrayList<j> dQf = new ArrayList<>();
     private TbPageContext mPageContext;
 
     public g(TbPageContext tbPageContext) {
@@ -21,28 +21,28 @@ public class g extends BaseAdapter {
 
     public void setData(List<j> list) {
         if (list != null) {
-            this.dJp.clear();
-            this.dJp.addAll(list);
+            this.dQf.clear();
+            this.dQf.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dJp == null) {
+        if (this.dQf == null) {
             return 0;
         }
-        return this.dJp.size();
+        return this.dQf.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: qc */
+    /* renamed from: qB */
     public j getItem(int i) {
-        if (this.dJp == null) {
+        if (this.dQf == null) {
             return null;
         }
-        return this.dJp.get(i);
+        return this.dQf.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -57,15 +57,15 @@ public class g extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.h.sdk_charm_list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.fqo = (CharmItemView) view.findViewById(a.g.item);
+            aVar2.fBz = (CharmItemView) view.findViewById(a.g.item);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        if (aVar != null && getItem(i) != null && (alaLiveUserInfoData = getItem(i).avj) != null) {
-            aVar.fqo.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
-            aVar.fqo.fqf.setData(alaLiveUserInfoData);
+        if (aVar != null && getItem(i) != null && (alaLiveUserInfoData = getItem(i).axp) != null) {
+            aVar.fBz.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
+            aVar.fBz.fBq.setData(alaLiveUserInfoData);
         }
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -73,7 +73,7 @@ public class g extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private class a {
-        private CharmItemView fqo;
+        private CharmItemView fBz;
 
         private a() {
         }

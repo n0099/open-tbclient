@@ -10,7 +10,7 @@ import java.util.List;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a {
-    private C0797a mJO = new C0797a();
+    private C0816a nfM = new C0816a();
     private LinkedList<ChatInfo> a = new LinkedList<>();
     private LinkedList<ChatInfo> b = new LinkedList<>();
 
@@ -38,7 +38,7 @@ public class a {
             synchronized (this.a) {
                 c(arrayList);
                 this.a.addAll(arrayList);
-                Collections.sort(this.a, this.mJO);
+                Collections.sort(this.a, this.nfM);
             }
         }
     }
@@ -65,7 +65,7 @@ public class a {
         }
     }
 
-    public ChatInfo dEX() {
+    public ChatInfo dJz() {
         if (this.a != null) {
             synchronized (this.a) {
                 if (this.a.size() > 0) {
@@ -101,7 +101,7 @@ public class a {
         }
     }
 
-    public ChatInfo dEY() {
+    public ChatInfo dJA() {
         if (this.b != null) {
             synchronized (this.b) {
                 if (this.b.size() > 0) {
@@ -148,8 +148,8 @@ public class a {
 
     /* renamed from: com.kascend.chushou.player.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private class C0797a implements Comparator<ChatInfo> {
-        private C0797a() {
+    private class C0816a implements Comparator<ChatInfo> {
+        private C0816a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

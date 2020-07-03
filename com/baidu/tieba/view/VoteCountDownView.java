@@ -9,21 +9,21 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.cache.BdKVCache;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class VoteCountDownView extends LinearLayout {
-    private a jYf;
-    private View lOK;
-    private View lOL;
-    private TextView lON;
-    private TextView lOO;
-    private CountDownTimer lOP;
+    private a krX;
     private Context mContext;
+    private View miJ;
+    private View miK;
+    private TextView miM;
+    private TextView miN;
+    private CountDownTimer miO;
 
     /* loaded from: classes.dex */
     public interface a {
-        void Qv();
+        void RB();
     }
 
     public VoteCountDownView(Context context) {
@@ -42,13 +42,12 @@ public class VoteCountDownView extends LinearLayout {
         setClipChildren(false);
         setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.vote_count_down_view, (ViewGroup) this, true);
-        rV();
+        sq();
     }
 
-    /* renamed from: do  reason: not valid java name */
-    private void m36do(long j) {
-        if (this.lOP == null) {
-            this.lOP = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.view.VoteCountDownView.1
+    private void dr(long j) {
+        if (this.miO == null) {
+            this.miO = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.view.VoteCountDownView.1
                 @Override // android.os.CountDownTimer
                 public void onTick(long j2) {
                     long j3 = j2 + 60000;
@@ -58,46 +57,46 @@ public class VoteCountDownView extends LinearLayout {
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
                     VoteCountDownView.this.setContent(0L, 0L);
-                    VoteCountDownView.this.bpn();
+                    VoteCountDownView.this.brN();
                 }
             };
-            this.lOP.start();
+            this.miO.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bpn() {
-        if (this.jYf != null) {
-            this.jYf.Qv();
+    public void brN() {
+        if (this.krX != null) {
+            this.krX.RB();
         }
     }
 
-    private void rV() {
-        this.lOK = findViewById(R.id.hour_num_container);
-        this.lOL = findViewById(R.id.minute_num_container);
-        this.lON = (TextView) findViewById(R.id.hour_num_count_down_view);
-        this.lOO = (TextView) findViewById(R.id.minute_num_count_down_view);
+    private void sq() {
+        this.miJ = findViewById(R.id.hour_num_container);
+        this.miK = findViewById(R.id.minute_num_container);
+        this.miM = (TextView) findViewById(R.id.hour_num_count_down_view);
+        this.miN = (TextView) findViewById(R.id.minute_num_count_down_view);
     }
 
     public void setContent(long j, long j2) {
-        this.lOO.setText(String.valueOf(j2));
-        this.lON.setText(String.valueOf(j));
+        this.miN.setText(String.valueOf(j2));
+        this.miM.setText(String.valueOf(j));
     }
 
-    public void qk(int i) {
-        am.setBackgroundResource(this.lOK, R.drawable.bg_gradient_round, i);
-        am.setBackgroundResource(this.lOL, R.drawable.bg_gradient_round, i);
-        am.setViewTextColor(this.lON, R.color.cp_cont_a, 1, i);
-        am.setViewTextColor(this.lON, R.color.cp_cont_a, 1, i);
+    public void qJ(int i) {
+        an.setBackgroundResource(this.miJ, R.drawable.bg_gradient_round, i);
+        an.setBackgroundResource(this.miK, R.drawable.bg_gradient_round, i);
+        an.setViewTextColor(this.miM, R.color.cp_cont_a, 1, i);
+        an.setViewTextColor(this.miM, R.color.cp_cont_a, 1, i);
     }
 
     public void setData(long j) {
         long j2 = j + 60000;
         setContent(j2 / BdKVCache.MILLS_1Hour, (j2 % BdKVCache.MILLS_1Hour) / 60000);
-        m36do(j);
+        dr(j);
     }
 
     public void setOnCountDownFinished(a aVar) {
-        this.jYf = aVar;
+        this.krX = aVar;
     }
 }

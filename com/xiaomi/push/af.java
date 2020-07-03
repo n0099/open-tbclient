@@ -16,6 +16,6 @@ public class af {
     }
 
     public static boolean a(Context context) {
-        return ae.f92a;
+        return ae.f98a;
     }
 }

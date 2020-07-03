@@ -7,10 +7,10 @@ public class bm {
     private static volatile bm a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f126a;
+    private Context f132a;
 
     private bm(Context context) {
-        this.f126a = context;
+        this.f132a = context;
     }
 
     public static bm a(Context context) {
@@ -26,7 +26,7 @@ public class bm {
 
     public synchronized long a(String str, String str2, long j) {
         try {
-            j = this.f126a.getSharedPreferences(str, 4).getLong(str2, j);
+            j = this.f132a.getSharedPreferences(str, 4).getLong(str2, j);
         } catch (Throwable th) {
         }
         return j;
@@ -34,22 +34,22 @@ public class bm {
 
     public synchronized String a(String str, String str2, String str3) {
         try {
-            str3 = this.f126a.getSharedPreferences(str, 4).getString(str2, str3);
+            str3 = this.f132a.getSharedPreferences(str, 4).getString(str2, str3);
         } catch (Throwable th) {
         }
         return str3;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m167a(String str, String str2, long j) {
-        SharedPreferences.Editor edit = this.f126a.getSharedPreferences(str, 4).edit();
+    public synchronized void m164a(String str, String str2, long j) {
+        SharedPreferences.Editor edit = this.f132a.getSharedPreferences(str, 4).edit();
         edit.putLong(str2, j);
         edit.commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m168a(String str, String str2, String str3) {
-        SharedPreferences.Editor edit = this.f126a.getSharedPreferences(str, 4).edit();
+    public synchronized void m165a(String str, String str2, String str3) {
+        SharedPreferences.Editor edit = this.f132a.getSharedPreferences(str, 4).edit();
         edit.putString(str2, str3);
         edit.commit();
     }

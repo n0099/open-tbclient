@@ -901,7 +901,7 @@ public final class WebKitFactory {
                 Log.d("SdkDaemon", "start");
                 try {
                     if (com.baidu.webkit.internal.daemon.a.a == null) {
-                        com.baidu.webkit.internal.daemon.a.a = new ThreadPoolExecutor(2, 30, 50L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a.ThreadFactoryC0769a((byte) 0), new ThreadPoolExecutor.DiscardOldestPolicy());
+                        com.baidu.webkit.internal.daemon.a.a = new ThreadPoolExecutor(2, 30, 50L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a.ThreadFactoryC0788a((byte) 0), new ThreadPoolExecutor.DiscardOldestPolicy());
                     }
                 } catch (Exception e) {
                     com.a.a.a.a.a.a.a.a(e);

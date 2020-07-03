@@ -8,19 +8,19 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes13.dex */
 public class RatingView extends LinearLayout {
-    private a kNT;
+    private a lhM;
     private Context mContext;
 
     /* loaded from: classes13.dex */
     public static class a {
-        public String jcZ;
-        public Double jda;
+        public String juj;
+        public Double score;
         public String title;
     }
 
@@ -47,7 +47,7 @@ public class RatingView extends LinearLayout {
         return imageView;
     }
 
-    private a Lp(String str) {
+    private a LQ(String str) {
         a aVar = new a();
         aVar.title = "";
         if (!TextUtils.isEmpty(str)) {
@@ -57,7 +57,7 @@ public class RatingView extends LinearLayout {
                     if (!TextUtils.isEmpty(matcher.group(1))) {
                         aVar.title = matcher.group(1);
                     }
-                    aVar.jda = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
+                    aVar.score = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
                 } catch (NumberFormatException e) {
                     aVar.title = str;
                 }
@@ -69,39 +69,39 @@ public class RatingView extends LinearLayout {
     }
 
     public void setRating(String str, String str2) {
-        this.kNT = Lp(str2);
-        this.kNT.jcZ = str;
-        cuz();
+        this.lhM = LQ(str2);
+        this.lhM.juj = str;
+        cyo();
     }
 
-    private void cuz() {
+    private void cyo() {
         int i;
         removeAllViews();
-        if (this.kNT != null) {
-            if (!TextUtils.isEmpty(this.kNT.jcZ)) {
+        if (this.lhM != null) {
+            if (!TextUtils.isEmpty(this.lhM.juj)) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView = new TextView(this.mContext);
-                textView.setText(this.kNT.jcZ);
+                textView.setText(this.lhM.juj);
                 textView.setTextSize(0, l.getDimens(this.mContext, R.dimen.fontsize24));
-                textView.setTextColor(am.getColor(R.color.cp_cont_d));
+                textView.setTextColor(an.getColor(R.color.cp_cont_d));
                 textView.setPadding(0, 0, l.getDimens(this.mContext, R.dimen.ds30), 0);
                 textView.setLayoutParams(layoutParams);
                 textView.setIncludeFontPadding(false);
                 addView(textView);
             }
-            if (!TextUtils.isEmpty(this.kNT.title)) {
+            if (!TextUtils.isEmpty(this.lhM.title)) {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView2 = new TextView(this.mContext);
-                textView2.setText(this.kNT.title);
+                textView2.setText(this.lhM.title);
                 textView2.setTextSize(0, l.getDimens(this.mContext, R.dimen.fontsize24));
-                textView2.setTextColor(am.getColor(R.color.cp_cont_d));
+                textView2.setTextColor(an.getColor(R.color.cp_cont_d));
                 textView2.setPadding(0, 0, l.getDimens(this.mContext, R.dimen.ds6), 0);
                 textView2.setLayoutParams(layoutParams2);
                 textView2.setIncludeFontPadding(false);
                 addView(textView2);
             }
-            if (this.kNT.jda != null && !Double.isNaN(this.kNT.jda.doubleValue())) {
-                Integer valueOf = Integer.valueOf(this.kNT.jda.intValue());
+            if (this.lhM.score != null && !Double.isNaN(this.lhM.score.doubleValue())) {
+                Integer valueOf = Integer.valueOf(this.lhM.score.intValue());
                 if (valueOf.intValue() > 10) {
                     valueOf = 10;
                 }
@@ -110,17 +110,17 @@ public class RatingView extends LinearLayout {
                 }
                 int intValue = valueOf.intValue() >> 1;
                 for (int i2 = 0; i2 < intValue; i2++) {
-                    addView(h(am.getDrawable(R.drawable.icon_star_full)));
+                    addView(h(an.getDrawable(R.drawable.icon_star_full)));
                 }
                 int i3 = 5 - intValue;
                 if (valueOf.intValue() <= 0 || valueOf.intValue() % 2 != 1) {
                     i = i3;
                 } else {
-                    addView(h(am.getDrawable(R.drawable.icon_star_half)));
+                    addView(h(an.getDrawable(R.drawable.icon_star_half)));
                     i = i3 - 1;
                 }
                 for (int i4 = 0; i4 < i; i4++) {
-                    addView(h(am.getDrawable(R.drawable.icon_star_empty)));
+                    addView(h(an.getDrawable(R.drawable.icon_star_empty)));
                 }
             }
         }

@@ -14,10 +14,10 @@ public class c {
     /* loaded from: classes8.dex */
     public static class a {
         public String fid;
-        public String ivd;
-        public long ivk;
-        public String ivl;
-        public int ivm;
+        public String iMj;
+        public long iMq;
+        public String iMr;
+        public int iMs;
         public long picId;
         public String src;
         public long taskId;
@@ -27,7 +27,7 @@ public class c {
         public int userType;
     }
 
-    public static List<a> g(String str, String str2, long j) {
+    public static List<a> h(String str, String str2, long j) {
         return a(str, str2, null, 0L, j);
     }
 
@@ -59,14 +59,14 @@ public class c {
                 aVar.fid = str2;
                 aVar.picId = optLong;
                 aVar.taskId = j2;
-                aVar.ivd = optString5;
+                aVar.iMj = optString5;
                 if (i > -1) {
                     aVar.userType = i;
                 }
                 if (userData != null) {
-                    aVar.ivk = j;
-                    aVar.ivl = userData.getUserId();
-                    aVar.ivm = userData.getUserType();
+                    aVar.iMq = j;
+                    aVar.iMr = userData.getUserId();
+                    aVar.iMs = userData.getUserType();
                 }
                 linkedList.add(aVar);
             }

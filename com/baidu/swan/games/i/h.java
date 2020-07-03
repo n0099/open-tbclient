@@ -6,15 +6,15 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes11.dex */
 public class h implements Runnable {
-    private final i cWY;
-    private AtomicBoolean cXU = new AtomicBoolean(false);
-    private List<h> cXV = Collections.synchronizedList(new ArrayList());
+    private final i dbK;
+    private AtomicBoolean dcH = new AtomicBoolean(false);
+    private List<h> dcI = Collections.synchronizedList(new ArrayList());
     private String[] mPaths;
     private final Runnable mRunnable;
     private String mTag;
 
     public h(i iVar, Runnable runnable, String str, String[] strArr) {
-        this.cWY = iVar;
+        this.dbK = iVar;
         this.mRunnable = runnable;
         this.mTag = str;
         this.mPaths = strArr;
@@ -23,17 +23,17 @@ public class h implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            azR();
+            aAX();
         } finally {
-            this.cWY.c(this);
+            this.dbK.c(this);
         }
     }
 
-    public void azR() {
+    public void aAX() {
         this.mRunnable.run();
     }
 
-    public void azS() {
+    public void aAY() {
         com.baidu.swan.apps.aq.n.postOnIO(this, this.mTag);
     }
 
@@ -41,29 +41,29 @@ public class h implements Runnable {
         return this.mTag;
     }
 
-    public String[] azT() {
+    public String[] aAZ() {
         return this.mPaths;
     }
 
-    public boolean azU() {
-        return this.cXU.get();
+    public boolean aBa() {
+        return this.dcH.get();
     }
 
-    public void azV() {
-        this.cXU.set(true);
+    public void aBb() {
+        this.dcH.set(true);
     }
 
     public void a(h hVar) {
-        if (!this.cXV.contains(hVar)) {
-            this.cXV.add(hVar);
+        if (!this.dcI.contains(hVar)) {
+            this.dcI.add(hVar);
         }
     }
 
     public void b(h hVar) {
-        this.cXV.remove(hVar);
+        this.dcI.remove(hVar);
     }
 
-    public boolean azW() {
-        return this.cXV.isEmpty();
+    public boolean aBc() {
+        return this.dcI.isEmpty();
     }
 }

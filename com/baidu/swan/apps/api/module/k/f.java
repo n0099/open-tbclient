@@ -13,22 +13,22 @@ public class f extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b ii(String str) {
+    public com.baidu.swan.apps.api.c.b iq(String str) {
         if (DEBUG) {
             Log.d("Api-PhoneCallApi", "start make phone call");
         }
-        if (TU()) {
+        if (Va()) {
             com.baidu.swan.apps.console.c.e("Api-PhoneCallApi", "Api-PhoneCallApi does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.c.b(1001, "Api-PhoneCallApi does not supported when app is invisible.");
         }
         Intent intent = new Intent("android.intent.action.DIAL");
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aP = com.baidu.swan.apps.api.d.b.aP("Api-PhoneCallApi", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aP.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aR = com.baidu.swan.apps.api.d.b.aR("Api-PhoneCallApi", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aR.first;
         if (!bVar.isSuccess()) {
             com.baidu.swan.apps.console.c.e("Api-PhoneCallApi", "parse fail");
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) aP.second;
+        JSONObject jSONObject = (JSONObject) aR.second;
         if (jSONObject != null) {
             String optString = jSONObject.optString("phoneNumber");
             if (!TextUtils.isEmpty(optString)) {

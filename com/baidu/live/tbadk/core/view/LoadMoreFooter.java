@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.live.adp.widget.listview.BdIListPage;
-import com.baidu.live.u.a;
+import com.baidu.live.sdk.a;
 /* loaded from: classes3.dex */
 public class LoadMoreFooter extends BdIListPage {
     private boolean isLoading;

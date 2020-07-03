@@ -1,260 +1,325 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
+import android.text.SpannableString;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tieba.R;
+import com.baidu.live.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class bc {
-    private static int mSkin_1_common_color = -1;
-    private static int mMore_color = -1;
-    private static boolean mIsNeedInit = false;
-    private static com.baidu.adp.lib.d.a<Integer, Integer> dOu = new com.baidu.adp.lib.d.a<>(500);
-    private static Context mAppContext = null;
+    private static bc dVg = new bc() { // from class: com.baidu.tbadk.core.util.bc.1
+    };
+    private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private c dVh;
+    private final ConcurrentHashMap<String, b> mHandlers;
+    private final List<a> mListeners;
 
     /* loaded from: classes.dex */
     public interface a {
-        boolean onViewFound(View view);
+        int deal(TbPageContext<?> tbPageContext, String[] strArr);
     }
 
-    public static void initSkinDataOnStartup(Context context) {
-        mAppContext = context;
-        mIsNeedInit = true;
+    /* loaded from: classes.dex */
+    public interface b {
+        void a(TbPageContext<?> tbPageContext, Map<String, String> map);
     }
 
-    private static void initCommonColor() {
-        if (mAppContext != null && mAppContext.getResources() != null) {
-            mMore_color = mAppContext.getResources().getColor(R.color.common_color_10097);
-            mSkin_1_common_color = mAppContext.getResources().getColor(R.color.common_color_10004);
+    /* loaded from: classes.dex */
+    public interface c {
+        void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2);
+    }
+
+    /* loaded from: classes.dex */
+    public interface d {
+    }
+
+    private bc() {
+        this.mListeners = new LinkedList();
+        this.mHandlers = new ConcurrentHashMap<>();
+        this.dVh = null;
+    }
+
+    public static SpannableString ai(Context context, String str) {
+        int start;
+        Matcher matcher = pattern.matcher(str);
+        SpannableString spannableString = new SpannableString(str);
+        while (matcher.find()) {
+            String group = matcher.group();
+            String group2 = matcher.group();
+            if (!group2.endsWith(" ")) {
+                group2 = group2 + " ";
+            }
+            int length = group2.length();
+            spannableString.setSpan(new com.baidu.tbadk.widget.richText.f(2, group), matcher.start(), (length + start) - 1, 33);
         }
+        return spannableString;
     }
 
-    private static int getCommonColor(int i) {
-        boolean z = true;
-        if (i != 1 && i != 4) {
-            z = false;
+    public static bc aWU() {
+        return dVg;
+    }
+
+    public void a(final a aVar) {
+        if (com.baidu.adp.lib.util.l.isMainThread()) {
+            b(aVar);
+        } else {
+            com.baidu.adp.lib.f.e.lt().post(new Runnable() { // from class: com.baidu.tbadk.core.util.bc.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    bc.this.b(aVar);
+                }
+            });
         }
-        return getCommonColor(z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int getCommonColor(boolean z) {
-        if (mIsNeedInit) {
-            mIsNeedInit = false;
-            initCommonColor();
-        }
-        return z ? mSkin_1_common_color : mMore_color;
-    }
-
-    public static void processCurrentSkin(View view) {
-        if (view instanceof ViewGroup) {
-            processSkin((ViewGroup) view, TbadkCoreApplication.getInst().getSkinType());
+    public void b(a aVar) {
+        if (!this.mListeners.contains(aVar)) {
+            this.mListeners.add(aVar);
         }
     }
 
-    public static void prepareNewView(View view) {
-        if (view != null) {
-            dOu.remove(Integer.valueOf(System.identityHashCode(view)));
-        }
+    public void a(c cVar) {
+        this.dVh = cVar;
     }
 
-    public static void processSkin(ViewGroup viewGroup, int i) {
-        int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = dOu.get(Integer.valueOf(identityHashCode));
-        if (num == null || i != num.intValue()) {
-            processSkin0(viewGroup, i);
-            dOu.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
-        }
+    public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
+        return a(tbPageContext, "", strArr, z, dVar, z2);
     }
 
-    public static void a(ViewGroup viewGroup, boolean z, a aVar) {
-        if (!z || !aVar.onViewFound(viewGroup)) {
-            LinkedList linkedList = new LinkedList();
-            while (true) {
-                int childCount = viewGroup.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    View childAt = viewGroup.getChildAt(i);
-                    if (!aVar.onViewFound(childAt)) {
-                        if (childAt instanceof ViewGroup) {
-                            linkedList.addLast((ViewGroup) childAt);
+    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        int deal;
+        if (strArr == null || strArr.length == 0) {
+            return 3;
+        }
+        String str = strArr[0];
+        b bVar = this.mHandlers.get(getSchemaKey(str));
+        if (bVar != null) {
+            bVar.a(tbPageContext, getInnerParamPair(getParamStrBehindScheme(str)));
+            return 0;
+        }
+        for (a aVar : this.mListeners) {
+            if (aVar != null && (deal = aVar.deal(tbPageContext, strArr)) != 3) {
+                return deal;
+            }
+        }
+        return 3;
+    }
+
+    public boolean a(TbPageContext<?> tbPageContext, String str, String[] strArr, boolean z, d dVar, boolean z2) {
+        boolean z3;
+        boolean z4;
+        if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0])) {
+            return false;
+        }
+        String str2 = strArr[0];
+        b bVar = this.mHandlers.get(getSchemaKey(str2));
+        if (bVar != null) {
+            bVar.a(tbPageContext, getInnerParamPair(getParamStrBehindScheme(str2)));
+            return true;
+        }
+        if (com.baidu.adp.framework.a.b.HY.s("3001000") != null) {
+            for (String str3 : com.baidu.adp.framework.a.b.HY.s("3001000")) {
+                for (ArrayList<String> arrayList : com.baidu.adp.framework.a.b.HX.s(str3)) {
+                    Iterator<String> it = arrayList.iterator();
+                    while (it.hasNext()) {
+                        if (str2.contains(it.next())) {
+                            try {
+                                Class.forName(str3);
+                            } catch (Throwable th) {
+                                BdLog.e(th);
+                            }
                         }
-                    } else {
-                        return;
                     }
                 }
-                if (!linkedList.isEmpty()) {
-                    viewGroup = (ViewGroup) linkedList.removeFirst();
-                } else {
-                    return;
-                }
             }
         }
-    }
-
-    private static void processSkin0(ViewGroup viewGroup, final int i) {
-        final boolean z = i == 1 || i == 4;
-        a(viewGroup, true, new a() { // from class: com.baidu.tbadk.core.util.bc.1
-            @Override // com.baidu.tbadk.core.util.bc.a
-            public boolean onViewFound(View view) {
-                Object tag = view.getTag();
-                if (tag != null) {
-                    if ("skin_text_group".equals(tag)) {
-                        bc.setTextColor((TextView) view, i);
-                        return false;
-                    } else if ("skin_text_content".equals(tag)) {
-                        bc.setTextColor((TextView) view, i);
-                        return false;
-                    } else if ("skin_text_num".equals(tag)) {
-                        bc.setGroupTextColor((TextView) view, i);
-                        return false;
-                    } else if ("skin_check_box".equals(tag)) {
-                        bc.setTextColor((CheckBox) view, i);
-                        return false;
-                    } else if ("skin_sidebar_content".equals(tag)) {
-                        ((TextView) view).setTextAppearance(TbadkCoreApplication.getInst().getApp(), z ? R.style.sidebar_content_1 : R.style.sidebar_content);
-                        return false;
-                    } else if ("skin_more_up".equals(tag)) {
-                        if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bc.getCommonColor(z));
-                        }
-                        am.setBackgroundResource(view, R.drawable.more_up);
-                        return false;
-                    } else if ("skin_more_middle".equals(tag)) {
-                        if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bc.getCommonColor(z));
-                        }
-                        am.setBackgroundResource(view, R.drawable.more_middle);
-                        return false;
-                    } else if ("skin_more_down".equals(tag)) {
-                        if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bc.getCommonColor(z));
-                        }
-                        am.setBackgroundResource(view, R.drawable.more_down);
-                        return false;
-                    } else if ("skin_more_all".equals(tag)) {
-                        if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bc.getCommonColor(z));
-                        }
-                        am.setBackgroundResource(view, R.drawable.more_all);
-                        return false;
-                    } else if ("skin_arrow".equals(tag)) {
-                        am.setImageResource((ImageView) view, R.drawable.icon_ba_top_arrow_big);
-                        return false;
-                    } else if ("skin_list_line".equals(tag)) {
-                        bc.setSkinForListDivider(view, i);
-                        return false;
-                    } else {
-                        return false;
-                    }
-                }
-                return false;
+        Iterator<a> it2 = this.mListeners.iterator();
+        while (true) {
+            if (!it2.hasNext()) {
+                z3 = false;
+                break;
             }
-        });
-    }
-
-    public static void setSkinForListDivider(View view, int i) {
-        if (view != null) {
-            if (i == 1 || i == 4) {
-                view.setBackgroundColor(-14078923);
+            a next = it2.next();
+            if (next != null && next.deal(tbPageContext, strArr) != 3) {
+                z3 = true;
+                break;
+            }
+        }
+        if (!z3 && this.dVh != null) {
+            if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
+                z4 = true;
+            } else if (strArr.length > 1 && !StringUtils.isNull(strArr[1]) && "yun_push_tag".equals(strArr[1])) {
+                MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(tbPageContext.getPageActivity());
+                mainTabActivityConfig.setTargetScheme(strArr[0]);
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig));
+                z4 = z3;
             } else {
-                view.setBackgroundColor(-1183760);
+                b(tbPageContext, str, strArr[0], z, dVar, z2);
             }
+            return z4;
         }
+        z4 = z3;
+        return z4;
     }
 
-    @Deprecated
-    public static void skipToRegisterActivity(Context context) {
-        if (context != null) {
-            com.baidu.tbadk.core.d.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
-            skipToLoginActivity(context);
+    public static Map<String, String> getParamPair(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
         }
-    }
-
-    public static void skipToLoginActivity(Context context) {
-        if (context != null) {
-            com.baidu.tbadk.core.d.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, true)));
-        }
-    }
-
-    public static void q(Context context, String str, String str2) {
-        if (context != null) {
-            com.baidu.tbadk.core.d.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, true, str, str2)));
-        }
-    }
-
-    public static boolean checkUpIsLogin(Context context) {
-        boolean isLogin = TbadkCoreApplication.isLogin();
-        if (!isLogin) {
-            skipToLoginActivity(context);
-        }
-        return isLogin;
-    }
-
-    public static boolean r(Context context, String str, String str2) {
-        boolean isLogin = TbadkCoreApplication.isLogin();
-        if (!isLogin) {
-            q(context, str, str2);
-        }
-        return isLogin;
-    }
-
-    public static boolean a(LoginActivityConfig loginActivityConfig) {
-        boolean isLogin = TbadkCoreApplication.isLogin();
-        if (!isLogin) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, loginActivityConfig));
-        }
-        return isLogin;
-    }
-
-    public static void setGroupTextColor(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1 || i == 4) {
-                textView.setTextColor(-11446171);
-            } else {
-                textView.setTextColor(-5065030);
-            }
-        }
-    }
-
-    public static void setTextColor(TextView textView, int i) {
-        if (textView != null) {
-            textView.setTextColor(getCommonColor(i));
-        }
-    }
-
-    public static void setTextColor(CheckBox checkBox, int i) {
-        if (checkBox != null) {
-            checkBox.setTextColor(getCommonColor(i));
-        }
-    }
-
-    public static void addStateBarViewSpace(View view, int i, boolean z) {
-        if (view != null && view.getParent() != null) {
-            View view2 = (View) view.getParent().getParent();
-            if (view2 instanceof LinearLayout) {
-                LinearLayout linearLayout = (LinearLayout) view2;
-                linearLayout.setOrientation(1);
-                View view3 = new View(view.getContext());
-                if (z) {
-                    am.setBackgroundColor(view3, i);
-                } else {
-                    view3.setBackgroundResource(i);
+        HashMap hashMap = new HashMap();
+        String[] split = str.split("[&]");
+        if (split != null) {
+            for (String str2 : split) {
+                String[] split2 = str2.split("[=]");
+                if (split2.length > 1) {
+                    hashMap.put(split2[0], split2[1]);
                 }
-                linearLayout.addView(view3, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
+            }
+            return hashMap;
+        }
+        return null;
+    }
+
+    public static String getParamStr(String str) {
+        String[] split;
+        if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
+            return null;
+        }
+        return split[1];
+    }
+
+    public static String getParamStrBehindScheme(String str) {
+        if (StringUtils.isNull(str)) {
+            return null;
+        }
+        int lastIndexOf = str.lastIndexOf("://");
+        if (lastIndexOf < 0) {
+            int lastIndexOf2 = str.lastIndexOf(":");
+            if (lastIndexOf2 < 0 || lastIndexOf2 + 1 > str.length()) {
+                return null;
+            }
+            return str.substring(lastIndexOf2 + 1);
+        } else if (lastIndexOf + 3 <= str.length()) {
+            return str.substring(lastIndexOf + 3);
+        } else {
+            return null;
+        }
+    }
+
+    private Map<String, String> getInnerParamPair(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        HashMap hashMap = new HashMap();
+        String[] split = str.split("[&]");
+        if (split == null) {
+            String[] split2 = str.split("[=]");
+            if (split2.length > 1) {
+                hashMap.put(split2[0], split2[1]);
+                return hashMap;
+            }
+            hashMap.put(UrlManager.DEFAULT_PARAM, str);
+            return hashMap;
+        }
+        for (String str2 : split) {
+            String[] split3 = str2.split("[=]");
+            if (split3.length > 1) {
+                hashMap.put(split3[0], split3[1]);
             }
         }
+        return hashMap;
+    }
+
+    private String getSchemaKey(String str) {
+        if (StringUtils.isNull(str)) {
+            return null;
+        }
+        if (str.contains("://")) {
+            return str.substring(0, str.lastIndexOf("://") + 2);
+        }
+        if (str.contains(":")) {
+            return str.substring(0, str.lastIndexOf(":"));
+        }
+        return str;
+    }
+
+    public boolean b(TbPageContext<?> tbPageContext, String[] strArr) {
+        return a(tbPageContext, strArr, false, null, false);
+    }
+
+    public void a(TbPageContext<?> tbPageContext, String[] strArr, boolean z) {
+        a(tbPageContext, strArr, false, null, z);
+    }
+
+    public void a(TbPageContext<?> tbPageContext, String str, String[] strArr) {
+        a(tbPageContext, str, strArr, false, null, false);
+    }
+
+    private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
+        if (pattern.matcher(str2).find()) {
+            this.dVh.a(tbPageContext, str, str2, z, dVar, z2);
+        }
+    }
+
+    public void a(String str, b bVar) {
+        if (!StringUtils.isNull(str) && bVar != null) {
+            String schemaKey = getSchemaKey(str);
+            if (!StringUtils.isNull(schemaKey)) {
+                this.mHandlers.put(schemaKey, bVar);
+            }
+        }
+    }
+
+    public boolean UrlValidated(String str) {
+        return pattern.matcher(str).find();
+    }
+
+    public boolean j(CharSequence charSequence) {
+        if (charSequence == null) {
+            return false;
+        }
+        return au.WEB_URL.matcher(charSequence).matches();
+    }
+
+    public boolean k(CharSequence charSequence) {
+        if (charSequence == null) {
+            return false;
+        }
+        return au.dVd.matcher(charSequence).find();
+    }
+
+    public String wO(String str) {
+        if (!k(str)) {
+            return null;
+        }
+        String[] split = str.split("\\?");
+        if (split != null && split[0] != null) {
+            str = split[0];
+        }
+        String[] split2 = str.split("/");
+        return split2[split2.length - 1];
+    }
+
+    public boolean l(CharSequence charSequence) {
+        if (charSequence == null) {
+            return false;
+        }
+        return au.dVc.matcher(charSequence).find();
     }
 }

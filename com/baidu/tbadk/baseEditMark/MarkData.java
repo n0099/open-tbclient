@@ -7,7 +7,7 @@ import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -59,7 +59,7 @@ public class MarkData implements Serializable {
     }
 
     public String getAuthorName() {
-        return !aq.isEmpty(this.mAuthorName) ? this.mAuthorName : this.mUserName;
+        return !ar.isEmpty(this.mAuthorName) ? this.mAuthorName : this.mUserName;
     }
 
     public void setAuthorName(String str) {
@@ -340,9 +340,9 @@ public class MarkData implements Serializable {
             JSONArray optJSONArray = jSONObject.optJSONArray("media");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 String optString = optJSONArray.getJSONObject(0).optString("type");
-                if (aq.equals(optString, UgcUBCUtils.UGC_TYPE_PIC_BTN)) {
+                if (ar.equals(optString, UgcUBCUtils.UGC_TYPE_PIC_BTN)) {
                     this.pic_url = optJSONArray.getJSONObject(0).optString("small_pic");
-                } else if (aq.equals(optString, "flash")) {
+                } else if (ar.equals(optString, "flash")) {
                     this.pic_url = optJSONArray.getJSONObject(0).optString("vpic");
                 }
             }
@@ -361,7 +361,7 @@ public class MarkData implements Serializable {
                 builder.auth_desc = optJSONObject2.optString("auth_desc");
                 this.metaData.setBaijiahaoInfo(builder.build(false));
             }
-            if (aq.isEmpty(this.portrait)) {
+            if (ar.isEmpty(this.portrait)) {
                 this.metaData.setPortrait("null");
             } else {
                 this.metaData.setPortrait(this.portrait);

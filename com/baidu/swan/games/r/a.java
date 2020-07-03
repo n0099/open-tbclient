@@ -12,11 +12,11 @@ public class a extends com.baidu.swan.games.bdtls.b.a {
             Log.d("requestWithUrlAndBody", "url:" + str + "\nbody:" + str2);
         }
         if (!TextUtils.isEmpty(str)) {
-            if (com.baidu.swan.games.bdtls.c.axL().isEnable() && com.baidu.swan.games.bdtls.c.axL().rg(str)) {
+            if (com.baidu.swan.games.bdtls.c.ayR().isEnable() && com.baidu.swan.games.bdtls.c.ayR().ro(str)) {
                 b(str, str2, responseCallback);
                 return;
             }
-            com.baidu.swan.c.c.a.aFx().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.afo().SM()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
+            com.baidu.swan.c.c.a.aGD().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.agu().TS()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
         }
     }
 }

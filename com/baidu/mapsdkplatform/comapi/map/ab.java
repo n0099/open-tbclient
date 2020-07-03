@@ -74,13 +74,13 @@ public class ab {
         bundle.putDouble("centerpty", this.e);
         bundle.putInt("left", this.j.left);
         bundle.putInt(HorizontalTranslateLayout.DIRECTION_RIGHT, this.j.right);
-        bundle.putInt(VerticalTranslateLayout.TOP, this.j.f989top);
+        bundle.putInt(VerticalTranslateLayout.TOP, this.j.f994top);
         bundle.putInt(VerticalTranslateLayout.BOTTOM, this.j.bottom);
         if (this.f >= 0 && this.g >= 0 && this.f <= this.j.right && this.g <= this.j.bottom && this.j.right > 0 && this.j.bottom > 0) {
             int i = this.f - ((this.j.right - this.j.left) / 2);
             int i2 = this.g;
             this.h = i;
-            this.i = -(i2 - ((this.j.bottom - this.j.f989top) / 2));
+            this.i = -(i2 - ((this.j.bottom - this.j.f994top) / 2));
             bundle.putLong("xoffset", this.h);
             bundle.putLong("yoffset", this.i);
         }
@@ -111,14 +111,14 @@ public class ab {
         this.e = bundle.getDouble("centerpty");
         this.j.left = bundle.getInt("left");
         this.j.right = bundle.getInt(HorizontalTranslateLayout.DIRECTION_RIGHT);
-        this.j.f989top = bundle.getInt(VerticalTranslateLayout.TOP);
+        this.j.f994top = bundle.getInt(VerticalTranslateLayout.TOP);
         this.j.bottom = bundle.getInt(VerticalTranslateLayout.BOTTOM);
         this.h = bundle.getLong("xoffset");
         this.i = bundle.getLong("yoffset");
         if (this.j.right != 0 && this.j.bottom != 0) {
             int i = (int) (-this.i);
             this.f = ((this.j.right - this.j.left) / 2) + ((int) this.h);
-            this.g = i + ((this.j.bottom - this.j.f989top) / 2);
+            this.g = i + ((this.j.bottom - this.j.f994top) / 2);
         }
         this.k.a = bundle.getLong("gleft");
         this.k.b = bundle.getLong("gright");

@@ -14,6 +14,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
+    public static int B(int i) {
+        switch (i) {
+            case -90:
+                return 3;
+            case 0:
+                return 0;
+            case 90:
+                return 1;
+            case 180:
+                return 2;
+            default:
+                return -1;
+        }
+    }
+
     public static int a(String str, String str2, String str3, String str4) {
         if (TextUtils.isEmpty(str) || str.equals(str4)) {
             return 0;
@@ -24,7 +39,7 @@ public class b {
         return str.equals(str2) ? 2 : 0;
     }
 
-    public static boolean a(String str, String str2, String str3, String[] strArr, String str4, String str5, String str6) {
+    public static boolean a(String str, String str2, String str3, String[] strArr, String str4, String str5, String str6, String str7) {
         if (str == null) {
             com.baidu.ar.f.b.b("bdar-face", "error: imbinModelPath is null!");
             return true;
@@ -41,9 +56,12 @@ public class b {
             com.baidu.ar.f.b.b("bdar-face", "error: trackPath2 is null!");
             return true;
         } else if (str5 == null) {
-            com.baidu.ar.f.b.b("bdar-face", "error: expressionModelPath is null!");
+            com.baidu.ar.f.b.b("bdar-face", "error: trackPath3 is null!");
             return true;
         } else if (str6 == null) {
+            com.baidu.ar.f.b.b("bdar-face", "error: expressionModelPath is null!");
+            return true;
+        } else if (str7 == null) {
             com.baidu.ar.f.b.b("bdar-face", "error: mouthModelPath is null!");
             return true;
         } else {
@@ -121,39 +139,13 @@ public class b {
         }
     }
 
-    public static boolean c(String str, boolean z) {
-        try {
-            String string = new JSONObject(str).getString("assetAttributes");
-            if (TextUtils.isEmpty(string)) {
-                return true;
-            }
-            return new JSONObject(string).getBoolean("needSkeleton");
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return z;
-        }
-    }
-
-    public static boolean d(String str, boolean z) {
-        try {
-            String string = new JSONObject(str).getString("assetAttributes");
-            if (TextUtils.isEmpty(string)) {
-                return true;
-            }
-            return new JSONObject(string).getBoolean("needTriggers");
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return z;
-        }
-    }
-
-    public static FaceResultData e(h hVar) {
+    public static FaceResultData c(h hVar) {
         FaceResultData faceResultData = new FaceResultData();
         faceResultData.setTimestamp(hVar.getTimestamp());
         faceResultData.setTracked(hVar.isTracked());
         faceResultData.setFrontCamera(hVar.isFrontCamera());
-        if (hVar.cN() != null && hVar.cN().getFaceFrame() != null) {
-            FaceFrame faceFrame = hVar.cN().getFaceFrame();
+        if (hVar.dc() != null && hVar.dc().getFaceFrame() != null) {
+            FaceFrame faceFrame = hVar.dc().getFaceFrame();
             if (faceFrame.getFaceBoxes() != null && faceFrame.getFaceBoxes().size() > 0) {
                 List<FAUFaceBox> faceBoxes = faceFrame.getFaceBoxes();
                 float[] fArr = new float[faceBoxes.size() * 4];
@@ -183,6 +175,32 @@ public class b {
             }
         }
         return faceResultData;
+    }
+
+    public static boolean c(String str, boolean z) {
+        try {
+            String string = new JSONObject(str).getString("assetAttributes");
+            if (TextUtils.isEmpty(string)) {
+                return true;
+            }
+            return new JSONObject(string).getBoolean("needSkeleton");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return z;
+        }
+    }
+
+    public static boolean d(String str, boolean z) {
+        try {
+            String string = new JSONObject(str).getString("assetAttributes");
+            if (TextUtils.isEmpty(string)) {
+                return true;
+            }
+            return new JSONObject(string).getBoolean("needTriggers");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return z;
+        }
     }
 
     public static boolean e(String str, boolean z) {
@@ -228,36 +246,36 @@ public class b {
         String str = (String) hashMap.get("ability_name");
         String str2 = (String) hashMap.get("param_name");
         if ("ability_operation".equals((String) hashMap.get(LuaMessageHelper.KEY_EVENT_NAME)) && "ability_face_model".equals(str)) {
-            com.baidu.ar.f.b.aJ("bdar-face lua message:" + hashMap.toString());
+            com.baidu.ar.f.b.aK("bdar-face lua message:" + hashMap.toString());
             if ("face_model".equals(str2)) {
                 String str3 = (String) hashMap.get("param_value");
                 if ("v3".equals(str3) || "model_for_makeup".equals(str3)) {
-                    com.baidu.ar.face.a.a.cE().x(2);
-                    com.baidu.ar.face.a.a.cE().a(0.01f, 1.0f);
-                    com.baidu.ar.face.a.a.cE().c(0.1f);
+                    com.baidu.ar.face.a.a.cT().C(2);
+                    com.baidu.ar.face.a.a.cT().a(0.01f, 1.0f);
+                    com.baidu.ar.face.a.a.cT().e(0.1f);
                     return 2;
                 } else if ("v6".equals(str3)) {
-                    com.baidu.ar.face.a.a.cE().x(0);
-                    com.baidu.ar.face.a.a.cE().a(0.01f, 1.0f);
-                    com.baidu.ar.face.a.a.cE().c(0.1f);
+                    com.baidu.ar.face.a.a.cT().C(0);
+                    com.baidu.ar.face.a.a.cT().a(0.01f, 1.0f);
+                    com.baidu.ar.face.a.a.cT().e(0.1f);
                     return 0;
                 }
             } else if ("need_refine_eyes".equals(str2)) {
-                com.baidu.ar.face.a.a.cE().z(((Float) hashMap.get("param_value")).floatValue() == 1.0f);
+                com.baidu.ar.face.a.a.cT().y(((Float) hashMap.get("param_value")).floatValue() == 1.0f);
             } else if ("need_refine_mouth".equals(str2)) {
-                com.baidu.ar.face.a.a.cE().B(((Float) hashMap.get("param_value")).floatValue() == 1.0f);
+                com.baidu.ar.face.a.a.cT().A(((Float) hashMap.get("param_value")).floatValue() == 1.0f);
             } else if ("need_head_pose".equals(str2)) {
-                com.baidu.ar.face.a.a.cE().setNeedHeadPose(((Float) hashMap.get("param_value")).floatValue() == 1.0f);
+                com.baidu.ar.face.a.a.cT().setNeedHeadPose(((Float) hashMap.get("param_value")).floatValue() == 1.0f);
             } else if ("need_skeleton".equals(str2)) {
-                com.baidu.ar.face.a.a.cE().setNeedSkeleton(((Float) hashMap.get("param_value")).floatValue() == 1.0f);
+                com.baidu.ar.face.a.a.cT().setNeedSkeleton(((Float) hashMap.get("param_value")).floatValue() == 1.0f);
             } else if ("need_triggers".equals(str2)) {
-                com.baidu.ar.face.a.a.cE().setNeedTriggers(((Float) hashMap.get("param_value")).floatValue() == 1.0f);
+                com.baidu.ar.face.a.a.cT().setNeedTriggers(((Float) hashMap.get("param_value")).floatValue() == 1.0f);
             } else if ("need_expression".equals(str2)) {
-                com.baidu.ar.face.a.a.cE().C(((Float) hashMap.get("param_value")).floatValue() == 1.0f);
+                com.baidu.ar.face.a.a.cT().B(((Float) hashMap.get("param_value")).floatValue() == 1.0f);
             } else if ("need_dumoji".equals(str2)) {
-                com.baidu.ar.face.a.a.cE().A(((Float) hashMap.get("param_value")).floatValue() == 1.0f);
+                com.baidu.ar.face.a.a.cT().z(((Float) hashMap.get("param_value")).floatValue() == 1.0f);
             } else if ("prefer_max_face_count".equals(str2)) {
-                com.baidu.ar.face.a.a.cE().y((int) ((Float) hashMap.get("param_value")).floatValue());
+                com.baidu.ar.face.a.a.cT().D((int) ((Float) hashMap.get("param_value")).floatValue());
             }
         }
         return -1;

@@ -7,12 +7,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes7.dex */
 final class b {
-    private static final b yO = new b();
-    private final ExecutorService yP;
-    private final ScheduledExecutorService yQ;
-    private final Executor yR;
+    private static final b zo = new b();
+    private final ExecutorService zp;
+    private final ScheduledExecutorService zq;
+    private final Executor zr;
 
-    private static boolean gk() {
+    private static boolean gA() {
         String property = System.getProperty("java.runtime.name");
         if (property == null) {
             return false;
@@ -21,48 +21,48 @@ final class b {
     }
 
     private b() {
-        this.yP = !gk() ? Executors.newCachedThreadPool() : bolts.a.gi();
-        this.yQ = Executors.newSingleThreadScheduledExecutor();
-        this.yR = new a();
+        this.zp = !gA() ? Executors.newCachedThreadPool() : bolts.a.gy();
+        this.zq = Executors.newSingleThreadScheduledExecutor();
+        this.zr = new a();
     }
 
-    public static ExecutorService gl() {
-        return yO.yP;
+    public static ExecutorService gB() {
+        return zo.zp;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static Executor gm() {
-        return yO.yR;
+    public static Executor gC() {
+        return zo.zr;
     }
 
     /* loaded from: classes7.dex */
     private static class a implements Executor {
-        private ThreadLocal<Integer> yS;
+        private ThreadLocal<Integer> zs;
 
         private a() {
-            this.yS = new ThreadLocal<>();
+            this.zs = new ThreadLocal<>();
         }
 
-        private int gn() {
-            Integer num = this.yS.get();
+        private int gD() {
+            Integer num = this.zs.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() + 1;
-            this.yS.set(Integer.valueOf(intValue));
+            this.zs.set(Integer.valueOf(intValue));
             return intValue;
         }
 
-        private int go() {
-            Integer num = this.yS.get();
+        private int gE() {
+            Integer num = this.zs.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() - 1;
             if (intValue == 0) {
-                this.yS.remove();
+                this.zs.remove();
             } else {
-                this.yS.set(Integer.valueOf(intValue));
+                this.zs.set(Integer.valueOf(intValue));
             }
             return intValue;
         }
@@ -70,13 +70,13 @@ final class b {
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
             try {
-                if (gn() <= 15) {
+                if (gD() <= 15) {
                     runnable.run();
                 } else {
-                    b.gl().execute(runnable);
+                    b.gB().execute(runnable);
                 }
             } finally {
-                go();
+                gE();
             }
         }
     }

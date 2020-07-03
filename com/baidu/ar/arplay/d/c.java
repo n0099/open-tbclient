@@ -7,61 +7,61 @@ import android.view.Surface;
 /* loaded from: classes3.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private SurfaceTexture dK;
-    private Surface gJ;
-    private Canvas gK;
+    private SurfaceTexture dW;
+    private Surface gV;
+    private Canvas gW;
     public int mTextureId;
-    private int gH = 500;
-    private int gI = 500;
-    private boolean gL = true;
+    private int gT = 500;
+    private int gU = 500;
+    private boolean gX = true;
 
     public Surface a(int i, int i2, int i3) {
         this.mTextureId = i;
-        this.dK = new SurfaceTexture(i);
+        this.dW = new SurfaceTexture(i);
         f(i2, i3);
-        this.gJ = new Surface(this.dK);
-        return this.gJ;
+        this.gV = new Surface(this.dW);
+        return this.gV;
     }
 
-    public void aV() {
-        if (this.gK != null) {
-            this.gJ.unlockCanvasAndPost(this.gK);
+    public void bj() {
+        if (this.gW != null) {
+            this.gV.unlockCanvasAndPost(this.gW);
         }
-        this.gK = null;
+        this.gW = null;
     }
 
     public void f(int i, int i2) {
-        this.gH = i;
-        this.gI = i2;
-        this.dK.setDefaultBufferSize(this.gH, this.gI);
+        this.gT = i;
+        this.gU = i2;
+        this.dW.setDefaultBufferSize(this.gT, this.gU);
     }
 
     public Canvas lockCanvas() {
-        this.gK = null;
-        if (this.gJ != null) {
+        this.gW = null;
+        if (this.gV != null) {
             try {
-                this.gK = this.gJ.lockCanvas(null);
+                this.gW = this.gV.lockCanvas(null);
             } catch (Exception e) {
                 Log.e(TAG, "error while rendering view to gl: " + e);
             }
         }
-        return this.gK;
+        return this.gW;
     }
 
     public void release() {
-        if (this.gJ != null) {
-            this.gJ.release();
+        if (this.gV != null) {
+            this.gV.release();
         }
-        if (this.dK != null) {
-            this.dK.release();
+        if (this.dW != null) {
+            this.dW.release();
         }
-        this.gJ = null;
-        this.dK = null;
+        this.gV = null;
+        this.dW = null;
     }
 
     public void update() {
         try {
-            this.dK.updateTexImage();
+            this.dW.updateTexImage();
         } catch (Exception e) {
             Log.e(TAG, "error while update view to gl: " + e);
         }

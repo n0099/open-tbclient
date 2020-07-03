@@ -5,19 +5,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class g {
-    private HashMap<String, h> cXT = new HashMap<>();
+    private HashMap<String, h> dcG = new HashMap<>();
 
-    public ArrayList<h> y(String... strArr) {
+    public ArrayList<h> x(String... strArr) {
         ArrayList<h> arrayList = null;
         if (strArr != null && strArr.length != 0) {
             for (String str : strArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    for (String str2 : this.cXT.keySet()) {
+                    for (String str2 : this.dcG.keySet()) {
                         if (str2.startsWith(str) || str.startsWith(str2)) {
                             if (arrayList == null) {
                                 arrayList = new ArrayList<>();
                             }
-                            arrayList.add(this.cXT.get(str2));
+                            arrayList.add(this.dcG.get(str2));
                         }
                     }
                 }
@@ -30,7 +30,7 @@ public class g {
         if (strArr != null && strArr.length != 0) {
             for (String str : strArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    this.cXT.put(str, hVar);
+                    this.dcG.put(str, hVar);
                 }
             }
         }
@@ -39,14 +39,14 @@ public class g {
     public void b(h hVar, String... strArr) {
         if (strArr != null && strArr.length != 0) {
             for (String str : strArr) {
-                if (!TextUtils.isEmpty(str) && this.cXT.get(str) == hVar) {
-                    this.cXT.remove(str);
+                if (!TextUtils.isEmpty(str) && this.dcG.get(str) == hVar) {
+                    this.dcG.remove(str);
                 }
             }
         }
     }
 
-    public void azQ() {
-        this.cXT.clear();
+    public void aAW() {
+        this.dcG.clear();
     }
 }

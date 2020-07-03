@@ -13,8 +13,8 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private HashMap<Integer, float[]> mD = new HashMap<>();
-    private boolean mE = false;
+    private HashMap<Integer, float[]> na = new HashMap<>();
+    private boolean nb = false;
 
     private static float[] a(ByteBuffer byteBuffer, FAUFaceBox fAUFaceBox, int i, int i2) {
         float[] fArr = new float[2];
@@ -24,8 +24,8 @@ public class a {
         return null;
     }
 
-    private boolean f(h hVar) {
-        if (this.mE) {
+    private boolean d(h hVar) {
+        if (this.nb) {
             if (hVar.isTracked()) {
                 return true;
             }
@@ -36,9 +36,9 @@ public class a {
     }
 
     public void a(h hVar, FaceResultData faceResultData, int i, int i2) {
-        if (f(hVar)) {
-            FaceAlgoData cN = hVar.cN();
-            FaceFrame faceFrame = cN == null ? null : cN.getFaceFrame();
+        if (d(hVar)) {
+            FaceAlgoData dc = hVar.dc();
+            FaceFrame faceFrame = dc == null ? null : dc.getFaceFrame();
             if (faceFrame == null) {
                 b.c("FaceAttributesManager", "faceFrame == null.");
                 return;
@@ -51,16 +51,16 @@ public class a {
             }
             faceResultData.setFaceIds(faceIDList);
             int i3 = faceIDList[0];
-            float[] fArr = this.mD.get(Integer.valueOf(i3));
+            float[] fArr = this.na.get(Integer.valueOf(i3));
             if (fArr != null) {
                 faceResultData.setGenders(fArr);
                 return;
             }
-            float[] a = a(hVar.cM(), faceBoxes.get(0), i, i2);
-            if (a == null || !this.mE) {
+            float[] a = a(hVar.db(), faceBoxes.get(0), i, i2);
+            if (a == null || !this.nb) {
                 return;
             }
-            this.mD.put(Integer.valueOf(i3), a);
+            this.na.put(Integer.valueOf(i3), a);
             faceResultData.setGenders(a);
         }
     }
@@ -70,10 +70,10 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             b.b("FaceAttributesManager", "gender model path is empty.");
             return -1;
-        } else if (this.mE) {
+        } else if (this.nb) {
             return 0;
         } else {
-            if (FaceAttributesJni.mC) {
+            if (FaceAttributesJni.mZ) {
                 if (str.startsWith("file:///android_asset/")) {
                     String replace = str.replace("file:///android_asset/", "");
                     FaceAttributesJni.setAssetManager(context.getAssets());
@@ -81,7 +81,7 @@ public class a {
                 } else {
                     initGenderDetect = FaceAttributesJni.initGenderDetect(str);
                 }
-                this.mE = initGenderDetect == 0;
+                this.nb = initGenderDetect == 0;
                 return initGenderDetect;
             }
             return -1;
@@ -89,8 +89,8 @@ public class a {
     }
 
     public void release() {
-        if (this.mE) {
-            this.mE = false;
+        if (this.nb) {
+            this.nb = false;
             FaceAttributesJni.releaseGenderDetect();
         }
     }

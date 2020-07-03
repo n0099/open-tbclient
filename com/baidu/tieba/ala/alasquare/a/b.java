@@ -2,9 +2,9 @@ package com.baidu.tieba.ala.alasquare.a;
 
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -14,29 +14,29 @@ import tbclient.LiveSquare.HotLiveWithCategory;
 import tbclient.ThreadInfo;
 /* loaded from: classes3.dex */
 public class b {
-    public static Pair<List<o>, List<o>> e(String str, List<com.baidu.tieba.ala.alasquare.live.b.a> list) {
-        if (v.isEmpty(list)) {
+    public static Pair<List<q>, List<q>> e(String str, List<com.baidu.tieba.ala.alasquare.live.b.a> list) {
+        if (w.isEmpty(list)) {
             return null;
         }
         LinkedList linkedList = new LinkedList();
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (com.baidu.tieba.ala.alasquare.live.b.a aVar : list) {
-            if (aVar == null || v.isEmpty(aVar.live)) {
+            if (aVar == null || w.isEmpty(aVar.live)) {
                 arrayList2.add(aVar);
             } else {
-                List<o> b = b(aVar);
+                List<q> b = b(aVar);
                 String str2 = aVar.entry_name;
-                if (v.isEmpty(b) || b.size() < 2 || TextUtils.isEmpty(str2)) {
+                if (w.isEmpty(b) || b.size() < 2 || TextUtils.isEmpty(str2)) {
                     arrayList2.add(aVar);
                 } else {
                     com.baidu.tieba.ala.alasquare.live.b.b bVar = new com.baidu.tieba.ala.alasquare.live.b.b();
-                    bVar.tabId = aVar.fbf;
+                    bVar.tabId = aVar.fmp;
                     bVar.entryName = str2;
                     bVar.labelName = aVar.label_name;
                     bVar.bitmapRatio = aVar.bitmap_wh_ratio;
-                    bVar.categoryType = aVar.fbg;
-                    bVar.fbh = aVar.fbh;
+                    bVar.categoryType = aVar.fmq;
+                    bVar.fmr = aVar.fmr;
                     linkedList.add(bVar);
                     int size = b.size();
                     int i = size % 2 != 0 ? size - 1 : size;
@@ -46,8 +46,8 @@ public class b {
                             com.baidu.tieba.ala.alasquare.subtablist.b.b bVar2 = new com.baidu.tieba.ala.alasquare.subtablist.b.b();
                             c cVar = (c) b.get(i2);
                             c cVar2 = (c) b.get(i2 + 1);
-                            bVar2.fcY = cVar;
-                            bVar2.fcZ = cVar2;
+                            bVar2.foi = cVar;
+                            bVar2.foj = cVar2;
                             arrayList.add(cVar);
                             arrayList.add(cVar2);
                             linkedList.add(bVar2);
@@ -55,8 +55,8 @@ public class b {
                             com.baidu.tieba.ala.alasquare.subtablist.b.a aVar2 = new com.baidu.tieba.ala.alasquare.subtablist.b.a();
                             c cVar3 = (c) b.get(i2);
                             c cVar4 = (c) b.get(i2 + 1);
-                            aVar2.fcY = cVar3;
-                            aVar2.fcZ = cVar4;
+                            aVar2.foi = cVar3;
+                            aVar2.foj = cVar4;
                             arrayList.add(cVar3);
                             arrayList.add(cVar4);
                             linkedList.add(aVar2);
@@ -76,7 +76,7 @@ public class b {
         if (list2 != null && !list2.isEmpty()) {
             LinkedList linkedList = new LinkedList();
             for (com.baidu.tieba.ala.alasquare.live.b.a aVar : list2) {
-                if (aVar != null && !v.isEmpty(aVar.live) && !TextUtils.isEmpty(aVar.entry_name)) {
+                if (aVar != null && !w.isEmpty(aVar.live) && !TextUtils.isEmpty(aVar.entry_name)) {
                     if (z) {
                         if (!a(aVar, list)) {
                             linkedList.add(aVar);
@@ -95,19 +95,19 @@ public class b {
     }
 
     private static boolean a(com.baidu.tieba.ala.alasquare.live.b.a aVar, List<com.baidu.tieba.ala.alasquare.live.b.a> list) {
-        if (aVar == null || v.isEmpty(list)) {
+        if (aVar == null || w.isEmpty(list)) {
             return false;
         }
         for (com.baidu.tieba.ala.alasquare.live.b.a aVar2 : list) {
-            if (aVar.fbf == aVar2.fbf && aVar.entry_name.equals(aVar2.entry_name) && aVar.label_name.equals(aVar2.label_name)) {
+            if (aVar.fmp == aVar2.fmp && aVar.entry_name.equals(aVar2.entry_name) && aVar.label_name.equals(aVar2.label_name)) {
                 return true;
             }
         }
         return false;
     }
 
-    public static List<com.baidu.tieba.ala.alasquare.live.b.a> bi(List<HotLiveWithCategory> list) {
-        if (v.isEmpty(list)) {
+    public static List<com.baidu.tieba.ala.alasquare.live.b.a> bs(List<HotLiveWithCategory> list) {
+        if (w.isEmpty(list)) {
             return new LinkedList();
         }
         ArrayList arrayList = new ArrayList(list.size());
@@ -121,7 +121,7 @@ public class b {
 
     private static String a(com.baidu.tieba.ala.alasquare.live.b.a aVar) {
         StringBuilder sb = new StringBuilder();
-        sb.append(aVar.fbf + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        sb.append(aVar.fmp + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         sb.append(aVar.entry_name + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         sb.append(aVar.label_name);
         return sb.toString();
@@ -129,7 +129,7 @@ public class b {
 
     public static void a(List<com.baidu.tieba.ala.alasquare.live.b.a> list, List<com.baidu.tieba.ala.alasquare.live.b.a> list2, List<Long> list3) {
         ThreadInfo threadInfo;
-        if (!v.isEmpty(list2)) {
+        if (!w.isEmpty(list2)) {
             HashMap hashMap = new HashMap(list2.size());
             for (com.baidu.tieba.ala.alasquare.live.b.a aVar : list2) {
                 if (aVar != null) {
@@ -137,7 +137,7 @@ public class b {
                 }
             }
             for (com.baidu.tieba.ala.alasquare.live.b.a aVar2 : list) {
-                if (aVar2 != null && !v.isEmpty(aVar2.live)) {
+                if (aVar2 != null && !w.isEmpty(aVar2.live)) {
                     ArrayList<Integer> arrayList = new ArrayList();
                     ArrayList arrayList2 = new ArrayList();
                     int i = 0;
@@ -156,9 +156,9 @@ public class b {
                         }
                         i = i2 + 1;
                     }
-                    if (!v.isEmpty(arrayList)) {
+                    if (!w.isEmpty(arrayList)) {
                         List list4 = (List) hashMap.get(a(aVar2));
-                        if (!v.isEmpty(list4)) {
+                        if (!w.isEmpty(list4)) {
                             ArrayList arrayList3 = new ArrayList();
                             for (Integer num : arrayList) {
                                 int intValue = num.intValue();
@@ -189,13 +189,13 @@ public class b {
         }
     }
 
-    private static List<o> b(com.baidu.tieba.ala.alasquare.live.b.a aVar) {
+    private static List<q> b(com.baidu.tieba.ala.alasquare.live.b.a aVar) {
         List<ThreadInfo> list = aVar.live;
         ArrayList arrayList = new ArrayList(list.size());
         for (ThreadInfo threadInfo : list) {
             if (threadInfo != null && threadInfo.thread_type.intValue() == 49) {
                 c cVar = new c();
-                cVar.tabId = aVar.fbf;
+                cVar.tabId = aVar.fmp;
                 cVar.entryName = aVar.entry_name;
                 cVar.labelName = aVar.label_name;
                 cVar.a(threadInfo);

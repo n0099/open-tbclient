@@ -31,19 +31,19 @@ public class a extends aa {
                 if (TextUtils.isEmpty(optString)) {
                     showToast(a.h.aiapps_debug_swan_core_url_empty);
                 } else {
-                    b.acL();
+                    b.adR();
                     e.c cVar = new e.c();
                     cVar.mDownloadUrl = ad(context, optString);
-                    new com.baidu.swan.apps.k.a().a(cVar, b.acM().getPath(), new e.b() { // from class: com.baidu.swan.games.e.a.1
+                    new com.baidu.swan.apps.k.a().a(cVar, b.adS().getPath(), new e.b() { // from class: com.baidu.swan.games.e.a.1
                         @Override // com.baidu.swan.apps.r.e.b
-                        public void dt(int i) {
+                        public void dE(int i) {
                         }
 
                         @Override // com.baidu.swan.apps.r.e.b
                         public void onSuccess() {
-                            File acM = b.acM();
-                            File acK = b.acK();
-                            if (!acM.exists() || !d.unzipFile(acM.getPath(), acK.getPath())) {
+                            File adS = b.adS();
+                            File adQ = b.adQ();
+                            if (!adS.exists() || !d.unzipFile(adS.getPath(), adQ.getPath())) {
                                 a.this.showToast(a.h.swangame_dashboard_download_failed);
                             } else {
                                 a.this.showToast(a.h.swangame_dashboard_download_success);
@@ -62,11 +62,11 @@ public class a extends aa {
     }
 
     private String ad(Context context, String str) {
-        return str + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "cuid" + ETAG.EQUAL + new String(com.baidu.swan.games.m.a.aAP().h("BASE64", (com.baidu.swan.apps.u.a.aeW().bc(context) + "\u0000\u0000").getBytes()));
+        return str + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "cuid" + ETAG.EQUAL + new String(com.baidu.swan.games.m.a.aBV().h("BASE64", (com.baidu.swan.apps.u.a.agc().bd(context) + "\u0000\u0000").getBytes()));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showToast(int i) {
-        Toast.makeText(com.baidu.swan.apps.u.a.aeR(), i, 1).show();
+        Toast.makeText(com.baidu.swan.apps.u.a.afX(), i, 1).show();
     }
 }

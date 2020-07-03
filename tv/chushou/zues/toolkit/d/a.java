@@ -35,7 +35,7 @@ public final class a extends Animation {
         PROXIES = new WeakHashMap<>();
     }
 
-    public static a dv(View view) {
+    public static a dw(View view) {
         a aVar = PROXIES.get(view);
         if (aVar == null || aVar != view.getAnimation()) {
             a aVar2 = new a(view);

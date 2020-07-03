@@ -7,24 +7,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f {
-    private final Set<String> dna;
+    private final Set<String> drM;
     private final String mVersion;
 
     public f(String str, Set<String> set) {
         this.mVersion = str;
-        this.dna = set;
+        this.drM = set;
     }
 
     public String getVersion() {
         return this.mVersion;
     }
 
-    public Set<String> aHi() {
-        return this.dna;
+    public Set<String> aIo() {
+        return this.drM;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static f ci(JSONObject jSONObject) {
+    public static f cp(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("version");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");

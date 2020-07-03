@@ -7,20 +7,20 @@ import com.baidu.swan.e.d;
 import java.io.File;
 /* loaded from: classes11.dex */
 public class a {
-    public static File ceV = e.aeI();
-    public static String ceW = "swan_core";
-    public static String ceX = "extension_core";
-    public static String ceY = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
-    public static String ceZ = "cloneFolder_";
-    public static String cfa = ceY + File.separator + ceZ;
-    public static String cfb = "clone_pkg_folder";
-    public static String cfc = "clone_core_folder";
-    public static String cfd = "clone_sp_folder";
-    public static String cfe = "clone_db_folder";
-    public static String cff = "cloneZip.zip";
+    public static File cjJ = e.afO();
+    public static String cjK = "swan_core";
+    public static String cjL = "extension_core";
+    public static String cjM = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
+    public static String cjN = "cloneFolder_";
+    public static String cjO = cjM + File.separator + cjN;
+    public static String cjP = "clone_pkg_folder";
+    public static String cjQ = "clone_core_folder";
+    public static String cjR = "clone_sp_folder";
+    public static String cjS = "clone_db_folder";
+    public static String cjT = "cloneZip.zip";
 
-    public static File aej() {
-        File file = new File(b.arw());
+    public static File afp() {
+        File file = new File(b.asD());
         if (d.ensureDirectoryExist(file)) {
             return file;
         }

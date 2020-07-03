@@ -28,37 +28,37 @@ public class w implements Runnable {
         Context context5;
         File file = null;
         try {
-            context = this.a.f82a;
+            context = this.a.f88a;
             a = s.a(context).a();
         } catch (IOException e) {
             e = e;
         } catch (Throwable th) {
         }
         if (a == null || a.size() < 1) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("no crash file to upload");
+            com.xiaomi.channel.commonutils.logger.b.m48a("no crash file to upload");
             return;
         }
-        context2 = this.a.f82a;
+        context2 = this.a.f88a;
         HashMap<String, String> a2 = ac.a(context2, "C100000");
         int i = 0;
         File file2 = null;
         while (i < a.size()) {
             try {
                 File file3 = a.get(i);
-                context3 = this.a.f82a;
+                context3 = this.a.f88a;
                 String a3 = s.a(context3).a(file3);
                 StringBuilder sb = new StringBuilder();
-                context4 = this.a.f82a;
+                context4 = this.a.f88a;
                 File file4 = new File(sb.append(context4.getFilesDir()).append("/crash").append("/").append(file3.getName()).append(".zip").toString());
                 com.xiaomi.push.y.a(file4, file3);
                 if (file4.exists()) {
                     az.a("https://api.xmpush.xiaomi.com/upload/crash_log?file=" + file4.getName(), a2, file4, "file");
                     StringBuilder sb2 = new StringBuilder();
-                    context5 = this.a.f82a;
+                    context5 = this.a.f88a;
                     file3.renameTo(new File(sb2.append(context5.getFilesDir()).append("/crash").toString(), a3 + ":0"));
                     this.a.b();
                 } else {
-                    com.xiaomi.channel.commonutils.logger.b.m51a("zip crash file failed");
+                    com.xiaomi.channel.commonutils.logger.b.m48a("zip crash file failed");
                 }
                 i++;
                 file2 = file4;
@@ -72,7 +72,7 @@ public class w implements Runnable {
         }
         file = file2;
         if (file != null && file.exists() && !file.delete()) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("delete zip crash file failed");
+            com.xiaomi.channel.commonutils.logger.b.m48a("delete zip crash file failed");
         }
         obj = v.a;
         synchronized (obj) {

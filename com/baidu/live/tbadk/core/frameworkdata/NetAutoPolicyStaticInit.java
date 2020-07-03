@@ -11,6 +11,7 @@ import com.baidu.live.adp.framework.message.SocketMessage;
 import com.baidu.live.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.adp.framework.task.SocketMessageTask;
 import com.baidu.live.tbadk.coreextra.websocketbase.LongConnectionAPIManager;
+@Deprecated
 /* loaded from: classes3.dex */
 public class NetAutoPolicyStaticInit {
     public static void init() {

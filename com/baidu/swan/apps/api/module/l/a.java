@@ -14,12 +14,12 @@ public class a extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b in(String str) {
+    public com.baidu.swan.apps.api.c.b iv(String str) {
         if (DEBUG) {
             Log.d("Api-CheckAppInstall", "start check app install");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aP = com.baidu.swan.apps.api.d.b.aP("Api-CheckAppInstall", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aP.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aR = com.baidu.swan.apps.api.d.b.aR("Api-CheckAppInstall", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aR.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-CheckAppInstall", "parse fail");
@@ -27,7 +27,7 @@ public class a extends com.baidu.swan.apps.api.a.d {
             }
             return bVar;
         }
-        String optString = ((JSONObject) aP.second).optString("name");
+        String optString = ((JSONObject) aR.second).optString("name");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.i("Api-CheckAppInstall", "packageName empty");
             return new com.baidu.swan.apps.api.c.b(201, "parameter error");

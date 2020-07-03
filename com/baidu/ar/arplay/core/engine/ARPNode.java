@@ -9,31 +9,31 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes3.dex */
 public class ARPNode {
-    protected long ev = -1;
-    private HashMap<String, ARPNode> ew;
-    protected Lock ex;
+    protected long eH = -1;
+    private HashMap<String, ARPNode> eI;
+    protected Lock eJ;
 
     public ARPNode() {
-        aH();
+        aV();
     }
 
     public void a(Vector3f vector3f) {
-        if (this.ev == -1) {
+        if (this.eH == -1) {
             Log.e(ARPNode.class.getSimpleName(), "node addr is error");
         } else if (vector3f != null) {
-            this.ex.lock();
-            nativeSetWorldPosition(this.ev, vector3f.toArray());
-            this.ex.unlock();
+            this.eJ.lock();
+            nativeSetWorldPosition(this.eH, vector3f.toArray());
+            this.eJ.unlock();
         }
     }
 
     public void a(Vector4f vector4f) {
-        if (this.ev == -1) {
+        if (this.eH == -1) {
             Log.e(ARPNode.class.getSimpleName(), "node addr is error");
         } else if (vector4f != null) {
-            this.ex.lock();
-            nativeSetRotation(this.ev, vector4f.toArray());
-            this.ex.unlock();
+            this.eJ.lock();
+            nativeSetRotation(this.eH, vector4f.toArray());
+            this.eJ.unlock();
         }
     }
 
@@ -41,23 +41,23 @@ public class ARPNode {
         if (!ARPEngine.getInstance().isEngineCanAccess() || ARPEngine.getInstance().isAppControllerInterrupt()) {
             return;
         }
-        nativeUpdateUniform(this.ev, str, obj);
+        nativeUpdateUniform(this.eH, str, obj);
     }
 
-    public void aH() {
-        this.ex = new ReentrantLock();
+    public void aV() {
+        this.eJ = new ReentrantLock();
         nativeInit();
-        this.ew = new HashMap<>();
+        this.eI = new HashMap<>();
     }
 
-    public Matrixf4x4 aI() {
-        if (this.ev == -1) {
+    public Matrixf4x4 aW() {
+        if (this.eH == -1) {
             Log.e(ARPNode.class.getSimpleName(), "node addr is error");
             return null;
         }
-        this.ex.lock();
-        float[] nativeInitialTransform = nativeInitialTransform(this.ev);
-        this.ex.unlock();
+        this.eJ.lock();
+        float[] nativeInitialTransform = nativeInitialTransform(this.eH);
+        this.eJ.unlock();
         if (nativeInitialTransform == null || nativeInitialTransform.length < 16) {
             return new Matrixf4x4();
         }
@@ -66,14 +66,14 @@ public class ARPNode {
         return matrixf4x4;
     }
 
-    public Vector4f aJ() {
-        if (this.ev == -1) {
+    public Vector4f aX() {
+        if (this.eH == -1) {
             Log.e(ARPNode.class.getSimpleName(), "node addr is error");
             return null;
         }
-        this.ex.lock();
-        float[] nativeGetRotation = nativeGetRotation(this.ev);
-        this.ex.unlock();
+        this.eJ.lock();
+        float[] nativeGetRotation = nativeGetRotation(this.eH);
+        this.eJ.unlock();
         if (nativeGetRotation == null || nativeGetRotation.length < 4) {
             return new Vector4f();
         }
@@ -83,23 +83,23 @@ public class ARPNode {
     }
 
     public void b(Vector3f vector3f) {
-        if (this.ev == -1) {
+        if (this.eH == -1) {
             Log.e(ARPNode.class.getSimpleName(), "node addr is error");
         } else if (vector3f != null) {
-            this.ex.lock();
-            nativeSetRotateWorldAxis(this.ev, vector3f.toArray());
-            this.ex.unlock();
+            this.eJ.lock();
+            nativeSetRotateWorldAxis(this.eH, vector3f.toArray());
+            this.eJ.unlock();
         }
     }
 
     public void e(long j) {
-        this.ev = j;
+        this.eH = j;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void finalize() {
-        this.ev = -1L;
-        this.ew.clear();
+        this.eH = -1L;
+        this.eI.clear();
         super.finalize();
     }
 

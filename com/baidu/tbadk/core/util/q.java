@@ -1,31 +1,32 @@
 package com.baidu.tbadk.core.util;
 
-import android.os.Handler;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes.dex */
-public interface q {
-    void addPostData(String str, String str2);
+public abstract class q {
+    public static q dTg = null;
 
-    void addPostData(String str, byte[] bArr);
+    public abstract com.baidu.tbadk.core.data.p getmCdnLogData();
 
-    void addPostData(BasicNameValuePair basicNameValuePair);
+    public abstract void insertErrorData(int i, String str);
 
-    void cancelNetConnect();
+    public abstract void insertNormalData(long j, String str);
 
-    boolean downloadFile(String str, Handler handler, int i, int i2, int i3, boolean z);
+    public abstract void setmCdnLogData(com.baidu.tbadk.core.data.p pVar);
 
-    byte[] getNetData();
-
-    String getNetString();
-
-    ArrayList<BasicNameValuePair> getPostData();
-
-    String postMultiNetData();
-
-    String postNetData();
-
-    void setCancel();
-
-    void setPostData(ArrayList<BasicNameValuePair> arrayList);
+    public static q getInstance() {
+        if (dTg == null) {
+            synchronized (q.class) {
+                if (dTg == null) {
+                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CDN_PROBLEM_UPLOADER, q.class);
+                    if (runTask != null && runTask.getData() != null) {
+                        dTg = (q) runTask.getData();
+                    }
+                    return dTg;
+                }
+            }
+        }
+        return dTg;
+    }
 }

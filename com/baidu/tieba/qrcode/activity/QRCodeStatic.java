@@ -1,37 +1,43 @@
 package com.baidu.tieba.qrcode.activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.o;
+import java.net.URISyntaxException;
 /* loaded from: classes10.dex */
 public class QRCodeStatic {
     public static String Tag = "tag";
 
     static {
         TbadkCoreApplication.getInst().RegisterOrUpdateIntent(QRCodeScanActivityConfig.class, QRCodeScanActivity.class);
-        cTJ();
-        cTK();
+        cXZ();
+        cYa();
+        cEa();
     }
 
-    private static void cTJ() {
+    private static void cXZ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921388, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {
-                return new CustomResponsedMessage<>(2921388, com.baidu.tieba.qrcode.lib.zxing.b.by(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
+                return new CustomResponsedMessage<>(2921388, com.baidu.tieba.qrcode.lib.zxing.b.bx(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cTK() {
+    private static void cYa() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921403, new CustomMessageTask.CustomRunnable<o>() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<o> customMessage) {
@@ -41,19 +47,48 @@ public class QRCodeStatic {
                 }
                 o data = customMessage.getData();
                 if (data.type == 0) {
-                    str = com.baidu.tieba.qrcode.lib.zxing.a.H(data.lnc);
+                    str = com.baidu.tieba.qrcode.lib.zxing.a.H(data.lGU);
                 } else if (data.type == 1) {
-                    str = com.baidu.tieba.qrcode.lib.zxing.a.KX(data.lnd);
+                    str = com.baidu.tieba.qrcode.lib.zxing.a.Ly(data.lGV);
                 }
                 if (TextUtils.isEmpty(str)) {
-                    data.lne = "qr_none";
+                    data.lGW = "qr_none";
                 } else {
-                    data.lne = str;
+                    data.lGW = str;
                 }
                 return new CustomResponsedMessage<>(2921403, data);
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    private static void cEa() {
+        bc.aWU().a(new bc.a() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.3
+            @Override // com.baidu.tbadk.core.util.bc.a
+            public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
+                if (strArr == null || strArr.length == 0 || strArr[0] == null) {
+                    return 3;
+                }
+                String str = strArr[0];
+                if (TextUtils.isEmpty(str)) {
+                    return 3;
+                }
+                Uri parse = Uri.parse(str);
+                if (parse.isHierarchical()) {
+                    String queryParameter = parse.getQueryParameter("tb_jp");
+                    if (TextUtils.isEmpty(queryParameter)) {
+                        return 3;
+                    }
+                    try {
+                        tbPageContext.getPageActivity().startActivity(Intent.parseUri(queryParameter, 1));
+                    } catch (URISyntaxException e) {
+                        e.printStackTrace();
+                    }
+                    return 0;
+                }
+                return 3;
+            }
+        });
     }
 }

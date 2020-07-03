@@ -6,12 +6,12 @@ import java.nio.Buffer;
 import java.nio.FloatBuffer;
 /* loaded from: classes10.dex */
 public class Texture2dProgram {
-    private ProgramType mCP;
     private float mColorAdjust;
     private float[] mKernel = new float[9];
     private int mProgramHandle;
     private float[] mTexOffset;
     private int mTextureTarget;
+    private ProgramType mYV;
     private int maPositionLoc;
     private int maTextureCoordLoc;
     private int muColorAdjustLoc;
@@ -29,7 +29,7 @@ public class Texture2dProgram {
     }
 
     public Texture2dProgram(ProgramType programType) {
-        this.mCP = programType;
+        this.mYV = programType;
         switch (programType) {
             case TEXTURE_2D:
                 this.mTextureTarget = 3553;

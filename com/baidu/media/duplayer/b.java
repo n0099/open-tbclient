@@ -23,7 +23,7 @@ public class b {
     public static void a(Context context, String str) {
         c = str;
         d = Utils.e(context);
-        e.LF().a(context, str);
+        e.MO().a(context, str);
     }
 
     private static void a(Context context, Map<String, String> map) {
@@ -59,7 +59,7 @@ public class b {
     }
 
     public static boolean a(int i) {
-        int b2 = e.LF().b(i);
+        int b2 = e.MO().b(i);
         return (a & b2) == b2;
     }
 
@@ -82,7 +82,7 @@ public class b {
     }
 
     public static String[] a() {
-        return e.LF().LG();
+        return e.MO().MP();
     }
 
     public static String b() {
@@ -141,8 +141,8 @@ public class b {
                 }
                 try {
                     try {
-                        File file = new File(e.LF().dC(1).c());
-                        File file2 = new File(e.LF().dC(2).c());
+                        File file = new File(e.MO().dM(1).c());
+                        File file2 = new File(e.MO().dM(2).c());
                         String parent = file.getParent();
                         String parent2 = file2.getParent();
                         try {
@@ -185,55 +185,55 @@ public class b {
     }
 
     public static void d(int i, Map<String, String> map) {
-        int b2 = e.LF().b(i);
+        int b2 = e.MO().b(i);
         if ((a & b2) == b2) {
             return;
         }
         for (int i2 = (a ^ b2) & b2; i2 > 0 && e(1 << Integer.numberOfTrailingZeros(i2), map); i2 = (a ^ b2) & b2) {
         }
-        e.LF().d();
+        e.MO().d();
     }
 
     private static boolean e(int i, Map<String, String> map) {
         boolean a2;
-        d dC = e.LF().dC(i);
-        if (dC == null) {
+        d dM = e.MO().dM(i);
+        if (dM == null) {
             CyberLog.e("CyberLibsLoader", "Unable to find (" + i + ") LibInfo");
             return false;
         }
-        String a3 = dC.a();
-        String b2 = dC.b();
-        String c2 = dC.c();
+        String a3 = dM.a();
+        String b2 = dM.b();
+        String c2 = dM.c();
         if (!new File(c2).exists()) {
             if (i == 8) {
                 i = 16;
             }
-            throw new FileNotFoundException(e.LF().c(i));
+            throw new FileNotFoundException(e.MO().c(i));
         }
-        if (e.LF().d(i)) {
+        if (e.MO().d(i)) {
             System.load(c2);
             if (i == 16) {
                 a(CyberPlayerManager.getApplicationContext(), map);
                 a2 = true;
             }
             a2 = true;
-        } else if (e.LF().e(i)) {
+        } else if (e.MO().e(i)) {
             IjkMediaPlayer.nativeSetEnableFFmpegExtend(c2);
             a2 = true;
-        } else if (e.LF().f(i)) {
+        } else if (e.MO().f(i)) {
             b = c2;
             a2 = true;
-        } else if (e.LF().h(i)) {
+        } else if (e.MO().h(i)) {
             a2 = c(i, map);
         } else {
-            if (e.LF().dD(i)) {
+            if (e.MO().dN(i)) {
                 a2 = a(i, c2);
             }
             a2 = true;
         }
         a |= i;
         if (a2) {
-            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + d + " abi:" + e.LF().c() + " lib:" + a3 + " ver:" + b2 + " load success");
+            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + d + " abi:" + e.MO().c() + " lib:" + a3 + " ver:" + b2 + " load success");
             return true;
         }
         return true;

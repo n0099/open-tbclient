@@ -6,30 +6,30 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class b {
-    private static int dq = 1;
-    private static int dr = 2;
-    private static int ds = 3;
-    private Map<String, String> dt = new HashMap();
-    private Map<String, String> du = new HashMap();
-    private SharedPreferences dv;
+    private static int dC = 1;
+    private static int dD = 2;
+    private static int dE = 3;
+    private Map<String, String> dF = new HashMap();
+    private Map<String, String> dG = new HashMap();
+    private SharedPreferences dH;
 
     public void a(SharedPreferences sharedPreferences) {
-        this.dv = sharedPreferences;
+        this.dH = sharedPreferences;
     }
 
     public void clearARMemory() {
-        this.dt.clear();
+        this.dF.clear();
     }
 
     public String getValue(int i, String str) {
         String str2 = null;
-        if (i == dq) {
-            str2 = this.dt.get(str);
-        } else if (i == dr) {
-            str2 = this.du.get(str);
-        } else if (i == ds) {
-            if (this.dv != null) {
-                str2 = this.dv.getString(str, "");
+        if (i == dC) {
+            str2 = this.dF.get(str);
+        } else if (i == dD) {
+            str2 = this.dG.get(str);
+        } else if (i == dE) {
+            if (this.dH != null) {
+                str2 = this.dH.getString(str, "");
             } else {
                 Log.e("TAG", "prefs data store is null");
             }
@@ -38,13 +38,13 @@ public class b {
     }
 
     public void setValue(int i, String str, String str2) {
-        if (i == dq) {
-            this.dt.put(str, str2);
-        } else if (i == dr) {
-            this.du.put(str, str2);
-        } else if (i == ds) {
-            if (this.dv != null) {
-                this.dv.edit().putString(str, str2).commit();
+        if (i == dC) {
+            this.dF.put(str, str2);
+        } else if (i == dD) {
+            this.dG.put(str, str2);
+        } else if (i == dE) {
+            if (this.dH != null) {
+                this.dH.edit().putString(str, str2).commit();
             } else {
                 Log.e("TAG", "prefs data store is null");
             }

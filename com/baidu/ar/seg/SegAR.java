@@ -20,49 +20,112 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SegAR extends com.baidu.ar.c {
-    private LuaMsgListener bV;
-    private e lb;
-    private a tg;
-    private com.baidu.ar.b.a.c th;
-    private String tj;
     private static final String TAG = SegAR.class.getSimpleName();
-    private static final float[] tw = {0.0f, -1.0f, 1.0f, 0.0f};
-    private static final float[] tx = {0.0f, 1.0f, -1.0f, 0.0f};
-    private static final float[] ty = {1.0f, 0.0f, 0.0f, -1.0f};
-    private static final float[] tz = {-1.0f, 0.0f, 0.0f, 1.0f};
-    private static final float[] tA = {0.0f, 1.0f, 1.0f, 0.0f};
-    private static final float[] tB = {0.0f, -1.0f, -1.0f, 0.0f};
-    private static final float[] tC = {-1.0f, 0.0f, 0.0f, -1.0f};
-    private static final float[] tD = {1.0f, 0.0f, 0.0f, 1.0f};
-    private int cF = 2;
-    private String bx = "ability_image_segmentation";
-    private boolean ti = true;
-    private boolean nC = true;
+    private static final float[] tW = {0.0f, -1.0f, 1.0f, 0.0f};
+    private static final float[] tX = {0.0f, 1.0f, -1.0f, 0.0f};
+    private static final float[] tY = {1.0f, 0.0f, 0.0f, -1.0f};
+    private static final float[] tZ = {-1.0f, 0.0f, 0.0f, 1.0f};
+    private static final float[] ua = {0.0f, 1.0f, 1.0f, 0.0f};
+    private static final float[] ub = {0.0f, -1.0f, -1.0f, 0.0f};
+    private static final float[] uc = {-1.0f, 0.0f, 0.0f, -1.0f};
+    private static final float[] ud = {1.0f, 0.0f, 0.0f, 1.0f};
+    private LuaMsgListener ci;
+    private e ly;
+    private a tG;
+    private com.baidu.ar.b.a.c tH;
+    private String tJ;
+    private int cS = 2;
+    private String bJ = "ability_image_segmentation";
+    private boolean tI = true;
+    private boolean nZ = true;
     private int mDeviceOrientation = 0;
-    private Vector4f tk = new Vector4f();
-    private float tl = 0.0f;
-    private float tm = 0.0f;
-    private int tn = 0;
-    private float to = 0.0f;
-    private float tp = 0.0f;
-    private float tq = 0.0f;
-    private float tr = 0.0f;
-    private float ts = 0.0f;
-    private float tt = 0.0f;
-    private float tu = 0.0f;
+    private Vector4f tK = new Vector4f();
+    private float tL = 0.0f;
+    private float tM = 0.0f;
+    private int tN = 0;
+    private float tO = 0.0f;
+    private float tP = 0.0f;
+    private float tQ = 0.0f;
+    private float tR = 0.0f;
+    private float tS = 0.0f;
+    private float tT = 0.0f;
+    private float tU = 0.0f;
+    private float tV = 1.0f;
+    private int ue = 0;
+    private int uf = 0;
+    private byte[] iA = null;
+    private long ug = 0;
+    private AlgoHandleController ch = null;
+    private int uh = -1;
 
-    /* renamed from: tv  reason: collision with root package name */
-    private float f977tv = 1.0f;
-    private int tE = 0;
-    private int tF = 0;
-    private byte[] il = null;
-    private long tG = 0;
-    private AlgoHandleController bU = null;
-    private int tH = -1;
+    /* JADX INFO: Access modifiers changed from: private */
+    public HashMap<String, Object> a(b bVar) {
+        if (this.cS != 4) {
+            if (this.cS == 2) {
+                getImgSegOrientation(bVar.getOrientation());
+                HashMap<String, Object> hashMap = new HashMap<>();
+                hashMap.put("u_maskRotate", this.tK);
+                return hashMap;
+            } else if (this.cS == 5) {
+                getSkySegOrientation(bVar.getOrientation());
+                HashMap<String, Object> hashMap2 = new HashMap<>();
+                hashMap2.put("u_maskRotate", this.tK);
+                return hashMap2;
+            } else {
+                return null;
+            }
+        }
+        getHairSegOrientation(bVar.getOrientation());
+        b(bVar.eO(), bVar.getWidth(), bVar.getHeight());
+        HashMap<String, Object> hashMap3 = new HashMap<>();
+        hashMap3.put("enableSeq", Float.valueOf(1.0f));
+        hashMap3.put("cameraFront", Integer.valueOf(this.nZ ? 1 : 0));
+        hashMap3.put("deviceOrientation", Integer.valueOf(this.mDeviceOrientation));
+        hashMap3.put("u_maskRotate", this.tK);
+        hashMap3.put("hairBlendType", Integer.valueOf(this.tN));
+        hashMap3.put("hairThreshold", Float.valueOf(this.tL));
+        hashMap3.put("hairBlendAlpha", Float.valueOf(this.tM));
+        hashMap3.put("hairTopPos", Float.valueOf(this.tU));
+        hashMap3.put("hairBottomPos", Float.valueOf(this.tV));
+        hashMap3.put("hairTop", new Vector4f(this.tR, this.tS, this.tT, 1.0f));
+        hashMap3.put("hairBottom", new Vector4f(this.tO, this.tP, this.tQ, 1.0f));
+        return hashMap3;
+    }
 
-    private void V() {
-        if (this.bV == null) {
-            this.bV = new LuaMsgListener() { // from class: com.baidu.ar.seg.SegAR.2
+    private void a(PixelRotation pixelRotation) {
+        float[] fArr;
+        switch (pixelRotation) {
+            case RotateRight:
+                fArr = tW;
+                break;
+            case RotateLeft:
+                fArr = tX;
+                break;
+            case FlipVertical:
+                fArr = tY;
+                break;
+            case FlipHorizontal:
+                fArr = tZ;
+                break;
+            case RotateRightFlipVertical:
+                fArr = ua;
+                break;
+            case RotateRightFlipHorizontal:
+                fArr = ub;
+                break;
+            case Rotate180:
+                fArr = uc;
+                break;
+            default:
+                fArr = ud;
+                break;
+        }
+        this.tK.setXYZW(fArr[0], fArr[1], fArr[2], fArr[3]);
+    }
+
+    private void aj() {
+        if (this.ci == null) {
+            this.ci = new LuaMsgListener() { // from class: com.baidu.ar.seg.SegAR.2
                 @Override // com.baidu.ar.lua.LuaMsgListener
                 public List<String> getMsgKeyListened() {
                     ArrayList arrayList = new ArrayList();
@@ -78,94 +141,29 @@ public class SegAR extends com.baidu.ar.c {
                 }
             };
         }
-        a(this.bV);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, Object> a(b bVar) {
-        if (this.cF != 4) {
-            if (this.cF == 2) {
-                getImgSegOrientation(bVar.getOrientation());
-                HashMap<String, Object> hashMap = new HashMap<>();
-                hashMap.put("u_maskRotate", this.tk);
-                return hashMap;
-            } else if (this.cF == 5) {
-                getSkySegOrientation(bVar.getOrientation());
-                HashMap<String, Object> hashMap2 = new HashMap<>();
-                hashMap2.put("u_maskRotate", this.tk);
-                return hashMap2;
-            } else {
-                return null;
-            }
-        }
-        getHairSegOrientation(bVar.getOrientation());
-        b(bVar.ey(), bVar.getWidth(), bVar.getHeight());
-        HashMap<String, Object> hashMap3 = new HashMap<>();
-        hashMap3.put("enableSeq", Float.valueOf(1.0f));
-        hashMap3.put("cameraFront", Integer.valueOf(this.nC ? 1 : 0));
-        hashMap3.put("deviceOrientation", Integer.valueOf(this.mDeviceOrientation));
-        hashMap3.put("u_maskRotate", this.tk);
-        hashMap3.put("hairBlendType", Integer.valueOf(this.tn));
-        hashMap3.put("hairThreshold", Float.valueOf(this.tl));
-        hashMap3.put("hairBlendAlpha", Float.valueOf(this.tm));
-        hashMap3.put("hairTopPos", Float.valueOf(this.tu));
-        hashMap3.put("hairBottomPos", Float.valueOf(this.f977tv));
-        hashMap3.put("hairTop", new Vector4f(this.tr, this.ts, this.tt, 1.0f));
-        hashMap3.put("hairBottom", new Vector4f(this.to, this.tp, this.tq, 1.0f));
-        return hashMap3;
-    }
-
-    private void a(PixelRotation pixelRotation) {
-        float[] fArr;
-        switch (pixelRotation) {
-            case RotateRight:
-                fArr = tw;
-                break;
-            case RotateLeft:
-                fArr = tx;
-                break;
-            case FlipVertical:
-                fArr = ty;
-                break;
-            case FlipHorizontal:
-                fArr = tz;
-                break;
-            case RotateRightFlipVertical:
-                fArr = tA;
-                break;
-            case RotateRightFlipHorizontal:
-                fArr = tB;
-                break;
-            case Rotate180:
-                fArr = tC;
-                break;
-            default:
-                fArr = tD;
-                break;
-        }
-        this.tk.setXYZW(fArr[0], fArr[1], fArr[2], fArr[3]);
+        a(this.ci);
     }
 
     private void b(long j) {
-        if (this.bU == null || j <= 0) {
+        if (this.ch == null || j <= 0) {
             return;
         }
-        long handleType = this.bU.getHandleType(j);
-        if (this.tg == null || handleType != this.tH) {
+        long handleType = this.ch.getHandleType(j);
+        if (this.tG == null || handleType != this.uh) {
             return;
         }
-        this.tg.b(j);
+        this.tG.b(j);
     }
 
     private void b(byte[] bArr, int i, int i2) {
         if (bArr == null || i <= 0 || i2 <= 0 || bArr.length < i * i2) {
             return;
         }
-        this.tu = c(bArr, i, i2);
-        this.f977tv = d(bArr, i, i2);
+        this.tU = c(bArr, i, i2);
+        this.tV = d(bArr, i, i2);
         if (this.mDeviceOrientation == 1 || this.mDeviceOrientation == 3) {
-            this.tu -= 16.0f / i2;
-            this.f977tv += 12.0f / i2;
+            this.tU -= 16.0f / i2;
+            this.tV += 12.0f / i2;
         }
     }
 
@@ -173,7 +171,7 @@ public class SegAR extends com.baidu.ar.c {
         int i3 = 0;
         while (i3 < i2) {
             for (int i4 = 0; i4 < i; i4++) {
-                if ((bArr[(i3 * i) + i4] & 255) > ((int) (255.0f * this.tl))) {
+                if ((bArr[(i3 * i) + i4] & 255) > ((int) (255.0f * this.tL))) {
                     return (i3 >= 3 ? i3 - 3 : 0) / i2;
                 }
             }
@@ -185,7 +183,7 @@ public class SegAR extends com.baidu.ar.c {
     private float d(byte[] bArr, int i, int i2) {
         for (int i3 = i2 - 1; i3 > 0; i3 -= 3) {
             for (int i4 = 0; i4 < i; i4++) {
-                if ((bArr[(i3 * i) + i4] & 255) > ((int) (255.0f * this.tl))) {
+                if ((bArr[(i3 * i) + i4] & 255) > ((int) (255.0f * this.tL))) {
                     return (i3 + 3 > i2 + (-1) ? i2 - 1 : i3 + 3) / i2;
                 }
             }
@@ -196,15 +194,15 @@ public class SegAR extends com.baidu.ar.c {
     private void n(HashMap<String, Object> hashMap) {
         if (com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1) == 5011) {
             StatisticApi.onEvent(StatisticConstants.MDL_IMG_SEG_OPEN);
-            this.cF = 2;
-            this.tH = 11;
-            this.bx = "ability_image_segmentation";
-            this.th.g(2);
+            this.cS = 2;
+            this.uh = 11;
+            this.bJ = "ability_image_segmentation";
+            this.tH.h(2);
             String a = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
             if (TextUtils.isEmpty(a)) {
                 return;
             }
-            this.tj = a;
+            this.tJ = a;
             return;
         }
         String a2 = com.baidu.ar.arplay.c.c.a(hashMap.get(LuaMessageHelper.KEY_EVENT_NAME), (String) null);
@@ -212,39 +210,39 @@ public class SegAR extends com.baidu.ar.c {
             if (a2.equals("start_hair_segmentation")) {
                 StatisticApi.onEvent(StatisticConstants.MDL_HAIR_SEG_OPEN);
                 o(hashMap);
-                this.cF = 4;
-                this.bx = "ability_hair_segmentation";
-                this.th.g(4);
+                this.cS = 4;
+                this.bJ = "ability_hair_segmentation";
+                this.tH.h(4);
             } else if (a2.equals("start_sky_segmentation")) {
                 StatisticApi.onEvent(StatisticConstants.MDL_SKY_SEG_OPEN);
                 String a3 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
                 if (!TextUtils.isEmpty(a3)) {
-                    this.tj = a3;
+                    this.tJ = a3;
                 }
-                this.cF = 5;
-                this.bx = "ability_sky_segmentation";
-                this.th.g(5);
+                this.cS = 5;
+                this.bJ = "ability_sky_segmentation";
+                this.tH.h(5);
             } else if (a2.equals("start_image_segmentation")) {
                 StatisticApi.onEvent(StatisticConstants.MDL_IMG_SEG_OPEN);
                 String a4 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
                 if (!TextUtils.isEmpty(a4)) {
-                    this.tj = a4;
+                    this.tJ = a4;
                 }
-                this.cF = 2;
-                this.bx = "ability_image_segmentation";
-                this.th.g(2);
+                this.cS = 2;
+                this.bJ = "ability_image_segmentation";
+                this.tH.h(2);
             } else {
-                this.cF = -10;
+                this.cS = -10;
             }
-            switch (this.cF) {
+            switch (this.cS) {
                 case 4:
-                    this.tH = 13;
+                    this.uh = 13;
                     return;
                 case 5:
-                    this.tH = 12;
+                    this.uh = 12;
                     return;
                 default:
-                    this.tH = 11;
+                    this.uh = 11;
                     return;
             }
         }
@@ -253,20 +251,20 @@ public class SegAR extends com.baidu.ar.c {
     /* JADX INFO: Access modifiers changed from: private */
     public void o(HashMap<String, Object> hashMap) {
         String a = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
-        this.tl = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_threshold"), 0.0f);
-        this.tm = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_blend_alpha"), 0.0f);
-        this.tn = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_blend_type"), 0);
-        this.to = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_r"), 0.0f);
-        this.tp = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_g"), 0.0f);
-        this.tq = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_b"), 0.0f);
-        this.tr = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_r"), 0.0f);
-        this.ts = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_g"), 0.0f);
-        this.tt = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_b"), 0.0f);
+        this.tL = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_threshold"), 0.0f);
+        this.tM = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_blend_alpha"), 0.0f);
+        this.tN = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_blend_type"), 0);
+        this.tO = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_r"), 0.0f);
+        this.tP = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_g"), 0.0f);
+        this.tQ = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_b"), 0.0f);
+        this.tR = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_r"), 0.0f);
+        this.tS = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_g"), 0.0f);
+        this.tT = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_b"), 0.0f);
         if (!TextUtils.isEmpty(a)) {
-            this.tj = a;
+            this.tJ = a;
         }
-        if (this.tg != null) {
-            this.tg.e(this.tl);
+        if (this.tG != null) {
+            this.tG.g(this.tL);
         }
     }
 
@@ -274,7 +272,7 @@ public class SegAR extends com.baidu.ar.c {
     @Override // com.baidu.ar.c
     public void a(long j) {
         super.a(j);
-        if (j <= 0 || this.bU == null || this.bU.getHandleType(j) != this.tH) {
+        if (j <= 0 || this.ch == null || this.ch.getHandleType(j) != this.uh) {
             return;
         }
         b(j);
@@ -283,24 +281,24 @@ public class SegAR extends com.baidu.ar.c {
     public void getHairSegOrientation(int i) {
         switch (i) {
             case 0:
-                if (this.nC) {
+                if (this.nZ) {
                 }
                 this.mDeviceOrientation = 1;
-                a(this.nC ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight);
+                a(this.nZ ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight);
                 return;
             case 90:
-                this.mDeviceOrientation = this.nC ? 2 : 0;
-                a(this.nC ? PixelRotation.FlipVertical : PixelRotation.NoRotation);
+                this.mDeviceOrientation = this.nZ ? 2 : 0;
+                a(this.nZ ? PixelRotation.FlipVertical : PixelRotation.NoRotation);
                 return;
             case 180:
-                if (this.nC) {
+                if (this.nZ) {
                 }
                 this.mDeviceOrientation = 3;
-                a(this.nC ? PixelRotation.RotateRightFlipVertical : PixelRotation.RotateLeft);
+                a(this.nZ ? PixelRotation.RotateRightFlipVertical : PixelRotation.RotateLeft);
                 return;
             default:
-                this.mDeviceOrientation = this.nC ? 0 : 2;
-                a(this.nC ? PixelRotation.FlipHorizontal : PixelRotation.Rotate180);
+                this.mDeviceOrientation = this.nZ ? 0 : 2;
+                a(this.nZ ? PixelRotation.FlipHorizontal : PixelRotation.Rotate180);
                 return;
         }
     }
@@ -308,20 +306,20 @@ public class SegAR extends com.baidu.ar.c {
     public void getImgSegOrientation(int i) {
         switch (i) {
             case 0:
-                this.mDeviceOrientation = this.nC ? 1 : 3;
-                a(this.nC ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight);
+                this.mDeviceOrientation = this.nZ ? 1 : 3;
+                a(this.nZ ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight);
                 return;
             case 90:
-                this.mDeviceOrientation = this.nC ? 2 : 0;
-                a(this.nC ? PixelRotation.FlipVertical : PixelRotation.NoRotation);
+                this.mDeviceOrientation = this.nZ ? 2 : 0;
+                a(this.nZ ? PixelRotation.FlipVertical : PixelRotation.NoRotation);
                 return;
             case 180:
-                this.mDeviceOrientation = this.nC ? 3 : 1;
-                a(this.nC ? PixelRotation.RotateRightFlipVertical : PixelRotation.RotateLeft);
+                this.mDeviceOrientation = this.nZ ? 3 : 1;
+                a(this.nZ ? PixelRotation.RotateRightFlipVertical : PixelRotation.RotateLeft);
                 return;
             default:
-                this.mDeviceOrientation = this.nC ? 0 : 2;
-                a(this.nC ? PixelRotation.FlipHorizontal : PixelRotation.Rotate180);
+                this.mDeviceOrientation = this.nZ ? 0 : 2;
+                a(this.nZ ? PixelRotation.FlipHorizontal : PixelRotation.Rotate180);
                 return;
         }
     }
@@ -329,20 +327,20 @@ public class SegAR extends com.baidu.ar.c {
     public void getSkySegOrientation(int i) {
         switch (i) {
             case 0:
-                this.mDeviceOrientation = this.nC ? 1 : 3;
-                a(this.nC ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight);
+                this.mDeviceOrientation = this.nZ ? 1 : 3;
+                a(this.nZ ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight);
                 return;
             case 1:
-                this.mDeviceOrientation = this.nC ? 2 : 0;
-                a(this.nC ? PixelRotation.FlipVertical : PixelRotation.NoRotation);
+                this.mDeviceOrientation = this.nZ ? 2 : 0;
+                a(this.nZ ? PixelRotation.FlipVertical : PixelRotation.NoRotation);
                 return;
             case 2:
-                this.mDeviceOrientation = this.nC ? 3 : 1;
-                a(this.nC ? PixelRotation.RotateRightFlipVertical : PixelRotation.RotateLeft);
+                this.mDeviceOrientation = this.nZ ? 3 : 1;
+                a(this.nZ ? PixelRotation.RotateRightFlipVertical : PixelRotation.RotateLeft);
                 return;
             default:
-                this.mDeviceOrientation = this.nC ? 0 : 2;
-                a(this.nC ? PixelRotation.FlipHorizontal : PixelRotation.Rotate180);
+                this.mDeviceOrientation = this.nZ ? 0 : 2;
+                a(this.nZ ? PixelRotation.FlipHorizontal : PixelRotation.Rotate180);
                 return;
         }
     }
@@ -351,18 +349,22 @@ public class SegAR extends com.baidu.ar.c {
     public void release() {
         b(false);
         com.baidu.ar.f.b.i(TAG, "enableSyncRender false");
-        if (this.tg != null) {
-            this.tg.S(false);
+        if (this.tG != null) {
+            this.tG.T(false);
         }
-        b(this.bV);
-        if (this.tg != null) {
-            this.tg.a((AlgoHandleController) null);
-            this.tg.ai();
-            a(this.tg);
+        b(this.ci);
+        if (this.tG != null) {
+            this.tG.a((AlgoHandleController) null);
+            this.tG.aw();
+            a(this.tG);
         }
-        if (this.bU != null) {
-            this.bU.release();
-            this.bU = null;
+        if (this.ch != null) {
+            this.ch.release();
+            this.ch = null;
+        }
+        j r = r();
+        if (r != null) {
+            r.r(this.uh);
         }
         super.release();
     }
@@ -371,59 +373,59 @@ public class SegAR extends com.baidu.ar.c {
     public void setup(HashMap<String, Object> hashMap) {
         super.setup(hashMap);
         com.baidu.ar.f.b.i(TAG, "setup(luaParams):" + hashMap.toString());
-        if (this.bU == null) {
-            this.bU = new AlgoHandleController();
+        if (this.ch == null) {
+            this.ch = new AlgoHandleController();
         }
-        this.th = new com.baidu.ar.b.a.c(i.SEG);
-        this.tg = new a();
-        this.tg.a(this.bU);
+        this.tH = new com.baidu.ar.b.a.c(i.SEG);
+        this.tG = new a();
+        this.tG.a(this.ch);
         n(hashMap);
-        if (this.cF < -1) {
-            com.baidu.ar.f.b.b(TAG, "无法解析能力类型 mMdlType:" + this.cF);
+        if (this.cS < -1) {
+            com.baidu.ar.f.b.b(TAG, "无法解析能力类型 mMdlType:" + this.cS);
             return;
         }
-        this.lb = new e() { // from class: com.baidu.ar.seg.SegAR.1
+        this.ly = new e() { // from class: com.baidu.ar.seg.SegAR.1
             @Override // com.baidu.ar.c.e
             public void a(com.baidu.ar.c.b bVar) {
-                com.baidu.ar.f.b.c(SegAR.TAG, "SegDetector onDetected");
-                if (!(bVar instanceof c) || ((c) bVar).ez() == null) {
+                if (!(bVar instanceof c) || ((c) bVar).eP() == null) {
                     return;
                 }
-                if (SegAR.this.ti) {
-                    SegAR.this.ti = false;
+                if (SegAR.this.tI) {
+                    SegAR.this.tI = false;
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put(LuaMessageHelper.KEY_EVENT_NAME, "first_bgseg_detect");
                     SegAR.this.d(hashMap2);
                 }
                 j r = SegAR.this.r();
-                long cn = bVar.cn();
-                if (cn > 0 && r != null) {
-                    r.a(cn, SegAR.this.bx);
+                long cF = bVar.cF();
+                if (cF > 0 && r != null) {
+                    r.a(cF, SegAR.this.bJ);
+                    SegAR.this.a(cF);
                 }
-                b ez = ((c) bVar).ez();
-                if (ez != null) {
-                    SegAR.this.nC = ez.isFrontCamera();
-                    int width = ez.getWidth();
-                    int height = ez.getHeight();
-                    if (ez.getOrientation() == 0 || ez.getOrientation() == 180 || ez.getOrientation() == 2) {
-                        ez.setWidth(height);
-                        ez.setHeight(width);
+                b eP = ((c) bVar).eP();
+                if (eP != null) {
+                    SegAR.this.nZ = eP.isFrontCamera();
+                    int width = eP.getWidth();
+                    int height = eP.getHeight();
+                    if (eP.getOrientation() == 0 || eP.getOrientation() == 180 || eP.getOrientation() == 2) {
+                        eP.setWidth(height);
+                        eP.setHeight(width);
                     }
                     if (r != null) {
-                        SegAR.this.tE = ez.getWidth();
-                        SegAR.this.tF = ez.getHeight();
-                        SegAR.this.il = ez.ey();
-                        SegAR.this.tG = bVar.getTimestamp();
-                        if (SegAR.this.tE <= 0 || SegAR.this.tF <= 0 || SegAR.this.il == null) {
+                        SegAR.this.ue = eP.getWidth();
+                        SegAR.this.uf = eP.getHeight();
+                        SegAR.this.iA = eP.eO();
+                        SegAR.this.ug = bVar.getTimestamp();
+                        if (SegAR.this.ue <= 0 || SegAR.this.uf <= 0 || SegAR.this.iA == null) {
                             return;
                         }
                         com.baidu.ar.arrender.i iVar = new com.baidu.ar.arrender.i();
-                        iVar.o(SegAR.this.bx);
-                        iVar.M(SegAR.this.tj);
-                        iVar.i(SegAR.this.a(ez));
+                        iVar.o(SegAR.this.bJ);
+                        iVar.M(SegAR.this.tJ);
+                        iVar.i(SegAR.this.a(eP));
                         r.a(iVar);
-                        if (bVar.cm() instanceof m) {
-                            r.a((m) bVar.cm(), true);
+                        if (bVar.cE() instanceof m) {
+                            r.a((m) bVar.cE(), true);
                         }
                     }
                 }
@@ -431,25 +433,30 @@ public class SegAR extends com.baidu.ar.c {
 
             @Override // com.baidu.ar.c.e
             public void a(l lVar) {
-                com.baidu.ar.f.b.i(SegAR.TAG, "SegDetector onSetup result:" + (lVar != null ? lVar.cl() + Constants.ACCEPT_TIME_SEPARATOR_SP + lVar.isSuccess() : null));
+                com.baidu.ar.f.b.i(SegAR.TAG, "SegDetector onSetup result:" + (lVar != null ? lVar.cD() + Constants.ACCEPT_TIME_SEPARATOR_SP + lVar.cL() : null));
+                j r = SegAR.this.r();
+                if (r == null || SegAR.this.tG == null || lVar == null) {
+                    return;
+                }
+                r.a(lVar.cL(), SegAR.this.tG.cK());
             }
 
             @Override // com.baidu.ar.c.e
             public void b(l lVar) {
-                com.baidu.ar.f.b.i(SegAR.TAG, "SegDetector onRelease result:" + lVar);
+                com.baidu.ar.f.b.i(SegAR.TAG, "SegDetector onRelease aogoTyope = " + lVar.cL());
             }
         };
         b(true);
         com.baidu.ar.f.b.i(TAG, "enableSyncRender true");
-        if (this.tg != null) {
-            this.tg.S(true);
-            this.tg.a(this.th);
+        if (this.tG != null) {
+            this.tG.T(true);
+            this.tG.a(this.tH);
         }
-        a(this.tg, this.lb);
-        com.baidu.ar.b.a.ac().a(getContext(), getMdlConfigs());
-        if (this.tg != null) {
-            this.tg.c((Bundle) null);
+        a(this.tG, this.ly);
+        com.baidu.ar.b.a.aq().a(getContext(), getMdlConfigs());
+        if (this.tG != null) {
+            this.tG.c((Bundle) null);
         }
-        V();
+        aj();
     }
 }

@@ -223,7 +223,7 @@ public final class Bdtls {
         }
 
         public static a newBuilder() {
-            return a.ayp();
+            return a.azv();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -256,13 +256,13 @@ public final class Bdtls {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a ayp() {
+            public static a azv() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: ayq */
+            /* renamed from: azw */
             public a clear() {
                 super.clear();
                 this.gMTUnixTime_ = 0;
@@ -274,9 +274,9 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: ayr */
+            /* renamed from: azx */
             public a clone() {
-                return ayp().mergeFrom(buildPartial());
+                return azv().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -287,7 +287,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: ays */
+            /* renamed from: azy */
             public Random build() {
                 Random buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -298,7 +298,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: ayt */
+            /* renamed from: azz */
             public Random buildPartial() {
                 Random random = new Random(this);
                 int i = this.bitField0_;
@@ -318,7 +318,7 @@ public final class Bdtls {
             public a mergeFrom(Random random) {
                 if (random != Random.getDefaultInstance()) {
                     if (random.hasGMTUnixTime()) {
-                        ik(random.getGMTUnixTime());
+                        iv(random.getGMTUnixTime());
                     }
                     if (random.hasRandomBytes()) {
                         h(random.getRandomBytes());
@@ -375,7 +375,7 @@ public final class Bdtls {
                 return (this.bitField0_ & 1) == 1;
             }
 
-            public a ik(int i) {
+            public a iv(int i) {
                 this.bitField0_ |= 1;
                 this.gMTUnixTime_ = i;
                 return this;
@@ -597,7 +597,7 @@ public final class Bdtls {
         }
 
         public static a newBuilder() {
-            return a.ayj();
+            return a.azp();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -630,13 +630,13 @@ public final class Bdtls {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a ayj() {
+            public static a azp() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: ayk */
+            /* renamed from: azq */
             public a clear() {
                 super.clear();
                 this.type_ = 0;
@@ -648,9 +648,9 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: ayl */
+            /* renamed from: azr */
             public a clone() {
-                return ayj().mergeFrom(buildPartial());
+                return azp().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -661,7 +661,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aym */
+            /* renamed from: azs */
             public Extension build() {
                 Extension buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -672,7 +672,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: ayn */
+            /* renamed from: azt */
             public Extension buildPartial() {
                 Extension extension = new Extension(this);
                 int i = this.bitField0_;
@@ -692,7 +692,7 @@ public final class Bdtls {
             public a mergeFrom(Extension extension) {
                 if (extension != Extension.getDefaultInstance()) {
                     if (extension.hasType()) {
-                        ij(extension.getType());
+                        iu(extension.getType());
                     }
                     if (extension.hasData()) {
                         g(extension.getData());
@@ -749,7 +749,7 @@ public final class Bdtls {
                 return (this.bitField0_ & 1) == 1;
             }
 
-            public a ij(int i) {
+            public a iu(int i) {
                 this.bitField0_ |= 1;
                 this.type_ = i;
                 return this;
@@ -1117,7 +1117,7 @@ public final class Bdtls {
         }
 
         public static a newBuilder() {
-            return a.ayc();
+            return a.azi();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1152,13 +1152,13 @@ public final class Bdtls {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a ayc() {
+            public static a azi() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: ayd */
+            /* renamed from: azj */
             public a clear() {
                 super.clear();
                 this.random_ = Random.getDefaultInstance();
@@ -1174,9 +1174,9 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aye */
+            /* renamed from: azk */
             public a clone() {
-                return ayc().mergeFrom(buildPartial());
+                return azi().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1187,7 +1187,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: ayf */
+            /* renamed from: azl */
             public ClientHello build() {
                 ClientHello buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -1198,7 +1198,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: ayg */
+            /* renamed from: azm */
             public ClientHello buildPartial() {
                 ClientHello clientHello = new ClientHello(this);
                 int i = this.bitField0_;
@@ -1235,7 +1235,7 @@ public final class Bdtls {
                             this.cipherSuites_ = clientHello.cipherSuites_;
                             this.bitField0_ &= -3;
                         } else {
-                            ayh();
+                            azn();
                             this.cipherSuites_.addAll(clientHello.cipherSuites_);
                         }
                     }
@@ -1334,7 +1334,7 @@ public final class Bdtls {
                 return this;
             }
 
-            private void ayh() {
+            private void azn() {
                 if ((this.bitField0_ & 2) != 2) {
                     this.cipherSuites_ = new ArrayList(this.cipherSuites_);
                     this.bitField0_ |= 2;
@@ -1345,7 +1345,7 @@ public final class Bdtls {
                 if (byteString == null) {
                     throw new NullPointerException();
                 }
-                ayh();
+                azn();
                 this.cipherSuites_.add(byteString);
                 return this;
             }
@@ -1745,7 +1745,7 @@ public final class Bdtls {
         }
 
         public static a newBuilder() {
-            return a.ayv();
+            return a.azB();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1781,13 +1781,13 @@ public final class Bdtls {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a ayv() {
+            public static a azB() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: ayw */
+            /* renamed from: azC */
             public a clear() {
                 super.clear();
                 this.random_ = Random.getDefaultInstance();
@@ -1805,9 +1805,9 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: ayx */
+            /* renamed from: azD */
             public a clone() {
-                return ayv().mergeFrom(buildPartial());
+                return azB().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1818,7 +1818,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: ayy */
+            /* renamed from: azE */
             public ServerHello build() {
                 ServerHello buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -1829,7 +1829,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: ayz */
+            /* renamed from: azF */
             public ServerHello buildPartial() {
                 ServerHello serverHello = new ServerHello(this);
                 int i = this.bitField0_;
@@ -1868,7 +1868,7 @@ public final class Bdtls {
                         i(serverHello.getCipherSuite());
                     }
                     if (serverHello.hasLifeTime()) {
-                        il(serverHello.getLifeTime());
+                        iw(serverHello.getLifeTime());
                     }
                     if (serverHello.hasSKR()) {
                         j(serverHello.getSKR());
@@ -1973,7 +1973,7 @@ public final class Bdtls {
                 return (this.bitField0_ & 4) == 4;
             }
 
-            public a il(int i) {
+            public a iw(int i) {
                 this.bitField0_ |= 4;
                 this.lifeTime_ = i;
                 return this;
@@ -2186,7 +2186,7 @@ public final class Bdtls {
         }
 
         public static a newBuilder() {
-            return a.axW();
+            return a.azc();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2218,13 +2218,13 @@ public final class Bdtls {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a axW() {
+            public static a azc() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: axX */
+            /* renamed from: azd */
             public a clear() {
                 super.clear();
                 this.sKR_ = ByteString.EMPTY;
@@ -2234,9 +2234,9 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: axY */
+            /* renamed from: aze */
             public a clone() {
-                return axW().mergeFrom(buildPartial());
+                return azc().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -2247,7 +2247,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: axZ */
+            /* renamed from: azf */
             public ApplicationData build() {
                 ApplicationData buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -2258,7 +2258,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aya */
+            /* renamed from: azg */
             public ApplicationData buildPartial() {
                 ApplicationData applicationData = new ApplicationData(this);
                 int i = (this.bitField0_ & 1) != 1 ? 0 : 1;
@@ -2537,7 +2537,7 @@ public final class Bdtls {
         }
 
         public static a newBuilder() {
-            return a.axQ();
+            return a.ayW();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2570,13 +2570,13 @@ public final class Bdtls {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a axQ() {
+            public static a ayW() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: axR */
+            /* renamed from: ayX */
             public a clear() {
                 super.clear();
                 this.level_ = 0;
@@ -2588,9 +2588,9 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: axS */
+            /* renamed from: ayY */
             public a clone() {
-                return axQ().mergeFrom(buildPartial());
+                return ayW().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -2601,7 +2601,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: axT */
+            /* renamed from: ayZ */
             public Alert build() {
                 Alert buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -2612,7 +2612,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: axU */
+            /* renamed from: aza */
             public Alert buildPartial() {
                 Alert alert = new Alert(this);
                 int i = this.bitField0_;
@@ -2632,7 +2632,7 @@ public final class Bdtls {
             public a mergeFrom(Alert alert) {
                 if (alert != Alert.getDefaultInstance()) {
                     if (alert.hasLevel()) {
-                        ii(alert.getLevel());
+                        it(alert.getLevel());
                     }
                     if (alert.hasDescription()) {
                         c(alert.getDescription());
@@ -2689,7 +2689,7 @@ public final class Bdtls {
                 return (this.bitField0_ & 1) == 1;
             }
 
-            public a ii(int i) {
+            public a it(int i) {
                 this.bitField0_ |= 1;
                 this.level_ = i;
                 return this;

@@ -13,8 +13,8 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.dialog.i;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
@@ -23,31 +23,31 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Date;
 /* loaded from: classes10.dex */
 public class b extends c<GroupActivityActivity> {
-    private LinearLayout iDA;
-    private LinearLayout iDB;
-    private LinearLayout iDC;
-    private TextView iDD;
-    private ImageView iDE;
-    private ImageView iDF;
-    private i iDG;
-    private TextView iDH;
-    private TextView iDI;
-    private GroupActivityActivity iDq;
-    private HeadImageView iDs;
-    private TextView iDt;
-    private LinearLayout iDu;
-    private TextView iDv;
-    private TextView iDw;
-    private TextView iDx;
-    private TextView iDy;
-    private TextView iDz;
-    private View itl;
+    private View iKr;
+    private TextView iUA;
+    private TextView iUB;
+    private TextView iUC;
+    private TextView iUD;
+    private LinearLayout iUE;
+    private LinearLayout iUF;
+    private LinearLayout iUG;
+    private TextView iUH;
+    private ImageView iUI;
+    private ImageView iUJ;
+    private i iUK;
+    private TextView iUL;
+    private TextView iUM;
+    private GroupActivityActivity iUu;
+    private HeadImageView iUw;
+    private TextView iUx;
+    private LinearLayout iUy;
+    private TextView iUz;
     private RelativeLayout mContainer;
     private NavigationBar mNavigationBar;
 
     public b(GroupActivityActivity groupActivityActivity) {
         super(groupActivityActivity.getPageContext());
-        this.iDq = groupActivityActivity;
+        this.iUu = groupActivityActivity;
         groupActivityActivity.setContentView(R.layout.im_group_activity_activity);
         c(groupActivityActivity);
         d(groupActivityActivity);
@@ -56,101 +56,101 @@ public class b extends c<GroupActivityActivity> {
     private void c(final GroupActivityActivity groupActivityActivity) {
         this.mNavigationBar = (NavigationBar) groupActivityActivity.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setTitleText(groupActivityActivity.getResources().getString(R.string.group_activity));
-        this.itl = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, groupActivityActivity);
-        this.iDt = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupActivityActivity.getPageContext().getString(R.string.edit));
-        this.iDt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupActivity.b.1
+        this.iKr = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, groupActivityActivity);
+        this.iUx = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupActivityActivity.getPageContext().getString(R.string.edit));
+        this.iUx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupActivity.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.cnp();
-                b.this.iDG.showDialog();
+                b.this.cre();
+                b.this.iUK.showDialog();
                 TiebaStatic.eventStat(groupActivityActivity.getPageContext().getPageActivity(), "group_activity_edit", "groupclick", 1, new Object[0]);
             }
         });
-        this.iDt.setVisibility(8);
-        this.iDH = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupActivityActivity.getPageContext().getString(R.string.delete));
-        this.iDH.setOnClickListener(groupActivityActivity);
-        this.iDH.setVisibility(8);
+        this.iUx.setVisibility(8);
+        this.iUL = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupActivityActivity.getPageContext().getString(R.string.delete));
+        this.iUL.setOnClickListener(groupActivityActivity);
+        this.iUL.setVisibility(8);
     }
 
     private void d(GroupActivityActivity groupActivityActivity) {
         this.mContainer = (RelativeLayout) groupActivityActivity.findViewById(R.id.group_info_container);
-        this.iDu = (LinearLayout) groupActivityActivity.findViewById(R.id.lay_group_body);
-        this.iDs = (HeadImageView) groupActivityActivity.findViewById(R.id.group_head_pic);
-        this.iDs.setAutoChangeStyle(true);
-        this.iDs.setIsRound(false);
-        this.iDv = (TextView) groupActivityActivity.findViewById(R.id.tv_group_activity_name);
-        this.iDw = (TextView) groupActivityActivity.findViewById(R.id.txt_group_author);
-        this.iDx = (TextView) groupActivityActivity.findViewById(R.id.txt_group_activity_content);
-        this.iDy = (TextView) groupActivityActivity.findViewById(R.id.txt_group_activity_time);
-        this.iDz = (TextView) groupActivityActivity.findViewById(R.id.txt_group_activity_place);
-        this.iDA = (LinearLayout) groupActivityActivity.findViewById(R.id.lay_group_activity_content);
-        this.iDB = (LinearLayout) groupActivityActivity.findViewById(R.id.lay_group_activity_place);
-        this.iDC = (LinearLayout) groupActivityActivity.findViewById(R.id.lay_group_activity_time);
-        this.iDD = (TextView) groupActivityActivity.findViewById(R.id.txt_group_activity_end);
-        this.iDF = (ImageView) groupActivityActivity.findViewById(R.id.img_activity_time);
-        this.iDE = (ImageView) groupActivityActivity.findViewById(R.id.img_activity_place);
-        this.iDI = (TextView) groupActivityActivity.findViewById(R.id.tv_group_activity_del_tip);
+        this.iUy = (LinearLayout) groupActivityActivity.findViewById(R.id.lay_group_body);
+        this.iUw = (HeadImageView) groupActivityActivity.findViewById(R.id.group_head_pic);
+        this.iUw.setAutoChangeStyle(true);
+        this.iUw.setIsRound(false);
+        this.iUz = (TextView) groupActivityActivity.findViewById(R.id.tv_group_activity_name);
+        this.iUA = (TextView) groupActivityActivity.findViewById(R.id.txt_group_author);
+        this.iUB = (TextView) groupActivityActivity.findViewById(R.id.txt_group_activity_content);
+        this.iUC = (TextView) groupActivityActivity.findViewById(R.id.txt_group_activity_time);
+        this.iUD = (TextView) groupActivityActivity.findViewById(R.id.txt_group_activity_place);
+        this.iUE = (LinearLayout) groupActivityActivity.findViewById(R.id.lay_group_activity_content);
+        this.iUF = (LinearLayout) groupActivityActivity.findViewById(R.id.lay_group_activity_place);
+        this.iUG = (LinearLayout) groupActivityActivity.findViewById(R.id.lay_group_activity_time);
+        this.iUH = (TextView) groupActivityActivity.findViewById(R.id.txt_group_activity_end);
+        this.iUJ = (ImageView) groupActivityActivity.findViewById(R.id.img_activity_time);
+        this.iUI = (ImageView) groupActivityActivity.findViewById(R.id.img_activity_place);
+        this.iUM = (TextView) groupActivityActivity.findViewById(R.id.tv_group_activity_del_tip);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.iDI.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.iUM.getLayoutParams();
             layoutParams.topMargin += UtilHelper.getStatusBarHeight();
-            this.iDI.setLayoutParams(layoutParams);
+            this.iUM.setLayoutParams(layoutParams);
         }
     }
 
     public void a(GroupActivityData groupActivityData, boolean z) {
         if (groupActivityData != null) {
-            if (this.iDu.getVisibility() != 0) {
-                this.iDu.setVisibility(0);
+            if (this.iUy.getVisibility() != 0) {
+                this.iUy.setVisibility(0);
             }
             if (!TextUtils.isEmpty(groupActivityData.getActivityPortrait())) {
-                this.iDs.startLoad(groupActivityData.getActivityPortrait(), 12, false);
+                this.iUw.startLoad(groupActivityData.getActivityPortrait(), 12, false);
             }
-            this.iDv.setText(groupActivityData.getgActivityTitle());
-            this.iDw.setText(this.iDq.getResources().getString(R.string.group_activity_creator) + "：" + groupActivityData.getNameShow());
+            this.iUz.setText(groupActivityData.getgActivityTitle());
+            this.iUA.setText(this.iUu.getResources().getString(R.string.group_activity_creator) + "：" + groupActivityData.getNameShow());
             if (TbadkApplication.getCurrentAccountObj() != null && TbadkApplication.getCurrentAccountObj().getID() != null && TbadkApplication.getCurrentAccountObj().getID().equals(String.valueOf(groupActivityData.getUserId()))) {
                 if (groupActivityData.getIsEnd() == 1) {
-                    this.iDt.setVisibility(8);
-                    this.iDH.setVisibility(0);
-                    if (com.baidu.tieba.group.a.ceg().ceh() || z) {
-                        this.iDI.setVisibility(8);
+                    this.iUx.setVisibility(8);
+                    this.iUL.setVisibility(0);
+                    if (com.baidu.tieba.group.a.chD().chE() || z) {
+                        this.iUM.setVisibility(8);
                     } else {
-                        this.iDI.setVisibility(0);
-                        com.baidu.tieba.group.a.ceg().ob(true);
-                        e.ld().postDelayed(new Runnable() { // from class: com.baidu.tieba.im.groupActivity.b.2
+                        this.iUM.setVisibility(0);
+                        com.baidu.tieba.group.a.chD().on(true);
+                        e.lt().postDelayed(new Runnable() { // from class: com.baidu.tieba.im.groupActivity.b.2
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (b.this.iDI != null) {
-                                    b.this.iDI.setVisibility(8);
+                                if (b.this.iUM != null) {
+                                    b.this.iUM.setVisibility(8);
                                 }
                             }
                         }, 3000L);
                     }
                 } else {
-                    this.iDt.setVisibility(0);
-                    this.iDH.setVisibility(8);
+                    this.iUx.setVisibility(0);
+                    this.iUL.setVisibility(8);
                 }
             } else {
-                this.iDt.setVisibility(8);
-                this.iDH.setVisibility(8);
+                this.iUx.setVisibility(8);
+                this.iUL.setVisibility(8);
             }
             if (groupActivityData.getIsEnd() == 1) {
-                this.iDD.setVisibility(0);
-                am.setImageResource(this.iDF, R.drawable.icon_activity_time_n);
-                am.setImageResource(this.iDE, R.drawable.icon_activity_lbs_n);
-                am.setViewTextColor(this.iDy, R.color.common_color_10106, 1);
-                am.setViewTextColor(this.iDz, R.color.common_color_10106, 1);
+                this.iUH.setVisibility(0);
+                an.setImageResource(this.iUJ, R.drawable.icon_activity_time_n);
+                an.setImageResource(this.iUI, R.drawable.icon_activity_lbs_n);
+                an.setViewTextColor(this.iUC, R.color.common_color_10106, 1);
+                an.setViewTextColor(this.iUD, R.color.common_color_10106, 1);
             } else {
-                this.iDD.setVisibility(8);
-                am.setImageResource(this.iDF, R.drawable.icon_activity_time_s);
-                am.setImageResource(this.iDE, R.drawable.icon_activity_lbs_s);
-                am.setViewTextColor(this.iDy, R.color.common_color_10039, 1);
-                am.setViewTextColor(this.iDz, R.color.common_color_10039, 1);
+                this.iUH.setVisibility(8);
+                an.setImageResource(this.iUJ, R.drawable.icon_activity_time_s);
+                an.setImageResource(this.iUI, R.drawable.icon_activity_lbs_s);
+                an.setViewTextColor(this.iUC, R.color.common_color_10039, 1);
+                an.setViewTextColor(this.iUD, R.color.common_color_10039, 1);
             }
             if (TextUtils.isEmpty(groupActivityData.getgActivityContent())) {
-                this.iDA.setVisibility(8);
+                this.iUE.setVisibility(8);
             } else {
-                this.iDA.setVisibility(0);
-                this.iDx.setText(groupActivityData.getgActivityContent());
+                this.iUE.setVisibility(0);
+                this.iUB.setText(groupActivityData.getgActivityContent());
             }
             if (groupActivityData.getgActivityTime() > 0) {
                 Date date = new Date(groupActivityData.getgActivityTime() * 1000);
@@ -166,10 +166,10 @@ public class b extends c<GroupActivityActivity> {
                 sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                 sb.append(date2);
                 sb.append(" ");
-                sb.append(aq.getWeekString(year, month, date2));
+                sb.append(ar.getWeekString(year, month, date2));
                 sb.append(" ");
                 if (hours > 12) {
-                    sb.append(this.iDq.getResources().getString(R.string.afternoon));
+                    sb.append(this.iUu.getResources().getString(R.string.afternoon));
                     sb.append(hours - 12);
                     sb.append(":");
                     if (minutes < 10) {
@@ -177,7 +177,7 @@ public class b extends c<GroupActivityActivity> {
                     }
                     sb.append(minutes);
                 } else {
-                    sb.append(this.iDq.getResources().getString(R.string.morning));
+                    sb.append(this.iUu.getResources().getString(R.string.morning));
                     sb.append(hours);
                     sb.append(":");
                     if (minutes < 10) {
@@ -185,51 +185,51 @@ public class b extends c<GroupActivityActivity> {
                     }
                     sb.append(minutes);
                 }
-                this.iDy.setText(sb.toString());
+                this.iUC.setText(sb.toString());
             } else {
-                this.iDy.setText("");
+                this.iUC.setText("");
             }
             if (TextUtils.isEmpty(groupActivityData.getgActivityArea())) {
-                this.iDB.setVisibility(8);
-                am.setBackgroundResource(this.iDC, R.drawable.bg_activity_down);
+                this.iUF.setVisibility(8);
+                an.setBackgroundResource(this.iUG, R.drawable.bg_activity_down);
                 return;
             }
-            this.iDB.setVisibility(0);
-            this.iDz.setText(groupActivityData.getgActivityArea());
-            am.setBackgroundResource(this.iDC, R.drawable.bg_activity_middle);
+            this.iUF.setVisibility(0);
+            this.iUD.setText(groupActivityData.getgActivityArea());
+            an.setBackgroundResource(this.iUG, R.drawable.bg_activity_middle);
         }
     }
 
     public void changeSkinType(int i) {
-        this.iDq.getLayoutMode().setNightMode(i == 1);
-        this.iDq.getLayoutMode().onModeChanged(this.mContainer);
-        this.mNavigationBar.onChangeSkinType(this.iDq.getPageContext(), i);
-        this.iDt.setTextColor(am.getColor(R.color.cp_cont_f));
-        this.iDH.setTextColor(am.getColor(R.color.cp_cont_f));
+        this.iUu.getLayoutMode().setNightMode(i == 1);
+        this.iUu.getLayoutMode().onModeChanged(this.mContainer);
+        this.mNavigationBar.onChangeSkinType(this.iUu.getPageContext(), i);
+        this.iUx.setTextColor(an.getColor(R.color.cp_cont_f));
+        this.iUL.setTextColor(an.getColor(R.color.cp_cont_f));
     }
 
     public void onDestory() {
-        this.iDI = null;
+        this.iUM = null;
     }
 
-    public View cnm() {
-        return this.itl;
+    public View crb() {
+        return this.iKr;
     }
 
-    public TextView cnn() {
-        return this.iDH;
+    public TextView crc() {
+        return this.iUL;
     }
 
-    public i cno() {
-        return this.iDG;
+    public i crd() {
+        return this.iUK;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cnp() {
-        if (this.iDG == null) {
-            String[] strArr = {this.iDq.getPageContext().getString(R.string.group_activity_eidt), this.iDq.getPageContext().getString(R.string.group_activity_delete)};
-            this.iDG = new i(this.iDq.getPageContext());
-            this.iDG.a(null, strArr, this.iDq);
+    public void cre() {
+        if (this.iUK == null) {
+            String[] strArr = {this.iUu.getPageContext().getString(R.string.group_activity_eidt), this.iUu.getPageContext().getString(R.string.group_activity_delete)};
+            this.iUK = new i(this.iUu.getPageContext());
+            this.iUK.a(null, strArr, this.iUu);
         }
     }
 }

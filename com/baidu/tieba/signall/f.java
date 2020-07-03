@@ -6,8 +6,8 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f {
-    public String dAw;
-    public String lda;
+    public String dGN;
+    public String lwX;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -15,8 +15,8 @@ public class f {
             return;
         }
         try {
-            this.lda = jSONObject.optString("banner_pic");
-            this.dAw = jSONObject.optString("banner_url");
+            this.lwX = jSONObject.optString("banner_pic");
+            this.dGN = jSONObject.optString("banner_url");
         } catch (Exception e) {
             BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, TiebaInitialize.LogFields.REASON, e.toString());
             BdLog.e(e.getMessage());

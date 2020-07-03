@@ -2,7 +2,7 @@ package com.baidu.live.view.web.a;
 
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.data.v;
+import com.baidu.live.data.w;
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,23 +14,23 @@ public class c extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void fO(String str) {
+    public void fX(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            final v vVar = new v();
-            vVar.avS = jSONObject.optInt("tab", -1);
-            vVar.avT = jSONObject.optInt("category_id", -1);
-            vVar.avU = jSONObject.optInt(LogConfig.LOG_GIFT_ID, -1);
+            final w wVar = new w();
+            wVar.aya = jSONObject.optInt("tab", -1);
+            wVar.ayb = jSONObject.optInt("category_id", -1);
+            wVar.ayc = jSONObject.optInt(LogConfig.LOG_GIFT_ID, -1);
             if (jSONObject.optInt("close", 0) == 1) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913123));
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.view.web.a.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.a(vVar);
+                        c.this.a(wVar);
                     }
                 }, 250L);
             } else {
-                a(vVar);
+                a(wVar);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -38,7 +38,7 @@ public class c extends com.baidu.live.view.web.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(v vVar) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, vVar));
+    public void a(w wVar) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, wVar));
     }
 }

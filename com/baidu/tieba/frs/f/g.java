@@ -6,27 +6,27 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 /* loaded from: classes.dex */
 public class g {
-    private static String cbr() {
+    private static String ceJ() {
         return "pref_name_frs_sortType_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(cbr(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(ceJ(), 0);
     }
 
-    public static void aN(String str, int i) {
+    public static void aM(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 SharedPreferences.Editor edit = getSharedPreferences().edit();
                 edit.putInt(str, i);
-                edit.commit();
+                edit.apply();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static int Fh(String str) {
+    public static int FI(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
@@ -48,7 +48,7 @@ public class g {
         }
     }
 
-    public static int vq(int i) {
+    public static int vV(int i) {
         switch (i) {
             case 2:
             case 5:
@@ -67,7 +67,7 @@ public class g {
         }
     }
 
-    public static int vr(int i) {
+    public static int vW(int i) {
         switch (i) {
             case 0:
                 return 2;
@@ -132,7 +132,7 @@ public class g {
         return 1;
     }
 
-    public static int vs(int i) {
+    public static int vX(int i) {
         switch (i) {
             case 0:
                 return 2;

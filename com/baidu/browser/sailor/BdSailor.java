@@ -115,7 +115,7 @@ public class BdSailor implements INoProGuard {
         }
         Log.i(EngineManager.LOG_TAG, "start check zeus update after notifyUserPrivacyConfirmInner");
         getAppContext();
-        com.baidu.browser.sailor.webkit.update.a.rp().a(getAppContext());
+        com.baidu.browser.sailor.webkit.update.a.rG().a(getAppContext());
     }
 
     private void setSailorFeatureListener() {
@@ -458,7 +458,7 @@ public class BdSailor implements INoProGuard {
         this.mClient = bdSailorClient;
         WebKitFactory.setWebKitClient(bdSailorClient);
         setSailorFeatureListener();
-        BdSailorPlatform.getStatic().acW = this.mClient;
+        BdSailorPlatform.getStatic().adB = this.mClient;
     }
 
     public void setSailorNetProbeInterface(ISailorNetProbeInterface iSailorNetProbeInterface) {

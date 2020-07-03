@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class AlgoHandleAdapter {
     static {
-        b.an("ardatabasic2");
+        b.ao("ardatabasic2");
     }
 
     public static native long createHandle();

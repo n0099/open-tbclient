@@ -6,15 +6,15 @@ import java.io.File;
 /* loaded from: classes11.dex */
 public class s implements aj {
     @Override // com.baidu.swan.apps.adaptation.a.aj
-    public void Sq() {
+    public void Tw() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aj
-    public void Sr() {
+    public void Tx() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aj
-    public long Ss() {
+    public long Ty() {
         return -1L;
     }
 
@@ -24,11 +24,11 @@ public class s implements aj {
 
     @Override // com.baidu.swan.apps.adaptation.a.aj
     public String aK(long j) {
-        if (!com.baidu.swan.apps.u.a.afC().SV()) {
-            if (com.baidu.swan.apps.core.k.a.aaM()) {
-                return com.baidu.swan.apps.core.k.a.bZr + File.separator + GlobalConstants.LIB_ZEUS;
+        if (!com.baidu.swan.apps.u.a.agI().Ub()) {
+            if (com.baidu.swan.apps.core.k.a.abS()) {
+                return com.baidu.swan.apps.core.k.a.ceh + File.separator + GlobalConstants.LIB_ZEUS;
             }
-            return com.baidu.swan.apps.core.k.a.bZt + File.separator + GlobalConstants.LIB_ZEUS;
+            return com.baidu.swan.apps.core.k.a.cej + File.separator + GlobalConstants.LIB_ZEUS;
         }
         return null;
     }

@@ -19,15 +19,15 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public class SwanContentProvider extends ContentProvider {
     private static final boolean DEBUG = b.DEBUG;
-    private static final String cPg = AppRuntime.getAppContext().getPackageName() + ".provider";
-    private static UriMatcher cPh = new UriMatcher(-1);
-    private static HashSet<String> cPi = new HashSet<>();
+    private static final String cTQ = AppRuntime.getAppContext().getPackageName() + ".provider";
+    private static UriMatcher cTR = new UriMatcher(-1);
+    private static HashSet<String> cTS = new HashSet<>();
 
     static {
         ProcessorInfo[] values;
         for (ProcessorInfo processorInfo : ProcessorInfo.values()) {
             if (processorInfo != null) {
-                cPh.addURI(cPg, processorInfo.getPath(), processorInfo.getMatcherCode());
+                cTR.addURI(cTQ, processorInfo.getPath(), processorInfo.getMatcherCode());
             }
         }
     }
@@ -46,9 +46,9 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        a hX;
-        if (avm() && (hX = hX(cPh.match(uri))) != null) {
-            return hX.query(uri, strArr, str, strArr2, str2);
+        a ii;
+        if (aws() && (ii = ii(cTR.match(uri))) != null) {
+            return ii.query(uri, strArr, str, strArr2, str2);
         }
         return null;
     }
@@ -56,32 +56,32 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        a hX;
-        if (!avn() || (hX = hX(cPh.match(uri))) == null) {
+        a ii;
+        if (!awt() || (ii = ii(cTR.match(uri))) == null) {
             return null;
         }
-        return hX.insert(uri, contentValues);
+        return ii.insert(uri, contentValues);
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        a hX;
-        if (!avn() || (hX = hX(cPh.match(uri))) == null) {
+        a ii;
+        if (!awt() || (ii = ii(cTR.match(uri))) == null) {
             return 0;
         }
-        return hX.delete(uri, str, strArr);
+        return ii.delete(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        a hX;
-        if (!avn() || (hX = hX(cPh.match(uri))) == null) {
+        a ii;
+        if (!awt() || (ii = ii(cTR.match(uri))) == null) {
             return 0;
         }
-        return hX.update(uri, contentValues, str, strArr);
+        return ii.update(uri, contentValues, str, strArr);
     }
 
-    private a hX(int i) {
+    private a ii(int i) {
         Class<? extends a> processorClass = ProcessorInfo.getProcessorClass(i);
         if (processorClass != null) {
             try {
@@ -95,31 +95,31 @@ public class SwanContentProvider extends ContentProvider {
         return null;
     }
 
-    private boolean avm() {
+    private boolean aws() {
         return checkPermission();
     }
 
-    private boolean avn() {
+    private boolean awt() {
         return checkPermission();
     }
 
     private boolean checkPermission() {
         boolean z = true;
-        if (!ao(Process.myUid(), Binder.getCallingUid())) {
+        if (!aq(Process.myUid(), Binder.getCallingUid())) {
             String callingPackage = getCallingPackage();
-            if (!cPi.contains(callingPackage)) {
-                String qm = c.qm(callingPackage);
-                Set<String> ava = com.baidu.swan.config.c.c.auZ().ava();
-                z = (ava == null || !ava.contains(qm)) ? false : false;
+            if (!cTS.contains(callingPackage)) {
+                String qu = c.qu(callingPackage);
+                Set<String> awg = com.baidu.swan.config.c.c.awf().awg();
+                z = (awg == null || !awg.contains(qu)) ? false : false;
                 if (z) {
-                    cPi.add(callingPackage);
+                    cTS.add(callingPackage);
                 }
             }
         }
         return z;
     }
 
-    private static boolean ao(int i, int i2) {
+    private static boolean aq(int i, int i2) {
         return i % 100000 == i2 % 100000;
     }
 }

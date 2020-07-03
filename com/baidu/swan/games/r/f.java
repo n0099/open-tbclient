@@ -4,42 +4,42 @@ import android.text.TextUtils;
 import java.io.File;
 /* loaded from: classes11.dex */
 public class f {
-    private static volatile f dbc;
-    private boolean dbd;
-    private String dbe;
-    private String dbf;
+    private static volatile f dfP;
+    private boolean dfQ;
+    private String dfR;
+    private String dfS;
 
-    public static f aBi() {
-        if (dbc == null) {
+    public static f aCo() {
+        if (dfP == null) {
             synchronized (f.class) {
-                if (dbc == null) {
-                    dbc = new f();
+                if (dfP == null) {
+                    dfP = new f();
                 }
             }
         }
-        return dbc;
+        return dfP;
     }
 
     private f() {
     }
 
-    public boolean aBj() {
-        return this.dbd;
+    public boolean aCp() {
+        return this.dfQ;
     }
 
-    public void fO(boolean z) {
-        this.dbd = z;
+    public void fT(boolean z) {
+        this.dfQ = z;
     }
 
-    public String aBk() {
-        return TextUtils.isEmpty(this.dbf) ? "" : this.dbf + File.separator + "index.js";
+    public String aCq() {
+        return TextUtils.isEmpty(this.dfS) ? "" : this.dfS + File.separator + "index.js";
     }
 
-    public void si(String str) {
-        this.dbe = str;
+    public void sq(String str) {
+        this.dfR = str;
     }
 
-    public void sj(String str) {
-        this.dbf = str;
+    public void ss(String str) {
+        this.dfS = str;
     }
 }

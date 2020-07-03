@@ -7,33 +7,33 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    public boolean bxA;
-    public List<C0247a> bxB;
+    public boolean bCq;
+    public List<C0253a> bCr;
 
     /* renamed from: com.baidu.poly.widget.coupon.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0247a {
-        public String bxC;
-        public String bxD;
-        public String bxE;
-        public Long bxF;
-        public int bxG;
-        public String bxH;
+    public static class C0253a {
+        public String bCs;
+        public String bCt;
+        public String bCu;
+        public Long bCv;
+        public int bCw;
+        public String bCx;
         public String icon;
         public int type;
 
-        public C0247a() {
+        public C0253a() {
         }
 
-        C0247a(JSONObject jSONObject) {
+        C0253a(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.bxC = jSONObject.optString("display_name");
-                this.bxD = jSONObject.optString("pay_text");
+                this.bCs = jSONObject.optString("display_name");
+                this.bCt = jSONObject.optString("pay_text");
                 this.icon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-                this.bxE = jSONObject.optString("valid_info");
-                this.bxH = jSONObject.optString("host_marketing_detail");
-                this.bxF = Long.valueOf(jSONObject.optLong("available_par_money"));
-                this.bxG = jSONObject.optInt("is_selected");
+                this.bCu = jSONObject.optString("valid_info");
+                this.bCx = jSONObject.optString("host_marketing_detail");
+                this.bCv = Long.valueOf(jSONObject.optLong("available_par_money"));
+                this.bCw = jSONObject.optInt("is_selected");
                 this.type = jSONObject.optInt("type");
             }
         }
@@ -41,15 +41,15 @@ public class a {
 
     public a(JSONArray jSONArray) {
         if (jSONArray != null) {
-            this.bxB = new ArrayList();
+            this.bCr = new ArrayList();
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject = (JSONObject) jSONArray.opt(i);
                 if (jSONObject != null) {
-                    this.bxB.add(new C0247a(jSONObject));
+                    this.bCr.add(new C0253a(jSONObject));
                 }
             }
-            this.bxA = this.bxB.size() > 1;
+            this.bCq = this.bCr.size() > 1;
         }
     }
 }

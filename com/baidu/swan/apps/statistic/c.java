@@ -30,14 +30,14 @@ public class c {
                     jSONObject.put("page", aVar.page);
                 }
                 boolean isEmpty = TextUtils.isEmpty(aVar.appId);
-                boolean isEmpty2 = TextUtils.isEmpty(aVar.cFS);
+                boolean isEmpty2 = TextUtils.isEmpty(aVar.cKC);
                 if (!isEmpty || !isEmpty2) {
                     JSONObject jSONObject2 = new JSONObject();
                     if (!isEmpty) {
                         jSONObject2.put("appid", aVar.appId);
                     }
                     if (!isEmpty2) {
-                        jSONObject2.put("info", aVar.cFS);
+                        jSONObject2.put("info", aVar.cKC);
                     }
                     jSONObject.put("ext", jSONObject2);
                 }
@@ -58,35 +58,35 @@ public class c {
     /* loaded from: classes11.dex */
     public static class a {
         private String appId;
-        private String cFS;
+        private String cKC;
         private String page;
         private String source;
         private String type;
         private String value;
-        private c cFR = new c();
+        private c cKB = new c();
         private String from = "swan";
 
         public a(int i) {
             this.type = String.valueOf(i);
         }
 
-        public a oq(String str) {
+        public a oy(String str) {
             this.page = str;
             return this;
         }
 
-        public a or(String str) {
+        public a oz(String str) {
             this.appId = str;
             return this;
         }
 
-        public a os(String str) {
-            this.cFS = str;
+        public a oA(String str) {
+            this.cKC = str;
             return this;
         }
 
-        public void ahn() {
-            this.cFR.a(this);
+        public void ait() {
+            this.cKB.a(this);
         }
     }
 }

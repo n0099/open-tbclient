@@ -8,37 +8,37 @@ import android.graphics.RectF;
 import android.support.v4.internal.view.SupportMenu;
 /* loaded from: classes5.dex */
 public class d {
-    public static Paint nwJ;
-    public static RectF nwK;
-    private static boolean nwL = true;
-    private static boolean nwM = true;
-    public static Paint nwI = new Paint();
+    public static Paint nSv;
+    public static RectF nSw;
+    private static boolean nSx = true;
+    private static boolean nSy = true;
+    public static Paint nSu = new Paint();
 
     static {
-        nwI.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        nwI.setColor(0);
-        nwK = new RectF();
+        nSu.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        nSu.setColor(0);
+        nSw = new RectF();
     }
 
-    public static void ay(boolean z, boolean z2) {
-        nwL = z;
-        nwM = z2;
+    public static void az(boolean z, boolean z2) {
+        nSx = z;
+        nSy = z2;
     }
 
     public static void c(Canvas canvas, String str) {
-        if (nwJ == null) {
-            nwJ = new Paint();
-            nwJ.setColor(SupportMenu.CATEGORY_MASK);
-            nwJ.setTextSize(30.0f);
+        if (nSv == null) {
+            nSv = new Paint();
+            nSv.setColor(SupportMenu.CATEGORY_MASK);
+            nSv.setTextSize(30.0f);
         }
         int height = canvas.getHeight() - 50;
-        a(canvas, 10.0f, height - 50, (int) (nwJ.measureText(str) + 20.0f), canvas.getHeight());
-        canvas.drawText(str, 10.0f, height, nwJ);
+        a(canvas, 10.0f, height - 50, (int) (nSv.measureText(str) + 20.0f), canvas.getHeight());
+        canvas.drawText(str, 10.0f, height, nSv);
     }
 
     public static void e(Canvas canvas) {
-        if (nwL) {
-            if (nwM) {
+        if (nSx) {
+            if (nSy) {
                 canvas.drawColor(0, PorterDuff.Mode.CLEAR);
                 return;
             } else {
@@ -46,18 +46,18 @@ public class d {
                 return;
             }
         }
-        nwK.set(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
-        a(canvas, nwK);
+        nSw.set(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
+        a(canvas, nSw);
     }
 
     public static void a(Canvas canvas, float f, float f2, float f3, float f4) {
-        nwK.set(f, f2, f3, f4);
-        a(canvas, nwK);
+        nSw.set(f, f2, f3, f4);
+        a(canvas, nSw);
     }
 
     private static void a(Canvas canvas, RectF rectF) {
         if (rectF.width() > 0.0f && rectF.height() > 0.0f) {
-            canvas.drawRect(rectF, nwI);
+            canvas.drawRect(rectF, nSu);
         }
     }
 }

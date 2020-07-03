@@ -1,5 +1,6 @@
 package com.baidu.ar.c;
 
+import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.ar.arplay.core.filter.OnNeedCacheFrameListener;
 import java.util.ArrayList;
@@ -9,52 +10,70 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
 public class g {
-    private com.baidu.ar.arrender.c f;
-    private boolean lB;
-    private f lv;
-    private e lw;
-    private ConcurrentHashMap<String, e> lx = new ConcurrentHashMap<>();
-    private List<k> ly = Collections.synchronizedList(new ArrayList());
-    private ConcurrentHashMap<String, e> lz = new ConcurrentHashMap<>();
-    private long lo = 0;
-    private OnNeedCacheFrameListener lA = new OnNeedCacheFrameListener() { // from class: com.baidu.ar.c.g.1
+    private com.baidu.ar.arrender.c g;
+    private f lS;
+    private e lT;
+    private boolean lY;
+    private ConcurrentHashMap<String, e> lU = new ConcurrentHashMap<>();
+    private List<k> lV = Collections.synchronizedList(new ArrayList());
+    private ConcurrentHashMap<String, e> lW = new ConcurrentHashMap<>();
+    private long lL = 0;
+    private OnNeedCacheFrameListener lX = new OnNeedCacheFrameListener() { // from class: com.baidu.ar.c.g.1
         @Override // com.baidu.ar.arplay.core.filter.OnNeedCacheFrameListener
         public boolean isNeedCacheFrame(long j) {
-            if (g.this.lv == null) {
+            if (g.this.lS == null) {
                 return false;
             }
-            if (g.this.lo != j) {
-                g.this.lB = g.this.lv.Y();
+            if (g.this.lL != j) {
+                g.this.lY = g.this.lS.am();
             }
-            g.this.lo = j;
-            return g.this.lB;
+            g.this.lL = j;
+            return g.this.lY;
         }
     };
 
-    public g(com.baidu.ar.arrender.c cVar) {
-        this.f = cVar;
-        this.f.a(this.lA);
-        this.lv = new f();
-        this.lw = new e() { // from class: com.baidu.ar.c.g.2
+    public g(com.baidu.ar.arrender.c cVar, Looper looper) {
+        this.g = cVar;
+        this.g.a(this.lX);
+        this.lS = new f(looper);
+        this.lT = new e() { // from class: com.baidu.ar.c.g.2
             @Override // com.baidu.ar.c.e
             public void a(b bVar) {
                 g.this.j(bVar);
-                if (g.this.f != null) {
-                    g.this.f.h(bVar.getTimestamp());
+                if (g.this.g != null) {
+                    g.this.g.h(bVar.getTimestamp());
                 }
             }
 
             @Override // com.baidu.ar.c.e
             public void a(l lVar) {
                 com.baidu.ar.f.b.c("DetectorManager", "mSyncDetectorGroup onSetup result = " + lVar.isSuccess());
+                g.this.g(lVar);
             }
 
             @Override // com.baidu.ar.c.e
             public void b(l lVar) {
                 com.baidu.ar.f.b.c("DetectorManager", "mSyncDetectorGroup onRelease result = " + lVar.isSuccess());
+                g.this.h(lVar);
             }
         };
-        this.lv.a(this.lw);
+        this.lS.a(this.lT);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void g(l lVar) {
+        if (lVar == null || lVar.cD() == "DetectorGroup" || this.lU == null || this.lU.get(lVar.cD()) == null) {
+            return;
+        }
+        this.lU.get(lVar.cD()).a(lVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void h(l lVar) {
+        if (lVar == null || lVar.cD() == "DetectorGroup" || this.lU == null || this.lU.get(lVar.cD()) == null) {
+            return;
+        }
+        this.lU.get(lVar.cD()).b(lVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -62,11 +81,11 @@ public class g {
         if (bVar == null || !(bVar instanceof c)) {
             return;
         }
-        Iterator<b> it = ((c) bVar).co().iterator();
+        Iterator<b> it = ((c) bVar).cG().iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next != null && !TextUtils.isEmpty(next.cl()) && this.lx != null && this.lx.get(next.cl()) != null) {
-                this.lx.get(next.cl()).a(next);
+            if (next != null && !TextUtils.isEmpty(next.cD()) && this.lU != null && this.lU.get(next.cD()) != null) {
+                this.lU.get(next.cD()).a(next);
             }
         }
     }
@@ -75,27 +94,27 @@ public class g {
         if (jVar == null || TextUtils.isEmpty(jVar.getName())) {
             return;
         }
-        if (jVar.cu() && this.ly.contains(jVar)) {
-            if (this.lv.isEmpty()) {
-                this.f.l(true);
+        if (jVar.cK() && this.lV.contains(jVar)) {
+            if (this.lS.isEmpty()) {
+                this.g.k(true);
             }
-            this.ly.remove(jVar);
-            this.lv.b(jVar, this.lz.get(jVar.getName()));
-            e remove = this.lz.remove(jVar.getName());
+            this.lV.remove(jVar);
+            this.lS.b(jVar, this.lW.get(jVar.getName()));
+            e remove = this.lW.remove(jVar.getName());
             if (remove != null) {
-                this.lx.put(jVar.getName(), remove);
+                this.lU.put(jVar.getName(), remove);
             }
-        } else if (jVar.cu() || !this.lv.b(jVar)) {
+        } else if (jVar.cK() || !this.lS.c(jVar)) {
         } else {
-            this.lv.c(jVar);
-            this.ly.add(jVar);
-            jVar.d(this.lx.get(jVar.getName()));
-            e remove2 = this.lx.remove(jVar.getName());
+            this.lS.d(jVar);
+            this.lV.add(jVar);
+            jVar.d(this.lU.get(jVar.getName()));
+            e remove2 = this.lU.remove(jVar.getName());
             if (remove2 != null) {
-                this.lz.put(jVar.getName(), remove2);
+                this.lW.put(jVar.getName(), remove2);
             }
-            if (this.lv.isEmpty()) {
-                this.f.l(false);
+            if (this.lS.isEmpty()) {
+                this.g.k(false);
             }
         }
     }
@@ -103,14 +122,14 @@ public class g {
     public void a(k kVar) {
         if (kVar == null) {
             com.baidu.ar.f.b.b("DetectorManager", "handleRemoveDetector detector is NULLLLL!!!");
-        } else if (this.ly != null && this.ly.contains(kVar)) {
+        } else if (this.lV != null && this.lV.contains(kVar)) {
             kVar.release();
-            this.ly.remove(kVar);
-        } else if (this.lv == null || !this.lv.b(kVar)) {
+            this.lV.remove(kVar);
+        } else if (this.lS == null || !this.lS.c(kVar)) {
         } else {
-            this.lv.a(kVar);
-            if (this.lv.isEmpty()) {
-                this.f.l(false);
+            this.lS.a(kVar);
+            if (this.lS.isEmpty()) {
+                this.g.k(false);
             }
         }
     }
@@ -119,52 +138,52 @@ public class g {
         if (kVar == null) {
             return;
         }
-        if ((kVar instanceof j) && ((j) kVar).cu()) {
-            if (this.lv.isEmpty()) {
-                this.f.l(true);
+        if ((kVar instanceof j) && ((j) kVar).cK()) {
+            if (this.lS.isEmpty()) {
+                this.g.k(true);
             }
-            if (this.lv.b(kVar)) {
+            if (this.lS.c(kVar)) {
                 return;
             }
-            this.lv.a(kVar, eVar);
-            this.lx.put(kVar.getName(), eVar);
-        } else if (this.ly == null || this.ly.contains(kVar)) {
+            this.lS.a(kVar, eVar);
+            this.lU.put(kVar.getName(), eVar);
+        } else if (this.lV == null || this.lV.contains(kVar)) {
         } else {
             kVar.a(eVar);
-            this.ly.add(kVar);
-            this.lz.put(kVar.getName(), eVar);
+            this.lV.add(kVar);
+            this.lW.put(kVar.getName(), eVar);
         }
     }
 
-    public void cs() {
-        if (this.ly != null) {
-            for (k kVar : this.ly) {
+    public void cI() {
+        if (this.lV != null) {
+            for (k kVar : this.lV) {
                 kVar.release();
             }
-            this.ly.clear();
-            this.ly = null;
+            this.lV.clear();
+            this.lV = null;
         }
-        if (this.lv != null) {
-            this.lv.release();
-            if (this.f != null) {
-                this.f.l(false);
+        if (this.lS != null) {
+            this.lS.release();
+            if (this.g != null) {
+                this.g.k(false);
             }
-            this.lv = null;
+            this.lS = null;
         }
-        if (this.lx != null) {
-            this.lx.clear();
-            this.lx = null;
+        if (this.lU != null) {
+            this.lU.clear();
+            this.lU = null;
         }
-        if (this.lz != null) {
-            this.lz.clear();
-            this.lz = null;
+        if (this.lW != null) {
+            this.lW.clear();
+            this.lW = null;
         }
-        this.lw = null;
+        this.lT = null;
     }
 
     public void release() {
-        cs();
-        this.f = null;
-        this.lA = null;
+        cI();
+        this.g = null;
+        this.lX = null;
     }
 }

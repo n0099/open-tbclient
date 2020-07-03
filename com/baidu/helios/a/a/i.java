@@ -10,5 +10,5 @@ public interface i {
 
     void b(JSONObject jSONObject);
 
-    i q(JSONObject jSONObject);
+    i r(JSONObject jSONObject);
 }

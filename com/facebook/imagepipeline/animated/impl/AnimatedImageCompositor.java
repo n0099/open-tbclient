@@ -8,9 +8,9 @@ import android.graphics.PorterDuffXfermode;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
 /* loaded from: classes13.dex */
 public class AnimatedImageCompositor {
-    private final com.facebook.imagepipeline.animated.base.a mti;
-    private final a mtk;
-    private final Paint muN = new Paint();
+    private final com.facebook.imagepipeline.animated.base.a mPf;
+    private final a mPh;
+    private final Paint mQL = new Paint();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes13.dex */
@@ -23,60 +23,60 @@ public class AnimatedImageCompositor {
 
     /* loaded from: classes13.dex */
     public interface a {
-        com.facebook.common.references.a<Bitmap> Ht(int i);
+        com.facebook.common.references.a<Bitmap> IA(int i);
 
         void b(int i, Bitmap bitmap);
     }
 
     public AnimatedImageCompositor(com.facebook.imagepipeline.animated.base.a aVar, a aVar2) {
-        this.mti = aVar;
-        this.mtk = aVar2;
-        this.muN.setColor(0);
-        this.muN.setStyle(Paint.Style.FILL);
-        this.muN.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
+        this.mPf = aVar;
+        this.mPh = aVar2;
+        this.mQL.setColor(0);
+        this.mQL.setStyle(Paint.Style.FILL);
+        this.mQL.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
     }
 
     public void c(int i, Bitmap bitmap) {
         Canvas canvas = new Canvas(bitmap);
         canvas.drawColor(0, PorterDuff.Mode.SRC);
-        for (int d = !Hz(i) ? d(i - 1, canvas) : i; d < i; d++) {
-            AnimatedDrawableFrameInfo GI = this.mti.GI(d);
-            AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = GI.muo;
+        for (int d = !IG(i) ? d(i - 1, canvas) : i; d < i; d++) {
+            AnimatedDrawableFrameInfo HP = this.mPf.HP(d);
+            AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = HP.mQn;
             if (disposalMethod != AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_PREVIOUS) {
-                if (GI.mun == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND) {
-                    a(canvas, GI);
+                if (HP.mQm == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND) {
+                    a(canvas, HP);
                 }
-                this.mti.c(d, canvas);
-                this.mtk.b(d, bitmap);
+                this.mPf.c(d, canvas);
+                this.mPh.b(d, bitmap);
                 if (disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
-                    a(canvas, GI);
+                    a(canvas, HP);
                 }
             }
         }
-        AnimatedDrawableFrameInfo GI2 = this.mti.GI(i);
-        if (GI2.mun == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND) {
-            a(canvas, GI2);
+        AnimatedDrawableFrameInfo HP2 = this.mPf.HP(i);
+        if (HP2.mQm == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND) {
+            a(canvas, HP2);
         }
-        this.mti.c(i, canvas);
+        this.mPf.c(i, canvas);
     }
 
     private int d(int i, Canvas canvas) {
         for (int i2 = i; i2 >= 0; i2--) {
-            switch (Hy(i2)) {
+            switch (IF(i2)) {
                 case REQUIRED:
-                    AnimatedDrawableFrameInfo GI = this.mti.GI(i2);
-                    com.facebook.common.references.a<Bitmap> Ht = this.mtk.Ht(i2);
-                    if (Ht != null) {
+                    AnimatedDrawableFrameInfo HP = this.mPf.HP(i2);
+                    com.facebook.common.references.a<Bitmap> IA = this.mPh.IA(i2);
+                    if (IA != null) {
                         try {
-                            canvas.drawBitmap(Ht.get(), 0.0f, 0.0f, (Paint) null);
-                            if (GI.muo == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
-                                a(canvas, GI);
+                            canvas.drawBitmap(IA.get(), 0.0f, 0.0f, (Paint) null);
+                            if (HP.mQn == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
+                                a(canvas, HP);
                             }
                             return i2 + 1;
                         } finally {
-                            Ht.close();
+                            IA.close();
                         }
-                    } else if (!Hz(i2)) {
+                    } else if (!IG(i2)) {
                         break;
                     } else {
                         return i2;
@@ -91,17 +91,17 @@ public class AnimatedImageCompositor {
     }
 
     private void a(Canvas canvas, AnimatedDrawableFrameInfo animatedDrawableFrameInfo) {
-        canvas.drawRect(animatedDrawableFrameInfo.mum, animatedDrawableFrameInfo.gEu, animatedDrawableFrameInfo.mum + animatedDrawableFrameInfo.width, animatedDrawableFrameInfo.gEu + animatedDrawableFrameInfo.height, this.muN);
+        canvas.drawRect(animatedDrawableFrameInfo.mQl, animatedDrawableFrameInfo.gRk, animatedDrawableFrameInfo.mQl + animatedDrawableFrameInfo.width, animatedDrawableFrameInfo.gRk + animatedDrawableFrameInfo.height, this.mQL);
     }
 
-    private FrameNeededResult Hy(int i) {
-        AnimatedDrawableFrameInfo GI = this.mti.GI(i);
-        AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = GI.muo;
+    private FrameNeededResult IF(int i) {
+        AnimatedDrawableFrameInfo HP = this.mPf.HP(i);
+        AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = HP.mQn;
         if (disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT) {
             return FrameNeededResult.REQUIRED;
         }
         if (disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
-            if (a(GI)) {
+            if (a(HP)) {
                 return FrameNeededResult.NOT_REQUIRED;
             }
             return FrameNeededResult.REQUIRED;
@@ -112,19 +112,19 @@ public class AnimatedImageCompositor {
         }
     }
 
-    private boolean Hz(int i) {
+    private boolean IG(int i) {
         if (i == 0) {
             return true;
         }
-        AnimatedDrawableFrameInfo GI = this.mti.GI(i);
-        AnimatedDrawableFrameInfo GI2 = this.mti.GI(i - 1);
-        if (GI.mun == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND && a(GI)) {
+        AnimatedDrawableFrameInfo HP = this.mPf.HP(i);
+        AnimatedDrawableFrameInfo HP2 = this.mPf.HP(i - 1);
+        if (HP.mQm == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND && a(HP)) {
             return true;
         }
-        return GI2.muo == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND && a(GI2);
+        return HP2.mQn == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND && a(HP2);
     }
 
     private boolean a(AnimatedDrawableFrameInfo animatedDrawableFrameInfo) {
-        return animatedDrawableFrameInfo.mum == 0 && animatedDrawableFrameInfo.gEu == 0 && animatedDrawableFrameInfo.width == this.mti.dxE() && animatedDrawableFrameInfo.height == this.mti.dxF();
+        return animatedDrawableFrameInfo.mQl == 0 && animatedDrawableFrameInfo.gRk == 0 && animatedDrawableFrameInfo.width == this.mPf.dCg() && animatedDrawableFrameInfo.height == this.mPf.dCh();
     }
 }

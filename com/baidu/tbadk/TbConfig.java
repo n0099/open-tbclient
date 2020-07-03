@@ -22,6 +22,7 @@ public class TbConfig {
     public static final String ADD_FAN_ADDRESS = "c/c/user/fansno";
     public static final int ADD_IAMGE_WATER_NONE = 0;
     public static final int ADD_IMAGE_WATER_FORUM_NAME = 2;
+    public static final int ADD_IMAGE_WATER_NO = 3;
     public static final int ADD_IMAGE_WATER_USER_NAME = 1;
     public static final String ADD_LINK = "c/c/thread/addLink";
     public static final String ADD_MY_GAME = "c/c/game/addmygamebatch";
@@ -456,10 +457,12 @@ public class TbConfig {
     public static final int UPLOAD_IMAGE_QUALITY_MID = 2;
     public static final String URL_ACTIVE_CONFIG = "c/s/activeConfig";
     public static final String URL_ADD_EXPERIENCED = "c/c/forum/share";
+    public static final String URL_ALA_LIVE_ROOM_CLOSED = "ala/live/mgetLiveStatus";
     public static final String URL_APPLY_COPY_THREAD = "c/c/livegroup/applycopythread";
     public static final String URL_BAIDU_SINGKIL = "https://eopa.baidu.com/page/HomePage-YW54iXYf?channel=7";
     public static final String URL_BJH_REPORT = "https://ufosdk.baidu.com/?m=Client&a=commonreport&appid=234410&nid=%1$s&platid=%2$s&remark=bjh";
     public static final String URL_BUYPROPS = "c/e/mema/buyprops";
+    public static final String URL_CALL_FANS = "god/rights/callFans";
     public static final String URL_CANDIDATE_SEARCH = "c/f/bawu/search";
     public static final String URL_CHECK_BIG_V = "c/u/user/getvuserinfo";
     public static final String URL_CHECK_REAL_NAME = "c/s/checkRealName";
@@ -469,13 +472,20 @@ public class TbConfig {
     public static final String URL_CONCERN_CHECK_RED_NOTIFY = "c/f/concern/rednotify";
     public static final String URL_CONCERN_PAGE = "c/f/concern/userlike";
     public static final String URL_CONCERN_UNREAD_TIP = "c/f/excellent/unreadtip";
+    public static final String URL_CREATE_CENTER = "https://tieba.baidu.com/mo/q/creativeCenter";
+    public static final String URL_CREATE_COLLEGE = "https://tieba.baidu.com/mo/q/creativeCenter?local=college";
     public static final String URL_DAILY_PAGE = "c/f/general/dailyPage";
     public static final String URL_DELETE_GRAFFITTI = "c/c/graffiti/remove";
+    public static final String URL_DELETE_REPLY_AT_MSG = "c/c/post/delmsg";
     public static final String URL_ENTER_FORUM_AD = "c/f/forum/getAdInfo";
     public static final String URL_ENTER_RECOMMEND_FORUM = "c/f/recommend/recommforum";
     public static final String URL_FEED_BACK = "https://ufosdk.baidu.com/?m=Client&a=postViewTieba&appid=222251";
+    public static final String URL_FORUM_MANAGER_APPLY = "https://tieba.baidu.com/mo/q/managerapply/newapplyelection?nomenu=1&fid=";
     public static final String URL_FORUM_SQUARE = "c/f/forum/getForumSquare";
     public static final String URL_FRS_BUSINESS_PROMOT_CLICK = "c/e/businessPromot/counter";
+    public static final String URL_FRS_LIVE_HORSERACE_LIST = "c/f/forum/getHorseRaceLampList";
+    public static final String URL_FRS_MOVE_AREA = "c/c/bawu/moveTabThread";
+    public static final String URL_FRS_RECOMMEND = "c/c/bawu/pushRecomToPersonalized";
     public static final String URL_GAME_VIDEO = "c/f/excellent/recomVertical";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
     public static final String URL_GET_CONSENTLIST = "c/u/feed/getConsentList";
@@ -483,6 +493,7 @@ public class TbConfig {
     public static final String URL_GET_HOME_PAGE_DATA = "c/f/index/homePage";
     public static final String URL_GET_HOT_RANKLIST_DATA = "c/f/recommend/topicList";
     public static final String URL_GET_HOT_TOPIC_DATA = "c/f/recommend/hottopic";
+    public static final String URL_GET_HOT_TOPIC_TAB = "c/f/forum/hotThreadList";
     public static final String URL_GET_INTEREST_LABEL_LIST = "c/f/recommtag/getTagList";
     public static final String URL_GET_RECOMMEND_GOD = "c/u/user/getRecommendGod";
     public static final String URL_GET_STICKER_LIST = "c/f/story/getSticker";
@@ -492,8 +503,11 @@ public class TbConfig {
     public static final String URL_GET_TOPIC_RELATE_THREAD = "c/f/recommend/getTopicRelateThread";
     public static final String URL_GET_TOPIC_THREAD = "c/f/recommend/newtopicthread";
     public static final String URL_GET_VIDEO_INFO_BY_VLOGID = "/c/f/video/getVideoInfoByVLogId";
+    public static final String URL_GOD_AUTH = "https://tieba.baidu.com/mo/q/godRegister";
+    public static final String URL_GOD_EXAMINE = "https://tieba.baidu.com/mo/q/godExamine";
     public static final String URL_HISTORY_SWAN = "c/s/historySwan";
     public static final String URL_HOST_TOPIC_LIST = "https://tieba.baidu.com/mo/q/hotMessage/list";
+    public static final String URL_HOT_ACTIVITIES = "https://tieba.baidu.com/mo/q/creativeCenter?local=hots";
     public static final String URL_IMAGE_PREFIX = "http://c.tieba.baidu.com/c/p/img?src=";
     public static final String URL_JUMP_TAG_CARDBOX = "https://tieba.baidu.com/mo/q/packetpage/myPacket?tieba_hybrid_enabled=1";
     public static final String URL_JUMP_TAG_WALLET = "http://www.bdwallet.activity";
@@ -519,6 +533,7 @@ public class TbConfig {
     public static final String URL_SMART_APP_DEL_BROWSE_HISTORY = "c/c/smartapp/delView";
     public static final String URL_SMART_APP_SHARE_IMAGE = "c/c/img/getShareImg";
     public static final String URL_SUB_INTEREST_LABEL_LIST = "c/f/recommtag/subTagList";
+    public static final String URL_TAB_ACTIVITY_TAB = "c/f/forum/activityPage";
     public static final String URL_TAB_FEED_LIST = "c/f/forum/tabfeedlist";
     public static final String URL_THREAD_PUBLISH = "c/c/bawu/threadPublish";
     public static final String URL_TOPIC_USER_PK = "c/f/recommend/userPk";
@@ -762,7 +777,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.beu().setPhotoMaxNum(i);
+            c.bgz().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

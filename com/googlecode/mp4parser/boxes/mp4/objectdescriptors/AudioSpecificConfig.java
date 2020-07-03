@@ -1,6 +1,6 @@
 package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
-import com.baidu.ala.player.StreamConfig;
+import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.recorder.video.hardware.AudioEncoderCore;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;

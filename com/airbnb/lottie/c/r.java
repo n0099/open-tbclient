@@ -11,7 +11,7 @@ class r {
     public static <T> List<com.airbnb.lottie.e.a<T>> a(JsonReader jsonReader, com.airbnb.lottie.e eVar, float f, aj<T> ajVar) throws IOException {
         ArrayList arrayList = new ArrayList();
         if (jsonReader.peek() == JsonToken.STRING) {
-            eVar.aW("Lottie doesn't support expressions.");
+            eVar.aX("Lottie doesn't support expressions.");
         } else {
             jsonReader.beginObject();
             while (jsonReader.hasNext()) {
@@ -48,12 +48,12 @@ class r {
                 }
             }
             jsonReader.endObject();
-            j(arrayList);
+            l(arrayList);
         }
         return arrayList;
     }
 
-    public static void j(List<? extends com.airbnb.lottie.e.a<?>> list) {
+    public static void l(List<? extends com.airbnb.lottie.e.a<?>> list) {
         int size = list.size();
         int i = 0;
         while (true) {
@@ -61,11 +61,11 @@ class r {
             if (i2 >= size - 1) {
                 break;
             }
-            list.get(i2).FR = Float.valueOf(list.get(i2 + 1).zN);
+            list.get(i2).Gs = Float.valueOf(list.get(i2 + 1).Ao);
             i = i2 + 1;
         }
         com.airbnb.lottie.e.a<?> aVar = list.get(size - 1);
-        if (aVar.FO == 0) {
+        if (aVar.Gp == 0) {
             list.remove(aVar);
         }
     }

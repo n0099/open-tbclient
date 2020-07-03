@@ -7,8 +7,8 @@ import java.text.SimpleDateFormat;
 public class cg {
 
     /* renamed from: a  reason: collision with other field name */
-    private static SimpleDateFormat f161a = new SimpleDateFormat("yyyy/MM/dd");
-    private static String a = f161a.format(Long.valueOf(System.currentTimeMillis()));
+    private static SimpleDateFormat f167a = new SimpleDateFormat("yyyy/MM/dd");
+    private static String a = f167a.format(Long.valueOf(System.currentTimeMillis()));
 
     public static hq a(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
@@ -21,7 +21,7 @@ public class cg {
         hqVar.b(str);
         hqVar.a(true);
         hqVar.b(System.currentTimeMillis());
-        hqVar.g(bp.a(context).m172a());
+        hqVar.g(bp.a(context).m169a());
         hqVar.e("com.xiaomi.xmsf");
         hqVar.f("");
         hqVar.c("push_stat");

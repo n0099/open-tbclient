@@ -47,7 +47,7 @@ public class a implements b.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(final c cVar) {
-        com.baidu.swan.f.c.aKk().a(new com.baidu.swan.f.a() { // from class: com.baidu.swan.facade.requred.webview.a.a.2
+        com.baidu.swan.f.c.aLq().a(new com.baidu.swan.f.a() { // from class: com.baidu.swan.facade.requred.webview.a.a.2
             @Override // com.baidu.swan.f.a
             public void onSuccess() {
                 a.this.hideLoading();
@@ -65,17 +65,17 @@ public class a implements b.a {
                 cVar.onProgress(j, j2);
                 a.this.q(j, j2);
             }
-        }).aKl();
+        }).aLr();
     }
 
     private void a(DialogInterface.OnClickListener onClickListener) {
-        SwanAppErrorDialog.aup().gq(a.e.aiapps_t7_download_tip_title).gr(a.e.aiapps_t7_download_tip_msg).b(a.e.aiapps_t7_download_tip_btn_cancel, onClickListener).a(a.e.aiapps_t7_download_tip_btn_ok, onClickListener).show();
+        SwanAppErrorDialog.avv().gB(a.e.aiapps_t7_download_tip_title).gC(a.e.aiapps_t7_download_tip_msg).b(a.e.aiapps_t7_download_tip_btn_cancel, onClickListener).a(a.e.aiapps_t7_download_tip_btn_ok, onClickListener).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoading() {
         int i = 0;
-        if (com.baidu.swan.apps.u.a.afC().SW()) {
+        if (com.baidu.swan.apps.u.a.agI().Uc()) {
             i = 100;
         }
         Context appContext = AppRuntime.getAppContext();
@@ -91,12 +91,12 @@ public class a implements b.a {
         Bundle bundle = new Bundle();
         bundle.putLong("current", j);
         bundle.putLong("sum", j2);
-        com.baidu.swan.apps.runtime.d.aoB().g("t7_loading", bundle);
+        com.baidu.swan.apps.runtime.d.apI().g("t7_loading", bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideLoading() {
-        com.baidu.swan.apps.runtime.d.aoB().ns("loading_hide");
+        com.baidu.swan.apps.runtime.d.apI().nA("loading_hide");
         this.mIsLoading = false;
     }
 }

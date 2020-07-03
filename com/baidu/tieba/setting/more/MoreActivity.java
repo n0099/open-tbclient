@@ -37,10 +37,10 @@ import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.core.util.o;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.p;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.getUserInfo.GetUserInfoHttpResponseMessage;
 import com.baidu.tbadk.getUserInfo.GetUserInfoSocketResponseMessage;
@@ -56,13 +56,13 @@ import com.baidu.tieba.setting.model.imageWatermarkType.GetImageWatermarkTypeMod
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes13.dex */
 public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitchView.a {
-    private e kXb;
-    private MoreDiscoveryModel kXd;
-    private GetFriendAndStrangerSwitchModel kXg;
-    private GetImageWatermarkTypeModel kXh;
-    private MoreModel kXc = null;
-    private a kXe = null;
-    private com.baidu.adp.framework.listener.a kXf = new com.baidu.adp.framework.listener.a(1003001, CmdConfigSocket.CMD_GET_USER_INFO) { // from class: com.baidu.tieba.setting.more.MoreActivity.1
+    private e lqY;
+    private MoreDiscoveryModel lra;
+    private GetFriendAndStrangerSwitchModel lrd;
+    private GetImageWatermarkTypeModel lre;
+    private MoreModel lqZ = null;
+    private a lrb = null;
+    private com.baidu.adp.framework.listener.a lrc = new com.baidu.adp.framework.listener.a(1003001, CmdConfigSocket.CMD_GET_USER_INFO) { // from class: com.baidu.tieba.setting.more.MoreActivity.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null && responsedMessage.getError() == 0) {
@@ -73,40 +73,40 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                     } else if (responsedMessage instanceof GetUserInfoSocketResponseMessage) {
                         aVar = ((GetUserInfoSocketResponseMessage) responsedMessage).getData();
                     }
-                    if (aVar != null && aVar.bem() != null) {
-                        String portrait = aVar.bem().getPortrait();
-                        MoreActivity.this.kXb.aS(o.wj(portrait), false);
-                        PersonChangeData cXs = MoreActivity.this.kXc.cXs();
-                        if (cXs != null) {
-                            cXs.setPhotoChanged(true);
-                            cXs.setPortrait(portrait);
+                    if (aVar != null && aVar.bgr() != null) {
+                        String portrait = aVar.bgr().getPortrait();
+                        MoreActivity.this.lqY.aU(p.wz(portrait), false);
+                        PersonChangeData dbH = MoreActivity.this.lqZ.dbH();
+                        if (dbH != null) {
+                            dbH.setPhotoChanged(true);
+                            dbH.setPortrait(portrait);
                         }
                     }
                 }
             }
         }
     };
-    private HttpMessageListener jmL = new HttpMessageListener(1001505) { // from class: com.baidu.tieba.setting.more.MoreActivity.2
+    private HttpMessageListener jDR = new HttpMessageListener(1001505) { // from class: com.baidu.tieba.setting.more.MoreActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001505) {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
-                if (statusCode == 200 && error == 0 && MoreActivity.this.kXd != null) {
-                    MoreActivity.this.kXd.aq(false, true);
+                if (statusCode == 200 && error == 0 && MoreActivity.this.lra != null) {
+                    MoreActivity.this.lra.ar(false, true);
                 }
             }
         }
     };
-    private CustomMessageListener hoR = new CustomMessageListener(CmdConfigCustom.CMD_MODIFY_NICKNAME_SUCCEED) { // from class: com.baidu.tieba.setting.more.MoreActivity.3
+    private CustomMessageListener hBr = new CustomMessageListener(CmdConfigCustom.CMD_MODIFY_NICKNAME_SUCCEED) { // from class: com.baidu.tieba.setting.more.MoreActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                 Object data = customResponsedMessage.getData();
-                if ((data instanceof String) && !TextUtils.isEmpty((String) data) && MoreActivity.this.kXd != null) {
-                    MoreActivity.this.kXd.aq(false, true);
+                if ((data instanceof String) && !TextUtils.isEmpty((String) data) && MoreActivity.this.lra != null) {
+                    MoreActivity.this.lra.ar(false, true);
                 }
             }
         }
@@ -116,54 +116,54 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.kXb = new e(this, cXU());
-        aE(bundle);
-        cjf();
-        registerListener(this.kXf);
-        registerListener(this.jmL);
-        registerListener(this.hoR);
+        this.lqY = new e(this, dcj());
+        aG(bundle);
+        cmU();
+        registerListener(this.lrc);
+        registerListener(this.jDR);
+        registerListener(this.hBr);
     }
 
-    private d cXU() {
+    private d dcj() {
         return new d() { // from class: com.baidu.tieba.setting.more.MoreActivity.4
             @Override // com.baidu.tieba.setting.more.d
-            public void CW(int i) {
+            public void DY(int i) {
                 if (i == 0) {
-                    MoreActivity.this.cYg();
+                    MoreActivity.this.dcv();
                 } else if (i == 1) {
-                    MoreActivity.this.cYf();
+                    MoreActivity.this.dcu();
                 } else if (i == 15) {
-                    MoreActivity.this.cYd();
+                    MoreActivity.this.dcs();
                 } else if (i == 2) {
-                    MoreActivity.this.cYe();
+                    MoreActivity.this.dct();
                 } else if (i == 3) {
-                    MoreActivity.this.cYb();
+                    MoreActivity.this.dcq();
                 } else if (i == 16) {
-                    MoreActivity.this.cYc();
+                    MoreActivity.this.dcr();
                 } else if (i == 4) {
-                    MoreActivity.this.cYh();
+                    MoreActivity.this.dcw();
                 } else if (i == 6) {
-                    MoreActivity.this.cYa();
+                    MoreActivity.this.dcp();
                 } else if (i == 7) {
-                    MoreActivity.this.cXX();
+                    MoreActivity.this.dcm();
                 } else if (i == 8) {
-                    MoreActivity.this.cXY();
+                    MoreActivity.this.dcn();
                 } else if (i == 5) {
                     MoreActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SystemHelpSettingActivityConfig(MoreActivity.this.getPageContext().getPageActivity())));
                 } else if (i == 9) {
-                    MoreActivity.this.cYi();
+                    MoreActivity.this.dcx();
                 } else if (i == 10) {
-                    MoreActivity.this.kXb.cYo();
+                    MoreActivity.this.lqY.dcD();
                 } else if (i == 12) {
                     MessageManager.getInstance().runTask(CmdConfigCustom.CMD_LOG_OUT, null, MoreActivity.this);
                 } else if (i == 11) {
                     TbadkSettings.getInst().saveBoolean(SharedPrefConfig.IS_EXIT_APP_NOT_START_WEBSOCKET, true);
                     com.baidu.tbadk.lcs.a.d(0, 0, 0, 2, 12);
                     BdSocketLinkService.close("exit app");
-                    x.cRE().clear();
+                    x.cVV().clear();
                     com.baidu.tbadk.core.e.b.c(MoreActivity.this.getPageContext().getPageActivity(), 12, false);
                 } else if (i == 13) {
-                    MoreActivity.this.cXZ();
+                    MoreActivity.this.dco();
                     TiebaStatic.log("c10017");
                 }
             }
@@ -174,9 +174,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        cjg();
-        if (this.kXb != null) {
-            this.kXb.yy();
+        cmV();
+        if (this.lqY != null) {
+            this.lqY.yY();
         }
     }
 
@@ -184,8 +184,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.kXb != null) {
-            this.kXb.cYk();
+        if (this.lqY != null) {
+            this.lqY.dcz();
         }
     }
 
@@ -193,26 +193,26 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.kXb.onChangeSkinType(i);
+        this.lqY.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onResourceRecycle() {
         setSkinType(-1);
-        this.kXb.cXn();
+        this.lqY.dbC();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("person_change_data", OrmObject.jsonStrWithObject(this.kXc.cXs()));
+        bundle.putSerializable("person_change_data", OrmObject.jsonStrWithObject(this.lqZ.dbH()));
         super.onSaveInstanceState(bundle);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            cYg();
+            dcv();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -227,17 +227,17 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 case 101:
                     PersonChangeData personChangeData = (PersonChangeData) intent.getSerializableExtra("data");
                     if (personChangeData != null) {
-                        this.kXc.b(personChangeData);
-                        this.kXc.tR(true);
-                        if (this.kXd != null) {
-                            cXV();
+                        this.lqZ.b(personChangeData);
+                        this.lqZ.ug(true);
+                        if (this.lra != null) {
+                            dck();
                             return;
                         }
                         return;
                     }
                     return;
                 case RequestResponseCode.REQUEST_FEEDBACK /* 12008 */:
-                    cXX();
+                    dcm();
                     return;
                 default:
                     return;
@@ -245,19 +245,19 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         }
     }
 
-    private void cXV() {
-        com.baidu.tbadk.getUserInfo.b.ben().beo();
+    private void dck() {
+        com.baidu.tbadk.getUserInfo.b.bgs().bgt();
     }
 
-    private void cXW() {
-        if (this.kXc.cXr()) {
+    private void dcl() {
+        if (this.lqZ.dbG()) {
             Intent intent = new Intent();
-            intent.putExtra("person_change_data", this.kXc.cXs());
+            intent.putExtra("person_change_data", this.lqZ.dbH());
             setResult(-1, intent);
         }
     }
 
-    private void aE(Bundle bundle) {
+    private void aG(Bundle bundle) {
         PersonChangeData personChangeData = null;
         if (bundle != null) {
             String string = bundle.getString("person_change_data");
@@ -268,53 +268,53 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             personChangeData = (PersonChangeData) getIntent().getSerializableExtra("person_change_data");
         }
         if (personChangeData == null) {
-            this.kXd = new MoreDiscoveryModel(this);
-            this.kXd.setUniqueId(getUniqueId());
-            this.kXd.setId(TbadkCoreApplication.getCurrentAccount());
-            this.kXd.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.MoreActivity.5
+            this.lra = new MoreDiscoveryModel(this);
+            this.lra.setUniqueId(getUniqueId());
+            this.lra.setId(TbadkCoreApplication.getCurrentAccount());
+            this.lra.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.MoreActivity.5
                 @Override // com.baidu.adp.base.d
                 public void callback(Object obj) {
                     PersonChangeData personChangeData2 = new PersonChangeData();
-                    if (MoreActivity.this.kXd.getUser() != null) {
-                        personChangeData2.setName(MoreActivity.this.kXd.getUser().getUserName());
-                        personChangeData2.setIntro(MoreActivity.this.kXd.getUser().getIntro());
-                        personChangeData2.setPortrait(MoreActivity.this.kXd.getUser().getPortrait());
-                        personChangeData2.setSex(MoreActivity.this.kXd.getUser().getSex());
-                        personChangeData2.setNameShow(MoreActivity.this.kXd.getUser().getName_show());
-                        personChangeData2.setMem(MoreActivity.this.kXd.getUser().getIsMem());
-                        personChangeData2.setForumAge(MoreActivity.this.kXd.getUser().getTb_age());
-                        personChangeData2.setCanModifyAvatar(MoreActivity.this.kXd.getUser().canModifyAvatar());
-                        personChangeData2.setCantModifyAvatarDesc(MoreActivity.this.kXd.getUser().getCantModifyAvatarDesc());
-                        if (MoreActivity.this.kXd.getUser().alaUserData != null) {
-                            personChangeData2.setAlaId(MoreActivity.this.kXd.getUser().alaUserData.ala_id);
+                    if (MoreActivity.this.lra.getUser() != null) {
+                        personChangeData2.setName(MoreActivity.this.lra.getUser().getUserName());
+                        personChangeData2.setIntro(MoreActivity.this.lra.getUser().getIntro());
+                        personChangeData2.setPortrait(MoreActivity.this.lra.getUser().getPortrait());
+                        personChangeData2.setSex(MoreActivity.this.lra.getUser().getSex());
+                        personChangeData2.setNameShow(MoreActivity.this.lra.getUser().getName_show());
+                        personChangeData2.setMem(MoreActivity.this.lra.getUser().getIsMem());
+                        personChangeData2.setForumAge(MoreActivity.this.lra.getUser().getTb_age());
+                        personChangeData2.setCanModifyAvatar(MoreActivity.this.lra.getUser().canModifyAvatar());
+                        personChangeData2.setCantModifyAvatarDesc(MoreActivity.this.lra.getUser().getCantModifyAvatarDesc());
+                        if (MoreActivity.this.lra.getUser().alaUserData != null) {
+                            personChangeData2.setAlaId(MoreActivity.this.lra.getUser().alaUserData.ala_id);
                         }
-                        if (MoreActivity.this.kXd.getNicknameInfo() != null) {
-                            personChangeData2.setNickNameLeftDays(MoreActivity.this.kXd.getNicknameInfo().left_days.intValue());
+                        if (MoreActivity.this.lra.getNicknameInfo() != null) {
+                            personChangeData2.setNickNameLeftDays(MoreActivity.this.lra.getNicknameInfo().left_days.intValue());
                         }
-                        if (MoreActivity.this.kXd.getUser().getBirthdayInfo() != null) {
-                            personChangeData2.setUserAge(MoreActivity.this.kXd.getUser().getBirthdayInfo().age);
-                            personChangeData2.setBirthdayTime(MoreActivity.this.kXd.getUser().getBirthdayInfo().dIk);
-                            personChangeData2.setBirthdayShowStatus(MoreActivity.this.kXd.getUser().getBirthdayInfo().dIl);
+                        if (MoreActivity.this.lra.getUser().getBirthdayInfo() != null) {
+                            personChangeData2.setUserAge(MoreActivity.this.lra.getUser().getBirthdayInfo().age);
+                            personChangeData2.setBirthdayTime(MoreActivity.this.lra.getUser().getBirthdayInfo().dPa);
+                            personChangeData2.setBirthdayShowStatus(MoreActivity.this.lra.getUser().getBirthdayInfo().dPb);
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_NOTIFY_PERSON_CHANGE_MEMBER, personChangeData2));
                         MoreActivity.this.c(personChangeData2);
                     }
                 }
             });
-            this.kXd.aq(false, true);
+            this.lra.ar(false, true);
         }
         c(personChangeData);
-        this.kXg = new GetFriendAndStrangerSwitchModel(this);
-        this.kXh = new GetImageWatermarkTypeModel(this);
+        this.lrd = new GetFriendAndStrangerSwitchModel(this);
+        this.lre = new GetImageWatermarkTypeModel(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(PersonChangeData personChangeData) {
         if (personChangeData != null && personChangeData.getPortrait() != null) {
-            this.kXb.aS(o.wj(personChangeData.getPortrait()), false);
+            this.lqY.aU(p.wz(personChangeData.getPortrait()), false);
         }
-        this.kXc = new MoreModel(personChangeData);
-        this.kXc.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.MoreActivity.6
+        this.lqZ = new MoreModel(personChangeData);
+        this.lqZ.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.MoreActivity.6
             @Override // com.baidu.adp.base.d
             public void callback(Object obj) {
                 if (obj != null && (obj instanceof MoreModel.TaskType)) {
@@ -335,54 +335,54 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            MoreActivity.this.kXb.cYk();
+            MoreActivity.this.lqY.dcz();
         }
     }
 
-    private void cjf() {
-        this.kXe = new a();
+    private void cmU() {
+        this.lrb = new a();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.kXe, intentFilter);
+        registerReceiver(this.lrb, intentFilter);
     }
 
-    private void cjg() {
-        if (this.kXe != null) {
-            unregisterReceiver(this.kXe);
+    private void cmV() {
+        if (this.lrb != null) {
+            unregisterReceiver(this.lrb);
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view != null && this.kXb != null) {
-            if (view == this.kXb.cYp()) {
+        if (view != null && this.lqY != null) {
+            if (view == this.lqY.dcE()) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
                     UtilHelper.showSkinChangeAnimation(this);
                     UtilHelper.setNavigationBarBackground(this, getResources().getColor(R.color.cp_bg_line_d_1));
-                    this.kXb.Db(1);
+                    this.lqY.Ed(1);
                 } else {
-                    am.y(true, false);
+                    an.y(true, false);
                 }
             }
-            if (view == this.kXb.cYq()) {
-                com.baidu.tbadk.core.sharedPref.b.aTX().putBoolean("key_is_dark_mode_notify_shown", true);
-                com.baidu.tbadk.core.sharedPref.b.aTX().putBoolean("key_is_follow_system_mode", BdSwitchView.SwitchState.ON == switchState);
+            if (view == this.lqY.dcF()) {
+                com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean("key_is_dark_mode_notify_shown", true);
+                com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean("key_is_follow_system_mode", BdSwitchView.SwitchState.ON == switchState);
                 if (TbadkCoreApplication.getInst().getSkinType() != 1) {
-                    am.y(true, false);
+                    an.y(true, false);
                 }
-                TiebaStatic.log(new an("c13577").ag("obj_type", BdSwitchView.SwitchState.ON == switchState ? 1 : 2).ag("obj_locate", 1));
+                TiebaStatic.log(new ao("c13577").ag("obj_type", BdSwitchView.SwitchState.ON == switchState ? 1 : 2).ag("obj_locate", 1));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cXX() {
+    public void dcm() {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        ba.aVa().a(getPageContext(), new String[]{TbConfig.URL_FEED_BACK}, true);
+        bc.aWU().a(getPageContext(), new String[]{TbConfig.URL_FEED_BACK}, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cXY() {
+    public void dcn() {
         String str;
         String str2 = TbConfig.RECOMMEND_APP_ADDRESS;
         if (str2.indexOf("?") < 0) {
@@ -399,34 +399,34 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cXZ() {
+    public void dco() {
         MessageManager.getInstance().runTask(2921329, null, this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cYa() {
+    public void dcp() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AboutActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cYb() {
+    public void dcq() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BrowseSettingActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cYc() {
+    public void dcr() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AdSettingActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cYd() {
+    public void dcs() {
         MessageManager.getInstance().sendMessage(new CustomMessage(2921454, new IntentConfig(this)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cYe() {
+    public void dct() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if ((currentAccount == null || currentAccount.length() <= 0) && com.baidu.tbadk.core.a.b.aNT() <= 0) {
+        if ((currentAccount == null || currentAccount.length() <= 0) && com.baidu.tbadk.core.a.b.aPD() <= 0) {
             TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getPageContext().getPageActivity(), 11003)));
         } else {
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_ACCOUNT, new IntentConfig(getPageContext().getPageActivity())));
@@ -434,26 +434,26 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cYf() {
+    public void dcu() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonChangeActivityConfig(getPageContext().getPageActivity(), 101, this.kXc.cXs(), false)));
+            sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonChangeActivityConfig(getPageContext().getPageActivity(), 101, this.lqZ.dbH(), false)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cYg() {
-        cXW();
+    public void dcv() {
+        dcl();
         finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cYh() {
+    public void dcw() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MsgRemindActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cYi() {
+    public void dcx() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SecretSettingActivityConfig(getPageContext().getPageActivity())));
     }
 }

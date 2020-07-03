@@ -13,13 +13,13 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
     public String appId;
-    public long aur;
-    public long aus;
-    public int aut;
-    public boolean auu;
-    public boolean auv;
-    public int auw;
-    public List<AlaLiveMarkData> aux;
+    public boolean awA;
+    public boolean awB;
+    public int awC;
+    public List<AlaLiveMarkData> awD;
+    public long awx;
+    public long awy;
+    public int awz;
     public JSONObject extraUserInfo;
     public int level_id;
     public String name_show;
@@ -43,23 +43,23 @@ public class a {
             }
             this.level_id = jSONObject.optInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
             this.sex = jSONObject.optInt("sex");
-            this.aur = jSONObject.optLong("fan_num");
-            this.aus = jSONObject.optLong("concern_num");
-            this.aut = jSONObject.optInt("have_concern");
-            this.auu = jSONObject.optBoolean("isOfficial");
-            this.auv = jSONObject.optBoolean("isLiveAdmin");
+            this.awx = jSONObject.optLong("fan_num");
+            this.awy = jSONObject.optLong("concern_num");
+            this.awz = jSONObject.optInt("have_concern");
+            this.awA = jSONObject.optBoolean("isOfficial");
+            this.awB = jSONObject.optBoolean("isLiveAdmin");
             this.appId = jSONObject.optString("app_id");
             this.tagName = jSONObject.optString("tag_name");
-            this.auw = jSONObject.optInt("tag_type");
+            this.awC = jSONObject.optInt("tag_type");
             this.appId = jSONObject.optString("app_id");
             JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info_new");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.aux = new ArrayList(optJSONArray.length());
+                this.awD = new ArrayList(optJSONArray.length());
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
                     alaLiveMarkData.parserJson(optJSONObject);
-                    this.aux.add(alaLiveMarkData);
+                    this.awD.add(alaLiveMarkData);
                 }
             }
             if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
@@ -77,17 +77,17 @@ public class a {
             jSONObject.put("portrait", this.portrait);
             jSONObject.put(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, this.level_id);
             jSONObject.put("sex", this.sex);
-            jSONObject.put("fan_num", this.aur);
-            jSONObject.put("concern_num", this.aus);
-            jSONObject.put("have_concern", this.aut);
-            jSONObject.put("isOfficial", this.auu);
-            jSONObject.put("isLiveAdmin", this.auv);
+            jSONObject.put("fan_num", this.awx);
+            jSONObject.put("concern_num", this.awy);
+            jSONObject.put("have_concern", this.awz);
+            jSONObject.put("isOfficial", this.awA);
+            jSONObject.put("isLiveAdmin", this.awB);
             jSONObject.put("app_id", this.appId);
             jSONObject.put("tag_name", this.tagName);
-            jSONObject.put("tag_type", this.auw);
+            jSONObject.put("tag_type", this.awC);
             JSONArray jSONArray = new JSONArray();
-            if (this.aux != null) {
-                for (AlaLiveMarkData alaLiveMarkData : this.aux) {
+            if (this.awD != null) {
+                for (AlaLiveMarkData alaLiveMarkData : this.awD) {
                     jSONArray.put(alaLiveMarkData.toJsonObject());
                 }
             }

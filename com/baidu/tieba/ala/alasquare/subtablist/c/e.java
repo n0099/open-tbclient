@@ -7,24 +7,24 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.subtablist.b.b> {
-    private g flo;
-    private g flp;
+    private g fwB;
+    private g fwC;
 
     public e(TbPageContext<?> tbPageContext, boolean z) {
         super(tbPageContext);
-        this.flo = new g(getTbPageContext(), z);
-        this.flp = new g(getTbPageContext(), z);
+        this.fwB = new g(getTbPageContext(), z);
+        this.fwC = new g(getTbPageContext(), z);
         ViewGroup viewGroup = (ViewGroup) getView();
         View view = new View(getContext());
-        viewGroup.addView(this.flo.getView());
+        viewGroup.addView(this.fwB.getView());
         viewGroup.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds4), -1));
-        viewGroup.addView(this.flp.getView());
+        viewGroup.addView(this.fwC.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.flo.onChangeSkinType(tbPageContext, i);
-        this.flp.onChangeSkinType(tbPageContext, i);
+        this.fwB.onChangeSkinType(tbPageContext, i);
+        this.fwC.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -36,14 +36,14 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.subt
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.subtablist.b.b bVar) {
         if (bVar != null) {
-            this.flo.b(bVar.fcY);
-            this.flp.b(bVar.fcZ);
+            this.fwB.b(bVar.foi);
+            this.fwC.b(bVar.foj);
         }
     }
 
     public void d(i iVar) {
-        this.flo.c(iVar);
-        this.flp.c(iVar);
+        this.fwB.c(iVar);
+        this.fwC.c(iVar);
     }
 
     @Override // android.view.View.OnClickListener

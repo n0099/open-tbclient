@@ -245,7 +245,7 @@ public class V8Engine implements JSRuntime {
         this.mCodeCacheSetting = codeCacheSetting;
         if (this.mCodeCacheSetting.id != null && this.mCodeCacheSetting.pathList != null) {
             File dir = getAppContext().getDir(ALTERNATIVE_CACHE_PATH, 0);
-            if (!a.gT(getBuildInV8BinPath())) {
+            if (!a.hb(getBuildInV8BinPath())) {
                 dir = getAppContext().getDir(MARIO_CACHE_PATH, 0);
                 dir.mkdirs();
             }
@@ -480,7 +480,7 @@ public class V8Engine implements JSRuntime {
             try {
                 String str = this.mExternalV8BinPath;
                 String buildInV8BinPath = str == null ? getBuildInV8BinPath() : str;
-                if (buildInV8BinPath == null || !a.gT(buildInV8BinPath)) {
+                if (buildInV8BinPath == null || !a.hb(buildInV8BinPath)) {
                     Log.i(TAG, "can't find v8bin'AssetManager, path = " + buildInV8BinPath);
                     return null;
                 }

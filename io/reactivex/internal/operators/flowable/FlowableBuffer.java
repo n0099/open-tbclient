@@ -19,11 +19,11 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
     @Override // io.reactivex.g
     public void a(org.a.c<? super C> cVar) {
         if (this.size == this.skip) {
-            this.noe.a((j) new a(cVar, this.size, this.bufferSupplier));
+            this.nJT.a((j) new a(cVar, this.size, this.bufferSupplier));
         } else if (this.skip > this.size) {
-            this.noe.a((j) new PublisherBufferSkipSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
+            this.nJT.a((j) new PublisherBufferSkipSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
         } else {
-            this.noe.a((j) new PublisherBufferOverlappingSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
+            this.nJT.a((j) new PublisherBufferOverlappingSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
         }
     }
 
@@ -46,7 +46,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
         @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
-                this.s.request(io.reactivex.internal.util.b.N(j, this.size));
+                this.s.request(io.reactivex.internal.util.b.O(j, this.size));
             }
         }
 
@@ -136,10 +136,10 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 if (get() == 0 && compareAndSet(0, 1)) {
-                    this.s.request(io.reactivex.internal.util.b.M(io.reactivex.internal.util.b.N(j, this.size), io.reactivex.internal.util.b.N(this.skip - this.size, j - 1)));
+                    this.s.request(io.reactivex.internal.util.b.N(io.reactivex.internal.util.b.O(j, this.size), io.reactivex.internal.util.b.O(this.skip - this.size, j - 1)));
                     return;
                 }
-                this.s.request(io.reactivex.internal.util.b.N(this.skip, j));
+                this.s.request(io.reactivex.internal.util.b.O(this.skip, j));
             }
         }
 
@@ -240,10 +240,10 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
         public void request(long j) {
             if (SubscriptionHelper.validate(j) && !i.a(j, this.actual, this.buffers, this, this)) {
                 if (!this.once.get() && this.once.compareAndSet(false, true)) {
-                    this.s.request(io.reactivex.internal.util.b.M(this.size, io.reactivex.internal.util.b.N(this.skip, j - 1)));
+                    this.s.request(io.reactivex.internal.util.b.N(this.size, io.reactivex.internal.util.b.O(this.skip, j - 1)));
                     return;
                 }
-                this.s.request(io.reactivex.internal.util.b.N(this.skip, j));
+                this.s.request(io.reactivex.internal.util.b.O(this.skip, j));
             }
         }
 

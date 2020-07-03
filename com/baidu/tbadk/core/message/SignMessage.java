@@ -6,7 +6,7 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.SignData;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SignMessage extends CustomResponsedMessage {
@@ -26,7 +26,7 @@ public class SignMessage extends CustomResponsedMessage {
         super(CmdConfigCustom.CMD_SIGN_MODEL_TASK);
     }
 
-    public void parserJson(x xVar, JSONObject jSONObject) {
+    public void parserJson(y yVar, JSONObject jSONObject) {
         JSONObject jSONObject2 = null;
         if (jSONObject != null) {
             try {
@@ -41,7 +41,7 @@ public class SignMessage extends CustomResponsedMessage {
             this.mSignErrorString = jSONObject2.optString("usermsg");
             return;
         }
-        this.mSignErrorCode = xVar.getServerErrorCode();
-        this.mSignErrorString = xVar.getErrorString();
+        this.mSignErrorCode = yVar.getServerErrorCode();
+        this.mSignErrorString = yVar.getErrorString();
     }
 }

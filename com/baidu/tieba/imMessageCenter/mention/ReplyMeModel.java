@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class ReplyMeModel extends BdBaseModel {
-    private a iQo;
-    private com.baidu.adp.framework.listener.a iQp;
+    private a jhx;
+    private com.baidu.adp.framework.listener.a jhy;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,7 +29,7 @@ public class ReplyMeModel extends BdBaseModel {
     public ReplyMeModel(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
-        crm();
+        cvd();
     }
 
     public void a(long j, int i, String str, String str2, BaijiahaoData baijiahaoData) {
@@ -48,8 +48,8 @@ public class ReplyMeModel extends BdBaseModel {
         sendMessage(checkPostRequestMessage);
     }
 
-    public void crm() {
-        this.iQp = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CHECK_POST, CmdConfigSocket.CMD_CHECK_POST) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
+    public void cvd() {
+        this.jhy = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CHECK_POST, CmdConfigSocket.CMD_CHECK_POST) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 long quoteId;
@@ -103,8 +103,8 @@ public class ReplyMeModel extends BdBaseModel {
                             }
                         }
                         if (j == 1) {
-                            if (ReplyMeModel.this.iQo != null) {
-                                ReplyMeModel.this.iQo.a(j3, quoteId, repostId, forumName, j2);
+                            if (ReplyMeModel.this.jhx != null) {
+                                ReplyMeModel.this.jhx.a(j3, quoteId, repostId, forumName, j2);
                             }
                         } else if (j == 0) {
                             ReplyMeModel.this.mPageContext.showToast(R.string.thread_delete_tip);
@@ -115,10 +115,10 @@ public class ReplyMeModel extends BdBaseModel {
                 }
             }
         };
-        this.iQp.setTag(this.mPageContext.getUniqueId());
-        this.iQp.getHttpMessageListener().setSelfListener(true);
-        this.iQp.getSocketMessageListener().setSelfListener(true);
-        this.mPageContext.registerListener(this.iQp);
+        this.jhy.setTag(this.mPageContext.getUniqueId());
+        this.jhy.getHttpMessageListener().setSelfListener(true);
+        this.jhy.getSocketMessageListener().setSelfListener(true);
+        this.mPageContext.registerListener(this.jhy);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -132,12 +132,12 @@ public class ReplyMeModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.iQo = aVar;
+        this.jhx = aVar;
     }
 
     public void onDestroy() {
-        if (this.iQp != null) {
-            MessageManager.getInstance().unRegisterListener(this.iQp);
+        if (this.jhy != null) {
+            MessageManager.getInstance().unRegisterListener(this.jhy);
         }
     }
 }

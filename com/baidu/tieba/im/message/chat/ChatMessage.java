@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.client.socket.a;
 import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
@@ -19,7 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class ChatMessage extends TbSocketMessage implements a, o {
+public abstract class ChatMessage extends TbSocketMessage implements a, q {
     private long bornTime;
     private transient MsgCacheData cacheData;
     private String content;
@@ -371,9 +371,9 @@ public abstract class ChatMessage extends TbSocketMessage implements a, o {
         return false;
     }
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        if (b.aZm().aZL() != null && b.aZm().aZL().contains(String.valueOf(this.userId)) && this.msgType == 1) {
+        if (b.bbo().bbN() != null && b.bbo().bbN().contains(String.valueOf(this.userId)) && this.msgType == 1) {
             return TYPE_MSG_TEXT_OFFICAL_NOTIFICATION;
         }
         if (this.msgType == 11) {

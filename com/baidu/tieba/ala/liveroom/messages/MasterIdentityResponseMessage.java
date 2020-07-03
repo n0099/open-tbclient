@@ -4,16 +4,16 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
-    private int gak;
-    private String gal;
-    private int gam;
-    private int gan;
-    private String gao;
+    private int gnh;
+    private String gni;
+    private int gnj;
+    private int gnk;
+    private String gnl;
 
     public MasterIdentityResponseMessage() {
         super(1021131);
-        this.gam = 0;
-        this.gan = 0;
+        this.gnj = 0;
+        this.gnk = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -21,24 +21,24 @@ public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (getError() == 0) {
-                this.gak = jSONObject.optInt("anchor_identity");
-                this.gal = jSONObject.optString("anchor_proportion");
-                this.gam = jSONObject.optInt("anchor_identity_status");
-                this.gan = jSONObject.optInt("anchor_proportion_status");
-                this.gao = jSONObject.optString("anchor_text");
+                this.gnh = jSONObject.optInt("anchor_identity");
+                this.gni = jSONObject.optString("anchor_proportion");
+                this.gnj = jSONObject.optInt("anchor_identity_status");
+                this.gnk = jSONObject.optInt("anchor_proportion_status");
+                this.gnl = jSONObject.optString("anchor_text");
             }
         }
     }
 
-    public int bEN() {
-        return this.gam;
+    public int bHT() {
+        return this.gnj;
     }
 
-    public int bEO() {
-        return this.gan;
+    public int bHU() {
+        return this.gnk;
     }
 
-    public String bEP() {
-        return this.gao;
+    public String bHV() {
+        return this.gnl;
     }
 }

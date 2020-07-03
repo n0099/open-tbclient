@@ -1,49 +1,49 @@
 package com.baidu.swan.apps.aa.a;
 /* loaded from: classes11.dex */
 public class c {
-    protected boolean coU;
-    protected int cpF;
-    protected String cpG;
-    protected long cpH;
+    protected boolean ctI;
+    protected int cuu;
+    protected String cuv;
+    protected long cuw;
 
     public c(int i) {
         this(i, null);
     }
 
     public c(int i, String str) {
-        this.coU = false;
-        this.cpF = i;
-        this.cpG = str;
+        this.ctI = false;
+        this.cuu = i;
+        this.cuv = str;
     }
 
     public c(int i, String str, long j) {
-        this.coU = false;
-        this.cpF = i;
-        this.cpG = str;
-        this.cpH = j;
+        this.ctI = false;
+        this.cuu = i;
+        this.cuv = str;
+        this.cuw = j;
     }
 
     public c(int i, String str, long j, boolean z) {
-        this.coU = false;
-        this.cpF = i;
-        this.cpG = str;
-        this.cpH = j;
-        this.coU = z;
+        this.ctI = false;
+        this.cuu = i;
+        this.cuv = str;
+        this.cuw = j;
+        this.ctI = z;
     }
 
     public int getId() {
-        return this.cpF;
+        return this.cuu;
     }
 
-    public String aks() {
-        return this.cpG;
+    public String aly() {
+        return this.cuv;
     }
 
-    public long akt() {
-        return this.cpH;
+    public long alz() {
+        return this.cuw;
     }
 
-    public boolean aku() {
-        return this.coU;
+    public boolean alA() {
+        return this.ctI;
     }
 }

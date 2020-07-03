@@ -14,7 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    private SparseArray<a> ct = new SparseArray<>();
+    private SparseArray<a> cG = new SparseArray<>();
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: java.lang.String */
     /* JADX WARN: Multi-variable type inference failed */
@@ -106,8 +106,8 @@ public class b {
                 int length2 = jSONArray2.length();
                 a aVar = new a();
                 aVar.type = i2;
-                aVar.rE = z;
-                aVar.rF = new String[length2];
+                aVar.sd = z;
+                aVar.se = new String[length2];
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject jSONObject2 = jSONArray2.getJSONObject(i3);
                     int optInt = jSONObject2.optInt(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, i3);
@@ -117,9 +117,9 @@ public class b {
                     if (z) {
                         absolutePath = absolutePath.substring(1);
                     }
-                    aVar.rF[optInt] = absolutePath;
+                    aVar.se[optInt] = absolutePath;
                 }
-                this.ct.put(i2, aVar);
+                this.cG.put(i2, aVar);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -161,7 +161,7 @@ public class b {
         a(c(context, substring + "dl_config.json"), substring, true);
     }
 
-    public SparseArray<a> dL() {
-        return this.ct;
+    public SparseArray<a> eb() {
+        return this.cG;
     }
 }

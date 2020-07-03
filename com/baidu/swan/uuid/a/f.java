@@ -28,17 +28,17 @@ public class f implements b<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: ats */
+    /* renamed from: auy */
     public String get() {
-        return aJj();
+        return aKp();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean aJf() {
+    public boolean aKl() {
         return false;
     }
 
-    private String aJj() {
+    private String aKp() {
         byte[] bytes = getAndroidId().getBytes(StandardCharsets.UTF_8);
         byte[] bytes2 = "com.baidu.swan".getBytes(StandardCharsets.UTF_8);
         return com.baidu.swan.uuid.b.b.toMd5(Build.VERSION.SDK_INT < 23 ? b(bytes2, UUID.randomUUID().toString().getBytes(StandardCharsets.UTF_8), String.valueOf(System.nanoTime()).getBytes(StandardCharsets.UTF_8), bytes) : b(bytes2, bytes), true);
@@ -61,7 +61,7 @@ public class f implements b<String> {
     private String getAndroidId() {
         String string = Settings.Secure.getString(this.mContext.getContentResolver(), "android_id");
         if (TextUtils.isEmpty(string)) {
-            string = aJk();
+            string = aKq();
         }
         if (TextUtils.isEmpty(string)) {
             string = UUID.randomUUID().toString();
@@ -69,7 +69,7 @@ public class f implements b<String> {
         return string == null ? "" : string;
     }
 
-    private String aJk() {
+    private String aKq() {
         String str;
         try {
             str = (String) Build.class.getField("SERIAL").get(null);

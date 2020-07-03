@@ -19,7 +19,7 @@ public class af extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo163a() {
+    public int mo160a() {
         return 2;
     }
 
@@ -30,7 +30,7 @@ public class af extends ai.a {
         ieVar.a(com.xiaomi.push.service.al.a(a, hs.MISC_CONFIG));
         ieVar.b(com.xiaomi.push.service.al.a(a, hs.PLUGIN_CONFIG));
         il ilVar = new il("-1", false);
-        ilVar.c(hw.DailyCheckClientConfig.f475a);
+        ilVar.c(hw.DailyCheckClientConfig.f481a);
         ilVar.a(iw.a(ieVar));
         aq.a(this.a).a((aq) ilVar, hm.Notification, (hz) null);
     }

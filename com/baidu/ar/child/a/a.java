@@ -1,31 +1,31 @@
 package com.baidu.ar.child.a;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.ar.c.b {
-    private byte[] kG;
-    private int kH;
-    private boolean kI;
+    private boolean lc;
+    private byte[] lf;
+    private int lg;
 
-    public byte[] cf() {
-        return this.kG;
+    public byte[] cx() {
+        return this.lf;
     }
 
-    public boolean cg() {
-        return this.kI;
+    public boolean cy() {
+        return this.lc;
     }
 
-    public void e(byte[] bArr) {
-        this.kG = bArr;
+    public void g(byte[] bArr) {
+        this.lf = bArr;
     }
 
     public int getDegree() {
-        return this.kH;
+        return this.lg;
     }
 
     public void setDegree(int i) {
-        this.kH = i;
+        this.lg = i;
     }
 
-    public void w(boolean z) {
-        this.kI = z;
+    public void v(boolean z) {
+        this.lc = z;
     }
 }

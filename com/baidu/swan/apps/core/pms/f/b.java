@@ -13,23 +13,23 @@ import java.util.List;
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static String jA(String str) {
-        return be(str, "swan_sub_package_zip");
+    public static String jI(String str) {
+        return bg(str, "swan_sub_package_zip");
     }
 
-    public static String bc(String str, String str2) {
-        return jA(e.d.bk(str, str2).getPath());
+    public static String be(String str, String str2) {
+        return jI(e.d.bm(str, str2).getPath());
     }
 
-    public static String jB(String str) {
-        return be(str, "swan_sub_package_zip");
+    public static String jJ(String str) {
+        return bg(str, "swan_sub_package_zip");
     }
 
-    public static String bd(String str, String str2) {
-        return jB(a.c.bk(str, str2).getPath());
+    public static String bf(String str, String str2) {
+        return jJ(a.c.bm(str, str2).getPath());
     }
 
-    private static String be(String str, String str2) {
+    private static String bg(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
@@ -47,7 +47,7 @@ public class b {
         if (gVar == null || TextUtils.isEmpty(gVar.appId)) {
             return false;
         }
-        return f(new File(gVar.filePath), new File(e.d.bk(gVar.appId, String.valueOf(gVar.versionCode)).getPath(), gVar.pkgName));
+        return f(new File(gVar.filePath), new File(e.d.bm(gVar.appId, String.valueOf(gVar.versionCode)).getPath(), gVar.pkgName));
     }
 
     public static boolean f(File file, File file2) {
@@ -70,7 +70,7 @@ public class b {
         } else {
             a.b w = com.baidu.swan.apps.r.a.a.w(file);
             if (w.type != -1) {
-                unzipFile = com.baidu.swan.apps.r.a.a.a(w.cgD, file2, w.type).isSuccess;
+                unzipFile = com.baidu.swan.apps.r.a.a.a(w.clr, file2, w.type).isSuccess;
             } else {
                 unzipFile = d.unzipFile(file.getAbsolutePath(), file2.getAbsolutePath());
             }
@@ -88,10 +88,10 @@ public class b {
         }
     }
 
-    public static boolean U(List<g> list) {
+    public static boolean Y(List<g> list) {
         if (list == null || list.isEmpty()) {
             return false;
         }
-        return list.get(0).dlI;
+        return list.get(0).dqt;
     }
 }

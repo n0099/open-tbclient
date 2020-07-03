@@ -2,17 +2,17 @@ package com.baidu.tieba.ala.personcenter.c;
 
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a extends com.baidu.tbadk.core.data.j {
-    private String goF;
+public class a extends com.baidu.tbadk.core.data.m {
+    private String qq;
 
-    @Override // com.baidu.tbadk.core.data.j
+    @Override // com.baidu.tbadk.core.data.m
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.goF = jSONObject.optString("qq", "");
+            this.qq = jSONObject.optString("qq", "");
         }
     }
 
-    public String bIn() {
-        return this.goF;
+    public String bLs() {
+        return this.qq;
     }
 }

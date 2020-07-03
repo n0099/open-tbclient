@@ -7,7 +7,7 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private HashMap<com.baidu.swan.pms.model.e, Set<b>> bXp;
+    private HashMap<com.baidu.swan.pms.model.e, Set<b>> ccd;
 
     /* loaded from: classes11.dex */
     public interface b {
@@ -17,21 +17,21 @@ public class c {
     }
 
     private c() {
-        this.bXp = new HashMap<>();
+        this.ccd = new HashMap<>();
     }
 
     public synchronized void a(com.baidu.swan.pms.model.e eVar, PMSDownloadType pMSDownloadType) {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + eVar + " : " + pMSDownloadType);
         }
-        Set<b> set = this.bXp.get(eVar);
+        Set<b> set = this.ccd.get(eVar);
         if (set != null) {
             for (b bVar : set) {
                 if (bVar != null) {
                     bVar.a(pMSDownloadType);
                 }
             }
-            this.bXp.remove(eVar);
+            this.ccd.remove(eVar);
         }
     }
 
@@ -39,14 +39,14 @@ public class c {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadError:" + eVar + " : " + pMSDownloadType);
         }
-        Set<b> set = this.bXp.get(eVar);
+        Set<b> set = this.ccd.get(eVar);
         if (set != null) {
             for (b bVar : set) {
                 if (bVar != null) {
                     bVar.a(pMSDownloadType, aVar);
                 }
             }
-            this.bXp.remove(eVar);
+            this.ccd.remove(eVar);
         }
     }
 
@@ -55,23 +55,23 @@ public class c {
             Log.i("PMSDownloadRepeatSync", "registerResultListener:" + eVar);
         }
         if (eVar != null && bVar != null) {
-            Set<b> set = this.bXp.get(eVar);
+            Set<b> set = this.ccd.get(eVar);
             if (set != null) {
                 set.add(bVar);
             } else {
                 HashSet hashSet = new HashSet();
                 hashSet.add(bVar);
-                this.bXp.put(eVar, hashSet);
+                this.ccd.put(eVar, hashSet);
             }
         }
     }
 
-    public static c ZN() {
-        return a.bXq;
+    public static c aaT() {
+        return a.cce;
     }
 
     /* loaded from: classes11.dex */
     private static class a {
-        private static c bXq = new c();
+        private static c cce = new c();
     }
 }

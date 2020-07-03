@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c extends d {
-    private volatile HashMap<String, Long> lpg;
+    private volatile HashMap<String, Long> lIR;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.tbadkCore.util.c.1
@@ -17,7 +17,7 @@ public class c extends d {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory() != null) {
-                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().deQ();
+                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().djc();
                 }
             }
         });
@@ -25,14 +25,14 @@ public class c extends d {
 
     public c(int i) {
         super(i);
-        this.lpg = new HashMap<>();
+        this.lIR = new HashMap<>();
     }
 
-    public long MN(String str) {
+    public long Np(String str) {
         long longValue;
         try {
             synchronized (this) {
-                longValue = this.lpg.get(str) != null ? this.lpg.get(str).longValue() : 0L;
+                longValue = this.lIR.get(str) != null ? this.lIR.get(str).longValue() : 0L;
             }
             return longValue;
         } catch (Exception e) {
@@ -42,10 +42,10 @@ public class c extends d {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.d
-    public void deQ() {
+    public void djc() {
         synchronized (this) {
-            this.lph.clear();
-            this.lpg.clear();
+            this.lIS.clear();
+            this.lIR.clear();
         }
     }
 }

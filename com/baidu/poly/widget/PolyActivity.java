@@ -15,12 +15,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class PolyActivity extends Activity {
-    private static com.baidu.poly.c.a.c btN;
-    private static a.b bwc;
-    private static PolyActivity bwd;
+    private static a.b bAT;
+    private static PolyActivity bAU;
+    private static com.baidu.poly.c.a.c byH;
     private static boolean n;
-    private m bwe;
-    private Bundle bwf;
+    private m bAV;
+    private Bundle bAW;
 
     /* loaded from: classes11.dex */
     class a implements m.l {
@@ -43,26 +43,26 @@ public class PolyActivity extends Activity {
     }
 
     private static void P() {
-        if (bwd != null) {
-            if (bwc != null) {
+        if (bAU != null) {
+            if (bAT != null) {
                 String a2 = com.baidu.poly.util.b.a(2, null, "repeat_pay_cancel");
-                bwc.onResult(2, a2);
+                bAT.onResult(2, a2);
                 d.b(2, a2);
             }
-            bwd.finish();
+            bAU.finish();
         }
     }
 
     private void Q() {
-        this.bwf = getIntent().getBundleExtra("pay_arguements");
+        this.bAW = getIntent().getBundleExtra("pay_arguements");
     }
 
     public static void a(Context context, com.baidu.poly.c.a.c cVar, a.b bVar, Bundle bundle) {
         if (n) {
             P();
         }
-        btN = cVar;
-        bwc = bVar;
+        byH = cVar;
+        bAT = bVar;
         Intent intent = new Intent(context, PolyActivity.class);
         intent.putExtra("pay_arguements", bundle);
         if (!(context instanceof Activity)) {
@@ -73,21 +73,21 @@ public class PolyActivity extends Activity {
     }
 
     private void clear() {
-        this.bwe = null;
-        btN = null;
-        this.bwf = null;
-        bwc = null;
+        this.bAV = null;
+        byH = null;
+        this.bAW = null;
+        bAT = null;
         n = false;
-        bwd = null;
+        bAU = null;
     }
 
     private Bundle m(Bundle bundle) {
         if (bundle == null) {
             return new Bundle();
         }
-        d.bve = bundle.getString("bduss");
-        d.bvf = bundle.getString("tpOrderId");
-        d.bvi = bundle.getString("nativeAppId");
+        d.bzV = bundle.getString("bduss");
+        d.bzW = bundle.getString("tpOrderId");
+        d.bzZ = bundle.getString("nativeAppId");
         bundle.putString(CashierData.DEVICE_TYPE, "ANDROID");
         bundle.putString("channel", "cashiersdk");
         bundle.putString(CommandMessage.SDK_VERSION, "2.6.3");
@@ -117,10 +117,10 @@ public class PolyActivity extends Activity {
         super.onActivityResult(i, i2, intent);
         if (i == 200) {
             if (i2 == -1) {
-                com.baidu.poly.a.i.a.Nc().a((Context) this, intent.getExtras(), this.bwe, true);
+                com.baidu.poly.a.i.a.Ol().a((Context) this, intent.getExtras(), this.bAV, true);
                 return;
             }
-            m mVar = this.bwe;
+            m mVar = this.bAV;
             if (mVar != null) {
                 mVar.a(3, "pay canceled , back from H5. ");
             }
@@ -129,7 +129,7 @@ public class PolyActivity extends Activity {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        m mVar = this.bwe;
+        m mVar = this.bAV;
         if (mVar == null) {
             super.onBackPressed();
             return;
@@ -143,7 +143,7 @@ public class PolyActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         n = true;
-        bwd = this;
+        bAU = this;
         d.y();
         super.onCreate(bundle);
         overridePendingTransition(0, 0);
@@ -175,10 +175,10 @@ public class PolyActivity extends Activity {
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (z && this.bwe == null && !isFinishing()) {
-            this.bwe = new m(this);
-            setContentView(this.bwe);
-            this.bwe.a(bwc).n(m(this.bwf)).a(new com.baidu.poly.a.i.c(new com.baidu.poly.a.i.b(this, btN))).a(new a()).Nn();
+        if (z && this.bAV == null && !isFinishing()) {
+            this.bAV = new m(this);
+            setContentView(this.bAV);
+            this.bAV.a(bAT).n(m(this.bAW)).a(new com.baidu.poly.a.i.c(new com.baidu.poly.a.i.b(this, byH))).a(new a()).Ot();
         }
     }
 

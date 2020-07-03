@@ -9,6 +9,6 @@ public class d implements ap {
     @Override // com.baidu.swan.apps.adaptation.a.ap
     @Nullable
     public com.baidu.swan.apps.api.c.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.n.b bVar) {
-        return c.axf().a(str, jSONObject, bVar);
+        return c.ayl().a(str, jSONObject, bVar);
     }
 }

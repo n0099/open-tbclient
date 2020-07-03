@@ -35,6 +35,9 @@ public class ResNameTransform {
         platformImageNameMap.put("avatar_ba_defaul80", "pic_avatar_ba_140");
         platformImageNameMap.put("icon_arrow", "icon_frs_ba_arrows");
         platformImageNameMap.put("pic_emotion08", "new_pic_emotion_08");
+        platformImageNameMap.put("pic_emotion06", "new_pic_emotion_06");
+        platformImageNameMap.put("pic_emotion09", "new_pic_emotion_09");
+        platformImageNameMap.put("pic_emotion05", "new_pic_emotion_05");
         platformImageNameMap.put("icon_pure_topbar_scan44", "icon_pure_topbar_scan44_svg");
         platformImageNameMap.put("icon_pure_topbar_store44", "icon_pure_topbar_store44_svg");
         platformImageNameMap.put("icon_pure_topbar_set44", "icon_pure_topbar_set44_svg");
@@ -66,15 +69,26 @@ public class ResNameTransform {
         platformImageNameMap.put("icon_mask_shen20_n", "ic_icon_mask_shen20_n");
         platformImageNameMap.put("icon_mask_v20_n", "ic_icon_mask_v20_n_svg");
         platformImageNameMap.put("pic_emotion01", "new_pic_emotion_01");
+        platformImageNameMap.put("pic_emotion02", "new_pic_emotion_02");
+        platformImageNameMap.put("pic_emotion03", "new_pic_emotion_03");
+        platformImageNameMap.put("pic_emotion04", "new_pic_emotion_04");
+        platformImageNameMap.put("pic_emotion05", "new_pic_emotion_05");
+        platformImageNameMap.put("pic_emotion06", "new_pic_emotion_06");
         platformImageNameMap.put("pic_emotion07", "new_pic_emotion_07");
+        platformImageNameMap.put("pic_emotion08", "new_pic_emotion_08");
+        platformImageNameMap.put("pic_emotion09", "new_pic_emotion_09");
         platformImageNameMap.put("icon_mask_shen_hui20", "icon_mask_shen_hui20_svg");
         platformImageNameMap.put("icon_mask_shen_liang20", "icon_mask_shen_liang20_svg");
+        platformImageNameMap.put("icon_pure_video_play12", "ic_icon_pure_video_play12_svg");
         svgColorMap.put("icon_pure_topbar_sign44_svg", "cp_cont_b");
         svgColorMap.put("icon_pure_topbar_scan44_svg", "cp_cont_b");
         svgColorMap.put("icon_pure_topbar_store44_svg", "cp_cont_b");
         svgColorMap.put("icon_pure_topbar_set44_svg", "cp_cont_b");
         svgColorMap.put("icon_pure_wo_list_more24_svg", "cp_cont_f");
         svgColorMap.put("icon_pure_list_arrow16_right_svg", "cp_cont_d");
+        svgColorMap.put("ic_icon_pure_video_play12_svg", "cp_cont_a");
+        svgColorMap.put("icon_pure_fold12_svg", "cp_cont_d");
+        svgColorMap.put("icon_pure_unfold12_svg", "cp_cont_d");
     }
 
     public static String getAndroidNameFromIos(String str) {

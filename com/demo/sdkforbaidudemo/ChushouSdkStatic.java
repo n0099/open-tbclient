@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.kascend.cstvsdk.CSTVSdk;
 /* loaded from: classes5.dex */
@@ -39,14 +39,14 @@ public class ChushouSdkStatic {
                 }
             }
         });
-        ba.aVa().a(new ba.a() { // from class: com.demo.sdkforbaidudemo.ChushouSdkStatic.3
-            @Override // com.baidu.tbadk.core.util.ba.a
+        bc.aWU().a(new bc.a() { // from class: com.demo.sdkforbaidudemo.ChushouSdkStatic.3
+            @Override // com.baidu.tbadk.core.util.bc.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null) {
                     return 3;
                 }
                 if (strArr[0].startsWith("tiebachushou://liveroom") || strArr[0].startsWith("https://chushou.tv") || strArr[0].startsWith("https://vchushou.com")) {
-                    if ((b.aTX().getInt("chushou_game_tab", 1) == 1) && CSTVSdk.INSTANCE != null && !CSTVSdk.INSTANCE.getInitialized()) {
+                    if ((b.aVP().getInt("chushou_game_tab", 1) == 1) && CSTVSdk.INSTANCE != null && !CSTVSdk.INSTANCE.getInitialized()) {
                         ChushouSdkInit.testInit(TbadkCoreApplication.getInst());
                     }
                     if (strArr[0].startsWith("tiebachushou://liveroom")) {

@@ -6,28 +6,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.BaseFragment;
-import com.baidu.live.u.a;
 import com.baidu.tieba.ala.f.a;
 import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
 /* loaded from: classes3.dex */
 public class AlaChallengeHistoryListFragment extends BaseFragment {
-    private boolean eUV;
-    private com.baidu.tieba.ala.f.a fua;
-    private com.baidu.tieba.ala.d.a fub;
-    private a.InterfaceC0534a fuc = new a.InterfaceC0534a() { // from class: com.baidu.tieba.ala.fragment.AlaChallengeHistoryListFragment.1
-        @Override // com.baidu.tieba.ala.f.a.InterfaceC0534a
+    private com.baidu.tieba.ala.f.a fFk;
+    private com.baidu.tieba.ala.d.a fFl;
+    private a.InterfaceC0542a fFm = new a.InterfaceC0542a() { // from class: com.baidu.tieba.ala.fragment.AlaChallengeHistoryListFragment.1
+        @Override // com.baidu.tieba.ala.f.a.InterfaceC0542a
         public void a(int i, String str, Object obj) {
             if (i != 0 && !StringUtils.isNull(str)) {
-                if (AlaChallengeHistoryListFragment.this.fub != null) {
-                    AlaChallengeHistoryListFragment.this.fub.BX(AlaChallengeHistoryListFragment.this.getString(a.i.ala_rank_list_net_error));
+                if (AlaChallengeHistoryListFragment.this.fFl != null) {
+                    AlaChallengeHistoryListFragment.this.fFl.Cv(AlaChallengeHistoryListFragment.this.getString(a.i.ala_rank_list_net_error));
                 }
             } else if (obj != null && (obj instanceof AlaGetChallengeHistoryListResponseMessage)) {
                 AlaGetChallengeHistoryListResponseMessage alaGetChallengeHistoryListResponseMessage = (AlaGetChallengeHistoryListResponseMessage) obj;
-                AlaChallengeHistoryListFragment.this.fub.a(alaGetChallengeHistoryListResponseMessage.eWr, alaGetChallengeHistoryListResponseMessage.gjl);
+                AlaChallengeHistoryListFragment.this.fFl.a(alaGetChallengeHistoryListResponseMessage.fgC, alaGetChallengeHistoryListResponseMessage.gvY);
             }
         }
     };
+    private boolean ffg;
     private String portrait;
 
     public static AlaChallengeHistoryListFragment i(int i, String str, boolean z) {
@@ -44,15 +44,15 @@ public class AlaChallengeHistoryListFragment extends BaseFragment {
         super.onCreate(bundle);
         Bundle arguments = getArguments();
         this.portrait = arguments.getString("portrait");
-        this.eUV = arguments.getBoolean("is_from_host");
+        this.ffg = arguments.getBoolean("is_from_host");
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.fub = new com.baidu.tieba.ala.d.a(getPageContext());
-        this.fua = new com.baidu.tieba.ala.f.a(getPageContext(), this.fuc);
+        this.fFl = new com.baidu.tieba.ala.d.a(getPageContext());
+        this.fFk = new com.baidu.tieba.ala.f.a(getPageContext(), this.fFm);
         refreshData();
-        return this.fub.getView();
+        return this.fFl.getView();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment
@@ -64,17 +64,17 @@ public class AlaChallengeHistoryListFragment extends BaseFragment {
 
     private void refreshData() {
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            this.fua.CP(this.portrait);
-        } else if (this.fub != null) {
-            this.fub.BX(getString(a.i.ala_rank_list_no_net));
+            this.fFk.Dq(this.portrait);
+        } else if (this.fFl != null) {
+            this.fFl.Cv(getString(a.i.ala_rank_list_no_net));
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.fua != null) {
-            this.fua.destroy();
+        if (this.fFk != null) {
+            this.fFk.destroy();
         }
     }
 

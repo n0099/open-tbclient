@@ -204,7 +204,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         this.mBdUniqueId = bdUniqueId;
     }
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
         return this.mBdUniqueId;
     }
@@ -223,7 +223,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     public static class ClientParams implements Serializable {
         public ClientParams(JSONObject jSONObject) {
             if (jSONObject != null) {
-                a.bjN().parse(jSONObject);
+                a.bmm().parse(jSONObject);
             }
         }
     }

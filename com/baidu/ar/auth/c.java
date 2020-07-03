@@ -18,17 +18,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 class c implements l {
-    private boolean iZ;
-    private l.a jc;
+    private boolean jq;
+    private l.a jt;
 
     public c(f fVar) {
-        this.iZ = fVar.jm;
+        this.jq = fVar.jD;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(j jVar, HttpException httpException) {
         if (jVar != null) {
-            if (this.iZ && httpException.getCode() == 1) {
+            if (this.jq && httpException.getCode() == 1) {
                 jVar.onSuccess();
             } else {
                 jVar.onError(httpException.getMessage(), 0);
@@ -36,13 +36,13 @@ class c implements l {
         }
     }
 
-    private JSONObject h(Context context) {
+    private JSONObject j(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
-            com.baidu.ar.f.m.f(jSONObject);
+            com.baidu.ar.f.m.g(jSONObject);
             com.baidu.ar.f.m.b(context, jSONObject);
-            jSONObject.put(HttpConstants.SDK_TYPE, com.baidu.ar.f.c.eT());
-            jSONObject.put(HttpConstants.FUNCTION_TYPE, com.baidu.ar.f.c.eU());
+            jSONObject.put(HttpConstants.SDK_TYPE, com.baidu.ar.f.c.fj());
+            jSONObject.put(HttpConstants.FUNCTION_TYPE, com.baidu.ar.f.c.fk());
             jSONObject.put(HttpConstants.SDK_VERSION_CODE, com.baidu.ar.f.c.getVersionCode());
             jSONObject.put(HttpConstants.SDK_VERSION_NAME, com.baidu.ar.f.c.getVersionName());
             jSONObject.put(HttpConstants.HTTP_OS_TYPE, "android");
@@ -56,13 +56,13 @@ class c implements l {
         return jSONObject;
     }
 
-    private String i(Context context) {
+    private String k(Context context) {
         try {
-            String i = d.i(context);
-            if (TextUtils.isEmpty(i) || !i.contains(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
-                return i;
+            String k = d.k(context);
+            if (TextUtils.isEmpty(k) || !k.contains(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
+                return k;
             }
-            return i.substring(0, i.lastIndexOf(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + DuMixARConfig.getAipAppId();
+            return k.substring(0, k.lastIndexOf(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + DuMixARConfig.getAipAppId();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -71,7 +71,7 @@ class c implements l {
 
     @Override // com.baidu.ar.auth.l
     public void a(l.a aVar) {
-        this.jc = aVar;
+        this.jt = aVar;
     }
 
     @Override // com.baidu.ar.auth.l
@@ -80,7 +80,7 @@ class c implements l {
         if (newRequest == null) {
             return;
         }
-        newRequest.setMethod("POST").setUrl(q.fj()).addQueryField("access_token", i(context)).setBody(h(context));
+        newRequest.setMethod("POST").setUrl(q.fz()).addQueryField("access_token", k(context)).setBody(j(context));
         newRequest.enqueue(new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.auth.c.1
             @Override // com.baidu.ar.ihttp.a
             public void a(HttpException httpException) {
@@ -117,10 +117,10 @@ class c implements l {
                     }
                     return;
                 }
-                if (c.this.jc != null) {
+                if (c.this.jt != null) {
                     HashSet hashSet = new HashSet();
                     hashSet.addAll(FeatureCodes.getAll());
-                    c.this.jc.a(hashSet);
+                    c.this.jt.a(hashSet);
                 }
                 if (jVar != null) {
                     jVar.onSuccess();

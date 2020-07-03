@@ -19,42 +19,42 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a op(String str) {
-        return new a(com.baidu.swan.ubc.e.tL(str));
+    public static a ox(String str) {
+        return new a(com.baidu.swan.ubc.e.tT(str));
     }
 
     public static void a(@NonNull a aVar, String str, String str2) {
-        Flow arc = aVar.arc();
-        if (arc != null) {
-            arc.addEvent(str, str2);
+        Flow asi = aVar.asi();
+        if (asi != null) {
+            asi.addEvent(str, str2);
         }
     }
 
     public static void a(@NonNull a aVar, String str, String str2, long j) {
-        Flow arc = aVar.arc();
-        if (arc != null) {
-            arc.addEvent(str, str2, j);
+        Flow asi = aVar.asi();
+        if (asi != null) {
+            asi.addEvent(str, str2, j);
         }
     }
 
     public static void b(@NonNull a aVar) {
-        Flow arc = aVar.arc();
-        if (arc != null) {
-            arc.cancel();
+        Flow asi = aVar.asi();
+        if (asi != null) {
+            asi.cancel();
         }
     }
 
     public static void c(@NonNull a aVar) {
-        Flow arc = aVar.arc();
-        if (arc != null) {
-            arc.end();
+        Flow asi = aVar.asi();
+        if (asi != null) {
+            asi.end();
         }
     }
 
     public static void a(@NonNull a aVar, String str) {
-        Flow arc = aVar.arc();
-        if (arc != null) {
-            arc.setValueWithDuration(str);
+        Flow asi = aVar.asi();
+        if (asi != null) {
+            asi.setValueWithDuration(str);
         }
     }
 }

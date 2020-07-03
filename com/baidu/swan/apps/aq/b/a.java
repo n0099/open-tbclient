@@ -22,17 +22,17 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes11.dex */
 public class a {
-    private com.baidu.swan.apps.aq.e.b<String> cKz;
+    private com.baidu.swan.apps.aq.e.b<String> cPj;
     private ExecutorService mExecutorService;
-    private final Set<com.baidu.swan.apps.aq.e.b<Pipe.SourceChannel>> cKw = new HashSet();
-    private int cKx = 8192;
+    private final Set<com.baidu.swan.apps.aq.e.b<Pipe.SourceChannel>> cPg = new HashSet();
+    private int cPh = 8192;
     private long mTimeout = -1;
-    private TimeUnit cKy = TimeUnit.NANOSECONDS;
-    private final c.a cKA = new c.a();
+    private TimeUnit cPi = TimeUnit.NANOSECONDS;
+    private final c.a cPk = new c.a();
     private float mProgress = 0.0f;
 
     public a X(Bundle bundle) {
-        this.cKA.E(bundle);
+        this.cPk.E(bundle);
         return this;
     }
 
@@ -40,29 +40,29 @@ public class a {
         return this.mProgress;
     }
 
-    private void E(float f) {
+    private void G(float f) {
         log("updateProgress: progress=" + f);
         this.mProgress = f;
-        pR("on_progress");
+        pZ("on_progress");
     }
 
-    private void pR(String str) {
-        if (this.cKz != null) {
-            this.cKz.H(str);
+    private void pZ(String str) {
+        if (this.cPj != null) {
+            this.cPj.H(str);
         }
     }
 
     public a t(com.baidu.swan.apps.aq.e.b<String> bVar) {
-        this.cKz = bVar;
+        this.cPj = bVar;
         return this;
     }
 
     @NonNull
-    public a hL(int i) {
+    public a hW(int i) {
         if (i < 1) {
             i = 8192;
         }
-        this.cKx = i;
+        this.cPh = i;
         return this;
     }
 
@@ -72,32 +72,32 @@ public class a {
             j = -1;
         }
         this.mTimeout = j;
-        this.cKy = timeUnit;
+        this.cPi = timeUnit;
         return this;
     }
 
     @NonNull
     public a a(@NonNull com.baidu.swan.apps.aq.e.b<Pipe.SourceChannel>... bVarArr) {
-        this.cKw.addAll(Arrays.asList(bVarArr));
+        this.cPg.addAll(Arrays.asList(bVarArr));
         return this;
     }
 
     public synchronized void b(ReadableByteChannel readableByteChannel) {
         boolean z = false;
         synchronized (this) {
-            pR("start");
+            pZ("start");
             long currentTimeMillis = System.currentTimeMillis();
-            List<RunnableC0315a> aua = aua();
-            CountDownLatch countDownLatch = new CountDownLatch(aua.size());
-            ExecutorService a = a(aua, countDownLatch);
-            a(readableByteChannel, aua);
-            pR("pump_finish");
+            List<RunnableC0321a> avg = avg();
+            CountDownLatch countDownLatch = new CountDownLatch(avg.size());
+            ExecutorService a = a(avg, countDownLatch);
+            a(readableByteChannel, avg);
+            pZ("pump_finish");
             log("pumping: cost=" + (System.currentTimeMillis() - currentTimeMillis));
             try {
-                log("main await for timeout: " + this.cKy.toMillis(this.mTimeout));
+                log("main await for timeout: " + this.cPi.toMillis(this.mTimeout));
                 if (this.mTimeout < 0) {
                     countDownLatch.await();
-                } else if (!countDownLatch.await(this.mTimeout, this.cKy)) {
+                } else if (!countDownLatch.await(this.mTimeout, this.cPi)) {
                     z = true;
                 }
                 log("main await finish by " + (z ? "time's up" : "count down"));
@@ -108,11 +108,11 @@ public class a {
                 log("all done: " + (System.currentTimeMillis() - currentTimeMillis));
                 a(a);
             }
-            pR("finish");
+            pZ("finish");
         }
     }
 
-    private List<RunnableC0315a> aua() {
+    private List<RunnableC0321a> avg() {
         final ArrayList arrayList = new ArrayList();
         com.baidu.swan.apps.aq.e.a.a(new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.aq.e.b<Pipe.SourceChannel>>() { // from class: com.baidu.swan.apps.aq.b.a.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -120,34 +120,34 @@ public class a {
             /* renamed from: d */
             public void H(com.baidu.swan.apps.aq.e.b<Pipe.SourceChannel> bVar) {
                 try {
-                    arrayList.add(new RunnableC0315a(bVar));
+                    arrayList.add(new RunnableC0321a(bVar));
                 } catch (IOException e) {
                 }
             }
-        }, this.cKw);
+        }, this.cPg);
         return arrayList;
     }
 
     @NonNull
-    private ExecutorService a(@NonNull List<RunnableC0315a> list, @NonNull final CountDownLatch countDownLatch) {
+    private ExecutorService a(@NonNull List<RunnableC0321a> list, @NonNull final CountDownLatch countDownLatch) {
         if (this.mExecutorService == null || this.mExecutorService.isShutdown() || this.mExecutorService.isTerminated()) {
             this.mExecutorService = null;
         }
         final ExecutorService newCachedThreadPool = this.mExecutorService == null ? Executors.newCachedThreadPool() : this.mExecutorService;
-        com.baidu.swan.apps.aq.e.a.a(new com.baidu.swan.apps.aq.e.b<RunnableC0315a>() { // from class: com.baidu.swan.apps.aq.b.a.2
+        com.baidu.swan.apps.aq.e.a.a(new com.baidu.swan.apps.aq.e.b<RunnableC0321a>() { // from class: com.baidu.swan.apps.aq.b.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.aq.e.b
             /* renamed from: a */
-            public void H(RunnableC0315a runnableC0315a) {
-                runnableC0315a.a(countDownLatch);
-                newCachedThreadPool.submit(runnableC0315a);
+            public void H(RunnableC0321a runnableC0321a) {
+                runnableC0321a.a(countDownLatch);
+                newCachedThreadPool.submit(runnableC0321a);
             }
         }, list);
         return newCachedThreadPool;
     }
 
-    private float aub() {
-        float f = this.cKA.getFloat("progress_granularity", 0.01f);
+    private float avh() {
+        float f = this.cPk.getFloat("progress_granularity", 0.01f);
         float f2 = f >= 0.0f ? f : 0.0f;
         if (f2 > 1.0f) {
             return 1.0f;
@@ -155,14 +155,14 @@ public class a {
         return f2;
     }
 
-    private void a(@NonNull ReadableByteChannel readableByteChannel, @NonNull List<RunnableC0315a> list) {
+    private void a(@NonNull ReadableByteChannel readableByteChannel, @NonNull List<RunnableC0321a> list) {
         NumberFormat percentInstance;
-        E(0.0f);
-        float aub = aub();
+        G(0.0f);
+        float avh = avh();
         long j = 0;
         int i = 0;
-        long j2 = this.cKA.getLong("length");
-        final ByteBuffer allocate = ByteBuffer.allocate(this.cKx);
+        long j2 = this.cPk.getLong("length");
+        final ByteBuffer allocate = ByteBuffer.allocate(this.cPh);
         while (true) {
             try {
                 long read = readableByteChannel.read(allocate);
@@ -171,15 +171,15 @@ public class a {
                 }
                 long j3 = j + read;
                 allocate.flip();
-                com.baidu.swan.apps.aq.e.a.a(new com.baidu.swan.apps.aq.e.b<RunnableC0315a>() { // from class: com.baidu.swan.apps.aq.b.a.3
+                com.baidu.swan.apps.aq.e.a.a(new com.baidu.swan.apps.aq.e.b<RunnableC0321a>() { // from class: com.baidu.swan.apps.aq.b.a.3
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.aq.e.b
                     /* renamed from: a */
-                    public void H(RunnableC0315a runnableC0315a) {
+                    public void H(RunnableC0321a runnableC0321a) {
                         try {
-                            if (runnableC0315a.cKJ.isOpen() && runnableC0315a.cKI.isOpen()) {
+                            if (runnableC0321a.cPt.isOpen() && runnableC0321a.cPs.isOpen()) {
                                 allocate.rewind();
-                                runnableC0315a.cKJ.write(allocate);
+                                runnableC0321a.cPt.write(allocate);
                             }
                         } catch (IOException e) {
                         }
@@ -201,9 +201,9 @@ public class a {
                         i3++;
                     }
                     log(String.format("pumping: %4s [%s] read/at:[%7d/%-7d]", NumberFormat.getPercentInstance().format(f2), sb, Long.valueOf(read), Long.valueOf(j3)));
-                    if (f3 > aub) {
-                        log("pumping: updateProgress granularity:" + percentInstance.format(aub) + " step:" + percentInstance.format(f3));
-                        E(f2);
+                    if (f3 > avh) {
+                        log("pumping: updateProgress granularity:" + percentInstance.format(avh) + " step:" + percentInstance.format(f3));
+                        G(f2);
                     }
                 }
                 allocate.clear();
@@ -212,18 +212,18 @@ public class a {
             } catch (IOException e) {
             } finally {
                 a(readableByteChannel, "connected source");
-                com.baidu.swan.apps.aq.e.a.a(new com.baidu.swan.apps.aq.e.b<RunnableC0315a>() { // from class: com.baidu.swan.apps.aq.b.a.4
+                com.baidu.swan.apps.aq.e.a.a(new com.baidu.swan.apps.aq.e.b<RunnableC0321a>() { // from class: com.baidu.swan.apps.aq.b.a.4
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.aq.e.b
                     /* renamed from: a */
-                    public void H(RunnableC0315a runnableC0315a) {
-                        a.a(runnableC0315a.cKJ, runnableC0315a.toString() + " by[PumpingFinish]");
+                    public void H(RunnableC0321a runnableC0321a) {
+                        a.a(runnableC0321a.cPt, runnableC0321a.toString() + " by[PumpingFinish]");
                     }
                 }, list);
             }
         }
         log("pumping done: writeCount=" + i + " length: " + j2);
-        E(1.0f);
+        G(1.0f);
     }
 
     private void a(@NonNull ExecutorService executorService) {
@@ -247,16 +247,16 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.aq.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class RunnableC0315a implements Runnable {
-        private final com.baidu.swan.apps.aq.e.b<Pipe.SourceChannel> cKG;
-        private String cKK;
+    public class RunnableC0321a implements Runnable {
+        private final com.baidu.swan.apps.aq.e.b<Pipe.SourceChannel> cPq;
+        private String cPu;
         private CountDownLatch latch;
-        private final Pipe cKH = Pipe.open();
-        private final Pipe.SinkChannel cKJ = this.cKH.sink();
-        private final Pipe.SourceChannel cKI = this.cKH.source();
+        private final Pipe cPr = Pipe.open();
+        private final Pipe.SinkChannel cPt = this.cPr.sink();
+        private final Pipe.SourceChannel cPs = this.cPr.source();
 
-        RunnableC0315a(com.baidu.swan.apps.aq.e.b<Pipe.SourceChannel> bVar) throws IOException {
-            this.cKG = bVar;
+        RunnableC0321a(com.baidu.swan.apps.aq.e.b<Pipe.SourceChannel> bVar) throws IOException {
+            this.cPq = bVar;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -264,7 +264,7 @@ public class a {
             this.latch = countDownLatch;
         }
 
-        private void auc() {
+        private void avi() {
             if (this.latch != null) {
                 this.latch.countDown();
             }
@@ -272,25 +272,25 @@ public class a {
 
         @Override // java.lang.Runnable
         public void run() {
-            this.cKK = Thread.currentThread().toString();
+            this.cPu = Thread.currentThread().toString();
             a.log(" >> run on " + toString());
             try {
-                this.cKG.H(this.cKI);
+                this.cPq.H(this.cPs);
             } catch (Exception e) {
             } finally {
                 close();
             }
             a.log("countdown by end -> " + toString());
-            auc();
+            avi();
         }
 
         private void close() {
-            a.a(this.cKJ, "sink for " + toString());
-            a.a(this.cKI, "source for " + toString());
+            a.a(this.cPt, "sink for " + toString());
+            a.a(this.cPs, "source for " + toString());
         }
 
         public String toString() {
-            return "PipeLine: " + this.cKK + " consumer=" + this.cKG.toString();
+            return "PipeLine: " + this.cPu + " consumer=" + this.cPq.toString();
         }
     }
 }

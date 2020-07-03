@@ -5,33 +5,42 @@ import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.tieba.tbadkCore.q;
 /* loaded from: classes9.dex */
 public class n implements MessageQueue.IdleHandler {
-    private FrsModelController hIf;
-    private MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> hIi;
-    private MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> hIj;
-    private MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> hIk;
+    private q hUl;
+    private FrsModelController hVr;
+    private MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> hVu;
+    private MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> hVv;
+    private MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> hVw;
 
     public void f(FrsModelController frsModelController) {
-        this.hIf = frsModelController;
+        this.hVr = frsModelController;
     }
 
     public void a(MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> mvcSocketResponsedMessage) {
-        this.hIj = mvcSocketResponsedMessage;
+        this.hVv = mvcSocketResponsedMessage;
     }
 
     public void a(MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcSocketMessage) {
-        this.hIk = mvcSocketMessage;
+        this.hVw = mvcSocketMessage;
     }
 
     public void a(MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
-        this.hIi = mvcNetMessage;
+        this.hVu = mvcNetMessage;
+    }
+
+    public void a(q qVar) {
+        this.hUl = qVar;
     }
 
     @Override // android.os.MessageQueue.IdleHandler
     public boolean queueIdle() {
-        if (this.hIf != null) {
-            this.hIf.b(this.hIj, this.hIk, this.hIi);
+        if (this.hVr != null) {
+            this.hVr.b(this.hVv, this.hVw, this.hVu);
+            if (this.hUl != null) {
+                this.hUl.bYn();
+            }
         }
         return false;
     }

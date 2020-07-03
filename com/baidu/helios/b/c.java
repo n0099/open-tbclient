@@ -7,7 +7,7 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class c implements b.a {
     @Override // com.baidu.helios.ids.b.a
-    public List<com.baidu.helios.ids.a> uA() {
+    public List<com.baidu.helios.ids.a> uS() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new com.baidu.helios.ids.a.a());
         arrayList.add(new com.baidu.helios.ids.c.a());

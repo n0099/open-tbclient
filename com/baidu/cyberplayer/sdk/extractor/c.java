@@ -8,7 +8,7 @@ import com.baidu.cyberplayer.sdk.remote.RemotePlayerService;
 import com.baidu.cyberplayer.sdk.remote.a;
 import com.baidu.cyberplayer.sdk.remote.e;
 /* loaded from: classes.dex */
-public class c extends a.AbstractBinderC0109a {
+public class c extends a.AbstractBinderC0111a {
     private CyberExtractor a;
     private RemotePlayerService b;
 

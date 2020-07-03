@@ -9,7 +9,7 @@ public class a {
     private int maxCount;
     private List<b> userList = new ArrayList();
 
-    public void cM(JSONObject jSONObject) {
+    public void cV(JSONObject jSONObject) {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("admins");
             if (optJSONArray != null) {
@@ -17,7 +17,7 @@ public class a {
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     b bVar = new b();
-                    bVar.cM(optJSONObject);
+                    bVar.cV(optJSONObject);
                     this.userList.add(bVar);
                 }
             }
@@ -25,7 +25,7 @@ public class a {
         }
     }
 
-    public int bvL() {
+    public int byG() {
         return this.maxCount;
     }
 

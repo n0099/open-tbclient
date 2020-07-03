@@ -9,67 +9,67 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.Message;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.liveroom.d.d;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.CustomToast;
 import com.baidu.live.tbadk.core.view.TbListCommonPullView;
 import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
-import com.baidu.live.u.a;
 import com.baidu.tieba.ala.charm.data.ALaCharmDataList;
 import com.baidu.tieba.ala.charm.model.a;
 /* loaded from: classes3.dex */
 public class a implements d {
-    private boolean aSw;
-    private String aSx;
-    private String fnW;
-    private b foX;
-    private com.baidu.tieba.ala.charm.model.a fob;
+    private boolean aVc;
+    private String aVd;
+    private b fAj;
+    private String fzj;
+    private com.baidu.tieba.ala.charm.model.a fzo;
     private String mGroupId;
     private String mLiveId;
     private TbPageContext mPageContext;
     private BdUniqueId mPageId;
     private String mUid;
-    private boolean foY = true;
-    a.InterfaceC0532a fof = new a.InterfaceC0532a() { // from class: com.baidu.tieba.ala.charm.a.a.1
-        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0532a
+    private boolean fAk = true;
+    a.InterfaceC0540a fzs = new a.InterfaceC0540a() { // from class: com.baidu.tieba.ala.charm.a.a.1
+        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0540a
         public void a(ALaCharmDataList aLaCharmDataList) {
-            a.this.foX.hideLoadingView();
-            a.this.foX.completePullRefresh();
-            a.this.foX.T(aLaCharmDataList.data);
-            a.this.foY = false;
+            a.this.fAj.hideLoadingView();
+            a.this.fAj.completePullRefresh();
+            a.this.fAj.T(aLaCharmDataList.data);
+            a.this.fAk = false;
         }
 
-        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0532a
-        public void ax(int i, String str) {
+        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0540a
+        public void az(int i, String str) {
             if (str != null) {
                 CustomToast.newInstance().showToast(str);
             }
-            a.this.foX.completePullRefresh();
-            a.this.foX.hideLoadingView();
-            a.this.foX.bth();
-            a.this.foY = true;
+            a.this.fAj.completePullRefresh();
+            a.this.fAj.hideLoadingView();
+            a.this.fAj.bwb();
+            a.this.fAk = true;
         }
     };
-    private TbListCommonPullView.ListPullRefreshListener foZ = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.charm.a.a.2
+    private TbListCommonPullView.ListPullRefreshListener fAl = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.charm.a.a.2
         @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
         public void onListPullRefresh(boolean z) {
-            if (a.this.fob != null) {
-                a.this.fob.bo(1, 10);
+            if (a.this.fzo != null) {
+                a.this.fzo.bs(1, 10);
             }
         }
     };
-    private CustomMessageListener aQM = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.charm.a.a.3
+    private CustomMessageListener aTs = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.charm.a.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage;
             if ((customResponsedMessage instanceof UpdateAttentionMessage) && (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage) != null && updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
                 if (!updateAttentionMessage.getData().isSucc) {
-                    if (a.this.foX != null) {
-                        a.this.foX.ap(updateAttentionMessage.getData().toUid, !updateAttentionMessage.getData().isAttention);
+                    if (a.this.fAj != null) {
+                        a.this.fAj.ar(updateAttentionMessage.getData().toUid, !updateAttentionMessage.getData().isAttention);
                     }
                     Message<?> message = updateAttentionMessage.getmOrginalMessage();
-                    if (message != null && message.getTag() != null && message.getTag().equals(a.this.mPageId) && !com.baidu.live.view.a.Jl().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mPageContext, false) && !StringUtils.isNull(updateAttentionMessage.getData().errorString)) {
+                    if (message != null && message.getTag() != null && message.getTag().equals(a.this.mPageId) && !com.baidu.live.view.a.Ky().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mPageContext, false) && !StringUtils.isNull(updateAttentionMessage.getData().errorString)) {
                         a.this.mPageContext.showToast(updateAttentionMessage.getData().errorString);
                         return;
                     }
@@ -77,11 +77,11 @@ public class a implements d {
                 }
                 Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
                 if (message2 == null || message2.getTag() == null || !message2.getTag().equals(a.this.mPageId)) {
-                    if (a.this.foX != null) {
-                        a.this.foX.ap(updateAttentionMessage.getData().toUid, updateAttentionMessage.getData().isAttention);
+                    if (a.this.fAj != null) {
+                        a.this.fAj.ar(updateAttentionMessage.getData().toUid, updateAttentionMessage.getData().isAttention);
                     }
                 } else if (updateAttentionMessage.getData().isAttention) {
-                    com.baidu.live.view.a.Jl().a(a.this.mPageContext, true);
+                    com.baidu.live.view.a.Ky().a(a.this.mPageContext, true);
                 }
             }
         }
@@ -89,52 +89,52 @@ public class a implements d {
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        MessageManager.getInstance().registerListener(this.aQM);
+        MessageManager.getInstance().registerListener(this.aTs);
         this.mPageId = BdUniqueId.gen();
     }
 
     public void createView() {
-        if (this.foX == null) {
-            this.foX = new b(this.mPageContext, this.mPageId, this.mGroupId, this.mLiveId, this.aSw, this.aSx);
-            this.foX.Bw(this.fnW);
-            this.foX.a(this.foZ);
+        if (this.fAj == null) {
+            this.fAj = new b(this.mPageContext, this.mPageId, this.mGroupId, this.mLiveId, this.aVc, this.aVd);
+            this.fAj.BU(this.fzj);
+            this.fAj.a(this.fAl);
         }
-        this.fob = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUid, this.fof);
+        this.fzo = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUid, this.fzs);
         if (!StringUtils.isNull(this.mUid) && !this.mUid.equals("0")) {
-            this.foX.showLoadingView();
-            this.fob.bo(1, 10);
+            this.fAj.showLoadingView();
+            this.fzo.bs(1, 10);
         }
     }
 
-    public a Bs(String str) {
+    public a BQ(String str) {
         this.mGroupId = str;
         return this;
     }
 
-    public a Bt(String str) {
+    public a BR(String str) {
         this.mLiveId = str;
         return this;
     }
 
-    public a Bu(String str) {
+    public a BS(String str) {
         this.mUid = str;
         return this;
     }
 
-    public a Bv(String str) {
-        this.fnW = str;
+    public a BT(String str) {
+        this.fzj = str;
         return this;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.foX == null) {
+        if (this.fAj == null) {
             createView();
         }
-        if (this.foX == null) {
+        if (this.fAj == null) {
             return null;
         }
-        return this.foX.getView();
+        return this.fAj.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -143,12 +143,12 @@ public class a implements d {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String Ci() {
+    public String CI() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short Cj() {
+    public short CJ() {
         return (short) 3;
     }
 
@@ -162,19 +162,19 @@ public class a implements d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.aQM);
-        if (this.fob != null) {
-            this.fob.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.aTs);
+        if (this.fzo != null) {
+            this.fzo.onDestroy();
         }
-        if (this.foX != null) {
-            this.foX.hideLoadingView();
+        if (this.fAj != null) {
+            this.fAj.hideLoadingView();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onChangeSkinType(int i) {
-        if (this.foX != null) {
-            this.foX.onSkinTypeChanged(i);
+        if (this.fAj != null) {
+            this.fAj.onSkinTypeChanged(i);
         }
     }
 }

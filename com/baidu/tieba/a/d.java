@@ -1,83 +1,83 @@
 package com.baidu.tieba.a;
 
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.w;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class d {
-    private static volatile d eMT;
-    private ArrayList<Integer> eMP = new ArrayList<>();
-    private c eMQ;
-    private a eMU;
-    private List<an> eMV;
+    private static volatile d eXf;
+    private ArrayList<Integer> eXb = new ArrayList<>();
+    private c eXc;
+    private a eXg;
+    private List<ao> eXh;
 
-    public static d bmb() {
-        if (eMT == null) {
+    public static d boA() {
+        if (eXf == null) {
             synchronized (c.class) {
-                if (eMT == null) {
-                    eMT = new d();
+                if (eXf == null) {
+                    eXf = new d();
                 }
             }
         }
-        return eMT;
+        return eXf;
     }
 
     private d() {
-        this.eMP.add(1);
-        this.eMP.add(2);
-        this.eMQ = new c();
-        this.eMU = new a(this.eMQ, this.eMP);
-        pf(com.baidu.tbadk.core.sharedPref.b.aTX().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
+        this.eXb.add(1);
+        this.eXb.add(2);
+        this.eXc = new c();
+        this.eXg = new a(this.eXc, this.eXb);
+        pE(com.baidu.tbadk.core.sharedPref.b.aVP().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
     }
 
     public int as(String str, int i) {
-        if (this.eMU == null) {
+        if (this.eXg == null) {
             return 0;
         }
-        return this.eMU.as(str, i);
+        return this.eXg.as(str, i);
     }
 
-    public void zK(String str) {
-        if (this.eMU != null) {
-            this.eMU.zJ(str);
+    public void Ad(String str) {
+        if (this.eXg != null) {
+            this.eXg.Ac(str);
         }
     }
 
-    public void e(an anVar) {
-        if (anVar != null) {
-            if (this.eMV == null) {
-                this.eMV = new ArrayList();
+    public void e(ao aoVar) {
+        if (aoVar != null) {
+            if (this.eXh == null) {
+                this.eXh = new ArrayList();
             }
-            this.eMV.add(anVar);
+            this.eXh.add(aoVar);
         }
     }
 
-    public void de(String str, String str2) {
-        if (!v.isEmpty(this.eMV) && this.eMQ != null && this.eMQ.blZ()) {
+    public void dh(String str, String str2) {
+        if (!w.isEmpty(this.eXh) && this.eXc != null && this.eXc.boy()) {
             int i = -1;
-            for (an anVar : this.eMV) {
-                if (anVar != null) {
-                    if (anVar.getPosition() == 0) {
-                        a(str, str2, anVar);
-                    } else if (i != anVar.getPosition()) {
-                        i = anVar.getPosition();
-                        a(str, str2, anVar);
+            for (ao aoVar : this.eXh) {
+                if (aoVar != null) {
+                    if (aoVar.getPosition() == 0) {
+                        a(str, str2, aoVar);
+                    } else if (i != aoVar.getPosition()) {
+                        i = aoVar.getPosition();
+                        a(str, str2, aoVar);
                     }
                     i = i;
                 }
             }
-            this.eMV.clear();
+            this.eXh.clear();
         }
     }
 
-    public void a(String str, String str2, an anVar) {
-        if (anVar != null && this.eMQ != null && this.eMQ.blZ()) {
+    public void a(String str, String str2, ao aoVar) {
+        if (aoVar != null && this.eXc != null && this.eXc.boy()) {
             HashMap hashMap = new HashMap();
-            List<Object> params = anVar.getParams();
+            List<Object> params = aoVar.getParams();
             if (params != null) {
                 int size = params.size();
                 for (int i = 0; i < size; i += 2) {
@@ -94,25 +94,25 @@ public class d {
                     hashMap.put(str3, str4);
                 }
             }
-            com.baidu.ubs.analytics.a.a(str2 + anVar.getKey(), str, "", hashMap);
+            com.baidu.ubs.analytics.a.a(str2 + aoVar.getKey(), str, "", hashMap);
         }
     }
 
     public void onPageStart(String str) {
-        if (aq.isEmpty(str) || this.eMQ == null || !this.eMQ.blZ()) {
-            com.baidu.ubs.analytics.a.Po(str);
+        if (ar.isEmpty(str) || this.eXc == null || !this.eXc.boy()) {
+            com.baidu.ubs.analytics.a.Qa(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (aq.isEmpty(str) || this.eMQ == null || !this.eMQ.blZ()) {
-            com.baidu.ubs.analytics.a.Pp(str);
+        if (ar.isEmpty(str) || this.eXc == null || !this.eXc.boy()) {
+            com.baidu.ubs.analytics.a.Qb(str);
         }
     }
 
-    public void pf(int i) {
-        if (this.eMQ != null) {
-            this.eMQ.pf(i);
+    public void pE(int i) {
+        if (this.eXc != null) {
+            this.eXc.pE(i);
         }
     }
 }

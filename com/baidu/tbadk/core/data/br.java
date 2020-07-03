@@ -1,30 +1,31 @@
 package com.baidu.tbadk.core.data;
-
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import org.json.JSONObject;
-import tbclient.VideoChannelInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class br {
-    public long dIm;
-    public String dIn;
-    public String dIo;
+    protected String img_url = null;
+    protected String link = null;
+    protected String ciU = null;
 
-    public void a(VideoChannelInfo videoChannelInfo) {
-        if (videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
-            this.dIm = videoChannelInfo.channel_id.longValue();
-            this.dIn = videoChannelInfo.channel_name;
-            this.dIo = videoChannelInfo.channel_avatar;
-        }
+    public String aQl() {
+        return this.img_url;
     }
 
-    public void cz(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.dIm = jSONObject.optLong(SharedPrefConfig.CHANNEL_ID, 0L);
-                this.dIn = jSONObject.optString("channel_name");
-                this.dIo = jSONObject.optString("channel_avatar");
-            } catch (Exception e) {
-            }
-        }
+    public void vN(String str) {
+        this.img_url = str;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String str) {
+        this.link = str;
+    }
+
+    public String aRG() {
+        return this.ciU;
+    }
+
+    public void vO(String str) {
+        this.ciU = str;
     }
 }

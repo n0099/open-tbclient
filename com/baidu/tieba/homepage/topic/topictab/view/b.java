@@ -4,17 +4,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.b.c;
 /* loaded from: classes9.dex */
 public class b extends com.baidu.tieba.card.b<c> {
-    private View gVb;
-    private c ijS;
+    private View hhK;
+    private c iAU;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.gVb = getView().findViewById(R.id.card_topic_list_placeholder);
+        this.hhK = getView().findViewById(R.id.card_topic_list_placeholder);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -30,11 +30,11 @@ public class b extends com.baidu.tieba.card.b<c> {
     @Override // com.baidu.tieba.card.b
     public void a(c cVar) {
         if (cVar != null) {
-            this.ijS = cVar;
-            am.setBackgroundColor(this.gVb, this.ijS.iiK);
-            ViewGroup.LayoutParams layoutParams = this.gVb.getLayoutParams();
-            layoutParams.height = l.getDimens(this.mContext, cVar.gTB);
-            this.gVb.setLayoutParams(layoutParams);
+            this.iAU = cVar;
+            an.setBackgroundColor(this.hhK, this.iAU.izO);
+            ViewGroup.LayoutParams layoutParams = this.hhK.getLayoutParams();
+            layoutParams.height = l.getDimens(this.mContext, cVar.hgk);
+            this.hhK.setLayoutParams(layoutParams);
         }
     }
 

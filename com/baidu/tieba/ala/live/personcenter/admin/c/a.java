@@ -4,18 +4,18 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 import com.baidu.live.tbadk.core.view.TbListCommonPullView;
-import com.baidu.live.u.a;
 import com.baidu.tieba.ala.live.personcenter.admin.c.b;
 /* loaded from: classes3.dex */
 public class a {
-    private b fDU;
-    private c fDV;
-    private com.baidu.live.n.b fDW;
-    private CustomMessageListener fDX = new CustomMessageListener(2913050, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.1
+    private b fPd;
+    private c fPe;
+    private com.baidu.live.o.b fPf;
+    private CustomMessageListener fPg = new CustomMessageListener(2913050, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -34,8 +34,8 @@ public class a {
                     @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                     public void onClick(BdAlertDialog bdAlertDialog2) {
                         bdAlertDialog2.dismiss();
-                        a.this.fDW.aw(bVar.getUserId(), a.this.mLiveId);
-                        a.this.fDU.a(bVar);
+                        a.this.fPf.ax(bVar.getUserId(), a.this.mLiveId);
+                        a.this.fPd.a(bVar);
                     }
                 });
                 if (TbadkCoreApplication.getInst().isMobileBaidu()) {
@@ -47,39 +47,39 @@ public class a {
             }
         }
     };
-    private b.a fDY = new b.a() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2
+    private b.a fPh = new b.a() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2
         @Override // com.baidu.tieba.ala.live.personcenter.admin.c.b.a
-        public void jz(boolean z) {
-            a.this.fDV.completePullRefresh();
-            a.this.fDV.hideNoDataView();
-            if (a.this.fDU.getUserList().size() == 0) {
-                a.this.fDV.buA();
-                a.this.fDV.bvP();
-                a.this.fDV.showNoDataView();
+        public void jM(boolean z) {
+            a.this.fPe.completePullRefresh();
+            a.this.fPe.hideNoDataView();
+            if (a.this.fPd.getUserList().size() == 0) {
+                a.this.fPe.bxv();
+                a.this.fPe.byK();
+                a.this.fPe.showNoDataView();
                 return;
             }
-            a.this.fDV.bqQ();
-            a.this.fDV.bvO();
-            a.this.fDV.e(a.this.fDU.getUserList(), a.this.fDU.bvL());
+            a.this.fPe.btN();
+            a.this.fPe.byJ();
+            a.this.fPe.f(a.this.fPd.getUserList(), a.this.fPd.byG());
             if (z) {
-                a.this.fDV.buf();
+                a.this.fPe.bxa();
             } else {
-                a.this.fDV.buA();
+                a.this.fPe.bxv();
             }
         }
 
         @Override // com.baidu.tieba.ala.live.personcenter.admin.c.b.a
-        public void al(int i, String str) {
-            a.this.fDV.completePullRefresh();
-            a.this.fDV.hideNoDataView();
-            if (a.this.fDU.getUserList().size() <= 0) {
-                a.this.fDV.buA();
-                a.this.fDV.bvP();
-                a.this.fDV.a(a.i.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2.1
+        public void an(int i, String str) {
+            a.this.fPe.completePullRefresh();
+            a.this.fPe.hideNoDataView();
+            if (a.this.fPd.getUserList().size() <= 0) {
+                a.this.fPe.bxv();
+                a.this.fPe.byK();
+                a.this.fPe.a(a.i.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.fDV.bqQ();
-                        a.this.fDU.bvN();
+                        a.this.fPe.btN();
+                        a.this.fPd.byI();
                     }
                 });
                 return;
@@ -97,31 +97,31 @@ public class a {
     public a(TbPageContext tbPageContext, View view, String str) {
         this.pageContext = tbPageContext;
         this.mLiveId = str;
-        by(view);
+        bB(view);
     }
 
-    private void by(View view) {
-        this.fDU = new b(getPageContext());
-        this.fDU.a(this.fDY);
-        this.fDW = new com.baidu.live.n.b(getPageContext());
-        this.fDV = new c(getPageContext(), view);
-        this.fDV.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.3
+    private void bB(View view) {
+        this.fPd = new b(getPageContext());
+        this.fPd.a(this.fPh);
+        this.fPf = new com.baidu.live.o.b(getPageContext());
+        this.fPe = new c(getPageContext(), view);
+        this.fPe.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.3
             @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
             public void onListPullRefresh(boolean z) {
-                a.this.fDU.bvN();
+                a.this.fPd.byI();
             }
         });
-        this.fDV.buA();
+        this.fPe.bxv();
     }
 
     public void onCreate(Bundle bundle) {
-        getPageContext().registerListener(this.fDX);
-        this.fDU.bvN();
+        getPageContext().registerListener(this.fPg);
+        this.fPd.byI();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.fDV != null) {
-            this.fDV.onChangeSkinType(i);
+        if (this.fPe != null) {
+            this.fPe.onChangeSkinType(i);
         }
     }
 }

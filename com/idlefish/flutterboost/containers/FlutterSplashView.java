@@ -8,18 +8,19 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.idlefish.flutterboost.Debuger;
 import com.idlefish.flutterboost.FlutterBoost;
-import com.idlefish.flutterboost.FlutterBoostPlugin;
 import com.idlefish.flutterboost.XFlutterView;
 import io.flutter.Log;
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.android.SplashScreen;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
-import java.util.Map;
 /* loaded from: classes6.dex */
 public class FlutterSplashView extends FrameLayout {
     private static String TAG = "FlutterSplashView";
@@ -28,6 +29,7 @@ public class FlutterSplashView extends FrameLayout {
     @Nullable
     private XFlutterView flutterView;
     private Handler handler;
+    private CustomMessageListener listener;
     @NonNull
     private final Runnable loadingShowTimeOut;
     private FlutterEngine mFlutterEngine;
@@ -37,7 +39,6 @@ public class FlutterSplashView extends FrameLayout {
     private final Runnable onTransitionComplete;
     @Nullable
     private String previousCompletedSplashIsolate;
-    private final FlutterBoostPlugin.EventListener splashEventListener;
     @Nullable
     private SplashScreen splashScreen;
     @Nullable
@@ -87,34 +88,20 @@ public class FlutterSplashView extends FrameLayout {
             @Override // java.lang.Runnable
             public void run() {
                 if (!FlutterBoost.instance().isReady) {
-                    TiebaStatic.log(new an("flutter_loading_timeout"));
+                    FlutterBoost.instance().isReady = true;
+                    TiebaStatic.log(new ao("flutter_loading_timeout"));
                     FlutterSplashView.this.transitionToFlutter();
                 }
             }
         };
-        this.splashEventListener = new FlutterBoostPlugin.EventListener() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.5
-            @Override // com.idlefish.flutterboost.FlutterBoostPlugin.EventListener
-            public void onEvent(String str, Map map) {
-                char c = 65535;
-                switch (str.hashCode()) {
-                    case -253456115:
-                        if (str.equals("dataInitFinish")) {
-                            c = 0;
-                            break;
-                        }
-                        break;
-                }
-                switch (c) {
-                    case 0:
-                        if (FlutterSplashView.this.splashScreen != null) {
-                            FlutterBoost.instance().isReady = true;
-                            FlutterSplashView.this.handler.removeCallbacks(FlutterSplashView.this.loadingShowTimeOut);
-                            FlutterSplashView.this.transitionToFlutter();
-                            return;
-                        }
-                        return;
-                    default:
-                        return;
+        this.listener = new CustomMessageListener(2921459) { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.5
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (customResponsedMessage != null && FlutterSplashView.this.splashScreen != null) {
+                    FlutterBoost.instance().isReady = true;
+                    FlutterSplashView.this.handler.removeCallbacks(FlutterSplashView.this.loadingShowTimeOut);
+                    FlutterSplashView.this.transitionToFlutter();
                 }
             }
         };
@@ -122,6 +109,7 @@ public class FlutterSplashView extends FrameLayout {
         if (this.mFlutterEngine == null) {
             this.mFlutterEngine = FlutterBoost.instance().engineProvider();
         }
+        MessageManager.getInstance().registerListener(this.listener);
     }
 
     public void displayFlutterViewWithSplash(@NonNull XFlutterView xFlutterView, @Nullable SplashScreen splashScreen) {
@@ -141,10 +129,9 @@ public class FlutterSplashView extends FrameLayout {
             addView(this.splashScreenView);
             if (FlutterBoost.instance().isReady) {
                 xFlutterView.addOnFirstFrameRenderedListener(this.onFirstFrameRenderedListener);
-                return;
+            } else {
+                this.handler.postDelayed(this.loadingShowTimeOut, 5000L);
             }
-            this.handler.postDelayed(this.loadingShowTimeOut, 5000L);
-            FlutterBoost.instance().channel().addEventListener("dataInitFinish", this.splashEventListener);
         }
     }
 
@@ -159,6 +146,7 @@ public class FlutterSplashView extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
+        MessageManager.getInstance().unRegisterListener(this.listener);
         super.onDetachedFromWindow();
         this.handler.removeCallbacksAndMessages(null);
     }

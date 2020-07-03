@@ -18,42 +18,42 @@ import tbclient.User;
 /* loaded from: classes.dex */
 public class e {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private static e ljE;
-    private com.baidu.adp.lib.cache.l<byte[]> hjb;
+    private static e lDz;
+    private com.baidu.adp.lib.cache.l<byte[]> hvk;
     private m responseData = null;
 
     private e() {
-        this.hjb = null;
-        this.hjb = BdCacheService.kf().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.hvk = null;
+        this.hvk = BdCacheService.kv().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public static e dcJ() {
-        if (ljE == null) {
+    public static e dgY() {
+        if (lDz == null) {
             synchronized (e.class) {
-                if (ljE == null) {
-                    ljE = new e();
+                if (lDz == null) {
+                    lDz = new e();
                 }
             }
         }
-        return ljE;
+        return lDz;
     }
 
-    public long dcK() {
-        long j = com.baidu.tbadk.core.sharedPref.b.aTX().getLong("key_frs_cache_time", 604800000L);
+    public long dgZ() {
+        long j = com.baidu.tbadk.core.sharedPref.b.aVP().getLong("key_frs_cache_time", 604800000L);
         if (j < 0) {
             return 604800000L;
         }
         return j;
     }
 
-    public boolean Mq(String str) {
-        if (this.hjb != null && str != null) {
-            byte[] bArr = this.hjb.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public boolean MS(String str) {
+        if (this.hvk != null && str != null) {
+            byte[] bArr = this.hvk.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 this.responseData = new m();
                 this.responseData.parserProtobuf(bArr, false);
                 if (this.responseData.forum != null && this.responseData.forum.getFrsBannerData() != null) {
-                    this.responseData.forum.getFrsBannerData().dCs = false;
+                    this.responseData.forum.getFrsBannerData().dIN = false;
                 }
                 return true;
             }
@@ -61,9 +61,9 @@ public class e {
         return false;
     }
 
-    public void fm(String str, String str2) {
-        if (this.hjb != null && str != null) {
-            byte[] bArr = this.hjb.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public void ft(String str, String str2) {
+        if (this.hvk != null && str != null) {
+            byte[] bArr = this.hvk.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -83,9 +83,9 @@ public class e {
         }
     }
 
-    public void fn(String str, String str2) {
-        if (this.hjb != null && str != null) {
-            byte[] bArr = this.hjb.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public void fu(String str, String str2) {
+        if (this.hvk != null && str != null) {
+            byte[] bArr = this.hvk.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -111,9 +111,9 @@ public class e {
         }
     }
 
-    public void fo(String str, String str2) {
-        if (this.hjb != null && str != null) {
-            byte[] bArr = this.hjb.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public void fv(String str, String str2) {
+        if (this.hvk != null && str != null) {
+            byte[] bArr = this.hvk.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -147,15 +147,15 @@ public class e {
         List<ThreadInfo> list;
         int count;
         int i;
-        if (this.hjb != null && str != null && bArr != null && bArr.length > 0) {
+        if (this.hvk != null && str != null && bArr != null && bArr.length > 0) {
             try {
                 FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
-                if (frsPageResIdl != null && frsPageResIdl.data != null && (count = com.baidu.tbadk.core.util.v.getCount((list = frsPageResIdl.data.thread_list))) > 0) {
+                if (frsPageResIdl != null && frsPageResIdl.data != null && (count = com.baidu.tbadk.core.util.w.getCount((list = frsPageResIdl.data.thread_list))) > 0) {
                     if (count >= 15) {
                         c(str, bArr, true);
                         return;
                     }
-                    byte[] bArr2 = this.hjb.get(TbadkCoreApplication.getCurrentAccount() + str);
+                    byte[] bArr2 = this.hvk.get(TbadkCoreApplication.getCurrentAccount() + str);
                     if (bArr2 == null) {
                         c(str, bArr, true);
                         return;
@@ -166,13 +166,13 @@ public class e {
                         return;
                     }
                     List<ThreadInfo> list2 = frsPageResIdl2.data.thread_list;
-                    int count2 = com.baidu.tbadk.core.util.v.getCount(list2);
+                    int count2 = com.baidu.tbadk.core.util.w.getCount(list2);
                     ArrayList arrayList = new ArrayList();
                     ArrayList arrayList2 = new ArrayList();
                     int i2 = 0;
                     while (i2 < count2 && count < 15) {
-                        ThreadInfo threadInfo = (ThreadInfo) com.baidu.tbadk.core.util.v.getItem(list2, i2);
-                        if (threadInfo == null || threadInfo.tid == null || threadInfo.is_top.intValue() != 0 || b(threadInfo.tid.longValue(), list)) {
+                        ThreadInfo threadInfo = (ThreadInfo) com.baidu.tbadk.core.util.w.getItem(list2, i2);
+                        if (threadInfo == null || threadInfo.tid == null || threadInfo.is_top.intValue() != 0 || c(threadInfo.tid.longValue(), list)) {
                             i = count;
                         } else {
                             arrayList.add(threadInfo);
@@ -198,10 +198,10 @@ public class e {
         }
     }
 
-    private boolean b(long j, List<ThreadInfo> list) {
-        int count = com.baidu.tbadk.core.util.v.getCount(list);
+    private boolean c(long j, List<ThreadInfo> list) {
+        int count = com.baidu.tbadk.core.util.w.getCount(list);
         for (int i = 0; i < count; i++) {
-            ThreadInfo threadInfo = (ThreadInfo) com.baidu.tbadk.core.util.v.getItem(list, i);
+            ThreadInfo threadInfo = (ThreadInfo) com.baidu.tbadk.core.util.w.getItem(list, i);
             if (threadInfo != null && threadInfo.tid != null && threadInfo.tid.longValue() == j) {
                 return true;
             }
@@ -210,7 +210,7 @@ public class e {
     }
 
     private User a(List<User> list, long j) {
-        if (com.baidu.tbadk.core.util.v.isEmpty(list)) {
+        if (com.baidu.tbadk.core.util.w.isEmpty(list)) {
             return null;
         }
         for (User user : list) {
@@ -224,29 +224,29 @@ public class e {
     public void c(String str, byte[] bArr, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.hjb.set(TbadkCoreApplication.getCurrentAccount() + str, bArr, dcK());
+                this.hvk.set(TbadkCoreApplication.getCurrentAccount() + str, bArr, dgZ());
                 return;
             }
-            this.hjb.asyncSet(TbadkCoreApplication.getCurrentAccount() + str, bArr, dcK());
+            this.hvk.asyncSet(TbadkCoreApplication.getCurrentAccount() + str, bArr, dgZ());
         }
     }
 
-    public void aT(String str, boolean z) {
+    public void aV(String str, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.hjb.remove(TbadkCoreApplication.getCurrentAccount() + str);
+                this.hvk.remove(TbadkCoreApplication.getCurrentAccount() + str);
                 return;
             }
-            this.hjb.asyncRemove(TbadkCoreApplication.getCurrentAccount() + str);
+            this.hvk.asyncRemove(TbadkCoreApplication.getCurrentAccount() + str);
         }
     }
 
     public boolean isSameDay(String str) {
-        l.b<byte[]> bt;
-        if (str == null || str.length() <= 0 || (bt = this.hjb.bt(str)) == null) {
+        l.b<byte[]> bu;
+        if (str == null || str.length() <= 0 || (bu = this.hvk.bu(str)) == null) {
             return false;
         }
-        return UtilHelper.isSameDay(bt.lastSaveTime, System.currentTimeMillis());
+        return UtilHelper.isSameDay(bu.lastSaveTime, System.currentTimeMillis());
     }
 
     public m getResponseData() {

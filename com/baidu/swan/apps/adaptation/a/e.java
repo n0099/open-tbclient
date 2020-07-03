@@ -9,7 +9,7 @@ public interface e {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void df(boolean z);
+        void dk(boolean z);
 
         void m(Exception exc);
     }
@@ -20,11 +20,11 @@ public interface e {
 
     void b(com.baidu.swan.apps.a.a aVar);
 
-    boolean ba(Context context);
+    boolean bb(Context context);
 
-    String bb(Context context);
-
-    String bc(@NonNull Context context);
+    String bc(Context context);
 
     String bd(@NonNull Context context);
+
+    String be(@NonNull Context context);
 }

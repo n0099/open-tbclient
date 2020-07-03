@@ -11,8 +11,8 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.tbadkCore.x;
@@ -23,14 +23,14 @@ public class g {
         String str = null;
         try {
             String versionName = TbadkCoreApplication.getInst().getVersionName();
-            String string = com.baidu.tbadk.core.sharedPref.b.aTX().getString(SharedPrefConfig.VERSION_NAME, "");
+            String string = com.baidu.tbadk.core.sharedPref.b.aVP().getString(SharedPrefConfig.VERSION_NAME, "");
             if (!TextUtils.isEmpty(versionName)) {
                 if (versionName.equals(string)) {
-                    str = com.baidu.tbadk.core.sharedPref.b.aTX().getString(SharedPrefConfig.APK_MD5, "");
+                    str = com.baidu.tbadk.core.sharedPref.b.aVP().getString(SharedPrefConfig.APK_MD5, "");
                 } else {
-                    com.baidu.tbadk.core.sharedPref.b.aTX().putString(SharedPrefConfig.VERSION_NAME, versionName);
-                    String aPKMd5 = as.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
-                    com.baidu.tbadk.core.sharedPref.b.aTX().putString(SharedPrefConfig.APK_MD5, aPKMd5);
+                    com.baidu.tbadk.core.sharedPref.b.aVP().putString(SharedPrefConfig.VERSION_NAME, versionName);
+                    String aPKMd5 = at.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
+                    com.baidu.tbadk.core.sharedPref.b.aVP().putString(SharedPrefConfig.APK_MD5, aPKMd5);
                     str = aPKMd5;
                 }
             }
@@ -59,7 +59,7 @@ public class g {
     public static void a(Context context, VersionData versionData) {
         String str = "-1";
         try {
-            str = as.creatSignInt(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
+            str = at.creatSignInt(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
         } catch (PackageManager.NameNotFoundException e) {
             BdLog.detailException(e);
         } catch (NumberFormatException e2) {
@@ -79,7 +79,7 @@ public class g {
         bundle.putString("downurl", versionData.getUrl());
         bundle.putString("versionname", versionData.getNewVersion());
         bundle.putString("iconurl", versionData.getTiebaIconUrl());
-        bundle.putString("updatetime", aq.getDateStringDay(new Date(System.currentTimeMillis())));
+        bundle.putString("updatetime", ar.getDateStringDay(new Date(System.currentTimeMillis())));
         bundle.putString(TiebaInitialize.LogFields.SIZE, versionData.getSize());
         bundle.putString("signmd5", str);
         bundle.putString("tj", str + context.getString(R.string.app_name));

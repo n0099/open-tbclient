@@ -14,11 +14,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class LifecycleDispatcher {
-    private static AtomicBoolean ya = new AtomicBoolean(false);
+    private static AtomicBoolean yA = new AtomicBoolean(false);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void init(Context context) {
-        if (!ya.getAndSet(true)) {
+        if (!yA.getAndSet(true)) {
             ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new a());
         }
     }
@@ -26,7 +26,7 @@ public class LifecycleDispatcher {
     @VisibleForTesting
     /* loaded from: classes6.dex */
     static class a extends d {
-        private final b yb = new b();
+        private final b yB = new b();
 
         a() {
         }
@@ -34,7 +34,7 @@ public class LifecycleDispatcher {
         @Override // android.arch.lifecycle.d, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
             if (activity instanceof FragmentActivity) {
-                ((FragmentActivity) activity).getSupportFragmentManager().registerFragmentLifecycleCallbacks(this.yb, true);
+                ((FragmentActivity) activity).getSupportFragmentManager().registerFragmentLifecycleCallbacks(this.yB, true);
             }
             ReportFragment.j(activity);
         }
@@ -95,7 +95,7 @@ public class LifecycleDispatcher {
 
     private static void a(Object obj, Lifecycle.State state) {
         if (obj instanceof l) {
-            ((l) obj).fT().a(state);
+            ((l) obj).gk().a(state);
         }
     }
 
@@ -108,7 +108,7 @@ public class LifecycleDispatcher {
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(Fragment fragment, Lifecycle.Event event) {
         if (fragment instanceof l) {
-            ((l) fragment).fT().b(event);
+            ((l) fragment).gk().b(event);
         }
     }
 

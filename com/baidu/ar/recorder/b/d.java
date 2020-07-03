@@ -7,9 +7,9 @@ import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class d {
     private static final String TAG = d.class.getSimpleName();
-    private e sw;
-    private MediaMuxer td;
-    private volatile boolean te = false;
+    private e sW;
+    private MediaMuxer tD;
+    private volatile boolean tE = false;
 
     /* JADX WARN: Code restructure failed: missing block: B:4:0x0007, code lost:
         if (r0 >= 0) goto L5;
@@ -20,7 +20,7 @@ public class d {
     public synchronized int a(MediaFormat mediaFormat) {
         int i;
         try {
-            i = this.td.addTrack(mediaFormat);
+            i = this.tD.addTrack(mediaFormat);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -33,7 +33,7 @@ public class d {
     public boolean a(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         if (i != -1) {
             try {
-                this.td.writeSampleData(i, byteBuffer, bufferInfo);
+                this.tD.writeSampleData(i, byteBuffer, bufferInfo);
                 return true;
             } catch (Exception e) {
                 com.baidu.ar.f.b.b(TAG, "startMuxer error!!!");
@@ -43,13 +43,13 @@ public class d {
     }
 
     public boolean a(String str, int i, e eVar) {
-        if (!com.baidu.ar.recorder.c.a.aq(str)) {
-            com.baidu.ar.recorder.c.a.ap(str);
+        if (!com.baidu.ar.recorder.c.a.ar(str)) {
+            com.baidu.ar.recorder.c.a.aq(str);
         }
         try {
-            this.td = new MediaMuxer(str, i);
-            this.sw = eVar;
-            this.te = false;
+            this.tD = new MediaMuxer(str, i);
+            this.sW = eVar;
+            this.tE = false;
             return true;
         } catch (Exception e) {
             com.baidu.ar.f.b.b(TAG, "initMovieMuxer init error!!!");
@@ -58,47 +58,47 @@ public class d {
         }
     }
 
-    public boolean er() {
-        return this.te;
+    public boolean eH() {
+        return this.tE;
     }
 
-    public synchronized void es() {
+    public synchronized void eI() {
         boolean z = true;
         synchronized (this) {
             try {
-                this.td.start();
-                this.te = true;
+                this.tD.start();
+                this.tE = true;
             } catch (Exception e) {
                 com.baidu.ar.f.b.b(TAG, "startMuxer error!!!");
                 z = false;
             }
-            if (this.sw != null) {
-                this.sw.O(z);
+            if (this.sW != null) {
+                this.sW.P(z);
             }
         }
     }
 
-    public synchronized void et() {
+    public synchronized void eJ() {
         boolean z = false;
         synchronized (this) {
             try {
-                this.td.stop();
-                this.te = false;
+                this.tD.stop();
+                this.tE = false;
                 z = true;
             } catch (Exception e) {
                 com.baidu.ar.f.b.b(TAG, "stopMuxer error!!!");
             }
-            if (this.sw != null) {
-                this.sw.P(z);
+            if (this.sW != null) {
+                this.sW.Q(z);
             }
         }
     }
 
-    public void eu() {
-        if (this.te) {
+    public void eK() {
+        if (this.tE) {
             return;
         }
-        this.td.release();
-        this.td = null;
+        this.tD.release();
+        this.tD = null;
     }
 }

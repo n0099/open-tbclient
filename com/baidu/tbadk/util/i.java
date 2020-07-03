@@ -4,35 +4,35 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes.dex */
 public class i {
-    private long euR;
-    private long euS;
-    private long euT;
-    private long euU;
-    private long euV;
-    private a euW;
+    private long eDV;
+    private long eDW;
+    private long eDX;
+    private long eDY;
+    private long eDZ;
+    private a eEa;
     private long startTime;
     private Handler handler = new Handler(Looper.getMainLooper());
-    private boolean TT = false;
-    private Runnable euX = new Runnable() { // from class: com.baidu.tbadk.util.i.1
+    private boolean Uw = false;
+    private Runnable eEb = new Runnable() { // from class: com.baidu.tbadk.util.i.1
         @Override // java.lang.Runnable
         public void run() {
             long currentTimeMillis = System.currentTimeMillis();
-            if (i.this.euV > i.this.euU) {
-                i.this.euU = currentTimeMillis - i.this.euT;
-                i.this.euV = i.this.euU;
+            if (i.this.eDZ > i.this.eDY) {
+                i.this.eDY = currentTimeMillis - i.this.eDX;
+                i.this.eDZ = i.this.eDY;
             }
-            long j = currentTimeMillis - i.this.euU;
-            i.this.euS += i.this.euT;
-            if (i.this.euS < i.this.euR) {
-                i.this.handler.postDelayed(i.this.euX, (2 * i.this.euT) - j);
-                if (i.this.euW != null) {
-                    i.this.euW.b(i.this.euR, i.this.euR - i.this.euS);
+            long j = currentTimeMillis - i.this.eDY;
+            i.this.eDW += i.this.eDX;
+            if (i.this.eDW < i.this.eDV) {
+                i.this.handler.postDelayed(i.this.eEb, (2 * i.this.eDX) - j);
+                if (i.this.eEa != null) {
+                    i.this.eEa.b(i.this.eDV, i.this.eDV - i.this.eDW);
                 }
             } else {
-                i.this.euS = i.this.euR;
+                i.this.eDW = i.this.eDV;
                 i.this.finish();
             }
-            i.this.euU = currentTimeMillis;
+            i.this.eDY = currentTimeMillis;
         }
     };
 
@@ -44,53 +44,53 @@ public class i {
     }
 
     public i(long j, long j2) {
-        this.euR = j;
-        this.euT = j2;
+        this.eDV = j;
+        this.eDX = j2;
     }
 
     public void start() {
         this.startTime = System.currentTimeMillis();
-        this.euU = this.startTime;
-        if (this.euW != null) {
-            this.euW.b(this.euR, this.euR - this.euS);
+        this.eDY = this.startTime;
+        if (this.eEa != null) {
+            this.eEa.b(this.eDV, this.eDV - this.eDW);
         }
-        this.handler.postDelayed(this.euX, this.euT);
+        this.handler.postDelayed(this.eEb, this.eDX);
     }
 
     public void pause() {
-        if (!this.TT) {
-            this.TT = true;
-            this.euV = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.euX);
+        if (!this.Uw) {
+            this.Uw = true;
+            this.eDZ = System.currentTimeMillis();
+            this.handler.removeCallbacks(this.eEb);
         }
     }
 
     public void resume() {
-        if (this.TT) {
-            this.TT = false;
-            this.handler.postDelayed(this.euX, this.euT - (this.euV - this.euU));
+        if (this.Uw) {
+            this.Uw = false;
+            this.handler.postDelayed(this.eEb, this.eDX - (this.eDZ - this.eDY));
         }
     }
 
     public void stop() {
-        this.TT = false;
-        this.euU = this.startTime;
-        this.euV = this.euU;
-        this.handler.removeCallbacks(this.euX);
+        this.Uw = false;
+        this.eDY = this.startTime;
+        this.eDZ = this.eDY;
+        this.handler.removeCallbacks(this.eEb);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finish() {
-        if (this.euW != null) {
-            this.euW.P(this.euR);
+        if (this.eEa != null) {
+            this.eEa.P(this.eDV);
         }
     }
 
     public void a(a aVar) {
-        this.euW = aVar;
+        this.eEa = aVar;
     }
 
-    public long bgu() {
-        return this.euS;
+    public long biH() {
+        return this.eDW;
     }
 }

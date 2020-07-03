@@ -9,15 +9,15 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class t {
-    private Map<String, s> aFG;
-    private Map<String, Integer> aFH;
+    private Map<String, s> aIc;
+    private Map<String, Integer> aId;
     private List<i> mDatas;
 
-    public static t yl() {
-        return a.aFI;
+    public static t yL() {
+        return a.aIe;
     }
 
-    public void w(List<i> list) {
+    public void A(List<i> list) {
         if (this.mDatas == null) {
             this.mDatas = new ArrayList();
         }
@@ -25,7 +25,7 @@ public class t {
         if (list != null) {
             this.mDatas.addAll(list);
         }
-        yo();
+        yO();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913122));
     }
 
@@ -33,46 +33,46 @@ public class t {
         return this.mDatas;
     }
 
-    public Map<String, s> ym() {
-        return this.aFG;
+    public Map<String, s> yM() {
+        return this.aIc;
     }
 
-    public Map<String, Integer> yn() {
-        return this.aFH;
+    public Map<String, Integer> yN() {
+        return this.aId;
     }
 
     public void release() {
         if (this.mDatas != null) {
             this.mDatas.clear();
         }
-        if (this.aFG != null) {
-            this.aFG.clear();
+        if (this.aIc != null) {
+            this.aIc.clear();
         }
-        if (this.aFH != null) {
-            this.aFH.clear();
+        if (this.aId != null) {
+            this.aId.clear();
         }
     }
 
-    private void yo() {
-        g.a.C0164a c0164a;
-        if (this.aFG == null) {
-            this.aFG = new HashMap();
+    private void yO() {
+        g.a.C0166a c0166a;
+        if (this.aIc == null) {
+            this.aIc = new HashMap();
         }
-        this.aFG.clear();
-        if (this.aFH == null) {
-            this.aFH = new HashMap();
+        this.aIc.clear();
+        if (this.aId == null) {
+            this.aId = new HashMap();
         }
-        this.aFH.clear();
+        this.aId.clear();
         if (this.mDatas != null && this.mDatas.size() > 0) {
             for (i iVar : this.mDatas) {
-                List<g> xM = iVar.xM();
-                if (xM != null && !xM.isEmpty()) {
-                    for (g gVar : xM) {
-                        if (gVar.aEl != null && (c0164a = gVar.aEl.aEv) != null && c0164a.key == 10 && c0164a.aEx != null) {
-                            String optString = c0164a.aEx.optString("id");
-                            if (this.aFG.get(optString) == null) {
-                                this.aFG.put(optString, new s(gVar.xl(), gVar.aEl.aEr, gVar.aEd));
-                                this.aFH.put(optString, Integer.valueOf(gVar.aEl.aEs));
+                List<g> ym = iVar.ym();
+                if (ym != null && !ym.isEmpty()) {
+                    for (g gVar : ym) {
+                        if (gVar.aGH != null && (c0166a = gVar.aGH.aGR) != null && c0166a.key == 10 && c0166a.aGT != null) {
+                            String optString = c0166a.aGT.optString("id");
+                            if (this.aIc.get(optString) == null) {
+                                this.aIc.put(optString, new s(gVar.xM(), gVar.aGH.aGN, gVar.aGz));
+                                this.aId.put(optString, Integer.valueOf(gVar.aGH.aGO));
                             }
                         }
                     }
@@ -86,6 +86,6 @@ public class t {
 
     /* loaded from: classes3.dex */
     private static class a {
-        private static final t aFI = new t();
+        private static final t aIe = new t();
     }
 }

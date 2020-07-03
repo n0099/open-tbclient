@@ -3,37 +3,37 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ak {
-    public int azq;
-    public int azr;
-    public long azs;
-    public long azt;
-    public long azu;
-    public long azv;
-    public long azw;
-    public int azx;
-    public int azy;
-    public String azz;
-    public long challengeId;
-    public int challengeResult;
-    public long endTime;
-    public long startTime;
+    public AlaLiveUserInfoData aBG;
+    public int rank;
+    public int type;
 
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.challengeId = jSONObject.optLong("challenge_id");
-            this.azq = jSONObject.optInt("challenge_status");
-            this.challengeResult = jSONObject.optInt("challenge_ret");
-            this.azr = jSONObject.optInt("challenge_ret_type");
-            this.startTime = jSONObject.optLong("start_time");
-            this.endTime = jSONObject.optLong("end_time");
-            this.azs = jSONObject.optLong("stage_start_time");
-            this.azt = jSONObject.optLong("stage_end_time");
-            this.azu = jSONObject.optLong("now_time");
-            this.azv = jSONObject.optLong("anchor_score");
-            this.azw = jSONObject.optLong("rival_score");
-            this.azx = jSONObject.optInt("winning_num");
-            this.azy = jSONObject.optInt("anchor_rank");
-            this.azz = jSONObject.optString("rank_url");
+            this.type = jSONObject.optInt("type");
+            this.rank = jSONObject.optInt("rank");
+            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
+            if (optJSONObject != null) {
+                this.aBG = new AlaLiveUserInfoData();
+                this.aBG.parserJson(optJSONObject);
+            }
         }
+    }
+
+    public boolean wN() {
+        return this.type == 1;
+    }
+
+    public boolean isFirst() {
+        return this.rank == 1;
+    }
+
+    public boolean a(ak akVar) {
+        if (akVar != null && akVar.type == this.type && akVar.rank == this.rank) {
+            if (this.aBG == null || akVar.aBG == null) {
+                return true;
+            }
+            return akVar.aBG.userId == this.aBG.userId;
+        }
+        return false;
     }
 }

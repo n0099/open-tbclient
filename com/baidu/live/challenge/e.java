@@ -1,19 +1,9 @@
 package com.baidu.live.challenge;
 
-import android.view.View;
+import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public interface e {
-    void I(View view);
+    i a(TbPageContext tbPageContext);
 
-    void aT(boolean z);
-
-    void bF(int i);
-
-    void hide();
-
-    boolean isShowing();
-
-    void setClickListener(View.OnClickListener onClickListener);
-
-    boolean vp();
+    h b(TbPageContext tbPageContext);
 }

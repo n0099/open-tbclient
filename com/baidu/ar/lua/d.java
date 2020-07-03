@@ -10,14 +10,14 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d implements c {
-    private List<LuaMsgListener> rB = Collections.synchronizedList(new ArrayList());
+    private List<LuaMsgListener> sa = Collections.synchronizedList(new ArrayList());
 
     @Override // com.baidu.ar.lua.c
     public synchronized void a(int i, int i2, HashMap<String, Object> hashMap) {
         List<String> msgKeyListened;
-        if (this.rB != null && hashMap != null) {
-            for (int i3 = 0; i3 < this.rB.size(); i3++) {
-                LuaMsgListener luaMsgListener = this.rB.get(i3);
+        if (this.sa != null && hashMap != null) {
+            for (int i3 = 0; i3 < this.sa.size(); i3++) {
+                LuaMsgListener luaMsgListener = this.sa.get(i3);
                 if (luaMsgListener != null && (msgKeyListened = luaMsgListener.getMsgKeyListened()) != null) {
                     for (int i4 = 0; i4 < msgKeyListened.size(); i4++) {
                         String str = msgKeyListened.get(i4);
@@ -32,15 +32,15 @@ public class d implements c {
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0025, code lost:
         com.baidu.ar.f.b.c("LuaMsgBridge", "addLuaMsgListener luaMsgListener = " + r4.hashCode());
-        r0 = r3.rB.add(r4);
+        r0 = r3.sa.add(r4);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized boolean addLuaMsgListener(LuaMsgListener luaMsgListener) {
         boolean add;
-        if (this.rB != null) {
-            Iterator<LuaMsgListener> it = this.rB.iterator();
+        if (this.sa != null) {
+            Iterator<LuaMsgListener> it = this.sa.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -58,9 +58,9 @@ public class d implements c {
     }
 
     public synchronized void destroy() {
-        if (this.rB != null) {
-            this.rB.clear();
-            this.rB = null;
+        if (this.sa != null) {
+            this.sa.clear();
+            this.sa = null;
         }
     }
 
@@ -71,15 +71,15 @@ public class d implements c {
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0023, code lost:
         com.baidu.ar.f.b.c("LuaMsgBridge", "removeLuaMsgListener luaMsgListener = " + r5.hashCode());
-        r0 = r4.rB.remove(r0);
+        r0 = r4.sa.remove(r0);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized boolean removeLuaMsgListener(LuaMsgListener luaMsgListener) {
         boolean z;
-        if (this.rB != null) {
-            Iterator<LuaMsgListener> it = this.rB.iterator();
+        if (this.sa != null) {
+            Iterator<LuaMsgListener> it = this.sa.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;

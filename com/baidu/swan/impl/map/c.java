@@ -10,45 +10,45 @@ import java.util.Map;
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = c.class.getSimpleName();
-    private static volatile c dfD;
-    private Map<com.baidu.swan.apps.adaptation.b.c, b> dfE;
+    private static volatile c dkp;
+    private Map<com.baidu.swan.apps.adaptation.b.c, b> dkq;
 
     private c() {
-        a.aDA();
-        this.dfE = new HashMap();
+        a.aEG();
+        this.dkq = new HashMap();
     }
 
-    public static c aDH() {
-        if (dfD == null) {
+    public static c aEN() {
+        if (dkp == null) {
             synchronized (c.class) {
-                if (dfD == null) {
-                    dfD = new c();
+                if (dkp == null) {
+                    dkp = new c();
                 }
             }
         }
-        return dfD;
+        return dkp;
     }
 
     public static void c(com.baidu.swan.apps.adaptation.b.c cVar) {
         synchronized (c.class) {
-            if (dfD != null) {
-                dfD.h(cVar).resume();
+            if (dkp != null) {
+                dkp.h(cVar).resume();
             }
         }
     }
 
     public static void d(com.baidu.swan.apps.adaptation.b.c cVar) {
         synchronized (c.class) {
-            if (dfD != null) {
-                dfD.h(cVar).pause();
+            if (dkp != null) {
+                dkp.h(cVar).pause();
             }
         }
     }
 
     public static void e(com.baidu.swan.apps.adaptation.b.c cVar) {
         synchronized (c.class) {
-            if (dfD != null) {
-                dfD.i(cVar);
+            if (dkp != null) {
+                dkp.i(cVar);
             } else if (DEBUG) {
                 Log.v(TAG, "未初始化，无需执行release");
             }
@@ -57,33 +57,33 @@ public class c {
 
     public boolean a(Context context, com.baidu.swan.apps.x.a.c cVar) {
         com.baidu.swan.apps.console.c.i("map", "map create start");
-        if (aj.ls(cVar.bPG) == null || !cVar.isValid()) {
+        if (aj.lA(cVar.bUu) == null || !cVar.isValid()) {
             com.baidu.swan.apps.console.c.e("map", "model data is invalid");
             return false;
         }
-        com.baidu.swan.apps.adaptation.b.e jO = f.ahV().jO(cVar.bPG);
-        if (!(jO instanceof com.baidu.swan.apps.adaptation.b.c)) {
+        com.baidu.swan.apps.adaptation.b.e jW = f.ajb().jW(cVar.bUu);
+        if (!(jW instanceof com.baidu.swan.apps.adaptation.b.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        b h = h((com.baidu.swan.apps.adaptation.b.c) jO);
-        if (h.sQ(cVar.bPF) != null) {
-            com.baidu.swan.apps.console.c.e("map", "map with id " + cVar.bPF + " exist");
+        b h = h((com.baidu.swan.apps.adaptation.b.c) jW);
+        if (h.sY(cVar.bUt) != null) {
+            com.baidu.swan.apps.console.c.e("map", "map with id " + cVar.bUt + " exist");
             return false;
         }
         com.baidu.swan.impl.map.item.c c = com.baidu.swan.impl.map.item.c.c(context, cVar);
         if (c == null) {
-            com.baidu.swan.apps.console.c.e("map", "map with id " + cVar.bPF + " model is invalid");
+            com.baidu.swan.apps.console.c.e("map", "map with id " + cVar.bUt + " model is invalid");
             return false;
         }
-        com.baidu.swan.apps.component.b.c Vg = c.Vg();
-        if (!Vg.isSuccess()) {
-            com.baidu.swan.apps.console.c.e("map", "map with id " + cVar.bPF + " create fail: " + Vg.msg);
+        com.baidu.swan.apps.component.b.c Wm = c.Wm();
+        if (!Wm.isSuccess()) {
+            com.baidu.swan.apps.console.c.e("map", "map with id " + cVar.bUt + " create fail: " + Wm.msg);
             return false;
         } else if (h.a(c)) {
-            com.baidu.swan.apps.console.c.i("map", "map with id " + cVar.bPF + " init start");
+            com.baidu.swan.apps.console.c.i("map", "map with id " + cVar.bUt + " init start");
             com.baidu.swan.impl.map.a.b.e.a(context, c, cVar, h);
-            com.baidu.swan.apps.console.c.i("map", "map with id " + cVar.bPF + " init end");
+            com.baidu.swan.apps.console.c.i("map", "map with id " + cVar.bUt + " init end");
             com.baidu.swan.apps.console.c.i("map", "map create end");
             return true;
         } else {
@@ -93,29 +93,29 @@ public class c {
 
     public boolean a(com.baidu.swan.apps.x.a.c cVar) {
         com.baidu.swan.apps.console.c.i("map", "map remove start");
-        if (aj.ls(cVar.bPG) == null) {
+        if (aj.lA(cVar.bUu) == null) {
             com.baidu.swan.apps.console.c.e("map", "webView is null or mapModel is null");
             return false;
         }
-        com.baidu.swan.apps.adaptation.b.e jO = f.ahV().jO(cVar.bPG);
-        if (!(jO instanceof com.baidu.swan.apps.adaptation.b.c)) {
+        com.baidu.swan.apps.adaptation.b.e jW = f.ajb().jW(cVar.bUu);
+        if (!(jW instanceof com.baidu.swan.apps.adaptation.b.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        b h = h((com.baidu.swan.apps.adaptation.b.c) jO);
-        com.baidu.swan.impl.map.item.c sQ = h.sQ(cVar.bPF);
-        if (sQ == null) {
-            com.baidu.swan.apps.console.c.e("map", "remove map with id " + cVar.bPF + " not exist");
+        b h = h((com.baidu.swan.apps.adaptation.b.c) jW);
+        com.baidu.swan.impl.map.item.c sY = h.sY(cVar.bUt);
+        if (sY == null) {
+            com.baidu.swan.apps.console.c.e("map", "remove map with id " + cVar.bUt + " not exist");
             return false;
-        } else if (h.remove(cVar.bPF)) {
+        } else if (h.remove(cVar.bUt)) {
             com.baidu.swan.apps.console.c.i("map", "map remove end");
             if (com.baidu.swan.apps.component.container.a.d(cVar) == null) {
-                com.baidu.swan.apps.component.e.a.aS("map", "remove with a null map component");
+                com.baidu.swan.apps.component.e.a.aU("map", "remove with a null map component");
             }
-            com.baidu.swan.apps.component.b.c Vi = sQ.Vi();
-            boolean isSuccess = Vi.isSuccess();
+            com.baidu.swan.apps.component.b.c Wo = sY.Wo();
+            boolean isSuccess = Wo.isSuccess();
             if (!isSuccess) {
-                com.baidu.swan.apps.console.c.e(TAG, "map remove fail: " + Vi.msg);
+                com.baidu.swan.apps.console.c.e(TAG, "map remove fail: " + Wo.msg);
                 return isSuccess;
             }
             return isSuccess;
@@ -126,28 +126,28 @@ public class c {
 
     public boolean b(Context context, com.baidu.swan.apps.x.a.c cVar) {
         com.baidu.swan.apps.console.c.i("map", "map update start");
-        if (aj.ls(cVar.bPG) == null) {
+        if (aj.lA(cVar.bUu) == null) {
             com.baidu.swan.apps.console.c.e("map", "webView is null or mapModel is null");
             return false;
         }
-        com.baidu.swan.apps.adaptation.b.e jO = f.ahV().jO(cVar.bPG);
-        if (jO == null || !(jO instanceof com.baidu.swan.apps.adaptation.b.c)) {
+        com.baidu.swan.apps.adaptation.b.e jW = f.ajb().jW(cVar.bUu);
+        if (jW == null || !(jW instanceof com.baidu.swan.apps.adaptation.b.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        b h = h((com.baidu.swan.apps.adaptation.b.c) jO);
-        com.baidu.swan.impl.map.item.c sQ = h.sQ(cVar.bPF);
-        if (sQ == null) {
-            com.baidu.swan.apps.console.c.e("map", "remove map with id " + cVar.bPF + " not exist");
+        b h = h((com.baidu.swan.apps.adaptation.b.c) jW);
+        com.baidu.swan.impl.map.item.c sY = h.sY(cVar.bUt);
+        if (sY == null) {
+            com.baidu.swan.apps.console.c.e("map", "remove map with id " + cVar.bUt + " not exist");
             return false;
         }
-        sQ.clear();
-        com.baidu.swan.impl.map.a.b.e.a(context, sQ, cVar, h, true);
+        sY.clear();
+        com.baidu.swan.impl.map.a.b.e.a(context, sY, cVar, h, true);
         com.baidu.swan.apps.console.c.i("map", "map update end");
         if (com.baidu.swan.apps.component.container.a.d(cVar) == null) {
-            com.baidu.swan.apps.component.e.a.aS("map", "update with a null map component");
+            com.baidu.swan.apps.component.e.a.aU("map", "update with a null map component");
         }
-        com.baidu.swan.apps.component.b.c a = sQ.a((com.baidu.swan.impl.map.item.c) cVar);
+        com.baidu.swan.apps.component.b.c a = sY.a((com.baidu.swan.impl.map.item.c) cVar);
         boolean isSuccess = a.isSuccess();
         if (!isSuccess) {
             com.baidu.swan.apps.console.c.e(TAG, "map update fail: " + a.msg);
@@ -161,10 +161,10 @@ public class c {
         if (cVar == null) {
             bVar = null;
         } else {
-            bVar = this.dfE.get(cVar);
+            bVar = this.dkq.get(cVar);
             if (bVar == null) {
                 bVar = new b();
-                this.dfE.put(cVar, bVar);
+                this.dkq.put(cVar, bVar);
             }
         }
         return bVar;
@@ -172,7 +172,7 @@ public class c {
 
     private synchronized void i(com.baidu.swan.apps.adaptation.b.c cVar) {
         if (cVar != null) {
-            b remove = this.dfE.remove(cVar);
+            b remove = this.dkq.remove(cVar);
             if (remove != null) {
                 remove.release();
             }

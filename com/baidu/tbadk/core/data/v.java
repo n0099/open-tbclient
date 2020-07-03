@@ -1,24 +1,49 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.live.tbadk.data.Config;
-import tbclient.MultiForumPerm;
+import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes.dex */
 public class v {
-    public boolean dCh;
-    public boolean dCi;
-    public int type;
+    private String author;
+    private int dHS;
+    private String dIg;
+    private String dIh;
+    private String dIi;
+    private String dIj;
+    private String dIk;
+    private String dIl;
+    private String dIm;
+    private long dIn;
+    private long dIo;
+    private long dIp;
+    private long dIq;
+    private long dIr;
+    private long dIs;
 
-    public void a(MultiForumPerm multiForumPerm) {
-        int i;
-        if (multiForumPerm != null) {
-            this.dCh = multiForumPerm.is_bawu.intValue() == 1;
-            if (Config.BAWU_TYPE_MANAGER.equals(multiForumPerm.bawu_type)) {
-                i = 1;
-            } else {
-                i = Config.BAWU_TYPE_ASSIST.equals(multiForumPerm.bawu_type) ? 2 : 0;
-            }
-            this.type = i;
-            this.dCi = multiForumPerm.is_deleted.intValue() == 1;
+    public String aQv() {
+        return this.dIg;
+    }
+
+    public int aQw() {
+        return this.dHS;
+    }
+
+    public void a(ForumBookInfo forumBookInfo) {
+        if (forumBookInfo != null) {
+            this.dIg = forumBookInfo.book_id;
+            this.dHS = forumBookInfo.book_type.intValue();
+            this.dIh = forumBookInfo.book_title;
+            this.dIi = forumBookInfo.book_cover;
+            this.author = forumBookInfo.author;
+            this.dIj = forumBookInfo.forum_pic;
+            this.dIk = forumBookInfo.show_chapter_id;
+            this.dIl = forumBookInfo.show_chapter_no;
+            this.dIm = forumBookInfo.show_chapter_title;
+            this.dIn = forumBookInfo.history_page_id.longValue();
+            this.dIo = forumBookInfo.history_paragraph_id.longValue();
+            this.dIp = forumBookInfo.history_word_id.longValue();
+            this.dIq = forumBookInfo.history_percent.longValue();
+            this.dIr = forumBookInfo.show_page_id.longValue();
+            this.dIs = forumBookInfo.show_paragraph_id.longValue();
         }
     }
 }

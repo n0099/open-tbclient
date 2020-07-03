@@ -2,18 +2,18 @@ package com.baidu.tieba.im.util;
 
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 /* loaded from: classes8.dex */
 public class c extends Thread {
-    private String dNA;
+    private String dUq;
     private String mGroupId;
     private String mObjTp;
 
     public c(String str, String str2, String str3) {
-        this.dNA = null;
+        this.dUq = null;
         this.mObjTp = null;
         this.mGroupId = null;
-        this.dNA = str;
+        this.dUq = str;
         this.mObjTp = str2;
         this.mGroupId = str3;
     }
@@ -22,11 +22,11 @@ public class c extends Thread {
     public void run() {
         super.run();
         if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-            xVar.addPostData("obj", this.dNA);
-            xVar.addPostData("obj_tp", this.mObjTp);
-            xVar.addPostData("group_id", this.mGroupId);
-            xVar.postNetData();
+            y yVar = new y(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
+            yVar.addPostData("obj", this.dUq);
+            yVar.addPostData("obj_tp", this.mObjTp);
+            yVar.addPostData("group_id", this.mGroupId);
+            yVar.postNetData();
         }
     }
 }

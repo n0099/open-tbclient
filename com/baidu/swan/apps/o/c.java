@@ -23,30 +23,30 @@ import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private g ceK;
+    private g cjy;
     private SharedPreferences.Editor mEditor;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void Yv();
+        void ZB();
     }
 
     private c() {
-        this.ceK = new g("aiapps_guide_dialog_sp");
-        this.mEditor = this.ceK.edit();
+        this.cjy = new g("aiapps_guide_dialog_sp");
+        this.mEditor = this.cjy.edit();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static final class b {
-        private static final c ceQ = new c();
+        private static final c cjE = new c();
     }
 
-    public static c aec() {
-        return b.ceQ;
+    public static c afi() {
+        return b.cjE;
     }
 
-    private int bP(@NonNull Context context) {
+    private int bQ(@NonNull Context context) {
         PackageInfo packageInfo = aj.getPackageInfo(context, context.getPackageName());
         if (packageInfo != null) {
             return packageInfo.versionCode;
@@ -55,15 +55,15 @@ public class c {
     }
 
     private void G(@NonNull Activity activity) {
-        dR(false);
-        fo(bP(activity));
+        dW(false);
+        fz(bQ(activity));
     }
 
-    private void dR(boolean z) {
+    private void dW(boolean z) {
         this.mEditor.putBoolean("new_first_in", z).apply();
     }
 
-    private void fo(int i) {
+    private void fz(int i) {
         if (DEBUG) {
             Log.e("SwanAppGuideDialogManager", "versionCode " + i);
         }
@@ -76,7 +76,7 @@ public class c {
             com.baidu.swan.apps.aq.d.b(activity, cVar);
             cVar.setContentView(a.g.aiapps_entry_guide_layout);
             View findViewById = cVar.findViewById(a.f.root);
-            cVar.findViewById(a.f.nightmode_mask).setVisibility(com.baidu.swan.apps.u.a.afm().getNightModeSwitcherState() ? 0 : 8);
+            cVar.findViewById(a.f.nightmode_mask).setVisibility(com.baidu.swan.apps.u.a.ags().getNightModeSwitcherState() ? 0 : 8);
             if (TextUtils.isEmpty(str)) {
                 LottieAnimationView lottieAnimationView = (LottieAnimationView) cVar.findViewById(a.f.aiapps_guide_anim_view);
                 lottieAnimationView.setVisibility(0);
@@ -91,24 +91,24 @@ public class c {
                 SimpleDraweeView simpleDraweeView = (SimpleDraweeView) cVar.findViewById(a.f.aiapps_guide_image);
                 simpleDraweeView.setVisibility(0);
                 cVar.findViewById(a.f.aiapps_split_line).setVisibility(0);
-                simpleDraweeView.setController(com.facebook.drawee.a.a.c.dvt().wc(true).PV(str).dwk());
+                simpleDraweeView.setController(com.facebook.drawee.a.a.c.dzW().wy(true).QH(str).dAN());
             }
             TextView textView = (TextView) cVar.findViewById(a.f.aiapps_bottom_button);
             textView.setOnTouchListener(new d());
             textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.o.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.B(str, str2, "click");
+                    c.this.C(str, str2, "click");
                     cVar.dismiss();
                     if (aVar != null) {
-                        aVar.Yv();
+                        aVar.ZB();
                     }
                 }
             });
             cVar.setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.baidu.swan.apps.o.c.2
                 @Override // android.content.DialogInterface.OnShowListener
                 public void onShow(DialogInterface dialogInterface) {
-                    c.this.B(str, str2, "show");
+                    c.this.C(str, str2, "show");
                 }
             });
             cVar.show();
@@ -120,10 +120,10 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void B(String str, String str2, String str3) {
+    public void C(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
             e eVar = new e();
-            eVar.mPage = h.gU(com.baidu.swan.apps.runtime.d.aoB().Qz());
+            eVar.mPage = h.hf(com.baidu.swan.apps.runtime.d.apI().RF());
             eVar.mType = str3;
             if (TextUtils.equals(str2, "source_back")) {
                 eVar.mValue = "back";
@@ -131,17 +131,17 @@ public class c {
                 eVar.mValue = "close";
                 eVar.mSource = str2;
             }
-            eVar.v("appid", com.baidu.swan.apps.runtime.e.aoH());
+            eVar.v("appid", com.baidu.swan.apps.runtime.e.apO());
             eVar.v("img", str);
             h.a("970", eVar);
         }
     }
 
-    public boolean aed() {
-        com.baidu.swan.apps.runtime.e aoF = com.baidu.swan.apps.runtime.e.aoF();
-        if (aoF == null) {
+    public boolean afj() {
+        com.baidu.swan.apps.runtime.e apM = com.baidu.swan.apps.runtime.e.apM();
+        if (apM == null) {
             return false;
         }
-        return aoF.aoX().b("boolean_var_key_fav_guide_show", (Boolean) false).booleanValue();
+        return apM.aqe().b("boolean_var_key_fav_guide_show", (Boolean) false).booleanValue();
     }
 }

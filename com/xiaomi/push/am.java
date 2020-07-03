@@ -21,7 +21,7 @@ class am extends Handler {
         if (message.what == 0) {
             bVar.a();
         } else if (message.what == 1) {
-            bVar.mo226c();
+            bVar.mo223c();
         }
         super.handleMessage(message);
     }

@@ -13,19 +13,19 @@ public final class u {
     private static final Set<String> a = Collections.synchronizedSet(new HashSet());
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f937a;
+    private Context f943a;
 
     /* renamed from: a  reason: collision with other field name */
-    private RandomAccessFile f938a;
+    private RandomAccessFile f944a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f939a;
+    private String f945a;
 
     /* renamed from: a  reason: collision with other field name */
-    private FileLock f940a;
+    private FileLock f946a;
 
     private u(Context context) {
-        this.f937a = context;
+        this.f943a = context;
     }
 
     public static u a(Context context, File file) {
@@ -38,18 +38,18 @@ public final class u {
         }
         if (a.add(str)) {
             u uVar = new u(context);
-            uVar.f939a = str;
+            uVar.f945a = str;
             try {
-                uVar.f938a = new RandomAccessFile(file2, "rw");
-                uVar.f940a = uVar.f938a.getChannel().lock();
-                com.xiaomi.channel.commonutils.logger.b.c("Locked: " + str + " :" + uVar.f940a);
+                uVar.f944a = new RandomAccessFile(file2, "rw");
+                uVar.f946a = uVar.f944a.getChannel().lock();
+                com.xiaomi.channel.commonutils.logger.b.c("Locked: " + str + " :" + uVar.f946a);
                 return uVar;
             } finally {
-                if (uVar.f940a == null) {
-                    if (uVar.f938a != null) {
-                        y.a(uVar.f938a);
+                if (uVar.f946a == null) {
+                    if (uVar.f944a != null) {
+                        y.a(uVar.f944a);
                     }
-                    a.remove(uVar.f939a);
+                    a.remove(uVar.f945a);
                 }
             }
         }
@@ -57,17 +57,17 @@ public final class u {
     }
 
     public void a() {
-        com.xiaomi.channel.commonutils.logger.b.c("unLock: " + this.f940a);
-        if (this.f940a != null && this.f940a.isValid()) {
+        com.xiaomi.channel.commonutils.logger.b.c("unLock: " + this.f946a);
+        if (this.f946a != null && this.f946a.isValid()) {
             try {
-                this.f940a.release();
+                this.f946a.release();
             } catch (IOException e) {
             }
-            this.f940a = null;
+            this.f946a = null;
         }
-        if (this.f938a != null) {
-            y.a(this.f938a);
+        if (this.f944a != null) {
+            y.a(this.f944a);
         }
-        a.remove(this.f939a);
+        a.remove(this.f945a);
     }
 }

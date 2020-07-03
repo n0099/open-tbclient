@@ -5,19 +5,17 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements c {
-
-    /* renamed from: rx  reason: collision with root package name */
-    private boolean f976rx = false;
-    private boolean ry = false;
+    private boolean rW = false;
+    private boolean rX = false;
 
     @Override // com.baidu.ar.lua.c
     public void a(int i, int i2, HashMap<String, Object> hashMap) {
         switch (i) {
             case 103:
-                this.ry = true;
+                this.rX = true;
                 return;
             case 104:
-                this.f976rx = true;
+                this.rW = true;
                 return;
             default:
                 return;
@@ -28,9 +26,9 @@ public class a implements c {
         bVar.c(this);
     }
 
-    public void dI() {
-        this.f976rx = false;
-        this.ry = false;
+    public void dY() {
+        this.rW = false;
+        this.rX = false;
     }
 
     @Override // com.baidu.ar.lua.c
@@ -39,6 +37,6 @@ public class a implements c {
     }
 
     public void release() {
-        dI();
+        dY();
     }
 }

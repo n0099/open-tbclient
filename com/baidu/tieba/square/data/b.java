@@ -6,15 +6,15 @@ import tbclient.RecommendForumInfo;
 public class b extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public String avatar;
-    public boolean dEi;
+    public boolean dKM;
     public String extInfo;
     public long forumId;
     public String forumName;
-    public String gTo;
+    public String hfX;
     public int memberCount;
     public int threadCount;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
         return TYPE;
     }
@@ -32,23 +32,23 @@ public class b extends com.baidu.tieba.card.data.b {
     }
 
     public boolean isLike() {
-        return this.dEi;
+        return this.dKM;
     }
 
     public void setLike(boolean z) {
-        this.dEi = z;
+        this.dKM = z;
     }
 
     public int getMemberCount() {
         return this.memberCount;
     }
 
-    public int dbW() {
+    public int dgl() {
         return this.threadCount;
     }
 
-    public String aOj() {
-        return this.gTo;
+    public String aPT() {
+        return this.hfX;
     }
 
     public void c(RecommendForumInfo recommendForumInfo) {
@@ -58,8 +58,8 @@ public class b extends com.baidu.tieba.card.data.b {
             this.avatar = recommendForumInfo.avatar;
             this.memberCount = recommendForumInfo.member_count.intValue();
             this.threadCount = recommendForumInfo.thread_count.intValue();
-            this.dEi = recommendForumInfo.is_like.intValue() == 1;
-            this.gTo = recommendForumInfo.recom_reason;
+            this.dKM = recommendForumInfo.is_like.intValue() == 1;
+            this.hfX = recommendForumInfo.recom_reason;
             this.extInfo = recommendForumInfo.extra;
         }
     }

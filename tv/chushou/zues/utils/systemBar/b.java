@@ -25,17 +25,17 @@ import tv.chushou.zues.b;
 import tv.chushou.zues.utils.f;
 /* loaded from: classes5.dex */
 public class b {
-    public static final int nOU = b.C0915b.status_color_dark;
-    public static final int nOV = b.C0915b.status_color_lignt;
-    private static boolean nOW = false;
-    private static int nOX = 50;
+    public static final int okI = b.C0934b.status_color_dark;
+    public static final int okJ = b.C0934b.status_color_lignt;
+    private static boolean okK = false;
+    private static int okL = 50;
 
     public static int av(Activity activity) {
         int aB = aB(activity);
         if (aB > 0) {
-            a(activity, ContextCompat.getColor(activity, nOV), 0);
+            a(activity, ContextCompat.getColor(activity, okJ), 0);
         } else {
-            a(activity, ContextCompat.getColor(activity, nOU), 0);
+            a(activity, ContextCompat.getColor(activity, okI), 0);
         }
         return aB;
     }
@@ -47,22 +47,22 @@ public class b {
         return 0;
     }
 
-    public static int gA(Context context) {
-        if (!gE(context) || gF(context) || gG(context)) {
+    public static int gB(Context context) {
+        if (!gF(context) || gG(context) || gH(context)) {
             return 0;
         }
         return bi(context, "navigation_bar_height");
     }
 
-    public static int gB(Context context) {
-        if (!gE(context) || gF(context) || gG(context)) {
+    public static int gC(Context context) {
+        if (!gF(context) || gG(context) || gH(context)) {
             return 0;
         }
         return bi(context, "navigation_bar_width");
     }
 
-    public static boolean gC(Context context) {
-        return gE(context) && !gF(context) && !gG(context) && bi(context, "navigation_bar_width") > 0;
+    public static boolean gD(Context context) {
+        return gF(context) && !gG(context) && !gH(context) && bi(context, "navigation_bar_width") > 0;
     }
 
     public static boolean ax(Activity activity) {
@@ -90,16 +90,16 @@ public class b {
     }
 
     public static int getStatusBarHeight(Context context) {
-        if (!nOW) {
-            nOX = bi(context, "status_bar_height");
-            if (nOX > 0) {
-                nOW = true;
+        if (!okK) {
+            okL = bi(context, "status_bar_height");
+            if (okL > 0) {
+                okK = true;
             }
         }
-        return nOX;
+        return okL;
     }
 
-    public static int gD(Context context) {
+    public static int gE(Context context) {
         TypedValue typedValue = new TypedValue();
         if (!context.getTheme().resolveAttribute(16843499, typedValue, true)) {
             return 0;
@@ -107,7 +107,7 @@ public class b {
         return TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics());
     }
 
-    private static boolean gE(Context context) {
+    private static boolean gF(Context context) {
         if (Build.VERSION.SDK_INT >= 14) {
             Resources resources = context.getResources();
             int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
@@ -122,7 +122,7 @@ public class b {
                         r0 = false;
                     } else if (!"0".equals(str)) {
                         if (!z) {
-                            if (tv.chushou.zues.utils.a.gw(context).y == tv.chushou.zues.utils.a.gv(context).y) {
+                            if (tv.chushou.zues.utils.a.gx(context).y == tv.chushou.zues.utils.a.gw(context).y) {
                                 r0 = false;
                             }
                         }
@@ -137,7 +137,7 @@ public class b {
         return false;
     }
 
-    public static boolean gF(Context context) {
+    public static boolean gG(Context context) {
         int i;
         try {
             i = Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0);
@@ -147,7 +147,7 @@ public class b {
         return i != 0;
     }
 
-    public static boolean gG(Context context) {
+    public static boolean gH(Context context) {
         int i;
         try {
             i = Build.VERSION.SDK_INT >= 17 ? Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) : 0;

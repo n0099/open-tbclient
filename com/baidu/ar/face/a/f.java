@@ -1,104 +1,104 @@
 package com.baidu.ar.face.a;
 /* loaded from: classes3.dex */
 public class f {
-    private int nT = 300;
-    private int nU = 0;
-    private int nV = 0;
-    private int nW = 0;
-    private int nX = 0;
-    private int nY = 0;
-    private int nZ = 0;
-    private double oa;
-    private double ob;
-    private double oc;
-    private double od;
-    private double oe;
-    private double of;
+    private double oA;
+    private double oB;
+    private double oC;
+    private double oD;
+    private double oE;
+    private int os = 300;
+    private int ot = 0;
+    private int ou = 0;
+    private int ov = 0;
+    private int ow = 0;
+    private int ox = 0;
+    private int oy = 0;
+    private double oz;
 
     public void a(double d) {
-        if (this.nU < this.nT) {
-            this.nU++;
-            this.ob = (((this.nU - 1) * this.ob) + d) / this.nU;
+        if (this.ot < this.os) {
+            this.ot++;
+            this.oA = (((this.ot - 1) * this.oA) + d) / this.ot;
             return;
         }
-        if (this.nU == this.nT) {
-            this.nU++;
+        if (this.ot == this.os) {
+            this.ot++;
         }
-        this.nU = 0;
-        this.ob = 0.0d;
+        this.ot = 0;
+        this.oA = 0.0d;
     }
 
     public void b(double d) {
-        if (this.nV < this.nT) {
-            this.nV++;
-            this.oa = (((this.nV - 1) * this.oa) + d) / this.nV;
+        if (this.ou < this.os) {
+            this.ou++;
+            this.oz = (((this.ou - 1) * this.oz) + d) / this.ou;
             return;
         }
-        if (this.nV == this.nT) {
-            this.nV++;
+        if (this.ou == this.os) {
+            this.ou++;
         }
-        this.nV = 0;
-        this.oa = 0.0d;
+        this.ou = 0;
+        this.oz = 0.0d;
     }
 
     public void c(double d) {
-        if (this.nW < this.nT) {
-            this.nW++;
-            this.oc = (((this.nW - 1) * this.oc) + d) / this.nW;
+        if (this.ov < this.os) {
+            this.ov++;
+            this.oB = (((this.ov - 1) * this.oB) + d) / this.ov;
             return;
         }
-        if (this.nW == this.nT) {
-            this.nW++;
+        if (this.ov == this.os) {
+            this.ov++;
         }
-        this.nW = 0;
-        this.oc = 0.0d;
+        this.ov = 0;
+        this.oB = 0.0d;
     }
 
     public void d(double d) {
-        if (this.nX < this.nT) {
-            this.nX++;
-            this.od = (((this.nX - 1) * this.od) + d) / this.nX;
+        if (this.ow < this.os) {
+            this.ow++;
+            this.oC = (((this.ow - 1) * this.oC) + d) / this.ow;
             return;
         }
-        if (this.nX == this.nT) {
-            this.nX++;
+        if (this.ow == this.os) {
+            this.ow++;
         }
-        this.nX = 0;
-        this.od = 0.0d;
+        this.ow = 0;
+        this.oC = 0.0d;
     }
 
-    public void dd() {
-        this.nU = 0;
-        this.nV = 0;
-        this.nW = 0;
-        this.nX = 0;
-        this.nY = 0;
-        this.nZ = 0;
+    public void dt() {
+        this.ot = 0;
+        this.ou = 0;
+        this.ov = 0;
+        this.ow = 0;
+        this.ox = 0;
+        this.oy = 0;
     }
 
     public void e(double d) {
-        if (this.nY < this.nT) {
-            this.nY++;
-            this.oe = (((this.nY - 1) * this.oe) + d) / this.nY;
+        if (this.ox < this.os) {
+            this.ox++;
+            this.oD = (((this.ox - 1) * this.oD) + d) / this.ox;
             return;
         }
-        if (this.nY == this.nT) {
-            this.nY++;
+        if (this.ox == this.os) {
+            this.ox++;
         }
-        this.nY = 0;
-        this.oe = 0.0d;
+        this.ox = 0;
+        this.oD = 0.0d;
     }
 
     public void f(double d) {
-        if (this.nZ < this.nT) {
-            this.nZ++;
-            this.of = (((this.nZ - 1) * this.of) + d) / this.nZ;
+        if (this.oy < this.os) {
+            this.oy++;
+            this.oE = (((this.oy - 1) * this.oE) + d) / this.oy;
             return;
         }
-        if (this.nZ == this.nT) {
-            this.nZ++;
+        if (this.oy == this.os) {
+            this.oy++;
         }
-        this.nZ = 0;
-        this.of = 0.0d;
+        this.oy = 0;
+        this.oE = 0.0d;
     }
 }

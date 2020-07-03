@@ -4,11 +4,11 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes13.dex */
 public class FeedAdProgressText extends AppCompatTextView implements a {
-    private int kSy;
+    private int lmr;
     private int mColor;
     private int mMax;
     private int mProgress;
@@ -18,7 +18,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
         this.mMax = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.kSy = 0;
+        this.lmr = 0;
         init(context);
     }
 
@@ -27,7 +27,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
         this.mMax = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.kSy = 0;
+        this.lmr = 0;
         init(context);
     }
 
@@ -36,7 +36,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
         this.mMax = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.kSy = 0;
+        this.lmr = 0;
         init(context);
     }
 
@@ -72,7 +72,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void setButtonTextNightColor(int i) {
-        this.kSy = i;
+        this.lmr = i;
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
@@ -93,11 +93,11 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void onChangeSkinType() {
-        setTextColor(am.getColor(R.color.cp_cont_d));
+        setTextColor(an.getColor(R.color.cp_cont_d));
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
-    public void crv() {
-        setTextColor(am.getColor(R.color.cp_cont_d));
+    public void aYi() {
+        setTextColor(an.getColor(R.color.cp_cont_d));
     }
 }

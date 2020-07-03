@@ -28,7 +28,7 @@ public class j extends i {
 
     public static final int c(byte[] bArr, byte b) {
         kotlin.jvm.internal.q.m(bArr, "receiver$0");
-        for (Number number : o.e(f.at(bArr))) {
+        for (Number number : o.e(f.av(bArr))) {
             int intValue = number.intValue();
             if (b == bArr[intValue]) {
                 return intValue;
@@ -52,15 +52,15 @@ public class j extends i {
     public static final List<Byte> a(byte[] bArr, kotlin.b.h hVar) {
         kotlin.jvm.internal.q.m(bArr, "receiver$0");
         kotlin.jvm.internal.q.m(hVar, "indices");
-        return hVar.isEmpty() ? o.dLI() : f.as(f.o(bArr, hVar.dMm().intValue(), hVar.dMn().intValue() + 1));
+        return hVar.isEmpty() ? o.dQo() : f.au(f.o(bArr, hVar.dQS().intValue(), hVar.dQT().intValue() + 1));
     }
 
-    public static final kotlin.b.h at(byte[] bArr) {
+    public static final kotlin.b.h av(byte[] bArr) {
         kotlin.jvm.internal.q.m(bArr, "receiver$0");
-        return new kotlin.b.h(0, f.au(bArr));
+        return new kotlin.b.h(0, f.aw(bArr));
     }
 
-    public static final int au(byte[] bArr) {
+    public static final int aw(byte[] bArr) {
         kotlin.jvm.internal.q.m(bArr, "receiver$0");
         return bArr.length - 1;
     }
@@ -76,18 +76,18 @@ public class j extends i {
 
     public static final <T> HashSet<T> Q(T[] tArr) {
         kotlin.jvm.internal.q.m(tArr, "receiver$0");
-        return (HashSet) f.a(tArr, new HashSet(af.JR(tArr.length)));
+        return (HashSet) f.a(tArr, new HashSet(af.KY(tArr.length)));
     }
 
     public static final <T> Set<T> R(T[] tArr) {
         kotlin.jvm.internal.q.m(tArr, "receiver$0");
         switch (tArr.length) {
             case 0:
-                return al.dLP();
+                return al.dQv();
             case 1:
-                return al.bJ(tArr[0]);
+                return al.bK(tArr[0]);
             default:
-                return (Set) f.a(tArr, new LinkedHashSet(af.JR(tArr.length)));
+                return (Set) f.a(tArr, new LinkedHashSet(af.KY(tArr.length)));
         }
     }
 }

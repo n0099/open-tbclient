@@ -1,12 +1,12 @@
 package com.baidu.tieba.ala;
 
 import android.view.View;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.u.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.live.liveroom.d.e {
-    private int avX = 1;
+    private int ayf = 1;
     private List<com.baidu.live.liveroom.d.d> mDataList;
     private TbPageContext mPageContext;
     private View mRootView;
@@ -29,15 +29,15 @@ public class b implements com.baidu.live.liveroom.d.e {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String Ci() {
-        if (this.avX == 1) {
-            return com.baidu.live.v.a.Ge().aWF.axp;
+    public String CI() {
+        if (this.ayf == 1) {
+            return com.baidu.live.v.a.Hm().aZp.azy;
         }
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short Cj() {
+    public short CJ() {
         return (short) 5;
     }
 

@@ -7,21 +7,21 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes11.dex */
 public class e {
-    private HttpMessageListener euF = new HttpMessageListener(CmdConfigHttp.CMD_GET_RN_SYNC) { // from class: com.baidu.tieba.easterEgg.e.1
+    private HttpMessageListener eDJ = new HttpMessageListener(CmdConfigHttp.CMD_GET_RN_SYNC) { // from class: com.baidu.tieba.easterEgg.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof RnSyncResponseMessage) {
                 RnSyncResponseMessage rnSyncResponseMessage = (RnSyncResponseMessage) httpResponsedMessage;
-                e.this.gMq = rnSyncResponseMessage.getData();
-                if (e.this.gMr != null) {
-                    e.this.gMr.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
+                e.this.gZn = rnSyncResponseMessage.getData();
+                if (e.this.gZo != null) {
+                    e.this.gZo.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
                 }
             }
         }
     };
-    private com.baidu.tieba.easterEgg.a.a gMq;
-    private a gMr;
+    private com.baidu.tieba.easterEgg.a.a gZn;
+    private a gZo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
@@ -30,7 +30,7 @@ public class e {
     }
 
     public e() {
-        MessageManager.getInstance().registerListener(this.euF);
+        MessageManager.getInstance().registerListener(this.eDJ);
     }
 
     public void startLoad() {
@@ -38,10 +38,10 @@ public class e {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.euF);
+        MessageManager.getInstance().unRegisterListener(this.eDJ);
     }
 
     public void a(a aVar) {
-        this.gMr = aVar;
+        this.gZo = aVar;
     }
 }

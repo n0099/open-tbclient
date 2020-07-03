@@ -7,12 +7,12 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e {
-    a cM;
+    a cZ;
     Handler mHandler;
     HandlerThread mThread;
-    private boolean cN = false;
-    private volatile int cO = -100;
-    List<d> cP = new ArrayList();
+    private boolean da = false;
+    private volatile int db = -100;
+    List<d> dc = new ArrayList();
     Object mLock = new Object();
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -23,17 +23,17 @@ public class e {
 
         private void execute() {
             d remove;
-            while (!e.this.cN) {
+            while (!e.this.da) {
                 synchronized (e.this.mLock) {
-                    if (e.this.cP.isEmpty()) {
+                    if (e.this.dc.isEmpty()) {
                         e.this.mLock.wait();
                     }
-                    remove = e.this.cP.remove(0);
+                    remove = e.this.dc.isEmpty() ? null : e.this.dc.remove(0);
                 }
                 if (remove != null) {
-                    e.this.cO = remove.cK;
+                    e.this.db = remove.cX;
                     remove.run();
-                    e.this.cO = -100;
+                    e.this.db = -100;
                 }
             }
         }
@@ -48,21 +48,10 @@ public class e {
         }
     }
 
-    public boolean b(int i) {
-        synchronized (this.mLock) {
-            for (int size = this.cP.size() - 1; size >= 0; size--) {
-                if (this.cP.get(size).cK == i) {
-                    this.cP.remove(size);
-                }
-            }
-        }
-        return true;
-    }
-
     public boolean b(d dVar) {
         if (dVar instanceof b) {
             synchronized (this.mLock) {
-                this.cP.add(dVar);
+                this.dc.add(dVar);
                 this.mLock.notifyAll();
             }
         } else {
@@ -71,18 +60,29 @@ public class e {
         return true;
     }
 
-    public boolean h(int i) {
+    public boolean c(int i) {
+        synchronized (this.mLock) {
+            for (int size = this.dc.size() - 1; size >= 0; size--) {
+                if (this.dc.get(size).cX == i) {
+                    this.dc.remove(size);
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean i(int i) {
         boolean z;
-        if (i == this.cO) {
+        if (i == this.db) {
             return true;
         }
         synchronized (this.mLock) {
-            Iterator<d> it = this.cP.iterator();
+            Iterator<d> it = this.dc.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
                     break;
-                } else if (it.next().cK == i) {
+                } else if (it.next().cX == i) {
                     z = true;
                     break;
                 }
@@ -95,7 +95,7 @@ public class e {
         this.mThread = new HandlerThread("MdlThreadPool");
         this.mThread.start();
         this.mHandler = new Handler(this.mThread.getLooper());
-        this.cM = new a();
-        this.cM.start();
+        this.cZ = new a();
+        this.cZ.start();
     }
 }

@@ -8,25 +8,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class b extends com.baidu.swan.apps.component.a.a.b {
-    public int bQA;
-    public String bQB;
-    public String bQC;
-    public boolean bQD;
-    public boolean bQE;
-    public boolean bQF;
-    public boolean bQG;
-    public boolean bQH;
-    public int bQI;
-    public boolean bQJ;
-    boolean bQo;
+    boolean bVc;
+    public int bVo;
+    public String bVp;
+    public String bVq;
+    public boolean bVr;
+    public boolean bVs;
+    public boolean bVt;
+    public boolean bVu;
+    public boolean bVv;
+    public int bVw;
+    public boolean bVx;
     public String hint;
     public int maxHeight;
 
     public b() {
         super("textArea", "inputId");
         this.hint = "";
-        this.bQB = "";
-        this.bQC = "";
+        this.bVp = "";
+        this.bVq = "";
     }
 
     @Override // com.baidu.swan.apps.component.a.a.b, com.baidu.swan.apps.component.a.c.b, com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
@@ -35,91 +35,90 @@ public final class b extends com.baidu.swan.apps.component.a.a.b {
             super.parseFromJson(jSONObject);
             this.text = jSONObject.optString("value");
             this.hint = jSONObject.optString(UgcConstant.PLACEHOLDER);
-            aw(jSONObject);
-            this.bQD = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
-            this.bQE = jSONObject.optBoolean("autoHeight", false);
-            if (this.bQE && this.bPJ != null) {
-                this.bPJ.setHeight(-2);
-                this.bPJ.eq(true);
+            aD(jSONObject);
+            this.bVr = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
+            this.bVs = jSONObject.optBoolean("autoHeight", false);
+            if (this.bVs && this.bUx != null) {
+                this.bUx.setHeight(-2);
+                this.bUx.ev(true);
             }
-            this.bQF = jSONObject.optBoolean("fixed");
-            if (this.bPJ != null) {
-                this.bPJ.er(this.bQF);
+            this.bVt = jSONObject.optBoolean("fixed");
+            if (this.bUx != null) {
+                this.bUx.ew(this.bVt);
             }
-            this.bQG = jSONObject.optBoolean("showConfirmBar", true);
-            this.bQH = jSONObject.optBoolean("adjustPosition", true);
-            this.bQJ = jSONObject.optBoolean("disabled", false);
-            this.bQo = jSONObject.optInt("confirmHold") == 1;
-            Vb();
+            this.bVu = jSONObject.optBoolean("showConfirmBar", true);
+            this.bVv = jSONObject.optBoolean("adjustPosition", true);
+            this.bVx = jSONObject.optBoolean("disabled", false);
+            this.bVc = jSONObject.optInt("confirmHold") == 1;
+            Wh();
         }
     }
 
     @Override // com.baidu.swan.apps.component.a.a.b, com.baidu.swan.apps.component.a.c.b, com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b
-    public void ar(JSONObject jSONObject) {
-        super.ar(jSONObject);
-        this.bQJ = jSONObject.optBoolean("disabled", this.bQJ);
+    public void ay(JSONObject jSONObject) {
+        super.ay(jSONObject);
+        this.bVx = jSONObject.optBoolean("disabled", this.bVx);
         this.hint = jSONObject.optString(UgcConstant.PLACEHOLDER, this.hint);
         this.text = jSONObject.optString("value", this.text);
-        this.bQD = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, this.bQD);
-        this.bQG = jSONObject.optBoolean("showConfirmBar", this.bQG);
-        this.bQH = jSONObject.optBoolean("adjustPosition", this.bQH);
-        av(jSONObject);
-        au(jSONObject);
-        aw(jSONObject);
-        Vb();
+        this.bVr = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, this.bVr);
+        this.bVu = jSONObject.optBoolean("showConfirmBar", this.bVu);
+        this.bVv = jSONObject.optBoolean("adjustPosition", this.bVv);
+        aC(jSONObject);
+        aB(jSONObject);
+        aD(jSONObject);
+        Wh();
     }
 
-    private void au(JSONObject jSONObject) {
-        this.bQF = jSONObject.optBoolean("fixed", this.bQF);
-        if (this.bPJ != null) {
-            this.bPJ.er(this.bQF);
+    private void aB(JSONObject jSONObject) {
+        this.bVt = jSONObject.optBoolean("fixed", this.bVt);
+        if (this.bUx != null) {
+            this.bUx.ew(this.bVt);
         }
     }
 
-    private void av(JSONObject jSONObject) {
-        this.bQE = jSONObject.optBoolean("autoHeight", this.bQE);
-        if (this.bPJ != null) {
-            if (this.bQE) {
-                this.bPJ.setHeight(-2);
-                this.bPJ.eq(true);
+    private void aC(JSONObject jSONObject) {
+        this.bVs = jSONObject.optBoolean("autoHeight", this.bVs);
+        if (this.bUx != null) {
+            if (this.bVs) {
+                this.bUx.setHeight(-2);
+                this.bUx.ev(true);
                 return;
             }
-            int height = this.bPJ.getHeight();
+            int height = this.bUx.getHeight();
             if (this.mViewHeight > 0) {
                 height = this.mViewHeight;
             }
-            this.bPJ.setHeight(height);
-            this.bPJ.eq(false);
+            this.bUx.setHeight(height);
+            this.bUx.ev(false);
         }
     }
 
-    private void Vb() {
-        if (this.bPq != null) {
-            int B = ag.B(getFloat(this.bPq, "minHeight", 0.0f));
-            if (B < 0) {
-                B = 0;
+    private void Wh() {
+        if (this.bUe != null) {
+            int D = ag.D(getFloat(this.bUe, "minHeight", 0.0f));
+            if (D < 0) {
+                D = 0;
             }
-            this.bQI = B;
-            int B2 = ag.B(getFloat(this.bPq, "maxHeight", 2.1474836E9f));
-            if (B2 < 0) {
-                B2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            this.bVw = D;
+            int D2 = ag.D(getFloat(this.bUe, "maxHeight", 2.1474836E9f));
+            if (D2 < 0) {
+                D2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
             }
-            this.maxHeight = B2;
+            this.maxHeight = D2;
         }
     }
 
-    private void aw(JSONObject jSONObject) {
+    private void aD(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("placeholderStyle");
         if (optJSONObject != null) {
-            this.bQA = optJSONObject.optInt("fontSize");
-            this.bQB = optJSONObject.optString("fontWeight");
-            this.bQC = optJSONObject.optString("color");
+            this.bVo = optJSONObject.optInt("fontSize");
+            this.bVp = optJSONObject.optString("fontWeight");
+            this.bVq = optJSONObject.optString("color");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: do  reason: not valid java name */
-    public void m26do(boolean z) {
-        this.bQD = z;
+    public void dt(boolean z) {
+        this.bVr = z;
     }
 }

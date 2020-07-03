@@ -5,8 +5,8 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.SkinManager;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaImAddTagTextView extends TextView {
     public AlaImAddTagTextView(Context context) {

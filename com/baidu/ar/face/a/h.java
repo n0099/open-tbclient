@@ -4,46 +4,46 @@ import com.baidu.ar.face.algo.FaceAlgoData;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class h {
-    private long ii;
-    private ByteBuffer mK;
+    private long ix;
+    private boolean mR;
     private long mTimestamp;
-    private boolean mu;
-    private boolean nC;
-    private long nn = 0;
-    private boolean oh;
-    private long oi;
-    private FaceAlgoData oj;
+    private long nK = 0;
+    private boolean nZ;
+    private ByteBuffer nh;
+    private boolean oG;
+    private long oH;
+    private FaceAlgoData oI;
 
     public h(long j) {
         this.mTimestamp = j;
     }
 
     public void G(boolean z) {
-        this.oh = z;
+        this.oG = z;
     }
 
     public void a(FaceAlgoData faceAlgoData) {
-        this.oj = faceAlgoData;
+        this.oI = faceAlgoData;
     }
 
     public void a(ByteBuffer byteBuffer) {
-        this.mK = byteBuffer;
+        this.nh = byteBuffer;
     }
 
-    public long bv() {
-        return this.ii;
+    public long cz() {
+        return this.ix;
     }
 
-    public ByteBuffer cM() {
-        return this.mK;
+    public ByteBuffer db() {
+        return this.nh;
     }
 
-    public FaceAlgoData cN() {
-        return this.oj;
+    public FaceAlgoData dc() {
+        return this.oI;
     }
 
-    public long cP() {
-        return this.nn;
+    public long de() {
+        return this.nK;
     }
 
     public long getTimestamp() {
@@ -51,30 +51,30 @@ public class h {
     }
 
     public void i(long j) {
-        this.ii = j;
+        this.ix = j;
     }
 
     public boolean isFrontCamera() {
-        return this.nC;
+        return this.nZ;
     }
 
     public boolean isTracked() {
-        return this.mu;
+        return this.mR;
     }
 
     public void s(long j) {
-        this.nn = j;
+        this.nK = j;
     }
 
     public void setFrontCamera(boolean z) {
-        this.nC = z;
+        this.nZ = z;
     }
 
     public void setTracked(boolean z) {
-        this.mu = z;
+        this.mR = z;
     }
 
     public void t(long j) {
-        this.oi = j;
+        this.oH = j;
     }
 }

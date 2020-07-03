@@ -9,6 +9,7 @@ import com.example.crash_report_plugin.CrashReportPlugin;
 import com.example.flutter_lottie.FlutterLottiePlugin;
 import com.example.global_state_sync_plugin.GlobalStateSyncPlugin;
 import com.example.image_loader_plugin.ImageLoaderPlugin;
+import com.example.image_picker.ImagePickerPlugin;
 import com.example.utility_plugin.UtilityPlugin;
 import com.idlefish.flutterboost.FlutterBoostPlugin;
 import com.oversketch.progresshud.ProgresshudPlugin;
@@ -27,6 +28,7 @@ public final class GeneratedPluginRegistrant {
         FlutterLottiePlugin.registerWith(shimPluginRegistry.registrarFor("com.example.flutter_lottie.FlutterLottiePlugin"));
         flutterEngine.getPlugins().add(new GlobalStateSyncPlugin());
         flutterEngine.getPlugins().add(new ImageLoaderPlugin());
+        flutterEngine.getPlugins().add(new ImagePickerPlugin());
         flutterEngine.getPlugins().add(new a());
         flutterEngine.getPlugins().add(new b());
         ProgresshudPlugin.registerWith(shimPluginRegistry.registrarFor("com.oversketch.progresshud.ProgresshudPlugin"));

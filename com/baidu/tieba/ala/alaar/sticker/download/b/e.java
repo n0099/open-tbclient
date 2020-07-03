@@ -12,29 +12,29 @@ import java.util.List;
 import java.util.concurrent.Executor;
 /* loaded from: classes3.dex */
 public class e implements e.a, com.baidu.tieba.ala.alaar.sticker.download.a.f, g.a {
-    private com.baidu.tieba.ala.alaar.sticker.download.a eWS;
-    private a eXa;
-    private com.baidu.tieba.ala.alaar.sticker.download.c eXd;
-    private com.baidu.tieba.ala.alaar.sticker.download.a.b eXe;
-    private f.a eXf;
-    private com.baidu.tieba.ala.alaar.sticker.download.a.g eXg;
+    private f.a fhA;
+    private com.baidu.tieba.ala.alaar.sticker.download.a.g fhB;
+    private com.baidu.tieba.ala.alaar.sticker.download.a fhn;
+    private a fhv;
+    private com.baidu.tieba.ala.alaar.sticker.download.c fhy;
+    private com.baidu.tieba.ala.alaar.sticker.download.a.b fhz;
     private List<com.baidu.tieba.ala.alaar.sticker.download.a.e> mDownloadTasks;
     private Executor mExecutor;
     private int mStatus;
     private String mTag;
 
     public e(com.baidu.tieba.ala.alaar.sticker.download.c cVar, com.baidu.tieba.ala.alaar.sticker.download.a.b bVar, Executor executor, String str, com.baidu.tieba.ala.alaar.sticker.download.a aVar, f.a aVar2) {
-        this.eXd = cVar;
-        this.eXe = bVar;
+        this.fhy = cVar;
+        this.fhz = bVar;
         this.mExecutor = executor;
         this.mTag = str;
-        this.eWS = aVar;
-        this.eXf = aVar2;
+        this.fhn = aVar;
+        this.fhA = aVar2;
         init();
     }
 
     private void init() {
-        this.eXa = new a(this.eXd.getName().toString(), this.eXd.getUri(), this.eXd.getFolder());
+        this.fhv = new a(this.fhy.getName().toString(), this.fhy.getUri(), this.fhy.getFolder());
         this.mDownloadTasks = new LinkedList();
     }
 
@@ -46,14 +46,14 @@ public class e implements e.a, com.baidu.tieba.ala.alaar.sticker.download.a.f, g
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.f
     public void start() {
         this.mStatus = 101;
-        this.eXe.onStarted();
+        this.fhz.onStarted();
         startConnect();
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.f
     public void pause() {
-        if (this.eXg != null) {
-            this.eXg.pause();
+        if (this.fhB != null) {
+            this.fhB.pause();
         }
         for (com.baidu.tieba.ala.alaar.sticker.download.a.e eVar : this.mDownloadTasks) {
             eVar.pause();
@@ -65,8 +65,8 @@ public class e implements e.a, com.baidu.tieba.ala.alaar.sticker.download.a.f, g
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.f
     public void cancel() {
-        if (this.eXg != null) {
-            this.eXg.cancel();
+        if (this.fhB != null) {
+            this.fhB.cancel();
         }
         for (com.baidu.tieba.ala.alaar.sticker.download.a.e eVar : this.mDownloadTasks) {
             eVar.cancel();
@@ -77,25 +77,25 @@ public class e implements e.a, com.baidu.tieba.ala.alaar.sticker.download.a.f, g
     }
 
     public void onDestroy() {
-        this.eXf.a(this.mTag, this);
+        this.fhA.a(this.mTag, this);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.g.a
     public void onConnecting() {
         this.mStatus = 102;
-        this.eXe.onConnecting();
+        this.fhz.onConnecting();
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.g.a
     public void onConnected(long j, long j2, boolean z) {
-        if (this.eXg.isCanceled()) {
+        if (this.fhB.isCanceled()) {
             onConnectCanceled();
             return;
         }
         this.mStatus = 103;
-        this.eXe.onConnected(j, j2, z);
-        this.eXa.setAcceptRanges(z);
-        this.eXa.setLength(j2);
+        this.fhz.onConnected(j, j2, z);
+        this.fhv.setAcceptRanges(z);
+        this.fhv.setLength(j2);
         download(j2, z);
     }
 
@@ -108,33 +108,33 @@ public class e implements e.a, com.baidu.tieba.ala.alaar.sticker.download.a.f, g
     public void onConnectCanceled() {
         deleteFile();
         this.mStatus = 107;
-        this.eXe.onConnectCanceled();
+        this.fhz.onConnectCanceled();
         onDestroy();
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.g.a
     public void b(DownloadException downloadException) {
-        if (this.eXg.isCanceled()) {
+        if (this.fhB.isCanceled()) {
             onConnectCanceled();
-        } else if (this.eXg.isPaused()) {
+        } else if (this.fhB.isPaused()) {
             onDownloadPaused();
         } else {
             this.mStatus = 108;
-            this.eXe.b(downloadException);
+            this.fhz.b(downloadException);
             onDestroy();
         }
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.e.a
     public void onDownloadProgress(long j, long j2) {
-        this.eXe.onDownloadProgress(j, j2, (int) ((100 * j) / j2));
+        this.fhz.onDownloadProgress(j, j2, (int) ((100 * j) / j2));
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.e.a
     public void onDownloadCompleted(String str) {
         if (isAllComplete()) {
             this.mStatus = 105;
-            this.eXe.onDownloadCompleted(str);
+            this.fhz.onDownloadCompleted(str);
             onDestroy();
         }
     }
@@ -143,7 +143,7 @@ public class e implements e.a, com.baidu.tieba.ala.alaar.sticker.download.a.f, g
     public void onDownloadPaused() {
         if (isAllPaused()) {
             this.mStatus = 106;
-            this.eXe.onDownloadPaused();
+            this.fhz.onDownloadPaused();
             onDestroy();
         }
     }
@@ -153,7 +153,7 @@ public class e implements e.a, com.baidu.tieba.ala.alaar.sticker.download.a.f, g
         if (isAllCanceled()) {
             deleteFile();
             this.mStatus = 107;
-            this.eXe.onDownloadCanceled();
+            this.fhz.onDownloadCanceled();
             onDestroy();
         }
     }
@@ -162,14 +162,14 @@ public class e implements e.a, com.baidu.tieba.ala.alaar.sticker.download.a.f, g
     public void c(DownloadException downloadException) {
         if (isAllFailed()) {
             this.mStatus = 108;
-            this.eXe.c(downloadException);
+            this.fhz.c(downloadException);
             onDestroy();
         }
     }
 
     private void startConnect() {
-        this.eXg = new f(this.eXd.getUri(), this);
-        this.mExecutor.execute(this.eXg);
+        this.fhB = new f(this.fhy.getUri(), this);
+        this.mExecutor.execute(this.fhB);
     }
 
     private void download(long j, boolean z) {
@@ -194,30 +194,30 @@ public class e implements e.a, com.baidu.tieba.ala.alaar.sticker.download.a.f, g
                 }
                 i2 = (int) (it.next().getFinished() + i);
             }
-            this.eXa.setFinished(i);
+            this.fhv.setFinished(i);
             for (i iVar : multiThreadRecords) {
-                this.mDownloadTasks.add(new g(this.eXa, iVar, this));
+                this.mDownloadTasks.add(new g(this.fhv, iVar, this));
             }
             return;
         }
-        this.mDownloadTasks.add(new h(this.eXa, bpH(), this));
+        this.mDownloadTasks.add(new h(this.fhv, bsq(), this));
     }
 
     private List<i> getMultiThreadRecords(long j) {
         ArrayList arrayList = new ArrayList();
-        int threadNum = this.eWS.getThreadNum();
+        int threadNum = this.fhn.getThreadNum();
         int i = 0;
         while (i < threadNum) {
             long j2 = j / threadNum;
             long j3 = i * j2;
-            arrayList.add(new i(i, this.mTag, this.eXd.getUri(), j3, i == threadNum + (-1) ? j : (j2 + j3) - 1, 0L));
+            arrayList.add(new i(i, this.mTag, this.fhy.getUri(), j3, i == threadNum + (-1) ? j : (j2 + j3) - 1, 0L));
             i++;
         }
         return arrayList;
     }
 
-    private i bpH() {
-        return new i(0, this.mTag, this.eXd.getUri(), 0L);
+    private i bsq() {
+        return new i(0, this.mTag, this.fhy.getUri(), 0L);
     }
 
     private boolean isAllComplete() {
@@ -257,7 +257,7 @@ public class e implements e.a, com.baidu.tieba.ala.alaar.sticker.download.a.f, g
     }
 
     private void deleteFile() {
-        File file = new File(this.eXa.getDir(), this.eXa.getName());
+        File file = new File(this.fhv.getDir(), this.fhv.getName());
         if (file.exists() && file.isFile()) {
             file.delete();
         }

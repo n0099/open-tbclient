@@ -8,20 +8,20 @@ public abstract class b extends d {
         this.level = 2;
     }
 
-    public abstract HashMap am();
+    public abstract HashMap aA();
 
     @Override // com.baidu.ar.b.b.d
     public void execute() {
-        if (com.baidu.ar.b.a.ac().c(this.cK)) {
-            final HashMap am = am();
-            com.baidu.ar.b.a.ac().b(new Runnable() { // from class: com.baidu.ar.b.b.b.1
+        if (com.baidu.ar.b.a.aq().d(this.cX)) {
+            final HashMap aA = aA();
+            com.baidu.ar.b.a.aq().b(new Runnable() { // from class: com.baidu.ar.b.b.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     com.baidu.ar.b.a.a aVar;
-                    if (b.this.cL == null || (aVar = b.this.cL.get()) == null) {
+                    if (b.this.cY == null || (aVar = b.this.cY.get()) == null) {
                         return;
                     }
-                    aVar.e(am);
+                    aVar.e(aA);
                 }
             });
         }

@@ -17,13 +17,13 @@ public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgActivityView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgActivityView cjK = aVar.cjK();
-        cjK.setPosition(i);
-        cjK.setData(chatMessage);
-        cjK.a(this.itq);
-        cjK.setOnItemViewLongClickListener(this.itr);
-        cjK.ew(this.eWd);
-        cjK.ev(chatMessage.getCacheData().getLastMsgTime());
+        MsgActivityView cnz = aVar.cnz();
+        cnz.setPosition(i);
+        cnz.setData(chatMessage);
+        cnz.a(this.iKw);
+        cnz.setOnItemViewLongClickListener(this.iKx);
+        cnz.ez(this.fgo);
+        cnz.ey(chatMessage.getCacheData().getLastMsgTime());
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -32,7 +32,7 @@ public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bI */
+    /* renamed from: bR */
     public e.a<MsgActivityView> b(ViewGroup viewGroup) {
         MsgActivityView msgActivityView = new MsgActivityView(this.mPageContext);
         return new a(msgActivityView.getConvertView(), msgActivityView);

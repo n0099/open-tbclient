@@ -6,66 +6,66 @@ import com.baidu.searchbox.http.request.HttpRequest;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public interface q {
-    boolean RN();
+    boolean ST();
 
-    String RO();
+    String SU();
 
-    String RP();
+    String SV();
 
-    String RQ();
+    String SW();
 
-    String RR();
+    String SX();
 
-    String RS();
+    String SY();
 
-    String RT();
+    String SZ();
 
-    String RU();
+    String TI();
 
-    String RV();
+    String TJ();
 
-    String RW();
+    void TK();
 
-    String RX();
+    void TL();
 
-    String RY();
+    String TM();
 
-    String RZ();
+    String TN();
 
-    String SC();
+    boolean TO();
 
-    String SD();
+    int TP();
 
-    void SE();
+    String TQ();
 
-    void SF();
+    String TR();
 
-    String SG();
+    String Ta();
 
-    String SH();
+    String Tb();
 
-    boolean SI();
+    String Tc();
 
-    int SJ();
+    String Td();
 
-    String SK();
+    String Te();
 
-    String SL();
+    String Tf();
 
-    String Sa();
+    String Tg();
 
-    String Sb();
+    String Th();
 
-    String Sc();
+    String Ti();
 
-    String Sd();
+    String Tj();
 
-    String Se();
+    String Tk();
 
     @Nullable
-    String Sf();
+    String Tl();
 
-    String be(Context context);
+    String bf(Context context);
 
     HttpRequest d(Context context, Map<String, String> map);
 

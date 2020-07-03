@@ -12,18 +12,18 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class n {
-    private static volatile n dqe;
-    private com.baidu.swan.ubc.d dpw;
-    private ExecutorService dqf;
-    private com.baidu.swan.ubc.c dqg;
-    private int dqh;
-    private boolean dqi = false;
+    private static volatile n duQ;
+    private ExecutorService duR;
+    private com.baidu.swan.ubc.c duS;
+    private int duT;
+    private boolean duU = false;
+    private com.baidu.swan.ubc.d dui;
     private Context mContext;
     private ExecutorService mExecutorService;
 
     static /* synthetic */ int d(n nVar) {
-        int i = nVar.dqh;
-        nVar.dqh = i + 1;
+        int i = nVar.duT;
+        nVar.duT = i + 1;
         return i;
     }
 
@@ -31,15 +31,15 @@ public class n {
         init(com.baidu.swan.ubc.e.getContext());
     }
 
-    public static n aID() {
-        if (dqe == null) {
+    public static n aJJ() {
+        if (duQ == null) {
             synchronized (n.class) {
-                if (dqe == null) {
-                    dqe = new n();
+                if (duQ == null) {
+                    duQ = new n();
                 }
             }
         }
-        return dqe;
+        return duQ;
     }
 
     private void init(Context context) {
@@ -49,19 +49,19 @@ public class n {
             } else {
                 this.mContext = context.getApplicationContext();
             }
-            this.dqh = com.baidu.swan.config.b.auW().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0);
-            if (this.dqh > 1073741823) {
-                this.dqh -= 1073741823;
+            this.duT = com.baidu.swan.config.b.awc().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0);
+            if (this.duT > 1073741823) {
+                this.duT -= 1073741823;
             } else {
-                this.dqh = 1073741823 + this.dqh;
+                this.duT = 1073741823 + this.duT;
             }
-            if (com.baidu.swan.ubc.e.aIh() == null || com.baidu.swan.ubc.e.aIh().St() == null) {
+            if (com.baidu.swan.ubc.e.aJn() == null || com.baidu.swan.ubc.e.aJn().Tz() == null) {
                 this.mExecutorService = Executors.newSingleThreadExecutor();
             } else {
-                this.mExecutorService = com.baidu.swan.ubc.e.aIh().St();
+                this.mExecutorService = com.baidu.swan.ubc.e.aJn().Tz();
             }
             this.mExecutorService.execute(new g());
-            this.dqf = Executors.newSingleThreadExecutor();
+            this.duR = Executors.newSingleThreadExecutor();
         }
     }
 
@@ -69,8 +69,8 @@ public class n {
     public void a(String str, JSONObject jSONObject, int i) {
         if (!ab(str, i)) {
             b bVar = new b(str, jSONObject, i);
-            if (this.dpw != null && this.dpw.tJ(str)) {
-                bVar.gn(true);
+            if (this.dui != null && this.dui.tR(str)) {
+                bVar.gs(true);
             }
             this.mExecutorService.execute(bVar);
         }
@@ -80,8 +80,8 @@ public class n {
     public void j(String str, String str2, int i) {
         if (!ab(str, i)) {
             b bVar = new b(str, str2, i);
-            if (this.dpw != null && this.dpw.tJ(str)) {
-                bVar.gn(true);
+            if (this.dui != null && this.dui.tR(str)) {
+                bVar.gs(true);
             }
             this.mExecutorService.execute(bVar);
         }
@@ -107,8 +107,8 @@ public class n {
         ac = ac(str, i);
         if (ac != null && ac.getValid()) {
             d dVar = new d(ac, str2);
-            if (this.dpw != null && this.dpw.tJ(str)) {
-                dVar.gn(true);
+            if (this.dui != null && this.dui.tR(str)) {
+                dVar.gs(true);
             }
             this.mExecutorService.execute(dVar);
         }
@@ -116,18 +116,18 @@ public class n {
     }
 
     Flow ac(String str, int i) {
-        Flow flow = new Flow(str, this.dqh, i);
-        if (this.dpw != null && !this.dpw.aa(str, i)) {
+        Flow flow = new Flow(str, this.duT, i);
+        if (this.dui != null && !this.dui.aa(str, i)) {
             flow.setValid(false);
-        } else if ((i & 16) != 0 && !com.baidu.swan.ubc.e.aIh().mj(str)) {
+        } else if ((i & 16) != 0 && !com.baidu.swan.ubc.e.aJn().mr(str)) {
             flow.setValid(false);
         } else {
-            if (this.dpw != null && this.dpw.tH(str) > 0) {
-                if (new Random().nextInt(100) >= this.dpw.tH(str)) {
-                    flow.go(true);
+            if (this.dui != null && this.dui.tP(str) > 0) {
+                if (new Random().nextInt(100) >= this.dui.tP(str)) {
+                    flow.gt(true);
                 }
             }
-            if (this.dpw != null && this.dpw.tI(str)) {
+            if (this.dui != null && this.dui.tQ(str)) {
                 flow.setValid(false);
             }
         }
@@ -151,13 +151,13 @@ public class n {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void upload() {
-        if (!this.dqi) {
-            this.dqi = true;
+        if (!this.duU) {
+            this.duU = true;
             this.mExecutorService.execute(new Runnable() { // from class: com.baidu.swan.ubc.n.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (n.this.dqg != null) {
-                        n.this.dqg.aHY();
+                    if (n.this.duS != null) {
+                        n.this.duS.aJe();
                     }
                 }
             });
@@ -169,23 +169,23 @@ public class n {
     }
 
     public void initConfig() {
-        aIE();
+        aJK();
     }
 
-    private void aIE() {
-        p aIF = p.aIF();
-        aIF.upload();
-        aIF.aIG();
+    private void aJK() {
+        p aJL = p.aJL();
+        aJL.upload();
+        aJL.aJM();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(final JSONArray jSONArray, final String str) {
         s.I(jSONArray);
-        this.dqf.execute(new Runnable() { // from class: com.baidu.swan.ubc.n.2
+        this.duR.execute(new Runnable() { // from class: com.baidu.swan.ubc.n.2
             @Override // java.lang.Runnable
             public void run() {
-                if (n.this.dqg != null) {
-                    n.this.dqg.d(jSONArray, str);
+                if (n.this.duS != null) {
+                    n.this.duS.d(jSONArray, str);
                 }
             }
         });
@@ -194,38 +194,38 @@ public class n {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void H(final JSONArray jSONArray) {
         s.I(jSONArray);
-        this.dqf.execute(new Runnable() { // from class: com.baidu.swan.ubc.n.3
+        this.duR.execute(new Runnable() { // from class: com.baidu.swan.ubc.n.3
             @Override // java.lang.Runnable
             public void run() {
-                if (n.this.dqg != null) {
-                    n.this.dqg.H(jSONArray);
+                if (n.this.duS != null) {
+                    n.this.duS.H(jSONArray);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aIb() {
+    public void aJh() {
         this.mExecutorService.execute(new Runnable() { // from class: com.baidu.swan.ubc.n.4
             @Override // java.lang.Runnable
             public void run() {
-                if (n.this.dqg != null) {
-                    n.this.dqg.aIb();
+                if (n.this.duS != null) {
+                    n.this.duS.aJh();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aj(final String str, final boolean z) {
+    public void al(final String str, final boolean z) {
         this.mExecutorService.execute(new Runnable() { // from class: com.baidu.swan.ubc.n.5
             @Override // java.lang.Runnable
             public void run() {
-                if (n.this.dqg != null) {
+                if (n.this.duS != null) {
                     if (z) {
-                        n.this.dqg.tB(str);
+                        n.this.duS.tJ(str);
                     } else {
-                        n.this.dqg.tC(str);
+                        n.this.duS.tK(str);
                     }
                 }
             }
@@ -241,49 +241,49 @@ public class n {
         @Override // java.lang.Runnable
         public void run() {
             Process.setThreadPriority(10);
-            n.this.dpw = com.baidu.swan.ubc.d.aId();
-            n.this.dqg = new com.baidu.swan.ubc.c(n.this.mContext);
-            n.this.dqg.aIc();
+            n.this.dui = com.baidu.swan.ubc.d.aJj();
+            n.this.duS = new com.baidu.swan.ubc.c(n.this.mContext);
+            n.this.duS.aJi();
         }
     }
 
     /* loaded from: classes11.dex */
     private class b implements Runnable {
-        private i dqm;
+        private i duY;
 
         b(String str, String str2, int i) {
-            this.dqm = new i(str, str2, i);
+            this.duY = new i(str, str2, i);
         }
 
         b(String str, JSONObject jSONObject, int i) {
-            this.dqm = new i(str, jSONObject, i);
+            this.duY = new i(str, jSONObject, i);
         }
 
         b(String str, String str2, int i, String str3, int i2) {
-            this.dqm = new i(str, str2, i, str3, i2);
+            this.duY = new i(str, str2, i, str3, i2);
         }
 
         b(String str, String str2, int i, String str3, long j, int i2) {
-            this.dqm = new i(str, str2, i, str3, j, i2);
+            this.duY = new i(str, str2, i, str3, j, i2);
         }
 
-        public void gn(boolean z) {
-            if (this.dqm != null) {
-                this.dqm.gn(z);
+        public void gs(boolean z) {
+            if (this.duY != null) {
+                this.duY.gs(z);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.dqg != null) {
-                this.dqm.aIx();
-                if (!TextUtils.isEmpty(n.this.dpw.tG(this.dqm.getId()))) {
-                    this.dqm.setCategory(n.this.dpw.tG(this.dqm.getId()));
+            if (n.this.duS != null) {
+                this.duY.aJD();
+                if (!TextUtils.isEmpty(n.this.dui.tO(this.duY.getId()))) {
+                    this.duY.setCategory(n.this.dui.tO(this.duY.getId()));
                 }
-                if ((this.dqm.getOption() & 8) != 0) {
-                    n.this.dqg.b(this.dqm);
+                if ((this.duY.getOption() & 8) != 0) {
+                    n.this.duS.b(this.duY);
                 } else {
-                    n.this.dqg.a(this.dqm);
+                    n.this.duS.a(this.duY);
                 }
             }
         }
@@ -291,88 +291,88 @@ public class n {
 
     /* loaded from: classes11.dex */
     private class d implements Runnable {
-        private k dqn;
+        private k duZ;
 
         d(Flow flow, String str) {
-            this.dqn = new k(flow.getId(), flow.getHandle(), str, flow.getOption(), flow.aIz());
-            this.dqn.bR(flow.getStartTime());
-            this.dqn.tP("1");
+            this.duZ = new k(flow.getId(), flow.getHandle(), str, flow.getOption(), flow.aJF());
+            this.duZ.bR(flow.getStartTime());
+            this.duZ.tX("1");
             n.d(n.this);
         }
 
-        public void gn(boolean z) {
-            if (this.dqn != null) {
-                this.dqn.gn(z);
+        public void gs(boolean z) {
+            if (this.duZ != null) {
+                this.duZ.gs(z);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.dqg != null) {
-                this.dqn.aIx();
-                if (!TextUtils.isEmpty(n.this.dpw.tG(this.dqn.getId()))) {
-                    this.dqn.setCategory(n.this.dpw.tG(this.dqn.getId()));
+            if (n.this.duS != null) {
+                this.duZ.aJD();
+                if (!TextUtils.isEmpty(n.this.dui.tO(this.duZ.getId()))) {
+                    this.duZ.setCategory(n.this.dui.tO(this.duZ.getId()));
                 }
-                n.this.dqg.b(this.dqn);
+                n.this.duS.b(this.duZ);
             }
         }
     }
 
     /* loaded from: classes11.dex */
     private class f implements Runnable {
-        private String dpX;
-        private int dpY;
+        private String duJ;
+        private int duK;
         private String mValue;
 
         f(String str, int i, String str2) {
-            this.dpX = str;
-            this.dpY = i;
+            this.duJ = str;
+            this.duK = i;
             this.mValue = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.dqg != null) {
-                n.this.dqg.f(this.dpX, this.dpY, this.mValue);
+            if (n.this.duS != null) {
+                n.this.duS.f(this.duJ, this.duK, this.mValue);
             }
         }
     }
 
     /* loaded from: classes11.dex */
     private class e implements Runnable {
-        private String dpX;
-        private int dpY;
-        private JSONArray dqd;
+        private String duJ;
+        private int duK;
+        private JSONArray duP;
         private long mEndTime = System.currentTimeMillis();
 
         e(String str, int i, JSONArray jSONArray) {
-            this.dpX = str;
-            this.dpY = i;
-            this.dqd = jSONArray;
+            this.duJ = str;
+            this.duK = i;
+            this.duP = jSONArray;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.dqg != null) {
-                n.this.dqg.a(this.dpX, this.dpY, this.mEndTime, this.dqd);
+            if (n.this.duS != null) {
+                n.this.duS.a(this.duJ, this.duK, this.mEndTime, this.duP);
             }
         }
     }
 
     /* loaded from: classes11.dex */
     private class c implements Runnable {
-        private String dpX;
-        private int dpY;
+        private String duJ;
+        private int duK;
 
         c(String str, int i) {
-            this.dpX = str;
-            this.dpY = i;
+            this.duJ = str;
+            this.duK = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.dqg != null) {
-                n.this.dqg.G(this.dpX, this.dpY);
+            if (n.this.duS != null) {
+                n.this.duS.G(this.duJ, this.duK);
             }
         }
     }
@@ -380,16 +380,16 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class a implements Runnable {
-        private q dql;
+        private q duX;
 
         a(q qVar) {
-            this.dql = qVar;
+            this.duX = qVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.dqg != null) {
-                n.this.dqg.a(this.dql);
+            if (n.this.duS != null) {
+                n.this.duS.a(this.duX);
             }
         }
     }

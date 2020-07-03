@@ -4,22 +4,22 @@ import kotlin.h;
 @h
 /* loaded from: classes7.dex */
 public final class c {
-    private static final int dI(int i, int i2) {
+    private static final int dR(int i, int i2) {
         int i3 = i % i2;
         return i3 >= 0 ? i3 : i3 + i2;
     }
 
-    private static final long O(long j, long j2) {
+    private static final long P(long j, long j2) {
         long j3 = j % j2;
         return j3 >= 0 ? j3 : j3 + j2;
     }
 
     private static final int am(int i, int i2, int i3) {
-        return dI(dI(i, i3) - dI(i2, i3), i3);
+        return dR(dR(i, i3) - dR(i2, i3), i3);
     }
 
-    private static final long f(long j, long j2, long j3) {
-        return O(O(j, j3) - O(j2, j3), j3);
+    private static final long i(long j, long j2, long j3) {
+        return P(P(j, j3) - P(j2, j3), j3);
     }
 
     public static final int an(int i, int i2, int i3) {
@@ -32,11 +32,11 @@ public final class c {
         }
     }
 
-    public static final long g(long j, long j2, long j3) {
+    public static final long j(long j, long j2, long j3) {
         if (j3 > 0) {
-            return j >= j2 ? j2 : j2 - f(j2, j, j3);
+            return j >= j2 ? j2 : j2 - i(j2, j, j3);
         } else if (j3 < 0) {
-            return j > j2 ? j2 + f(j, j2, -j3) : j2;
+            return j > j2 ? j2 + i(j, j2, -j3) : j2;
         } else {
             throw new IllegalArgumentException("Step is zero.");
         }

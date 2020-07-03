@@ -5,6 +5,6 @@ import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
 public class a implements ISchemeHeadIoc {
     @Override // com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc
     public String getSchemeHead() {
-        return com.baidu.swan.apps.u.a.afB().sz();
+        return com.baidu.swan.apps.u.a.agH().sU();
     }
 }

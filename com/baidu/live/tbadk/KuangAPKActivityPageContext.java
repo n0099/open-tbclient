@@ -12,6 +12,7 @@ import com.baidu.live.adp.framework.listener.NetMessageListener;
 import com.baidu.live.adp.framework.message.Message;
 import com.baidu.live.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.BDLayoutMode;
+@Deprecated
 /* loaded from: classes3.dex */
 public class KuangAPKActivityPageContext<T> implements TbPageContext<T> {
     BaseActivity<T> orginal;

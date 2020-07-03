@@ -7,72 +7,84 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static com.baidu.ar.f.f<k> iJ = new com.baidu.ar.f.f<>("com.baidu.ar.auth.ARAuthFacade");
+    private static com.baidu.ar.f.f<k> iY = new com.baidu.ar.f.f<>("com.baidu.ar.auth.ARAuthFacade");
+
+    public static List<Integer> checkAuth(Context context, byte[] bArr, IDuMixAuthCallback iDuMixAuthCallback) {
+        k fm = iY.fm();
+        return fm != null ? fm.checkAuth(context, bArr, iDuMixAuthCallback) : new ArrayList();
+    }
 
     public static List<Integer> checkAuth(Context context, byte[] bArr, ICallbackWith<List<Integer>> iCallbackWith, ICallbackWith<Integer> iCallbackWith2) {
-        k eW = iJ.eW();
-        return eW != null ? eW.checkAuth(context, bArr, iCallbackWith, iCallbackWith2) : new ArrayList();
+        k fm = iY.fm();
+        return fm != null ? fm.checkAuth(context, bArr, iCallbackWith, iCallbackWith2) : new ArrayList();
     }
 
     public static boolean checkFeatureAuth(int i) {
-        k eW = iJ.eW();
-        if (eW != null) {
-            return eW.checkFeatureAuth(i);
+        k fm = iY.fm();
+        if (fm != null) {
+            return fm.checkFeatureAuth(i);
         }
         return true;
     }
 
     public static Bitmap createTipBitmap(Context context) {
-        k eW = iJ.eW();
-        if (eW != null) {
-            return eW.createTipBitmap(context);
+        k fm = iY.fm();
+        if (fm != null) {
+            return fm.createTipBitmap(context);
         }
         return null;
     }
 
     public static void doAuth(Context context, j jVar) {
-        k eW = iJ.eW();
-        if (eW != null) {
-            eW.doAuth(context, jVar);
+        k fm = iY.fm();
+        if (fm != null) {
+            fm.doAuth(context, jVar);
         }
     }
 
     public static boolean enableFeature(int i) {
-        k eW = iJ.eW();
-        if (eW != null) {
-            return eW.enableFeature(i);
+        k fm = iY.fm();
+        if (fm != null) {
+            return fm.enableFeature(i);
         }
         return true;
     }
 
     public static boolean isShowAuthTip() {
-        k eW = iJ.eW();
-        if (eW != null) {
-            return eW.isShowAuthTip();
+        k fm = iY.fm();
+        if (fm != null) {
+            return fm.isShowAuthTip();
         }
         return true;
     }
 
     public static void loadAuthInfo(Context context) {
-        k eW = iJ.eW();
-        if (eW != null) {
-            eW.loadAuthInfo(context);
+        k fm = iY.fm();
+        if (fm != null) {
+            fm.loadAuthInfo(context);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void receiveAuthFailMessage(int i) {
-        k eW = iJ.eW();
-        if (eW != null) {
-            eW.receiveAuthFailMessage(i);
+        k fm = iY.fm();
+        if (fm != null) {
+            fm.receiveAuthFailMessage(i);
         }
     }
 
     public static void release() {
-        k eX = iJ.eX();
-        if (eX != null) {
-            eX.release();
+        k fn = iY.fn();
+        if (fn != null) {
+            fn.release();
         }
-        iJ.release();
+        iY.release();
+    }
+
+    public static void setAuthLicense(byte[] bArr, String str, String str2, String str3) {
+        k fm = iY.fm();
+        if (fm != null) {
+            fm.setAuthLicense(bArr, str, str2, str3);
+        }
     }
 }

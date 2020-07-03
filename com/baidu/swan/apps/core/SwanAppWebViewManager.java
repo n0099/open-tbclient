@@ -75,126 +75,126 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.swan.apps.core.container.b, c, SwanAppSelectPopView.a, com.baidu.swan.apps.res.ui.pullrefresh.a<NgWebView> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected MutableContextWrapper bTB;
-    protected NgWebView bTC;
-    private BdSailorWebViewClient bTD;
-    private BdSailorWebViewClientExt bTE;
-    private BdSailorWebChromeClient bTF;
-    private com.baidu.swan.apps.core.e.b bTG;
-    protected j bTH;
-    private b bTI;
-    private com.baidu.swan.apps.p.d.a bTO;
+    private com.baidu.swan.apps.p.d.a bYC;
+    protected MutableContextWrapper bYp;
+    protected NgWebView bYq;
+    private BdSailorWebViewClient bYr;
+    private BdSailorWebViewClientExt bYs;
+    private BdSailorWebChromeClient bYt;
+    private com.baidu.swan.apps.core.e.b bYu;
+    protected j bYv;
+    private b bYw;
     private UnitedSchemeMainDispatcher mMainDispatcher;
     private String mUserAgent;
     private Handler mHandler = new Handler(Looper.getMainLooper());
-    private final a bTJ = new a();
-    private List<com.baidu.swan.apps.core.f.c> bTK = new ArrayList();
-    private boolean bTL = false;
-    private Drawable bTM = null;
-    private Drawable bTN = null;
-    private int bTP = -1;
-    private com.baidu.swan.apps.jsbridge.a.a bTQ = new com.baidu.swan.apps.jsbridge.a.a();
+    private final a bYx = new a();
+    private List<com.baidu.swan.apps.core.f.c> bYy = new ArrayList();
+    private boolean bYz = false;
+    private Drawable bYA = null;
+    private Drawable bYB = null;
+    private int bYD = -1;
+    private com.baidu.swan.apps.jsbridge.a.a bYE = new com.baidu.swan.apps.jsbridge.a.a();
 
     @Override // com.baidu.swan.apps.adaptation.b.e
-    public abstract String Tj();
+    public abstract String Up();
 
-    protected abstract void Xk();
+    protected abstract void Yq();
 
     static {
-        d.aCo();
+        d.aDu();
         V8Engine.getInstance(0L);
     }
 
     public SwanAppWebViewManager(Context context) {
-        this.bTB = new MutableContextWrapper(context);
-        com.baidu.swan.apps.core.container.a.a.XL().XM();
+        this.bYp = new MutableContextWrapper(context);
+        com.baidu.swan.apps.core.container.a.a.YR().YS();
         init();
         onCreate();
     }
 
     @DebugTrace
     private void init() {
-        a(this.bTJ);
-        Xh();
+        a(this.bYx);
+        Yn();
         a(this);
-        Xi();
-        Xj();
-        Xl();
+        Yo();
+        Yp();
+        Yr();
         initSettings();
-        Xn();
-        Xk();
+        Yt();
+        Yq();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(a aVar) {
     }
 
-    private void Xh() {
-        if (com.baidu.swan.apps.u.a.aeU().RI()) {
-            this.bTC = new NgWebView(this.bTB);
+    private void Yn() {
+        if (com.baidu.swan.apps.u.a.aga().SO()) {
+            this.bYq = new NgWebView(this.bYp);
         } else {
-            this.bTC = new NgWebView(this.bTB.getBaseContext());
+            this.bYq = new NgWebView(this.bYp.getBaseContext());
         }
-        if (this.bTC.getCurrentWebView() != null) {
-            this.bTM = this.bTC.getCurrentWebView().getBackground();
-            AbsoluteLayout webViewImpl = this.bTC.getWebViewImpl();
+        if (this.bYq.getCurrentWebView() != null) {
+            this.bYA = this.bYq.getCurrentWebView().getBackground();
+            AbsoluteLayout webViewImpl = this.bYq.getWebViewImpl();
             if (webViewImpl != null) {
-                this.bTN = webViewImpl.getBackground();
+                this.bYB = webViewImpl.getBackground();
             }
         }
-        if (this.bTJ.bTT) {
-            this.bTC.setBackgroundColorForSwanApp(0);
+        if (this.bYx.bYH) {
+            this.bYq.setBackgroundColorForSwanApp(0);
             if (!BdZeusUtil.isWebkitLoaded()) {
-                this.bTL = true;
+                this.bYz = true;
             }
         }
-        this.bTC.setScrollBarStyle(0);
-        this.bTG = new com.baidu.swan.apps.core.e.b(this.bTB.getBaseContext());
+        this.bYq.setScrollBarStyle(0);
+        this.bYu = new com.baidu.swan.apps.core.e.b(this.bYp.getBaseContext());
         if (DEBUG) {
             Log.d("SwanAppWebViewManager", "WebViewManager " + hashCode() + " initializing Clients");
         }
-        this.bTC.setWebViewClient(new SwanAppWebViewClient());
-        this.bTC.setWebViewClientExt(new SwanAppWebViewClientExt());
-        this.bTC.setWebChromeClient(new SwanAppWebChromeClient());
-        this.bTC.setWebChromeClientExt(new SwanAppWebChromeClientExt());
-        this.bTC.setOverScrollMode(2);
-        this.bTC.setOnCommonEventHandler(this);
-        this.bTC.setWebViewManager(this);
-        this.bTC.getCurrentWebView().setLongClickable(true);
-        this.bTC.setSelectPopWindowListener(this);
+        this.bYq.setWebViewClient(new SwanAppWebViewClient());
+        this.bYq.setWebViewClientExt(new SwanAppWebViewClientExt());
+        this.bYq.setWebChromeClient(new SwanAppWebChromeClient());
+        this.bYq.setWebChromeClientExt(new SwanAppWebChromeClientExt());
+        this.bYq.setOverScrollMode(2);
+        this.bYq.setOnCommonEventHandler(this);
+        this.bYq.setWebViewManager(this);
+        this.bYq.getCurrentWebView().setLongClickable(true);
+        this.bYq.setSelectPopWindowListener(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.a
-    /* renamed from: bF */
-    public NgWebView bG(Context context) {
-        this.bTB.setBaseContext(context);
-        if (this.bTC == null) {
-            Xh();
+    /* renamed from: bG */
+    public NgWebView bH(Context context) {
+        this.bYp.setBaseContext(context);
+        if (this.bYq == null) {
+            Yn();
         }
-        return this.bTC;
+        return this.bYq;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(SwanAppWebViewManager swanAppWebViewManager) {
-        this.bTQ.a(this.bTB.getBaseContext(), this.bTC);
+        this.bYE.a(this.bYp.getBaseContext(), this.bYq);
     }
 
-    private void Xi() {
+    private void Yo() {
         if (this.mMainDispatcher == null) {
             this.mMainDispatcher = new UnitedSchemeMainDispatcher();
         }
     }
 
-    protected void Xj() {
+    protected void Yp() {
         if (this.mMainDispatcher == null) {
             throw new IllegalStateException("initSwanAppDispatcher() must be called after initDispatcher()");
         }
-        this.bTH = com.baidu.swan.apps.scheme.e.a(this.mMainDispatcher);
+        this.bYv = com.baidu.swan.apps.scheme.e.a(this.mMainDispatcher);
     }
 
-    protected void Xl() {
-        this.bTQ.a(this.bTC, this.bTB.getBaseContext(), this, this.mMainDispatcher);
+    protected void Yr() {
+        this.bYE.a(this.bYq, this.bYp.getBaseContext(), this, this.mMainDispatcher);
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.e
@@ -209,15 +209,15 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             }
             return;
         }
-        this.bTQ.E(activity);
-        this.bTB.setBaseContext(activity);
+        this.bYE.E(activity);
+        this.bYp.setBaseContext(activity);
     }
 
     @SuppressLint({"SetJavaScriptEnabled"})
     private void initSettings() {
-        BdSailorWebSettings settings = this.bTC.getSettings();
-        ISailorWebSettingsExt settingsExt = this.bTC.getSettingsExt();
-        settings.setWebViewFrameNameSailor(Ti());
+        BdSailorWebSettings settings = this.bYq.getSettings();
+        ISailorWebSettingsExt settingsExt = this.bYq.getSettingsExt();
+        settings.setWebViewFrameNameSailor(Uo());
         settings.setLightTouchEnabled(false);
         settings.setNeedInitialFocus(false);
         settings.setJavaScriptEnabled(true);
@@ -239,20 +239,20 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
         settings.setDatabaseEnabled(true);
         settings.setDomStorageEnabled(true);
         settings.setAppCacheEnabled(true);
-        String path = this.bTB.getDir(NgWebView.APP_DATABASE_PATH, 0).getPath();
-        String path2 = this.bTB.getDir(NgWebView.APP_GEO_PATH, 0).getPath();
-        String path3 = this.bTB.getDir(NgWebView.APP_CACHE_PATH, 0).getPath();
+        String path = this.bYp.getDir(NgWebView.APP_DATABASE_PATH, 0).getPath();
+        String path2 = this.bYp.getDir(NgWebView.APP_GEO_PATH, 0).getPath();
+        String path3 = this.bYp.getDir(NgWebView.APP_CACHE_PATH, 0).getPath();
         settings.setGeolocationDatabasePath(path2);
         settings.setDatabasePath(path);
         settings.setAppCachePath(path3);
-        if (((ActivityManager) this.bTB.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryClass() > 16) {
+        if (((ActivityManager) this.bYp.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryClass() > 16) {
             settings.setPageCacheCapacity(5);
         } else {
             settings.setPageCacheCapacity(1);
         }
-        String pu = com.baidu.swan.apps.ao.a.pu(settings.getUserAgentString());
-        if (!TextUtils.equals(pu, this.mUserAgent)) {
-            this.mUserAgent = pu;
+        String pC = com.baidu.swan.apps.ao.a.pC(settings.getUserAgentString());
+        if (!TextUtils.equals(pC, this.mUserAgent)) {
+            this.mUserAgent = pC;
             settings.setUserAgentString(this.mUserAgent);
             if (DEBUG) {
                 Log.i("SwanAppWebViewManager", "set ua:" + this.mUserAgent);
@@ -270,33 +270,33 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
     @Override // com.baidu.swan.apps.core.container.view.SwanAppSelectPopView.a
     public void doSelectionCopy(String str) {
         doSelectionCancel();
-        com.baidu.swan.apps.u.a.afL().p(str, this.bTB.getBaseContext());
+        com.baidu.swan.apps.u.a.agR().p(str, this.bYp.getBaseContext());
     }
 
     @Override // com.baidu.swan.apps.core.container.view.SwanAppSelectPopView.a
     public void doSelectionSearch(String str) {
         doSelectionCancel();
-        com.baidu.swan.apps.u.a.afL().q(str, this.bTB.getBaseContext());
+        com.baidu.swan.apps.u.a.agR().q(str, this.bYp.getBaseContext());
     }
 
     public void doSelectionCancel() {
-        com.baidu.swan.apps.u.a.afL().a(this.bTC);
+        com.baidu.swan.apps.u.a.agR().a(this.bYq);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Xm() {
-        ISailorWebViewExt webViewExt = this.bTC.getWebViewExt();
+    public void Ys() {
+        ISailorWebViewExt webViewExt = this.bYq.getWebViewExt();
         if (webViewExt != null) {
             webViewExt.emulateShiftHeldOnNormalTextExt();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Xn() {
+    public void Yt() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.e
-    public String Ti() {
+    public String Uo() {
         return "ai_apps";
     }
 
@@ -316,39 +316,39 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
                 if (SwanAppWebViewManager.DEBUG) {
                     Log.d("SwanAppWebViewManager", "webview load js:" + str2);
                 }
-                SwanAppWebViewManager.this.bTC.evaluateJavascript(str2, null);
+                SwanAppWebViewManager.this.bYq.evaluateJavascript(str2, null);
             }
         });
     }
 
     public boolean isSlidable(MotionEvent motionEvent) {
-        if (this.bTC != null) {
-            return this.bTC.isSlidable(motionEvent);
+        if (this.bYq != null) {
+            return this.bYq.isSlidable(motionEvent);
         }
         return true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.adaptation.b.e
-    /* renamed from: Xo */
-    public NgWebView Th() {
-        return this.bTC;
+    /* renamed from: Yu */
+    public NgWebView Un() {
+        return this.bYq;
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.e
     public void loadUrl(String str) {
-        ja(str);
-        this.bTC.loadUrl(str);
+        ji(str);
+        this.bYq.loadUrl(str);
     }
 
-    private void ja(String str) {
-        if (a.b.eg(0) && !TextUtils.isEmpty(str)) {
+    private void ji(String str) {
+        if (a.b.er(0) && !TextUtils.isEmpty(str)) {
             String path = Uri.parse(str).getPath();
             if (DEBUG) {
                 Log.d("SwanAppWebViewManager", "pathList item: " + str + " ,folder: " + path + " ,parent: " + new File(path).getParent());
             }
             if (!TextUtils.isEmpty(path)) {
-                this.bTC.getSettings().setCodeCacheSetting(com.baidu.swan.apps.core.b.b.aW("appframe", new File(path).getParent()));
+                this.bYq.getSettings().setCodeCacheSetting(com.baidu.swan.apps.core.b.b.aY("appframe", new File(path).getParent()));
             }
         }
     }
@@ -361,14 +361,14 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
     @Override // com.baidu.swan.apps.adaptation.b.e
     @CallSuper
     public void onResume() {
-        this.bTC.onResume();
+        this.bYq.onResume();
         i.b(this);
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.e
     @CallSuper
     public void onPause() {
-        this.bTC.onPause();
+        this.bYq.onPause();
         i.c(this);
     }
 
@@ -378,53 +378,53 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
     }
 
     public void goBack() {
-        this.bTC.goBack();
+        this.bYq.goBack();
     }
 
     @Override // com.baidu.swan.apps.core.container.c
-    public boolean Xp() {
+    public boolean Yv() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.container.c
-    public boolean du(boolean z) {
+    public boolean dz(boolean z) {
         return z;
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.e
-    public void Tk() {
+    public void Uq() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.e
     public void destroy() {
         this.mHandler.removeCallbacks(null);
-        this.bTC.destroy();
-        this.bTK.clear();
+        this.bYq.destroy();
+        this.bYy.clear();
         onDestroy();
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.e
     public void a(b bVar) {
-        this.bTI = bVar;
+        this.bYw = bVar;
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.e
     public void a(com.baidu.swan.apps.core.f.c cVar) {
-        if (cVar != null && !this.bTK.contains(cVar)) {
-            this.bTK.add(cVar);
+        if (cVar != null && !this.bYy.contains(cVar)) {
+            this.bYy.add(cVar);
         }
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.e
     public void b(com.baidu.swan.apps.core.f.c cVar) {
-        if (cVar != null && this.bTK.contains(cVar)) {
-            this.bTK.remove(cVar);
+        if (cVar != null && this.bYy.contains(cVar)) {
+            this.bYy.remove(cVar);
         }
     }
 
     @Override // com.baidu.swan.apps.core.container.b
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.bTC.canGoBack()) {
+        if (i == 4 && this.bYq.canGoBack()) {
             goBack();
             return true;
         }
@@ -433,8 +433,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
 
     @Override // com.baidu.swan.apps.core.container.b
     public void onScrollChanged(int i, int i2, int i3, int i4) {
-        if (this.bTK != null) {
-            for (com.baidu.swan.apps.core.f.c cVar : this.bTK) {
+        if (this.bYy != null) {
+            for (com.baidu.swan.apps.core.f.c cVar : this.bYy) {
                 if (cVar != null) {
                     cVar.onScrollChanged(i, i2, i3, i4);
                 }
@@ -452,23 +452,23 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
         return false;
     }
 
-    public void eF(int i) {
-        this.bTP = i;
+    public void eQ(int i) {
+        this.bYD = i;
         if (DEBUG) {
-            Log.d("SwanAppWebViewManager", "CustomView orientation has been set to [" + this.bTP + "] for once");
+            Log.d("SwanAppWebViewManager", "CustomView orientation has been set to [" + this.bYD + "] for once");
         }
     }
 
     public final void a(BdSailorWebViewClient bdSailorWebViewClient) {
-        this.bTD = bdSailorWebViewClient;
+        this.bYr = bdSailorWebViewClient;
     }
 
     public final void a(BdSailorWebViewClientExt bdSailorWebViewClientExt) {
-        this.bTE = bdSailorWebViewClientExt;
+        this.bYs = bdSailorWebViewClientExt;
     }
 
     public final void a(BdSailorWebChromeClient bdSailorWebChromeClient) {
-        this.bTF = bdSailorWebChromeClient;
+        this.bYt = bdSailorWebChromeClient;
     }
 
     @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
@@ -486,21 +486,21 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
                     Log.d("SwanAppWebViewManager", "handleSchemeDispatchCallback callback: " + str);
                     Log.d("SwanAppWebViewManager", "handleSchemeDispatchCallback params: " + str2);
                 }
-                if (SwanAppWebViewManager.this.bTC.isDestroyed()) {
+                if (SwanAppWebViewManager.this.bYq.isDestroyed()) {
                     if (SwanAppWebViewManager.DEBUG) {
                         Log.e("SwanAppWebViewManager", "handleSchemeDispatchCallback webview is destroyed.");
                         return;
                     }
                     return;
                 }
-                SwanAppWebViewManager.this.bTC.evaluateJavascript("javascript:" + str + "(" + quote + ")", null);
+                SwanAppWebViewManager.this.bYq.evaluateJavascript("javascript:" + str + "(" + quote + ")", null);
             }
         });
     }
 
     @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
     public String getCurrentPageUrl() {
-        return Th().getUrl();
+        return Un().getUrl();
     }
 
     @Override // com.baidu.searchbox.unitedscheme.TypedCallbackHandler
@@ -509,16 +509,16 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
     }
 
     @Nullable
-    public synchronized com.baidu.swan.apps.p.d.a Xq() {
-        SwanAppActivity aoz;
+    public synchronized com.baidu.swan.apps.p.d.a Yw() {
+        SwanAppActivity apG;
         com.baidu.swan.apps.p.d.a aVar = null;
         synchronized (this) {
-            if (this.bTO == null) {
-                if (com.baidu.swan.apps.runtime.d.aoB().aox().available() && (aoz = com.baidu.swan.apps.runtime.d.aoB().aoz()) != null) {
-                    this.bTO = new com.baidu.swan.apps.p.d.a(aoz, Tj());
+            if (this.bYC == null) {
+                if (com.baidu.swan.apps.runtime.d.apI().apE().available() && (apG = com.baidu.swan.apps.runtime.d.apI().apG()) != null) {
+                    this.bYC = new com.baidu.swan.apps.p.d.a(apG, Up());
                 }
             }
-            aVar = this.bTO;
+            aVar = this.bYC;
         }
         return aVar;
     }
@@ -534,8 +534,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::doUpdateVisitedHistory");
             }
-            if (SwanAppWebViewManager.this.bTD != null) {
-                SwanAppWebViewManager.this.bTD.doUpdateVisitedHistory(bdSailorWebView, str, z);
+            if (SwanAppWebViewManager.this.bYr != null) {
+                SwanAppWebViewManager.this.bYr.doUpdateVisitedHistory(bdSailorWebView, str, z);
             } else {
                 super.doUpdateVisitedHistory(bdSailorWebView, str, z);
             }
@@ -546,8 +546,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFormResubmission");
             }
-            if (SwanAppWebViewManager.this.bTD != null) {
-                SwanAppWebViewManager.this.bTD.onFormResubmission(bdSailorWebView, message, message2);
+            if (SwanAppWebViewManager.this.bYr != null) {
+                SwanAppWebViewManager.this.bYr.onFormResubmission(bdSailorWebView, message, message2);
             } else {
                 super.onFormResubmission(bdSailorWebView, message, message2);
             }
@@ -558,8 +558,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onLoadResource：" + str);
             }
-            if (SwanAppWebViewManager.this.bTD != null) {
-                SwanAppWebViewManager.this.bTD.onLoadResource(bdSailorWebView, str);
+            if (SwanAppWebViewManager.this.bYr != null) {
+                SwanAppWebViewManager.this.bYr.onLoadResource(bdSailorWebView, str);
             } else {
                 super.onLoadResource(bdSailorWebView, str);
             }
@@ -570,8 +570,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onReceivedLoginRequest");
             }
-            if (SwanAppWebViewManager.this.bTD != null) {
-                SwanAppWebViewManager.this.bTD.onReceivedLoginRequest(bdSailorWebView, str, str2, str3);
+            if (SwanAppWebViewManager.this.bYr != null) {
+                SwanAppWebViewManager.this.bYr.onReceivedLoginRequest(bdSailorWebView, str, str2, str3);
             } else {
                 super.onReceivedLoginRequest(bdSailorWebView, str, str2, str3);
             }
@@ -582,8 +582,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onScaleChanged");
             }
-            if (SwanAppWebViewManager.this.bTD != null) {
-                SwanAppWebViewManager.this.bTD.onScaleChanged(bdSailorWebView, f, f2);
+            if (SwanAppWebViewManager.this.bYr != null) {
+                SwanAppWebViewManager.this.bYr.onScaleChanged(bdSailorWebView, f, f2);
             } else {
                 super.onScaleChanged(bdSailorWebView, f, f2);
             }
@@ -594,8 +594,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onUnhandledKeyEvent");
             }
-            if (SwanAppWebViewManager.this.bTD != null) {
-                SwanAppWebViewManager.this.bTD.onUnhandledKeyEvent(bdSailorWebView, keyEvent);
+            if (SwanAppWebViewManager.this.bYr != null) {
+                SwanAppWebViewManager.this.bYr.onUnhandledKeyEvent(bdSailorWebView, keyEvent);
             } else {
                 super.onUnhandledKeyEvent(bdSailorWebView, keyEvent);
             }
@@ -606,8 +606,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::shouldInterceptRequest url: " + str);
             }
-            if (SwanAppWebViewManager.this.bTD != null) {
-                return SwanAppWebViewManager.this.bTD.shouldInterceptRequest(bdSailorWebView, str);
+            if (SwanAppWebViewManager.this.bYr != null) {
+                return SwanAppWebViewManager.this.bYr.shouldInterceptRequest(bdSailorWebView, str);
             }
             return super.shouldInterceptRequest(bdSailorWebView, str);
         }
@@ -617,7 +617,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::shouldOverrideKeyEvent");
             }
-            if (SwanAppWebViewManager.this.bTD == null || !SwanAppWebViewManager.this.bTD.shouldOverrideKeyEvent(bdSailorWebView, keyEvent)) {
+            if (SwanAppWebViewManager.this.bYr == null || !SwanAppWebViewManager.this.bYr.shouldOverrideKeyEvent(bdSailorWebView, keyEvent)) {
                 return super.shouldOverrideKeyEvent(bdSailorWebView, keyEvent);
             }
             return true;
@@ -628,8 +628,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onReceivedClientCertRequest");
             }
-            if (SwanAppWebViewManager.this.bTD != null) {
-                SwanAppWebViewManager.this.bTD.onReceivedClientCertRequest(bdSailorWebView, clientCertRequest);
+            if (SwanAppWebViewManager.this.bYr != null) {
+                SwanAppWebViewManager.this.bYr.onReceivedClientCertRequest(bdSailorWebView, clientCertRequest);
             } else {
                 super.onReceivedClientCertRequest(bdSailorWebView, clientCertRequest);
             }
@@ -640,8 +640,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::shouldOverrideUrlLoading url: " + str);
             }
-            if (SwanAppWebViewManager.this.bTD != null) {
-                return SwanAppWebViewManager.this.bTD.shouldOverrideUrlLoading(bdSailorWebView, str);
+            if (SwanAppWebViewManager.this.bYr != null) {
+                return SwanAppWebViewManager.this.bYr.shouldOverrideUrlLoading(bdSailorWebView, str);
             }
             return true;
         }
@@ -651,8 +651,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onPageStarted url: " + str);
             }
-            if (SwanAppWebViewManager.this.bTD != null) {
-                SwanAppWebViewManager.this.bTD.onPageStarted(bdSailorWebView, str, bitmap);
+            if (SwanAppWebViewManager.this.bYr != null) {
+                SwanAppWebViewManager.this.bYr.onPageStarted(bdSailorWebView, str, bitmap);
             } else {
                 super.onPageStarted(bdSailorWebView, str, bitmap);
             }
@@ -663,22 +663,22 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onPageFinished url: " + str);
             }
-            if (SwanAppWebViewManager.this.bTL) {
-                WebView currentWebView = SwanAppWebViewManager.this.bTC.getCurrentWebView();
+            if (SwanAppWebViewManager.this.bYz) {
+                WebView currentWebView = SwanAppWebViewManager.this.bYq.getCurrentWebView();
                 if (currentWebView != null) {
-                    currentWebView.setBackground(SwanAppWebViewManager.this.bTM);
-                    SwanAppWebViewManager.this.bTL = false;
+                    currentWebView.setBackground(SwanAppWebViewManager.this.bYA);
+                    SwanAppWebViewManager.this.bYz = false;
                 }
-                AbsoluteLayout webViewImpl = SwanAppWebViewManager.this.bTC.getWebViewImpl();
+                AbsoluteLayout webViewImpl = SwanAppWebViewManager.this.bYq.getWebViewImpl();
                 if (webViewImpl != null) {
-                    webViewImpl.setBackground(SwanAppWebViewManager.this.bTN);
+                    webViewImpl.setBackground(SwanAppWebViewManager.this.bYB);
                 }
             }
-            if (SwanAppWebViewManager.this.bTI != null) {
-                SwanAppWebViewManager.this.bTI.fQ(str);
+            if (SwanAppWebViewManager.this.bYw != null) {
+                SwanAppWebViewManager.this.bYw.fJ(str);
             }
-            if (SwanAppWebViewManager.this.bTD != null) {
-                SwanAppWebViewManager.this.bTD.onPageFinished(bdSailorWebView, str);
+            if (SwanAppWebViewManager.this.bYr != null) {
+                SwanAppWebViewManager.this.bYr.onPageFinished(bdSailorWebView, str);
             } else {
                 super.onPageFinished(bdSailorWebView, str);
             }
@@ -689,8 +689,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onReceivedError errorCode: " + i + " ,failingUrl: " + str2);
             }
-            if (SwanAppWebViewManager.this.bTD != null) {
-                SwanAppWebViewManager.this.bTD.onReceivedError(bdSailorWebView, i, str, str2);
+            if (SwanAppWebViewManager.this.bYr != null) {
+                SwanAppWebViewManager.this.bYr.onReceivedError(bdSailorWebView, i, str, str2);
             } else {
                 super.onReceivedError(bdSailorWebView, i, str, str2);
             }
@@ -698,8 +698,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClient
         public void onReceivedHttpError(BdSailorWebView bdSailorWebView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
-            if (SwanAppWebViewManager.this.bTD != null) {
-                SwanAppWebViewManager.this.bTD.onReceivedHttpError(bdSailorWebView, webResourceRequest, webResourceResponse);
+            if (SwanAppWebViewManager.this.bYr != null) {
+                SwanAppWebViewManager.this.bYr.onReceivedHttpError(bdSailorWebView, webResourceRequest, webResourceResponse);
             } else {
                 super.onReceivedHttpError(bdSailorWebView, webResourceRequest, webResourceResponse);
             }
@@ -710,20 +710,20 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onReceivedSslError");
             }
-            if (SwanAppWebViewManager.this.bTC.isShown()) {
-                SwanAppWebViewManager.this.bTG.a(new b.c() { // from class: com.baidu.swan.apps.core.SwanAppWebViewManager.SwanAppWebViewClient.1
+            if (SwanAppWebViewManager.this.bYq.isShown()) {
+                SwanAppWebViewManager.this.bYu.a(new b.c() { // from class: com.baidu.swan.apps.core.SwanAppWebViewManager.SwanAppWebViewClient.1
                     @Override // com.baidu.swan.apps.core.e.b.c
-                    public void Xs() {
+                    public void Yy() {
                         sslErrorHandler.proceed();
                     }
 
                     @Override // com.baidu.swan.apps.core.e.b.c
-                    public void Xt() {
+                    public void Yz() {
                         sslErrorHandler.cancel();
                     }
 
                     @Override // com.baidu.swan.apps.core.e.b.c
-                    public void Xu() {
+                    public void YA() {
                         SwanAppWebViewClient.this.onReceivedSslError(bdSailorWebView, sslErrorHandler, sslError);
                     }
                 }, sslErrorHandler, sslError);
@@ -751,13 +751,13 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
                     Log.d("SwanAppWebViewManager", "OnReceivedHttpAuthRequest Reuse Http Auth Username & PassWord");
                 }
                 httpAuthHandler.proceed(str3, str4);
-            } else if (SwanAppWebViewManager.this.bTC.isShown()) {
+            } else if (SwanAppWebViewManager.this.bYq.isShown()) {
                 if (SwanAppWebViewManager.DEBUG) {
                     Log.d("SwanAppWebViewManager", "OnReceivedHttpAuthRequest show Http Auth dialog ");
                 }
-                SwanAppWebViewManager.this.bTG.a(new b.a() { // from class: com.baidu.swan.apps.core.SwanAppWebViewManager.SwanAppWebViewClient.2
+                SwanAppWebViewManager.this.bYu.a(new b.a() { // from class: com.baidu.swan.apps.core.SwanAppWebViewManager.SwanAppWebViewClient.2
                     @Override // com.baidu.swan.apps.core.e.b.a
-                    public void aT(String str5, String str6) {
+                    public void aV(String str5, String str6) {
                         if (bdSailorWebView != null) {
                             bdSailorWebView.setHttpAuthUsernamePassword(str, str2, str5, str6);
                         }
@@ -765,7 +765,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
                     }
 
                     @Override // com.baidu.swan.apps.core.e.b.a
-                    public void Xv() {
+                    public void YB() {
                         httpAuthHandler.cancel();
                     }
                 }, str, str2);
@@ -783,8 +783,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstLayoutDidExt(BdSailorWebView bdSailorWebView, String str) {
-            if (SwanAppWebViewManager.this.bTE != null) {
-                SwanAppWebViewManager.this.bTE.onFirstLayoutDidExt(bdSailorWebView, str);
+            if (SwanAppWebViewManager.this.bYs != null) {
+                SwanAppWebViewManager.this.bYs.onFirstLayoutDidExt(bdSailorWebView, str);
             } else {
                 super.onFirstLayoutDidExt(bdSailorWebView, str);
             }
@@ -795,8 +795,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFullScreenModeEx");
             }
-            if (SwanAppWebViewManager.this.bTE != null) {
-                SwanAppWebViewManager.this.bTE.onFullScreenModeExt(bdSailorWebView, z, i, i2);
+            if (SwanAppWebViewManager.this.bYs != null) {
+                SwanAppWebViewManager.this.bYs.onFullScreenModeExt(bdSailorWebView, z, i, i2);
             } else {
                 super.onFullScreenModeExt(bdSailorWebView, z, i, i2);
             }
@@ -807,8 +807,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onPreloadUrlFoundEx：" + str);
             }
-            if (SwanAppWebViewManager.this.bTE != null) {
-                SwanAppWebViewManager.this.bTE.onPreloadUrlFoundExt(bdSailorWebView, str);
+            if (SwanAppWebViewManager.this.bYs != null) {
+                SwanAppWebViewManager.this.bYs.onPreloadUrlFoundExt(bdSailorWebView, str);
             } else {
                 super.onPreloadUrlFoundExt(bdSailorWebView, str);
             }
@@ -819,8 +819,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onPageCanBeScaledEx");
             }
-            if (SwanAppWebViewManager.this.bTE != null) {
-                SwanAppWebViewManager.this.bTE.onPageCanBeScaledExt(bdSailorWebView, z);
+            if (SwanAppWebViewManager.this.bYs != null) {
+                SwanAppWebViewManager.this.bYs.onPageCanBeScaledExt(bdSailorWebView, z);
             } else {
                 super.onPageCanBeScaledExt(bdSailorWebView, z);
             }
@@ -831,8 +831,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFirstPaintDidEx");
             }
-            if (SwanAppWebViewManager.this.bTE != null) {
-                SwanAppWebViewManager.this.bTE.onFirstPaintDidExt(bdSailorWebView, str);
+            if (SwanAppWebViewManager.this.bYs != null) {
+                SwanAppWebViewManager.this.bYs.onFirstPaintDidExt(bdSailorWebView, str);
             } else {
                 super.onFirstPaintDidExt(bdSailorWebView, str);
             }
@@ -843,8 +843,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFirstScreenPaintFinishedEx");
             }
-            if (SwanAppWebViewManager.this.bTE != null) {
-                SwanAppWebViewManager.this.bTE.onFirstScreenPaintFinishedExt(bdSailorWebView, str);
+            if (SwanAppWebViewManager.this.bYs != null) {
+                SwanAppWebViewManager.this.bYs.onFirstScreenPaintFinishedExt(bdSailorWebView, str);
             } else {
                 super.onFirstScreenPaintFinishedExt(bdSailorWebView, str);
             }
@@ -855,8 +855,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onGoBackOrForwardEx");
             }
-            if (SwanAppWebViewManager.this.bTE != null) {
-                SwanAppWebViewManager.this.bTE.onPageBackOrForwardExt(bdSailorWebView, i);
+            if (SwanAppWebViewManager.this.bYs != null) {
+                SwanAppWebViewManager.this.bYs.onPageBackOrForwardExt(bdSailorWebView, i);
             } else {
                 super.onPageBackOrForwardExt(bdSailorWebView, i);
             }
@@ -867,7 +867,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::canHandleImageEx");
             }
-            if (SwanAppWebViewManager.this.bTE == null || !SwanAppWebViewManager.this.bTE.shouldHandleImageExt(bdSailorWebView, str, str2, str3, z)) {
+            if (SwanAppWebViewManager.this.bYs == null || !SwanAppWebViewManager.this.bYs.shouldHandleImageExt(bdSailorWebView, str, str2, str3, z)) {
                 return super.shouldHandleImageExt(bdSailorWebView, str, str2, str3, z);
             }
             return true;
@@ -878,8 +878,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onSecurityCheckResultEx");
             }
-            if (SwanAppWebViewManager.this.bTE != null) {
-                SwanAppWebViewManager.this.bTE.onSecurityCheckResultExt(bdSailorWebView, str, securityInfo);
+            if (SwanAppWebViewManager.this.bYs != null) {
+                SwanAppWebViewManager.this.bYs.onSecurityCheckResultExt(bdSailorWebView, str, securityInfo);
             } else {
                 super.onSecurityCheckResultExt(bdSailorWebView, str, securityInfo);
             }
@@ -890,7 +890,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onKeywordExtensionEx");
             }
-            return SwanAppWebViewManager.this.bTE != null ? SwanAppWebViewManager.this.bTE.onKeywordExtensionExt(bdSailorWebView, str, str2) : super.onKeywordExtensionExt(bdSailorWebView, str, str2);
+            return SwanAppWebViewManager.this.bYs != null ? SwanAppWebViewManager.this.bYs.onKeywordExtensionExt(bdSailorWebView, str, str2) : super.onKeywordExtensionExt(bdSailorWebView, str, str2);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
@@ -898,7 +898,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onGetErrorHtmlSailor");
             }
-            return SwanAppWebViewManager.this.bTE != null ? SwanAppWebViewManager.this.bTE.onGetErrorHtmlExt(bdSailorWebView, i, str, str2) : super.onGetErrorHtmlExt(bdSailorWebView, i, str, str2);
+            return SwanAppWebViewManager.this.bYs != null ? SwanAppWebViewManager.this.bYs.onGetErrorHtmlExt(bdSailorWebView, i, str, str2) : super.onGetErrorHtmlExt(bdSailorWebView, i, str, str2);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
@@ -906,8 +906,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onUrlRedirected");
             }
-            if (SwanAppWebViewManager.this.bTE != null) {
-                SwanAppWebViewManager.this.bTE.onUrlRedirectedExt(bdSailorWebView, str, str2);
+            if (SwanAppWebViewManager.this.bYs != null) {
+                SwanAppWebViewManager.this.bYs.onUrlRedirectedExt(bdSailorWebView, str, str2);
             } else {
                 super.onUrlRedirectedExt(bdSailorWebView, str, str2);
             }
@@ -918,8 +918,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFirstContentfulPaintExt");
             }
-            if (SwanAppWebViewManager.this.bTE != null) {
-                SwanAppWebViewManager.this.bTE.onFirstContentfulPaintExt(bdSailorWebView, str);
+            if (SwanAppWebViewManager.this.bYs != null) {
+                SwanAppWebViewManager.this.bYs.onFirstContentfulPaintExt(bdSailorWebView, str);
             } else {
                 super.onFirstContentfulPaintExt(bdSailorWebView, str);
             }
@@ -930,8 +930,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFirstTextPaintExt");
             }
-            if (SwanAppWebViewManager.this.bTE != null) {
-                SwanAppWebViewManager.this.bTE.onFirstTextPaintExt(bdSailorWebView, str);
+            if (SwanAppWebViewManager.this.bYs != null) {
+                SwanAppWebViewManager.this.bYs.onFirstTextPaintExt(bdSailorWebView, str);
             } else {
                 super.onFirstTextPaintExt(bdSailorWebView, str);
             }
@@ -942,8 +942,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFirstImagePaintExt");
             }
-            if (SwanAppWebViewManager.this.bTE != null) {
-                SwanAppWebViewManager.this.bTE.onFirstImagePaintExt(bdSailorWebView, str);
+            if (SwanAppWebViewManager.this.bYs != null) {
+                SwanAppWebViewManager.this.bYs.onFirstImagePaintExt(bdSailorWebView, str);
             } else {
                 super.onFirstImagePaintExt(bdSailorWebView, str);
             }
@@ -954,7 +954,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onSubFrameBeforeRequest url: " + str);
             }
-            return SwanAppWebViewManager.this.bTE != null ? SwanAppWebViewManager.this.bTE.onSubFrameBeforeRequest(bdSailorWebView, str) : super.onSubFrameBeforeRequest(bdSailorWebView, str);
+            return SwanAppWebViewManager.this.bYs != null ? SwanAppWebViewManager.this.bYs.onSubFrameBeforeRequest(bdSailorWebView, str) : super.onSubFrameBeforeRequest(bdSailorWebView, str);
         }
     }
 
@@ -967,16 +967,16 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public boolean onHideCustomView(BdSailorWebView bdSailorWebView) {
             boolean z = false;
-            if (SwanAppWebViewManager.this.bTF != null) {
-                z = SwanAppWebViewManager.this.bTF.onHideCustomView(bdSailorWebView);
+            if (SwanAppWebViewManager.this.bYt != null) {
+                z = SwanAppWebViewManager.this.bYt.onHideCustomView(bdSailorWebView);
             }
             if (z) {
                 if (SwanAppWebViewManager.DEBUG) {
                     Log.i("SwanAppWebViewManager", "SwanAppWebChromeClient::onHideCustomView by external client");
                 }
             } else {
-                if (SwanAppWebViewManager.this.Xq() != null) {
-                    SwanAppWebViewManager.this.Xq().hideCustomView();
+                if (SwanAppWebViewManager.this.Yw() != null) {
+                    SwanAppWebViewManager.this.Yw().hideCustomView();
                 }
                 if (SwanAppWebViewManager.DEBUG) {
                     Log.i("SwanAppWebViewManager", "SwanAppWebChromeClient::onHideCustomView");
@@ -988,15 +988,15 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public boolean onShowCustomView(BdSailorWebView bdSailorWebView, View view, WebChromeClient.CustomViewCallback customViewCallback) {
             int i = 0;
-            if (SwanAppWebViewManager.this.bTF != null ? SwanAppWebViewManager.this.bTF.onShowCustomView(bdSailorWebView, view, customViewCallback) : false) {
+            if (SwanAppWebViewManager.this.bYt != null ? SwanAppWebViewManager.this.bYt.onShowCustomView(bdSailorWebView, view, customViewCallback) : false) {
                 if (SwanAppWebViewManager.DEBUG) {
                     Log.i("SwanAppWebViewManager", "SwanAppWebChromeClient::onShowCustomView by external client");
                 }
             } else {
-                if (SwanAppWebViewManager.this.bTP != -1) {
-                    i = SwanAppWebViewManager.this.bTP;
+                if (SwanAppWebViewManager.this.bYD != -1) {
+                    i = SwanAppWebViewManager.this.bYD;
                 } else {
-                    int i2 = com.baidu.swan.apps.runtime.d.aoB().czz;
+                    int i2 = com.baidu.swan.apps.runtime.d.apI().cEj;
                     if (i2 >= 35 && i2 < 180) {
                         i = 8;
                     }
@@ -1008,21 +1008,21 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public boolean onShowCustomView(BdSailorWebView bdSailorWebView, View view, int i, WebChromeClient.CustomViewCallback customViewCallback) {
-            SwanAppWebViewManager.this.bTP = -1;
+            SwanAppWebViewManager.this.bYD = -1;
             if (SwanAppWebViewManager.DEBUG) {
-                Log.d("SwanAppWebViewManager", "CustomView orientation applied, set back to default [" + SwanAppWebViewManager.this.bTP + "]");
+                Log.d("SwanAppWebViewManager", "CustomView orientation applied, set back to default [" + SwanAppWebViewManager.this.bYD + "]");
             }
             boolean z = false;
-            if (SwanAppWebViewManager.this.bTF != null) {
-                z = SwanAppWebViewManager.this.bTF.onShowCustomView(bdSailorWebView, view, i, customViewCallback);
+            if (SwanAppWebViewManager.this.bYt != null) {
+                z = SwanAppWebViewManager.this.bYt.onShowCustomView(bdSailorWebView, view, i, customViewCallback);
             }
             if (z) {
                 if (SwanAppWebViewManager.DEBUG) {
                     Log.i("SwanAppWebViewManager", "SwanAppWebChromeClient::onShowCustomView by external client");
                 }
             } else {
-                if (SwanAppWebViewManager.this.Xq() != null) {
-                    SwanAppWebViewManager.this.Xq().a(view, i, null);
+                if (SwanAppWebViewManager.this.Yw() != null) {
+                    SwanAppWebViewManager.this.Yw().a(view, i, null);
                 }
                 if (SwanAppWebViewManager.DEBUG) {
                     Log.i("SwanAppWebViewManager", "SwanAppWebChromeClient::onShowCustomView : " + i);
@@ -1036,8 +1036,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onCloseWindow");
             }
-            if (SwanAppWebViewManager.this.bTF != null) {
-                SwanAppWebViewManager.this.bTF.onCloseWindow(bdSailorWebView);
+            if (SwanAppWebViewManager.this.bYt != null) {
+                SwanAppWebViewManager.this.bYt.onCloseWindow(bdSailorWebView);
             } else {
                 super.onCloseWindow(bdSailorWebView);
             }
@@ -1048,7 +1048,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onConsoleMessage");
             }
-            if (SwanAppWebViewManager.this.bTF == null || !SwanAppWebViewManager.this.bTF.onConsoleMessage(bdSailorWebView, consoleMessage)) {
+            if (SwanAppWebViewManager.this.bYt == null || !SwanAppWebViewManager.this.bYt.onConsoleMessage(bdSailorWebView, consoleMessage)) {
                 return super.onConsoleMessage(bdSailorWebView, consoleMessage);
             }
             return true;
@@ -1059,7 +1059,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onCreateWindow");
             }
-            if (SwanAppWebViewManager.this.bTF == null || !SwanAppWebViewManager.this.bTF.onCreateWindow(bdSailorWebView, z, z2, message)) {
+            if (SwanAppWebViewManager.this.bYt == null || !SwanAppWebViewManager.this.bYt.onCreateWindow(bdSailorWebView, z, z2, message)) {
                 return super.onCreateWindow(bdSailorWebView, z, z2, message);
             }
             return true;
@@ -1070,8 +1070,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onExceededDatabaseQuota");
             }
-            if (SwanAppWebViewManager.this.bTF != null) {
-                SwanAppWebViewManager.this.bTF.onExceededDatabaseQuota(bdSailorWebView, str, str2, j, j2, j3, quotaUpdater);
+            if (SwanAppWebViewManager.this.bYt != null) {
+                SwanAppWebViewManager.this.bYt.onExceededDatabaseQuota(bdSailorWebView, str, str2, j, j2, j3, quotaUpdater);
             } else {
                 super.onExceededDatabaseQuota(bdSailorWebView, str, str2, j, j2, j3, quotaUpdater);
             }
@@ -1082,7 +1082,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onJsBeforeUnload：" + str);
             }
-            if (SwanAppWebViewManager.this.bTF == null || !SwanAppWebViewManager.this.bTF.onJsBeforeUnload(bdSailorWebView, str, str2, jsResult)) {
+            if (SwanAppWebViewManager.this.bYt == null || !SwanAppWebViewManager.this.bYt.onJsBeforeUnload(bdSailorWebView, str, str2, jsResult)) {
                 return super.onJsBeforeUnload(bdSailorWebView, str, str2, jsResult);
             }
             return true;
@@ -1093,7 +1093,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onJsTimeout  ");
             }
-            if (SwanAppWebViewManager.this.bTF == null || !SwanAppWebViewManager.this.bTF.onJsTimeout(bdSailorWebView)) {
+            if (SwanAppWebViewManager.this.bYt == null || !SwanAppWebViewManager.this.bYt.onJsTimeout(bdSailorWebView)) {
                 return super.onJsTimeout(bdSailorWebView);
             }
             return true;
@@ -1104,8 +1104,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onReachedMaxAppCacheSize");
             }
-            if (SwanAppWebViewManager.this.bTF != null) {
-                SwanAppWebViewManager.this.bTF.onReachedMaxAppCacheSize(bdSailorWebView, j, j2, quotaUpdater);
+            if (SwanAppWebViewManager.this.bYt != null) {
+                SwanAppWebViewManager.this.bYt.onReachedMaxAppCacheSize(bdSailorWebView, j, j2, quotaUpdater);
             } else {
                 super.onReachedMaxAppCacheSize(bdSailorWebView, j, j2, quotaUpdater);
             }
@@ -1116,8 +1116,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onReachedMaxAppCacheSize");
             }
-            if (SwanAppWebViewManager.this.bTF != null) {
-                SwanAppWebViewManager.this.bTF.onReceivedIcon(bdSailorWebView, bitmap);
+            if (SwanAppWebViewManager.this.bYt != null) {
+                SwanAppWebViewManager.this.bYt.onReceivedIcon(bdSailorWebView, bitmap);
             } else {
                 super.onReceivedIcon(bdSailorWebView, bitmap);
             }
@@ -1128,8 +1128,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onReceivedTouchIconUrl");
             }
-            if (SwanAppWebViewManager.this.bTF != null) {
-                SwanAppWebViewManager.this.bTF.onReceivedTouchIconUrl(bdSailorWebView, str, z);
+            if (SwanAppWebViewManager.this.bYt != null) {
+                SwanAppWebViewManager.this.bYt.onReceivedTouchIconUrl(bdSailorWebView, str, z);
             } else {
                 super.onReceivedTouchIconUrl(bdSailorWebView, str, z);
             }
@@ -1140,8 +1140,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onRequestFocus");
             }
-            if (SwanAppWebViewManager.this.bTF != null) {
-                SwanAppWebViewManager.this.bTF.onRequestFocus(bdSailorWebView);
+            if (SwanAppWebViewManager.this.bYt != null) {
+                SwanAppWebViewManager.this.bYt.onRequestFocus(bdSailorWebView);
             } else {
                 super.onRequestFocus(bdSailorWebView);
             }
@@ -1152,8 +1152,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::openFileChooser");
             }
-            if (SwanAppWebViewManager.this.bTF != null) {
-                SwanAppWebViewManager.this.bTF.openFileChooser(bdSailorWebView, valueCallback);
+            if (SwanAppWebViewManager.this.bYt != null) {
+                SwanAppWebViewManager.this.bYt.openFileChooser(bdSailorWebView, valueCallback);
             } else {
                 super.openFileChooser(bdSailorWebView, valueCallback);
             }
@@ -1164,8 +1164,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::openFileChooser");
             }
-            if (SwanAppWebViewManager.this.bTF != null) {
-                SwanAppWebViewManager.this.bTF.openFileChooser(bdSailorWebView, valueCallback, str);
+            if (SwanAppWebViewManager.this.bYt != null) {
+                SwanAppWebViewManager.this.bYt.openFileChooser(bdSailorWebView, valueCallback, str);
             } else {
                 super.openFileChooser(bdSailorWebView, valueCallback, str);
             }
@@ -1176,8 +1176,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::openFileChooser");
             }
-            if (SwanAppWebViewManager.this.bTF != null) {
-                SwanAppWebViewManager.this.bTF.openFileChooser(bdSailorWebView, valueCallback, str, str2);
+            if (SwanAppWebViewManager.this.bYt != null) {
+                SwanAppWebViewManager.this.bYt.openFileChooser(bdSailorWebView, valueCallback, str, str2);
             } else {
                 super.openFileChooser(bdSailorWebView, valueCallback, str, str2);
             }
@@ -1190,8 +1190,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public void onProgressChanged(BdSailorWebView bdSailorWebView, int i) {
-            if (SwanAppWebViewManager.this.bTF != null) {
-                SwanAppWebViewManager.this.bTF.onProgressChanged(bdSailorWebView, i);
+            if (SwanAppWebViewManager.this.bYt != null) {
+                SwanAppWebViewManager.this.bYt.onProgressChanged(bdSailorWebView, i);
             } else {
                 super.onProgressChanged(bdSailorWebView, i);
             }
@@ -1202,8 +1202,8 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onReceivedTitleInFact : " + str);
             }
-            if (SwanAppWebViewManager.this.bTF != null) {
-                SwanAppWebViewManager.this.bTF.onReceivedTitle(bdSailorWebView, str);
+            if (SwanAppWebViewManager.this.bYt != null) {
+                SwanAppWebViewManager.this.bYt.onReceivedTitle(bdSailorWebView, str);
             } else {
                 super.onReceivedTitle(bdSailorWebView, str);
             }
@@ -1214,18 +1214,18 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onJsPrompt");
             }
-            return SwanAppWebViewManager.this.bTG.a(str, str2, str3, new b.InterfaceC0338b() { // from class: com.baidu.swan.apps.core.SwanAppWebViewManager.SwanAppWebChromeClient.1
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0338b
-                public void Xr() {
+            return SwanAppWebViewManager.this.bYu.a(str, str2, str3, new b.InterfaceC0344b() { // from class: com.baidu.swan.apps.core.SwanAppWebViewManager.SwanAppWebChromeClient.1
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0344b
+                public void Yx() {
                     jsPromptResult.cancel();
                 }
 
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0338b
-                public void jb(String str4) {
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0344b
+                public void jj(String str4) {
                     jsPromptResult.confirm(str4);
                 }
 
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0338b
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0344b
                 public void onCancel() {
                     jsPromptResult.cancel();
                 }
@@ -1237,18 +1237,18 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onJsAlert");
             }
-            return SwanAppWebViewManager.this.bTG.a(str, str2, new b.InterfaceC0338b() { // from class: com.baidu.swan.apps.core.SwanAppWebViewManager.SwanAppWebChromeClient.2
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0338b
-                public void Xr() {
+            return SwanAppWebViewManager.this.bYu.a(str, str2, new b.InterfaceC0344b() { // from class: com.baidu.swan.apps.core.SwanAppWebViewManager.SwanAppWebChromeClient.2
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0344b
+                public void Yx() {
                     jsResult.cancel();
                 }
 
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0338b
-                public void jb(String str3) {
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0344b
+                public void jj(String str3) {
                     jsResult.confirm();
                 }
 
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0338b
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0344b
                 public void onCancel() {
                     jsResult.cancel();
                 }
@@ -1260,18 +1260,18 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onJsConfirm");
             }
-            return SwanAppWebViewManager.this.bTG.b(str, str2, new b.InterfaceC0338b() { // from class: com.baidu.swan.apps.core.SwanAppWebViewManager.SwanAppWebChromeClient.3
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0338b
-                public void Xr() {
+            return SwanAppWebViewManager.this.bYu.b(str, str2, new b.InterfaceC0344b() { // from class: com.baidu.swan.apps.core.SwanAppWebViewManager.SwanAppWebChromeClient.3
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0344b
+                public void Yx() {
                     jsResult.cancel();
                 }
 
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0338b
-                public void jb(String str3) {
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0344b
+                public void jj(String str3) {
                     jsResult.confirm();
                 }
 
-                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0338b
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0344b
                 public void onCancel() {
                     jsResult.cancel();
                 }
@@ -1290,11 +1290,11 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onGeolocationPermissionsShowPrompt");
             }
-            com.baidu.swan.apps.runtime.e aoF = com.baidu.swan.apps.runtime.e.aoF();
-            if (aoF == null || aoF.aoz() == null) {
+            com.baidu.swan.apps.runtime.e apM = com.baidu.swan.apps.runtime.e.apM();
+            if (apM == null || apM.apG() == null) {
                 SwanAppWebViewManager.this.b(str, callback);
             } else {
-                aoF.aoR().b(aoF.aoz(), "mapp_location", new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.core.SwanAppWebViewManager.SwanAppWebChromeClient.4
+                apM.apY().b(apM.apG(), "mapp_location", new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.core.SwanAppWebViewManager.SwanAppWebChromeClient.4
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.aq.e.b
                     /* renamed from: a */
@@ -1325,7 +1325,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "showSelectionActionDialogExt: " + i3 + " : " + i4 + " : " + i + " : " + i2 + " : " + str);
             }
-            com.baidu.swan.apps.u.a.afL().a(SwanAppWebViewManager.this.bTC, i, i2, i3, i4, str, this.mIsFirstTimeShow);
+            com.baidu.swan.apps.u.a.agR().a(SwanAppWebViewManager.this.bYq, i, i2, i3, i4, str, this.mIsFirstTimeShow);
             this.mIsFirstTimeShow = false;
         }
 
@@ -1335,7 +1335,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             if (SwanAppWebViewManager.DEBUG) {
                 Log.d("SwanAppWebViewManager", "hideSelectionActionDialogExt: ");
             }
-            SwanAppWebViewManager.this.bTC.hidePopWindow();
+            SwanAppWebViewManager.this.bYq.hidePopWindow();
             this.mIsFirstTimeShow = true;
         }
 
@@ -1349,16 +1349,16 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
                 }
                 int type = hitTestResult.getType();
                 if (type == 10) {
-                    SwanAppWebViewManager.this.Xm();
+                    SwanAppWebViewManager.this.Ys();
                 } else if (type == 5) {
-                    if (!com.baidu.swan.apps.u.a.aeU().RJ()) {
+                    if (!com.baidu.swan.apps.u.a.aga().SP()) {
                         if (SwanAppWebViewManager.DEBUG) {
                             Log.d("SwanAppWebViewManager", "image menu switch is off !");
                             return;
                         }
                         return;
                     }
-                    SwanAppWebViewManager.this.bTC.evaluateJavascript(String.format("javascript:(function(){return window.getImageSrcByCoordinate(%s,%s);})()", Integer.valueOf(ag.D(i)), Integer.valueOf(ag.D(i2))), new ValueCallback<String>() { // from class: com.baidu.swan.apps.core.SwanAppWebViewManager.SwanAppWebChromeClientExt.1
+                    SwanAppWebViewManager.this.bYq.evaluateJavascript(String.format("javascript:(function(){return window.getImageSrcByCoordinate(%s,%s);})()", Integer.valueOf(ag.F(i)), Integer.valueOf(ag.F(i2))), new ValueCallback<String>() { // from class: com.baidu.swan.apps.core.SwanAppWebViewManager.SwanAppWebChromeClientExt.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // android.webkit.ValueCallback
                         public void onReceiveValue(String str) {
@@ -1372,7 +1372,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
                                     if (jsonReader.peek() != JsonToken.NULL && jsonReader.peek() == JsonToken.STRING) {
                                         String nextString = jsonReader.nextString();
                                         if (!TextUtils.isEmpty(nextString)) {
-                                            com.baidu.swan.apps.u.a.afL().a(SwanAppWebViewManager.this.bTC, nextString);
+                                            com.baidu.swan.apps.u.a.agR().a(SwanAppWebViewManager.this.bYq, nextString);
                                         }
                                     }
                                 } catch (IOException e) {
@@ -1411,7 +1411,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
     public void c(final String str, final GeolocationPermissions.Callback callback) {
         com.baidu.swan.apps.ad.a.a("android.permission.ACCESS_FINE_LOCATION", new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, 0, new com.baidu.swan.apps.ad.b() { // from class: com.baidu.swan.apps.core.SwanAppWebViewManager.3
             @Override // com.baidu.swan.apps.ad.b
-            public void gY(String str2) {
+            public void hg(String str2) {
                 if (SwanAppWebViewManager.DEBUG) {
                     Log.e("SwanAppWebViewManager", str2 + "");
                 }
@@ -1419,7 +1419,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
             }
 
             @Override // com.baidu.swan.apps.ad.b
-            public void M(int i, String str2) {
+            public void O(int i, String str2) {
                 if (SwanAppWebViewManager.DEBUG) {
                     Log.e("SwanAppWebViewManager", str2 + "");
                 }
@@ -1431,7 +1431,7 @@ public abstract class SwanAppWebViewManager implements e<NgWebView>, com.baidu.s
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes11.dex */
     public class a {
-        public boolean bTT = false;
+        public boolean bYH = false;
 
         protected a() {
         }

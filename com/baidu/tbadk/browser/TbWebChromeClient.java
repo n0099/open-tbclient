@@ -15,7 +15,7 @@ import android.widget.FrameLayout;
 import com.baidu.adp.lib.f.g;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.tbadk.coreExtra.data.s;
+import com.baidu.tbadk.coreExtra.data.u;
 /* loaded from: classes.dex */
 public class TbWebChromeClient extends WebChromeClient {
     private com.baidu.tieba.tbadkCore.e.c callback;
@@ -92,7 +92,7 @@ public class TbWebChromeClient extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (!s.xh(str) || this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) {
+        if (!u.xA(str) || this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) {
             jsPromptResult.cancel();
         }
         return true;

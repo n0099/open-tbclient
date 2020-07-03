@@ -8,10 +8,10 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.h;
+import com.baidu.tieba.frs.j;
 import com.baidu.tieba.tbadkCore.ab;
 /* loaded from: classes9.dex */
-public class b extends h<ab, c> {
+public class b extends j<ab, c> {
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
     }
@@ -19,7 +19,7 @@ public class b extends h<ab, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bj */
+    /* renamed from: bn */
     public c b(ViewGroup viewGroup) {
         Log.e("Adapter", "Frs U9 Context:" + this.mContext + "   Resource:" + this.mContext.getResources() + "  Asset:" + this.mContext.getResources().getAssets());
         return new c(this.mPageContext, LayoutInflater.from(this.mContext).inflate(R.layout.u9_info_layout, (ViewGroup) null, true), this.mPageId);
@@ -27,7 +27,7 @@ public class b extends h<ab, c> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ab abVar, c cVar) {
         super.a(i, view, viewGroup, (ViewGroup) abVar, (ab) cVar);
         if (abVar == null || cVar == null) {

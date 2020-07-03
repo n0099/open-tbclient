@@ -4,40 +4,40 @@ import android.content.Context;
 import com.baidu.ar.e.a;
 /* loaded from: classes3.dex */
 public class b {
-    private static b ul;
-    private a um;
-    private boolean un = false;
+    private static b uL;
+    private a uM;
+    private boolean uN = false;
 
     private b(Context context) {
-        this.um = new a(context);
+        this.uM = new a(context);
     }
 
-    public static synchronized b m(Context context) {
+    public static synchronized b o(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (ul == null) {
-                ul = new b(context);
+            if (uL == null) {
+                uL = new b(context);
             }
-            bVar = ul;
+            bVar = uL;
         }
         return bVar;
     }
 
-    public void T(boolean z) {
-        if (this.um != null) {
-            this.um.T(z);
+    public void U(boolean z) {
+        if (this.uM != null) {
+            this.uM.U(z);
         }
     }
 
-    public void b(a.InterfaceC0081a interfaceC0081a) {
-        if (this.um != null) {
-            this.um.a(interfaceC0081a);
-            if (this.un) {
+    public void b(a.InterfaceC0082a interfaceC0082a) {
+        if (this.uM != null) {
+            this.uM.a(interfaceC0082a);
+            if (this.uN) {
                 return;
             }
             try {
-                this.um.start();
-                this.un = true;
+                this.uM.start();
+                this.uN = true;
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -49,19 +49,19 @@ public class b {
             stop();
         } catch (Throwable th) {
         }
-        if (this.um != null) {
-            this.um = null;
+        if (this.uM != null) {
+            this.uM = null;
         }
-        if (ul != null) {
-            ul = null;
+        if (uL != null) {
+            uL = null;
         }
-        this.un = false;
+        this.uN = false;
     }
 
     public void stop() {
-        if (this.um != null) {
-            this.um.stop();
-            this.un = false;
+        if (this.uM != null) {
+            this.uM.stop();
+            this.uN = false;
         }
     }
 }

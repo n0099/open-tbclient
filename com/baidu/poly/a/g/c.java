@@ -13,7 +13,7 @@ public class c {
         DataOutputStream dataOutputStream;
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("https://etrade.baidu.com/sgw/common/pingd/trace").openConnection();
-            for (Map.Entry<String, String> entry : cVar.MK().entrySet()) {
+            for (Map.Entry<String, String> entry : cVar.NT().entrySet()) {
                 httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
             }
             httpURLConnection.setDoInput(true);
@@ -23,7 +23,7 @@ public class c {
             httpURLConnection.setConnectTimeout(5000);
             httpURLConnection.setReadTimeout(5000);
             StringBuilder sb = new StringBuilder();
-            for (Map.Entry<String, String> entry2 : bVar.MK().entrySet()) {
+            for (Map.Entry<String, String> entry2 : bVar.NT().entrySet()) {
                 sb.append(entry2.getKey()).append(ETAG.EQUAL).append(URLEncoder.encode(entry2.getValue(), "utf-8")).append(ETAG.ITEM_SEPARATOR);
             }
             byte[] bytes = sb.toString().getBytes();

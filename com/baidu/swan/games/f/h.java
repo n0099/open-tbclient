@@ -21,20 +21,20 @@ public final class h {
 
     /* loaded from: classes11.dex */
     public static class a {
-        private h cWH = new h();
+        private h dbt = new h();
 
-        public a iq(int i) {
-            this.cWH.mType = i;
+        public a iB(int i) {
+            this.dbt.mType = i;
             return this;
         }
 
-        public a rx(String str) {
-            this.cWH.mID = str;
+        public a rF(String str) {
+            this.dbt.mID = str;
             return this;
         }
 
-        public h azJ() {
-            return this.cWH;
+        public h aAP() {
+            return this.dbt;
         }
     }
 }

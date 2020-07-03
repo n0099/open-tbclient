@@ -7,22 +7,22 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 /* loaded from: classes3.dex */
 class o {
-    private String pW;
-    private StringBuilder pX;
-    private Charset po = StandardCharsets.UTF_8;
+    private Charset pN = StandardCharsets.UTF_8;
+    private String qv;
+    private StringBuilder qw;
 
     public void a(Charset charset) {
-        this.po = charset;
+        this.pN = charset;
     }
 
-    public void am(String str) {
-        this.pW = str;
+    public void an(String str) {
+        this.qv = str;
     }
 
-    public URL dp() {
-        String str = this.pW == null ? "" : this.pW;
-        if (this.pX != null && this.pX.length() > 0) {
-            str = str + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + this.pX.toString();
+    public URL dF() {
+        String str = this.qv == null ? "" : this.qv;
+        if (this.qw != null && this.qw.length() > 0) {
+            str = str + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + this.qw.toString();
         }
         return new URL(str);
     }
@@ -31,13 +31,13 @@ class o {
         if (str2 == null || TextUtils.isEmpty(str)) {
             return;
         }
-        if (this.pX == null) {
-            this.pX = new StringBuilder();
-        } else if (this.pX.length() > 0) {
-            this.pX.append(ETAG.ITEM_SEPARATOR);
+        if (this.qw == null) {
+            this.qw = new StringBuilder();
+        } else if (this.qw.length() > 0) {
+            this.qw.append(ETAG.ITEM_SEPARATOR);
         }
-        this.pX.append(j.a(str, this.po));
-        this.pX.append(ETAG.EQUAL);
-        this.pX.append(j.a(str2, this.po));
+        this.qw.append(j.a(str, this.pN));
+        this.qw.append(ETAG.EQUAL);
+        this.qw.append(j.a(str2, this.pN));
     }
 }

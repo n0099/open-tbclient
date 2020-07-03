@@ -5,23 +5,23 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes5.dex */
 public class a {
-    public static View nRs = null;
+    public static View onh = null;
 
     /* renamed from: tv.chushou.zues.widget.kpswitch.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0925a {
-        void wB(boolean z);
+    public interface InterfaceC0944a {
+        void wX(boolean z);
     }
 
-    public static void a(final View view, final View view2, final View view3, final InterfaceC0925a interfaceC0925a) {
+    public static void a(final View view, final View view2, final View view3, final InterfaceC0944a interfaceC0944a) {
         Activity activity = (Activity) view.getContext();
         if (view2 != null) {
             view2.setOnClickListener(new View.OnClickListener() { // from class: tv.chushou.zues.widget.kpswitch.b.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view4) {
                     boolean a = a.a(view2, view, view3);
-                    if (interfaceC0925a != null) {
-                        interfaceC0925a.wB(a);
+                    if (interfaceC0944a != null) {
+                        interfaceC0944a.wX(a);
                     }
                 }
             });
@@ -40,16 +40,16 @@ public class a {
         }
     }
 
-    public static void dC(View view) {
+    public static void dD(View view) {
         Activity activity = (Activity) view.getContext();
         view.setVisibility(0);
         if (activity.getCurrentFocus() != null) {
-            d.dE(activity.getCurrentFocus());
+            d.dF(activity.getCurrentFocus());
         }
     }
 
-    public static void d(View view, View view2) {
-        d.dD(view2);
+    public static void e(View view, View view2) {
+        d.dE(view2);
         if (aC((Activity) view.getContext())) {
             view.setVisibility(4);
         }
@@ -59,15 +59,15 @@ public class a {
         boolean z = true;
         boolean z2 = view2.getVisibility() != 0;
         if (!z2) {
-            if (nRs == null || nRs == view) {
-                d(view2, view3);
+            if (onh == null || onh == view) {
+                e(view2, view3);
                 z = z2;
             }
         } else {
-            dC(view2);
+            dD(view2);
             z = z2;
         }
-        nRs = view;
+        onh = view;
         return z;
     }
 

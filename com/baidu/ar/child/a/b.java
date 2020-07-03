@@ -7,28 +7,28 @@ import com.baidu.ar.c.j;
 /* loaded from: classes3.dex */
 public class b extends j {
     public b() {
-        this.lP = new PixelReadParams(PixelType.BGR);
-        this.lP.setOutputWidth(1280);
-        this.lP.setOutputHeight(720);
+        this.mm = new PixelReadParams(PixelType.BGR);
+        this.mm.setOutputWidth(1280);
+        this.mm.setOutputHeight(720);
     }
 
     @Override // com.baidu.ar.c.j
-    protected void X() {
+    protected void al() {
     }
 
     @Override // com.baidu.ar.c.j
-    protected void Z() {
+    protected void an() {
     }
 
     @Override // com.baidu.ar.c.j
     protected boolean c(FramePixels framePixels) {
-        if (this.lb != null) {
+        if (this.ly != null) {
             a aVar = new a();
             aVar.setTimestamp(framePixels.getTimestamp());
-            aVar.e(framePixels.getPixelData());
+            aVar.g(framePixels.getPixelData());
             aVar.setDegree(framePixels.getOrientation().getDegree());
-            aVar.w(framePixels.isFrontCamera());
-            this.lb.a(aVar);
+            aVar.v(framePixels.isFrontCamera());
+            this.ly.a(aVar);
             return false;
         }
         return false;

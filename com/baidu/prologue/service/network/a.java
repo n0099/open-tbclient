@@ -40,16 +40,16 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.prologue.service.network.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0254a {
+    public static class C0260a {
         String name;
         Runnable runnable;
 
-        private C0254a() {
+        private C0260a() {
         }
     }
 
     /* loaded from: classes6.dex */
-    private static class b extends AsyncTask<C0254a, Object, Object> {
+    private static class b extends AsyncTask<C0260a, Object, Object> {
         private b() {
         }
 
@@ -57,13 +57,13 @@ public final class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         /* renamed from: a */
-        public Object doInBackground(C0254a... c0254aArr) {
+        public Object doInBackground(C0260a... c0260aArr) {
             String str;
             Process.setThreadPriority(10);
             try {
-                if (c0254aArr[0] != null && c0254aArr[0].runnable != null) {
-                    if (!TextUtils.isEmpty(c0254aArr[0].name)) {
-                        str = c0254aArr[0].name;
+                if (c0260aArr[0] != null && c0260aArr[0].runnable != null) {
+                    if (!TextUtils.isEmpty(c0260aArr[0].name)) {
+                        str = c0260aArr[0].name;
                     } else {
                         str = "noname";
                     }
@@ -71,7 +71,7 @@ public final class a {
                     if (a.DEBUG) {
                         Log.d("AsyncTaskAssistant", "start to run task " + str);
                     }
-                    c0254aArr[0].runnable.run();
+                    c0260aArr[0].runnable.run();
                     return null;
                 }
                 return null;
@@ -83,9 +83,9 @@ public final class a {
     }
 
     public static void execute(Runnable runnable, String str) {
-        C0254a c0254a = new C0254a();
-        c0254a.runnable = runnable;
-        c0254a.name = str;
-        new b().execute(c0254a);
+        C0260a c0260a = new C0260a();
+        c0260a.runnable = runnable;
+        c0260a.name = str;
+        new b().execute(c0260a);
     }
 }

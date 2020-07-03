@@ -1,0 +1,18 @@
+package com.baidu.tieba.newdetail.a;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.q;
+/* loaded from: classes8.dex */
+public class c implements q {
+    public boolean jBo = true;
+    public String title;
+
+    public c(String str) {
+        this.title = str;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return a.jOf;
+    }
+}

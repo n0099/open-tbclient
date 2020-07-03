@@ -36,9 +36,9 @@ public interface j {
         void d(j jVar);
     }
 
-    void Su();
+    void TA();
 
-    void Sw();
+    void TC();
 
     j a(Context context, @NonNull com.baidu.swan.apps.media.b.c cVar);
 
@@ -58,15 +58,15 @@ public interface j {
 
     void a(f fVar);
 
-    void agm();
+    void ahs();
 
     void b(FrameLayout frameLayout);
 
     void b(com.baidu.swan.apps.media.b.c cVar);
 
-    void dW(boolean z);
+    void eb(boolean z);
 
-    void dX(boolean z);
+    void ec(boolean z);
 
     int getCurrentPosition();
 
@@ -78,7 +78,7 @@ public interface j {
 
     boolean isPlaying();
 
-    void kG(String str);
+    void kO(String str);
 
     boolean onBackPressed();
 

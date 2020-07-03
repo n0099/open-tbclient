@@ -16,7 +16,7 @@ public interface c {
 
     void d(String str, String str2, String str3, String str4, int i, int i2, String str5);
 
-    void fj(String str);
+    void fp(String str);
 
     void release();
 }

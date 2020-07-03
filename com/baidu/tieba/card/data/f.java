@@ -1,29 +1,29 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bu;
 /* loaded from: classes8.dex */
 public class f extends k {
-    public static final BdUniqueId gHi = BdUniqueId.gen();
+    public static final BdUniqueId gUi = BdUniqueId.gen();
 
-    public f(bk bkVar) {
-        this.dEA = bkVar;
+    public f(bu buVar) {
+        this.dLi = buVar;
     }
 
-    @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return gHi;
+        return gUi;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bk aOi() {
-        return this.dEA;
+    public bu aPS() {
+        return this.dLi;
     }
 
-    public static boolean ad(bk bkVar) {
-        if (bkVar == null) {
+    public static boolean ae(bu buVar) {
+        if (buVar == null) {
             return false;
         }
-        return bkVar.aSv();
+        return buVar.aUl();
     }
 }

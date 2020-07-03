@@ -10,27 +10,27 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class a {
-    private C0141a aqJ;
+    private C0143a asb;
     private Context mContext;
 
     public a(Context context) {
         this.mContext = context;
-        ur().mkdirs();
+        uJ().mkdirs();
     }
 
-    public File uq() {
+    public File uI() {
         return new File(this.mContext.getApplicationInfo().dataDir);
     }
 
-    private File ur() {
-        return new File(uq(), ".helios");
+    private File uJ() {
+        return new File(uI(), ".helios");
     }
 
-    public synchronized C0141a us() {
-        if (this.aqJ == null) {
-            this.aqJ = new C0141a(".helios", null);
+    public synchronized C0143a uK() {
+        if (this.asb == null) {
+            this.asb = new C0143a(".helios", null);
         }
-        return this.aqJ;
+        return this.asb;
     }
 
     public static void j(File file) {
@@ -52,7 +52,7 @@ public class a {
         }
         try {
             if (z) {
-                fileOutputStream.write(new b().x(str2.getBytes()));
+                fileOutputStream.write(new b().z(str2.getBytes()));
             } else {
                 fileOutputStream.write(str2.getBytes(str3));
             }
@@ -106,7 +106,7 @@ public class a {
                 byteArrayOutputStream.write(bArr, 0, read);
             }
             byte[] byteArray = byteArrayOutputStream.toByteArray();
-            String str3 = new String(z ? new b().y(byteArray) : byteArray, str2);
+            String str3 = new String(z ? new b().A(byteArray) : byteArray, str2);
             c.b(fileInputStream);
             c.b(byteArrayOutputStream);
             return str3;
@@ -126,84 +126,84 @@ public class a {
 
     /* renamed from: com.baidu.helios.common.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public final class C0141a {
-        private File aqK;
-        private String aqL;
-        private C0141a aqM;
-        private boolean aqN;
+    public final class C0143a {
+        private File asc;
+        private String asd;
+        private C0143a ase;
+        private boolean asf;
 
-        C0141a(String str, C0141a c0141a) {
-            this.aqN = false;
-            this.aqL = str;
-            this.aqM = c0141a;
-            this.aqN = false;
+        C0143a(String str, C0143a c0143a) {
+            this.asf = false;
+            this.asd = str;
+            this.ase = c0143a;
+            this.asf = false;
         }
 
-        C0141a(File file) {
-            this.aqN = false;
-            this.aqN = true;
-            this.aqK = file;
-            this.aqL = file.getName();
+        C0143a(File file) {
+            this.asf = false;
+            this.asf = true;
+            this.asc = file;
+            this.asd = file.getName();
         }
 
-        public void ut() {
-            uu().mkdirs();
+        public void uL() {
+            uM().mkdirs();
         }
 
-        public File uu() {
-            File file = this.aqK;
+        public File uM() {
+            File file = this.asc;
             if (file == null) {
-                if (this.aqM == null) {
-                    file = new File(a.this.uq(), this.aqL);
+                if (this.ase == null) {
+                    file = new File(a.this.uI(), this.asd);
                 } else {
-                    file = new File(this.aqM.uu(), this.aqL);
+                    file = new File(this.ase.uM(), this.asd);
                 }
-                this.aqK = file;
+                this.asc = file;
             }
             return file;
         }
 
-        public String uv() {
-            return this.aqL;
+        public String uN() {
+            return this.asd;
         }
 
-        public C0141a eb(String str) {
-            return new C0141a(str, this);
+        public C0143a ed(String str) {
+            return new C0143a(str, this);
         }
 
         public File getFile(String str) {
-            return new File(this.aqK, str);
+            return new File(this.asc, str);
         }
 
-        public C0141a uw() {
-            return this.aqM;
+        public C0143a uO() {
+            return this.ase;
         }
 
         public boolean d(String str, String str2, boolean z) {
-            return a.b(uu(), str, str2, "UTF-8", z);
+            return a.b(uM(), str, str2, "UTF-8", z);
         }
 
         public String q(String str, boolean z) {
-            return a.b(uu(), str, "UTF-8", z);
+            return a.b(uM(), str, "UTF-8", z);
         }
 
-        public C0141a k(File file) {
-            if (this.aqN) {
+        public C0143a k(File file) {
+            if (this.asf) {
                 throw new IllegalStateException("isolate session is not support");
             }
             ArrayList arrayList = new ArrayList();
-            C0141a c0141a = this;
+            C0143a c0143a = this;
             do {
-                arrayList.add(c0141a.uv());
-                c0141a = c0141a.uw();
-            } while (c0141a != null);
+                arrayList.add(c0143a.uN());
+                c0143a = c0143a.uO();
+            } while (c0143a != null);
             int size = arrayList.size() - 1;
             while (size >= 0) {
                 File file2 = new File(file, (String) arrayList.get(size));
                 size--;
                 file = file2;
             }
-            return new C0141a(file);
+            return new C0143a(file);
         }
     }
 }

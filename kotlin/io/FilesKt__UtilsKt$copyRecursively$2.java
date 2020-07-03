@@ -22,7 +22,7 @@ final class FilesKt__UtilsKt$copyRecursively$2 extends Lambda implements m<File,
     @Override // kotlin.jvm.a.m
     public /* bridge */ /* synthetic */ l invoke(File file, IOException iOException) {
         invoke2(file, iOException);
-        return l.nto;
+        return l.nPb;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */

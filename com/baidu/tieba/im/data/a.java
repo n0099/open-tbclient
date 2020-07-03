@@ -2,8 +2,8 @@ package com.baidu.tieba.im.data;
 /* loaded from: classes.dex */
 public class a {
     private String content;
+    private int iPL;
     private long id;
-    private int iyG;
     private String name;
     private String portrait;
     private int status;
@@ -48,11 +48,11 @@ public class a {
         this.status = i;
     }
 
-    public int clB() {
-        return this.iyG;
+    public int cpq() {
+        return this.iPL;
     }
 
-    public void xw(int i) {
-        this.iyG = i;
+    public void yg(int i) {
+        this.iPL = i;
     }
 }

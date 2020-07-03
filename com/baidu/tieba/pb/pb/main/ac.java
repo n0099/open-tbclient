@@ -12,45 +12,46 @@ import com.baidu.tbadk.BdToken.f;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bc;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class ac {
-    public int avV;
+    public int ayd;
 
     public ac(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
     }
 
-    private void Fi(String str) {
+    private void FJ(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
-        Map<String, String> paramPair = com.baidu.tbadk.core.util.ba.getParamPair(str);
+        Map<String, String> paramPair = bc.getParamPair(str);
         if (paramPair != null) {
-            this.avV = 5;
-            com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an("c10320");
-            anVar.dh("obj_locate", paramPair.get("obj_locate"));
-            anVar.ag("obj_type", 1);
-            anVar.dh("tid", paramPair.get("tid"));
-            anVar.dh("obj_source", paramPair.get("obj_source"));
-            anVar.dh(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2));
-            anVar.ag(TiebaInitialize.Params.OBJ_TO, 3);
-            anVar.dh("obj_id", paramPair.get("bdid"));
-            if (!com.baidu.tbadk.core.util.aq.isEmpty(paramPair.get(LogConfig.LOG_EXT_LOG))) {
+            this.ayd = 5;
+            com.baidu.tbadk.core.util.ao aoVar = new com.baidu.tbadk.core.util.ao("c10320");
+            aoVar.dk("obj_locate", paramPair.get("obj_locate"));
+            aoVar.ag("obj_type", 1);
+            aoVar.dk("tid", paramPair.get("tid"));
+            aoVar.dk("obj_source", paramPair.get("obj_source"));
+            aoVar.dk(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2));
+            aoVar.ag(TiebaInitialize.Params.OBJ_TO, 3);
+            aoVar.dk("obj_id", paramPair.get("bdid"));
+            if (!com.baidu.tbadk.core.util.ar.isEmpty(paramPair.get(LogConfig.LOG_EXT_LOG))) {
                 try {
                     JSONObject jSONObject = new JSONObject(paramPair.get(LogConfig.LOG_EXT_LOG));
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        anVar.dh(next, jSONObject.getString(next));
+                        aoVar.dk(next, jSONObject.getString(next));
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
             }
-            TiebaStatic.log(anVar);
+            TiebaStatic.log(aoVar);
         }
     }
 
@@ -61,22 +62,22 @@ public class ac {
             if (!StringUtils.isNull(uri2) && uri2.startsWith("tbpb://")) {
                 String decode = Uri.decode(uri.getEncodedPath());
                 if (!StringUtils.isNull(decode)) {
-                    Fi(decode);
-                    HashMap<String, Object> Jw = Jw(decode);
-                    String str = (String) Jw.get("tid");
-                    if ("mpush".equals((String) Jw.get("fr")) && !StringUtils.isNull(str)) {
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11895").dh("tid", str));
+                    FJ(decode);
+                    HashMap<String, Object> JY = JY(decode);
+                    String str = (String) JY.get("tid");
+                    if ("mpush".equals((String) JY.get("fr")) && !StringUtils.isNull(str)) {
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.ao("c11895").dk("tid", str));
                     }
                     HttpMessage httpMessage = new HttpMessage(1003393);
                     httpMessage.addParam("call_url", uri2);
                     MessageManager.getInstance().sendMessage(httpMessage);
-                    aVar.C(Jw);
+                    aVar.C(JY);
                 }
             }
         }
     }
 
-    public HashMap<String, Object> Jw(String str) {
+    public HashMap<String, Object> JY(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

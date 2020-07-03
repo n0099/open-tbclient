@@ -14,14 +14,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.u.a;
+import com.baidu.live.sdk.a;
 /* loaded from: classes3.dex */
 public class MaskStrokeView extends View {
-    private int aVp;
-    private int eYA;
-    private Bitmap eZd;
-    private Canvas eZe;
-    private Paint eZf;
+    private int aXW;
+    private int fjn;
+    private Bitmap fka;
+    private Canvas fkb;
+    private Paint fkc;
     private int height;
     private int width;
 
@@ -42,20 +42,20 @@ public class MaskStrokeView extends View {
             obtainStyledAttributes.recycle();
         }
         try {
-            this.eZd = drawableToBitmap(getResources().getDrawable(a.f.sticker_selected_bg));
-            this.eZe = new Canvas(this.eZd);
-            this.eZf = new Paint();
-            this.eZf.setColor(-1);
-            this.eZf.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-            this.eZf.setFlags(1);
+            this.fka = drawableToBitmap(getResources().getDrawable(a.f.sticker_selected_bg));
+            this.fkb = new Canvas(this.fka);
+            this.fkc = new Paint();
+            this.fkc.setColor(-1);
+            this.fkc.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+            this.fkc.setFlags(1);
             getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.MaskStrokeView.1
                 @Override // android.view.ViewTreeObserver.OnPreDrawListener
                 public boolean onPreDraw() {
                     MaskStrokeView.this.getViewTreeObserver().removeOnPreDrawListener(this);
-                    MaskStrokeView.this.aVp = BdUtilHelper.dip2px(MaskStrokeView.this.getContext(), MaskStrokeView.this.width);
-                    MaskStrokeView.this.eYA = BdUtilHelper.dip2px(MaskStrokeView.this.getContext(), MaskStrokeView.this.height);
-                    MaskStrokeView.this.eZd = MaskStrokeView.this.drawableToBitmap(MaskStrokeView.this.getResources().getDrawable(a.f.sticker_selected_bg));
-                    MaskStrokeView.this.eZe = new Canvas(MaskStrokeView.this.eZd);
+                    MaskStrokeView.this.aXW = BdUtilHelper.dip2px(MaskStrokeView.this.getContext(), MaskStrokeView.this.width);
+                    MaskStrokeView.this.fjn = BdUtilHelper.dip2px(MaskStrokeView.this.getContext(), MaskStrokeView.this.height);
+                    MaskStrokeView.this.fka = MaskStrokeView.this.drawableToBitmap(MaskStrokeView.this.getResources().getDrawable(a.f.sticker_selected_bg));
+                    MaskStrokeView.this.fkb = new Canvas(MaskStrokeView.this.fka);
                     MaskStrokeView.this.invalidate();
                     return false;
                 }
@@ -67,8 +67,8 @@ public class MaskStrokeView extends View {
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        this.eZe.drawRoundRect(new RectF(e(getContext(), 3.0f), e(getContext(), 3.0f), getDefaultWidth() - e(getContext(), 3.0f), getDefaultHeight() - e(getContext(), 3.0f)), e(getContext(), 6.0f), e(getContext(), 6.0f), this.eZf);
-        canvas.drawBitmap(this.eZd, 0.0f, 0.0f, (Paint) null);
+        this.fkb.drawRoundRect(new RectF(e(getContext(), 3.0f), e(getContext(), 3.0f), getDefaultWidth() - e(getContext(), 3.0f), getDefaultHeight() - e(getContext(), 3.0f)), e(getContext(), 6.0f), e(getContext(), 6.0f), this.fkc);
+        canvas.drawBitmap(this.fka, 0.0f, 0.0f, (Paint) null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -88,10 +88,10 @@ public class MaskStrokeView extends View {
     }
 
     private float getDefaultWidth() {
-        return this.aVp <= 0 ? e(getContext(), 60.0f) : this.aVp;
+        return this.aXW <= 0 ? e(getContext(), 60.0f) : this.aXW;
     }
 
     private float getDefaultHeight() {
-        return this.eYA <= 0 ? e(getContext(), 60.0f) : this.eYA;
+        return this.fjn <= 0 ? e(getContext(), 60.0f) : this.fjn;
     }
 }

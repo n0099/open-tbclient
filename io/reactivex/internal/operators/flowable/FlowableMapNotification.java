@@ -13,7 +13,7 @@ public final class FlowableMapNotification<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.noe.a((j) new MapNotificationSubscriber(cVar, this.onNextMapper, this.onErrorMapper, this.onCompleteSupplier));
+        this.nJT.a((j) new MapNotificationSubscriber(cVar, this.onNextMapper, this.onErrorMapper, this.onCompleteSupplier));
     }
 
     /* loaded from: classes7.dex */

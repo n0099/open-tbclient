@@ -9,13 +9,13 @@ public interface d {
 
     String k(String str, boolean z);
 
-    String sv();
+    String sQ();
 
-    String sw();
+    String sR();
 
-    String sx();
+    String sS();
 
-    String sy();
+    String sT();
 
-    String sz();
+    String sU();
 }

@@ -14,10 +14,10 @@ public class a extends ActivityDelegation {
 
     /* renamed from: com.baidu.swan.bdprivate.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0408a {
-        void auM();
+    public interface InterfaceC0414a {
+        void avS();
 
-        void hg(String str);
+        void ho(String str);
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
@@ -27,7 +27,7 @@ public class a extends ActivityDelegation {
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
                     if (i == 0) {
-                        a.this.auK();
+                        a.this.avQ();
                         return;
                     }
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "login failed");
@@ -36,24 +36,24 @@ public class a extends ActivityDelegation {
             });
             return false;
         }
-        auK();
+        avQ();
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void auK() {
-        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0408a() { // from class: com.baidu.swan.bdprivate.b.a.2
-            @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0408a
-            public void hg(String str) {
+    public void avQ() {
+        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0414a() { // from class: com.baidu.swan.bdprivate.b.a.2
+            @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0414a
+            public void ho(String str) {
                 if (TextUtils.isEmpty(str)) {
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "addressId == null");
                     a.this.finish();
                 }
-                a.this.pY(str);
+                a.this.qg(str);
             }
 
-            @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0408a
-            public void auM() {
+            @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0414a
+            public void avS() {
                 a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "choose addressId failed");
                 a.this.finish();
             }
@@ -61,8 +61,8 @@ public class a extends ActivityDelegation {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pY(String str) {
-        com.baidu.swan.c.c.a.aFx().getRequest().url(com.baidu.swan.apps.h.c.processCommonParams(auL())).addUrlParam("addr_id", str).cookieManager(com.baidu.swan.apps.u.a.afo().SM()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.b.a.3
+    public void qg(String str) {
+        com.baidu.swan.c.c.a.aGD().getRequest().url(com.baidu.swan.apps.h.c.processCommonParams(avR())).addUrlParam("addr_id", str).cookieManager(com.baidu.swan.apps.u.a.agu().TS()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.b.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: a */
@@ -95,7 +95,7 @@ public class a extends ActivityDelegation {
         });
     }
 
-    public static String auL() {
+    public static String avR() {
         return String.format("%s/ma/address/detail", "https://mbd.baidu.com");
     }
 }

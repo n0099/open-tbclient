@@ -6,21 +6,23 @@ import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 abstract class b {
     private static final String TAG = b.class.getSimpleName();
-    protected d sX;
-    protected MediaCodec sY;
-    protected c ta;
-    protected boolean tb;
-    private int sV = -1;
-    private boolean sW = false;
-    protected long tc = 0;
-    protected MediaCodec.BufferInfo sZ = new MediaCodec.BufferInfo();
+    protected c tA;
+    protected boolean tB;
+    protected d tx;
+    protected MediaCodec ty;
 
-    private void R(boolean z) {
+    /* renamed from: tv  reason: collision with root package name */
+    private int f982tv = -1;
+    private boolean tw = false;
+    protected long tC = 0;
+    protected MediaCodec.BufferInfo tz = new MediaCodec.BufferInfo();
+
+    private void S(boolean z) {
         ByteBuffer[] byteBufferArr;
         int i;
         com.baidu.ar.f.b.c(TAG, "drainEncoder endOfStream = " + z);
         try {
-            byteBufferArr = this.sY.getOutputBuffers();
+            byteBufferArr = this.ty.getOutputBuffers();
         } catch (Exception e) {
             e.printStackTrace();
             byteBufferArr = null;
@@ -30,7 +32,7 @@ abstract class b {
         }
         while (true) {
             try {
-                i = this.sY.dequeueOutputBuffer(this.sZ, 10000L);
+                i = this.ty.dequeueOutputBuffer(this.tz, 10000L);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 i = 0;
@@ -42,21 +44,21 @@ abstract class b {
                 }
                 com.baidu.ar.f.b.c(TAG, "no output available, spinning to await EOS");
             } else if (i == -3) {
-                byteBufferArr = this.sY.getOutputBuffers();
+                byteBufferArr = this.ty.getOutputBuffers();
             } else if (i == -2) {
-                if (this.sX.er()) {
+                if (this.tx.eH()) {
                     com.baidu.ar.f.b.b(TAG, "format changed twice!!!!");
                     return;
                 }
-                MediaFormat outputFormat = this.sY.getOutputFormat();
+                MediaFormat outputFormat = this.ty.getOutputFormat();
                 com.baidu.ar.f.b.c(TAG, "encoder output format changed: " + outputFormat);
-                this.sV = this.sX.a(outputFormat);
-                this.sW = true;
-                if (this.ta != null) {
-                    this.ta.M(this.sW);
+                this.f982tv = this.tx.a(outputFormat);
+                this.tw = true;
+                if (this.tA != null) {
+                    this.tA.N(this.tw);
                 }
-                if (this.tb) {
-                    this.sX.es();
+                if (this.tB) {
+                    this.tx.eI();
                 }
             } else if (i < 0) {
                 com.baidu.ar.f.b.j(TAG, "unexpected result from encoder.dequeueOutputBuffer: " + i);
@@ -65,32 +67,32 @@ abstract class b {
                 if (byteBuffer == null) {
                     throw new RuntimeException("encoderOutputBuffer " + i + " was null");
                 }
-                if ((this.sZ.flags & 2) != 0) {
+                if ((this.tz.flags & 2) != 0) {
                     com.baidu.ar.f.b.c(TAG, "ignoring BUFFER_FLAG_CODEC_CONFIG");
-                    this.sZ.size = 0;
+                    this.tz.size = 0;
                 }
-                if (this.sZ.size != 0) {
-                    if (this.sX.er()) {
-                        byteBuffer.position(this.sZ.offset);
-                        byteBuffer.limit(this.sZ.offset + this.sZ.size);
-                        en();
-                        com.baidu.ar.f.b.c(TAG, "drainEncoder writeSampleData mBufferInfo = " + this.sZ.presentationTimeUs + "&& size = " + this.sZ.size);
-                        this.sX.a(this.sV, byteBuffer, this.sZ);
+                if (this.tz.size != 0) {
+                    if (this.tx.eH()) {
+                        byteBuffer.position(this.tz.offset);
+                        byteBuffer.limit(this.tz.offset + this.tz.size);
+                        eD();
+                        com.baidu.ar.f.b.c(TAG, "drainEncoder writeSampleData mBufferInfo = " + this.tz.presentationTimeUs + "&& size = " + this.tz.size);
+                        this.tx.a(this.f982tv, byteBuffer, this.tz);
                     } else {
                         com.baidu.ar.f.b.c(TAG, "drainEncoder wait for mMuxer start !!!");
                     }
                 }
-                this.sY.releaseOutputBuffer(i, false);
-                if ((this.sZ.flags & 4) != 0) {
+                this.ty.releaseOutputBuffer(i, false);
+                if ((this.tz.flags & 4) != 0) {
                     if (!z) {
                         com.baidu.ar.f.b.b(TAG, "reached end of stream unexpectedly");
                         return;
                     }
-                    if (this.tb) {
-                        this.sX.et();
+                    if (this.tB) {
+                        this.tx.eJ();
                     }
-                    if (this.ta != null) {
-                        this.ta.N(true);
+                    if (this.tA != null) {
+                        this.tA.O(true);
                         return;
                     }
                     return;
@@ -100,46 +102,46 @@ abstract class b {
     }
 
     private boolean a(int i, ByteBuffer byteBuffer, int i2, long j) {
-        ByteBuffer byteBuffer2 = this.sY.getInputBuffers()[i];
+        ByteBuffer byteBuffer2 = this.ty.getInputBuffers()[i];
         if (byteBuffer2.capacity() >= byteBuffer.capacity()) {
             byteBuffer2.position(0);
             byteBuffer2.put(byteBuffer);
             byteBuffer2.flip();
-            this.sZ.offset = 0;
-            this.sZ.size = i2;
-            this.sZ.presentationTimeUs = j / 1000;
+            this.tz.offset = 0;
+            this.tz.size = i2;
+            this.tz.presentationTimeUs = j / 1000;
             return true;
         }
         return false;
     }
 
-    public void Q(boolean z) {
+    public void R(boolean z) {
         com.baidu.ar.f.b.c(TAG, "drainSurface endOfStream = " + z);
         if (z) {
-            if (this.sX == null || !this.sX.er()) {
-                if (this.ta != null) {
-                    this.ta.N(true);
+            if (this.tx == null || !this.tx.eH()) {
+                if (this.tA != null) {
+                    this.tA.O(true);
                     return;
                 }
                 return;
             }
-            this.sY.signalEndOfInputStream();
+            this.ty.signalEndOfInputStream();
         }
-        R(z);
+        S(z);
     }
 
     public void a(c cVar) {
-        this.ta = cVar;
+        this.tA = cVar;
     }
 
     public void a(boolean z, ByteBuffer byteBuffer, int i, long j) {
-        if (this.sY != null) {
-            if (this.sW && this.sV == -1) {
+        if (this.ty != null) {
+            if (this.tw && this.f982tv == -1) {
                 return;
             }
             int i2 = -1;
             try {
-                i2 = this.sY.dequeueInputBuffer(10000L);
+                i2 = this.ty.dequeueInputBuffer(10000L);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -147,48 +149,48 @@ abstract class b {
                 com.baidu.ar.f.b.c(TAG, "drainBuffer encode input buffer not available");
             } else if (z) {
                 com.baidu.ar.f.b.c(TAG, "drainBuffer sending EOS to drainBufferEncoder");
-                this.sY.queueInputBuffer(i2, 0, 0, 0L, 4);
+                this.ty.queueInputBuffer(i2, 0, 0, 0L, 4);
             } else if (!a(i2, byteBuffer, i, j)) {
                 return;
             } else {
-                this.sY.queueInputBuffer(i2, this.sZ.offset, this.sZ.size, this.sZ.presentationTimeUs, 0);
+                this.ty.queueInputBuffer(i2, this.tz.offset, this.tz.size, this.tz.presentationTimeUs, 0);
             }
-            R(z);
+            S(z);
         }
     }
 
-    protected abstract void en();
+    protected abstract void eD();
 
-    public void eo() {
-        this.sY.release();
-        this.sY = null;
-        this.sX = null;
+    public void eE() {
+        this.ty.release();
+        this.ty = null;
+        this.tx = null;
     }
 
-    public void ep() {
+    public void eF() {
         com.baidu.ar.f.b.c(TAG, "stopEncoder !!!");
-        if (this.sY != null) {
+        if (this.ty != null) {
             try {
-                this.sY.stop();
+                this.ty.stop();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void eq() {
+    public void eG() {
         com.baidu.ar.f.b.c(TAG, "startEncoder !!!");
         boolean z = true;
-        if (this.sY != null) {
+        if (this.ty != null) {
             try {
-                this.sY.start();
+                this.ty.start();
             } catch (Exception e) {
                 z = false;
                 e.printStackTrace();
             }
         }
-        if (this.ta != null) {
-            this.ta.L(z);
+        if (this.tA != null) {
+            this.tA.M(z);
         }
     }
 }

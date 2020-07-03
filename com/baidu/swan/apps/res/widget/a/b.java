@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes11.dex */
 public class b {
-    protected a czj;
+    protected a cDT;
     protected boolean mChecked;
     protected Context mContext;
     protected boolean mEnabled;
@@ -47,7 +47,7 @@ public class b {
         return null;
     }
 
-    public a aot() {
-        return this.czj;
+    public a apA() {
+        return this.cDT;
     }
 }

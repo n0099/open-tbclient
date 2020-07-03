@@ -9,16 +9,16 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 /* loaded from: classes6.dex */
 public class a implements b {
-    public C0771a mkw = new C0771a();
+    public C0790a mGs = new C0790a();
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0771a {
-        public com.bun.miitmdid.a.a.a mkx;
-        public com.bun.miitmdid.a.a.b mky;
-        public c mkz;
+    public class C0790a {
+        public com.bun.miitmdid.a.a.a mGt;
+        public com.bun.miitmdid.a.a.b mGu;
+        public c mGv;
 
-        public C0771a() {
+        public C0790a() {
         }
     }
 
@@ -30,9 +30,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_HUAWEI) != null) {
-            aVar.mkw.mkx = new com.bun.miitmdid.a.a.a();
+            aVar.mGs.mGt = new com.bun.miitmdid.a.a.a();
         }
-        return aVar.mkw.mkx != null;
+        return aVar.mGs.mGt != null;
     }
 
     private static boolean b(a aVar, JSONObject jSONObject) {
@@ -40,9 +40,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_XIAOMI) != null) {
-            aVar.mkw.mkz = new c();
+            aVar.mGs.mGv = new c();
         }
-        return aVar.mkw.mkz != null;
+        return aVar.mGs.mGv != null;
     }
 
     private static boolean c(a aVar, JSONObject jSONObject) {
@@ -53,12 +53,12 @@ public class a implements b {
         com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
         if (optJSONObject != null) {
             bVar.a = optJSONObject.optString("appid");
-            aVar.mkw.mky = bVar;
+            aVar.mGs.mGu = bVar;
         }
-        return aVar.mkw.mky != null;
+        return aVar.mGs.mGu != null;
     }
 
-    public static a fP(Context context) {
+    public static a fQ(Context context) {
         boolean z;
         JSONObject jSONObject;
         JSONObject optJSONObject;
@@ -82,6 +82,6 @@ public class a implements b {
 
     @Override // com.bun.miitmdid.a.b
     public String a() {
-        return (this.mkw == null || this.mkw.mky == null || this.mkw.mky.a == null) ? "" : this.mkw.mky.a;
+        return (this.mGs == null || this.mGs.mGu == null || this.mGs.mGu.a == null) ? "" : this.mGs.mGu.a;
     }
 }

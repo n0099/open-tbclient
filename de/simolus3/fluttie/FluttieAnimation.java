@@ -20,24 +20,24 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
     private boolean pausedButNotByUser;
 
     /* renamed from: plugin  reason: collision with root package name */
-    private final FluttiePlugin f1036plugin;
+    private final FluttiePlugin f1045plugin;
     private Surface surface;
     private final TextureRegistry.SurfaceTextureEntry surfaceTexture;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public FluttieAnimation(FluttiePlugin fluttiePlugin, TextureRegistry.SurfaceTextureEntry surfaceTextureEntry, e eVar, float f, String str) {
-        this.f1036plugin = fluttiePlugin;
+        this.f1045plugin = fluttiePlugin;
         this.surfaceTexture = surfaceTextureEntry;
         this.surface = new Surface(surfaceTextureEntry.surfaceTexture());
-        Rect gC = eVar.gC();
-        surfaceTextureEntry.surfaceTexture().setDefaultBufferSize((int) (gC.width() * f), (int) (gC.height() * f));
+        Rect gS = eVar.gS();
+        surfaceTextureEntry.surfaceTexture().setDefaultBufferSize((int) (gS.width() * f), (int) (gS.height() * f));
         this.drawable = new g();
         this.drawable.enableMergePathsForKitKatAndAbove(true);
         this.drawable.setScale(f);
         this.composition = eVar;
         this.drawable.a(eVar);
         if (str != null) {
-            this.drawable.aY("flutter_assets/" + str);
+            this.drawable.aZ("flutter_assets/" + str);
         }
         this.drawable.addAnimatorUpdateListener(this);
         fluttiePlugin.getRenderingThreads().markDirty(this);
@@ -51,7 +51,7 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setDuration(int i) {
-        this.drawable.setSpeed(Math.copySign(this.composition.gD() / i, this.drawable.getSpeed()));
+        this.drawable.setSpeed(Math.copySign(this.composition.gT() / i, this.drawable.getSpeed()));
     }
 
     public int getId() {
@@ -91,7 +91,7 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
 
     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
     public void onAnimationUpdate(@Nullable ValueAnimator valueAnimator) {
-        this.f1036plugin.getRenderingThreads().markDirty(this);
+        this.f1045plugin.getRenderingThreads().markDirty(this);
     }
 
     public boolean isPlaying() {

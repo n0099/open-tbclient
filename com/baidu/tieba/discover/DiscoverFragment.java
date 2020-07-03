@@ -12,39 +12,39 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.util.aa;
 import com.baidu.tbadk.util.ah;
-import com.baidu.tieba.frs.aj;
+import com.baidu.tieba.frs.ao;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
-public class DiscoverFragment extends BaseFragment implements aj {
-    private a gLb;
-    private boolean gLc;
+public class DiscoverFragment extends BaseFragment implements ao {
+    private a gXY;
+    private boolean gXZ;
     private String mUrl = TbConfig.DISCOVER_PAGE;
-    private boolean feU = true;
+    private boolean fqf = true;
     CustomMessageListener htmlLoadMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_HTML_LOADED) { // from class: com.baidu.tieba.discover.DiscoverFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && DiscoverFragment.this.gLb != null && DiscoverFragment.this.gLb.getWebView() != null && DiscoverFragment.this.gLb.getWebView().getUrl() != null) {
-                if (DiscoverFragment.this.gLb.getWebView().getUrl().contains((String) customResponsedMessage.getData())) {
-                    DiscoverFragment.this.gLb.hideLoadingView();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && DiscoverFragment.this.gXY != null && DiscoverFragment.this.gXY.getWebView() != null && DiscoverFragment.this.gXY.getWebView().getUrl() != null) {
+                if (DiscoverFragment.this.gXY.getWebView().getUrl().contains((String) customResponsedMessage.getData())) {
+                    DiscoverFragment.this.gXY.hideLoadingView();
                 }
             }
         }
     };
-    private CustomMessageListener gLd = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.DiscoverFragment.2
+    private CustomMessageListener gYa = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.DiscoverFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921041 && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    DiscoverFragment.this.bqS();
+                    DiscoverFragment.this.btP();
                 } else {
-                    DiscoverFragment.this.bqT();
+                    DiscoverFragment.this.btQ();
                 }
             }
         }
@@ -52,33 +52,33 @@ public class DiscoverFragment extends BaseFragment implements aj {
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.gLb = new a();
-        return this.gLb.a(layoutInflater, viewGroup);
+        this.gXY = new a();
+        return this.gXY.a(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.gLb.p(getPageContext());
+        this.gXY.s(getPageContext());
         registerListener(this.htmlLoadMessageListener);
-        registerListener(this.gLd);
-        ah.a(this.gLb.getWebView(), getUniqueId());
+        registerListener(this.gYa);
+        ah.a(this.gXY.getWebView(), getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.feU || StringUtils.isNull(this.gLb.getWebView().getUrl())) {
+        if (this.fqf || StringUtils.isNull(this.gXY.getWebView().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.gLb.loadUrl(BC(this.mUrl));
+                this.gXY.loadUrl(Ca(this.mUrl));
             } else {
-                this.gLb.loadUrl(this.mUrl);
+                this.gXY.loadUrl(this.mUrl);
             }
-            this.feU = false;
+            this.fqf = false;
         }
     }
 
-    private String BC(String str) {
+    private String Ca(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -98,8 +98,8 @@ public class DiscoverFragment extends BaseFragment implements aj {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.gLb != null) {
-            this.gLb.onDestroy();
+        if (this.gXY != null) {
+            this.gXY.onDestroy();
         }
     }
 
@@ -116,7 +116,7 @@ public class DiscoverFragment extends BaseFragment implements aj {
         } else {
             arrayList = new ArrayList();
         }
-        if (!PageStayDurationConstants.PageName.HOMEPAGE.equals(v.getItem(arrayList, arrayList.size() - 1))) {
+        if (!PageStayDurationConstants.PageName.HOMEPAGE.equals(w.getItem(arrayList, arrayList.size() - 1))) {
             arrayList.add(PageStayDurationConstants.PageName.HOMEPAGE);
         }
         return arrayList;
@@ -125,44 +125,44 @@ public class DiscoverFragment extends BaseFragment implements aj {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (!this.feU) {
+        if (!this.fqf) {
             if (i == 1 || i == 4) {
-                this.gLb.loadUrl(BC(this.mUrl));
+                this.gXY.loadUrl(Ca(this.mUrl));
             } else {
-                this.gLb.loadUrl(this.mUrl);
+                this.gXY.loadUrl(this.mUrl);
             }
         }
     }
 
-    @Override // com.baidu.tieba.frs.aj
-    public void Ho() {
+    @Override // com.baidu.tieba.frs.ao
+    public void IB() {
     }
 
-    @Override // com.baidu.tieba.frs.aj
-    public void bqS() {
-        if (this.gLb != null && !this.gLc) {
-            this.gLc = true;
-            this.gLb.bMT();
+    @Override // com.baidu.tieba.frs.ao
+    public void btP() {
+        if (this.gXY != null && !this.gXZ) {
+            this.gXZ = true;
+            this.gXY.bPY();
         }
     }
 
-    @Override // com.baidu.tieba.frs.aj
-    public void bqT() {
-        if (this.gLb != null && this.gLc) {
-            this.gLc = false;
-            this.gLb.bMU();
+    @Override // com.baidu.tieba.frs.ao
+    public void btQ() {
+        if (this.gXY != null && this.gXZ) {
+            this.gXZ = false;
+            this.gXY.bPZ();
         }
     }
 
-    @Override // com.baidu.tieba.frs.aj
+    @Override // com.baidu.tieba.frs.ao
     public void setRecommendFrsNavigationAnimDispatcher(aa aaVar) {
     }
 
-    @Override // com.baidu.tieba.frs.aj
+    @Override // com.baidu.tieba.frs.ao
     public void showFloatingView() {
     }
 
-    @Override // com.baidu.tieba.frs.aj
-    public void aWr() {
+    @Override // com.baidu.tieba.frs.ao
+    public void aYj() {
     }
 }

@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bu;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
@@ -186,19 +186,19 @@ public class ImageViewerConfig extends IntentConfig {
         return this;
     }
 
-    public ImageViewerConfig setThreadData(bk bkVar) {
+    public ImageViewerConfig setThreadData(bu buVar) {
         Intent intent = getIntent();
-        if (bkVar != null && intent != null) {
-            intent.putExtra(IS_BJH, bkVar.aSx());
-            if (bkVar.aSx()) {
+        if (buVar != null && intent != null) {
+            intent.putExtra(IS_BJH, buVar.aQZ());
+            if (buVar.aQZ()) {
                 intent.putExtra(PARAM_IS_CDN, true);
             }
-            getIntent().putExtra("nid", bkVar.getNid());
-            getIntent().putExtra(IntentConfig.CARD_TYPE, bkVar.aSA());
-            getIntent().putExtra(IntentConfig.RECOM_SOURCE, bkVar.mRecomSource);
-            getIntent().putExtra("ab_tag", bkVar.mRecomAbTag);
-            getIntent().putExtra("weight", bkVar.mRecomWeight);
-            getIntent().putExtra("extra", bkVar.mRecomExtra);
+            getIntent().putExtra("nid", buVar.getNid());
+            getIntent().putExtra(IntentConfig.CARD_TYPE, buVar.aUp());
+            getIntent().putExtra(IntentConfig.RECOM_SOURCE, buVar.mRecomSource);
+            getIntent().putExtra("ab_tag", buVar.mRecomAbTag);
+            getIntent().putExtra("weight", buVar.mRecomWeight);
+            getIntent().putExtra("extra", buVar.mRecomExtra);
         }
         return this;
     }

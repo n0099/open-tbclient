@@ -6,35 +6,35 @@ import tbclient.GetLockWindowMsg.DataRes;
 /* loaded from: classes8.dex */
 public class a {
     private String dialogTitle;
-    private String kHg;
-    private b kHh;
-    private MetaData kHi;
+    private String lbc;
+    private b lbd;
+    private MetaData lbe;
 
-    public String cTy() {
+    public String cXO() {
         return this.dialogTitle;
     }
 
-    public String cTz() {
-        return this.kHg;
+    public String cXP() {
+        return this.lbc;
     }
 
-    public b cTA() {
-        return this.kHh;
+    public b cXQ() {
+        return this.lbd;
     }
 
-    public MetaData cTB() {
-        return this.kHi;
+    public MetaData cXR() {
+        return this.lbe;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             this.dialogTitle = dataRes.publish_user;
-            this.kHg = dataRes.publish_pic;
-            this.kHi = new MetaData();
-            this.kHi.parserProtobuf(dataRes.author);
-            this.kHi.setPendantData(null);
-            this.kHh = new b();
-            this.kHh.a(TbadkCoreApplication.getInst(), dataRes.thread_info);
+            this.lbc = dataRes.publish_pic;
+            this.lbe = new MetaData();
+            this.lbe.parserProtobuf(dataRes.author);
+            this.lbe.setPendantData(null);
+            this.lbd = new b();
+            this.lbd.a(TbadkCoreApplication.getInst(), dataRes.thread_info);
         }
     }
 }

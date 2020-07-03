@@ -8,7 +8,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public final class e implements io.reactivex.disposables.b, a {
     volatile boolean disposed;
-    List<io.reactivex.disposables.b> nnH;
+    List<io.reactivex.disposables.b> nJw;
 
     @Override // io.reactivex.disposables.b
     public void dispose() {
@@ -16,9 +16,9 @@ public final class e implements io.reactivex.disposables.b, a {
             synchronized (this) {
                 if (!this.disposed) {
                     this.disposed = true;
-                    List<io.reactivex.disposables.b> list = this.nnH;
-                    this.nnH = null;
-                    fq(list);
+                    List<io.reactivex.disposables.b> list = this.nJw;
+                    this.nJw = null;
+                    fC(list);
                 }
             }
         }
@@ -35,10 +35,10 @@ public final class e implements io.reactivex.disposables.b, a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    List list = this.nnH;
+                    List list = this.nJw;
                     if (list == null) {
                         list = new LinkedList();
-                        this.nnH = list;
+                        this.nJw = list;
                     }
                     list.add(bVar);
                     return true;
@@ -65,7 +65,7 @@ public final class e implements io.reactivex.disposables.b, a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    List<io.reactivex.disposables.b> list = this.nnH;
+                    List<io.reactivex.disposables.b> list = this.nJw;
                     if (list != null && list.remove(bVar)) {
                         z = true;
                     }
@@ -75,7 +75,7 @@ public final class e implements io.reactivex.disposables.b, a {
         return z;
     }
 
-    void fq(List<io.reactivex.disposables.b> list) {
+    void fC(List<io.reactivex.disposables.b> list) {
         if (list != null) {
             ArrayList arrayList = null;
             for (io.reactivex.disposables.b bVar : list) {

@@ -22,11 +22,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    private static final byte[] arX = {77, 73, 78, 71};
+    private static final byte[] atq = {77, 73, 78, 71};
     private String D;
     private Context E;
     private int F;
-    private Set<String> arY;
+    private Set<String> atr;
     public String o;
     private long t;
     private boolean u;
@@ -49,12 +49,12 @@ public class a {
             }
             byte[] decode = Base64.decode(string.getBytes("utf-8"), 1);
             for (int i = 0; i < decode.length; i++) {
-                decode[i] = (byte) (decode[i] ^ arX[i % arX.length]);
+                decode[i] = (byte) (decode[i] ^ atq[i % atq.length]);
             }
             JSONObject jSONObject = new JSONObject(new String(decode));
             if (a(jSONObject)) {
-                this.arY = new HashSet();
-                if (!a(this.D, this.E, jSONObject, this.arY)) {
+                this.atr = new HashSet();
+                if (!a(this.D, this.E, jSONObject, this.atr)) {
                     this.F |= 4;
                 } else if (!Arrays.equals(g.b(Base64.decode(string2, 0), aVar), f.sha256(decode))) {
                     this.F |= 8;
@@ -139,7 +139,7 @@ public class a {
     private static String[] a(Signature[] signatureArr) {
         String[] strArr = new String[signatureArr.length];
         for (int i = 0; i < strArr.length; i++) {
-            strArr[i] = f.z(signatureArr[i].toByteArray());
+            strArr[i] = f.B(signatureArr[i].toByteArray());
         }
         return strArr;
     }
@@ -187,7 +187,7 @@ public class a {
         return this.t;
     }
 
-    public Set<String> uL() {
-        return this.arY;
+    public Set<String> vd() {
+        return this.atr;
     }
 }

@@ -22,18 +22,18 @@ public abstract class b<T, R> implements d<R>, j<T> {
             if (dVar instanceof d) {
                 this.qs = (d) dVar;
             }
-            if (dKR()) {
+            if (dPx()) {
                 this.actual.onSubscribe(this);
-                dKS();
+                dPy();
             }
         }
     }
 
-    protected boolean dKR() {
+    protected boolean dPx() {
         return true;
     }
 
-    protected void dKS() {
+    protected void dPy() {
     }
 
     public void onError(Throwable th) {
@@ -60,7 +60,7 @@ public abstract class b<T, R> implements d<R>, j<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int JI(int i) {
+    public final int KP(int i) {
         d<T> dVar = this.qs;
         if (dVar == null || (i & 4) != 0) {
             return 0;

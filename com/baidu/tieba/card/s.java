@@ -2,44 +2,44 @@ package com.baidu.tieba.card;
 
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s {
-    private static s gGb;
-    private List<an> eMV;
+    private static s gSU;
+    private List<ao> eXh;
 
-    public static s bLs() {
-        if (gGb == null) {
+    public static s bOA() {
+        if (gSU == null) {
             synchronized (s.class) {
-                if (gGb == null) {
-                    gGb = new s();
+                if (gSU == null) {
+                    gSU = new s();
                 }
             }
         }
-        return gGb;
+        return gSU;
     }
 
-    public void e(an anVar) {
-        if (anVar != null) {
-            if (this.eMV == null) {
-                this.eMV = new ArrayList();
+    public void e(ao aoVar) {
+        if (aoVar != null) {
+            if (this.eXh == null) {
+                this.eXh = new ArrayList();
             }
-            this.eMV.add(anVar);
+            this.eXh.add(aoVar);
         }
     }
 
-    public void jv(boolean z) {
+    public void jI(boolean z) {
         int i;
-        if (com.baidu.tbadk.core.util.v.getCount(this.eMV) != 0) {
+        if (com.baidu.tbadk.core.util.w.getCount(this.eXh) != 0) {
             int i2 = -1;
-            for (an anVar : this.eMV) {
-                if (anVar != null) {
-                    if (i2 != anVar.getPosition()) {
-                        int position = anVar.getPosition();
-                        anVar.ag(TiebaInitialize.Params.OBJ_PARAM2, z ? 1 : 0);
-                        TiebaStatic.log(anVar);
+            for (ao aoVar : this.eXh) {
+                if (aoVar != null) {
+                    if (i2 != aoVar.getPosition()) {
+                        int position = aoVar.getPosition();
+                        aoVar.ag(TiebaInitialize.Params.OBJ_PARAM2, z ? 1 : 0);
+                        TiebaStatic.log(aoVar);
                         i = position;
                     } else {
                         i = i2;
@@ -47,30 +47,30 @@ public class s {
                     i2 = i;
                 }
             }
-            this.eMV.clear();
+            this.eXh.clear();
         }
     }
 
-    public void lT(boolean z) {
-        if (com.baidu.tbadk.core.util.v.getCount(this.eMV) != 0) {
-            for (an anVar : this.eMV) {
-                if (anVar != null) {
-                    anVar.ag("obj_type", z ? 1 : 0);
-                    TiebaStatic.log(anVar);
+    public void mc(boolean z) {
+        if (com.baidu.tbadk.core.util.w.getCount(this.eXh) != 0) {
+            for (ao aoVar : this.eXh) {
+                if (aoVar != null) {
+                    aoVar.ag("obj_type", z ? 1 : 0);
+                    TiebaStatic.log(aoVar);
                 }
             }
-            this.eMV.clear();
+            this.eXh.clear();
         }
     }
 
-    public void bpt() {
-        if (com.baidu.tbadk.core.util.v.getCount(this.eMV) != 0) {
-            for (an anVar : this.eMV) {
-                if (anVar != null) {
-                    TiebaStatic.log(anVar);
+    public void brT() {
+        if (com.baidu.tbadk.core.util.w.getCount(this.eXh) != 0) {
+            for (ao aoVar : this.eXh) {
+                if (aoVar != null) {
+                    TiebaStatic.log(aoVar);
                 }
             }
-            this.eMV.clear();
+            this.eXh.clear();
         }
     }
 }

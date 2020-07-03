@@ -21,12 +21,14 @@ public class EditHeadActivityConfig extends IntentConfig {
     public static final String FROM_WHERE = "from_where";
     public static final int GROUP_PHOTO_WALL = 2;
     public static final int GROUP_TYPE = 1;
+    public static final String NEED_PASTE = "need_paste";
     public static final String NEED_UPLOAD = "need_upload";
     public static final int PERSON_TYPE = 0;
     public static final String UPLOAD_IMAGE_TYPE = "upload_image_type";
     public static final int UPLOAD_TYPE_NO = 0;
     public static final int UPLOAD_TYPE_RESET_PORTRAIT = 1;
     public static final int UPLOAD_TYPE_UPLOAD_ONLY = 2;
+    public static final String WATERMARK_TYPE = "watermark_type";
     public static String PHOTO_RESOURCE = "resourceid";
     public static String PIC_INFO = "pic_info";
     public static String FILE_NAME = "file_name";
@@ -61,6 +63,16 @@ public class EditHeadActivityConfig extends IntentConfig {
         if (!StringUtils.isNull(str)) {
             getIntent().putExtra("from_where", str);
         }
+        return this;
+    }
+
+    public EditHeadActivityConfig setNeedPaste(boolean z) {
+        getIntent().putExtra(NEED_PASTE, z);
+        return this;
+    }
+
+    public EditHeadActivityConfig setWaterMaskType(int i) {
+        getIntent().putExtra(WATERMARK_TYPE, i);
         return this;
     }
 

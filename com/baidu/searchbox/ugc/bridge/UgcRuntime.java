@@ -4,6 +4,6 @@ import com.baidu.tieba.write.b.a.m;
 /* loaded from: classes7.dex */
 public class UgcRuntime {
     public static IUgcHostInterface getUgcInterface() {
-        return m.dny();
+        return m.drK();
     }
 }

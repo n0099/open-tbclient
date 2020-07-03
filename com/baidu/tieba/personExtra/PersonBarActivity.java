@@ -5,81 +5,81 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private PersonBarAdapter koE = null;
-    private PersonBarModel koF = null;
+    private PersonBarAdapter kIC = null;
+    private PersonBarModel kID = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.knX && this.iIw != 23011) {
+        if (this.kHT && this.iZz != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.koF = new PersonBarModel(getPageContext(), coT());
-        this.koF.setSex(getSex());
-        this.koF.setId(getUid());
-        this.koF.setUniqueId(getUniqueId());
+        this.kID = new PersonBarModel(getPageContext(), csI());
+        this.kID.setSex(getSex());
+        this.kID.setId(getUid());
+        this.kID.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public BasePersonInfoAdapter a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.koE == null) {
-            this.koE = new PersonBarAdapter(this, coT());
+        if (this.kIC == null) {
+            this.kIC = new PersonBarAdapter(this, csI());
         }
-        return this.koE;
+        return this.kIC;
     }
 
-    public PersonBarModel cOf() {
-        return this.koF;
+    public PersonBarModel cSw() {
+        return this.kID;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cNN() {
+    public String cSe() {
         return getPageContext().getString(R.string.person_bar_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cNO() {
+    public String cSf() {
         return getPageContext().getString(R.string.attention_bar);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cNP() {
+    public String cSg() {
         return getPageContext().getString(R.string.person_bar_no_common_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cNQ() {
+    public String cSh() {
         return getPageContext().getString(R.string.person_bar_personal);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cNR() {
+    public String cSi() {
         return getPageContext().getString(R.string.person_bar_common);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cNV() {
+    public String cSm() {
         return "common_forum";
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public int cNW() {
+    public int cSn() {
         return 2;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        c cOp;
+        c cSG;
         super.onPageSelected(i);
-        if (this.koE != null && this.koE.getItem(i) != null && (baseFragment = (BaseFragment) this.koE.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (cOp = ((PersonBarFragment) baseFragment).cOp()) != null) {
-            cOp.iY(false);
-            cOp.notifyDataSetChanged();
+        if (this.kIC != null && this.kIC.getItem(i) != null && (baseFragment = (BaseFragment) this.kIC.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (cSG = ((PersonBarFragment) baseFragment).cSG()) != null) {
+            cSG.jk(false);
+            cSG.notifyDataSetChanged();
         }
     }
 
     public int getRequestCode() {
-        return this.iIw;
+        return this.iZz;
     }
 }

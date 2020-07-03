@@ -11,7 +11,7 @@ public class g extends PostFormRequest.PostFormRequestBuilder {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.PostFormRequest.PostFormRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
     public PostFormRequest build() {
-        com.baidu.swan.c.b.aFt().a(this.httpUrl.toString(), this);
+        com.baidu.swan.c.b.aGz().a(this.httpUrl.toString(), this);
         return super.build();
     }
 }

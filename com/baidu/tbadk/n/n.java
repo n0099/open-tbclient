@@ -3,243 +3,243 @@ package com.baidu.tbadk.n;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class n extends l {
-    private static n etm = null;
-    private boolean esJ = false;
-    private boolean esK = false;
-    private boolean esL = false;
-    private boolean esM = false;
-    private long esN = -1;
-    private long esO = -1;
-    private long esP = -1;
-    private long esQ = -1;
-    private long esR = -1;
-    private long esS = -1;
-    private long esT = -1;
-    private long esU = -1;
-    private long esV = -1;
-    private long esW = -1;
-    private long esX = -1;
-    private long esY = -1;
-    private long esZ = -1;
-    private long eta = -1;
-    private long etb = -1;
-    private long etd = -1;
-    private long ete = -1;
-    private long etf = -1;
-    private long etg = -1;
-    private long eth = -1;
-    private long eti = -1;
-    private long etj = -1;
-    private long etk = -1;
-    private long etl = -1;
+    private static n eCd = null;
+    private boolean eBB = false;
+    private boolean eBC = false;
+    private boolean eBD = false;
+    private boolean eBE = false;
+    private long eBF = -1;
+    private long eBG = -1;
+    private long eBH = -1;
+    private long eBI = -1;
+    private long eBJ = -1;
+    private long eBK = -1;
+    private long eBL = -1;
+    private long eBM = -1;
+    private long eBN = -1;
+    private long eBO = -1;
+    private long eBP = -1;
+    private long eBQ = -1;
+    private long eBR = -1;
+    private long eBS = -1;
+    private long eBT = -1;
+    private long eBU = -1;
+    private long eBV = -1;
+    private long eBW = -1;
+    private long eBX = -1;
+    private long eBY = -1;
+    private long eBZ = -1;
+    private long eCa = -1;
+    private long eCb = -1;
+    private long eCc = -1;
 
-    public boolean bfM() {
-        return this.esK;
+    public boolean bhS() {
+        return this.eBC;
     }
 
-    public void iq(boolean z) {
-        this.esJ = z;
-    }
-
-    public void cu(long j) {
-        this.esN = j;
-    }
-
-    public long bfN() {
-        return this.esN;
-    }
-
-    public void ir(boolean z) {
-        this.esM = z;
-    }
-
-    public void cv(long j) {
-        this.esO = j;
+    public void iz(boolean z) {
+        this.eBB = z;
     }
 
     public void cw(long j) {
-        this.esP = j;
+        this.eBF = j;
+    }
+
+    public long bhT() {
+        return this.eBF;
+    }
+
+    public void iA(boolean z) {
+        this.eBE = z;
     }
 
     public void cx(long j) {
-        this.esQ = j;
+        this.eBG = j;
     }
 
     public void cy(long j) {
-        this.esU = j;
+        this.eBH = j;
     }
 
     public void cz(long j) {
-        this.esT = j;
+        this.eBI = j;
     }
 
     public void cA(long j) {
-        this.esR = j;
+        this.eBM = j;
     }
 
     public void cB(long j) {
-        this.esS = j;
+        this.eBL = j;
     }
 
     public void cC(long j) {
-        this.etj = j;
+        this.eBJ = j;
     }
 
     public void cD(long j) {
-        this.ete = j;
+        this.eBK = j;
     }
 
     public void cE(long j) {
-        this.etf = j;
+        this.eCa = j;
     }
 
     public void cF(long j) {
-        this.etg = j;
+        this.eBV = j;
     }
 
     public void cG(long j) {
-        this.eth = j;
+        this.eBW = j;
     }
 
     public void cH(long j) {
-        this.etk = j;
+        this.eBX = j;
     }
 
     public void cI(long j) {
-        this.etl = j;
-        this.esK = true;
+        this.eBY = j;
     }
 
     public void cJ(long j) {
-        this.esV = j;
+        this.eCb = j;
     }
 
     public void cK(long j) {
-        this.esW = j;
+        this.eCc = j;
+        this.eBC = true;
     }
 
     public void cL(long j) {
-        this.esY = j;
+        this.eBN = j;
     }
 
     public void cM(long j) {
-        this.esX = j;
+        this.eBO = j;
     }
 
     public void cN(long j) {
-        this.esZ = j;
+        this.eBQ = j;
     }
 
     public void cO(long j) {
-        this.eta = j;
+        this.eBP = j;
     }
 
     public void cP(long j) {
-        this.etb = j;
+        this.eBR = j;
     }
 
     public void cQ(long j) {
-        this.etd = j;
-    }
-
-    public static n bfO() {
-        if (etm == null) {
-            synchronized (n.class) {
-                if (etm == null) {
-                    etm = new n();
-                }
-            }
-        }
-        return etm;
-    }
-
-    public void bfP() {
-        if (this.etl - this.esN > 0 && !this.esL && this.eti > 0 && m.bfJ().bfK()) {
-            this.esL = true;
-            long j = this.esO - this.esN;
-            long j2 = -1;
-            if (this.etg > 0) {
-                j2 = this.eth - this.etg;
-            }
-            long j3 = this.etl - this.etk;
-            com.baidu.adp.lib.stats.a kY = kY();
-            kY.append("procname", "main");
-            kY.append("appc", String.valueOf(j));
-            kY.append("loadclass", String.valueOf(this.esP));
-            kY.append("sapiinit", String.valueOf(this.esQ));
-            kY.append("acctinit", String.valueOf(this.esR));
-            kY.append("iminit", String.valueOf(this.esS));
-            kY.append("plugininit", String.valueOf(this.esT));
-            kY.append("patchloaded", String.valueOf(this.esU));
-            kY.append("naslibinit", String.valueOf(this.esV));
-            kY.append("websocketinit", String.valueOf(this.esW));
-            kY.append("settinginit", String.valueOf(this.esX));
-            kY.append("toastinit", String.valueOf(this.esY));
-            kY.append("tiebastaticinit", String.valueOf(this.esZ));
-            kY.append("locationinit", String.valueOf(this.eta));
-            kY.append("cdninit", String.valueOf(this.etb));
-            kY.append("messagesetinit", String.valueOf(this.etd));
-            kY.append("logores", String.valueOf(this.etj));
-            kY.append("opttest", String.valueOf(com.baidu.tbadk.core.frameworkData.d.dKf ? 1 : 0));
-            if (this.ete > 0 && this.etg > 0 && j2 > 0) {
-                kY.append("adc", String.valueOf(this.ete + this.etf));
-                kY.append("adshow", String.valueOf(j2));
-                kY.append("adrequest", String.valueOf(this.etf));
-                kY.append("hasad", "1");
-            } else {
-                kY.append("hasad", "0");
-            }
-            kY.append("tabc", String.valueOf(j3));
-            kY.append("costt", String.valueOf(j2 + j + this.ete + this.etf + j3 + this.eti));
-            kY.append("newinst", this.esJ ? "1" : "0");
-            kY.append("pluginloadsync", Boolean.valueOf(this.esM));
-            kY.append("hptotal", String.valueOf(this.eti));
-            BdStatisticsManager.getInstance().performance("startt", kY);
-            aMY();
-        }
+        this.eBS = j;
     }
 
     public void cR(long j) {
-        if (m.bfJ().bfK() && j > 0) {
-            com.baidu.adp.lib.stats.a kY = kY();
-            kY.append("procname", "remote");
-            kY.append("costt", String.valueOf(j));
-            BdStatisticsManager.getInstance().performance("startt", kY);
-        }
-    }
-
-    private void aMY() {
-        this.esJ = false;
-        this.esK = false;
-        this.esN = -1L;
-        this.esO = -1L;
-        this.esP = -1L;
-        this.esQ = -1L;
-        this.esR = -1L;
-        this.esS = -1L;
-        this.esT = -1L;
-        this.esU = -1L;
-        this.etj = -1L;
-        this.etg = -1L;
-        this.eth = -1L;
-        this.ete = -1L;
-        this.etk = -1L;
-        this.etl = -1L;
-        this.esV = -1L;
-        this.esW = -1L;
-        this.esX = -1L;
-        this.esY = -1L;
-        this.esZ = -1L;
-        this.eta = -1L;
-        this.etb = -1L;
-        this.etd = -1L;
-        this.etf = -1L;
-        this.eti = -1L;
+        this.eBT = j;
     }
 
     public void cS(long j) {
-        if (this.eti <= 0) {
-            this.eti = j;
+        this.eBU = j;
+    }
+
+    public static n bhU() {
+        if (eCd == null) {
+            synchronized (n.class) {
+                if (eCd == null) {
+                    eCd = new n();
+                }
+            }
+        }
+        return eCd;
+    }
+
+    public void bhV() {
+        if (this.eCc - this.eBF > 0 && !this.eBD && this.eBZ > 0 && m.bhP().bhQ()) {
+            this.eBD = true;
+            long j = this.eBG - this.eBF;
+            long j2 = -1;
+            if (this.eBX > 0) {
+                j2 = this.eBY - this.eBX;
+            }
+            long j3 = this.eCc - this.eCb;
+            com.baidu.adp.lib.stats.a lo = lo();
+            lo.append("procname", "main");
+            lo.append("appc", String.valueOf(j));
+            lo.append("loadclass", String.valueOf(this.eBH));
+            lo.append("sapiinit", String.valueOf(this.eBI));
+            lo.append("acctinit", String.valueOf(this.eBJ));
+            lo.append("iminit", String.valueOf(this.eBK));
+            lo.append("plugininit", String.valueOf(this.eBL));
+            lo.append("patchloaded", String.valueOf(this.eBM));
+            lo.append("naslibinit", String.valueOf(this.eBN));
+            lo.append("websocketinit", String.valueOf(this.eBO));
+            lo.append("settinginit", String.valueOf(this.eBP));
+            lo.append("toastinit", String.valueOf(this.eBQ));
+            lo.append("tiebastaticinit", String.valueOf(this.eBR));
+            lo.append("locationinit", String.valueOf(this.eBS));
+            lo.append("cdninit", String.valueOf(this.eBT));
+            lo.append("messagesetinit", String.valueOf(this.eBU));
+            lo.append("logores", String.valueOf(this.eCa));
+            lo.append("opttest", String.valueOf(com.baidu.tbadk.core.frameworkData.d.dQV ? 1 : 0));
+            if (this.eBV > 0 && this.eBX > 0 && j2 > 0) {
+                lo.append("adc", String.valueOf(this.eBV + this.eBW));
+                lo.append("adshow", String.valueOf(j2));
+                lo.append("adrequest", String.valueOf(this.eBW));
+                lo.append("hasad", "1");
+            } else {
+                lo.append("hasad", "0");
+            }
+            lo.append("tabc", String.valueOf(j3));
+            lo.append("costt", String.valueOf(j2 + j + this.eBV + this.eBW + j3 + this.eBZ));
+            lo.append("newinst", this.eBB ? "1" : "0");
+            lo.append("pluginloadsync", Boolean.valueOf(this.eBE));
+            lo.append("hptotal", String.valueOf(this.eBZ));
+            BdStatisticsManager.getInstance().performance("startt", lo);
+            aOB();
+        }
+    }
+
+    public void cT(long j) {
+        if (m.bhP().bhQ() && j > 0) {
+            com.baidu.adp.lib.stats.a lo = lo();
+            lo.append("procname", "remote");
+            lo.append("costt", String.valueOf(j));
+            BdStatisticsManager.getInstance().performance("startt", lo);
+        }
+    }
+
+    private void aOB() {
+        this.eBB = false;
+        this.eBC = false;
+        this.eBF = -1L;
+        this.eBG = -1L;
+        this.eBH = -1L;
+        this.eBI = -1L;
+        this.eBJ = -1L;
+        this.eBK = -1L;
+        this.eBL = -1L;
+        this.eBM = -1L;
+        this.eCa = -1L;
+        this.eBX = -1L;
+        this.eBY = -1L;
+        this.eBV = -1L;
+        this.eCb = -1L;
+        this.eCc = -1L;
+        this.eBN = -1L;
+        this.eBO = -1L;
+        this.eBP = -1L;
+        this.eBQ = -1L;
+        this.eBR = -1L;
+        this.eBS = -1L;
+        this.eBT = -1L;
+        this.eBU = -1L;
+        this.eBW = -1L;
+        this.eBZ = -1L;
+    }
+
+    public void cU(long j) {
+        if (this.eBZ <= 0) {
+            this.eBZ = j;
         }
     }
 }

@@ -12,25 +12,25 @@ import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGameSubNode;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class CardFrsGameRecommendGameLayout extends LinearLayout {
-    private int aVp;
-    private com.baidu.adp.lib.d.b<CardFrsGameRecommendGameItemView> gCL;
-    private int gCM;
-    private int gCN;
-    private final ViewGroup.OnHierarchyChangeListener gCO;
+    private int aXW;
+    private com.baidu.adp.lib.d.b<CardFrsGameRecommendGameItemView> gPB;
+    private int gPC;
+    private int gPD;
+    private final ViewGroup.OnHierarchyChangeListener gPE;
     private TbPageContext pageContext;
 
     public CardFrsGameRecommendGameLayout(Context context) {
         super(context);
-        this.gCL = null;
-        this.gCO = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.card.CardFrsGameRecommendGameLayout.1
+        this.gPB = null;
+        this.gPE = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.card.CardFrsGameRecommendGameLayout.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
             }
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof CardFrsGameRecommendGameItemView) && CardFrsGameRecommendGameLayout.this.gCL != null) {
-                    CardFrsGameRecommendGameLayout.this.gCL.returnObject((CardFrsGameRecommendGameItemView) view2);
+                if ((view2 instanceof CardFrsGameRecommendGameItemView) && CardFrsGameRecommendGameLayout.this.gPB != null) {
+                    CardFrsGameRecommendGameLayout.this.gPB.returnObject((CardFrsGameRecommendGameItemView) view2);
                 }
             }
         };
@@ -39,16 +39,16 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
 
     public CardFrsGameRecommendGameLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gCL = null;
-        this.gCO = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.card.CardFrsGameRecommendGameLayout.1
+        this.gPB = null;
+        this.gPE = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.card.CardFrsGameRecommendGameLayout.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
             }
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof CardFrsGameRecommendGameItemView) && CardFrsGameRecommendGameLayout.this.gCL != null) {
-                    CardFrsGameRecommendGameLayout.this.gCL.returnObject((CardFrsGameRecommendGameItemView) view2);
+                if ((view2 instanceof CardFrsGameRecommendGameItemView) && CardFrsGameRecommendGameLayout.this.gPB != null) {
+                    CardFrsGameRecommendGameLayout.this.gPB.returnObject((CardFrsGameRecommendGameItemView) view2);
                 }
             }
         };
@@ -57,16 +57,16 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
 
     public CardFrsGameRecommendGameLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gCL = null;
-        this.gCO = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.card.CardFrsGameRecommendGameLayout.1
+        this.gPB = null;
+        this.gPE = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.card.CardFrsGameRecommendGameLayout.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
             }
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof CardFrsGameRecommendGameItemView) && CardFrsGameRecommendGameLayout.this.gCL != null) {
-                    CardFrsGameRecommendGameLayout.this.gCL.returnObject((CardFrsGameRecommendGameItemView) view2);
+                if ((view2 instanceof CardFrsGameRecommendGameItemView) && CardFrsGameRecommendGameLayout.this.gPB != null) {
+                    CardFrsGameRecommendGameLayout.this.gPB.returnObject((CardFrsGameRecommendGameItemView) view2);
                 }
             }
         };
@@ -81,7 +81,7 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        setOnHierarchyChangeListener(this.gCO);
+        setOnHierarchyChangeListener(this.gPE);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -95,14 +95,14 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
     }
 
     public void setData(List<FeatureCardGameSubNode> list) {
-        if (!com.baidu.tbadk.core.util.v.isEmpty(list)) {
-            this.gCN = this.aVp + this.gCM;
+        if (!com.baidu.tbadk.core.util.w.isEmpty(list)) {
+            this.gPD = this.aXW + this.gPC;
             int i = 0;
             int childCount = getChildCount();
             while (i < childCount && i < list.size()) {
                 if (getChildAt(i) instanceof CardFrsGameRecommendGameItemView) {
                     CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView = (CardFrsGameRecommendGameItemView) getChildAt(i);
-                    a(cardFrsGameRecommendGameItemView, i, this.aVp);
+                    a(cardFrsGameRecommendGameItemView, i, this.aXW);
                     a(cardFrsGameRecommendGameItemView, list.get(i));
                 }
                 i++;
@@ -115,11 +115,11 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
             while (true) {
                 int i3 = i2;
                 if (i3 < list.size()) {
-                    CardFrsGameRecommendGameItemView borrowObject = this.gCL.borrowObject();
+                    CardFrsGameRecommendGameItemView borrowObject = this.gPB.borrowObject();
                     if (borrowObject.getParent() != null) {
                         ((ViewGroup) borrowObject.getParent()).removeView(borrowObject);
                     }
-                    a(borrowObject, i3, this.aVp);
+                    a(borrowObject, i3, this.aXW);
                     a(borrowObject, list.get(i3));
                     addView(borrowObject);
                     i2 = i3 + 1;
@@ -140,7 +140,7 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
         if (i == 0) {
             layoutParams.leftMargin = 0;
         } else {
-            layoutParams.leftMargin = this.gCM;
+            layoutParams.leftMargin = this.gPC;
         }
         cardFrsGameRecommendGameItemView.setLayoutParams(layoutParams);
     }
@@ -156,18 +156,18 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
     }
 
     public int getChildItemWidth() {
-        return this.gCN;
+        return this.gPD;
     }
 
     public void setViewPool(com.baidu.adp.lib.d.b<CardFrsGameRecommendGameItemView> bVar) {
-        this.gCL = bVar;
+        this.gPB = bVar;
     }
 
     public void setItemSpace(int i) {
-        this.gCM = i;
+        this.gPC = i;
     }
 
     public void setItemWidth(int i) {
-        this.aVp = i;
+        this.aXW = i;
     }
 }

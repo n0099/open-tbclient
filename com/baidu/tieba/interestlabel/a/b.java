@@ -8,51 +8,51 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.R;
 import com.baidu.tieba.interestlabel.view.LabelSettingView;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class b extends BaseAdapter {
-    private LabelSettingView iVJ;
-    private List<com.baidu.tieba.interestlabel.b.a> iVL;
-    private List<Integer> iVM = new ArrayList();
+    private LabelSettingView jmW;
+    private List<com.baidu.tieba.interestlabel.b.a> jmY;
+    private List<Integer> jmZ = new ArrayList();
     private com.baidu.tieba.interestlabel.b.b mLabelDataSet;
 
     public b(LabelSettingView labelSettingView) {
-        this.iVJ = labelSettingView;
+        this.jmW = labelSettingView;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !v.isEmpty(bVar.csD())) {
+        if (bVar != null && !w.isEmpty(bVar.cwt())) {
             this.mLabelDataSet = bVar;
-            this.iVL = bVar.csD();
-            if (!v.isEmpty(bVar.csE())) {
-                this.iVM = new ArrayList(bVar.csE());
+            this.jmY = bVar.cwt();
+            if (!w.isEmpty(bVar.cwu())) {
+                this.jmZ = new ArrayList(bVar.cwu());
             }
         }
     }
 
-    public List<Integer> csA() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.csE();
+    public List<Integer> cwq() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.cwu();
     }
 
-    public List<Integer> csB() {
-        return this.iVM;
+    public List<Integer> cwr() {
+        return this.jmZ;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.getCount(this.iVL);
+        return w.getCount(this.jmY);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: yC */
+    /* renamed from: zo */
     public com.baidu.tieba.interestlabel.b.a getItem(int i) {
-        return (com.baidu.tieba.interestlabel.b.a) v.getItem(this.iVL, i);
+        return (com.baidu.tieba.interestlabel.b.a) w.getItem(this.jmY, i);
     }
 
     @Override // android.widget.Adapter
@@ -66,20 +66,20 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0653b c0653b;
+        C0666b c0666b;
         View view2;
         if (view == null) {
-            view2 = LayoutInflater.from(this.iVJ.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
-            C0653b c0653b2 = new C0653b();
-            c0653b2.iVO = (TextView) view2;
-            view2.setTag(c0653b2);
-            c0653b = c0653b2;
+            view2 = LayoutInflater.from(this.jmW.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
+            C0666b c0666b2 = new C0666b();
+            c0666b2.jnb = (TextView) view2;
+            view2.setTag(c0666b2);
+            c0666b = c0666b2;
         } else {
-            c0653b = (C0653b) view.getTag();
+            c0666b = (C0666b) view.getTag();
             view2 = view;
         }
-        c0653b.iVO.setOnClickListener(new a(i));
-        a(c0653b.iVO, getItem(i));
+        c0666b.jnb.setOnClickListener(new a(i));
+        a(c0666b.jnb, getItem(i));
         return view2;
     }
 
@@ -93,11 +93,11 @@ public class b extends BaseAdapter {
             }
             textView.setText(str);
             if (aVar.isFollow) {
-                am.setViewTextColor(textView, (int) R.color.cp_link_tip_a);
-                drawable = am.getDrawable(R.drawable.icon_lable_confirm_s);
+                an.setViewTextColor(textView, (int) R.color.cp_link_tip_a);
+                drawable = an.getDrawable(R.drawable.icon_lable_confirm_s);
             } else {
-                am.setViewTextColor(textView, (int) R.color.cp_cont_b);
-                drawable = am.getDrawable(R.drawable.icon_lable_confirm_n);
+                an.setViewTextColor(textView, (int) R.color.cp_cont_b);
+                drawable = an.getDrawable(R.drawable.icon_lable_confirm_n);
             }
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, drawable, (Drawable) null);
         }
@@ -105,10 +105,10 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    class C0653b {
-        TextView iVO;
+    class C0666b {
+        TextView jnb;
 
-        C0653b() {
+        C0666b() {
         }
     }
 
@@ -129,12 +129,12 @@ public class b extends BaseAdapter {
                     b.this.a((TextView) view, item);
                 }
                 if (item.isFollow) {
-                    b.this.iVM.add(Integer.valueOf(item.labelId));
+                    b.this.jmZ.add(Integer.valueOf(item.labelId));
                 } else {
-                    b.this.iVM.remove(Integer.valueOf(item.labelId));
+                    b.this.jmZ.remove(Integer.valueOf(item.labelId));
                 }
-                if (b.this.iVJ != null) {
-                    b.this.iVJ.pX(v.getCount(b.this.iVM) > 0);
+                if (b.this.jmW != null) {
+                    b.this.jmW.qh(w.getCount(b.this.jmZ) > 0);
                 }
             }
         }

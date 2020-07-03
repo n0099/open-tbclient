@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaConfig;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -24,13 +24,13 @@ public class AlaLiveUserNotifyManager {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if ((httpResponsedMessage instanceof AlaLiveGetUserNotifyResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaLiveUserNotifyManager.this.mCurTag) {
                 AlaLiveGetUserNotifyResponsedMessage alaLiveGetUserNotifyResponsedMessage = (AlaLiveGetUserNotifyResponsedMessage) httpResponsedMessage;
-                if (v.getCount(alaLiveGetUserNotifyResponsedMessage.getDataList()) > 0) {
+                if (w.getCount(alaLiveGetUserNotifyResponsedMessage.getDataList()) > 0) {
                     if (AlaLiveUserNotifyManager.this.dataList == null) {
                         AlaLiveUserNotifyManager.this.dataList = new ArrayList();
                     }
                     AlaLiveUserNotifyManager.this.dataList.addAll(alaLiveGetUserNotifyResponsedMessage.getDataList());
                     AlaLiveUserNotifyManager.this.notifyMsg();
-                } else if (!v.isEmpty(AlaLiveUserNotifyManager.this.dataList)) {
+                } else if (!w.isEmpty(AlaLiveUserNotifyManager.this.dataList)) {
                     AlaLiveUserNotifyManager.this.notifyMsg();
                 }
             }
@@ -93,7 +93,7 @@ public class AlaLiveUserNotifyManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyMsg() {
-        if (!v.isEmpty(this.listeners)) {
+        if (!w.isEmpty(this.listeners)) {
             Iterator<AlaLiveNotifyListener> it = this.listeners.iterator();
             while (it.hasNext()) {
                 AlaLiveNotifyListener next = it.next();

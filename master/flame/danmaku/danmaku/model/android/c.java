@@ -8,54 +8,54 @@ import master.flame.danmaku.danmaku.model.p;
 import master.flame.danmaku.danmaku.model.q;
 /* loaded from: classes5.dex */
 public class c {
-    public master.flame.danmaku.danmaku.model.g nzA;
-    public master.flame.danmaku.danmaku.model.g nzB;
-    public master.flame.danmaku.danmaku.model.g nzC;
-    public m nzE;
-    private DanmakuContext nzF;
-    public int nzv = 0;
-    public int nzw = 0;
-    private float nzx = 1.0f;
-    public long nzy = 10000;
-    public long nzz = 4000;
-    public l nzD = new d();
+    public master.flame.danmaku.danmaku.model.g nVl;
+    public master.flame.danmaku.danmaku.model.g nVm;
+    public master.flame.danmaku.danmaku.model.g nVn;
+    public m nVp;
+    private DanmakuContext nVq;
+    public int nVg = 0;
+    public int nVh = 0;
+    private float nVi = 1.0f;
+    public long nVj = 10000;
+    public long nVk = 4000;
+    public l nVo = new d();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c dOc() {
+    public static c dSI() {
         return new c();
     }
 
     protected c() {
     }
 
-    public void dOd() {
-        this.nzE = null;
-        this.nzw = 0;
-        this.nzv = 0;
-        this.nzD.clear();
-        this.nzA = null;
-        this.nzB = null;
-        this.nzC = null;
-        this.nzz = 4000L;
+    public void dSJ() {
+        this.nVp = null;
+        this.nVh = 0;
+        this.nVg = 0;
+        this.nVo.clear();
+        this.nVl = null;
+        this.nVm = null;
+        this.nVn = null;
+        this.nVk = 4000L;
     }
 
     public void b(DanmakuContext danmakuContext) {
-        this.nzF = danmakuContext;
-        this.nzE = danmakuContext.dNW();
+        this.nVq = danmakuContext;
+        this.nVp = danmakuContext.dSC();
         a(1, danmakuContext);
     }
 
-    public master.flame.danmaku.danmaku.model.d JZ(int i) {
-        return a(i, this.nzF);
+    public master.flame.danmaku.danmaku.model.d Lg(int i) {
+        return a(i, this.nVq);
     }
 
     public master.flame.danmaku.danmaku.model.d a(int i, DanmakuContext danmakuContext) {
         if (danmakuContext == null) {
             return null;
         }
-        this.nzF = danmakuContext;
-        this.nzE = danmakuContext.dNW();
-        return a(i, this.nzE.getWidth(), this.nzE.getHeight(), this.nzx, danmakuContext.nzd);
+        this.nVq = danmakuContext;
+        this.nVp = danmakuContext.dSC();
+        return a(i, this.nVp.getWidth(), this.nVp.getHeight(), this.nVi, danmakuContext.nUO);
     }
 
     public master.flame.danmaku.danmaku.model.d a(int i, int i2, int i3, float f, float f2) {
@@ -65,20 +65,20 @@ public class c {
     public master.flame.danmaku.danmaku.model.d a(int i, float f, float f2, float f3, float f4) {
         float f5;
         float f6 = 1.0f;
-        int i2 = this.nzv;
-        int i3 = this.nzw;
+        int i2 = this.nVg;
+        int i3 = this.nVh;
         boolean j = j(f, f2, f3);
-        if (this.nzA == null) {
-            this.nzA = new master.flame.danmaku.danmaku.model.g(this.nzy);
-            this.nzA.aL(f4);
+        if (this.nVl == null) {
+            this.nVl = new master.flame.danmaku.danmaku.model.g(this.nVj);
+            this.nVl.aR(f4);
         } else if (j) {
-            this.nzA.setValue(this.nzy);
+            this.nVl.setValue(this.nVj);
         }
-        if (this.nzB == null) {
-            this.nzB = new master.flame.danmaku.danmaku.model.g(10000L);
+        if (this.nVm == null) {
+            this.nVm = new master.flame.danmaku.danmaku.model.g(10000L);
         }
         if (j && f > 0.0f) {
-            dOe();
+            dSK();
             if (i2 <= 0 || i3 <= 0) {
                 f5 = 1.0f;
             } else {
@@ -91,52 +91,52 @@ public class c {
         }
         switch (i) {
             case 1:
-                return new p(this.nzA);
+                return new p(this.nVl);
             case 2:
             case 3:
             default:
                 return null;
             case 4:
-                return new master.flame.danmaku.danmaku.model.h(this.nzB);
+                return new master.flame.danmaku.danmaku.model.h(this.nVm);
             case 5:
-                return new master.flame.danmaku.danmaku.model.i(this.nzB);
+                return new master.flame.danmaku.danmaku.model.i(this.nVm);
             case 6:
-                return new o(this.nzA);
+                return new o(this.nVl);
             case 7:
                 q qVar = new q();
-                this.nzD.k(qVar);
+                this.nVo.k(qVar);
                 return qVar;
         }
     }
 
     public boolean j(float f, float f2, float f3) {
-        if (this.nzv == ((int) f) && this.nzw == ((int) f2) && this.nzx == f3) {
+        if (this.nVg == ((int) f) && this.nVh == ((int) f2) && this.nVi == f3) {
             return false;
         }
-        this.nzy = 10000.0f * ((f3 * f) / 682.0f);
-        this.nzy = Math.min(9000L, this.nzy);
-        this.nzy = Math.max(4000L, this.nzy);
-        this.nzv = (int) f;
-        this.nzw = (int) f2;
-        this.nzx = f3;
+        this.nVj = 10000.0f * ((f3 * f) / 682.0f);
+        this.nVj = Math.min(9000L, this.nVj);
+        this.nVj = Math.max(4000L, this.nVj);
+        this.nVg = (int) f;
+        this.nVh = (int) f2;
+        this.nVi = f3;
         return true;
     }
 
     private void A(final float f, final float f2) {
-        this.nzD.a(new l.c<master.flame.danmaku.danmaku.model.d>() { // from class: master.flame.danmaku.danmaku.model.android.c.1
+        this.nVo.a(new l.c<master.flame.danmaku.danmaku.model.d>() { // from class: master.flame.danmaku.danmaku.model.android.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // master.flame.danmaku.danmaku.model.l.b
             /* renamed from: e */
-            public int bL(master.flame.danmaku.danmaku.model.d dVar) {
+            public int bM(master.flame.danmaku.danmaku.model.d dVar) {
                 q qVar = (q) dVar;
-                c.this.a(qVar, qVar.nxZ, qVar.nya, qVar.jOk, qVar.jOl, qVar.nyb, qVar.nyc, f, f2);
-                q.a[] aVarArr = qVar.nyj;
+                c.this.a(qVar, qVar.nTK, qVar.nTL, qVar.khX, qVar.khY, qVar.nTM, qVar.nTN, f, f2);
+                q.a[] aVarArr = qVar.nTU;
                 if (aVarArr != null && aVarArr.length > 0) {
                     int length = aVarArr.length;
                     float[][] fArr = (float[][]) Array.newInstance(Float.TYPE, length + 1, 2);
                     for (int i = 0; i < length; i++) {
-                        fArr[i] = aVarArr[i].dNS();
-                        fArr[i + 1] = aVarArr[i].dNT();
+                        fArr[i] = aVarArr[i].dSy();
+                        fArr[i + 1] = aVarArr[i].dSz();
                     }
                     c.a(qVar, fArr, f, f2);
                 }
@@ -145,14 +145,14 @@ public class c {
         });
     }
 
-    public void dOe() {
-        long j = this.nzA == null ? 0L : this.nzA.value;
-        long j2 = this.nzB == null ? 0L : this.nzB.value;
-        long j3 = this.nzC != null ? this.nzC.value : 0L;
-        this.nzz = Math.max(j, j2);
-        this.nzz = Math.max(this.nzz, j3);
-        this.nzz = Math.max(10000L, this.nzz);
-        this.nzz = Math.max(this.nzy, this.nzz);
+    public void dSK() {
+        long j = this.nVl == null ? 0L : this.nVl.value;
+        long j2 = this.nVm == null ? 0L : this.nVm.value;
+        long j3 = this.nVn != null ? this.nVn.value : 0L;
+        this.nVk = Math.max(j, j2);
+        this.nVk = Math.max(this.nVk, j3);
+        this.nVk = Math.max(10000L, this.nVk);
+        this.nVk = Math.max(this.nVj, this.nVk);
     }
 
     public void a(master.flame.danmaku.danmaku.model.d dVar, float f, float f2, float f3, float f4, long j, long j2, float f5, float f6) {
@@ -175,9 +175,9 @@ public class c {
     }
 
     private void u(master.flame.danmaku.danmaku.model.d dVar) {
-        if (this.nzC == null || (dVar.nxs != null && dVar.nxs.value > this.nzC.value)) {
-            this.nzC = dVar.nxs;
-            dOe();
+        if (this.nVn == null || (dVar.nTe != null && dVar.nTe.value > this.nVn.value)) {
+            this.nVn = dVar.nTe;
+            dSK();
         }
     }
 }

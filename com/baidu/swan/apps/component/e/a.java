@@ -9,7 +9,7 @@ import com.baidu.swan.apps.console.c;
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static void aS(@NonNull String str, @NonNull String str2) {
+    public static void aU(@NonNull String str, @NonNull String str2) {
         c(str, str2, null);
     }
 

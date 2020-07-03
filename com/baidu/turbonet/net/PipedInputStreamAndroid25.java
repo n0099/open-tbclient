@@ -7,23 +7,23 @@ import java.io.InterruptedIOException;
 public class PipedInputStreamAndroid25 extends InputStream {
     static final /* synthetic */ boolean $assertionsDisabled;
     protected byte[] buffer;
-    Thread mfK;
-    Thread mfL;
-    boolean mfH = false;
-    volatile boolean mfI = false;
-    boolean mfJ = false;
-    protected int in = -1;
-    protected int mfM = 0;
+    Thread mBA;
+    Thread mBB;
+    boolean mBx = false;
+    volatile boolean mBy = false;
+    boolean mBz = false;
+    protected int mBC = -1;
+    protected int mBD = 0;
 
     static {
         $assertionsDisabled = !PipedInputStreamAndroid25.class.desiredAssertionStatus();
     }
 
     public PipedInputStreamAndroid25() {
-        Go(1024);
+        Hv(1024);
     }
 
-    private void Go(int i) {
+    private void Hv(int i) {
         if (i <= 0) {
             throw new IllegalArgumentException("Pipe Size <= 0");
         }
@@ -31,45 +31,45 @@ public class PipedInputStreamAndroid25 extends InputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public synchronized void Gp(int i) throws IOException {
-        drb();
-        this.mfL = Thread.currentThread();
-        if (this.in == this.mfM) {
-            drc();
+    public synchronized void Hw(int i) throws IOException {
+        dvG();
+        this.mBB = Thread.currentThread();
+        if (this.mBC == this.mBD) {
+            dvH();
         }
-        if (this.in < 0) {
-            this.in = 0;
-            this.mfM = 0;
+        if (this.mBC < 0) {
+            this.mBC = 0;
+            this.mBD = 0;
         }
         byte[] bArr = this.buffer;
-        int i2 = this.in;
-        this.in = i2 + 1;
+        int i2 = this.mBC;
+        this.mBC = i2 + 1;
         bArr[i2] = (byte) (i & 255);
-        if (this.in >= this.buffer.length) {
-            this.in = 0;
+        if (this.mBC >= this.buffer.length) {
+            this.mBC = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void r(byte[] bArr, int i, int i2) throws IOException {
         int i3;
-        drb();
-        this.mfL = Thread.currentThread();
+        dvG();
+        this.mBB = Thread.currentThread();
         int i4 = i2;
         while (i4 > 0) {
-            if (this.in == this.mfM) {
-                drc();
+            if (this.mBC == this.mBD) {
+                dvH();
             }
-            if (this.mfM < this.in) {
-                i3 = this.buffer.length - this.in;
-            } else if (this.in >= this.mfM) {
+            if (this.mBD < this.mBC) {
+                i3 = this.buffer.length - this.mBC;
+            } else if (this.mBC >= this.mBD) {
                 i3 = 0;
-            } else if (this.in == -1) {
-                this.mfM = 0;
-                this.in = 0;
-                i3 = this.buffer.length - this.in;
+            } else if (this.mBC == -1) {
+                this.mBD = 0;
+                this.mBC = 0;
+                i3 = this.buffer.length - this.mBC;
             } else {
-                i3 = this.mfM - this.in;
+                i3 = this.mBD - this.mBC;
             }
             if (i3 > i4) {
                 i3 = i4;
@@ -77,31 +77,31 @@ public class PipedInputStreamAndroid25 extends InputStream {
             if (!$assertionsDisabled && i3 <= 0) {
                 throw new AssertionError();
             }
-            System.arraycopy(bArr, i, this.buffer, this.in, i3);
+            System.arraycopy(bArr, i, this.buffer, this.mBC, i3);
             i4 -= i3;
             i += i3;
-            this.in = i3 + this.in;
-            if (this.in >= this.buffer.length) {
-                this.in = 0;
+            this.mBC = i3 + this.mBC;
+            if (this.mBC >= this.buffer.length) {
+                this.mBC = 0;
             }
         }
     }
 
-    private void drb() throws IOException {
-        if (!this.mfJ) {
+    private void dvG() throws IOException {
+        if (!this.mBz) {
             throw new IOException("Pipe not connected");
         }
-        if (this.mfH || this.mfI) {
+        if (this.mBx || this.mBy) {
             throw new IOException("Pipe closed");
         }
-        if (this.mfK != null && !this.mfK.isAlive()) {
+        if (this.mBA != null && !this.mBA.isAlive()) {
             throw new IOException("Read end dead");
         }
     }
 
-    private void drc() throws IOException {
-        while (this.in == this.mfM) {
-            drb();
+    private void dvH() throws IOException {
+        while (this.mBC == this.mBD) {
+            dvG();
             notifyAll();
             try {
                 wait(1000L);
@@ -113,8 +113,8 @@ public class PipedInputStreamAndroid25 extends InputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void drd() {
-        this.mfH = true;
+    public synchronized void dvI() {
+        this.mBx = true;
         notifyAll();
     }
 
@@ -122,22 +122,22 @@ public class PipedInputStreamAndroid25 extends InputStream {
     public synchronized int read() throws IOException {
         int i = -1;
         synchronized (this) {
-            if (!this.mfJ) {
+            if (!this.mBz) {
                 throw new IOException("Pipe not connected");
             }
-            if (this.mfI) {
+            if (this.mBy) {
                 throw new IOException("Pipe closed");
             }
-            if (this.mfL != null && !this.mfL.isAlive() && !this.mfH && this.in < 0) {
+            if (this.mBB != null && !this.mBB.isAlive() && !this.mBx && this.mBC < 0) {
                 throw new IOException("Write end dead");
             }
-            this.mfK = Thread.currentThread();
+            this.mBA = Thread.currentThread();
             int i2 = 2;
             while (true) {
-                if (this.in < 0) {
-                    if (this.mfH) {
+                if (this.mBC < 0) {
+                    if (this.mBx) {
                         break;
-                    } else if (this.mfL != null && !this.mfL.isAlive() && i2 - 1 < 0) {
+                    } else if (this.mBB != null && !this.mBB.isAlive() && i2 - 1 < 0) {
                         throw new IOException("Pipe broken");
                     } else {
                         notifyAll();
@@ -150,14 +150,14 @@ public class PipedInputStreamAndroid25 extends InputStream {
                     }
                 } else {
                     byte[] bArr = this.buffer;
-                    int i3 = this.mfM;
-                    this.mfM = i3 + 1;
+                    int i3 = this.mBD;
+                    this.mBD = i3 + 1;
                     i = bArr[i3] & 255;
-                    if (this.mfM >= this.buffer.length) {
-                        this.mfM = 0;
+                    if (this.mBD >= this.buffer.length) {
+                        this.mBD = 0;
                     }
-                    if (this.in == this.mfM) {
-                        this.in = -1;
+                    if (this.mBC == this.mBD) {
+                        this.mBC = -1;
                     }
                 }
             }
@@ -183,24 +183,24 @@ public class PipedInputStreamAndroid25 extends InputStream {
                 } else {
                     bArr[i] = (byte) read;
                     i3 = 1;
-                    while (this.in >= 0 && i2 > 1) {
-                        if (this.in > this.mfM) {
-                            length = Math.min(this.buffer.length - this.mfM, this.in - this.mfM);
+                    while (this.mBC >= 0 && i2 > 1) {
+                        if (this.mBC > this.mBD) {
+                            length = Math.min(this.buffer.length - this.mBD, this.mBC - this.mBD);
                         } else {
-                            length = this.buffer.length - this.mfM;
+                            length = this.buffer.length - this.mBD;
                         }
                         if (length > i2 - 1) {
                             length = i2 - 1;
                         }
-                        System.arraycopy(this.buffer, this.mfM, bArr, i + i3, length);
-                        this.mfM += length;
+                        System.arraycopy(this.buffer, this.mBD, bArr, i + i3, length);
+                        this.mBD += length;
                         i3 += length;
                         i2 -= length;
-                        if (this.mfM >= this.buffer.length) {
-                            this.mfM = 0;
+                        if (this.mBD >= this.buffer.length) {
+                            this.mBD = 0;
                         }
-                        if (this.in == this.mfM) {
-                            this.in = -1;
+                        if (this.mBC == this.mBD) {
+                            this.mBC = -1;
                         }
                     }
                 }
@@ -212,23 +212,23 @@ public class PipedInputStreamAndroid25 extends InputStream {
     @Override // java.io.InputStream
     public synchronized int available() throws IOException {
         int length;
-        if (this.in < 0) {
+        if (this.mBC < 0) {
             length = 0;
-        } else if (this.in == this.mfM) {
+        } else if (this.mBC == this.mBD) {
             length = this.buffer.length;
-        } else if (this.in > this.mfM) {
-            length = this.in - this.mfM;
+        } else if (this.mBC > this.mBD) {
+            length = this.mBC - this.mBD;
         } else {
-            length = (this.in + this.buffer.length) - this.mfM;
+            length = (this.mBC + this.buffer.length) - this.mBD;
         }
         return length;
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.mfI = true;
+        this.mBy = true;
         synchronized (this) {
-            this.in = -1;
+            this.mBC = -1;
         }
     }
 }

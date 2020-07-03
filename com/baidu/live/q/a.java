@@ -1,20 +1,35 @@
 package com.baidu.live.q;
 
-import android.view.ViewGroup;
-import com.baidu.live.data.q;
+import android.content.Context;
 /* loaded from: classes3.dex */
-public interface a {
-    void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
+public class a {
+    public String aHt;
+    public long bbx;
+    public Context context;
+    public boolean isHost;
+    public int liveType;
+    public String otherParams;
+    public String portrait;
+    public long userId;
+    public String userName;
 
-    void b(ViewGroup.LayoutParams layoutParams);
+    public a(Context context, int i, long j, boolean z, String str) {
+        this.context = context;
+        this.liveType = i;
+        this.userId = j;
+        this.isHost = z;
+        this.portrait = str;
+        this.otherParams = "";
+    }
 
-    void cu(int i);
-
-    boolean m(q qVar);
-
-    void release();
-
-    void setCanVisible(boolean z);
-
-    void yw();
+    public a(Context context, int i, long j, boolean z, String str, String str2, String str3, long j2) {
+        this.context = context;
+        this.liveType = i;
+        this.userId = j;
+        this.isHost = z;
+        this.portrait = str;
+        this.otherParams = str2;
+        this.aHt = str3;
+        this.bbx = j2;
+    }
 }

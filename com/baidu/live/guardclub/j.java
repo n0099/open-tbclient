@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes3.dex */
 public interface j {
-    void BL();
+    void Cl();
 
     void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
 

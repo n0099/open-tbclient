@@ -1,11 +1,11 @@
 package com.baidu.mobads;
 /* loaded from: classes10.dex */
 class m implements InterstitialAdListener {
-    final /* synthetic */ InterstitialAd bsO;
+    final /* synthetic */ InterstitialAd bxI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(InterstitialAd interstitialAd) {
-        this.bsO = interstitialAd;
+        this.bxI = interstitialAd;
     }
 
     @Override // com.baidu.mobads.InterstitialAdListener

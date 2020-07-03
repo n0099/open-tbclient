@@ -4,11 +4,11 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 /* loaded from: classes13.dex */
 public class a {
-    public static int bs(int i) {
+    public static int bx(int i) {
         return (int) ((i * 16.0d) / 9.0d);
     }
 
-    public static int bt(int i) {
+    public static int by(int i) {
         return (int) ((i * 9.0d) / 16.0d);
     }
 

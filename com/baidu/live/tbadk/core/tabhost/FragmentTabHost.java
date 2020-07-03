@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.BaseFragment;
 import com.baidu.live.tbadk.core.tabhost.FragmentTabWidget;
 import com.baidu.live.tbadk.core.util.SkinManager;
@@ -22,7 +23,6 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.maintab.FragmentDelegate;
 import com.baidu.live.tbadk.maintab.TbFragmentTabIndicator;
 import com.baidu.live.tbadk.widget.CustomViewPager;
-import com.baidu.live.u.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */

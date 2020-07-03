@@ -9,6 +9,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.BdToken.q;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -19,48 +20,49 @@ import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.message.SignMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsActivityStatic;
 import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.p;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes9.dex */
 public class g {
-    private TBSpecificationBtn hMC;
-    private BdUniqueId hME;
-    private int hMF;
-    private boolean hMG;
-    private int hjQ;
-    private FrsFragment hpm;
-    private CustomMessageListener hMH = new CustomMessageListener(CmdConfigCustom.CMD_SIGN_MODEL_TASK) { // from class: com.baidu.tieba.frs.vc.g.1
+    private FrsFragment hBW;
+    private TBSpecificationBtn hZO;
+    private BdUniqueId hZQ;
+    private int hZR;
+    private boolean hZS;
+    private int hvY;
+    private CustomMessageListener hZT = new CustomMessageListener(CmdConfigCustom.CMD_SIGN_MODEL_TASK) { // from class: com.baidu.tieba.frs.vc.g.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            FrsViewData bVu;
+            FrsViewData bYB;
             ForumData forum;
             String name;
             SignData signData;
             boolean z;
             int i;
-            if (g.this.hpm != null && (customResponsedMessage instanceof SignMessage) && (bVu = g.this.hpm.bVu()) != null && bVu.getForum() != null && (name = (forum = bVu.getForum()).getName()) != null && name.equals(FrsActivityStatic.forumName) && customResponsedMessage.getOrginalMessage().getTag() == g.this.hME) {
-                TiebaStatic.eventStat(g.this.hpm.getActivity(), "sign_end_time", System.currentTimeMillis() + "");
+            if (g.this.hBW != null && (customResponsedMessage instanceof SignMessage) && (bYB = g.this.hBW.bYB()) != null && bYB.getForum() != null && (name = (forum = bYB.getForum()).getName()) != null && name.equals(FrsActivityStatic.forumName) && customResponsedMessage.getOrginalMessage().getTag() == g.this.hZQ) {
+                TiebaStatic.eventStat(g.this.hBW.getActivity(), "sign_end_time", System.currentTimeMillis() + "");
                 String name2 = forum.getName();
                 SignMessage signMessage = (SignMessage) customResponsedMessage;
-                if (!AntiHelper.bv(signMessage.mSignErrorCode, signMessage.mSignErrorString)) {
-                    h bUQ = g.this.hpm.bUQ();
+                if (!AntiHelper.bA(signMessage.mSignErrorCode, signMessage.mSignErrorString)) {
+                    h bXW = g.this.hBW.bXW();
                     if (signMessage == null || signMessage.signData == null) {
                         signData = null;
                         z = false;
                     } else {
                         SignData signData2 = signMessage.signData;
                         if (signData2.forumId != null && signData2.forumId.equals(forum.getId())) {
-                            if (bUQ != null) {
-                                bUQ.Fl(name2);
+                            if (bXW != null) {
+                                bXW.FM(name2);
                             }
-                            bVu.updateSignData(signData2);
+                            bYB.updateSignData(signData2);
                             signData2.forumId = forum.getId();
                             signData2.forumName = forum.getName();
                             signData = signData2;
@@ -71,7 +73,7 @@ public class g {
                     }
                     if (z) {
                         int user_level = forum.getUser_level();
-                        if (bUQ != null ? bUQ.cch() : false) {
+                        if (bXW != null ? bXW.cfz() : false) {
                             i = forum.getUser_level();
                             if (user_level >= i) {
                                 i++;
@@ -81,70 +83,71 @@ public class g {
                         }
                         TbadkCoreApplication.getInst().addSignedForum(name2, signData.sign_bonus_point, i);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE, signData));
-                        if (g.this.cbS() && signData.contDays > 0) {
-                            com.baidu.tbadk.coreExtra.messageCenter.f.bao().xp(signData.userInfoJson);
-                            TbPageContext<?> tbPageContext = g.this.hpm.getTbPageContext();
-                            TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(g.this.hpm.getActivity(), "", g.this.hMD, false, true, true);
+                        if (g.this.cfk() && signData.contDays > 0) {
+                            com.baidu.tbadk.coreExtra.messageCenter.f.bcq().xI(signData.userInfoJson);
+                            TbPageContext<?> tbPageContext = g.this.hBW.getTbPageContext();
+                            TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(g.this.hBW.getActivity(), "", g.this.hZP, false, true, true);
                             tbWebViewActivityConfig.setPageTranslucent("open_full_screen_opacity_web_page");
                             tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig));
+                            q.aMU().aNe().aNj();
                             return;
                         }
-                        com.baidu.tbadk.coreExtra.messageCenter.f.bao().xp(null);
-                        if (bUQ == null || bUQ.ccf()) {
-                            g.this.hpm.showToast(TbadkCoreApplication.getInst().getString(R.string.frs_sign_pointer, new Object[]{Integer.valueOf(signData.sign_bonus_point), Integer.valueOf(signData.user_sign_rank)}));
+                        com.baidu.tbadk.coreExtra.messageCenter.f.bcq().xI(null);
+                        if (bXW == null || bXW.cfx()) {
+                            g.this.hBW.showToast(TbadkCoreApplication.getInst().getString(R.string.frs_sign_pointer, new Object[]{Integer.valueOf(signData.sign_bonus_point), Integer.valueOf(signData.user_sign_rank)}));
                         } else {
-                            g.this.hpm.showToast(TbadkCoreApplication.getInst().getString(R.string.frs_sign_success, new Object[]{Integer.valueOf(signData.user_sign_rank)}));
+                            g.this.hBW.showToast(TbadkCoreApplication.getInst().getString(R.string.frs_sign_success, new Object[]{Integer.valueOf(signData.user_sign_rank)}));
                         }
-                        com.baidu.tieba.frs.n bUT = g.this.hpm.bUT();
-                        if (bUT != null) {
-                            com.baidu.tbadk.coreExtra.messageCenter.f.bao().a(g.this.hpm.getTbPageContext(), bUT.bIN());
+                        p bXZ = g.this.hBW.bXZ();
+                        if (bXZ != null) {
+                            com.baidu.tbadk.coreExtra.messageCenter.f.bcq().a(g.this.hBW.getTbPageContext(), bXZ.bLS());
                             return;
                         }
                         return;
                     }
-                    if (signMessage.mSignErrorCode == 160002 && bUQ != null) {
-                        bUQ.vy(1);
+                    if (signMessage.mSignErrorCode == 160002 && bXW != null) {
+                        bXW.wd(1);
                     }
-                    g.this.hpm.showToast(signMessage.mSignErrorString);
+                    g.this.hBW.showToast(signMessage.mSignErrorString);
                     return;
                 }
                 if (signMessage.signData != null) {
-                    AntiHelper.a(g.this.hpm.getActivity(), signMessage.signData.blockPopInfoData, g.this.mInjectListener);
+                    AntiHelper.a(g.this.hBW.getActivity(), signMessage.signData.blockPopInfoData, g.this.mInjectListener);
                 } else {
-                    AntiHelper.aX(g.this.hpm.getActivity(), signMessage.mSignErrorString);
+                    AntiHelper.aX(g.this.hBW.getActivity(), signMessage.mSignErrorString);
                 }
-                TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).ag("obj_locate", at.a.LOCATE_SIGN));
+                TiebaStatic.log(new ao(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).ag("obj_locate", av.a.LOCATE_SIGN));
             }
         }
     };
     private AntiHelper.a mInjectListener = new AntiHelper.a() { // from class: com.baidu.tieba.frs.vc.g.2
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).ag("obj_locate", at.a.LOCATE_SIGN));
+            TiebaStatic.log(new ao(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).ag("obj_locate", av.a.LOCATE_SIGN));
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onNavigationButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).ag("obj_locate", at.a.LOCATE_SIGN));
+            TiebaStatic.log(new ao(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).ag("obj_locate", av.a.LOCATE_SIGN));
         }
     };
-    private CustomMessageListener hMI = new CustomMessageListener(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE) { // from class: com.baidu.tieba.frs.vc.g.3
+    private CustomMessageListener hZU = new CustomMessageListener(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE) { // from class: com.baidu.tieba.frs.vc.g.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            FrsViewData bVu;
+            FrsViewData bYB;
             int i;
-            if (g.this.hpm != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData) && (bVu = g.this.hpm.bVu()) != null && bVu.getForum() != null) {
-                ForumData forum = bVu.getForum();
+            if (g.this.hBW != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData) && (bYB = g.this.hBW.bYB()) != null && bYB.getForum() != null) {
+                ForumData forum = bYB.getForum();
                 SignData signData = (SignData) customResponsedMessage.getData();
                 int user_level = forum.getUser_level();
                 if (signData.forumId != null && signData.forumId.equals(forum.getId())) {
-                    bVu.updateSignData(signData);
-                    h bUQ = g.this.hpm.bUQ();
+                    bYB.updateSignData(signData);
+                    h bXW = g.this.hBW.bXW();
                     boolean z = false;
-                    if (bUQ != null) {
-                        bUQ.j(bVu);
-                        z = bUQ.cch();
+                    if (bXW != null) {
+                        bXW.k(bYB);
+                        z = bXW.cfz();
                     }
                     if (z) {
                         i = forum.getUser_level();
@@ -159,90 +162,90 @@ public class g {
             }
         }
     };
-    private String hMD = TbSingleton.getInstance().getWalletSignLink();
+    private String hZP = TbSingleton.getInstance().getWalletSignLink();
 
     public g(FrsFragment frsFragment, BdUniqueId bdUniqueId) {
-        this.hpm = frsFragment;
-        this.hME = bdUniqueId;
+        this.hBW = frsFragment;
+        this.hZQ = bdUniqueId;
     }
 
     public void e(TBSpecificationBtn tBSpecificationBtn) {
-        this.hMC = tBSpecificationBtn;
+        this.hZO = tBSpecificationBtn;
     }
 
     public void registerListener() {
-        if (this.hpm != null) {
-            this.hpm.registerListener(this.hMH);
-            this.hpm.registerListener(this.hMI);
+        if (this.hBW != null) {
+            this.hBW.registerListener(this.hZT);
+            this.hBW.registerListener(this.hZU);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cbS() {
-        return !TextUtils.isEmpty(this.hMD);
+    public boolean cfk() {
+        return !TextUtils.isEmpty(this.hZP);
     }
 
-    public void vt(int i) {
-        if (this.hMC != null) {
+    public void vY(int i) {
+        if (this.hZO != null) {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds39);
-            this.hMC.getLayoutParams().width = -2;
+            this.hZO.getLayoutParams().width = -2;
             int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds10);
-            this.hMC.setPadding(dimenPixelSize2, 0, dimenPixelSize2, 0);
-            com.baidu.tbadk.core.view.commonBtn.a styleConfig = this.hMC.getStyleConfig();
-            styleConfig.mh(dimenPixelSize);
+            this.hZO.setPadding(dimenPixelSize2, 0, dimenPixelSize2, 0);
+            com.baidu.tbadk.core.view.commonBtn.a styleConfig = this.hZO.getStyleConfig();
+            styleConfig.my(dimenPixelSize);
             if (i > 0) {
-                this.hMC.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.miss_sign_days), Integer.valueOf(i)));
+                this.hZO.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.miss_sign_days), Integer.valueOf(i)));
                 styleConfig.k(R.drawable.icon_pure_frs_sign_add16_svg, 0, true);
             } else {
-                this.hMC.setText(TbadkCoreApplication.getInst().getString(R.string.signed));
+                this.hZO.setText(TbadkCoreApplication.getInst().getString(R.string.signed));
                 styleConfig.k(R.drawable.icon_pure_frs_sign16_svg, 0, true);
             }
-            this.hMC.setTextSize(R.dimen.tbds34);
-            this.hMC.aWr();
-            this.hMC.setVisibility(0);
+            this.hZO.setTextSize(R.dimen.tbds34);
+            this.hZO.aYj();
+            this.hZO.setVisibility(0);
         }
     }
 
-    public void bYb() {
-        if (cbS()) {
-            cbU();
+    public void cbp() {
+        if (cfk()) {
+            cfm();
         } else {
-            cbT();
+            cfl();
         }
     }
 
-    private void cbT() {
-        if (this.hMC != null) {
+    private void cfl() {
+        if (this.hZO != null) {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds39);
-            this.hMC.getLayoutParams().width = UtilHelper.getDimenPixelSize(R.dimen.tbds158);
-            this.hMC.setPadding(0, 0, 0, 0);
-            this.hMC.setTextSize(R.dimen.tbds34);
-            this.hMC.setText(TbadkCoreApplication.getInst().getString(R.string.sign));
-            com.baidu.tbadk.core.view.commonBtn.a styleConfig = this.hMC.getStyleConfig();
-            styleConfig.mh(dimenPixelSize);
+            this.hZO.getLayoutParams().width = UtilHelper.getDimenPixelSize(R.dimen.tbds158);
+            this.hZO.setPadding(0, 0, 0, 0);
+            this.hZO.setTextSize(R.dimen.tbds34);
+            this.hZO.setText(TbadkCoreApplication.getInst().getString(R.string.sign));
+            com.baidu.tbadk.core.view.commonBtn.a styleConfig = this.hZO.getStyleConfig();
+            styleConfig.my(dimenPixelSize);
             styleConfig.k(R.drawable.icon_pure_frs_sign16_svg, 0, true);
-            this.hMC.aWr();
+            this.hZO.aYj();
         }
     }
 
-    private void cbU() {
-        if (this.hMC != null) {
+    private void cfm() {
+        if (this.hZO != null) {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds52);
-            this.hMC.getLayoutParams().width = UtilHelper.getDimenPixelSize(R.dimen.tbds187);
-            this.hMC.setPadding(0, 0, 0, 0);
-            this.hMC.setTextSize(R.dimen.tbds34);
-            this.hMC.setText(TbadkCoreApplication.getInst().getString(R.string.sign));
-            com.baidu.tbadk.core.view.commonBtn.a styleConfig = this.hMC.getStyleConfig();
-            styleConfig.mh(dimenPixelSize);
+            this.hZO.getLayoutParams().width = UtilHelper.getDimenPixelSize(R.dimen.tbds187);
+            this.hZO.setPadding(0, 0, 0, 0);
+            this.hZO.setTextSize(R.dimen.tbds34);
+            this.hZO.setText(TbadkCoreApplication.getInst().getString(R.string.sign));
+            com.baidu.tbadk.core.view.commonBtn.a styleConfig = this.hZO.getStyleConfig();
+            styleConfig.my(dimenPixelSize);
             styleConfig.k(R.drawable.icon_frs_wallet_n, 0, false);
-            this.hMC.aWr();
+            this.hZO.aYj();
         }
     }
 
-    public void nK(boolean z) {
-        if (z && !this.hMG) {
-            an.wr("c13560").ag("obj_type", 1).aUT();
-            this.hMG = true;
+    public void nW(boolean z) {
+        if (z && !this.hZS) {
+            ao.wH("c13560").ag("obj_type", 1).aWN();
+            this.hZS = true;
         }
     }
 
@@ -250,10 +253,10 @@ public class g {
         if (forumData == null) {
             return 0.0f;
         }
-        this.hMF = forumData.getLevelupScore();
-        this.hjQ = forumData.getCurScore();
-        if (this.hMF > 0) {
-            return this.hjQ / this.hMF;
+        this.hZR = forumData.getLevelupScore();
+        this.hvY = forumData.getCurScore();
+        if (this.hZR > 0) {
+            return this.hvY / this.hZR;
         }
         return 0.0f;
     }
@@ -263,16 +266,16 @@ public class g {
             int i = signData.sign_bonus_point;
             boolean z = false;
             float f = 0.0f;
-            if (i >= this.hMF - this.hjQ) {
+            if (i >= this.hZR - this.hvY) {
                 z = true;
-                this.hMF = signData.levelup_score;
+                this.hZR = signData.levelup_score;
             }
-            this.hjQ = i + this.hjQ;
-            if (this.hjQ > this.hMF) {
-                this.hjQ = this.hMF;
+            this.hvY = i + this.hvY;
+            if (this.hvY > this.hZR) {
+                this.hvY = this.hZR;
             }
-            if (this.hMF != 0) {
-                f = this.hjQ / this.hMF;
+            if (this.hZR != 0) {
+                f = this.hvY / this.hZR;
             }
             if (f > 0.999f) {
                 f = 1.0f;
@@ -286,11 +289,11 @@ public class g {
         SignData signData;
         if (frsViewData != null && frsViewData.getForum() != null && bVar != null && (signData = (forum = frsViewData.getForum()).getSignData()) != null) {
             bVar.a(forum, frsViewData);
-            bVar.vT(signData.is_signed);
-            if (signData.sign_bonus_point > 0 && bVar.cdd()) {
+            bVar.wz(signData.is_signed);
+            if (signData.sign_bonus_point > 0 && bVar.cgw()) {
                 a(bVar, signData);
-                forum.setCurScore(this.hjQ);
-                forum.setLevelupScore(this.hMF);
+                forum.setCurScore(this.hvY);
+                forum.setLevelupScore(this.hZR);
                 bVar.a(forum, frsViewData);
             }
         }
@@ -298,39 +301,39 @@ public class g {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.frs.FrsFragment */
     /* JADX WARN: Multi-variable type inference failed */
-    public void cbV() {
-        if (this.hpm != null) {
-            FrsViewData bVu = this.hpm.bVu();
+    public void cfn() {
+        if (this.hBW != null) {
+            FrsViewData bYB = this.hBW.bYB();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount == null || currentAccount.length() <= 0) {
-                TbadkCoreApplication.getInst().login(this.hpm.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.hpm.getActivity(), true, RequestResponseCode.REQUEST_LOGIN_SIGN)));
-            } else if (bVu != null && bVu.getForum() != null) {
-                ForumData forum = bVu.getForum();
+                TbadkCoreApplication.getInst().login(this.hBW.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.hBW.getActivity(), true, RequestResponseCode.REQUEST_LOGIN_SIGN)));
+            } else if (bYB != null && bYB.getForum() != null) {
+                ForumData forum = bYB.getForum();
                 forum.setFromPage("frs");
                 FrsActivityStatic.forumName = forum.getName() == null ? "" : forum.getName();
                 CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_SIGN_MODEL_TASK, forum);
-                customMessage.setTag(this.hME);
+                customMessage.setTag(this.hZQ);
                 MessageManager.getInstance().sendMessage(customMessage);
             }
         }
     }
 
     public void O(int i, int i2, int i3) {
-        FrsViewData bVu;
-        if (this.hpm != null && i > 0 && i2 > 0 && (bVu = this.hpm.bVu()) != null && bVu.getForum() != null && bVu.getSignData() != null) {
-            ForumData forum = bVu.getForum();
-            SignData signData = bVu.getSignData();
+        FrsViewData bYB;
+        if (this.hBW != null && i > 0 && i2 > 0 && (bYB = this.hBW.bYB()) != null && bYB.getForum() != null && bYB.getSignData() != null) {
+            ForumData forum = bYB.getForum();
+            SignData signData = bYB.getSignData();
             signData.levelup_score = forum.getLevelupScore();
             signData.sign_bonus_point = i3;
             signData.miss_sign_num -= i2;
             signData.count_sign_num = i;
-            bVu.updateSignData(signData);
+            bYB.updateSignData(signData);
             signData.forumId = forum.getId();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE, signData));
-            h bUQ = this.hpm.bUQ();
-            boolean cch = bUQ != null ? bUQ.cch() : false;
+            h bXW = this.hBW.bXW();
+            boolean cfz = bXW != null ? bXW.cfz() : false;
             int i4 = -1;
-            if (cch) {
+            if (cfz) {
                 i4 = forum.getUser_level() + 1;
             }
             TbadkCoreApplication.getInst().addSignedForum(forum.getName(), signData.sign_bonus_point, i4);

@@ -16,6 +16,7 @@ public class TbConfig {
     public static final int ADD_IMAGE_WATER_USER_NAME = 1;
     public static final String ALA_VERIFY_STRATEGY = "ala/sys/strategy";
     public static final long APP_ENTER_BACKGROUND_INTERVAL = 1000;
+    public static int AR_SDK_VERSION = 0;
     private static String CFROM_HOST = null;
     public static final boolean DEBUG = true;
     public static final int DEFAULT_SDRAM_PHOTO_NUM = 30;
@@ -44,7 +45,7 @@ public class TbConfig {
     public static final int POST_IMAGE_QUALITY = 85;
     public static final int POST_IMAGE_SMALL = 1500;
     public static final boolean PROMOTED_DEFAULT = true;
-    public static final String SDK_VERSION = "3.7.5";
+    public static final String SDK_VERSION = "3.8.1";
     public static final String ST_TYPE_USE = "use";
     private static String SUBAPP_NAME = null;
     private static int SUBAPP_VERSION = 0;

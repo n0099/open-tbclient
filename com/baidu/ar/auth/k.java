@@ -6,6 +6,8 @@ import com.baidu.ar.callback.ICallbackWith;
 import java.util.List;
 /* loaded from: classes3.dex */
 public interface k {
+    List<Integer> checkAuth(Context context, byte[] bArr, IDuMixAuthCallback iDuMixAuthCallback);
+
     List<Integer> checkAuth(Context context, byte[] bArr, ICallbackWith<List<Integer>> iCallbackWith, ICallbackWith<Integer> iCallbackWith2);
 
     boolean checkFeatureAuth(int i);
@@ -23,4 +25,6 @@ public interface k {
     void receiveAuthFailMessage(int i);
 
     void release();
+
+    void setAuthLicense(byte[] bArr, String str, String str2, String str3);
 }

@@ -6,10 +6,10 @@ public class w {
     }
 
     public static void n(Object obj, String str) {
-        RJ((obj == null ? "null" : obj.getClass().getName()) + " cannot be cast to " + str);
+        Sv((obj == null ? "null" : obj.getClass().getName()) + " cannot be cast to " + str);
     }
 
-    public static void RJ(String str) {
+    public static void Sv(String str) {
         throw a(new ClassCastException(str));
     }
 
@@ -17,7 +17,7 @@ public class w {
         throw ((ClassCastException) S(classCastException));
     }
 
-    public static int bK(Object obj) {
+    public static int bL(Object obj) {
         if (obj instanceof p) {
             return ((p) obj).getArity();
         }
@@ -94,7 +94,7 @@ public class w {
     }
 
     public static boolean j(Object obj, int i) {
-        return (obj instanceof kotlin.c) && bK(obj) == i;
+        return (obj instanceof kotlin.c) && bL(obj) == i;
     }
 
     public static Object k(Object obj, int i) {

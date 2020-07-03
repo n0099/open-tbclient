@@ -10,30 +10,30 @@ import com.facebook.drawee.drawable.d;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class a extends Drawable implements Animatable, com.facebook.b.a.a {
-    private static final Class<?> mls = a.class;
-    private static final b mtm = new c();
+    private static final Class<?> mHo = a.class;
+    private static final b mPj = new c();
     @Nullable
     private d mDrawableProperties;
     private volatile boolean mIsRunning;
+    @Nullable
+    private com.facebook.fresco.animation.a.a mOD;
+    @Nullable
+    private com.facebook.fresco.animation.d.b mPk;
+    private long mPl;
+    private long mPo;
+    private int mPp;
+    private long mPq;
+    private long mPr;
+    private int mPs;
+    private volatile b mPt;
+    @Nullable
+    private volatile InterfaceC0803a mPu;
+    private final Runnable mPv;
     private long mStartTimeMs;
-    @Nullable
-    private com.facebook.fresco.animation.a.a msG;
-    @Nullable
-    private com.facebook.fresco.animation.d.b mtn;
-    private long mto;
-    private long mtp;
-    private int mtq;
-    private long mtr;
-    private long mts;
-    private int mtt;
-    private volatile b mtu;
-    @Nullable
-    private volatile InterfaceC0784a mtv;
-    private final Runnable mtw;
 
     /* renamed from: com.facebook.fresco.animation.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    public interface InterfaceC0784a {
+    public interface InterfaceC0803a {
         void a(a aVar, com.facebook.fresco.animation.d.b bVar, int i, boolean z, boolean z2, long j, long j2, long j3, long j4, long j5, long j6, long j7);
     }
 
@@ -42,41 +42,41 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
     }
 
     public a(@Nullable com.facebook.fresco.animation.a.a aVar) {
-        this.mtr = 8L;
-        this.mts = 0L;
-        this.mtu = mtm;
-        this.mtv = null;
-        this.mtw = new Runnable() { // from class: com.facebook.fresco.animation.c.a.1
+        this.mPq = 8L;
+        this.mPr = 0L;
+        this.mPt = mPj;
+        this.mPu = null;
+        this.mPv = new Runnable() { // from class: com.facebook.fresco.animation.c.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.unscheduleSelf(a.this.mtw);
+                a.this.unscheduleSelf(a.this.mPv);
                 a.this.invalidateSelf();
             }
         };
-        this.msG = aVar;
-        this.mtn = a(this.msG);
+        this.mOD = aVar;
+        this.mPk = a(this.mOD);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.msG == null ? super.getIntrinsicWidth() : this.msG.getIntrinsicWidth();
+        return this.mOD == null ? super.getIntrinsicWidth() : this.mOD.getIntrinsicWidth();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.msG == null ? super.getIntrinsicHeight() : this.msG.getIntrinsicHeight();
+        return this.mOD == null ? super.getIntrinsicHeight() : this.mOD.getIntrinsicHeight();
     }
 
     @Override // android.graphics.drawable.Animatable
     public void start() {
-        if (!this.mIsRunning && this.msG != null && this.msG.getFrameCount() > 1) {
+        if (!this.mIsRunning && this.mOD != null && this.mOD.getFrameCount() > 1) {
             this.mIsRunning = true;
             this.mStartTimeMs = now();
-            this.mtp = this.mStartTimeMs;
-            this.mto = -1L;
-            this.mtq = -1;
+            this.mPo = this.mStartTimeMs;
+            this.mPl = -1L;
+            this.mPp = -1;
             invalidateSelf();
-            this.mtu.b(this);
+            this.mPt.b(this);
         }
     }
 
@@ -85,11 +85,11 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
         if (this.mIsRunning) {
             this.mIsRunning = false;
             this.mStartTimeMs = 0L;
-            this.mtp = this.mStartTimeMs;
-            this.mto = -1L;
-            this.mtq = -1;
-            unscheduleSelf(this.mtw);
-            this.mtu.c(this);
+            this.mPo = this.mStartTimeMs;
+            this.mPl = -1L;
+            this.mPp = -1;
+            unscheduleSelf(this.mPv);
+            this.mPt.c(this);
         }
     }
 
@@ -101,47 +101,47 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        if (this.msG != null) {
-            this.msG.setBounds(rect);
+        if (this.mOD != null) {
+            this.mOD.setBounds(rect);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (this.msG != null && this.mtn != null) {
+        if (this.mOD != null && this.mPk != null) {
             long now = now();
-            long max = this.mIsRunning ? (now - this.mStartTimeMs) + this.mts : Math.max(this.mto, 0L);
-            int J = this.mtn.J(max, this.mto);
-            if (J == -1) {
-                J = this.msG.getFrameCount() - 1;
-                this.mtu.c(this);
+            long max = this.mIsRunning ? (now - this.mStartTimeMs) + this.mPr : Math.max(this.mPl, 0L);
+            int K = this.mPk.K(max, this.mPl);
+            if (K == -1) {
+                K = this.mOD.getFrameCount() - 1;
+                this.mPt.c(this);
                 this.mIsRunning = false;
-            } else if (J == 0 && this.mtq != -1 && now >= this.mtp) {
-                this.mtu.d(this);
+            } else if (K == 0 && this.mPp != -1 && now >= this.mPo) {
+                this.mPt.d(this);
             }
-            boolean a = this.msG.a(this, canvas, J);
+            boolean a = this.mOD.a(this, canvas, K);
             if (a) {
-                this.mtu.a(this, J);
-                this.mtq = J;
+                this.mPt.a(this, K);
+                this.mPp = K;
             }
             if (!a) {
-                dxt();
+                dBV();
             }
             long j = -1;
             long j2 = -1;
             long now2 = now();
             if (this.mIsRunning) {
-                j = this.mtn.fO(now2 - this.mStartTimeMs);
+                j = this.mPk.fT(now2 - this.mStartTimeMs);
                 if (j != -1) {
-                    j2 = j + this.mtr;
-                    fN(j2);
+                    j2 = j + this.mPq;
+                    fS(j2);
                 }
             }
-            InterfaceC0784a interfaceC0784a = this.mtv;
-            if (interfaceC0784a != null) {
-                interfaceC0784a.a(this, this.mtn, J, a, this.mIsRunning, this.mStartTimeMs, max, this.mto, now, now2, j, j2);
+            InterfaceC0803a interfaceC0803a = this.mPu;
+            if (interfaceC0803a != null) {
+                interfaceC0803a.a(this, this.mPk, K, a, this.mIsRunning, this.mStartTimeMs, max, this.mPl, now, now2, j, j2);
             }
-            this.mto = max;
+            this.mPl = max;
         }
     }
 
@@ -151,8 +151,8 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
             this.mDrawableProperties = new d();
         }
         this.mDrawableProperties.setAlpha(i);
-        if (this.msG != null) {
-            this.msG.setAlpha(i);
+        if (this.mOD != null) {
+            this.mOD.setAlpha(i);
         }
     }
 
@@ -162,8 +162,8 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
             this.mDrawableProperties = new d();
         }
         this.mDrawableProperties.setColorFilter(colorFilter);
-        if (this.msG != null) {
-            this.msG.setColorFilter(colorFilter);
+        if (this.mOD != null) {
+            this.mOD.setColorFilter(colorFilter);
         }
     }
 
@@ -172,15 +172,15 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
         return -3;
     }
 
-    private void fN(long j) {
-        this.mtp = this.mStartTimeMs + j;
-        scheduleSelf(this.mtw, this.mtp);
+    private void fS(long j) {
+        this.mPo = this.mStartTimeMs + j;
+        scheduleSelf(this.mPv, this.mPo);
     }
 
-    private void dxt() {
-        this.mtt++;
+    private void dBV() {
+        this.mPs++;
         if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.a(mls, "Dropped a frame. Count: %s", Integer.valueOf(this.mtt));
+            com.facebook.common.c.a.a(mHo, "Dropped a frame. Count: %s", Integer.valueOf(this.mPs));
         }
     }
 
@@ -198,18 +198,18 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
 
     @Override // android.graphics.drawable.Drawable
     protected boolean onLevelChange(int i) {
-        if (this.mIsRunning || this.mto == i) {
+        if (this.mIsRunning || this.mPl == i) {
             return false;
         }
-        this.mto = i;
+        this.mPl = i;
         invalidateSelf();
         return true;
     }
 
     @Override // com.facebook.b.a.a
-    public void dvp() {
-        if (this.msG != null) {
-            this.msG.clear();
+    public void dzS() {
+        if (this.mOD != null) {
+            this.mOD.clear();
         }
     }
 }

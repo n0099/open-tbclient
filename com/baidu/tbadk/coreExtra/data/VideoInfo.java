@@ -3,6 +3,8 @@ package com.baidu.tbadk.coreExtra.data;
 import android.content.Intent;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.video.EditVideoData;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.Serializable;
@@ -19,6 +21,7 @@ public class VideoInfo extends OrmObject implements Serializable {
     public static final int VIDEO_TYPE_RECORD = 1;
     public static final int VIDEO_TYPE_UPLOAD = 2;
     private static final long serialVersionUID = 4168698601975684150L;
+    private EditVideoData editVideoData;
     private boolean isCompressedVideo;
     private List<String> mBeautifyListInfo;
     private List<String> mFilterListInfo;
@@ -36,6 +39,22 @@ public class VideoInfo extends OrmObject implements Serializable {
     private String videoUriStr;
     private String videoUrl;
     private int videoWidth;
+
+    public void setEditVideoData(EditVideoData editVideoData) {
+        this.editVideoData = editVideoData;
+    }
+
+    public EditVideoData getEditVideoData() {
+        return this.editVideoData;
+    }
+
+    public boolean isEditVideoDataLegal() {
+        return this.editVideoData != null && this.editVideoData.isLegal();
+    }
+
+    public boolean isVideoMixFinished() {
+        return isAvaliable() && this.editVideoData != null && ar.equals(this.videoPath, this.editVideoData.finalPath);
+    }
 
     public String getVideoPath() {
         return this.videoPath;
@@ -126,7 +145,7 @@ public class VideoInfo extends OrmObject implements Serializable {
     }
 
     public boolean isAvaliable() {
-        return !StringUtils.isNull(this.videoPath) && !StringUtils.isNull(this.thumbPath) && this.videoHeight > 0 && this.videoWidth > 0 && new File(this.videoPath).exists();
+        return (StringUtils.isNull(this.videoPath) || StringUtils.isNull(this.thumbPath) || !new File(this.videoPath).exists()) ? false : true;
     }
 
     public boolean needUploadVideo() {
@@ -167,6 +186,12 @@ public class VideoInfo extends OrmObject implements Serializable {
             this.mFilterListInfo = videoInfo.mFilterListInfo;
             this.mMusicListInfo = videoInfo.mMusicListInfo;
             this.mStickListInfo = videoInfo.mStickListInfo;
+            if (videoInfo.editVideoData == null) {
+                this.editVideoData = null;
+                return;
+            }
+            this.editVideoData = new EditVideoData();
+            this.editVideoData.copy(videoInfo.editVideoData);
         }
     }
 

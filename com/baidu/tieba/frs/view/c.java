@@ -1,93 +1,129 @@
 package com.baidu.tieba.frs.view;
 
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.v;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.at;
-import com.baidu.tieba.frs.w;
-import com.baidu.tieba.frs.x;
-import com.baidu.tieba.horizonalList.widget.HListView;
+import com.baidu.tieba.view.BdTopToast;
 import java.util.List;
+import tbclient.FrsTabInfo;
 /* loaded from: classes9.dex */
-public class c extends com.baidu.tieba.card.c<w> {
-    private View.OnClickListener ags;
-    private com.baidu.tieba.horizonalList.widget.b gDH;
-    private HListView hRG;
-    public x hRH;
-    private List<com.baidu.tieba.horizonalList.widget.c> hRI;
+public class c extends RecyclerView.Adapter<a> implements View.OnClickListener {
+    private FrsMoveAreaChooseView ieD;
+    private int ieF;
+    private int ieG = -1;
+    private List<FrsTabInfo> ieE = com.baidu.tieba.frs.a.bWV().bWY();
+    private SparseArray<FrsTabInfo> ieH = new SparseArray<>();
 
-    public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext);
-        this.ags = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.c.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (c.this.bKU() != null) {
-                    c.this.bKU().a(view, null);
+    public c(FrsMoveAreaChooseView frsMoveAreaChooseView) {
+        this.ieF = -1;
+        this.ieD = frsMoveAreaChooseView;
+        if (!w.isEmpty(this.ieE)) {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.ieE.size()) {
+                    FrsTabInfo frsTabInfo = this.ieE.get(i2);
+                    if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.bWV().bWX())) {
+                        if (frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.bWV().bWX()) {
+                            this.ieF = i2;
+                        }
+                        this.ieH.append(i2, frsTabInfo);
+                    }
+                    i = i2 + 1;
+                } else {
+                    return;
                 }
             }
-        };
-        this.hRG = new HListView(getContext());
-        this.hRG.setHeaderDividersEnabled(false);
-        this.hRG.setFooterDividersEnabled(false);
-        this.hRG.setSelector(R.drawable.list_selector_transparent);
-        this.hRH = new x(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_school_recommend_user, (ViewGroup) null), tbPageContext, bdUniqueId);
-        this.gDH = new com.baidu.tieba.horizonalList.widget.b(getContext(), R.layout.frs_school_recommend_user, this.hRH);
-        this.gDH.setOnClickListener(this.ags);
-        this.hRG.setAdapter((ListAdapter) this.gDH);
-        this.gCc.addView(this.hRG);
-        this.gCb.setVisibility(8);
-        this.gBV.setTextSize(0, l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds28));
+        }
     }
 
-    @Override // com.baidu.tieba.card.c, com.baidu.tieba.card.b
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        super.onChangeSkinType(tbPageContext, i);
-        if (this.hRG != null && this.gDH != null) {
-            am.setViewTextColor(this.gBV, (int) R.color.cp_cont_d);
-            this.gDH.onSkinTypeChanged(i);
-        }
+    public int cgF() {
+        return this.ieF;
+    }
+
+    public int cgG() {
+        return this.ieG;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.c, com.baidu.tieba.card.b
-    public void a(w wVar) {
-        super.a((c) wVar);
-        if (wVar != null && !v.isEmpty(wVar.getDataList())) {
-            if (StringUtils.isNull(wVar.mGroupTitle)) {
-                this.gBV.setText(getContext().getResources().getString(R.string.school_recommend));
-            } else {
-                this.gBV.setText(wVar.mGroupTitle);
-            }
-            if (cD(wVar.getDataList())) {
-                this.hRI = wVar.getDataList();
-                this.gDH.setData(this.hRI);
-                this.gDH.notifyDataSetChanged();
-            }
+    @Override // android.support.v7.widget.RecyclerView.Adapter
+    @NonNull
+    /* renamed from: w */
+    public a onCreateViewHolder(ViewGroup viewGroup, int i) {
+        return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cell_frs_area_choose_layout, viewGroup, false));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.support.v7.widget.RecyclerView.Adapter
+    /* renamed from: a */
+    public void onBindViewHolder(@NonNull a aVar, int i) {
+        FrsTabInfo frsTabInfo;
+        if (!w.isEmpty(this.ieE) && (frsTabInfo = (FrsTabInfo) w.getItem(this.ieE, i)) != null) {
+            aVar.ieI.setTag(Integer.valueOf(i));
+            aVar.ieI.setText(frsTabInfo.tab_name);
+            aVar.ieI.setOnClickListener(this);
+            g(aVar.ieI, i);
         }
     }
 
-    private boolean cD(List<com.baidu.tieba.horizonalList.widget.c> list) {
-        if (v.isEmpty(list)) {
-            return false;
-        }
-        if (!v.isEmpty(this.hRI) && v.getCount(this.hRI) == v.getCount(list)) {
-            for (int i = 0; i < v.getCount(this.hRI); i++) {
-                com.baidu.tieba.horizonalList.widget.c cVar = (com.baidu.tieba.horizonalList.widget.c) v.getItem(this.hRI, i);
-                com.baidu.tieba.horizonalList.widget.c cVar2 = (com.baidu.tieba.horizonalList.widget.c) v.getItem(list, i);
-                if ((cVar instanceof at) && (cVar2 instanceof at) && !((at) cVar).metaData.getUserId().equals(((at) cVar2).metaData.getUserId())) {
-                    return true;
+    @Override // android.support.v7.widget.RecyclerView.Adapter
+    public int getItemCount() {
+        return w.getCount(this.ieE);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view.getTag() instanceof Integer) {
+            int intValue = ((Integer) view.getTag()).intValue();
+            if (this.ieH.get(intValue) != null) {
+                if (this.ieD != null && this.ieD.getContext() != null && this.ieD.getParent() != null) {
+                    if (intValue == this.ieF) {
+                        new BdTopToast(this.ieD.getContext()).vz(false).OI(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_cur_tip)).aE((ViewGroup) this.ieD.getParent());
+                        return;
+                    } else {
+                        new BdTopToast(this.ieD.getContext()).vz(false).OI(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_no_tip)).aE((ViewGroup) this.ieD.getParent());
+                        return;
+                    }
                 }
+                return;
             }
-            return false;
+            this.ieG = intValue;
+            if (this.ieD != null) {
+                this.ieD.onClick(view);
+            }
+            notifyDataSetChanged();
         }
-        return true;
+    }
+
+    private void g(TextView textView, int i) {
+        if (i == this.ieG) {
+            an.setViewTextColor(textView, (int) R.color.cp_link_tip_a);
+            an.setBackgroundResource(textView, R.drawable.cell_frs_area_choose_select_bg);
+        } else if (this.ieH.get(i) != null) {
+            an.setViewTextColor(textView, (int) R.color.cp_cont_g);
+            an.setBackgroundResource(textView, R.drawable.cell_frs_area_choose_disable_bg);
+        } else {
+            an.setViewTextColor(textView, (int) R.color.cp_cont_b);
+            an.setBackgroundResource(textView, R.drawable.cell_frs_area_choose_bg);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes9.dex */
+    public class a extends RecyclerView.ViewHolder {
+        TextView ieI;
+
+        a(View view) {
+            super(view);
+            this.ieI = (TextView) view.findViewById(R.id.cell_frs_area_choose_name);
+        }
     }
 }

@@ -22,7 +22,7 @@ public class a extends BaseDexClassLoader {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.cyberplayer.sdk.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0107a {
+    public static final class C0109a {
         /* JADX INFO: Access modifiers changed from: private */
         public static void b(ClassLoader classLoader, File file) throws Throwable {
             a.b(a.b(classLoader, "pathList").get(classLoader), "nativeLibraryDirectories", new File[]{file});
@@ -144,7 +144,7 @@ public class a extends BaseDexClassLoader {
             }
         } else if (Build.VERSION.SDK_INT < 23) {
             if (Build.VERSION.SDK_INT >= 14) {
-                C0107a.b(classLoader, file);
+                C0109a.b(classLoader, file);
             } else {
                 d.b(classLoader, file);
             }
@@ -153,7 +153,7 @@ public class a extends BaseDexClassLoader {
                 b.b(classLoader, file);
             } catch (Throwable th2) {
                 CyberLog.e("CyberClassLoader", "installNativeLibraryPath, v23 fail, sdk: " + Build.VERSION.SDK_INT + ", error: " + th2.getMessage() + ", try to fallback to V14");
-                C0107a.b(classLoader, file);
+                C0109a.b(classLoader, file);
             }
         }
     }

@@ -39,14 +39,16 @@ import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class TBCameraOperator implements ICameraOperator {
     private static final int DEFAULT_ROTATE = 0;
+    private static final boolean IS_OPEN_TAG = false;
     private static final int MIN_SURFACE_CHANGE = 10;
+    private static final String TAG = "LIVE_SDK_JNI";
     private WeakReference<Activity> mActivityReference;
     private Camera mCamera;
     private int mCameraPreviewHeight;
     private int mCameraPreviewWidth;
     private SurfaceTexture mCameraTexture;
     private WindowSurface mCodecWindowSurface;
-    private AlaLiveVideoConfig mConfig;
+    private volatile AlaLiveVideoConfig mConfig;
     private IVideoRecorder.IVideoDataCallBack mDataCallback;
     private Handler mDataThreadHandler;
     private int mDepthBuffer;
@@ -270,20 +272,22 @@ public class TBCameraOperator implements ICameraOperator {
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
     public void setVideoConfig(AlaLiveVideoConfig alaLiveVideoConfig) {
-        if (alaLiveVideoConfig != null && this.mEncoder != null && alaLiveVideoConfig.getEncoderType() == 1) {
-            if (!AlaLiveVideoConfig.isEqual(this.mConfig, alaLiveVideoConfig)) {
-                if (AlaLiveVideoConfig.isUpdateBitrate(this.mConfig, alaLiveVideoConfig) && TextureEncoder.isSupportBitRateOnFly()) {
-                    this.mEncoder.updateBitrate(alaLiveVideoConfig.getBitStream());
+        if (alaLiveVideoConfig != null) {
+            if (this.mEncoder != null && alaLiveVideoConfig.getEncoderType() == 1) {
+                if (!AlaLiveVideoConfig.isEqual(this.mConfig, alaLiveVideoConfig)) {
+                    if (AlaLiveVideoConfig.isUpdateBitrate(this.mConfig, alaLiveVideoConfig) && TextureEncoder.isSupportBitRateOnFly()) {
+                        this.mEncoder.updateBitrate(alaLiveVideoConfig.getBitStream());
+                        this.mConfig = new AlaLiveVideoConfig(alaLiveVideoConfig);
+                        return;
+                    }
                     this.mConfig = new AlaLiveVideoConfig(alaLiveVideoConfig);
+                    resetTextureEncoder();
                     return;
                 }
-                this.mConfig = new AlaLiveVideoConfig(alaLiveVideoConfig);
-                resetTextureEncoder();
                 return;
             }
-            return;
+            this.mConfig = new AlaLiveVideoConfig(alaLiveVideoConfig);
         }
-        this.mConfig = new AlaLiveVideoConfig(alaLiveVideoConfig);
     }
 
     private void resetTextures() {
@@ -375,7 +379,7 @@ public class TBCameraOperator implements ICameraOperator {
                 GLES20.glClear(16384);
                 GLES20.glViewport(0, 0, this.mEncodeHeight, this.mEncodeWidth);
                 this.mFullScreen.drawFrame(this.mOffscreenTexture, fArr);
-                eglSurfaceBase.setPresentationTime(this.mCameraTexture.getTimestamp());
+                eglSurfaceBase.setPresentationTime(j);
                 eglSurfaceBase.swapBuffers();
             } catch (Exception e) {
                 try {
@@ -528,7 +532,6 @@ public class TBCameraOperator implements ICameraOperator {
             encodeConfig.isLandscape = this.mConfig.isLandscape();
             encodeConfig.H264GOP = this.mConfig.getVideoGOP();
             encodeConfig.H264FPS = this.mConfig.getVideoFPS();
-            encodeConfig.isLandscape = this.mConfig.isLandscape();
             this.mEncoder.prepare(this.mEglCore.getEGLContext(), encodeConfig, new VideoEncoderCore.OutputCallback() { // from class: com.baidu.ala.recorder.video.camera.TBCameraOperator.2
                 @Override // com.baidu.ala.recorder.video.hardware.VideoEncoderCore.OutputCallback
                 public void onFormatChanged(MediaFormat mediaFormat) {

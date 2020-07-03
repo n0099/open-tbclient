@@ -19,7 +19,7 @@ public class b extends d {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void pX(String str);
+        void qf(String str);
     }
 
     public b(@NonNull com.baidu.swan.apps.api.a.b bVar) {
@@ -27,16 +27,16 @@ public class b extends d {
     }
 
     @SuppressLint({"SwanBindApiNote"})
-    public com.baidu.swan.apps.api.c.b qa(String str) {
-        e aoG = e.aoG();
-        if (aoG == null) {
+    public com.baidu.swan.apps.api.c.b qi(String str) {
+        e apN = e.apN();
+        if (apN == null) {
             if (DEBUG) {
                 Log.e("getOpenBduss", "getOpenBduss failed: null swan runtime");
             }
             return new com.baidu.swan.apps.api.c.b(1001, "null swan runtime");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aP = com.baidu.swan.apps.api.d.b.aP("Api-Base", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aP.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aR = com.baidu.swan.apps.api.d.b.aR("Api-Base", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aR.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 c.e("Api-Base", "parse fail");
@@ -44,23 +44,23 @@ public class b extends d {
             }
             return bVar;
         }
-        final JSONObject jSONObject = (JSONObject) aP.second;
+        final JSONObject jSONObject = (JSONObject) aR.second;
         final String optString = jSONObject.optString("cb");
         if (TextUtils.isEmpty(optString)) {
             return new com.baidu.swan.apps.api.c.b(201, "empty cb");
         }
-        aoG.aoR().b(com.baidu.swan.apps.runtime.d.aoB(), "scope_get_open_bduss", new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.b.1
+        apN.apY().b(com.baidu.swan.apps.runtime.d.apI(), "scope_get_open_bduss", new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.aq.e.b
             /* renamed from: a */
             public void H(h<b.d> hVar) {
                 if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                     int errorCode = hVar.getErrorCode();
-                    String gO = com.baidu.swan.apps.setting.oauth.c.gO(errorCode);
+                    String gZ = com.baidu.swan.apps.setting.oauth.c.gZ(errorCode);
                     if (d.DEBUG) {
-                        Log.e("getOpenBduss", "getOpenBduss failed: auth fail(" + errorCode + ", " + gO + ")");
+                        Log.e("getOpenBduss", "getOpenBduss failed: auth fail(" + errorCode + ", " + gZ + ")");
                     }
-                    b.this.a(optString, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.gO(errorCode)));
+                    b.this.a(optString, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.gZ(errorCode)));
                     return;
                 }
                 JSONArray optJSONArray = jSONObject.optJSONArray("tpls");
@@ -77,12 +77,12 @@ public class b extends d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, ArrayList<String> arrayList, final String str2) {
-        if (!com.baidu.swan.bdprivate.a.a.cG(com.baidu.swan.apps.runtime.d.aoB())) {
+        if (!com.baidu.swan.bdprivate.a.a.cH(com.baidu.swan.apps.runtime.d.apI())) {
             a(str2, new com.baidu.swan.apps.api.c.b(202, "user is not logged in or the params are invalid"));
         } else {
-            com.baidu.swan.bdprivate.a.a.a(com.baidu.swan.apps.runtime.d.aoB(), str, arrayList, new a() { // from class: com.baidu.swan.bdprivate.api.b.2
+            com.baidu.swan.bdprivate.a.a.a(com.baidu.swan.apps.runtime.d.apI(), str, arrayList, new a() { // from class: com.baidu.swan.bdprivate.api.b.2
                 @Override // com.baidu.swan.bdprivate.api.b.a
-                public void pX(String str3) {
+                public void qf(String str3) {
                     try {
                         b.this.a(str2, new com.baidu.swan.apps.api.c.b(0, new JSONObject(str3)));
                     } catch (JSONException e) {

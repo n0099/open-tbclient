@@ -4,6 +4,6 @@ import android.content.Context;
 /* loaded from: classes6.dex */
 public class b {
     public static Context getAppContext() {
-        return a.bzx.get().Nt();
+        return a.bEl.get().Oz();
     }
 }

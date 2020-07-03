@@ -25,6 +25,7 @@ public final class WriteActivityStaticAutoGenerateUrlCollectorImpl implements d 
         arrayList.add("HotTopicChangeActivityConfig");
         arrayList.add("WriteUrlActivityConfig");
         arrayList.add("AccountAccessActivityConfig");
+        arrayList.add("AddLinkActivityConfig");
         hashMap.put("com.baidu.tieba.write.write.WriteActivityStatic", arrayList);
         return hashMap;
     }

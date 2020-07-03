@@ -5,26 +5,26 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class c extends com.baidu.tieba.card.b<b> {
-    private View eLr;
-    private int gIH;
-    private int gII;
+    private View eVD;
+    private int gVH;
+    private int gVI;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gIH = R.color.cp_bg_line_c;
-        this.gII = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
+        this.gVH = R.color.cp_bg_line_c;
+        this.gVI = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
         getView().setOnClickListener(this);
-        this.eLr = getView().findViewById(R.id.card_divider);
+        this.eVD = getView().findViewById(R.id.card_divider);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundColor(this.eLr, this.gIH);
+            an.setBackgroundColor(this.eVD, this.gVH);
         }
         this.mSkinType = i;
     }
@@ -38,19 +38,19 @@ public class c extends com.baidu.tieba.card.b<b> {
     @Override // com.baidu.tieba.card.b
     public void a(b bVar) {
         if (bVar != null) {
-            this.eLr.setVisibility(0);
-            this.gIH = bVar.gIH;
-            this.gII = bVar.gII;
-            bLV();
+            this.eVD.setVisibility(0);
+            this.gVH = bVar.gVH;
+            this.gVI = bVar.gVI;
+            bPf();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void bLV() {
-        ViewGroup.LayoutParams layoutParams = this.eLr.getLayoutParams();
-        if (layoutParams != null && layoutParams.height != this.gII) {
-            layoutParams.height = this.gII;
-            this.eLr.setLayoutParams(layoutParams);
+    private void bPf() {
+        ViewGroup.LayoutParams layoutParams = this.eVD.getLayoutParams();
+        if (layoutParams != null && layoutParams.height != this.gVI) {
+            layoutParams.height = this.gVI;
+            this.eVD.setLayoutParams(layoutParams);
         }
     }
 

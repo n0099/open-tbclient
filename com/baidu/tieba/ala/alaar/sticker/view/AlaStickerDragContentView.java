@@ -9,12 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.data.AlaLiveStickerInfo;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaStickerDragContentView extends RelativeLayout {
     private int borderWidth;
-    private int eYp;
+    private int fja;
 
     public AlaStickerDragContentView(Context context) {
         super(context);
@@ -28,46 +29,124 @@ public class AlaStickerDragContentView extends RelativeLayout {
         super(context, attributeSet, i);
     }
 
-    public void bl(int i, int i2) {
+    public void bp(int i, int i2) {
         this.borderWidth = i;
-        this.eYp = i2;
+        this.fja = i2;
     }
 
-    public void a(int i, Bitmap bitmap, int i2, e eVar) {
+    public DragTextView a(int i, Bitmap bitmap, int i2, e eVar, AlaLiveStickerInfo alaLiveStickerInfo) {
+        ViewGroup.LayoutParams layoutParams;
         Bitmap createScaledBitmap;
         DragTextView dragTextView = new DragTextView(getContext());
+        int dip2px = BdUtilHelper.dip2px(getContext(), 98.0f) / 2;
+        int dip2px2 = BdUtilHelper.dip2px(getContext(), 64.0f) / 2;
+        int dip2px3 = BdUtilHelper.dip2px(getContext(), 162.0f) / 2;
+        int dip2px4 = BdUtilHelper.dip2px(getContext(), 64.0f) / 2;
         if (bitmap != null) {
-            if (i == 2) {
-                createScaledBitmap = Bitmap.createScaledBitmap(bitmap, BdUtilHelper.dip2px(getContext(), 294.0f), BdUtilHelper.dip2px(getContext(), 192.0f), true);
+            if (i == 1) {
+                createScaledBitmap = Bitmap.createScaledBitmap(bitmap, dip2px * 2, dip2px2 * 2, true);
             } else {
-                createScaledBitmap = Bitmap.createScaledBitmap(bitmap, BdUtilHelper.dip2px(getContext(), 486.0f), BdUtilHelper.dip2px(getContext(), 192.0f), true);
+                createScaledBitmap = Bitmap.createScaledBitmap(bitmap, dip2px3 * 2, dip2px4 * 2, true);
             }
             dragTextView.setBackground(new BitmapDrawable(createScaledBitmap));
         }
-        dragTextView.setParentBorder(0, 0, this.borderWidth, this.eYp);
+        dragTextView.setType(i);
+        dragTextView.setParentBorder(0, 0, this.borderWidth, this.fja);
         dragTextView.setOnDragViewEventListener(eVar);
         dragTextView.setTextColor(getContext().getResources().getColor(i2));
-        if (i == 2) {
+        if (i == 1) {
             dragTextView.setCanEdit(false);
         } else {
             dragTextView.setTextSize(0, getResources().getDimensionPixelSize(a.e.sdk_ds26));
             dragTextView.setCanEdit(true);
             dragTextView.setGravity(17);
             dragTextView.setSingleLine();
-            dragTextView.setText(a.i.ala_live_striker_text);
+            String string = getContext().getResources().getString(a.i.ala_live_striker_text);
+            dragTextView.setText(string);
+            alaLiveStickerInfo.text = string;
         }
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.leftMargin = ((int) (this.borderWidth * 0.2f)) + (getChildCount() * getResources().getDimensionPixelOffset(a.e.sdk_ds40));
+        if (i == 1) {
+            layoutParams = new RelativeLayout.LayoutParams(dip2px * 2, dip2px2 * 2);
+        } else {
+            layoutParams = new RelativeLayout.LayoutParams(dip2px3 * 2, dip2px4 * 2);
+        }
+        int childCount = (getChildCount() * getResources().getDimensionPixelOffset(a.e.sdk_ds40)) + ((int) (this.borderWidth * 0.2f));
         int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.e.sdk_ds266);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             dimensionPixelOffset += UtilHelper.getImmersiveStickyBarHeight();
         }
-        layoutParams.topMargin = dimensionPixelOffset + (getChildCount() * getResources().getDimensionPixelOffset(a.e.sdk_ds80));
+        int childCount2 = (getChildCount() * getResources().getDimensionPixelOffset(a.e.sdk_ds80)) + dimensionPixelOffset;
+        int width = ((View) getParent()).getWidth();
+        int height = ((View) getParent()).getHeight();
+        if (i == 1) {
+            alaLiveStickerInfo.centerX = Math.round((((dip2px + childCount) * 1.0f) / width) * 10000.0d) / 10000.0d;
+            alaLiveStickerInfo.centerY = Math.round((((childCount2 + dip2px2) * 1.0f) / height) * 10000.0d) / 10000.0d;
+        } else {
+            alaLiveStickerInfo.centerX = Math.round((((childCount + dip2px3) * 1.0f) / width) * 10000.0d) / 10000.0d;
+            alaLiveStickerInfo.centerY = Math.round(10000.0d * (((childCount2 + dip2px4) * 1.0f) / height)) / 10000.0d;
+        }
+        dragTextView.setTranslationX(childCount);
+        dragTextView.setTranslationY(childCount2);
+        dragTextView.setTag(alaLiveStickerInfo);
+        addView(dragTextView, layoutParams);
+        return dragTextView;
+    }
+
+    public void b(int i, Bitmap bitmap, int i2, e eVar, AlaLiveStickerInfo alaLiveStickerInfo) {
+        ViewGroup.LayoutParams layoutParams;
+        int i3;
+        int i4;
+        Bitmap createScaledBitmap;
+        DragTextView dragTextView = new DragTextView(getContext());
+        int dip2px = BdUtilHelper.dip2px(getContext(), 98.0f) / 2;
+        int dip2px2 = BdUtilHelper.dip2px(getContext(), 64.0f) / 2;
+        int dip2px3 = BdUtilHelper.dip2px(getContext(), 162.0f) / 2;
+        int dip2px4 = BdUtilHelper.dip2px(getContext(), 64.0f) / 2;
+        if (bitmap != null) {
+            if (i == 1) {
+                createScaledBitmap = Bitmap.createScaledBitmap(bitmap, dip2px * 2, dip2px2 * 2, true);
+            } else {
+                createScaledBitmap = Bitmap.createScaledBitmap(bitmap, dip2px3 * 2, dip2px4 * 2, true);
+            }
+            dragTextView.setBackground(new BitmapDrawable(createScaledBitmap));
+        }
+        dragTextView.setType(i);
+        dragTextView.setParentBorder(0, 0, this.borderWidth, this.fja);
+        dragTextView.setOnDragViewEventListener(eVar);
+        dragTextView.setTextColor(getContext().getResources().getColor(i2));
+        if (i == 1) {
+            dragTextView.setCanEdit(false);
+        } else {
+            dragTextView.setTextSize(0, getResources().getDimensionPixelSize(a.e.sdk_ds26));
+            dragTextView.setCanEdit(true);
+            dragTextView.setGravity(17);
+            dragTextView.setSingleLine();
+            String string = getContext().getResources().getString(a.i.ala_live_striker_text);
+            dragTextView.setText(string);
+            alaLiveStickerInfo.text = string;
+        }
+        if (i == 1) {
+            layoutParams = new RelativeLayout.LayoutParams(dip2px * 2, dip2px2 * 2);
+        } else {
+            layoutParams = new RelativeLayout.LayoutParams(dip2px3 * 2, dip2px4 * 2);
+        }
+        int width = ((View) getParent()).getWidth();
+        int height = ((View) getParent()).getHeight();
+        if (alaLiveStickerInfo.type == 1) {
+            i3 = ((int) (width * alaLiveStickerInfo.centerX)) - dip2px;
+            i4 = ((int) (height * alaLiveStickerInfo.centerY)) - dip2px2;
+        } else {
+            i3 = ((int) (width * alaLiveStickerInfo.centerX)) - dip2px3;
+            i4 = ((int) (height * alaLiveStickerInfo.centerY)) - dip2px4;
+        }
+        dragTextView.setTranslationX(i3);
+        dragTextView.setTranslationY(i4);
+        dragTextView.setTag(alaLiveStickerInfo);
         addView(dragTextView, layoutParams);
     }
 
-    public void bu(View view) {
-        if (view.getParent() != null && view.getVisibility() == 0) {
+    public void bx(View view) {
+        if (view.getParent() != null) {
             view.setVisibility(8);
             ((ViewGroup) view.getParent()).removeView(view);
         }

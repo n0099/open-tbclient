@@ -3,7 +3,7 @@ package com.baidu.tieba.barselect;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ public class b extends RecyclerView.Adapter<c> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: n */
+    /* renamed from: o */
     public c onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new c(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.view_candidate_item, (ViewGroup) null));
     }
@@ -22,7 +22,7 @@ public class b extends RecyclerView.Adapter<c> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(c cVar, int i) {
-        if (cVar != null && !v.isEmpty(this.mDataList)) {
+        if (cVar != null && !w.isEmpty(this.mDataList)) {
             cVar.a(this.mDataList.get(i));
         }
     }

@@ -3,5 +3,5 @@ package com.baidu.ar.http;
 interface l extends Runnable {
     void cancel();
 
-    i di();
+    i dy();
 }

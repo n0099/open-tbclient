@@ -23,9 +23,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.c;
@@ -35,35 +35,35 @@ import com.baidu.tieba.play.y;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes9.dex */
 public class b extends com.baidu.tieba.card.b<g> implements c {
-    public TextView agw;
-    private Animation boW;
-    private boolean dJS;
-    public TextView fWi;
-    private n fbZ;
-    public FrameLayout hsQ;
-    public FrameLayout hsR;
-    public TextView hsS;
-    public TextView hsT;
-    public FrameLayout hsU;
-    public TextView hsV;
-    public TextView hsW;
-    public HeadImageView hsX;
-    public TextView hsY;
-    public TextView hsZ;
-    public ImageView hta;
-    public ImageView htb;
-    public LinearLayout htc;
-    public LinearLayout htd;
-    public com.baidu.tieba.play.c hte;
-    public g htf;
-    private h htg;
-    private y hth;
-    private y hti;
-    private boolean htj;
-    private boolean htk;
-    private Animation htl;
-    private ScaleAnimation htm;
-    private boolean htn;
+    public TextView ahA;
+    private Animation btW;
+    private boolean dQI;
+    private n fnj;
+    public TextView gjf;
+    public FrameLayout hFG;
+    public FrameLayout hFH;
+    public TextView hFI;
+    public TextView hFJ;
+    public FrameLayout hFK;
+    public TextView hFL;
+    public TextView hFM;
+    public HeadImageView hFN;
+    public TextView hFO;
+    public TextView hFP;
+    public ImageView hFQ;
+    public ImageView hFR;
+    public LinearLayout hFS;
+    public LinearLayout hFT;
+    public com.baidu.tieba.play.c hFU;
+    public g hFV;
+    private h hFW;
+    private y hFX;
+    private y hFY;
+    private boolean hFZ;
+    private boolean hGa;
+    private Animation hGb;
+    private ScaleAnimation hGc;
+    private boolean hGd;
     private boolean isFullScreen;
     private TbPageContext<?> mPageContext;
     public int mPosition;
@@ -71,44 +71,44 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
 
     public b(TbPageContext<?> tbPageContext, boolean z) {
         super(tbPageContext);
-        this.htj = true;
-        this.htn = z;
+        this.hFZ = true;
+        this.hGd = z;
         View view = getView();
         this.mPageContext = tbPageContext;
-        this.hsQ = (FrameLayout) view.findViewById(R.id.video_agg_container);
-        this.hsR = (FrameLayout) view.findViewById(R.id.video_container);
-        this.hte = new com.baidu.tieba.play.c(tbPageContext, this.hsR, false);
-        this.hsS = (TextView) view.findViewById(R.id.title);
-        this.hsT = (TextView) view.findViewById(R.id.duration);
-        this.hsU = (FrameLayout) view.findViewById(R.id.mobile_network_container);
-        this.hsV = (TextView) view.findViewById(R.id.mobile_network_text);
-        this.hsW = (TextView) view.findViewById(R.id.mobile_network_play);
-        this.hsX = (HeadImageView) view.findViewById(R.id.user_icon);
-        this.agw = (TextView) view.findViewById(R.id.user_name);
-        this.fWi = (TextView) view.findViewById(R.id.attention);
-        this.htc = (LinearLayout) view.findViewById(R.id.thread_info_commont_container);
-        this.htd = (LinearLayout) view.findViewById(R.id.agree_view_container);
-        this.hsY = (TextView) view.findViewById(R.id.thread_info_commont_num);
-        this.hsZ = (TextView) view.findViewById(R.id.thread_info_praise_num);
-        this.hta = (ImageView) view.findViewById(R.id.thread_info_commont_img);
-        this.htb = (ImageView) view.findViewById(R.id.thread_info_praise_img);
-        this.htc.setOnClickListener(this);
-        this.htd.setOnClickListener(this);
-        this.hsS.setOnClickListener(this);
-        this.hsX.setOnClickListener(this);
-        this.agw.setOnClickListener(this);
-        this.fWi.setOnClickListener(this);
+        this.hFG = (FrameLayout) view.findViewById(R.id.video_agg_container);
+        this.hFH = (FrameLayout) view.findViewById(R.id.video_container);
+        this.hFU = new com.baidu.tieba.play.c(tbPageContext, this.hFH, false);
+        this.hFI = (TextView) view.findViewById(R.id.title);
+        this.hFJ = (TextView) view.findViewById(R.id.duration);
+        this.hFK = (FrameLayout) view.findViewById(R.id.mobile_network_container);
+        this.hFL = (TextView) view.findViewById(R.id.mobile_network_text);
+        this.hFM = (TextView) view.findViewById(R.id.mobile_network_play);
+        this.hFN = (HeadImageView) view.findViewById(R.id.user_icon);
+        this.ahA = (TextView) view.findViewById(R.id.user_name);
+        this.gjf = (TextView) view.findViewById(R.id.attention);
+        this.hFS = (LinearLayout) view.findViewById(R.id.thread_info_commont_container);
+        this.hFT = (LinearLayout) view.findViewById(R.id.agree_view_container);
+        this.hFO = (TextView) view.findViewById(R.id.thread_info_commont_num);
+        this.hFP = (TextView) view.findViewById(R.id.thread_info_praise_num);
+        this.hFQ = (ImageView) view.findViewById(R.id.thread_info_commont_img);
+        this.hFR = (ImageView) view.findViewById(R.id.thread_info_praise_img);
+        this.hFS.setOnClickListener(this);
+        this.hFT.setOnClickListener(this);
+        this.hFI.setOnClickListener(this);
+        this.hFN.setOnClickListener(this);
+        this.ahA.setOnClickListener(this);
+        this.gjf.setOnClickListener(this);
         view.setOnClickListener(this);
-        this.hsW.setOnClickListener(this);
+        this.hFM.setOnClickListener(this);
         this.mWidth = l.getEquipmentWidth(tbPageContext.getPageActivity());
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hsQ.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hFG.getLayoutParams();
         layoutParams.height = (int) (0.5625f * this.mWidth);
-        this.hsQ.setLayoutParams(layoutParams);
-        this.hsX.setIsRound(true);
-        this.fbZ = new n(tbPageContext.getPageActivity());
-        this.htg = new h(this.mPageContext, this);
-        this.htl = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), R.anim.anim_alpha_1_to_0_duration_200);
-        this.boW = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), R.anim.anim_alpha_0_to_1_duration_200_accelerate);
+        this.hFG.setLayoutParams(layoutParams);
+        this.hFN.setIsRound(true);
+        this.fnj = new n(tbPageContext.getPageActivity());
+        this.hFW = new h(this.mPageContext, this);
+        this.hGb = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), R.anim.anim_alpha_1_to_0_duration_200);
+        this.btW = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), R.anim.anim_alpha_0_to_1_duration_200_accelerate);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -116,29 +116,29 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
         if (this.mSkinType != i) {
             tbPageContext.getLayoutMode().setNightMode(i == 1);
             tbPageContext.getLayoutMode().onModeChanged(getView());
-            am.setBackgroundColor(getView(), R.color.cp_bg_line_d);
-            if (this.htf != null && this.htf.htE != null) {
-                if (this.htf.htE.hasFocus) {
-                    am.setViewTextColor(this.fWi, (int) R.color.cp_cont_d);
-                    this.fWi.setCompoundDrawables(null, null, null, null);
+            an.setBackgroundColor(getView(), R.color.cp_bg_line_d);
+            if (this.hFV != null && this.hFV.hGu != null) {
+                if (this.hFV.hGu.hasFocus) {
+                    an.setViewTextColor(this.gjf, (int) R.color.cp_cont_d);
+                    this.gjf.setCompoundDrawables(null, null, null, null);
                 } else {
-                    am.setViewTextColor(this.fWi, (int) R.color.cp_link_tip_a);
-                    Drawable drawable = am.getDrawable(R.drawable.video_aggregation_attention_selector);
+                    an.setViewTextColor(this.gjf, (int) R.color.cp_link_tip_a);
+                    Drawable drawable = an.getDrawable(R.drawable.video_aggregation_attention_selector);
                     drawable.setBounds(0, 0, l.getDimens(this.mContext, R.dimen.ds20), l.getDimens(this.mContext, R.dimen.ds20));
-                    this.fWi.setCompoundDrawables(drawable, null, null, null);
+                    this.gjf.setCompoundDrawables(drawable, null, null, null);
                 }
             }
-            if (this.htf != null) {
-                if (this.htf.hasAgree) {
-                    this.htb.setImageDrawable(am.getDrawable(R.drawable.icon_home_card_like_s));
-                    am.setViewTextColor(this.hsZ, (int) R.color.cp_cont_h);
+            if (this.hFV != null) {
+                if (this.hFV.hasAgree) {
+                    this.hFR.setImageDrawable(an.getDrawable(R.drawable.icon_home_card_like_s));
+                    an.setViewTextColor(this.hFP, (int) R.color.cp_cont_h);
                 } else {
-                    this.htb.setImageDrawable(am.getDrawable(R.drawable.icon_home_card_like_n));
-                    am.setViewTextColor(this.hsZ, (int) R.color.cp_cont_f);
+                    this.hFR.setImageDrawable(an.getDrawable(R.drawable.icon_home_card_like_n));
+                    an.setViewTextColor(this.hFP, (int) R.color.cp_cont_f);
                 }
             }
-            am.setViewTextColor(this.hsY, (int) R.color.cp_cont_f);
-            this.hta.setImageDrawable(am.getDrawable(R.drawable.icon_home_card_comment));
+            an.setViewTextColor(this.hFO, (int) R.color.cp_cont_f);
+            this.hFQ.setImageDrawable(an.getDrawable(R.drawable.icon_home_card_comment));
         }
         this.mSkinType = i;
     }
@@ -155,20 +155,20 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
 
     public void a(g gVar, int i, a aVar) {
         String format;
-        if (gVar != null && gVar.htF != null) {
-            this.htf = gVar;
-            this.dJS = this.htf.autoPlay;
-            this.hsS.setVisibility(0);
-            this.hsS.setText(gVar.title);
-            this.hsT.setVisibility(0);
-            this.hsT.setText(aq.stringForVideoTime(gVar.htF.videoDuration * 1000));
-            if (gVar.htF.videoSize == 0) {
+        if (gVar != null && gVar.hGv != null) {
+            this.hFV = gVar;
+            this.dQI = this.hFV.autoPlay;
+            this.hFI.setVisibility(0);
+            this.hFI.setText(gVar.title);
+            this.hFJ.setVisibility(0);
+            this.hFJ.setText(ar.stringForVideoTime(gVar.hGv.videoDuration * 1000));
+            if (gVar.hGv.videoSize == 0) {
                 format = this.mPageContext.getString(R.string.video_mobile_play_tips);
             } else {
-                format = String.format(this.mPageContext.getString(R.string.video_mobile_network_tips), EH(String.format("%.1f", Float.valueOf(((float) gVar.htF.videoSize) / 1048576.0f))));
+                format = String.format(this.mPageContext.getString(R.string.video_mobile_network_tips), Fi(String.format("%.1f", Float.valueOf(((float) gVar.hGv.videoSize) / 1048576.0f))));
             }
-            this.hsV.setText(format);
-            this.hsU.setVisibility(8);
+            this.hFL.setText(format);
+            this.hFK.setVisibility(8);
             b(gVar, i, aVar);
             b(gVar);
             onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -176,140 +176,140 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
     }
 
     private void b(g gVar, final int i, final a aVar) {
-        if (gVar != null && gVar.htF != null) {
-            this.hte.stopPlay();
-            this.hte.setIsNeedRecoveryVideoPlayer(true);
-            this.hte.tt(true);
-            this.hte.tp(false);
-            this.hte.a(new c.InterfaceC0704c() { // from class: com.baidu.tieba.frs.aggregation.b.1
-                @Override // com.baidu.tieba.play.c.InterfaceC0704c
-                public void pM() {
-                    if (b.this.hte.pO()) {
-                        b.this.hsT.setVisibility(8);
+        if (gVar != null && gVar.hGv != null) {
+            this.hFU.stopPlay();
+            this.hFU.setIsNeedRecoveryVideoPlayer(true);
+            this.hFU.tH(true);
+            this.hFU.tD(false);
+            this.hFU.a(new c.InterfaceC0720c() { // from class: com.baidu.tieba.frs.aggregation.b.1
+                @Override // com.baidu.tieba.play.c.InterfaceC0720c
+                public void qd() {
+                    if (b.this.hFU.qf()) {
+                        b.this.hFJ.setVisibility(8);
                     }
                 }
 
-                @Override // com.baidu.tieba.play.c.InterfaceC0704c
-                public void pN() {
-                    if (b.this.hte.pO()) {
-                        b.this.hsT.setVisibility(8);
+                @Override // com.baidu.tieba.play.c.InterfaceC0720c
+                public void qe() {
+                    if (b.this.hFU.qf()) {
+                        b.this.hFJ.setVisibility(8);
                     }
-                    if (b.this.htk) {
-                        b.this.hte.stopPlay();
+                    if (b.this.hGa) {
+                        b.this.hFU.stopPlay();
                     }
                 }
             });
-            this.hte.a(new c.l() { // from class: com.baidu.tieba.frs.aggregation.b.2
+            this.hFU.a(new c.l() { // from class: com.baidu.tieba.frs.aggregation.b.2
                 @Override // com.baidu.tieba.play.c.l
-                public void bXy() {
-                    b.this.htk = false;
-                    b.this.hsT.setVisibility(8);
-                    b.this.EG(b.this.dJS ? "1" : "2");
-                    b.this.onClick(b.this.hsR);
+                public void caJ() {
+                    b.this.hGa = false;
+                    b.this.hFJ.setVisibility(8);
+                    b.this.Fh(b.this.dQI ? "1" : "2");
+                    b.this.onClick(b.this.hFH);
                 }
 
                 @Override // com.baidu.tieba.play.c.l
-                public void bXz() {
-                    b.this.hsT.setVisibility(8);
-                    b.this.onClick(b.this.hsQ);
+                public void caK() {
+                    b.this.hFJ.setVisibility(8);
+                    b.this.onClick(b.this.hFG);
                 }
             });
-            this.hte.a(new c.f() { // from class: com.baidu.tieba.frs.aggregation.b.3
+            this.hFU.a(new c.f() { // from class: com.baidu.tieba.frs.aggregation.b.3
                 @Override // com.baidu.tieba.play.c.f
-                public void nl(boolean z) {
+                public void nw(boolean z) {
                     if (z) {
-                        b.this.mPageContext.showToast(b.this.hsV.getText().toString());
-                        b.this.hte.eW(b.this.htf.htF.videoUrl, b.this.htf.threadId);
-                        b.this.hsT.setVisibility(8);
-                        b.this.EG("2");
+                        b.this.mPageContext.showToast(b.this.hFL.getText().toString());
+                        b.this.hFU.fd(b.this.hFV.hGv.videoUrl, b.this.hFV.threadId);
+                        b.this.hFJ.setVisibility(8);
+                        b.this.Fh("2");
                     } else {
-                        b.this.hsU.setVisibility(0);
+                        b.this.hFK.setVisibility(0);
                     }
-                    b.this.onClick(b.this.hsR);
+                    b.this.onClick(b.this.hFH);
                 }
             });
-            this.hte.tl(false);
-            this.hth = new y();
-            this.hth.ais = gVar.threadId;
-            this.hth.evm = gVar.forumId;
-            this.hth.mUid = TbadkCoreApplication.getCurrentAccount();
-            this.hti = new y();
-            this.hti.ais = gVar.threadId;
-            this.hti.evm = gVar.forumId;
-            this.hti.mUid = TbadkCoreApplication.getCurrentAccount();
-            if (this.htn) {
-                an anVar = new an("c12590");
-                anVar.dh("tid", gVar.threadId);
-                anVar.dh("nid", gVar.nid);
-                anVar.ag("obj_param5", gVar.getVideoType());
-                anVar.s("uid", TbadkCoreApplication.getCurrentAccountId());
-                anVar.dh("fid", gVar.forumId);
-                anVar.ag("obj_locate", i);
-                anVar.ag(TiebaInitialize.Params.OBJ_PARAM2, 1);
-                TiebaStatic.log(anVar);
-                this.hth.kBr = ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
-                this.hth.mLocate = Constants.VIA_REPORT_TYPE_JOININ_GROUP;
-                this.hth.kBt = "1";
-                this.hti.kBr = ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
-                this.hti.mLocate = ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
-                this.hti.kBt = "1";
+            this.hFU.tz(false);
+            this.hFX = new y();
+            this.hFX.ajO = gVar.threadId;
+            this.hFX.eEs = gVar.forumId;
+            this.hFX.mUid = TbadkCoreApplication.getCurrentAccount();
+            this.hFY = new y();
+            this.hFY.ajO = gVar.threadId;
+            this.hFY.eEs = gVar.forumId;
+            this.hFY.mUid = TbadkCoreApplication.getCurrentAccount();
+            if (this.hGd) {
+                ao aoVar = new ao("c12590");
+                aoVar.dk("tid", gVar.threadId);
+                aoVar.dk("nid", gVar.nid);
+                aoVar.ag("obj_param5", gVar.getVideoType());
+                aoVar.s("uid", TbadkCoreApplication.getCurrentAccountId());
+                aoVar.dk("fid", gVar.forumId);
+                aoVar.ag("obj_locate", i);
+                aoVar.ag(TiebaInitialize.Params.OBJ_PARAM2, 1);
+                TiebaStatic.log(aoVar);
+                this.hFX.kVo = ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
+                this.hFX.mLocate = Constants.VIA_REPORT_TYPE_JOININ_GROUP;
+                this.hFX.kVq = "1";
+                this.hFY.kVo = ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
+                this.hFY.mLocate = ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
+                this.hFY.kVq = "1";
             } else {
-                this.hth.kBt = ConstantData.VideoLocationType.VIDEO_AGGREGATION;
-                this.hth.mLocate = "12";
-                this.hti.kBt = ConstantData.VideoLocationType.VIDEO_AGGREGATION;
-                this.hti.mLocate = ConstantData.VideoLocationType.VIDEO_AGGREGATION;
+                this.hFX.kVq = ConstantData.VideoLocationType.VIDEO_AGGREGATION;
+                this.hFX.mLocate = "12";
+                this.hFY.kVq = ConstantData.VideoLocationType.VIDEO_AGGREGATION;
+                this.hFY.mLocate = ConstantData.VideoLocationType.VIDEO_AGGREGATION;
             }
-            if (gVar.htF != null) {
-                this.hth.kBw = gVar.htF.videoMd5;
-                this.hti.kBw = gVar.htF.videoMd5;
+            if (gVar.hGv != null) {
+                this.hFX.kVt = gVar.hGv.videoMd5;
+                this.hFY.kVt = gVar.hGv.videoMd5;
             }
-            this.fbZ.setVideoStatsData(this.hth);
-            this.hte.getVideoView().setBusiness(this.fbZ);
-            this.hte.cuk();
-            this.hte.b(new c.d() { // from class: com.baidu.tieba.frs.aggregation.b.4
+            this.fnj.setVideoStatsData(this.hFX);
+            this.hFU.getVideoView().setBusiness(this.fnj);
+            this.hFU.cxZ();
+            this.hFU.b(new c.d() { // from class: com.baidu.tieba.frs.aggregation.b.4
                 @Override // com.baidu.tieba.play.c.d
-                public void nm(boolean z) {
-                    if (!b.this.hte.pO()) {
-                        b.this.hsS.setVisibility(0);
+                public void nx(boolean z) {
+                    if (!b.this.hFU.qf()) {
+                        b.this.hFI.setVisibility(0);
                     } else if (z) {
-                        if (b.this.hsS.getVisibility() == 0) {
-                            b.this.hsS.setVisibility(8);
-                            b.this.hsS.startAnimation(b.this.htl);
+                        if (b.this.hFI.getVisibility() == 0) {
+                            b.this.hFI.setVisibility(8);
+                            b.this.hFI.startAnimation(b.this.hGb);
                         }
-                    } else if (b.this.hsS.getVisibility() == 8) {
-                        b.this.hsS.setVisibility(0);
-                        b.this.hsS.startAnimation(b.this.boW);
+                    } else if (b.this.hFI.getVisibility() == 8) {
+                        b.this.hFI.setVisibility(0);
+                        b.this.hFI.startAnimation(b.this.btW);
                     }
                 }
 
                 @Override // com.baidu.tieba.play.c.d
-                public void bXA() {
-                    if (!b.this.hte.pO()) {
-                        b.this.hsS.setVisibility(0);
-                    } else if (b.this.hsS.getVisibility() == 0) {
-                        b.this.hsS.setVisibility(8);
-                        b.this.hsS.startAnimation(b.this.htl);
+                public void caL() {
+                    if (!b.this.hFU.qf()) {
+                        b.this.hFI.setVisibility(0);
+                    } else if (b.this.hFI.getVisibility() == 0) {
+                        b.this.hFI.setVisibility(8);
+                        b.this.hFI.startAnimation(b.this.hGb);
                     }
                 }
             });
-            this.hte.a(new g.a() { // from class: com.baidu.tieba.frs.aggregation.b.5
+            this.hFU.a(new g.a() { // from class: com.baidu.tieba.frs.aggregation.b.5
                 @Override // com.baidu.tieba.play.g.a
                 public void onCompletion(com.baidu.tieba.play.g gVar2) {
                     if (b.this.isFullScreen) {
-                        b.this.htk = true;
-                        b.this.htj = false;
+                        b.this.hGa = true;
+                        b.this.hFZ = false;
                     }
                     if (aVar != null && !b.this.isFullScreen) {
-                        aVar.ul(i);
-                        b.this.hte.cho();
+                        aVar.uQ(i);
+                        b.this.hFU.cla();
                     }
                 }
             });
-            this.hte.a(new g.b() { // from class: com.baidu.tieba.frs.aggregation.b.6
+            this.hFU.a(new g.b() { // from class: com.baidu.tieba.frs.aggregation.b.6
                 @Override // com.baidu.tieba.play.g.b
                 public boolean onError(com.baidu.tieba.play.g gVar2, int i2, int i3) {
-                    if (b.this.htf != null && b.this.htf.htF != null) {
-                        BdStatisticsManager.getInstance().newDebug("videoplay", 0L, null, "verrno", Integer.valueOf(i2), "extra", Integer.valueOf(i3), "url", b.this.htf.htF.videoUrl);
+                    if (b.this.hFV != null && b.this.hFV.hGv != null) {
+                        BdStatisticsManager.getInstance().newDebug("videoplay", 0L, null, "verrno", Integer.valueOf(i2), "extra", Integer.valueOf(i3), "url", b.this.hFV.hGv.videoUrl);
                     }
                     if (aVar != null) {
                         aVar.cancel();
@@ -317,75 +317,75 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
                     return true;
                 }
             });
-            this.hte.setThumbnail(gVar.htF.thumbnailUrl);
-            this.hte.setVideoUrl(gVar.htF.videoUrl, gVar.threadId);
-            this.hte.Kv(gVar.title);
-            this.hte.a(new c.i() { // from class: com.baidu.tieba.frs.aggregation.b.7
+            this.hFU.setThumbnail(gVar.hGv.thumbnailUrl);
+            this.hFU.setVideoUrl(gVar.hGv.videoUrl, gVar.threadId);
+            this.hFU.KW(gVar.title);
+            this.hFU.a(new c.i() { // from class: com.baidu.tieba.frs.aggregation.b.7
                 @Override // com.baidu.tieba.play.c.i
-                public void bXB() {
-                    b.this.hsT.setVisibility(8);
+                public void caM() {
+                    b.this.hFJ.setVisibility(8);
                 }
             });
-            this.hte.cho();
-            this.hte.show();
+            this.hFU.cla();
+            this.hFU.show();
             if (gVar.autoPlay) {
-                onClick(this.hsR);
-                this.htk = false;
-                this.hte.a(gVar.htF.videoUrl, gVar.threadId, (c.e) null, new Object[0]);
+                onClick(this.hFH);
+                this.hGa = false;
+                this.hFU.a(gVar.hGv.videoUrl, gVar.threadId, (c.e) null, new Object[0]);
             }
-            this.htk = false;
+            this.hGa = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void EG(String str) {
-        if (this.htf != null && this.htf.htF != null) {
+    public void Fh(String str) {
+        if (this.hFV != null && this.hFV.hGv != null) {
             if ("1".equals(str) || "2".equals(str)) {
-                com.baidu.tieba.play.l.a(this.htf.htF.videoMd5, "", str, this.hti, this.hte.cQm().getPcdnState());
+                com.baidu.tieba.play.l.a(this.hFV.hGv.videoMd5, "", str, this.hFY, this.hFU.cUD().getPcdnState());
             }
         }
     }
 
     public boolean isPlaying() {
-        return this.hte.pO();
+        return this.hFU.qf();
     }
 
-    public void bXu() {
+    public void caF() {
         if (isPlaying()) {
-            this.hte.avT();
+            this.hFU.awZ();
         }
     }
 
-    public boolean um(int i) {
-        return this.hte.BG(i);
+    public boolean uR(int i) {
+        return this.hFU.CI(i);
     }
 
-    public void bXv() {
-        this.hsU.setVisibility(8);
-        this.hte.stopPlay();
-        if (this.hsS != null) {
-            this.hsS.setVisibility(0);
+    public void caG() {
+        this.hFK.setVisibility(8);
+        this.hFU.stopPlay();
+        if (this.hFI != null) {
+            this.hFI.setVisibility(0);
         }
-        if (this.hsT != null) {
-            this.hsT.setVisibility(0);
+        if (this.hFJ != null) {
+            this.hFJ.setVisibility(0);
         }
     }
 
-    public void bXw() {
-        if (this.hte != null) {
-            this.hte.destroy();
+    public void caH() {
+        if (this.hFU != null) {
+            this.hFU.destroy();
         }
     }
 
     @Override // com.baidu.tieba.card.b
     public void onDestroy() {
-        bXw();
-        if (this.htg != null) {
-            this.htg.bXG();
+        caH();
+        if (this.hFW != null) {
+            this.hFW.caR();
         }
     }
 
-    public String EH(String str) {
+    public String Fi(String str) {
         if (str.indexOf(".") > 0) {
             return str.replaceAll("0+?$", "").replaceAll("[.]$", "");
         }
@@ -393,11 +393,11 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
     }
 
     public void b(g gVar) {
-        if (gVar != null && gVar.htE != null) {
-            this.agw.setText(TextUtils.isEmpty(gVar.htE.userNickname) ? gVar.htE.userName : gVar.htE.userNickname);
-            this.hsX.startLoad(gVar.htE.portrait, 12, false);
-            this.hsX.setShowV(gVar.htE.isGod);
-            this.hsX.setIsBigV(gVar.htE.isGod);
+        if (gVar != null && gVar.hGu != null) {
+            this.ahA.setText(TextUtils.isEmpty(gVar.hGu.userNickname) ? gVar.hGu.userName : gVar.hGu.userNickname);
+            this.hFN.startLoad(gVar.hGu.portrait, 12, false);
+            this.hFN.setShowV(gVar.hGu.isGod);
+            this.hFN.setIsBigV(gVar.hGu.isGod);
             c(gVar);
             d(gVar);
             e(gVar);
@@ -405,132 +405,132 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
     }
 
     public void c(g gVar) {
-        if (gVar != null && gVar.htE != null) {
-            if (TbadkCoreApplication.isLogin() && !TextUtils.isEmpty(gVar.htE.userId) && TbadkCoreApplication.getCurrentAccount().equals(gVar.htE.userId)) {
-                this.fWi.setVisibility(8);
+        if (gVar != null && gVar.hGu != null) {
+            if (TbadkCoreApplication.isLogin() && !TextUtils.isEmpty(gVar.hGu.userId) && TbadkCoreApplication.getCurrentAccount().equals(gVar.hGu.userId)) {
+                this.gjf.setVisibility(8);
             } else {
-                this.fWi.setVisibility(0);
+                this.gjf.setVisibility(0);
             }
-            if (gVar.htE.hasFocus) {
-                am.setViewTextColor(this.fWi, (int) R.color.cp_cont_d);
-                this.fWi.setCompoundDrawables(null, null, null, null);
-                this.fWi.setText(this.mPageContext.getString(R.string.relate_forum_is_followed));
+            if (gVar.hGu.hasFocus) {
+                an.setViewTextColor(this.gjf, (int) R.color.cp_cont_d);
+                this.gjf.setCompoundDrawables(null, null, null, null);
+                this.gjf.setText(this.mPageContext.getString(R.string.relate_forum_is_followed));
                 return;
             }
-            am.setViewTextColor(this.fWi, (int) R.color.cp_link_tip_a);
-            Drawable drawable = am.getDrawable(R.drawable.video_aggregation_attention_selector);
+            an.setViewTextColor(this.gjf, (int) R.color.cp_link_tip_a);
+            Drawable drawable = an.getDrawable(R.drawable.video_aggregation_attention_selector);
             drawable.setBounds(0, 0, l.getDimens(this.mContext, R.dimen.ds20), l.getDimens(this.mContext, R.dimen.ds20));
-            this.fWi.setCompoundDrawables(drawable, null, null, null);
-            this.fWi.setText(this.mPageContext.getString(R.string.attention));
+            this.gjf.setCompoundDrawables(drawable, null, null, null);
+            this.gjf.setText(this.mPageContext.getString(R.string.attention));
         }
     }
 
     public void d(g gVar) {
         if (gVar != null) {
             if (gVar.hasAgree) {
-                this.htb.setImageDrawable(am.getDrawable(R.drawable.icon_home_card_like_s));
-                am.setViewTextColor(this.hsZ, (int) R.color.cp_cont_h);
+                this.hFR.setImageDrawable(an.getDrawable(R.drawable.icon_home_card_like_s));
+                an.setViewTextColor(this.hFP, (int) R.color.cp_cont_h);
             } else {
-                this.htb.setImageDrawable(am.getDrawable(R.drawable.icon_home_card_like_n));
-                am.setViewTextColor(this.hsZ, (int) R.color.cp_cont_f);
+                this.hFR.setImageDrawable(an.getDrawable(R.drawable.icon_home_card_like_n));
+                an.setViewTextColor(this.hFP, (int) R.color.cp_cont_f);
             }
-            this.hsZ.setText(aq.numFormatOverWan(gVar.agreeNum));
+            this.hFP.setText(ar.numFormatOverWan(gVar.agreeNum));
         }
     }
 
     public void e(g gVar) {
         if (gVar != null) {
-            am.setViewTextColor(this.hsY, (int) R.color.cp_cont_f);
-            this.hta.setImageDrawable(am.getDrawable(R.drawable.icon_home_card_comment));
-            this.hsY.setText(aq.numFormatOverWan(gVar.postNum));
+            an.setViewTextColor(this.hFO, (int) R.color.cp_cont_f);
+            this.hFQ.setImageDrawable(an.getDrawable(R.drawable.icon_home_card_comment));
+            this.hFO.setText(ar.numFormatOverWan(gVar.postNum));
         }
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.hte != null && this.hsR != null && this.mPageContext != null && this.mPageContext.getPageActivity() != null && this.mPageContext.getPageActivity().getWindow() != null && (this.mPageContext.getPageActivity().getWindow().getDecorView() instanceof FrameLayout)) {
+        if (this.hFU != null && this.hFH != null && this.mPageContext != null && this.mPageContext.getPageActivity() != null && this.mPageContext.getPageActivity().getWindow() != null && (this.mPageContext.getPageActivity().getWindow().getDecorView() instanceof FrameLayout)) {
             FrameLayout frameLayout = (FrameLayout) this.mPageContext.getPageActivity().getWindow().getDecorView();
-            if (this.htj) {
-                this.hte.cQs();
+            if (this.hFZ) {
+                this.hFU.cUJ();
             }
             if (configuration.orientation == 2) {
                 this.isFullScreen = true;
-                if (this.hsR.getParent() != null) {
-                    if (this.hsR.getParent() == frameLayout) {
-                        frameLayout.removeView(this.hsR);
-                    } else if (this.hsR.getParent() == this.hsQ) {
-                        this.hsQ.removeView(this.hsR);
+                if (this.hFH.getParent() != null) {
+                    if (this.hFH.getParent() == frameLayout) {
+                        frameLayout.removeView(this.hFH);
+                    } else if (this.hFH.getParent() == this.hFG) {
+                        this.hFG.removeView(this.hFH);
                     }
                 }
-                if (this.hsR.getParent() == null) {
-                    frameLayout.addView(this.hsR);
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.hsR.getLayoutParams();
+                if (this.hFH.getParent() == null) {
+                    frameLayout.addView(this.hFH);
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.hFH.getLayoutParams();
                     layoutParams.width = -1;
                     layoutParams.height = -1;
-                    this.hsR.setLayoutParams(layoutParams);
+                    this.hFH.setLayoutParams(layoutParams);
                 } else {
                     return;
                 }
             } else {
                 this.isFullScreen = false;
-                if (this.hsR.getParent() != null) {
-                    if (this.hsR.getParent() == frameLayout) {
-                        frameLayout.removeView(this.hsR);
-                    } else if (this.hsR.getParent() == this.hsQ) {
-                        this.hsQ.removeView(this.hsR);
+                if (this.hFH.getParent() != null) {
+                    if (this.hFH.getParent() == frameLayout) {
+                        frameLayout.removeView(this.hFH);
+                    } else if (this.hFH.getParent() == this.hFG) {
+                        this.hFG.removeView(this.hFH);
                     }
                 }
-                if (this.hsR.getParent() == null) {
-                    this.hsQ.addView(this.hsR, 0);
-                    this.hsR.setLayoutParams(new FrameLayout.LayoutParams(this.mWidth, (int) (0.5625f * this.mWidth)));
-                    this.hte.cuk();
-                    this.htj = true;
+                if (this.hFH.getParent() == null) {
+                    this.hFG.addView(this.hFH, 0);
+                    this.hFH.setLayoutParams(new FrameLayout.LayoutParams(this.mWidth, (int) (0.5625f * this.mWidth)));
+                    this.hFU.cxZ();
+                    this.hFZ = true;
                 } else {
                     return;
                 }
             }
-            this.hte.a(this.mPageContext, configuration);
-            this.hsT.setVisibility(8);
+            this.hFU.a(this.mPageContext, configuration);
+            this.hFJ.setVisibility(8);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bKU() != null) {
+        if (bOc() != null) {
             view.setTag(this);
-            bKU().a(view, this.htf);
+            bOc().a(view, this.hFV);
         }
-        if (view == this.hsX || view == this.agw) {
+        if (view == this.hFN || view == this.ahA) {
             boolean z = false;
-            if (this.htf != null && this.htf.htE != null && !TextUtils.isEmpty(this.htf.htE.userId)) {
-                if (TbadkCoreApplication.isLogin() && this.htf.htE.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
+            if (this.hFV != null && this.hFV.hGu != null && !TextUtils.isEmpty(this.hFV.hGu.userId)) {
+                if (TbadkCoreApplication.isLogin() && this.hFV.hGu.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
                     z = true;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(this.htf.htE.userId, 0L), z, this.htf.htE.isGod)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(this.hFV.hGu.userId, 0L), z, this.hFV.hGu.isGod)));
             }
-        } else if (view == this.htc || view == this.hsS || view == getView()) {
-            if (this.htf != null) {
+        } else if (view == this.hFS || view == this.hFI || view == getView()) {
+            if (this.hFV != null) {
                 PbActivityConfig pbActivityConfig = new PbActivityConfig(this.mContext);
-                pbActivityConfig.createNormalCfg(this.htf.threadId, null, null);
-                if (!this.htn) {
+                pbActivityConfig.createNormalCfg(this.hFV.threadId, null, null);
+                if (!this.hGd) {
                     pbActivityConfig.setVideo_source("bavideotab");
                 } else {
                     pbActivityConfig.setVideo_source(ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE);
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
             }
-        } else if (view == this.hsW) {
-            if (this.htf != null && this.htf.htF != null) {
-                this.hsU.setVisibility(8);
-                this.hte.cQv();
-                this.hte.eW(this.htf.htF.videoUrl, this.htf.threadId);
-                EG("2");
+        } else if (view == this.hFM) {
+            if (this.hFV != null && this.hFV.hGv != null) {
+                this.hFK.setVisibility(8);
+                this.hFU.cUM();
+                this.hFU.fd(this.hFV.hGv.videoUrl, this.hFV.threadId);
+                Fh("2");
             }
-        } else if (view == this.fWi) {
-            if (!this.htf.htE.hasFocus) {
-                this.htg.f(this.htf);
+        } else if (view == this.gjf) {
+            if (!this.hFV.hGu.hasFocus) {
+                this.hFW.f(this.hFV);
             }
-        } else if (view == this.htd) {
-            this.htg.g(this.htf);
+        } else if (view == this.hFT) {
+            this.hFW.g(this.hFV);
         }
     }
 
@@ -540,34 +540,34 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
     }
 
     @Override // com.baidu.tieba.frs.aggregation.c
-    public void nk(boolean z) {
-        if (this.htf != null && this.htf.htE != null) {
-            this.htf.htE.hasFocus = z;
-            c(this.htf);
+    public void nv(boolean z) {
+        if (this.hFV != null && this.hFV.hGu != null) {
+            this.hFV.hGu.hasFocus = z;
+            c(this.hFV);
         }
     }
 
     @Override // com.baidu.tieba.frs.aggregation.c
-    public void bXx() {
-        if (this.htf != null) {
-            this.htf.hasAgree = !this.htf.hasAgree;
-            if (this.htf.hasAgree) {
-                this.htf.agreeNum++;
+    public void caI() {
+        if (this.hFV != null) {
+            this.hFV.hasAgree = !this.hFV.hasAgree;
+            if (this.hFV.hasAgree) {
+                this.hFV.agreeNum++;
             } else {
-                this.htf.agreeNum--;
+                this.hFV.agreeNum--;
             }
-            if (this.htb != null) {
-                this.htb.startAnimation(getScaleAnimation());
+            if (this.hFR != null) {
+                this.hFR.startAnimation(getScaleAnimation());
             }
-            d(this.htf);
+            d(this.hFV);
         }
     }
 
     private Animation getScaleAnimation() {
-        if (this.htm == null) {
-            this.htm = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
-            this.htm.setDuration(200L);
+        if (this.hGc == null) {
+            this.hGc = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
+            this.hGc.setDuration(200L);
         }
-        return this.htm;
+        return this.hGc;
     }
 }

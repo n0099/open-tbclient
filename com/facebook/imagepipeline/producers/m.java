@@ -15,83 +15,83 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes12.dex */
 public class m implements aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> {
     private final Executor mExecutor;
-    private final com.facebook.common.memory.a mmW;
-    private final boolean mwT;
-    private final com.facebook.imagepipeline.decoder.b mwW;
-    private final com.facebook.imagepipeline.decoder.d mxc;
-    private final boolean mxp;
-    private final aj<com.facebook.imagepipeline.g.e> mzI;
-    private final boolean mzX;
+    private final com.facebook.common.memory.a mIW;
+    private final boolean mSV;
+    private final com.facebook.imagepipeline.decoder.b mSY;
+    private final com.facebook.imagepipeline.decoder.d mTe;
+    private final boolean mTt;
+    private final aj<com.facebook.imagepipeline.g.e> mVP;
+    private final boolean mWe;
 
     public m(com.facebook.common.memory.a aVar, Executor executor, com.facebook.imagepipeline.decoder.b bVar, com.facebook.imagepipeline.decoder.d dVar, boolean z, boolean z2, boolean z3, aj<com.facebook.imagepipeline.g.e> ajVar) {
-        this.mmW = (com.facebook.common.memory.a) com.facebook.common.internal.g.checkNotNull(aVar);
+        this.mIW = (com.facebook.common.memory.a) com.facebook.common.internal.g.checkNotNull(aVar);
         this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
-        this.mwW = (com.facebook.imagepipeline.decoder.b) com.facebook.common.internal.g.checkNotNull(bVar);
-        this.mxc = (com.facebook.imagepipeline.decoder.d) com.facebook.common.internal.g.checkNotNull(dVar);
-        this.mwT = z;
-        this.mzX = z2;
-        this.mzI = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
-        this.mxp = z3;
+        this.mSY = (com.facebook.imagepipeline.decoder.b) com.facebook.common.internal.g.checkNotNull(bVar);
+        this.mTe = (com.facebook.imagepipeline.decoder.d) com.facebook.common.internal.g.checkNotNull(dVar);
+        this.mSV = z;
+        this.mWe = z2;
+        this.mVP = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
+        this.mTt = z3;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> kVar, ak akVar) {
         k<com.facebook.imagepipeline.g.e> bVar;
-        if (!com.facebook.common.util.d.I(akVar.dBw().dCo())) {
-            bVar = new a(kVar, akVar, this.mxp);
+        if (!com.facebook.common.util.d.J(akVar.dFY().dGQ())) {
+            bVar = new a(kVar, akVar, this.mTt);
         } else {
-            bVar = new b(kVar, akVar, new com.facebook.imagepipeline.decoder.e(this.mmW), this.mxc, this.mxp);
+            bVar = new b(kVar, akVar, new com.facebook.imagepipeline.decoder.e(this.mIW), this.mTe, this.mTt);
         }
-        this.mzI.c(bVar, akVar);
+        this.mVP.c(bVar, akVar);
     }
 
     /* loaded from: classes12.dex */
     private abstract class c extends n<com.facebook.imagepipeline.g.e, com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> {
         private final String TAG;
-        private final JobScheduler mAb;
-        private final com.facebook.imagepipeline.common.b mvl;
+        private final com.facebook.imagepipeline.common.b mRk;
         @GuardedBy("this")
-        private boolean mzJ;
-        private final am mzK;
-        private final ak mzV;
+        private boolean mVQ;
+        private final am mVR;
+        private final ak mWc;
+        private final JobScheduler mWi;
 
-        protected abstract com.facebook.imagepipeline.g.h dAs();
+        protected abstract com.facebook.imagepipeline.g.h dEU();
 
         protected abstract int g(com.facebook.imagepipeline.g.e eVar);
 
         public c(k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> kVar, final ak akVar, final boolean z) {
             super(kVar);
             this.TAG = "ProgressiveDecoder";
-            this.mzV = akVar;
-            this.mzK = akVar.dBx();
-            this.mvl = akVar.dBw().dCs();
-            this.mzJ = false;
-            this.mAb = new JobScheduler(m.this.mExecutor, new JobScheduler.a() { // from class: com.facebook.imagepipeline.producers.m.c.1
+            this.mWc = akVar;
+            this.mVR = akVar.dFZ();
+            this.mRk = akVar.dFY().dGU();
+            this.mVQ = false;
+            this.mWi = new JobScheduler(m.this.mExecutor, new JobScheduler.a() { // from class: com.facebook.imagepipeline.producers.m.c.1
                 @Override // com.facebook.imagepipeline.producers.JobScheduler.a
                 public void d(com.facebook.imagepipeline.g.e eVar, int i) {
                     if (eVar != null) {
-                        if (m.this.mwT || !com.facebook.imagepipeline.producers.b.dq(i, 16)) {
-                            ImageRequest dBw = akVar.dBw();
-                            if (m.this.mzX || !com.facebook.common.util.d.I(dBw.dCo())) {
-                                eVar.setSampleSize(q.a(dBw, eVar));
+                        if (m.this.mSV || !com.facebook.imagepipeline.producers.b.dz(i, 16)) {
+                            ImageRequest dFY = akVar.dFY();
+                            if (m.this.mWe || !com.facebook.common.util.d.J(dFY.dGQ())) {
+                                eVar.setSampleSize(q.a(dFY, eVar));
                             }
                         }
                         c.this.c(eVar, i);
                     }
                 }
-            }, this.mvl.mwd);
-            this.mzV.a(new e() { // from class: com.facebook.imagepipeline.producers.m.c.2
+            }, this.mRk.mSc);
+            this.mWc.a(new e() { // from class: com.facebook.imagepipeline.producers.m.c.2
                 @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-                public void dBE() {
-                    if (c.this.mzV.dBB()) {
-                        c.this.mAb.dBP();
+                public void dGg() {
+                    if (c.this.mWc.dGd()) {
+                        c.this.mWi.dGr();
                     }
                 }
 
                 @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-                public void dxO() {
+                public void dCq() {
                     if (z) {
-                        c.this.dBH();
+                        c.this.dGj();
                     }
                 }
             });
@@ -101,21 +101,21 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
         public void g(com.facebook.imagepipeline.g.e eVar, int i) {
-            boolean If = If(i);
-            if (If && !com.facebook.imagepipeline.g.e.f(eVar)) {
+            boolean Jm = Jm(i);
+            if (Jm && !com.facebook.imagepipeline.g.e.f(eVar)) {
                 H(new ExceptionWithNoStacktrace("Encoded image is not valid."));
             } else if (b(eVar, i)) {
-                boolean dq = dq(i, 4);
-                if (If || dq || this.mzV.dBB()) {
-                    this.mAb.dBP();
+                boolean dz = dz(i, 4);
+                if (Jm || dz || this.mWc.dGd()) {
+                    this.mWi.dGr();
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
-        public void aH(float f) {
-            super.aH(0.99f * f);
+        public void aN(float f) {
+            super.aN(0.99f * f);
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
@@ -124,65 +124,65 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
-        public void dAh() {
-            dBH();
+        public void dEJ() {
+            dGj();
         }
 
         protected boolean b(com.facebook.imagepipeline.g.e eVar, int i) {
-            return this.mAb.e(eVar, i);
+            return this.mWi.e(eVar, i);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void c(com.facebook.imagepipeline.g.e eVar, int i) {
             String str;
-            com.facebook.imagepipeline.common.d dCq;
+            com.facebook.imagepipeline.common.d dGS;
             String str2;
-            long dBT;
+            long dGv;
             int size;
-            com.facebook.imagepipeline.g.h dAs;
-            if ((eVar.dAz() == com.facebook.c.b.mtV || !Ig(i)) && !isFinished() && com.facebook.imagepipeline.g.e.f(eVar)) {
-                com.facebook.c.c dAz = eVar.dAz();
-                if (dAz != null) {
-                    str = dAz.getName();
+            com.facebook.imagepipeline.g.h dEU;
+            if ((eVar.dFb() == com.facebook.c.b.mPU || !Jn(i)) && !isFinished() && com.facebook.imagepipeline.g.e.f(eVar)) {
+                com.facebook.c.c dFb = eVar.dFb();
+                if (dFb != null) {
+                    str = dFb.getName();
                 } else {
                     str = "unknown";
                 }
                 String str3 = eVar.getWidth() + Config.EVENT_HEAT_X + eVar.getHeight();
                 String valueOf = String.valueOf(eVar.getSampleSize());
-                boolean If = If(i);
-                boolean z = If && !dq(i, 8);
-                boolean dq = dq(i, 4);
-                if (this.mzV.dBw().dCq() != null) {
-                    str2 = dCq.width + Config.EVENT_HEAT_X + dCq.height;
+                boolean Jm = Jm(i);
+                boolean z = Jm && !dz(i, 8);
+                boolean dz = dz(i, 4);
+                if (this.mWc.dFY().dGS() != null) {
+                    str2 = dGS.width + Config.EVENT_HEAT_X + dGS.height;
                 } else {
                     str2 = "unknown";
                 }
                 try {
-                    dBT = this.mAb.dBT();
-                    String valueOf2 = String.valueOf(this.mzV.dBw().dCo());
-                    if (z || dq) {
+                    dGv = this.mWi.dGv();
+                    String valueOf2 = String.valueOf(this.mWc.dFY().dGQ());
+                    if (z || dz) {
                         size = eVar.getSize();
                     } else {
                         size = g(eVar);
                     }
-                    dAs = (z || dq) ? com.facebook.imagepipeline.g.g.myD : dAs();
-                    this.mzK.fK(this.mzV.getId(), "DecodeProducer");
+                    dEU = (z || dz) ? com.facebook.imagepipeline.g.g.mUK : dEU();
+                    this.mVR.fU(this.mWc.getId(), "DecodeProducer");
                     try {
-                        com.facebook.imagepipeline.g.c a = m.this.mwW.a(eVar, size, dAs, this.mvl);
+                        com.facebook.imagepipeline.g.c a = m.this.mSY.a(eVar, size, dEU, this.mRk);
                         if (eVar.getSampleSize() != 1) {
                             i |= 16;
                         }
-                        this.mzK.a(this.mzV.getId(), "DecodeProducer", a(a, dBT, dAs, If, str, str3, str2, valueOf));
+                        this.mVR.a(this.mWc.getId(), "DecodeProducer", a(a, dGv, dEU, Jm, str, str3, str2, valueOf));
                         a(a, i);
                     } catch (DecodeException e) {
                         com.facebook.imagepipeline.g.e encodedImage = e.getEncodedImage();
-                        com.facebook.common.c.a.k("ProgressiveDecoder", "%s, {uri: %s, firstEncodedBytes: %s, length: %d}", e.getMessage(), valueOf2, encodedImage.HK(10), Integer.valueOf(encodedImage.getSize()));
+                        com.facebook.common.c.a.k("ProgressiveDecoder", "%s, {uri: %s, firstEncodedBytes: %s, length: %d}", e.getMessage(), valueOf2, encodedImage.IR(10), Integer.valueOf(encodedImage.getSize()));
                         throw e;
                     }
                 } catch (Exception e2) {
-                    Map<String, String> a2 = a(null, dBT, dAs, If, str, str3, str2, valueOf);
-                    this.mzK.a(this.mzV.getId(), "DecodeProducer", e2, a2);
-                    this.mzK.a(this.mzV.dBw(), eVar, e2, a2);
+                    Map<String, String> a2 = a(null, dGv, dEU, Jm, str, str3, str2, valueOf);
+                    this.mVR.a(this.mWc.getId(), "DecodeProducer", e2, a2);
+                    this.mVR.a(this.mWc.dFY(), eVar, e2, a2);
                     H(e2);
                 } finally {
                     com.facebook.imagepipeline.g.e.e(eVar);
@@ -191,16 +191,16 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
         }
 
         private Map<String, String> a(@Nullable com.facebook.imagepipeline.g.c cVar, long j, com.facebook.imagepipeline.g.h hVar, boolean z, String str, String str2, String str3, String str4) {
-            if (!this.mzK.Qd(this.mzV.getId())) {
+            if (!this.mVR.QP(this.mWc.getId())) {
                 return null;
             }
             String valueOf = String.valueOf(j);
-            String valueOf2 = String.valueOf(hVar.dAF());
+            String valueOf2 = String.valueOf(hVar.dFh());
             String valueOf3 = String.valueOf(z);
             if (cVar instanceof com.facebook.imagepipeline.g.d) {
-                Bitmap dAr = ((com.facebook.imagepipeline.g.d) cVar).dAr();
+                Bitmap dET = ((com.facebook.imagepipeline.g.d) cVar).dET();
                 HashMap hashMap = new HashMap(8);
-                hashMap.put("bitmapSize", dAr.getWidth() + Config.EVENT_HEAT_X + dAr.getHeight());
+                hashMap.put("bitmapSize", dET.getWidth() + Config.EVENT_HEAT_X + dET.getHeight());
                 hashMap.put("queueTime", valueOf);
                 hashMap.put("hasGoodQuality", valueOf2);
                 hashMap.put("isFinal", valueOf3);
@@ -222,16 +222,16 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
         }
 
         private synchronized boolean isFinished() {
-            return this.mzJ;
+            return this.mVQ;
         }
 
-        private void wo(boolean z) {
+        private void wK(boolean z) {
             synchronized (this) {
                 if (z) {
-                    if (!this.mzJ) {
-                        dBI().at(1.0f);
-                        this.mzJ = true;
-                        this.mAb.dBO();
+                    if (!this.mVQ) {
+                        dGk().ay(1.0f);
+                        this.mVQ = true;
+                        this.mWi.dGq();
                     }
                 }
             }
@@ -240,22 +240,22 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
         private void a(com.facebook.imagepipeline.g.c cVar, int i) {
             com.facebook.common.references.a<com.facebook.imagepipeline.g.c> e = com.facebook.common.references.a.e(cVar);
             try {
-                wo(If(i));
-                dBI().h(e, i);
+                wK(Jm(i));
+                dGk().h(e, i);
             } finally {
                 com.facebook.common.references.a.c(e);
             }
         }
 
         private void H(Throwable th) {
-            wo(true);
-            dBI().G(th);
+            wK(true);
+            dGk().G(th);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void dBH() {
-            wo(true);
-            dBI().duA();
+        public void dGj() {
+            wK(true);
+            dGk().dzd();
         }
     }
 
@@ -267,7 +267,7 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
 
         @Override // com.facebook.imagepipeline.producers.m.c
         protected synchronized boolean b(com.facebook.imagepipeline.g.e eVar, int i) {
-            return Ig(i) ? false : super.b(eVar, i);
+            return Jn(i) ? false : super.b(eVar, i);
         }
 
         @Override // com.facebook.imagepipeline.producers.m.c
@@ -276,35 +276,35 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
         }
 
         @Override // com.facebook.imagepipeline.producers.m.c
-        protected com.facebook.imagepipeline.g.h dAs() {
+        protected com.facebook.imagepipeline.g.h dEU() {
             return com.facebook.imagepipeline.g.g.i(0, false, false);
         }
     }
 
     /* loaded from: classes12.dex */
     private class b extends c {
-        private int mAa;
-        private final com.facebook.imagepipeline.decoder.d mxc;
-        private final com.facebook.imagepipeline.decoder.e mzZ;
+        private final com.facebook.imagepipeline.decoder.d mTe;
+        private final com.facebook.imagepipeline.decoder.e mWg;
+        private int mWh;
 
         public b(k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> kVar, ak akVar, com.facebook.imagepipeline.decoder.e eVar, com.facebook.imagepipeline.decoder.d dVar, boolean z) {
             super(kVar, akVar, z);
-            this.mzZ = (com.facebook.imagepipeline.decoder.e) com.facebook.common.internal.g.checkNotNull(eVar);
-            this.mxc = (com.facebook.imagepipeline.decoder.d) com.facebook.common.internal.g.checkNotNull(dVar);
-            this.mAa = 0;
+            this.mWg = (com.facebook.imagepipeline.decoder.e) com.facebook.common.internal.g.checkNotNull(eVar);
+            this.mTe = (com.facebook.imagepipeline.decoder.d) com.facebook.common.internal.g.checkNotNull(dVar);
+            this.mWh = 0;
         }
 
         @Override // com.facebook.imagepipeline.producers.m.c
         protected synchronized boolean b(com.facebook.imagepipeline.g.e eVar, int i) {
             boolean b;
             b = super.b(eVar, i);
-            if ((Ig(i) || dq(i, 8)) && !dq(i, 4) && com.facebook.imagepipeline.g.e.f(eVar) && eVar.dAz() == com.facebook.c.b.mtV) {
-                if (this.mzZ.a(eVar)) {
-                    int dAm = this.mzZ.dAm();
-                    if (dAm <= this.mAa) {
+            if ((Jn(i) || dz(i, 8)) && !dz(i, 4) && com.facebook.imagepipeline.g.e.f(eVar) && eVar.dFb() == com.facebook.c.b.mPU) {
+                if (this.mWg.a(eVar)) {
+                    int dEO = this.mWg.dEO();
+                    if (dEO <= this.mWh) {
                         b = false;
-                    } else if (dAm >= this.mxc.HD(this.mAa) || this.mzZ.dAn()) {
-                        this.mAa = dAm;
+                    } else if (dEO >= this.mTe.IK(this.mWh) || this.mWg.dEP()) {
+                        this.mWh = dEO;
                     } else {
                         b = false;
                     }
@@ -317,12 +317,12 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
 
         @Override // com.facebook.imagepipeline.producers.m.c
         protected int g(com.facebook.imagepipeline.g.e eVar) {
-            return this.mzZ.dAl();
+            return this.mWg.dEN();
         }
 
         @Override // com.facebook.imagepipeline.producers.m.c
-        protected com.facebook.imagepipeline.g.h dAs() {
-            return this.mxc.HE(this.mzZ.dAm());
+        protected com.facebook.imagepipeline.g.h dEU() {
+            return this.mTe.IL(this.mWg.dEO());
         }
     }
 }

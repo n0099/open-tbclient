@@ -23,7 +23,7 @@ import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 /* loaded from: classes5.dex */
 public class VideoShowVoteView extends FrameLayout implements View.OnClickListener {
     private TextView a;
-    private int[] aiW;
+    private int[] aks;
     private ProgressBar b;
     private LinearLayout d;
     private TextView f;
@@ -32,10 +32,10 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
     private String j;
     private String k;
     private boolean m;
-    private FrescoThumbnailView mVd;
-    private MutiTextHorizontalMarqueeView nbn;
-    private c nbo;
-    private a nbp;
+    private FrescoThumbnailView nqU;
+    private MutiTextHorizontalMarqueeView nxe;
+    private c nxf;
+    private a nxg;
     private String o;
 
     /* loaded from: classes5.dex */
@@ -53,15 +53,15 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
         this.i = -1;
         this.j = "NO_ICON";
         this.k = "NO_MUSIC";
-        this.aiW = new int[]{a.e.icon_rank_0, a.e.icon_rank_1, a.e.icon_rank_2, a.e.icon_rank_3, a.e.icon_rank_4, a.e.icon_rank_5, a.e.icon_rank_6, a.e.icon_rank_7, a.e.icon_rank_8, a.e.icon_rank_9};
+        this.aks = new int[]{a.e.icon_rank_0, a.e.icon_rank_1, a.e.icon_rank_2, a.e.icon_rank_3, a.e.icon_rank_4, a.e.icon_rank_5, a.e.icon_rank_6, a.e.icon_rank_7, a.e.icon_rank_8, a.e.icon_rank_9};
         inflate(context, a.h.layout_video_show_vote, this);
         this.a = (TextView) findViewById(a.f.tv_time);
-        this.mVd = (FrescoThumbnailView) findViewById(a.f.ftv_avatar);
+        this.nqU = (FrescoThumbnailView) findViewById(a.f.ftv_avatar);
         this.b = (ProgressBar) findViewById(a.f.pb);
         this.f = (TextView) findViewById(a.f.tv_current);
         this.d = (LinearLayout) findViewById(a.f.ll_level);
-        this.nbn = (MutiTextHorizontalMarqueeView) findViewById(a.f.view_marquee);
-        this.nbo = new c(new Handler.Callback() { // from class: com.kascend.chushou.widget.VideoShowVoteView.1
+        this.nxe = (MutiTextHorizontalMarqueeView) findViewById(a.f.view_marquee);
+        this.nxf = new c(new Handler.Callback() { // from class: com.kascend.chushou.widget.VideoShowVoteView.1
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
                 switch (message.what) {
@@ -73,9 +73,9 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
                         } else {
                             long minutes = TimeUnit.MILLISECONDS.toMinutes(longValue);
                             VideoShowVoteView.this.a.setText(String.format(Locale.CHINA, "%02d:%02d", Long.valueOf(minutes), Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(longValue - TimeUnit.MINUTES.toMillis(minutes)))));
-                            Message Ku = VideoShowVoteView.this.nbo.Ku(1);
-                            Ku.obj = Long.valueOf(longValue - 1000);
-                            VideoShowVoteView.this.nbo.b(Ku, 1000L);
+                            Message LB = VideoShowVoteView.this.nxf.LB(1);
+                            LB.obj = Long.valueOf(longValue - 1000);
+                            VideoShowVoteView.this.nxf.b(LB, 1000L);
                             break;
                         }
                 }
@@ -91,7 +91,7 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
     }
 
     public void setStatusChangeListener(a aVar) {
-        this.nbp = aVar;
+        this.nxg = aVar;
     }
 
     public void a(KaraokeBean karaokeBean, String str, String str2) {
@@ -103,23 +103,23 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
             }
             if (!this.m) {
                 this.m = true;
-                if (this.nbp != null) {
-                    this.nbp.a();
+                if (this.nxg != null) {
+                    this.nxg.a();
                 }
             }
             if (!this.h) {
-                this.nbo.cg(null);
+                this.nxf.ch(null);
                 long j = karaokeBean.actingInfo.finishTime - karaokeBean.actingInfo.currentTime;
                 if (j > 0) {
                     this.h = true;
-                    Message Ku = this.nbo.Ku(1);
-                    Ku.obj = Long.valueOf(j);
-                    Ku.sendToTarget();
+                    Message LB = this.nxf.LB(1);
+                    LB.obj = Long.valueOf(j);
+                    LB.sendToTarget();
                 }
             }
             if (!TextUtils.equals(this.j, str)) {
                 this.j = str;
-                this.mVd.bV(str, com.kascend.chushou.view.a.a(str2));
+                this.nqU.bU(str, com.kascend.chushou.view.a.a(str2));
             }
             if (!TextUtils.equals(this.k, karaokeBean.actingInfo.musicName)) {
                 if (!TextUtils.isEmpty(karaokeBean.actingInfo.musicName)) {
@@ -148,7 +148,7 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
             return;
         }
         setVisibility(8);
-        this.nbo.cg(null);
+        this.nxf.ch(null);
         this.h = false;
         this.j = "NO_ICON";
         this.k = "NO_MUSIC";
@@ -160,17 +160,17 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
         if (!TextUtils.isEmpty(str)) {
             int dip2px = tv.chushou.zues.utils.a.dip2px(getContext(), 14.0f);
             int dip2px2 = tv.chushou.zues.utils.a.dip2px(getContext(), 75.0f);
-            this.nbn.g();
-            this.nbn.a();
-            this.nbn.a(dip2px2);
-            this.nbn.a(str, getResources().getColor(a.c.white), 9, 0, dip2px, true, 1, 2, 2, getResources().getColor(a.c.black));
-            this.nbn.setScrollDirection(2);
-            this.nbn.setDuration(4500);
-            this.nbn.d();
+            this.nxe.g();
+            this.nxe.a();
+            this.nxe.a(dip2px2);
+            this.nxe.a(str, getResources().getColor(a.c.white), 9, 0, dip2px, true, 1, 2, 2, getResources().getColor(a.c.black));
+            this.nxe.setScrollDirection(2);
+            this.nxe.setDuration(4500);
+            this.nxe.d();
             return;
         }
-        this.nbn.g();
-        this.nbn.a();
+        this.nxe.g();
+        this.nxe.a();
     }
 
     public String getRoomId() {
@@ -187,7 +187,7 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
             }
             this.d.removeAllViews();
             for (int i3 : iArr) {
-                int i4 = this.aiW[i3];
+                int i4 = this.aks[i3];
                 ImageView imageView = new ImageView(getContext());
                 imageView.setImageResource(i4);
                 this.d.addView(imageView, new LinearLayout.LayoutParams(-2, -2));
@@ -198,8 +198,8 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.nbn != null) {
-            this.nbn.g();
+        if (this.nxe != null) {
+            this.nxe.g();
         }
     }
 }

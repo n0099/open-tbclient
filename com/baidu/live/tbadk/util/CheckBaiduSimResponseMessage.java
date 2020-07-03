@@ -2,6 +2,7 @@ package com.baidu.live.tbadk.util;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes3.dex */
 public class CheckBaiduSimResponseMessage extends JsonHttpResponsedMessage {
     public boolean isBaiduSim;

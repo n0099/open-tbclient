@@ -6,9 +6,10 @@ import java.util.List;
 public class d {
     private String abTag;
     private String currentPageKey;
-    public String erv;
-    private String erw;
-    public String erx;
+    public String eAm;
+    private String eAn;
+    public String eAo;
+    private com.baidu.tbadk.l.b eAp;
     private long fid;
     public boolean isRouteStat = false;
     public String isVertical;
@@ -21,6 +22,14 @@ public class d {
     private long stayDurationTime;
     public String task_id;
     private long tid;
+
+    public com.baidu.tbadk.l.b getTbPageExtra() {
+        return this.eAp;
+    }
+
+    public void b(com.baidu.tbadk.l.b bVar) {
+        this.eAp = bVar;
+    }
 
     public List<String> getSorceKeyList() {
         return this.sorceKeyList;
@@ -82,20 +91,20 @@ public class d {
         return this.task_id;
     }
 
-    public String bft() {
+    public String bhz() {
         return this.abTag;
     }
 
-    public void yE(String str) {
+    public void yX(String str) {
         this.abTag = str;
     }
 
-    public String bfu() {
-        return this.erw;
+    public String bhA() {
+        return this.eAn;
     }
 
-    public void yF(String str) {
-        this.erw = str;
+    public void yY(String str) {
+        this.eAn = str;
     }
 
     public boolean isDirtyData() {

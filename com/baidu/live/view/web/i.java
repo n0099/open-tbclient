@@ -12,11 +12,11 @@ import java.net.URL;
 /* loaded from: classes3.dex */
 public class i {
     public static boolean D(Context context, String str) {
-        return c(context, str, "BAIDUZID", aD(ExtraParamsManager.getBaiduzid(), fW(str)));
+        return c(context, str, "BAIDUZID", aF(ExtraParamsManager.getBaiduzid(), ge(str)));
     }
 
     public static boolean E(Context context, String str) {
-        return c(context, str, "BAIDUCUID", aE(ExtraParamsManager.getBase64(ExtraParamsManager.getInstance().buildParamsExtra().getCuid()), fW(str)));
+        return c(context, str, "BAIDUCUID", aG(ExtraParamsManager.getBase64(ExtraParamsManager.getInstance().buildParamsExtra().getCuid()), ge(str)));
     }
 
     private static boolean c(Context context, String str, String str2, String str3) {
@@ -25,14 +25,14 @@ public class i {
             return false;
         }
         try {
-            String fW = fW(str);
-            if (TextUtils.isEmpty(fW)) {
+            String ge = ge(str);
+            if (TextUtils.isEmpty(ge)) {
                 return false;
             }
             CookieSyncManager.createInstance(context);
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
-            String[] split = cookieManager.getCookie(fW).split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            String[] split = cookieManager.getCookie(ge).split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             if (split.length > 0) {
                 z = true;
                 for (String str4 : split) {
@@ -50,7 +50,7 @@ public class i {
                 z = true;
             }
             if (z) {
-                cookieManager.setCookie(fW, str2 + ETAG.EQUAL + str3);
+                cookieManager.setCookie(ge, str2 + ETAG.EQUAL + str3);
                 CookieSyncManager.getInstance().sync();
                 return true;
             }
@@ -60,7 +60,7 @@ public class i {
         }
     }
 
-    public static String fW(String str) {
+    public static String ge(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -71,11 +71,11 @@ public class i {
         }
     }
 
-    private static String aD(String str, String str2) {
+    private static String aF(String str, String str2) {
         return (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) ? "" : str + ";domain=" + str2 + ";path=/";
     }
 
-    private static String aE(String str, String str2) {
+    private static String aG(String str, String str2) {
         return (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) ? "" : str + ";domain=" + str2 + ";path=/";
     }
 }

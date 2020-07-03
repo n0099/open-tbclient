@@ -22,8 +22,10 @@ import java.util.concurrent.ConcurrentHashMap;
 @TargetApi(16)
 /* loaded from: classes3.dex */
 public class AlaCameraRecorder extends TextureView implements TextureView.SurfaceTextureListener, IFaceUnityOperator, IVideoRecorder, ICameraStatusHandler {
+    private static final boolean IS_OPEN_TAG = false;
     private static final String LOG_TAG = "ala_camera_recorder";
     private static final int MIN_SURFACE_CHANGE = 10;
+    private static final String TAG = "LIVE_SDK_JNI";
     private Activity mActivity;
     private VideoBeautyType mBeautyType;
     private AlaCameraManager mCameraMgr;
@@ -221,11 +223,15 @@ public class AlaCameraRecorder extends TextureView implements TextureView.Surfac
         if (!this.mIsPreviewStoped) {
             startRecord();
         }
+        if (this.mSurfaceHeight == 0) {
+            this.mSurfaceHeight = i2;
+        }
+        if (this.mSurfaceWidth == 0) {
+            this.mSurfaceWidth = i;
+        }
         if (this.mSurfaceWidth > 0 && this.mSurfaceHeight > 0 && (i != this.mSurfaceWidth || i2 != this.mSurfaceHeight)) {
             onSurfaceTextureSizeChanged(surfaceTexture, i, i2);
         }
-        this.mSurfaceHeight = i2;
-        this.mSurfaceWidth = i;
     }
 
     @Override // android.view.View
@@ -234,21 +240,18 @@ public class AlaCameraRecorder extends TextureView implements TextureView.Surfac
         if (this.mCameraMgr != null && getLayoutParams() != null) {
             resetCamera();
             if (this.mSurfaceHeight > 0 && this.mSurfaceWidth > 0) {
+                int i = this.mSurfaceWidth;
+                int i2 = this.mSurfaceHeight;
                 if (configuration.orientation == 2 && this.mSurfaceWidth < this.mSurfaceHeight) {
-                    int i = this.mSurfaceHeight;
-                    this.mSurfaceHeight = this.mSurfaceWidth;
-                    this.mSurfaceWidth = i;
-                    if (this.mSurfaceTexture != null) {
-                        onSurfaceTextureSizeChanged(this.mSurfaceTexture, this.mSurfaceWidth, this.mSurfaceHeight);
-                    }
+                    i = this.mSurfaceHeight;
+                    i2 = this.mSurfaceWidth;
                 }
                 if (configuration.orientation == 1 && this.mSurfaceHeight < this.mSurfaceWidth) {
-                    int i2 = this.mSurfaceHeight;
-                    this.mSurfaceHeight = this.mSurfaceWidth;
-                    this.mSurfaceWidth = i2;
-                    if (this.mSurfaceTexture != null) {
-                        onSurfaceTextureSizeChanged(this.mSurfaceTexture, this.mSurfaceWidth, this.mSurfaceHeight);
-                    }
+                    i = this.mSurfaceHeight;
+                    i2 = this.mSurfaceWidth;
+                }
+                if (this.mSurfaceTexture != null) {
+                    onSurfaceTextureSizeChanged(this.mSurfaceTexture, i, i2);
                 }
             }
         }
@@ -256,16 +259,26 @@ public class AlaCameraRecorder extends TextureView implements TextureView.Surfac
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public synchronized void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
+        int i3;
+        int i4;
         int realScreenOrientation = AlaLiveUtilHelper.getRealScreenOrientation(this.mActivity);
         if (i != this.mSurfaceWidth || i2 != this.mSurfaceHeight) {
-            if (this.mCameraMgr != null && realScreenOrientation == 2 && i < i2) {
-                i = i2;
-                i2 = i;
+            if (realScreenOrientation != 2 || i >= i2) {
+                i3 = i2;
+                i4 = i;
+            } else {
+                i3 = i;
+                i4 = i2;
+            }
+            if (realScreenOrientation != 1 || i3 >= i4) {
+                int i5 = i3;
+                i3 = i4;
+                i4 = i5;
             }
             if (this.mCameraMgr != null) {
-                this.mSurfaceWidth = i;
-                this.mSurfaceHeight = i2;
-                this.mCameraMgr.postSurfaceChanged(i, i2);
+                this.mSurfaceWidth = i3;
+                this.mSurfaceHeight = i4;
+                this.mCameraMgr.postSurfaceChanged(i3, i4);
             }
         }
     }

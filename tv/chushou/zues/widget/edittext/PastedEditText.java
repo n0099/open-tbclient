@@ -6,17 +6,17 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 /* loaded from: classes5.dex */
 public class PastedEditText extends AppCompatEditText {
-    private a nPK;
-    private b nPL;
+    private a oly;
+    private b olz;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void dSl();
+        void dWR();
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        boolean dSm();
+        boolean dWS();
     }
 
     public PastedEditText(Context context) {
@@ -30,23 +30,23 @@ public class PastedEditText extends AppCompatEditText {
     @Override // android.widget.TextView
     public boolean onTextContextMenuItem(int i) {
         boolean onTextContextMenuItem = super.onTextContextMenuItem(i);
-        if (i == 16908322 && this.nPK != null) {
-            this.nPK.dSl();
+        if (i == 16908322 && this.oly != null) {
+            this.oly.dWR();
         }
         return onTextContextMenuItem;
     }
 
     public void setListener(a aVar) {
-        this.nPK = aVar;
+        this.oly = aVar;
     }
 
     public void setResizeListener(b bVar) {
-        this.nPL = bVar;
+        this.olz = bVar;
     }
 
     @Override // android.view.View
     public boolean dispatchKeyEventPreIme(KeyEvent keyEvent) {
-        if (keyEvent.getKeyCode() == 4 && this.nPL != null && this.nPL.dSm()) {
+        if (keyEvent.getKeyCode() == 4 && this.olz != null && this.olz.dWS()) {
             return true;
         }
         return super.dispatchKeyEventPreIme(keyEvent);

@@ -1,53 +1,53 @@
 package com.baidu.tieba.ala.frsgamelive.a;
 
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class g {
-    private final List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
-    private com.baidu.adp.base.e dJb;
-    private BdTypeListView fbb;
-    private f fuA;
-    private c fuB;
-    private a fuC;
-    private b fuD;
+    private final List<com.baidu.adp.widget.ListView.a> aUP = new ArrayList();
+    private com.baidu.adp.base.e dPR;
+    private f fFK;
+    private c fFL;
+    private a fFM;
+    private b fFN;
+    private BdTypeListView fml;
 
     public g(com.baidu.adp.base.e eVar, BdTypeListView bdTypeListView, boolean z) {
-        this.dJb = eVar;
-        this.fbb = bdTypeListView;
-        jS(z);
+        this.dPR = eVar;
+        this.fml = bdTypeListView;
+        kg(z);
     }
 
-    private void jS(boolean z) {
+    private void kg(boolean z) {
         if (z) {
-            this.fuB = new c((TbPageContext) this.dJb, com.baidu.tieba.ala.gamelist.b.a.fkt);
-            this.aSj.add(this.fuB);
+            this.fFL = new c((TbPageContext) this.dPR, com.baidu.tieba.ala.gamelist.b.a.fvG);
+            this.aUP.add(this.fFL);
         } else {
-            this.fuA = new f((TbPageContext) this.dJb, com.baidu.tieba.ala.gamelist.b.a.fkt);
-            this.aSj.add(this.fuA);
+            this.fFK = new f((TbPageContext) this.dPR, com.baidu.tieba.ala.gamelist.b.a.fvG);
+            this.aUP.add(this.fFK);
         }
-        this.fuC = new a((TbPageContext) this.dJb, com.baidu.tieba.ala.frsgamelive.b.a.fuF);
-        this.fuD = new b((TbPageContext) this.dJb, com.baidu.tieba.ala.frsgamelive.b.b.fuG);
-        this.aSj.add(this.fuC);
-        this.aSj.add(this.fuD);
-        this.fbb.addAdapters(this.aSj);
+        this.fFM = new a((TbPageContext) this.dPR, com.baidu.tieba.ala.frsgamelive.b.a.fFP);
+        this.fFN = new b((TbPageContext) this.dPR, com.baidu.tieba.ala.frsgamelive.b.b.fFQ);
+        this.aUP.add(this.fFM);
+        this.aUP.add(this.fFN);
+        this.fml.addAdapters(this.aUP);
     }
 
-    public void setDatas(List<o> list) {
-        if (this.fbb != null) {
-            this.fbb.setData(list);
+    public void setDatas(List<q> list) {
+        if (this.fml != null) {
+            this.fml.setData(list);
         }
     }
 
     public void b(com.baidu.tieba.ala.d dVar) {
-        if (this.fuA != null) {
-            this.fuA.a(dVar);
+        if (this.fFK != null) {
+            this.fFK.a(dVar);
         }
-        if (this.fuB != null) {
-            this.fuB.a(dVar);
+        if (this.fFL != null) {
+            this.fFL.a(dVar);
         }
     }
 }

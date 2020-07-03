@@ -7,13 +7,13 @@ import android.text.TextUtils;
 import com.baidu.h.a;
 import com.baidu.live.adp.base.IScrollableHelper;
 import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.util.ListUtils;
-import com.baidu.live.u.a;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -56,7 +56,7 @@ public class PermissionJudgePolicy {
     }
 
     public boolean startRequestPermission(Activity activity, boolean z, boolean z2) {
-        if (!a.MI()) {
+        if (!a.NR()) {
             onPermissionsGranted();
             return false;
         } else if (ListUtils.isEmpty(this.requestPermissionList)) {

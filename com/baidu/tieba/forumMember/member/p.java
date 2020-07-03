@@ -3,48 +3,48 @@ package com.baidu.tieba.forumMember.member;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes10.dex */
-public class p implements com.baidu.adp.widget.ListView.o {
-    public static final BdUniqueId hku = BdUniqueId.gen();
-    private String hkx;
-    private String hky;
-    private int hkv = -1;
-    private int hkw = -1;
-    private int hkz = -1;
+public class p implements com.baidu.adp.widget.ListView.q {
+    public static final BdUniqueId hwB = BdUniqueId.gen();
+    private String hwE;
+    private String hwF;
+    private int hwC = -1;
+    private int hwD = -1;
+    private int hwG = -1;
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hku;
+        return hwB;
     }
 
-    public void ty(int i) {
-        this.hkv = i;
+    public void tZ(int i) {
+        this.hwC = i;
     }
 
-    public void tz(int i) {
-        this.hkz = i;
+    public void ua(int i) {
+        this.hwG = i;
     }
 
-    public int bTC() {
-        return this.hkw;
+    public int bWy() {
+        return this.hwD;
     }
 
-    public void tA(int i) {
-        this.hkw = i;
+    public void ub(int i) {
+        this.hwD = i;
     }
 
-    public void Ev(String str) {
-        this.hkx = str;
+    public void EW(String str) {
+        this.hwE = str;
     }
 
-    public String bTD() {
-        return this.hky;
+    public String bWz() {
+        return this.hwF;
     }
 
-    public void Ew(String str) {
-        this.hky = str;
+    public void EX(String str) {
+        this.hwF = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.hkx) || StringUtils.isNull(this.hky) || this.hkv < 0 || this.hkw < 0;
+        return StringUtils.isNull(this.hwE) || StringUtils.isNull(this.hwF) || this.hwC < 0 || this.hwD < 0;
     }
 }

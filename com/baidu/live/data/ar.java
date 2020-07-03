@@ -1,19 +1,30 @@
 package com.baidu.live.data;
 
+import com.baidu.ar.pose.PoseAR;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ar {
-    public JSONObject aAm;
-    public JSONObject aAn;
+    public long aCb;
+    public int aCc;
+    public long createTime;
+    public String eventDesc;
+    public int eventType;
+    public long id;
+    public long liveId;
+    public long sendTime;
+    public long updateTime;
 
-    public ar(JSONObject jSONObject) {
-        parseData(jSONObject);
-    }
-
-    private void parseData(JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aAm = jSONObject.optJSONObject("bubble_effect");
-            this.aAn = jSONObject.optJSONObject("nickname_effect");
+            this.id = jSONObject.optLong("id");
+            this.eventType = jSONObject.optInt(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY);
+            this.aCb = jSONObject.optLong("sender_uid");
+            this.liveId = jSONObject.optLong("live_id");
+            this.eventDesc = jSONObject.optString("event_desc");
+            this.createTime = jSONObject.optLong("create_time");
+            this.updateTime = jSONObject.optLong("update_time");
+            this.sendTime = jSONObject.optLong("send_time");
+            this.aCc = jSONObject.optInt("send_flag");
         }
     }
 }

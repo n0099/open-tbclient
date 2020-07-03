@@ -3,41 +3,41 @@ package com.baidu.ar.arplay.core.engine;
 import android.util.Log;
 /* loaded from: classes3.dex */
 public class ARPCamera extends ARPNode {
-    private static ARPCamera eg = null;
+    private static ARPCamera es = null;
 
-    public static void aG() {
-        if (eg != null) {
-            eg.ev = -1L;
-            eg = null;
+    public static void aU() {
+        if (es != null) {
+            es.eH = -1L;
+            es = null;
         }
     }
 
     public void a(float f) {
-        if (this.ev == -1) {
+        if (this.eH == -1) {
             Log.e(ARPCamera.class.getSimpleName(), "node addr is error");
         } else {
-            nativeSetFieldOfView(this.ev, f);
+            nativeSetFieldOfView(this.eH, f);
         }
     }
 
     public void a(float[] fArr) {
-        if (this.ev == -1) {
+        if (this.eH == -1) {
             Log.e(ARPCamera.class.getSimpleName(), "node addr is error");
             return;
         }
-        this.ex.lock();
-        nativeSetViewMatrix(this.ev, fArr);
-        this.ex.unlock();
+        this.eJ.lock();
+        nativeSetViewMatrix(this.eH, fArr);
+        this.eJ.unlock();
     }
 
-    public float[] aF() {
-        if (this.ev == -1) {
+    public float[] aT() {
+        if (this.eH == -1) {
             Log.e(ARPCamera.class.getSimpleName(), "node addr is error");
             return null;
         }
-        this.ex.lock();
-        float[] nativeGetViewMatrix = nativeGetViewMatrix(this.ev);
-        this.ex.unlock();
+        this.eJ.lock();
+        float[] nativeGetViewMatrix = nativeGetViewMatrix(this.eH);
+        this.eJ.unlock();
         return nativeGetViewMatrix;
     }
 
@@ -46,7 +46,7 @@ public class ARPCamera extends ARPNode {
     public void finalize() {
         super.finalize();
         synchronized (this) {
-            aG();
+            aU();
         }
     }
 

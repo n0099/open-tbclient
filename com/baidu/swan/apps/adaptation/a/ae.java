@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public interface ae {
-    String Si();
+    String To();
 
     void a(String str, com.baidu.swan.apps.ac.a.a aVar);
 
@@ -17,5 +17,5 @@ public interface ae {
     void a(@NonNull String str, @NonNull List<String> list, @Nullable String str2, boolean z, com.baidu.swan.apps.m.b bVar);
 
     @AnyThread
-    void a(@NonNull String str, @NonNull Set<String> set, @NonNull a.InterfaceC0353a interfaceC0353a);
+    void a(@NonNull String str, @NonNull Set<String> set, @NonNull a.InterfaceC0359a interfaceC0359a);
 }

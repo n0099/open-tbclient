@@ -133,7 +133,7 @@ public class MessageSyncMessage extends TbSocketMessage {
         if (builder.groupMids == null) {
             builder.groupMids = new ArrayList();
         }
-        long gid = c.cpa().getGid();
+        long gid = c.csP().getGid();
         boolean z = false;
         for (int i = 0; i < this.mMids.size(); i++) {
             long keyAt = this.mMids.keyAt(i);
@@ -144,16 +144,16 @@ public class MessageSyncMessage extends TbSocketMessage {
                 builder2.lastMsgId = valueAt;
                 if (gid == keyAt) {
                     z = true;
-                    builder2.excludeMid = c.cpa().cpc();
+                    builder2.excludeMid = c.csP().csR();
                 }
                 builder.groupMids.add(builder2.build(false));
             }
         }
-        if (!z && c.cpa().cpe()) {
+        if (!z && c.csP().csT()) {
             GroupLastId.Builder builder3 = new GroupLastId.Builder();
             builder3.groupId = Long.valueOf(gid);
-            builder3.lastMsgId = c.cpa().cpb();
-            builder3.excludeMid = c.cpa().cpc();
+            builder3.lastMsgId = c.csP().csQ();
+            builder3.excludeMid = c.csP().csR();
             builder.groupMids.add(builder3.build(false));
         }
         builder.newpushRepire = getNewpushRepire();

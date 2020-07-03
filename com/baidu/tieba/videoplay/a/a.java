@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public class a {
-    private int hPL = -1;
-    private int hPI = b.aTX().getInt("nani_key_download_show_position", 3);
-    private Set<Integer> hPJ = new HashSet();
+    private int icX = -1;
+    private int icU = b.aVP().getInt("nani_key_download_show_position", 3);
+    private Set<Integer> icV = new HashSet();
 }

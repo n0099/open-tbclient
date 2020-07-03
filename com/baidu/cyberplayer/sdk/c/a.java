@@ -68,12 +68,12 @@ public class a extends FrameLayout implements ICyberVideoView {
     protected CyberPlayerManager.OnSeekCompleteListener v;
     protected CyberPlayerManager.OnInfoListener w;
     protected b x;
-    protected InterfaceC0108a y;
+    protected InterfaceC0110a y;
     protected e z;
 
     /* renamed from: com.baidu.cyberplayer.sdk.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0108a {
+    public interface InterfaceC0110a {
         void a();
     }
 
@@ -717,8 +717,8 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.J = z;
     }
 
-    public void setOnBufferingEndListener(InterfaceC0108a interfaceC0108a) {
-        this.y = interfaceC0108a;
+    public void setOnBufferingEndListener(InterfaceC0110a interfaceC0110a) {
+        this.y = interfaceC0110a;
     }
 
     public void setOnBufferingStartListener(b bVar) {

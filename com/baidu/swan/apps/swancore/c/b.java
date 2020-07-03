@@ -7,24 +7,24 @@ import java.util.Iterator;
 /* loaded from: classes11.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static volatile b cHq;
-    private ArrayList<com.baidu.swan.apps.aq.e.b<Exception>> cHr = new ArrayList<>();
-    private ArrayList<com.baidu.swan.apps.aq.e.b<Exception>> cHs = new ArrayList<>();
+    public static volatile b cMa;
+    private ArrayList<com.baidu.swan.apps.aq.e.b<Exception>> cMb = new ArrayList<>();
+    private ArrayList<com.baidu.swan.apps.aq.e.b<Exception>> cMc = new ArrayList<>();
 
-    public static b asb() {
-        if (cHq == null) {
+    public static b ati() {
+        if (cMa == null) {
             synchronized (b.class) {
-                if (cHq == null) {
-                    cHq = new b();
+                if (cMa == null) {
+                    cMa = new b();
                 }
             }
         }
-        return cHq;
+        return cMa;
     }
 
-    public void hr(int i) {
+    public void hC(int i) {
         synchronized (b.class) {
-            f(i, a.hl(i));
+            f(i, a.hw(i));
         }
     }
 
@@ -34,7 +34,7 @@ public final class b {
             Log.d("PresetSwanCoreUpdater", "updateSwanCoreAsync start.");
         }
         synchronized (b.class) {
-            if (!a.hh(i)) {
+            if (!a.hs(i)) {
                 if (DEBUG) {
                     Log.d("PresetSwanCoreUpdater", "updateSwanCoreAsync isNeedUpdateStatus = false.");
                 }
@@ -42,9 +42,9 @@ public final class b {
                 return;
             }
             if (i == 1) {
-                arrayList = this.cHs;
+                arrayList = this.cMc;
             } else {
-                arrayList = this.cHr;
+                arrayList = this.cMb;
             }
             if (arrayList.isEmpty()) {
                 new Thread(new Runnable() { // from class: com.baidu.swan.apps.swancore.c.b.1
@@ -53,7 +53,7 @@ public final class b {
                         if (b.DEBUG) {
                             Log.d("PresetSwanCoreUpdater", "onPresetUpdate start.");
                         }
-                        b.this.f(i, a.hl(i));
+                        b.this.f(i, a.hw(i));
                         if (b.DEBUG) {
                             Log.d("PresetSwanCoreUpdater", "onPresetUpdate end.");
                         }
@@ -71,17 +71,17 @@ public final class b {
     public void f(int i, Exception exc) {
         synchronized (b.class) {
             if (i == 0) {
-                Iterator<com.baidu.swan.apps.aq.e.b<Exception>> it = this.cHr.iterator();
+                Iterator<com.baidu.swan.apps.aq.e.b<Exception>> it = this.cMb.iterator();
                 while (it.hasNext()) {
                     a(it.next(), exc);
                 }
-                this.cHr.clear();
+                this.cMb.clear();
             } else if (i == 1) {
-                Iterator<com.baidu.swan.apps.aq.e.b<Exception>> it2 = this.cHs.iterator();
+                Iterator<com.baidu.swan.apps.aq.e.b<Exception>> it2 = this.cMc.iterator();
                 while (it2.hasNext()) {
                     a(it2.next(), exc);
                 }
-                this.cHs.clear();
+                this.cMc.clear();
             }
         }
     }

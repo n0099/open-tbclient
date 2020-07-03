@@ -21,37 +21,37 @@ public class b {
     public String a;
     public ArrayList<PlayUrl> f;
     public String h;
-    private PlayUrl mKC;
-    public ListItem mKH;
-    public ListItem mKI;
-    public ListItem mKJ;
-    public ListItem mKK;
-    public ListItem mKL;
-    public ListItem mKM;
-    public ListItem mKN;
-    public ListItem mKO;
-    public TrumpetPocket mKR;
+    private PlayUrl ngA;
+    public ListItem ngG;
+    public ListItem ngH;
+    public ListItem ngI;
+    public ListItem ngJ;
+    public ListItem ngK;
+    public ListItem ngL;
+    public ListItem ngM;
+    public ListItem ngN;
+    public TrumpetPocket ngQ;
     public List<ListItem> t;
     private final String A = "PlayerViewHelper";
     private boolean B = false;
-    private FullRoomInfo mKD = null;
+    private FullRoomInfo ngB = null;
     public int b = 0;
     public int c = 0;
     public boolean d = false;
     public boolean e = false;
-    private ArrayList<ChatInfo> mKE = null;
+    private ArrayList<ChatInfo> ngC = null;
     private HashMap<String, com.kascend.chushou.player.ui.h5.c.a> F = null;
     private boolean I = true;
-    public IconConfig mKP = new IconConfig();
-    public final Map<String, SkinConfig.SkinRes> mKS = new HashMap();
+    public IconConfig ngO = new IconConfig();
+    public final Map<String, SkinConfig.SkinRes> ngR = new HashMap();
     public boolean z = false;
     public List<tv.chushou.zues.widget.gift.a.a> i = new ArrayList();
     public List<GeneralTabGift> j = new ArrayList();
-    a mKF = new a();
-    private List<ListItem> G = new ArrayList();
-    private List<ListItem> mKG = new ArrayList();
+    a ngD = new a();
+    private List<ListItem> ngE = new ArrayList();
+    private List<ListItem> ngF = new ArrayList();
     public List<ListItem> s = new ArrayList();
-    public List<ListItem> mKQ = new ArrayList();
+    public List<ListItem> ngP = new ArrayList();
     public List<g.a> w = new ArrayList();
 
     public b(String str) {
@@ -59,26 +59,26 @@ public class b {
     }
 
     public void a() {
-        this.mKS.clear();
+        this.ngR.clear();
         this.z = false;
     }
 
     public void b() {
-        if (this.mKF != null) {
-            this.mKF.a();
-            this.mKF = null;
+        if (this.ngD != null) {
+            this.ngD.a();
+            this.ngD = null;
         }
         if (this.f != null) {
             this.f.clear();
             this.f = null;
         }
-        if (this.mKE != null) {
-            this.mKE.clear();
-            this.mKE = null;
+        if (this.ngC != null) {
+            this.ngC.clear();
+            this.ngC = null;
         }
-        if (this.mKD != null) {
-            this.mKD.release();
-            this.mKD = null;
+        if (this.ngB != null) {
+            this.ngB.release();
+            this.ngB = null;
         }
         if (this.F != null) {
             this.F.clear();
@@ -98,22 +98,22 @@ public class b {
                     arrayList2.add(arrayList.get(i));
                 }
             }
-            if (this.mKE == null) {
-                this.mKE = new ArrayList<>(arrayList2);
+            if (this.ngC == null) {
+                this.ngC = new ArrayList<>(arrayList2);
                 return;
             }
-            this.mKE.addAll(new ArrayList(arrayList2));
-            int size = this.mKE.size();
+            this.ngC.addAll(new ArrayList(arrayList2));
+            int size = this.ngC.size();
             if (size > 100) {
                 for (int i2 = 0; i2 < size - 100; i2++) {
-                    this.mKE.remove(i2);
+                    this.ngC.remove(i2);
                 }
             }
         }
     }
 
     public ArrayList<ChatInfo> c() {
-        return this.mKE;
+        return this.ngC;
     }
 
     public void a(boolean z) {
@@ -125,7 +125,7 @@ public class b {
     }
 
     public void a(FullRoomInfo fullRoomInfo) {
-        this.mKD = fullRoomInfo;
+        this.ngB = fullRoomInfo;
     }
 
     public void a(com.kascend.chushou.player.ui.h5.c.a aVar) {
@@ -153,39 +153,39 @@ public class b {
         }
     }
 
-    public FullRoomInfo dEZ() {
-        return this.mKD;
+    public FullRoomInfo dJB() {
+        return this.ngB;
     }
 
     public void a(PlayUrl playUrl) {
-        this.mKC = playUrl;
+        this.ngA = playUrl;
     }
 
-    public PlayUrl dFa() {
-        return this.mKC;
+    public PlayUrl dJC() {
+        return this.ngA;
     }
 
-    public List<ListItem> dFb() {
-        return this.G;
+    public List<ListItem> dJD() {
+        return this.ngE;
     }
 
     public List<ListItem> j() {
-        return this.mKG;
+        return this.ngF;
     }
 
-    public b fj(List<ListItem> list) {
-        this.G = list;
-        this.mKG.clear();
+    public b fv(List<ListItem> list) {
+        this.ngE = list;
+        this.ngF.clear();
         if (list != null) {
-            this.mKG.addAll(list);
+            this.ngF.addAll(list);
         }
         return this;
     }
 
     @Nullable
-    public RoomInfo dFc() {
-        if (this.mKD != null) {
-            return this.mKD.mRoominfo;
+    public RoomInfo dJE() {
+        if (this.ngB != null) {
+            return this.ngB.mRoominfo;
         }
         return null;
     }
@@ -199,11 +199,11 @@ public class b {
     }
 
     public boolean m() {
-        return (this.mKD == null || this.mKD.mRoominfo == null || !this.mKD.mRoominfo.mIsSubscribed) ? false : true;
+        return (this.ngB == null || this.ngB.mRoominfo == null || !this.ngB.mRoominfo.mIsSubscribed) ? false : true;
     }
 
     public String b(String str) {
-        SkinConfig.SkinRes skinRes = this.mKS.get(str);
+        SkinConfig.SkinRes skinRes = this.ngR.get(str);
         if (skinRes != null) {
             return skinRes.image;
         }

@@ -6,72 +6,72 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 /* loaded from: classes10.dex */
 public class BestStringsFitTextView extends TextView {
-    private String liB;
-    private float liC;
-    private String liD;
-    private boolean liE;
+    private float bdF;
+    private String lCx;
+    private String lCy;
+    private boolean lCz;
     private String[] textArray;
 
     public BestStringsFitTextView(Context context) {
         super(context);
-        this.liB = " ";
-        this.liC = 0.0f;
-        this.liD = "";
-        this.liE = false;
+        this.lCx = " ";
+        this.bdF = 0.0f;
+        this.lCy = "";
+        this.lCz = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.liB = " ";
-        this.liC = 0.0f;
-        this.liD = "";
-        this.liE = false;
+        this.lCx = " ";
+        this.bdF = 0.0f;
+        this.lCy = "";
+        this.lCz = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.liB = " ";
-        this.liC = 0.0f;
-        this.liD = "";
-        this.liE = false;
+        this.lCx = " ";
+        this.bdF = 0.0f;
+        this.lCy = "";
+        this.lCz = false;
     }
 
-    protected void dcF() {
-        this.liC = (getWidth() - getPaddingLeft()) - getPaddingRight();
+    protected void dgU() {
+        this.bdF = (getWidth() - getPaddingLeft()) - getPaddingRight();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.textArray.length; i++) {
             if (i > 0) {
-                sb.append(this.liB);
+                sb.append(this.lCx);
             }
             sb.append(this.textArray[i]);
             String sb2 = sb.toString();
-            if (this.liC < getPaint().measureText(sb2)) {
+            if (this.bdF < getPaint().measureText(sb2)) {
                 break;
             }
-            this.liE = true;
-            this.liD = sb2;
+            this.lCz = true;
+            this.lCy = sb2;
         }
-        setText(this.liD);
+        setText(this.lCy);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.textArray != null && !this.liE) {
-            dcF();
+        if (this.textArray != null && !this.lCz) {
+            dgU();
         }
     }
 
     public void setTextArray(String[] strArr) {
         this.textArray = strArr;
-        dcF();
+        dgU();
     }
 
     public String getSeperator() {
-        return this.liB;
+        return this.lCx;
     }
 
     public void setSeperator(String str) {
-        this.liB = str;
+        this.lCx = str;
     }
 }

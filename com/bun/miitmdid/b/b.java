@@ -18,9 +18,9 @@ import org.json.JSONObject;
 public class b {
     private static boolean j = false;
     private Context b;
-    private AsyncTask mkC;
+    private AsyncTask mGy;
     private String a = null;
-    private a mkB = null;
+    private a mGx = null;
     private Object d = null;
     private Map<String, String> e = new HashMap();
     private Map<String, String> f = new HashMap();
@@ -35,14 +35,14 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bun.miitmdid.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0772b {
+    public class C0791b {
         private String b;
         private int c;
-        private Exception mkF;
+        private Exception mGB;
 
-        public C0772b(String str, Exception exc, int i) {
+        public C0791b(String str, Exception exc, int i) {
             this.b = str;
-            this.mkF = exc;
+            this.mGB = exc;
             this.c = i;
         }
     }
@@ -89,7 +89,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0772b dtq() {
+    public C0791b dxT() {
         try {
             String b = b();
             if (j) {
@@ -113,7 +113,7 @@ public class b {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {
                     bufferedReader.close();
-                    return new C0772b(sb.toString(), null, responseCode);
+                    return new C0791b(sb.toString(), null, responseCode);
                 }
                 sb.append(readLine);
             }
@@ -121,12 +121,12 @@ public class b {
             if (j) {
                 e.printStackTrace();
             }
-            return new C0772b(null, e, -1);
+            return new C0791b(null, e, -1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0772b dtr() {
+    public C0791b dxU() {
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(b()).openConnection();
             a(httpURLConnection);
@@ -173,7 +173,7 @@ public class b {
                     bufferedReader.close();
                     String sb4 = sb3.toString();
                     b("\nPOST RESPONSE : " + sb4);
-                    return new C0772b(sb4, null, responseCode);
+                    return new C0791b(sb4, null, responseCode);
                 }
                 sb3.append(readLine);
             }
@@ -181,55 +181,55 @@ public class b {
             if (j) {
                 e.printStackTrace();
             }
-            return new C0772b(null, e, -1);
+            return new C0791b(null, e, -1);
         }
     }
 
-    public static b fQ(@NonNull Context context) {
+    public static b fR(@NonNull Context context) {
         return new b(context);
     }
 
-    public b PF(@NonNull String str) {
+    public b Qr(@NonNull String str) {
         this.a = str;
         this.h = "POST";
         return this;
     }
 
     public b a(a aVar) {
-        this.mkB = aVar;
+        this.mGx = aVar;
         return this;
     }
 
-    public b aK(Object obj) {
+    public b aL(Object obj) {
         this.d = obj;
         return this;
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.bun.miitmdid.b.b$1] */
-    public b dtp() {
-        this.mkC = new AsyncTask<Void, Void, C0772b>() { // from class: com.bun.miitmdid.b.b.1
-            b mkD;
+    public b dxS() {
+        this.mGy = new AsyncTask<Void, Void, C0791b>() { // from class: com.bun.miitmdid.b.b.1
+            b mGz;
 
             {
-                this.mkD = b.this;
+                this.mGz = b.this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             /* renamed from: a */
-            public void onPostExecute(C0772b c0772b) {
-                super.onPostExecute(c0772b);
-                if (b.this.mkB != null) {
-                    if (c0772b == null) {
-                        b.this.mkB.a(new Exception("Unknown Error"), -1, null);
-                    } else if (c0772b.mkF != null) {
-                        b.this.mkB.a(c0772b.mkF, -1, null);
+            public void onPostExecute(C0791b c0791b) {
+                super.onPostExecute(c0791b);
+                if (b.this.mGx != null) {
+                    if (c0791b == null) {
+                        b.this.mGx.a(new Exception("Unknown Error"), -1, null);
+                    } else if (c0791b.mGB != null) {
+                        b.this.mGx.a(c0791b.mGB, -1, null);
                     } else {
                         try {
-                            b.this.mkB.a(null, c0772b.c, c0772b.b);
+                            b.this.mGx.a(null, c0791b.c, c0791b.b);
                         } catch (Exception e) {
-                            b.this.mkB.a(e, -1, null);
+                            b.this.mGx.a(e, -1, null);
                         }
                     }
                 }
@@ -239,19 +239,19 @@ public class b {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             /* renamed from: q */
-            public C0772b doInBackground(Void... voidArr) {
-                return this.mkD.h.equalsIgnoreCase("GET") ? b.this.dtq() : b.this.dtr();
+            public C0791b doInBackground(Void... voidArr) {
+                return this.mGz.h.equalsIgnoreCase("GET") ? b.this.dxT() : b.this.dxU();
             }
         }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         return this;
     }
 
-    public b fG(@NonNull String str, @NonNull String str2) {
+    public b fQ(@NonNull String str, @NonNull String str2) {
         this.g.put(str, str2);
         return this;
     }
 
-    public b v(Map<String, String> map) {
+    public b w(Map<String, String> map) {
         if (map != null && !map.isEmpty()) {
             this.g.putAll(map);
         }

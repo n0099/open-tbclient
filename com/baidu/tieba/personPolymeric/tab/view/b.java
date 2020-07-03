@@ -20,10 +20,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.data.bq;
+import com.baidu.tbadk.core.data.ca;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
@@ -32,39 +32,39 @@ import com.baidu.tieba.personPolymeric.header.PersonIntroductionActivity;
 import tbclient.BaijiahaoInfo;
 /* loaded from: classes11.dex */
 public class b {
-    private LinearLayout kqe;
-    private TextView kqf;
-    private TextView kqg;
-    private TextView kqi;
-    private TextView kqj;
-    private com.baidu.tieba.personPolymeric.c.a kuK;
-    private TextView kug;
-    private AlignTextView kvH;
-    private LinearLayout kvI;
-    private TextView kvJ;
-    private AlignTextView kvK;
-    private AlignTextView kvL;
-    private ImageView kvM;
-    private RelativeLayout kvN;
-    private RelativeLayout kvO;
-    private TextView kvP;
-    private ImageView kvQ;
-    private View kvR;
-    private ImageView kvS;
-    private TextView kvT;
+    private LinearLayout kKc;
+    private TextView kKd;
+    private TextView kKe;
+    private TextView kKg;
+    private TextView kKh;
+    private com.baidu.tieba.personPolymeric.c.a kOH;
+    private TextView kOd;
+    private AlignTextView kPE;
+    private LinearLayout kPF;
+    private TextView kPG;
+    private AlignTextView kPH;
+    private AlignTextView kPI;
+    private ImageView kPJ;
+    private RelativeLayout kPK;
+    private RelativeLayout kPL;
+    private TextView kPM;
+    private ImageView kPN;
+    private View kPO;
+    private ImageView kPP;
+    private TextView kPQ;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.tab.view.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == b.this.kvN || view == b.this.kvM) {
+            if (view == b.this.kPK || view == b.this.kPJ) {
                 if (b.this.mIsHost) {
-                    b.this.cPT();
+                    b.this.cUk();
                 } else {
                     PersonIntroductionActivity.aM(b.this.mPageContext.getPageActivity(), b.this.mUserData.getIntro());
                 }
-            } else if (view == b.this.kvP) {
-                b.this.cPT();
-            } else if (view == b.this.kvQ) {
-                b.this.cPT();
+            } else if (view == b.this.kPM) {
+                b.this.cUk();
+            } else if (view == b.this.kPN) {
+                b.this.cUk();
             }
         }
     };
@@ -85,49 +85,49 @@ public class b {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.person_information_header, (ViewGroup) null);
         this.mRootView.setVisibility(8);
         this.mTitleView = (TextView) this.mRootView.findViewById(R.id.person_information_title);
-        this.kqi = (TextView) this.mRootView.findViewById(R.id.person_information_constellation);
-        this.kvH = (AlignTextView) this.mRootView.findViewById(R.id.person_information_constellation_label);
-        this.kvH.setTextColor(am.getColor(R.color.cp_cont_c));
-        this.kqj = (TextView) this.mRootView.findViewById(R.id.person_information_age);
-        this.kvI = (LinearLayout) this.mRootView.findViewById(R.id.person_information_constellation_layout);
-        this.kvR = this.mRootView.findViewById(R.id.space_view);
-        this.kvJ = (TextView) this.mRootView.findViewById(R.id.person_information_ala_id_label);
-        this.kqf = (TextView) this.mRootView.findViewById(R.id.person_information_ala_id);
-        this.kqe = (LinearLayout) this.mRootView.findViewById(R.id.person_information_ala_id_layout);
-        this.kvK = (AlignTextView) this.mRootView.findViewById(R.id.person_information_forum_age_label);
-        this.kvK.setTextColor(am.getColor(R.color.cp_cont_c));
-        this.kqg = (TextView) this.mRootView.findViewById(R.id.person_information_forum_age);
-        this.kvL = (AlignTextView) this.mRootView.findViewById(R.id.person_information_intro_label);
-        this.kvL.setTextColor(am.getColor(R.color.cp_cont_c));
-        this.kug = (TextView) this.mRootView.findViewById(R.id.person_information_intro);
-        this.kvM = (ImageView) this.mRootView.findViewById(R.id.person_information_more_icon);
-        this.kvM.setOnClickListener(this.mClickListener);
-        this.kvN = (RelativeLayout) this.mRootView.findViewById(R.id.person_information_intro_layout);
-        this.kvN.setOnClickListener(this.mClickListener);
-        this.kvO = (RelativeLayout) this.mRootView.findViewById(R.id.person_information_perfect);
-        this.kvP = (TextView) this.mRootView.findViewById(R.id.person_information_perfect_btn);
-        this.kvP.setOnClickListener(this.mClickListener);
-        this.kvS = (ImageView) this.mRootView.findViewById(R.id.person_information_perfect_image);
-        this.kvT = (TextView) this.mRootView.findViewById(R.id.person_information_perfect_tip);
-        this.kvQ = (ImageView) this.mRootView.findViewById(R.id.person_information_edit_icon);
-        this.kvQ.setOnClickListener(this.mClickListener);
-        int measureText = (int) this.kvJ.getPaint().measureText(this.mPageContext.getString(R.string.person_ala_id));
-        ViewGroup.LayoutParams layoutParams = this.kvH.getLayoutParams();
+        this.kKg = (TextView) this.mRootView.findViewById(R.id.person_information_constellation);
+        this.kPE = (AlignTextView) this.mRootView.findViewById(R.id.person_information_constellation_label);
+        this.kPE.setTextColor(an.getColor(R.color.cp_cont_c));
+        this.kKh = (TextView) this.mRootView.findViewById(R.id.person_information_age);
+        this.kPF = (LinearLayout) this.mRootView.findViewById(R.id.person_information_constellation_layout);
+        this.kPO = this.mRootView.findViewById(R.id.space_view);
+        this.kPG = (TextView) this.mRootView.findViewById(R.id.person_information_ala_id_label);
+        this.kKd = (TextView) this.mRootView.findViewById(R.id.person_information_ala_id);
+        this.kKc = (LinearLayout) this.mRootView.findViewById(R.id.person_information_ala_id_layout);
+        this.kPH = (AlignTextView) this.mRootView.findViewById(R.id.person_information_forum_age_label);
+        this.kPH.setTextColor(an.getColor(R.color.cp_cont_c));
+        this.kKe = (TextView) this.mRootView.findViewById(R.id.person_information_forum_age);
+        this.kPI = (AlignTextView) this.mRootView.findViewById(R.id.person_information_intro_label);
+        this.kPI.setTextColor(an.getColor(R.color.cp_cont_c));
+        this.kOd = (TextView) this.mRootView.findViewById(R.id.person_information_intro);
+        this.kPJ = (ImageView) this.mRootView.findViewById(R.id.person_information_more_icon);
+        this.kPJ.setOnClickListener(this.mClickListener);
+        this.kPK = (RelativeLayout) this.mRootView.findViewById(R.id.person_information_intro_layout);
+        this.kPK.setOnClickListener(this.mClickListener);
+        this.kPL = (RelativeLayout) this.mRootView.findViewById(R.id.person_information_perfect);
+        this.kPM = (TextView) this.mRootView.findViewById(R.id.person_information_perfect_btn);
+        this.kPM.setOnClickListener(this.mClickListener);
+        this.kPP = (ImageView) this.mRootView.findViewById(R.id.person_information_perfect_image);
+        this.kPQ = (TextView) this.mRootView.findViewById(R.id.person_information_perfect_tip);
+        this.kPN = (ImageView) this.mRootView.findViewById(R.id.person_information_edit_icon);
+        this.kPN.setOnClickListener(this.mClickListener);
+        int measureText = (int) this.kPG.getPaint().measureText(this.mPageContext.getString(R.string.person_ala_id));
+        ViewGroup.LayoutParams layoutParams = this.kPE.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.width = measureText;
-            this.kvH.setLayoutParams(layoutParams);
+            this.kPE.setLayoutParams(layoutParams);
         }
-        ViewGroup.LayoutParams layoutParams2 = this.kvK.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.kPH.getLayoutParams();
         if (layoutParams2 != null) {
             layoutParams2.width = measureText;
-            this.kvK.setLayoutParams(layoutParams2);
+            this.kPH.setLayoutParams(layoutParams2);
         }
-        ViewGroup.LayoutParams layoutParams3 = this.kvL.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams3 = this.kPI.getLayoutParams();
         if (layoutParams3 != null) {
             layoutParams3.width = measureText;
-            this.kvL.setLayoutParams(layoutParams3);
+            this.kPI.setLayoutParams(layoutParams3);
         }
-        this.mNoDataView = NoDataViewFactory.a(this.mPageContext.getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10)), NoDataViewFactory.d.dj(null, this.mPageContext.getResources().getString(R.string.no_data_common_txt)), null);
+        this.mNoDataView = NoDataViewFactory.a(this.mPageContext.getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10)), NoDataViewFactory.d.dm(null, this.mPageContext.getResources().getString(R.string.no_data_common_txt)), null);
         if (this.mRootView instanceof ViewGroup) {
             ((ViewGroup) this.mRootView).addView(this.mNoDataView);
         }
@@ -136,7 +136,7 @@ public class b {
 
     public void b(com.baidu.tieba.personPolymeric.c.a aVar) {
         if (aVar != null && aVar.getUserData() != null) {
-            this.kuK = aVar;
+            this.kOH = aVar;
             this.mUserData = aVar.getUserData();
             this.mRootView.setVisibility(0);
             ViewGroup.LayoutParams layoutParams = this.mRootView.getLayoutParams();
@@ -147,117 +147,117 @@ public class b {
             }
             this.mRootView.setLayoutParams(layoutParams);
             if (this.mUserData.getAlaUserData() != null && this.mUserData.getAlaUserData().ala_id > 0) {
-                this.kqe.setVisibility(0);
-                this.kqf.setVisibility(0);
-                this.kqf.setText(String.valueOf(this.mUserData.getAlaUserData().ala_id));
+                this.kKc.setVisibility(0);
+                this.kKd.setVisibility(0);
+                this.kKd.setText(String.valueOf(this.mUserData.getAlaUserData().ala_id));
             } else {
-                this.kqe.setVisibility(8);
-                this.kqf.setVisibility(8);
+                this.kKc.setVisibility(8);
+                this.kKd.setVisibility(8);
             }
             String tb_age = this.mUserData.getTb_age();
-            if (aq.isEmpty(tb_age)) {
+            if (ar.isEmpty(tb_age)) {
                 tb_age = "0";
             }
-            this.kqg.setText(this.mPageContext.getResources().getString(R.string.person_forum_age_suffix, tb_age));
-            bq birthdayInfo = this.mUserData.getBirthdayInfo();
-            if (birthdayInfo != null && !aq.isEmpty(birthdayInfo.constellation)) {
+            this.kKe.setText(this.mPageContext.getResources().getString(R.string.person_forum_age_suffix, tb_age));
+            ca birthdayInfo = this.mUserData.getBirthdayInfo();
+            if (birthdayInfo != null && !ar.isEmpty(birthdayInfo.constellation)) {
                 if (birthdayInfo.age < 0) {
                     birthdayInfo.age = 0;
                 }
-                if (birthdayInfo.dIl == 2) {
-                    this.kqj.setVisibility(0);
-                    this.kqj.setText(this.mPageContext.getResources().getString(R.string.person_information_header_age, Integer.valueOf(birthdayInfo.age)));
+                if (birthdayInfo.dPb == 2) {
+                    this.kKh.setVisibility(0);
+                    this.kKh.setText(this.mPageContext.getResources().getString(R.string.person_information_header_age, Integer.valueOf(birthdayInfo.age)));
                 } else {
-                    this.kqj.setVisibility(8);
+                    this.kKh.setVisibility(8);
                 }
-                this.kqi.setVisibility(0);
-                this.kqi.setText(birthdayInfo.constellation);
-                this.kvI.setVisibility(0);
+                this.kKg.setVisibility(0);
+                this.kKg.setText(birthdayInfo.constellation);
+                this.kPF.setVisibility(0);
             } else {
-                this.kvI.setVisibility(8);
-                this.kqi.setVisibility(8);
-                this.kqj.setVisibility(8);
+                this.kPF.setVisibility(8);
+                this.kKg.setVisibility(8);
+                this.kKh.setVisibility(8);
             }
             if (this.mIsHost) {
-                this.kvQ.setVisibility(0);
+                this.kPN.setVisibility(0);
             } else {
-                this.kvQ.setVisibility(8);
+                this.kPN.setVisibility(8);
             }
             String intro = this.mUserData.getIntro();
             BaijiahaoInfo baijiahaoInfo = this.mUserData.getBaijiahaoInfo();
-            if (baijiahaoInfo != null && !aq.isEmpty(baijiahaoInfo.auth_desc)) {
-                if (!aq.isEmpty(intro)) {
+            if (baijiahaoInfo != null && !ar.isEmpty(baijiahaoInfo.auth_desc)) {
+                if (!ar.isEmpty(intro)) {
                     SpannableString spannableString = new SpannableString(intro);
-                    spannableString.setSpan(new LeadingMarginSpan.Standard(this.kqg.getLeft(), 0), 0, spannableString.length(), 18);
-                    this.kug.setText(spannableString);
-                    e.ld().post(new Runnable() { // from class: com.baidu.tieba.personPolymeric.tab.view.b.1
+                    spannableString.setSpan(new LeadingMarginSpan.Standard(this.kKe.getLeft(), 0), 0, spannableString.length(), 18);
+                    this.kOd.setText(spannableString);
+                    e.lt().post(new Runnable() { // from class: com.baidu.tieba.personPolymeric.tab.view.b.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            Layout layout = b.this.kug.getLayout();
+                            Layout layout = b.this.kOd.getLayout();
                             if (layout != null) {
                                 int lineCount = layout.getLineCount();
                                 if (lineCount <= 0 || layout.getEllipsisCount(lineCount - 1) <= 0) {
-                                    b.this.kvN.setOnClickListener(null);
-                                    b.this.kvM.setVisibility(8);
+                                    b.this.kPK.setOnClickListener(null);
+                                    b.this.kPJ.setVisibility(8);
                                     return;
                                 }
-                                b.this.kvN.setOnClickListener(b.this.mClickListener);
-                                b.this.kvM.setVisibility(0);
+                                b.this.kPK.setOnClickListener(b.this.mClickListener);
+                                b.this.kPJ.setVisibility(0);
                             }
                         }
                     });
-                    this.kvO.setVisibility(8);
-                    this.kvR.setVisibility(0);
+                    this.kPL.setVisibility(8);
+                    this.kPO.setVisibility(0);
                     return;
                 }
-                this.kvN.setVisibility(8);
+                this.kPK.setVisibility(8);
                 if (this.mIsHost) {
-                    this.kvO.setVisibility(0);
-                    this.kvQ.setVisibility(8);
-                    this.kvR.setVisibility(8);
+                    this.kPL.setVisibility(0);
+                    this.kPN.setVisibility(8);
+                    this.kPO.setVisibility(8);
                     return;
                 }
-                this.kvO.setVisibility(8);
-                this.kvR.setVisibility(0);
-            } else if (aq.isEmpty(intro)) {
-                this.kvN.setVisibility(8);
+                this.kPL.setVisibility(8);
+                this.kPO.setVisibility(0);
+            } else if (ar.isEmpty(intro)) {
+                this.kPK.setVisibility(8);
                 if (this.mIsHost) {
-                    this.kvO.setVisibility(0);
-                    this.kvQ.setVisibility(8);
-                    this.kvR.setVisibility(8);
+                    this.kPL.setVisibility(0);
+                    this.kPN.setVisibility(8);
+                    this.kPO.setVisibility(8);
                     return;
                 }
-                this.kvO.setVisibility(8);
-                this.kvR.setVisibility(0);
+                this.kPL.setVisibility(8);
+                this.kPO.setVisibility(0);
             } else {
-                this.kvO.setVisibility(8);
-                this.kvN.setVisibility(8);
-                this.kvR.setVisibility(0);
+                this.kPL.setVisibility(8);
+                this.kPK.setVisibility(8);
+                this.kPO.setVisibility(0);
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        SvgManager.aUW().a(this.kvQ, R.drawable.icon_pure_personalba_edit24_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        SvgManager.aUW().a(this.kvM, R.drawable.ic_icon_pure_common_arrow16_n_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        am.setViewTextColor(this.mTitleView, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.kvH, R.color.cp_cont_c, 1, i);
-        am.setViewTextColor(this.kqi, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.kqj, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.kvJ, R.color.cp_cont_c, 1, i);
-        am.setViewTextColor(this.kqf, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.kvK, R.color.cp_cont_c, 1, i);
-        am.setViewTextColor(this.kqg, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.kvL, R.color.cp_cont_c, 1, i);
-        am.setViewTextColor(this.kug, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.kvT, R.color.cp_cont_b, 1, i);
+        SvgManager.aWQ().a(this.kPN, R.drawable.icon_pure_personalba_edit24_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aWQ().a(this.kPJ, R.drawable.ic_icon_pure_common_arrow16_n_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        an.setViewTextColor(this.mTitleView, R.color.cp_cont_b, 1, i);
+        an.setViewTextColor(this.kPE, R.color.cp_cont_c, 1, i);
+        an.setViewTextColor(this.kKg, R.color.cp_cont_b, 1, i);
+        an.setViewTextColor(this.kKh, R.color.cp_cont_b, 1, i);
+        an.setViewTextColor(this.kPG, R.color.cp_cont_c, 1, i);
+        an.setViewTextColor(this.kKd, R.color.cp_cont_b, 1, i);
+        an.setViewTextColor(this.kPH, R.color.cp_cont_c, 1, i);
+        an.setViewTextColor(this.kKe, R.color.cp_cont_b, 1, i);
+        an.setViewTextColor(this.kPI, R.color.cp_cont_c, 1, i);
+        an.setViewTextColor(this.kOd, R.color.cp_cont_b, 1, i);
+        an.setViewTextColor(this.kPQ, R.color.cp_cont_b, 1, i);
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(this.mPageContext, i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cPT() {
+    public void cUk() {
         if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
             PersonChangeData personChangeData = new PersonChangeData();
             if (this.mUserData != null) {
@@ -273,13 +273,13 @@ public class b {
                 if (this.mUserData.alaUserData != null) {
                     personChangeData.setAlaId(this.mUserData.alaUserData.ala_id);
                 }
-                if (this.kuK.ktF != null) {
-                    personChangeData.setNickNameLeftDays(this.kuK.ktF.left_days.intValue());
+                if (this.kOH.kNC != null) {
+                    personChangeData.setNickNameLeftDays(this.kOH.kNC.left_days.intValue());
                 }
                 if (this.mUserData.getBirthdayInfo() != null) {
                     personChangeData.setUserAge(this.mUserData.getBirthdayInfo().age);
-                    personChangeData.setBirthdayTime(this.mUserData.getBirthdayInfo().dIk);
-                    personChangeData.setBirthdayShowStatus(this.mUserData.getBirthdayInfo().dIl);
+                    personChangeData.setBirthdayTime(this.mUserData.getBirthdayInfo().dPa);
+                    personChangeData.setBirthdayShowStatus(this.mUserData.getBirthdayInfo().dPb);
                 }
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonChangeActivityConfig(this.mPageContext.getPageActivity(), 101, personChangeData, false)));
@@ -290,7 +290,7 @@ public class b {
         return this.mRootView;
     }
 
-    public void am(boolean z, boolean z2) {
+    public void an(boolean z, boolean z2) {
         if (!z2 && z) {
             this.mNoDataView.setVisibility(0);
         } else {

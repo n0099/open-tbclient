@@ -11,22 +11,22 @@ import com.baidu.swan.support.v4.app.m;
 /* loaded from: classes11.dex */
 public class SwanAppErrorActivity extends FragmentActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private Fragment bHe;
-    private com.baidu.swan.apps.v.b.b bHf;
+    private Fragment bLS;
+    private com.baidu.swan.apps.v.b.b bLT;
     private int mEnterAnimWhenFinishing = 0;
     private int mExitAnimWhenFinishing = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.swan.support.v4.app.f, android.app.Activity
     public void onCreate(Bundle bundle) {
-        aa(a.C0281a.aiapps_hold, a.C0281a.aiapps_slide_out_to_bottom);
+        ac(a.C0287a.aiapps_hold, a.C0287a.aiapps_slide_out_to_bottom);
         int releaseFixedOrientation = aj.releaseFixedOrientation(this);
         super.onCreate(bundle);
         aj.fixedOrientation(this, releaseFixedOrientation);
         setContentView(a.g.aiapps_error_activity);
         k(getIntent());
-        QU();
-        QW();
+        Sa();
+        Sc();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -36,24 +36,24 @@ public class SwanAppErrorActivity extends FragmentActivity {
         k(intent);
     }
 
-    private void QU() {
-        m aHA = aHx().aHA();
-        this.bHe = new com.baidu.swan.apps.core.d.c();
-        aHA.a(a.f.ai_apps_error_layout, this.bHe);
-        aHA.commit();
+    private void Sa() {
+        m aIG = aID().aIG();
+        this.bLS = new com.baidu.swan.apps.core.d.c();
+        aIG.a(a.f.ai_apps_error_layout, this.bLS);
+        aIG.commit();
     }
 
     private void k(Intent intent) {
         if (intent != null) {
-            this.bHf = com.baidu.swan.apps.v.b.b.r(intent);
+            this.bLT = com.baidu.swan.apps.v.b.b.r(intent);
         }
     }
 
-    public com.baidu.swan.apps.v.b.b QV() {
-        return this.bHf;
+    public com.baidu.swan.apps.v.b.b Sb() {
+        return this.bLT;
     }
 
-    private void aa(int i, int i2) {
+    private void ac(int i, int i2) {
         this.mEnterAnimWhenFinishing = i;
         this.mExitAnimWhenFinishing = i2;
     }
@@ -72,7 +72,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
         startExitActivityAnim();
     }
 
-    private void QW() {
+    private void Sc() {
         com.baidu.swan.apps.statistic.search.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "swan_error", "", SearchFlowEvent.EventType.END));
     }
 }

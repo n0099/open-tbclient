@@ -14,25 +14,25 @@ import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class c extends com.baidu.cesium.b.a {
-    a.C0101a aiH;
-    private b aiI;
+    a.C0103a akd;
+    private b ake;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes13.dex */
     public static class a {
-        static boolean a(a.C0101a c0101a, com.baidu.cesium.e.a aVar) {
+        static boolean a(a.C0103a c0103a, com.baidu.cesium.e.a aVar) {
             if (Build.VERSION.SDK_INT < 23) {
-                while (c0101a != null && !c0101a.b().equals(aVar.a())) {
-                    c0101a.b().setExecutable(true, false);
-                    c0101a = c0101a.sm();
+                while (c0103a != null && !c0103a.b().equals(aVar.a())) {
+                    c0103a.b().setExecutable(true, false);
+                    c0103a = c0103a.sH();
                 }
                 return true;
             }
-            while (c0101a != null) {
-                if (!a(c0101a.b())) {
+            while (c0103a != null) {
+                if (!a(c0103a.b())) {
                     return false;
                 }
-                c0101a = c0101a.sm();
+                c0103a = c0103a.sH();
             }
             return a(aVar.a());
         }
@@ -56,11 +56,11 @@ public class c extends com.baidu.cesium.b.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes13.dex */
     public class b {
-        private g.a aiK;
+        private g.a akg;
         private long j;
         private boolean l;
         private int p;
-        private com.baidu.cesium.f.b aiJ = new com.baidu.cesium.f.b();
+        private com.baidu.cesium.f.b akf = new com.baidu.cesium.f.b();
         private boolean m = true;
 
         b() {
@@ -73,7 +73,7 @@ public class c extends com.baidu.cesium.b.a {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 this.j = jSONObject.getLong("pub_lst_ts");
-                this.aiK = g.a(jSONObject.getString("pub_info"));
+                this.akg = g.a(jSONObject.getString("pub_info"));
                 this.p = jSONObject.getInt("d_form_ver");
                 this.l = false;
                 return true;
@@ -94,31 +94,31 @@ public class c extends com.baidu.cesium.b.a {
         }
 
         public void a(long j, long j2) {
-            if (this.aiJ.a(j, j2)) {
+            if (this.akf.a(j, j2)) {
                 this.l = true;
             }
         }
 
         public void a(g.a aVar) {
-            if (aVar.equals(this.aiK)) {
+            if (aVar.equals(this.akg)) {
                 return;
             }
-            this.aiK = aVar;
+            this.akg = aVar;
             this.l = true;
         }
 
         public boolean a(PackageInfo packageInfo) {
-            String a = c.this.aiH.i(new File(packageInfo.applicationInfo.dataDir)).a("pub.dat", true);
+            String a = c.this.akd.i(new File(packageInfo.applicationInfo.dataDir)).a("pub.dat", true);
             this.m = false;
             return a(a);
         }
 
         public g.a b() {
-            return this.aiK;
+            return this.akg;
         }
 
         public boolean c() {
-            return a(c.this.aiH.a("pub.dat", true));
+            return a(c.this.akd.a("pub.dat", true));
         }
 
         public boolean d() {
@@ -126,10 +126,10 @@ public class c extends com.baidu.cesium.b.a {
                 if (this.l) {
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("pub_info", this.aiK.f());
+                        jSONObject.put("pub_info", this.akg.f());
                         jSONObject.put("pub_lst_ts", this.j);
                         jSONObject.put("d_form_ver", 1);
-                        c.this.aiH.c("pub.dat", jSONObject.toString(), true);
+                        c.this.akd.c("pub.dat", jSONObject.toString(), true);
                         this.l = false;
                         return true;
                     } catch (Exception e) {
@@ -141,22 +141,22 @@ public class c extends com.baidu.cesium.b.a {
         }
 
         public boolean e() {
-            return c.b(c.this.aiH.b("pub.dat"), true);
+            return c.b(c.this.akd.b("pub.dat"), true);
         }
     }
 
     /* renamed from: com.baidu.cesium.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    class C0099c extends a.b {
-        private g.a aiM;
+    class C0101c extends a.b {
+        private g.a aki;
         private int i;
         private String j;
         private long k;
         private long l;
         private long m;
 
-        public C0099c(String str) {
-            super(c.this.aiH, str);
+        public C0101c(String str) {
+            super(c.this.akd, str);
         }
 
         public void a(b bVar) {
@@ -169,7 +169,7 @@ public class c extends com.baidu.cesium.b.a {
             this.j = jSONObject.getString(Config.INPUT_DEF_PKG);
             this.l = jSONObject.getInt("tar_pkg_lst_pub_ts");
             this.k = jSONObject.getLong("last_fe_ts");
-            this.aiM = g.a(jSONObject.getString("info"));
+            this.aki = g.a(jSONObject.getString("info"));
             this.m = jSONObject.getLong("tar_pkg_lst_up_ts");
             this.i = jSONObject.getInt("d_form_ver");
         }
@@ -197,7 +197,7 @@ public class c extends com.baidu.cesium.b.a {
             jSONObject.put(Config.INPUT_DEF_PKG, this.j);
             jSONObject.put("last_fe_ts", this.k);
             jSONObject.put("tar_pkg_lst_pub_ts", this.l);
-            jSONObject.put("info", this.aiM.f());
+            jSONObject.put("info", this.aki.f());
             jSONObject.put("tar_pkg_lst_up_ts", this.m);
             jSONObject.put("d_form_ver", 1);
         }
@@ -225,7 +225,7 @@ public class c extends com.baidu.cesium.b.a {
         }
 
         public g.a d() {
-            return this.aiM;
+            return this.aki;
         }
 
         public long e() {
@@ -233,10 +233,10 @@ public class c extends com.baidu.cesium.b.a {
         }
 
         public boolean e(g.a aVar) {
-            if (aVar.equals(this.aiM)) {
+            if (aVar.equals(this.aki)) {
                 return false;
             }
-            this.aiM = aVar;
+            this.aki = aVar;
             a(true);
             return true;
         }
@@ -244,18 +244,18 @@ public class c extends com.baidu.cesium.b.a {
 
     public c() {
         super("isc", 8000000L);
-        this.aiI = new b();
+        this.ake = new b();
     }
 
     private a.e b(a.d dVar, g.a aVar) {
-        this.aiI.c();
-        this.aiH.a();
-        if (aVar.equals(this.aiI.b())) {
-            return a.e.se();
+        this.ake.c();
+        this.akd.a();
+        if (aVar.equals(this.ake.b())) {
+            return a.e.sz();
         }
-        this.aiI.a(aVar);
-        this.aiI.a(System.currentTimeMillis());
-        return a.e.se();
+        this.ake.a(aVar);
+        this.ake.a(System.currentTimeMillis());
+        return a.e.sz();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -286,61 +286,61 @@ public class c extends com.baidu.cesium.b.a {
     }
 
     private void c() {
-        this.aiI.a(a.a(this.aiH, this.aiA.aiD) ? 1 : 2, 3L);
+        this.ake.a(a.a(this.akd, this.ajW.ajZ) ? 1 : 2, 3L);
     }
 
     @Override // com.baidu.cesium.b.a
     public a.e a(a.d dVar, g.a aVar) {
-        Context context = this.aiA.a;
+        Context context = this.ajW.a;
         if (Build.VERSION.SDK_INT < 28 || context.getApplicationInfo().targetSdkVersion < 28) {
-            this.aiI.c();
+            this.ake.c();
             try {
                 return b(dVar, aVar);
             } finally {
-                this.aiI.d();
+                this.ake.d();
                 c();
-                this.aiI.d();
-                this.aiI.e();
+                this.ake.d();
+                this.ake.e();
             }
         }
-        return a.e.bp(-100);
+        return a.e.bu(-100);
     }
 
     @Override // com.baidu.cesium.b.a
     public a.g a(String str, a.f fVar) {
         PackageInfo packageInfo;
-        C0099c c0099c = null;
+        C0101c c0101c = null;
         try {
-            packageInfo = this.aiA.a.getPackageManager().getPackageInfo(str, 0);
+            packageInfo = this.ajW.a.getPackageManager().getPackageInfo(str, 0);
         } catch (PackageManager.NameNotFoundException e) {
             packageInfo = null;
         }
         if (packageInfo == null) {
-            return a.g.bq(-2);
+            return a.g.bv(-2);
         }
         if (fVar.a) {
-            c0099c = new C0099c(str);
-            c0099c.a();
-            if (str.equals(c0099c.c()) && packageInfo.lastUpdateTime == c0099c.e()) {
-                return a.g.d(c0099c.d());
+            c0101c = new C0101c(str);
+            c0101c.a();
+            if (str.equals(c0101c.c()) && packageInfo.lastUpdateTime == c0101c.e()) {
+                return a.g.d(c0101c.d());
             }
         }
         b bVar = new b();
         if (bVar.a(packageInfo)) {
-            if (fVar.a && c0099c != null) {
-                c0099c.a(bVar);
-                c0099c.a(System.currentTimeMillis());
-                c0099c.c(packageInfo.lastUpdateTime);
-                c0099c.a(str);
-                c0099c.b();
+            if (fVar.a && c0101c != null) {
+                c0101c.a(bVar);
+                c0101c.a(System.currentTimeMillis());
+                c0101c.c(packageInfo.lastUpdateTime);
+                c0101c.a(str);
+                c0101c.b();
             }
             return a.g.d(bVar.b());
         }
-        return a.g.bq(-2);
+        return a.g.bv(-2);
     }
 
     @Override // com.baidu.cesium.b.a
     public void a(a.c cVar) {
-        this.aiH = this.aiB.cZ("isc");
+        this.akd = this.ajX.db("isc");
     }
 }

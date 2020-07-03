@@ -12,7 +12,7 @@ import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.recent_history.b.b;
 import com.baidu.tieba.ala.alasquare.recent_history.message.AlaRecentHistoryResponseMessage;
@@ -20,9 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaRecentHistoryModel extends BdBaseModel {
-    private boolean fdv;
-    private a fhw;
-    private HttpMessageListener fhx;
+    private boolean foF;
+    private a fsK;
+    private HttpMessageListener fsL;
     private boolean hasMore;
     private BdUniqueId mCurTag = BdUniqueId.gen();
     private List<b> mDataList = new ArrayList();
@@ -32,7 +32,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void d(boolean z, List<b> list);
+        void e(boolean z, List<b> list);
 
         void g(int i, String str, boolean z);
     }
@@ -46,58 +46,58 @@ public class AlaRecentHistoryModel extends BdBaseModel {
     public AlaRecentHistoryModel(TbPageContext tbPageContext, int i, a aVar) {
         this.mPageContext = tbPageContext;
         this.mType = i;
-        this.fhw = aVar;
+        this.fsK = aVar;
         registerListener();
-        Fv();
+        xp();
     }
 
-    private void Fv() {
+    private void xp() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_RECENT_HISTORY_LIST);
         tbHttpMessageTask.setResponsedClass(AlaRecentHistoryResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     private void registerListener() {
-        this.fhx = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST) { // from class: com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel.1
+        this.fsL = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST) { // from class: com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021082 && (httpResponsedMessage instanceof AlaRecentHistoryResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaRecentHistoryModel.this.mCurTag) {
                     AlaRecentHistoryResponseMessage alaRecentHistoryResponseMessage = (AlaRecentHistoryResponseMessage) httpResponsedMessage;
                     if (!alaRecentHistoryResponseMessage.isSuccess()) {
-                        if (AlaRecentHistoryModel.this.fhw != null) {
-                            AlaRecentHistoryModel.this.fhw.g(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaRecentHistoryModel.this.fdv);
+                        if (AlaRecentHistoryModel.this.fsK != null) {
+                            AlaRecentHistoryModel.this.fsK.g(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaRecentHistoryModel.this.foF);
                         }
                     } else {
                         com.baidu.tieba.ala.alasquare.recent_history.b.a recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
                         if (recentHistoryData != null) {
                             AlaRecentHistoryModel.this.hasMore = recentHistoryData.hasMore;
-                            List<b> list = recentHistoryData.fht;
-                            if (!AlaRecentHistoryModel.this.fdv) {
+                            List<b> list = recentHistoryData.fsH;
+                            if (!AlaRecentHistoryModel.this.foF) {
                                 AlaRecentHistoryModel.this.mDataList.clear();
-                                if (!v.isEmpty(list)) {
+                                if (!w.isEmpty(list)) {
                                     AlaRecentHistoryModel.this.mDataList.addAll(list);
                                 }
-                            } else if (!v.isEmpty(list)) {
+                            } else if (!w.isEmpty(list)) {
                                 AlaRecentHistoryModel.c(AlaRecentHistoryModel.this);
                                 AlaRecentHistoryModel.this.mDataList.addAll(list);
                             }
-                            if (AlaRecentHistoryModel.this.fhw != null) {
-                                AlaRecentHistoryModel.this.fhw.d(AlaRecentHistoryModel.this.hasMore, AlaRecentHistoryModel.this.mDataList);
+                            if (AlaRecentHistoryModel.this.fsK != null) {
+                                AlaRecentHistoryModel.this.fsK.e(AlaRecentHistoryModel.this.hasMore, AlaRecentHistoryModel.this.mDataList);
                             }
                         } else {
                             return;
                         }
                     }
-                    AlaRecentHistoryModel.this.fdv = false;
+                    AlaRecentHistoryModel.this.foF = false;
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.fhx);
+        MessageManager.getInstance().registerListener(this.fsL);
     }
 
     public void refresh() {
-        this.fdv = false;
+        this.foF = false;
         this.mPn = 0;
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
@@ -107,9 +107,9 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void bqx() {
-        if (this.hasMore && !this.fdv) {
-            this.fdv = true;
+    public void btu() {
+        if (this.hasMore && !this.foF) {
+            this.foF = true;
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
             httpMessage.addParam("type", this.mType);
@@ -135,6 +135,6 @@ public class AlaRecentHistoryModel extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);
-        MessageManager.getInstance().unRegisterListener(this.fhx);
+        MessageManager.getInstance().unRegisterListener(this.fsL);
     }
 }

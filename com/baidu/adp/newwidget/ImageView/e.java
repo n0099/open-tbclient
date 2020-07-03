@@ -14,8 +14,8 @@ public class e {
     public float mRadius;
     public boolean mIsShowLongIcon = false;
     public boolean mIsShowGifIcon = true;
-    public int PN = b.TYPE_NONE;
+    public int Qr = b.TYPE_NONE;
     public float mAlpha = 1.0f;
     public boolean isChatPage = false;
-    public boolean PO = false;
+    public boolean Qs = false;
 }

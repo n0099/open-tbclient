@@ -12,8 +12,8 @@ public class b extends com.baidu.swan.pms.c.d<c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
-    /* renamed from: by */
-    public c bz(JSONObject jSONObject) {
+    /* renamed from: bF */
+    public c bG(JSONObject jSONObject) {
         return (c) com.baidu.swan.pms.f.d.a(jSONObject, new c());
     }
 
@@ -22,11 +22,11 @@ public class b extends com.baidu.swan.pms.c.d<c> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a X(c cVar) {
-        this.dlN.ZP();
+        this.dqy.aaV();
         e eVar = new e();
         eVar.a(cVar, PMSPkgStatus.WAIT);
-        this.dlN.a(eVar);
-        com.baidu.swan.a.d.a(cVar, (com.baidu.swan.a.a) this.dlN);
+        this.dqy.a(eVar);
+        com.baidu.swan.a.d.a(cVar, (com.baidu.swan.a.a) this.dqy);
         return null;
     }
 
@@ -35,11 +35,11 @@ public class b extends com.baidu.swan.pms.c.d<c> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: b */
     public boolean W(c cVar) {
-        return cVar != null && cVar.aaF();
+        return cVar != null && cVar.abL();
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String ave() {
+    protected String awk() {
         return "getSailor";
     }
 }

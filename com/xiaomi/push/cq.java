@@ -15,7 +15,7 @@ class cq {
     public static int a(String str, String str2, cm cmVar) {
         HttpPost httpPost;
         LinkedList linkedList = new LinkedList();
-        linkedList.add(new BasicNameValuePair("logValue", cmVar.f167a));
+        linkedList.add(new BasicNameValuePair("logValue", cmVar.f173a));
         linkedList.add(new BasicNameValuePair("appId", str));
         linkedList.add(new BasicNameValuePair("showType", cmVar.a + ""));
         linkedList.add(new BasicNameValuePair("s", cr.a(linkedList, str2)));

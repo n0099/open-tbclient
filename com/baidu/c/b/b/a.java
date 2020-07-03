@@ -5,8 +5,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    int bmH;
-    String bmk;
+    int brH;
+    String brl;
     String cuid;
     long num;
     long roomId;
@@ -20,9 +20,9 @@ public class a {
         jSONObject.put(UgcConstant.SOURCE_TYPE, 0);
         jSONObject.put("uid", this.uid);
         jSONObject.put("number", this.num);
-        jSONObject.put("app_version", this.bmk);
+        jSONObject.put("app_version", this.brl);
         jSONObject.put(UgcConstant.SOURCE_TYPE, this.sourceType);
-        jSONObject.put("caller_flag", this.bmH);
+        jSONObject.put("caller_flag", this.brH);
         jSONObject.put("version", this.version);
         jSONObject.put("device_id", this.cuid);
         return jSONObject.toString();

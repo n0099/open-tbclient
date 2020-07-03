@@ -14,7 +14,7 @@ public class d extends c {
 
     @Override // com.baidu.swan.apps.media.c.a.c
     public boolean a(com.baidu.swan.apps.media.c.a aVar, com.baidu.swan.apps.media.c.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.console.c.i("vrvideo", "remove, video id:" + cVar.cjA + " slave id: " + cVar.bPG);
+        com.baidu.swan.apps.console.c.i("vrvideo", "remove, video id:" + cVar.cop + " slave id: " + cVar.bUu);
         b(aVar, cVar, unitedSchemeEntity, callbackHandler);
         return true;
     }
@@ -22,9 +22,9 @@ public class d extends c {
     private void b(com.baidu.swan.apps.media.c.a aVar, com.baidu.swan.apps.media.c.c cVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         com.baidu.swan.apps.component.b.a d = com.baidu.swan.apps.component.container.a.d(cVar);
         if (d != null) {
-            d.Vi();
+            d.Wo();
         } else {
-            com.baidu.swan.apps.component.e.a.aS("VrVideoRemoveAction", "remove with a null component");
+            com.baidu.swan.apps.component.e.a.aU("VrVideoRemoveAction", "remove with a null component");
         }
         aVar.onDestroy();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

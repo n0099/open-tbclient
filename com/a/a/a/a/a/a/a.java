@@ -9,12 +9,12 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes11.dex */
 public final class a {
     static final int b;
-    static final AbstractC0007a zr;
+    static final AbstractC0007a zR;
 
     /* renamed from: com.a.a.a.a.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     static abstract class AbstractC0007a {
-        protected static final Throwable[] zs = new Throwable[0];
+        protected static final Throwable[] zS = new Throwable[0];
 
         AbstractC0007a() {
         }
@@ -27,7 +27,7 @@ public final class a {
     /* loaded from: classes11.dex */
     static final class b {
         private final ConcurrentHashMap<C0008a, List<Throwable>> a = new ConcurrentHashMap<>(16, 0.75f, 10);
-        private final ReferenceQueue<Throwable> zt = new ReferenceQueue<>();
+        private final ReferenceQueue<Throwable> zT = new ReferenceQueue<>();
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.a.a.a.a.a.a.a$b$a  reason: collision with other inner class name */
@@ -63,10 +63,10 @@ public final class a {
         }
 
         public final List<Throwable> f(Throwable th) {
-            Reference<? extends Throwable> poll = this.zt.poll();
+            Reference<? extends Throwable> poll = this.zT.poll();
             while (poll != null) {
                 this.a.remove(poll);
-                poll = this.zt.poll();
+                poll = this.zT.poll();
             }
             return this.a.get(new C0008a(th));
         }
@@ -74,7 +74,7 @@ public final class a {
 
     /* loaded from: classes11.dex */
     static final class c extends AbstractC0007a {
-        private final b zu = new b();
+        private final b zU = new b();
 
         c() {
         }
@@ -82,7 +82,7 @@ public final class a {
         @Override // com.a.a.a.a.a.a.a.AbstractC0007a
         public final void a(Throwable th) {
             th.printStackTrace();
-            List<Throwable> f = this.zu.f(th);
+            List<Throwable> f = this.zU.f(th);
             if (f == null) {
                 return;
             }
@@ -97,7 +97,7 @@ public final class a {
         @Override // com.a.a.a.a.a.a.a.AbstractC0007a
         public final void a(Throwable th, PrintWriter printWriter) {
             th.printStackTrace(printWriter);
-            List<Throwable> f = this.zu.f(th);
+            List<Throwable> f = this.zU.f(th);
             if (f == null) {
                 return;
             }
@@ -161,17 +161,17 @@ public final class a {
                 System.err.println("An error has occured when initializing the try-with-resources desuguring strategy. The default strategy " + d.class.getName() + "will be used. The error is: ");
                 th.printStackTrace(System.err);
                 dVar = new d();
-                zr = dVar;
+                zR = dVar;
                 b = num == null ? 1 : num.intValue();
             }
             if (num.intValue() >= 19) {
                 dVar = new e();
-                zr = dVar;
+                zR = dVar;
                 b = num == null ? 1 : num.intValue();
             }
         }
         dVar = !Boolean.getBoolean("com.google.devtools.build.android.desugar.runtime.twr_disable_mimic") ? new c() : new d();
-        zr = dVar;
+        zR = dVar;
         b = num == null ? 1 : num.intValue();
     }
 
@@ -186,10 +186,10 @@ public final class a {
     }
 
     public static void a(Throwable th) {
-        zr.a(th);
+        zR.a(th);
     }
 
     public static void a(Throwable th, PrintWriter printWriter) {
-        zr.a(th, printWriter);
+        zR.a(th, printWriter);
     }
 }

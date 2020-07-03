@@ -5,7 +5,7 @@ public class PkgDownloadError extends Throwable {
     private com.baidu.swan.pms.model.e mPackage;
 
     public PkgDownloadError(com.baidu.swan.pms.model.e eVar, com.baidu.swan.apps.an.a aVar) {
-        super(aVar.asJ());
+        super(aVar.atP());
         this.mPackage = eVar;
         this.mErrCode = aVar;
     }

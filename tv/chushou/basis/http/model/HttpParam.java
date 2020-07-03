@@ -23,10 +23,10 @@ public class HttpParam {
         }
     };
     private final Map<String, String> c;
-    private final RequestTag nNd;
+    private final RequestTag oiR;
 
     public HttpParam(RequestTag requestTag) {
-        this.nNd = requestTag == null ? RequestTag.normal() : requestTag;
+        this.oiR = requestTag == null ? RequestTag.normal() : requestTag;
         this.c = new TreeMap(a);
     }
 
@@ -45,34 +45,34 @@ public class HttpParam {
     }
 
     public void a() {
-        Map<String, String> dGn;
-        if (this.nNd.signType == 2) {
+        Map<String, String> dKT;
+        if (this.oiR.signType == 2) {
             return;
         }
-        b bVar = (b) tv.chushou.basis.d.b.dRA().S(b.class);
+        b bVar = (b) tv.chushou.basis.d.b.dWg().S(b.class);
         if (bVar != null) {
             b("_appkey", bVar.getAppKey());
-            b("_xappkey", bVar.dGj());
-            b("_appSource", bVar.abU());
+            b("_xappkey", bVar.dKP());
+            b("_appSource", bVar.ada());
             b("_appVersion", bVar.getSdkVersion());
             String token = bVar.getToken();
             if (!TextUtils.isEmpty(token)) {
                 b("token", token);
             }
-            b("_cssdkVersion", bVar.dGm());
+            b("_cssdkVersion", bVar.dKS());
         }
-        d dVar = (d) tv.chushou.basis.d.b.dRA().S(d.class);
+        d dVar = (d) tv.chushou.basis.d.b.dWg().S(d.class);
         if (dVar != null) {
             b("_identifier", dVar.getIdentifier());
-            b("_imei", dVar.atR());
-            b("device_cs", dVar.dRq());
-            b("device_ds", dVar.dRr());
-            for (Map.Entry<String, String> entry : dVar.dRs().entrySet()) {
+            b("_imei", dVar.auX());
+            b("device_cs", dVar.dVW());
+            b("device_ds", dVar.dVX());
+            for (Map.Entry<String, String> entry : dVar.dVY().entrySet()) {
                 b(entry.getKey(), entry.getValue());
             }
         }
-        if (bVar != null && (dGn = bVar.dGn()) != null) {
-            for (Map.Entry<String, String> entry2 : dGn.entrySet()) {
+        if (bVar != null && (dKT = bVar.dKT()) != null) {
+            for (Map.Entry<String, String> entry2 : dKT.entrySet()) {
                 b(entry2.getKey(), entry2.getValue());
             }
         }
@@ -87,15 +87,15 @@ public class HttpParam {
     }
 
     public void b() {
-        if (this.nNd.signType == 2) {
+        if (this.oiR.signType == 2) {
             return;
         }
-        c cVar = (c) tv.chushou.basis.d.b.dRA().S(c.class);
+        c cVar = (c) tv.chushou.basis.d.b.dWg().S(c.class);
         if (cVar == null) {
             this.c.put("_t", String.valueOf(System.currentTimeMillis()));
             return;
         }
-        this.c.put("_t", cVar.dGp());
+        this.c.put("_t", cVar.dKV());
     }
 
     public void b(String str, Object obj) {
@@ -110,23 +110,23 @@ public class HttpParam {
     }
 
     public void c() {
-        if (this.nNd.signType == 2) {
+        if (this.oiR.signType == 2) {
             return;
         }
-        String str = this.nNd.signKey;
-        String str2 = this.nNd.signSecret;
+        String str = this.oiR.signKey;
+        String str2 = this.oiR.signSecret;
         String str3 = TextUtils.isEmpty(str) ? "_sign" : str;
-        b bVar = (b) tv.chushou.basis.d.b.dRA().S(b.class);
-        String dGk = (!TextUtils.isEmpty(str2) || bVar == null) ? str2 : bVar.dGk();
+        b bVar = (b) tv.chushou.basis.d.b.dWg().S(b.class);
+        String dKQ = (!TextUtils.isEmpty(str2) || bVar == null) ? str2 : bVar.dKQ();
         this.c.remove(str3);
-        e eVar = (e) tv.chushou.basis.d.b.dRA().S(e.class);
+        e eVar = (e) tv.chushou.basis.d.b.dWg().S(e.class);
         if (bVar == null || eVar == null) {
             return;
         }
-        this.c.put(str3, eVar.fM(dGk, e()));
+        this.c.put(str3, eVar.fW(dKQ, e()));
     }
 
-    public Set<Map.Entry<String, String>> dRx() {
+    public Set<Map.Entry<String, String>> dWd() {
         return this.c.entrySet();
     }
 

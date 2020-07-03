@@ -2,46 +2,46 @@ package com.baidu.live.guardclub;
 
 import android.text.TextUtils;
 import android.util.SparseArray;
-import com.baidu.live.data.ao;
+import com.baidu.live.data.as;
 /* loaded from: classes3.dex */
 public class g {
-    private static volatile g aOZ;
-    private ao aAH;
-    private SparseArray<String> aPa = new SparseArray<>();
-    private SparseArray<String> aPb = new SparseArray<>();
-    private SparseArray<String> aPc = new SparseArray<>();
-    private SparseArray<String> aPd = new SparseArray<>();
+    private static volatile g aRF;
+    private as aCS;
+    private SparseArray<String> aRG = new SparseArray<>();
+    private SparseArray<String> aRH = new SparseArray<>();
+    private SparseArray<String> aRI = new SparseArray<>();
+    private SparseArray<String> aRJ = new SparseArray<>();
 
     private g() {
     }
 
-    public static g BH() {
-        if (aOZ == null) {
+    public static g Ch() {
+        if (aRF == null) {
             synchronized (g.class) {
-                if (aOZ == null) {
-                    aOZ = new g();
+                if (aRF == null) {
+                    aRF = new g();
                 }
             }
         }
-        return aOZ;
+        return aRF;
     }
 
-    public String BI() {
-        if (BK() || this.aAH.azS == null) {
+    public String Ci() {
+        if (Ck() || this.aCS.aCd == null) {
             return null;
         }
-        return this.aAH.azS;
+        return this.aCS.aCd;
     }
 
-    public String cp(int i) {
-        String str = this.aPa.get(i);
+    public String cv(int i) {
+        String str = this.aRG.get(i);
         if (TextUtils.isEmpty(str)) {
-            if (BK() || this.aAH.azW == null) {
+            if (Ck() || this.aCS.aCh == null) {
                 return null;
             }
-            String optString = this.aAH.azW.optString(String.valueOf(i));
+            String optString = this.aCS.aCh.optString(String.valueOf(i));
             if (!TextUtils.isEmpty(optString)) {
-                this.aPa.put(i, optString);
+                this.aRG.put(i, optString);
                 return optString;
             }
             return optString;
@@ -49,15 +49,15 @@ public class g {
         return str;
     }
 
-    public String cq(int i) {
-        String str = this.aPb.get(i);
+    public String cw(int i) {
+        String str = this.aRH.get(i);
         if (TextUtils.isEmpty(str)) {
-            if (BK() || this.aAH.azU == null) {
+            if (Ck() || this.aCS.aCf == null) {
                 return null;
             }
-            String optString = this.aAH.azU.optString(String.valueOf(i));
+            String optString = this.aCS.aCf.optString(String.valueOf(i));
             if (!TextUtils.isEmpty(optString)) {
-                this.aPb.put(i, optString);
+                this.aRH.put(i, optString);
                 return optString;
             }
             return optString;
@@ -65,15 +65,15 @@ public class g {
         return str;
     }
 
-    public String cr(int i) {
-        String str = this.aPc.get(i);
+    public String cx(int i) {
+        String str = this.aRI.get(i);
         if (TextUtils.isEmpty(str)) {
-            if (BK() || this.aAH.azV == null) {
+            if (Ck() || this.aCS.aCg == null) {
                 return null;
             }
-            String optString = this.aAH.azV.optString(String.valueOf(i));
+            String optString = this.aCS.aCg.optString(String.valueOf(i));
             if (!TextUtils.isEmpty(optString)) {
-                this.aPc.put(i, optString);
+                this.aRI.put(i, optString);
                 return optString;
             }
             return optString;
@@ -81,15 +81,15 @@ public class g {
         return str;
     }
 
-    public String cs(int i) {
-        String str = this.aPd.get(i);
+    public String cy(int i) {
+        String str = this.aRJ.get(i);
         if (TextUtils.isEmpty(str)) {
-            if (BK() || this.aAH.azX == null) {
+            if (Ck() || this.aCS.aCi == null) {
                 return null;
             }
-            String optString = this.aAH.azX.optString(String.valueOf(i));
+            String optString = this.aCS.aCi.optString(String.valueOf(i));
             if (!TextUtils.isEmpty(optString)) {
-                this.aPd.put(i, optString);
+                this.aRJ.put(i, optString);
                 return optString;
             }
             return optString;
@@ -97,17 +97,17 @@ public class g {
         return str;
     }
 
-    public ao BJ() {
-        if (BK()) {
+    public as Cj() {
+        if (Ck()) {
             return null;
         }
-        return this.aAH;
+        return this.aCS;
     }
 
-    private boolean BK() {
-        if (this.aAH == null) {
-            this.aAH = com.baidu.live.v.a.Ge().aYP.aAH;
-            if (this.aAH == null) {
+    private boolean Ck() {
+        if (this.aCS == null) {
+            this.aCS = com.baidu.live.v.a.Hm().bdV.aCS;
+            if (this.aCS == null) {
                 return true;
             }
         }

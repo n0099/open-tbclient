@@ -6,27 +6,27 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 class c {
     private static final String TAG = c.class.getSimpleName();
-    private static volatile boolean iC = false;
-    private VolumeListener iA;
-    private AudioRecord iu;
-    private AudioParams iv;
-    private a iz;
-    private byte[] iw = null;
-    private ArrayList<ByteBuffer> ix = null;
-    private int iy = 0;
-    private boolean iB = false;
+    private static volatile boolean iR = false;
+    private AudioRecord iJ;
+    private AudioParams iK;
+    private a iO;
+    private VolumeListener iP;
+    private byte[] iL = null;
+    private ArrayList<ByteBuffer> iM = null;
+    private int iN = 0;
+    private boolean iQ = false;
 
     /* JADX WARN: Removed duplicated region for block: B:17:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:9:0x001c  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void bM() {
+    private void ca() {
         boolean z = true;
-        if (this.iu.getState() == 1) {
+        if (this.iJ.getState() == 1) {
             try {
-                this.iu.startRecording();
-                int recordingState = this.iu.getRecordingState();
+                this.iJ.startRecording();
+                int recordingState = this.iJ.getRecordingState();
                 if (recordingState != 3) {
                     com.baidu.ar.f.b.b(TAG, "startAudioRecord state = " + recordingState);
                 }
@@ -34,95 +34,95 @@ class c {
                 com.baidu.ar.f.b.b(TAG, "startAudioRecord error!!!");
                 e.printStackTrace();
             }
-            iC = z;
+            iR = z;
             if (z) {
-                com.baidu.ar.f.b.b(TAG, "startAudioRecord error!!! mAudioRecord.getState() = " + this.iu.getState());
-                t(false);
+                com.baidu.ar.f.b.b(TAG, "startAudioRecord error!!! mAudioRecord.getState() = " + this.iJ.getState());
+                s(false);
                 return;
             }
             return;
         }
         z = false;
-        iC = z;
+        iR = z;
         if (z) {
         }
     }
 
-    private void bN() {
+    private void cb() {
         int i;
-        if (this.iv.getFrameSize() <= 0) {
+        if (this.iK.getFrameSize() <= 0) {
             return;
         }
-        if (this.ix == null) {
-            this.ix = new ArrayList<>();
-            for (int i2 = 0; i2 < this.iv.getFrameBufferCount(); i2++) {
-                this.ix.add(ByteBuffer.allocate(this.iv.getFrameSize()));
+        if (this.iM == null) {
+            this.iM = new ArrayList<>();
+            for (int i2 = 0; i2 < this.iK.getFrameBufferCount(); i2++) {
+                this.iM.add(ByteBuffer.allocate(this.iK.getFrameSize()));
             }
         }
-        this.iy = 0;
-        if (this.iw == null) {
-            this.iw = new byte[this.iv.getFrameSize()];
+        this.iN = 0;
+        if (this.iL == null) {
+            this.iL = new byte[this.iK.getFrameSize()];
         }
         int i3 = 0;
-        while (iC) {
+        while (iR) {
             long nanoTime = System.nanoTime();
-            int read = this.iu.read(this.iw, 0, this.iw.length);
-            if (!this.iB || this.iv == null) {
+            int read = this.iJ.read(this.iL, 0, this.iL.length);
+            if (!this.iQ || this.iK == null) {
                 j(i3);
                 i = i3 + 1;
             } else {
-                ByteBuffer byteBuffer = this.ix.get(this.iy);
+                ByteBuffer byteBuffer = this.iM.get(this.iN);
                 if (read == -3) {
                     com.baidu.ar.f.b.b(TAG, "Audio read error");
-                } else if (this.iz != null && byteBuffer != null && byteBuffer.capacity() >= read) {
-                    if (this.iv.getAmplifyVolume() != 1.0f) {
-                        d.a(this.iw, this.iv.getAmplifyVolume());
+                } else if (this.iO != null && byteBuffer != null && byteBuffer.capacity() >= read) {
+                    if (this.iK.getAmplifyVolume() != 1.0f) {
+                        d.a(this.iL, this.iK.getAmplifyVolume());
                     }
                     byteBuffer.clear();
                     byteBuffer.position(0);
-                    byteBuffer.put(this.iw, 0, read);
+                    byteBuffer.put(this.iL, 0, read);
                     byteBuffer.flip();
-                    this.iz.onAudioFrameAvailable(byteBuffer, read, nanoTime);
+                    this.iO.onAudioFrameAvailable(byteBuffer, read, nanoTime);
                 }
-                this.iy++;
-                this.iy %= this.iv.getFrameBufferCount();
-                if (this.iA != null) {
-                    this.iA.onRealtimeVolume((int) d.c(this.iw));
+                this.iN++;
+                this.iN %= this.iK.getFrameBufferCount();
+                if (this.iP != null) {
+                    this.iP.onRealtimeVolume((int) d.c(this.iL));
                 }
                 i = i3;
             }
             i3 = i;
         }
-        this.ix = null;
-        this.iw = null;
+        this.iM = null;
+        this.iL = null;
         try {
-            this.iu.stop();
+            this.iJ.stop();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (this.iz != null) {
-            this.iz.onAudioStop(true);
+        if (this.iO != null) {
+            this.iO.onAudioStop(true);
         }
     }
 
     private void j(long j) {
         if (j >= 20) {
-            t(false);
-            this.iB = true;
-        } else if (d.b(this.iw) != 0.0d) {
-            t(true);
-            this.iB = true;
+            s(false);
+            this.iQ = true;
+        } else if (d.b(this.iL) != 0.0d) {
+            s(true);
+            this.iQ = true;
         }
     }
 
-    private void t(boolean z) {
-        if (this.iz != null) {
-            this.iz.onAudioStart(z);
+    private void s(boolean z) {
+        if (this.iO != null) {
+            this.iO.onAudioStart(z);
         }
     }
 
     public void a(a aVar) {
-        this.iz = aVar;
+        this.iO = aVar;
     }
 
     public void b(AudioParams audioParams) {
@@ -130,41 +130,41 @@ class c {
         if (audioParams.getFrameSize() < minBufferSize) {
             audioParams.setAudioBufferSize(((minBufferSize / 1024) + 1) * 1024 * 2);
         }
-        this.iu = new AudioRecord(audioParams.getAudioSource(), audioParams.getSampleRate(), audioParams.getChannelConfig(), audioParams.getAudioFormat(), audioParams.getAudioBufferSize());
-        this.iv = audioParams;
-        this.iB = false;
-        if (this.iz != null) {
-            this.iz.onAudioSetup(true);
+        this.iJ = new AudioRecord(audioParams.getAudioSource(), audioParams.getSampleRate(), audioParams.getChannelConfig(), audioParams.getAudioFormat(), audioParams.getAudioBufferSize());
+        this.iK = audioParams;
+        this.iQ = false;
+        if (this.iO != null) {
+            this.iO.onAudioSetup(true);
         }
     }
 
-    public AudioParams bE() {
-        return this.iv;
+    public AudioParams bS() {
+        return this.iK;
     }
 
-    public void bJ() {
-        bM();
-        bN();
+    public void bX() {
+        ca();
+        cb();
     }
 
-    public void bK() {
-        iC = false;
+    public void bY() {
+        iR = false;
     }
 
-    public void bL() {
-        if (iC) {
+    public void bZ() {
+        if (iR) {
             return;
         }
-        this.iu.release();
-        this.iu = null;
-        if (this.iz != null) {
-            this.iz.onAudioRelease();
+        this.iJ.release();
+        this.iJ = null;
+        if (this.iO != null) {
+            this.iO.onAudioRelease();
         }
-        this.iz = null;
-        this.iA = null;
+        this.iO = null;
+        this.iP = null;
     }
 
     public void setVolumeListener(VolumeListener volumeListener) {
-        this.iA = volumeListener;
+        this.iP = volumeListener;
     }
 }

@@ -7,29 +7,29 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class d {
-    boolean cpo;
-    private WeakReference<Bitmap> cpr;
-    boolean cps;
+    boolean cuc;
+    private WeakReference<Bitmap> cuf;
+    boolean cug;
     String id;
     Rect rect;
     long remainTime;
     String url;
     private static final String TAG = f.TAG;
     private static final boolean DEBUG = com.baidu.swan.apps.runtime.e.DEBUG;
-    int cpq = 0;
+    int cue = 0;
     long startTime = System.currentTimeMillis();
-    int cpp = 0;
+    int cud = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str, String str2, long j, boolean z) {
         this.id = str;
         this.url = str2;
         this.remainTime = j;
-        this.cps = z;
+        this.cug = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long akg() {
+    public long alm() {
         if (this.remainTime > 0) {
             this.remainTime -= System.currentTimeMillis() - this.startTime;
         }
@@ -52,22 +52,22 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void akh() {
-        this.cpp = 1;
+    public void aln() {
+        this.cud = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aki() {
-        this.cpp = 2;
+    public void alo() {
+        this.cud = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isChecked() {
-        return this.cpp == 2;
+        return this.cud == 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void m(Bitmap bitmap) {
-        this.cpr = new WeakReference<>(bitmap);
+        this.cuf = new WeakReference<>(bitmap);
     }
 }

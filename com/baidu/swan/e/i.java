@@ -9,15 +9,15 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class i {
-    public static String ub(String str) {
-        int aJc = a.aJc();
-        int aJd = a.aJd();
+    public static String uj(String str) {
+        int aKi = a.aKi();
+        int aKj = a.aKj();
         int densityDpi = a.getDensityDpi();
         String os = a.getOS();
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(aJc);
+        stringBuffer.append(aKi);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        stringBuffer.append(aJd);
+        stringBuffer.append(aKj);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(os);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
@@ -72,7 +72,7 @@ public class i {
     }
 
     @NonNull
-    public static Map<String, String> sH(@NonNull String str) {
+    public static Map<String, String> sP(@NonNull String str) {
         String[] split;
         HashMap hashMap = new HashMap();
         for (String str2 : str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {

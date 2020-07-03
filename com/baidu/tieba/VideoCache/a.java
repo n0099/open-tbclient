@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private List<d> eLI = new ArrayList();
-    private long eLJ = 0;
+    private List<d> eVU = new ArrayList();
+    private long eVV = 0;
 
-    public List<d> blq() {
-        return this.eLI;
+    public List<d> bnP() {
+        return this.eVU;
     }
 
-    public long blr() {
-        return this.eLJ;
+    public long bnQ() {
+        return this.eVV;
     }
 
     public void a(d dVar) {
-        if (this.eLI != null) {
-            this.eLI.add(dVar);
+        if (this.eVU != null) {
+            this.eVU.add(dVar);
             if (dVar != null) {
-                this.eLJ += dVar.blA();
+                this.eVV += dVar.bnZ();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.eLI != null) {
-            this.eLI.remove(dVar);
+        if (this.eVU != null) {
+            this.eVU.remove(dVar);
             if (dVar != null) {
-                this.eLJ -= dVar.blA();
+                this.eVV -= dVar.bnZ();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.eLI != null) {
-            d dVar = this.eLI.get(i);
+        if (this.eVU != null) {
+            d dVar = this.eVU.get(i);
             if (dVar != null) {
-                this.eLJ -= dVar.blA();
+                this.eVV -= dVar.bnZ();
             }
-            this.eLI.remove(i);
+            this.eVU.remove(i);
         }
     }
 
-    public int bls() {
-        if (this.eLI != null) {
-            return this.eLI.size();
+    public int bnR() {
+        if (this.eVU != null) {
+            return this.eVU.size();
         }
         return 0;
     }
 
-    public d oV(int i) {
-        if (this.eLI != null) {
-            return this.eLI.get(i);
+    public d pu(int i) {
+        if (this.eVU != null) {
+            return this.eVU.get(i);
         }
         return null;
     }

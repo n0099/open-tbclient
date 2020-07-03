@@ -8,22 +8,22 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes11.dex */
 public class a {
-    private static volatile Executor bvR;
+    private static volatile Executor bAI;
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final int MAX_POOL_SIZE = (CPU_COUNT * 2) + 1;
-    private static final ThreadFactory bvS = new ThreadFactoryC0242a();
+    private static final ThreadFactory bAJ = new ThreadFactoryC0248a();
 
     /* renamed from: com.baidu.poly.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    static class ThreadFactoryC0242a implements ThreadFactory {
-        private final AtomicInteger bvT = new AtomicInteger(1);
+    static class ThreadFactoryC0248a implements ThreadFactory {
+        private final AtomicInteger bAK = new AtomicInteger(1);
 
-        ThreadFactoryC0242a() {
+        ThreadFactoryC0248a() {
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "cashier #" + this.bvT.getAndIncrement());
+            return new Thread(runnable, "cashier #" + this.bAK.getAndIncrement());
         }
     }
 
@@ -34,16 +34,16 @@ public class a {
     private static synchronized Executor getExecutor() {
         Executor executor;
         synchronized (a.class) {
-            if (bvR == null) {
+            if (bAI == null) {
                 synchronized (a.class) {
-                    if (bvR == null) {
-                        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, MAX_POOL_SIZE, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), bvS);
+                    if (bAI == null) {
+                        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, MAX_POOL_SIZE, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), bAJ);
                         threadPoolExecutor.allowCoreThreadTimeOut(true);
-                        bvR = threadPoolExecutor;
+                        bAI = threadPoolExecutor;
                     }
                 }
             }
-            executor = bvR;
+            executor = bAI;
         }
         return executor;
     }

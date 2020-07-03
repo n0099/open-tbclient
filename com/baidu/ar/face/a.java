@@ -6,53 +6,53 @@ import com.baidu.ar.d;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class a extends d implements IFace {
-    private String L;
-    private FaceListener lT;
-    private WeakReference<IFace> mt;
+    private String K;
+    private WeakReference<IFace> mQ;
+    private FaceListener ms;
 
     @Override // com.baidu.ar.d
     public void a(c cVar) {
         if (cVar == null) {
-            if (this.mt != null) {
-                this.mt.clear();
-                this.mt = null;
+            if (this.mQ != null) {
+                this.mQ.clear();
+                this.mQ = null;
                 return;
             }
             return;
         }
         if (cVar instanceof IFace) {
-            this.mt = new WeakReference<>((IFace) cVar);
-            if (!TextUtils.isEmpty(this.L)) {
-                this.mt.get().setFaceModelPath(this.L);
+            this.mQ = new WeakReference<>((IFace) cVar);
+            if (!TextUtils.isEmpty(this.K)) {
+                this.mQ.get().setFaceModelPath(this.K);
             }
         }
-        if (this.lT != null) {
-            this.mt.get().setFaceListener(this.lT);
+        if (this.ms != null) {
+            this.mQ.get().setFaceListener(this.ms);
         }
     }
 
     @Override // com.baidu.ar.d
     public void release() {
-        if (this.mt != null) {
-            this.mt.clear();
-            this.mt = null;
+        if (this.mQ != null) {
+            this.mQ.clear();
+            this.mQ = null;
         }
-        this.lT = null;
+        this.ms = null;
     }
 
     @Override // com.baidu.ar.face.IFace
     public void setFaceListener(FaceListener faceListener) {
-        this.lT = faceListener;
-        if (this.mt != null) {
-            this.mt.get().setFaceListener(this.lT);
+        this.ms = faceListener;
+        if (this.mQ != null) {
+            this.mQ.get().setFaceListener(this.ms);
         }
     }
 
     @Override // com.baidu.ar.face.IFace
     public void setFaceModelPath(String str) {
-        this.L = str;
-        if (this.mt != null) {
-            this.mt.get().setFaceModelPath(str);
+        this.K = str;
+        if (this.mQ != null) {
+            this.mQ.get().setFaceModelPath(str);
         }
     }
 }

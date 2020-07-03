@@ -18,12 +18,12 @@ public final class FragmentState implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: js */
+        /* renamed from: jD */
         public FragmentState[] newArray(int i) {
             return new FragmentState[i];
         }
     };
-    Fragment dor;
+    Fragment dtc;
     final Bundle mArguments;
     final String mClassName;
     final int mContainerId;
@@ -61,31 +61,31 @@ public final class FragmentState implements Parcelable {
     }
 
     public Fragment a(j jVar, Fragment fragment) {
-        if (this.dor != null) {
-            return this.dor;
+        if (this.dtc != null) {
+            return this.dtc;
         }
         Context context = jVar.getContext();
         if (this.mArguments != null) {
             this.mArguments.setClassLoader(context.getClassLoader());
         }
-        this.dor = Fragment.b(context, this.mClassName, this.mArguments);
+        this.dtc = Fragment.b(context, this.mClassName, this.mArguments);
         if (this.mSavedFragmentState != null) {
             this.mSavedFragmentState.setClassLoader(context.getClassLoader());
-            this.dor.mSavedFragmentState = this.mSavedFragmentState;
+            this.dtc.mSavedFragmentState = this.mSavedFragmentState;
         }
-        this.dor.b(this.mIndex, fragment);
-        this.dor.mFromLayout = this.mFromLayout;
-        this.dor.mRestored = true;
-        this.dor.mFragmentId = this.mFragmentId;
-        this.dor.mContainerId = this.mContainerId;
-        this.dor.mTag = this.mTag;
-        this.dor.mRetainInstance = this.mRetainInstance;
-        this.dor.mDetached = this.mDetached;
-        this.dor.dnO = jVar.dnO;
+        this.dtc.b(this.mIndex, fragment);
+        this.dtc.mFromLayout = this.mFromLayout;
+        this.dtc.mRestored = true;
+        this.dtc.mFragmentId = this.mFragmentId;
+        this.dtc.mContainerId = this.mContainerId;
+        this.dtc.mTag = this.mTag;
+        this.dtc.mRetainInstance = this.mRetainInstance;
+        this.dtc.mDetached = this.mDetached;
+        this.dtc.dsA = jVar.dsA;
         if (l.DEBUG) {
-            Log.v("FragmentManager", "Instantiated fragment " + this.dor);
+            Log.v("FragmentManager", "Instantiated fragment " + this.dtc);
         }
-        return this.dor;
+        return this.dtc;
     }
 
     @Override // android.os.Parcelable

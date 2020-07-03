@@ -8,21 +8,21 @@ public class PersonUserData implements Serializable {
     public static final int PERSON_FOLLOWS_TYPE = 1;
     public static final int PERSON_PLAYBACKS_TYPE = 2;
     public AlaLocationData location_info;
-    public ad login_user_info;
+    public ae login_user_info;
     public c mAnchorTagData;
     public AlaRelationData relation_info;
-    public ad topContributionUserInfo;
-    public ad user_info;
+    public ae topContributionUserInfo;
+    public ae user_info;
 
     public void parserJson(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
         if (optJSONObject != null) {
-            this.user_info = new ad();
+            this.user_info = new ae();
             this.user_info.parserJson(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("login_user_info");
         if (optJSONObject2 != null) {
-            this.login_user_info = new ad();
+            this.login_user_info = new ae();
             this.login_user_info.parserJson(optJSONObject2);
         }
         JSONObject optJSONObject3 = jSONObject.optJSONObject("location_info");
@@ -37,7 +37,7 @@ public class PersonUserData implements Serializable {
         }
         JSONObject optJSONObject5 = jSONObject.optJSONObject("top_contribution");
         if (optJSONObject5 != null) {
-            this.topContributionUserInfo = new ad();
+            this.topContributionUserInfo = new ae();
             this.topContributionUserInfo.parserJson(optJSONObject5);
         }
         JSONObject optJSONObject6 = jSONObject.optJSONObject("anchor_tags");
@@ -56,10 +56,10 @@ public class PersonUserData implements Serializable {
     }
 
     public boolean isChatOnceBan() {
-        return this.user_info != null && this.user_info.ayY == 1;
+        return this.user_info != null && this.user_info.aBp == 1;
     }
 
     public boolean isChatForeverBan() {
-        return this.user_info != null && this.user_info.ayY == 2;
+        return this.user_info != null && this.user_info.aBp == 2;
     }
 }

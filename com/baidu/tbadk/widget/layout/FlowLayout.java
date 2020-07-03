@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class FlowLayout extends ViewGroup {
-    private boolean eBh;
+    private boolean eKQ;
     private int horizontalSpacing;
     private int orientation;
     private int verticalSpacing;
@@ -22,7 +22,7 @@ public class FlowLayout extends ViewGroup {
         this.horizontalSpacing = 0;
         this.verticalSpacing = 0;
         this.orientation = 0;
-        this.eBh = false;
+        this.eKQ = false;
         h(context, null);
     }
 
@@ -31,7 +31,7 @@ public class FlowLayout extends ViewGroup {
         this.horizontalSpacing = 0;
         this.verticalSpacing = 0;
         this.orientation = 0;
-        this.eBh = false;
+        this.eKQ = false;
         h(context, attributeSet);
     }
 
@@ -40,7 +40,7 @@ public class FlowLayout extends ViewGroup {
         this.horizontalSpacing = 0;
         this.verticalSpacing = 0;
         this.orientation = 0;
-        this.eBh = false;
+        this.eKQ = false;
         h(context, attributeSet);
     }
 
@@ -94,7 +94,7 @@ public class FlowLayout extends ViewGroup {
                 }
                 int i15 = i10 + i3;
                 int i16 = i15 + b;
-                if (layoutParams.eBj || (mode2 != 0 && i15 > size)) {
+                if (layoutParams.eKS || (mode2 != 0 && i15 > size)) {
                     i6 = measuredWidth;
                     i7 = measuredWidth + a;
                     i10 = b + i3;
@@ -116,7 +116,7 @@ public class FlowLayout extends ViewGroup {
                     paddingLeft2 = getPaddingLeft() + i4;
                     paddingTop = (getPaddingTop() + i5) - measuredHeight;
                 }
-                layoutParams.aY(paddingLeft2, paddingTop);
+                layoutParams.bc(paddingLeft2, paddingTop);
                 max = Math.max(i12, i5);
                 i14 = i4 + i9;
                 i11 = i4;
@@ -139,7 +139,7 @@ public class FlowLayout extends ViewGroup {
     }
 
     private int a(LayoutParams layoutParams) {
-        if (!layoutParams.bib()) {
+        if (!layoutParams.bkx()) {
             return this.verticalSpacing;
         }
         return layoutParams.verticalSpacing;
@@ -154,7 +154,7 @@ public class FlowLayout extends ViewGroup {
     }
 
     private int b(LayoutParams layoutParams) {
-        if (!layoutParams.bia()) {
+        if (!layoutParams.bkw()) {
             return this.horizontalSpacing;
         }
         return layoutParams.horizontalSpacing;
@@ -185,7 +185,7 @@ public class FlowLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: bhZ */
+    /* renamed from: bkv */
     public LayoutParams generateDefaultLayoutParams() {
         return new LayoutParams(-2, -2);
     }
@@ -200,7 +200,7 @@ public class FlowLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: c */
+    /* renamed from: b */
     public LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
         return new LayoutParams(layoutParams);
     }
@@ -211,59 +211,59 @@ public class FlowLayout extends ViewGroup {
             this.horizontalSpacing = obtainStyledAttributes.getDimensionPixelSize(0, 0);
             this.verticalSpacing = obtainStyledAttributes.getDimensionPixelSize(2, 0);
             this.orientation = obtainStyledAttributes.getInteger(3, 0);
-            this.eBh = obtainStyledAttributes.getBoolean(1, false);
+            this.eKQ = obtainStyledAttributes.getBoolean(1, false);
         } finally {
             obtainStyledAttributes.recycle();
         }
     }
 
     private void a(Canvas canvas, View view) {
-        if (this.eBh) {
-            Paint nY = nY(InputDeviceCompat.SOURCE_ANY);
-            Paint nY2 = nY(-16711936);
-            Paint nY3 = nY(SupportMenu.CATEGORY_MASK);
+        if (this.eKQ) {
+            Paint ov = ov(InputDeviceCompat.SOURCE_ANY);
+            Paint ov2 = ov(-16711936);
+            Paint ov3 = ov(SupportMenu.CATEGORY_MASK);
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
             if (layoutParams.horizontalSpacing > 0) {
                 float right = view.getRight();
                 float height = (view.getHeight() / 2.0f) + view.getTop();
-                canvas.drawLine(right, height, right + layoutParams.horizontalSpacing, height, nY);
-                canvas.drawLine((layoutParams.horizontalSpacing + right) - 4.0f, height - 4.0f, right + layoutParams.horizontalSpacing, height, nY);
-                canvas.drawLine((layoutParams.horizontalSpacing + right) - 4.0f, height + 4.0f, right + layoutParams.horizontalSpacing, height, nY);
+                canvas.drawLine(right, height, right + layoutParams.horizontalSpacing, height, ov);
+                canvas.drawLine((layoutParams.horizontalSpacing + right) - 4.0f, height - 4.0f, right + layoutParams.horizontalSpacing, height, ov);
+                canvas.drawLine((layoutParams.horizontalSpacing + right) - 4.0f, height + 4.0f, right + layoutParams.horizontalSpacing, height, ov);
             } else if (this.horizontalSpacing > 0) {
                 float right2 = view.getRight();
                 float top2 = view.getTop() + (view.getHeight() / 2.0f);
-                canvas.drawLine(right2, top2, right2 + this.horizontalSpacing, top2, nY2);
-                canvas.drawLine((this.horizontalSpacing + right2) - 4.0f, top2 - 4.0f, right2 + this.horizontalSpacing, top2, nY2);
-                canvas.drawLine((this.horizontalSpacing + right2) - 4.0f, top2 + 4.0f, right2 + this.horizontalSpacing, top2, nY2);
+                canvas.drawLine(right2, top2, right2 + this.horizontalSpacing, top2, ov2);
+                canvas.drawLine((this.horizontalSpacing + right2) - 4.0f, top2 - 4.0f, right2 + this.horizontalSpacing, top2, ov2);
+                canvas.drawLine((this.horizontalSpacing + right2) - 4.0f, top2 + 4.0f, right2 + this.horizontalSpacing, top2, ov2);
             }
             if (layoutParams.verticalSpacing > 0) {
                 float width = (view.getWidth() / 2.0f) + view.getLeft();
                 float bottom = view.getBottom();
-                canvas.drawLine(width, bottom, width, bottom + layoutParams.verticalSpacing, nY);
-                canvas.drawLine(width - 4.0f, (layoutParams.verticalSpacing + bottom) - 4.0f, width, bottom + layoutParams.verticalSpacing, nY);
-                canvas.drawLine(width + 4.0f, (layoutParams.verticalSpacing + bottom) - 4.0f, width, bottom + layoutParams.verticalSpacing, nY);
+                canvas.drawLine(width, bottom, width, bottom + layoutParams.verticalSpacing, ov);
+                canvas.drawLine(width - 4.0f, (layoutParams.verticalSpacing + bottom) - 4.0f, width, bottom + layoutParams.verticalSpacing, ov);
+                canvas.drawLine(width + 4.0f, (layoutParams.verticalSpacing + bottom) - 4.0f, width, bottom + layoutParams.verticalSpacing, ov);
             } else if (this.verticalSpacing > 0) {
                 float left = view.getLeft() + (view.getWidth() / 2.0f);
                 float bottom2 = view.getBottom();
-                canvas.drawLine(left, bottom2, left, bottom2 + this.verticalSpacing, nY2);
-                canvas.drawLine(left - 4.0f, (this.verticalSpacing + bottom2) - 4.0f, left, bottom2 + this.verticalSpacing, nY2);
-                canvas.drawLine(left + 4.0f, (this.verticalSpacing + bottom2) - 4.0f, left, bottom2 + this.verticalSpacing, nY2);
+                canvas.drawLine(left, bottom2, left, bottom2 + this.verticalSpacing, ov2);
+                canvas.drawLine(left - 4.0f, (this.verticalSpacing + bottom2) - 4.0f, left, bottom2 + this.verticalSpacing, ov2);
+                canvas.drawLine(left + 4.0f, (this.verticalSpacing + bottom2) - 4.0f, left, bottom2 + this.verticalSpacing, ov2);
             }
-            if (layoutParams.eBj) {
+            if (layoutParams.eKS) {
                 if (this.orientation == 0) {
                     float left2 = view.getLeft();
                     float top3 = view.getTop() + (view.getHeight() / 2.0f);
-                    canvas.drawLine(left2, top3 - 6.0f, left2, top3 + 6.0f, nY3);
+                    canvas.drawLine(left2, top3 - 6.0f, left2, top3 + 6.0f, ov3);
                     return;
                 }
                 float left3 = view.getLeft() + (view.getWidth() / 2.0f);
                 float top4 = view.getTop();
-                canvas.drawLine(left3 - 6.0f, top4, 6.0f + left3, top4, nY3);
+                canvas.drawLine(left3 - 6.0f, top4, 6.0f + left3, top4, ov3);
             }
         }
     }
 
-    private Paint nY(int i) {
+    private Paint ov(int i) {
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setColor(i);
@@ -273,8 +273,8 @@ public class FlowLayout extends ViewGroup {
 
     /* loaded from: classes.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
-        private static int eBi = -1;
-        private boolean eBj;
+        private static int eKR = -1;
+        private boolean eKS;
         private int horizontalSpacing;
         private int verticalSpacing;
         private int x;
@@ -282,35 +282,35 @@ public class FlowLayout extends ViewGroup {
 
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            this.horizontalSpacing = eBi;
-            this.verticalSpacing = eBi;
-            this.eBj = false;
+            this.horizontalSpacing = eKR;
+            this.verticalSpacing = eKR;
+            this.eKS = false;
             h(context, attributeSet);
         }
 
         public LayoutParams(int i, int i2) {
             super(i, i2);
-            this.horizontalSpacing = eBi;
-            this.verticalSpacing = eBi;
-            this.eBj = false;
+            this.horizontalSpacing = eKR;
+            this.verticalSpacing = eKR;
+            this.eKS = false;
         }
 
         public LayoutParams(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
-            this.horizontalSpacing = eBi;
-            this.verticalSpacing = eBi;
-            this.eBj = false;
+            this.horizontalSpacing = eKR;
+            this.verticalSpacing = eKR;
+            this.eKS = false;
         }
 
-        public boolean bia() {
-            return this.horizontalSpacing != eBi;
+        public boolean bkw() {
+            return this.horizontalSpacing != eKR;
         }
 
-        public boolean bib() {
-            return this.verticalSpacing != eBi;
+        public boolean bkx() {
+            return this.verticalSpacing != eKR;
         }
 
-        public void aY(int i, int i2) {
+        public void bc(int i, int i2) {
             this.x = i;
             this.y = i2;
         }
@@ -318,9 +318,9 @@ public class FlowLayout extends ViewGroup {
         private void h(Context context, AttributeSet attributeSet) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FlowLayout_LayoutParams);
             try {
-                this.horizontalSpacing = obtainStyledAttributes.getDimensionPixelSize(2, eBi);
-                this.verticalSpacing = obtainStyledAttributes.getDimensionPixelSize(1, eBi);
-                this.eBj = obtainStyledAttributes.getBoolean(0, false);
+                this.horizontalSpacing = obtainStyledAttributes.getDimensionPixelSize(2, eKR);
+                this.verticalSpacing = obtainStyledAttributes.getDimensionPixelSize(1, eKR);
+                this.eKS = obtainStyledAttributes.getBoolean(0, false);
             } finally {
                 obtainStyledAttributes.recycle();
             }

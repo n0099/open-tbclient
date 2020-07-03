@@ -1,8 +1,9 @@
 package com.baidu.webkit.internal.b;
 
 import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
-final class d implements DialogInterface.OnClickListener {
+public final class d implements DialogInterface.OnClickListener {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

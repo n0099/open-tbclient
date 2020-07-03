@@ -9,8 +9,8 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes11.dex */
 public final class k {
-    public static final a cqh = new a(null);
-    private volatile Set<String> cqg;
+    public static final a cuW = new a(null);
+    private volatile Set<String> cuV;
 
     @kotlin.h
     /* loaded from: classes11.dex */
@@ -25,25 +25,25 @@ public final class k {
 
     public final synchronized void a(WebSocketTask webSocketTask) {
         q.m(webSocketTask, "task");
-        if (this.cqg == null) {
-            this.cqg = new LinkedHashSet();
+        if (this.cuV == null) {
+            this.cuV = new LinkedHashSet();
         }
-        Set<String> set = this.cqg;
+        Set<String> set = this.cuV;
         if (set != null) {
             set.add(webSocketTask.getTaskId());
         }
     }
 
-    public final synchronized void mh(String str) {
+    public final synchronized void mp(String str) {
         q.m(str, "taskId");
-        Set<String> set = this.cqg;
+        Set<String> set = this.cuV;
         if (set != null) {
             set.remove(str);
         }
     }
 
     public final synchronized void release() {
-        Set<String> set = this.cqg;
+        Set<String> set = this.cuV;
         if (set != null) {
             for (String str : set) {
                 try {
@@ -53,16 +53,16 @@ public final class k {
                 }
             }
         }
-        Set<String> set2 = this.cqg;
+        Set<String> set2 = this.cuV;
         if (set2 != null) {
             set2.clear();
         }
     }
 
-    public final synchronized boolean akC() {
+    public final synchronized boolean alI() {
         boolean z;
         synchronized (this) {
-            Set<String> set = this.cqg;
+            Set<String> set = this.cuV;
             z = (set != null ? set.size() : 0) < 5;
         }
         return z;

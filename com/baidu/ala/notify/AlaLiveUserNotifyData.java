@@ -1,5 +1,6 @@
 package com.baidu.ala.notify;
 
+import com.baidu.live.tbadk.core.atomdata.GuardClubInfoActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaLiveUserNotifyData {
@@ -20,7 +21,7 @@ public class AlaLiveUserNotifyData {
                 this.notifyContent = new AlaNotifyContent();
                 this.notifyContent.text = optJSONObject.optString("text");
                 this.notifyContent.anchor_id = optJSONObject.optString("anchor_id");
-                this.notifyContent.anchor_portrait = optJSONObject.optString("anchor_portrait");
+                this.notifyContent.anchor_portrait = optJSONObject.optString(GuardClubInfoActivityConfig.ANCHOR_PORTRAIT);
             }
         }
     }

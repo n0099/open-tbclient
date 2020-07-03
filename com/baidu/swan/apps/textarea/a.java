@@ -5,5 +5,5 @@ public interface a {
 
     void J(String str, int i);
 
-    void iF(String str);
+    void iN(String str);
 }

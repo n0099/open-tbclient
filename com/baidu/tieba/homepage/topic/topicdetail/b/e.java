@@ -1,12 +1,12 @@
 package com.baidu.tieba.homepage.topic.topicdetail.b;
 
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import tbclient.NewHottopic.TimeLineInfo;
 /* loaded from: classes9.dex */
 public class e {
-    public String aAs;
-    public String ihn;
+    public String aCD;
     public int index;
+    public String iys;
     public long tid;
     public String title;
     public long topicId;
@@ -15,8 +15,8 @@ public class e {
         if (timeLineInfo != null) {
             this.tid = timeLineInfo.tid.longValue();
             this.title = timeLineInfo.title;
-            this.ihn = aq.isEmpty(timeLineInfo.small_title) ? timeLineInfo.show_time : timeLineInfo.small_title;
-            this.aAs = timeLineInfo.bg_color;
+            this.iys = ar.isEmpty(timeLineInfo.small_title) ? timeLineInfo.show_time : timeLineInfo.small_title;
+            this.aCD = timeLineInfo.bg_color;
         }
     }
 }

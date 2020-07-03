@@ -10,10 +10,10 @@ import java.util.List;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes6.dex */
 public class l implements aj<com.tb.airbnb.lottie.model.content.c> {
-    private int Fu;
+    private int FV;
 
     public l(int i) {
-        this.Fu = i;
+        this.FV = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,14 +31,14 @@ public class l implements aj<com.tb.airbnb.lottie.model.content.c> {
         if (z) {
             jsonReader.endArray();
         }
-        if (this.Fu == -1) {
-            this.Fu = arrayList.size() / 4;
+        if (this.FV == -1) {
+            this.FV = arrayList.size() / 4;
         }
-        float[] fArr = new float[this.Fu];
-        int[] iArr = new int[this.Fu];
+        float[] fArr = new float[this.FV];
+        int[] iArr = new int[this.FV];
         int i = 0;
         int i2 = 0;
-        for (int i3 = 0; i3 < this.Fu * 4; i3++) {
+        for (int i3 = 0; i3 < this.FV * 4; i3++) {
             int i4 = i3 / 4;
             double floatValue = arrayList.get(i3).floatValue();
             switch (i3 % 4) {
@@ -63,7 +63,7 @@ public class l implements aj<com.tb.airbnb.lottie.model.content.c> {
 
     private void a(com.tb.airbnb.lottie.model.content.c cVar, List<Float> list) {
         int i;
-        int i2 = this.Fu * 4;
+        int i2 = this.FV * 4;
         if (list.size() > i2) {
             int size = (list.size() - i2) / 2;
             double[] dArr = new double[size];
@@ -83,7 +83,7 @@ public class l implements aj<com.tb.airbnb.lottie.model.content.c> {
             }
             for (int i5 = 0; i5 < cVar.getSize(); i5++) {
                 int i6 = cVar.getColors()[i5];
-                cVar.getColors()[i5] = Color.argb(a(cVar.hV()[i5], dArr, dArr2), Color.red(i6), Color.green(i6), Color.blue(i6));
+                cVar.getColors()[i5] = Color.argb(a(cVar.im()[i5], dArr, dArr2), Color.red(i6), Color.green(i6), Color.blue(i6));
             }
         }
     }

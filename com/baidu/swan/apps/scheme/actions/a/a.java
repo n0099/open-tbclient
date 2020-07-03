@@ -30,19 +30,19 @@ public class a extends aa {
         if (DEBUG) {
             Log.d("backgroundColor", optParamsAsJo.toString());
         }
-        com.baidu.swan.apps.core.d.e QH = f.ahV().QH();
-        if (QH == null) {
+        com.baidu.swan.apps.core.d.e RN = f.ajb().RN();
+        if (RN == null) {
             c.e("backgroundColor", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         String optString = optParamsAsJo.optString("backgroundColor");
-        d YQ = QH.YQ();
-        if (YQ == null) {
+        d ZW = RN.ZW();
+        if (ZW == null) {
             c.e("backgroundColor", "slave container is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!YQ.a(YQ.getWebViewContainer(), SwanAppConfigData.dT(optString))) {
+        } else if (!ZW.a(ZW.getWebViewContainer(), SwanAppConfigData.dV(optString))) {
             c.e("backgroundColor", "set window background fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

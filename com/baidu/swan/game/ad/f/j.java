@@ -4,36 +4,36 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class j {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public com.baidu.swan.games.binding.model.a cSu;
+    public com.baidu.swan.games.binding.model.a cXe;
 
     public static j d(com.baidu.swan.games.binding.model.c cVar) {
         if (cVar == null) {
             return null;
         }
         j jVar = new j();
-        jVar.cSu = com.baidu.swan.games.binding.model.a.f(cVar);
+        jVar.cXe = com.baidu.swan.games.binding.model.a.f(cVar);
         return jVar;
     }
 
-    public void awN() {
-        if (this.cSu != null) {
-            this.cSu.onSuccess();
+    public void axT() {
+        if (this.cXe != null) {
+            this.cXe.onSuccess();
         }
     }
 
-    public void qH(String str) {
-        JSONObject qF = qF(str);
-        if (this.cSu != null) {
-            this.cSu.Y(qF);
+    public void qP(String str) {
+        JSONObject qN = qN(str);
+        if (this.cXe != null) {
+            this.cXe.Y(qN);
         }
     }
 
-    private JSONObject qF(String str) {
+    private JSONObject qN(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("errCode", str);
             jSONObject.put("errMsg", "fail");
-            jSONObject.put("errDes", com.baidu.swan.game.ad.e.b.qD(str));
+            jSONObject.put("errDes", com.baidu.swan.game.ad.e.b.qL(str));
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();

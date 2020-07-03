@@ -3,91 +3,91 @@ package com.baidu.tieba.videoEasterEgg.a;
 import android.content.Intent;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.e.c;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.data.VideoEasterEggData;
 /* loaded from: classes9.dex */
 public class b implements a {
-    private VideoEasterEggData lLm;
     private String mFrom;
+    private VideoEasterEggData mfd;
 
     @Override // com.baidu.tieba.videoEasterEgg.a.a
     public void I(Intent intent) {
         if (intent != null) {
             this.mFrom = intent.getStringExtra("from");
             if (intent.hasExtra("video_easter_egg_data")) {
-                this.lLm = (VideoEasterEggData) intent.getSerializableExtra("video_easter_egg_data");
+                this.mfd = (VideoEasterEggData) intent.getSerializableExtra("video_easter_egg_data");
             }
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.a.a
     public String getID() {
-        if (this.lLm == null) {
+        if (this.mfd == null) {
             return null;
         }
-        return this.lLm.getActivityID();
+        return this.mfd.getActivityID();
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.a.a
     public String getVideoUrl() {
-        if (this.lLm == null) {
+        if (this.mfd == null) {
             return null;
         }
-        return this.lLm.getVideoUrl();
+        return this.mfd.getVideoUrl();
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.a.a
     public String getPopText() {
-        if (this.lLm == null) {
+        if (this.mfd == null) {
             return null;
         }
-        return this.lLm.getPopText();
+        return this.mfd.getPopText();
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.a.a
     public String getShareTitle() {
-        if (this.lLm == null) {
+        if (this.mfd == null) {
             return null;
         }
-        return this.lLm.getShareTitle();
+        return this.mfd.getShareTitle();
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.a.a
     public String getShareContent() {
-        if (this.lLm == null) {
+        if (this.mfd == null) {
             return null;
         }
-        return this.lLm.getShareContent();
+        return this.mfd.getShareContent();
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.a.a
     public String getShareUrl() {
-        if (this.lLm == null) {
+        if (this.mfd == null) {
             return null;
         }
-        return this.lLm.getShareUrl();
+        return this.mfd.getShareUrl();
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.a.a
     public String getShareImageUrl() {
-        if (this.lLm == null) {
+        if (this.mfd == null) {
             return null;
         }
-        return this.lLm.getShareImageUrl();
+        return this.mfd.getShareImageUrl();
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.a.a
     public String getPopImageUrl() {
-        if (this.lLm == null) {
+        if (this.mfd == null) {
             return null;
         }
-        return this.lLm.getPopImageUrl();
+        return this.mfd.getPopImageUrl();
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.a.a
     public void D(BdUniqueId bdUniqueId) {
-        if (!aq.isEmpty(getPopImageUrl())) {
-            c.kX().a(getPopImageUrl(), 10, null, bdUniqueId);
+        if (!ar.isEmpty(getPopImageUrl())) {
+            c.ln().a(getPopImageUrl(), 10, null, bdUniqueId);
         }
     }
 }

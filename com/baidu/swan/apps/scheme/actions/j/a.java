@@ -19,31 +19,31 @@ public class a extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (eVar != null && eVar.TU()) {
+        if (eVar != null && eVar.Va()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
             return false;
         }
-        com.baidu.swan.apps.core.d.e QH = f.ahV().QH();
-        if (QH == null) {
+        com.baidu.swan.apps.core.d.e RN = f.ajb().RN();
+        if (RN == null) {
             c.e("startPullDownRefresh", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!(QH.YP() instanceof d)) {
+        } else if (!(RN.ZV() instanceof d)) {
             c.e("startPullDownRefresh", "top fragment error");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
-            d dVar = (d) QH.YP();
-            if (dVar.Ta() == null) {
+            d dVar = (d) RN.ZV();
+            if (dVar.Ug() == null) {
                 c.e("startPullDownRefresh", "view is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
             c.i("startPullDownRefresh", "start pull refresh");
-            dVar.Ta().doPullRefreshing(true, 100L);
+            dVar.Ug().doPullRefreshing(true, 100L);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

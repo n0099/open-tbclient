@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Objects;
 /* loaded from: classes11.dex */
 public class b extends f {
-    private List<a> dmB;
+    private List<a> drm;
 
     public b(List<a> list) {
         super(-1);
@@ -21,14 +21,14 @@ public class b extends f {
                 list.clear();
                 list.addAll(linkedHashSet);
             }
-            Map<String, PMSAppInfo> aFX = com.baidu.swan.pms.database.a.aFV().aFX();
-            Map<String, com.baidu.swan.pms.model.f> aFW = com.baidu.swan.pms.database.a.aFV().aFW();
+            Map<String, PMSAppInfo> aHd = com.baidu.swan.pms.database.a.aHb().aHd();
+            Map<String, com.baidu.swan.pms.model.f> aHc = com.baidu.swan.pms.database.a.aHb().aHc();
             for (a aVar : list) {
                 if (aVar != null && !TextUtils.isEmpty(aVar.getBundleId())) {
-                    a(aFX, aFW, aVar);
+                    a(aHd, aHc, aVar);
                 }
             }
-            this.dmB = list;
+            this.drm = list;
         }
     }
 
@@ -41,17 +41,17 @@ public class b extends f {
                 collection.clear();
                 collection.addAll(linkedHashSet);
             }
-            Map<String, PMSAppInfo> aFX = com.baidu.swan.pms.database.a.aFV().aFX();
-            Map<String, com.baidu.swan.pms.model.f> aFW = com.baidu.swan.pms.database.a.aFV().aFW();
+            Map<String, PMSAppInfo> aHd = com.baidu.swan.pms.database.a.aHb().aHd();
+            Map<String, com.baidu.swan.pms.model.f> aHc = com.baidu.swan.pms.database.a.aHb().aHc();
             ArrayList arrayList = new ArrayList();
             for (String str : collection) {
                 if (!TextUtils.isEmpty(str)) {
                     a aVar = new a(str);
-                    a(aFX, aFW, aVar);
+                    a(aHd, aHc, aVar);
                     arrayList.add(aVar);
                 }
             }
-            this.dmB = arrayList;
+            this.drm = arrayList;
         }
     }
 
@@ -62,62 +62,62 @@ public class b extends f {
                 aVar.setCategory(pMSAppInfo.appCategory);
             }
             if (!map2.containsKey(aVar.getBundleId())) {
-                aVar.jh(0);
+                aVar.js(0);
             } else {
-                aVar.jh(pMSAppInfo.versionCode);
+                aVar.js(pMSAppInfo.versionCode);
             }
             aVar.bN(pMSAppInfo.appSign);
         }
     }
 
-    public List<a> aGN() {
-        return this.dmB;
+    public List<a> aHT() {
+        return this.drm;
     }
 
     /* loaded from: classes11.dex */
     public static class a {
-        private String dmC;
-        private int dmD;
-        private long dmE;
+        private String drn;
+        private int dro;
+        private long drp;
         private int mCategory;
 
         public a(String str) {
             this.mCategory = -1;
-            this.dmD = 0;
-            this.dmE = 0L;
-            this.dmC = str;
+            this.dro = 0;
+            this.drp = 0L;
+            this.drn = str;
         }
 
         public a(String str, int i) {
             this.mCategory = -1;
-            this.dmD = 0;
-            this.dmE = 0L;
-            this.dmC = str;
+            this.dro = 0;
+            this.drp = 0L;
+            this.drn = str;
             this.mCategory = i;
         }
 
         public String getBundleId() {
-            return this.dmC;
+            return this.drn;
         }
 
-        public int aGO() {
-            return this.dmD;
+        public int aHU() {
+            return this.dro;
         }
 
         public int getCategory() {
             return this.mCategory;
         }
 
-        public long aGP() {
-            return this.dmE;
+        public long aHV() {
+            return this.drp;
         }
 
-        void jh(int i) {
-            this.dmD = i;
+        void js(int i) {
+            this.dro = i;
         }
 
         void bN(long j) {
-            this.dmE = j;
+            this.drp = j;
         }
 
         void setCategory(int i) {
@@ -125,7 +125,7 @@ public class b extends f {
         }
 
         public int hashCode() {
-            return Objects.hash(this.dmC, Integer.valueOf(this.mCategory));
+            return Objects.hash(this.drn, Integer.valueOf(this.mCategory));
         }
 
         public boolean equals(Object obj) {
@@ -134,7 +134,7 @@ public class b extends f {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return TextUtils.equals(aVar.getBundleId(), this.dmC) && aVar.getCategory() == this.mCategory;
+                return TextUtils.equals(aVar.getBundleId(), this.drn) && aVar.getCategory() == this.mCategory;
             }
             return false;
         }

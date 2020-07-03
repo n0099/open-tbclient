@@ -9,7 +9,7 @@ public class d extends g {
         super(tbPageContext);
     }
 
-    @Override // com.baidu.tbadk.core.view.f, com.baidu.adp.widget.ListView.c
+    @Override // com.baidu.tbadk.core.view.f, com.baidu.adp.widget.ListView.d
     public View createView() {
         return super.createView();
     }

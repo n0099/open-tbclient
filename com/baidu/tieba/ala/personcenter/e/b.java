@@ -8,22 +8,22 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.c.e;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.b<e> {
-    private ImageView gsA;
-    private ProgressBar gsB;
-    private FrameLayout gsC;
-    private View gsD;
-    private e gsE;
-    private TextView gsu;
-    private TextView gsv;
-    private TextView gsw;
-    private TextView gsx;
-    private TextView gsy;
-    private ImageView gsz;
+    private TextView gFi;
+    private TextView gFj;
+    private TextView gFk;
+    private TextView gFl;
+    private TextView gFm;
+    private ImageView gFn;
+    private ImageView gFo;
+    private ProgressBar gFp;
+    private FrameLayout gFq;
+    private View gFr;
+    private e gFs;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -31,16 +31,16 @@ public class b extends com.baidu.tieba.card.b<e> {
     }
 
     private void ag(View view) {
-        this.gsC = (FrameLayout) view.findViewById(R.id.ala_person_center_header_bg);
-        this.gsu = (TextView) view.findViewById(R.id.ala_person_center_level);
-        this.gsv = (TextView) view.findViewById(R.id.ala_person_center_level_cur_text);
-        this.gsw = (TextView) view.findViewById(R.id.ala_person_center_level_next_text);
-        this.gsx = (TextView) view.findViewById(R.id.ala_person_center_exp_txt);
-        this.gsy = (TextView) view.findViewById(R.id.ala_person_center_tips);
-        this.gsz = (ImageView) view.findViewById(R.id.ala_person_center_level_img);
-        this.gsB = (ProgressBar) view.findViewById(R.id.ala_person_center_level_progress);
-        this.gsA = (ImageView) view.findViewById(R.id.ala_person_center_bg_aiglet);
-        this.gsD = view.findViewById(R.id.ala_person_center_level_layout);
+        this.gFq = (FrameLayout) view.findViewById(R.id.ala_person_center_header_bg);
+        this.gFi = (TextView) view.findViewById(R.id.ala_person_center_level);
+        this.gFj = (TextView) view.findViewById(R.id.ala_person_center_level_cur_text);
+        this.gFk = (TextView) view.findViewById(R.id.ala_person_center_level_next_text);
+        this.gFl = (TextView) view.findViewById(R.id.ala_person_center_exp_txt);
+        this.gFm = (TextView) view.findViewById(R.id.ala_person_center_tips);
+        this.gFn = (ImageView) view.findViewById(R.id.ala_person_center_level_img);
+        this.gFp = (ProgressBar) view.findViewById(R.id.ala_person_center_level_progress);
+        this.gFo = (ImageView) view.findViewById(R.id.ala_person_center_bg_aiglet);
+        this.gFr = view.findViewById(R.id.ala_person_center_level_layout);
         getView().setOnClickListener(this);
     }
 
@@ -54,79 +54,79 @@ public class b extends com.baidu.tieba.card.b<e> {
     /* renamed from: b */
     public void a(e eVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = eVar.getPersonCenterData();
-        if (personCenterData != null && personCenterData.bIp() != null) {
-            this.gsE = eVar;
-            if (personCenterData.bIp().live_status != 1 && !personCenterData.isHost()) {
-                this.gsD.setVisibility(8);
-                this.gsx.setVisibility(8);
-                this.gsy.setVisibility(8);
+        if (personCenterData != null && personCenterData.bLu() != null) {
+            this.gFs = eVar;
+            if (personCenterData.bLu().live_status != 1 && !personCenterData.isHost()) {
+                this.gFr.setVisibility(8);
+                this.gFl.setVisibility(8);
+                this.gFm.setVisibility(8);
             } else {
-                this.gsD.setVisibility(0);
-                this.gsx.setVisibility(0);
-                this.gsy.setVisibility(0);
+                this.gFr.setVisibility(0);
+                this.gFl.setVisibility(0);
+                this.gFm.setVisibility(0);
             }
-            int i = personCenterData.bIp().level_id;
+            int i = personCenterData.bLu().level_id;
             if (i > 40) {
                 i = 40;
             }
-            this.gsu.setText("Lv" + Integer.toString(i));
-            this.gsv.setText("Lv" + Integer.toString(i));
+            this.gFi.setText("Lv" + Integer.toString(i));
+            this.gFj.setText("Lv" + Integer.toString(i));
             if (i < 40) {
-                this.gsw.setText("Lv" + Integer.toString(i + 1));
+                this.gFk.setText("Lv" + Integer.toString(i + 1));
             } else {
-                this.gsw.setVisibility(8);
+                this.gFk.setVisibility(8);
             }
             if (i <= 10) {
-                this.gsz.setBackgroundResource(R.drawable.icon_live_level_1);
-                this.gsu.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_1));
+                this.gFn.setBackgroundResource(R.drawable.icon_live_level_1);
+                this.gFi.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_1));
             } else if (i <= 20) {
-                this.gsz.setBackgroundResource(R.drawable.icon_live_level_2);
-                this.gsu.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_2));
+                this.gFn.setBackgroundResource(R.drawable.icon_live_level_2);
+                this.gFi.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_2));
             } else if (i <= 30) {
-                this.gsz.setBackgroundResource(R.drawable.icon_live_level_3);
-                this.gsu.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_3));
+                this.gFn.setBackgroundResource(R.drawable.icon_live_level_3);
+                this.gFi.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_3));
             } else if (i <= 40) {
-                this.gsz.setBackgroundResource(R.drawable.icon_live_level_4);
-                this.gsu.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_4));
+                this.gFn.setBackgroundResource(R.drawable.icon_live_level_4);
+                this.gFi.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_4));
             } else {
-                this.gsu.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_5));
-                this.gsz.setBackgroundResource(R.drawable.icon_live_level_5);
+                this.gFi.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_5));
+                this.gFn.setBackgroundResource(R.drawable.icon_live_level_5);
             }
-            this.gsB.setMax(personCenterData.bIp().next_exp);
-            this.gsB.setProgress(personCenterData.bIp().level_exp);
+            this.gFp.setMax(personCenterData.bLu().next_exp);
+            this.gFp.setProgress(personCenterData.bLu().level_exp);
             StringBuilder sb = new StringBuilder();
-            sb.append(Integer.toString(personCenterData.bIp().level_exp));
+            sb.append(Integer.toString(personCenterData.bLu().level_exp));
             int length = sb.length();
-            sb.append("/").append(Integer.toString(personCenterData.bIp().next_exp));
+            sb.append("/").append(Integer.toString(personCenterData.bLu().next_exp));
             SpannableString spannableString = new SpannableString(sb.toString());
             spannableString.setSpan(new ForegroundColorSpan(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_exp_text)), 0, length, 33);
             spannableString.setSpan(new ForegroundColorSpan(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.cp_cont_g)), length, sb.length(), 33);
-            this.gsx.setText(spannableString);
+            this.gFl.setText(spannableString);
             if (i >= 40) {
-                this.gsy.setText(R.string.ala_level_max_tips);
+                this.gFm.setText(R.string.ala_level_max_tips);
             } else {
-                this.gsy.setText(String.format(this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_level_next_tips), Integer.valueOf(personCenterData.bIp().next_exp - personCenterData.bIp().level_exp)));
+                this.gFm.setText(String.format(this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_level_next_tips), Integer.valueOf(personCenterData.bLu().next_exp - personCenterData.bLu().level_exp)));
             }
         }
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        am.setBackgroundResource(this.gsC, R.drawable.bg_live_mine);
-        am.setBackgroundResource(this.gsA, R.drawable.bg1_live_mine);
+        an.setBackgroundResource(this.gFq, R.drawable.bg_live_mine);
+        an.setBackgroundResource(this.gFo, R.drawable.bg1_live_mine);
         if (i == 1) {
-            this.gsv.setAlpha(0.7f);
-            this.gsw.setAlpha(0.7f);
-            this.gsy.setAlpha(0.7f);
-            this.gsx.setAlpha(0.7f);
-            this.gsB.setAlpha(0.7f);
+            this.gFj.setAlpha(0.7f);
+            this.gFk.setAlpha(0.7f);
+            this.gFm.setAlpha(0.7f);
+            this.gFl.setAlpha(0.7f);
+            this.gFp.setAlpha(0.7f);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bKU() != null) {
-            bKU().a(view, this.gsE);
+        if (bOc() != null) {
+            bOc().a(view, this.gFs);
         }
     }
 }

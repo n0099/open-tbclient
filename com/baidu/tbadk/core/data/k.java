@@ -1,48 +1,26 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.BdUniqueId;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.BannerImage;
 /* loaded from: classes.dex */
-public class k extends bk {
-    public static final BdUniqueId dBs = BdUniqueId.gen();
-    private boolean dBt = false;
-    private boolean dBu = false;
-    private boolean dBv = false;
-    private int dBw;
+public class k extends com.baidu.tieba.card.data.b implements com.baidu.adp.widget.ListView.q {
+    public static BdUniqueId dHK = BdUniqueId.gen();
+    public List<j> dataList = new ArrayList();
 
-    public boolean aOB() {
-        return this.dBt;
-    }
-
-    public void gK(boolean z) {
-        this.dBt = z;
-    }
-
-    public boolean aOC() {
-        return this.dBu;
-    }
-
-    public void gL(boolean z) {
-        this.dBu = z;
-    }
-
-    public boolean aOD() {
-        return this.dBv;
-    }
-
-    public void gM(boolean z) {
-        this.dBv = z;
-    }
-
-    @Override // com.baidu.tbadk.core.data.bk, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return dBs;
+        return dHK;
     }
 
-    public void setFloorNum(int i) {
-        this.dBw = i;
-    }
-
-    public int getFloorNum() {
-        return this.dBw;
+    public void parserProtobuf(List<BannerImage> list) {
+        if (list != null) {
+            for (BannerImage bannerImage : list) {
+                j jVar = new j();
+                jVar.a(bannerImage);
+                this.dataList.add(jVar);
+            }
+        }
     }
 }

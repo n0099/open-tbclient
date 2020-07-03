@@ -5,10 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class a {
-    private static volatile Map<String, Integer> bp = J();
-    private static volatile Map<String, Integer> bq = K();
+    private static volatile Map<String, Integer> bB = X();
+    private static volatile Map<String, Integer> bC = Y();
 
-    private static Map<String, Integer> J() {
+    private static Map<String, Integer> X() {
         HashMap hashMap = new HashMap();
         hashMap.put("com.baidu.ar.vo.VOAR", Integer.valueOf((int) FeatureCodes.VO));
         hashMap.put("com.baidu.ar.pose.PoseAR", Integer.valueOf((int) FeatureCodes.POSE));
@@ -17,7 +17,7 @@ public class a {
         return hashMap;
     }
 
-    private static Map<String, Integer> K() {
+    private static Map<String, Integer> Y() {
         HashMap hashMap = new HashMap();
         hashMap.put("ability_face_model", Integer.valueOf((int) FeatureCodes.FACE));
         hashMap.put("ability_face_filter", 1000);
@@ -34,22 +34,22 @@ public class a {
     }
 
     public static boolean l(String str) {
-        if (bp.containsKey(str)) {
-            return com.baidu.ar.auth.a.checkFeatureAuth(bp.get(str).intValue());
+        if (bB.containsKey(str)) {
+            return com.baidu.ar.auth.a.checkFeatureAuth(bB.get(str).intValue());
         }
         return true;
     }
 
     public static boolean m(String str) {
-        if (bq.containsKey(str)) {
-            return com.baidu.ar.auth.a.checkFeatureAuth(bq.get(str).intValue());
+        if (bC.containsKey(str)) {
+            return com.baidu.ar.auth.a.checkFeatureAuth(bC.get(str).intValue());
         }
         return true;
     }
 
     public static boolean n(String str) {
-        if (bq.containsKey(str)) {
-            return com.baidu.ar.auth.a.enableFeature(bq.get(str).intValue());
+        if (bC.containsKey(str)) {
+            return com.baidu.ar.auth.a.enableFeature(bC.get(str).intValue());
         }
         return true;
     }

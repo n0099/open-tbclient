@@ -14,16 +14,16 @@ public abstract class ed extends ai.a {
     protected int a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Context f230a;
+    protected Context f236a;
 
     public ed(Context context, int i) {
         this.a = i;
-        this.f230a = context;
+        this.f236a = context;
     }
 
     public static void a(Context context, hu huVar) {
-        dp m229a = dq.a().m229a();
-        String a = m229a == null ? "" : m229a.a();
+        dp m226a = dq.a().m226a();
+        String a = m226a == null ? "" : m226a.a();
         if (TextUtils.isEmpty(a) || TextUtils.isEmpty(huVar.a())) {
             return;
         }
@@ -47,7 +47,7 @@ public abstract class ed extends ai.a {
         synchronized (dv.a) {
             try {
                 File file = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                y.m587a(file);
+                y.m584a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -134,17 +134,17 @@ public abstract class ed extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract ho mo163a();
+    public abstract ho mo160a();
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract String mo163a();
+    public abstract String mo160a();
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public boolean mo163a() {
-        return du.a(this.f230a, String.valueOf(mo163a()), this.a);
+    public boolean mo160a() {
+        return du.a(this.f236a, String.valueOf(mo160a()), this.a);
     }
 
     protected boolean b() {
@@ -153,23 +153,23 @@ public abstract class ed extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        if (mo163a()) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("DC run job mutual: " + mo163a());
+        if (mo160a()) {
+            com.xiaomi.channel.commonutils.logger.b.m48a("DC run job mutual: " + mo160a());
             return;
         }
-        dp m229a = dq.a().m229a();
-        String a = m229a == null ? "" : m229a.a();
+        dp m226a = dq.a().m226a();
+        String a = m226a == null ? "" : m226a.a();
         if (TextUtils.isEmpty(a) || !b()) {
             return;
         }
-        String mo163a = mo163a();
-        if (TextUtils.isEmpty(mo163a)) {
+        String mo160a = mo160a();
+        if (TextUtils.isEmpty(mo160a)) {
             return;
         }
         hu huVar = new hu();
-        huVar.a(mo163a);
+        huVar.a(mo160a);
         huVar.a(System.currentTimeMillis());
-        huVar.a(mo163a());
-        a(this.f230a, huVar, a);
+        huVar.a(mo160a());
+        a(this.f236a, huVar, a);
     }
 }

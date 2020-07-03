@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.data.m;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,23 +24,23 @@ public class i {
     }
 
     public static void a(m mVar, BdUniqueId bdUniqueId) {
-        if (mVar != null && !StringUtils.isNull(mVar.bcD()) && v.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
+        if (mVar != null && !StringUtils.isNull(mVar.beF()) && w.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(1003063);
-            httpMessage.addParam("pic_url", mVar.bcD());
+            httpMessage.addParam("pic_url", mVar.beF());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public static void a(m mVar, List<o> list) {
+    public static void a(m mVar, List<q> list) {
         m mVar2;
-        if (mVar != null && !v.isEmpty(list) && !StringUtils.isNull(mVar.bcD())) {
+        if (mVar != null && !w.isEmpty(list) && !StringUtils.isNull(mVar.beF())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
-                o oVar = list.get(i);
-                if ((oVar instanceof m) && (mVar2 = (m) oVar) != mVar && !mVar2.bcE()) {
-                    jSONArray.put(mVar2.bcD());
+                q qVar = list.get(i);
+                if ((qVar instanceof m) && (mVar2 = (m) qVar) != mVar && !mVar2.beG()) {
+                    jSONArray.put(mVar2.beF());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(1003064);
@@ -54,7 +54,7 @@ public class i {
         }
     }
 
-    public static void q(String str, List<o> list) {
+    public static void q(String str, List<q> list) {
         if (!StringUtils.isNull(str)) {
             if (list == null) {
                 list = new ArrayList<>();
@@ -62,11 +62,11 @@ public class i {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
-                o oVar = list.get(i);
-                if (oVar instanceof m) {
-                    m mVar = (m) oVar;
-                    if (!mVar.bcE()) {
-                        jSONArray.put(mVar.bcD());
+                q qVar = list.get(i);
+                if (qVar instanceof m) {
+                    m mVar = (m) qVar;
+                    if (!mVar.beG()) {
+                        jSONArray.put(mVar.beF());
                     }
                 }
             }

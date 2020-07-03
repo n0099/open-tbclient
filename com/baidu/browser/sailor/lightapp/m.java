@@ -4,13 +4,13 @@ import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class m implements Runnable {
-    final /* synthetic */ BdLightappKernelClient acL;
-    final /* synthetic */ BdLightappKernelJsCallback acR;
+    final /* synthetic */ BdLightappKernelClient adq;
+    final /* synthetic */ BdLightappKernelJsCallback adw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(BdLightappKernelClient bdLightappKernelClient, BdLightappKernelJsCallback bdLightappKernelJsCallback) {
-        this.acL = bdLightappKernelClient;
-        this.acR = bdLightappKernelJsCallback;
+        this.adq = bdLightappKernelClient;
+        this.adw = bdLightappKernelJsCallback;
     }
 
     @Override // java.lang.Runnable
@@ -19,24 +19,24 @@ public class m implements Runnable {
         MediaPlayer mediaPlayer2;
         MediaPlayer mediaPlayer3;
         MediaPlayer mediaPlayer4;
-        mediaPlayer = this.acL.mMediaPlayer;
+        mediaPlayer = this.adq.mMediaPlayer;
         if (mediaPlayer == null) {
-            this.acR.sendFailCallBack("AudioSpeedFF Not palying Audio");
+            this.adw.sendFailCallBack("AudioSpeedFF Not palying Audio");
             return;
         }
         try {
-            mediaPlayer2 = this.acL.mMediaPlayer;
+            mediaPlayer2 = this.adq.mMediaPlayer;
             if (mediaPlayer2.isPlaying()) {
-                mediaPlayer3 = this.acL.mMediaPlayer;
+                mediaPlayer3 = this.adq.mMediaPlayer;
                 int currentPosition = mediaPlayer3.getCurrentPosition();
-                mediaPlayer4 = this.acL.mMediaPlayer;
+                mediaPlayer4 = this.adq.mMediaPlayer;
                 mediaPlayer4.seekTo(currentPosition + 5000);
-                this.acR.sendCallBack("AudioSpeedFF", "true", true);
+                this.adw.sendCallBack("AudioSpeedFF", "true", true);
             } else {
-                this.acR.sendFailCallBack(" AudioSpeedFF Not palying Audio");
+                this.adw.sendFailCallBack(" AudioSpeedFF Not palying Audio");
             }
         } catch (IllegalStateException e) {
-            this.acR.sendFailCallBack(e.getMessage());
+            this.adw.sendFailCallBack(e.getMessage());
         }
     }
 }

@@ -16,15 +16,15 @@ public class b extends com.baidu.tbadk.mvc.f.a<String, com.baidu.tbadk.mvc.d.b> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
-    /* renamed from: KH */
-    public void an(String str) {
-        super.an(str);
+    /* renamed from: Li */
+    public void ao(String str) {
+        super.ao(str);
         this.text.setText(str);
     }
 
     @Override // com.baidu.tieba.tbadkCore.r
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.q.a.a(tbPageContext, getRootView());
+        com.baidu.tbadk.r.a.a(tbPageContext, getRootView());
         return true;
     }
 }

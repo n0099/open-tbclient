@@ -27,20 +27,20 @@ public class g extends l {
     private void makePath(Rect rect) {
         boolean z = false;
         if (rect != null) {
-            if (this.path == null || this.mIsRound != this.PF.mIsRound) {
+            if (this.path == null || this.mIsRound != this.Ql.mIsRound) {
                 z = true;
             }
             if (this.mRect == null || !this.mRect.contains(rect)) {
                 z = true;
             }
-            this.mIsRound = this.PF.mIsRound;
+            this.mIsRound = this.Ql.mIsRound;
             if (z) {
                 this.mRect = rect;
                 this.path = new Path();
                 if (this.mIsRound) {
                     this.path.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
                 } else {
-                    this.path.addRoundRect(new RectF(rect), this.PF.mRadius, this.PF.mRadius, Path.Direction.CCW);
+                    this.path.addRoundRect(new RectF(rect), this.Ql.mRadius, this.Ql.mRadius, Path.Direction.CCW);
                 }
                 this.path.close();
             }

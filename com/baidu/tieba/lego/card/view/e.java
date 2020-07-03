@@ -6,15 +6,15 @@ import com.baidu.tieba.lego.card.c;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
 public interface e<T extends ICardInfo> {
-    void aD(Object obj);
+    void aE(Object obj);
 
-    void awM();
+    void axS();
 
-    void chi();
+    void ckU();
 
-    void ctO();
+    void cxD();
 
-    void ctP();
+    void cxE();
 
     void l(BdUniqueId bdUniqueId);
 

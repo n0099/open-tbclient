@@ -13,7 +13,7 @@ public class h implements CustomMessageTask.CustomRunnable<Object> {
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         byte[] bArr;
         if (customMessage == null || !(customMessage instanceof RequestGroupInfoLocalMessage)) {
-            return cpH();
+            return ctw();
         }
         RequestGroupInfoLocalMessage requestGroupInfoLocalMessage = (RequestGroupInfoLocalMessage) customMessage;
         String str = "";
@@ -21,8 +21,8 @@ public class h implements CustomMessageTask.CustomRunnable<Object> {
             str = TbadkApplication.getCurrentAccountObj().getID();
         }
         String str2 = "group_info" + str + requestGroupInfoLocalMessage.getGroupId();
-        com.baidu.adp.lib.cache.l<byte[]> vL = com.baidu.tbadk.core.c.a.aSS().vL("tb.im_groupactivity");
-        if (vL != null && (bArr = vL.get(str2)) != null) {
+        com.baidu.adp.lib.cache.l<byte[]> wb = com.baidu.tbadk.core.c.a.aUM().wb("tb.im_groupactivity");
+        if (wb != null && (bArr = wb.get(str2)) != null) {
             ResponseGroupInfoLocalMessage responseGroupInfoLocalMessage = new ResponseGroupInfoLocalMessage();
             try {
                 responseGroupInfoLocalMessage.decodeInBackGround(CmdConfigCustom.CMD_REQUEST_GROUP_INFO_BY_ID_LOCAL, bArr);
@@ -31,10 +31,10 @@ public class h implements CustomMessageTask.CustomRunnable<Object> {
                 e.printStackTrace();
             }
         }
-        return cpH();
+        return ctw();
     }
 
-    private CustomResponsedMessage<?> cpH() {
+    private CustomResponsedMessage<?> ctw() {
         ResponseGroupInfoLocalMessage responseGroupInfoLocalMessage = new ResponseGroupInfoLocalMessage();
         responseGroupInfoLocalMessage.setError(-18);
         return responseGroupInfoLocalMessage;

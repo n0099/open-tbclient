@@ -16,11 +16,11 @@ public final class f {
     private final List<g> frames;
     private final String imageKey;
 
-    public final String dHk() {
+    public final String dLQ() {
         return this.imageKey;
     }
 
-    public final List<g> dHI() {
+    public final List<g> dMo() {
         return this.frames;
     }
 
@@ -35,8 +35,8 @@ public final class f {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     g gVar = new g(optJSONObject);
-                    if ((!gVar.hG().isEmpty()) && ((SVGAVideoShapeEntity) o.fu(gVar.hG())).dHy() && arrayList.size() > 0) {
-                        gVar.fk(((g) o.fv(arrayList)).hG());
+                    if ((!gVar.hW().isEmpty()) && ((SVGAVideoShapeEntity) o.fG(gVar.hW())).dMe() && arrayList.size() > 0) {
+                        gVar.fw(((g) o.fH(arrayList)).hW());
                     }
                     arrayList.add(gVar);
                 }
@@ -46,7 +46,7 @@ public final class f {
     }
 
     public f(SpriteEntity spriteEntity) {
-        ArrayList dLI;
+        ArrayList dQo;
         q.m(spriteEntity, "obj");
         this.imageKey = spriteEntity.imageKey;
         g gVar = null;
@@ -58,16 +58,16 @@ public final class f {
             for (FrameEntity frameEntity : list2) {
                 q.l((Object) frameEntity, AdvanceSetting.NETWORK_TYPE);
                 g gVar3 = new g(frameEntity);
-                if ((!gVar3.hG().isEmpty()) && ((SVGAVideoShapeEntity) o.fu(gVar3.hG())).dHy() && gVar2 != null) {
-                    gVar3.fk(gVar2.hG());
+                if ((!gVar3.hW().isEmpty()) && ((SVGAVideoShapeEntity) o.fG(gVar3.hW())).dMe() && gVar2 != null) {
+                    gVar3.fw(gVar2.hW());
                 }
                 arrayList.add(gVar3);
                 gVar2 = gVar3;
             }
-            dLI = arrayList;
+            dQo = arrayList;
         } else {
-            dLI = o.dLI();
+            dQo = o.dQo();
         }
-        this.frames = dLI;
+        this.frames = dQo;
     }
 }

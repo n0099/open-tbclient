@@ -6,6 +6,8 @@ import java.util.List;
 public interface IFilter {
     void clearAllFilter();
 
+    void resetAllFilter();
+
     void setFilterStateListener(FilterStateListener filterStateListener);
 
     void updateFilter(FilterParam filterParam, float f);

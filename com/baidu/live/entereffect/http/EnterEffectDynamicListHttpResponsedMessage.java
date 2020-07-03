@@ -19,11 +19,11 @@ public class EnterEffectDynamicListHttpResponsedMessage extends JsonHttpResponse
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1021141) {
-            this.mDatas = com.baidu.live.entereffect.a.wD().i(jSONObject.optJSONArray("data"));
+            this.mDatas = com.baidu.live.entereffect.a.xa().i(jSONObject.optJSONArray("data"));
         }
     }
 
-    public boolean wQ() {
+    public boolean xn() {
         if (getOrginalMessage() instanceof a) {
             return ((a) getOrginalMessage()).isHost();
         }

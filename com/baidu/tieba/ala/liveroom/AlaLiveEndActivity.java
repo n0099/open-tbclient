@@ -40,62 +40,62 @@ import com.baidu.tieba.ala.liveroom.views.b;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
-    private AlaLiveRecorderPerfData fHG;
-    private View fHH;
-    private b fHI;
-    private AlaLiveUserInfoData fHJ;
-    private q fHK;
-    private com.baidu.tieba.ala.liveroom.m.b fHM;
-    private long fHN;
-    private TbImageView fHO;
-    private com.baidu.live.liveroom.middleware.a.a fHP;
-    private String fHR;
+    private AlaLiveRecorderPerfData fSP;
+    private View fSQ;
+    private b fSR;
+    private AlaLiveUserInfoData fSS;
+    private q fST;
+    private com.baidu.tieba.ala.liveroom.n.b fSV;
+    private long fSW;
+    private TbImageView fSX;
+    private com.baidu.live.liveroom.middleware.a.a fSY;
+    private String fTa;
     private String mCoverUrl;
     private AlaLiveInfoData mLiveInfo;
     private String mPortrait;
     private RelativeLayout mRootView;
     private String nickName;
-    private int fpC = 0;
-    private String fHL = null;
-    private RelativeLayout.LayoutParams fHQ = new RelativeLayout.LayoutParams(-1, -1);
-    private HttpMessageListener fHS = new HttpMessageListener(1021036) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.1
+    private int fAN = 0;
+    private String fSU = null;
+    private RelativeLayout.LayoutParams fSZ = new RelativeLayout.LayoutParams(-1, -1);
+    private HttpMessageListener fTb = new HttpMessageListener(1021036) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            com.baidu.tieba.ala.liveroom.data.b bEF;
-            if ((httpResponsedMessage instanceof AlaCloseLiveHttpResonpnseMessage) && (bEF = ((AlaCloseLiveHttpResonpnseMessage) httpResponsedMessage).bEF()) != null && bEF.mLiveInfo != null) {
+            com.baidu.tieba.ala.liveroom.data.b bHL;
+            if ((httpResponsedMessage instanceof AlaCloseLiveHttpResonpnseMessage) && (bHL = ((AlaCloseLiveHttpResonpnseMessage) httpResponsedMessage).bHL()) != null && bHL.mLiveInfo != null) {
                 String str = "";
-                if (bEF.avj != null) {
-                    str = bEF.avj.nickName;
+                if (bHL.axp != null) {
+                    str = bHL.axp.nickName;
                 }
                 if (TextUtils.isEmpty(str) && !TextUtils.isEmpty(AlaLiveEndActivity.this.nickName)) {
                     str = AlaLiveEndActivity.this.nickName;
                 }
-                if (AlaLiveEndActivity.this.fHK != null) {
-                    if (bEF.mLiveInfo != null) {
-                        AlaLiveEndActivity.this.fHK.mLiveInfo = bEF.mLiveInfo;
+                if (AlaLiveEndActivity.this.fST != null) {
+                    if (bHL.mLiveInfo != null) {
+                        AlaLiveEndActivity.this.fST.mLiveInfo = bHL.mLiveInfo;
                     }
-                    if (bEF.avj != null) {
-                        AlaLiveEndActivity.this.fHK.avj = bEF.avj;
+                    if (bHL.axp != null) {
+                        AlaLiveEndActivity.this.fST.axp = bHL.axp;
                     }
                 }
-                String str2 = bEF.mLiveInfo.cover;
+                String str2 = bHL.mLiveInfo.cover;
                 if (!StringUtils.isNull(str2) && !str2.equals(AlaLiveEndActivity.this.mCoverUrl)) {
                     AlaLiveEndActivity.this.mCoverUrl = str2;
-                    AlaLiveEndActivity.this.fHO.startLoad(str2, 39, false);
+                    AlaLiveEndActivity.this.fSX.startLoad(str2, 39, false);
                 }
-                if (AlaLiveEndActivity.this.fHP != null) {
-                    AlaLiveEndActivity.this.fHP.b(AlaLiveEndActivity.this.fHK, str);
-                } else if (AlaLiveEndActivity.this.fHI != null && AlaLiveEndActivity.this.fHI.b(AlaLiveEndActivity.this.fHK, str) != null) {
-                    AlaLiveEndActivity.this.fHH = AlaLiveEndActivity.this.fHI.b(AlaLiveEndActivity.this.fHK, str);
+                if (AlaLiveEndActivity.this.fSY != null) {
+                    AlaLiveEndActivity.this.fSY.b(AlaLiveEndActivity.this.fST, str);
+                } else if (AlaLiveEndActivity.this.fSR != null && AlaLiveEndActivity.this.fSR.b(AlaLiveEndActivity.this.fST, str) != null) {
+                    AlaLiveEndActivity.this.fSQ = AlaLiveEndActivity.this.fSR.b(AlaLiveEndActivity.this.fST, str);
                     AlaLiveEndActivity.this.mRootView.removeAllViews();
-                    AlaLiveEndActivity.this.mRootView.addView(AlaLiveEndActivity.this.fHO, AlaLiveEndActivity.this.fHQ);
-                    AlaLiveEndActivity.this.mRootView.addView(AlaLiveEndActivity.this.fHH, AlaLiveEndActivity.this.fHQ);
+                    AlaLiveEndActivity.this.mRootView.addView(AlaLiveEndActivity.this.fSX, AlaLiveEndActivity.this.fSZ);
+                    AlaLiveEndActivity.this.mRootView.addView(AlaLiveEndActivity.this.fSQ, AlaLiveEndActivity.this.fSZ);
                 }
             }
         }
     };
-    HttpMessageListener fHT = new HttpMessageListener(1021037) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.2
+    HttpMessageListener fTc = new HttpMessageListener(1021037) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -109,9 +109,9 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
             }
         }
     };
-    private e fHU = new e() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.3
+    private e fTd = new e() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.3
         @Override // com.baidu.live.liveroom.middleware.a.e
-        public void Fb() {
+        public void FK() {
             AlaLiveEndActivity.this.closeActivity();
         }
 
@@ -121,7 +121,7 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void fx(String str) {
+        public void fD(String str) {
             File file;
             Exception e;
             if (AlaLiveEndActivity.this.mLiveInfo != null && !TextUtils.isEmpty(str)) {
@@ -180,41 +180,41 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
         super.onCreate(bundle);
         if (!isFinishing()) {
             if (TbadkCoreApplication.getInst().isOther()) {
-                this.fHP = d.EY().EZ();
-                this.fHP.q(getPageContext().getPageActivity());
+                this.fSY = d.FH().FI();
+                this.fSY.q(getPageContext().getPageActivity());
             }
             initData(bundle);
             initListener();
             this.mRootView = new RelativeLayout(getPageContext().getPageActivity());
-            this.fHO = new TbImageView(getPageContext().getPageActivity());
-            this.fHO.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.fSX = new TbImageView(getPageContext().getPageActivity());
+            this.fSX.setScaleType(ImageView.ScaleType.CENTER_CROP);
             setContentView(this.mRootView);
             initView();
-            MessageManager.getInstance().registerListener(this.fHS);
+            MessageManager.getInstance().registerListener(this.fTb);
         }
     }
 
     private void initView() {
-        if (this.fHP != null) {
-            this.fHH = this.fHP.a(this.fHK, this.fHU, this.fpC, this.fHL, this.mPortrait, this.nickName);
+        if (this.fSY != null) {
+            this.fSQ = this.fSY.a(this.fST, this.fTd, this.fAN, this.fSU, this.mPortrait, this.nickName);
         }
-        if (this.fHH == null) {
-            this.fHI = new b();
-            this.fHI.q(getPageContext().getPageActivity());
-            this.fHH = this.fHI.a(this.fHK, this.fHU, this.fpC, this.fHL, this.mPortrait, this.nickName);
+        if (this.fSQ == null) {
+            this.fSR = new b();
+            this.fSR.q(getPageContext().getPageActivity());
+            this.fSQ = this.fSR.a(this.fST, this.fTd, this.fAN, this.fSU, this.mPortrait, this.nickName);
         }
         if (!StringUtils.isNull(this.mCoverUrl)) {
-            this.fHO.startLoad(this.mCoverUrl, 39, false);
-            if (this.fHO.getParent() != null) {
-                ((ViewGroup) this.fHO.getParent()).removeView(this.fHO);
+            this.fSX.startLoad(this.mCoverUrl, 39, false);
+            if (this.fSX.getParent() != null) {
+                ((ViewGroup) this.fSX.getParent()).removeView(this.fSX);
             }
-            this.mRootView.addView(this.fHO, this.fHQ);
+            this.mRootView.addView(this.fSX, this.fSZ);
         }
-        if (this.fHH != null) {
-            if (this.fHH.getParent() != null) {
-                ((ViewGroup) this.fHH.getParent()).removeView(this.fHH);
+        if (this.fSQ != null) {
+            if (this.fSQ.getParent() != null) {
+                ((ViewGroup) this.fSQ.getParent()).removeView(this.fSQ);
             }
-            this.mRootView.addView(this.fHH, this.fHQ);
+            this.mRootView.addView(this.fSQ, this.fSZ);
         }
     }
 
@@ -225,47 +225,47 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
             AlaLiveUserInfoData alaLiveUserInfoData = new AlaLiveUserInfoData();
             alaLiveUserInfoData.parserJson(getIntent().getStringExtra("liveUserData"));
             this.mLiveInfo = alaLiveInfoData;
-            this.fHJ = alaLiveUserInfoData;
-            this.fpC = getIntent().getIntExtra("fromType", 0);
-            if (this.fpC > 2 || this.fpC < 0) {
-                this.fpC = 0;
+            this.fSS = alaLiveUserInfoData;
+            this.fAN = getIntent().getIntExtra("fromType", 0);
+            if (this.fAN > 2 || this.fAN < 0) {
+                this.fAN = 0;
             }
-            this.fHL = getIntent().getStringExtra("authen_msg");
-            this.fHR = getIntent().getStringExtra("live_back_scheme");
+            this.fSU = getIntent().getStringExtra("authen_msg");
+            this.fTa = getIntent().getStringExtra("live_back_scheme");
             this.mCoverUrl = this.mLiveInfo.cover;
             this.mPortrait = getIntent().getStringExtra("host_portrait");
             this.nickName = getIntent().getStringExtra("user_nickname");
             AlaLiveRecorderPerfData alaLiveRecorderPerfData = new AlaLiveRecorderPerfData();
             alaLiveRecorderPerfData.parseJson(getIntent().getStringExtra("live_perf_data"));
-            this.fHG = alaLiveRecorderPerfData;
-            if (this.fHG != null) {
-                this.fHG.endViewShowTime = System.currentTimeMillis();
+            this.fSP = alaLiveRecorderPerfData;
+            if (this.fSP != null) {
+                this.fSP.endViewShowTime = System.currentTimeMillis();
                 if (this.mLiveInfo != null) {
-                    this.fHG.liveID = Long.toString(this.mLiveInfo.live_id);
+                    this.fSP.liveID = Long.toString(this.mLiveInfo.live_id);
                 }
             }
         }
-        if (this.fHK == null) {
-            this.fHK = new q();
+        if (this.fST == null) {
+            this.fST = new q();
         }
         if (this.mLiveInfo == null) {
             this.mLiveInfo = new AlaLiveInfoData();
         }
-        if (this.fHJ == null) {
-            this.fHJ = new AlaLiveUserInfoData();
+        if (this.fSS == null) {
+            this.fSS = new AlaLiveUserInfoData();
         }
-        if (this.fHK != null) {
-            this.fHK.mLiveInfo = this.mLiveInfo;
-            this.fHK.avj = this.fHJ;
+        if (this.fST != null) {
+            this.fST.mLiveInfo = this.mLiveInfo;
+            this.fST.axp = this.fSS;
         }
     }
 
     private void initListener() {
-        bwq();
-        registerListener(this.fHT);
+        bzl();
+        registerListener(this.fTc);
     }
 
-    private void bwq() {
+    private void bzl() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021037, TbConfig.SERVER_ADDRESS + "ala/live/delRecord");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -277,33 +277,33 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.fHG != null) {
-            this.fHG.endViewShowTime = System.currentTimeMillis() - this.fHG.endViewShowTime;
+        if (this.fSP != null) {
+            this.fSP.endViewShowTime = System.currentTimeMillis() - this.fSP.endViewShowTime;
         }
-        this.fHM = new com.baidu.tieba.ala.liveroom.m.b();
-        this.fHM.a(this.fHG);
+        this.fSV = new com.baidu.tieba.ala.liveroom.n.b();
+        this.fSV.a(this.fSP);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
             AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.STAYTIME_MASTER_CLOSE_LIVE_END);
             alaStaticItem.addParams("end_time", System.currentTimeMillis() + "");
             AlaStaticsManager.getInst().onStatic(alaStaticItem);
         }
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.fHT);
-        MessageManager.getInstance().unRegisterListener(this.fHS);
-        if (this.fHM != null) {
-            this.fHM.release();
+        MessageManager.getInstance().unRegisterListener(this.fTc);
+        MessageManager.getInstance().unRegisterListener(this.fTb);
+        if (this.fSV != null) {
+            this.fSV.release();
         }
-        if (this.fHP != null) {
-            this.fHP.bR(false);
+        if (this.fSY != null) {
+            this.fSY.bT(false);
         }
-        bwr();
+        bzm();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        long currentTimeMillis = System.currentTimeMillis() - this.fHN;
+        long currentTimeMillis = System.currentTimeMillis() - this.fSW;
         if (TbadkCoreApplication.getInst().isQuanmin()) {
             AlaStaticItem alaStaticItem = new AlaStaticItem(QMStaticKeys.QM_STATIC_LIVE_CLOSE_STAYTIME);
             if (this.mLiveInfo != null) {
@@ -313,8 +313,8 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
             alaStaticItem.addParams("time", currentTimeMillis / 1000);
             AlaStaticsManager.getInst().onStatic(alaStaticItem);
         }
-        if (this.fHP != null) {
-            this.fHP.onPause();
+        if (this.fSY != null) {
+            this.fSY.onPause();
         }
     }
 
@@ -322,7 +322,7 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.fHN = System.currentTimeMillis();
+        this.fSW = System.currentTimeMillis();
         if (TbadkCoreApplication.getInst().isQuanmin()) {
             AlaStaticItem alaStaticItem = new AlaStaticItem(QMStaticKeys.QM_STATIC_LIVE_CLOSE_ACCESS);
             if (this.mLiveInfo != null) {
@@ -331,8 +331,8 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
             }
             AlaStaticsManager.getInst().onStatic(alaStaticItem);
         }
-        if (this.fHP != null) {
-            this.fHP.onResume();
+        if (this.fSY != null) {
+            this.fSY.onResume();
         }
     }
 
@@ -340,8 +340,8 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.fHP != null) {
-            this.fHP.onActivityResult(i, i2, intent);
+        if (this.fSY != null) {
+            this.fSY.onActivityResult(i, i2, intent);
         }
     }
 
@@ -349,23 +349,23 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.fHP != null) {
-            this.fHP.onStop();
+        if (this.fSY != null) {
+            this.fSY.onStop();
         }
     }
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
-        if (this.fHP != null) {
-            this.fHP.onRequestPermissionsResult(i, strArr, iArr);
+        if (this.fSY != null) {
+            this.fSY.onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.fHP != null) {
-            this.fHP.onKeyDown(i, keyEvent);
+        if (this.fSY != null) {
+            this.fSY.onKeyDown(i, keyEvent);
         }
         return super.onKeyDown(i, keyEvent);
     }
@@ -376,11 +376,11 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
         UbcStatisticManager.getInstance().clear();
     }
 
-    public void bwr() {
-        if (!TextUtils.isEmpty(this.fHR)) {
+    public void bzm() {
+        if (!TextUtils.isEmpty(this.fTa)) {
             if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
-                BrowserHelper.startInternalWebActivity(getPageContext().getPageActivity(), this.fHR);
-                this.fHR = null;
+                BrowserHelper.startInternalWebActivity(getPageContext().getPageActivity(), this.fTa);
+                this.fTa = null;
             }
         }
     }

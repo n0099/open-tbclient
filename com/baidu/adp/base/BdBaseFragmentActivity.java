@@ -14,7 +14,7 @@ import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.t;
 import com.baidu.megapp.ma.MAFragmentActivity;
 /* loaded from: classes.dex */
 public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, f<T>, h {
@@ -36,7 +36,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         if (this.mId == null) {
             this.mId = BdUniqueId.gen();
         }
-        a.jm().pushActivity(getPageContext().getPageActivity());
+        a.jC().pushActivity(getPageContext().getPageActivity());
     }
 
     public void initUniqueId() {
@@ -155,16 +155,16 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.e.c.kX().d(this.mId);
+        com.baidu.adp.lib.e.c.ln().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
-        a.jm().popActivity(getPageContext().getPageActivity());
+        a.jC().popActivity(getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.e.c.kX().e(this.mId);
+        com.baidu.adp.lib.e.c.ln().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -179,7 +179,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        r onGetPreLoadListView = onGetPreLoadListView();
+        t onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
             onGetPreLoadListView.cancelRefresh();
         }
@@ -196,10 +196,10 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
     }
 
     @Override // com.baidu.adp.base.h
-    public void onPreLoad(r rVar) {
+    public void onPreLoad(t tVar) {
     }
 
-    public r onGetPreLoadListView() {
+    public t onGetPreLoadListView() {
         return null;
     }
 
@@ -230,7 +230,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = g.jo().getResources();
+        Resources resources = g.jE().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 }

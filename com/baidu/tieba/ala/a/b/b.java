@@ -36,7 +36,7 @@ public class b {
         }
     }
 
-    public static String dB(String str, String str2) {
+    public static String dF(String str, String str2) {
         try {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "MD5";

@@ -8,9 +8,9 @@ import android.media.AudioManager;
 import android.media.AudioRecord;
 import android.os.Build;
 import com.baidu.ala.helper.AlaAudioBuffer;
+import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.ndk.AlaAudioFrame;
 import com.baidu.ala.ndk.AudioProcessModule;
-import com.baidu.ala.player.StreamConfig;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
@@ -126,15 +126,14 @@ public class AlaAudioRecorder {
                     if (this.mRunOpenSLES) {
                         this.mAudioRecord = null;
                         int i3 = i2 == 12 ? 2 : 1;
-                        int i4 = StreamConfig.OUTPUT_SAMPLE_RATE / 100;
-                        AudioProcessModule.sharedInstance().createAudioProcessModule(StreamConfig.OUTPUT_SAMPLE_RATE, i, i3, i3, 1, 1, 1);
+                        AudioProcessModule.sharedInstance().createAudioProcessModule(i, i, i3, i3, 1, 1, 1);
                         AudioProcessModule.sharedInstance().updateSystemInfo(Build.VERSION.SDK_INT, Build.MODEL);
-                        AudioProcessModule.sharedInstance().createAudioRecorder(StreamConfig.OUTPUT_SAMPLE_RATE, i3, i4);
+                        AudioProcessModule.sharedInstance().createAudioRecorder(i, i3, i / 100);
                     } else {
                         this.mAudioRecord = new AudioRecord(7, i, i2, 2, minBufferSize);
                         this.mFramesPerBuffer = (i / 100) * 2;
-                        int i5 = i2 == 12 ? 2 : 1;
-                        AudioProcessModule.sharedInstance().createAudioProcessModule(StreamConfig.OUTPUT_SAMPLE_RATE, i, i5, i5, 0, 1, 1);
+                        int i4 = i2 == 12 ? 2 : 1;
+                        AudioProcessModule.sharedInstance().createAudioProcessModule(i, i, i4, i4, 0, 1, 1);
                         AudioProcessModule.sharedInstance().setCaptureBuffer(this.mNativeBuffer, 1.4f);
                     }
                 } else {

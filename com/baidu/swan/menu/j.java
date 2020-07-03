@@ -19,26 +19,26 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class j extends PopupWindow implements View.OnClickListener {
-    private FrameLayout ddl;
-    private View djM;
-    private BaseMenuView djN;
-    private View djO;
-    private MainMenuView djP;
-    private boolean djQ;
-    private a djR;
-    private int djS;
+    private FrameLayout agu;
+    private MainMenuView doA;
+    private boolean doB;
+    private a doC;
+    private int doD;
+    private View dox;
+    private BaseMenuView doy;
+    private View doz;
     private Context mContext;
     private boolean mImmersionEnabled;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(Context context, View view, @Nullable a aVar) {
         super(context);
-        this.djQ = true;
+        this.doB = true;
         this.mImmersionEnabled = true;
-        this.djS = 0;
+        this.doD = 0;
         this.mContext = context;
-        this.djO = view;
-        this.djR = aVar;
+        this.doz = view;
+        this.doC = aVar;
         setClippingEnabled(false);
         setFocusable(true);
         setOutsideTouchable(true);
@@ -49,75 +49,75 @@ public class j extends PopupWindow implements View.OnClickListener {
     }
 
     private void initViews() {
-        this.ddl = (FrameLayout) LayoutInflater.from(this.mContext).inflate(g.e.aiapp_menu_layout, (ViewGroup) null);
-        this.djM = this.ddl.findViewById(g.d.mask);
-        this.djP = (MainMenuView) this.ddl.findViewById(g.d.aiapp_menu_body);
-        this.djM.setOnClickListener(this);
-        this.djP.setClickListener(this);
-        this.ddl.measure(0, 0);
-        setContentView(this.ddl);
+        this.agu = (FrameLayout) LayoutInflater.from(this.mContext).inflate(g.e.aiapp_menu_layout, (ViewGroup) null);
+        this.dox = this.agu.findViewById(g.d.mask);
+        this.doA = (MainMenuView) this.agu.findViewById(g.d.aiapp_menu_body);
+        this.dox.setOnClickListener(this);
+        this.doA.setClickListener(this);
+        this.agu.measure(0, 0);
+        setContentView(this.agu);
     }
 
     private void showView() {
         if (!isShowing()) {
-            aEZ();
-            this.djP.reset();
-            this.djN = this.djP;
+            aGf();
+            this.doA.reset();
+            this.doy = this.doA;
             if (this.mImmersionEnabled) {
                 setFocusable(false);
             }
-            showAtLocation(this.djO, 81, 0, 0);
+            showAtLocation(this.doz, 81, 0, 0);
             if (this.mImmersionEnabled) {
-                getContentView().setSystemUiVisibility(this.djS | 1024 | 4096);
+                getContentView().setSystemUiVisibility(this.doD | 1024 | 4096);
                 setFocusable(true);
                 update();
             }
-            final View contentView = this.djP.getContentView();
+            final View contentView = this.doA.getContentView();
             if (contentView.getHeight() == 0) {
                 contentView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.menu.j.1
                     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                     public void onGlobalLayout() {
-                        j.this.djP.iM(contentView.getHeight());
-                        j.this.aFa();
+                        j.this.doA.iX(contentView.getHeight());
+                        j.this.aGg();
                         contentView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
                 });
             } else {
-                aFa();
+                aGg();
             }
         }
     }
 
-    public void aEZ() {
-        if (this.djR != null) {
-            this.djR.a(this.djP);
+    public void aGf() {
+        if (this.doC != null) {
+            this.doC.a(this.doA);
         }
     }
 
     public void b(List<List<i>> list, View view, boolean z, int i) {
-        this.djP.a(list, view, z, i);
+        this.doA.a(list, view, z, i);
         showView();
     }
 
     @Override // com.baidu.swan.menu.PopupWindow
     public void dismiss() {
-        gf(true);
+        gk(true);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
         if (id == g.d.cancel || id == g.d.mask) {
-            gf(true);
+            gk(true);
         }
     }
 
-    public void gf(boolean z) {
+    public void gk(boolean z) {
         if (!z) {
             super.dismiss();
         } else if (isShowing()) {
-            ObjectAnimator aJ = c.aJ(this.djM);
-            ObjectAnimator b = c.b(this.djN);
+            ObjectAnimator aJ = c.aJ(this.dox);
+            ObjectAnimator b = c.b(this.doy);
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.menu.j.2
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -125,8 +125,8 @@ public class j extends PopupWindow implements View.OnClickListener {
                     Context context = j.this.mContext;
                     if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
                         j.super.dismiss();
-                        if (j.this.djN != j.this.djP) {
-                            j.this.djN.setVisibility(8);
+                        if (j.this.doy != j.this.doA) {
+                            j.this.doy.setVisibility(8);
                         }
                     }
                 }
@@ -137,16 +137,16 @@ public class j extends PopupWindow implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aES() {
-        this.djP.aES();
+    public void aFY() {
+        this.doA.aFY();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aFa() {
-        this.djM.setAlpha(0.0f);
-        this.djP.setTranslationY(this.djP.getHeight());
-        ObjectAnimator a = c.a(this.djM, this.djP);
-        ObjectAnimator a2 = c.a(this.djP);
+    public void aGg() {
+        this.dox.setAlpha(0.0f);
+        this.doA.setTranslationY(this.doA.getHeight());
+        ObjectAnimator a = c.a(this.dox, this.doA);
+        ObjectAnimator a2 = c.a(this.doA);
         ArrayList arrayList = new ArrayList();
         arrayList.add(a);
         arrayList.add(a2);
@@ -155,7 +155,7 @@ public class j extends PopupWindow implements View.OnClickListener {
         animatorSet.start();
     }
 
-    public void iQ(int i) {
-        this.djS = i;
+    public void jb(int i) {
+        this.doD = i;
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.ubc;
 import java.util.List;
 /* loaded from: classes12.dex */
 public interface q {
-    String akR();
+    String alX();
 
-    List<String> day();
+    List<String> deO();
 
     boolean isPeakTime();
 
-    boolean mj(String str);
+    boolean mr(String str);
 }

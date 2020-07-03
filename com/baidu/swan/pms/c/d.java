@@ -12,27 +12,27 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class d<T> implements f.a {
-    protected com.baidu.swan.pms.a.g dlN;
-    protected com.baidu.swan.pms.c.d.f dlO;
+    protected com.baidu.swan.pms.a.g dqy;
+    protected com.baidu.swan.pms.c.d.f dqz;
     private String mRequestUrl;
 
     protected abstract boolean W(T t);
 
     protected abstract com.baidu.swan.pms.model.a X(T t);
 
-    protected abstract String ave();
+    protected abstract String awk();
 
-    protected abstract T bz(JSONObject jSONObject);
+    protected abstract T bG(JSONObject jSONObject);
 
     public d(com.baidu.swan.pms.a.g gVar, com.baidu.swan.pms.c.d.f fVar) {
-        this.dlN = gVar;
-        this.dlO = fVar;
+        this.dqy = gVar;
+        this.dqz = fVar;
     }
 
     @Override // com.baidu.swan.pms.c.f.a
     public void b(String str, String str2, JSONObject jSONObject) {
-        if (this.dlN != null) {
-            this.dlN.b(str, str2, jSONObject);
+        if (this.dqy != null) {
+            this.dqy.b(str, str2, jSONObject);
         }
         this.mRequestUrl = str;
     }
@@ -41,45 +41,45 @@ public abstract class d<T> implements f.a {
     public void onSuccess(String str, int i) {
         if (i != 200) {
             com.baidu.swan.pms.model.a aVar = new com.baidu.swan.pms.model.a(2104, "metadata : network error. http code=" + i);
-            this.dlN.b(aVar);
+            this.dqy.b(aVar);
             a(aVar, str);
             return;
         }
-        c tj = c.tj(str);
-        if (tj == null) {
+        c tr = c.tr(str);
+        if (tr == null) {
             com.baidu.swan.pms.model.a aVar2 = new com.baidu.swan.pms.model.a(2103, "metadata : parse response error - ,errmsg:" + com.baidu.swan.pms.f.d.parseString(str).toString());
-            this.dlN.b(aVar2);
+            this.dqy.b(aVar2);
             a(aVar2, str);
             return;
         }
-        int errorCode = tj.getErrorCode();
+        int errorCode = tr.getErrorCode();
         if (errorCode != 0) {
-            com.baidu.swan.pms.model.a aVar3 = new com.baidu.swan.pms.model.a(errorCode, PMSConstants.a.ah(errorCode, tj.getErrorMessage()), tj.aGm());
-            this.dlN.b(aVar3);
-            if (tj.getErrorCode() != 1010) {
+            com.baidu.swan.pms.model.a aVar3 = new com.baidu.swan.pms.model.a(errorCode, PMSConstants.a.aj(errorCode, tr.getErrorMessage()), tr.aHs());
+            this.dqy.b(aVar3);
+            if (tr.getErrorCode() != 1010) {
                 a(aVar3, str);
                 return;
             }
             return;
         }
-        T bz = bz(tj.getData());
-        if (bz == null) {
+        T bG = bG(tr.getData());
+        if (bG == null) {
             com.baidu.swan.pms.model.a aVar4 = new com.baidu.swan.pms.model.a(2102, "response data empty");
-            this.dlN.b(aVar4);
+            this.dqy.b(aVar4);
             a(aVar4, str);
-        } else if (!W(bz)) {
+        } else if (!W(bG)) {
             com.baidu.swan.pms.model.a aVar5 = new com.baidu.swan.pms.model.a(2103, str);
-            this.dlN.b(aVar5);
+            this.dqy.b(aVar5);
             a(aVar5, str);
         } else {
-            X(bz);
+            X(bG);
         }
     }
 
     @Override // com.baidu.swan.pms.c.f.a
     public void onFail(Exception exc) {
         com.baidu.swan.pms.model.a aVar = new com.baidu.swan.pms.model.a(2101, exc.getMessage());
-        this.dlN.b(aVar);
+        this.dqy.b(aVar);
         a(aVar, exc.getMessage());
     }
 
@@ -122,9 +122,9 @@ public abstract class d<T> implements f.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void r(PMSAppInfo pMSAppInfo) {
-        com.baidu.swan.pms.a.f ZX;
-        if (pMSAppInfo != null && (ZX = this.dlN.ZX()) != null) {
-            ZX.c(pMSAppInfo);
+        com.baidu.swan.pms.a.f abd;
+        if (pMSAppInfo != null && (abd = this.dqy.abd()) != null) {
+            abd.c(pMSAppInfo);
         }
     }
 
@@ -146,10 +146,10 @@ public abstract class d<T> implements f.a {
                 e.printStackTrace();
             }
         }
-        if (this.dlO instanceof com.baidu.swan.pms.c.d.c) {
-            jSONObject.put("appId", ((com.baidu.swan.pms.c.d.c) this.dlO).getBundleId());
+        if (this.dqz instanceof com.baidu.swan.pms.c.d.c) {
+            jSONObject.put("appId", ((com.baidu.swan.pms.c.d.c) this.dqz).getBundleId());
         }
         i = i2;
-        com.baidu.swan.pms.d.a.a(this.dlO.getCategory(), "cs_protocol", ave(), i, jSONObject);
+        com.baidu.swan.pms.d.a.a(this.dqz.getCategory(), "cs_protocol", awk(), i, jSONObject);
     }
 }

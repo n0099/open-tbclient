@@ -6,36 +6,36 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class c {
-    private ViewGroup gZm;
-    private ImageView gZn;
-    private TextView gZo;
-    private TextView gZp;
+    private TextView hlA;
+    private ViewGroup hlx;
+    private ImageView hly;
+    private TextView hlz;
     private TbPageContext<?> mPageContext;
     private View mView;
 
     public c(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
         this.mView = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.no_like_forum_emotion_item_view, (ViewGroup) null);
-        this.gZm = (ViewGroup) this.mView.findViewById(R.id.item_group);
-        this.gZn = (ImageView) this.mView.findViewById(R.id.image);
-        this.gZo = (TextView) this.mView.findViewById(R.id.hint_text_1);
-        this.gZp = (TextView) this.mView.findViewById(R.id.hint_text_2);
-        this.gZo.setText(R.string.no_like_forum_hint_1);
-        this.gZp.setText(R.string.no_like_forum_hint_2);
+        this.hlx = (ViewGroup) this.mView.findViewById(R.id.item_group);
+        this.hly = (ImageView) this.mView.findViewById(R.id.image);
+        this.hlz = (TextView) this.mView.findViewById(R.id.hint_text_1);
+        this.hlA = (TextView) this.mView.findViewById(R.id.hint_text_2);
+        this.hlz.setText(R.string.no_like_forum_hint_1);
+        this.hlA.setText(R.string.no_like_forum_hint_2);
     }
 
     public View getView() {
         return this.mView;
     }
 
-    public void ZE() {
-        am.setImageResource(this.gZn, R.drawable.cp_mask_attention_a);
-        am.setViewTextColor(this.gZo, (int) R.color.cp_cont_d);
-        am.setViewTextColor(this.gZp, (int) R.color.cp_cont_d);
-        com.baidu.tbadk.core.util.e.a.aVw().lp(0).lq(R.color.cp_bg_line_g).Q(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).P(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).S(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).R(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).aR(this.gZm);
+    public void aaK() {
+        an.setImageResource(this.hly, R.drawable.cp_mask_attention_a);
+        an.setViewTextColor(this.hlz, (int) R.color.cp_cont_d);
+        an.setViewTextColor(this.hlA, (int) R.color.cp_cont_d);
+        com.baidu.tbadk.core.util.e.a.aXq().lG(0).lH(R.color.cp_bg_line_g).S(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).R(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).U(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).T(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).aR(this.hlx);
     }
 }

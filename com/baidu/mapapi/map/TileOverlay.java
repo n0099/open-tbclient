@@ -56,7 +56,7 @@ public final class TileOverlay {
         }
         if (this.a != null && f == 0) {
             MapStatus mapStatus = this.a.getMapStatus();
-            f = (((mapStatus.a.j.bottom - mapStatus.a.j.f989top) / 256) + 2) * (((mapStatus.a.j.right - mapStatus.a.j.left) / 256) + 2);
+            f = (((mapStatus.a.j.bottom - mapStatus.a.j.f994top) / 256) + 2) * (((mapStatus.a.j.right - mapStatus.a.j.left) / 256) + 2);
         }
         if (this.d.size() > f) {
             a();

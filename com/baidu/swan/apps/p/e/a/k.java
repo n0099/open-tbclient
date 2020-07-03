@@ -4,12 +4,12 @@ import android.support.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes11.dex */
 public class k extends com.baidu.swan.apps.p.a<com.baidu.swan.apps.p.e.b.a> {
-    public static String cga = "release";
+    public static String ckO = "release";
 
     @Override // com.baidu.swan.apps.p.a
     @NonNull
-    public String aek() {
-        return cga;
+    public String afq() {
+        return ckO;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

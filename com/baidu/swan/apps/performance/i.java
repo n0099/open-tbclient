@@ -24,28 +24,28 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static i crL;
-    private String[] crN;
-    private JSONArray crM = new JSONArray();
+    private static i cwz;
+    private String[] cwB;
+    private JSONArray cwA = new JSONArray();
     private String mPort = "";
-    private Map<String, String> crO = new HashMap();
+    private Map<String, String> cwC = new HashMap();
 
     private i() {
     }
 
-    public static i alA() {
-        if (crL == null) {
+    public static i amG() {
+        if (cwz == null) {
             synchronized (i.class) {
-                if (crL == null) {
-                    crL = new i();
+                if (cwz == null) {
+                    cwz = new i();
                 }
             }
         }
-        return crL;
+        return cwz;
     }
 
     public boolean isAvailable() {
-        return (this.crN == null || this.crN.length <= 0 || TextUtils.isEmpty(this.mPort)) ? false : true;
+        return (this.cwB == null || this.cwB.length <= 0 || TextUtils.isEmpty(this.mPort)) ? false : true;
     }
 
     public void K(Bundle bundle) {
@@ -65,19 +65,19 @@ public class i {
                 Log.d("TraceDataManager", "Port : " + string2);
                 Log.d("TraceDataManager", "Project ID : " + string3);
             }
-            this.crN = string.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+            this.cwB = string.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             this.mPort = string2;
-            this.crO.put("projectId", string3);
+            this.cwC.put("projectId", string3);
         }
     }
 
-    public void aM(JSONObject jSONObject) {
-        if (this.crM != null && jSONObject != null) {
+    public void aT(JSONObject jSONObject) {
+        if (this.cwA != null && jSONObject != null) {
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.putOpt("path", com.baidu.swan.apps.w.f.ahV().aia());
+                jSONObject2.putOpt("path", com.baidu.swan.apps.w.f.ajb().ajg());
                 jSONObject2.putOpt("data", jSONObject.toString());
-                this.crM.put(jSONObject2);
+                this.cwA.put(jSONObject2);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -86,29 +86,29 @@ public class i {
 
     public void a(a aVar) {
         if (!isAvailable()) {
-            com.baidu.swan.apps.res.widget.b.d.k(com.baidu.swan.apps.runtime.d.aoB().aoz(), a.h.aiapps_debug_report_invalid_params).showToast();
-        } else if (this.crM == null || this.crM.length() <= 0) {
-            new g.a(com.baidu.swan.apps.runtime.d.aoB().aoz()).eT(a.h.aiapps_debug_report_performance).eS(a.h.aiapps_debug_report_no_data).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null).aon();
+            com.baidu.swan.apps.res.widget.b.d.k(com.baidu.swan.apps.runtime.d.apI().apG(), a.h.aiapps_debug_report_invalid_params).showToast();
+        } else if (this.cwA == null || this.cwA.length() <= 0) {
+            new g.a(com.baidu.swan.apps.runtime.d.apI().apG()).fe(a.h.aiapps_debug_report_performance).fd(a.h.aiapps_debug_report_no_data).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null).apu();
         } else {
-            com.baidu.swan.c.a.f postRequest = com.baidu.swan.c.c.a.aFx().postRequest();
-            postRequest.requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), this.crM.toString()));
+            com.baidu.swan.c.a.f postRequest = com.baidu.swan.c.c.a.aGD().postRequest();
+            postRequest.requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), this.cwA.toString()));
             postRequest.connectionTimeout(3000);
-            int min = Math.min(this.crN.length, 4);
+            int min = Math.min(this.cwB.length, 4);
             b bVar = new b(min, aVar);
             for (int i = 0; i < min; i++) {
-                postRequest.url(gd(i));
+                postRequest.url(gp(i));
                 postRequest.build().executeAsync(bVar);
             }
         }
     }
 
-    private String gd(int i) {
-        if (!isAvailable() || i >= this.crN.length) {
+    private String gp(int i) {
+        if (!isAvailable() || i >= this.cwB.length) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        sb.append("http://").append(this.crN[i]).append(":").append(this.mPort).append("/uploadTraceData").append("?");
-        for (Map.Entry<String, String> entry : this.crO.entrySet()) {
+        sb.append("http://").append(this.cwB[i]).append(":").append(this.mPort).append("/uploadTraceData").append("?");
+        for (Map.Entry<String, String> entry : this.cwC.entrySet()) {
             sb.append(entry.getKey()).append(ETAG.EQUAL).append(entry.getValue());
         }
         return sb.toString();
@@ -116,14 +116,14 @@ public class i {
 
     /* loaded from: classes11.dex */
     private class b extends ResponseCallback {
-        private AtomicInteger crP = new AtomicInteger(0);
-        private boolean crQ;
-        private a crR;
+        private AtomicInteger cwD = new AtomicInteger(0);
+        private boolean cwE;
+        private a cwF;
         private int mCount;
 
         b(int i, a aVar) {
             this.mCount = i;
-            this.crR = aVar;
+            this.cwF = aVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -144,32 +144,32 @@ public class i {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onSuccess(Object obj, int i) {
-            this.crQ = true;
-            i.this.crM = new JSONArray();
-            if (this.crR == null) {
+            this.cwE = true;
+            i.this.cwA = new JSONArray();
+            if (this.cwF == null) {
                 return;
             }
-            this.crR.ge(a.h.aiapps_debug_report_success);
+            this.cwF.gq(a.h.aiapps_debug_report_success);
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (this.crQ || this.crP.incrementAndGet() < this.mCount || this.crR == null) {
+            if (this.cwE || this.cwD.incrementAndGet() < this.mCount || this.cwF == null) {
                 return;
             }
-            this.crR.ge(a.h.aiapps_debug_report_fail);
+            this.cwF.gq(a.h.aiapps_debug_report_fail);
         }
     }
 
     /* loaded from: classes11.dex */
     public static abstract class a {
-        public abstract void jh(String str);
+        public abstract void jp(String str);
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void ge(int i) {
-            Application aeR = com.baidu.swan.apps.u.a.aeR();
-            if (aeR != null) {
-                jh(aeR.getString(i));
+        public void gq(int i) {
+            Application afX = com.baidu.swan.apps.u.a.afX();
+            if (afX != null) {
+                jp(afX.getString(i));
             }
         }
     }

@@ -39,6 +39,6 @@ public class c {
     }
 
     private static long c(BaseMenuView baseMenuView) {
-        return baseMenuView.aEQ() ? 240L : 200L;
+        return baseMenuView.aFW() ? 240L : 200L;
     }
 }

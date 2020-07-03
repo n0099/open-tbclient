@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.util.HostResourceManager;
-import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class CommonEmptyView extends FrameLayout {
     private LinearLayout mContentView;

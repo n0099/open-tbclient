@@ -1,39 +1,24 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.Topic;
+import com.baidu.adp.BdUniqueId;
+import tbclient.GeneralResource;
 /* loaded from: classes.dex */
-public class bo {
-    private int dIh = 0;
-    private int dIi = 0;
-    private String link = "";
+public class bo extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId dKE = BdUniqueId.gen();
+    public int dKF;
+    public String res_image;
+    public String res_link;
 
-    public int aSK() {
-        return this.dIh;
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.dIh = jSONObject.optInt("is_lpost", 0);
-                this.dIi = jSONObject.optInt("topic_type", 0);
-                this.link = jSONObject.optString("link", "");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+    public void a(GeneralResource generalResource) {
+        if (generalResource != null) {
+            this.res_image = generalResource.res_image;
+            this.res_link = generalResource.res_link;
+            this.dKF = generalResource.res_floor.intValue();
         }
     }
 
-    public void a(Topic topic) {
-        if (topic != null) {
-            this.dIh = topic.is_lpost.intValue();
-            this.dIi = topic.topic_type.intValue();
-            this.link = topic.link;
-        }
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return dKE;
     }
 }

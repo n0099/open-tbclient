@@ -9,18 +9,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class d implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        boolean df;
+        boolean dh;
         if (customMessage != null) {
             int cmd = customMessage.getCmd();
             if (customMessage.getData() != null && (cmd == 2001179 || cmd == 2001180)) {
                 com.baidu.tbadk.coreExtra.relationship.a aVar = (com.baidu.tbadk.coreExtra.relationship.a) customMessage.getData();
                 if (cmd == 2001179) {
-                    df = f.bnt().c(aVar);
+                    dh = f.bpT().c(aVar);
                 } else {
-                    df = f.bnt().df(aVar.getUserId());
+                    dh = f.bpT().dh(aVar.getUserId());
                 }
-                if (!df) {
-                    com.baidu.tbadk.core.sharedPref.b.aTX().putBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true);
+                if (!dh) {
+                    com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true);
                 }
             }
         }

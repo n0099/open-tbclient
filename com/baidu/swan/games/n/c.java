@@ -7,19 +7,19 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
 /* loaded from: classes11.dex */
 public class c {
-    public int cZO;
-    public String cZP;
-    public String cZL = "";
+    public int deD;
+    public String deE;
+    public String deA = "";
     public int maxLength = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public boolean cZM = false;
-    public boolean cZN = false;
+    public boolean deB = false;
+    public boolean deC = false;
 
     public boolean h(com.baidu.swan.games.binding.model.c cVar) throws JSTypeMismatchException {
         try {
-            this.cZL = cVar.optString("defaultValue");
+            this.deA = cVar.optString("defaultValue");
             this.maxLength = cVar.optInt("maxLength");
-            this.cZM = cVar.optBoolean("multiple");
-            this.cZN = cVar.optBoolean("confirmHold");
+            this.deB = cVar.optBoolean("multiple");
+            this.deC = cVar.optBoolean("confirmHold");
             String optString = cVar.optString("confirmType");
             char c = 65535;
             switch (optString.hashCode()) {
@@ -56,28 +56,28 @@ public class c {
             }
             switch (c) {
                 case 0:
-                    this.cZO = 6;
-                    this.cZP = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.deD = 6;
+                    this.deE = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
                 case 1:
-                    this.cZO = 5;
-                    this.cZP = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    this.deD = 5;
+                    this.deE = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
                     return true;
                 case 2:
-                    this.cZO = 3;
-                    this.cZP = "search";
+                    this.deD = 3;
+                    this.deE = "search";
                     return true;
                 case 3:
-                    this.cZO = 2;
-                    this.cZP = "go";
+                    this.deD = 2;
+                    this.deE = "go";
                     return true;
                 case 4:
-                    this.cZO = 4;
-                    this.cZP = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
+                    this.deD = 4;
+                    this.deE = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
                     return true;
                 default:
-                    this.cZO = 6;
-                    this.cZP = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.deD = 6;
+                    this.deE = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
             }
         } catch (Exception e) {

@@ -1,126 +1,145 @@
 package com.baidu.tieba.frs;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
+import android.content.res.Resources;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.ListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
+import com.baidu.adp.widget.ListView.ad;
+import com.baidu.adp.widget.ListView.ad.a;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.data.bt;
+import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
-import tbclient.WindowToast;
-/* loaded from: classes.dex */
-public class j {
-    public static void a(Activity activity, TbPageContext<?> tbPageContext) {
-        int equipmentWidth;
-        if (activity != null && tbPageContext != null) {
-            View inflate = LayoutInflater.from(activity).inflate(R.layout.frs_general_tab_notify_dialog_layout, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.general_title);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.general_content_1);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.general_content_2);
-            TextView textView4 = (TextView) inflate.findViewById(R.id.general_content_3);
-            TextView textView5 = (TextView) inflate.findViewById(R.id.general_btn);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.top_general_image);
-            final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-            aVar.aP(inflate);
-            aVar.kI(2);
-            aVar.gX(true);
-            aVar.setAutoNight(true);
-            aVar.gW(true);
-            int dimens = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds31);
-            com.baidu.tbadk.core.util.am.c(inflate, dimens, R.color.cp_bg_line_d, R.color.cp_cont_a);
-            tbImageView.setRadius(dimens);
-            tbImageView.setConrers(3);
-            tbImageView.setIsBitmapPic(true);
-            int dimens2 = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds44);
-            if (UtilHelper.getRealScreenOrientation(activity) == 2) {
-                equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentHeight(activity) - (dimens2 * 2);
-            } else {
-                equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(activity) - (dimens2 * 2);
-            }
-            ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = (equipmentWidth * 556) / 988;
-            tbImageView.setLayoutParams(layoutParams);
-            com.baidu.tbadk.core.util.am.setImageResource(tbImageView, R.drawable.frs_general_tab_notify_pic);
-            com.baidu.tbadk.core.util.am.setViewTextColor(textView, (int) R.color.cp_cont_b);
-            com.baidu.tbadk.core.util.am.setViewTextColor(textView2, (int) R.color.cp_cont_j);
-            com.baidu.tbadk.core.util.am.setViewTextColor(textView3, (int) R.color.cp_cont_j);
-            com.baidu.tbadk.core.util.am.setViewTextColor(textView4, (int) R.color.cp_cont_j);
-            com.baidu.tbadk.core.util.am.setViewTextColor(textView5, (int) R.color.cp_link_tip_a);
-            textView5.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.j.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    com.baidu.tbadk.core.dialog.a.this.dismiss();
-                }
-            });
-            aVar.b(tbPageContext).aST();
+import com.baidu.tieba.tbadkCore.FrsViewData;
+/* loaded from: classes8.dex */
+public abstract class j<T, V extends ad.a> extends com.baidu.adp.widget.ListView.a<T, V> {
+    protected static final int hzf;
+    protected static final int hzg;
+    protected static final int hzh;
+    protected com.baidu.adp.widget.ListView.v hfK;
+    protected FrsViewData hzi;
+    protected f hzj;
+    protected int hzk;
+    protected h hzl;
+    private boolean hzm;
+    private boolean hzn;
+    protected com.baidu.tieba.card.aa hzo;
+    protected boolean mIsFromCDN;
+    protected TbPageContext<?> mPageContext;
+    protected int mSkinType;
+    private TbPageTag mTbPageTag;
+
+    static {
+        Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
+        hzf = resources.getDimensionPixelSize(R.dimen.ds8);
+        hzg = resources.getDimensionPixelSize(R.dimen.ds16);
+        hzh = resources.getDimensionPixelSize(R.dimen.ds1);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public j(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
+        this.mIsFromCDN = false;
+        this.hzn = false;
+        this.mTbPageTag = null;
+        a(tbPageContext, bdUniqueId2);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public j(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
+        this.mIsFromCDN = false;
+        this.hzn = false;
+        this.mTbPageTag = null;
+        a(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
+    }
+
+    public void a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        if (tbPageContext != null) {
+            this.mContext = tbPageContext.getPageActivity();
+            this.mPageContext = tbPageContext;
+            this.mPageId = bdUniqueId;
         }
     }
 
-    public static void a(final TbPageContext<?> tbPageContext, WindowToast windowToast, final String str, final String str2) {
-        int equipmentWidth;
-        if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
-            final int intValue = windowToast.toast_type.intValue();
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_bazhu_exam_fail, (ViewGroup) null);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.bazhu_exam_top_image);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.bazhu_exam_close_button);
-            TextView textView = (TextView) inflate.findViewById(R.id.bazhu_exam_content);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.bazhu_exam_btn);
-            textView.setText(windowToast.toast_content);
-            if (windowToast.toast_type.intValue() == 0) {
-                textView2.setText(TbadkCoreApplication.getInst().getString(R.string.know));
-            } else if (windowToast.toast_type.intValue() == 1) {
-                textView2.setText(TbadkCoreApplication.getInst().getString(R.string.bazhu_exam_fail_btn_text));
-            } else {
-                return;
-            }
-            final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            aVar.aP(inflate);
-            aVar.kI(2);
-            aVar.gX(false);
-            aVar.setAutoNight(true);
-            aVar.gW(true);
-            int dimens = com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds31);
-            com.baidu.tbadk.core.util.am.c(inflate, dimens, R.color.cp_bg_line_d, R.color.cp_bg_line_d);
-            tbImageView.setRadius(dimens);
-            tbImageView.setConrers(3);
-            tbImageView.setIsBitmapPic(true);
-            int dimens2 = com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds44);
-            if (UtilHelper.getRealScreenOrientation(tbPageContext.getPageActivity()) == 2) {
-                equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentHeight(tbPageContext.getPageActivity()) - (dimens2 * 2);
-            } else {
-                equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(tbPageContext.getPageActivity()) - (dimens2 * 2);
-            }
-            ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = (equipmentWidth * 560) / 992;
-            tbImageView.setLayoutParams(layoutParams);
-            com.baidu.tbadk.core.util.am.setImageResource(tbImageView, R.drawable.backguard_mask_apity);
-            com.baidu.tbadk.core.util.am.setViewTextColor(textView, (int) R.color.cp_cont_j);
-            com.baidu.tbadk.core.util.am.setViewTextColor(textView2, (int) R.color.cp_link_tip_c);
-            SvgManager.aUW().a(imageView, R.drawable.ic_icon_popup_close_n, SvgManager.SvgResourceStateType.NORMAL);
-            textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.j.2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    com.baidu.tbadk.core.dialog.a.this.dismiss();
-                    if (intValue == 1) {
-                        ba.aVa().b(tbPageContext, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", str2, str)});
-                    }
-                }
-            });
-            imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.j.3
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    com.baidu.tbadk.core.dialog.a.this.dismiss();
-                }
-            });
-            aVar.b(tbPageContext).aST();
+    public void release() {
+        this.mContext = null;
+        this.mPageContext = null;
+        this.hzj = null;
+        this.Ul = null;
+        this.Um = null;
+        if (this.hzl != null) {
+            this.hzl.destory();
+            this.hzl = null;
         }
+    }
+
+    public void b(com.baidu.adp.widget.ListView.v vVar) {
+        this.hfK = vVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
+        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
+        this.hfK = (com.baidu.adp.widget.ListView.v) viewGroup;
+        if (t instanceof bt) {
+            ((bt) t).dLi.kF(2);
+            return null;
+        }
+        return null;
+    }
+
+    public void setFromCDN(boolean z) {
+        this.mIsFromCDN = z;
+    }
+
+    public void b(FrsViewData frsViewData) {
+        this.hzi = frsViewData;
+    }
+
+    public void a(f fVar) {
+        this.hzj = fVar;
+    }
+
+    public void ui(int i) {
+        this.hzk = i;
+    }
+
+    public void a(h hVar) {
+        this.hzl = hVar;
+    }
+
+    public boolean bXM() {
+        return this.hzm;
+    }
+
+    public View t(ViewGroup viewGroup, int i) {
+        if (viewGroup == null) {
+            return null;
+        }
+        if (viewGroup instanceof ListView) {
+            ListView listView = (ListView) viewGroup;
+            return listView.getChildAt(i - (listView.getFirstVisiblePosition() - listView.getHeaderViewsCount()));
+        } else if (viewGroup instanceof BdRecyclerView) {
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) viewGroup;
+            return bdRecyclerView.findViewHolderForAdapterPosition(i - (bdRecyclerView.getFirstVisiblePosition() - bdRecyclerView.getHeaderViewsCount())).itemView;
+        } else if (!(viewGroup instanceof RecyclerView)) {
+            return null;
+        } else {
+            return ((RecyclerView) viewGroup).findViewHolderForAdapterPosition(i).itemView;
+        }
+    }
+
+    public void a(TbPageTag tbPageTag) {
+        this.mTbPageTag = tbPageTag;
+    }
+
+    public TbPageTag getTbPageTag() {
+        return this.mTbPageTag;
     }
 }

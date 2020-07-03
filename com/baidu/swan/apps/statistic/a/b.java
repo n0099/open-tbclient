@@ -6,20 +6,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b extends e {
-    public String cGn = "";
+    public String cKX = "";
 
     @Override // com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        com.baidu.swan.apps.runtime.e Zc;
-        if (this.cGu == null) {
-            this.cGu = new JSONObject();
+        com.baidu.swan.apps.runtime.e aai;
+        if (this.cLe == null) {
+            this.cLe = new JSONObject();
         }
-        if (TextUtils.isEmpty(this.cGn) && (Zc = com.baidu.swan.apps.w.f.ahV().Zc()) != null) {
-            b.a QJ = Zc.QJ();
-            this.cGn = QJ != null ? QJ.agK() : "";
+        if (TextUtils.isEmpty(this.cKX) && (aai = com.baidu.swan.apps.w.f.ajb().aai()) != null) {
+            b.a RP = aai.RP();
+            this.cKX = RP != null ? RP.ahQ() : "";
         }
         try {
-            this.cGu.put("source", this.cGn);
+            this.cLe.put("source", this.cKX);
         } catch (JSONException e) {
             e.printStackTrace();
         }

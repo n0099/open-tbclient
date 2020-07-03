@@ -5,36 +5,36 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    protected volatile int dRh;
-    protected volatile HashMap<Long, Integer> lph = new HashMap<>();
+    protected volatile int dXZ;
+    protected volatile HashMap<Long, Integer> lIS = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
-        this.dRh = i;
+        this.dXZ = i;
     }
 
-    public void MO(String str) {
+    public void Nq(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.lph.size() >= this.dRh) {
-                    deR();
+                if (this.lIS.size() >= this.dXZ) {
+                    djd();
                 }
                 this.mWeight++;
-                this.lph.put(valueOf, Integer.valueOf(this.mWeight));
+                this.lIS.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void deR() {
+    public void djd() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.lph.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.lIS.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,19 +47,19 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.lph.remove(l2);
+                this.lIS.remove(l2);
             } else {
-                this.lph.clear();
+                this.lIS.clear();
             }
         }
     }
 
-    public boolean MP(String str) {
+    public boolean Nr(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.lph.get(valueOf) != null;
+                z = this.lIS.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -68,18 +68,18 @@ public class d {
         }
     }
 
-    public boolean MQ(String str) {
+    public boolean Ns(String str) {
         try {
-            return this.lph.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.lIS.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void deQ() {
+    public void djc() {
         synchronized (this) {
-            this.lph.clear();
+            this.lIS.clear();
         }
     }
 }

@@ -21,7 +21,7 @@ import javax.microedition.khronos.egl.EGLSurface;
 public final class r {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static int[] aty() {
+    public static int[] auE() {
         int[] iArr = new int[1];
         GLES10.glGetIntegerv(3379, iArr, 0);
         if (iArr[0] != 0) {
@@ -57,11 +57,11 @@ public final class r {
         return Uri.parse(str);
     }
 
-    public static File pG(String str) {
-        return ca(com.baidu.swan.apps.w.f.ahV().ahB().arI(), str);
+    public static File pO(String str) {
+        return cc(com.baidu.swan.apps.w.f.ajb().aiH().asP(), str);
     }
 
-    public static File ca(String str, String str2) {
+    public static File cc(String str, String str2) {
         if (DEBUG) {
             Log.d("ImageUtils", "获取temp路径");
         }

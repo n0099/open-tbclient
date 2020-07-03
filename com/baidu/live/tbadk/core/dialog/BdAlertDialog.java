@@ -19,12 +19,12 @@ import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.core.util.ViewHelper;
-import com.baidu.live.u.a;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public class BdAlertDialog {
@@ -62,6 +62,7 @@ public class BdAlertDialog {
     private boolean mDialogCreated = false;
     private boolean cancelableFlag = true;
     private boolean mCancelable = true;
+    private int messageTextColor = -1;
     private boolean isAutoNight = true;
 
     /* loaded from: classes3.dex */
@@ -305,10 +306,17 @@ public class BdAlertDialog {
                 }
                 textView.setText(this.mTitle);
                 textView2.setText(this.mMessage);
+                if (this.messageTextColor != -1) {
+                    textView2.setTextColor(this.messageTextColor);
+                    return linearLayout;
+                }
                 return linearLayout;
             }
             LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(a.h.sdk_bdalert_one_message_view, (ViewGroup) null);
             TextView textView3 = (TextView) linearLayout2.findViewById(a.g.message_view);
+            if (this.messageTextColor != -1) {
+                textView3.setTextColor(this.messageTextColor);
+            }
             if (z) {
                 textView3.setText(this.mTitle);
                 return linearLayout2;
@@ -320,6 +328,10 @@ public class BdAlertDialog {
             return linearLayout2;
         }
         return null;
+    }
+
+    public void setMessageTextColor(int i) {
+        this.messageTextColor = i;
     }
 
     public void autoChangeSkinType(BdPageContext<?> bdPageContext) {

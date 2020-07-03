@@ -22,6 +22,6 @@ public class SwanAppPreloadJsBridge {
         if (DEBUG) {
             Log.d(TAG, "onJsLoaded");
         }
-        return com.baidu.swan.apps.process.messaging.service.b.anb();
+        return com.baidu.swan.apps.process.messaging.service.b.aoh();
     }
 }

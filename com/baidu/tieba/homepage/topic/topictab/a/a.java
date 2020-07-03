@@ -1,38 +1,27 @@
 package com.baidu.tieba.homepage.topic.topictab.a;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.v;
+import java.util.List;
 /* loaded from: classes9.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topictab.b.a, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topictab.view.a>> {
-    private TbPageContext<?> mPageContext;
+public class a {
+    private List<com.baidu.adp.widget.ListView.a> aUP;
+    private v hfK;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.topic.topictab.b.a.iiv);
-        this.mPageContext = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aG */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topictab.view.a> b(ViewGroup viewGroup) {
-        com.baidu.tieba.homepage.topic.topictab.view.a aVar = new com.baidu.tieba.homepage.topic.topictab.view.a(this.mPageContext);
-        aVar.setTag(this.mPageId);
-        return new com.baidu.tieba.card.a.a<>(aVar);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.topic.topictab.b.a aVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topictab.view.a> aVar2) {
-        if (aVar == null || aVar2 == null || aVar2.bLW() == null) {
-            return null;
+    public void notifyDataSetChanged() {
+        if (this.hfK != null) {
+            this.hfK.getListAdapter().notifyDataSetChanged();
         }
-        aVar2.bLW().a(aVar);
-        aVar2.bLW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return aVar2.getView();
+    }
+
+    public void setData(List<q> list) {
+        this.hfK.setData(list);
+    }
+
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.aUP) {
+            aVar.setPageId(bdUniqueId);
+        }
     }
 }

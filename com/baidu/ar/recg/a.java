@@ -5,42 +5,42 @@ import com.baidu.ar.d;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class a extends d implements IOnDeviceIR {
-    private WeakReference<IOnDeviceIR> kO;
-    private IOnDeviceIRStateChangedListener sb;
+    private WeakReference<IOnDeviceIR> ll;
+    private IOnDeviceIRStateChangedListener sB;
 
     @Override // com.baidu.ar.d
     public void a(c cVar) {
         if (cVar instanceof IOnDeviceIR) {
-            this.kO = new WeakReference<>((IOnDeviceIR) cVar);
-            if (this.sb != null) {
-                ((IOnDeviceIR) cVar).setStateChangedListener(this.sb);
+            this.ll = new WeakReference<>((IOnDeviceIR) cVar);
+            if (this.sB != null) {
+                ((IOnDeviceIR) cVar).setStateChangedListener(this.sB);
             }
         }
     }
 
     @Override // com.baidu.ar.d
     public void release() {
-        if (this.kO != null) {
-            this.kO.clear();
-            this.kO = null;
+        if (this.ll != null) {
+            this.ll.clear();
+            this.ll = null;
         }
-        this.sb = null;
+        this.sB = null;
     }
 
     @Override // com.baidu.ar.recg.IOnDeviceIR
     public void retry() {
-        if (this.kO == null || this.kO.get() == null) {
+        if (this.ll == null || this.ll.get() == null) {
             return;
         }
-        this.kO.get().retry();
+        this.ll.get().retry();
     }
 
     @Override // com.baidu.ar.recg.IOnDeviceIR
     public void setStateChangedListener(IOnDeviceIRStateChangedListener iOnDeviceIRStateChangedListener) {
-        this.sb = iOnDeviceIRStateChangedListener;
-        if (this.sb == null || this.kO == null || this.kO.get() == null) {
+        this.sB = iOnDeviceIRStateChangedListener;
+        if (this.sB == null || this.ll == null || this.ll.get() == null) {
             return;
         }
-        this.kO.get().setStateChangedListener(this.sb);
+        this.ll.get().setStateChangedListener(this.sB);
     }
 }

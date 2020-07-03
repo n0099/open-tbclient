@@ -47,21 +47,21 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
 
     private void a(Context context) {
         l.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.b), Boolean.valueOf(this.c));
-        i qR = i.qR();
-        qR.b();
+        i ri = i.ri();
+        ri.b();
         BDHttpDns L = BDHttpDns.L(context);
         refreshIpReachable();
-        ArrayList<String> b = L.qI().b();
+        ArrayList<String> b = L.qZ().b();
         if (this.b) {
-            L.qI().a();
-            L.qJ().a();
+            L.qZ().a();
+            L.ra().a();
         }
         if (this.c) {
             if (isIPv6Only()) {
                 l.a("Now the network is Ipv6 Only, Will not send prefetch request. ", new Object[0]);
             } else if (b == null || b.isEmpty()) {
             } else {
-                qR.a(b, new k(context));
+                ri.a(b, new k(context));
             }
         }
     }

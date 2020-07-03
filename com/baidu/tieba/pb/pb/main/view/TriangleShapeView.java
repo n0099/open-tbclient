@@ -6,7 +6,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class TriangleShapeView extends View {
@@ -39,7 +39,7 @@ public class TriangleShapeView extends View {
         int width = getWidth();
         int height = getHeight();
         if (width != 0 && height != 0) {
-            cJv();
+            cNM();
             if (this.mPath == null) {
                 this.mPath = new Path();
             }
@@ -51,12 +51,12 @@ public class TriangleShapeView extends View {
         }
     }
 
-    private void cJv() {
+    private void cNM() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(am.getColor(this.mColorId));
+        this.mPaint.setColor(an.getColor(this.mColorId));
     }
 }

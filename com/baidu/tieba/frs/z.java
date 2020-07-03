@@ -1,12 +1,23 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bj;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes9.dex */
-public class z implements com.baidu.adp.widget.ListView.o {
-    public static final BdUniqueId hrd = BdUniqueId.gen();
+public class z extends com.baidu.tieba.card.data.a {
+    private List<com.baidu.tieba.horizonalList.widget.c> mList = new ArrayList();
 
-    @Override // com.baidu.adp.widget.ListView.o
+    public void a(az azVar) {
+        this.mList.add(azVar);
+    }
+
+    public List<com.baidu.tieba.horizonalList.widget.c> getDataList() {
+        return this.mList;
+    }
+
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hrd;
+        return bj.dKs;
     }
 }

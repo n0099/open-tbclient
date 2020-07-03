@@ -7,13 +7,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 /* loaded from: classes.dex */
 public class m<T> implements l.c<T> {
-    protected final k<T> Jl;
+    protected final k<T> JL;
     protected final String nameSpace;
     private boolean strictMode = false;
 
     public m(String str, k<T> kVar) {
         this.nameSpace = str;
-        this.Jl = kVar;
+        this.JL = kVar;
     }
 
     @Override // com.baidu.adp.lib.cache.l
@@ -24,18 +24,18 @@ public class m<T> implements l.c<T> {
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        return this.Jl.get(this.nameSpace, str);
+        return this.JL.get(this.nameSpace, str);
     }
 
     @Override // com.baidu.adp.lib.cache.l
-    public l.b<T> bt(String str) {
+    public l.b<T> bu(String str) {
         if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.isMainThread()) {
             if (this.strictMode) {
                 throw new RuntimeException("access db in main thread!");
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        return this.Jl.r(this.nameSpace, str);
+        return this.JL.r(this.nameSpace, str);
     }
 
     @Override // com.baidu.adp.lib.cache.l
@@ -53,7 +53,7 @@ public class m<T> implements l.c<T> {
         if (currentTimeMillis <= System.currentTimeMillis()) {
             remove(str);
         } else {
-            this.Jl.set(this.nameSpace, str, t, currentTimeMillis);
+            this.JL.set(this.nameSpace, str, t, currentTimeMillis);
         }
     }
 
@@ -70,12 +70,12 @@ public class m<T> implements l.c<T> {
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        this.Jl.remove(this.nameSpace, str);
+        this.JL.remove(this.nameSpace, str);
     }
 
     @Override // com.baidu.adp.lib.cache.l
     public void a(final String str, final l.a<T> aVar) {
-        com.baidu.adp.lib.f.h.le().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.1
+        com.baidu.adp.lib.f.h.lu().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.1
             /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.adp.lib.cache.l$a */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
@@ -87,7 +87,7 @@ public class m<T> implements l.c<T> {
 
     @Override // com.baidu.adp.lib.cache.l
     public void asyncSet(final String str, final T t, final long j) {
-        com.baidu.adp.lib.f.h.le().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.2
+        com.baidu.adp.lib.f.h.lu().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.2
             /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.adp.lib.cache.m */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
@@ -104,7 +104,7 @@ public class m<T> implements l.c<T> {
 
     @Override // com.baidu.adp.lib.cache.l
     public void asyncRemove(final String str) {
-        com.baidu.adp.lib.f.h.le().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.3
+        com.baidu.adp.lib.f.h.lu().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.3
             @Override // java.lang.Runnable
             public void run() {
                 m.this.remove(str);
@@ -118,24 +118,24 @@ public class m<T> implements l.c<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.l.c
-    public k<T> kh() {
-        return this.Jl;
+    public k<T> kx() {
+        return this.JL;
     }
 
     public void onCacheCreated() {
-        this.Jl.startup(this.nameSpace);
+        this.JL.startup(this.nameSpace);
     }
 
     protected void releaseCacheData() {
-        e kc = kh().kc();
-        if (kc instanceof e.b) {
-            ((e.b) kc).release();
+        e ks = kx().ks();
+        if (ks instanceof e.b) {
+            ((e.b) ks).release();
         }
     }
 
     @Override // com.baidu.adp.lib.cache.l.c
     public void clearAndClose() {
-        this.Jl.clearAndClose(this.nameSpace);
+        this.JL.clearAndClose(this.nameSpace);
         releaseCacheData();
     }
 }

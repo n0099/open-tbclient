@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tbadk.util.l;
 import com.baidu.tieba.R;
@@ -21,15 +21,15 @@ import tbclient.PriManagerApplyInfo;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes13.dex */
 public class ItemMsgManage extends LinearLayout {
-    private SettingTextSwitchView iAh;
-    private RelativeLayout iAi;
-    private RelativeLayout iAj;
-    private RelativeLayout iAk;
-    private RelativeLayout iAl;
-    private TextView iAm;
-    private RelativeLayout iAn;
-    private RelativeLayout iAo;
-    private TextView iAp;
+    private SettingTextSwitchView iRm;
+    private RelativeLayout iRn;
+    private RelativeLayout iRo;
+    private RelativeLayout iRp;
+    private RelativeLayout iRq;
+    private TextView iRr;
+    private RelativeLayout iRs;
+    private RelativeLayout iRt;
+    private TextView iRu;
 
     public ItemMsgManage(Context context) {
         super(context);
@@ -44,16 +44,16 @@ public class ItemMsgManage extends LinearLayout {
     public void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.forum_detail_msg_manage, (ViewGroup) this, true);
-        this.iAh = (SettingTextSwitchView) findViewById(R.id.bar_notify);
-        this.iAh.setTextLeftMargin(R.dimen.ds20);
-        this.iAi = (RelativeLayout) findViewById(R.id.bar_info_clean_lay);
-        this.iAj = (RelativeLayout) findViewById(R.id.bar_info_history_lay);
-        this.iAk = (RelativeLayout) findViewById(R.id.bar_info_member_lay);
-        this.iAl = (RelativeLayout) findViewById(R.id.bar_info_manager_lay);
-        this.iAm = (TextView) findViewById(R.id.bar_info_member_status);
-        this.iAn = (RelativeLayout) findViewById(R.id.bar_info_complaint_lay);
-        this.iAo = (RelativeLayout) findViewById(R.id.bar_manager_apply_lay);
-        this.iAp = (TextView) findViewById(R.id.bar_manager_apply_status);
+        this.iRm = (SettingTextSwitchView) findViewById(R.id.bar_notify);
+        this.iRm.setTextLeftMargin(R.dimen.ds20);
+        this.iRn = (RelativeLayout) findViewById(R.id.bar_info_clean_lay);
+        this.iRo = (RelativeLayout) findViewById(R.id.bar_info_history_lay);
+        this.iRp = (RelativeLayout) findViewById(R.id.bar_info_member_lay);
+        this.iRq = (RelativeLayout) findViewById(R.id.bar_info_manager_lay);
+        this.iRr = (TextView) findViewById(R.id.bar_info_member_status);
+        this.iRs = (RelativeLayout) findViewById(R.id.bar_info_complaint_lay);
+        this.iRt = (RelativeLayout) findViewById(R.id.bar_manager_apply_lay);
+        this.iRu = (TextView) findViewById(R.id.bar_manager_apply_status);
         setVisibility(8);
     }
 
@@ -63,21 +63,21 @@ public class ItemMsgManage extends LinearLayout {
         if (!TbadkApplication.isLogin()) {
             setVisibility(8);
         } else {
-            this.iAn.setVisibility(z2 ? 0 : 8);
+            this.iRs.setVisibility(z2 ? 0 : 8);
             if (recommendForumInfo.is_like.intValue() == 0) {
-                this.iAh.setVisibility(8);
-                this.iAi.setVisibility(8);
-                this.iAj.setVisibility(8);
-                this.iAn.setVisibility(8);
+                this.iRm.setVisibility(8);
+                this.iRn.setVisibility(8);
+                this.iRo.setVisibility(8);
+                this.iRs.setVisibility(8);
             }
-            this.iAl.setVisibility(z ? 0 : 8);
+            this.iRq.setVisibility(z ? 0 : 8);
             findViewById(R.id.bar_info_manager_divider).setVisibility(z ? 0 : 8);
             if (managerElectionTab != null) {
                 if (managerElectionTab.is_new_strategy.intValue() == 1) {
-                    this.iAo.setVisibility(0);
-                    this.iAp.setText(managerElectionTab.new_strategy_text);
+                    this.iRt.setVisibility(0);
+                    this.iRu.setText(managerElectionTab.new_strategy_text);
                 } else {
-                    this.iAo.setVisibility(8);
+                    this.iRt.setVisibility(8);
                 }
             }
             setVisibility(0);
@@ -86,26 +86,26 @@ public class ItemMsgManage extends LinearLayout {
             if (priManagerApplyInfo != null) {
                 int intValue = priManagerApplyInfo.assist_apply_status.intValue();
                 int intValue2 = priManagerApplyInfo.assist_left_num.intValue();
-                this.iAm.setVisibility(0);
+                this.iRr.setVisibility(0);
                 if (intValue == -1) {
-                    String format = String.format(getResources().getString(R.string.forum_detail_private_apply_left_num_tip), aq.numberUniformFormat(intValue2));
+                    String format = String.format(getResources().getString(R.string.forum_detail_private_apply_left_num_tip), ar.numberUniformFormat(intValue2));
                     if (intValue2 > 0) {
-                        this.iAm.setText(format);
+                        this.iRr.setText(format);
                     } else {
-                        this.iAm.setVisibility(8);
+                        this.iRr.setVisibility(8);
                     }
                 } else if (intValue == 1) {
-                    this.iAm.setText(getResources().getString(R.string.forum_detail_private_applying));
+                    this.iRr.setText(getResources().getString(R.string.forum_detail_private_applying));
                 } else if (intValue == 2) {
-                    this.iAm.setText(getResources().getString(R.string.forum_detail_private_apply_failed));
+                    this.iRr.setText(getResources().getString(R.string.forum_detail_private_apply_failed));
                 } else {
-                    this.iAm.setVisibility(8);
+                    this.iRr.setVisibility(8);
                 }
             }
         } else {
-            this.iAm.setVisibility(8);
+            this.iRr.setVisibility(8);
         }
-        d.cpA().a(TbadkApplication.getCurrentAccount(), String.valueOf(recommendForumInfo.forum_id), new l<Boolean>() { // from class: com.baidu.tieba.im.forum.detail.ItemMsgManage.1
+        d.ctp().a(TbadkApplication.getCurrentAccount(), String.valueOf(recommendForumInfo.forum_id), new l<Boolean>() { // from class: com.baidu.tieba.im.forum.detail.ItemMsgManage.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.l
             public void onReturnDataInUI(Boolean bool) {
@@ -120,18 +120,18 @@ public class ItemMsgManage extends LinearLayout {
         if (recommendForumInfo != null) {
             int intValue = recommendForumInfo.forum_type.intValue();
             if (intValue == 0) {
-                this.iAh.setVisibility(8);
-                this.iAi.setVisibility(8);
-                this.iAj.setVisibility(8);
+                this.iRm.setVisibility(8);
+                this.iRn.setVisibility(8);
+                this.iRo.setVisibility(8);
             } else if (intValue == 1) {
                 setVisibility(0);
-                this.iAh.setVisibility(0);
-                this.iAi.setVisibility(0);
-                this.iAj.setVisibility(0);
+                this.iRm.setVisibility(0);
+                this.iRn.setVisibility(0);
+                this.iRo.setVisibility(0);
             } else if (intValue == 2) {
-                this.iAj.setVisibility(8);
-                this.iAi.setVisibility(0);
-                this.iAh.setVisibility(0);
+                this.iRo.setVisibility(8);
+                this.iRn.setVisibility(0);
+                this.iRm.setVisibility(0);
                 setVisibility(0);
             }
         }
@@ -148,9 +148,9 @@ public class ItemMsgManage extends LinearLayout {
 
     public void setSwitch(boolean z) {
         if (z) {
-            this.iAh.getSwitchView().turnOnNoCallback();
+            this.iRm.getSwitchView().turnOnNoCallback();
         } else {
-            this.iAh.getSwitchView().turnOffNoCallback();
+            this.iRm.getSwitchView().turnOffNoCallback();
         }
     }
 
@@ -160,21 +160,21 @@ public class ItemMsgManage extends LinearLayout {
     }
 
     public void setMsgOnClickListener(View.OnClickListener onClickListener) {
-        this.iAi.setOnClickListener(onClickListener);
-        this.iAj.setOnClickListener(onClickListener);
-        this.iAk.setOnClickListener(onClickListener);
-        this.iAl.setOnClickListener(onClickListener);
-        this.iAn.setOnClickListener(onClickListener);
-        this.iAo.setOnClickListener(onClickListener);
+        this.iRn.setOnClickListener(onClickListener);
+        this.iRo.setOnClickListener(onClickListener);
+        this.iRp.setOnClickListener(onClickListener);
+        this.iRq.setOnClickListener(onClickListener);
+        this.iRs.setOnClickListener(onClickListener);
+        this.iRt.setOnClickListener(onClickListener);
     }
 
     public void setSwitchChangeListener(BdSwitchView.a aVar) {
-        this.iAh.setSwitchStateChangeListener(aVar);
+        this.iRm.setSwitchStateChangeListener(aVar);
     }
 
     public void a(ForumDetailActivity forumDetailActivity, int i) {
         forumDetailActivity.getLayoutMode().setNightMode(i == 1);
         forumDetailActivity.getLayoutMode().onModeChanged(this);
-        this.iAh.mW(i);
+        this.iRm.nq(i);
     }
 }

@@ -6,6 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaBroadcastGiftToastData extends BaseData {
+    public static final int BROAD_TYPE_CHELLENGE_MVP = 7;
     public static final int BROAD_TYPE_NOBLE_OPEN = 6;
     public static final int BROAD_TYPE_REDPACKET = 3;
     public static final int BROAD_TYPE_TURNTABLE_GIFT = 4;

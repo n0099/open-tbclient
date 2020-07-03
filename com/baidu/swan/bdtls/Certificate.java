@@ -5,7 +5,7 @@ import android.content.Context;
 public class Certificate {
     public static native byte[] signature(Object obj);
 
-    public static byte[] de(Context context) {
+    public static byte[] df(Context context) {
         return signature(context);
     }
 

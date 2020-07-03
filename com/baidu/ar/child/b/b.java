@@ -1,5 +1,6 @@
 package com.baidu.ar.child.b;
 
+import android.support.media.ExifInterface;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
@@ -15,19 +16,57 @@ public class b {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void d(byte[] bArr);
+        void e(byte[] bArr);
     }
 
-    public void a(byte[] bArr, String str, final a aVar) {
-        String fq = q.fq();
+    private void a(a aVar, byte[] bArr) {
+        if (aVar != null) {
+            aVar.e(null);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(JSONObject jSONObject, a aVar) {
+        if (jSONObject.has("err_no")) {
+            if (jSONObject.getInt("err_no") != 0) {
+                a(aVar, (byte[]) null);
+            } else if (jSONObject.has("feature_res")) {
+                byte[] decode = Base64.decode(jSONObject.getString("feature_res"), 0);
+                if (aVar != null) {
+                    aVar.e(decode);
+                }
+                a(aVar, decode);
+            }
+        }
+    }
+
+    private String y(int i) {
+        switch (i) {
+            case -90:
+                return "HR";
+            case 0:
+                return ExifInterface.GPS_MEASUREMENT_INTERRUPTED;
+            case 90:
+                return "HL";
+            case 180:
+                return "FV";
+            default:
+                return ExifInterface.GPS_MEASUREMENT_INTERRUPTED;
+        }
+    }
+
+    public void a(byte[] bArr, int i, final a aVar) {
+        String fG = q.fG();
         HashMap hashMap = new HashMap();
-        hashMap.put("image", Base64.encodeToString(bArr, 0));
+        String encodeToString = Base64.encodeToString(bArr, 0);
+        String y = y(i);
+        hashMap.put("image", encodeToString);
         hashMap.put("svc_name", "child-face");
-        hashMap.put("vid", str);
-        com.baidu.ar.child.b.a.a(fq, hashMap, new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.child.b.b.1
+        hashMap.put("vid", y);
+        com.baidu.ar.child.b.a.a(fG, hashMap, new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.child.b.b.1
             @Override // com.baidu.ar.ihttp.a
             public void a(HttpException httpException) {
-                Log.e("bdar-child", httpException.getMessage());
+                Log.e("ChildRequestController", httpException.getMessage());
             }
 
             @Override // com.baidu.ar.ihttp.a
@@ -38,19 +77,7 @@ public class b {
                         return;
                     }
                     try {
-                        JSONObject jSONObject = new JSONObject(content);
-                        if (jSONObject.has("err_no")) {
-                            if (jSONObject.getInt("err_no") == 0) {
-                                if (jSONObject.has("feature_res")) {
-                                    byte[] decode = Base64.decode(jSONObject.getString("feature_res"), 0);
-                                    if (aVar != null) {
-                                        aVar.d(decode);
-                                    }
-                                }
-                            } else if (aVar != null) {
-                                aVar.d(null);
-                            }
-                        }
+                        b.this.a(new JSONObject(content), aVar);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

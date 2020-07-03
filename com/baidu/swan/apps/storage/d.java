@@ -9,11 +9,11 @@ import org.json.JSONObject;
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean arE() {
-        String agM;
+    public static boolean asL() {
+        String ahS;
         String queryParameter;
-        e aoG = e.aoG();
-        if (aoG == null || (agM = aoG.aoJ().agM()) == null || (queryParameter = Uri.parse(agM).getQueryParameter("params")) == null) {
+        e apN = e.apN();
+        if (apN == null || (ahS = apN.apQ().ahS()) == null || (queryParameter = Uri.parse(ahS).getQueryParameter("params")) == null) {
             return false;
         }
         try {

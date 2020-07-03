@@ -114,14 +114,14 @@ public class CommonEmptyView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.swan.apps.u.a.afm().a(this, new com.baidu.swan.apps.ak.a() { // from class: com.baidu.swan.apps.res.ui.CommonEmptyView.1
+        com.baidu.swan.apps.u.a.ags().a(this, new com.baidu.swan.apps.ak.a() { // from class: com.baidu.swan.apps.res.ui.CommonEmptyView.1
         });
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.swan.apps.u.a.afm().unsubscribeNightModeChangedEvent(this);
+        com.baidu.swan.apps.u.a.ags().unsubscribeNightModeChangedEvent(this);
     }
 
     public void setPageResources() {

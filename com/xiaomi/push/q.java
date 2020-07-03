@@ -8,14 +8,14 @@ public class q implements Runnable {
     final /* synthetic */ p a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f793a;
+    final /* synthetic */ String f799a;
     final /* synthetic */ String b;
     final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar, String str, String str2, String str3) {
         this.a = pVar;
-        this.f793a = str;
+        this.f799a = str;
         this.b = str2;
         this.c = str3;
     }
@@ -23,8 +23,8 @@ public class q implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         Context context;
-        context = this.a.f786a;
-        SharedPreferences.Editor edit = context.getSharedPreferences(this.f793a, 4).edit();
+        context = this.a.f792a;
+        SharedPreferences.Editor edit = context.getSharedPreferences(this.f799a, 4).edit();
         edit.putString(this.b, this.c);
         edit.commit();
     }

@@ -11,7 +11,7 @@ public class d extends HeadRequest.HeadRequestBuilder {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HeadRequest.HeadRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
     public HeadRequest build() {
-        com.baidu.swan.c.b.aFt().a(this.httpUrl.toString(), this);
+        com.baidu.swan.c.b.aGz().a(this.httpUrl.toString(), this);
         return super.build();
     }
 }

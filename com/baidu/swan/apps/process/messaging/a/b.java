@@ -20,31 +20,31 @@ public class b {
             Log.d(TAG, "sendMessageToClient: delegation: " + cls.getName());
         }
         Message obtain = Message.obtain((Handler) null, 301);
-        obtain.replyTo = e.anp().mMessenger;
+        obtain.replyTo = e.aov().mMessenger;
         Bundle bundle2 = new Bundle();
         bundle2.putString("ai_apps_delegation_name", cls.getName());
         if (cVar != null) {
-            bundle2.putString("ai_apps_observer_id", cVar.amw());
-            com.baidu.swan.apps.process.a.b.b.a.amx().a(cVar);
+            bundle2.putString("ai_apps_observer_id", cVar.anC());
+            com.baidu.swan.apps.process.a.b.b.a.anD().a(cVar);
         }
         if (bundle != null) {
             bundle2.putBundle("ai_apps_data", bundle);
         }
         obtain.obj = bundle2;
-        com.baidu.swan.apps.process.messaging.a.amG().a(new com.baidu.swan.apps.process.messaging.c(obtain).a(swanAppProcessInfo));
+        com.baidu.swan.apps.process.messaging.a.anM().a(new com.baidu.swan.apps.process.messaging.c(obtain).a(swanAppProcessInfo));
     }
 
     public static void a(@Nullable Bundle bundle, @NonNull Class<? extends com.baidu.swan.apps.process.a.a.a> cls) {
-        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = e.anp().anr().iterator();
+        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = e.aov().aox().iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.process.messaging.service.c next = it.next();
-            if (next != null && next.ang()) {
-                a(next.cud, bundle, cls, null);
+            if (next != null && next.aom()) {
+                a(next.cyQ, bundle, cls, null);
             }
         }
     }
 
     public static void a(@Nullable Bundle bundle, @NonNull Class<? extends com.baidu.swan.apps.process.a.a.a> cls, @Nullable c cVar) {
-        com.baidu.swan.apps.process.messaging.client.a.amQ().b(bundle, cls, cVar);
+        com.baidu.swan.apps.process.messaging.client.a.anW().b(bundle, cls, cVar);
     }
 }

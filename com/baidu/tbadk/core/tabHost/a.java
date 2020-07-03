@@ -12,19 +12,19 @@ import com.baidu.adp.lib.e.b;
 import com.baidu.adp.lib.e.c;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private final b<com.baidu.adp.widget.ImageView.a> dLn = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
+    private final b<com.baidu.adp.widget.ImageView.a> dSd = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.e.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass1) aVar, str, i);
             if (a.this.mTabHost == null || aVar == null || !aVar.isValidNow()) {
-                a.this.aUc();
+                a.this.aVU();
                 return;
             }
             FragmentTabWidget fragmentTabWidget = a.this.mTabHost.getFragmentTabWidget();
@@ -33,8 +33,8 @@ public class a {
             if (fragmentTabWidget != null && fragmentViewPager != null) {
                 a.this.mTabHost.setNeedShowThemeStyle(false);
                 fragmentTabWidget.setBackGroundDrawableResId(R.color.black_alpha0);
-                am.setBackgroundColor(tabWrapper, R.color.black_alpha0);
-                am.setBackgroundColor(fragmentTabWidget, R.color.black_alpha0);
+                an.setBackgroundColor(tabWrapper, R.color.black_alpha0);
+                an.setBackgroundColor(fragmentTabWidget, R.color.black_alpha0);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
                 layoutParams.bottomMargin = l.getDimens(a.this.mTabHost.getContext(), R.dimen.tbds100);
                 fragmentViewPager.setLayoutParams(layoutParams);
@@ -56,17 +56,17 @@ public class a {
             String str = (String) pair.first;
             String str2 = (String) pair.second;
             if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
-                wa(str2);
+                wq(str2);
             } else if (!TextUtils.isEmpty(str)) {
-                wa(str);
+                wq(str);
             } else {
-                aUc();
+                aVU();
             }
         }
     }
 
-    private void wa(String str) {
-        c.kX().a(str, 10, this.dLn, getBdUniqueId());
+    private void wq(String str) {
+        c.ln().a(str, 10, this.dSd, getBdUniqueId());
     }
 
     private BdUniqueId getBdUniqueId() {
@@ -78,11 +78,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aUc() {
+    public void aVU() {
         if (this.mTabHost != null && this.mTabHost.getFragmentTabWidget() != null) {
             this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.mBackgroundColorResId);
-            am.setBackgroundColor(this.mTabHost.getFragmentTabWidget(), this.mBackgroundColorResId);
-            am.setBackgroundColor(this.mTabHost.getTabWrapper(), this.mBackgroundColorResId);
+            an.setBackgroundColor(this.mTabHost.getFragmentTabWidget(), this.mBackgroundColorResId);
+            an.setBackgroundColor(this.mTabHost.getTabWrapper(), this.mBackgroundColorResId);
         }
     }
 }

@@ -15,11 +15,11 @@ import com.baidu.swan.apps.runtime.i;
 import com.baidu.swan.facade.a;
 /* loaded from: classes11.dex */
 public class LoadingActivity extends Activity implements com.baidu.swan.apps.aq.e.b<i.a> {
-    private static int cPt = 0;
-    private TextView cMw;
-    private LoadingProgressBar cPq;
-    private TextView cPr;
-    private LinearLayout cPs;
+    private static int cUd = 0;
+    private TextView cRg;
+    private LoadingProgressBar cUa;
+    private TextView cUb;
+    private LinearLayout cUc;
     private RelativeLayout mRootView;
 
     @Override // android.app.Activity
@@ -30,15 +30,15 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.aq.
         setContentView(a.d.activity_loading);
         initViews();
         registerListener();
-        hZ(cPt);
-        avN();
+        ik(cUd);
+        awT();
     }
 
-    private void avN() {
+    private void awT() {
         int safeGetIntExtra;
         Intent intent = getIntent();
         if (intent != null && (safeGetIntExtra = s.safeGetIntExtra(intent, "current", 0)) == 100) {
-            hZ(safeGetIntExtra);
+            ik(safeGetIntExtra);
             aj.c(new Runnable() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -50,11 +50,11 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.aq.
 
     private void initViews() {
         this.mRootView = (RelativeLayout) findViewById(a.c.rl_root);
-        this.cPs = (LinearLayout) findViewById(a.c.ll_container);
-        this.cPq = (LoadingProgressBar) findViewById(a.c.pb_loading_progressbar);
-        this.cMw = (TextView) findViewById(a.c.tv_progress);
-        this.cPr = (TextView) findViewById(a.c.tv_hide);
-        this.cPr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.2
+        this.cUc = (LinearLayout) findViewById(a.c.ll_container);
+        this.cUa = (LoadingProgressBar) findViewById(a.c.pb_loading_progressbar);
+        this.cRg = (TextView) findViewById(a.c.tv_progress);
+        this.cUb = (TextView) findViewById(a.c.tv_hide);
+        this.cUb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LoadingActivity.this.finish();
@@ -62,10 +62,10 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.aq.
         });
     }
 
-    void hZ(int i) {
-        if (this.cPq != null && this.cMw != null && i > 0) {
-            this.cPq.setProgress(i);
-            this.cMw.setText(String.valueOf(i));
+    void ik(int i) {
+        if (this.cUa != null && this.cRg != null && i > 0) {
+            this.cUa.setProgress(i);
+            this.cRg.setText(String.valueOf(i));
         }
     }
 
@@ -76,11 +76,11 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.aq.
     }
 
     private void registerListener() {
-        d.aoB().n(this);
+        d.apI().n(this);
     }
 
     private void unregisterListener() {
-        d.aoB().o(this);
+        d.apI().o(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -97,8 +97,8 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.aq.
                 @Override // java.lang.Runnable
                 public void run() {
                     int i = (int) ((j / j2) * 100.0d);
-                    int unused = LoadingActivity.cPt = i;
-                    LoadingActivity.this.hZ(i);
+                    int unused = LoadingActivity.cUd = i;
+                    LoadingActivity.this.ik(i);
                 }
             });
         }

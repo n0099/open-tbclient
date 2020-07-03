@@ -3,64 +3,64 @@ package com.baidu.tieba.personPolymeric;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bu;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 /* loaded from: classes11.dex */
 public class a {
     public static void a(View view, AbsThreadDataSupport absThreadDataSupport, int i) {
-        if (view != null && absThreadDataSupport != null && absThreadDataSupport.aOi() != null && !StringUtils.isNull(absThreadDataSupport.aOi().getTid())) {
-            an anVar = new an("c13564");
-            anVar.ag("obj_source", 3);
-            bk aOi = absThreadDataSupport.aOi();
-            if (aOi.aPm()) {
-                anVar.ag("obj_type", 1);
-            } else if (aOi.aPn()) {
-                anVar.ag("obj_type", 2);
-            } else if (aOi.aSv()) {
-                anVar.ag("obj_type", 3);
-            } else if (aOi.aSw()) {
-                anVar.ag("obj_type", 4);
-            } else if (aOi.threadType == 0) {
-                anVar.ag("obj_type", 5);
-            } else if (aOi.aPk()) {
-                anVar.ag("obj_type", 6);
+        if (view != null && absThreadDataSupport != null && absThreadDataSupport.aPS() != null && !StringUtils.isNull(absThreadDataSupport.aPS().getTid())) {
+            ao aoVar = new ao("c13564");
+            aoVar.ag("obj_source", 3);
+            bu aPS = absThreadDataSupport.aPS();
+            if (aPS.aQX()) {
+                aoVar.ag("obj_type", 1);
+            } else if (aPS.aQY()) {
+                aoVar.ag("obj_type", 2);
+            } else if (aPS.aUl()) {
+                aoVar.ag("obj_type", 3);
+            } else if (aPS.aUm()) {
+                aoVar.ag("obj_type", 4);
+            } else if (aPS.threadType == 0) {
+                aoVar.ag("obj_type", 5);
+            } else if (aPS.aQV()) {
+                aoVar.ag("obj_type", 6);
             }
-            if (absThreadDataSupport.aOi().aQx() != null) {
-                anVar.dh("uid", absThreadDataSupport.aOi().aQx().getUserId());
+            if (absThreadDataSupport.aPS().aSp() != null) {
+                aoVar.dk("uid", absThreadDataSupport.aPS().aSp().getUserId());
             }
-            if (aOi.getBaijiahaoData() != null) {
-                anVar.dh("obj_id", aOi.getBaijiahaoData().oriUgcNid);
+            if (aPS.getBaijiahaoData() != null) {
+                aoVar.dk("obj_id", aPS.getBaijiahaoData().oriUgcNid);
             } else {
-                anVar.dh("obj_id", aOi.getTid());
+                aoVar.dk("obj_id", aPS.getTid());
             }
-            anVar.ag("obj_locate", i);
-            TiebaStatic.log(anVar);
+            aoVar.ag("obj_locate", i);
+            TiebaStatic.log(aoVar);
         }
     }
 
     public static void h(AbsThreadDataSupport absThreadDataSupport) {
-        an anVar = new an("c13578");
-        bk aOi = absThreadDataSupport.aOi();
-        if (aOi.aPm()) {
-            anVar.ag("obj_type", 1);
-        } else if (aOi.aPn()) {
-            anVar.ag("obj_type", 2);
-        } else if (aOi.aSv()) {
-            anVar.ag("obj_type", 3);
-        } else if (aOi.aSw()) {
-            anVar.ag("obj_type", 4);
-        } else if (aOi.threadType == 0) {
-            anVar.ag("obj_type", 5);
-        } else if (aOi.aPk()) {
-            anVar.ag("obj_type", 6);
+        ao aoVar = new ao("c13578");
+        bu aPS = absThreadDataSupport.aPS();
+        if (aPS.aQX()) {
+            aoVar.ag("obj_type", 1);
+        } else if (aPS.aQY()) {
+            aoVar.ag("obj_type", 2);
+        } else if (aPS.aUl()) {
+            aoVar.ag("obj_type", 3);
+        } else if (aPS.aUm()) {
+            aoVar.ag("obj_type", 4);
+        } else if (aPS.threadType == 0) {
+            aoVar.ag("obj_type", 5);
+        } else if (aPS.aQV()) {
+            aoVar.ag("obj_type", 6);
         }
-        if (aOi.getBaijiahaoData() != null) {
-            anVar.dh("obj_id", aOi.getBaijiahaoData().oriUgcNid);
+        if (aPS.getBaijiahaoData() != null) {
+            aoVar.dk("obj_id", aPS.getBaijiahaoData().oriUgcNid);
         } else {
-            anVar.dh("obj_id", aOi.getTid());
+            aoVar.dk("obj_id", aPS.getTid());
         }
-        anVar.dh("uid", aOi.aQx().getUserId());
-        TiebaStatic.log(anVar);
+        aoVar.dk("uid", aPS.aSp().getUserId());
+        TiebaStatic.log(aoVar);
     }
 }

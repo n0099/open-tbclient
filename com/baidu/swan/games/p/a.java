@@ -26,32 +26,32 @@ import java.io.File;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.swan.apps.w.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cZT;
-    private com.baidu.swan.games.inspector.b cZU = new com.baidu.swan.games.inspector.b();
-    private com.baidu.swan.games.q.a cZV = new com.baidu.swan.games.q.a();
-    private Runnable ciq;
+    private Runnable cne;
+    private String deI;
+    private com.baidu.swan.games.inspector.b deJ = new com.baidu.swan.games.inspector.b();
+    private com.baidu.swan.games.q.a deK = new com.baidu.swan.games.q.a();
 
     @Override // com.baidu.swan.apps.w.b, com.baidu.swan.apps.w.d
-    public void SQ() {
-        super.SQ();
-        if (this.cil != null && this.cil.QJ() != null) {
-            b.a QJ = this.cil.QJ();
+    public void TW() {
+        super.TW();
+        if (this.cmZ != null && this.cmZ.RP() != null) {
+            b.a RP = this.cmZ.RP();
             f fVar = new f();
-            fVar.mFrom = h.gU(1);
-            fVar.mAppId = QJ.getAppId();
-            fVar.mSource = QJ.agK();
+            fVar.mFrom = h.hf(1);
+            fVar.mAppId = RP.getAppId();
+            fVar.mSource = RP.ahQ();
             fVar.mType = "show";
-            fVar.oG(QJ.agQ().getString("ubc"));
-            fVar.bu(h.ox(QJ.agM()));
+            fVar.oO(RP.ahW().getString("ubc"));
+            fVar.bB(h.oF(RP.ahS()));
             h.onEvent(fVar);
         }
-        com.baidu.swan.apps.media.b.ef(true);
+        com.baidu.swan.apps.media.b.ek(true);
     }
 
     @Override // com.baidu.swan.apps.w.b, com.baidu.swan.apps.w.d
-    public void SR() {
-        super.SR();
-        com.baidu.swan.apps.media.b.ef(false);
+    public void TX() {
+        super.TX();
+        com.baidu.swan.apps.media.b.ek(false);
     }
 
     @Override // com.baidu.swan.apps.w.b, com.baidu.swan.apps.w.d
@@ -62,30 +62,30 @@ public class a extends com.baidu.swan.apps.w.b {
     }
 
     @Override // com.baidu.swan.apps.w.b, com.baidu.swan.apps.w.d
-    public SwanCoreVersion ahx() {
-        return com.baidu.swan.games.j.a.aAd().abG();
+    public SwanCoreVersion aiD() {
+        return com.baidu.swan.games.j.a.aBj().acM();
     }
 
     @Override // com.baidu.swan.apps.w.b, com.baidu.swan.apps.w.d
-    public com.baidu.swan.apps.adaptation.b.a ahy() {
-        if (this.cii == null) {
-            this.cii = com.baidu.swan.apps.core.turbo.d.abl().abm().bh(AppRuntime.getAppContext());
-            i.dr(true);
+    public com.baidu.swan.apps.adaptation.b.a aiE() {
+        if (this.cmW == null) {
+            this.cmW = com.baidu.swan.apps.core.turbo.d.acr().acs().bi(AppRuntime.getAppContext());
+            i.dw(true);
         }
-        this.cii.r((ViewGroup) this.cil.findViewById(16908290));
-        return this.cii;
+        this.cmW.t((ViewGroup) this.cmZ.findViewById(16908290));
+        return this.cmW;
     }
 
     @Override // com.baidu.swan.apps.w.b, com.baidu.swan.apps.w.d
-    public String ahC() {
-        return TextUtils.isEmpty(this.cZT) ? "" : this.cZT;
+    public String aiI() {
+        return TextUtils.isEmpty(this.deI) ? "" : this.deI;
     }
 
     @Override // com.baidu.swan.apps.w.b, com.baidu.swan.apps.w.d
     public FullScreenFloatView I(Activity activity) {
         super.I(activity);
-        this.bUL.setAutoAttachEnable(false);
-        return this.bUL;
+        this.bZz.setAutoAttachEnable(false);
+        return this.bZz;
     }
 
     @Override // com.baidu.swan.apps.w.b, com.baidu.swan.apps.w.d
@@ -94,84 +94,84 @@ public class a extends com.baidu.swan.apps.w.b {
         if (activity == null) {
             return null;
         }
-        if (this.bUO == null && (viewGroup = (ViewGroup) activity.findViewById(a.f.ai_apps_activity_root)) != null) {
-            this.bUO = new SwanAppPropertyWindow(activity);
-            this.bUO.setVisibility(8);
-            viewGroup.addView(this.bUO);
+        if (this.bZC == null && (viewGroup = (ViewGroup) activity.findViewById(a.f.ai_apps_activity_root)) != null) {
+            this.bZC = new SwanAppPropertyWindow(activity);
+            this.bZC.setVisibility(8);
+            viewGroup.addView(this.bZC);
         }
-        return this.bUO;
+        return this.bZC;
     }
 
     @Override // com.baidu.swan.apps.w.b, com.baidu.swan.apps.w.d
     public void a(final com.baidu.swan.apps.v.b.b bVar, final com.baidu.swan.apps.r.b bVar2) {
         super.a(bVar, bVar2);
         if (DEBUG) {
-            Log.d("GamesControllerImpl", "asyncLoadSwanApp swanCoreVersion: " + bVar.abG());
+            Log.d("GamesControllerImpl", "asyncLoadSwanApp swanCoreVersion: " + bVar.acM());
         }
         com.baidu.swan.games.l.a.c(bVar, new com.baidu.swan.apps.r.b() { // from class: com.baidu.swan.games.p.a.1
             @Override // com.baidu.swan.apps.r.b
             public void a(final int i, final com.baidu.swan.apps.r.a aVar) {
-                aj.o(a.this.ciq);
-                a.this.ciq = new Runnable() { // from class: com.baidu.swan.games.p.a.1.1
+                aj.o(a.this.cne);
+                a.this.cne = new Runnable() { // from class: com.baidu.swan.games.p.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (!a.this.caM) {
+                        if (!a.this.cfB) {
                             a.b bVar3 = (a.b) aVar;
                             if (i == 0 && bVar3 != null && bVar2 != null) {
-                                if (bVar.agW()) {
-                                    if (com.baidu.swan.games.c.d.azc().azn()) {
-                                        a.this.I(a.this.cil).setVisibility(0);
-                                        a.this.ahy().ac(a.this.bUL);
-                                        com.baidu.swan.apps.console.a.dp(true);
+                                if (bVar.aic()) {
+                                    if (com.baidu.swan.games.c.d.aAi().aAt()) {
+                                        a.this.I(a.this.cmZ).setVisibility(0);
+                                        a.this.aiE().ac(a.this.bZz);
+                                        com.baidu.swan.apps.console.a.du(true);
                                         com.baidu.swan.apps.console.c.d("GamesControllerImpl", "init sConsole for devHook");
                                     } else {
-                                        com.baidu.swan.apps.console.b.dq(false);
-                                        bVar.ea(false);
+                                        com.baidu.swan.apps.console.b.dv(false);
+                                        bVar.ef(false);
                                     }
                                 }
-                                a.this.cZU.a(bVar3, a.this.cil);
-                                a.this.cZT = bVar3.appBundlePath;
+                                a.this.deJ.a(bVar3, a.this.cmZ);
+                                a.this.deI = bVar3.appBundlePath;
                                 bVar2.a(0, bVar3);
-                                a.this.b(bVar3.cZy);
-                                com.baidu.swan.games.y.a.aBW().c(bVar3.cZy);
+                                a.this.b(bVar3.dem);
+                                com.baidu.swan.games.y.a.aDc().c(bVar3.dem);
                             }
                         }
                     }
                 };
-                aj.n(a.this.ciq);
+                aj.n(a.this.cne);
             }
         });
-        com.baidu.swan.games.j.a.aAd().e(bVar);
-        com.baidu.swan.games.j.a.aAd().f(bVar);
+        com.baidu.swan.games.j.a.aBj().e(bVar);
+        com.baidu.swan.games.j.a.aBj().f(bVar);
         if (DEBUG) {
             Log.d("GamesControllerImpl", "SwanGameCoreRuntime preloadCoreRuntime by asyncLoadSwanApp");
         }
-        com.baidu.swan.games.j.a.aAd().p(null);
+        com.baidu.swan.games.j.a.aBj().p(null);
     }
 
     @Override // com.baidu.swan.apps.w.b, com.baidu.swan.apps.w.d
     @NonNull
-    public Pair<Integer, Integer> ahH() {
-        return ahI();
+    public Pair<Integer, Integer> aiN() {
+        return aiO();
     }
 
     @Override // com.baidu.swan.apps.w.b
     @NonNull
-    public Pair<Integer, Integer> YD() {
-        return ahH();
+    public Pair<Integer, Integer> ZJ() {
+        return aiN();
     }
 
     @Override // com.baidu.swan.apps.w.b, com.baidu.swan.apps.w.d
     @NonNull
-    public Pair<Integer, Integer> ahI() {
+    public Pair<Integer, Integer> aiO() {
         int i;
         int i2;
         View decorView;
         boolean z = false;
-        if (this.cil == null) {
-            return super.ahI();
+        if (this.cmZ == null) {
+            return super.aiO();
         }
-        Window window = this.cil.getWindow();
+        Window window = this.cmZ.getWindow();
         if (window == null || (decorView = window.getDecorView()) == null) {
             i = 0;
             i2 = 0;
@@ -179,7 +179,7 @@ public class a extends com.baidu.swan.apps.w.b {
             i2 = decorView.getWidth();
             i = decorView.getHeight();
         }
-        Display defaultDisplay = this.cil.getWindowManager().getDefaultDisplay();
+        Display defaultDisplay = this.cmZ.getWindowManager().getDefaultDisplay();
         if (i2 == 0 || i == 0) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             defaultDisplay.getRealMetrics(displayMetrics);
@@ -189,7 +189,7 @@ public class a extends com.baidu.swan.apps.w.b {
         if (defaultDisplay.getRotation() == 1 || defaultDisplay.getRotation() == 3) {
             z = true;
         }
-        if (this.cil.isLandScape() == z) {
+        if (this.cmZ.isLandScape() == z) {
             int i3 = i;
             i = i2;
             i2 = i3;
@@ -202,20 +202,20 @@ public class a extends com.baidu.swan.apps.w.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.swan.games.t.a.a aVar) {
-        this.cij = aVar;
-        com.baidu.swan.apps.runtime.e Zc = Zc();
-        if (Zc != null) {
-            Zc.a(aVar);
+        this.cmX = aVar;
+        com.baidu.swan.apps.runtime.e aai = aai();
+        if (aai != null) {
+            aai.a(aVar);
         }
     }
 
     @Override // com.baidu.swan.apps.w.b, com.baidu.swan.apps.w.d
-    public com.baidu.swan.games.q.a ahJ() {
-        return this.cZV;
+    public com.baidu.swan.games.q.a aiP() {
+        return this.deK;
     }
 
     @Override // com.baidu.swan.apps.w.d
-    public boolean ahL() {
-        return this.cin;
+    public boolean aiR() {
+        return this.cnb;
     }
 }

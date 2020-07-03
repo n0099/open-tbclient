@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
@@ -44,9 +44,9 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(1));
-            GroupSettingItemData et = b.cpy().et(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (et != null) {
-                buildNormalItem.setGroupSetting(et);
+            GroupSettingItemData ez = b.ctn().ez(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (ez != null) {
+                buildNormalItem.setGroupSetting(ez);
             }
             if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(TbadkCoreApplication.getCurrentAccountNameShow())) {
                 if (TextUtils.isEmpty(buildNormalItem.getMsgContent())) {
@@ -65,9 +65,9 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
             if ((!TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) || !TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) && imMessageCenterPojo.getIsFriend() != 0 && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
                 buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
                 buildNormalItem.setOwnerName(String.valueOf(4));
-                PersonalSettingItemData et = e.cpB().et(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-                if (et != null) {
-                    buildNormalItem.setGroupSetting(et);
+                PersonalSettingItemData ez = e.ctq().ez(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                if (ez != null) {
+                    buildNormalItem.setGroupSetting(ez);
                 }
                 insertShowData(buildNormalItem, this.mList);
             }
@@ -79,7 +79,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (buildNormalItem != null) {
             buildNormalItem.setOwnerName(String.valueOf(8));
             if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(TbadkCoreApplication.getCurrentAccountNameShow()) && !StringUtils.isNull(buildNormalItem.getMsgContent())) {
-                buildNormalItem.setMsgContent(imMessageCenterPojo.getLast_user_name() + ":" + buildNormalItem.getMsgContent());
+                buildNormalItem.setMsgContent(buildNormalItem.getMsgContent());
             }
             insertShowData(buildNormalItem, this.mList);
         }
@@ -170,14 +170,14 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
     }
 
     private boolean u(ImMessageCenterPojo imMessageCenterPojo) {
-        HashMap<Integer, HashSet> aZK = com.baidu.tbadk.coreExtra.messageCenter.b.aZm().aZK();
-        if (aZK != null && aZK.size() > 0) {
-            HashSet hashSet = aZK.get(0);
-            HashSet hashSet2 = aZK.get(1);
-            if (hashSet != null && !aq.isEmpty(imMessageCenterPojo.getGid()) && hashSet.contains(imMessageCenterPojo.getGid())) {
+        HashMap<Integer, HashSet> bbM = com.baidu.tbadk.coreExtra.messageCenter.b.bbo().bbM();
+        if (bbM != null && bbM.size() > 0) {
+            HashSet hashSet = bbM.get(0);
+            HashSet hashSet2 = bbM.get(1);
+            if (hashSet != null && !ar.isEmpty(imMessageCenterPojo.getGid()) && hashSet.contains(imMessageCenterPojo.getGid())) {
                 return false;
             }
-            if (hashSet2 != null && !aq.isEmpty(imMessageCenterPojo.getGid()) && hashSet2.contains(imMessageCenterPojo.getGid())) {
+            if (hashSet2 != null && !ar.isEmpty(imMessageCenterPojo.getGid()) && hashSet2.contains(imMessageCenterPojo.getGid())) {
                 return false;
             }
         }

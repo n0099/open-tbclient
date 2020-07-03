@@ -17,15 +17,15 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
     public static final ProtoAdapter<MovieEntity> ADAPTER = new ProtoAdapter_MovieEntity();
     public static final String DEFAULT_VERSION = "";
     private static final long serialVersionUID = 0;
-    @WireField(dID = "com.opensource.svgaplayer.proto.AudioEntity#ADAPTER", dIE = WireField.Label.REPEATED, tag = 5)
+    @WireField(dNj = "com.opensource.svgaplayer.proto.AudioEntity#ADAPTER", dNk = WireField.Label.REPEATED, tag = 5)
     public final List<AudioEntity> audios;
-    @WireField(dIC = "com.squareup.wire.ProtoAdapter#STRING", dID = "com.squareup.wire.ProtoAdapter#BYTES", tag = 3)
+    @WireField(dNi = "com.squareup.wire.ProtoAdapter#STRING", dNj = "com.squareup.wire.ProtoAdapter#BYTES", tag = 3)
     public final Map<String, ByteString> images;
-    @WireField(dID = "com.opensource.svgaplayer.proto.MovieParams#ADAPTER", tag = 2)
+    @WireField(dNj = "com.opensource.svgaplayer.proto.MovieParams#ADAPTER", tag = 2)
     public final MovieParams params;
-    @WireField(dID = "com.opensource.svgaplayer.proto.SpriteEntity#ADAPTER", dIE = WireField.Label.REPEATED, tag = 4)
+    @WireField(dNj = "com.opensource.svgaplayer.proto.SpriteEntity#ADAPTER", dNk = WireField.Label.REPEATED, tag = 4)
     public final List<SpriteEntity> sprites;
-    @WireField(dID = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
+    @WireField(dNj = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String version;
 
     public MovieEntity(String str, MovieParams movieParams, Map<String, ByteString> map, List<SpriteEntity> list, List<AudioEntity> list2) {
@@ -102,9 +102,9 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
     public static final class Builder extends Message.a<MovieEntity, Builder> {
         public MovieParams params;
         public String version;
-        public Map<String, ByteString> images = a.dIH();
-        public List<SpriteEntity> sprites = a.dIG();
-        public List<AudioEntity> audios = a.dIG();
+        public Map<String, ByteString> images = a.dNn();
+        public List<SpriteEntity> sprites = a.dNm();
+        public List<AudioEntity> audios = a.dNm();
 
         public Builder version(String str) {
             this.version = str;
@@ -117,19 +117,19 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         }
 
         public Builder images(Map<String, ByteString> map) {
-            a.C(map);
+            a.D(map);
             this.images = map;
             return this;
         }
 
         public Builder sprites(List<SpriteEntity> list) {
-            a.fn(list);
+            a.fz(list);
             this.sprites = list;
             return this;
         }
 
         public Builder audios(List<AudioEntity> list) {
-            a.fn(list);
+            a.fz(list);
             this.audios = list;
             return this;
         }
@@ -177,11 +177,11 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public MovieEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dIv = cVar.dIv();
+            long dNb = cVar.dNb();
             while (true) {
-                int dIw = cVar.dIw();
-                if (dIw != -1) {
-                    switch (dIw) {
+                int dNc = cVar.dNc();
+                if (dNc != -1) {
+                    switch (dNc) {
                         case 1:
                             builder.version(ProtoAdapter.STRING.decode(cVar));
                             break;
@@ -198,12 +198,12 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
                             builder.audios.add(AudioEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dIx = cVar.dIx();
-                            builder.addUnknownField(dIw, dIx, dIx.rawProtoAdapter().decode(cVar));
+                            FieldEncoding dNd = cVar.dNd();
+                            builder.addUnknownField(dNc, dNd, dNd.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.gc(dIv);
+                    cVar.gh(dNb);
                     return builder.build();
                 }
             }

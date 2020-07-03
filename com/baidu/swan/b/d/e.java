@@ -1,15 +1,15 @@
 package com.baidu.swan.b.d;
 /* loaded from: classes7.dex */
 public class e {
-    private static volatile d cTi;
+    private static volatile d cXS;
 
-    public static synchronized d axg() {
+    public static synchronized d aym() {
         d dVar;
         synchronized (e.class) {
-            if (cTi == null) {
-                cTi = new d();
+            if (cXS == null) {
+                cXS = new d();
             }
-            dVar = cTi;
+            dVar = cXS;
         }
         return dVar;
     }

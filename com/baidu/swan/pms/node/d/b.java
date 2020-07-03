@@ -11,17 +11,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    private static volatile b dnm;
+    private static volatile b drY;
 
-    public static b aHm() {
-        if (dnm == null) {
+    public static b aIs() {
+        if (drY == null) {
             synchronized (b.class) {
-                if (dnm == null) {
-                    dnm = new b();
+                if (drY == null) {
+                    drY = new b();
                 }
             }
         }
-        return dnm;
+        return drY;
     }
 
     public void b(JSONArray jSONArray, g gVar, g gVar2) {
@@ -63,7 +63,7 @@ public class b {
                                     com.baidu.swan.pms.model.d dVar = (com.baidu.swan.pms.model.d) com.baidu.swan.pms.f.d.a(jSONObject2, new com.baidu.swan.pms.model.d());
                                     if (dVar != null) {
                                         a(dVar, eVar);
-                                        aVar.dnl = dVar;
+                                        aVar.drX = dVar;
                                         break;
                                     } else {
                                         continue;
@@ -72,7 +72,7 @@ public class b {
                                     com.baidu.swan.pms.model.d dVar2 = (com.baidu.swan.pms.model.d) com.baidu.swan.pms.f.d.a(jSONObject2, new com.baidu.swan.pms.model.d());
                                     if (dVar2 != null) {
                                         a(dVar2, eVar2);
-                                        aVar2.dnk = dVar2;
+                                        aVar2.drW = dVar2;
                                         break;
                                     } else {
                                         continue;
@@ -81,7 +81,7 @@ public class b {
                                     com.baidu.swan.pms.model.b bVar = (com.baidu.swan.pms.model.b) com.baidu.swan.pms.f.d.a(jSONObject2, new com.baidu.swan.pms.model.b());
                                     if (bVar != null) {
                                         a(bVar, eVar);
-                                        aVar.dmz = bVar;
+                                        aVar.drk = bVar;
                                         break;
                                     } else {
                                         continue;
@@ -95,16 +95,16 @@ public class b {
                 }
             }
             if (gVar != null) {
-                if (eVar.aHn() == 0) {
-                    gVar.ZL();
+                if (eVar.aIt() == 0) {
+                    gVar.aaR();
                 } else {
                     gVar.a(eVar);
                     com.baidu.swan.pms.c.a.a.a(aVar, gVar);
                 }
             }
             if (gVar2 != null) {
-                if (eVar2.aHn() == 0) {
-                    gVar2.ZL();
+                if (eVar2.aIt() == 0) {
+                    gVar2.aaR();
                     return;
                 }
                 gVar2.a(eVar2);

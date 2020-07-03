@@ -9,86 +9,86 @@ public class gz implements ap.b.a {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private fs f416a;
+    private fs f422a;
 
     /* renamed from: a  reason: collision with other field name */
-    private XMPushService f417a;
+    private XMPushService f423a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ap.b f418a;
+    private ap.b f424a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f420a = false;
+    private boolean f426a = false;
 
     /* renamed from: a  reason: collision with other field name */
-    private ap.c f419a = ap.c.binding;
+    private ap.c f425a = ap.c.binding;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gz(XMPushService xMPushService, ap.b bVar) {
-        this.f417a = xMPushService;
-        this.f418a = bVar;
+        this.f423a = xMPushService;
+        this.f424a = bVar;
     }
 
     private void b() {
-        this.f418a.b(this);
+        this.f424a.b(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         b();
-        if (this.f420a && this.a != 11) {
-            fi m333a = he.m331a().m333a();
-            switch (hb.a[this.f419a.ordinal()]) {
+        if (this.f426a && this.a != 11) {
+            fi m330a = he.m328a().m330a();
+            switch (hb.a[this.f425a.ordinal()]) {
                 case 1:
                     if (this.a != 17) {
                         if (this.a != 21) {
                             try {
                                 hc.a c = hc.c(he.a().a());
-                                m333a.f323a = c.a.a();
-                                m333a.c(c.f421a);
+                                m330a.f329a = c.a.a();
+                                m330a.c(c.f427a);
                                 break;
                             } catch (NullPointerException e) {
-                                m333a = null;
+                                m330a = null;
                                 break;
                             }
                         } else {
-                            m333a.f323a = fh.BIND_TIMEOUT.a();
+                            m330a.f329a = fh.BIND_TIMEOUT.a();
                             break;
                         }
                     } else {
-                        m333a.f323a = fh.BIND_TCP_READ_TIMEOUT.a();
+                        m330a.f329a = fh.BIND_TCP_READ_TIMEOUT.a();
                         break;
                     }
                 case 3:
-                    m333a.f323a = fh.BIND_SUCCESS.a();
+                    m330a.f329a = fh.BIND_SUCCESS.a();
                     break;
             }
-            if (m333a != null) {
-                m333a.b(this.f416a.m291a());
-                m333a.d(this.f418a.f861b);
-                m333a.f326b = 1;
+            if (m330a != null) {
+                m330a.b(this.f422a.m288a());
+                m330a.d(this.f424a.f867b);
+                m330a.f332b = 1;
                 try {
-                    m333a.a((byte) Integer.parseInt(this.f418a.g));
+                    m330a.a((byte) Integer.parseInt(this.f424a.g));
                 } catch (NumberFormatException e2) {
                 }
-                he.m331a().a(m333a);
+                he.m328a().a(m330a);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.f418a.a(this);
-        this.f416a = this.f417a.m516a();
+        this.f424a.a(this);
+        this.f422a = this.f423a.m513a();
     }
 
     @Override // com.xiaomi.push.service.ap.b.a
     public void a(ap.c cVar, ap.c cVar2, int i) {
-        if (!this.f420a && cVar == ap.c.binding) {
-            this.f419a = cVar2;
+        if (!this.f426a && cVar == ap.c.binding) {
+            this.f425a = cVar2;
             this.a = i;
-            this.f420a = true;
+            this.f426a = true;
         }
-        this.f417a.a(new ha(this, 4));
+        this.f423a.a(new ha(this, 4));
     }
 }

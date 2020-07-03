@@ -12,16 +12,16 @@ import com.baidu.ala.view.card.AlaCardBottomUserInfoLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.horizonalList.widget.AbsHListView;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private List<bk> data;
+    private List<bu> data;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext) {
@@ -30,7 +30,7 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.isEmpty(this.data)) {
+        if (w.isEmpty(this.data)) {
             return 0;
         }
         return this.data.size();
@@ -38,8 +38,8 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: qz */
-    public bk getItem(int i) {
+    /* renamed from: qY */
+    public bu getItem(int i) {
         if (this.data != null && i >= 0 && i <= this.data.size()) {
             return this.data.get(i);
         }
@@ -54,20 +54,20 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        AlaInfoData aQS;
+        AlaInfoData aSJ;
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.ala_card_live_item, (ViewGroup) null);
             a aVar2 = new a(view);
-            aVar2.fGd.setIsRound(true);
-            aVar2.fGd.setDrawBorder(false);
-            aVar2.fGd.setAutoChangeStyle(true);
-            aVar2.fGd.setGifIconSupport(false);
+            aVar2.fRm.setIsRound(true);
+            aVar2.fRm.setDrawBorder(false);
+            aVar2.fRm.setAutoChangeStyle(true);
+            aVar2.fRm.setGifIconSupport(false);
             int equipmentWidth = (l.getEquipmentWidth(this.mPageContext.getPageActivity()) - this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds100)) / 3;
             int i2 = (equipmentWidth * 16) / 9;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.fGf.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.fRo.getLayoutParams();
             layoutParams.height = equipmentWidth;
             layoutParams.width = i2;
-            aVar2.fGf.setLayoutParams(layoutParams);
+            aVar2.fRo.setLayoutParams(layoutParams);
             AbsHListView.LayoutParams layoutParams2 = new AbsHListView.LayoutParams(-1, -1);
             layoutParams2.width = i2;
             view.setLayoutParams(layoutParams2);
@@ -76,39 +76,39 @@ public class b extends BaseAdapter {
         } else {
             aVar = (a) view.getTag();
         }
-        bk item = getItem(i);
-        if (item != null && (aQS = item.aQS()) != null) {
-            aVar.fGd.startLoad(aQS.cover, 10, false);
-            aVar.fGe.setData(item);
-            aVar.fGe.setUserHeadImgVisible(8);
-            aVar.fGg.setText(item.getTitle());
-            aVar.fGe.onChangeSkinType(this.mPageContext);
-            am.setViewTextColor(aVar.fGg, R.color.cp_cont_b, TbadkCoreApplication.getInst().getSkinType());
-            am.setBackgroundResource(view, R.drawable.addresslist_item_bg);
+        bu item = getItem(i);
+        if (item != null && (aSJ = item.aSJ()) != null) {
+            aVar.fRm.startLoad(aSJ.cover, 10, false);
+            aVar.fRn.setData(item);
+            aVar.fRn.setUserHeadImgVisible(8);
+            aVar.fRp.setText(item.getTitle());
+            aVar.fRn.onChangeSkinType(this.mPageContext);
+            an.setViewTextColor(aVar.fRp, R.color.cp_cont_b, TbadkCoreApplication.getInst().getSkinType());
+            an.setBackgroundResource(view, R.drawable.addresslist_item_bg);
             return view;
         }
         return null;
     }
 
-    public void setData(List<bk> list) {
+    public void setData(List<bu> list) {
         this.data = list;
         notifyDataSetChanged();
     }
 
     /* loaded from: classes3.dex */
     public static class a {
-        public TbImageView fGd;
-        public AlaCardBottomUserInfoLayout fGe;
-        public RelativeLayout fGf;
-        public TextView fGg;
+        public TbImageView fRm;
+        public AlaCardBottomUserInfoLayout fRn;
+        public RelativeLayout fRo;
+        public TextView fRp;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.fGd = (TbImageView) view.findViewById(R.id.img_thumbnail);
-            this.fGe = (AlaCardBottomUserInfoLayout) view.findViewById(R.id.ala_card_bottom_user_info_layout);
-            this.fGf = (RelativeLayout) view.findViewById(R.id.ala_card_live_top);
-            this.fGg = (TextView) view.findViewById(R.id.ala_card_live_title);
+            this.fRm = (TbImageView) view.findViewById(R.id.img_thumbnail);
+            this.fRn = (AlaCardBottomUserInfoLayout) view.findViewById(R.id.ala_card_bottom_user_info_layout);
+            this.fRo = (RelativeLayout) view.findViewById(R.id.ala_card_live_top);
+            this.fRp = (TextView) view.findViewById(R.id.ala_card_live_title);
         }
     }
 }

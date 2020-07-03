@@ -538,8 +538,8 @@ public final class Utility {
         return readStringData(context, Constants.KEY_PUSH_APP_ID + AccountManager.getUid(context), null);
     }
 
-    public static boolean updateBindPushCUIDStatus(Context context, int i) {
-        return context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putInt(Constants.KEY_PUSH_BIND_STATUS, i).commit();
+    public static void updateBindPushCUIDStatus(Context context, int i) {
+        context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putInt(Constants.KEY_PUSH_BIND_STATUS, i).apply();
     }
 
     public static int getBindPushCUIDStatus(Context context) {

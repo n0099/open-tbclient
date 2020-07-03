@@ -13,34 +13,34 @@ import java.io.File;
 /* loaded from: classes3.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a cv;
-    private Handler cy;
-    private SparseArray<com.baidu.ar.mdl.a> ct = new SparseArray<>();
-    private SparseArray<Integer> cu = new SparseArray<>();
-    private boolean cw = false;
-    e cA = new e();
-    private Handler cx = new Handler(Looper.getMainLooper());
-    private HandlerThread cz = new HandlerThread("callBackThread");
+    private static a cI;
+    private Handler cL;
+    private SparseArray<com.baidu.ar.mdl.a> cG = new SparseArray<>();
+    private SparseArray<Integer> cH = new SparseArray<>();
+    private boolean cJ = false;
+    e cN = new e();
+    private Handler cK = new Handler(Looper.getMainLooper());
+    private HandlerThread cM = new HandlerThread("callBackThread");
 
     private a() {
-        this.cz.start();
-        this.cy = new Handler(this.cz.getLooper());
+        this.cM.start();
+        this.cL = new Handler(this.cM.getLooper());
     }
 
-    public static synchronized a ac() {
+    public static synchronized a aq() {
         a aVar;
         synchronized (a.class) {
-            if (cv == null) {
-                cv = new a();
-                cv.cA.start();
+            if (cI == null) {
+                cI = new a();
+                cI.cN.start();
             }
-            aVar = cv;
+            aVar = cI;
         }
         return aVar;
     }
 
     private void b(Context context) {
-        if (this.cw) {
+        if (this.cJ) {
             return;
         }
         if (context == null) {
@@ -54,7 +54,7 @@ public class a {
             }
             ARMdlInterfaceJNI.setAssetManager(context.getAssets());
             ARMdlInterfaceJNI.setCacheDir(file.getAbsolutePath());
-            this.cw = true;
+            this.cJ = true;
         } catch (Exception e) {
             b.b(TAG, "setup error");
             e.printStackTrace();
@@ -62,47 +62,47 @@ public class a {
     }
 
     public void a(Context context, SparseArray<com.baidu.ar.mdl.a> sparseArray) {
-        this.ct = sparseArray;
+        this.cG = sparseArray;
         b(context);
     }
 
     public void a(Runnable runnable) {
-        this.cx.post(runnable);
-    }
-
-    public boolean a(int i) {
-        return this.cA.h(i);
+        this.cK.post(runnable);
     }
 
     public boolean a(d dVar) {
-        if (this.cw) {
-            return this.cA.b(dVar);
+        if (this.cJ) {
+            return this.cN.b(dVar);
         }
         b.b(TAG, "please setup(Context context) first!");
         return false;
     }
 
     public void b(Runnable runnable) {
-        this.cy.post(runnable);
+        this.cL.post(runnable);
     }
 
     public boolean b(int i) {
-        return this.cA.b(i);
+        return this.cN.i(i);
     }
 
-    public synchronized boolean c(int i) {
-        return this.cu.get(i) != null;
+    public boolean c(int i) {
+        return this.cN.c(i);
     }
 
-    public synchronized void d(int i) {
-        this.cu.put(i, Integer.valueOf(i));
+    public synchronized boolean d(int i) {
+        return this.cH.get(i) != null;
     }
 
     public synchronized void e(int i) {
-        this.cu.remove(i);
+        this.cH.put(i, Integer.valueOf(i));
     }
 
-    public com.baidu.ar.mdl.a f(int i) {
-        return this.ct.get(i);
+    public synchronized void f(int i) {
+        this.cH.remove(i);
+    }
+
+    public com.baidu.ar.mdl.a g(int i) {
+        return this.cG.get(i);
     }
 }

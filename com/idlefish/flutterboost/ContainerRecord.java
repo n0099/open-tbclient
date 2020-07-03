@@ -53,7 +53,7 @@ public class ContainerRecord implements IContainerRecord {
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
-    public void onAppear() {
+    public void onAppear(boolean z) {
         Utils.assertCallOnMainThread();
         if (this.mState != 1 && this.mState != 3) {
             Debuger.exception("state error");
@@ -69,18 +69,22 @@ public class ContainerRecord implements IContainerRecord {
                 this.mManager.pushShowRecord(this);
             }
         }
-        this.mProxy.appear();
+        if (z) {
+            this.mProxy.appear();
+        }
         this.mContainer.getBoostFlutterView().onAttach();
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
-    public void onDisappear() {
+    public void onDisappear(boolean z) {
         Utils.assertCallOnMainThread();
         if (this.mState != 2) {
             Debuger.exception("state error");
         }
         this.mState = 3;
-        this.mProxy.disappear();
+        if (z) {
+            this.mProxy.disappear();
+        }
         if (getContainer().getContextActivity().isFinishing()) {
             this.mProxy.destroy();
         }

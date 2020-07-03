@@ -24,20 +24,20 @@ public class e implements com.baidu.swan.c.a {
     }
 
     @Override // com.baidu.swan.c.a
-    public CookieManager aga() {
-        return com.baidu.swan.apps.u.a.afo().SM();
+    public CookieManager ahg() {
+        return com.baidu.swan.apps.u.a.agu().TS();
     }
 
     @Override // com.baidu.swan.c.a
     public String getUserAgent() {
-        return SwanAppNetworkUtils.akB();
+        return SwanAppNetworkUtils.alH();
     }
 
     @Override // com.baidu.swan.c.a
     public int getConnectionTimeout() {
-        b.a agg = agg();
-        if (agg != null) {
-            return agg.cAo;
+        b.a ahm = ahm();
+        if (ahm != null) {
+            return ahm.cEY;
         }
         return -1;
     }
@@ -48,16 +48,16 @@ public class e implements com.baidu.swan.c.a {
     }
 
     @Override // com.baidu.swan.c.a
-    public int agf() {
+    public int ahl() {
         return 60000;
     }
 
     @Override // com.baidu.swan.c.a
     public void a(String str, HttpRequestBuilder httpRequestBuilder) {
-        if (com.baidu.swan.apps.h.c.iK(str)) {
-            httpRequestBuilder.setHeader("x-u-id", com.baidu.swan.uuid.b.dy(AppRuntime.getAppContext()).getUUID());
+        if (com.baidu.swan.apps.h.c.iS(str)) {
+            httpRequestBuilder.setHeader("x-u-id", com.baidu.swan.uuid.b.dz(AppRuntime.getAppContext()).getUUID());
             try {
-                httpRequestBuilder.setHeader("x-c2-id", com.baidu.swan.apps.u.a.aeW().bc(AppRuntime.getAppContext()));
+                httpRequestBuilder.setHeader("x-c2-id", com.baidu.swan.apps.u.a.agc().bd(AppRuntime.getAppContext()));
             } catch (IllegalArgumentException e) {
             }
         }
@@ -70,23 +70,23 @@ public class e implements com.baidu.swan.c.a {
         return arrayList;
     }
 
-    private b.a agg() {
-        com.baidu.swan.apps.runtime.e aoG = com.baidu.swan.apps.runtime.e.aoG();
-        if (aoG == null) {
+    private b.a ahm() {
+        com.baidu.swan.apps.runtime.e apN = com.baidu.swan.apps.runtime.e.apN();
+        if (apN == null) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 Log.e("SwanNetworkImpl", "swanapp is null");
                 return null;
             }
             return null;
         }
-        SwanAppConfigData aoO = aoG.aoO();
-        if (aoO == null || aoO.cAy == null) {
+        SwanAppConfigData apV = apN.apV();
+        if (apV == null || apV.cFi == null) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 Log.e("SwanNetworkImpl", "config or mNetworkConfig is null");
                 return null;
             }
             return null;
         }
-        return aoO.cAy;
+        return apV.cFi;
     }
 }

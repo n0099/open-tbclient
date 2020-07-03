@@ -18,40 +18,40 @@ public class c extends h {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
         inflate.findViewById(a.f.ai_apps_title_bar_root).setVisibility(8);
-        this.bWj = Tb();
-        this.bWj.a(Tx());
-        this.bHi = this.bWj.Th();
-        this.bWj.loadUrl(this.mUrl);
-        this.bWj.a((FrameLayout) inflate.findViewById(a.f.aiapps_webView_container), this.bHi.covertToView());
+        this.caX = Uh();
+        this.caX.a(UD());
+        this.bLW = this.caX.Un();
+        this.caX.loadUrl(this.mUrl);
+        this.caX.a((FrameLayout) inflate.findViewById(a.f.aiapps_webView_container), this.bLW.covertToView());
         return enableSliding(immersionEnabled() ? initImmersion(inflate) : inflate, this);
     }
 
     @Override // com.baidu.swan.apps.core.d.h
-    public com.baidu.swan.apps.adaptation.b.f Tb() {
-        return com.baidu.swan.apps.core.turbo.d.abl().abm().bi(getContext());
+    public com.baidu.swan.apps.adaptation.b.f Uh() {
+        return com.baidu.swan.apps.core.turbo.d.acr().acs().bj(getContext());
     }
 
     @Override // com.baidu.swan.apps.core.d.h
-    protected com.baidu.swan.apps.core.f.d Tx() {
+    protected com.baidu.swan.apps.core.f.d UD() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.ac.c.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public boolean fS(String str) {
+            public boolean ga(String str) {
                 if (str != null && str.startsWith("https://etrade.baidu.com/cashier/create-qrcode/close")) {
                     Map<String, String> stringToMap = ah.stringToMap(ah.getParams(str));
                     if (stringToMap != null && stringToMap.get("statusCode") != null) {
                         try {
-                            e.akZ().onPayResult(Integer.valueOf(stringToMap.get("statusCode")).intValue(), URLDecoder.decode(stringToMap.get("result"), "UTF-8"));
+                            e.amf().onPayResult(Integer.valueOf(stringToMap.get("statusCode")).intValue(), URLDecoder.decode(stringToMap.get("result"), "UTF-8"));
                         } catch (UnsupportedEncodingException e) {
                             e.printStackTrace();
-                            e.akZ().onPayResult(Integer.valueOf(stringToMap.get("statusCode")).intValue(), null);
+                            e.amf().onPayResult(Integer.valueOf(stringToMap.get("statusCode")).intValue(), null);
                         }
                     } else {
-                        e.akZ().onPayResult(6, null);
+                        e.amf().onPayResult(6, null);
                     }
-                    h.Zg();
+                    h.aam();
                     return true;
                 }
-                return super.fS(str);
+                return super.ga(str);
             }
         };
     }

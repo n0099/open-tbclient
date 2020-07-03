@@ -12,15 +12,15 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.u.a;
+import com.baidu.live.sdk.a;
 /* loaded from: classes3.dex */
 public class GuardClubRankTabView extends LinearLayout {
-    private a fBG;
+    private a fMP;
     private MotionEvent mMotionEvent;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bX(int i);
+        void cd(int i);
     }
 
     public GuardClubRankTabView(Context context, @Nullable AttributeSet attributeSet) {
@@ -29,18 +29,18 @@ public class GuardClubRankTabView extends LinearLayout {
     }
 
     public void setCallback(a aVar) {
-        this.fBG = aVar;
+        this.fMP = aVar;
     }
 
     public void setSelect(int i) {
         View childAt;
         if (i >= 0 && i < getChildCount() && (childAt = getChildAt(i)) != null && !childAt.isSelected()) {
             for (int i2 = 0; i2 < getChildCount(); i2++) {
-                bx(getChildAt(i2));
+                bA(getChildAt(i2));
             }
-            bw(childAt);
-            if (this.fBG != null) {
-                this.fBG.bX(i);
+            bz(childAt);
+            if (this.fMP != null) {
+                this.fMP.cd(i);
             }
         }
     }
@@ -75,11 +75,11 @@ public class GuardClubRankTabView extends LinearLayout {
 
     private void init() {
         setClickable(true);
-        Bx();
+        BX();
         setOrientation(0);
     }
 
-    private void Bx() {
+    private void BX() {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(0);
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds28));
@@ -105,14 +105,14 @@ public class GuardClubRankTabView extends LinearLayout {
         return textView;
     }
 
-    private void bw(View view) {
+    private void bz(View view) {
         view.setSelected(true);
         if (view instanceof TextView) {
             ((TextView) view).setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize28));
         }
     }
 
-    private void bx(View view) {
+    private void bA(View view) {
         view.setSelected(false);
         if (view instanceof TextView) {
             ((TextView) view).setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize24));

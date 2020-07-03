@@ -13,20 +13,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0571a gdP;
-    private HttpMessageListener gdQ;
+    private InterfaceC0580a gqJ;
+    private HttpMessageListener gqK;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.recommend.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0571a {
-        void g(List<IAdapterData> list, int i);
+    public interface InterfaceC0580a {
+        void h(List<IAdapterData> list, int i);
 
         void onFail(int i, String str);
     }
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gdQ = new HttpMessageListener(1021193) { // from class: com.baidu.tieba.ala.liveroom.recommend.model.a.1
+        this.gqK = new HttpMessageListener(1021193) { // from class: com.baidu.tieba.ala.liveroom.recommend.model.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -36,34 +36,34 @@ public class a extends BdBaseModel {
                     int error = httpResponsedMessage.getError();
                     AlaRecommendLiveResponseMessage alaRecommendLiveResponseMessage = (AlaRecommendLiveResponseMessage) httpResponsedMessage;
                     if (statusCode != 200 || error != 0) {
-                        if (a.this.gdP != null) {
-                            a.this.gdP.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        if (a.this.gqJ != null) {
+                            a.this.gqJ.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                             return;
                         }
                         return;
                     }
                     ArrayList arrayList = new ArrayList();
-                    if (alaRecommendLiveResponseMessage.gdS != null && !ListUtils.isEmpty(alaRecommendLiveResponseMessage.gdS.list)) {
+                    if (alaRecommendLiveResponseMessage.gqM != null && !ListUtils.isEmpty(alaRecommendLiveResponseMessage.gqM.list)) {
                         b bVar = new b(0);
-                        bVar.count = alaRecommendLiveResponseMessage.gdS.total_count;
+                        bVar.count = alaRecommendLiveResponseMessage.gqM.total_count;
                         arrayList.add(bVar);
-                        i = ListUtils.getCount(alaRecommendLiveResponseMessage.gdS.list);
-                        arrayList.addAll(alaRecommendLiveResponseMessage.gdS.list);
+                        i = ListUtils.getCount(alaRecommendLiveResponseMessage.gqM.list);
+                        arrayList.addAll(alaRecommendLiveResponseMessage.gqM.list);
                     }
-                    if (alaRecommendLiveResponseMessage.gdT != null && !ListUtils.isEmpty(alaRecommendLiveResponseMessage.gdT.list)) {
+                    if (alaRecommendLiveResponseMessage.gqN != null && !ListUtils.isEmpty(alaRecommendLiveResponseMessage.gqN.list)) {
                         arrayList.add(new b(1));
-                        arrayList.addAll(alaRecommendLiveResponseMessage.gdT.list);
+                        arrayList.addAll(alaRecommendLiveResponseMessage.gqN.list);
                     }
-                    if (a.this.gdP != null) {
-                        a.this.gdP.g(arrayList, i);
+                    if (a.this.gqJ != null) {
+                        a.this.gqJ.h(arrayList, i);
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.gdQ);
+        MessageManager.getInstance().registerListener(this.gqK);
     }
 
-    public void dH(long j) {
+    public void dK(long j) {
         HttpMessage httpMessage = new HttpMessage(1021193);
         httpMessage.setTag(getUniqueId());
         httpMessage.addParam("live_id", j);
@@ -82,12 +82,12 @@ public class a extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gdQ);
+        MessageManager.getInstance().unRegisterListener(this.gqK);
         cancelMessage();
-        this.gdP = null;
+        this.gqJ = null;
     }
 
-    public void a(InterfaceC0571a interfaceC0571a) {
-        this.gdP = interfaceC0571a;
+    public void a(InterfaceC0580a interfaceC0580a) {
+        this.gqJ = interfaceC0580a;
     }
 }

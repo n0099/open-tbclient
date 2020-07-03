@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 class a {
-    private static ArrayList<a> baR = new ArrayList<>(5);
-    public int baV;
-    public int baW;
-    int baX;
+    private static ArrayList<a> bga = new ArrayList<>(5);
+    public int bge;
+    public int bgf;
+    int bgg;
     public int type;
 
     private void resetState() {
-        this.baV = 0;
-        this.baW = 0;
-        this.baX = 0;
+        this.bge = 0;
+        this.bgf = 0;
+        this.bgg = 0;
         this.type = 0;
     }
 
@@ -21,30 +21,30 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long GL() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.baV, this.baW) : ExpandableListView.getPackedPositionForGroup(this.baV);
+    public long HY() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.bge, this.bgf) : ExpandableListView.getPackedPositionForGroup(this.bge);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a cV(int i) {
+    public static a df(int i) {
         return g(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a g(int i, int i2, int i3, int i4) {
-        a GM = GM();
-        GM.type = i;
-        GM.baV = i2;
-        GM.baW = i3;
-        GM.baX = i4;
-        return GM;
+        a HZ = HZ();
+        HZ.type = i;
+        HZ.bge = i2;
+        HZ.bgf = i3;
+        HZ.bgg = i4;
+        return HZ;
     }
 
-    private static a GM() {
+    private static a HZ() {
         a aVar;
-        synchronized (baR) {
-            if (baR.size() > 0) {
-                aVar = baR.remove(0);
+        synchronized (bga) {
+            if (bga.size() > 0) {
+                aVar = bga.remove(0);
                 aVar.resetState();
             } else {
                 aVar = new a();
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (baR) {
-            if (baR.size() < 5) {
-                baR.add(this);
+        synchronized (bga) {
+            if (bga.size() < 5) {
+                bga.add(this);
             }
         }
     }

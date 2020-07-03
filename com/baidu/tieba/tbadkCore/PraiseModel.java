@@ -11,14 +11,14 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class PraiseModel extends BdBaseModel {
     public static final int LIKE = 1;
     public static final int UN_LIKE = 0;
-    private static final String eQQ = TbConfig.SERVER_ADDRESS + TbConfig.COMMON_PRAISE_URL;
-    private static TbHttpMessageTask task = new TbHttpMessageTask(1001600, eQQ);
-    private final HttpMessageListener eQR;
-    private a lkV;
+    private static final String fbb = TbConfig.SERVER_ADDRESS + TbConfig.COMMON_PRAISE_URL;
+    private static TbHttpMessageTask task = new TbHttpMessageTask(1001600, fbb);
+    private final HttpMessageListener fbc;
+    private a lEP;
 
     /* loaded from: classes8.dex */
     public interface a {
-        void An(String str);
+        void AG(String str);
 
         void onLoadFailed(int i, String str);
     }
@@ -30,36 +30,36 @@ public class PraiseModel extends BdBaseModel {
 
     public PraiseModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.lkV = null;
-        this.eQR = new HttpMessageListener(1001600) { // from class: com.baidu.tieba.tbadkCore.PraiseModel.1
+        this.lEP = null;
+        this.fbc = new HttpMessageListener(1001600) { // from class: com.baidu.tieba.tbadkCore.PraiseModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                        if (PraiseModel.this.lkV != null) {
-                            PraiseModel.this.lkV.onLoadFailed(statusCode, null);
+                        if (PraiseModel.this.lEP != null) {
+                            PraiseModel.this.lEP.onLoadFailed(statusCode, null);
                             return;
                         }
                         return;
                     }
                     PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
                     if (praiseResponseMessage.getError() == 0) {
-                        PraiseModel.this.lkV.An(praiseResponseMessage.getErrMsg());
-                    } else if (PraiseModel.this.lkV != null) {
-                        PraiseModel.this.lkV.onLoadFailed(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                        PraiseModel.this.lEP.AG(praiseResponseMessage.getErrMsg());
+                    } else if (PraiseModel.this.lEP != null) {
+                        PraiseModel.this.lEP.onLoadFailed(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                     }
                 }
             }
         };
-        this.lkV = aVar;
+        this.lEP = aVar;
     }
 
     public void registerListener() {
-        this.eQR.setSelfListener(true);
-        this.eQR.setTag(getUniqueId());
-        registerListener(this.eQR);
+        this.fbc.setSelfListener(true);
+        this.fbc.setTag(getUniqueId());
+        registerListener(this.fbc);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

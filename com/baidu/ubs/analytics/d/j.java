@@ -4,55 +4,55 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes8.dex */
 public final class j {
-    private static int mjK = 1000;
-    private static boolean mjL = true;
+    private static int mFG = 1000;
+    private static boolean mFH = true;
 
     public static void c(boolean z) {
-        mjL = z;
+        mFH = z;
     }
 
     public static void I(String str) {
-        if (mjL) {
+        if (mFH) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (mjL) {
+        if (mFH) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (mjL) {
+        if (mFH) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (mjL) {
+        if (mFH) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= mjK) {
+            if (str2.length() >= mFG) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, mjK));
+                        Log.v(str, str2.substring(0, mFG));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, mjK));
+                        Log.d(str, str2.substring(0, mFG));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, mjK));
+                        Log.i(str, str2.substring(0, mFG));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, mjK));
+                        Log.w(str, str2.substring(0, mFG));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, mjK));
+                        Log.e(str, str2.substring(0, mFG));
                         break;
                 }
             } else {

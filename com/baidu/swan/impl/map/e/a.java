@@ -22,23 +22,23 @@ import java.util.List;
 /* loaded from: classes12.dex */
 public class a extends c {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final int diq = Color.argb((int) Opcodes.GETSTATIC, 0, 78, 255);
-    private boolean bQD;
-    private DrivingRouteLine dip;
+    private static final int dnb = Color.argb((int) Opcodes.GETSTATIC, 0, 78, 255);
+    private boolean bVr;
+    private DrivingRouteLine dna;
 
     public a(BaiduMap baiduMap) {
         super(baiduMap);
-        this.dip = null;
-        this.bQD = false;
+        this.dna = null;
+        this.bVr = false;
     }
 
     @Override // com.baidu.swan.impl.map.e.c
-    public final List<OverlayOptions> aED() {
-        if (this.dip == null) {
+    public final List<OverlayOptions> aFJ() {
+        if (this.dna == null) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        List<DrivingRouteLine.DrivingStep> allStep = this.dip.getAllStep();
+        List<DrivingRouteLine.DrivingStep> allStep = this.dna.getAllStep();
         if (allStep != null && allStep.size() > 0) {
             for (DrivingRouteLine.DrivingStep drivingStep : allStep) {
                 Bundle bundle = new Bundle();
@@ -72,7 +72,7 @@ public class a extends c {
                 }
             }
             boolean z = arrayList3 != null && arrayList3.size() > 0;
-            PolylineOptions zIndex = new PolylineOptions().points(arrayList2).textureIndex(arrayList3).width(14).dottedLine(z).focus(true).color(aEE() != 0 ? aEE() : diq).zIndex(0);
+            PolylineOptions zIndex = new PolylineOptions().points(arrayList2).textureIndex(arrayList3).width(14).dottedLine(z).focus(true).color(aFK() != 0 ? aFK() : dnb).zIndex(0);
             if (z) {
                 zIndex.customTextureList(getCustomTextureList());
             }
@@ -82,10 +82,10 @@ public class a extends c {
     }
 
     public void a(DrivingRouteLine drivingRouteLine) {
-        this.dip = drivingRouteLine;
+        this.dna = drivingRouteLine;
     }
 
-    public int aEE() {
+    public int aFK() {
         return 0;
     }
 
@@ -99,8 +99,8 @@ public class a extends c {
         return arrayList;
     }
 
-    public boolean iL(int i) {
-        if (this.dip.getAllStep() != null && this.dip.getAllStep().get(i) != null && DEBUG) {
+    public boolean iW(int i) {
+        if (this.dna.getAllStep() != null && this.dna.getAllStep().get(i) != null && DEBUG) {
             Log.i("baidumapsdk", "DrivingRouteOverlay onRouteNodeClick");
             return false;
         }
@@ -109,9 +109,9 @@ public class a extends c {
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener
     public final boolean onMarkerClick(Marker marker) {
-        for (Overlay overlay : this.div) {
+        for (Overlay overlay : this.dne) {
             if ((overlay instanceof Marker) && overlay.equals(marker) && marker.getExtraInfo() != null) {
-                iL(marker.getExtraInfo().getInt("index"));
+                iW(marker.getExtraInfo().getInt("index"));
             }
         }
         return true;
@@ -120,7 +120,7 @@ public class a extends c {
     @Override // com.baidu.mapapi.map.BaiduMap.OnPolylineClickListener
     public boolean onPolylineClick(Polyline polyline) {
         boolean z;
-        Iterator<Overlay> it = this.div.iterator();
+        Iterator<Overlay> it = this.dne.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -137,8 +137,8 @@ public class a extends c {
     }
 
     public void setFocus(boolean z) {
-        this.bQD = z;
-        for (Overlay overlay : this.div) {
+        this.bVr = z;
+        for (Overlay overlay : this.dne) {
             if (overlay instanceof Polyline) {
                 ((Polyline) overlay).setFocus(z);
                 return;

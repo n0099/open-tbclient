@@ -24,6 +24,7 @@ public class AlbumActivityConfig extends IntentConfig {
     public static final String FROM_PERSON = "person";
     public static final int FROM_PHOTO_LIVE_COVER = 1;
     public static final int FROM_PHOTO_LIVE_UPGRADE_DIALOG = 3;
+    public static final String FROM_TOPIC = "topic";
     public static final int FROM_TOPIC_DETAIL_REPLAY = 4;
     public static final int FROM_VOTE = 3;
     public static final int FROM_WEB_VIEW = 5;
@@ -91,6 +92,18 @@ public class AlbumActivityConfig extends IntentConfig {
     public void setAlbumThread(int i) {
         if (getIntent() != null) {
             getIntent().putExtra("album_thread", i);
+        }
+    }
+
+    public void setCanSelectVideo(boolean z) {
+        if (getIntent() != null) {
+            getIntent().putExtra(IntentConfig.KEY_CAN_SELECT_VIDEO, z);
+        }
+    }
+
+    public void setCanEditImage(boolean z) {
+        if (getIntent() != null) {
+            getIntent().putExtra(IntentConfig.KEY_CAN_EDIT_IMAGE, z);
         }
     }
 

@@ -23,16 +23,16 @@ import com.baidu.tieba.imMessageCenter.RequestQueryUserInfoMessage;
 import protobuf.QueryUserInfos.DataRes;
 /* loaded from: classes9.dex */
 public class f {
-    private com.baidu.tbadk.coreExtra.model.a dNL;
+    private com.baidu.tbadk.coreExtra.model.a dUB;
     private DataRes data;
-    private final BlackListModel iNf;
-    private PersonalTalkSettingActivity iNg;
-    private a iNh;
+    private final BlackListModel jeh;
+    private PersonalTalkSettingActivity jei;
+    private a jej;
     private boolean isAttention = false;
-    private boolean iNd = false;
-    private boolean iNe = false;
+    private boolean jef = false;
+    private boolean jeg = false;
     private BdUniqueId tag = BdUniqueId.gen();
-    private com.baidu.adp.framework.listener.c isB = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.3
+    private com.baidu.adp.framework.listener.c iJH = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -40,9 +40,9 @@ public class f {
                 switch (socketResponsedMessage.getCmd()) {
                     case CmdConfigSocket.CMD_UPDATE_MASK_INFO /* 104102 */:
                         if (socketResponsedMessage instanceof ResponsedMessage) {
-                            f.this.iNg.closeLoadingDialog();
+                            f.this.jei.closeLoadingDialog();
                             if (socketResponsedMessage.getError() != 0) {
-                                f.this.iNg.showToast(socketResponsedMessage.getErrorString());
+                                f.this.jei.showToast(socketResponsedMessage.getErrorString());
                             }
                         }
                         if (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) {
@@ -50,9 +50,9 @@ public class f {
                             if (responseUpdateMaskInfoMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) {
                                 RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) responseUpdateMaskInfoMessage.getOrginalMessage();
                                 if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
-                                    f.this.iNd = requestUpdateMaskInfoMessage.getIsMask() == 1;
-                                    if (f.this.iNh != null) {
-                                        f.this.iNh.updateUI();
+                                    f.this.jef = requestUpdateMaskInfoMessage.getIsMask() == 1;
+                                    if (f.this.jej != null) {
+                                        f.this.jej.updateUI();
                                         return;
                                     }
                                     return;
@@ -64,18 +64,18 @@ public class f {
                         return;
                     case CmdConfigSocket.CMD_QUERY_USER_INFO /* 205003 */:
                         if ((socketResponsedMessage instanceof ResponsedMessage) && socketResponsedMessage.getError() != 0) {
-                            f.this.iNg.hideProgressBar();
-                            f.this.iNg.showToast(socketResponsedMessage.getErrorString());
+                            f.this.jei.hideProgressBar();
+                            f.this.jei.showToast(socketResponsedMessage.getErrorString());
                             return;
                         } else if (socketResponsedMessage instanceof ResponseQueryUserInfoMessage) {
                             ResponseQueryUserInfoMessage responseQueryUserInfoMessage = (ResponseQueryUserInfoMessage) socketResponsedMessage;
                             if (responseQueryUserInfoMessage.getResData() != null) {
                                 f.this.data = responseQueryUserInfoMessage.getResData();
                                 f.this.isAttention = f.this.data.hasConcerned.intValue() == 1;
-                                f.this.iNd = f.this.data.isBlacklist.intValue() == 1;
-                                f.this.iNg.hideProgressBar();
-                                if (f.this.iNh != null) {
-                                    f.this.iNh.updateUI();
+                                f.this.jef = f.this.data.isBlacklist.intValue() == 1;
+                                f.this.jei.hideProgressBar();
+                                if (f.this.jej != null) {
+                                    f.this.jej.updateUI();
                                     return;
                                 }
                                 return;
@@ -97,22 +97,22 @@ public class f {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (!updateAttentionMessage.isSucc()) {
-                    if (f.this.iNg != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
-                        f.this.iNg.showToast(updateAttentionMessage.getErrorString());
+                    if (f.this.jei != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
+                        f.this.jei.showToast(updateAttentionMessage.getErrorString());
                         return;
                     }
                     return;
                 }
                 f.this.isAttention = updateAttentionMessage.isAttention();
-                if (f.this.iNg != null) {
+                if (f.this.jei != null) {
                     if (f.this.isAttention) {
-                        f.this.iNg.showToast(R.string.add_success);
+                        f.this.jei.showToast(R.string.add_success);
                     } else {
-                        f.this.iNg.showToast(R.string.remove_succ);
+                        f.this.jei.showToast(R.string.remove_succ);
                     }
                 }
-                if (f.this.iNh != null) {
-                    f.this.iNh.updateUI();
+                if (f.this.jej != null) {
+                    f.this.jej.updateUI();
                 }
             }
         }
@@ -123,34 +123,34 @@ public class f {
         void updateUI();
     }
 
-    public boolean cqh() {
-        return this.iNe;
+    public boolean ctW() {
+        return this.jeg;
     }
 
-    public void pE(boolean z) {
-        this.iNe = z;
+    public void pO(boolean z) {
+        this.jeg = z;
     }
 
-    public DataRes cqi() {
+    public DataRes ctX() {
         return this.data;
     }
 
-    public boolean cqj() {
-        return this.iNd;
+    public boolean ctY() {
+        return this.jef;
     }
 
     public f(final PersonalTalkSettingActivity personalTalkSettingActivity, a aVar, final long j) {
-        this.iNg = personalTalkSettingActivity;
-        this.iNh = aVar;
-        this.dNL = new com.baidu.tbadk.coreExtra.model.a(personalTalkSettingActivity.getPageContext());
-        this.iNf = new BlackListModel(personalTalkSettingActivity.getPageContext());
+        this.jei = personalTalkSettingActivity;
+        this.jej = aVar;
+        this.dUB = new com.baidu.tbadk.coreExtra.model.a(personalTalkSettingActivity.getPageContext());
+        this.jeh = new BlackListModel(personalTalkSettingActivity.getPageContext());
         personalTalkSettingActivity.showProgressBar();
         ad.b(new ac<PersonalSettingItemData>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ac
-            /* renamed from: cqm */
+            /* renamed from: cub */
             public PersonalSettingItemData doInBackground() {
-                return com.baidu.tieba.im.settingcache.e.cpB().et(TbadkCoreApplication.getCurrentAccount(), String.valueOf(j));
+                return com.baidu.tieba.im.settingcache.e.ctq().ez(TbadkCoreApplication.getCurrentAccount(), String.valueOf(j));
             }
         }, new l<PersonalSettingItemData>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -158,7 +158,7 @@ public class f {
             /* renamed from: a */
             public void onReturnDataInUI(PersonalSettingItemData personalSettingItemData) {
                 if (personalSettingItemData != null) {
-                    f.this.iNe = personalSettingItemData.isAcceptNotify();
+                    f.this.jeg = personalSettingItemData.isAcceptNotify();
                 }
                 RequestQueryUserInfoMessage requestQueryUserInfoMessage = new RequestQueryUserInfoMessage();
                 requestQueryUserInfoMessage.setReqUserId(j);
@@ -167,7 +167,7 @@ public class f {
         });
     }
 
-    public void pF(boolean z) {
+    public void pP(boolean z) {
         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
         requestUpdateMaskInfoMessage.setMaskType(9);
         requestUpdateMaskInfoMessage.setList(String.valueOf(this.data.id));
@@ -177,29 +177,29 @@ public class f {
         MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
     }
 
-    public void pG(boolean z) {
-        this.iNg.showLoadingDialog(null);
+    public void pQ(boolean z) {
+        this.jei.showLoadingDialog(null);
         if (z) {
-            this.iNf.addToBlackList(this.data.id.longValue());
+            this.jeh.addToBlackList(this.data.id.longValue());
         } else {
-            this.iNf.removeFromBlackList(this.data.id.longValue());
+            this.jeh.removeFromBlackList(this.data.id.longValue());
         }
     }
 
     public void onDestory() {
-        if (this.dNL != null) {
-            this.dNL.cancel();
+        if (this.dUB != null) {
+            this.dUB.cancel();
         }
-        if (this.iNf != null) {
-            this.iNf.cancelLoadData();
+        if (this.jeh != null) {
+            this.jeh.cancelLoadData();
         }
     }
 
-    public com.baidu.adp.framework.listener.c cqk() {
-        return this.isB;
+    public com.baidu.adp.framework.listener.c ctZ() {
+        return this.iJH;
     }
 
-    public CustomMessageListener cql() {
+    public CustomMessageListener cua() {
         return this.mCustomListener;
     }
 }

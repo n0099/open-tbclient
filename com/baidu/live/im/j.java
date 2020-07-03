@@ -4,7 +4,7 @@ import android.view.View;
 import java.util.List;
 /* loaded from: classes3.dex */
 public interface j {
-    void Cz();
+    void CZ();
 
     void a(String str, String str2, boolean z, String str3);
 

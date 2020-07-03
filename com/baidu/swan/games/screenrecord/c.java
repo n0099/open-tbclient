@@ -11,16 +11,16 @@ import com.baidu.swan.games.screenrecord.b;
 /* loaded from: classes11.dex */
 public class c extends EventTargetImpl implements com.baidu.mario.a.c {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private int dbQ;
-    private b.C0439b dbR;
-    private String dbS;
+    private int dgD;
+    private b.C0445b dgE;
+    private String dgF;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(JSRuntime jSRuntime) {
         super(jSRuntime);
-        this.dbQ = -1;
-        this.dbR = new b.C0439b();
-        d.aBv().aBw().setGameRecordCallback(this);
+        this.dgD = -1;
+        this.dgE = new b.C0445b();
+        d.aCB().aCC().setGameRecordCallback(this);
     }
 
     private void w(String str, Object obj) {
@@ -31,18 +31,18 @@ public class c extends EventTargetImpl implements com.baidu.mario.a.c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void iv(int i) {
-        this.dbQ = i;
+    public void iG(int i) {
+        this.dgD = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void sl(String str) {
-        this.dbS = str;
+    public void su(String str) {
+        this.dgF = str;
     }
 
     @Override // com.baidu.mario.a.c
     public void onStart() {
-        w("start", this.dbQ == -1 ? this.dbR : new b.c(this.dbQ));
+        w("start", this.dgD == -1 ? this.dgE : new b.c(this.dgD));
         e eVar = new e();
         eVar.mType = "start";
         h.d(eVar);
@@ -50,7 +50,7 @@ public class c extends EventTargetImpl implements com.baidu.mario.a.c {
 
     @Override // com.baidu.mario.a.c
     public void onPause() {
-        w("pause", this.dbR);
+        w("pause", this.dgE);
         e eVar = new e();
         eVar.mType = "pause";
         h.d(eVar);
@@ -58,18 +58,18 @@ public class c extends EventTargetImpl implements com.baidu.mario.a.c {
 
     @Override // com.baidu.mario.a.c
     public void onResume() {
-        w("resume", this.dbR);
+        w("resume", this.dgE);
         e eVar = new e();
         eVar.mType = "resume";
         h.d(eVar);
     }
 
     @Override // com.baidu.mario.a.c
-    public void F(int i, String str) {
+    public void H(int i, String str) {
         if (DEBUG) {
-            Log.d("GameRecorderApi", "schemeVideoPath:" + this.dbS);
+            Log.d("GameRecorderApi", "schemeVideoPath:" + this.dgF);
         }
-        w("stop", new b.d(this.dbS));
+        w("stop", new b.d(this.dgF));
         e eVar = new e();
         eVar.mType = "stop";
         eVar.v("dura", String.valueOf(i / 1000.0f));

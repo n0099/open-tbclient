@@ -5,7 +5,7 @@ import android.os.Build;
 import android.view.View;
 /* loaded from: classes11.dex */
 public class f {
-    static final k doW;
+    static final k dtI;
 
     /* loaded from: classes11.dex */
     interface k {
@@ -84,7 +84,7 @@ public class f {
 
     /* loaded from: classes11.dex */
     static class e extends d {
-        static boolean doX = false;
+        static boolean dtJ = false;
 
         e() {
         }
@@ -97,8 +97,8 @@ public class f {
 
     /* renamed from: com.baidu.swan.support.v4.c.f$f  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    static class C0460f extends e {
-        C0460f() {
+    static class C0466f extends e {
+        C0466f() {
         }
 
         @Override // com.baidu.swan.support.v4.c.f.a, com.baidu.swan.support.v4.c.f.k
@@ -108,7 +108,7 @@ public class f {
     }
 
     /* loaded from: classes11.dex */
-    static class g extends C0460f {
+    static class g extends C0466f {
         g() {
         }
     }
@@ -133,29 +133,29 @@ public class f {
 
     static {
         if (Build.VERSION.SDK_INT >= 21) {
-            doW = new j();
+            dtI = new j();
         } else {
-            doW = new i();
+            dtI = new i();
         }
     }
 
     public static boolean canScrollVertically(View view, int i2) {
-        return doW.canScrollVertically(view, i2);
+        return dtI.canScrollVertically(view, i2);
     }
 
     public static void setLayerType(View view, int i2, Paint paint) {
-        doW.setLayerType(view, i2, paint);
+        dtI.setLayerType(view, i2, paint);
     }
 
     public static int getLayerType(View view) {
-        return doW.getLayerType(view);
+        return dtI.getLayerType(view);
     }
 
     public static void setSaveFromParentEnabled(View view, boolean z) {
-        doW.setSaveFromParentEnabled(view, z);
+        dtI.setSaveFromParentEnabled(view, z);
     }
 
     public static boolean hasOverlappingRendering(View view) {
-        return doW.hasOverlappingRendering(view);
+        return dtI.hasOverlappingRendering(view);
     }
 }

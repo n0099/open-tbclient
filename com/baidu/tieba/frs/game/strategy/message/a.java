@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs.game.strategy.message;
 
 import android.text.TextUtils;
-import com.baidu.adp.widget.ListView.o;
-import com.baidu.tbadk.core.data.ad;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.tbadk.core.data.ai;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.tieba.frs.game.strategy.data.b;
 import com.baidu.tieba.frs.game.strategy.tab.e;
@@ -15,8 +15,8 @@ import tbclient.GameForumGuideTab.GameForumSubTab;
 import tbclient.ThreadInfo;
 /* loaded from: classes9.dex */
 public class a {
-    public static List<e> cs(List<GameForumSubTab> list) {
-        if (v.isEmpty(list)) {
+    public static List<e> cC(List<GameForumSubTab> list) {
+        if (w.isEmpty(list)) {
             return null;
         }
         ArrayList arrayList = new ArrayList(list.size());
@@ -34,8 +34,8 @@ public class a {
         return arrayList;
     }
 
-    public static List<o> ct(List<ThreadInfo> list) {
-        if (v.isEmpty(list)) {
+    public static List<q> cD(List<ThreadInfo> list) {
+        if (w.isEmpty(list)) {
             return null;
         }
         LinkedList linkedList = new LinkedList();
@@ -46,14 +46,14 @@ public class a {
                 return linkedList;
             }
             b bVar = new b();
-            bk bkVar = new bk();
-            bVar.setThreadData(bkVar);
-            bkVar.a(list.get(i2));
-            bkVar.aRw();
-            if (!TextUtils.isEmpty(bkVar.aRI())) {
-                ad adVar = new ad();
-                adVar.vt(bkVar.aRI());
-                linkedList.add(adVar);
+            bu buVar = new bu();
+            bVar.setThreadData(buVar);
+            buVar.a(list.get(i2));
+            buVar.aTn();
+            if (!TextUtils.isEmpty(buVar.aTz())) {
+                ai aiVar = new ai();
+                aiVar.vG(buVar.aTz());
+                linkedList.add(aiVar);
             } else {
                 linkedList.add(bVar);
             }

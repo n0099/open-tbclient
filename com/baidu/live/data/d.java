@@ -42,7 +42,7 @@ public class d implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: vT */
+    /* renamed from: wr */
     public d clone() {
         try {
             return (d) super.clone();
@@ -84,7 +84,7 @@ public class d implements Cloneable {
         this.mInLive = str;
     }
 
-    public BdUniqueId vU() {
+    public BdUniqueId ws() {
         return this.mPageId;
     }
 
@@ -100,7 +100,7 @@ public class d implements Cloneable {
         return this.from;
     }
 
-    public String vV() {
+    public String wt() {
         return this.metaKey;
     }
 }

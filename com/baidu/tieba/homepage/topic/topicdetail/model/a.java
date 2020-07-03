@@ -6,8 +6,8 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
 import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
@@ -20,8 +20,8 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes9.dex */
 public class a {
-    private BdUniqueId epM;
-    private final com.baidu.adp.framework.listener.a gKD = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
+    private BdUniqueId eyE;
+    private final com.baidu.adp.framework.listener.a gXA = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -33,31 +33,31 @@ public class a {
             }
         }
     };
-    private TopicDetailView ihq;
+    private TopicDetailView iyv;
 
     public a(TopicDetailView topicDetailView) {
-        this.ihq = topicDetailView;
+        this.iyv = topicDetailView;
     }
 
     public void l(BdUniqueId bdUniqueId) {
-        this.epM = bdUniqueId;
-        this.gKD.setTag(bdUniqueId);
-        this.gKD.getHttpMessageListener().setSelfListener(true);
-        this.gKD.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.gKD);
+        this.eyE = bdUniqueId;
+        this.gXA.setTag(bdUniqueId);
+        this.gXA.getHttpMessageListener().setSelfListener(true);
+        this.gXA.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.gXA);
     }
 
-    public RunnableC0629a C(long j, long j2) {
-        return new RunnableC0629a(j2, j);
+    public RunnableC0640a B(long j, long j2) {
+        return new RunnableC0640a(j2, j);
     }
 
     /* renamed from: com.baidu.tieba.homepage.topic.topicdetail.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class RunnableC0629a implements Runnable {
+    public class RunnableC0640a implements Runnable {
         private long postId;
         private long threadId;
 
-        public RunnableC0629a(long j, long j2) {
+        public RunnableC0640a(long j, long j2) {
             this.threadId = j;
             this.postId = j2;
         }
@@ -68,11 +68,11 @@ public class a {
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i = 1;
-            if (ar.aUX().aUY()) {
+            if (as.aWR().aWS()) {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(a.this.epM);
+            requestGetMyPostNetMessage.setTag(a.this.eyE);
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, equipmentWidth, equipmentHeight, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }
@@ -87,11 +87,11 @@ public class a {
             builder2.portrait = TbadkCoreApplication.getCurrentPortrait();
             builder.author = builder2.build(true);
             ThreadInfo build = builder.build(true);
-            bk bkVar = new bk();
-            bkVar.a(build);
-            bkVar.bZ(new Date().getTime());
-            if (k.ac(bkVar)) {
-                this.ihq.aE(bkVar);
+            bu buVar = new bu();
+            buVar.a(build);
+            buVar.ca(new Date().getTime());
+            if (k.ad(buVar)) {
+                this.iyv.aE(buVar);
             }
         }
     }

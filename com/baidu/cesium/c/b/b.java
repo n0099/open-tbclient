@@ -9,7 +9,7 @@ import java.security.GeneralSecurityException;
 import java.util.Random;
 /* loaded from: classes13.dex */
 public class b {
-    private static final int[] aiU = q(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+    private static final int[] akq = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
     private final int g;
 
     public b(int i) {
@@ -58,11 +58,11 @@ public class b {
     }
 
     static void d(int[] iArr, int[] iArr2) {
-        System.arraycopy(aiU, 0, iArr, 0, aiU.length);
-        System.arraycopy(iArr2, 0, iArr, aiU.length, 8);
+        System.arraycopy(akq, 0, iArr, 0, akq.length);
+        System.arraycopy(iArr2, 0, iArr, akq.length, 8);
     }
 
-    static int[] q(byte[] bArr) {
+    static int[] s(byte[] bArr) {
         IntBuffer asIntBuffer = ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN).asIntBuffer();
         int[] iArr = new int[asIntBuffer.remaining()];
         asIntBuffer.get(iArr);
@@ -121,7 +121,7 @@ public class b {
     }
 
     ByteBuffer b(byte[] bArr, byte[] bArr2, int i) {
-        int[] a = a(q(bArr), q(bArr2), i);
+        int[] a = a(s(bArr), s(bArr2), i);
         int[] iArr = (int[]) a.clone();
         a(iArr);
         for (int i2 = 0; i2 < a.length; i2++) {

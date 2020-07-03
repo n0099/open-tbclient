@@ -2,56 +2,66 @@ package com.baidu.tieba.write.album;
 
 import android.support.v4.app.Fragment;
 import android.view.View;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
-    private Fragment[] aMI;
-    private String bdD;
-    private String bdE;
-    private AlbumActivity lSE;
-    private String[] lSF;
-    private ImageListFragment lSG;
-    private AlbumImageBrowseFragment lSH;
+    private Fragment[] aPo;
+    private String biQ;
+    private String biR;
+    private TbPageContext hoE;
+    private e mmG;
+    private String[] mmH;
+    private ImageListFragment mmI;
+    private AlbumImageBrowseFragment mmJ;
 
-    public a(AlbumActivity albumActivity) {
-        super(albumActivity.getPageContext());
-        this.bdD = "tag_image";
-        this.bdE = "tag_b_image";
-        this.lSE = albumActivity;
+    public a(TbPageContext tbPageContext, e eVar) {
+        super(tbPageContext);
+        this.biQ = "tag_image";
+        this.biR = "tag_b_image";
+        this.hoE = tbPageContext;
+        this.mmG = eVar;
     }
 
-    public void Hp() {
-        this.aMI = new Fragment[2];
-        this.lSF = new String[2];
-        this.lSG = new ImageListFragment();
-        this.aMI[0] = this.lSG;
-        this.lSF[0] = this.bdD;
-        this.lSH = new AlbumImageBrowseFragment();
-        this.aMI[1] = this.lSH;
-        this.lSF[1] = this.bdE;
+    public void IC() {
+        this.aPo = new Fragment[2];
+        this.mmH = new String[2];
+        this.mmI = new ImageListFragment();
+        this.mmI.a(this.mmG);
+        this.aPo[0] = this.mmI;
+        this.mmH[0] = this.biQ;
+        this.mmJ = new AlbumImageBrowseFragment();
+        this.mmJ.a(this.mmG);
+        this.aPo[1] = this.mmJ;
+        this.mmH[1] = this.biR;
     }
 
-    public Fragment FA(int i) {
+    public Fragment GE(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.aMI[i];
+        return this.aPo[i];
     }
 
-    public String FB(int i) {
+    public String GF(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.lSF[i];
+        return this.mmH[i];
+    }
+
+    public void a(NavigationBar navigationBar) {
+        this.mmI.a(navigationBar);
     }
 
     public void onChangeSkinType(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.aMI.length) {
-                if (this.aMI[i3] != null && (this.aMI[i3] instanceof ImageListFragment)) {
-                    ((ImageListFragment) this.aMI[i3]).onChangeSkinType(i);
+            if (i3 < this.aPo.length) {
+                if (this.aPo[i3] != null && (this.aPo[i3] instanceof ImageListFragment)) {
+                    ((ImageListFragment) this.aPo[i3]).onChangeSkinType(i);
                 }
                 i2 = i3 + 1;
             } else {
@@ -60,89 +70,99 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView dmX() {
-        if (this.lSG == null) {
+    public TbCameraView drg() {
+        if (this.mmI == null) {
             return null;
         }
-        return this.lSG.dmX();
+        return this.mmI.drg();
     }
 
     public void stopCamera() {
-        TbCameraView dmX = dmX();
-        if (dmX != null) {
-            dmX.stopCamera();
-            dmX.setVisibility(4);
+        TbCameraView drg = drg();
+        if (drg != null) {
+            drg.stopCamera();
+            drg.setVisibility(4);
         }
     }
 
-    public void PI() {
-        TbCameraView dmX = dmX();
-        if (dmX != null) {
-            dmX.setVisibility(0);
-            dmX.vu(false);
+    public void QO() {
+        TbCameraView drg = drg();
+        if (drg != null) {
+            drg.setVisibility(0);
+            drg.vM(false);
         }
-        if (this.lSG != null && this.lSG.dnc() != null) {
-            this.lSG.dnc().HN();
+        if (this.mmI != null && this.mmI.drr() != null) {
+            this.mmI.drr().Ja();
         }
     }
 
-    public View Hq() {
-        if (this.lSG == null) {
+    public void drh() {
+        if (this.mmI != null) {
+            this.mmI.IY();
+        }
+    }
+
+    public View ID() {
+        if (this.mmI == null) {
             return null;
         }
-        return this.lSG.HI();
+        return this.mmI.IV();
     }
 
-    public View Hr() {
-        if (this.lSG == null) {
+    public View IE() {
+        if (this.mmI == null) {
             return null;
         }
-        return this.lSG.HM();
+        return this.mmI.IZ();
     }
 
-    public View Hs() {
-        if (this.lSH == null) {
+    public View IF() {
+        if (this.mmJ == null) {
             return null;
         }
-        return this.lSH.HI();
+        return this.mmJ.IV();
     }
 
-    public View Ht() {
-        if (this.lSH == null) {
+    public View IG() {
+        if (this.mmJ == null) {
             return null;
         }
-        return this.lSH.HJ();
+        return this.mmJ.IW();
     }
 
-    public View Hu() {
-        if (this.lSH == null) {
+    public View IH() {
+        if (this.mmJ == null) {
             return null;
         }
-        return this.lSH.Hu();
+        return this.mmJ.IH();
     }
 
-    public View Hv() {
-        if (this.lSG == null) {
+    public View II() {
+        if (this.mmI == null) {
             return null;
         }
-        return this.lSG.Hu();
+        return this.mmI.IH();
     }
 
     public void onDestroy() {
     }
 
-    public void ci(boolean z) {
-        if (this.lSH != null) {
-            this.lSH.ci(z);
+    public ImageListFragment dri() {
+        return this.mmI;
+    }
+
+    public void cn(boolean z) {
+        if (this.mmJ != null) {
+            this.mmJ.cn(z);
         }
-        if (this.lSG != null) {
-            this.lSG.ci(z);
+        if (this.mmI != null) {
+            this.mmI.cn(z);
         }
     }
 
-    public void a(i iVar) {
-        if (this.lSG != null) {
-            this.lSG.a(iVar);
+    public void a(j jVar) {
+        if (this.mmI != null) {
+            this.mmI.a(jVar);
         }
     }
 }

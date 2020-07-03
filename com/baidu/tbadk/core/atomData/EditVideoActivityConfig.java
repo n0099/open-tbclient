@@ -1,6 +1,8 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
@@ -9,6 +11,8 @@ import com.baidu.tieba.frs.FrsTabInfoData;
 public class EditVideoActivityConfig extends IntentConfig {
     public static final String FROM_TYPE = "from_type";
     public static final String FROM_TYPE_RECORD_VIDEO_ACTIVITY = "from_record_activity";
+    public static final String FROM_TYPE_WRITE_ACTIVITY_EDIT = "from_write_activity_edit";
+    public static final String KEY_ANTI_DATA = "anti_data";
     public static final String KEY_PRO_ZONE = "pro_zone";
     public static String LOCAL_PATH_KEY = "local_path";
     public static String MUSIC_ID_KEY = "music_id";
@@ -48,5 +52,14 @@ public class EditVideoActivityConfig extends IntentConfig {
 
     public void setFrom(String str) {
         getIntent().putExtra("from", str);
+    }
+
+    public void setExtraData(AntiData antiData, PostPrefixData postPrefixData, String str, String str2) {
+        if (getIntent() != null) {
+            getIntent().putExtra("forum_first_dir", str);
+            getIntent().putExtra("forum_second_dir", str2);
+            getIntent().putExtra("prefix_data", postPrefixData);
+            getIntent().putExtra("anti_data", antiData);
+        }
     }
 }

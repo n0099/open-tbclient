@@ -1,21 +1,21 @@
 package com.baidu.ar.vo.b;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.ar.c.b {
-    private g xi;
+    private g xI;
 
     public f(long j) {
-        this.xi = null;
+        this.xI = null;
         setTimestamp(j);
     }
 
     public f(g gVar) {
-        this.xi = gVar;
+        this.xI = gVar;
         if (gVar != null) {
             setTimestamp(gVar.getTimestamp());
         }
     }
 
-    public g fE() {
-        return this.xi;
+    public g fU() {
+        return this.xI;
     }
 }

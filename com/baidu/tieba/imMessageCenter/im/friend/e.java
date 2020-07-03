@@ -8,9 +8,9 @@ import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes9.dex */
 public class e extends BdBaseModel<InviteFriendListActivity> {
-    private RequestCommitInviteMessage iOl;
-    private long iOm;
-    private long itL;
+    private long iKR;
+    private RequestCommitInviteMessage jfn;
+    private long jfo;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -23,26 +23,26 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.itL = intent.getLongExtra("gid", -1L);
-            this.iOm = intent.getLongExtra("groupid", -1L);
+            this.iKR = intent.getLongExtra("gid", -1L);
+            this.jfo = intent.getLongExtra("groupid", -1L);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.itL = bundle.getLong("gid", -1L);
-            this.iOm = bundle.getLong("groupid", -1L);
+            this.iKR = bundle.getLong("gid", -1L);
+            this.jfo = bundle.getLong("groupid", -1L);
         }
     }
 
-    public void aw(Bundle bundle) {
-        bundle.putLong("gid", this.itL);
-        bundle.putLong("groupid", this.iOm);
+    public void ax(Bundle bundle) {
+        bundle.putLong("gid", this.iKR);
+        bundle.putLong("groupid", this.jfo);
     }
 
-    public void Hb(String str) {
-        this.iOl = c(this.itL, this.iOm, str);
-        super.sendMessage(this.iOl);
+    public void HD(String str) {
+        this.jfn = c(this.iKR, this.jfo, str);
+        super.sendMessage(this.jfn);
     }
 
     private RequestCommitInviteMessage c(long j, long j2, String str) {

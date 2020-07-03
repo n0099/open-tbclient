@@ -18,23 +18,23 @@ public class b extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        com.baidu.swan.apps.core.d.e QH = f.ahV().QH();
-        if (QH == null) {
+        com.baidu.swan.apps.core.d.e RN = f.ajb().RN();
+        if (RN == null) {
             c.e("stopPullDownRefresh", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!(QH.YP() instanceof d)) {
+        } else if (!(RN.ZV() instanceof d)) {
             c.e("stopPullDownRefresh", "top fragment error");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
-            d dVar = (d) QH.YP();
-            if (dVar.Ta() == null) {
+            d dVar = (d) RN.ZV();
+            if (dVar.Ug() == null) {
                 c.e("stopPullDownRefresh", "view is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            dVar.Ta().eK(false);
+            dVar.Ug().eP(false);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             c.i("stopPullDownRefresh", "refresh complete");
             return true;

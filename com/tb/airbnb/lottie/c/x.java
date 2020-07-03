@@ -5,7 +5,7 @@ import android.util.JsonReader;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public class x implements aj<PointF> {
-    public static final x nlM = new x();
+    public static final x nHB = new x();
 
     private x() {
     }

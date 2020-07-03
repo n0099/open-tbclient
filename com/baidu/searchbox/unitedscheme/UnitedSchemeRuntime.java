@@ -10,12 +10,12 @@ public class UnitedSchemeRuntime {
     b<UnitedSchemeBaseDispatcher> sSubDispatchersList;
 
     public void initsInterceptChainList() {
-        this.sInterceptChainList = a.OQ();
+        this.sInterceptChainList = a.PW();
         this.sInterceptChainList.a(new UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider());
     }
 
     public void initsSubDispatchersList() {
-        this.sSubDispatchersList = a.OQ();
+        this.sSubDispatchersList = a.PW();
         this.sSubDispatchersList.a(new UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider());
     }
 

@@ -10,19 +10,19 @@ import java.util.ListIterator;
 @TargetApi(19)
 /* loaded from: classes6.dex */
 public class k implements i, l {
+    private final MergePaths nFF;
     private final String name;
-    private final MergePaths njQ;
-    private final Path BL = new Path();
-    private final Path BM = new Path();
+    private final Path Cl = new Path();
+    private final Path Cm = new Path();
     private final Path path = new Path();
-    private final List<l> Bw = new ArrayList();
+    private final List<l> BW = new ArrayList();
 
     public k(MergePaths mergePaths) {
         if (Build.VERSION.SDK_INT < 19) {
             throw new IllegalStateException("Merge paths are not supported pre-KitKat.");
         }
         this.name = mergePaths.getName();
-        this.njQ = mergePaths;
+        this.nFF = mergePaths;
     }
 
     @Override // com.tb.airbnb.lottie.a.a.i
@@ -32,7 +32,7 @@ public class k implements i, l {
         while (listIterator.hasPrevious()) {
             b previous = listIterator.previous();
             if (previous instanceof l) {
-                this.Bw.add((l) previous);
+                this.BW.add((l) previous);
                 listIterator.remove();
             }
         }
@@ -43,8 +43,8 @@ public class k implements i, l {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.Bw.size()) {
-                this.Bw.get(i2).b(list, list2);
+            if (i2 < this.BW.size()) {
+                this.BW.get(i2).b(list, list2);
                 i = i2 + 1;
             } else {
                 return;
@@ -53,11 +53,11 @@ public class k implements i, l {
     }
 
     @Override // com.tb.airbnb.lottie.a.a.l
-    public Path hd() {
+    public Path ht() {
         this.path.reset();
-        switch (this.njQ.dJr()) {
+        switch (this.nFF.dNX()) {
             case Merge:
-                hh();
+                hx();
                 break;
             case Add:
                 a(Path.Op.UNION);
@@ -80,12 +80,12 @@ public class k implements i, l {
         return this.name;
     }
 
-    private void hh() {
+    private void hx() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.Bw.size()) {
-                this.path.addPath(this.Bw.get(i2).hd());
+            if (i2 < this.BW.size()) {
+                this.path.addPath(this.BW.get(i2).ht());
                 i = i2 + 1;
             } else {
                 return;
@@ -95,38 +95,38 @@ public class k implements i, l {
 
     @TargetApi(19)
     private void a(Path.Op op) {
-        this.BM.reset();
-        this.BL.reset();
-        int size = this.Bw.size() - 1;
+        this.Cm.reset();
+        this.Cl.reset();
+        int size = this.BW.size() - 1;
         while (true) {
             int i = size;
             if (i < 1) {
                 break;
             }
-            l lVar = this.Bw.get(i);
+            l lVar = this.BW.get(i);
             if (lVar instanceof c) {
-                List<l> hb = ((c) lVar).hb();
-                for (int size2 = hb.size() - 1; size2 >= 0; size2--) {
-                    Path hd = hb.get(size2).hd();
-                    hd.transform(((c) lVar).hc());
-                    this.BM.addPath(hd);
+                List<l> hr = ((c) lVar).hr();
+                for (int size2 = hr.size() - 1; size2 >= 0; size2--) {
+                    Path ht = hr.get(size2).ht();
+                    ht.transform(((c) lVar).hs());
+                    this.Cm.addPath(ht);
                 }
             } else {
-                this.BM.addPath(lVar.hd());
+                this.Cm.addPath(lVar.ht());
             }
             size = i - 1;
         }
-        l lVar2 = this.Bw.get(0);
+        l lVar2 = this.BW.get(0);
         if (lVar2 instanceof c) {
-            List<l> hb2 = ((c) lVar2).hb();
-            for (int i2 = 0; i2 < hb2.size(); i2++) {
-                Path hd2 = hb2.get(i2).hd();
-                hd2.transform(((c) lVar2).hc());
-                this.BL.addPath(hd2);
+            List<l> hr2 = ((c) lVar2).hr();
+            for (int i2 = 0; i2 < hr2.size(); i2++) {
+                Path ht2 = hr2.get(i2).ht();
+                ht2.transform(((c) lVar2).hs());
+                this.Cl.addPath(ht2);
             }
         } else {
-            this.BL.set(lVar2.hd());
+            this.Cl.set(lVar2.ht());
         }
-        this.path.op(this.BL, this.BM, op);
+        this.path.op(this.Cl, this.Cm, op);
     }
 }

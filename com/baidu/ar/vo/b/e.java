@@ -12,9 +12,9 @@ import com.baidu.ar.callback.ICallbackWith;
 /* loaded from: classes3.dex */
 public class e extends j {
     private static final String TAG = e.class.getSimpleName();
-    private HandlerThread ku;
-    private a xf;
-    private b xg;
+    private HandlerThread kO;
+    private a xF;
+    private b xG;
 
     /* loaded from: classes3.dex */
     private static final class a extends Handler {
@@ -47,64 +47,64 @@ public class e extends j {
     }
 
     public e(com.baidu.ar.vo.a.b bVar, b bVar2) {
-        this.xg = bVar2;
-        this.lP = new PixelReadParams(PixelType.NV21);
-        this.lP.setOutputWidth(1280);
-        this.lP.setOutputHeight(720);
+        this.xG = bVar2;
+        this.mm = new PixelReadParams(PixelType.NV21);
+        this.mm.setOutputWidth(1280);
+        this.mm.setOutputHeight(720);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(FramePixels framePixels) {
-        if (this.xg != null) {
-            this.xg.a(framePixels, new ICallbackWith<f>() { // from class: com.baidu.ar.vo.b.e.3
+        if (this.xG != null) {
+            this.xG.a(framePixels, new ICallbackWith<f>() { // from class: com.baidu.ar.vo.b.e.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.ar.callback.ICallbackWith
                 /* renamed from: a */
                 public void run(f fVar) {
-                    if (e.this.lb == null || e.this.xg == null) {
+                    if (e.this.ly == null || e.this.xG == null) {
                         return;
                     }
                     if (fVar != null) {
                         fVar.S(e.this.getName());
                     }
-                    e.this.lb.a(fVar);
+                    e.this.ly.a(fVar);
                 }
             });
         }
     }
 
     @Override // com.baidu.ar.c.j
-    protected void X() {
-        this.ku = new HandlerThread(TAG);
-        this.ku.start();
-        this.xf = new a(this.ku.getLooper());
-        this.xf.a(1001, new Runnable() { // from class: com.baidu.ar.vo.b.e.1
+    protected void al() {
+        this.kO = new HandlerThread(TAG);
+        this.kO.start();
+        this.xF = new a(this.kO.getLooper());
+        this.xF.a(1001, new Runnable() { // from class: com.baidu.ar.vo.b.e.1
             @Override // java.lang.Runnable
             public void run() {
-                e.this.xg.aH();
+                e.this.xG.aV();
             }
         });
     }
 
     @Override // com.baidu.ar.c.j
-    protected void Z() {
-        if (this.xf != null) {
-            this.xf.release();
-            this.xf = null;
+    protected void an() {
+        if (this.xF != null) {
+            this.xF.release();
+            this.xF = null;
         }
-        if (this.xg != null) {
-            this.xg = null;
+        if (this.xG != null) {
+            this.xG = null;
         }
-        if (this.ku != null) {
-            this.ku.quit();
-            this.ku = null;
+        if (this.kO != null) {
+            this.kO.quit();
+            this.kO = null;
         }
     }
 
     @Override // com.baidu.ar.c.j
     protected boolean c(final FramePixels framePixels) {
-        if (this.xg != null) {
-            this.xf.a(1002, new Runnable() { // from class: com.baidu.ar.vo.b.e.2
+        if (this.xG != null) {
+            this.xF.a(1002, new Runnable() { // from class: com.baidu.ar.vo.b.e.2
                 @Override // java.lang.Runnable
                 public void run() {
                     e.this.e(framePixels);

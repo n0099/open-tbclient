@@ -8,35 +8,35 @@ import java.util.List;
 import rx.k;
 /* loaded from: classes6.dex */
 public final class i implements k {
-    private volatile boolean nFs;
-    private List<k> nKx;
+    private volatile boolean obd;
+    private List<k> ogl;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.nKx = new LinkedList(Arrays.asList(kVarArr));
+        this.ogl = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.nKx = new LinkedList();
-        this.nKx.add(kVar);
+        this.ogl = new LinkedList();
+        this.ogl.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.nFs;
+        return this.obd;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.nFs) {
+            if (!this.obd) {
                 synchronized (this) {
-                    if (!this.nFs) {
-                        List list = this.nKx;
+                    if (!this.obd) {
+                        List list = this.ogl;
                         if (list == null) {
                             list = new LinkedList();
-                            this.nKx = list;
+                            this.ogl = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.nFs) {
+        if (!this.obd) {
             synchronized (this) {
-                List<k> list = this.nKx;
-                if (!this.nFs && list != null) {
+                List<k> list = this.ogl;
+                if (!this.obd && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,12 +63,12 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.nFs) {
+        if (!this.obd) {
             synchronized (this) {
-                if (!this.nFs) {
-                    this.nFs = true;
-                    List<k> list = this.nKx;
-                    this.nKx = null;
+                if (!this.obd) {
+                    this.obd = true;
+                    List<k> list = this.ogl;
+                    this.ogl = null;
                     t(list);
                 }
             }
@@ -87,7 +87,7 @@ public final class i implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.fx(arrayList);
+            rx.exceptions.a.fJ(arrayList);
         }
     }
 }

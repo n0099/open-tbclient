@@ -11,37 +11,37 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes13.dex */
 public class SettingTextNormalImageView extends FrameLayout {
-    private LinearLayout ehT;
-    private ImageView ehX;
-    private TbImageView kYP;
+    private LinearLayout eqD;
+    private ImageView eqH;
+    private TbImageView lsM;
     private Context mContext;
     private TextView textView;
 
     public SettingTextNormalImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        bbB();
+        bdD();
         e(attributeSet);
-        mW(TbadkCoreApplication.getInst().getSkinType());
+        nq(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextNormalImageView(Context context) {
         super(context);
         this.mContext = context;
-        bbB();
-        mW(TbadkCoreApplication.getInst().getSkinType());
+        bdD();
+        nq(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void mW(int i) {
-        am.setViewTextColor(this.textView, R.color.cp_cont_b, 1);
-        SvgManager.aUW().a(this.ehX, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        setBackgroundDrawable(am.le(R.color.cp_bg_line_e));
-        this.kYP.invalidate();
+    public void nq(int i) {
+        an.setViewTextColor(this.textView, R.color.cp_cont_b, 1);
+        SvgManager.aWQ().a(this.eqH, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        setBackgroundDrawable(an.ls(R.color.cp_bg_line_e));
+        this.lsM.invalidate();
     }
 
     public void setText(String str) {
@@ -49,17 +49,17 @@ public class SettingTextNormalImageView extends FrameLayout {
     }
 
     public void setLocalIcon(int i) {
-        this.kYP.bhs();
-        this.kYP.setConrers(0);
-        this.kYP.setImageResource(i);
+        this.lsM.bjE();
+        this.lsM.setConrers(0);
+        this.lsM.setImageResource(i);
     }
 
-    private void bbB() {
+    private void bdD() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_normal_image_view, (ViewGroup) this, true);
-        this.ehT = (LinearLayout) findViewById(R.id.container);
+        this.eqD = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.kYP = (TbImageView) findViewById(R.id.icon);
-        this.ehX = (ImageView) findViewById(R.id.arrow);
+        this.lsM = (TbImageView) findViewById(R.id.icon);
+        this.eqH = (ImageView) findViewById(R.id.arrow);
     }
 
     private void e(AttributeSet attributeSet) {
@@ -73,7 +73,7 @@ public class SettingTextNormalImageView extends FrameLayout {
         if (color > -1) {
             this.textView.setTextColor(color);
         }
-        this.ehT.setClickable(false);
-        this.ehT.setFocusable(false);
+        this.eqD.setClickable(false);
+        this.eqD.setFocusable(false);
     }
 }

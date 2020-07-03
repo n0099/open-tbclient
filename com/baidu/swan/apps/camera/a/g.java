@@ -24,7 +24,7 @@ public class g extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCameraManager", "handle action, but context is not Activity");
             return false;
         }
-        eVar.aoR().b(context, PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.camera.a.g.1
+        eVar.apY().b(context, PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.camera.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.aq.e.b
             /* renamed from: a */
@@ -51,13 +51,13 @@ public class g extends a {
         com.baidu.swan.apps.console.c.i("SwanAppCameraManager", "handleAuthorized start");
         com.baidu.swan.apps.ad.a.a(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 100, context, new com.baidu.swan.apps.ad.b() { // from class: com.baidu.swan.apps.camera.a.g.2
             @Override // com.baidu.swan.apps.ad.b
-            public void gY(String str) {
+            public void hg(String str) {
                 g.this.a(unitedSchemeEntity, callbackHandler, g.this.a(aVar));
                 com.baidu.swan.apps.console.c.e("SwanAppCameraManager", str + "");
             }
 
             @Override // com.baidu.swan.apps.ad.b
-            public void M(int i, String str) {
+            public void O(int i, String str) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 10005);
                 com.baidu.swan.apps.console.c.e("SwanAppCameraManager", str + "");
             }
@@ -71,8 +71,8 @@ public class g extends a {
         if (aVar == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCameraManager", "Model is null");
         } else {
-            String str = aVar.bNu;
-            com.baidu.swan.apps.model.a.a.a aVar2 = aVar.bPJ;
+            String str = aVar.bSi;
+            com.baidu.swan.apps.model.a.a.a aVar2 = aVar.bUx;
             if (TextUtils.isEmpty(str) || aVar2 == null || !aVar2.isValid()) {
                 com.baidu.swan.apps.console.c.e("SwanAppCameraManager", "cameraId = " + str + " ; position = " + (aVar2 == null));
             } else {

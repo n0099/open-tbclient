@@ -14,25 +14,25 @@ public class e {
 
     public static void a(h hVar, Path path) {
         path.reset();
-        PointF iw = hVar.iw();
-        path.moveTo(iw.x, iw.y);
-        PointF pointF = new PointF(iw.x, iw.y);
+        PointF iM = hVar.iM();
+        path.moveTo(iM.x, iM.y);
+        PointF pointF = new PointF(iM.x, iM.y);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= hVar.ix().size()) {
+            if (i2 >= hVar.iN().size()) {
                 break;
             }
-            com.tb.airbnb.lottie.model.a aVar = hVar.ix().get(i2);
-            PointF hB = aVar.hB();
-            PointF hC = aVar.hC();
-            PointF hD = aVar.hD();
-            if (hB.equals(pointF) && hC.equals(hD)) {
-                path.lineTo(hD.x, hD.y);
+            com.tb.airbnb.lottie.model.a aVar = hVar.iN().get(i2);
+            PointF hR = aVar.hR();
+            PointF hS = aVar.hS();
+            PointF hT = aVar.hT();
+            if (hR.equals(pointF) && hS.equals(hT)) {
+                path.lineTo(hT.x, hT.y);
             } else {
-                path.cubicTo(hB.x, hB.y, hC.x, hC.y, hD.x, hD.y);
+                path.cubicTo(hR.x, hR.y, hS.x, hS.y, hT.x, hT.y);
             }
-            pointF.set(hD.x, hD.y);
+            pointF.set(hT.x, hT.y);
             i = i2 + 1;
         }
         if (hVar.isClosed()) {
@@ -54,14 +54,14 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int j(float f, float f2) {
-        return i((int) f, (int) f2);
-    }
-
-    private static int i(int i, int i2) {
-        return i - (j(i, i2) * i2);
+        return j((int) f, (int) f2);
     }
 
     private static int j(int i, int i2) {
+        return i - (k(i, i2) * i2);
+    }
+
+    private static int k(int i, int i2) {
         int i3 = i / i2;
         return (((i ^ i2) >= 0) || i % i2 == 0) ? i3 : i3 - 1;
     }
@@ -80,7 +80,7 @@ public class e {
 
     public static void a(com.tb.airbnb.lottie.model.e eVar, int i, List<com.tb.airbnb.lottie.model.e> list, com.tb.airbnb.lottie.model.e eVar2, j jVar) {
         if (eVar.i(jVar.getName(), i)) {
-            list.add(eVar2.Rc(jVar.getName()).a(jVar));
+            list.add(eVar2.RO(jVar.getName()).a(jVar));
         }
     }
 }

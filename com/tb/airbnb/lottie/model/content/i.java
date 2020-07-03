@@ -4,20 +4,20 @@ import android.graphics.Path;
 import android.support.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class i implements b {
-    private final Path.FillType DG;
-    private final boolean Ei;
+    private final boolean EJ;
+    private final Path.FillType Ei;
+    @Nullable
+    private final com.tb.airbnb.lottie.model.a.d nGB;
+    @Nullable
+    private final com.tb.airbnb.lottie.model.a.a nGt;
     private final String name;
-    @Nullable
-    private final com.tb.airbnb.lottie.model.a.a nkE;
-    @Nullable
-    private final com.tb.airbnb.lottie.model.a.d nkM;
 
     public i(String str, boolean z, Path.FillType fillType, @Nullable com.tb.airbnb.lottie.model.a.a aVar, @Nullable com.tb.airbnb.lottie.model.a.d dVar) {
         this.name = str;
-        this.Ei = z;
-        this.DG = fillType;
-        this.nkE = aVar;
-        this.nkM = dVar;
+        this.EJ = z;
+        this.Ei = fillType;
+        this.nGt = aVar;
+        this.nGB = dVar;
     }
 
     public String getName() {
@@ -25,17 +25,17 @@ public class i implements b {
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.a dJC() {
-        return this.nkE;
+    public com.tb.airbnb.lottie.model.a.a dOi() {
+        return this.nGt;
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.d dJc() {
-        return this.nkM;
+    public com.tb.airbnb.lottie.model.a.d dNI() {
+        return this.nGB;
     }
 
-    public Path.FillType hX() {
-        return this.DG;
+    public Path.FillType ip() {
+        return this.Ei;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -44,6 +44,6 @@ public class i implements b {
     }
 
     public String toString() {
-        return "ShapeFill{color=, fillEnabled=" + this.Ei + '}';
+        return "ShapeFill{color=, fillEnabled=" + this.EJ + '}';
     }
 }

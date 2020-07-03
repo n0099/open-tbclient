@@ -8,11 +8,11 @@ public class au implements ar {
     private static volatile au a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ar f113a;
+    private ar f119a;
 
     private au(Context context) {
-        this.f113a = at.a(context);
-        com.xiaomi.channel.commonutils.logger.b.m51a("create id manager is: " + this.f113a);
+        this.f119a = at.a(context);
+        com.xiaomi.channel.commonutils.logger.b.m48a("create id manager is: " + this.f119a);
     }
 
     public static au a(Context context) {
@@ -32,7 +32,7 @@ public class au implements ar {
 
     @Override // com.xiaomi.push.ar
     public String a() {
-        return a(this.f113a.a());
+        return a(this.f119a.a());
     }
 
     public void a(Map<String, String> map) {
@@ -43,9 +43,9 @@ public class au implements ar {
         if (!TextUtils.isEmpty(a2)) {
             map.put("udid", a2);
         }
-        String mo132b = mo132b();
-        if (!TextUtils.isEmpty(mo132b)) {
-            map.put("oaid", mo132b);
+        String mo129b = mo129b();
+        if (!TextUtils.isEmpty(mo129b)) {
+            map.put("oaid", mo129b);
         }
         String c = c();
         if (!TextUtils.isEmpty(c)) {
@@ -60,22 +60,22 @@ public class au implements ar {
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return this.f113a.m134a();
+        return this.f119a.m131a();
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo132b() {
-        return a(this.f113a.mo132b());
+    public String mo129b() {
+        return a(this.f119a.mo129b());
     }
 
     @Override // com.xiaomi.push.ar
     public String c() {
-        return a(this.f113a.c());
+        return a(this.f119a.c());
     }
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        return a(this.f113a.d());
+        return a(this.f119a.d());
     }
 }

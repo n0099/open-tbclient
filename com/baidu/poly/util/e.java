@@ -10,7 +10,7 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e {
-    public static <K, V> Map<K, V> Ni() {
+    public static <K, V> Map<K, V> Or() {
         return Build.VERSION.SDK_INT >= 19 ? new ArrayMap() : new HashMap();
     }
 
@@ -30,17 +30,17 @@ public class e {
         return jSONObject;
     }
 
-    public static Map<String, String> T(JSONObject jSONObject) {
-        Map<String, String> Ni = Ni();
+    public static Map<String, String> aa(JSONObject jSONObject) {
+        Map<String, String> Or = Or();
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 if (!TextUtils.isEmpty(next)) {
-                    Ni.put(next, jSONObject.optString(next));
+                    Or.put(next, jSONObject.optString(next));
                 }
             }
         }
-        return Ni;
+        return Or;
     }
 }

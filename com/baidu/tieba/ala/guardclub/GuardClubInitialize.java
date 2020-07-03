@@ -13,6 +13,7 @@ import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.adp.framework.task.HttpMessageTask;
 import com.baidu.live.guardclub.GuardClubInfoHttpResponseMessage;
 import com.baidu.live.guardclub.GuardClubJoinHttpResponseMessage;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atom.GuardClubRankActivityConfig;
@@ -20,7 +21,6 @@ import com.baidu.live.tbadk.core.atomdata.GuardClubInfoActivityConfig;
 import com.baidu.live.tbadk.core.atomdata.GuardClubJoinListActivityConfig;
 import com.baidu.live.tbadk.core.atomdata.GuardClubMemberListActivityConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-import com.baidu.live.u.a;
 import com.baidu.tieba.ala.guardclub.model.GuardClubInfoRenameResponseMessage;
 /* loaded from: classes3.dex */
 public class GuardClubInitialize {
@@ -29,14 +29,14 @@ public class GuardClubInitialize {
         TbadkCoreApplication.getInst().RegisterIntent(GuardClubMemberListActivityConfig.class, GuardClubMemberListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(GuardClubJoinListActivityConfig.class, GuardClubJoinListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(GuardClubRankActivityConfig.class, GuardClubRankActivity.class);
-        brY();
-        buu();
-        buv();
-        buw();
-        bux();
+        buU();
+        bxp();
+        bxq();
+        bxr();
+        bxs();
     }
 
-    private static void brY() {
+    private static void buU() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913159, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.guardclub.GuardClubInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.guardclub.h> run(CustomMessage<Context> customMessage) {
@@ -71,11 +71,11 @@ public class GuardClubInitialize {
         MessageManager.getInstance().registerTask(customMessageTask4);
     }
 
-    private static void buu() {
-        com.baidu.live.guardclub.e.a(b.buq());
+    private static void bxp() {
+        com.baidu.live.guardclub.e.a(b.bxl());
     }
 
-    private static void buv() {
+    private static void bxq() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021137, TbConfig.SERVER_HOST + "liveserver/guardClub/info");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -85,7 +85,7 @@ public class GuardClubInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void buw() {
+    private static void bxr() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS, TbConfig.SERVER_HOST + "liveserver/guardClub/join");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -95,7 +95,7 @@ public class GuardClubInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bux() {
+    private static void bxs() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021142, TbConfig.SERVER_HOST + "liveserver/guardClub/updateClubName");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

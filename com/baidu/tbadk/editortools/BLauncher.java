@@ -1,6 +1,8 @@
 package com.baidu.tbadk.editortools;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -8,12 +10,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements g {
-    private l ekG;
-    private boolean ekH;
+    private Drawable WT;
+    private l ets;
+    private boolean ett;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -21,9 +24,9 @@ public class BLauncher extends ImageView implements g {
     public BLauncher(Context context, l lVar) {
         super(context);
         this.mSkinType = 0;
-        this.ekH = false;
+        this.ett = false;
         if (lVar != null) {
-            this.ekG = lVar;
+            this.ets = lVar;
             setIcon();
             setToolId(lVar.id);
         }
@@ -34,11 +37,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public void setIcon() {
-        if (this.ekG != null) {
-            if (this.ekG.elJ) {
-                setImageDrawable(SvgManager.aUW().x(this.ekG.elH, this.ekG.elI, this.mSkinType));
+        if (this.ets != null) {
+            if (this.ets.euw) {
+                setImageDrawable(SvgManager.aWQ().x(this.ets.eut, this.ets.euu, this.mSkinType));
             } else {
-                am.setImageResource(this, this.ekG.elH, this.mSkinType);
+                an.setImageResource(this, this.ets.eut, this.mSkinType);
             }
         }
     }
@@ -59,11 +62,23 @@ public class BLauncher extends ImageView implements g {
 
     @Override // com.baidu.tbadk.editortools.g
     public void hide() {
-        bcW();
+        beY();
         setVisibility(8);
     }
 
-    public void xW(String str) {
+    @Override // android.view.View
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
+        if (this.ets.euC) {
+            this.WT = an.getDrawable(R.drawable.icon_news_red_dot);
+            int width = getWidth();
+            int intrinsicHeight = this.WT.getIntrinsicHeight();
+            this.WT.setBounds(getWidth() - this.WT.getIntrinsicWidth(), 0, width, intrinsicHeight);
+            this.WT.draw(canvas);
+        }
+    }
+
+    public void yp(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -78,23 +93,23 @@ public class BLauncher extends ImageView implements g {
                     ((ViewGroup) parent2).addView(this.mTip);
                 }
             }
-            am.setViewTextColor(this.mTip, R.color.cp_cont_g, 1, this.mSkinType);
+            an.setViewTextColor(this.mTip, R.color.cp_cont_g, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(10.0f);
                 this.mTip.setText(str);
-                am.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, this.mSkinType);
+                an.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, this.mSkinType);
             } else {
                 this.mTip.setWidth(0);
                 this.mTip.setHeight(0);
                 this.mTip.setText("");
-                am.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, this.mSkinType);
+                an.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, this.mSkinType);
             }
             this.mTip.setVisibility(0);
         }
     }
 
-    public void bcW() {
+    public void beY() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -105,13 +120,19 @@ public class BLauncher extends ImageView implements g {
         return this.mTip;
     }
 
+    @Override // com.baidu.tbadk.editortools.g
+    public void beZ() {
+        this.ets.euC = false;
+        invalidate();
+    }
+
     @Override // com.baidu.tbadk.editortools.b
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                bcW();
+                beY();
             } else if (aVar.data instanceof String) {
-                xW((String) aVar.data);
+                yp((String) aVar.data);
             }
         }
     }
@@ -121,21 +142,21 @@ public class BLauncher extends ImageView implements g {
         this.mSkinType = i;
         setIcon();
         if (this.mTip != null) {
-            am.setViewTextColor(this.mTip, R.color.cp_cont_g, 1, i);
+            an.setViewTextColor(this.mTip, R.color.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
-                am.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, i);
+                an.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, i);
             } else {
-                am.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, i);
+                an.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, i);
             }
         }
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.ekH;
+        return this.ett;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.ekH = z;
+        this.ett = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

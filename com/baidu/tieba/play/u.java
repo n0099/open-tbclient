@@ -3,15 +3,15 @@ package com.baidu.tieba.play;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bu;
 import java.util.Iterator;
 import tbclient.VideoDesc;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class u {
-    private bk dEA;
+    private bu dLi;
     private int duration;
-    private String kAR;
+    private String kUO;
     private int videoHeight;
     private String videoMd5;
     private long videoSize;
@@ -24,7 +24,7 @@ public class u {
             String str2 = videoInfo.video_url;
             this.videoWidth = videoInfo.video_width.intValue();
             this.videoHeight = videoInfo.video_height.intValue();
-            if (z && videoInfo.video_select_flag.intValue() == 1 && !com.baidu.tbadk.core.util.v.isEmpty(videoInfo.video_desc)) {
+            if (z && videoInfo.video_select_flag.intValue() == 1 && !com.baidu.tbadk.core.util.w.isEmpty(videoInfo.video_desc)) {
                 VideoDesc videoDesc = null;
                 Iterator<VideoDesc> it = videoInfo.video_desc.iterator();
                 while (true) {
@@ -51,7 +51,7 @@ public class u {
                     this.videoUrl = str;
                     this.videoSize = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.kAR = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
+                    this.kUO = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
                     this.videoMd5 = videoInfo.video_md5;
                 }
             }
@@ -59,7 +59,7 @@ public class u {
             this.videoUrl = str;
             this.videoSize = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.kAR = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
+            this.kUO = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
             this.videoMd5 = videoInfo.video_md5;
         }
     }
@@ -68,9 +68,9 @@ public class u {
         a(videoInfo, false);
     }
 
-    public void an(bk bkVar) {
-        h(bkVar.aQQ());
-        this.dEA = bkVar;
+    public void an(bu buVar) {
+        h(buVar.aSH());
+        this.dLi = buVar;
     }
 
     public void c(AlaInfoData alaInfoData) {
@@ -79,8 +79,8 @@ public class u {
         }
     }
 
-    public bk aOi() {
-        return this.dEA;
+    public bu aPS() {
+        return this.dLi;
     }
 
     public int getVideoWidth() {
@@ -91,7 +91,7 @@ public class u {
         return this.videoHeight;
     }
 
-    public long cRx() {
+    public long cVO() {
         return this.videoSize;
     }
 
@@ -99,7 +99,7 @@ public class u {
         return this.duration;
     }
 
-    public String cRy() {
-        return this.kAR;
+    public String cVP() {
+        return this.kUO;
     }
 }

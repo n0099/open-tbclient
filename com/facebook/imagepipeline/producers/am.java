@@ -5,9 +5,9 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public interface am {
-    void F(String str, String str2, boolean z);
+    void G(String str, String str2, boolean z);
 
-    boolean Qd(String str);
+    boolean QP(String str);
 
     void a(ImageRequest imageRequest, com.facebook.imagepipeline.g.e eVar, Throwable th, @Nullable Map<String, String> map);
 
@@ -15,9 +15,9 @@ public interface am {
 
     void a(String str, String str2, @Nullable Map<String, String> map);
 
-    void aA(String str, String str2, String str3);
+    void aB(String str, String str2, String str3);
 
     void b(String str, String str2, @Nullable Map<String, String> map);
 
-    void fK(String str, String str2);
+    void fU(String str, String str2);
 }

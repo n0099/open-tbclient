@@ -12,15 +12,15 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static com.baidu.poly.a btD = null;
-    private static com.baidu.poly.c.a.a btE = null;
-    private static int btF = 1;
+    private static com.baidu.poly.a byx = null;
+    private static com.baidu.poly.c.a.a byy = null;
+    private static int byz = 1;
 
     public boolean a(Activity activity, String str, com.baidu.g.a.a aVar) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.ME().e(activity, str, aVar);
+        b.NN().e(activity, str, aVar);
         return true;
     }
 
@@ -28,7 +28,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.ME().f(activity, str, aVar);
+        b.NN().f(activity, str, aVar);
         return true;
     }
 
@@ -96,7 +96,7 @@ public class a {
             }
             bundle.putStringArray("blockedPayChannels", strArr2);
         }
-        bundle.putString("zid", b.ME().getZid(activity));
+        bundle.putString("zid", b.NN().getZid(activity));
         x(activity).a(activity, bundle, new a.b() { // from class: com.baidu.g.a.1
             @Override // com.baidu.poly.a.b
             public void onResult(int i2, String str2) {
@@ -118,14 +118,14 @@ public class a {
     }
 
     private static com.baidu.poly.a x(Activity activity) {
-        if (btD != null) {
-            return btD;
+        if (byx != null) {
+            return byx;
         }
-        btF = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("poly_cashier_env", 1);
-        btD = new a.C0232a().a(new com.baidu.poly.c.a.c() { // from class: com.baidu.g.a.2
+        byz = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("poly_cashier_env", 1);
+        byx = new a.C0238a().a(new com.baidu.poly.c.a.c() { // from class: com.baidu.g.a.2
             @Override // com.baidu.poly.c.a.c
             public void a(Activity activity2, com.baidu.poly.c.a.b bVar, final com.baidu.poly.c.a.a aVar) {
-                if (bVar == null || TextUtils.isEmpty(bVar.channel) || bVar.bvZ == null) {
+                if (bVar == null || TextUtils.isEmpty(bVar.channel) || bVar.bAQ == null) {
                     a.a(aVar, 6, "支付信息不能为空");
                     return;
                 }
@@ -166,7 +166,7 @@ public class a {
                 switch (c) {
                     case 0:
                     case 1:
-                        c.MF().d(activity2, bVar.bvZ.optString("orderInfo"), new com.baidu.g.a.a() { // from class: com.baidu.g.a.2.1
+                        c.NO().d(activity2, bVar.bAQ.optString("orderInfo"), new com.baidu.g.a.a() { // from class: com.baidu.g.a.2.1
                             @Override // com.baidu.g.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -174,7 +174,7 @@ public class a {
                         });
                         break;
                     case 2:
-                        c.MF().a(activity2, bVar.bvZ, new com.baidu.g.a.a() { // from class: com.baidu.g.a.2.2
+                        c.NO().a(activity2, bVar.bAQ, new com.baidu.g.a.a() { // from class: com.baidu.g.a.2.2
                             @Override // com.baidu.g.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -182,7 +182,7 @@ public class a {
                         });
                         break;
                     case 3:
-                        c.MF().c(activity2, bVar.bvZ.optString("orderInfo"), new com.baidu.g.a.a() { // from class: com.baidu.g.a.2.3
+                        c.NO().c(activity2, bVar.bAQ.optString("orderInfo"), new com.baidu.g.a.a() { // from class: com.baidu.g.a.2.3
                             @Override // com.baidu.g.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -190,9 +190,9 @@ public class a {
                         });
                         break;
                     case 4:
-                        com.baidu.poly.c.a.a unused = a.btE = aVar;
-                        d.MG();
-                        c.MF().f(activity2, bVar.bvZ);
+                        com.baidu.poly.c.a.a unused = a.byy = aVar;
+                        d.NP();
+                        c.NO().f(activity2, bVar.bAQ);
                         break;
                     default:
                         aVar.onResult(3, "未知的支付方式");
@@ -200,14 +200,14 @@ public class a {
                 }
                 activity2.finish();
             }
-        }).dG(btF).aF(activity.getApplicationContext()).cR(false).MJ();
-        return btD;
+        }).dR(byz).aG(activity.getApplicationContext()).cW(false).NS();
+        return byx;
     }
 
-    public static void J(int i, String str) {
-        if (btE != null) {
-            btE.onResult(i, str);
-            btE = null;
+    public static void L(int i, String str) {
+        if (byy != null) {
+            byy.onResult(i, str);
+            byy = null;
         }
     }
 
@@ -233,7 +233,7 @@ public class a {
         }
     }
 
-    public static boolean MD() {
+    public static boolean NM() {
         return false;
     }
 }

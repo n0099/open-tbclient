@@ -6,17 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class f extends com.baidu.adp.base.c {
-    TextView diR;
-    TextView gre;
-    TextView jQi;
-    TextView kkF;
-    TextView kkG;
-    TextView kkH;
-    TextView kkI;
+    TextView dnB;
+    TextView gDT;
+    TextView kEr;
+    TextView kEs;
+    TextView kEt;
+    TextView kEu;
+    TextView kjX;
     TbPageContext mPageContext;
     View mView;
 
@@ -28,36 +28,36 @@ public class f extends com.baidu.adp.base.c {
 
     private void a(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
         this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.person_info_more_view, (ViewGroup) null);
-        this.kkF = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_friend);
-        this.kkF.setOnClickListener(onClickListener);
-        this.jQi = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_report);
-        this.jQi.setOnClickListener(onClickListener);
-        this.kkG = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_black);
-        this.kkG.setOnClickListener(onClickListener);
-        this.kkH = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_mute);
-        this.kkH.setOnClickListener(onClickListener);
-        this.diR = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_cancel);
-        this.diR.setOnClickListener(onClickListener);
-        this.gre = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_username);
-        this.kkI = (TextView) this.mView.findViewById(R.id.person_info_item_remove_fans_view);
-        this.kkI.setOnClickListener(onClickListener);
+        this.kEr = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_friend);
+        this.kEr.setOnClickListener(onClickListener);
+        this.kjX = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_report);
+        this.kjX.setOnClickListener(onClickListener);
+        this.kEs = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_black);
+        this.kEs.setOnClickListener(onClickListener);
+        this.kEt = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_mute);
+        this.kEt.setOnClickListener(onClickListener);
+        this.dnB = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_cancel);
+        this.dnB.setOnClickListener(onClickListener);
+        this.gDT = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_username);
+        this.kEu = (TextView) this.mView.findViewById(R.id.person_info_item_remove_fans_view);
+        this.kEu.setOnClickListener(onClickListener);
     }
 
     public void j(boolean z, boolean z2, boolean z3) {
         if (z) {
-            this.kkF.setText(R.string.remove_friend);
+            this.kEr.setText(R.string.remove_friend);
         } else {
-            this.kkF.setText(R.string.frs_recommend_friend_item_add);
+            this.kEr.setText(R.string.frs_recommend_friend_item_add);
         }
         if (z2) {
-            this.kkG.setText(R.string.remove_block_chat);
+            this.kEs.setText(R.string.remove_block_chat);
         } else {
-            this.kkG.setText(R.string.block_chat_message);
+            this.kEs.setText(R.string.block_chat_message);
         }
         if (z3) {
-            this.kkI.setVisibility(0);
+            this.kEu.setVisibility(0);
         } else {
-            this.kkI.setVisibility(8);
+            this.kEu.setVisibility(8);
         }
     }
 
@@ -65,52 +65,52 @@ public class f extends com.baidu.adp.base.c {
         return this.mView;
     }
 
-    public View cNi() {
-        return this.kkF;
+    public View cRz() {
+        return this.kEr;
     }
 
-    public View cNj() {
-        return this.kkG;
+    public View cRA() {
+        return this.kEs;
     }
 
-    public View cNk() {
-        return this.kkH;
+    public View cRB() {
+        return this.kEt;
     }
 
-    public View cNl() {
-        return this.jQi;
+    public View cRC() {
+        return this.kjX;
     }
 
-    public View cNm() {
-        return this.kkI;
+    public View cRD() {
+        return this.kEu;
     }
 
-    public void Bi(int i) {
-        this.kkH.setVisibility(0);
+    public void Ck(int i) {
+        this.kEt.setVisibility(0);
         if (i == 0) {
-            this.kkH.setText(this.mPageContext.getResources().getString(R.string.mute));
+            this.kEt.setText(this.mPageContext.getResources().getString(R.string.mute));
         } else if (i == 1) {
-            this.kkH.setText(this.mPageContext.getResources().getString(R.string.un_mute));
+            this.kEt.setText(this.mPageContext.getResources().getString(R.string.un_mute));
         }
     }
 
     public void setUserName(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.gre.setVisibility(8);
+            this.gDT.setVisibility(8);
             return;
         }
-        this.gre.setVisibility(0);
-        this.gre.setText(String.format(this.mPageContext.getResources().getString(R.string.more_info_username), str));
+        this.gDT.setVisibility(0);
+        this.gDT.setText(String.format(this.mPageContext.getResources().getString(R.string.more_info_username), str));
     }
 
     public void onChangeSkinType() {
-        am.setBackgroundResource(this.mView, R.color.cp_bg_line_k);
-        am.setViewTextColor(this.kkG, (int) R.color.pop_window_item_txt_color_selector);
-        am.setViewTextColor(this.kkF, (int) R.color.pop_window_item_txt_color_selector);
-        am.setViewTextColor(this.jQi, (int) R.color.pop_window_item_txt_color_selector);
-        am.setViewTextColor(this.kkH, (int) R.color.pop_window_item_txt_color_selector);
-        am.setViewTextColor(this.gre, R.color.cp_cont_c, 1);
-        am.setViewTextColor(this.kkI, (int) R.color.pop_window_item_txt_color_selector);
-        am.setViewTextColor(this.diR, (int) R.color.pop_window_cancel_txt_color_selector);
+        an.setBackgroundResource(this.mView, R.color.cp_bg_line_k);
+        an.setViewTextColor(this.kEs, (int) R.color.pop_window_item_txt_color_selector);
+        an.setViewTextColor(this.kEr, (int) R.color.pop_window_item_txt_color_selector);
+        an.setViewTextColor(this.kjX, (int) R.color.pop_window_item_txt_color_selector);
+        an.setViewTextColor(this.kEt, (int) R.color.pop_window_item_txt_color_selector);
+        an.setViewTextColor(this.gDT, R.color.cp_cont_c, 1);
+        an.setViewTextColor(this.kEu, (int) R.color.pop_window_item_txt_color_selector);
+        an.setViewTextColor(this.dnB, (int) R.color.pop_window_cancel_txt_color_selector);
     }
 }

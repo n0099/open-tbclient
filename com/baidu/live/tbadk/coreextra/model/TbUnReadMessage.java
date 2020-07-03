@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+@Deprecated
 /* loaded from: classes3.dex */
 public class TbUnReadMessage {
     private String groupMsgName;

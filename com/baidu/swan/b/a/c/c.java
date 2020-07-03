@@ -7,62 +7,62 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Download cSU;
-    private JSONObject cSV;
-    private C0406c cSW = new C0406c();
-    private com.baidu.swan.b.a.d.b cSX;
+    private Download cXE;
+    private JSONObject cXF;
+    private C0412c cXG = new C0412c();
+    private com.baidu.swan.b.a.d.b cXH;
 
     public c(Download download, JSONObject jSONObject) {
-        this.cSU = download;
-        this.cSV = jSONObject;
+        this.cXE = download;
+        this.cXF = jSONObject;
     }
 
     public void b(com.baidu.swan.b.a.d.b bVar) {
-        this.cSX = bVar;
-        com.baidu.swan.b.a.a.a.sExecutorService.execute(new b(this.cSU, this.cSV, this.cSW));
+        this.cXH = bVar;
+        com.baidu.swan.b.a.a.a.sExecutorService.execute(new b(this.cXE, this.cXF, this.cXG));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.swan.b.a.e.b bVar) {
-        if (this.cSX != null) {
-            this.cSX.a(bVar);
+        if (this.cXH != null) {
+            this.cXH.a(bVar);
         }
-        if (bVar != null && !bVar.axc()) {
-            com.baidu.swan.b.a.f.c.a(this.cSU.getKeyByUser(), "installApp", "fail", String.valueOf(bVar.getStatus()), new com.baidu.swan.b.a.f.a(this.cSV));
+        if (bVar != null && !bVar.ayi()) {
+            com.baidu.swan.b.a.f.c.a(this.cXE.getKeyByUser(), "installApp", "fail", String.valueOf(bVar.getStatus()), new com.baidu.swan.b.a.f.a(this.cXF));
         }
-        if (this.cSW != null) {
-            com.baidu.swan.b.a.a.awP().e(this.cSU.getKeyByUser(), this.cSW);
-            this.cSW = null;
+        if (this.cXG != null) {
+            com.baidu.swan.b.a.a.axV().e(this.cXE.getKeyByUser(), this.cXG);
+            this.cXG = null;
         }
     }
 
     /* loaded from: classes11.dex */
     private static class b implements Runnable {
-        private JSONObject cSC;
-        private com.baidu.swan.b.a.d.a cSS;
-        private Download cSU;
+        private com.baidu.swan.b.a.d.a cXC;
+        private Download cXE;
+        private JSONObject cXm;
 
         private b(@NonNull Download download, JSONObject jSONObject, @NonNull com.baidu.swan.b.a.d.a aVar) {
-            this.cSU = download;
-            this.cSC = jSONObject;
-            this.cSS = aVar;
+            this.cXE = download;
+            this.cXm = jSONObject;
+            this.cXC = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            com.baidu.swan.b.a.a.awP().bA(this.cSC);
-            com.baidu.swan.b.a.f.c.a(this.cSU.getKeyByUser(), "installApp", null, null, new com.baidu.swan.b.a.f.a(this.cSC));
-            com.baidu.swan.b.a.a.awP().a(this.cSU.getUrl(), this.cSS);
+            com.baidu.swan.b.a.a.axV().bH(this.cXm);
+            com.baidu.swan.b.a.f.c.a(this.cXE.getKeyByUser(), "installApp", null, null, new com.baidu.swan.b.a.f.a(this.cXm));
+            com.baidu.swan.b.a.a.axV().a(this.cXE.getUrl(), this.cXC);
         }
     }
 
     /* renamed from: com.baidu.swan.b.a.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0406c implements com.baidu.swan.b.a.d.a {
+    public class C0412c implements com.baidu.swan.b.a.d.a {
         private String mFilePath;
         private String mPackageName;
 
-        public C0406c() {
+        public C0412c() {
         }
 
         @Override // com.baidu.swan.b.a.d.b
@@ -95,8 +95,8 @@ public class c {
 
         @Override // java.lang.Runnable
         public void run() {
-            com.baidu.swan.b.a.a.awP().qK(this.mFilePath);
-            com.baidu.swan.b.a.a.awP().awR();
+            com.baidu.swan.b.a.a.axV().qS(this.mFilePath);
+            com.baidu.swan.b.a.a.axV().axX();
         }
     }
 }

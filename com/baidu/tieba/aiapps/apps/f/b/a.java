@@ -25,13 +25,13 @@ public class a extends ActivityDelegation {
                 Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
             }
             Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
-            if (!c.bfy().isWalletOk()) {
+            if (!c.bhE().isWalletOk()) {
                 l.showToast(TbadkCoreApplication.getInst(), (int) R.string.plugin_pay_wallet_not_found);
             } else if (getAgent() instanceof Activity) {
                 com.baidu.tieba.aiapps.apps.f.a aVar = new com.baidu.tieba.aiapps.apps.f.a();
                 aVar.mParams.putInt("type", 1);
                 aVar.mParams.putString("orderInfo", this.mParams.getString("order_info"));
-                aVar.ae(getAgent());
+                aVar.af(getAgent());
                 aVar.a(new com.baidu.tieba.aiapps.apps.f.a.a() { // from class: com.baidu.tieba.aiapps.apps.f.b.a.1
                     @Override // com.baidu.tieba.aiapps.apps.f.a.a
                     public void ah(Bundle bundle) {
@@ -46,7 +46,7 @@ public class a extends ActivityDelegation {
         return false;
     }
 
-    public static Bundle AA(String str) {
+    public static Bundle AT(String str) {
         Bundle bundle = new Bundle();
         bundle.putString("order_info", str);
         return bundle;

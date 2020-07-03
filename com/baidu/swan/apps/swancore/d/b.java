@@ -4,47 +4,47 @@ import android.support.annotation.Nullable;
 import com.baidu.swan.apps.v.b.c;
 /* loaded from: classes11.dex */
 public class b {
-    public boolean cHv;
-    public boolean cHw;
+    public boolean cMf;
+    public boolean cMg;
     @Nullable
-    public c cHx;
-    public String cHy;
+    public c cMh;
+    public String cMi;
 
     private b() {
-        this.cHv = false;
-        this.cHw = false;
-        this.cHx = null;
-        this.cHy = "";
+        this.cMf = false;
+        this.cMg = false;
+        this.cMh = null;
+        this.cMi = "";
     }
 
     /* loaded from: classes11.dex */
     public static class a {
-        private boolean cHv = false;
-        private boolean cHw = false;
+        private boolean cMf = false;
+        private boolean cMg = false;
         @Nullable
-        private c cHx = null;
-        private String cHy = "";
+        private c cMh = null;
+        private String cMi = "";
 
-        public static a asd() {
+        public static a atk() {
             return new a();
         }
 
-        public a fo(boolean z) {
-            this.cHv = z;
+        public a ft(boolean z) {
+            this.cMf = z;
             return this;
         }
 
-        public a pk(String str) {
-            this.cHy = str;
+        public a ps(String str) {
+            this.cMi = str;
             return this;
         }
 
-        public b ase() {
+        public b atl() {
             b bVar = new b();
-            bVar.cHv = this.cHv;
-            bVar.cHw = this.cHw;
-            bVar.cHx = this.cHx;
-            bVar.cHy = this.cHy;
+            bVar.cMf = this.cMf;
+            bVar.cMg = this.cMg;
+            bVar.cMh = this.cMh;
+            bVar.cMi = this.cMi;
             return bVar;
         }
     }

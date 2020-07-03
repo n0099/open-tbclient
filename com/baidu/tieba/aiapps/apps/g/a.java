@@ -43,8 +43,8 @@ public class a extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         } else {
-            String aoH = e.aoH();
-            if (TextUtils.isEmpty(aoH) || TextUtils.isEmpty(aoH.trim())) {
+            String apO = e.apO();
+            if (TextUtils.isEmpty(apO) || TextUtils.isEmpty(apO.trim())) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
@@ -59,12 +59,12 @@ public class a extends aa {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
-            Request h = h(aoH, optParamsAsJo);
+            Request h = h(apO, optParamsAsJo);
             if (h == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            eVar.aoT().a(h, new Callback() { // from class: com.baidu.tieba.aiapps.apps.g.a.1
+            eVar.aqa().a(h, new Callback() { // from class: com.baidu.tieba.aiapps.apps.g.a.1
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
@@ -79,11 +79,11 @@ public class a extends aa {
                         } else {
                             JSONObject optJSONObject = jSONObject.optJSONObject("data");
                             if (optJSONObject != null) {
-                                Uri og = a.this.og(optJSONObject.optString(SuspensionBallEntity.KEY_SCHEME));
-                                if (og == null) {
+                                Uri op = a.this.op(optJSONObject.optString(SuspensionBallEntity.KEY_SCHEME));
+                                if (op == null) {
                                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(402).toString());
                                 } else {
-                                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(context, og, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
+                                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(context, op, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
                                 }
                             } else {
                                 callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(402).toString());
@@ -105,14 +105,14 @@ public class a extends aa {
     private Request h(String str, JSONObject jSONObject) {
         Request request = null;
         if (jSONObject != null && !TextUtils.isEmpty(str)) {
-            String d = b.d(aj.atU());
+            String d = b.d(aj.ava());
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("app_key", str);
                 jSONObject2.put("srcAppPage", d);
                 jSONObject2.put("params", jSONObject);
-                String SL = com.baidu.swan.apps.u.a.afd().SL();
-                request = new Request.Builder().url(SL).post(FormBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
+                String TR = com.baidu.swan.apps.u.a.agj().TR();
+                request = new Request.Builder().url(TR).post(FormBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
                 if (DEBUG) {
                     Log.i("NavigateToSmartProgram", "appId :" + str + "\nrequest params" + jSONObject2.toString());
                 }
@@ -126,7 +126,7 @@ public class a extends aa {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Uri og(String str) {
+    public Uri op(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

@@ -3,9 +3,9 @@ package com.facebook.imagepipeline.producers;
 public interface k<T> {
     void G(Throwable th);
 
-    void at(float f);
+    void ay(float f);
 
-    void duA();
+    void dzd();
 
     void h(T t, int i);
 }

@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class ObjDetectAR extends c {
-    private e lb;
-    private a rG;
+    private e ly;
+    private a sf;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap k(float[] fArr) {
+    public HashMap l(float[] fArr) {
         HashMap hashMap = new HashMap();
         hashMap.put(LuaMessageHelper.KEY_EVENT_NAME, "object_detect");
         int i = (int) fArr[0];
@@ -48,9 +48,9 @@ public class ObjDetectAR extends c {
 
     @Override // com.baidu.ar.c
     public void release() {
-        if (this.rG != null) {
-            this.rG.ai();
-            a(this.rG);
+        if (this.sf != null) {
+            this.sf.aw();
+            a(this.sf);
         }
         super.release();
     }
@@ -58,11 +58,11 @@ public class ObjDetectAR extends c {
     @Override // com.baidu.ar.c
     public void setup(HashMap<String, Object> hashMap) {
         super.setup(hashMap);
-        this.rG = new a();
-        this.lb = new e() { // from class: com.baidu.ar.objdetect.ObjDetectAR.1
+        this.sf = new a();
+        this.ly = new e() { // from class: com.baidu.ar.objdetect.ObjDetectAR.1
             @Override // com.baidu.ar.c.e
             public void a(com.baidu.ar.c.b bVar) {
-                ObjDetectAR.this.d(ObjDetectAR.this.k(((b) bVar).dM()));
+                ObjDetectAR.this.d(ObjDetectAR.this.l(((b) bVar).ec()));
             }
 
             @Override // com.baidu.ar.c.e
@@ -73,8 +73,8 @@ public class ObjDetectAR extends c {
             public void b(l lVar) {
             }
         };
-        a(this.rG, this.lb);
-        com.baidu.ar.b.a.ac().a(getContext(), getMdlConfigs());
-        this.rG.c(new Bundle());
+        a(this.sf, this.ly);
+        com.baidu.ar.b.a.aq().a(getContext(), getMdlConfigs());
+        this.sf.c(new Bundle());
     }
 }

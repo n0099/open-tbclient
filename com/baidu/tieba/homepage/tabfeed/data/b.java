@@ -1,0 +1,31 @@
+package com.baidu.tieba.homepage.tabfeed.data;
+
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.w;
+import com.baidu.tieba.R;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActivityPage.HotTopic;
+import tbclient.RecomTopicList;
+/* loaded from: classes9.dex */
+public class b extends com.baidu.tieba.homepage.hotTopic.tab.b.c {
+    public String title = TbadkCoreApplication.getInst().getString(R.string.recommend_user_hot_topic_title);
+
+    public void a(HotTopic hotTopic) {
+        if (hotTopic != null) {
+            this.floorPosition = hotTopic.floor_position.intValue();
+            parserProtobuf(hotTopic.topic_list);
+        }
+    }
+
+    public void parserProtobuf(List<RecomTopicList> list) {
+        if (!w.isEmpty(list)) {
+            int min = Math.min(list.size(), 4);
+            ArrayList arrayList = new ArrayList(list.size());
+            for (int i = 0; i < min; i++) {
+                arrayList.add(new com.baidu.tieba.homepage.hotTopic.tab.b.b(list.get(i)));
+            }
+            cW(arrayList);
+        }
+    }
+}

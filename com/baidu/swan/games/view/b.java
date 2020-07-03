@@ -8,42 +8,42 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class b {
-    private ArrayList<a> ddk = new ArrayList<>();
+    private ArrayList<a> dhW = new ArrayList<>();
 
     /* loaded from: classes11.dex */
     public interface a {
-        void TY();
+        void Ve();
 
-        void em(int i);
+        void ex(int i);
     }
 
     public synchronized void a(a aVar) {
-        if (!this.ddk.contains(aVar)) {
-            this.ddk.add(aVar);
+        if (!this.dhW.contains(aVar)) {
+            this.dhW.add(aVar);
         }
     }
 
-    public synchronized void iy(int i) {
-        Iterator<a> it = this.ddk.iterator();
+    public synchronized void iJ(int i) {
+        Iterator<a> it = this.dhW.iterator();
         while (it.hasNext()) {
-            it.next().em(i);
+            it.next().ex(i);
         }
     }
 
-    public synchronized void TY() {
-        Iterator<a> it = this.ddk.iterator();
+    public synchronized void Ve() {
+        Iterator<a> it = this.dhW.iterator();
         while (it.hasNext()) {
-            it.next().TY();
+            it.next().Ve();
         }
-        this.ddk.clear();
+        this.dhW.clear();
     }
 
     @Nullable
-    public static b aCx() {
+    public static b aDD() {
         i iVar;
-        e QH = f.ahV().QH();
-        if (QH != null && (iVar = (i) QH.q(i.class)) != null) {
-            return iVar.Zq();
+        e RN = f.ajb().RN();
+        if (RN != null && (iVar = (i) RN.q(i.class)) != null) {
+            return iVar.aaw();
         }
         return null;
     }

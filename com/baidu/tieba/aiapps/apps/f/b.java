@@ -29,7 +29,7 @@ public class b implements f {
 
     @Override // com.baidu.swan.apps.u.b.f
     public void e(Activity activity, String str, final com.baidu.g.a.a aVar) {
-        DelegateUtils.callOnMainWithActivity(com.baidu.swan.apps.w.f.ahV().ahF(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.f.b.a.class, com.baidu.tieba.aiapps.apps.f.b.a.AA(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.f.b.1
+        DelegateUtils.callOnMainWithActivity(com.baidu.swan.apps.w.f.ajb().aiL(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.f.b.a.class, com.baidu.tieba.aiapps.apps.f.b.a.AT(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.f.b.1
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(DelegateResult delegateResult) {
                 aVar.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));
@@ -39,16 +39,16 @@ public class b implements f {
 
     @Override // com.baidu.swan.apps.u.b.f
     public void f(Activity activity, String str, final com.baidu.g.a.a aVar) {
-        if (!com.baidu.tbadk.pay.c.bfy().isWalletOk()) {
+        if (!com.baidu.tbadk.pay.c.bhE().isWalletOk()) {
             l.showToast(TbadkCoreApplication.getInst(), (int) R.string.plugin_pay_wallet_not_found);
             return;
         }
-        e aoF = e.aoF();
-        if (aoF != null && aoF.getActivity() != null) {
+        e apM = e.apM();
+        if (apM != null && apM.getActivity() != null) {
             a aVar2 = new a();
             aVar2.mParams.putInt("type", 2);
             aVar2.mParams.putString("orderInfo", str);
-            aVar2.ae(aoF.getActivity());
+            aVar2.af(apM.getActivity());
             aVar2.a(new com.baidu.tieba.aiapps.apps.f.a.a() { // from class: com.baidu.tieba.aiapps.apps.f.b.2
                 @Override // com.baidu.tieba.aiapps.apps.f.a.a
                 public void ah(Bundle bundle) {
@@ -64,13 +64,13 @@ public class b implements f {
     @Override // com.baidu.swan.apps.u.b.f
     public void b(Context context, JSONObject jSONObject, final com.baidu.g.a.a aVar) {
         IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context.getApplicationContext(), TbConfig.WEIXIN_SHARE_APP_ID);
-        PayReq cJ = cJ(jSONObject);
-        createWXAPI.registerApp(cJ.appId);
+        PayReq cQ = cQ(jSONObject);
+        createWXAPI.registerApp(cQ.appId);
         if (!createWXAPI.isWXAppInstalled()) {
             aVar.onPayResult(3, "wx_not_installed");
             d.a(context, "您没有安装微信，请选择其他支付方式").showToast();
-        } else if (e.aoF() != null) {
-            if (!createWXAPI.sendReq(cJ)) {
+        } else if (e.apM() != null) {
+            if (!createWXAPI.sendReq(cQ)) {
                 aVar.onPayResult(6, "wx_start_failed");
             }
             if (broadcastReceiver != null) {
@@ -89,7 +89,7 @@ public class b implements f {
         }
     }
 
-    private PayReq cJ(JSONObject jSONObject) {
+    private PayReq cQ(JSONObject jSONObject) {
         PayReq payReq = new PayReq();
         payReq.appId = jSONObject.optString("appid");
         payReq.partnerId = jSONObject.optString("partnerid");
@@ -102,7 +102,7 @@ public class b implements f {
     }
 
     @Override // com.baidu.swan.apps.u.b.f
-    public boolean aE(Context context) {
+    public boolean aF(Context context) {
         if (WXAPIFactory.createWXAPI(context, null).isWXAppInstalled()) {
             return true;
         }

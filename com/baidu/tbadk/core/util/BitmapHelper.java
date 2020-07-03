@@ -650,7 +650,7 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream GetStreamFromFile = m.GetStreamFromFile(str);
+                InputStream GetStreamFromFile = n.GetStreamFromFile(str);
                 BitmapFactory.decodeStream(GetStreamFromFile, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
                 com.baidu.adp.lib.util.n.close(GetStreamFromFile);
@@ -660,7 +660,7 @@ public class BitmapHelper {
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream GetStreamFromFile2 = m.GetStreamFromFile(str);
+                        InputStream GetStreamFromFile2 = n.GetStreamFromFile(str);
                         decodeStream = BitmapFactory.decodeStream(GetStreamFromFile2, null, options);
                         com.baidu.adp.lib.util.n.close(GetStreamFromFile2);
                     }
@@ -682,7 +682,7 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream GetStreamFromFile = m.GetStreamFromFile(new File(str));
+                InputStream GetStreamFromFile = n.GetStreamFromFile(new File(str));
                 BitmapFactory.decodeStream(GetStreamFromFile, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
                 com.baidu.adp.lib.util.n.close(GetStreamFromFile);
@@ -692,7 +692,7 @@ public class BitmapHelper {
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream GetStreamFromFile2 = m.GetStreamFromFile(new File(str));
+                        InputStream GetStreamFromFile2 = n.GetStreamFromFile(new File(str));
                         decodeStream = BitmapFactory.decodeStream(GetStreamFromFile2, null, options);
                         com.baidu.adp.lib.util.n.close(GetStreamFromFile2);
                     }

@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
+@Deprecated
 /* loaded from: classes3.dex */
 public class WhiteListData extends LinkedList<String> {
     private static final String HTTPS_PREFIX = "https://";

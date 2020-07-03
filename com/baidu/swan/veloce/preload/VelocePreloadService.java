@@ -17,8 +17,8 @@ public class VelocePreloadService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        if (b.aJn() != null) {
-            b.aJn().aJm();
+        if (b.aKt() != null) {
+            b.aKt().aKs();
         }
     }
 
@@ -26,8 +26,8 @@ public class VelocePreloadService extends Service {
     public int onStartCommand(Intent intent, int i, int i2) {
         if (intent != null && ACTION_START_SWAN_APP.equals(intent.getAction())) {
             String stringExtra = intent.getStringExtra(KEY_SCHEME);
-            if (b.aJn() != null) {
-                b.aJn().uf(stringExtra);
+            if (b.aKt() != null) {
+                b.aKt().un(stringExtra);
             }
         }
         return super.onStartCommand(intent, i, i2);

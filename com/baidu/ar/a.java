@@ -5,7 +5,7 @@ import com.baidu.ar.f.l;
 /* loaded from: classes3.dex */
 public class a {
     public static com.baidu.ar.imu.c a() {
-        return (com.baidu.ar.imu.c) l.aN("com.baidu.ar.imu.IMUController");
+        return (com.baidu.ar.imu.c) l.aO("com.baidu.ar.imu.IMUController");
     }
 
     public static com.baidu.ar.record.b b() {
